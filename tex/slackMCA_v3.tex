@@ -1,0 +1,1986 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{aliascnt}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage[expansion=false]{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\hypersetup{colorlinks=true, linkcolor=blue!55!black, citecolor=blue!55!black, urlcolor=blue!55!black}
+
+\newtheorem{theorem}{Theorem}[section]
+\newaliascnt{lemma}{theorem}
+\newtheorem{lemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}
+\newaliascnt{proposition}{theorem}
+\newtheorem{proposition}[proposition]{Proposition}
+\aliascntresetthe{proposition}
+\newaliascnt{corollary}{theorem}
+\newtheorem{corollary}[corollary]{Corollary}
+\aliascntresetthe{corollary}
+\newaliascnt{conjecture}{theorem}
+\newtheorem{conjecture}[conjecture]{Conjecture}
+\aliascntresetthe{conjecture}
+\newaliascnt{problem}{theorem}
+\newtheorem{problem}[problem]{Problem}
+\aliascntresetthe{problem}
+\theoremstyle{definition}
+\newaliascnt{definition}{theorem}
+\newtheorem{definition}[definition]{Definition}
+\aliascntresetthe{definition}
+\newaliascnt{remark}{theorem}
+\newtheorem{remark}[remark]{Remark}
+\aliascntresetthe{remark}
+\newaliascnt{example}{theorem}
+\newtheorem{example}[example]{Example}
+\aliascntresetthe{example}
+
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+\crefname{theorem}{Theorem}{Theorems}
+\Crefname{theorem}{Theorem}{Theorems}
+\crefname{lemma}{Lemma}{Lemmas}
+\Crefname{lemma}{Lemma}{Lemmas}
+\crefname{proposition}{Proposition}{Propositions}
+\Crefname{proposition}{Proposition}{Propositions}
+\crefname{corollary}{Corollary}{Corollaries}
+\Crefname{corollary}{Corollary}{Corollaries}
+\crefname{conjecture}{Conjecture}{Conjectures}
+\Crefname{conjecture}{Conjecture}{Conjectures}
+\crefname{problem}{Problem}{Problems}
+\Crefname{problem}{Problem}{Problems}
+\crefname{remark}{Remark}{Remarks}
+\Crefname{remark}{Remark}{Remarks}
+\crefname{definition}{Definition}{Definitions}
+\Crefname{definition}{Definition}{Definitions}
+\crefname{example}{Example}{Examples}
+\Crefname{example}{Example}{Examples}
+\crefname{section}{Section}{Sections}
+\Crefname{section}{Section}{Sections}
+\crefname{table}{Table}{Tables}
+\Crefname{table}{Table}{Tables}
+
+\newcommand{\F}{\mathbb F}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\N}{\mathbb N}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\HH}{\operatorname{H}_2}
+\newcommand{\mufn}{\mu_n}
+\newcommand{\RS}{\mathrm{RS}}
+\newcommand{\Norm}{\operatorname{N}}
+\newcommand{\emca}{\eps_{\rm mca}}
+\newcommand{\eca}{\eps_{\rm ca}}
+\newcommand{\Lst}{\operatorname{List}}
+\newcommand{\taustar}{\tau^{*}}
+\newcommand{\ceff}{C_{\rm eff}}
+\newcommand{\calN}{\mathcal N}
+\newcommand{\Acl}{A}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Fib}{\mathcal F}
+\newcommand{\List}{\operatorname{List}}
+
+\title{Slack, Quotient Cores, and the Entropy Gap\\ for Smooth-Domain Reed--Solomon Codes\\\large List fibers, cyclotomic rigidity, Galois-amplified collisions,\\\large and the corrected slack mutual-correlated-agreement theory}
+\author{Przemek Chojecki\\ \small ulam.ai}
+\date{\today}
+
+\emergencystretch=1.5em
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We study Reed--Solomon codes evaluated on smooth multiplicative domains: subgroups $H\le\F_q^\times$ of power-of-two order $n$, at fixed rate $\rho=k/n$, the domains of deployed proximity-testing protocols.  This merged corrected edition consolidates two complementary developments into a single document with an explicit proof-status ledger: the list/entropy route based on locator fibers, quotient cores, characteristic-zero rigidity, and Galois-amplified reduction collisions (Part~I); and the slack mutual-correlated-agreement (MCA) theory based on the exact bad-slope calculus, failure ladders, density positive results, direction arithmetic, quotient floors, and residue-line normal forms (Part~II).
+
+On the list side, the negative conclusions are unconditional: the coefficient-pigeonhole mechanism gives exponential lists below the ambient entropy scale, and quotient cores force superpolynomial lists at the deployed dyadic rates --- more generally along any quotient-divisible scale $M\mid k$ --- whenever $\sigma=o(n/\log n)$, refuting the one-scale ambient-$q$ entropy-gap prediction even over prime fields.  Any polynomial-list theorem must therefore use a corrected reserve of the form $\tau\gtrsim\max\{\taustar(\rho,q_D),\,c_{\rho,B}/\log n\}$, with subfield variants governed by the field of definition.  The positive structural results are: arbitrary list size reduces to locator fibers; over characteristic zero, equal prefix fibers among subsets of $2$-power roots of unity are exactly quotient-periodic; and in prime fields $p\equiv1\pmod n$ a Galois-amplified norm argument shows that for $p>\exp(Cn\log n/\sigma)$ every monomial-prefix finite-field collision is already a characteristic-zero quotient collision, so monomial-prefix list sizes are polynomial at the corrected reserve for split primes in the quasi-polynomial range $p>\exp(O((\log n)^2))$.
+
+On the MCA side, the no-slack form of the principle is false, and the corrected slack theory at radius $1-\rho-t/N$ separates proved theorems from conditional analytic inputs and open inverse problems.  The unconditional spine is the exact slack characterization of the canonical line $x^{k+T}+zx^k$, the quotient locator and coset collapse, the cyclotomic and Fermat rigidity lemmas, the two-moment square-root construction, and the dyadic descent theorem.  The free-pool results are stated as conditional consequences of a precise subgroup exponential-sum input.  On the positive side the safe-slack bookkeeping uses the effective parameter $\ceff=\sigma\log_2 n/n$; the quotient-exact floor shows the closed-form quotient count $A(N',\ell')=2^{\beta(\rho)N'(1-o(1))}$ survives at every prime above the quotient norm threshold $p>(2\ell')^{N'/2}$, giving a genuine MCA lower bound from the quotient profile at large primes and a concrete cap for several deployed-rate challenge parameters.  The earlier all-bases, all non-dyadic-direction theorem remains removed (its rigidity step is false for arbitrary bases) and replaced by a Newton-obstruction criterion and the valid zero-base theorem.
+
+A transfer part extends the mechanisms beyond the smooth multiplicative prime-field setting.  A subfield-confinement theorem decouples the two grand challenges over deployed extension fields: $B$-valued lines have all MCA-bad slopes in $B$, deflating every prime-field witness to density $|B|/|\F|<2^{-154}$ at the deployed sextic parameters, while quotient-core lists persist verbatim.  The quotient-core and slack-one mechanisms transfer to Dickson--Chebyshev quotient chains, hence to circle-group $x$-coordinate Reed--Solomon constituents at Mersenne-$31$ parameters; the $\{2,3\}$-smooth relation module and set decomposition supply the mixed-radix rigidity input; and a torsion-coset template theorem, conditional on an imported effective torsion-coset bound (Laurent, Aliev--Smyth), replaces the retracted arbitrary-base claim at the level of characteristic-zero template structure.  Finally, conditional on an imported list-to-agreement conversion of Crites--Stewart, composing quotient-core lists with the conversion caps the achievable MCA threshold at challenge dimensions: for challenge codes with $n\le q/2$ over any field of size at most $2^{256}$, the error is at least $2^{-42}$ already at gap $2^{-11}$.  The sharpened, final form of this cap --- gap $2^{-9}$ ($2^{-10}$ at rate $1/16$), error $2^{-86}$ with no condition relating $n$ and $q$, and extension fields included --- is proved in the companion cap paper \cite{UniversalCap}, which this edition cross-references throughout.
+
+The document closes with an integrated frontier: the final threshold statements are isolated as finite-field local-limit conjectures for locator fibers and residue lines, calibrated on both sides by the same two-scale, floor-corrected reserve.  We do not claim the full polynomial-field list theorem or the all-line MCA positive theorem as proved.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}\label{sec:intro}
+
+Proximity testing protocols \cite{FRI,WHIR} fold pairs of oracles $f,g$ into random combinations $u_z=f+zg$ and rest their soundness on a mutual correlated agreement principle: if $u_z$ agrees with a Reed--Solomon codeword on a large support, then $f$ and $g$ should themselves agree with codewords on that support, except for a controlled set of slopes.  Capacity is $1-\rho$ at rate $\rho$; the Johnson radius is $1-\sqrt\rho$, below which proximity gaps and correlated agreement are known \cite{BCIKS20,BCHKS25}; the difficult regime lies between them, especially for the smooth multiplicative domains used by FFT-based protocols.
+
+The no-slack, up-to-capacity formulation is false on smooth domains \cite{NoSlack}.  Thus the right object is MCA with an explicit slack reserve.  At a quotient scale $N\mid n$ and slack $t$, the relevant radius is
+\[
+        1-\rho-\frac{t}{N},
+\]
+and the central question becomes: how many slopes are bad, and which mechanisms produce them?
+
+This merged edition consolidates the list/entropy route and the slack-MCA theory under a single corrected ledger: it keeps the parts that are proved from the algebraic setup and downgrades the parts that require additional fixed-prime equidistribution input.  Part~I develops the list side (locator fibers, the two lower-bound scales, characteristic-zero rigidity, and the Galois-amplified collision sieve); Part~II develops the corrected slack-MCA theory; Part~III develops transfers of the failure mechanisms beyond smooth multiplicative prime-field domains (extension fields, additive and Chebyshev/circle $x$-coordinate domains), a conditional universal field-size cap, and the torsion-coset repair of the arbitrary-base theory; Part~IV states the integrated frontier.  On the MCA side, the contributions are as follows.
+
+\begin{enumerate}[leftmargin=2em]
+\item \emph{Exact slack calculus.}  The bad-slope set of the canonical slack line $x^{k+T}+zx^k$ is identified exactly as a multi-symmetric image of the evaluation set (\cref{thm:exactslack}).  The quotient locator (\cref{lem:tlocator}) and the coset-collapse proposition (\cref{prop:collapse}) explain why subgroup-symmetric slack witnesses reduce to a one-condition ladder.  Cyclotomic and digit rigidity (\cref{thm:rigidcyclo,thm:rigidfermat}) show that the remaining asymmetric witnesses are genuinely modular rather than characteristic-zero phenomena.
+
+\item \emph{Failure mechanisms.}  The Dias da Silva--Hamidoune theorem gives certified slack-one failure at the square-root barrier (\cref{cor:certified}), while the two-moment construction gives full coverage of $(e_1,e_2)$ under explicit square-root hypotheses (\cref{thm:twomoment,cor:twomomentmca}).  The dyadic descent theorem is retained with all divisibility assumptions made explicit (\cref{thm:descent}).  The free-pool ladder is stated conditionally on a precise subgroup exponential-sum estimate (\cref{thm:ladder}); where the cited estimates supply that estimate, the stated ranges follow, but the theorem is not used as a black-box proof of stronger fixed-prime equidistribution.
+
+\item \emph{Characteristic-zero rigidity and direction arithmetic.}  The inverse quotient theorem (\cref{thm:rigidity}) proves that vanishing at dyadic frequencies forces quotient invariance.  Consequently, zero-base non-dyadic directions have no characteristic-zero nonzero slopes (\cref{thm:directions}), while dyadic directions reduce to lower-level direction-one problems.  The earlier all-bases non-dyadic theorem is replaced by the Newton-obstruction criterion of \cref{thm:allbasesdir}; arbitrary bases require extra equations before the rigidity theorem can be applied.
+
+\item \emph{Positive density, quotient floors, and stable results.}  At deepest-level slack $\sigma$, the correct normalization is
+\[
+        \ceff=\frac{\sigma\log_2 n}{n}.
+\]
+With this bookkeeping, the canonical line has a no-threshold descent floor of order $\rho(1-\rho)(\log_2n/\ceff)^2$ at every prime and a density ceiling for at least half the admissible primes in explicit windows (\cref{thm:diag}).  The quotient-exact floor of \cref{prop:qfloor} upgrades the floor to $n^{\beta(\rho)/\ceff(1-o(1))}$ at every prime above the quotient norm threshold.  Every monomial base in the canonical direction obeys the same quotient-class cap, with a sharpened collision term (\cref{thm:allbases}).  In the stable range $p>(2s)^{n/2}$, the canonical-line and zero-base direction predictions are exact at every prime --- exactness is claimed only for these proved strata, not for arbitrary bases --- and the closed-form canonical count remains valid (\cref{thm:stable,thm:exactcount}).
+
+\item \emph{Boundary and conjecture.}  The exact normal form (\cref{thm:normalform}) identifies the residue-line packing number that equals MCA error after maximizing over line data.  The denominator-closure statement is kept as a coordinate normal form, not a quantitative bound (\cref{thm:closure}).  The quotient-profile lower bound (\cref{thm:qnecessity}) calibrates the necessary quotient reserve for polynomial MCA bounds at large primes, while the final conjecture remains a per-fiber packing conjecture with a separate conditional failure half (\cref{conj:B}).
+\end{enumerate}
+
+
+The merged theorem package, with proof status, is as follows.
+
+\begin{theorem}[Integrated theorem package, with status]\label{thm:integrated-package}
+For smooth multiplicative domains $H$ of order $n=2^m$ at fixed rate $\rho$:
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=2.4em]
+\item \textup{(Proved.)}  Below the entropy scale $\taustar(\rho,q)$, explicit monomial-prefix received words have exponentially many nearby codewords (\cref{thm:pigeonhole,cor:entropy-lower}).
+\item \textup{(Proved.)}  Independently of $q$, quotient cores produce at least $\binom{n/M-1}{k/M}$ codewords at agreement $k+\sigma$ whenever $M\mid k$, $k/M\le n/M-1$, and $\sigma<M$; consequently, at the deployed dyadic rates (and along any scale with $M\mid k$), polynomial-in-$n$ list decoding requires $\sigma=\Omega(n/\log n)$, and the one-scale ambient-$q$ entropy-gap prediction is false even over prime fields (\cref{thm:qcore,cor:one-scale-false}).
+\item \textup{(Proved.)}  Over characteristic zero, equal prefix moments among subsets of $\mu_n$ are exactly quotient-periodic; characteristic-zero prefix fibers are polynomial once $\sigma\ge Cn/\log n$ (\cref{thm:upstairs,cor:upstairs-poly}).
+\item \textup{(Proved.)}  If $p\equiv1\pmod n$ and $p>\exp(C_1n\log(2n)/\sigma)$, every finite-field monomial-prefix collision is quotient-periodic; monomial-prefix received words have polynomial lists at $\sigma\ge C_0n/\log_2n$ for split primes in the quasi-polynomial range $p>\exp(O((\log n)^2))$ (\cref{thm:no-collision,cor:quasipoly-upper}).
+\item \textup{(Proved or conditional, as marked.)}  For MCA, the canonical-line bad-slope set at slack $T$ is exactly the multi-symmetric image $\mathcal B_T$ (\cref{thm:exactslack}), and subgroup-symmetric witnesses collapse onto the one-condition ladder (\cref{prop:collapse}).  Unconditional failure mechanisms are the certified slack-one rung (\cref{cor:certified}), two-moment fullness at the root barrier (\cref{thm:twomoment,cor:twomomentmca}), and dyadic descent (\cref{thm:descent}); the polynomial-range free-pool ladder is conditional on a precise subgroup exponential-sum input (\cref{thm:ladder}).  The quotient-exact floor survives at every prime above the quotient norm threshold (\cref{prop:qfloor}), the quotient profile is necessary for polynomial MCA slope bounds at large primes (\cref{thm:qnecessity}), and the deployed-rate challenge cap holds below the per-rate prime-field reach (\cref{prop:prize}).  All-line positive MCA is equivalent, up to the tangent floor, to residue-line packing (\cref{thm:normalform}).
+\item \textup{(Proved, with imported black boxes as marked.)}  Transfers and caps: MCA-bad slopes of $B$-valued lines over an extension $\F\supseteq B$ are confined to $B$, deflating the prime-field witness theory to density at most $|B|/|\F|$ while list obstructions persist (\cref{thm:subfield,cor:deflate,cor:decouple}); the canonical locator stratum on $\F_2$-affine domains is confined to a single additive coset (\cref{prop:additive}); quotient cores and the slack-one stratum transfer to Dickson--Chebyshev and circle-group $x$-coordinate domains, with error one at Mersenne-$31$ parameters for those Reed--Solomon constituents (\cref{thm:chebqcore,prop:chebslack,cor:circle}); the $\{2,3\}$-smooth relation module gives the mixed-radix rigidity input, and arbitrary-base slabs reduce to at most $C(\sigma,s)$ torsion-coset template families under the stated effective torsion-coset import (\cref{thm:23rigidity,thm:templates,cor:reszero}); and, conditional on the imported list-to-agreement conversion of \cite{CS25}, smooth-domain challenge codes at the deployed rates with $2^{11}\mid n$, $n\le q/2$, $k\le2^{40}$, and $q\le2^{256}$ have $\emca>2^{-42}$ at gap $2^{-11}$ (\cref{thm:cap,cor:captiers}); the sharpened form --- gap $2^{-9}$, error $2^{-86}$, no field-size condition --- is \cite{UniversalCap}.
+\item \textup{(Conjectural.)}  The full polynomial-field positive list theorem and the floor-corrected all-line MCA theorem are isolated as finite-field local-limit statements with quotient exceptions explicitly separated (\cref{conj:prefix-local,conj:arbitrary-local,conj:listprofile,conj:B,conj:final-locator,conj:final-mca}).
+\end{enumerate}
+\end{theorem}
+
+\paragraph{Setting and notation.}
+$p$ is prime ($q$ a general prime power where stated); $D$ or $H\le\F_q^\times$ is a multiplicative subgroup of order $n$, \emph{smooth} meaning $n$ is a power of two; $C=\RS[\F_q,D,k]=\{(P(x))_{x\in D}:\deg P<k\}$ with $k=\rho n$, $\rho\in(0,1)$ fixed.  For a finite set $A$ in a field, $L_A(X)=\prod_{a\in A}(X-a)=X^{|A|}+\sum_{j\ge1}(-1)^je_j(A)X^{|A|-j}$ and $p_j(A)=\sum_{a\in A}a^j$; for $h\ge0$, $h^{\wedge}A$ is the set of sums of $h$ distinct elements of $A$.  $\HH$ is binary entropy.  Divisibility hypotheses ($\rho N\in\Z$, $t\mid N$, $t\mid\rho N$, $\sigma\mid k$, and the like) are stated where they are used.
+
+\part{List entropy, quotient cores, and Route 1}
+
+\section{List decoding as a locator-fiber problem}\label{sec:fiber}
+
+Every received word $y:H\to\F_q$ has a unique interpolant $U\in\F_q[X]$ of degree $<n$ on $H$.  Write $\List(y,\delta)$ for the list of codewords within relative radius $\delta$ of $y$, and $\Lst(C,\delta)=\max_y|\List(y,\delta)|$ for the worst-case list size.  A codeword $P$ agrees with $y$ on a set $S\subseteq H$ if and only if
+\[
+        U(X)\equiv P(X)\pmod{L_S(X)}.
+\]
+Since $\deg P<k$, this gives the following exact reduction.
+
+\begin{definition}[Locator fibers]\label{def:locator-fiber}
+For $k<s\le n$ and $\deg U<n$, define
+\[
+        \Fib_U(s)=\{S\subseteq H:\ |S|=s,\ \deg(U\bmod L_S)<k\}.
+\]
+For monomial-prefix data $c=(c_1,\ldots,c_\sigma)\in\F_q^\sigma$, $s=k+\sigma$, define
+\[
+        \Phi_\sigma(S)=(e_1(S),\ldots,e_\sigma(S)),
+        \qquad S\in\binom Hs .
+\]
+\end{definition}
+
+\begin{proposition}[Arbitrary-word fiber upper bound]\label{prop:arb-fiber}
+For every received word $y$ with interpolant $U$,
+\[
+        |\List(y,1-s/n)|\le |\Fib_U(s)|.
+\]
+Consequently
+\[
+        \Lst(C,1-s/n)\le \max_{\deg U<n}|\Fib_U(s)|.
+\]
+\end{proposition}
+
+\begin{proof}
+Each codeword $P$ agreeing with $y$ on at least $s$ coordinates has an $s$-subset $S$ of its agreement set.  Then $U\equiv P\pmod{L_S}$, so $S\in\Fib_U(s)$.  For a fixed $S$, the residue $U\bmod L_S$ is unique, hence the corresponding $P$ is unique.  Choosing one such $S$ for each listed codeword injects the list into $\Fib_U(s)$.
+\end{proof}
+
+\begin{proposition}[Monomial-prefix words are exact prefix fibers]\label{prop:monomial-fiber}
+Let $s=k+\sigma$ and
+\[
+        U_c(X)=X^s+\sum_{j=1}^{\sigma}(-1)^jc_jX^{s-j}.
+\]
+Then the map
+\[
+        S\longmapsto U_c-L_S
+\]
+is a bijection from $\Phi_\sigma^{-1}(c)$ to the list of degree-$<k$ codewords agreeing with $U_c$ on at least $s$ points.  Thus
+\[
+        |\List(U_c,1-s/n)|=|\Phi_\sigma^{-1}(c)|.
+\]
+\end{proposition}
+
+\begin{proof}
+If $\Phi_\sigma(S)=c$, then the top $\sigma$ coefficients of $U_c$ and $L_S$ agree, so $P_S=U_c-L_S$ has degree $<s-\sigma=k$.  Also $P_S(x)=U_c(x)$ for $x\in S$.  Conversely, if $P$ has degree $<k$ and agrees with $U_c$ on an $s$-set $S$, then $U_c-P$ is monic of degree $s$ and vanishes exactly on $S$, hence $U_c-P=L_S$, forcing $\Phi_\sigma(S)=c$.  Injectivity follows because $L_S$ determines $S$.
+\end{proof}
+
+Thus the positive half of list decoding can be stated without coding language:
+\[
+        \max_{\deg U<n}|\Fib_U(k+\sigma)|\quad\text{should be polynomial above the corrected reserve.}
+\]
+
+\section{Two lower-bound scales}\label{sec:lower}
+
+The reference scale for the first mechanism is the classical entropy gap.
+
+\begin{definition}[Entropy gap]\label{def:taustar}
+For $0<\rho<1$ and $q\ge2$, $\taustar(\rho,q)$ is the unique $\tau\in(0,1-\rho)$ with $\tau\log_2q=\HH(\rho+\tau)$; as $q\to\infty$ with $\rho$ fixed, $\taustar(\rho,q)=(\HH(\rho)+o(1))/\log_2q$.
+\end{definition}
+
+\subsection{The entropy pigeonhole scale}\label{subsec:pigeon}
+
+\begin{theorem}[Coefficient pigeonhole lower bound]\label{thm:pigeonhole}
+Let $1\le\sigma\le n-k$ and $s=k+\sigma$.  There exists a monomial-prefix word $U_c$ such that
+\[
+        |\List(U_c,1-s/n)|\ge \frac{1}{q^\sigma}\binom ns.
+\]
+\end{theorem}
+
+\begin{proof}
+The map $\Phi_\sigma:\binom Hs\to\F_q^\sigma$ has $\binom ns$ inputs and at most $q^\sigma$ outputs.  Some fiber has size at least $q^{-\sigma}\binom ns$.  Apply \Cref{prop:monomial-fiber}.
+\end{proof}
+
+\begin{corollary}[Generated-field pigeonhole]\label{cor:genfield-pigeonhole}
+If $H\subseteq B$ for a subfield $B\le\F_q$ of size $q_D$, then $\Phi_\sigma$ has image in $B^\sigma$ --- its coordinates $e_j(S)$ are elementary symmetric functions of subsets of $H\subseteq B$ --- so the pigeonhole improves to
+\[
+        |\List(U_c,1-s/n)|\ \ge\ \frac{1}{q_D^{\,\sigma}}\binom ns
+\]
+for some monomial-prefix word $U_c$ with coefficients in $B$.  This is the form consumed by the necessary half of \cref{conj:listprofile}, which states the entropy floor at the generated field; in locator-fiber form, the same one-line strengthening is the subfield pigeonhole of \cite[Lem.\ ``locator fibers are lists'']{UniversalCap}.
+\end{corollary}
+
+\begin{proof}
+Identical to \cref{thm:pigeonhole} with $\F_q^\sigma$ replaced by $B^\sigma$: $e_j(S)\in B$ for every $S\subseteq H$, so $\Phi_\sigma$ has at most $q_D^{\,\sigma}$ outputs.
+\end{proof}
+
+\begin{corollary}[Failure below the entropy gap]\label{cor:entropy-lower}
+If $q=2^{o(n)}$, $\sigma=\tau n$, and
+\[
+        \sigma\log_2q\le (1-\eps)\log_2\binom n{k+\sigma},
+\]
+then some received word has list size at least
+\[
+        2^{\eps n\HH(\rho+\tau)-o(n)}.
+\]
+In particular, this gives $2^{\Omega(n)}$-size lists for every fixed multiplicative gap below the entropy scale, $\tau\le(1-\eps_0)\taustar(\rho,q)$ with $\eps_0>0$ fixed; for $\eps_0\to0$ the displayed pigeonhole bound still applies but may be subexponential.
+\end{corollary}
+
+\begin{proof}
+By \cref{thm:pigeonhole}, some monomial-prefix word has list size at least
+\[
+        q^{-\sigma}\binom n{k+\sigma}
+        =2^{\log_2\binom n{k+\sigma}-\sigma\log_2q}
+        \ge2^{\eps\log_2\binom n{k+\sigma}},
+\]
+and $\log_2\binom n{k+\sigma}=n\HH(\rho+\tau)-o(n)$.  For the last sentence, set $h(\tau)=\HH(\rho+\tau)$ and $g(\tau)=\tau\log_2q/h(\tau)$ on $(0,1-\rho)$.  Concavity of $h$ gives $h(\tau)-\tau h'(\tau)\ge h(0)=\HH(\rho)>0$, so $g$ is strictly increasing, and $g(\taustar)=1$ by the definition of $\taustar$.  If $\tau\le(1-\eps_0)\taustar$ with fixed $\eps_0>0$, then concavity again gives $h((1-\eps_0)\taustar)\ge(1-\eps_0)h(\taustar)+\eps_0\HH(\rho)$, whence
+\[
+        g(\tau)\le g\big((1-\eps_0)\taustar\big)
+        \le\frac{(1-\eps_0)h(\taustar)}{(1-\eps_0)h(\taustar)+\eps_0\HH(\rho)}
+        \le 1-c,
+        \qquad
+        c:=\frac{\eps_0\HH(\rho)}{1+\eps_0\HH(\rho)}>0,
+\]
+uniformly in $q$, using $h\le1$.  Thus $\sigma\log_2q\le(1-c)\,n\HH(\rho+\tau)$, and the displayed bound is at least $2^{c\,n\HH(\rho+\tau)-o(n)}=2^{\Omega_{\rho,\eps_0}(n)}$: on $[\rho,\rho+\taustar]$ the entropy is at least $\min\{\HH(\rho),\HH(\rho+\taustar)\}$, and $\HH(\rho+\taustar)=\taustar\log_2q$ cannot be small for fixed $\rho$, since otherwise $\rho+\taustar\to1$ would force $\taustar\log_2q\ge\taustar\to1-\rho>0$, a contradiction.
+\end{proof}
+
+\subsection{The quotient-core scale}\label{subsec:qcore}
+
+The entropy scale is not the only obstruction.  Smooth subgroups have quotient structure that random domains do not have.
+
+\begin{theorem}[Quotient-core list obstruction]\label{thm:qcore}
+Let $H\le\F_q^\times$ have order $n$.  Let $K\le H$ have order $M$, put $N=n/M$, and assume $M\mid k$ and $k/M\le N-1$.  If $1\le\sigma<M$, then there is a received word $Y:H\to\F_q$ with at least
+\[
+        \binom{N-1}{k/M}
+\]
+codewords agreeing with $Y$ on $k+\sigma$ coordinates.  Equivalently,
+\[
+        \Lst\big(\RS[\F_q,H,k],1-\rho-\sigma/n\big)\ge \binom{n/M-1}{k/M}.
+\]
+\end{theorem}
+
+\begin{proof}
+Choose one $K$-coset $C_0\subset H$ and choose $T\subset C_0$ with $|T|=\sigma$.  Let
+\[
+        L_T(X)=\prod_{t\in T}(X-t),\qquad Y(X)=X^kL_T(X).
+\]
+For every subset $A$ of the quotient $H/K\setminus\{C_0\}$ of size $k/M$, let $U_A\subset H$ be the union of the $K$-cosets in $A$.  Since each $K$-coset is a fiber of $x\mapsto x^M$, its locator has the form $X^M-\alpha$.  Hence
+\[
+        L_A(X)=\prod_{x\in U_A}(X-x)=\prod_{\alpha\in A'}(X^M-\alpha)
+        =X^k+c_1X^{k-M}+c_2X^{k-2M}+\cdots .
+\]
+Thus $X^k-L_A(X)$ has degree at most $k-M$.  Define
+\[
+        P_A(X)=Y(X)-L_T(X)L_A(X)=L_T(X)(X^k-L_A(X)).
+\]
+Since $\deg L_T=\sigma<M$, we have $\deg P_A<k$, so $P_A$ is a codeword.  On $T\cup U_A$, either $L_T$ or $L_A$ vanishes, so $P_A=Y$.  The agreement set has size $\sigma+k$.  Distinct $A$ give distinct locators and distinct codewords.
+\end{proof}
+
+\begin{corollary}[The one-scale ambient-$q$ conjecture is false]\label{cor:one-scale-false}
+Fix a deployed rate $\rho=2^{-a}$ and $\eps>0$.  There are infinitely many smooth prime-field domains $H\le\F_p^\times$ with $|H|=n$ and
+\[
+        p=2^{\Theta(\sqrt n)}
+\]
+such that at radius
+\[
+        1-\rho-(1+\eps+o(1))\taustar(\rho,p)
+\]
+the list size is at least
+\[
+        p^{1/(2(1+\eps))-o(1)}=2^{\Theta(\sqrt n)},
+\]
+which is superpolynomial in $n$.
+\end{corollary}
+
+\begin{proof}
+Take $n=2^m$.  By the prime number theorem in arithmetic progressions in a Siegel--Walfisz range \cite{Dav00}, there are primes $p\equiv1\pmod n$ with $\log_2p=\Theta(\sqrt n)$ for all large $n$ along a suitable sequence.  Let $H\le\F_p^\times$ have order $n$.  Since $p$ is prime, there is no proper subfield obstruction.
+
+Let $\sigma=\lceil(1+\eps)\taustar(\rho,p)n\rceil$.  Because $\taustar(\rho,p)=(\HH(\rho)+o(1))/\log_2p$, we have $\sigma=\Theta(\sqrt n)$.  Let $M$ be the least power of two larger than $\sigma$.  For large $n$, $M\mid k=\rho n$ and $M\le2\sigma$.  \Cref{thm:qcore} gives
+\[
+        L\ge \binom{n/M-1}{k/M}.
+\]
+By Stirling,
+\[
+        \log_2 L\ge \frac{n}{M}\HH(\rho)-o(n/M)
+        \ge \frac{\HH(\rho)+o(1)}{2(1+\eps)\taustar(\rho,p)}
+        =\left(\frac1{2(1+\eps)}-o(1)\right)\log_2p .
+\]
+\end{proof}
+
+\begin{remark}[Corrected reserve]\label{rem:corrected-reserve}
+For a list bound $n^B$, the quotient-core family at $\sigma=Cn/\log_2n$ has size about $n^{\HH(\rho)/C}$ on the grid.  Thus a theorem with list bound $n^B$ must have $C\gtrsim \HH(\rho)/B$ at the second scale.  For unspecified polynomial list size, the necessary scale is $\sigma=\Omega(n/\log n)$; for fixed exponent $B$, the constant matters.
+\end{remark}
+
+\begin{definition}[Quotient-core profile]\label{def:qprofile}
+For a smooth domain $H$ of order $n$ and $k=\rho n$,
+\[
+        \mathcal Q_H(\eta)\ :=\ \max_{\substack{M\mid\gcd(n,k),\ \lceil\eta n\rceil<M\\ k/M\le n/M-1}}\ \log_2\binom{n/M-1}{k/M}
+\]
+($-\infty$ over the empty set): the logarithmic size of the largest quotient-core list still active at gap $\eta$.  Correspondingly, every quotient contribution of the form $2^{(\beta(\rho)/\HH(\rho))\mathcal Q_H(\eta)(1+o(1))}$ below is read as zero when the defining maximum is empty.
+\end{definition}
+
+\begin{conjecture}[Quotient-profile corrected list entropy gap]\label{conj:listprofile}
+Let $C_n=\RS[\F_{q_n},H_n,\rho n]$ with $\mathrm{poly}(n)\le q_n\le2^{o(n)}$ and $q_{D,n}$ the generated-field size, and fix a list target $n^B$.  Necessary for $\Lst(C_n,1-\rho-\eta_n)\le n^B$ is
+\[
+        \eta_n\ \ge\ (1-o(1))\,\taustar(\rho,q_{D,n}),
+        \qquad
+        \mathcal Q_{H_n}(\eta_n)\ \le\ B\log_2n+O(\log\log n)
+\]
+(\cref{cor:genfield-pigeonhole,thm:qcore}); the conjectural positive half is that, after fixed slack in both inequalities, the conditions are sufficient.  On dyadic domains at the deployed rates the scale form is $\eta_n\gtrsim\max\{\taustar(\rho,q_{D,n}),\,\Theta_{\rho,B}(1/\log n)\}$.
+\end{conjecture}
+
+\section{Characteristic-zero inverse quotient theorem}\label{sec:upstairs}
+
+We now prove that, over characteristic zero, the quotient-core phenomenon is the entire prefix-fiber structure for $2$-power roots.  This is the toric Manin--Mumford/torsion-coset part of the program (compare the torsion-coset theorem \cite{Laurent84} and the theory of vanishing sums of roots of unity \cite{CJ76,LL00}), but for $2$-primary roots it has an elementary proof.
+
+Let $n=2^m$, let $\zeta=e^{2\pi i/n}$, and identify $\mu_n=\langle\zeta\rangle$ with the complex $n$-th roots of unity.  For $h:\mu_n\to\Z$, define
+\[
+        \widehat h(j)=\sum_{x\in\mu_n}h(x)x^j\in\Z[\zeta].
+\]
+
+\begin{lemma}[Antipodal identity]\label{lem:antipodal}
+Let $n'=2^r$ with $r\ge1$, and let $g:\mu_{n'}\to\Z$.  If
+\[
+        \sum_{y\in\mu_{n'}}g(y)y=0,
+\]
+then $g(y)=g(-y)$ for every $y\in\mu_{n'}$.
+\end{lemma}
+
+\begin{proof}
+Write $y=\zeta_{n'}^a$.  The sum becomes
+\[
+        \sum_{a=0}^{n'/2-1}\big(g(\zeta_{n'}^a)-g(-\zeta_{n'}^a)\big)\zeta_{n'}^a.
+\]
+The powers $1,\zeta_{n'},\ldots,\zeta_{n'}^{n'/2-1}$ are linearly independent over $\Q$ because $\Phi_{n'}(X)=X^{n'/2}+1$.  Hence every coefficient difference is zero.
+\end{proof}
+
+\begin{theorem}[Inverse quotient theorem over $\C$]\label{thm:upstairs}
+Let $n=2^m$, $1\le\sigma<n$, and let $M_0$ be the least power of two with $M_0>\sigma$.  Let $S,T\subseteq\mu_n$ have the same cardinality and satisfy
+\[
+        e_j(S)=e_j(T)\qquad(1\le j\le\sigma)
+\]
+over $\C$.  Then $S\triangle T$ is a union of cosets of the subgroup $\mu_{M_0}\le\mu_n$.  Equivalently, $\mathbf 1_S-\mathbf 1_T$ is constant on $\mu_{M_0}$-cosets.  Conversely, every such quotient rearrangement preserves all $e_j$ for $1\le j<M_0$.
+\end{theorem}
+
+\begin{proof}
+By Newton identities in characteristic zero, equality of $e_1,\ldots,e_\sigma$ and equality of cardinalities imply equality of the first $\sigma$ power sums.  Thus, for $h=\mathbf 1_S-\mathbf 1_T$,
+\[
+        \widehat h(j)=0\qquad(1\le j\le\sigma).
+\]
+It is enough to use the dyadic frequencies.  Let $M_0=2^a$.  Since $2^{a-1}\le\sigma$, we have
+\[
+        \widehat h(1)=\widehat h(2)=\cdots=\widehat h(2^{a-1})=0
+\]
+at the listed dyadic powers.
+
+We prove by induction that vanishing at $1,2,\ldots,2^i$ in this dyadic sense forces invariance under $\mu_{2^{i+1}}$.  For $i=0$, $\widehat h(1)=0$ and \Cref{lem:antipodal} give invariance under $\mu_2$.  Suppose $h$ is invariant under $\mu_{2^i}$ and $\widehat h(2^i)=0$.  The map $x\mapsto x^{2^i}$ sends $\mu_n$ onto $\mu_{n/2^i}$ with fibers the $\mu_{2^i}$-cosets.  Let $h^\ast(y)$ be the common value on the fiber above $y$.  Then
+\[
+        0=\widehat h(2^i)=2^i\sum_{y\in\mu_{n/2^i}}h^\ast(y)y.
+\]
+By \Cref{lem:antipodal}, $h^\ast(y)=h^\ast(-y)$.  Pulling this identity back says that $h$ is invariant under a primitive $2^{i+1}$-st root of unity, hence under $\mu_{2^{i+1}}$.  Iterating to $i=a-1$ gives $\mu_{M_0}$-invariance.
+
+For the converse, if $h$ is constant on $\mu_{M_0}$-cosets, then
+\[
+        \widehat h(j)=\sum_{\alpha\mu_{M_0}}h(\alpha)\alpha^j\sum_{\kappa\in\mu_{M_0}}\kappa^j=0
+\]
+whenever $M_0\nmid j$, in particular for $1\le j<M_0$.  Newton identities convert the corresponding power-sum preservation into preservation of $e_1,\ldots,e_{M_0-1}$ for equal-size subsets.
+\end{proof}
+
+\begin{corollary}[Polynomial size of characteristic-zero fibers]\label{cor:upstairs-poly}
+Every characteristic-zero prefix fiber in $\binom{\mu_n}{s}$ has size at most
+\[
+        2^{n/M_0}\le 2^{n/\sigma}.
+\]
+If $\sigma\ge Cn/\log_2n$, then every such fiber has size at most $n^{1/C}$.  With fixed density one may sharpen this to
+\[
+        2^{(n/M_0)\HH(\rho)+o(n/M_0)}\le n^{\HH(\rho)/C+o(1)}.
+\]
+\end{corollary}
+
+\begin{proof}
+Fix one set $S_0$ in the fiber.  By \Cref{thm:upstairs}, every other set differs from $S_0$ only by toggling whole $\mu_{M_0}$-cosets.  There are $n/M_0$ such cosets.  The entropy refinement counts fixed-weight choices among those quotient cosets.
+\end{proof}
+
+\section{Galois-amplified finite-field collision sieve}\label{sec:galois}
+
+We now compare characteristic-zero prefix equality with equality after reduction modulo a split prime.  Let $p\equiv1\pmod n$, choose $\omega\in\F_p^\times$ of order $n$, and reduce $\zeta\mapsto\omega$.
+
+For $S,T\subseteq\mu_n$ with exponent sets $A,B\subseteq\Z/n\Z$, define the signed subset polynomial
+\[
+        F_{S,T}(X)=\sum_{a\in A}X^a-\sum_{b\in B}X^b\in\Z[X],
+        \qquad \deg F_{S,T}<n.
+\]
+Equality of the first $\sigma$ power sums in $\F_p$ is exactly
+\[
+        F_{S,T}(\omega^j)=0\qquad(1\le j\le\sigma).
+\]
+If $p>\sigma$, this is equivalent to equality of $e_1,\ldots,e_\sigma$ in $\F_p$.
+
+\begin{lemma}[Conjugate-prime amplification]\label{lem:galois-amp}
+Let $F\in\Z[X]$ have degree $<n$, and assume $F(\zeta)\ne0$.  If
+\[
+        F(\omega^j)=0
+\]
+for every odd $j\le\sigma$, then
+\[
+        p^{\lceil\sigma/2\rceil}\mid \big|\Norm_{\Q(\zeta)/\Q}(F(\zeta))\big|.
+\]
+\end{lemma}
+
+\begin{proof}
+Let $\mathfrak p_\omega\subset\Z[\zeta]$ be the degree-one prime ideal corresponding to $\zeta\mapsto\omega$.  For odd $j$, the automorphism $\tau_j:\zeta\mapsto\zeta^j$ is in $\operatorname{Gal}(\Q(\zeta)/\Q)$.  The congruence $F(\omega^j)=0$ says $\tau_j(F(\zeta))\in\mathfrak p_\omega$, equivalently
+\[
+        F(\zeta)\in\tau_j^{-1}\mathfrak p_\omega.
+\]
+For distinct odd $j$ modulo $n$, these are distinct prime ideals above $p$, each of norm $p$.  There are $\lceil\sigma/2\rceil$ odd integers in $[1,\sigma]$.  Their product divides the principal ideal $(F(\zeta))$, yielding the norm divisibility.
+\end{proof}
+
+The quotient factors must be treated uniformly.  For $M=2^b\mid n$ define
+\[
+        Q_M(X)=1+X^{n/M}+X^{2n/M}+\cdots+X^{(M-1)n/M}=\frac{X^n-1}{X^{n/M}-1}.
+\]
+Divisibility by $Q_M$ means that the coefficients of $F$ are constant on residue classes modulo $n/M$, i.e. on cosets of the subgroup of order $M$.
+
+\begin{theorem}[Galois-amplified no-collision bound]\label{thm:no-collision}
+There is an absolute constant $C_1$ with the following property.  Let $n=2^m$, $1\le\sigma<n$, $p\equiv1\pmod n$, and $p>\sigma$.  Suppose
+\[
+        p>\exp\!\left(C_1\frac{n\log(2n)}{\sigma}\right).
+\]
+Then every equality
+\[
+        (e_1(S),\ldots,e_\sigma(S))=(e_1(T),\ldots,e_\sigma(T))\quad\text{in }\F_p^\sigma
+\]
+for equal-size subsets $S,T\subseteq H=\langle\omega\rangle$ is quotient-periodic: after identifying $H$ with $\mu_n$, the symmetric difference $S\triangle T$ is a union of cosets of a subgroup of order $M>\sigma$.
+\end{theorem}
+
+\begin{proof}
+Use power sums, which are equivalent because $p>\sigma$.  Let $F=F_{S,T}$.  If $F$ is divisible by $Q_M$ for some $M>\sigma$, then $Q_M(\zeta^j)=0$ for $1\le j\le\sigma$, and this is exactly a quotient-periodic characteristic-zero collision, handled by \Cref{thm:upstairs}.
+
+Assume no such quotient divisor with $M>\sigma$ exists.  Let $M$ be the largest power of two such that $F=Q_MG$ with $G\in\Z[X]$; possibly $M=1$.  Then $M\le\sigma$.  Put $\xi=\zeta^M$, a primitive $(n/M)$-th root of unity.  Maximality of $M$ implies $G(\xi)\ne0$; otherwise $\Phi_{n/M}$ would divide $G$ and hence $Q_{2M}$ would divide $F$.
+
+For every $\ell\le\sigma/M$, the finite-field equation at $j=M\ell$ gives
+\[
+        0=F(\omega^{M\ell})=Q_M(\omega^{M\ell})G((\omega^M)^\ell)=M\,G((\omega^M)^\ell),
+\]
+and $M$ is invertible modulo the odd prime $p$.  Applying \Cref{lem:galois-amp} in the smaller field $\Q(\xi)$, with $n$ replaced by $n/M$ and $\sigma$ replaced by $\lfloor\sigma/M\rfloor$, yields
+\[
+        p^{\lceil\sigma/(3M)\rceil}\le \big|\Norm_{\Q(\xi)/\Q}(G(\xi))\big|.
+\]
+The harmless factor $3$ absorbs the floor and the restriction to odd $\ell$.
+
+Since the coefficients of $F$ lie in $\{-1,0,1\}$ and $F=Q_MG$ with $\deg F<n$, the coefficients of $G$ are also in $\{-1,0,1\}$.  Hence every complex conjugate of $G(\xi)$ has absolute value at most $n/M$, and therefore
+\[
+        \big|\Norm_{\Q(\xi)/\Q}(G(\xi))\big|
+        \le (2n)^{\varphi(n/M)}
+        \le (2n)^{n/(2M)}.
+\]
+Thus
+\[
+        p^{\sigma/(4M)}\le (2n)^{n/(2M)}
+\]
+for all large enough parameters, which implies
+\[
+        \log p\le 2\frac{n\log(2n)}{\sigma}
+\]
+up to an absolute constant.  Choosing $C_1$ larger gives a contradiction.  Therefore the collision must have had a quotient divisor with $M>\sigma$.
+\end{proof}
+
+\begin{corollary}[Monomial-prefix upper bound in quasi-polynomial split prime fields]\label{cor:quasipoly-upper}
+Let $n=2^m$, $p\equiv1\pmod n$, $H\le\F_p^\times$ have order $n$, and $s=k+\sigma$.  If
+\[
+        p>\exp\!\left(C_1\frac{n\log(2n)}{\sigma}\right),
+\]
+then every monomial-prefix word has list size at most
+\[
+        2^{n/M_0}\le 2^{n/\sigma},
+\]
+where $M_0$ is the least power of two greater than $\sigma$.  In particular, if $\sigma\ge C_0n/\log_2n$, then every monomial-prefix list has size at most $n^{1/C_0+o(1)}$ provided
+\[
+        p>\exp\big(O_{C_0}((\log n)^2)\big).
+\]
+\end{corollary}
+
+\begin{proof}
+By \Cref{thm:no-collision}, a finite-field prefix fiber coincides with a characteristic-zero quotient fiber.  Apply \Cref{cor:upstairs-poly}.  At $\sigma\ge C_0n/\log_2n$, the threshold on $p$ becomes $\exp(O_{C_0}((\log n)^2))$.
+\end{proof}
+
+\begin{remark}[What the Galois sieve does and does not prove]\label{rem:galois-limit}
+A one-prime norm sieve --- the mechanism behind the stable range and the density windows of Part~II --- only gives useful information when $p\gg\binom ns^2\operatorname{poly}(n)$.  \Cref{thm:no-collision} is stronger by a factor $\asymp\sigma$ in the exponent because the equations at odd powers give distinct conjugate prime divisors.  Nevertheless it still misses polynomial fields at the critical reserve $\sigma\asymp n/\log n$: then it needs $p>\exp(O((\log n)^2))$, while polynomial fields have $p=\exp(O(\log n))$.  Closing this last factor of $\log n$ requires a genuinely finite-field local-limit theorem, not a norm-divisor argument.
+\end{remark}
+
+\section{The corrected positive conjectures}\label{sec:conjectures}
+
+The lower bounds and the quasi-polynomial-field theorem point to the following two-scale statement.  (For \emph{random} evaluation sets, capacity-achieving list decodability is known \cite{BGM23,GZ23}; the content here is the structured smooth-domain case, where \cref{cor:one-scale-false} shows the random prediction is false as stated.)
+
+\begin{conjecture}[Prefix local limit with quotient exceptions]\label{conj:prefix-local}
+Fix $0<\rho<1$, $B>0$, and $\eps>0$.  There is $C=C(\rho,B,\eps)$ such that the following holds for all large smooth $n$.  Let $H\le\F_q^\times$ have order $n$ and generate the ambient field over its prime field, let $k=\rho n$, and let $s=k+\sigma$.  If
+\[
+        \sigma\ge C\frac{n}{\log_2n}
+        \qquad\text{and}\qquad
+        \sigma\log_2q\ge (1+\eps)\log_2\binom ns,
+\]
+then for every $c\in\F_q^\sigma$,
+\[
+        \#\{S\in\binom Hs:\Phi_\sigma(S)=c\}\le n^B.
+\]
+More sharply, before imposing the second inequality one expects the asymptotic
+\[
+        \#\Phi_\sigma^{-1}(c)
+        \ =\ \frac1{q^\sigma}\binom ns
+              +\mathrm{Quot}_{\sigma,c}(H,s)
+              +O(n^B),
+\]
+where $\mathrm{Quot}_{\sigma,c}$ is an explicit finite sum of quotient-core contributions from subgroups $K\le H$ with $|K|>\sigma$.
+\end{conjecture}
+
+\begin{conjecture}[Arbitrary locator-fiber local limit]\label{conj:arbitrary-local}
+Under the same hypotheses as Conjecture~\ref{conj:prefix-local}, for every interpolant $U\in\F_q[X]$ with $\deg U<n$,
+\[
+        |\Fib_U(k+\sigma)|\le n^B.
+\]
+The predicted pre-threshold asymptotic is the same random-codimension-$\sigma$ law:
+\[
+        |\Fib_U(k+\sigma)|
+        \approx \frac1{q^\sigma}\binom n{k+\sigma}
+\]
+except for quotient-periodic and low-denominator structured families.
+\end{conjecture}
+
+\begin{theorem}[Conditional corrected list theorem]\label{thm:conditional-list}
+If Conjecture~\ref{conj:arbitrary-local} holds, then for generated-field smooth domains
+\[
+        \Lst\big(\RS[\F_q,H,k],1-\rho-\sigma/n\big)\le n^B
+\]
+whenever
+\[
+        \sigma\ge C\frac n{\log n},
+        \qquad
+        \sigma\log_2q\ge(1+\eps)\log_2\binom n{k+\sigma}.
+\]
+If only Conjecture~\ref{conj:prefix-local} holds, the same conclusion holds for monomial-prefix received words.
+\end{theorem}
+
+\begin{proof}
+The arbitrary-word claim is exactly \Cref{prop:arb-fiber}.  The monomial-prefix claim is \Cref{prop:monomial-fiber}.
+\end{proof}
+
+\begin{remark}[Subfield correction]\label{rem:subfield}
+If $H$ is contained in a proper subfield $\F_{q_0}\subsetneq\F_q$, then the entropy scale is governed by the field of definition $q_0$, not the ambient alphabet size $q$.  Indeed, locator coefficients of subsets of $H$ lie in $\F_{q_0}$, and the pigeonhole denominator in \Cref{thm:pigeonhole} is $q_0^\sigma$.  Thus any ambient-$q$ formulation over extension fields is false unless a generated-field hypothesis or a field-of-definition parameter is included.
+\end{remark}
+
+\section{Why pairwise/BCH information is insufficient}\label{sec:pairwise}
+
+One tempting approach is to use the fact that equal prefix fibers have large Hamming distance as constant-weight codes.  This gives a useful shadow but not a proof.
+
+\begin{lemma}[Pairwise intersection bound]\label{lem:pairwise}
+Let $S,T\in\binom H{k+\sigma}$ satisfy $\Phi_\sigma(S)=\Phi_\sigma(T)$.  If $S\ne T$, then
+\[
+        |S\cap T|\le k-1.
+\]
+Equivalently, their constant-weight incidence vectors have Hamming distance at least $2(\sigma+1)$.
+\end{lemma}
+
+\begin{proof}
+The locators $L_S$ and $L_T$ have the same top $\sigma$ coefficients, so
+\[
+        \deg(L_S-L_T)\le (k+\sigma)-\sigma-1=k-1.
+\]
+But $L_S-L_T$ vanishes on $S\cap T$.  If $|S\cap T|\ge k$, then $L_S=L_T$, hence $S=T$.
+\end{proof}
+
+At $\sigma\asymp n/\log n$, constant-weight codes of length $n$, weight $\rho n+\sigma$, and distance $2\sigma$ can still be exponentially large by standard Gilbert--Varshamov type packings.  Therefore any proof of Conjecture~\ref{conj:prefix-local} must exploit the algebraic subgroup moment equations, not merely the pairwise distance pattern.  This is the precise sense in which BCH minimum-distance information is too weak.
+
+
+\part{Slack mutual correlated agreement: the corrected theory}
+
+\section{The list-side ledger, and the MCA comparison point}\label{sec:interface}
+
+Part~I established the corrected list-side ledger: the coefficient-pigeonhole and quotient-core lower bounds (\cref{thm:pigeonhole,thm:qcore}), the prime-field refutation of the one-scale ambient-$q$ entropy-gap prediction (\cref{cor:one-scale-false}), the quotient-core profile and the corrected list conjecture (\cref{def:qprofile,conj:listprofile}), the characteristic-zero inverse quotient theorem (\cref{thm:upstairs}), and the Galois-amplified quasi-polynomial split-prime positive theorem (\cref{cor:quasipoly-upper}).  That ledger is the right comparison point for the MCA conjecture of \cref{sec:boundary}.  Recall that $\Lst(C,\delta)$ denotes the worst-case list size at relative radius $\delta$; in this part $p$ is prime unless stated otherwise.
+
+\begin{remark}[MCA versus list decoding]\label{rem:mcalist}
+The quotient-core construction refutes the one-scale list prediction directly.  It does not by itself refute any MCA statement: it inflates the number of codewords explaining one received word, never the number of bad slopes of a line.  Nevertheless the same quotient scales enter the conservative MCA formulation of \cref{conj:B} through the profile $\mathcal Q$.  \Cref{thm:qnecessity} below shows that, above the quotient norm threshold and up to the explicit constant $\HH(\rho)/\beta(\rho)$, this quotient profile is genuinely necessary for polynomial MCA slope bounds.  The remaining open direction is sufficiency, especially for arbitrary residue-line data at a fixed prime.
+\end{remark}
+
+\section{Definitions, and the two delimitations}\label{sec:noslack}
+
+\begin{definition}[Support-wise agreement]\label{def:sclose}
+For $C\subseteq\F^D$, $|D|=n$, $\delta\in[0,1]$: a word $u\in\F^D$ is \emph{$S$-close} to $C$ at radius $\delta$ if $S\subseteq D$, $|S|\ge(1-\delta)n$, and $u|_S=c|_S$ for some $c\in C$.
+\end{definition}
+
+\begin{definition}[Bad parameter and line-MCA error]\label{def:mca}
+For a line $u_z=f+zg$, $z\in\F$: the parameter $z$ is \emph{support-wise MCA-bad} at radius $\delta$ if there is $S\subseteq D$ with (i) $u_z$ $S$-close to $C$ at radius $\delta$, and (ii) no pair $c_f,c_g\in C$ satisfying $f|_S=c_f|_S$ and $g|_S=c_g|_S$.  Then
+\[
+        \emca(C,\delta)\ =\ \max_{f,g\in\F^D}\ \frac1{|\F|}\,\#\{z:\ z\text{ support-wise MCA-bad for }f+zg\},
+\]
+and the threshold is
+\[
+        \delta^*_C(\eps^*)=\sup\{\delta:\emca(C,\delta)\le\eps^*\}.
+\]
+A witness at radius $\delta$ is one at every larger radius (neither condition mentions $\delta$ otherwise), so $\emca(C,\cdot)$ is nondecreasing and error one propagates upward; this is the monotonicity lemma of \cite{NoSlack}.
+\end{definition}
+
+For a degree-$c$ tuple $\mathbf u=(u_0,\dots,u_c)$ and $u(z)=\sum_jz^ju_j$, the parameter $z$ is \emph{curve-bad} if some $S$ has $u(z)|_S\in C|_S$ while not every $u_j$ has $u_j|_S\in C|_S$; $\eps^{(c)}_{\rm mca}$ is the corresponding error.
+
+The no-slack form of the up-to-capacity principle --- $\emca(C,\delta)\le\mathrm{negl}(q)$ for every $\delta<1-\rho$ --- fails on smooth domains: error one holds on the interval $[1-\rho-1/N,1]$ whenever some divisor $N\mid n$ has $\rho N\in\Z$ and $\rho(1-\rho)N^2\ge p$ (so for the deployed FFT primes at $N=2^{18}$), the error is $1-1/p$ at radius $1-\rho-1/(2\log_2n)$ on the Fermat fields $q=n+1$ with $p\in\{17,257,65537\}$ at rates $1/2$ and $1/4$, and infinitely many primes carry power-of-two subgroups of order $\Theta(\log p)$ with error at least $(\log_2p)^{-6}$ at gap $1/N$ \cite{NoSlack}.  Concurrent near-capacity failure results over prime-field multiplicative subgroups \cite{KKH26,Kambire26} apply related pressure through different mechanisms.  We will recover and considerably extend the first of these from the slack calculus below.  Two elementary results delimit the field-size dependence and force the shape of any true formulation.
+
+\begin{theorem}[One bad parameter per support]\label{thm:onez}
+For any linear code, any line, and every $S\subseteq D$: at most one $z$ is bad with witness $S$, at any radius.  Hence $\emca(C,\delta)\le\#\{S:\ |S|\ge(1-\delta)n,\ C|_S\ne\F^S\}/q\le2^n/q$, and if $q\ge2^n/\eps^*$ then $\delta^*_C(\eps^*)=1$ exactly: over very large fields the no-slack principle holds trivially, for every line.
+\end{theorem}
+
+\begin{proof}
+Condition (ii) of \cref{def:mca} does not involve $z$; if it fails for $S$, no $z$ has witness $S$.  If it holds with $g|_S\in C|_S$ (so $f|_S\notin C|_S$): $u_z|_S\in C|_S$ would force $f|_S\in C|_S$.  If $g|_S\notin C|_S$ and $z_1\ne z_2$ both had $u_{z_i}|_S\in C|_S$: subtracting, $(z_1-z_2)g|_S\in C|_S$, impossible.  Supports with $C|_S=\F^S$ (for Reed--Solomon: all $|S|\le k$, by interpolation) admit no witness since (ii) fails there.
+\end{proof}
+
+\begin{proposition}[Tangent floor]\label{prop:floor}
+For $C=\RS[\F,D,k]$ and $\delta\in(0,1-\rho)$ with $m=\lfloor\delta n\rfloor\le q$:
+$\emca(C,\delta)\ \ge\ m/q$.
+\end{proposition}
+
+\begin{proof}
+Fix $E\subseteq D$, $|E|=m$, codewords $P_1,P_2$, and $f=P_1+e_f$, $g=P_2+e_g$ with errors supported on $E$, $e_g\equiv1$ there and $e_f$ injective there.  For $x\in E$ put $z_x=-e_f(x)$ and $S_x=(D\setminus E)\cup\{x\}$: the error of $u_{z_x}$ against the codeword $P_1+z_xP_2$ vanishes at $x$ and off $E$, so condition (i) holds; a codeword explaining $g$ on $S_x$ would agree with $P_2$ on $n-m>k$ points, hence equal $P_2$, contradicting $g(x)\ne P_2(x)$: condition (ii).  The $m$ slopes $z_x$ are distinct and bad.
+\end{proof}
+
+\begin{remark}[The phase transition, and the forced shape of the theory]\label{rem:phase}
+For protocol-size fields $q=O(n)$ the floor alone gives $\emca\ge\Theta(\delta)$ at every radius, so no fixed-$\eps^*$ threshold statement can hold there, and even for $q=\mathrm{poly}(n)$ the floor forces an additive $n/q$-scale correction into any positive conjecture; for $q\ge2^n/\eps^*$ the question trivializes.  The live regime is $\mathrm{poly}(n)\le q\le2^{o(n)}$, the correct positive target is an error of the form $n^{1+o(1)}/q$, and --- because of the failure results above --- the radius must carry a slack reserve.  This fixes the object of study: the bad-slope sets of lines at radius $1-\rho-t/N$.
+\end{remark}
+
+\section{The slack calculus}\label{sec:calculus}
+
+\subsection{The exact characterization}
+
+\begin{definition}[The multi-symmetric image]\label{def:badset}
+For $1\le T\le n-k$, $\delta_T=1-(k+T)/n$ and
+\[
+        \mathcal B_T(D,k)\ =\ \big\{(-1)^Te_T(S):\ S\subseteq D,\ |S|=k+T,\ e_1(S)=\cdots=e_{T-1}(S)=0\big\}.
+\]
+For $T=1$ this is $-(k+1)^{\wedge}D$.
+\end{definition}
+
+\begin{theorem}[Exact slack characterization]\label{thm:exactslack}
+Let $D$ be \emph{any} evaluation set of size $n$ in a field $\F$, $C=\RS[\F,D,k]$, $1\le T\le n-k$.  For the line $u_z=x^{k+T}+z\,x^k$, the set of support-wise MCA-bad parameters at radius $\delta_T$ is \emph{exactly} $\mathcal B_T(D,k)$: the line's error contribution is $|\mathcal B_T(D,k)|/q$, with error one iff $\mathcal B_T(D,k)=\F$.
+\end{theorem}
+
+\begin{proof}
+($\subseteq$)  If $z$ is bad, $u_z$ agrees with some $R$, $\deg R<k$, on a set $S$ with $|S|\ge k+T$.  The polynomial $P_z=X^{k+T}+zX^k-R$ is monic of degree $k+T$ with at least $k+T$ roots: exactly $k+T$, so $|S|=k+T$ and $P_z=L_S$.  Comparing coefficients in degrees $k+T-j$ for $1\le j\le T-1$ (absent from both $u_z$ and $R$) gives $e_j(S)=0$; the degree-$k$ coefficient gives $z=(-1)^Te_T(S)$.
+
+($\supseteq$)  If $z=(-1)^Te_T(S)$ with $S$ as in \cref{def:badset}, then $L_S=X^{k+T}+zX^k+R_S$ with $\deg R_S<k$, so $u_z$ agrees with the codeword $-R_S$ on the $k+T$ points of $S$.  Condition (ii): $g=x^k$ has degree exactly $k$, and two distinct polynomials of degree $\le k$ agree on at most $k<k+T$ points, so no codeword explains $g$ on $S$ --- (ii) holds for every witness set of more than $k$ points, regardless of $f$.
+\end{proof}
+
+The restricted-sumset description of the no-slack failures is therefore not an artifact of any proof method: it is the precise answer, and at every slack $T$ the object to control is $\mathcal B_T$.
+
+\subsection{Quotients, and the collapse of symmetric witnesses}
+
+\begin{lemma}[Quotient locator]\label{lem:tlocator}
+Let $D\le\F^\times$ of order $n$, $N\mid n$, $a=n/N$, $Q=D^a$ the quotient subgroup of order $N$, $a\mid k$, $\ell=k/a+t\le N$.  For $A\subseteq Q$, $|A|=\ell$:
+\[
+        L_A(X)\ :=\ \prod_{b\in A}(X^a-b)\ =\ X^{k+ta}+\sum_{j=1}^t(-1)^je_j(A)\,X^{k+(t-j)a}+R_A(X),
+        \qquad\deg R_A<k,
+\]
+and $L_A$ vanishes on $S_A=\{x\in D:\ x^a\in A\}$, of size $k+ta$.  (Expand $\prod_b(Y-b)$ at $Y=X^a$: the displayed terms sit in degrees $a(\ell-j)$, and all remaining degrees are below $a(\ell-t)=k$.)
+\end{lemma}
+
+\begin{theorem}[Slack-$t$ lower bound]\label{thm:slackt}
+With $V_t(Q,\ell)=\{z:\ \exists A\subseteq Q,\ |A|=\ell,\ e_1(A)=\cdots=e_{t-1}(A)=0,\ (-1)^te_t(A)=z\}$: every $z\in V_t(Q,\ell)$ is bad for the line $f=x^{k+ta}$, $g=x^k$ at radius $1-\rho-t/N$, so $\emca(\RS[\F,D,k],1-\rho-t/N)\ge|V_t(Q,\ell)|/q$, with error one when $V_t=\F$.  If $\mathrm{char}\,\F>t$ the defining conditions are equivalent, by the Newton identities, to $p_1(A)=\cdots=p_{t-1}(A)=0$ and $p_t(A)=-tz$.
+\end{theorem}
+
+\begin{proof}
+\Cref{lem:tlocator} gives $L_A=X^{k+ta}+zX^k+R_A$, so $u_z$ agrees with $-R_A$ on $S_A$; condition (ii) as in \cref{thm:exactslack}.  The fiber-union structure makes $e_j(S_A)=0$ automatic for $a\nmid j$, so $S_A$ is a $\mathcal B_{ta}$-witness with exactly the displayed quotient conditions surviving.
+\end{proof}
+
+\begin{remark}[Strict subfamily]\label{rem:strict}
+$\mathcal B_{ta}(D,k)\supseteq V_t(Q,\ell)$, and the containment can be strict: at $p=17$, $n=16$, $\rho=1/2$, $T=2$, the quotient family ($a=2$, $N=8$, $\ell=5$) covers $16$ of the $17$ values and an asymmetric $D$-witness supplies the missing $z=0$ (verified exhaustively; \cref{app:verify}).
+\end{remark}
+
+\begin{proposition}[Coset collapse: symmetric slack is no slack]\label{prop:collapse}
+Let $p>d$, $K\le Q$ of order $d$, $d\mid\ell$, and let $A$ be a union of $\ell/d$ distinct $K$-cosets.  Then $p_j(A)=0$ for all $d\nmid j$ --- in particular $e_1(A)=\cdots=e_{d-1}(A)=0$ automatically --- and $e_d(A)=(-1)^{d-1}\sum_iy_i$ with $y_1,\dots,y_{\ell/d}$ the distinct $d$-th powers of coset representatives.  Hence the union-of-coset part of $V_d(Q,\ell)$ equals, up to an explicit nonzero scalar, the slack-\emph{one} value set $m^{\wedge}(Q^d)$ at quotient order $N/d$, $m=\rho(N/d)+1$: subgroup-symmetric witnesses produce nothing beyond the one-condition ladder.
+\end{proposition}
+
+\begin{proof}
+$\sum_{\kappa\in K}(x\kappa)^j=x^j\sum_\kappa\kappa^j$, which is $dx^j$ if $d\mid j$ and $0$ otherwise; sum over cosets, convert by Newton ($p>d$); distinct cosets biject with distinct $d$-th powers; and $\ell/d=\rho(N/d)+1$ at $\ell=\rho N+d$.
+\end{proof}
+
+New slack content therefore requires \emph{asymmetric} witnesses with vanishing leading symmetric functions.  The next two theorems prove that the two global models which decide no-slack questions --- lifting to characteristic zero, and lifting to short digit ranges --- cannot see them, even at $t=2$.
+
+\begin{theorem}[Cyclotomic rigidity]\label{thm:rigidcyclo}
+Let $N=2^s$ and $A\subseteq\mu_N\subseteq\Z[\zeta_N]$ with $p_1(A)=0$ in $\Z[\zeta_N]$.  Then $A$ is a union of antipodal pairs $\{\omega,-\omega\}$.  Consequently every characteristic-zero witness for $V_2$ is of coset type, and the characteristic-zero slack-$2$ value set is exactly the ladder rung $2\cdot m^{\wedge}(\mu_{N/2})$.
+\end{theorem}
+
+\begin{proof}
+In the power basis $1,\zeta,\dots,\zeta^{N/2-1}$, $\sum_{a\in A}a=\sum_jc_j\zeta^j$ with $c_j=\mathbf1[\zeta^j\in A]-\mathbf1[-\zeta^j\in A]\in\{-1,0,1\}$; vanishing forces $c\equiv0$, i.e.\ each antipodal pair is contained in or disjoint from $A$.  Then $p_2(A)=2\sum_{\rm pairs}\zeta^{2j}$.
+\end{proof}
+
+\begin{theorem}[Digit rigidity on Fermat fields]\label{thm:rigidfermat}
+Let $p=2^M+1$ be a Fermat prime, $Q=\langle2\rangle=\{\pm2^j:0\le j<M\}\le\F_p^\times$, and $A\subseteq Q$ with $\sum_{a\in A}a\equiv0\pmod p$.  Then $A$ is a union of antipodal pairs.
+\end{theorem}
+
+\begin{proof}
+The sum lifts to $s=\sum_jc_j2^j$, $c_j\in\{-1,0,1\}$, with $|s|\le2^M-1<p$, so $s=0$; uniqueness of binary representations forces $c\equiv0$.
+\end{proof}
+
+\begin{remark}[Where the difficulty lives]\label{rem:wall}
+Asymmetric elements of $V_t$ require cancellations of size comparable to $p$ --- genuinely modular, i.e.\ subgroup equidistribution.  \Cref{sec:pool} pushes equidistribution as far as current exponential-sum technology reaches; \cref{sec:rigidity} develops the characteristic-zero theory at every slack, which governs the deepest level; \cref{sec:boundary} proves where these methods stop.
+\end{remark}
+
+\subsection{Certified slack thresholds, and curve transfer}
+
+\begin{lemma}[Dias da Silva--Hamidoune \cite{DH94}; polynomial-method proofs in \cite{ANR96,Alon99}]\label{lem:dsh}
+For every $A\subseteq\F_p$ with $|A|=m$ and every $1\le h\le m$:
+$|h^{\wedge}A|\ \ge\ \min\{p,\ h(m-h)+1\}$.
+\end{lemma}
+
+\begin{corollary}[Certified slack at the root barrier]\label{cor:certified}
+Let $0<\rho\le1/2$ and let $N_{\rm full}(p,n,\rho)$ be the smallest divisor $N\mid n$ with $\rho N\in\Z$, $\ell=\rho N+1\le N$, and $\ell(N-\ell)+1\ge p$.  For every divisor $N\ge N_{\rm full}$ with $\rho N\in\Z$:
+\[
+        \emca\Big(\RS[\F_p,D,\rho n],\ 1-\rho-\tfrac1N\Big)\ =\ 1,
+\]
+hence error one on the interval $[1-\rho-1/N_{\rm full},\,1]$, with $N_{\rm full}\le(1+o(1))\sqrt{p/\rho(1-\rho)}$ when such divisors exist (automatic on smooth $n$ of that size).  (\Cref{lem:dsh} makes $V_1(Q,\ell)=-\ell^{\wedge}Q=\F_p$; \cref{thm:slackt} at $t=1$; monotonicity for the interval.)
+\end{corollary}
+
+\begin{theorem}[Curve transfer]\label{thm:curve}
+Let $\varphi(Z)=\sum_{j=1}^c\varphi_jZ^j$ be nonconstant with $\varphi(0)=0$, and consider the degree-$c$ tuple $u_0=x^{k+a}$, $u_j=\varphi_jx^k$.  Every $z$ with $\varphi(z)\in-\ell^{\wedge}Q$ is curve-bad at radius $1-\rho-1/N$, so
+$\eps^{(c)}_{\rm mca}\ge1-c(1-|\ell^{\wedge}Q|/q)$ there: whenever $\ell^{\wedge}Q=\F$, \emph{every} $z$ is curve-bad and $\eps^{(c)}_{\rm mca}=1$ on the whole interval, for every degree $c\ge1$.  Every slack floor proved for lines transfers to every curve class containing polynomial reparametrizations of lines.
+\end{theorem}
+
+\begin{proof}
+$u(z)=x^{k+a}+\varphi(z)x^k$; choose $A$ with $\sum A=-\varphi(z)$ and apply \cref{lem:tlocator} at $t=1$.  For condition (ii) one unexplained member suffices: any $u_j=\varphi_jx^k$ with $\varphi_j\ne0$ is explained on at most $k<|S_A|$ points.  Count preimages of $\varphi$; monotonicity is verbatim for tuples.
+\end{proof}
+
+\section{The two-moment certificate, and fullness at the root barrier}\label{sec:twomoment}
+
+The Dias da Silva--Hamidoune theorem is the $t=1$ engine of the restricted-sum ladder, and its exterior-algebra proof invites an upgrade to the joint map $S\mapsto(e_1(S),e_2(S))$ on a multiplicative subgroup.  The exact finite object keeps the subgroup relations and becomes a cyclic reduced alternant; and an elementary two-stage construction already gives \emph{full} two-moment coverage at the square-root barrier, at every prime.
+
+Let $Q\le\F_p^\times$ have even order $N$.  For $S\in\binom Q\ell$ set $\Psi_2(S)=(e_1(S),e_2(S))$; for $a\in\F_p$ let $\Pi_a(T)=1-(T-a)^{p-1}$ (the indicator of $T=a$); and put
+\[
+        \Delta(X)=\prod_{i<j}(X_j-X_i),\qquad E_1=\sum_iX_i,\qquad E_2=\sum_{i<j}X_iX_j,
+        \qquad F_{a,b}=\Delta\cdot\Pi_a(E_1)\,\Pi_b(E_2).
+\]
+
+\begin{theorem}[Exact reduced $t=2$ certificate]\label{thm:certificate}
+For every $(a,b)\in\F_p^2$:
+\[
+        (a,b)\in\Psi_2\tbinom Q\ell
+        \iff
+        F_{a,b}(X)\not\equiv0\pmod{X_1^N-1,\dots,X_\ell^N-1}.
+\]
+\end{theorem}
+
+\begin{proof}
+Since $p\nmid N$, $X^N-1$ has the distinct root set $Q$, so $\F_p[X]/(X_i^N-1)$ is the function algebra on $Q^\ell$.  On a tuple in $Q^\ell$, $\Delta$ is nonzero exactly when the entries are distinct; on distinct tuples, $\Pi_a(E_1)\Pi_b(E_2)$ is nonzero exactly when the underlying set has $(e_1,e_2)=(a,b)$.
+\end{proof}
+
+Equivalently, with $A_N=\F_p[u]/(u^N-1)$, alternants identified with $\bigwedge^\ell A_N$, $\mathsf E_1,\mathsf E_2$ acting by multiplication by $e_1,e_2$, and $\omega_\ell=1\wedge u\wedge\cdots\wedge u^{\ell-1}$: the condition is $\Pi_a(\mathsf E_1)\Pi_b(\mathsf E_2)\,\omega_\ell\ne0$ --- a reduced cyclic exterior-algebra nonvanishing problem.  Resolving it below the root barrier is open; at the barrier, no machinery is needed:
+
+\begin{theorem}[Two-moment fullness in the square-root range]\label{thm:twomoment}
+Let $Q\le\F_p^\times$ have even order $N$ and write $\ell=h+2r$.  If
+\[
+        h(N-h)+1\ \ge\ p
+        \qquad\text{and}\qquad
+        r\Big(\frac N2-h-r\Big)+1\ \ge\ p,
+\]
+then $\Psi_2\binom Q\ell=\F_p^2$.  Consequently, for $\ell=\rho N+O(1)$, full two-moment coverage holds whenever
+\[
+        p\ \le\ \Big(\frac{\rho(1-\rho)}5-o(1)\Big)N^2 ,
+\]
+i.e.\ for all $N\ge(1+o(1))\sqrt{5p/\rho(1-\rho)}$ --- at every prime, with no thresholds.
+\end{theorem}
+
+\begin{proof}
+Fix $(a,b)$.  By \cref{lem:dsh} on $Q$, the first hypothesis gives an $h$-set $B\subseteq Q$ with $e_1(B)=a$.  Since $N$ is even, $-1\in Q$ and the squaring map on $Q$ is two-to-one onto the index-two subgroup $Q^2$ of order $N/2$; let $A_B=Q^2\setminus B^2$, of size at least $N/2-h$.  By \cref{lem:dsh} on $A_B$, the second hypothesis gives an $r$-set $R\subseteq A_B$ with $\sum_{y\in R}y=e_2(B)-b$.  For each $y\in R$ choose $x_y\in Q$ with $x_y^2=y$; since $y\notin B^2$, neither $x_y$ nor $-x_y$ lies in $B$, and pairs over distinct $y$ are disjoint (their elements square to distinct values).  Put $S=B\sqcup\bigsqcup_{y\in R}\{x_y,-x_y\}$, of size $h+2r=\ell$.  Each antipodal pair has $e_1=0$ and $e_2=-x_y^2=-y$; pairs of pairs and pair-versus-$B$ cross terms cancel ($e_2$ of a disjoint union is $e_2+e_2'+e_1e_1'$, and all the pair blocks have $e_1=0$).  Hence
+\[
+        e_1(S)=e_1(B)=a,\qquad e_2(S)=e_2(B)-\sum_{y\in R}y=b .
+\]
+For the constant, set $h=\alpha N+O(1)$, $r=(\rho-\alpha)N/2+O(1)$: the two hypotheses read $p\le\alpha(1-\alpha)N^2$ and $p\le(\rho-\alpha)(1-\rho-\alpha)N^2/4$, and the balance equation $4\alpha(1-\alpha)=(\rho-\alpha)(1-\rho-\alpha)=\rho(1-\rho)-\alpha+\alpha^2$ simplifies to $5\alpha(1-\alpha)=\rho(1-\rho)$: the balanced value is exactly $\alpha(1-\alpha)=\rho(1-\rho)/5$.
+\end{proof}
+
+\begin{corollary}[Every slack-two monomial line fails at the root barrier, at every prime]\label{cor:twomomentmca}
+Let $a=n/N$, $a\mid k$, $\ell=\rho N+2$, with the hypotheses of \cref{thm:twomoment} satisfiable at this $\ell$ (in particular $N\ge(1+o(1))\sqrt{5p/\rho(1-\rho)}$).  Then for \emph{every} base $c\in\F_p$, the line
+\[
+        u_z\ =\ x^{k+2a}+c\,x^{k+a}+z\,x^{k}
+\]
+has every slope $z$ support-wise MCA-bad at radius $1-\rho-2/N$: error one on the whole slack-two monomial family, at every prime.
+\end{corollary}
+
+\begin{proof}
+\Cref{thm:twomoment} supplies $A\subseteq Q$, $|A|=\ell$, with $(-e_1(A),e_2(A))=(c,z)$; \cref{lem:tlocator} turns $A$ into an agreement set for $u_z$, and condition (ii) holds as always via $g=x^k$.  (Parity of $\ell-h$ is absorbed in the $O(1)$'s.)
+\end{proof}
+
+\begin{remark}[Ledger]\label{rem:twomomentledger}
+\Cref{thm:twomoment} strengthens, at slack two, both ends of the unconditional ladder: \cref{thm:descent} covers only the diagonal base $c=0$ (at constant $2$ in place of $\sqrt5$), and \cref{thm:ladder} reaches smaller $N$ only with thresholds in $p$.  It is not the entropy-scale result: the conjectural $t=2$ target asks for coverage when $\log_2p\lesssim\tfrac12\HH(\rho)N$, far beyond $p\asymp N^2$; \cref{thm:certificate} identifies the exact finite nonvanishing problem that going further requires.  Verified: at $(p,N,h,r)=(31,30,2,3)$, $\ell=8$, the construction of \cref{thm:twomoment} built witnesses for all $961$ targets $(a,b)\in\F_{31}^2$ with zero failures, and exhaustive enumeration of all $\binom{30}8$ subsets confirms $\Psi_2$ is onto (\cref{app:verify}).
+\end{remark}
+
+\section{The failure ladder, I: the free pool}\label{sec:pool}
+
+One lemma drives all the equidistribution-based failure results.  For a subgroup $K\le\F_p^\times$ of order $d$ and $\vec s\in\F_p^t$ write $S_K(\vec s)=\sum_{\kappa\in K}e_p\big(\sum_{m\le t}s_m\kappa^m\big)$.
+
+\begin{lemma}[Free pool]\label{lem:pool}
+Let $t\ge1$, and suppose $K\le Q\le\F_p^\times$, $|K|=d$, $|Q|=N$, satisfy the equidistribution hypothesis
+\[
+        \max_{\vec s\ne0}\,|S_K(\vec s)|\ \le\ d\,p^{-\nu}
+        \qquad\text{for some }\nu>0 .
+\]
+Put $C=\lceil(t-\log_pd)/\nu\rceil+6$ and suppose $d\ge4C^2$ and $p^{2\nu}\ge2$.  Then for every $\ell$ with $C\le\ell\le N-d$ and every $\vec v\in\F_p^t$ there is $A\subseteq Q$ with $|A|=\ell$ and $p_m(A)=v_m$ for all $m\le t$: all power-sum fibers are nonempty.  In particular $V_t(Q,\rho N+t)=\F_p$ and, by \cref{thm:slackt}, the MCA error at radius $1-\rho-t/N$ is one.
+\end{lemma}
+
+\begin{proof}
+Fix $\vec v$.  Choose any $B_0\subseteq Q\setminus K$ with $|B_0|=\ell-C$ (possible since $\ell-C\le N-d$) and set $\vec w=\vec v-(p_1(B_0),\dots,p_t(B_0))$.  For $j\ge2$ let $T_j(\vec w)=\#\{(x_1,\dots,x_j)\in K^j:\ \sum_ix_i^m=w_m\ \forall m\le t\}$.  Orthogonality gives $T_j(\vec w)=p^{-t}\sum_{\vec s}S_K(\vec s)^je_p(-\langle\vec s,\vec w\rangle)$, and the $t$-dimensional Parseval identity reads $\sum_{\vec s}|S_K(\vec s)|^2=p^t\,\#\{(\kappa,\kappa'):\kappa^m=\kappa'^m\ \forall m\le t\}=p^td$, since the $m=1$ equation already forces $\kappa=\kappa'$.  Hence
+\[
+        \Big|T_j(\vec w)-\frac{d^{\,j}}{p^{t}}\Big|
+        \ \le\ \big(\max_{\vec s\ne0}|S_K(\vec s)|\big)^{j-2}\cdot p^{-t}\sum_{\vec s\ne0}|S_K(\vec s)|^{2}
+        \ \le\ \big(dp^{-\nu}\big)^{j-2}d .
+\]
+For $j\in\{C-2,C\}$ the main term dominates by a factor $2$: $d^{\,j}/p^t\ge2(dp^{-\nu})^{j-2}d$ is equivalent to $d\,p^{\nu(j-2)}\ge2p^{t}$, and $j-2\ge C-4\ge(t-\log_pd)/\nu+2$ gives $dp^{\nu(j-2)}\ge p^{t+2\nu}\ge2p^t$.  So $T_j(\vec w)\in[d^{\,j}/(2p^t),\,2d^{\,j}/p^t]$ for these $j$.  Tuples counted by $T_C(\vec w)$ with two equal coordinates number at most $\binom C2\sum_{y\in K}T_{C-2}(\vec w-(2y,2y^2,\dots,2y^t))\le C^2d^{\,C-1}/p^t$, which is at most $\tfrac12\cdot d^{\,C}/(2p^t)$ once $d\ge4C^2$.  Some tuple therefore has $C$ pairwise distinct coordinates in $K$ with the prescribed power sums; adjoin $B_0$.
+\end{proof}
+
+Three exponential-sum inputs instantiate the hypothesis.
+
+\begin{theorem}[Conditional polynomial range from a free-pool input]\label{thm:ladder}
+Let $D\le\F_p^\times$ be smooth of order $n$, $C=\RS[\F_p,D,\rho n]$, and fix a divisor scale $N\mid n$ with quotient subgroup $Q$ of order $N$.  Assume that $Q$ contains a subgroup $K$ of order $d$ for which the exponential-sum hypothesis of \cref{lem:pool} holds for the relevant degree $t$, with a saving $\nu>0$, and that $\ell=\rho N+t$ satisfies
+\[
+        C(t,d,p,\nu)\le \ell\le N-d,
+\]
+where $C(t,d,p,\nu)=\lceil(t-\log_p d)/\nu\rceil+6$ is the pool size from \cref{lem:pool}.  Then
+\[
+        \emca(C,1-\rho-t/N)=1 .
+\]
+In particular, the following are valid wherever the cited exponential-sum estimates supply the displayed hypothesis with the quoted savings.
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item For every fixed $\delta>0$ and fixed $t\ge1$, the Bourgain--Glibichuk--Konyagin and Bourgain estimates \cite{BGK06,Bourgain05}, in the required polynomial-phase form, imply error one for all sufficiently large $p$ and all $N\ge p^\delta$.
+\item For $t=1$, Shkredov's medium-range subgroup estimate \cite{Shk14}, in the above form, gives explicit pool sizes in the range $N\ge4p^{1/3+\eps}$; sample pool sizes retained from the computation are $C(0.50)=18$, $C(0.45)=25$, $C(0.40)=42$, $C(0.36)=102$.
+\item For fixed $t\ge2$, the small-subgroup Weil bounds of Ostafe--Shparlinski--Voloch \cite{OSV24}, in the required polynomial-phase form, give explicit pool sizes in the range $N\ge p^{3/7+\eps}$; sample sizes retained from the computation are $C(2,0.50)=168$, $C(2,0.55)=99$, $C(3,0.55)=1563$, $C(3,0.60)=726$.  The growing-slack statement is conditional on the same recursion remaining uniform up to
+\[
+        t\le(1+o(1))\frac{\log\log p}{\log\log\log p}.
+\]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The theorem is exactly \cref{lem:pool} followed by \cref{thm:slackt}.  The enumerated ranges are not independent algebraic arguments; they require the cited exponential-sum bounds in the precise uniform form stated in \cref{lem:pool}.  This is why the result is recorded as conditional on that input rather than as a self-contained fixed-prime equidistribution theorem.
+\end{proof}
+
+\section{The failure ladder, II: descent, and the dichotomy}\label{sec:descent}
+
+The pool method needs thresholds in $p$.  At \emph{dyadic} slack, an exact identity removes them entirely.
+
+\begin{theorem}[Dyadic descent: error one at every dyadic slack, DSH grade]\label{thm:descent}
+Let $p$ be prime, $D\le\F_p^\times$ have order $n$, let $N\mid n$, put $a=n/N$, and let $Q=D^a$ have order $N$.  Assume $a\mid k$, $k/a=\rho N\in\Z$.  Let $t$ be a power of two with $t\mid N$, and assume
+\[
+        \ell=\rho N+t\le N,
+        \qquad t\mid \ell
+        \quad\text{equivalently } t\mid\rho N .
+\]
+For $B\subseteq Q^t$ with $|B|=\ell/t$, the orbit union
+\[
+        A=\{x\in Q:\ x^t\in B\}
+\]
+satisfies
+\[
+        e_j(A)=0\quad(t\nmid j),
+        \qquad e_t(A)=-e_1(B)
+\]
+(for even $t$; for odd $t$ the nonzero scalar is absorbed into the slope).  Consequently
+\[
+        \{e_t(A): |A|=\ell,\ e_1(A)=\cdots=e_{t-1}(A)=0\}
+        \supseteq -\big(\tfrac\ell t\big)^{\wedge}(Q^t).
+\]
+If
+\[
+        \frac\ell t\left(\frac Nt-\frac\ell t\right)+1\ge p,
+\]
+then the monomial slack-$t$ line has
+\[
+        \emca\Big(\RS[\F_p,D,k],1-\rho-\frac tN\Big)=1.
+\]
+In particular, for fixed $\rho$ and fixed dyadic $t$, this holds whenever
+\[
+        N\ge(t+o(1))\sqrt{p/\rho(1-\rho)},
+\]
+subject to the divisibility assumptions above.
+\end{theorem}
+
+\begin{proof}
+The $t$-power map $Q\to Q^t$ is exactly $t$-to-one and its fibers are the $\mu_t$-orbits.  Therefore
+\[
+        \prod_{a\in A}(X-a)=\prod_{y\in B}(X^t-y),
+\]
+a polynomial in $X^t$.  Hence all elementary symmetric coefficients whose indices are not divisible by $t$ vanish.  The coefficient of $X^{\ell-t}$ gives $e_t(A)=-e_1(B)$ for even $t$ with the stated harmless sign convention.  Dias da Silva--Hamidoune applied to the subgroup $Q^t$ of order $N/t$ gives full coverage of $\F_p$ when the displayed inequality holds.  The conclusion follows from \cref{thm:slackt}.
+\end{proof}
+
+\begin{remark}[What descent adds]\label{rem:descenth}
+The radius $1-\rho-t/N=1-\rho-1/(N/t)$ coincides with the slack-one rung on the quotient $Q^t$ (\cref{prop:collapse} read in reverse), already reachable by \cref{cor:certified}; the content is the \emph{fiber-level} statement that every diagonal target $(0,\dots,0,z)$ of the slack-$t$ system is hit, by explicit witnesses, at DSH grade --- the correct baseline against which \cref{thm:ladder} must be measured (its gain is the non-diagonal targets and witness asymmetry, at the cost of thresholds in $p$), and the load-bearing input for the positive theorems' floors below.  Verified at $p=193$, $N=64$, $t=2$, $\ell=34$: the identities, and coverage of all $193$ residues by $e_1$ over the $\binom{32}{17}$ subsets of $Q^2$ (\cref{app:verify}).
+\end{remark}
+
+The characteristic-zero theory of \cref{sec:rigidity} will show (\cref{thm:dichotomy}) that descent witnesses are the \emph{only} characteristic-zero diagonal witnesses at dyadic slack, and that at non-dyadic slack none exist at all.
+
+\section{The rigidity theory at every slack}\label{sec:rigidity}
+
+From here $p\equiv1\pmod n$, $n=2^m$, and $\mathfrak p\subseteq\Z[\zeta_n]$ is a fixed degree-one prime over $p$, identifying $H\le\F_p^\times$ with $\mufn$.  For $h:\mufn\to\Z$ write $\widehat h(j)=\sum_xh(x)x^j\in\Z[\zeta_n]$.  For a slack level $\sigma$, $M_0=2^a$ is the least power of two exceeding $\sigma$ and $N_0=n/M_0$.
+
+The engine is the antipodal identity, \cref{lem:antipodal}, proved in \cref{sec:upstairs}: for $n'$ a power of two and $g:\mu_{n'}\to\Z$, the relation $\sum_yg(y)\,y=0$ forces $g(y)=g(-y)$ for all $y$.  The theorem below is the integer-valued form of \cref{thm:upstairs}: the same dyadic induction applies to arbitrary $h:\mufn\to\Z$, not only to indicator differences, and the optimality of the modulus is recorded.
+
+\begin{theorem}[Inverse quotient theorem, integer-valued form]\label{thm:rigidity}
+Let $2\sigma<n$ and $h:\mufn\to\Z$ with $\widehat h(2^i)=0$ for $0\le i<a$ (implied by $\widehat h(j)=0$ for all $1\le j\le\sigma$, since $2^{a-1}\le\sigma$).  Then $h$ is invariant under $\mu_{M_0}$.  Conversely, every $\mu_{M_0}$-invariant $h$ has $\widehat h(j)=0$ for every $M_0\nmid j$.  The modulus is optimal: $\mu_{M_0}$-coset differences across distinct $\mu_{2M_0}$-cosets witness every $\sigma\le M_0-1$.
+\end{theorem}
+
+\begin{proof}
+Induction on the dyadic frequencies: $\widehat h(1)=\cdots=\widehat h(2^i)=0$ forces invariance under $\mu_{2^{i+1}}$.  Base: \cref{lem:antipodal} at $n'=n$ gives $h(x)=h(-x)$.  Step: $h$ invariant under $\mu_{2^i}$; the map $x\mapsto x^{2^i}$ has fibers the $\mu_{2^i}$-cosets, on which $h$ is constant with common value $h^*$, and
+$0=\widehat h(2^i)=2^i\sum_{y\in\mu_{n'}}h^*(y)\,y$ with $n'=n/2^i\ge4$.  \Cref{lem:antipodal} gives $h^*(y)=h^*(-y)$; choosing $\omega$ with $\omega^{2^i}=-1$ (present since $2^{i+1}\le M_0\mid n$), $h(x)=h^*(x^{2^i})=h^*(-x^{2^i})=h(\omega x)$, so $h$ is invariant under $\langle\mu_{2^i},\omega\rangle=\mu_{2^{i+1}}$.  Converse: $\sum_{\kappa\in\mu_{M_0}}\kappa^j=0$ for $M_0\nmid j$.
+\end{proof}
+
+\Cref{thm:rigidcyclo} is the case $\sigma=1$: the antipodal mechanism propagates dyadically rather than stalling.  Three consequences are used throughout.  \emph{Witness classification}: $A\subseteq\mufn(\mathbb C)$ with $e_1(A)=\cdots=e_{\sigma'}(A)=0$ in $\Z[\zeta]$ is a union of $\mu_{M_0'}$-orbits, $M_0'$ the least $2$-power exceeding $\sigma'$ (Newton converts $e$- to $p$-conditions in characteristic zero).  \emph{Class cap}: subsets with equal $\Z[\zeta]$-prefixes $(e_1,\dots,e_\sigma)$ differ by $\mu_{M_0}$-coset rearrangement, and the class of a set with $a$ cosets inside and $b$ outside has size exactly $\sum_u\binom au\binom bu=\binom{a+b}a\le2^{N_0}$.  \emph{Norm bound}: a nonzero $\widehat h(j)$ has all archimedean conjugates of modulus at most $\|h\|_1$, so $0<|\Norm_{\Q(\zeta)/\Q}\widehat h(j)|\le\|h\|_1^{\,n/2}$ --- the bridge from characteristic zero to $\F_p$: a mod-$\mathfrak p$ coincidence that fails in $\Z[\zeta]$ (a \emph{collision}) forces $p$ to divide a bounded nonzero integer.  The lattice identity $\{\widehat h(j)=0,\ j\le\sigma\}=\{\mu_{M_0}\text{-invariant}\}$ was verified by exact linear algebra at $n=16$ and $n=32$ across five slack levels (\cref{app:verify}).
+
+\begin{theorem}[Witness dichotomy: non-dyadic slack is collision-only]\label{thm:dichotomy}
+Let $t\ge2$, $2(t-1)<n$, and $A\subseteq\mufn(\mathbb C)$ with $e_1(A)=\cdots=e_{t-1}(A)=0$ in $\Z[\zeta]$.
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item If $t$ is a power of two: $A$ is a union of $\mu_t$-orbits --- the descent witnesses of \cref{thm:descent} are the \emph{only} characteristic-zero diagonal witnesses, and they realize exactly the values \cref{thm:descent} realizes.
+\item If $t$ is not a power of two: $M_0'>t$, the converse half of \cref{thm:rigidity} forces $p_t(A)=0$, and Newton then $e_t(A)=0$: characteristic-zero witnesses with $z\ne0$ \emph{do not exist}.  Every mod-$p$ witness with $z\ne0$ is a collision: any unconditional non-dyadic slack claim is an instance of the collision problem --- consistent with \cref{thm:ladder}(iii) operating only at $p\le N^{7/3}$, where collisions abound.
+\end{enumerate}
+Verified exhaustively at $n=16$, $t=3$, $\ell=8$: all six characteristic-zero zero-prefix subsets are $\mu_4$-orbit unions, with $e_3=0$ (\cref{app:verify}).
+\end{theorem}
+
+\section{Positive theorems: the density regime}\label{sec:positive}
+
+We now work at the deepest level: $N=n$, dyadic slack $\sigma$ with $\sigma\mid k$, $s=k+\sigma$, and radius $1-\rho-\sigma/n$.  When one writes $\sigma\asymp Cn/\log_2 n$, the invariant quantity is
+\[
+        \ceff=\frac{\sigma\log_2 n}{n},
+        \qquad\text{so that}\qquad
+        \frac n\sigma=\frac{\log_2n}{\ceff},
+        \quad 2^{n/\sigma}=n^{1/\ceff}.
+\]
+All asymptotic statements below are expressed in terms of $\ceff$; if $\sigma=(1+o(1))Cn/\log_2n$, then $\ceff=C+o(1)$.
+
+By \cref{thm:exactslack} read coefficientwise, the bad slopes of the line $u_z=U_{c^0}+zX^{s-j}$ through the base
+\[
+        U_{c^0}=X^s+\sum_{i<\sigma}(-1)^ic^0_iX^{s-i}
+\]
+in direction $j\in[1,\sigma]$ are exactly
+\[
+        \big\{(-1)^j(e_j(A)-c^0_j):
+        A\in\tbinom Hs,
+        e_i(A)=c^0_i\ \text{for all }i\in[1,\sigma]\setminus\{j\}\big\},
+\]
+with $c^0_j=0$ at $j=\sigma$ or for the zero base.  Condition (ii) of \cref{def:mca} is automatic on witness sets of more than $k$ points.  Write $B(p)$ for the bad-slope count of the canonical line ($c^0=0$, $j=\sigma$).
+
+\begin{theorem}[The canonical line, two-sided]\label{thm:diag}
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item\emph{(Unconditional floor, every prime.)}
+\[
+        B(p)\ge \min\left\{p,\ \frac s\sigma\left(\frac n\sigma-\frac s\sigma\right)+1\right\}
+        =\rho(1-\rho)\left(\frac{\log_2n}{\ceff}\right)^2+O\left(\frac{\log n}{\ceff}\right),
+\]
+realized by the descent witnesses of \cref{thm:descent} at $t=\sigma$, $N=n$.
+\item\emph{(Density ceiling.)}  For every $X\ge n^2\binom ns$ and at least half the primes $p\equiv1\pmod n$ in $(X,2X]$ (Siegel--Walfisz \cite{Dav00}; ineffective threshold),
+\[
+        B(p)\le
+        \underbrace{\min\left\{p,\ \binom{n/\sigma}{s/\sigma}\right\}}_{\text{descent slopes}}
+        +O_\rho(\log n).
+\]
+Thus the canonical line's error contribution is at most
+\[
+        \frac{n^{1/\ceff}+O(\log n)}{p}\to0
+\]
+whenever $p$ is in such a window and $\ceff$ is bounded away from zero.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Part (i) is \cref{thm:descent} and \cref{lem:dsh}.  For (ii), \cref{thm:rigidity} at level $\sigma-1$ has modulus $\sigma$ because $\sigma$ is dyadic.  Thus every characteristic-zero witness with $p_1(A)=\cdots=p_{\sigma-1}(A)=0$ is a $\mu_\sigma$-orbit union, hence a descent witness.  There are at most $\binom{n/\sigma}{s/\sigma}\le2^{n/\sigma}=n^{1/\ceff}$ such descent slopes.  Every other bad slope is carried by a collision single: a set $A$ for which some nonzero cyclotomic integer $\widehat{\mathbf 1_A}(i)$, $i\le\sigma-1$, vanishes modulo $\mathfrak p$.  Its norm is at most $n^{n/2}$, so it has at most $\kappa=\lceil n\log n/(2\log X)\rceil$ prime divisors exceeding $X$.  Summing over all $s$-subsets and dividing by the number $\gg X/(n\log X)$ of admissible primes gives the asserted $O_\rho(\log n)$ bound for at least half the primes.
+\end{proof}
+
+\begin{theorem}[All monomial bases, canonical direction]\label{thm:allbases}
+For every $X\ge n^2\binom ns^2$ and at least half the primes $p\equiv1\pmod n$ in $(X,2X]$, simultaneously for every base $c^0\in\F_p^{\sigma-1}$, the canonical-direction line $U_{c^0}+zX^k$ has
+\[
+        \#\{\text{bad }z\}
+        \le |\Phi_{\sigma-1}^{-1}(c^0)|
+        \le 2^{n/\sigma}+O(\sqrt{\log n})
+        =n^{1/\ceff}+O(\sqrt{\log n}),
+\]
+where $\Phi_{\sigma-1}(A)=(e_1(A),\dots,e_{\sigma-1}(A))$ on $s$-subsets.
+\end{theorem}
+
+\begin{proof}
+Bad slopes refine the slab $\Phi_{\sigma-1}^{-1}(c^0)$ by the last coordinate $e_\sigma$, so their number is at most the slab size.  In characteristic zero, any two sets in the same slab differ by a $\mu_\sigma$-coset rearrangement; each class has size at most $P=2^{n/\sigma}$.  Let $C_p^{(\sigma-1)}$ count ordered pairs of $s$-subsets that have equal punctured prefixes modulo $\mathfrak p$ but not in $\Z[\zeta]$.  For a slab of size $x$,
+\[
+        x^2\le Px+C_p^{(\sigma-1)},
+        \qquad\text{hence}\qquad
+        x\le P+\sqrt{C_p^{(\sigma-1)}}.
+\]
+For an ordered pair not equal in characteristic zero, choose the first nonzero prefix difference.  Its norm is bounded by $(2s)^{n/2}$, so it is divisible by at most $\kappa\ll n\log n/\log X$ primes exceeding $X$.  Summed over $\binom ns^2$ ordered pairs and averaged over the admissible primes in $(X,2X]$, the assumption $X\ge n^2\binom ns^2$ gives $C_p^{(\sigma-1)}=O(\log n)$ for at least half the primes.  This proves the displayed bound.
+\end{proof}
+
+\begin{remark}[Accounting the floor]\label{rem:flooracct}
+The floor in \cref{thm:diag}(i) consists of quotient-periodic witnesses: quotient-codeword agreements, the natural candidates for what a final protocol definition of ``mutual explanation'' might absorb.  Thus there are two numbers to track: the raw bad-slope count, which has a descent floor of order $(\log n/\ceff)^2$ at every prime and, by \cref{prop:qfloor}, a quotient-exact floor of order $n^{\beta(\rho)/\ceff(1-o(1))}$ above a quasipolynomial quotient threshold; and the aperiodic collision count, which is $O(\log n)$ for most primes in the density windows.  Which number is operational depends on the protocol definition.
+\end{remark}
+
+\section{The direction-arithmetic of slack}\label{sec:directions}
+
+Fix the zero base and vary the direction: bad slopes of $X^s+zX^{s-j}$ are carried by $A$ with $e_i(A)=0$ for $i\in[1,\sigma]\setminus\{j\}$ and $e_j(A)=\pm z$.
+
+\begin{lemma}[Ramification parity]\label{lem:parity}
+Let $B\subseteq\mu_{N}$, $N$ a power of two, $|B|=s'$.  Modulo the ramified prime $\lambda=(1-\zeta_{N})$ of $\Z[\zeta_{N}]$ \cite{Was97}, every root of unity is $\equiv1$, so $e_i(B)\equiv\binom{s'}i\pmod\lambda$: $e_i(B)=0$ forces $\binom{s'}i$ even.  Moreover $\binom{s'}i$ is even for all $2\le i\le\sigma'$ if and only if $s'\equiv0$ or $1\pmod{M'}$, $M'$ the least power of two exceeding $\sigma'$.
+\end{lemma}
+
+\begin{proof}
+The congruence is immediate.  Lucas, both directions: if $s'\equiv0,1\pmod{M'}$, every $i\in[2,M'-1]$ has a set bit in positions $1,\dots,\log_2M'-1$ where $s'$ has none, so $\binom{s'}i$ is even.  If $s'\equiv r\in[2,M'-1]$: for $r\le\sigma'$ take $i=r$; for $r>\sigma'$ the top bit of $r$ sits at $M'/2$, and $i=r-M'/2$ (if $\ge2$) or $i=M'/2$ lies in $[2,\sigma']$ with bits inside $r$'s, making $\binom{s'}i$ odd.
+\end{proof}
+
+\begin{theorem}[Direction trichotomy]\label{thm:directions}
+Dyadic slack $\sigma$, zero base, direction $1\le j\le\sigma$.
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item $j=\sigma$ (canonical): the two-sided descent band of \cref{thm:diag}.
+\item $j$ non-dyadic: the constraints contain every dyadic frequency up to $\sigma$; \cref{thm:rigidity} forces $\mu_{M_0}$-invariance with $M_0>\sigma\ge j$, hence $e_j(A)=0$: \emph{no characteristic-zero slopes $z\ne0$ exist}; for most primes in the window of \cref{thm:diag}, the bad-slope count is $O_\rho(\log n)$, all collision-borne.
+\item $j$ dyadic, $j<\sigma$: the constraints at levels below $j$ force $\mu_j$-invariance, so $j\nmid s$ gives no witnesses at all; for $j\mid s$, the identity $\prod_{a\in A}(X-a)=\prod_{y\in B}(X^j-y)$ reduces the problem \emph{exactly} to the direction-one problem at slack $\sigma'=\sigma/j$, size $s'=s/j$, on $\mu_{n/j}$: find $B$ with $e_2(B)=\cdots=e_{\sigma'}(B)=0$ and $e_1(B)\ne0$.
+\item Direction one: characteristic-zero witnesses require $s'\equiv0,1\pmod{M'}$ (\cref{lem:parity}).  Conversely they exist for $s'\equiv1\pmod{M'}$ at every $\sigma'$ --- take $B=\{y\}\sqcup(\mu_{M'}\text{-orbits})$, which has $e_i(B)=e_i(\{y\})=0$ for $i\ge2$ --- and for $s'\equiv0\pmod4$ at $\sigma'=2$: the quadruple $\{y,\,iy,\,\zeta_8y,\,-\zeta_8y\}$, whose six pairwise products $iy^2,\pm\zeta_8y^2,\pm i\zeta_8y^2,-iy^2$ cancel in pairs, padded by $\mu_4$-orbits.  At $\sigma'=2$ the classification is therefore complete: witnesses exist iff $s'\equiv0,1\pmod4$.  When witnesses exist they persist at \emph{every} prime ($e_1(B)\ne0$ in $\Z[\zeta]$ has finitely many prime divisors), and the scaling $A\mapsto uA$, $u\in H$, spreads $e_j$ over at least $n/j$ values: at least $n/j$ bad slopes forever.  When the parity obstructs: $O_\rho(\log n)$ bad slopes for most primes.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(ii) and the invariance step of (iii): \cref{thm:rigidity} applied to the dyadic frequencies present among the constraints (all of $1,\dots,j/2$ in case (iii); the full set in case (ii), since $j$ is not among them), with Newton converting the $e$-conditions to $\widehat{\mathbf1_A}$-conditions level by level.  $\mu_j$-invariance forces $j\mid|A|=s$.  The reduction identity and the constructions are direct computations: $e_2$ of a disjoint union is $e_2(X)+e_2(Y)+e_1(X)e_1(Y)$, and $\mu_{M'}$-orbits have $e_i=0$ for $M'\nmid i$.  Collision accounting as in \cref{thm:diag}(ii); persistence because the reduction of a characteristic-zero witness is a witness mod every $\mathfrak p$ not dividing $e_1(B)$.
+\end{proof}
+
+The parity law leaves the residue $s'\equiv0\pmod{M'}$ at $\sigma'\ge3$ undecided.  The following exclusion, by a mechanism independent of ramification, settles its minimal case at every $\sigma'$.
+
+\begin{theorem}[Self-inversive exclusion]\label{thm:selfinv}
+Let $\sigma'\ge2$ and let $B$ be any set of $s'=\sigma'+1$ points on the complex unit circle (in particular, roots of unity) with $e_2(B)=\cdots=e_{\sigma'}(B)=0$.  Then $e_1(B)=0$: direction-one witnesses of the minimal size $\sigma'+1$ do not exist.  Consequently, for $\sigma'=M'-1$, where $\sigma'+1$ is the minimal size in the residue class $s'\equiv0\pmod{M'}$, any witness in that class has at least $2M'$ elements.
+\end{theorem}
+
+\begin{proof}
+A monic polynomial with all roots on the unit circle is self-inversive: with $f(X)=\prod_{b\in B}(X-b)$ of degree $s'$ and $f^*(X):=X^{s'}\overline f(1/X)$, unimodularity ($1/\bar b=b$) gives $f^*=\bar q\,f$ with $q=\prod b$, i.e.\ the coefficients satisfy $c_i=\bar q\,\bar c_{s'-i}$.  Here $c_0=1$, $c_1=-e_1$, and $c_2=\cdots=c_{\sigma'}=0$; at $s'=\sigma'+1$ the mirror of $c_1$ is $c_{\sigma'}=0$, forcing $e_1=0$.
+\end{proof}
+
+\begin{remark}[The law, verified; the completed $\sigma'\le3$ picture]\label{rem:law}
+At $n=16$, $\sigma=2$, direction $1$ ($M'=4$): $s=9\equiv1$: exactly $48=3\cdot16$ bad slopes at \emph{every} prime tested from $257$ to $524{,}353$ --- three witness classes times the $H$-orbit, as (iv) predicts; $s=10\equiv2$ and $s=11\equiv3$: \emph{zero} at every large prime, with sporadic collision primes ($257$, $7489$ at $s=10$).  At $\sigma=4$, direction $3$ (non-dyadic), $s=12$: empty at every prime tested.  Forty-eight forever against zero almost always, switched by $s\bmod4$.  At $\sigma'=3$ ($M'=4$): size $4$ is excluded by \cref{thm:selfinv} at every $N$; size $8$ is characteristic-zero empty for $N\le32$ and size $12$ for $N=16$, proved by reduction modulo a single large prime --- a characteristic-zero witness survives mod \emph{every} prime, and exhaustive enumeration at $p=65089$ finds none, while the witnesses visible mod $97$ and $193$ are collisions vanishing there (\cref{app:verify}).  We conjecture that at $\sigma'=3$ witnesses exist iff $s'\equiv1\pmod4$: the parity-allowed residue $0$ is empty, in sharp contrast to $\sigma'=2$, where the $\zeta_8$-quadruple fills it.  A $(1-\zeta)$-adic analysis at the next level yields the necessary condition $\sum_bj_b\equiv0\pmod2$ on exponents but no contradiction; the residue-zero classification at $\sigma'\ge3$ beyond \cref{thm:selfinv} remains open.
+\end{remark}
+
+\begin{theorem}[Newton obstruction criterion for arbitrary bases]\label{thm:allbasesdir}
+Let $j\in[1,\sigma]$ be non-dyadic and fix a base vector $c^0=(c_i)_{i\ne j}$.  Let $P_m(e_1,\dots,e_m)$ be the Newton polynomial for the power sum $p_m$, and define, for a formal increment $\Delta$ in the $j$th elementary coefficient,
+\[
+        \calN_{m,j}(c^0;\Delta)
+        =P_m(c_1,\dots,c_{j-1},c_j+\Delta,c_{j+1},\dots,c_m)
+         -P_m(c_1,\dots,c_{j-1},c_j,c_{j+1},\dots,c_m),
+\]
+where $c_j$ is an auxiliary reference value.  If two characteristic-zero sets $A,B$ lie in the same punctured slab
+\[
+        e_i(A)=e_i(B)=c_i\qquad (i\ne j,\ 1\le i\le\sigma),
+\]
+and if their increment $\Delta=e_j(A)-e_j(B)$ satisfies
+\[
+        \calN_{2^r,j}(c^0;\Delta)=0\qquad\text{for every dyadic }2^r\le\sigma,
+\]
+then the rigidity theorem applies: $A-B$ is $\mu_{M_0}$-invariant and consequently $\Delta=0$.  Therefore any attempt to prove a one-slope-per-slab statement for arbitrary bases must first prove that all dyadic Newton obstruction equations vanish.  Without those extra equations, the rigidity argument does not apply.
+\end{theorem}
+
+\begin{proof}
+The equations $\calN_{2^r,j}(c^0;\Delta)=0$ say exactly that the two sets have equal dyadic power sums up to $\sigma$.  Applying \cref{thm:rigidity} to the difference of their indicator functions gives $\mu_{M_0}$-invariance.  Since $j<M_0$, the converse half of \cref{thm:rigidity} gives equality of the $j$th power sums.  With all lower elementary symmetric functions already equal, Newton's identity at level $j$ gives $j\Delta=0$ in characteristic zero, hence $\Delta=0$.
+\end{proof}
+
+\begin{example}[Why the earlier all-bases non-dyadic theorem was false]\label{ex:falseallbasesdir}
+Take $\sigma=4$ and $j=3$.  In a punctured slab, two sets have the same $e_1,e_2,e_4$ but may differ in $e_3$ by $\Delta$.  Newton's identities give
+\[
+        p_4=e_1p_3-e_2p_2+e_3p_1-4e_4,
+        \qquad
+        p_3=e_1p_2-e_2p_1+3e_3,
+\]
+and therefore
+\[
+        p_4(A)-p_4(B)=4e_1\Delta.
+\]
+Thus the dyadic frequency $p_4$ is not fixed by the punctured slab unless $e_1=0$ or $\Delta=0$.  The zero-base non-dyadic theorem is valid because $e_1=0$; the arbitrary-base statement is open except under extra Newton-obstruction hypotheses.
+\end{example}
+
+\section{The exact regime, and the closed-form count}\label{sec:stable}
+
+\begin{theorem}[Stable range: exactness for the proved strata]\label{thm:stable}
+Let $p\equiv1\pmod n$ with $p>(2s)^{n/2}$.  Then, with no exceptional primes:
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item the canonical line's bad-slope set is exactly the descent image
+\[
+        \{\mp e_1(B):\ B\subseteq H^\sigma,\ |B|=s/\sigma\};
+\]
+\item every canonical-direction line $U_{c^0}+zX^k$ has at most $2^{n/\sigma}=n^{1/\ceff}$ bad slopes;
+\item the zero-base direction trichotomy of \cref{thm:directions} holds with the ``most primes'' conclusions upgraded to ``every prime'': parity- or rigidity-obstructed zero-base directions have no characteristic-zero slopes $z\ne0$, while witness-bearing zero-base directions have exactly their characteristic-zero counts;
+\item arbitrary bases in non-canonical non-dyadic directions are not covered by this theorem, except under the additional Newton-obstruction conditions of \cref{thm:allbasesdir}.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Any collision at a level up to $\sigma$ requires $\mathfrak p$ to divide a nonzero cyclotomic integer $\widehat h(j_0)$ with all archimedean conjugates of modulus at most $\|h\|_1\le2s$.  Hence
+\[
+        p\le |\Norm \widehat h(j_0)|\le(2s)^{n/2},
+\]
+contrary to the stable-range hypothesis.  Thus all modular coincidences are characteristic-zero coincidences.  The canonical line and canonical-direction slabs are then governed by \cref{thm:rigidity}; zero-base directions are governed by \cref{thm:directions}.  The arbitrary-base non-dyadic case is excluded from the conclusion because equality in a punctured slab does not force equality at the dyadic power sums; Example~\ref{ex:falseallbasesdir} gives the basic obstruction.
+\end{proof}
+
+In the stable range the canonical count is not merely pinned: it has a closed form.
+
+\begin{theorem}[Exact slope count]\label{thm:exactcount}
+Let $N'=n/\sigma$, $n_1=N'/2$, $\ell'=\rho N'+1$, and let
+\[
+        A(N',\ell')=\sum_{\substack{u\ge0,\ t=\ell'-2u\ge0\\ u\le n_1-t}}\binom{n_1}{t}\,2^t
+\]
+be the number of antipodal-rearrangement classes of $\ell'$-subsets of $\mu_{N'}$; the class invariant is the signed set of singleton antipodal pairs together with the number of full pairs.  For every prime in the stable range, the canonical line's bad-slope count is exactly
+\[
+        B(p)=A(N',\ell'),
+        \qquad\text{and at }\rho=\tfrac12:\quad
+        B(p)=\frac{3^{n/(2\sigma)}-1}{2}.
+\]
+Consequently, at safe slack,
+\[
+        B(p)=n^{\beta(\rho)/\ceff+o(1)},
+\]
+where
+\[
+        \beta(\rho)=\frac12\max_{0\le\theta\le2\min(\rho,1-\rho)}\big(\HH(\theta)+\theta\big)
+        =\begin{cases}
+        \frac12(\HH(2\rho)+2\rho), & 0<\rho<1/3,\\[1mm]
+        \frac12\log_2 3, & 1/3\le\rho\le2/3,\\[1mm]
+        \frac12(\HH(2(1-\rho))+2(1-\rho)), & 2/3<\rho<1.
+        \end{cases}
+\]
+At the deployed rate $\rho=1/2$, this is $n^{(\log_2 3)/(2\ceff)+o(1)}$; the lower deployed rates use the small-$\rho$ branch above.
+\end{theorem}
+
+\begin{proof}
+By \cref{thm:stable}(i), $B(p)$ is the number of distinct values of $e_1(B)$ for $B\in\binom{\mu_{N'}}{\ell'}$.  Two such subsets have equal $e_1$ in $\Z[\zeta_{N'}]$ iff their difference $h$ satisfies $\widehat h(1)=0$, which by \cref{thm:rigidcyclo} is exactly antipodal-pair rearrangement.  Choose $t$ singleton antipodal pairs and their signs, and choose $u$ full pairs; feasibility is $t+2u=\ell'$ and $u\le n_1-t$, giving the displayed sum.  The stable range prevents distinct characteristic-zero values from colliding modulo $\mathfrak p$.  At $\rho=1/2$ the parity-restricted trinomial sum equals $\frac12(3^{n_1}-1)$.  The asymptotic formula is the entropy maximization of $\binom{n_1}{t}2^t$ under the feasibility cap $t\le\min(\ell',N'-\ell')$ built into the sum: the constraint $t\le\ell'$ binds for $\rho\le1/2$ and $t\le N'-\ell'$, from $u\le n_1-t$, binds for $\rho>1/2$.
+\end{proof}
+
+\begin{remark}[Where the stable threshold sits]\label{rem:threshold}
+$(2s)^{n/2}$ lies above the density windows of \cref{thm:diag,thm:allbases}.  Those theorems can be viewed as averaged-prime descents of the exact regime.  Empirically, collapse may occur far earlier, but the stable threshold is the price of every-prime certainty.
+\end{remark}
+
+\section{The boundary, and the conjecture}\label{sec:boundary}
+
+\subsection{The exact normal form}
+
+The positive theorems above concern monomial lines.  The general question is posed exactly by the following coordinates.  Throughout, $s_\delta=\lceil(1-\delta)n\rceil$ and $r=n-k$.
+
+\begin{definition}[Residue-line datum and packing number]\label{def:residue}
+Fix $1\le t\le r$.  A \emph{degree-$t$ residue-line datum} over $(\F,D,k)$ is a denominator $E\in\F[X]$ of degree $t$ nonzero on $D$, a numerator $B$ with $\deg B<t$, and an anchor word $w:D\to\F$.  A \emph{witness} for slope $z$ at radius $\delta$ is $(Q_z,S_z)$ with $\deg Q_z<k+t$, $|S_z|\ge s_\delta$, $Q_z\equiv zB\pmod E$, and $Q_z=w$ on $S_z$; it is \emph{noncontained} if no $A,G\in\F_{<k}[X]$ satisfy $A=w/E$ and $G=-B/E$ on $S_z$.  Let $\Lambda^{\rm NC}_{t,\delta}(D,k)$ be the maximum, over data, of the number of slopes admitting a noncontained witness.
+\end{definition}
+
+\begin{lemma}[Denominator representation]\label{lem:denom}
+For a word $b:D\to\F$ and $E$ of degree $t$ nonzero on $D$: a representation $b=R-B/E$ on $D$ with $\deg R<k$, $\deg B<t$ exists iff the word $Eb$ extends to a polynomial of degree $<k+t$ on $D$; for $t=r$ this always holds, by interpolation.  (Euclidean division of the extension by $E$, both ways.)
+\end{lemma}
+
+\begin{theorem}[Exact normal form]\label{thm:normalform}
+If some polynomial of degree $r$ is nonzero on $D$ (automatic for multiplicative domains, via $X^r$), then for every $\delta$:
+\[
+        \emca(C,\delta)\ =\ \frac1q\,\max_{1\le t\le r}\,\Lambda^{\rm NC}_{t,\delta}(D,k) .
+\]
+\end{theorem}
+
+\begin{proof}
+($\le$)  Fix a line $u_z=f+zg$ with bad-slope set $\Gamma$ and witnesses $u_z=P_z$ on $S_z$.  By \cref{lem:denom} at $t=r$ write $g=R-B/E$ on $D$; set $w=E\cdot f$ and $Q_z=E(P_z-zR)+zB$.  Then $\deg Q_z<k+t$, $Q_z\equiv zB\pmod E$, and on $S_z$: $Q_z=E(f+zg-zR)+zB=Ef-zB+zB=w$.  Containment would yield degree-$<k$ explanations of both $f$ and $g$ on $S_z$, contradicting badness (ii); all of $\Gamma$ uses one datum.
+($\ge$)  Given a datum and noncontained-witnessed slopes, the line $f=w/E$, $g=-B/E$ has, via $P_z=(Q_z-zB)/E$ (degree $<k$ by count), $P_z=f+zg$ on $S_z$: condition (i); noncontainedness is verbatim condition (ii).
+\end{proof}
+
+\begin{remark}[Strata]\label{rem:strata}
+The monomial slack line $x^{k+T}+zx^k$ on a subgroup is the datum $(E,B,w)=(X^r,-1,x^T)$ --- maximal denominator, simplest numerator --- and its noncontained slope set is exactly $\mathcal B_T(D,k)$ (\cref{thm:exactslack}): every theorem of \cref{sec:positive,sec:directions,sec:stable} is a statement about this stratum and its quotient refinements.  \Cref{thm:onez} is the trivial packing bound ($\Lambda^{\rm NC}\le2^n$), and the tangent floor (\cref{prop:floor}) is a residue-line family with $\Lambda^{\rm NC}\ge\lfloor\delta n\rfloor$, which is why \cref{conj:B} below carries the $n^{1+o(1)}/q$ correction --- the floor saturates it, so the conjectured positive half is sharp if true.
+\end{remark}
+
+\begin{proposition}[Denominator closure as a coordinate normal form]\label{thm:closure}
+In the coordinate formulation of line obstructions, assuming $|S_z|>k$ for active rows, every obstruction class is either zero, tangent (the direction word is explained on the active coordinates but the anchor is not), or a residue-line datum as in \cref{def:residue}.  Conversely, every residue-line datum gives such a class.  This proposition is a normal-form statement only; it does not bound the packing number $\Lambda^{\rm NC}$.
+\end{proposition}
+
+\begin{proof}
+If the direction word $b$ is explained by a degree-$<k$ polynomial on the active set, subtract that global completion; the remaining class is zero or tangent according as the anchor is explained.  Otherwise \cref{lem:denom} writes $b=R-B/E$.  Subtracting the global direction $R$ reduces to $b=-B/E$ with $B\ne0$, and multiplying the row relation by $E$ gives $EP_z+zB=w$ on $S_z$, exactly the residue-line form.  The converse is obtained by reversing these formulas.
+\end{proof}
+
+\subsection{The obstruction, the open core, and the conjecture}
+
+\begin{proposition}[No-anchor obstruction]\label{prop:noanchor}
+Every pair $(S,T)$ of $s$-subsets of $D$ is simultaneously an agreement pattern of some received word ($U$ with interpolant $L_{S\cup T}\cdot G$ has both explaining codewords zero).  Hence no word-free pair condition exists, lines with arbitrary $f,g$ admit no characteristic-zero anchor, and methods that certify statements by averaging over primes --- bounding, for each characteristic-zero object, the number of primes at which it degenerates, as in every density theorem of this paper --- are structurally incapable of bounding $\emca$ over \emph{all} lines, the words being quantified after the prime.  The all-lines positive half rests entirely on fixed-prime technology.
+\end{proposition}
+
+\begin{problem}[Per-fiber collision problem]\label{prob:perfiber}
+For $\sigma\ge Cn/\log_2n$ and all large $p\equiv1\pmod n$ with $n^{c_0}\le p\le2^{o(n)}$: every fiber of the prefix map $\Phi_\sigma(A)=(e_1(A),\dots,e_\sigma(A))$ on $s$-subsets of $H$ contains at most $n^{O(1)}$ ordered pairs that are prefix-equal mod $\mathfrak p$ but not in $\Z[\zeta]$.  This single divisibility statement implies the monomial-line positive half throughout the window, beyond the density and stable regimes proved above; the natural attacks --- prime averaging (blocked at fixed $p$ by construction), the polynomial method (whose Nullstellensatz coefficients on subgroup grids become complete character sums), subgroup exponential sums (whose known ranges end at $N\ge p^{3/7+\eps}$), and anticoncentration technology (whose forward inequalities reduce to the same even-moment counts) --- all terminate at it.
+\end{problem}
+
+\begin{conjecture}[Slack MCA threshold, floor- and quotient-corrected]\label{conj:B}
+Let $H_n\le\F_{q_n}^\times$ be smooth of order $n$, $k_n=\rho n$, $\mathrm{poly}(n)\le q_n\le2^{o(n)}$, and let $q_{D,n}$ be the generated-field size.  Suppose $\eta_n$ clears the corrected list-side scales,
+\[
+        \eta_n\ge(1+\eps)\taustar(\rho,q_{D,n})
+\]
+for some fixed $\eps>0$, and
+\[
+        \mathcal Q_{H_n}(\eta_n)\le B_Q\log_2 n+O(\log\log n)
+\]
+for some fixed profile exponent $B_Q$.  With $\Lambda^{\rm aper}$ the quotient-separated packing number of \cref{rem:aper}, the positive MCA prediction is
+\[
+        \max_t\Lambda^{\rm aper}_{t,\,1-\rho-\eta_n}(H_n,k_n)\le n^{1+o(1)},
+\]
+and, after the tangent-floor and generated-field corrections, the raw error obeys the two-term bound
+\[
+        \emca(C_n,1-\rho-\eta_n)
+        \le
+        \frac{n^{1+o(1)}+2^{(\beta(\rho)/\HH(\rho))\mathcal Q_{H_n}(\eta_n)(1+o(1))}}{q_{D,n}}
+        \le
+        \frac{n^{1+o(1)}+n^{(\beta(\rho)/\HH(\rho))B_Q+o(1)}}{q_{D,n}}.
+\]
+In particular $\emca(C_n,1-\rho-\eta_n)\le n^{1+o(1)}/q_{D,n}$ whenever the profile obeys the stronger bound $\mathcal Q_{H_n}(\eta_n)\le(\HH(\rho)/\beta(\rho))\log_2n+o(\log n)$.  The quotient term is not removable: \cref{thm:qnecessity} gives the exact monomial-line lower bound $\Acl(N^*,\rho N^*+1)/q$ above the quotient norm threshold, and the profile-asymptotic form $2^{(\beta/\HH)\mathcal Q_H(\eta)(1-o(1))}/q$ when $N^*\to\infty$.  Thus, in that asymptotic quotient range, a target raw bound $n^A/q$ requires $B_Q\le(\HH(\rho)/\beta(\rho))A$, equivalently $\mathcal Q_H(\eta)\lesssim(\HH(\rho)/\beta(\rho))A\log_2n$.  The failure half remains a separate conditional prediction: below the generated-field entropy gap, MCA error should be $1-o(1)$ only in strata where the relevant power-sum or residue-line map is sufficiently equidistributed to hit almost every slope.  Coefficient pigeonhole and quotient-core mechanisms prove list-side obstructions and motivate this failure prediction, but they do not by themselves force many bad slopes of an arbitrary line.
+\end{conjecture}
+
+\begin{remark}[Aperiodic packing normalization]\label{rem:aper}
+The phrase ``after quotient-periodic denominator families are separated'' in \cref{conj:B} and \cref{conj:final-mca} can be made precise.  Call a residue line in the normal form of \cref{thm:normalform} \emph{quotient-periodic} if its denominator is a pullback through a proper quotient $x\mapsto x^M$ with $M\mid\gcd(n,k)$, $M>1$, and let $\Lambda^{\rm aper}_{t,\delta}(H,k)$ be the maximum size of a noncontained packing containing no quotient-periodic line.  The conjectures assert $\max_t\Lambda^{\rm aper}_{t,1-\rho-\eta_n}(H_n,k_n)\le n^{1+o(1)}$, while the removed quotient-periodic lines are predicted to contribute at most the displayed quotient-profile term, matching the lower bound of \cref{thm:qnecessity}.
+\end{remark}
+
+\section{The quotient-exact floor, and the necessity of the quotient profile}\label{sec:qfloor}
+
+The descent floor of \cref{thm:diag}(i) counts canonical-line bad slopes produced on a quotient.  At quotient order $N'=n/\sigma$ and quotient agreement size $\ell'=\rho N'+1$, the Dias da Silva--Hamidoune lower bound gives only the no-threshold floor $\rho(1-\rho)(N')^2+O(N')$.  The closed-form quotient count $\Acl(N',\ell')=2^{\beta(\rho)N'(1-o(1))}$ from \cref{thm:exactcount} is exponentially larger in $N'$, but the proof of exactness there used the full-domain stable range $p>(2s)^{n/2}$.  The point of this section is that, for the floor alone, only quotient-level collisions matter.  The relevant norm bound is therefore $(2\ell')^{N'/2}$, which is quasipolynomial at safe slack, not exponential in $n\log n$.
+
+Throughout this section
+\[
+        \beta(\rho)=\frac12\max_{0\le\theta\le 2\min(\rho,1-\rho)}\bigl(\HH(\theta)+\theta\bigr),
+        \qquad
+        \Acl(N',\rho N'+1)=2^{\beta(\rho)N'(1-o(1))},
+\]
+as in \cref{thm:exactcount}.  Thus $\beta(\rho)=\frac12(\HH(2\rho)+2\rho)$ for $\rho<1/3$, $\beta(\rho)=\frac12\log_23$ for $1/3\le\rho\le2/3$, and $\beta(\rho)=\frac12(\HH(2(1-\rho))+2(1-\rho))$ for $\rho>2/3$; at the deployed rates $\rho\le1/2$ this agrees with the one-sided maximization over $\theta\le2\rho$.
+
+\subsection{The quotient-exact floor}
+
+\begin{proposition}[Quotient-exact floor]\label{prop:qfloor}
+Let $D\le\F_p^\times$ be smooth of order $n$, let $C=\RS[\F_p,D,k]$ with $k=\rho n$, and let $N'\mid n$ satisfy $\rho N'\in\Z$ and $\ell'=\rho N'+1\le N'$.  Put $\sigma=n/N'$ and $Q=D^\sigma$, so $Q$ has order $N'$.  If
+\[
+        p>(2\ell')^{N'/2},
+\]
+then the canonical line $x^{k+\sigma}+zx^k$ at radius $1-\rho-1/N'$ has at least
+\[
+        \left|\{-e_1(B)\bmod\mathfrak p:\ B\in\tbinom{Q}{\ell'}\}\right|
+        =\Acl(N',\ell')
+\]
+bad slopes, for every prime $p\equiv1\pmod n$ above the displayed threshold, where $\mathfrak p\subset\Z[\zeta_{N'}]$ is any degree-one prime above $p$; if $N'\to\infty$, then $\Acl(N',\ell')=2^{\beta(\rho)N'(1-o(1))}$ by \cref{thm:exactcount}.  Equivalently, above the quotient norm threshold, the descent part of the canonical bad-slope set is exactly the reduction of its characteristic-zero value set.  The threshold is
+\[
+        2^{(N'/2)\log_2(2\ell')},
+\]
+for example $2^{33.4}$ at $(N',\rho)=(16,1/2)$ and $2^{81.4}$ at $(32,1/2)$.
+\end{proposition}
+
+\begin{proof}
+By \cref{lem:tlocator} at $t=1$ and \cref{thm:slackt}, every value $z=-e_1(B)$ with $B\in\binom Q{\ell'}$ is support-wise bad for $x^{k+\sigma}+zx^k$ at radius $1-\rho-1/N'$.  It remains only to count the image of $e_1$ modulo $p$.
+
+Fix a degree-one prime $\mathfrak p\subset\Z[\zeta_{N'}]$ over $p$, identifying $Q$ with $\mu_{N'}$.  If $B\ne B'$ have $e_1(B)\ne e_1(B')$ in $\Z[\zeta_{N'}]$, then $h=\mathbf 1_B-\mathbf 1_{B'}$ has $\widehat h(1)\ne0$.  Every archimedean conjugate of $\widehat h(1)$ has modulus at most $\|h\|_1\le2\ell'$, so
+\[
+        0<\left|\Norm_{\Q(\zeta_{N'})/\Q}\widehat h(1)\right|
+        \le(2\ell')^{N'/2}<p.
+\]
+Thus $\mathfrak p\nmid\widehat h(1)$: distinct characteristic-zero values remain distinct modulo $\mathfrak p$.  By \cref{thm:rigidcyclo} and the class enumeration in \cref{thm:exactcount}, the number of distinct characteristic-zero values is exactly the antipodal-class count $\Acl(N',\ell')$.
+\end{proof}
+
+\begin{remark}[The threshold is real]\label{rem:thresholdneeded}
+Below the quotient norm threshold, quotient-level collisions can reduce the image below $\Acl(N',\ell')$.  At $(N',\ell')=(16,9)$ the image equals $3280=\Acl(16,9)$ for every tested prime $p\ge 67{,}057$, but drops to $3264$ at $p=58{,}337$ and $3232$ at $p=66{,}593$, and fluctuates in $[2576,3280]$ throughout $p\in[5281,66593]$.  Every observed deficit is a multiple of $16$, i.e. an $H$-orbit of collided classes, as forced by the dilation invariance of \cref{lem:dilation}; see V13 in \cref{app:verify}.  Thus an every-prime floor of the exact quotient size genuinely needs a norm threshold.  Below it, the appropriate unconditional statement is a density statement over primes, as in \cref{thm:diag}(ii).
+\end{remark}
+
+\begin{corollary}[Canonical line at safe slack, two-sided at every large quotient prime]\label{cor:diagupgrade}
+In the setting of \cref{thm:diag}, put $N'=n/\sigma=(\log_2n)/\ceff$ and $\ell'=\rho N'+1$.  For every prime $p\equiv1\pmod n$ with
+\[
+        p>(2\ell')^{N'/2}=n^{O_{\ceff}(\log\log n)},
+\]
+one has
+\[
+        B(p)\ge \Acl(N',\ell')=n^{\beta(\rho)/\ceff\,(1-o(1))}.
+\]
+Moreover, for at least half the primes in the windows of \cref{thm:diag}(ii), the descent term is bounded by the same class count and hence
+\[
+        B(p)\le \Acl(N',\ell')+O_\rho(\log n).
+\]
+Where the two prime ranges overlap, the canonical-line count at safe slack is pinned at exponent $\beta(\rho)/\ceff$.
+\end{corollary}
+
+\subsection{Necessity of the quotient profile for MCA}
+
+\begin{theorem}[The quotient profile is necessary for MCA at large primes]\label{thm:qnecessity}
+Let $H_n\le\F_p^\times$ be smooth of order $n$, let $C=\RS[\F_p,H_n,\rho n]$, and let $\eta\in(0,1-\rho)$.  Assume the maximum defining $\mathcal Q_{H_n}(\eta)$ in \cref{def:qprofile} is nonempty, let $M^*$ be a divisor attaining it, and put $N^*=n/M^*$.  Suppose
+\[
+        p>(2(\rho N^*+1))^{N^*/2}.
+\]
+Then the exact quotient-floor lower bound is
+\[
+        \emca(C,1-\rho-\eta)
+        \ge
+        \frac{\Acl(N^*,\rho N^*+1)}{p}.
+\]
+If moreover $N^*\to\infty$ along the sequence, then
+\[
+        \Acl(N^*,\rho N^*+1)
+        =
+        2^{(\beta(\rho)/\HH(\rho))\mathcal Q_{H_n}(\eta)(1-o(1))}.
+\]
+Consequently, along sequences with $N^*\to\infty$, if $\emca(C,1-\rho-\eta)\le n^A/p$ at such a prime, then
+\[
+        \mathcal Q_{H_n}(\eta)
+        \le
+        \frac{\HH(\rho)}{\beta(\rho)}A\log_2n\,(1+o(1)).
+\]
+For bounded $N^*$ the exact bound stands while the profile is $O(1)$, so the consequence is vacuous there.  At the deployed rates $1/2,1/4,1/8,1/16$, the constants $\HH(\rho)/\beta(\rho)$ are approximately $1.262$, $1.082$, $1.024$, and $1.009$.
+\end{theorem}
+
+\begin{proof}
+A divisor qualifying for \cref{def:qprofile} satisfies $M^*>\eta n$, equivalently $1/N^*>
+\eta$.  The radius $1-\rho-1/N^*$ is therefore below $1-\rho-\eta$, and bad slopes at the former radius remain bad at the latter by monotonicity in \cref{def:mca}.  Applying \cref{prop:qfloor} at quotient order $N^*$ gives at least $\Acl(N^*,\rho N^*+1)$ bad slopes, which is the exact bound.  If $N^*\to\infty$, then
+\[
+        \mathcal Q_{H_n}(\eta)
+        =\log_2\binom{N^*-1}{\rho N^*}
+        =\HH(\rho)N^*(1-o(1)),
+        \qquad
+        \log_2\Acl(N^*,\rho N^*+1)=\beta(\rho)N^*(1-o(1)),
+\]
+by Stirling and \cref{thm:exactcount}, which gives the asymptotic identity and the displayed necessary condition.
+\end{proof}
+
+\begin{corollary}[Every-prime polynomial lower bounds at logarithmic gap]\label{cor:logfailure}
+In the setting of \cref{thm:qnecessity}, with $C=\RS[\F_p,H_n,\rho n]$, let $N'=N'(n)$ be a qualifying quotient order with $N'=(1-o(1))c\log_2 n$ and $1/N'>1/(c\log_2 n)$.  For every prime $p\equiv1\pmod n$ with
+\[
+        \log_2p\ge \frac c2(1+o(1))\log_2 n\cdot\log_2(c\log_2 n),
+\]
+\[
+        \emca\left(C,1-\rho-\frac1{c\log_2n}\right)
+        \ge
+        \frac{n^{\beta(\rho)c(1-o(1))}}{p}.
+\]
+Thus, above the quotient norm threshold, a gap of order $1/\log n$ carries polynomially many quotient-periodic bad slopes of degree $\beta(\rho)c(1-o(1))$ --- any prescribed polynomial degree once the constant $c$ is large.  Superpolynomial counts require $c\to\infty$, i.e.\ gaps of order $o(1/\log n)$.
+\end{corollary}
+
+\begin{remark}[Margin against the conjectured positive half]\label{rem:margin}
+\Cref{thm:qnecessity} gives the strongest value-counting attack available from the quotient rigidity theory.  If $\mathcal Q_{H_n}(\eta)\le B_Q\log_2 n$, the attack produces $n^{(\beta/\HH)B_Q(1-o(1))}$ bad slopes, while a target upper bound of the form $n^{B_Q}/p$ would still survive by the margin
+\[
+        \HH(\rho)-\beta(\rho)=
+        \begin{cases}
+        \frac12\bigl(2\HH(\rho)-\HH(2\rho)-2\rho\bigr), & 0<\rho<1/3,\\[1mm]
+        \HH(\rho)-\frac12\log_2 3, & 1/3\le\rho\le 2/3,\\[1mm]
+        \frac12\bigl(2\HH(\rho)-\HH(2(1-\rho))-2(1-\rho)\bigr), & 2/3<\rho<1,
+        \end{cases}
+\]
+which is positive for $0<\rho<1$: the outer branches equal $f(\min(\rho,1-\rho))$ for $f(\delta)=\HH(\delta)-\frac12\HH(2\delta)-\delta$, which has $f(0)=0$ and $f'(\delta)=\log_2\frac{1-\delta}{1-2\delta}\ge0$, while $\HH(\rho)\ge\HH(1/3)>\frac12\log_23$ on the middle branch.  The margin is $\rho^2/(2\ln2)(1+O(\rho))$ as $\rho\to0$ and $(1-\rho)^2/(2\ln2)(1+O(1-\rho))$ as $\rho\to1$.  Numerically this margin is approximately $0.2075,0.0613,0.0129,0.0030$ at the deployed rates $1/2,1/4,1/8,1/16$.  Any refutation of the positive half beyond this quotient attack must therefore produce, at some quotient scale $N'$, at least $2^{(\HH(\rho)-\beta(\rho))N'(1-o(1))}$ additional bad slopes outside the characteristic-zero quotient image: collision-borne or non-quotient slopes of the kind isolated in \cref{prob:perfiber}.  The empirical frontier in V13--V14 is consistent with this division.
+\end{remark}
+
+\subsection{A concrete cap for challenge-size prime fields}
+
+\begin{proposition}[Grand-challenge cap below roughly $150$--$162$ bits]\label{prop:prize}
+Let $\rho\in\{1/2,1/4,1/8,1/16\}$, let $D\le\F_p^\times$ be smooth of order $n$ with $64\mid n$, and let $C=\RS[\F_p,D,\rho n]$.  Let $R(\rho)$ be the total reach in the table below.  For every prime $p\le 2^{R(\rho)}$,
+\[
+        \emca\left(C,1-\rho-\frac1{64}\right)>2^{-128},
+        \qquad
+        \delta_C^*(2^{-128})<1-\rho-\frac1{64}.
+\]
+In particular, the conclusion holds uniformly for all four displayed rates for every $p\le2^{150}$.
+\begin{center}\small
+\begin{tabular}{cccccc}
+\toprule
+$\rho$ & best $N'$ & gap $1/N'$ & DSH reach (bits) & norm floor $\Acl(N',\ell')$ & $R(\rho)$ (bits)\\
+\midrule
+$1/2$  & $32$ & $1/32$ & $136.0$ & $21{,}523{,}360=\tfrac12(3^{16}-1)$ & $152.4$\\
+$1/4$  & $32$ & $1/32$ & $135.7$ & $7{,}465{,}888$ & $150.8$\\
+$1/8$  & $64$ & $1/64$ & $137.0$ & $14{,}798{,}298{,}944$ & $161.8$\\
+$1/16$ & $64$ & $1/64$ & $136.2$ & $6{,}483{,}776$ & $150.6$\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{proposition}
+
+\begin{proof}
+At quotient order $N'$ with $\ell'=\rho N'+1$, the slack-one value set contains $-\ell'^{\wedge}Q$.  By \cref{lem:dsh}, this set has size at least $\min\{p,\ell'(N'-\ell')+1\}$ at every prime.  Therefore
+\[
+        \emca\ge \frac{\min\{p,\ell'(N'-\ell')+1\}}{p}
+        \ge 2^{-128}
+\]
+whenever $\log_2p\le128+
+\log_2(\ell'(N'-\ell')+1)$; this is the DSH reach.  Above the quotient norm threshold, \cref{prop:qfloor} gives
+\[
+        \emca\ge\frac{\Acl(N',\ell')}{p}\ge2^{-128}
+\]
+for $(2\ell')^{N'/2}<p\le2^{128}\Acl(N',\ell')$; this is the norm reach.  In each row, the norm threshold lies below the DSH reach, so the two bands cover every prime up to $R(\rho)$.  For $N'=32$, bad slopes at radius $1-\rho-1/32$ remain bad at $1-\rho-1/64$ by monotonicity; for $N'=64$ the radii are equal.
+\end{proof}
+
+\begin{remark}[The remaining $153$--$256$ bit band]\label{rem:capstone}
+The norm-certificate mechanism is structurally capped near this range: its reach is $128+\beta(\rho)N'$ bits, while its threshold is $(N'/2)\log_2(2\ell')$ bits.  For prime fields below the per-rate reach in \cref{prop:prize}, the challenge threshold is pinned below $1-\rho-1/64$.  Between that reach and $2^{256}$, whether the diagonal value sets survive reduction is a fixed-prime collision question of the kind posed in \cref{prob:perfiber}.  The heuristic suggested by V13--V14 is that the value sets stay near $\min\{p,\Acl\}$ until the counting limit, but proving such a statement would require equidistribution for power-of-two subgroups of order $O(\log p)$, far below currently available exponential-sum ranges.  \Cref{thm:cap} closes this band at a different strength grade: conditional on the imported list-to-agreement conversion \cite{CS25,ABF26}, every field of size at most $2^{256}$ admits, for challenge codes with $n\le q/2$, MCA error at least $2^{-42}$ already at gap $2^{-11}$ (\cref{cor:captiers}), so the remaining fixed-prime collision question governs only the error-one-grade strengthening.  The sharpened form of this cap --- gap $2^{-9}$, error $2^{-86}$, no field-size condition, extension fields included --- is the main theorem of \cite{UniversalCap}.
+\end{remark}
+
+
+\section{Summary, and open problems}\label{sec:frontier}
+
+\begin{table}[ht]\centering\small
+\caption{Corrected status of slack MCA for $\RS[\F_p,D,\rho n]$ on smooth domains, radius $1-\rho-t/N$.}\label{tab:frontier}
+\begin{tabular}{p{0.29\linewidth}p{0.43\linewidth}p{0.20\linewidth}}
+\toprule
+regime & behavior & status/source\\
+\midrule
+$t$ dyadic, DSH inequality holds & error $1$, every prime & \cref{thm:descent}\\
+$t=1$, DSH inequality holds & error $1$, every prime & \cref{cor:certified}\\
+$t=2$, two-moment inequalities hold & error $1$ for the slack-two monomial family: all middle bases $c$, all slopes $z$ & \cref{thm:twomoment,cor:twomomentmca}\\
+free-pool exponential-sum input & error $1$ & conditional, \cref{thm:ladder}\\
+$t$ non-dyadic, characteristic zero & no nonzero diagonal slopes & \cref{thm:dichotomy}\\
+zero-base non-dyadic directions & collision-only; most-prime bounds & \cref{thm:directions}\\
+canonical line, safe slack & no-threshold floor $\asymp(\log n/\ceff)^2$; most-prime ceiling $n^{1/\ceff}+O(\log n)$ & \cref{thm:diag}\\
+canonical quotient floor & $\#\mathrm{bad}\ge A(N',\ell')=n^{\beta(\rho)/\ceff(1-o(1))}$ for every $p>(2\ell')^{N'/2}$ & \cref{prop:qfloor,cor:diagupgrade}\\
+all bases, canonical direction & $\#\mathrm{bad}\le n^{1/\ceff}+O(\sqrt{\log n})$ for most $p$ & \cref{thm:allbases}\\
+arbitrary base, non-dyadic direction & needs Newton obstruction equations; the former all-bases theorem is not claimed & \cref{thm:allbasesdir}, Example~\ref{ex:falseallbasesdir}\\
+stable range $p>(2s)^{n/2}$ & exact for canonical and zero-base strata & \cref{thm:stable}\\
+canonical stable count & $\tfrac12(3^{n/(2\sigma)}-1)$ at $\rho=1/2$ & \cref{thm:exactcount}\\
+quotient profile, large primes & $\emca\ge\Acl(N^*,\rho N^*{+}1)/p$ exactly; $=2^{(\beta/\HH)\mathcal Q_H(\eta)(1-o(1))}/p$ as $N^*\to\infty$ & \cref{thm:qnecessity}\\
+deployed rates, challenge threshold & $\delta_C^*(2^{-128})<1-\rho-1/64$ below the per-rate prime-field reach & \cref{prop:prize}\\
+$q\ge2^n/\eps^*$ & no-slack principle trivially safe & \cref{thm:onez}\\
+any $q$, any $\delta<1-\rho$ & tangent floor $\ge\lfloor\delta n\rfloor/q$ & \cref{prop:floor}\\
+arbitrary lines & reduced to residue-line packing & \cref{thm:normalform}, Problem~\ref{prob:perfiber}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The main open problem is the fixed-prime, per-fiber collision problem Problem~\ref{prob:perfiber}.  It is the missing ingredient behind a positive all-lines MCA theorem in the polynomial-field window.  Other open directions are: the reduced cyclic exterior-algebra nonvanishing problem of \cref{thm:certificate} below the square-root barrier; sufficiency and sharp constants for the quotient-profile condition beyond the lower bound of \cref{thm:qnecessity}; the residue-zero classification at $\sigma'\ge3$ beyond \cref{thm:selfinv}; arbitrary bases in non-canonical directions, where the Newton obstruction equations replace the earlier false rigidity shortcut; and the subpolynomial-$N$ failure half, where only density-over-primes statements currently look accessible.  Nothing here changes systems operating purely in the Johnson regime.  The list-side open problems, and the final two-scale conjectures unifying both sides, are collected in Part~IV; Part~III first develops transfers, caps, and repairs, several of which reshape these problems directly.
+
+\part{Transfers, caps, and repairs}
+
+\section{A universal field-size cap via list-to-agreement conversion}\label{sec:cap}
+
+The imported Crites--Stewart conversion states that correlated agreement with sufficiently small error forces small list sizes \cite{CS25}; the survey \cite{ABF26} records this as the basic conversion between the two grand challenges.  Composing the contrapositive with the quotient-core lists of \cref{thm:qcore} conditionally caps the achievable mutual-correlated-agreement threshold over \emph{every} field of challenge size, prime or extension, with no value-set counting at all.  Throughout, $\eca(C,\delta)$ denotes the correlated-agreement error in the normalization of \cref{def:mca}: the maximal density of parameters $z$ for which $f+zg$ is $\delta$-close to $C$ while no common agreement set of density $1-\delta$ explains $f$ and $g$ simultaneously.  Every such $z$ is in particular support-wise MCA-bad, so
+\begin{equation}\label{eq:camca}
+        \emca(C,\delta)\ \ge\ \eca(C,\delta).
+\end{equation}
+
+\begin{theorem}[Imported: list-to-agreement conversion; \cite{CS25}, Theorem~2, as restated in \cite{ABF26}]\label{thm:capimport}
+Let $C=\RS[\F_q,D,k]$ with $|D|=n$, and let $\delta\in(0,1-\rho]$.  If
+\[
+        \eca(C,\delta)\ \le\ \eta\left(\frac1k-\frac n{kq}\right)
+        \qquad\text{for some }\eta\in(0,1),
+\]
+then the $\delta$-list size of the relevant augmented code $C^+\supseteq C$ satisfies $\Lst(C^+,\delta)\le\lceil q\,\eca(C,\delta)/(1-\eta)\rceil$.  We use only the consequence $\Lst(C,\delta)\le\Lst(C^+,\delta)$; see \cref{rem:diligence} for the bookkeeping this import requires.
+\end{theorem}
+
+\begin{lemma}[Contrapositive at $\eta=1/2$]\label{lem:capcontra}
+Under the import, if $\Lst(C,\delta)>q/k+1$, then $\eca(C,\delta)>\frac1{2k}\left(1-\frac nq\right)$.
+\end{lemma}
+
+\begin{proof}
+If instead $\eca\le\frac1{2k}(1-\frac nq)=\frac12(\frac1k-\frac n{kq})$, then \cref{thm:capimport} at $\eta=\frac12$ gives $\Lst(C,\delta)\le\lceil 2q\,\eca\rceil\le\lceil\frac qk(1-\frac nq)\rceil\le q/k+1$.
+\end{proof}
+
+\begin{theorem}[Universal cap, conditional on the import]\label{thm:cap}
+Let $q$ be any prime power, let $H\le\F_q^\times$ be smooth of order $n\le q/2$, and put $C=\RS[\F_q,H,k]$, where $k=\rho n$ and $\rho=2^{-a}$.  Let $N=2^c$ with $a\le c$, assume $N\mid n$, and put $M:=n/N\ge2$.  Suppose
+\[
+        \binom{N-1}{\rho N}\ >\ \frac qk+1.
+\]
+Then, conditional on \cref{thm:capimport},
+\[
+        \emca\Big(C,\,1-\rho-\frac{M-1}n\Big)\ >\ \frac1{2k}\Big(1-\frac nq\Big)\ \ge\ \frac1{4k},
+        \qquad\text{hence}\qquad
+        \delta^*_C\big(\tfrac1{4k}\big)\ <\ 1-\rho-\frac1{2N}.
+\]
+\end{theorem}
+
+\begin{proof}
+$M\mid k$ and $k/M=\rho N\le N-1$ hold by the divisibility hypotheses, so \cref{thm:qcore} at quotient order $N$ with $\sigma=M-1$ gives $\Lst(C,1-\rho-\frac{M-1}n)\ge\binom{N-1}{\rho N}>q/k+1$.  \Cref{lem:capcontra} converts this into $\eca>\frac1{2k}(1-\frac nq)$ at the same radius, and \cref{eq:camca} transfers it to $\emca$; $n\le q/2$ gives the clean constant.  Finally $\frac{M-1}n=\frac1N(1-\frac1M)\ge\frac1{2N}$ and $\emca(C,\cdot)$ is nondecreasing.
+\end{proof}
+
+\begin{corollary}[Two-tier answer at challenge parameters]\label{cor:captiers}
+Let $q\le2^{256}$ be any prime power, $\rho\in\{\frac12,\frac14,\frac18,\frac1{16}\}$, and let $H\le\F_q^\times$ be smooth of order $n$ with $2^{11}\mid n$, $n\le q/2$, and $k=\rho n\le2^{40}$, and put $C=\RS[\F_q,H,k]$.  Then, conditional on \cref{thm:capimport},
+\[
+        \delta^*_C(2^{-128})\ \le\ \delta^*_C(2^{-42})\ <\ 1-\rho-2^{-11}.
+\]
+Combined with \cref{prop:prize}: below the per-rate reach of roughly $2^{150}$--$2^{162}$ bits the challenge threshold is pinned below $1-\rho-\frac1{64}$ unconditionally, over every field up to $256$ bits it is pinned below $1-\rho-2^{-11}$ conditionally on the import, and below $1-\rho-2^{-9}$ ($2^{-10}$ at rate $1/16$) by the sharpened cap of \cite{UniversalCap}.
+\end{corollary}
+
+\begin{proof}
+Take $N=2^{10}$ in \cref{thm:cap}; the hypothesis $2^{11}\mid n$ ensures $M=n/N\ge2$.  Since $k\ge1$ and $q\le2^{256}$, we have $\log_2(q/k+1)\le257$, while $\log_2\binom{N-1}{\rho N}$ equals $1017.7$, $825.2$, $551.7$, and $341.0$ at the four rates, so the binomial hypothesis holds comfortably.  The constraint $k\le2^{40}$ enters only at the end: the cap gives $\emca\ge\frac1{4k}\ge2^{-42}>2^{-128}$ at gap at least $2^{-11}$.
+\end{proof}
+
+\begin{remark}[Relation to the companion cap paper]\label{rem:capcompanion}
+The composition above is extracted, sharpened, and made the main theorem of \cite{UniversalCap}: running the pigeonhole on slack-two locator fibers over the field of definition, rather than on quotient cores, improves the gap to $2^{-9}$ ($2^{-10}$ at rate $1/16$) under $2^{10}\mid n$ (resp.\ $2^{11}\mid n$), yields error $\frac1{2k}(1-n/q)\ge2^{-86}$ with no condition relating $n$ and $q$, and covers extension fields $\F\supseteq B\supseteq H$ directly through the subfield pigeonhole.  \Cref{thm:cap} is retained here because the quotient-core mechanism is the one native to this paper's framework and the proof is self-contained given Part~I; for citation purposes, the cap of \cite{UniversalCap} supersedes \cref{cor:captiers}.
+\end{remark}
+
+\begin{remark}[The pinch on the list--agreement equivalence]\label{rem:pinch}
+The survey \cite{ABF26} discusses the hoped-for equivalence ``lists small $\Leftrightarrow$ correlated agreement small'' in the regime $n\ll q$.  On smooth domains it is now pinched from both sides: \cref{thm:capimport} converts small agreement error into small lists, while the dyadic pigeonhole of \cref{thm:qcore} produces lists of size $2^{\Theta(N)}$ at gap $\Theta(1/N)$ for every divisor scale, which by the same conversion \emph{forces} agreement failure.  Any positive MCA theory above the corrected reserve must therefore live on domains where the divisor pigeonhole collapses --- which is precisely the structural definition of non-smoothness this paper has been quantifying.
+\end{remark}
+
+\begin{remark}[Due diligence on the import]\label{rem:diligence}
+\Cref{thm:capimport} is used as a black box, and three items must be checked against \cite{CS25} before the cap is cited as unconditional: (i) the exact admissible range of $\delta$ in their Theorem~2, and the definition of the augmented code $C^+$ together with the monotonicity $\Lst(C,\delta)\le\Lst(C^+,\delta)$; (ii) the normalization of $\eca$ (density over $z$, including extension-field sampling of $z$ in the sense of the proximity-gaps literature); (iii) the constants in the displayed implication.  Should any constant need repair, the slacked conversion of Ben-Sasson--Carmon--Hab\"ock--Kopparty--Saraf \cite{BCHKS25}, recorded as Theorem~5.2 of \cite{ABF26}, yields the same corollary with $2^{-42}$ replaced by a slightly smaller explicit constant and $2^{-11}$ by a slightly smaller gap.  The same checklist is adopted verbatim in \cite{UniversalCap}, whose slacked variant through \cite{BCHKS25} is worked out as an independent fallback route.
+\end{remark}
+
+\section{Subfield confinement over extension fields}\label{sec:subfield}
+
+Deployed instantiations sample the slope from an extension field $\F=B^{\,d}$ of the base field $B$ containing the domain.  The following confinement theorem shows the entire prime-field witness theory deflates by a factor $|B|/|\F|$ in that setting, while the list-side obstructions persist --- so the two grand challenges genuinely decouple over extensions.  A two-radius refinement of \cref{thm:subfield}, covering the proximity-loss form of correlated agreement, is proved in \cite[Lem.\ ``subfield confinement'']{UniversalCap}.
+
+\begin{theorem}[Subfield confinement]\label{thm:subfield}
+Let $B\le\F$ be a subfield, $D\subseteq B$, $C=\RS[\F,D,k]$, and let $f,g\in B^D$ be $B$-valued words.  Then every support-wise MCA-bad parameter of the line $f+zg$, at every radius, lies in $B$.
+\end{theorem}
+
+\begin{proof}
+Fix a $B$-basis $e_1=1,e_2,\dots,e_d$ of $\F$ and the $B$-linear coordinate projections $\pi_i:\F\to B$.  For $P\in\F[X]_{<k}$ and $x\in D\subseteq B$ we have $\pi_i(P(x))=(\pi_iP)(x)$, where $\pi_iP$ applies $\pi_i$ to coefficients; each $\pi_iP$ is a codeword.  Let $z\notin B$, so $z=\sum_iz_ie_i$ with $z_{i_0}\ne0$ for some $i_0\ge2$, and let $S$ be any set on which $f+zg$ agrees with a codeword $P$.  Comparing coordinates on $S$: the $i_0$-th coordinate of $(f+zg)(x)=f(x)+zg(x)$ is $z_{i_0}g(x)$, so $g|_S=(z_{i_0}^{-1}\pi_{i_0}P)|_S$, and the first coordinate is $f(x)+z_1g(x)$, so $f|_S=(\pi_1P-z_1z_{i_0}^{-1}\pi_{i_0}P)|_S$.  Both explaining polynomials have degree $<k$, so $f$ and $g$ are simultaneously explained on $S$ itself, and $z$ fails condition (ii) of \cref{def:mca} for every candidate $S$.
+\end{proof}
+
+\begin{corollary}[Deflation of the prime-field witness theory]\label{cor:deflate}
+In the sextic-extension instantiation discussed in \cite{ABF26} ($\F=B^6$ over a $31$-bit base field, $D\subseteq B$), every line with $B$-valued $f,g$ --- in particular every monomial line and every witness line constructed in Parts~I--II --- contributes MCA error at most $|B|/|\F|=p^{-5}<2^{-154}<2^{-128}$.
+\end{corollary}
+
+\begin{corollary}[Decoupling]\label{cor:decouple}
+List obstructions do not deflate: $C_B:=\RS[B,D,k]\subseteq C$ and a $B$-valued received word has $C$-list at least its $C_B$-list, so the quotient-core lists of \cref{thm:qcore} persist verbatim over $\F$.  Consequently, at deployed extension parameters, lists stay superpolynomial while every MCA attack below $2^{-128}$ must use genuinely $\F$-valued line data --- and such data exists nonconstructively, since \cref{thm:cap} applies to $q=|\F|\le2^{256}$ directly; sharper, the deployed-parameter corollary of \cite{UniversalCap} certifies $\eca>2^{-22}$ at gap $2^{-7}$ on the sextic itself.
+\end{corollary}
+
+\begin{remark}[Where the explicit $\F$-valued attack should live]\label{rem:explicitattack}
+By \cref{thm:subfield} the residue-line normal form of \cref{thm:normalform} is the natural source: denominators $E\in\F[X]$ not defined over $B$ evade confinement, and the quotient locator calculus applies to them unchanged.  Making the $\F$-valued bad lines explicit over the deployed sextic extension is the concrete open target: by \cite{UniversalCap} such lines exist nonconstructively already at gap $2^{-7}$ with bad-slope density $>2^{-22}$, and exhibiting them is posed there as the explicit-lines problem.
+\end{remark}
+
+\section{Chebyshev domains and circle codes}\label{sec:cheb}
+
+The locator mechanism uses only two facts about $x\mapsto x^M$: the domain is a union of complete fibers, and fiber locators are value-translates of a single degree-$M$ polynomial.  Both transfer to Dickson--Chebyshev quotient chains, hence to the $x$-coordinate domains of circle groups used by circle STARKs \cite{HLP24}, and in principle to the isogeny chains of ECFFT \cite{ECFFT}.
+
+\begin{lemma}[Dickson quotient chain]\label{lem:chebchain}
+Let $p$ be odd, $N\mid p+1$ even, and $X_N:=\{\zeta+\zeta^{-1}:\zeta\in\mu_N(\F_{p^2})\}\subseteq\F_p$, of size $N/2+1$.  For $m\mid N$ let $D_m$ be the degree-$m$ monic Dickson polynomial, $D_m(\zeta+\zeta^{-1})=\zeta^m+\zeta^{-m}$.  Then $D_m(X_N)=X_{N/m}$, and for every $w\in X_{N/m}\setminus\{\pm2\}$ the fiber $D_m^{-1}(w)\cap X_N$ has exactly $m$ elements and locator polynomial exactly $D_m(X)-w$.
+\end{lemma}
+
+\begin{proof}
+$D_m(\zeta+\zeta^{-1})=\xi+\xi^{-1}$ iff $\zeta^m\in\{\xi,\xi^{-1}\}$; for $\xi\ne\xi^{-1}$ this gives $2m$ values of $\zeta\in\mu_N$ pairing into $m$ distinct values of $\zeta+\zeta^{-1}$, all roots of the degree-$m$ polynomial $D_m(X)-w$, which is therefore their monic locator.
+\end{proof}
+
+\begin{theorem}[Quotient cores for Chebyshev domains]\label{thm:chebqcore}
+Let $C=\RS[\F_p,X_N,k]$ with $m\mid k$, $\kappa=k/m$, $\kappa\le\frac N{2m}-3$, and $1\le\sigma<m$.  Then
+\[
+        \Lst\Big(C,\ 1-\frac{k+\sigma}{N/2+1}\Big)\ \ge\ \binom{N/(2m)-2}{\kappa}.
+\]
+\end{theorem}
+
+\begin{proof}
+Fix $w_0\in X_{N/m}\setminus\{\pm2\}$ with fiber $F_0$, choose $T\subset F_0$ with $|T|=\sigma$, and set $Y:=D_m(X)^{\kappa}L_T(X)$ with $L_T=\prod_{t\in T}(X-t)$.  For each $A\subseteq X_{N/m}\setminus\{\pm2,w_0\}$ of size $\kappa$, the union of fibers over $A$ has locator $L_A=\prod_{w\in A}(D_m(X)-w)$ by \cref{lem:chebchain}, and as a polynomial in $D_m$,
+\[
+        D_m^{\kappa}-L_A=e_1(A)D_m^{\kappa-1}-e_2(A)D_m^{\kappa-2}+\cdots,
+\]
+of degree at most $m(\kappa-1)=k-m$.  Thus $P_A:=L_T\cdot(D_m^\kappa-L_A)$ has degree at most $\sigma+k-m<k$, hence is a codeword, and $Y-P_A=L_TL_A$ vanishes on $T\cup D_m^{-1}(A)$, an agreement set of size $\sigma+m\kappa=k+\sigma$.  Distinct $A$ give distinct $P_A$.  (The pullback form of $Y$ is essential: unlike $X^M-\alpha$, the polynomial $D_m$ has internal terms, so $X^k-L_A$ would only have degree $k-2$.)
+\end{proof}
+
+\begin{proposition}[Slack-one canonical stratum on a Chebyshev quotient]\label{prop:chebslack}
+With the notation of \cref{thm:chebqcore}, consider the line with $f=D_m^{\kappa+1}$ and $g=D_m^{\kappa}$ as words on $X_N$, and let $X'=X_{N/m}\setminus\{\pm2\}$, $N'=|X'|=\frac N{2m}-1$.  For every $A\subseteq X'$ with $|A|=\kappa+1\le N'$, the parameter $z=-e_1(A)$ is support-wise MCA-bad at radius $1-\frac{k+m}{N/2+1}$.  Consequently, by Dias da Silva--Hamidoune \cite{DH94},
+\[
+        \emca\Big(C,\ 1-\frac{k+m}{N/2+1}\Big)\ \ge\ \frac{\min\{p,\ (\kappa+1)(N'-\kappa-1)+1\}}{p}.
+\]
+\end{proposition}
+
+\begin{proof}
+Let $S=D_m^{-1}(A)\cap X_N$, of size $m(\kappa+1)=k+m$.  In the variable $u=D_m$, the polynomial $u^{\kappa+1}-e_1(A)u^{\kappa}-\prod_{w\in A}(u-w)$ has degree at most $\kappa-1$, so $P:=D_m^{\kappa+1}-e_1(A)D_m^{\kappa}-L_A$ is a codeword, and $f+zg-P=L_A$ vanishes on $S$: the line is $S$-close.  But $g=D_m^\kappa$ cannot be explained on $S$: for any codeword $c_g$, the difference $D_m^\kappa-c_g$ is monic of degree exactly $k$ and would need $k+m>k$ roots.  So condition (ii) of \cref{def:mca} holds at $S$, and $z=-e_1(A)$ is bad.  The count is the restricted sumset bound applied to the arbitrary set $X'\subset\F_p$.
+\end{proof}
+
+\begin{corollary}[Failure on circle $x$-coordinate domains at Mersenne-$31$ parameters]\label{cor:circle}
+Let $p=2^{31}-1$, so the circle group has order $p+1=2^{31}$ and every $X_N$ with $N\mid 2^{31}$ is available.  For $N\ge2^{19}$, $m=N/2^{18}$, and $k=\rho(N/2+1)+O(1)$ at $\rho=1/2$ with $m\mid k$:
+\[
+        (\kappa+1)(N'-\kappa-1)+1\ \approx\ \tfrac14(2^{17})^2\ =\ 2^{32}\ >\ p,
+\]
+so the slack-one canonical stratum already has error one at radius approximately $1-\rho-2^{-17}$.  The up-to-capacity hope thus fails for the Reed--Solomon constituents on circle-group $x$-coordinate domains exactly as on multiplicative smooth domains.
+\end{corollary}
+
+\begin{remark}[Circle codes proper, and the general isogeny transfer]\label{rem:isogeny}
+Circle codes decompose as $f(x,y)=f_0(x)+yf_1(x)$ with $f_0,f_1$ supported on $x$-coordinate domains \cite{HLP24}; the stratum above lives in the even part, and carrying the full bivariate MCA bookkeeping through this decomposition is routine but deferred.  More generally, the proofs above used only that the domain is a union of complete fibers of a chain of low-degree maps whose fiber locators are value-translates of one polynomial: multiplicative powers, Dickson--Chebyshev maps, linearized polynomials, and the $2$-isogeny chains of ECFFT \cite{ECFFT} all qualify.  This gives structural content to the degenerate-code characterization requested in \cite{ABF26}: degeneracy is a large cover structure compatible with the degree filtration.
+\end{remark}
+
+\section{Torsion-coset repairs: \texorpdfstring{$\{2,3\}$}{(2,3)}-smooth rigidity and arbitrary-base templates}\label{sec:torsion}
+
+We isolate the external input in exactly the form used, matching the pattern of \cref{thm:capimport,thm:torsionimport}.
+
+\begin{theorem}[Imported: vanishing sums over two primes; \cite{Sch64,CJ76,LL00}]\label{thm:vsimport}
+Let $n$ have prime support contained in $\{2,3\}$.  (i)~The $\Z$-module of solutions of $\sum_{y\in\mufn}h(y)\,y=0$ is generated by the rotations of the prime relations $R_p$ for the primes $p\mid n$ \cite{Sch64}.  (ii)~Every minimal vanishing sum of $n$-th roots of unity with nonnegative integer coefficients is a rotation of $R_p$ for some prime $p\mid n$ \cite{CJ76,LL00}.
+\end{theorem}
+
+\begin{theorem}[$\{2,3\}$-smooth slack-one rigidity, conditional on the import]\label{thm:23rigidity}
+Let $n=2^a3^b$ with $a\ge1$, and when $b\ge1$ let $\omega\in\mufn$ have order $3$.  A function $h:\mufn\to\Z$ satisfies $\sum_yh(y)\,y=0$ if and only if $h$ is a $\Z$-combination of the pair functions $\delta_\zeta+\delta_{-\zeta}$ and, when $b\ge1$, the triangle functions $\delta_\zeta+\delta_{\zeta\omega}+\delta_{\zeta\omega^2}$.  Moreover, for sets $S,T\subseteq\mufn$: $e_1(S)=e_1(T)$ if and only if the multiset $S\sqcup(-T)$ is an $\N$-linear combination of rotated pair relations $\{\zeta,-\zeta\}$ and, when $b\ge1$, rotated triangle relations $\{\zeta,\zeta\omega,\zeta\omega^2\}$.
+\end{theorem}
+
+\begin{proof}
+The displayed generators visibly lie in the kernel of $h\mapsto\sum_yh(y)\,y$; conversely the kernel is generated by them, by part~(i) of \cref{thm:vsimport}, since for $n=2^a3^b$ the rotated prime relations are exactly the pair functions and, when $b\ge1$, the triangle functions.  For the set version, suppose $e_1(S)=e_1(T)$.  Since $n$ is even, $-T\subseteq\mufn$, and $\sum_{y\in S}y+\sum_{y\in T}(-y)=0$ exhibits the multiset $S\sqcup(-T)$ --- multiplicities at most two, attained exactly when $y\in S$ and $-y\in T$ --- as a vanishing sum of $n$-th roots with nonnegative coefficients.  Every such sum decomposes as a sum of minimal vanishing sums with nonnegative coefficients, by induction on the total multiplicity: any nonempty vanishing sum contains a vanishing subsum of minimal cardinality, which is itself minimal, and removing it leaves a shorter vanishing sum.  By part~(ii) of \cref{thm:vsimport}, each minimal summand is a rotation of $R_p$ for a prime $p\mid n$: a pair, or a triangle when $b\ge1$.  This is the asserted $\N$-combination.  The converse is immediate, since every rotated pair and triangle sums to zero.  At $b=0$ only the pair relations occur, recovering the antipodal classification underlying \cref{thm:upstairs}.
+\end{proof}
+
+\begin{remark}[Mixed-radix counts and domains]\label{rem:23count}
+\Cref{thm:23rigidity} supplies the characteristic-zero relation-module and set-decomposition input for the $\{2,3\}$-smooth (mixed-radix FFT) extension of the slack-one theory.  The class invariant should consist of a signed pair profile together with a triangle profile, and the analogue of $\Acl(N',\ell')$ should be a two-parameter sum whose exponent is a constrained entropy maximization over pair and triangle densities.  The norm sieve itself transfers unchanged once the characteristic-zero classes are fixed, because the archimedean bounds never used $2$-smoothness.  The exact class enumeration and the corresponding two-parameter analogue of $\beta(\rho)$ are left as future combinatorics rather than claimed here; in particular, no canonical positive move normal form for set-to-set transformations is asserted.
+\end{remark}
+
+We isolate the external input in exactly the form used.
+
+\begin{theorem}[Imported: degree-only torsion-coset bound; \cite{AS12}, with \cite{Laurent84,ESS02,BS02}]\label{thm:torsionimport}
+For all $s,d\ge1$ there is an explicit constant $C_{\rm tc}(s,d)$ such that for every subvariety $V\subseteq\mathbb G_m^s$ cut out by polynomials of degree at most $d$, the torsion points of $V$ lie on at most $C_{\rm tc}(s,d)$ maximal torsion cosets contained in $V$, independently of the coefficients of the defining polynomials.
+\end{theorem}
+
+As with \cref{thm:capimport}, this statement is imported as a black box in exactly the form used, and \cref{thm:templates} below is conditional on it in the same sense.
+
+\begin{theorem}[Torsion-coset template structure for arbitrary-base slabs, conditional on the import]\label{thm:templates}
+Fix $s\ge1$, $\sigma\ge1$.  There is a constant $C(\sigma,s)$, independent of $n$ and of the pinned values, with the following property.  For any $c_1,\dots,c_\sigma\in\overline{\Q}$, let $V_c=\{x\in\mathbb G_m^s:\ p_i(x)=c_i,\ 1\le i\le\sigma\}$ be the slab variety in the power sums.  Then the torsion points of $V_c$ lie on at most $C(\sigma,s)$ maximal torsion cosets $u\mathcal H\subseteq V_c$.  Along each positive-dimensional coset all pinned power sums are constant (a padding family); the zero-dimensional cosets are at most $C(\sigma,s)$ isolated templates.  In particular, for every $n$ and every base, the characteristic-zero witness set of a $\sigma$-slab on $s$ letters decomposes into at most $C(\sigma,s)$ classes.
+\end{theorem}
+
+\begin{proof}
+Witnesses are torsion points of $\mathbb G_m^s$ on $V_c$.  Finiteness of the maximal torsion cosets is Laurent's theorem \cite{Laurent84}; the uniform count is \cref{thm:torsionimport} with $d=\sigma$, since the defining degrees $1,\dots,\sigma$ depend on neither $c$ nor $n$.  This gives $C(\sigma,s)=C_{\rm tc}(s,\sigma)$.  Constancy of the $p_i$ along a coset contained in $V_c$ holds by definition of $V_c$.
+\end{proof}
+
+\begin{corollary}[Finiteness of the residue-zero classification]\label{cor:reszero}
+For each fixed $(\sigma',s')$ the variety $\{e_2=\cdots=e_{\sigma'}=0\}$ has fixed coefficients, so \cref{thm:templates} reduces its torsion points to a finite, effectively computable list of coset families, uniformly in $n$.  Positive-dimensional cosets may still contain padding families of unbounded order; once those families are enumerated, the remaining isolated templates form a finite set.  Thus the residue-zero classification at $\sigma'\ge3$ left open after \cref{thm:selfinv} becomes a finite template computation for each fixed size.
+\end{corollary}
+
+\begin{remark}[The principled replacement for the retracted all-bases theorem]\label{rem:templaterepair}
+\Cref{thm:templates} is the structure that the retracted ``all bases, all non-dyadic directions'' claim was missing: every characteristic-zero witness of an arbitrary-base slab is ``one of at most $C(\sigma,s)$ templates, padded by vanishing-sum families,'' and the Newton-obstruction criterion of \cref{thm:allbasesdir} determines which templates survive a given direction.  Because the bases themselves are $n$-dependent torsion data, isolated templates can have unbounded order, so the finite-field transfer is per-class: the stable-range and density norm sieves of Part~II apply to each of the boundedly many classes separately.  Turning this into a clean every-prime arbitrary-base theorem would require carrying out that finite-template verification and the corresponding per-class norm-sieve bookkeeping; it is no longer a single rigidity shortcut.
+\end{remark}
+
+\section{Additive domains, dilation invariance, and further transfers}\label{sec:further}
+
+\begin{proposition}[Additive confinement of the canonical locator stratum]\label{prop:additive}
+Let $q=2^e$, let $V\le\F_q$ be an $\F_2$-subspace, $D=a+V$ with $|D|=n$, and $C=\RS[\F_q,D,k]$.  The slack-one locator stratum of the canonical line --- the bad slopes $\{e_1(A):A\in\binom D{k+1}\}$ produced by full agreement sets --- is contained in the single additive coset $(k+1)a+V$, hence has size at most $n$ and density at most $n/q$.
+\end{proposition}
+
+\begin{proof}
+$e_1(A)=\sum_{i}(a+v_i)=(k+1)a+\sum_iv_i\in(k+1)a+V$, since $V$ is closed under addition.
+\end{proof}
+
+\begin{remark}
+Restricted sums inside an $\F_2$-affine space cannot expand, so the smooth-domain catastrophe is a multiplicative phenomenon: on binary-tower domains the canonical locator stratum is confined to the tangent-floor scale $n/q$, versus error one multiplicatively.  This is a statement about the locator stratum only; other failure mechanisms in characteristic two are not excluded, so the separation is phrased stratum-wise.
+\end{remark}
+
+\begin{lemma}[Dilation invariance of restricted subgroup sums]\label{lem:dilation}
+Let $Q\le\F_p^\times$ and $1\le\ell\le|Q|$.  Then $u\cdot(\ell^{\wedge}Q)=\ell^{\wedge}Q$ for every $u\in Q$: the restricted sumset is a union of multiplicative $Q$-cosets, together possibly with $\{0\}$.
+\end{lemma}
+
+\begin{proof}
+$u\cdot\sum_{x\in A}x=\sum_{x\in uA}x$ and $A\mapsto uA$ permutes $\binom Q\ell$.
+\end{proof}
+
+\begin{remark}[Why the V13 deficits are multiples of $16$]\label{rem:dilationv13}
+At $(N',\ell')=(16,9)$ the image of $e_1$ is a union of order-$16$ cosets (plus possibly $0$) by \cref{lem:dilation}, so every deficit from the characteristic-zero plateau is a multiple of $16$ --- exactly the pattern recorded in item V13 of \cref{app:verify}.  The same invariance shows that energy-increment arguments must work coset-wise, which is one structural reason unconditional technology below $N\sim\sqrt p$ cannot currently beat the Dias da Silva--Hamidoune bound: few-fold growth estimates for subgroup sumsets \cite{Shk14} act on the coset count, which dilation already fixes.
+\end{remark}
+
+\begin{remark}[Polynomial generators, folding, and interleaving]\label{rem:generators}
+Three transfer notes toward the questions of \cite{ABF26}.  (i)~\emph{Polynomial generators}: by \cref{cor:twomomentmca}, any generator family whose bad-parameter event contains the slack-two monomial stratum inherits error one at every prime below the root barrier, so on smooth domains in that range polynomial generators \cite{BCGM25} cannot improve the threshold beyond what the distance-preservation reductions already give.  (ii)~\emph{Folded Reed--Solomon}: running the locator through an $s$-fold packet $\prod_{b\in A}\prod_{0\le i<s}(X^{a}-b\,\omega^{ai})$ leaves the agreement structure intact, contributes the slope through $e_1(A)$ scaled by $\sum_i\omega^{-ai}$, and pins the intermediate coefficients --- exactly a slab condition at $\sigma=s-1$.  The fullness theory of Part~II then predicts that small folding parameters cannot escape the two-moment barrier, while admissible large-$s$ folding \cite{GG25} acts precisely as an anti-stabilizer device; making the $s\in\{2,3\}$ case unconditional is a concrete short-term target.  (iii)~\emph{Interleaving}: lower bounds transfer to interleaved codes by equal components, and the residue-line normal form is the natural tool for deciding whether the noncontained packing number of $C^{\equiv s}$ exceeds that of $C$ at slack radii, extending \cite{DG25} beyond unique decoding.
+\end{remark}
+
+\part{Integrated frontier and synthesis}
+
+\section{Integrated frontier and final conjectural asymptotics}\label{sec:integrated-frontier}
+
+The list and MCA sides now have the same two-scale shape.  Let $s=k+\sigma$ and assume the generated-field condition unless a field-of-definition parameter is explicitly inserted.  The proved lower-bound side says that polynomial behavior cannot begin before
+\[
+        \sigma\ \gtrsim\ \max\left\{
+        \frac{\log_2\binom n{k+\sigma}}{\log_2 q},\ \frac{n}{\log n}
+        \right\}.
+\]
+The first term is the ambient entropy reserve and the second is the quotient-core reserve.  For a prescribed polynomial list exponent $B$, the quotient reserve has the sharper form
+\[
+        \sigma\ge \frac{(\HH(\rho)+o(1))n}{B\log_2 n}
+\]
+for the explicit quotient-core family to be at most $n^B$.
+
+On the MCA side, the same two-scale shape is now matched by proved statements in Part~II: the quotient-exact floor (\cref{prop:qfloor}) shows the closed-form quotient count survives at every prime above the quotient norm threshold, the necessity theorem (\cref{thm:qnecessity}) shows the quotient profile of \cref{def:qprofile} is genuinely necessary for polynomial MCA slope bounds at large primes, and the deployed-rate challenge cap (\cref{prop:prize}) translates the floor into concrete prime-field parameter statements.
+
+The proved positive side currently reaches two important but not final regimes.  In characteristic zero, prefix fibers are exactly quotient-periodic and therefore polynomial at $\sigma\ge Cn/\log n$.  In prime fields $p\equiv1\pmod n$, the Galois-amplified no-collision theorem transfers this to finite fields once
+\[
+        p>\exp\!\left(C\frac{n\log n}{\sigma}\right).
+\]
+At the corrected reserve $\sigma\asymp n/\log n$, this is the quasi-polynomial split-prime range $p>\exp(O((\log n)^2))$.
+
+The expected final list theorem is the following local-limit statement, which strengthens the monomial-prefix conjecture to arbitrary received words.
+\begin{conjecture}[Final locator local limit]\label{conj:final-locator}
+For every fixed $\rho\in(0,1)$ and every $B,\eps>0$, there is $C_{\rho,B,\eps}$ such that for every generated-field smooth domain $H\le\F_q^\times$ of order $n=2^m$ (so $q=q_D$), every $k=\rho n+O(1)$, and every $\deg U<n$,
+\[
+        |\Fib_U(k+\sigma)|\le n^B
+\]
+whenever
+\[
+        \sigma\ge C_{\rho,B,\eps}\frac n{\log n}
+        \qquad\text{and}\qquad
+        \sigma\log_2q\ge(1+\eps)\log_2\binom n{k+\sigma}.
+\]
+Equivalently, after quotient-periodic classes are removed, the map $S\mapsto U\bmod L_S$ behaves like a random codimension-$\sigma$ hash on $(k+\sigma)$-subsets.
+\end{conjecture}
+
+The expected final MCA theorem is the residue-line analogue.
+\begin{conjecture}[Final floor- and quotient-corrected MCA asymptotic]\label{conj:final-mca}
+For every fixed $\rho\in(0,1)$ and $\eps>0$, there is $C_0=C_0(\rho,\eps)$ such that the following holds for every fixed reserve constant $C\ge C_0$.  Let $H_n\le\F_{q_n}^\times$ be generated-field smooth domains of order $n$ (so $q_n=q_{D,n}$), with $k_n=\rho n+O(1)$ and $\mathrm{poly}(n)\le q_n\le2^{o(n)}$.  Assume the corrected reserve
+\[
+        \sigma_n\ge C\frac n{\log_2n},
+        \qquad
+        \sigma_n\log_2q_n\ge(1+\eps)\log_2\binom n{k_n+\sigma_n},
+\]
+and put $\eta_n=\sigma_n/n$ and $C_n=\RS[\F_{q_n},H_n,k_n]$.  Then, with the unavoidable tangent floor and the separated quotient-periodic floor included on the right,
+\[
+        \emca\big(C_n,1-\rho-\eta_n\big)
+        \le
+        \frac{n^{1+o(1)}+2^{(\beta(\rho)/\HH(\rho))\mathcal Q_{H_n}(\eta_n)(1+o(1))}}{q_n}.
+\]
+In packing form (\cref{rem:aper}), the conjectural aperiodic noncontained residue-line packing has size $n^{1+o(1)}$, while the separated quotient-periodic contribution is bounded at the displayed quotient-profile scale.  In particular, if
+\[
+        \mathcal Q_{H_n}(\eta_n)\ \le\ \frac{\HH(\rho)}{\beta(\rho)}\log_2n+o(\log n)
+\]
+--- automatic whenever the reserve constant satisfies $C>\beta(\rho)$, since every qualifying divisor has $n/M<1/\eta_n\le(\log_2n)/C$ and hence $\mathcal Q_{H_n}(\eta_n)\le(\HH(\rho)/C)\log_2n\,(1+o(1))$ --- then the raw prediction takes the clean form
+\[
+        \emca\big(C_n,1-\rho-\eta_n\big)\le\frac{n^{1+o(1)}}{q_n}.
+\]
+This is the strongest raw bound compatible with \cref{thm:qnecessity}.
+\end{conjecture}
+
+These conjectures are deliberately stated as finite combinatorial-algebraic assertions.  They can be attacked through BCH coset enumerators \cite{DMP21}, subgroup Hayes-equivalence estimates \cite{Gao21,Gao22}, finite-field harmonic analysis on the prefix map and subgroup subset-sum asymptotics \cite{LiWan08,ZhuWan10}, or inverse Littlewood--Offord style template counting.  The results proved in this manuscript remove the characteristic-zero ambiguity and reduce the remaining problem to finite-field local limits.
+
+\section{Conclusion}\label{sec:final-conclusion}
+
+The final form of the program is two-scale and floor-corrected.  The list-side negative mechanisms are settled by entropy pigeonholes and quotient cores.  The characteristic-zero structure is settled by the inverse quotient theorem.  The quasi-polynomial split-prime monomial-prefix positive theorem follows from Galois-amplified collision divisibility.  The MCA canonical-line theory is exact at every slack, and the all-line theory reduces to residue-line packing --- under the corrected bookkeeping of Part~II: the free-pool ladder is conditional on its exponential-sum input, the former all-bases non-dyadic claim is replaced by the Newton-obstruction criterion, and the quotient-exact floor and deployed-rate challenge cap are the new unconditional positive-side anchors.  Part~III extends these mechanisms beyond the smooth multiplicative prime-field setting --- subfield confinement, additive confinement, Chebyshev and circle $x$-coordinate transfer, mixed-radix relation modules, and torsion-coset templates --- and, conditional on one imported conversion theorem, caps the challenge threshold over every field of challenge size.
+
+What is not proved here is equally important: polynomial-field arbitrary-word list decoding and all-line MCA above the corrected reserve require new finite-field local-limit estimates.  The paper isolates those estimates as Conjectures~\ref{conj:final-locator} and~\ref{conj:final-mca}; proving them would close the corrected entropy-gap program for smooth-domain Reed--Solomon codes.
+
+
+\appendix
+
+\section{Verification record}\label{app:verify}
+
+The following computational checks are retained as a verification record.  They should be accompanied by reproducible scripts before submission; items depending on the conditional free-pool theorem are evidence for the stated constants, not independent proofs of the exponential-sum input.
+
+\begin{enumerate}[label=V\arabic*.,leftmargin=2.4em]
+\item\emph{Exact characterization; strict subfamily.}  \Cref{thm:exactslack} confirmed exhaustively at small parameters.  At $p=17$, $n=16$, $\rho=1/2$, $T=2$: the quotient family covers $16$ of $17$ values; an asymmetric witness supplies $z=0$.
+\item\emph{Two-moment fullness.}  $(p,N,h,r)=(31,30,2,3)$, $\ell=8$: the construction of \cref{thm:twomoment} built witnesses for all $961$ targets $(a,b)\in\F_{31}^2$ with zero failures, and exhaustive enumeration of all $\binom{30}8=5{,}852{,}925$ subsets confirms $\Psi_2$ is onto $\F_{31}^2$.
+\item\emph{Rigidity lattices.}  $\{\widehat h(j)=0,\ j\le\sigma\}=\{\mu_{M_0}\text{-invariant}\}$ as $\Z$-lattices at $n=16$ ($\sigma=2,3$) and $n=32$ ($\sigma=3,4,5,7,8$; $M_0=4,8,8,8,16$), with optimality witnesses.
+\item\emph{Descent.}  $p=193$, $N=64$, $t=2$, $\ell=34$: the identities $e_1(A)=e_3(A)=0$, $e_2(A)=-e_1(B)$, and coverage of all $193$ residues by $e_1$ over the $\binom{32}{17}=565{,}722{,}720$ subsets of $Q^2$.
+\item\emph{Dichotomy.}  $n=16$, $t=3$, $\ell=8$: all six characteristic-zero zero-prefix subsets are $\mu_4$-orbit unions, all with $e_3=0$.
+\item\emph{Canonical line ladder} ($n=16$, $k=8$, $\sigma=2$, $s=10$; descent set has $40$ elements at large $p$):
+\begin{center}\small
+\begin{tabular}{lccccccccccc}
+\toprule
+$p$ & 17 & 97 & 257 & 769 & 1153 & 2129 & 4001 & 7489 & 15217 & 65089 & 524353\\
+\midrule
+bad slopes & 17 & 56 & 40 & 40 & 40 & 40 & 40 & 40 & 40 & 40 & 40\\
+excess over descent & 1 & 16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+\bottomrule
+\end{tabular}
+\end{center}
+\item\emph{All bases, canonical direction.}  Maximum slope count over all nonzero canonical-direction bases collapses $56\to14$, stable from $p=7489$, below the class cap $\binom85=56$.
+\item\emph{Direction law} (direction $1$, $\sigma=2$; bad-slope counts over the prime ladder of V5):
+\begin{center}\small
+\begin{tabular}{lccccccccccc}
+\toprule
+$s$ & 17 & 97 & 257 & 769 & 1153 & 2129 & 4001 & 7489 & 15217 & 65089 & 524353\\
+\midrule
+$9\ (\equiv1\bmod4)$ & --- & --- & 48 & 48 & 48 & 48 & 48 & 48 & 48 & 48 & 48\\
+$10\ (\equiv2)$ & 17 & 16 & 64 & 0 & 0 & 0 & 0 & 16 & 0 & 0 & 0\\
+$11\ (\equiv3)$ & --- & --- & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+\bottomrule
+\end{tabular}
+\end{center}
+Explicit witnesses $e_2(\{y\}\sqcup\text{two }\mu_4\text{-orbits})=0$ and $e_2(\{1,i,\zeta_8,-\zeta_8\})=0$, verified mod $257$, $1153$, $4001$ and structurally over $\Z[\zeta]$.
+\item\emph{$\sigma'=3$, residue zero.}  Size $4$: empty in exact $\Z[\zeta_N]$ arithmetic for $N\in\{16,32\}$ (and for all $N$ by \cref{thm:selfinv}).  Sizes $8$ and $12$ at $N=16$: empty in exact arithmetic.  Size $8$ at $N=32$: empty modulo $p=65089$, hence in characteristic zero; the $200$ resp.\ $72$ witnesses visible mod $97$ and $193$ are collisions, all vanishing at $65089$.
+\item\emph{Non-dyadic slabs.}  $\sigma=4$, $j=3$, $n=16$, $s=12$: all $1820$ nonempty punctured slabs carry exactly one $e_3$-value, at $p=65089$ and $524{,}353$.  This is numerical evidence; the general all-bases theorem is not claimed because of the Newton obstruction in Example~\ref{ex:falseallbasesdir}.
+\item\emph{Stable range and exact counts.}  $(n,s,\sigma)=(16,9,2)$: collision count $0$ and fibers equal to their rearrangement classes exactly, from $p=769$, re-verified by direct enumeration at $p=15217$, $65089$, $524{,}353$.  Exact counts: $A(8,5)=40=\tfrac12(3^4-1)$, $A(8,3)=40$, $A(4,3)=4=\tfrac12(3^2-1)$, each matching the enumerated bad-slope count at $p=65089$ and $524{,}353$, for $(n,\rho,\sigma)=(16,\tfrac12,2)$, $(16,\tfrac14,2)$, $(16,\tfrac12,4)$ respectively.
+\item\emph{Pool constants.}  The exponent recursion $\eta_r(\eps)$ of \cite{OSV24} and all pool constants used in the conditional \cref{thm:ladder} were recomputed from the published recursion.
+\item\emph{Slack-one quotient channel.}  For $(N',\ell',\rho)=(16,9,1/2)$, the image of $e_1$ on $\binom Q9$ was enumerated over $186$ primes $p\equiv1\pmod{16}$, $17\le p\le524{,}353$.  The image is $p$ or $p-1$ for every $p\le1153$ and sporadically to $1697$; then it enters a collision band; it first reaches the characteristic-zero plateau $3280=\Acl(16,9)=\tfrac12(3^8-1)$ at $p=5281$, equals $3280$ for every tested $p\ge67{,}057$, and has sporadic sub-plateau values such as $3264$ at $p=58{,}337$ and $3232$ at $p=66{,}593$.  Every observed deficit is a multiple of $16$.
+\item\emph{Slack-two frontier.}  For $(N,\ell,\rho)=(32,18,1/2)$, a meet-in-the-middle enumeration of $\Psi_2$ on $\binom Q{18}$ over $\F_p^2$ was used for primes $p\equiv1\pmod{32}$.  The map is onto $\F_p^2$ for every tested prime $p\le3617$; the first tested failure occurs at $p=4001$ with $736$ missing targets out of $4001^2$.  Missing targets occur in scaling orbits $(a,b)\mapsto(ua,u^2b)$ and are strongly enriched on the rigidity diagonal $e_1=0$.  A direct run of the companion meet-in-the-middle script confirmed onto-ness at $p=97$ in this session.
+\item\emph{Independent replications.}  The two-moment fullness check at $(p,N,\ell)=(31,30,8)$, the six characteristic-zero zero-prefix subsets at $(n,t,\ell)=(16,3,8)$, and the canonical ladder $17,56,40,40,\ldots$ at $(n,\sigma)=(16,2)$ were re-derived from independent code and match the earlier verification record.
+\end{enumerate}
+
+\begin{thebibliography}{99}
+
+\bibitem{NoSlack}
+P.~Chojecki,
+\emph{Capacity-edge obstructions to Reed--Solomon mutual correlated agreement over smooth multiplicative domains},
+companion manuscript, June 2026.
+
+\bibitem{UniversalCap}
+P.~Chojecki,
+\emph{A universal field-size cap for mutual correlated agreement on smooth Reed--Solomon domains},
+companion manuscript, June 2026.
+
+\bibitem{FRI}
+E.~Ben-Sasson, I.~Bentov, Y.~Horesh, and M.~Riabzev,
+\emph{Fast Reed--Solomon interactive oracle proofs of proximity}, ICALP 2018.
+
+\bibitem{WHIR}
+G.~Arnon, A.~Chiesa, G.~Fenzi, and E.~Yogev,
+\emph{WHIR: Reed--Solomon proximity testing with super-fast verification}, 2024.
+
+\bibitem{CJ76}
+J.~H.~Conway and A.~J.~Jones,
+\emph{Trigonometric Diophantine equations (On vanishing sums of roots of unity)},
+Acta Arith. \textbf{30} (1976), 229--240.
+
+\bibitem{LL00}
+T.~Y.~Lam and K.~H.~Leung,
+\emph{On vanishing sums of roots of unity},
+J. Algebra \textbf{224} (2000), 91--109.
+
+\bibitem{Laurent84}
+M.~Laurent,
+\emph{Equations diophantiennes exponentielles},
+Invent. Math. \textbf{78} (1984), 299--327.
+
+\bibitem{DH94}
+J.~A.~Dias da Silva and Y.~O.~Hamidoune,
+\emph{Cyclic spaces for Grassmann derivatives and additive theory},
+Bull. London Math. Soc. \textbf{26} (1994), 140--146.
+
+\bibitem{ANR96}
+N.~Alon, M.~B.~Nathanson, and I.~Ruzsa,
+\emph{The polynomial method and restricted sums of congruence classes},
+J. Number Theory \textbf{56} (1996), 404--417.
+
+\bibitem{Alon99}
+N.~Alon,
+\emph{Combinatorial Nullstellensatz},
+Combin. Probab. Comput. \textbf{8} (1999), 7--29.
+
+\bibitem{BGK06}
+J.~Bourgain, A.~A.~Glibichuk, and S.~V.~Konyagin,
+\emph{Estimates for the number of sums and products and for exponential sums in fields of prime order},
+J. London Math. Soc. (2) \textbf{73} (2006), 380--398.
+
+\bibitem{Bourgain05}
+J.~Bourgain,
+\emph{Mordell's exponential sum estimate revisited},
+J. Amer. Math. Soc. \textbf{18} (2005), 477--499.
+
+\bibitem{OSV24}
+A.~Ostafe, I.~E.~Shparlinski, and J.~F.~Voloch,
+\emph{Weil sums over small subgroups},
+Math. Proc. Cambridge Philos. Soc. \textbf{176} (2024), 39--53.
+
+\bibitem{Shk14}
+I.~D.~Shkredov,
+\emph{On exponential sums over multiplicative subgroups of medium size},
+arXiv:1311.5726.
+
+\bibitem{Dav00}
+H.~Davenport,
+\emph{Multiplicative Number Theory}, 3rd ed., GTM 74, Springer, 2000.  (Siegel--Walfisz, \S22.)
+
+\bibitem{Was97}
+L.~C.~Washington,
+\emph{Introduction to Cyclotomic Fields}, 2nd ed., GTM 83, Springer, 1997.  (Ramification in $\Q(\zeta_{2^a})$, Ch.~2.)
+
+\bibitem{LiWan08}
+J.~Li and D.~Wan,
+\emph{On the subset sum problem over finite fields},
+Finite Fields Appl. \textbf{14} (2008), 911--929.
+
+\bibitem{ZhuWan10}
+G.~Zhu and D.~Wan,
+\emph{An asymptotic formula for counting subset sums over subgroups of finite fields},
+arXiv:1101.0289, 2010.
+
+\bibitem{Gao21}
+S.~Gao,
+\emph{Polynomials with prescribed leading coefficients and a prescribed number of linear factors over finite fields},
+arXiv:2105.12845, 2021.
+
+\bibitem{Gao22}
+S.~Gao,
+\emph{Random polynomials in Hayes equivalence classes and Reed--Solomon distance distributions},
+arXiv:2203.06729, 2022.
+
+\bibitem{DMP21}
+A.~Davydov, S.~Marcugini, and F.~Pambianco,
+\emph{On coset weight distributions of MDS codes},
+arXiv:2101.12722, 2021.
+
+\bibitem{BGM23}
+J.~Brakensiek, S.~Gopi, and V.~Makam,
+\emph{Generic Reed--Solomon codes achieve list-decoding capacity},
+STOC 2023, 1488--1501.
+
+\bibitem{GZ23}
+Z.~Guo and Z.~Zhang,
+\emph{Randomly punctured Reed--Solomon codes achieve the list decoding capacity over polynomial-size alphabets},
+FOCS 2023, 164--176.
+
+\bibitem{ABF26}
+G.~Arnon, D.~Boneh, G.~Fenzi,
+\emph{Open problems in list decoding and correlated agreement},
+Cryptology ePrint Archive, Paper 2026/680, 2026.
+
+\bibitem{CS25}
+E.~Crites, A.~Stewart,
+\emph{On Reed--Solomon proximity gaps conjectures},
+Cryptology ePrint Archive, Paper 2025/2046, 2025.
+
+\bibitem{BCHKS25}
+E.~Ben-Sasson, D.~Carmon, U.~Hab\"ock, S.~Kopparty, S.~Saraf,
+\emph{On proximity gaps for Reed--Solomon codes},
+Cryptology ePrint Archive, Paper 2025/2055, 2025.
+
+\bibitem{BCIKS20}
+E.~Ben-Sasson, D.~Carmon, Y.~Ishai, S.~Kopparty, S.~Saraf,
+\emph{Proximity gaps for Reed--Solomon codes},
+FOCS 2020; J.~ACM \textbf{70} (2023), no.~5.
+
+\bibitem{KKH26}
+D.~Krachun, S.~Kazanin, U.~Hab\"ock,
+\emph{Failure of proximity gaps close to capacity},
+Cryptology ePrint Archive, Paper 2026/782, 2026.
+
+\bibitem{Kambire26}
+A.~Kambir\'e,
+\emph{Proximity gaps conjecture fails near capacity over prime fields},
+arXiv:2604.09724, 2026.
+
+\bibitem{GG25}
+R.~Goyal, V.~Guruswami,
+\emph{Optimal proximity gaps for subspace-design codes and (random) Reed--Solomon codes},
+Cryptology ePrint Archive, Paper 2025/2054, 2025.
+
+\bibitem{BCGM25}
+S.~Bordage, A.~Chiesa, Z.~Guan, I.~Manzur,
+\emph{All polynomial generators preserve distance with mutual correlated agreement},
+Cryptology ePrint Archive, Paper 2025/2051, 2025.
+
+\bibitem{DG25}
+B.~E.~Diamond, A.~Gruen,
+\emph{Proximity gaps in interleaved codes},
+IACR Communications in Cryptology 1(4), 2025.
+
+\bibitem{HLP24}
+U.~Hab\"ock, D.~Levit, S.~Papini,
+\emph{Circle STARKs},
+Cryptology ePrint Archive, Paper 2024/278, 2024.
+
+\bibitem{ECFFT}
+E.~Ben-Sasson, D.~Carmon, S.~Kopparty, D.~Levit,
+\emph{Elliptic curve fast Fourier transform (ECFFT) Part~I: fast polynomial algorithms over all finite fields},
+arXiv:2107.08473, 2021.
+
+\bibitem{AS12}
+I.~Aliev, C.~J.~Smyth,
+\emph{Solving algebraic equations in roots of unity},
+Forum Math. 24 (2012), 641--665.
+
+\bibitem{ESS02}
+J.-H.~Evertse, H.~P.~Schlickewei, W.~M.~Schmidt,
+\emph{Linear equations in variables which lie in a multiplicative group},
+Ann. of Math. 155 (2002), 807--836.
+
+\bibitem{BS02}
+F.~Beukers, C.~J.~Smyth,
+\emph{Cyclotomic points on curves},
+in: Number Theory for the Millennium I, A K Peters, 2002, 67--85.
+
+\bibitem{Sch64}
+I.~J.~Schoenberg,
+\emph{A note on the cyclotomic polynomial},
+Mathematika 11 (1964), 131--136.
+
+\end{thebibliography}
+
+\end{document}

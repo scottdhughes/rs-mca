@@ -1,0 +1,612 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage[expansion=false]{microtype}
+\usepackage{xcolor}
+\usepackage{aliascnt}
+\usepackage{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+\hypersetup{colorlinks=true, linkcolor=blue!55!black, citecolor=blue!55!black, urlcolor=blue!55!black}
+
+\newtheorem{theorem}{Theorem}[section]
+\newaliascnt{lemma}{theorem}
+\newtheorem{lemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}
+\newaliascnt{proposition}{theorem}
+\newtheorem{proposition}[proposition]{Proposition}
+\aliascntresetthe{proposition}
+\newaliascnt{corollary}{theorem}
+\newtheorem{corollary}[corollary]{Corollary}
+\aliascntresetthe{corollary}
+\newaliascnt{conjecture}{theorem}
+\newtheorem{conjecture}[conjecture]{Conjecture}
+\aliascntresetthe{conjecture}
+\theoremstyle{definition}
+\newaliascnt{definition}{theorem}
+\newtheorem{definition}[definition]{Definition}
+\aliascntresetthe{definition}
+\newaliascnt{remark}{theorem}
+\newtheorem{remark}[remark]{Remark}
+\aliascntresetthe{remark}
+\newaliascnt{example}{theorem}
+\newtheorem{example}[example]{Example}
+\aliascntresetthe{example}
+
+\crefname{theorem}{Theorem}{Theorems}
+\Crefname{theorem}{Theorem}{Theorems}
+\crefname{lemma}{Lemma}{Lemmas}
+\Crefname{lemma}{Lemma}{Lemmas}
+\crefname{corollary}{Corollary}{Corollaries}
+\Crefname{corollary}{Corollary}{Corollaries}
+\crefname{proposition}{Proposition}{Propositions}
+\Crefname{proposition}{Proposition}{Propositions}
+\crefname{conjecture}{Conjecture}{Conjectures}
+\Crefname{conjecture}{Conjecture}{Conjectures}
+\crefname{definition}{Definition}{Definitions}
+\crefname{section}{Section}{Sections}
+\Crefname{section}{Section}{Sections}
+\crefname{remark}{Remark}{Remarks}
+\Crefname{remark}{Remark}{Remarks}
+\crefname{example}{Example}{Examples}
+\Crefname{example}{Example}{Examples}
+
+\newcommand{\F}{\mathbb F}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\RS}{\operatorname{RS}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\dist}{\Delta}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\Norm}{\operatorname{N}}
+\newcommand{\HH}{\operatorname{H}}
+\newcommand{\vtwo}{\nu_2}
+
+\title{Capacity-Edge Obstructions to Reed--Solomon Mutual Correlated Agreement over Smooth Multiplicative Domains}
+\author{Przemek Chojecki \\ \small ulam.ai}
+\date{June 11, 2026}
+
+\begin{document}
+\maketitle
+
+
+\begin{abstract}
+We give a self-contained disproof of the up-to-capacity mutual correlated agreement (MCA) conjecture for smooth multiplicative Reed--Solomon domains in its support-wise, line, no-slack form, at the prize rates $\rho\in\{1/2,1/4,1/8,1/16\}$.  The organizing mechanism is the locator identity: if many exact restricted sums of a smooth quotient $Q$ fill the field, then the line $x^{k+a}+zx^k$ has many bad slopes at radius $1-\rho-1/|Q|$.
+
+The prime-field consequences are explicit.  Over BabyBear, KoalaBear, and $3\cdot2^{30}+1$, for every smooth subgroup domain of size divisible by $2^{18}$, the MCA error is identically $1$ on intervals beginning at $1-\rho-2^{-18}$ for all four prize rates, with the sharper $2^{-17}$ gap at rates $1/2$ and $1/4$.  Over the Fermat primes $17$, $257$, and $65537$ with the full multiplicative domain, the error is at least $1-1/p$ at radius $1-\rho-1/(2\log_2 n)$ for $\rho\in\{1/2,1/4\}$ (the pair $(17,1/4)$ by exhaustive verification).  Infinitely many prime fields also have inverse-polylogarithmic bad-slope density at the same logarithmic scale.
+
+The worst-case list-decoding analogue also fails in the no-slack regime.  At the prize rates, every power-of-two subgroup domain of order $n\ge(\log_2q)^{1+\eps}$ admits explicit received words with superpolynomially many codewords within radius $1-\rho-(\log_2 q)^{-1-\eps}$.  The general divisor-level list bound is stated for arbitrary rates whenever the required divisibility condition $\rho N\in\mathbb Z$ holds.
+
+The same locator framework gives generated extension-field examples.  Under the tower condition $\operatorname{ord}_{md}(p)=d$, the subgroup $D\le\mathbb F_{p^d}^{\times}$ of order $md$ decomposes as $\bigsqcup_{i=0}^{d-1}\zeta^iH$ with $H\le\mathbb F_p^\times$, and Dias da Silva--Hamidoune fills the field coordinate by coordinate.  This gives error $1$ for Fermat and Proth-type smooth towers and non-negligible density bounds in borderline cases such as Goldilocks.
+
+The results are deliberately no-slack statements: they prove concrete necessary slack floors and worst-case list lower bounds.  They do not assert a negative result for formulations that impose sufficient explicit slack, nondegenerate curve constraints, or protocol-specific agreement restrictions.
+\end{abstract}
+
+\section{The conjecture}
+
+The Proximity Prize \cite{ProximityPrize,ABF26,BonehKeynote} concerns Reed--Solomon codes
+\[
+        \RS[\F,D,k]=\{(P(x))_{x\in D}:\deg P<k\},\qquad n=|D|,\ \rho=k/n,
+\]
+over \emph{smooth} multiplicative domains.  In this paper all stated counterexamples use multiplicative subgroups $D\le\F^\times$ of power-of-two order; the same locator calculation also applies to multiplicative cosets after the evident rescaling, but no coset generality is needed below.  Correlated-agreement theorems control, for a random $z$, whether closeness of $f+zg$ to the code forces closeness of $f$ and $g$ individually; the \emph{mutual} (support-wise) version asks this on the same agreement set, which is what FRI/WHIR-style extractors consume \cite{FRI,WHIR}.  Proximity gaps and (M)CA are known throughout the Johnson regime $\delta<1-\sqrt\rho$ \cite{BCIKS23}, and the prize challenge is the region between Johnson and capacity $1-\rho$.  The optimistic endpoint --- conjectured in various forms since proximity gaps were introduced \cite{BCIKS23}, and the natural reading of the grand challenge --- is:
+
+\begin{conjecture}[Up-to-capacity MCA; no-slack support-wise line form]\label{conj:capacity}
+Let $C=\RS[\F,D,\rho n]$ be a smooth-domain Reed--Solomon code, $\rho\in\{1/2,1/4,1/8,1/16\}$.  For every $\delta<1-\rho$,
+\[
+        \eps_{\rm mca}(C,\delta)\ \le\ \mathrm{negl}(q)
+        \qquad\big(\text{concretely: }\le2^{-128}\text{ for the prize fields}\big),
+\]
+where $\eps_{\rm mca}$ is the support-wise line-MCA error of \cref{def:mca} below.  List-decoding analogue: for every $\delta<1-\rho$, every received word has at most $\mathrm{poly}(q)$ codewords within relative distance $\delta$.
+\end{conjecture}
+
+\begin{remark}[What exactly is being refuted]\label{rem:formulation}
+The prize materials phrase the challenge as determining the largest $\delta$ with negligible MCA/list error \cite{ProximityPrize,ABF26}; \cref{conj:capacity} is the assertion that this $\delta$ reaches capacity, transcribed in the minimal no-slack, same-support, two-word (line) form.  Everything below refutes \emph{this} form, quantitatively and with explicit witnesses.  If a formulation includes a slack parameter $\tau$, a curve variant, or a different agreement notion, our results convert into necessary conditions on that formulation (\cref{sec:scope}): in particular any slack $\tau\le2^{-18}$ is insufficient on BabyBear/KoalaBear domains with $2^{18}\mid n$, and $\tau\le c_\rho/\log p$ is insufficient on infinitely many smooth prime fields.  We do not claim anything about slacked formulations above these floors.
+\end{remark}
+
+\begin{definition}[Support-wise line-MCA error]\label{def:mca}
+For a linear code $C\subseteq\F^D$ and a line $u_z=f+zg$, the parameter $z$ is \emph{bad at radius $\delta$} if there is $S\subseteq D$, $|S|\ge(1-\delta)n$, and $c\in C$ with $u_z|_S=c|_S$, while no pair $c_f,c_g\in C$ has $f|_S=c_f|_S$ and $g|_S=c_g|_S$.  Then
+\[
+        \eps_{\rm mca}(C,\delta)=\max_{f,g}\ \frac{\#\{z\in\F:\ z\ \text{bad}\}}{|\F|}.
+\]
+\end{definition}
+
+For $A\subseteq\F$ and $h\ge0$, write $h^{\wedge}A=\{a_1+\cdots+a_h:\ a_i\in A\ \text{distinct}\}$.
+
+\section{The disproof}
+
+\begin{theorem}[Main theorem]\label{thm:main}
+\Cref{conj:capacity} is false.  Specifically:
+\begin{enumerate}[label=(\alph*),leftmargin=2.2em]
+\item \textbf{(Error one on an interval; deployed fields.)}
+Let $p$ be prime, $D\le\F_p^\times$ a subgroup of order $n$, $0<\rho\le1/2$, $k=\rho n\in\Z$, and let $N\mid n$ satisfy $\rho N\in\Z$ and
+\[
+        (\rho N+1)((1-\rho)N-1)+1\ge p .
+\]
+Then
+\[
+        \eps_{\rm mca}\big(\RS[\F_p,D,k],\,\delta\big)=1
+        \qquad\text{for every }\delta\in\big[\,1-\rho-\tfrac1N,\ 1\,\big].
+\]
+For BabyBear, KoalaBear, and $3\cdot2^{30}+1$, the divisor $N=2^{18}$ qualifies at all four prize rates, and $N=2^{17}$ qualifies at rates $1/2$ and $1/4$: \cref{conj:capacity} fails with the largest possible error, on a radius interval of length $\rho+2^{-18}$ for all prize rates, for every smooth subgroup domain with $2^{18}\mid n$.
+\item \textbf{(Error $1-1/p$ at $1-\rho-\Theta(1/\log n)$; linear-size fields.)}
+For the Fermat primes $p=2^M+1\in\{17,257,65537\}$, the full domain $D=\F_p^\times$ ($n=p-1$, $q=n+1$), and $\rho\in\{1/2,1/4\}$ --- at $\rho=1/4$ for $p\in\{257,65537\}$, where $M\ge8$ as \cref{lem:fermat} requires; the remaining pair $(p,\rho)=(17,1/4)$ holds as well, by the exhaustive computation of \cref{app:verify} ---
+\[
+        \eps_{\rm mca}\Big(\RS[\F_p,D,\rho n],\ 1-\rho-\frac{1}{2\log_2 n}\Big)\ \ge\ 1-\frac1p ,
+\]
+and the same at every larger radius.
+\item \textbf{(Non-negligible error at $1-\rho-O(1/\log p)$; infinitely many fields.)}
+For each prize rate there are infinitely many primes $p$ with power-of-two subgroups $Q$, $|Q|=N=\Theta_\rho(\log p)$, such that $\eps_{\rm mca}(\RS[\F_p,Q,\rho N],\,1-\rho-1/N)\ge(\log_2p)^{-6}$, an inverse-polynomial function of the security parameter, exceeding $2^{-128}$ for every $p<2^{2^{21}}$.
+\item \textbf{(Worst-case list bound; divisor-level universal statement.)}
+For every finite field $\F$ of size $q$, every subgroup $D\le\F^\times$ of order $n$, every $0<\rho<1$ with $\rho n\in\Z$, and every divisor $N\mid n$ with $\rho N\in\Z$, there is $z\in\F$ such that the received word $u_z(x)=x^{k+a}+zx^k$ ($a=n/N$) has at least $\binom{N}{\rho N+1}/q$ codewords of $\RS[\F,D,\rho n]$ within distance $1-\rho-1/N$.  Consequently, for each fixed prize rate $\rho\in\{1/2,1/4,1/8,1/16\}$ and each fixed $\eps>0$, if $n$ is a power of two and $n\ge (\log_2q)^{1+\eps}$, then the maximum list size at radius $1-\rho-(\log_2q)^{-1-\eps}$ is superpolynomial in $q$ for all sufficiently large $q$.
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}[Status and scope]\label{rem:status-scope}
+The theorem above is intentionally separated by strength.  Parts (a), (b), and (d) are elementary consequences of the locator identity and Dias da Silva--Hamidoune.  Part (c) is weaker than the natural constant-density small-subgroup conjecture, but it is unconditional: it gives inverse-polylogarithmic bad-slope density at logarithmic subgroup size.  No unproved equidistribution or small-subgroup density hypothesis is used anywhere in this paper.  Slacked, curve, and exact-threshold formulations are not claimed here; the results below are the no-slack obstructions and necessary slack floors such formulations must clear.
+\end{remark}
+
+Parts (a), (b) and (d) need only the four elementary lemmas of \cref{sec:lemmas}; part (c) is the cyclotomic sieve theorem proved in \cref{sec:sieve}.  The external inputs are exactly Dias da Silva--Hamidoune, used in \cref{lem:dsh}, and Siegel--Walfisz, used in \cref{thm:sieve}; all reductions from those inputs to MCA/list witnesses are proved here.
+
+\section{Four lemmas}\label{sec:lemmas}
+
+\begin{lemma}[Quotient locator]\label{lem:locator}
+Let $D\le\F^\times$ have order $n$, let $N\mid n$, $a=n/N$, $Q=D^a$ (the subgroup of order $N$), $1\le k$, $a\mid k$, $k+a\le n$, and $\ell=k/a+1\le N$.  For the line $f=x^{k+a}$, $g=x^k$ on $D$, every $z\in-\ell^{\wedge}Q$ is bad at radius $1-\frac kn-\frac1N$.  Hence $\eps_{\rm mca}(\RS[\F,D,k],1-\rho-\frac1N)\ge|\ell^{\wedge}Q|/q$.
+\end{lemma}
+
+\begin{proof}
+Pick $A\subseteq Q$, $|A|=\ell$, $\sum_{b\in A}b=-z$, and set $S_A=\{x\in D:x^a\in A\}$, of size $a\ell=k+a$.  The locator $L_A(X)=\prod_{b\in A}(X^a-b)$ expands as $X^{k+a}+zX^k+R_A(X)$ with $\deg R_A<k$, because its second-highest coefficient is $-\sum_{b\in A}b$ in degree $a(\ell-1)=k$ and all monomial degrees are multiples of $a$.  Vanishing of $L_A$ on $S_A$ gives $u_z|_{S_A}=(-R_A)|_{S_A}$, a degree-$<k$ explanation of $u_z$ on $k+a$ points.  But $g=x^k$ agrees with no degree-$<k$ polynomial on more than $k$ points, and $|S_A|=k+a>k$.  So $z$ is bad, for every $z\in-\ell^{\wedge}Q$.
+\end{proof}
+
+\begin{lemma}[Coverage; Dias da Silva--Hamidoune \cite{DDSH94}]\label{lem:dsh}
+For $A\subseteq\F_p$, $|A|=m$, and $1\le r\le m$: $|r^{\wedge}A|\ge\min\{p,\ r(m-r)+1\}$.  In particular, if $Q\le\F_p^\times$ has order $N$, $\rho\le1/2$, $\rho N\in\Z$, and
+\[
+        (\rho N+1)\bigl((1-\rho)N-1\bigr)+1\ge p,
+\]
+then $(\rho N+1)^{\wedge}Q=\F_p$.  The simpler sufficient condition $\rho(1-\rho)N^2\ge p$ implies this exact condition, since the left side equals $\rho(1-\rho)N^2+(1-2\rho)N$.
+\end{lemma}
+
+\begin{lemma}[Monotonicity]\label{lem:monotone}
+$\eps_{\rm mca}(C,\delta)$ is nondecreasing in $\delta$, and so is the maximum list size at radius $\delta$.
+\end{lemma}
+
+\begin{proof}
+A witness set $S$ with $|S|\ge(1-\delta)n$ also has $|S|\ge(1-\delta')n$ for $\delta'\ge\delta$, and both badness conditions depend on $S$ only.  A list at radius $\delta$ is a subset of the list at radius $\delta'$.
+\end{proof}
+
+\begin{lemma}[Fermat digit lemma]\label{lem:fermat}
+Let $p=2^M+1$ be prime, $M=2^t\ge4$, and $Q=\langle2\rangle\le\F_p^\times$, of order $N=2M$, so $Q=\{\pm2^j:0\le j<M\}$.  Then for $r=M+1$ and (if $M\ge8$) for $r=M/2+1$,
+\[
+        r^{\wedge}Q=\F_p\setminus\{0\}.
+\]
+\end{lemma}
+
+\begin{proof}
+An $r$-subset of $Q$ is a pair $J^+,J^-\subseteq\{0,\dots,M-1\}$ with $|J^+|+|J^-|=r$ and sum $s=\sum_jc_j2^j$, $c_j=\mathbf1[j\in J^+]-\mathbf1[j\in J^-]\in\{-1,0,1\}$; positions in $J^+\cap J^-$ contribute matched zero pairs.  A digit vector of support $w$ is realizable by an $r$-subset iff $w\le r$, $w\equiv r\pmod2$, and $(r-w)/2\le M-w$.
+
+\emph{$0$ is excluded:} $r$ is odd in both cases ($M,M/2$ even), so $w$ is odd, so $s$ is a nonzero integer with $|s|\le2^M-1<p$.
+
+\emph{Everything else is hit:} given $y\in\F_p\setminus\{0\}$, choose the lift $s\equiv y\pmod p$ with $1\le|s|\le2^{M-1}$ (possible since $p=2^M+1$).  For $r=M+1$: if $|s|=2^{M-1}$, the single digit at $M-1$ has $w=1$, odd, done.  Otherwise take the binary digits of $|s|$ (with the sign of $s$), supported in $\{0,\dots,M-2\}$, of weight $w_1\le M-1$.  If $w_1\not\equiv r\pmod2$ then $w_1\le M-2$ (since $w_1=M-1$ forces $s=\pm(2^{M-1}-1)$, whose weight $M-1\equiv M+1\pmod 2$), and rewriting the top digit $\pm2^h\mapsto\pm(2^{h+1}-2^h)$ into the free slot $h+1\le M-1$ raises the weight by one.  In all cases $1\le w\le M-1=2M-r$, the parity matches, and padding completes the subset.  For $r=M/2+1$: use the nonadjacent form (NAF) of $s$.  Since $|s|\le 2^{M-1}$, no NAF digit occurs in position $M$ or higher: if the top digit occurred in position $M'\ge M$, nonadjacency would let the lower tail cancel at most $2^{M'-2}+2^{M'-4}+\cdots<2^{M'}/3$, leaving magnitude $>\tfrac23 2^{M'}\ge\tfrac23 2^{M}>2^{M-1}$.  Thus the support lies in $\{0,\dots,M-1\}$ and has weight $w_1\le\lceil M/2\rceil=M/2$.  If the parity is wrong, then the support is not the singleton $\{M-1\}$ (that case has odd weight, matching $r$, because $M/2$ is even).  Hence some occupied position $h<M-1$ has an unoccupied successor $h+1$, by nonadjacency; rewriting $\pm2^h$ as $\pm(2^{h+1}-2^h)$ raises the weight by one, keeps all positions in range, and gives $w\le M/2+1=r$ with the required odd parity.  Padding by opposite pairs is then possible since $w\le r\le M-1$.
+\end{proof}
+
+\section{The cyclotomic sieve theorem}\label{sec:sieve}
+
+This section proves part (c) of \cref{thm:main}.  Throughout, $\HH(x)=-x\log_2x-(1-x)\log_2(1-x)$ is the binary entropy and
+\[
+        \gamma_\rho
+        =\tfrac12\big(\HH(x_\rho)+x_\rho\big),
+        \qquad
+        x_\rho=\min\{2\rho,\ 2/3\},
+\]
+so that
+\[
+        \gamma_{1/2}=\tfrac12\log_23\approx0.7925,\quad
+        \gamma_{1/4}=0.75,\quad
+        \gamma_{1/8}\approx0.5306,\quad
+        \gamma_{1/16}\approx0.3343 .
+\]
+
+Fix a power of two $N=2^s\ge8$ and let $\zeta=\zeta_N\in\Q(\zeta_N)$ be a primitive $N$-th root of unity.  The field $K=\Q(\zeta_N)$ has degree $\varphi(N)=N/2$, its ring of integers is $\Z[\zeta]$ with power basis $1,\zeta,\ldots,\zeta^{N/2-1}$, and $\zeta^{N/2}=-1$.  For a subset $A\subseteq\Z/N$ put $\sigma_A=\sum_{a\in A}\zeta^a\in\Z[\zeta]$.  Pairing the exponents into opposite pairs $\{j,\,j+N/2\}$ for $0\le j<N/2$ and using $\zeta^{j+N/2}=-\zeta^j$,
+\begin{equation}\label{eq:cvec}
+        \sigma_A=\sum_{j=0}^{N/2-1}c_j(A)\,\zeta^j,
+        \qquad
+        c_j(A)=\mathbf 1[j\in A]-\mathbf 1[j+\tfrac N2\in A]\ \in\{-1,0,1\}.
+\end{equation}
+Since $1,\zeta,\ldots,\zeta^{N/2-1}$ are linearly independent over $\Q$, the algebraic value $\sigma_A$ is determined by, and determines, the digit vector $c(A)$.
+
+\begin{lemma}[Exact-support value family]\label{lem:value-family}
+Let $r\ge1$ and let $w$ satisfy
+\[
+        1\le w\le\min\{r,\ N/2\},
+        \qquad
+        w\equiv r\ (\mathrm{mod}\ 2),
+        \qquad
+        \frac{r-w}{2}\le\frac N2-w .
+\]
+Then the set
+\[
+        V_{r,w}
+        =\Big\{\textstyle\sum_j c_j\zeta^j:\ c\in\{-1,0,1\}^{N/2},\ |\supp c|=w\Big\}
+\]
+consists of $\binom{N/2}{w}2^{w}$ pairwise distinct nonzero elements of $\Z[\zeta]$, and every $v\in V_{r,w}$ equals $\sigma_A$ for some $A\subseteq\Z/N$ with $|A|=r$.
+\end{lemma}
+
+\begin{proof}
+Distinctness and nonvanishing are immediate from the basis property and $w\ge1$.  Given a digit vector $c$ of support $w$, build $A$ as follows: for each $j$ with $c_j=1$ put $j\in A$; for each $j$ with $c_j=-1$ put $j+N/2\in A$; this contributes $w$ elements and realizes the value by \eqref{eq:cvec}.  Then choose $b=(r-w)/2$ indices $j$ outside $\supp c$ --- possible since $b\le N/2-w$ --- and for each put \emph{both} $j$ and $j+N/2$ into $A$; each such opposite pair contributes $\zeta^j-\zeta^j=0$ to the sum and $2$ to the cardinality.  The resulting $A$ has $|A|=w+2b=r$ and $\sigma_A=v$.
+\end{proof}
+
+\begin{lemma}[Granularity]\label{lem:granularity}
+Write $W(w)=\binom{N/2}{w}2^w$ and let $r=\rho N+1$ with $0<\rho\le1/2$.  The admissible $w$ in \cref{lem:value-family} form the set $\{w\le\min(r,N-r):\ w\equiv r\ (2)\}$ together with $w=r$ when $r\le N/2$; on consecutive admissible values, $W$ changes by a multiplicative factor at most $N^2$, and
+\[
+        \max_{w\ \mathrm{admissible}}W(w)\ \ge\ 2^{\gamma_\rho N\,(1-o(1))}
+        \qquad(N\to\infty).
+\]
+\end{lemma}
+
+\begin{proof}
+The third condition of \cref{lem:value-family} reads $w\le N-r$, giving the stated admissible range (for $\rho=1/2$, $\min(r,N-r)=N/2-1$; for $\rho<1/2$, the binding cap is $w\le r$).  Single steps satisfy $W(w+1)/W(w)=2(N/2-w)/(w+1)\in[2/N,\,N]$, so parity steps of two change $W$ by a factor in $[4/N^2,N^2]$.  For the maximum: the exponent of $W(xN/2)$ is $(N/2)(\HH(x)+x)(1+o(1))$, maximized at $x=2/3$ when unconstrained and at the cap $x=2\rho$ when $\rho<1/3$; both cases give the exponent $\gamma_\rho N$ by the definition of $x_\rho$.
+\end{proof}
+
+\begin{theorem}[Cyclotomic sieve]\label{thm:sieve}
+Fix $\rho\in\{1/2,1/4,1/8,1/16\}$.  For every sufficiently large $X$ there exist a power of two
+\[
+        N\asymp_\rho \log X,
+        \qquad
+        N\le\Big(\frac{2}{\gamma_\rho}+o(1)\Big)\log_2X,
+\]
+and at least $\dfrac{X}{6N\log X}$ primes $p\in(X,2X]$ with $N\mid p-1$ such that the subgroup $Q\le\F_p^\times$ of order $N$ satisfies
+\[
+        |(\rho N+1)^{\wedge}Q|\ \ge\ \frac{p}{(\log_2 p)^{6}} .
+\]
+In particular there are infinitely many such primes, and for each of them
+\[
+        \eps_{\rm mca}\Big(\RS[\F_p,Q,\rho N],\,1-\rho-\tfrac1N\Big)
+        \ \ge\ \frac{1}{(\log_2p)^6},
+\]
+an inverse-polynomial function of the security parameter $\lambda=\log_2p$, hence non-negligible; it exceeds $2^{-128}$ whenever $\log_2p\le2^{21}$.
+\end{theorem}
+
+\begin{proof}
+Let $r=\rho N+1$ throughout, and set the target $T=X/(\log_2X)^3$.
+
+\emph{Choice of $N$ and $w$.}  Let $N$ be the smallest power of two with $N\ge16$ (so $\rho N\in\Z$ for every prize rate) and $\max_wW(w)\ge T$, where the maximum is over admissible $w$ as in \cref{lem:granularity}.  The upper bound from \cref{lem:granularity} and minimality give $N\le(2/\gamma_\rho+o(1))\log_2X$.  Conversely, the trivial bound $\max_wW(w)\le 3^{N/2}$ gives $N\ge (2/\log_2 3-o(1))\log_2X$, so $N\asymp_\rho\log X$.  Since $W$ starts below $T$ at the smallest admissible $w$ (namely $W\le N^2$ there) and exceeds $T$ at the maximizer, \cref{lem:granularity} provides an admissible $w_0$ with
+\[
+        \frac{T}{N^2}\ \le\ W:=W(w_0)\ \le\ T .
+\]
+Let $V=V_{r,w_0}\subseteq\Z[\zeta_N]$ be the corresponding value family, $|V|=W$.
+
+\emph{Primes and reduction.}  Let $\mathcal P$ be the set of primes $p\in(X,2X]$ with $p\equiv1\pmod N$.  Since $N\le(\log X)^2$, the Siegel--Walfisz theorem \cite{Davenport} gives $|\mathcal P|\ge X/(3\varphi(N)\log X)\ge X/(3N\log X)$ for all large $X$.  For $p\in\mathcal P$ fix a degree-one prime $\mathfrak p$ of $\Z[\zeta_N]$ above $p$ (one exists because $p$ splits completely, $p$ being odd and $\equiv1\bmod N$), with reduction map $\theta_{\mathfrak p}:\Z[\zeta_N]\to\F_p$ sending $\zeta_N$ to an element of multiplicative order $N$.  Then $\theta_{\mathfrak p}$ maps $\{\zeta^a:a\in\Z/N\}$ bijectively onto the subgroup $Q\le\F_p^\times$ of order $N$, and by \cref{lem:value-family},
+\[
+        \theta_{\mathfrak p}(V)\ \subseteq\ r^{\wedge}Q .
+\]
+
+\emph{Collision counting.}  For $p\in\mathcal P$ let $C_p$ be the number of unordered pairs $\{v,v'\}\subseteq V$, $v\ne v'$, with $\theta_{\mathfrak p}(v)=\theta_{\mathfrak p}(v')$, i.e.\ $\mathfrak p\mid v-v'$.  Each difference $\delta=v-v'$ is a nonzero element of $\Z[\zeta_N]$ whose coordinates in the power basis lie in $\{-2,\ldots,2\}$, so every archimedean conjugate satisfies $|\sigma(\delta)|\le N$, whence $0<|\Norm_{K/\Q}(\delta)|\le N^{N/2}$.  If $\mathfrak p\mid\delta$ then $p\mid\Norm(\delta)$, and the number of primes exceeding $X$ that divide a nonzero integer of absolute value at most $N^{N/2}$ is at most
+\[
+        \kappa:=\frac{(N/2)\log N}{\log X}=O(\log\log X),
+\]
+using $N=O(\log X)$.  Therefore
+\[
+        \sum_{p\in\mathcal P}C_p\ \le\ \binom W2\,\kappa\ \le\ W^2\kappa .
+\]
+By Markov's inequality, at least half of the primes in $\mathcal P$ satisfy
+\[
+        C_p\ \le\ \frac{2W^2\kappa}{|\mathcal P|}
+        \ \le\ \frac{6\,W^2\,\kappa\,N\log X}{X}
+        \ \le\ W\cdot\frac{6\,\kappa\,N\log X}{(\log_2X)^3}
+        \ =\ W\cdot O\!\Big(\frac{\log\log X}{\log X}\Big)\ \le\ \frac W2
+\]
+for all large $X$, where the middle inequality uses $W\le T=X/(\log_2X)^3$.
+
+\emph{Conclusion.}  Discarding one element of each colliding pair, for these primes
+\[
+        |r^{\wedge}Q|\ \ge\ |\theta_{\mathfrak p}(V)|\ \ge\ W-C_p\ \ge\ \frac W2
+        \ \ge\ \frac{X}{2N^2(\log_2X)^3}
+        \ \ge\ \frac{p}{(\log_2p)^6}
+\]
+for all large $X$, since $N^2=O((\log_2X)^2)$ and $p\le2X$.  The MCA statement follows from \cref{lem:locator} applied with $D=Q$ and $a=1$ (so $\ell=r=\rho N+1$ and $|\ell^{\wedge}Q|/p\ge(\log_2p)^{-6}$); equivalently, from \cref{lem:locator} for any larger smooth domain $D$ with $Q\le D\le\F_p^\times$ when one exists.  Finally, $(\log_2p)^6\le2^{128}$ iff $\log_2p\le2^{128/6}$, and $128/6>21$.
+\end{proof}
+
+\section[Proof of the main theorem]{Proof of \cref{thm:main}}
+
+\emph{(a).}  Let $a=n/N$ and $Q=D^a$.  Then $a\mid k$ ($k/a=\rho N\in\Z$) and $\ell=\rho N+1$.  By \cref{lem:dsh}, $\ell^{\wedge}Q=\F_p$, so by \cref{lem:locator} every $z\in\F_p$ is bad at radius $1-\rho-1/N$ and the error there is $1$; \cref{lem:monotone} extends this to all larger radii.  Numerically, the exact DSH quantity is $(\rho N+1)((1-\rho)N-1)+1$.  For $N=2^{18}$ and the smallest prize factor $\rho(1-\rho)=15/256$, it is already larger than $15\cdot2^{28}$, hence exceeds BabyBear $15\cdot2^{27}+1$, KoalaBear $2^{31}-2^{24}+1$, and $3\cdot2^{30}+1=3221225473$.  For $N=2^{17}$, it equals $2^{32}$ at $\rho=1/2$ and $3\cdot2^{30}+2^{16}$ at $\rho=1/4$, so the sharper $2^{-17}$ gap holds at both rates.
+
+\emph{(b).}  Take $N=2M=2\log_2 n$, $a=n/N$, $\ell=\rho N+1\in\{M+1,M/2+1\}$.  The quotient $D^a$ is the unique subgroup of order $N$, namely $\langle2\rangle$.  By \cref{lem:fermat}, $|\ell^{\wedge}Q|=p-1$ in the five cases it covers; apply \cref{lem:locator,lem:monotone}.  The remaining case $(p,\rho)=(17,1/4)$, i.e.\ $|3^{\wedge}\langle2\rangle|=16$ over $\F_{17}$, is the exhaustively verified item V1 of \cref{app:verify}.
+
+\emph{(c).}  This is \cref{thm:sieve}.
+
+\emph{(d).}  For each $\ell$-subset $A\subseteq Q$ ($\ell=\rho N+1$), \cref{lem:locator}'s computation writes $L_A=X^{k+a}+z_AX^k+R_A$ with $z_A=-\sum_{b\in A}b$.  There are $\binom N\ell$ subsets and $q$ values of $z_A$; fix $z$ achieving at least the average $\binom N\ell/q$.  Each matching $A$ gives the codeword $c_A=-R_A|_D$, agreeing with $u_z$ on the $k+a$ points of $S_A$, i.e.\ within distance $1-\rho-1/N$.  Distinct $A$ give distinct monic $L_A$ (distinct root sets), hence distinct $R_A$ as polynomials of degree $<k<n$, hence distinct codewords on the $n$-point domain.  The radius and size claims follow.  For the final prize-rate claim, let $b_\rho\in\{2,4,8,16\}$ be the denominator of $\rho$ and put $T=(\log_2q)^{1+\eps}$.  For all large $q$, choose the largest power of two $N\le T$; then $N>T/2$, $b_\rho\mid N$, and, since $n$ is a power of two with $n\ge T$, also $N\mid n$.  Thus $\rho N\in\Z$, the divisor-level bound applies, and it holds at radius $1-\rho-1/N\le1-\rho-1/T$.  By monotonicity it also holds at $1-\rho-(\log_2q)^{-1-\eps}$, where
+\[
+        \frac1q\binom{N}{\rho N+1}\ \ge\ 2^{\HH(\rho)N(1-o(1))-\log_2q}
+        \ \ge\ 2^{\HH(\rho)(\log_2q)^{1+\eps}(1-o(1))/2\ -\ \log_2 q},
+\]
+which is $q^{\omega(1)}$.\hfill$\square$
+
+\section{Fully explicit counterexamples}\label{sec:explicit}
+
+\begin{example}[BabyBear, rate $1/2$, all smooth domains of size $\ge2^{17}$]\label{ex:babybear}
+$p=15\cdot2^{27}+1=2013265921$.  Let $D$ be the subgroup of order $n=2^{27}$, $k=2^{26}$, $N=2^{17}$, $a=2^{10}$, and consider
+\[
+        f(x)=x^{2^{26}+2^{10}},\qquad g(x)=x^{2^{26}} .
+\]
+For \emph{every} $z\in\F_p$ there is a $2^{17}$-element subgroup computation exhibiting badness: pick any $A\subseteq Q=D^{2^{10}}$ with $|A|=2^{16}+1$ and $\sum A=-z$ (which exists by \cref{lem:dsh}), and take $S_A=\{x:x^{2^{10}}\in A\}$, $|S_A|=2^{26}+2^{10}$.  Then $f+zg$ agrees with the explicit degree-$<2^{26}$ polynomial $-R_A$ on $S_A$ while $g$ has no degree-$<2^{26}$ explanation on $S_A$.  Hence
+\[
+        \eps_{\rm mca}\big(\RS[\F_p,D,2^{26}],\,\delta\big)=1
+        \qquad\text{for all }\delta\ge\tfrac12-2^{-17},
+\]
+and the same for every smooth $D$ with $2^{17}\mid|D|$, with $k=|D|/2$.  At all four prize rates the statement holds from $\delta\ge1-\rho-2^{-18}$ whenever $2^{18}\mid|D|$, and at $\rho=1/4$ the sharper $2^{-17}$ gap already holds whenever $2^{17}\mid|D|$.  The identical computation applies to KoalaBear and $3\cdot2^{30}+1$.
+\end{example}
+
+\begin{example}[Fermat instance with $q=n+1$, fully checked]\label{ex:257}
+$p=257$, $n=256$, $D=\F_{257}^\times$, $\rho=1/2$, $k=128$, $N=16$, $a=16$, $Q=\langle2\rangle$.  The line is $f=x^{144}$, $g=x^{128}$, the bad set contains $-9^{\wedge}Q=\F_{257}\setminus\{0\}$ ($256$ of $257$ parameters; $0$ is the one value the construction provably cannot produce, since $0\notin9^{\wedge}Q$ by \cref{lem:fermat}), and the radius is $7/16=\tfrac12-\tfrac1{16}$, far below the capacity edge $\tfrac12-\tfrac1{256}$.  Every ingredient of this instance --- the coverage $|9^{\wedge}Q|=256$, the locator coefficients, and the pointwise agreement on a $144$-point witness set --- has been verified by exact computation (\cref{app:verify}).  The analogous instance over $65537$ ($N=32$, radius $\tfrac12-\tfrac1{32}$, $65536$ bad parameters) is likewise fully verified.
+\end{example}
+
+\begin{table}[ht]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{0.25\textwidth}p{0.17\textwidth}p{0.13\textwidth}p{0.24\textwidth}p{0.13\textwidth}}
+\toprule
+Field & mechanism & error & radius interval ($\rho=1/2$) & status \\
+\midrule
+BabyBear, KoalaBear, $3\cdot2^{30}{+}1$ & DSH ladder & $1$ & $[\,1/2-2^{-17},\,1]$ & proved \\
+same, all four rates & DSH ladder & $1$ & $[\,1-\rho-2^{-18},\,1]$ & proved \\
+$65537$ ($q=n+1$) & Fermat digits & $\ge1-2^{-16}$ & $[\,1/2-2^{-5},\,1]$ & proved + verified \\
+$257$ ($q=n+1$) & Fermat digits & $\ge1-2^{-8}$ & $[\,1/2-2^{-4},\,1]$ & proved + verified \\
+sieve primes (infinitely many) & cyclotomic sieve & $\ge(\log_2p)^{-6}$ & from $1-\rho-\Theta(1/\log p)$ & proved (\cref{thm:sieve}) \\
+Fermat/Proth smooth towers & scalar-coset DSH & $1$ & $1-\rho-1/n$ & proved (\cref{thm:ext-smooth-towers}) \\
+Goldilocks towers & box-density & $\ge\theta^d$ & $1-\rho-1/n$ & proved (\cref{ex:goldilocks-density}) \\
+prize-rate smooth codes, lists & pigeonhole & $q^{\omega(1)}$ lists & from $1-\rho-(\log_2q)^{-1-\eps}$ & proved \\
+\bottomrule
+\end{tabular}
+\caption{The counterexample inventory.  ``Verified'' means every quantity recomputed by exhaustive dynamic programming.}
+\label{tab:inventory}
+\end{table}
+
+
+\section{Extension-field towers and density variants}\label{sec:extension-towers}
+
+The prime-field quotient ladder already gives the deployed-field disproof.  The following scalar-coset construction gives generated extension-field examples with error one at one symbol below capacity and explains why borderline fields such as Goldilocks still have large bad-slope density even when full restricted-sum coverage fails.
+
+\begin{lemma}[Scalar-coset subgroup]\label{lem:ext-coset-subgroup}
+Let $p$ be an odd prime, let $m\mid p-1$, put $n=md$, and assume
+\[
+        \ord_{md}(p)=d.
+\]
+Then $\F_{p^d}^{\times}$ contains an element $\zeta$ of order $n$.  If $H\le\F_p^\times$ is the subgroup of order $m$ and $D=\langle\zeta\rangle\le\F_{p^d}^{\times}$, then
+\[
+        D=\bigsqcup_{i=0}^{d-1}\zeta^iH,
+\]
+and $1,\zeta,\ldots,\zeta^{d-1}$ is an $\F_p$-basis of $\F_{p^d}$.  Conversely, an element of order $n$ and degree $d$ over $\F_p$ has $\ord_n(p)=d$.
+\end{lemma}
+
+\begin{proof}
+The equality $\ord_n(p)=d$ implies $n\mid p^d-1$, so the cyclic group $\F_{p^d}^\times$ contains an element $\zeta$ of order $n$.  The degree of an element of order $n$ over $\F_p$ is the least $e$ with $n\mid p^e-1$, namely $\ord_n(p)$; hence $\F_p(\zeta)=\F_{p^d}$ and the displayed powers of $\zeta$ form a basis.  Also $\zeta^d$ has order $m$, so $\langle\zeta^d\rangle$ is the unique subgroup of order $m$ and equals $H\le\F_p^\times$.  Finally, for $0\le i,j<d$,
+\[
+        \zeta^{i-j}\in H=\langle\zeta^d\rangle
+        \iff d\mid i-j,
+\]
+so the $d$ cosets $\zeta^iH$ are disjoint and account for all $md$ elements of $D$.
+\end{proof}
+
+\begin{lemma}[$2$-adic tower criterion]\label{lem:ext-tower-criterion}
+Let $p\equiv1\pmod4$ be prime, let $\beta=\vtwo(p-1)$, and let $m\mid p-1$ satisfy $\vtwo(m)=\beta$.  If $d$ is a power of two, then
+\[
+        \ord_{md}(p)=d.
+\]
+The $2$-adic hypothesis is necessary among such towers: if $\vtwo(m)<\beta$ and $d\ge2$ is a power of two, then $\ord_{md}(p)<d$.
+\end{lemma}
+
+\begin{proof}
+For $p\equiv1\pmod4$ and every $e\ge1$, the standard lifting-the-exponent computation gives
+\[
+        \vtwo(p^e-1)=\beta+\vtwo(e).
+\]
+Indeed this is immediate for $e=2^a$ by factoring $p^{2^{a+1}}-1=(p^{2^a}-1)(p^{2^a}+1)$ and using $p^{2^a}+1\equiv2\pmod4$, and the odd part of $e$ contributes no additional factor of $2$.
+
+Write $m=2^\beta t$ with $t$ odd and $t\mid p-1$, and write $d=2^a$.  By the Chinese remainder theorem,
+\[
+        \ord_{md}(p)=\operatorname{lcm}\bigl(\ord_t(p),\ord_{2^{\beta+a}}(p)\bigr).
+\]
+Here $\ord_t(p)=1$, while the displayed valuation formula shows $\ord_{2^{\beta+a}}(p)=2^a=d$.  This proves the criterion.  If $\vtwo(m)=c<\beta$, then the same computation gives $\ord_{2^{c+a}}(p)=2^{\max(0,c+a-\beta)}<2^a$, proving the final claim.
+\end{proof}
+
+\begin{theorem}[Smooth extension towers: full density]\label{thm:ext-smooth-towers}
+Let $p\equiv1\pmod4$ be prime, let $m=2^{\vtwo(p-1)}$, let $d$ be a power of two, and let $D\le\F_{p^d}^{\times}$ be the subgroup of order $n=md$ supplied by \cref{lem:ext-coset-subgroup,lem:ext-tower-criterion}.  Fix $0<\rho\le1/2$ with $r:=\rho m\in\Z$, and assume
+\[
+        \rho(1-\rho)m^2\ge p.
+\]
+Then, for $k=\rho n$,
+\[
+        \eps_{\rm mca}\left(\RS[\F_{p^d},D,k],\,1-\rho-\frac1n\right)=1.
+\]
+In particular, if $m^2\ge18p$, this holds simultaneously for all four prize rates.
+\end{theorem}
+
+\begin{proof}
+Let $H\le\F_p^\times$ be the subgroup of order $m$ and write $D=\bigsqcup_{i=0}^{d-1}\zeta^iH$ with $1,\zeta,\ldots,\zeta^{d-1}$ an $\F_p$-basis.  We prove $(k+1)^{\wedge}D=\F_{p^d}$.  Take any
+\[
+        y=c_0+c_1\zeta+\cdots+c_{d-1}\zeta^{d-1},
+        \qquad c_i\in\F_p.
+\]
+By \cref{lem:dsh}, $r^{\wedge}H=\F_p$ because $r(m-r)+1\ge p+1$, and $(r+1)^{\wedge}H=\F_p$ because
+\[
+        (r+1)(m-r-1)+1=r(m-r)+(m-2r)\ge p.
+\]
+Thus choose $T_0\subseteq H$ with $|T_0|=r+1$ and $\sum_{t\in T_0}t=c_0$, and for $i\ge1$ choose $T_i\subseteq H$ with $|T_i|=r$ and $\sum_{t\in T_i}t=c_i$.  Then
+\[
+        A=T_0\sqcup \zeta T_1\sqcup\cdots\sqcup \zeta^{d-1}T_{d-1}\subseteq D
+\]
+has size $(r+1)+(d-1)r=rd+1=k+1$ and sum $y$.  Hence $(k+1)^{\wedge}D=\F_{p^d}$.  Applying \cref{lem:locator} with $N=n$ and $a=1$ gives every slope $z\in\F_{p^d}$ bad for $x^{k+1}+zx^k$ at radius $1-\rho-1/n$.
+
+For the final sentence, the smallest value of $\rho(1-\rho)$ among the four prize rates is $15/256$, so $m^2\ge18p$ implies $\rho(1-\rho)m^2>p$ for all four rates; it also forces $m>18$, hence $16\mid m$ in the smooth case, so $\rho m\in\Z$.
+\end{proof}
+
+\begin{proposition}[Box-density extension bound]\label{prop:ext-density}
+With $p,m,d,D,n$ as in \cref{thm:ext-smooth-towers} but without the coverage inequality, let $0<\rho\le1/2$, $r=\rho m\in\Z$, $1\le r\le m/2$, $m\ge4$, and $k=\rho n$.  Put
+\[
+        \theta=\min\left\{1,\frac{\rho(1-\rho)m^2}{p}\right\}.
+\]
+Then
+\[
+        \eps_{\rm mca}\left(\RS[\F_{p^d},D,k],\,1-\rho-\frac1n\right)\ge\theta^d.
+\]
+\end{proposition}
+
+\begin{proof}
+Use the same scalar-coset decomposition.  Let
+\[
+        B=\left\{s_0+\zeta s_1+\cdots+\zeta^{d-1}s_{d-1}:
+        s_0\in(r+1)^{\wedge}H,
+        s_i\in r^{\wedge}H\ (i\ge1)\right\}.
+\]
+Every element of $B$ is a sum of $(r+1)+(d-1)r=k+1$ distinct elements of $D$, so $B\subseteq(k+1)^{\wedge}D$.  The basis property makes the coordinate map injective, hence
+\[
+        |B|=|(r+1)^{\wedge}H|\,|r^{\wedge}H|^{d-1}.
+\]
+By \cref{lem:dsh}, the first factor and each remaining factor are at least $\theta p$: for $r$ this is immediate, and for $r+1$ the identity
+\[
+        (r+1)(m-r-1)+1=r(m-r)+(m-2r)
+\]
+is no smaller when $r\le m/2$.  Thus $|(k+1)^{\wedge}D|\ge |B|\ge(\theta p)^d=\theta^d q$.  The locator obstruction \cref{lem:locator} with $N=n$ gives the displayed MCA lower bound.
+\end{proof}
+
+\begin{corollary}[Fermat and Proth-type towers]\label{cor:fermat-proth-towers}
+Let $p$ be a Fermat prime at least $257$, or more generally let $p\equiv1\pmod4$ with $m=2^{\vtwo(p-1)}$ and $m^2\ge18p$.  For every power of two $d$, the smooth subgroup $D\le\F_{p^d}^{\times}$ of order $n=md$ satisfies, for every prize rate $\rho$ and $k=\rho n$,
+\[
+        \eps_{\rm mca}\left(\RS[\F_{p^d},D,k],\,1-\rho-\frac1n\right)=1.
+\]
+This includes the Fermat bases $p=257$ and $p=65537$, and the Proth/deployed bases whose $2$-part is large enough.
+\end{corollary}
+
+\begin{proof}
+For Fermat primes $p\ge257$, $m=p-1$ and $(p-1)^2\ge18p$.  The general case is exactly \cref{thm:ext-smooth-towers}.
+\end{proof}
+
+\begin{example}[Goldilocks density]\label{ex:goldilocks-density}
+Let
+\[
+        p=2^{64}-2^{32}+1,
+        \qquad m=2^{32}.
+\]
+Then $p\equiv1\pmod4$, $m=2^{\vtwo(p-1)}$, and \cref{lem:ext-tower-criterion} gives smooth towers of order $n=2^{32}d$ in $\F_{p^d}$ for every power of two $d$.  Full coverage fails at the prize rates, but \cref{prop:ext-density} gives large density.  At rate $\rho=1/2$,
+\[
+        \theta=\frac{2^{62}}{2^{64}-2^{32}+1}>\frac14,
+\]
+so
+\[
+        \eps_{\rm mca}\left(\RS[\F_{p^d},D,n/2],\,\frac12-\frac1n\right)\ge\theta^d>4^{-d}.
+\]
+In particular the height-one Goldilocks field has MCA error greater than $1/4$ one symbol below capacity, and the lower bound $\theta^d>4^{-d}=2^{-2d}$ remains above $2^{-128}$ for every $d\le64$.  At rate $1/16$, $\theta>15/256$ and $31\log_2(256/15)<127$, so the same bound remains above $2^{-128}$ for $d\le31$.
+\end{example}
+
+\section{Scope: what is refuted, what survives}\label{sec:scope}
+
+\paragraph{Refuted.}  \Cref{conj:capacity} in its stated form, at every prize rate, for every target $\eps^*<1$, on the deployed FFT fields (error one, on an interval), on linear-size Fermat fields (error $1-1/p$, verified), on generated extension-field smooth towers (error one at one symbol below capacity when the scalar-coset coverage condition holds), and even on borderline Goldilocks-type towers at non-negligible density.  In the negligibility sense, with non-negligible meaning inverse-polynomial in $\lambda=\log_2q$, the conjecture also fails on infinitely many smooth prime fields at radius $1-\rho-O(1/\log p)$.  The polynomial-list analogue fails unconditionally at the prize rates on every power-of-two subgroup domain with $n\ge(\log_2q)^{1+\eps}$ for any fixed $\eps>0$; the divisor-level version of \cref{thm:main}(d) is valid for arbitrary rates whenever the chosen divisor $N$ satisfies $\rho N\in\Z$.
+
+\paragraph{Not refuted, and turned into floors.}  Any formulation with explicit slack $\tau$: our results show such a formulation \emph{must} take $\tau>1/\hat N\asymp\sqrt{\rho(1-\rho)/p}$ on fields where the $2$-part of $p-1$ reaches $\hat N$ (including BabyBear, KoalaBear, and $3\cdot2^{30}+1$), $\tau>c_\rho/\log p$ on the sieve fields, and $\tau>(\log_2q)^{-1-\eps}$ for the prize-rate list version whenever the domain has the corresponding dyadic divisors; above these floors the present no-slack arguments make no negative claim.  The restricted-sum mechanism itself cannot certify arbitrary depths: certifying error $\eta$ at $1-\rho-1/N$ through a quotient $Q$ needs $\binom{N}{\rho N+1}\ge\eta q$ (the construction's bad set has size at most $|(\rho N{+}1)^{\wedge}Q|\le\binom{N}{\rho N+1}\le2^{\HH(\rho)N(1+o(1))}$), i.e.\ $N\ge\log_2(\eta q)/\HH(\rho)\,(1-o(1))$ --- a radius gap $O(\HH(\rho)/\log_2(\eta q))$ at best.  Curve-MCA and exact slacked threshold formulations require additional constraints and analysis beyond the no-slack model studied here; protocol-level soundness of FRI/WHIR-type systems is untouched, because deployed analyses operate in the Johnson regime with margins and include protocol-specific constraints absent from this minimal no-slack definition.
+
+\paragraph{Companion manuscripts.}  The corrected slack/entropy theory and failure-ladder calculus built on these floors are developed in \cite{SlackTheory}.  The divisor-level list bound of \cref{thm:main}(d), sharpened to slack two and pigeonholed over the field of definition, composes with the Crites--Stewart list-to-agreement conversion \cite{CS25} into a field-size-universal challenge cap in \cite{UniversalCap}, which also places the list mass directly against the survey's $\eps^*|\F|$ budget.
+
+\paragraph{Relation to prior negative results.}  Counterexamples to the up-to-capacity proximity-gaps conjectures of \cite{BCIKS23} were given by Diamond--Gruen and Crites--Stewart \cite{DG25,CS25}; near-capacity failures over prime-field multiplicative subgroups were recently established by Krachun--Kazanin--Hab\"ock and Kambir\'e \cite{KKH26,Kambire26}; on the list side, superpolynomial lists beyond Johnson for full-field RS go back to Ben-Sasson--Kopparty--Radhakrishnan via subspace polynomials \cite{BKR10} (see also \cite{GR06}).  The contribution here is the smooth-multiplicative mechanism --- subgroup quotients of smooth domains --- which yields \emph{error-one} MCA failure on radius intervals for the actual deployed fields, exact $q=n+1$ instances, an unconditional inverse-polylogarithmic-density theorem for the governing small-subgroup density question (\cref{thm:sieve}; its fixed-constant-density form over arbitrary primes remains open), and the unconditional prize-rate smooth-domain list bound --- together, the no-slack disproof in the setting the prize names.
+
+\appendix
+
+\section{Verification record}\label{app:verify}
+
+All computations are exact (dynamic programming over residues with cardinality tracking; no sampling).
+\begin{enumerate}[label=V\arabic*.,leftmargin=2.4em]
+\item \emph{Fermat coverage.}  $|(M{+}1)^{\wedge}\langle2\rangle|=p-1$ for $p=17,257,65537$, and $|(M/2{+}1)^{\wedge}\langle2\rangle|=p-1$ for $p=17$ ($|3^{\wedge}\langle2\rangle|=16$, the case of \cref{thm:main}(b) not covered by \cref{lem:fermat}), $257$, and $65537$; the unique missing element is $0$ in every case, exactly as \cref{lem:fermat} predicts.
+\item \emph{Locator end-to-end.}  For $p=257$, $A\subseteq Q$ with $|A|=9$, $z=-\sum A$: the expanded $\prod_{b\in A}(X^{16}-b)$ has top coefficients $X^{144}+zX^{128}+(\deg<128)$ and $x^{144}+zx^{128}=-R_A(x)$ at all $144$ points of $S_A$.
+\item \emph{Pigeonhole list sizes.}  $p=17$, $n=16$, $k=8$: the number of $9$-subsets of $\F_{17}^\times$ with each prescribed sum is $672$ or $673$ (mean $\binom{16}9/17=672.9$), so every word $x^9+zx^8$ has $\ge672$ codewords at distance $\le1-9/16$; the pigeonhole bound of \cref{thm:main}(d) is essentially exact here.
+\item \emph{Ladder rung.}  $p=12289$, $\rho=1/2$: $\hat N=256$ and $|129^{\wedge}Q_{256}|=12289$ (full coverage, error $1$ at $\tfrac12-\tfrac1{256}$); even the unproven rung $N=128$ covers fully, so the proved ladder is conservative.
+\item \emph{Sieve mechanism.}  $N=16$, $r=9$: the global cyclotomic family has exactly $3280$ values (formula and enumeration agree); over primes $p\equiv1\ (16)$ the sumset $|9^{\wedge}Q_{16}|$ equals $1712,2336,2672,3280,3280,3280$ at $p=1889,3137,7681,12289,40961,65537$ --- collision-free reduction for $p\gg3280$, the regime driving \cref{thm:main}(c).
+\end{enumerate}
+
+\begin{thebibliography}{99}
+
+\bibitem{ProximityPrize}
+Ethereum Foundation,
+\emph{The Proximity Prize: \$1M Reed--Solomon Challenge}, 2025.
+\url{https://proximityprize.org/}.
+
+\bibitem{BCIKS23}
+E. Ben-Sasson, D. Carmon, Y. Ishai, S. Kopparty, and S. Saraf,
+\emph{Proximity gaps for Reed--Solomon codes},
+J.\ ACM 70 (2023), no.~5.  Preliminary version in FOCS 2020.
+
+\bibitem{DG25}
+B. E. Diamond and A. Gruen,
+\emph{On the Distribution of the Distances of Random Words},
+Cryptology ePrint Archive, Report 2025/2010, 2025.
+
+\bibitem{CS25}
+E. Crites and A. Stewart,
+\emph{On Reed--Solomon Proximity Gaps Conjectures},
+Cryptology ePrint Archive, Report 2025/2046, 2025.
+
+\bibitem{ABF26}
+G. Arnon, D. Boneh, and G. Fenzi,
+\emph{Open Problems in List Decoding and Correlated Agreement},
+Cryptology ePrint Archive, Report 2026/680, 2026.
+
+\bibitem{BonehKeynote}
+D. Boneh,
+\emph{The Proximity Prize: What It Is and What We Currently Know},
+ZKProof 8 keynote transcript, 2026.
+
+\bibitem{FRI}
+E. Ben-Sasson, I. Bentov, Y. Horesh, and M. Riabzev,
+\emph{Fast Reed--Solomon Interactive Oracle Proofs of Proximity},
+ICALP 2018.
+
+\bibitem{WHIR}
+G. Arnon, A. Chiesa, G. Fenzi, and E. Yogev,
+\emph{WHIR: Reed--Solomon Proximity Testing with Super-Fast Verification},
+ePrint 2024/1586.
+
+\bibitem{DDSH94}
+J. A. Dias da Silva and Y. O. Hamidoune,
+\emph{Cyclic spaces for Grassmann derivatives and additive theory},
+Bull.\ London Math.\ Soc.\ 26 (1994), 140--146.
+
+\bibitem{BKR10}
+E. Ben-Sasson, S. Kopparty, and J. Radhakrishnan,
+\emph{Subspace polynomials and limits to list decoding of Reed--Solomon codes},
+IEEE Trans.\ Inform.\ Theory 56 (2010), 113--120.
+
+\bibitem{GR06}
+V. Guruswami and A. Rudra,
+\emph{Limits to list decoding Reed--Solomon codes},
+IEEE Trans.\ Inform.\ Theory 52 (2006), 3642--3649.
+
+\bibitem{KKH26}
+D. Krachun, S. Kazanin, and U. Hab\"ock,
+\emph{Failure of proximity gaps close to capacity},
+ePrint 2026/782.
+
+\bibitem{Kambire26}
+A. Kambir\'e,
+\emph{Proximity Gaps Conjecture Fails Near Capacity over Prime Fields},
+arXiv:2604.09724, 2026.
+
+\bibitem{SlackTheory}
+P. Chojecki,
+\emph{Slack, Quotient Cores, and the Entropy Gap for Smooth-Domain Reed--Solomon Codes},
+companion manuscript, merged corrected edition, 2026.
+
+\bibitem{UniversalCap}
+P. Chojecki,
+\emph{A Universal Field-Size Cap for Mutual Correlated Agreement on Smooth Reed--Solomon Domains},
+companion manuscript, June 2026.
+
+\bibitem{Davenport}
+H. Davenport,
+\emph{Multiplicative Number Theory}, 3rd ed., Graduate Texts in Mathematics 74, Springer, 2000.
+(Siegel--Walfisz theorem, \S22.)
+
+\end{thebibliography}
+
+\end{document}

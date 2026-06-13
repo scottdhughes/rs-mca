@@ -1,0 +1,817 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{booktabs,longtable,tabularx,array,enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{microtype}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{task}[theorem]{Task}
+\newtheorem{milestone}[theorem]{Milestone}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\F}{\mathbb F}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\RS}{\operatorname{RS}}
+\newcommand{\FRS}{\operatorname{FRS}}
+\newcommand{\IRS}{\operatorname{IRS}}
+\newcommand{\Int}[2]{#1^{\equiv #2}}
+\newcommand{\List}{\operatorname{List}}
+\newcommand{\Fib}{\mathcal F}
+\newcommand{\Vol}{\operatorname{Vol}}
+\newcommand{\emca}{\varepsilon_{\rm mca}}
+\newcommand{\eca}{\varepsilon_{\rm ca}}
+\newcommand{\epg}{\varepsilon_{\rm pg}}
+\newcommand{\Adv}{\operatorname{Adv}}
+\newcommand{\poly}{\operatorname{poly}}
+\newcommand{\negl}{\operatorname{negl}}
+\newcommand{\qgen}{q_{\rm gen}}
+\newcommand{\qline}{q_{\rm line}}
+\newcommand{\qchal}{q_{\rm chal}}
+\newcommand{\Hbin}{H_2}
+\newcommand{\Qprof}{\mathcal Q}
+\newcommand{\taustar}{\tau_*}
+\newcommand{\ceil}[1]{\left\lceil #1\right\rceil}
+\newcommand{\floor}[1]{\left\lfloor #1\right\rfloor}
+\newcommand{\statusproved}{\textcolor{ForestGreen}{proved}}
+\newcommand{\statuscond}{\textcolor{BurntOrange}{conditional}}
+\newcommand{\statusopen}{\textcolor{BrickRed}{open}}
+\newcommand{\statusaudit}{\textcolor{MidnightBlue}{audit}}
+\newcommand{\paperA}{Paper A}
+\newcommand{\paperB}{Paper B}
+\newcommand{\paperC}{Paper C}
+\newcommand{\paperD}{Paper D}
+
+\title{A Blueprint for the Corrected Reed--Solomon Proximity Program\\
+\large Dissecting the Proximity-Prize Survey through the No-Slack Obstruction, Slack Theory,\\ \large SNARK Ledger, and Universal-Cap Manuscripts}
+\author{Working blueprint from the uploaded manuscripts}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The survey \emph{Open Problems in List Decoding and Correlated Agreement} poses two grand challenges for smooth-domain Reed--Solomon codes: determine the largest radius at which mutual correlated agreement (MCA) has negligible error, and determine the largest radius at which the relevant interleaved list size is at most a negligible fraction of the challenge field.  The four accompanying manuscripts change the shape of that program.  The no-slack manuscript gives explicit quotient-locator obstructions; the slack/entropy manuscript turns those obstructions into a corrected two-scale reserve theory; the SNARK manuscript turns the corrected theory into a protocol-facing certificate that separates generated-field entropy, quotient cores, interleaved lists, challenge-field division, MCA/line-decoding, and known failure ladders; and the universal-cap manuscript composes locator fibers with the Crites--Stewart list-to-agreement conversion into a field-size-universal challenge cap, pinning $\delta^*(2^{-128})\le1-\rho-2^{-9}$ (resp.\ $2^{-10}$ at rate $1/16$) for every field below $2^{256}$, modulo the imported conversion.
+
+This document is a blueprint rather than a final proof paper.  It extracts the survey's questions, states the corrected problems explicitly, explains how each problem feeds the four manuscripts, records what is still missing, and proposes concrete attack routes.  The central message is: do not try to prove an unslacked capacity theorem for smooth multiplicative Reed--Solomon domains.  Instead prove a floor-corrected theorem at radius $1-\rho-\eta$, where $\eta$ clears the generated-field entropy floor, the quotient-core floor, the known MCA failure ladders --- now including the universal-cap floor $\eta\gtrsim H_2(\rho)/\log_2\qline$ --- the interleaved-list-over-field budget, and the actual line field used by the protocol.
+\end{abstract}
+
+\tableofcontents
+
+\section{Purpose and source map}
+
+This blueprint is meant to be a research-control document.  It answers the following operational question:
+\begin{quote}
+Given the survey's open problems, and given our four draft manuscripts, what should be proved next, where does each proof belong, which assumptions are still exposed, and how might one attack them?
+\end{quote}
+
+The five source documents are used as follows.
+\begin{description}[leftmargin=3.5cm,style=nextline]
+\item[Survey ABF26.] The survey \cite{ABF26} fixes the common language: list decoding, smooth Reed--Solomon domains, interleaving, proximity gaps, CA, MCA, line-decoding, and the toy protocol whose error contains both an MCA term and an interleaved-list-over-field term.
+\item[\paperA: no-slack obstruction.] The manuscript \cite{NoSlack} refutes the unslacked support-wise line-MCA reading of ``up to capacity'' for smooth multiplicative domains.  Its mechanism is the quotient locator identity: restricted sums in a smooth quotient subgroup produce many bad line slopes for $x^{k+a}+zx^k$.
+\item[\paperB: slack and entropy theory.] The manuscript \cite{SlackEntropy} builds the corrected reserve theory.  It separates generated-field entropy, quotient-core list obstructions, exact slack bad-slope calculus, dyadic descent, quotient floors, subfield confinement, and final local-limit conjectures for locator fibers and residue-line packing.
+\item[\paperC: protocol ledger.] The manuscript \cite{SNARKLedger} turns the corrected theory into a field-separated SNARK certificate.  It insists that the generated-field entropy denominator, the line challenge field, the implementation interleaving, the protocol list arity, and the MCA or line-decoding theorem are all different ledgers unless a proof identifies them.
+\item[\paperD: universal cap.] The manuscript \cite{UniversalCap} extracts and sharpens the conditional universal-cap theorem of \paperB: composing slack-two locator fibers, pigeonholed over the field of definition, with the Crites--Stewart conversion gives $\eca>\frac1{2k}(1-n/|\F|)\ge2^{-86}$ at gap $2^{-9}$ ($2^{-10}$ at rate $1/16$) for every field below $2^{256}$, with deployed-parameter and interleaved-row corollaries and a two-radius refinement of \paperB's subfield confinement.  It executes item B4 of Section~\ref{sec:missing} and discharges item A5.
+\end{description}
+
+\paragraph{Anonymization status.}  All four manuscripts are now signed (Przemys\l{}aw Chojecki); the suite-level policy has been settled as sign-everything, and the companion bibliography entries carry named attributions accordingly.  If any individual paper is later routed to double-blind review, its author line and the named companion attributions must be stripped \emph{together} (e.g.\ replaced by ``removed for anonymous review''), since the cross-references otherwise leak identity.
+
+\paragraph{Naming convention used below.}  Problems labelled \textbf{L} are list-decoding problems, \textbf{M} are MCA or line-decoding problems, \textbf{F} are field-transfer problems, \textbf{P} are protocol-ledger problems, and \textbf{X} are cross-cutting problems.
+
+\section{The survey anchor: what the PDF asks for}
+
+The survey's relevant content can be compressed into four facts.
+
+\subsection{The two grand challenges}
+
+Let $C=\RS[\F,L,k]$ where $L\subseteq\F$ is a smooth domain, i.e. a multiplicative coset of a subgroup of power-of-two order, $n=|L|$, and $\rho=k/n$.  The survey focuses on $\rho\in\{1/2,1/4,1/8,1/16\}$, target error $\eps^*=2^{-128}$, smooth domains, $k\le 2^{40}$, and $|\F|<2^{256}$.
+
+\begin{problem}[Survey MCA challenge, restated]
+\label{prob:survey-mca}
+For each such $C$ determine the threshold
+\[
+        \delta^*_{\rm mca}(C,\eps^*)
+        :=\sup\{\delta\in[0,1]:\emca(C,\delta)\le\eps^*\},
+\]
+and prove both sides: an upper bound on $\emca(C,\delta)$ for $\delta\le\delta^*$ and a lower bound $\emca(C,\delta)>\eps^*$ for every $\delta>\delta^*$.
+\end{problem}
+
+\begin{problem}[Survey interleaved list challenge, restated]
+\label{prob:survey-list}
+For constant interleaving arity $m$, determine the threshold
+\[
+        \delta^*_{\rm list}(C,m,\eps^*)
+        :=\sup\{\delta\in[0,1]: |\Lambda(\Int{C}{m},\delta)|\le \eps^*|\F|\},
+\]
+again with matching upper and lower bounds.
+\end{problem}
+
+The survey emphasizes that the list threshold uses $\eps^*|\F|$ because protocol soundness often contains $|\Lambda(\Int{C}{m},\delta)|/|\F|$.  The survey's toy protocol makes this explicit:
+\[
+        \text{knowledge error}\ \lesssim\
+        \emca(C,\delta)+\frac{|\Lambda(\Int{C}{2},\delta)|}{|\F|}
+        \quad\text{and}\quad
+        (1-\delta)^t.
+\]
+Thus the protocol needs both a list theorem and an MCA or line-decoding theorem; one does not substitute for the other without an explicit conversion theorem.
+
+\subsection{Known positive islands}
+
+The survey's positive results can be read as theorem-backed safe zones.
+\begin{enumerate}[leftmargin=2.2em]
+\item \textbf{Johnson and near-Johnson RS.}  Smooth-domain RS has MCA bounds roughly of the form $n\cdot\poly(1/\eta)/|\F|$ as $\delta$ approaches the Johnson radius $1-\sqrt{\rho}$ from below \cite{BCIKS20,BCHKS25}.
+\item \textbf{Subspace-design and folded RS.}  Folded RS and related subspace-design codes have list decoding and MCA up to capacity, but with alphabet/folding overhead typically scaling like a polynomial in $1/\eta$ \cite{CZ25,GG25}.
+\item \textbf{Random domains.}  Randomly punctured RS codes have strong capacity-like list and MCA behavior with high or constant probability, but random domains sacrifice the exact FFT smoothness that motivates the challenge \cite{AGL24}.
+\item \textbf{Line-decoding route.}  Line-decoding implies MCA with useful parameters and is also consumed directly in some IOP analyses; it is therefore a natural replacement target for raw MCA \cite{GCXK25,GG25}.
+\end{enumerate}
+
+\subsection{Known negative pressure}
+
+The survey already records that near capacity there are lower bounds: CA/MCA errors can grow to $n^{\Omega(1)}/|\F|$ at gaps of order $1/\log n$, and CA can be lower bounded from distance-distribution effects \cite{CS25,DG25}.  It also records that list decoding and CA/MCA are related but not identical: list bounds imply MCA only with a square-root loss in the general theorem, while very small CA can force list bounds in some RS settings.  Concurrent near-capacity failure results over prime-field multiplicative subgroups \cite{KKH26,Kambire26} apply the same kind of pressure independently.  Our manuscripts sharpen this pressure for smooth multiplicative domains; \paperD{} converts it into a universal statement: for every field below $2^{256}$ at the prize rates, $\delta^*(2^{-128})\le1-\rho-2^{-9}$ ($2^{-10}$ at rate $1/16$), modulo the imported Crites--Stewart conversion, with structural reach $\eta\approx H_2(\rho)/\log_2\qline$.  This floor sits below the corrected reserves the program targets (e.g.\ $2^{-7.5}<1/16$ at the deployed sextic), so it bounds the program rather than precluding it.
+
+\subsection{The corrected reading}
+
+The corrected question is not ``Can smooth-domain RS reach capacity with no slack?''  The corrected question is:
+
+\begin{quote}
+For a specified domain, dimension, generated field, line field, interleaving arity, and protocol reduction, what is the smallest reserve $\eta$ for which all known lower-bound mechanisms are cleared and all required list/MCA numerators are provably below the field-denominator budgets?
+\end{quote}
+
+This replaces a single threshold with a ledger.
+
+\section{How the four manuscripts reshape the program}
+
+\subsection{\paperA: the no-slack obstruction becomes a lower-bound oracle}
+
+\paperA{} proves that smooth quotient structure is not a technical nuisance; it is a source of explicit bad slopes.  In its simplest form, let $D\le\F^\times$ have order $n$, let $N\mid n$, let $a=n/N$, and let $Q=D^a$ be the quotient subgroup of order $N$.  For $k=\rho n$ with $a\mid k$, the line
+\[
+        u_z(x)=x^{k+a}+z x^k
+\]
+has bad slopes controlled by restricted sums
+\[
+        z\in-(\rho N+1)^{\wedge}Q.
+\]
+Consequently,
+\[
+        \emca\big(\RS[\F,D,k],1-\rho-1/N\big)
+        \ge \frac{|(\rho N+1)^{\wedge}Q|}{|\F|}.
+\]
+When the restricted sumset fills the field, the error is one at that radius and hence at every larger radius.
+
+\paragraph{Role in the program.}  \paperA{} supplies the obstruction audit used by \paperB{} and \paperC.  It turns the survey's near-capacity unknown into explicit lower-bound floors.  It also gives list lower bounds through locator fibers: many agreement supports yield many nearby codewords.
+
+\subsection{\paperB: the slack/entropy paper turns obstruction into a corrected theorem shape}
+
+\paperB{} separates two list scales and two MCA scales.
+\begin{enumerate}[leftmargin=2.2em]
+\item \textbf{Generated-field entropy.}  If $a=k+\sigma$ agreement points are requested, then locator data lives over the field generated by the domain.  The basic pigeonhole obstruction is controlled by
+\[
+        \sigma\log_2 \qgen \quad\text{versus}\quad \log_2\binom n{k+\sigma}.
+\]
+For fixed $\rho$, this induces the entropy reserve $\taustar(\rho,\qgen)$ determined asymptotically by
+\[
+        \taustar(\rho,\qgen)\log_2\qgen \approx \Hbin(\rho+\taustar(\rho,\qgen)).
+\]
+\item \textbf{Quotient cores.}  Smooth domains have internal quotient scales.  Even if the ambient field is large enough for entropy, quotient-periodic fibers can produce large lists unless $\sigma$ is at least on the order of $n/\log n$ or the active quotient profile is destroyed by dimension choices.
+\item \textbf{Exact slack calculus.}  The bad slopes of canonical slack lines $x^{k+T}+z x^k$ are multi-symmetric images of the domain.  At quotient scale $N$ and slack $t$, the radius is $1-\rho-t/N$.
+\item \textbf{Final conjectures.}  After entropy and quotient-periodic packets are separated, arbitrary locator fibers should be polynomial and aperiodic residue-line packing should be $n^{1+o(1)}$.
+\end{enumerate}
+
+\paragraph{Role in the program.}  \paperB{} provides the corrected mathematical conjectures to prove.  It also records which parts are theorem-backed, which parts are conditional on finite-field local limits, and which earlier arbitrary-base claims were retracted or repaired.
+
+\subsection{\paperC: the SNARK paper turns the corrected theorem shape into a certificate}
+
+\paperC{} introduces a field-separated reserve certificate.  A protocol layer is analyzed only after its reduction has been rewritten in the form
+\begin{equation}
+\label{eq:blueprint-protocol-reduction}
+        \Adv_{\rm code}
+        \le \Adv_{\rm fold}+\Adv_{\rm curve}
+        + |\Lambda(\Int{C_{\rm line}}{\mu},\delta)|\Adv_{\rm query}
+        + \frac{|\Lambda(\Int{C_{\rm line}}{\mu},\delta)|}{\qline}
+        + \varepsilon_{\rm mca}^{\rm used}(C_{\rm line},\delta).
+\end{equation}
+The certificate then records $\qgen$, $\qline$, list arity $\mu$, implementation interleaving $\nu$, reserve $\sigma=a-k$, quotient profile, list numerator, and MCA or line-decoding numerator.
+
+\paragraph{Role in the program.}  \paperC{} is where the survey's toy protocol becomes a reusable design rule.  It is also where the remaining open assumptions have practical meaning: if extension-line MCA is unproved, the certificate is conjectural; if the protocol reduction has not been rewritten in ledger form, the theorem is not a drop-in compiler.
+
+\subsection{\paperD: the universal cap turns the failure audit into a theorem-grade ceiling}
+
+\paperD{} composes two ingredients, neither of which needs value-set counting or equidistribution: a slack-two locator-fiber pigeonhole (each $\ell$-subset $A$ of the quotient $Q=D^{a}$ yields a codeword near $x^{k+2a}+z_Ax^{k+a}$ with $z_A=-e_1(A)$; pigeonholing the $\binom N\ell$ subsets over the $\le|\F_{\qgen}|$ slope values in the field of definition produces one received word carrying $\binom N\ell/\qgen$ codewords), and the Crites--Stewart list-to-agreement conversion as restated by the survey.  The contrapositive yields, throughout the challenge envelope,
+\[
+        \eca(C,\delta)\;>\;\frac1{2k}\Bigl(1-\frac n{|\F|}\Bigr)\;\ge\;2^{-86}
+        \qquad\text{for every }\delta\in[1-\rho-2^{-9},\,1-\rho)
+\]
+(rate $1/16$: gap $2^{-10}$), hence $\delta^*(2^{-128})\le1-\rho-2^{-9}$ for every field below $2^{256}$.  Three structural by-products matter for this blueprint.
+\begin{enumerate}[leftmargin=2.2em]
+\item \textbf{A new failure-ladder rung.}  The mechanism caps out at gap $\approx H_2(\rho)/\log_2\qline$ and error $\approx1/k$; since $q$ enters only as the line-challenge field, no challenge-field enlargement can certify gaps below $\approx H_2(\rho)/\log_2\qline$.  This rung belongs in \paperC's ledger and in item (d) of the reserve checklist below.
+\item \textbf{Existence of genuinely extension-valued attacks.}  Combining the cap at deployed sextic parameters ($\eca>2^{-22}$ at gap $2^{-7}$) with subfield confinement shows the certifying lines are \emph{not} base-rational: $F$-valued bad-slope mass exists, non-constructively, below the corrected reserve.  This redirects F1 and milestone M3.
+\item \textbf{Compatibility with the corrected program.}  The cap's reach at the deployed sextic is gap $\approx2^{-7.5}$, below the corrected reserve $1/16$; the failure interval $[1/2-2^{-7},1/2)$ does not touch $\delta=7/16$.  The cap therefore coexists with \paperC's conjectural configurations and functions as their outer boundary.
+\end{enumerate}
+
+\paragraph{Role in the program.}  \paperD{} converts what was previously an audit rung (\paperB's conditional universal-cap section) into a sharp, field-size-universal theorem modulo the imported conversion, supplies the subfield-pigeonhole step that \paperB's list-profile conjecture needs at the generated field, and supersedes \paperB's cap constants; \paperB's corresponding section should now defer to it (item B7 in Section~\ref{sec:missing}).
+
+\section{Common notation and the corrected reserve ledger}
+
+Let
+\[
+        C=\RS[\F_q,H,k],\qquad |H|=n,\qquad \rho=k/n,
+\]
+where $H$ is a smooth multiplicative subgroup or coset.  At target radius
+\[
+        \delta=1-\rho-\eta,
+\]
+write the required agreement size and reserve as
+\[
+        a=\ceil{(1-\delta)n},\qquad \sigma=a-k,
+        \qquad \eta=\sigma/n.
+\]
+For finite-length work the integer $a$ is safer than the asymptotic variable $\eta$.
+
+\begin{definition}[Generated field, line field, and list arity]
+\label{def:fields}
+The \emph{generated field} $\F_{\qgen}$ is the smallest field over which the evaluation domain and its locator coefficients live.  The \emph{line field} $\F_{\qline}$ is the field from which the protocol samples the line or curve challenge and over which the line experiment is actually analyzed.  The \emph{protocol list arity} $\mu$ is the arity for which the reduction consumes
+\[
+        |\Lambda(\Int{C_{\rm line}}{\mu},\delta)|/\qline.
+\]
+\end{definition}
+
+The corrected reserve rule is the following blueprint version of the rule in \paperC.
+
+\begin{task}[Reserve checklist]
+\label{task:reserve-checklist}
+A proximity layer at $(H,n,k,\delta)$ is certificate-ready only after the following are established.
+\begin{enumerate}[label=(\alph*),leftmargin=2.2em]
+\item \textbf{Generated-field entropy:}
+\[
+        \sigma\log_2\qgen-\log_2\binom n a\ge \Gamma_{\rm ent}.
+\]
+\item \textbf{Local-limit scale:}
+\[
+        \sigma\ge C_{\rm loc} n/\log_2 n
+\]
+unless a stronger theorem for the chosen domain bypasses this scale.
+\item \textbf{Quotient profile:} all active quotient-core families are either absent, bounded by the allowed polynomial exponent, or explicitly included in the list/MCA numerator.
+\item \textbf{Failure ladders:} the chosen gap $\eta$ is above all known lower-bound gaps that already give error or list size beyond the target.  In particular, by the universal cap of \paperD, $\eta>2^{-9}$ is necessary at the prize rates whenever the divisibility hypotheses hold ($2^{-10}$ at rate $1/16$), and more generally $\eta\gtrsim H_2(\rho)/\log_2\qline$: this floor depends on the line field only, so it cannot be cleared by enlarging the challenge field.
+\item \textbf{Interleaved-list budget:}
+\[
+        |\Lambda(\Int{C_{\rm line}}{\mu},\delta)|\le \widehat L_\mu(\delta),
+        \qquad
+        \widehat L_\mu(\delta)/\qline\le 2^{-\lambda_{\rm list}}.
+\]
+\item \textbf{MCA or line-decoding budget:}
+\[
+        \emca(C_{\rm line},\delta)\le 2^{-\lambda_{\rm mca}},
+\]
+or the corresponding line-decoding statement whose parameters imply this bound.
+\end{enumerate}
+\end{task}
+
+\begin{remark}[Why this ledger is stricter than the survey statement]
+The survey's threshold notation hides several denominators.  The entropy obstruction uses $\qgen$, the protocol list denominator uses $\qline$, the extension-code list theorem may identify a list size with an interleaved base-code list, and MCA over an extension line field needs its own theorem.  Replacing all these fields by the largest challenge field is precisely the double-crediting error that \paperC{} is designed to prevent.
+\end{remark}
+
+\section{Problem matrix}
+
+The following table is the high-level dependency graph.  The detailed problem statements follow in Sections~\ref{sec:list-problems}--\ref{sec:protocol-problems}.
+
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{@{}p{0.10\linewidth}p{0.29\linewidth}p{0.24\linewidth}p{0.25\linewidth}@{}}
+\toprule
+ID & What must be proved & Where it lives & First attack route \\
+\midrule
+\endfirsthead
+\toprule
+ID & What must be proved & Where it lives & First attack route \\
+\midrule
+\endhead
+L1 & Arbitrary-word locator local limit above entropy and quotient reserve & \paperB{} theorem/conjecture; \paperC{} list certificate & Characteristic-zero rigidity $\to$ finite-field collision sieve $\to$ quotient-separated local limits \\
+L2 & Sharp interleaved list bounds near capacity & Survey grand list challenge; \paperC{} budget & Multi-fiber injection; improve product/GGR bounds for constant $\mu$ \\
+L3 & Quotient-profile constants and dimension-dither guarantees & \paperB{} quotient cores; \paperC{} hygiene rules & Divisor arithmetic, maximal-remainder lemmas, finite-length scanner \\
+M1 & Aperiodic residue-line packing / corrected MCA local limit & Survey grand MCA challenge; \paperB{} final MCA conjecture & Normal forms, template counting, inverse Littlewood--Offord, quotient separation \\
+M2 & Line-decoding version of M1 & Survey line-decoding route; \paperC{} protocol assumption & Convert residue-line packing into $(\delta,a,n+1)$ line-decoding \\
+M3 & Curve/polynomial-generator MCA at corrected reserve & Survey polynomial-generator open problem; \paperB{} curve transfer; \paperC{} batching & Combine affine-line and univariate-power MCA with concrete constants \\
+F1 & Extension-line MCA lift or counterexample & \paperB{} subfield confinement; \paperC{} no-double-crediting; \paperD{} existence of $F$-valued witnesses & Coordinate projection for $B$-valued lines; analyze genuinely $F$-valued residue denominators \\
+X1 & List--CA--MCA equivalence in smooth sparse-field regimes & Survey Section 5; \paperB{} cap; \paperD{} main theorem; \paperC{} field-size claims & Remove square-root loss under corrected reserve or prove obstruction \\
+P1 & Rewrite FRI/WHIR reductions in ledger form & \paperC{} main theorem & Extract code-level terms exactly as in \eqref{eq:blueprint-protocol-reduction} \\
+P2 & Concrete parameter certificates and obstruction audits & All four papers & Verified scripts for entropy, quotients, sumsets, interleaving, fields \\
+X2 & Domain shattering / degenerate-domain characterization & Survey derandomization directions; \paperB{} transfers; \paperC{} fallback & Treat quotient profile as degeneracy metric; interpolate smooth and random domains \\
+X3 & Theorem-backed alternatives and folded/subspace-design constants & Survey positive results; \paperC{} hybrid schedule & Improve $s$ versus $1/\eta$ or prove lower barriers \\
+\bottomrule
+\end{longtable}
+
+\paragraph{Traceability to \paperC's open problems.}  L1, L2, L3, M2, M3, F1, P1, and P3 appear in protocol form in \paperC{} as its open problems ``Polynomial-field locator local limit'', ``Sharp interleaved-list constants near capacity'', ``Sharp quotient-profile and local-limit constants'', ``Line-decoding form of the corrected conjecture'', ``Curve-MCA for batching'', ``Extension-line MCA'', ``Protocol-level reductions in ledger form'', and ``Quotient-hygienic arithmetization'', respectively; the statements here are the mathematical forms, \paperC's are the certificate-facing forms.
+
+\section{List-decoding problems}
+\label{sec:list-problems}
+
+\begin{problem}[L1: generated-field locator local limit]
+\label{prob:L1}
+Fix $\rho\in(0,1)$ and $B>0$.  Let $H_n\le\F_{q_n}^{\times}$ be generated-field smooth domains of order $n=2^m$, and let $k_n=\rho n+O(1)$.  Prove that for every received word $U:H_n\to\F_{q_n}$,
+\[
+        |\Fib_U(k_n+\sigma_n)|\le n^B
+\]
+whenever
+\[
+        \sigma_n\ge C_{\rho,B,\eps}\frac n{\log_2 n},
+        \qquad
+        \sigma_n\log_2 q_n\ge(1+\eps)\log_2\binom n{k_n+\sigma_n},
+\]
+and all active quotient-core contributions are either absent or already bounded by the allowed polynomial budget.
+\end{problem}
+
+\paragraph{What needs to be proved.}  The proof must control arbitrary feasible locator fibers, not only monomial-prefix fibers.  It must identify quotient-periodic fibers, bound or subtract them, and then prove an aperiodic local limit.  A finite-length version with explicit $C_{\rho,B,\eps}$ is needed for parameters.
+
+\paragraph{How it plays into the manuscripts.}  This is the main positive list theorem missing from \paperB.  In \paperC{} it supplies the base bound $\widehat L_1(\delta)\le n^B$ that is later lifted to the interleaved list budget.  It is the corrected answer to the survey's grand list challenge for smooth domains: list smallness begins only after entropy and quotient reserves clear.
+
+\paragraph{What is missing.}  The characteristic-zero inverse quotient theorem and the Galois-amplified no-collision theorem settle important strata, but they do not yet prove arbitrary-word, polynomial-field, fixed-prime local limits.  The current gap is a finite-field collision problem for locator fibers after quotient-periodic classes are removed.
+
+\paragraph{How to attempt it.}
+\begin{enumerate}[leftmargin=2.2em]
+\item Prove the monomial-prefix local limit first with all constants; treat arbitrary $U$ only after this is stable.
+\item Express finite-field collisions as algebraic integer divisibility events and use norms/Galois amplification to transfer characteristic-zero rigidity whenever $p$ is above an explicit threshold.
+\item Below the norm threshold, replace every-prime claims by density-over-primes claims; then try to upgrade density to every-prime using subgroup exponential sums or additive-combinatorial energy bounds.
+\item Develop an induction over the quotient lattice: if a collision has large quotient-periodic component, charge it to $\Qprof$; otherwise prove aperiodic expansion.
+\item Build a small-parameter experimental scanner that enumerates fibers, quotient classes, and collision deficits.  Use it to guess the finite-length constants and obstruction templates.
+\end{enumerate}
+
+\begin{problem}[L2: sharp interleaved-list bounds near capacity]
+\label{prob:L2}
+For constant $\mu$ and smooth-domain RS codes satisfying the L1 locator bound, determine the best useful upper bound on
+\[
+        |\Lambda(\Int{C}{\mu},1-\rho-\eta)|
+\]
+in the corrected reserve regime.  The target is a bound of the form $n^{B_\mu}$ with $B_\mu$ as small as possible, ideally much smaller than the trivial product exponent $\mu B$.
+\end{problem}
+
+\paragraph{What needs to be proved.}  The survey's protocol term is interleaved.  It is insufficient to state a base-code list theorem unless the reduction consumes the base list.  We need either a direct interleaved locator theorem or a sharp conversion from base locator fibers to interleaved lists.
+
+\paragraph{How it plays into the manuscripts.}  \paperC{} currently uses safe but possibly expensive bounds.  Improved L2 bounds would directly lower the required $\qline$ and shrink challenge sizes.  \paperB{} provides the base fiber objects; the survey provides the reason the interleaved object is the one protocols actually consume.
+
+\paragraph{What is missing.}  The known GGR-style bounds \cite{GGR11} can be arity-independent but deteriorate as $\delta\to\delta_{\min}$.  The trivial product bound is robust but often overcharges soundness by a factor linear in $\mu$ in the exponent.  We do not know the tight finite-length behavior for the concrete arities $\mu=2,3,\ldots$ used in protocols.
+
+\paragraph{How to attempt it.}
+\begin{enumerate}[leftmargin=2.2em]
+\item Replace codeword lists by simultaneous agreement support families.  A $\mu$-interleaved codeword must explain $\mu$ coordinates on the same support; this is more structured than $\mu$ independent base lists.
+\item Prove a multi-fiber injection: interleaved lists inject into feasible supports plus a low-dimensional polynomial choice, rather than into a Cartesian product of base lists.
+\item Search for lower-bound examples where interleaving really multiplies list size.  If quotient-core examples do not multiply, exploit that to sharpen the certificate for smooth domains.
+\item Separate implementation interleaving $\nu$ from protocol list arity $\mu$.  Bounds for $\IRS[\cdot,s]$ do not automatically solve the reduction's $\Int{C}{\mu}$ term unless the code object is identical.
+\end{enumerate}
+
+\begin{problem}[L3: quotient-profile constants and dimension hygiene]
+\label{prob:L3}
+Give a finite-length quotient-profile theorem for dyadic smooth domains and nearby dimensions $k$.  In particular, quantify exactly when changing $k_0=\rho n$ to $k=k_0-1$ eliminates the quotient-core families and their natural remainder variants.
+\end{problem}
+
+\paragraph{What needs to be proved.}  For every divisor scale $M\mid n$, one must determine whether a quotient-core list family is active at agreement size $a=k+\sigma$.  If active, compute its contribution.  If not, prove that the closest remainder construction is also inactive or below budget.
+
+\paragraph{How it plays into the manuscripts.}  \paperB{} needs this to make $\Qprof$ a computationally checkable invariant.  \paperC{} uses it as dimension dithering: a one-symbol rate loss may remove exact dyadic quotient cores.
+
+\paragraph{What is missing.}  The exact-divisibility statement is clean, but proof systems need finite-length remainders, arithmetization constraints, and a statement that prints active divisors at actual $(n,k)$ rather than nominal rate.
+
+\paragraph{How to attempt it.}
+\begin{enumerate}[leftmargin=2.2em]
+\item Prove maximal-remainder lemmas for $k=\rho n-r$ with small $r$, not only $r=1$.
+\item Write a deterministic divisor scanner that computes $\Qprof_H(a,k)$ and returns witnesses for every active scale.
+\item Interface the scanner with arithmetization degree choices: quantify the constraint-cost of selecting a low-divisibility degree bound.
+\end{enumerate}
+
+\section{MCA and line-decoding problems}
+\label{sec:mca-problems}
+
+\begin{problem}[M1: corrected MCA local limit / residue-line packing]
+\label{prob:M1}
+Let $H_n\le\F_{q_n}^{\times}$ be generated-field smooth domains, $k_n=\rho n+O(1)$, and $\eta_n=\sigma_n/n$ in the corrected reserve regime.  Prove
+\[
+        \emca\big(\RS[\F_{q_n},H_n,k_n],1-\rho-\eta_n\big)
+        \le
+        \frac{n^{1+o(1)}+2^{(\beta(\rho)/\Hbin(\rho))\Qprof_{H_n}(\eta_n)(1+o(1))}}{q_n},
+\]
+with a finite-length version suitable for $2^{-128}$ certificates.
+\end{problem}
+
+\paragraph{What needs to be proved.}  Bound all bad slopes of all line data after quotient-periodic packets are separated.  The $n^{1+o(1)}/q_n$ tangent floor is unavoidable, so the positive theorem should not try to beat it.  The quotient-profile term is also necessary where quotient floors survive.
+
+\paragraph{How it plays into the manuscripts.}  This is the MCA counterpart to L1 and the heart of \paperB's final conjecture.  In \paperC{} it supplies $\lambda_{\rm mca}$ for the certificate.  It is the corrected answer to the survey's grand MCA challenge.
+
+\paragraph{What is missing.}  Exact slack calculus handles canonical lines; dyadic descent and two-moment constructions handle important failure ladders; stable-range theorems handle some strata.  What remains is an all-line, all-base, practical-field theorem.  The removed all-bases non-dyadic claim must be replaced by a correct template/normal-form analysis.
+
+\paragraph{How to attempt it.}
+\begin{enumerate}[leftmargin=2.2em]
+\item Reduce arbitrary line data to residue-line normal forms.  Track denominator degree $t$, numerator residues, anchors, and noncontained support families.
+\item Define and bound an aperiodic packing number after deleting quotient-periodic denominator packets.
+\item Use Newton identities and moment constraints to classify zero-base witnesses; then extend to arbitrary bases via torsion-coset templates rather than assuming false rigidity.
+\item Import inverse Littlewood--Offord methods for subset sums over roots of unity to show that many aperiodic supports force low-complexity templates.
+\item Test the conjectured $n^{1+o(1)}$ numerator on small fields by exhaustive residue-line enumeration; use failures to refine the template list.
+\end{enumerate}
+
+\begin{problem}[M2: line-decoding form of the corrected conjecture]
+\label{prob:M2}
+Restate M1 as a line-decoding theorem: find explicit functions $a_{\rm LD}(n,\rho,\eta)$ and $b_{\rm LD}$ such that $C$ is
+\[
+        (1-\rho-\eta,
+        a_{\rm LD},
+        n+1)
+\]
+line-decodable and hence $\emca(C,1-\rho-\eta)\le a_{\rm LD}/q$.
+\end{problem}
+
+\paragraph{What needs to be proved.}  MCA asks that bad supports do not exist for too many slopes.  Line-decoding asks that any assignment of close codewords along many slopes is itself close to a code-line.  The proof must translate residue-line packing into the stronger collinearity statement, or identify exactly where stronger assumptions are needed.
+
+\paragraph{How it plays into the manuscripts.}  The survey highlights line-decoding as a route to MCA and as a direct protocol primitive.  \paperC{} can consume line-decoding in place of raw MCA if the protocol reduction is rewritten accordingly.  \paperB{} already has the residue-line language needed to formulate this.
+
+\paragraph{What is missing.}  We have bad-slope counting statements and conjectures, but not a clean $(\delta,a,b)$ line-decoding theorem with finite constants.  We also need to know whether line-decoding avoids some MCA-specific support bookkeeping or is genuinely stronger in the corrected reserve regime.
+
+\paragraph{How to attempt it.}
+\begin{enumerate}[leftmargin=2.2em]
+\item Start from canonical slack lines, where exact bad-slope sets are known; prove line-decoding there and compare the numerator to the MCA numerator.
+\item Show that many noncollinear decoded codewords imply many noncontained residue-line witnesses; then invoke M1.
+\item Track the $b=n+1$ threshold needed for the standard implication to MCA; optimize constants for protocol use.
+\end{enumerate}
+
+\begin{problem}[M3: curve and polynomial-generator MCA]
+\label{prob:M3}
+For power curves
+\[
+        u_\gamma=f_0+\gamma f_1+\cdots+\gamma^c f_c,
+\]
+prove a corrected-reserve MCA or line-decoding theorem with explicit dependence on $c$, quotient profile, and field separation.  Alternatively, prove that affine-line MCA plus univariate-power MCA imply the needed polynomial-generator statement with concrete constants.
+\end{problem}
+
+\paragraph{What needs to be proved.}  Many batching protocols use polynomial generators, not just affine lines.  The theorem must match the exact curve family used by the protocol.  A statement for all degree-$c$ curves is useful only if its constants do not destroy the soundness budget.
+
+\paragraph{How it plays into the manuscripts.}  The survey lists polynomial-generator MCA as an open direction.  \paperB{} proves that line bad-slope floors transfer through polynomial reparametrizations in some settings.  \paperC{} needs this for batching certificates.
+
+\paragraph{What is missing.}  Positive curve-MCA above the corrected reserve is not proved.  The negative transfer shows what fails; it does not give a safe theorem.
+
+\paragraph{How to attempt it.}
+\begin{enumerate}[leftmargin=2.2em]
+\item Start with univariate-power generators and reproduce the line residue normal form with higher moment constraints.
+\item Quantify how the bad-parameter set transforms under $\varphi(\gamma)$; avoid loose $c$-factor losses where possible.
+\item Reconcile with polynomial-generator preservation theorems \cite{BCGM25}: identify whether the corrected reserve assumptions satisfy their hypotheses or need strengthening.
+\end{enumerate}
+
+\section{Field-transfer problems}
+\label{sec:field-problems}
+
+\begin{problem}[F1: extension-line MCA lift]
+\label{prob:F1}
+Let $B\subset F$ be finite fields, $H\subseteq B$, $C_B=\RS[B,H,k]$, and $C_F=\RS[F,H,k]$.  Prove or refute a numerator-preserving extension-line lift:
+\[
+        \emca(C_B,\delta)\le N/q_B
+        \quad\Longrightarrow\quad
+        \emca(C_F,\delta)\le N^{1+o(1)}/q_F
+\]
+for lines $f+zg$ with $f,g\in F^H$ and $z\in F$.
+\end{problem}
+
+\paragraph{What needs to be proved.}  The lift must cover genuinely $F$-valued lines, not only $B$-valued lines.  For $B$-valued $f,g$, \paperB{} proves subfield confinement: bad slopes lie in $B$, so the density deflates by $|B|/|F|$.  The open case is whether new $F$-only bad slopes appear --- and \paperD{} now answers the existence half: at the deployed sextic parameters, CA fails at density $>2^{-22}$ at gap $2^{-7}$ while every base-rational pair is confined to density $<2^{-154}$, so genuinely $F$-valued bad lines \emph{exist}, non-constructively, at radii below the corrected reserve.  Any extension-line lift must therefore either be restricted to the corrected-reserve regime or carry an explicit fiber-borne term for the sub-reserve region.
+
+\paragraph{How it plays into the manuscripts.}  This is the main field-accounting assumption in \paperC.  It determines whether a protocol can safely divide MCA by an extension challenge field.  \paperB{} gives both evidence and warning: base-field witnesses deflate, but nonconstructive field-size caps suggest extension-valued attacks may exist unless proved absent --- and \paperD{} proves they do exist below the reserve.  What remains genuinely open is the corrected-reserve regime itself, where \paperD's mechanism no longer reaches (its structural cap is gap $\approx H_2(\rho)/\log_2\qline$).
+
+\paragraph{What is missing.}  There is no extension-line analogue of the clean extension-code list identity.  The survey's extension-field preliminaries solve list-size accounting via interleaving, but do not solve MCA.
+
+\paragraph{How to attempt it.}
+\begin{enumerate}[leftmargin=2.2em]
+\item Express $C_F$ as an extension code of $C_B$ and compare an $F$-line to an $e$-interleaved $B$-line with structured challenge coordinates.
+\item Try to prove that every $F$-valued bad support projects to a bounded number of $B$-valued residue-line witnesses.  If true, the numerator is field-independent.
+\item Search for counterexamples with $E\in F[X]\setminus B[X]$ denominators in the residue-line normal form.  These are the natural source of genuinely extension-valued bad slopes, and by \paperD's confinement refinement they are the \emph{only} possible source: searching among $B$-rational lines is provably futile.
+\item Use Galois conjugation: bad slopes outside $B$ come in orbits.  Orbit structure may either amplify them into a forbidden base-field packing or produce explicit counterexamples.
+\item Implement exhaustive searches over small extensions to test whether new bad slopes appear before quotient floors predict them.  Target sub-reserve radii first, where \paperD{} guarantees $F$-valued witnesses exist: recovering their shape there is the cheapest way to learn the template for the corrected-reserve regime (this is \paperD's explicit-lines problem).
+\end{enumerate}
+
+\begin{problem}[F2: generated-field entropy under extensions]
+\label{prob:F2}
+Make the generated-field entropy rule theorem-level: if the domain $H$ lies in $B$ and the received-word/locator problem is not genuinely lifted, prove that the coefficient-pigeonhole lower bound uses $|B|$, not the ambient extension field.
+\end{problem}
+
+\paragraph{What needs to be proved.}  The proof must state precisely when a larger ambient field changes the locator-fiber map.  The safe rule is: use $\qgen$ for entropy unless both the code and the locator data are defined over the extension in a way that changes the fiber codimension.
+
+\paragraph{How it plays into the manuscripts.}  This is a design rule in \paperC{} and one of the main explanations for why a sextic challenge field does not make a $31$-bit FFT domain entropy-feasible at reserves below the $31$-bit floor.
+
+\paragraph{How to attempt it.}  Formalize locator coefficients as polynomials in $H$ over the generated field.  Show that merely allowing the received word to take extension values does not multiply the number of independent locator constraints unless the interpolation residues span extension coordinates independently.
+
+\section{Connections among list decoding, CA, MCA, and attacks}
+\label{sec:connections}
+
+\begin{problem}[X1: smooth-domain list--agreement equivalence without the square-root loss]
+\label{prob:X1}
+Find conditions under which a corrected-reserve list bound for smooth-domain RS implies a corrected-reserve MCA or line-decoding bound at essentially the same radius, or prove that such an implication is false even after entropy and quotient floors are imposed.
+\end{problem}
+
+\paragraph{What needs to be proved.}  The survey records a general implication from list decoding to MCA with a square-root loss in radius, and CA-to-list implications showing that very small agreement error forces list smallness.  The open target is a smooth-domain, sparse-field, floor-corrected equivalence with no square-root loss.
+
+\paragraph{How it plays into the manuscripts.}  If X1 is true, \paperB's list local limit could imply a large part of its MCA local limit.  If false, \paperB{} must maintain separate list and residue-line conjectures.  \paperC{} should not collapse the list and MCA ledgers until X1 is proved.  The CA-to-list direction of the conversion is now load-bearing in two places --- \paperB's conditional cap and \paperD's main theorem both run the Crites--Stewart implication in contrapositive --- so the due-diligence items on that import (\paperB's diligence remark; \paperD's importing remark) are part of X1's scope.
+
+\paragraph{What is missing.}  The known counterexamples to tight list-to-CA implications involve full-domain or characteristic phenomena; they do not settle the smooth sparse-field regime relevant to SNARKs.  Conversely, quotient-core lists and quotient MCA floors suggest a deep connection that may hold only after quotient terms are included.
+
+\paragraph{How to attempt it.}
+\begin{enumerate}[leftmargin=2.2em]
+\item Translate every MCA-bad support into a locator fiber for a received word depending on the line; determine whether many bad slopes force a large list or only many supports.
+\item Use line-decoding as the middle object: list bounds plus structured decoding assignments may imply collinearity more directly than raw MCA.
+\item Build counterexample searches where list fibers are small but residue-line packing is large.  Such examples would separate the two ledgers.
+\item Track field size carefully: an implication with numerator $L^2n/q$ may be too weak for $2^{-128}$ even if asymptotically true.
+\end{enumerate}
+
+\begin{problem}[X2: attack up to MCA, not merely CA]
+\label{prob:X2}
+The survey's attack section shows that large CA error lower bounds soundness of a simplified reduction, while the positive soundness proof uses MCA.  Construct an attack whose success is lower bounded by $\emca(C,\delta)$ itself, or prove a separation explaining why CA is the right attack quantity for that reduction.
+\end{problem}
+
+\paragraph{What needs to be proved.}  Given an MCA-bad same-support witness, turn it into an invalid statement and prover strategy for a constrained-code protocol.  The strategy must exploit the public linear constraint $(v,\mu_1,\mu_2)$ rather than using the trivial $v=0$ CA attack.
+
+\paragraph{How it plays into the manuscripts.}  \paperA{} and \paperB{} produce bad slopes.  \paperC{} cares whether these bad slopes become protocol attacks under realistic constraints.  The survey explicitly notes this gap in its simplified attack discussion.
+
+\paragraph{How to attempt it.}
+\begin{enumerate}[leftmargin=2.2em]
+\item Start from a bad support $S$ where $f+zg$ is explained but $(f,g)$ is not simultaneously explained.
+\item Enumerate nearby codeword pairs and choose $v$ so that all candidate extracted pairs violate at least one linear constraint while the combined message passes for many slopes.
+\item Generalize the list-decoding lower-bound attack in the survey by replacing list elements with same-support MCA witness pairs.
+\item Identify whether the obstruction is exactly line-decoding: if line-decoding holds, such attacks should fail; if line-decoding fails, they may be constructible.
+\end{enumerate}
+
+\section{Protocol-ledger problems}
+\label{sec:protocol-problems}
+
+\begin{problem}[P1: rewrite deployed reductions in ledger form]
+\label{prob:P1}
+For FRI \cite{FRI}, WHIR \cite{ACFY25}, and any target IOP, rewrite the code-level soundness reduction in the explicit ledger form \eqref{eq:blueprint-protocol-reduction}, identifying all fields, list arities, curve families, interleaving factors, and query/folding terms.
+\end{problem}
+
+\paragraph{What needs to be proved.}  A reserve certificate is only valid for a reduction whose consumed code objects are known.  The proof must say whether the protocol uses base-code lists, interleaved lists, extension-code lists, affine MCA, curve MCA, or line-decoding.
+
+\paragraph{How it plays into the manuscripts.}  This is \paperC's main compiler step.  The survey's toy protocol is already in this form; deployed systems are not yet fully rewritten in the uploaded manuscript.
+
+\paragraph{What is missing.}  Fiat--Shamir, Merkle commitments, recursion, zero-knowledge masking, and batching may change challenge fields and curve families.  These need to be isolated from the code-level reduction rather than hidden in prose.
+
+\paragraph{How to attempt it.}
+\begin{enumerate}[leftmargin=2.2em]
+\item Use the survey toy protocol as the template and rewrite WHIR \cite{ACFY25} first, since its proof already motivates MCA.
+\item For each verifier challenge, record whether it lives in the arithmetic field, generated field, line field, or extension field.
+\item Replace informal ``list size'' references by exact $|\Lambda(\Int{C}{\mu},\delta)|$ statements.
+\item Replace informal ``proximity gap'' references by CA, MCA, line-decoding, or curve-MCA statements with parameters.
+\item Produce a machine-readable certificate schema mirroring the theorem statement.
+\end{enumerate}
+
+\begin{problem}[P2: concrete parameter certificates and audits]
+\label{prob:P2}
+For each target field/domain/rate tuple in the survey range, output a certificate or obstruction audit determining the best known upper and lower bounds on $\delta^*_{\rm list}$ and $\delta^*_{\rm mca}$ at $2^{-128}$.
+\end{problem}
+
+\paragraph{What needs to be proved or built.}  The certificate must compute exact entropy ledgers, active quotient profiles, known failure-ladder gaps, interleaved-list bounds, line-field denominators, and MCA/line-decoding numerators.  It must label each entry \statusproved, \statuscond, \statusopen, or \statusaudit.
+
+\paragraph{How it plays into the manuscripts.}  This is the deliverable form of \paperC.  It also provides feedback to \paperA{} and \paperB{} by revealing which lower-bound floors matter at actual parameters.
+
+\paragraph{What is missing.}  The current manuscripts contain mathematical statements and some concrete estimates, but not a unified verified toolchain.  Dynamic-programming restricted-sum checks, quotient-profile scans, entropy checks, and interleaving bounds should be reproducible.
+
+\paragraph{How to attempt it.}
+\begin{enumerate}[leftmargin=2.2em]
+\item Implement a finite-field/domain descriptor: $q$, $\qgen$, $\qline$, $n$, $k$, domain type, extension degree, and interleavings.
+\item Implement entropy and quotient-profile scanners.
+\item Implement restricted-sum lower-bound checks for quotient locators, with proof certificates for DSH-covered cases and exact DP certificates for small cases.
+\item Implement soundness budgeting: given $\widehat L_\mu$ and MCA numerator, compute minimum $\qline$ and query count $t$.
+\item Emit a TeX table and a JSON certificate from the same data.
+\end{enumerate}
+
+\begin{problem}[P3: quotient-hygienic arithmetization]
+\label{prob:P3}
+Design AIR/R1CS/Plonkish encodings whose degree bounds naturally avoid large active quotient scales, e.g. by producing $k$ with small $\gcd(n,k)$, without increasing the constraint count enough to lose the benefit.
+\end{problem}
+
+\paragraph{What needs to be proved.}  Dimension dithering must be compatible with actual arithmetization.  It is not enough to say ``use $k_0-1$'' if the circuit degree bound is rigidly $k_0$.
+
+\paragraph{How it plays into the manuscripts.}  \paperC{} proposes dithered dimensions as a nearly free fix.  P3 is the systems/theory bridge that makes it real.
+
+\paragraph{How to attempt it.}  Add one dummy row, shift a quotient, split columns, or change trace padding so that the low-degree extension uses $k_0-1$ or another low-divisibility dimension.  Prove that the new encoding preserves completeness and does not increase prover time more than the saved proximity-layer cost.
+
+\section{Domain and code-family problems}
+
+\begin{problem}[X3: domain shattering and degeneracy]
+\label{prob:X3}
+Characterize evaluation domains by the size of their quotient-profile and MCA floor.  Prove that mild random shattering of a smooth subgroup destroys quotient-core and quotient-MCA obstructions while preserving enough FFT structure for efficient provers.
+\end{problem}
+
+\paragraph{What needs to be proved.}  Random domains have capacity-like properties, smooth domains have quotient obstructions, and practical protocols want something in between.  We need a theorem for domains made of random cosets, punctured smooth domains, ECFFT/circle domains, or mixed-radix domains.
+
+\paragraph{How it plays into the manuscripts.}  The survey lists derandomizing random RS results and characterizing degenerate codes as promising directions.  \paperB{} extends mechanisms to Chebyshev/circle/additive domains.  \paperC{} suggests domain shattering as a fallback.
+
+\paragraph{How to attempt it.}
+\begin{enumerate}[leftmargin=2.2em]
+\item Use $\Qprof$ as a degeneracy measure.  Prove that random puncturing makes $\Qprof$ logarithmic or empty with high probability.
+\item Study coset unions: determine which quotient locator identities survive when only some fibers are kept.
+\item Preserve FFTs by shattering only late rounds or using mixed-radix/coset FFT decompositions.
+\item Compare to randomly punctured RS capacity theorems \cite{AGL24} and attempt derandomization with small-bias or extractor-selected punctures.
+\end{enumerate}
+
+\begin{problem}[X4: theorem-backed high-rate alternatives]
+\label{prob:X4}
+Improve concrete parameters for folded RS, multiplicity codes, and other subspace-design codes \cite{CZ25,GG25}, or prove lower barriers showing that their alphabet overhead must scale too poorly for the intended SNARK gains.
+\end{problem}
+
+\paragraph{What needs to be proved.}  The survey records theorem-backed capacity-like list and MCA for subspace-design codes.  The concrete cost is the overhead $s$ needed to reach reserve $\eta$.  We need either better $s(\eta)$ or a lower bound explaining why smooth RS with conjectural local limits remains the only efficient path.
+
+\paragraph{How it plays into the manuscripts.}  \paperC{} proposes a hybrid schedule: use conjectural corrected RS in large rounds and theorem-backed folded/subspace-design codes in small rounds.  X4 determines where the switch should occur.
+
+\paragraph{How to attempt it.}  Optimize existing subspace-design parameters at finite $n$; test multiplicity variants; look for new algebraic codes with FFT-like encoding and better $\tau(r)$; or prove that the known $1/\eta^2$ style overhead is inherent for natural folded/multiplicity families.
+
+\section{What is missing from each manuscript}
+\label{sec:missing}
+
+\subsection{Missing items in \paperA{} (no-slack obstruction)}
+
+\begin{enumerate}[label=A\arabic*.,leftmargin=2.2em]
+\item \textbf{Definition alignment.}  Match the paper's support-wise no-slack MCA definition to the survey's formal Definition 4.3, including all quantifiers, finite-length rounding, and whether cosets versus subgroups need separate statements.
+\item \textbf{Official scope statement.}  State precisely which interpretations of the Proximity Prize challenge are refuted and which are not: slacked MCA, line-decoding, curve-MCA with restrictions, and protocol-specific reductions remain outside the no-slack disproof unless reduced explicitly.
+\item \textbf{Extension-field separation.}  The prime-field/deployed-field obstruction must be separated from extension-line MCA.  Base-field witnesses deflate in extension challenge fields; genuinely extension-valued witnesses require F1.
+\item \textbf{Machine verification.}  Every explicit finite-field claim should have a reproducible certificate: subgroup order, quotient order, DSH inequality or exact restricted-sum DP, and locator end-to-end check.
+\item \textbf{List lower-bound formatting.}  \emph{Discharged by \paperD:} the list lower bound now appears in the survey form through \paperD's binomial-versus-$|B|(q/k+1)$ arithmetic, which places the fiber mass directly against the $\eps^*|\F|$ budget; what remains for \paperA{} is a pointer to that formulation.
+\item \textbf{Abstract/theorem scope erratum.}  \emph{Done in the current revision:} the abstract previously listed the Fermat primes $\{257,65537\}$ while the main theorem's part (b) covers $\{17,257,65537\}$; the revised abstract now matches the theorem, noting that $(17,1/4)$ is by exhaustive verification.
+\end{enumerate}
+
+\subsection{Missing items in \paperB{} (slack and entropy theory)}
+
+\begin{enumerate}[label=B\arabic*.,leftmargin=2.2em]
+\item \textbf{Proof-status hygiene.}  The document should visibly separate proved theorems, conditional theorems, conjectures, computational verifications, and proposed transfers.  This is essential because the paper intentionally contains a frontier ledger.
+\item \textbf{Arbitrary-word locator theorem.}  L1 is not proved.  The monomial-prefix and characteristic-zero results are major progress but not the final polynomial-field theorem.
+\item \textbf{All-line MCA theorem.}  M1 is not proved.  Canonical-line exactness and quotient floors are not the same as all-line upper bounds.
+\item \textbf{Imported conversion due diligence.}  \emph{Done:} the universal field-size cap's reliance on the list-to-agreement conversion is now pinned down by \paperB's diligence remark (admissible range of $\delta$, augmented-code definition and list monotonicity, $\eca$ normalization, constants) and \paperD's importing remark, with \paperD's slacked variant as an independent fallback route.
+\item \textbf{Arbitrary-base repair.}  The retracted all-bases non-dyadic statement should be replaced by a theorem/proposition hierarchy: normal form, template theorem, Newton obstruction, finite template computation, and finite-field transfer.
+\item \textbf{Finite constants.}  The final conjectures need finite constants for $C_{\rm loc}$, quotient profile thresholds, and numerator exponents if they are to feed \paperC{}.
+\item \textbf{Cap deduplication.}  \emph{Done (forward-reference option):} \paperB's universal-cap section is strictly superseded by \paperD{} for final constants (gap $2^{-9}$/$2^{-10}$ versus $2^{-11}$, error $2^{-86}$ without the $n\le q/2$ condition, extension fields included).  The current revision of \paperB{} keeps the quotient-core composition --- the mechanism native to its framework --- with explicit supersession pointers in the abstract, the capstone remark, the two-tier corollary, and a dedicated relation remark; no uncross-referenced cap theorems remain.
+\item \textbf{Deflation rounding erratum.}  \emph{Done:} the sextic deflation density was stated as ``at most $2^{-155}$''; since $|B|/|F|=p^{-5}=2^{-154.94\ldots}>2^{-155}$, the current revision of \paperB{} states $<2^{-154}$ in both the abstract and the deflation corollary, matching \paperD.
+\item \textbf{Stale companion bibitem.}  \emph{Done:} the bibliography entry for \paperA{} previously carried an obsolete draft title and anonymous authorship; it now carries the actual title (``Capacity-Edge Obstructions \ldots'') and named attribution.
+\item \textbf{Subfield form of the pigeonhole.}  \emph{Done:} the ``necessary'' half of the list-profile conjecture asserts the entropy floor at the generated field $\taustar(\rho,q_D)$, while the coefficient-pigeonhole theorem pigeonholes over the ambient field; the current revision of \paperB{} adds a generated-field pigeonhole corollary ($\Phi_\sigma$ has image in $B^\sigma$ when $H\subseteq B$), cross-referenced with \paperD's fiber lemma, and the conjecture now cites it.
+\end{enumerate}
+
+\subsection{Missing items in \paperC{} (SNARK ledger)}
+
+\begin{enumerate}[label=C\arabic*.,leftmargin=2.2em]
+\item \textbf{Actual protocol rewrites.}  The ledger theorem is a design pattern until FRI/WHIR reductions are rewritten in the exact form of \eqref{eq:blueprint-protocol-reduction}.
+\item \textbf{Extension-line theorem.}  The certificate cannot divide MCA by $\qline$ in extension mode without F1 or an explicit theorem tailored to the protocol's line family.
+\item \textbf{Interleaved-list theorem.}  The list budget needs L2, or it must conservatively overpay using current product/GGR bounds.
+\item \textbf{Certificate implementation.}  The paper should ship a canonical schema and parameter-audit script so that examples are reproducible.
+\item \textbf{Security statement modes.}  Each parameter set should be labelled theorem-backed, conjectural aggressive, obstruction-audit, or hybrid.  The abstract and examples should not blur these modes.
+\item \textbf{Arithmetization integration.}  Dithering and quotient hygiene must be tied to actual degree bounds in the target proof system.
+\end{enumerate}
+
+\subsection{Missing items in \paperD{} (universal cap)}
+
+\begin{enumerate}[label=D\arabic*.,leftmargin=2.2em]
+\item \textbf{Error-one grade in the band.}  The cap bounds $\delta^*$, not the failure profile: whether $\emca(C,1-\rho-\frac1{64})=1-o(1)$ holds for all primes between roughly $2^{150}$ and $2^{256}$ is the per-fiber collision problem proper and remains open.
+\item \textbf{Explicit certifying lines.}  The deployed-parameter failure is fiber-borne and non-constructive; exhibiting explicit $F$-valued pairs with CA-bad-slope density $>2^{-22}$ at gap $2^{-7}$ is open and feeds F1/M3.
+\item \textbf{Independent verification of the imports.}  The Crites--Stewart conversion and the slacked variant are recent ePrints; the composition should be re-audited against the originals (per the B4 checklist) before the cap is cited as unconditional.
+\item \textbf{Isogeny-smooth transfer.}  Carry the fiber-plus-conversion composition to circle-group domains over $p=2^{31}-1$ (Chebyshev locators in place of $X^a-b$), so the cap covers the Circle-STARK family.
+\end{enumerate}
+
+\section{Suggested paper-level reorganization}
+
+The drafts contain enough material for a coherent four-paper arc, but the responsibilities should be made non-overlapping.
+
+\begin{description}[leftmargin=3.4cm,style=nextline]
+\item[Paper A.] A short, self-contained lower-bound paper.  Goal: no-slack support-wise line-MCA disproof, explicit deployed-field floors, quotient-locator list lower bounds, extension-tower examples, and exact scope.  It should avoid conjectural positive theory.
+\item[Paper B.] A theory paper.  Goal: corrected reserve theorem shape, lower-bound scales, exact slack calculus, quotient profiles, finite-field local-limit conjectures, normal forms, and conditional/density/stable positive strata.  It should be explicit about proof status, and it should \emph{defer} the universal cap and the sharpest subfield-confinement statement to Paper D, keeping only pointers (item B7).
+\item[Paper C.] A protocol paper.  Goal: certificate framework, field-separated ledgers, dimension hygiene, concrete parameter examples, reduction rewrite template, modes/fallbacks.  It should cite Paper B's conjectures as assumptions rather than reproving them, and adopt Paper D's cap as a theorem-backed failure-ladder rung.
+\item[Paper D.] A short composition paper, already extracted.  Goal: the universal field-size cap with all constants, the deployed and interleaved corollaries, the two-radius subfield confinement, and the open error-one/explicit-lines problems.  It owns the cap; A and B own the locator framework it composes.
+\end{description}
+
+\section{Near-term milestones}
+
+\begin{milestone}[M0: clean definitions]
+Write a two-page notation file shared by all manuscripts: $\delta$, $\eta$, $a$, $\sigma$, $\qgen$, $\qline$, $\mu$, $\nu$, CA/MCA/line-decoding, support-wise bad slope, and extension-code conventions.  Known drift to resolve: \paperA{} and \paperB{} state results for subgroups while \paperD{} allows multiplicative cosets (the coset convention matches the survey and should become the default), and the same foundational reference is keyed BCIKS23 in \paperA{} and BCIKS20 elsewhere.  Resolved since the previous draft: the companion bibliography titles and attributions (item B9) and the suite-level anonymization policy --- all four manuscripts are now signed.
+\end{milestone}
+
+\begin{milestone}[M1: no-slack proof audit]
+For \paperA, produce a lemma-by-lemma verification table: quotient locator, DSH coverage, deployed field divisors, Fermat/Galois examples, list lower bound, and exact computational records.  Every finite claim should have either a symbolic inequality or a script certificate.
+\end{milestone}
+
+\begin{milestone}[M2: certificate scanner]
+Implement the P2 scanner for entropy, quotient profile, known lower-bound ladders, and field-accounting.  Generate the tables used in \paperC{} from the scanner, not by hand.
+\end{milestone}
+
+\begin{milestone}[M3: extension-line fork]
+Decide whether F1 is more likely true or false by running small-extension searches.  \paperD{} has redirected this milestone: searching among $B$-rational lines is provably futile (confinement), and genuinely $F$-valued witnesses are guaranteed to exist at sub-reserve radii, so the search space is residue-line denominators $E\in F[X]\setminus B[X]$ and the first target is recovering the shape of the witnesses \paperD{} proves to exist (its explicit-lines problem).  If F1 then looks true in the corrected-reserve regime, formulate a theorem via extension-code/interleaving coordinates with an explicit fiber-borne term for the sub-reserve region.  If false there too, extract the smallest counterexample and add it to \paperB{} and \paperC{} as a hard warning.
+\end{milestone}
+
+\begin{milestone}[M4: WHIR ledger rewrite]
+Rewrite one full WHIR \cite{ACFY25} or FRI \cite{FRI} code-level reduction in the exact ledger form.  This will reveal whether the protocol consumes affine MCA, curve-MCA, or line-decoding and which field denominators are legitimate.
+\end{milestone}
+
+\begin{milestone}[M5: local-limit pilot theorem]
+Prove L1 or M1 in a restricted but nontrivial regime, for example monomial-prefix fibers over split primes above the norm threshold with explicit constants, or canonical line MCA above the quotient norm threshold.  Feed the constants into the certificate scanner.
+\end{milestone}
+
+\section{A practical decision tree for parameters}
+
+Given a proposed high-rate RS proximity layer, apply the following decision tree.
+
+\begin{enumerate}[leftmargin=2.2em]
+\item \textbf{Determine the generated field.}  If the domain lies in a 31-bit FFT field, then $\qgen\approx 2^{31}$ even if challenges use a sextic extension.
+\item \textbf{Compute entropy reserve.}  Reject or enlarge $\eta$ if $\sigma\log_2\qgen<\log_2\binom n a+\Gamma_{\rm ent}$.
+\item \textbf{Compute quotient profile at actual $k$.}  If large quotient cores are active, either dither $k$, include the quotient contribution in the numerator, or enlarge $\sigma$.
+\item \textbf{Audit lower-bound ladders.}  If \paperA{} or \paperB{} gives error/list size above the target at the chosen gap, the point is not safe.  Independently of the field, the universal cap of \paperD{} rules out every prize-rate point with gap at most $2^{-9}$ ($2^{-10}$ at rate $1/16$) whenever the divisibility hypotheses hold, and no enlargement of $\qline$ rescues gaps below $\approx H_2(\rho)/\log_2\qline$.
+\item \textbf{Identify protocol list arity and line field.}  Do not assume $\mu=1$ or $\qline=\qchal$; read them from the reduction.
+\item \textbf{Choose theorem mode.}  If Johnson or folded/subspace-design theorems suffice, use theorem-backed mode.  If corrected RS assumptions are invoked, label the certificate conjectural and list L1/M1/F1 as assumptions.
+\item \textbf{Budget the query branch.}  Choose $t$ so $(1-\delta)^t$ meets its assigned bits; near capacity this may be far cheaper than Johnson, but only after the list/MCA ledgers pass.
+\end{enumerate}
+
+\section{Conclusion}
+
+The survey asks for the MCA and interleaved-list thresholds of smooth-domain Reed--Solomon codes because those thresholds feed SNARK soundness.  The four manuscripts suggest a sharper answer: smooth multiplicative domains do not have an unslacked capacity theorem; they have a corrected reserve theory with explicit quotient and entropy floors, now bounded from outside by a field-size-universal cap (\paperD) that is theorem-grade modulo the imported list-to-agreement conversion --- which makes the X1 conversion direction load-bearing rather than optional.  The main mathematical tasks are the locator local limit L1, the interleaved-list sharpening L2, the residue-line/MCA local limit M1, the line-decoding formulation M2, and the extension-line lift F1, the last now sharpened by \paperD's proof that genuinely extension-valued witnesses exist below the reserve.  The main protocol tasks are the ledger rewrite P1 and the certificate scanner P2.
+
+If these problems are solved positively, \paperC{} becomes a high-rate RS proximity compiler with transparent assumptions and concrete parameter gains.  If one of them fails, the failure should still improve the papers: it becomes a new obstruction floor, a field-accounting warning, or a theorem-backed reason to switch to folded/subspace-design codes or domain shattering.
+
+\begin{thebibliography}{99}
+
+\bibitem{ABF26}
+Gal Arnon, Dan Boneh, and Giacomo Fenzi.
+\emph{Open Problems in List Decoding and Correlated Agreement}. Cryptology ePrint Archive, Report 2026/680, April 2026.
+
+\bibitem{NoSlack}
+Przemys\l{}aw Chojecki.
+\emph{Capacity-Edge Obstructions to Reed--Solomon Mutual Correlated Agreement over Smooth Multiplicative Domains}. Companion manuscript, June 2026.
+
+\bibitem{SlackEntropy}
+Przemys\l{}aw Chojecki.
+\emph{Slack, Quotient Cores, and the Entropy Gap for Smooth-Domain Reed--Solomon Codes: List fibers, cyclotomic rigidity, Galois-amplified collisions, and the corrected slack mutual-correlated-agreement theory}. Companion manuscript, merged corrected edition, 2026.
+
+\bibitem{SNARKLedger}
+Przemys\l{}aw Chojecki.
+\emph{Efficient Proximity-Gap SNARKs from Field-Separated Reed--Solomon Reserve Certificates}. Companion manuscript, 2026.
+
+\bibitem{UniversalCap}
+Przemys\l{}aw Chojecki.
+\emph{A Universal Field-Size Cap for Mutual Correlated Agreement on Smooth Reed--Solomon Domains}. Companion manuscript, June 2026.
+
+\bibitem{ACFY25}
+Gal Arnon, Alessandro Chiesa, Giacomo Fenzi, and Eylon Yogev.
+\emph{WHIR: Reed--Solomon Proximity Testing with Super-Fast Verification}. EUROCRYPT 2025.
+
+\bibitem{BCIKS20}
+Eli Ben-Sasson, Dan Carmon, Yuval Ishai, Swastik Kopparty, and Shubhangi Saraf.
+\emph{Proximity Gaps for Reed--Solomon Codes}. FOCS 2020 / JACM 2023.
+
+\bibitem{BCHKS25}
+Eli Ben-Sasson, Dan Carmon, Ulrich Habo\"ck, Swastik Kopparty, and Shubhangi Saraf.
+\emph{On Proximity Gaps for Reed--Solomon Codes}. 2025.
+
+\bibitem{GG25}
+Rohan Goyal and Venkatesan Guruswami.
+\emph{Optimal Proximity Gaps for Subspace-Design Codes and (Random) Reed--Solomon Codes}. 2025.
+
+\bibitem{CZ25}
+Yeyuan Chen and Zihan Zhang.
+\emph{Explicit Folded Reed--Solomon and Multiplicity Codes Achieve Relaxed Generalized Singleton Bounds}. STOC 2025.
+
+\bibitem{GGR11}
+Parikshit Gopalan, Venkatesan Guruswami, and Prasad Raghavendra.
+\emph{List Decoding Tensor Products and Interleaved Codes}. SICOMP 2011.
+
+\bibitem{GCXK25}
+Yiwen Gao, Dongliang Cai, Yang Xu, and Haibin Kan.
+\emph{From List-Decodability to Proximity Gaps}. 2025.
+
+\bibitem{BCGM25}
+Sarah Bordage, Alessandro Chiesa, Ziyi Guan, and Ignacio Manzur.
+\emph{All Polynomial Generators Preserve Distance with Mutual Correlated Agreement}. 2025.
+
+\bibitem{AGL24}
+Omar Alrabiah, Venkatesan Guruswami, and Ray Li.
+\emph{Randomly Punctured Reed--Solomon Codes Achieve List-Decoding Capacity over Linear-Sized Fields}. STOC 2024.
+
+\bibitem{CS25}
+Elizabeth Crites and Alistair Stewart.
+\emph{On Reed--Solomon Proximity Gaps Conjectures}. 2025.
+
+\bibitem{FRI}
+Eli Ben-Sasson, Iddo Bentov, Yinon Horesh, and Michael Riabzev.
+\emph{Fast Reed--Solomon Interactive Oracle Proofs of Proximity}. ICALP 2018.
+
+\bibitem{DG25}
+B.~E. Diamond and A. Gruen.
+\emph{On the Distribution of the Distances of Random Words}. Cryptology ePrint Archive, Report 2025/2010, 2025.
+
+\bibitem{KKH26}
+D. Krachun, S. Kazanin, and U. Hab\"ock.
+\emph{Failure of Proximity Gaps Close to Capacity}. Cryptology ePrint Archive, Report 2026/782, 2026.
+
+\bibitem{Kambire26}
+A. Kambir\'e.
+\emph{Proximity Gaps Conjecture Fails Near Capacity over Prime Fields}. arXiv:2604.09724, 2026.
+
+\end{thebibliography}
+
+\end{document}
