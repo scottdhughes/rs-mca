@@ -18,7 +18,7 @@ CLAIM = (
     "no RS/list-decoding/MCA safety assertion; "
     "no theorem status upgrade"
 )
-CASE_FIELDS = ("p", "n", "k", "agreement_size", "template")
+CASE_FIELDS = ("p", "n", "k", "agreement_size", "template", "seed")
 
 
 def utc_now() -> str:
@@ -55,14 +55,26 @@ def parse_int(value: Any, name: str) -> int:
         raise ValueError(f"invalid integer for {name}: {value!r}") from exc
 
 
+def parse_seed(value: Any, *, template: str, name: str) -> int | None:
+    if template != "random":
+        return None
+    if value in {None, "", "null", "None"}:
+        raise ValueError(f"random template requires seed for {name}")
+    return parse_int(value, name)
+
+
 def case_key(row: dict[str, Any]) -> str:
-    return "|".join(str(row[field]) for field in CASE_FIELDS)
+    return "|".join(
+        "null" if row[field] is None else str(row[field])
+        for field in CASE_FIELDS
+    )
 
 
 def case_label(row: dict[str, Any]) -> str:
     return (
         f"p={row['p']} n={row['n']} k={row['k']} "
-        f"a={row['agreement_size']} template={row['template']}"
+        f"a={row['agreement_size']} template={row['template']} "
+        f"seed={row['seed']}"
     )
 
 
@@ -94,6 +106,11 @@ def load_python_csv(path: Path) -> dict[str, dict[str, Any]]:
                     "agreement_size",
                 ),
                 "template": raw["template"],
+                "seed": parse_seed(
+                    raw.get("seed"),
+                    template=raw["template"],
+                    name="seed",
+                ),
                 "supports_checked": parse_int(
                     raw["supports_checked"],
                     "supports_checked",
@@ -135,6 +152,7 @@ def normalize_sage_report(report: dict[str, Any]) -> dict[str, Any]:
             "sage inputs.agreement_size",
         ),
         "template": inputs.get("template"),
+        "seed": None,
         "supports_checked": parse_int(
             scan.get("supports_tested"),
             "sage scan.supports_tested",
@@ -148,6 +166,11 @@ def normalize_sage_report(report: dict[str, Any]) -> dict[str, Any]:
     }
     if not isinstance(row["template"], str):
         raise ValueError("sage inputs.template must be a string")
+    row["seed"] = parse_seed(
+        inputs.get("seed"),
+        template=row["template"],
+        name="sage inputs.seed",
+    )
     return row
 
 
@@ -254,14 +277,18 @@ def markdown_case_table(rows: list[dict[str, Any]]) -> list[str]:
     if not rows:
         return ["None."]
     lines = [
-        "| p | n | k | agreement | template | supports | fiber | nontrivial |",
-        "|---:|---:|---:|---:|---|---:|---:|---|",
+        (
+            "| p | n | k | agreement | template | seed | supports | "
+            "fiber | nontrivial |"
+        ),
+        "|---:|---:|---:|---:|---|---:|---:|---:|---|",
     ]
     for row in rows:
         lines.append(
             "| "
             f"{row['p']} | {row['n']} | {row['k']} | "
             f"{row['agreement_size']} | {row['template']} | "
+            f"{row['seed']} | "
             f"{row['supports_checked']} | {row['fiber_size']} | "
             f"{row['nontrivial_locator_constraint']} |"
         )
@@ -290,10 +317,10 @@ def build_markdown(report: dict[str, Any]) -> str:
         "## Matched Comparisons",
         "",
         (
-            "| p | n | k | agreement | template | supports | "
+            "| p | n | k | agreement | template | seed | supports | "
             "Python fiber | Sage fiber | agree |"
         ),
-        "|---:|---:|---:|---:|---|---:|---:|---:|---|",
+        "|---:|---:|---:|---:|---|---:|---:|---:|---:|---|",
     ]
     for item in report["comparisons"]:
         case = item["case"]
@@ -301,6 +328,7 @@ def build_markdown(report: dict[str, Any]) -> str:
             "| "
             f"{case['p']} | {case['n']} | {case['k']} | "
             f"{case['agreement_size']} | {case['template']} | "
+            f"{case['seed']} | "
             f"{item['python']['supports_checked']} | "
             f"{item['python']['fiber_size']} | "
             f"{item['sage']['fiber_size']} | {item['matches']} |"
@@ -392,6 +420,11 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--python-csv", type=Path, required=True)
     parser.add_argument("--sage-json", type=Path, required=True)
     parser.add_argument("--out-dir", type=Path, required=True)
+    parser.add_argument(
+        "--fail-on-mismatch",
+        action="store_true",
+        help="exit nonzero when any matched Python/Sage case disagrees",
+    )
     return parser
 
 
@@ -408,6 +441,8 @@ def main(argv: list[str] | None = None) -> int:
         parser.error(str(exc))
 
     print(format_summary(report))
+    if args.fail_on_mismatch and report["summary"]["mismatched_cases"]:
+        return 1
     return 0
 
 

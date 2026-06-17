@@ -10,8 +10,12 @@ safety, and it does not upgrade any theorem status.
 The comparison key is:
 
 ```text
-p,n,k,agreement_size,template
+p,n,k,agreement_size,template,seed
 ```
+
+The `seed` component is active for `template=random`; non-random templates
+normalize it to `null` so optional producer defaults do not create false
+case splits.
 
 The tool compares:
 
@@ -30,3 +34,6 @@ REPORT=experimental/locator_fiber_crosscheck_report/compare_locator_fiber_output
   --sage-json /tmp/sage_locator_fiber_selected.json \
   --out-dir /tmp/locator_fiber_crosscheck_report
 ```
+
+Use `--fail-on-mismatch` when the report should act as a check and exit
+nonzero if any matched Python/Sage case disagrees.
