@@ -29,3 +29,21 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-17 - Locator-fiber sweep analyzer
+
+- **Agent/model:** Codex / GPT-5.
+- **Files added or changed:**
+  - `experimental/locator_fiber_sweep_analysis/README.md`
+  - `experimental/locator_fiber_sweep_analysis/analyze_locator_fiber_sweep.py`
+  - `experimental/locator_fiber_sweep_analysis/examples/tiny_locator_fiber_sweep.csv`
+  - `experimental/locator_fiber_sweep_analysis/test_analyze_locator_fiber_sweep.py`
+- **Status:** EXPERIMENTAL.
+- **What is being added:** A local analyzer for locator-fiber sweep CSV outputs.
+  It includes a tiny input fixture, separates interpolation-floor sanity rows
+  from nontrivial locator-fiber rows, and reports sparse random nonzero fibers,
+  monomial nonzero fibers, and quotient-periodic support summaries.
+- **How it is useful:** Supports the locator-fiber toy-case program by turning
+  exhaustive scan rows into reviewable experimental frontiers and sanity checks.
+- **What to do next:** Run on canonical local sweep packets, add independent
+  Sage cross-checks for selected nontrivial rows, and decide after review
+  whether the analyzer should be promoted to `scripts/`.
