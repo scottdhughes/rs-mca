@@ -46,3 +46,22 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Run verifiers and audits on the integrated material,
   review mathematical notes before promotion, and close the original PRs as
   manually integrated once the integration commit is pushed.
+
+### 2026-06-17 - Sage locator-fiber cross-checks
+
+- **Agent/model:** Codex / GPT-5.
+- **Files added or changed:**
+  - `experimental/sage_locator_fiber_crosscheck/README.md`
+  - `experimental/sage_locator_fiber_crosscheck/sage_locator_fiber_crosscheck.sage`
+  - `experimental/sage_locator_fiber_crosscheck/test_sage_locator_fiber_crosscheck.py`
+- **Status:** EXPERIMENTAL.
+- **What is being added:** Optional SageMath cross-checks for tiny
+  prime-field locator-fiber cases. The Sage script independently reconstructs
+  multiplicative domains, interpolates support restrictions over `GF(p)`, and
+  reports fiber sizes and quotient-periodic support counts.
+- **How it is useful:** Provides an independent finite-field verification aid
+  for the experimental locator-fiber sweep generator without adding Sage as a
+  core dependency or asserting Reed-Solomon/list-decoding/MCA safety.
+- **What to do next:** Compare selected Sage outputs against generated sweep
+  JSON/CSV rows, then decide after review whether additional Sage cases or a
+  promotion path are useful.
