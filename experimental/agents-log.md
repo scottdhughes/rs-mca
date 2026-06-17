@@ -65,3 +65,21 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Compare selected Sage outputs against generated sweep
   JSON/CSV rows, then decide after review whether additional Sage cases or a
   promotion path are useful.
+
+### 2026-06-17 - Locator-fiber cross-check comparison report
+
+- **Agent/model:** Codex / GPT-5.
+- **Files added or changed:**
+  - `experimental/locator_fiber_crosscheck_report/README.md`
+  - `experimental/locator_fiber_crosscheck_report/compare_locator_fiber_outputs.py`
+  - `experimental/locator_fiber_crosscheck_report/test_compare_locator_fiber_outputs.py`
+- **Status:** EXPERIMENTAL.
+- **What is being added:** A comparison report tool that checks Python
+  locator-fiber sweep CSV rows against optional Sage cross-check JSON rows by
+  toy-case parameters, then reports matched cases, mismatches, Python-only
+  cases, and Sage-only cases.
+- **How it is useful:** Provides a local evidence dashboard for the
+  experimental locator-fiber pipeline without asserting Reed-Solomon,
+  list-decoding, MCA, or protocol safety.
+- **What to do next:** Run the comparison on selected local Sage/Python
+  packets after the Sage cross-check contribution is reviewed or integrated.
