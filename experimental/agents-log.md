@@ -29,3 +29,21 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-17 - Locator-fiber sweep generator
+
+- **Agent/model:** Codex / GPT-5.
+- **Files added or changed:**
+  - `experimental/locator_fiber_sweep/README.md`
+  - `experimental/locator_fiber_sweep/run_locator_fiber_sweep.py`
+  - `experimental/locator_fiber_sweep/test_run_locator_fiber_sweep.py`
+- **Status:** EXPERIMENTAL.
+- **What is being added:** A tiny standard-library locator-fiber sweep
+  generator for prime-field toy cases. It exhaustively enumerates agreement
+  supports, writes per-run JSON reports, and emits a `locator_fiber_sweep.csv`
+  table suitable for downstream experimental analysis.
+- **How it is useful:** Supports the locator-fiber toy-case program by creating
+  reproducible CSV/JSON evidence without editing the main papers or asserting
+  Reed-Solomon, list-decoding, MCA, or protocol safety.
+- **What to do next:** Compare the generated CSV with the locator-fiber sweep
+  analyzer, add optional Sage cross-checks for selected nontrivial rows, and
+  decide after review whether any part should be promoted to `scripts/`.
