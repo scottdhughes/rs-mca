@@ -41,3 +41,6 @@ Sage outputs. Duplicate Sage cases across inputs are rejected.
 
 Use `--fail-on-mismatch` when the report should act as a check and exit
 nonzero if any matched Python/Sage case disagrees.
+
+Use `--fail-on-unmatched` when every Python row is expected to have a Sage
+counterpart and every Sage row is expected to have a Python counterpart.

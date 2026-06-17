@@ -335,6 +335,31 @@ def test_fail_on_mismatch_exits_nonzero_for_matched_disagreement(tmp_path):
     assert report["summary"]["mismatched_cases"] == 1
 
 
+def test_fail_on_unmatched_exits_nonzero_for_one_sided_cases(tmp_path):
+    python_csv = tmp_path / "locator_fiber_sweep.csv"
+    sage_json = tmp_path / "sage_locator.json"
+    out_dir = tmp_path / "report"
+    write_python_csv(python_csv)
+    write_sage_json(sage_json)
+
+    exit_code = main(
+        [
+            "--python-csv",
+            str(python_csv),
+            "--sage-json",
+            str(sage_json),
+            "--out-dir",
+            str(out_dir),
+            "--fail-on-unmatched",
+        ]
+    )
+
+    assert exit_code == 1
+    report = read_json(out_dir / "locator_fiber_crosscheck_report.json")
+    assert report["summary"]["python_only_cases"] == 1
+    assert report["summary"]["sage_only_cases"] == 1
+
+
 def test_multiple_sage_json_inputs_are_combined(tmp_path):
     python_csv = tmp_path / "locator_fiber_sweep.csv"
     sage_json_one = tmp_path / "sage_one.json"
@@ -420,6 +445,87 @@ def test_multiple_sage_json_inputs_are_combined(tmp_path):
         str(sage_json_one),
         str(sage_json_two),
     ]
+
+
+def test_fail_on_unmatched_allows_complete_comparison(tmp_path):
+    python_csv = tmp_path / "locator_fiber_sweep.csv"
+    sage_json_one = tmp_path / "sage_one.json"
+    sage_json_two = tmp_path / "sage_two.json"
+    out_dir = tmp_path / "report"
+    write_python_rows(
+        python_csv,
+        [
+            {
+                "p": 5,
+                "n": 4,
+                "k": 2,
+                "agreement_size": 3,
+                "template": "monomial",
+                "supports_checked": 4,
+                "fiber_size": 0,
+                "nontrivial_locator_constraint": "True",
+            },
+            {
+                "p": 5,
+                "n": 4,
+                "k": 2,
+                "agreement_size": 3,
+                "template": "zero",
+                "supports_checked": 4,
+                "fiber_size": 4,
+                "nontrivial_locator_constraint": "True",
+            },
+        ],
+    )
+    write_sage_payload(
+        sage_json_one,
+        [
+            sage_report_case(
+                p=5,
+                n=4,
+                k=2,
+                agreement_size=3,
+                template="monomial",
+                supports_tested=4,
+                fiber_size=0,
+                nontrivial=True,
+            ),
+        ],
+    )
+    write_sage_payload(
+        sage_json_two,
+        [
+            sage_report_case(
+                p=5,
+                n=4,
+                k=2,
+                agreement_size=3,
+                template="zero",
+                supports_tested=4,
+                fiber_size=4,
+                nontrivial=True,
+            ),
+        ],
+    )
+
+    exit_code = main(
+        [
+            "--python-csv",
+            str(python_csv),
+            "--sage-json",
+            str(sage_json_one),
+            "--sage-json",
+            str(sage_json_two),
+            "--out-dir",
+            str(out_dir),
+            "--fail-on-unmatched",
+        ]
+    )
+
+    assert exit_code == 0
+    report = read_json(out_dir / "locator_fiber_crosscheck_report.json")
+    assert report["summary"]["python_only_cases"] == 0
+    assert report["summary"]["sage_only_cases"] == 0
 
 
 def test_duplicate_sage_case_across_inputs_is_parser_error(tmp_path):

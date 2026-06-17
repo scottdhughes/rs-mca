@@ -444,6 +444,11 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="exit nonzero when any matched Python/Sage case disagrees",
     )
+    parser.add_argument(
+        "--fail-on-unmatched",
+        action="store_true",
+        help="exit nonzero when Python-only or Sage-only cases are present",
+    )
     return parser
 
 
@@ -461,6 +466,11 @@ def main(argv: list[str] | None = None) -> int:
 
     print(format_summary(report))
     if args.fail_on_mismatch and report["summary"]["mismatched_cases"]:
+        return 1
+    if args.fail_on_unmatched and (
+        report["summary"]["python_only_cases"]
+        or report["summary"]["sage_only_cases"]
+    ):
         return 1
     return 0
 
