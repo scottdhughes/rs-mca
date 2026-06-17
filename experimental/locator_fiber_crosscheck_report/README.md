@@ -32,8 +32,12 @@ REPORT=experimental/locator_fiber_crosscheck_report/compare_locator_fiber_output
 .venv/bin/python "$REPORT" \
   --python-csv /tmp/locator_fiber_sweep.csv \
   --sage-json /tmp/sage_locator_fiber_selected.json \
+  --sage-json /tmp/sage_locator_fiber_extra_case.json \
   --out-dir /tmp/locator_fiber_crosscheck_report
 ```
+
+Pass `--sage-json` more than once to combine separate per-case or per-batch
+Sage outputs. Duplicate Sage cases across inputs are rejected.
 
 Use `--fail-on-mismatch` when the report should act as a check and exit
 nonzero if any matched Python/Sage case disagrees.

@@ -186,6 +186,19 @@ def load_sage_json(path: Path) -> dict[str, dict[str, Any]]:
     return rows
 
 
+def load_sage_jsons(paths: list[Path]) -> dict[str, dict[str, Any]]:
+    rows: dict[str, dict[str, Any]] = {}
+    for path in paths:
+        for key, row in load_sage_json(path).items():
+            if key in rows:
+                raise ValueError(
+                    "duplicate Sage JSON case across inputs: "
+                    f"{case_label(row)}"
+                )
+            rows[key] = row
+    return rows
+
+
 def compare_case(
     key: str,
     python_row: dict[str, Any],
@@ -382,16 +395,16 @@ def write_outputs(report: dict[str, Any], out_dir: Path) -> None:
 def compare_files(
     *,
     python_csv: Path,
-    sage_json: Path,
+    sage_jsons: list[Path],
     out_dir: Path,
 ) -> dict[str, Any]:
     report = compare_rows(
         load_python_csv(python_csv),
-        load_sage_json(sage_json),
+        load_sage_jsons(sage_jsons),
     )
     report["provenance"]["inputs"] = {
         "python_csv": str(python_csv),
-        "sage_json": str(sage_json),
+        "sage_json": [str(path) for path in sage_jsons],
         "out_dir": str(out_dir),
     }
     write_outputs(report, out_dir)
@@ -418,7 +431,13 @@ def build_parser() -> argparse.ArgumentParser:
         description="Compare EXPERIMENTAL locator-fiber Python/Sage outputs."
     )
     parser.add_argument("--python-csv", type=Path, required=True)
-    parser.add_argument("--sage-json", type=Path, required=True)
+    parser.add_argument(
+        "--sage-json",
+        type=Path,
+        action="append",
+        required=True,
+        help="Sage JSON input; may be repeated",
+    )
     parser.add_argument("--out-dir", type=Path, required=True)
     parser.add_argument(
         "--fail-on-mismatch",
@@ -434,7 +453,7 @@ def main(argv: list[str] | None = None) -> int:
     try:
         report = compare_files(
             python_csv=args.python_csv,
-            sage_json=args.sage_json,
+            sage_jsons=args.sage_json,
             out_dir=args.out_dir,
         )
     except (OSError, ValueError) as exc:
