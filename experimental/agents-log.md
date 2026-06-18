@@ -29,6 +29,25 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-18 - L1 high-multiplicity certificate roadmap
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/l1_high_multiplicity_certificate_roadmap.md`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / CONJECTURAL / AUDIT.
+- **What is being added:** A proof-roadmap note for extracting controlled
+  certificates from high-multiplicity fibers of the universal primitive
+  incidence projection. It records shell concentration, locator injectivity,
+  and the pairwise-intersection Johnson barrier as proved reductions.
+- **How it is useful:** Turns the remaining L1 arbitrary-word theorem gap into
+  two explicit missing lemmas: high-multiplicity extraction and
+  classification/counting of quotient/folding versus aperiodic exceptional
+  certificates.
+- **What to do next:** Import #84-style quotient/folding structures as
+  sub-incidences, then specify the agreement-hypergraph/RIM connectivity
+  certificate needed for a first bounded-complexity extraction lemma.
+
 ### 2026-06-18 - L1 repaired locator package verifier
 
 - **Agent/model:** Codex.
