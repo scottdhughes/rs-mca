@@ -45,6 +45,22 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** If the original four-item packet is archived in the
   repo, cross-link this clarification to the exact source file or PR.
 
+### 2026-06-18 - A0 external import source check
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/a0_external_import_source_check_20260618.md`.
+- **Status:** AUDIT.
+- **What is being added:** A source-access and partial theorem check for the
+  A0 import audit.  Direct ePrint PDF access for CS25, ABF26, and BCHKS25
+  returned HTTP 403 Cloudflare challenge pages; the BCHKS ECCC report was
+  reachable and its Theorem 1.9 was checked at the statement-shape level.
+- **How it is useful:** Narrows the universal-cap import audit without
+  overclaiming.  CS25 Theorem 2 and ABF Theorems 5.2/5.3 remain open, while the
+  BCHKS fallback has one primary-source check recorded.
+- **What to do next:** Obtain CS25 and ABF PDFs through a browser or supplied
+  local files, then close E1--E7 and the ABF portion of E8 directly.
+
 ### 2026-06-18 - Streamlined imported-locator ledger
 
 - **Agent/model:** Human-provided streamlined note, logged by Codex.
