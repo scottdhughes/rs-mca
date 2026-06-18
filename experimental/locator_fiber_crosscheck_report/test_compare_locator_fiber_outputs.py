@@ -1,11 +1,15 @@
 import csv
 import json
+from pathlib import Path
 
 import pytest
 
 from experimental.locator_fiber_crosscheck_report.compare_locator_fiber_outputs import (
     main,
 )
+
+
+EXAMPLE_DIR = Path(__file__).with_name("examples")
 
 
 CSV_COLUMNS = [
@@ -561,3 +565,34 @@ def test_duplicate_sage_case_across_inputs_is_parser_error(tmp_path):
         )
 
     assert exc_info.value.code == 2
+
+
+def test_checked_example_fixture_round_trip(tmp_path):
+    out_dir = tmp_path / "report"
+
+    exit_code = main(
+        [
+            "--python-csv",
+            str(EXAMPLE_DIR / "locator_fiber_sweep_p5.csv"),
+            "--sage-json",
+            str(EXAMPLE_DIR / "sage_locator_fiber_p5_monomial.json"),
+            "--sage-json",
+            str(EXAMPLE_DIR / "sage_locator_fiber_p5_zero.json"),
+            "--out-dir",
+            str(out_dir),
+            "--fail-on-mismatch",
+            "--fail-on-unmatched",
+        ]
+    )
+
+    assert exit_code == 0
+    report = read_json(out_dir / "locator_fiber_crosscheck_report.json")
+    assert report["summary"] == {
+        "python_rows": 2,
+        "sage_rows": 2,
+        "matched_cases": 2,
+        "mismatched_cases": 0,
+        "python_only_cases": 0,
+        "sage_only_cases": 0,
+        "all_matched_cases_agree": True,
+    }

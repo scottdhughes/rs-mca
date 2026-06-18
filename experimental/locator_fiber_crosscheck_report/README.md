@@ -29,11 +29,14 @@ Example:
 
 ```bash
 REPORT=experimental/locator_fiber_crosscheck_report/compare_locator_fiber_outputs.py
+EXAMPLES=experimental/locator_fiber_crosscheck_report/examples
 .venv/bin/python "$REPORT" \
-  --python-csv /tmp/locator_fiber_sweep.csv \
-  --sage-json /tmp/sage_locator_fiber_selected.json \
-  --sage-json /tmp/sage_locator_fiber_extra_case.json \
-  --out-dir /tmp/locator_fiber_crosscheck_report
+  --python-csv "$EXAMPLES/locator_fiber_sweep_p5.csv" \
+  --sage-json "$EXAMPLES/sage_locator_fiber_p5_monomial.json" \
+  --sage-json "$EXAMPLES/sage_locator_fiber_p5_zero.json" \
+  --out-dir /tmp/locator_fiber_crosscheck_report \
+  --fail-on-mismatch \
+  --fail-on-unmatched
 ```
 
 Pass `--sage-json` more than once to combine separate per-case or per-batch
