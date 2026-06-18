@@ -22,6 +22,17 @@ fallback import.
 
 ## Source Access Record
 
+The source-access status is reproducible with:
+
+```sh
+python3 experimental/a0_import_source_probe.py \
+  --json-out /private/tmp/rs-mca-a0-source-probe.json
+```
+
+In the local network-enabled run used for this note, the probe reported one
+reachable source out of four: all three ePrint PDF URLs returned HTTP 403, while
+the ECCC BCHKS mirror returned HTTP 200 with `content-type: application/pdf`.
+
 | Source | Local access result | Audit consequence |
 |---|---|---|
 | CS25, ePrint 2025/2046 PDF | HTTP 403 Cloudflare challenge from direct `curl -L -I https://eprint.iacr.org/2025/2046.pdf`. | CS25 Theorem 2 remains unchecked against the primary source. |

@@ -49,12 +49,14 @@ Keep entries concise and link to the relevant files.
 
 - **Agent/model:** Codex.
 - **Files added or changed:**
-  `experimental/a0_external_import_source_check_20260618.md`.
+  `experimental/a0_external_import_source_check_20260618.md`,
+  `experimental/a0_import_source_probe.py`.
 - **Status:** AUDIT.
 - **What is being added:** A source-access and partial theorem check for the
   A0 import audit.  Direct ePrint PDF access for CS25, ABF26, and BCHKS25
   returned HTTP 403 Cloudflare challenge pages; the BCHKS ECCC report was
-  reachable and its Theorem 1.9 was checked at the statement-shape level.
+  reachable and its Theorem 1.9 was checked at the statement-shape level.  The
+  probe script records the same source-access status as JSON.
 - **How it is useful:** Narrows the universal-cap import audit without
   overclaiming.  CS25 Theorem 2 and ABF Theorems 5.2/5.3 remain open, while the
   BCHKS fallback has one primary-source check recorded.
