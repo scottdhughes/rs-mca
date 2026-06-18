@@ -29,6 +29,26 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-18 - L1 repaired locator theorem package
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/l1_repaired_locator_theorem_package.md`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / COUNTEREXAMPLE / EXPERIMENTAL / CONJECTURAL /
+  AUDIT.
+- **What is being added:** A theorem-package note that pivots the L1
+  arbitrary-word target from raw support fibers and pivot gauges to image/list
+  fibers, primitive locator-cofactor shells, universal coset incidence,
+  binomial moment inversion, and sparse syndrome fibers.
+- **How it is useful:** Gives Paper B a corrected statement object, a
+  gauge-free algebraic proof scaffold, and an exact primitive-shell/syndrome
+  shell equivalence while preserving the old raw fiber as a multiplicity
+  ledger.
+- **What to do next:** Review the primitive-shell and syndrome formulations,
+  then convert only maintainer-approved pieces into patch-ready Paper B text;
+  keep generated experiments and theorem notes in separate commits.
+
 ### 2026-06-18 - PR #79-#81 experimental integration
 
 - **Agent/model:** AllenGrahamHart and scottdhughes PRs, integrated by Codex.
