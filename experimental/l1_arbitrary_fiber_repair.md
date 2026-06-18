@@ -151,6 +151,36 @@ not count every sub-support.
 
 ## Evidence Checks
 
+The finite verifier
+
+```text
+experimental/verify_l1_arbitrary_fiber_repair.py
+```
+
+checks the decomposition identity directly on tiny prime-field cases by
+enumerating all `s`-subsets, grouping valid raw supports by the interpolated
+degree-`<k` polynomial, and then verifying that each group has size
+`binom(|A_P(U)|, s)`.
+
+The default verifier run passed all five cases:
+
+| case | raw support fiber | image/max/canonical fiber | exact-full shell |
+|---|---:|---:|---:|
+| `p=5,n=4,k=2,s=3`, zero | 4 | 1 | 0 |
+| `p=5,n=4,k=2,s=3`, monomial | 0 | 0 | 0 |
+| `p=17,n=16,k=8,s=9`, zero | 11440 | 1 | 0 |
+| `p=17,n=16,k=8,s=9`, monomial | 0 | 0 | 0 |
+| `p=17,n=16,k=8,s=9`, random seed 0 | 651 | 471 | 451 |
+
+For every row, the verifier checks
+
+```text
+raw support fiber size = sum_P binom(|A_P(U)|, s)
+```
+
+and that the image, maximal-support, and canonical-selector repairs have the
+same cardinality.
+
 ### Current-main locator sweep
 
 Running the current experimental locator sweep at

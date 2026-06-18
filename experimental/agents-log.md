@@ -48,20 +48,26 @@ Keep entries concise and link to the relevant files.
 ### 2026-06-18 - L1 arbitrary-fiber repair note
 
 - **Agent/model:** Codex.
-- **Files added or changed:** `experimental/l1_arbitrary_fiber_repair.md`.
+- **Files added or changed:** `experimental/l1_arbitrary_fiber_repair.md`,
+  `experimental/verify_l1_arbitrary_fiber_repair.py`.
 - **Status:** COUNTEREXAMPLE / PROVED / AUDIT.
 - **What is being added:** A repair note for Paper B's arbitrary locator-fiber
   target.  It records the exact decomposition of the raw support fiber as a
   list counted with `binom(agreement_size, s)` multiplicity, shows that the
   literal raw arbitrary-fiber bound is false for `U=0`, and compares repaired
-  image, maximal-support, exact-shell, and canonical-selector objects.
+  image, maximal-support, exact-shell, and canonical-selector objects.  The
+  verifier checks the raw-fiber multiplicity identity on tiny prime-field
+  cases, including zero-word overcount and a random `p=17,n=16,k=8,s=9` case
+  where 651 raw supports collapse to 471 repaired image/maximal/canonical
+  objects.
 - **How it is useful:** Targets L1 by separating the false raw-support route
   from the list-size object actually needed by the corrected locator local
   limit.  It also checks compatibility with the local locator packet and the
   open L1 monomial-prefix collision packet.
 - **What to do next:** Decide whether Paper B should replace
-  `|Fib_U(k+sigma)|` with an image/maximal/canonical repaired object, then add a
-  small verifier if the repair is promoted beyond an audit note.
+  `|Fib_U(k+sigma)|` with an image/maximal/canonical repaired object, then
+  review whether the verifier should become the first regression test for this
+  repaired L1 object.
 
 ### 2026-06-18 - Streamlined imported-locator ledger
 
