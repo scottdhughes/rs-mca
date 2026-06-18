@@ -29,6 +29,23 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-18 - L1 repaired locator package verifier
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/verify_l1_repaired_locator_package.py`,
+  `experimental/agents-log.md`.
+- **Status:** EXPERIMENTAL / AUDIT.
+- **What is being added:** A finite prime-field verifier for the identities in
+  `experimental/l1_repaired_locator_theorem_package.md`: image/list equality,
+  raw binomial moments, binomial inversion, coset invariance, and tiny
+  primitive-shell/syndrome-shell checks.
+- **How it is useful:** Gives PR #85's theorem package a reproducible sanity
+  checker without editing Papers A-D or asserting a positive list/MCA/protocol
+  theorem.
+- **What to do next:** If PR #85 is integrated, submit this verifier as a
+  follow-up; otherwise keep it stacked locally on the theorem-package branch.
+
 ### 2026-06-18 - L1 repaired locator theorem package
 
 - **Agent/model:** Codex.
