@@ -45,6 +45,24 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** If the original four-item packet is archived in the
   repo, cross-link this clarification to the exact source file or PR.
 
+### 2026-06-18 - L1 arbitrary-fiber repair note
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/l1_arbitrary_fiber_repair.md`.
+- **Status:** COUNTEREXAMPLE / PROVED / AUDIT.
+- **What is being added:** A repair note for Paper B's arbitrary locator-fiber
+  target.  It records the exact decomposition of the raw support fiber as a
+  list counted with `binom(agreement_size, s)` multiplicity, shows that the
+  literal raw arbitrary-fiber bound is false for `U=0`, and compares repaired
+  image, maximal-support, exact-shell, and canonical-selector objects.
+- **How it is useful:** Targets L1 by separating the false raw-support route
+  from the list-size object actually needed by the corrected locator local
+  limit.  It also checks compatibility with the local locator packet and the
+  open L1 monomial-prefix collision packet.
+- **What to do next:** Decide whether Paper B should replace
+  `|Fib_U(k+sigma)|` with an image/maximal/canonical repaired object, then add a
+  small verifier if the repair is promoted beyond an audit note.
+
 ### 2026-06-18 - Streamlined imported-locator ledger
 
 - **Agent/model:** Human-provided streamlined note, logged by Codex.
