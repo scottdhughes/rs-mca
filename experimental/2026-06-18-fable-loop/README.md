@@ -232,3 +232,26 @@ Cycle 16 rank/determinant resonance audit:
   verifier target but is not yet banked as proved.
 - Live wall: `W-F1-AA-RES-T2J3-RANK-DET-SPLIT`, the `Q==0` branch restricted
   to distinct `D`-split cubics.
+
+Cycle 17 rank-det split scanner prompt:
+
+- `prompts/20260618_cycle17_rank_det_split_scanner.md`
+- Status: `PROMPT / AUDIT`.
+- Target: implement a scanner for the Cycle 16 `Q==0` branch and decide
+  whether split-distinct cubics give `C2=O(p)` or `C2=Theta(p^2)` in the
+  restricted `D=F_p`, `t=sigma=2`, `j=3` toy window.
+
+Cycle 18 resonance slope-map collapse reconstruction:
+
+- `audits/20260618_CYCLE18_RESONANCE_SLOPE_MAP_COLLAPSE_AUDIT.md`
+- `local_checks/20260618_cycle18_resonance_slope_symbolic.py`
+- Status: `BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT`.
+- Banked content: from the Cycle 14 affine forms,
+  `Delta=(p1-tau3)(q2-tau3)-p2 q1`; hence `Delta0` is monic quadratic in
+  `tau3` and `Delta1` is at most linear in `tau3`. The non-coprime branch is
+  either `Delta1==0` or a graph `tau3=-h/s`, where the slope becomes
+  `z=(p1+h/s)/q1`.
+- Live wall:
+  `W-F1-AA-RES-T2J3-RESONANCE-SLOPE-MAP-COLLAPSE`.
+  This is still sub-reserve (`eta=2/n`) and has no list/CA/MCA/protocol
+  consequence without a separate conversion theorem.

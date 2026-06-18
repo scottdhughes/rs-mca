@@ -29,6 +29,25 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-18 - Cycle 18 resonance slope-map reconstruction
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE18_RESONANCE_SLOPE_MAP_COLLAPSE_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/local_checks/20260618_cycle18_resonance_slope_symbolic.py`,
+  `experimental/2026-06-18-fable-loop/README.md`,
+  `experimental/agents-log.md`.
+- **Status:** BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT.
+- **What is being added:** A local reconstruction of Danny's Cycle 18
+  `t=2,j=3` resonance reduction: `Delta` becomes a monic quadratic in
+  `tau3`, the alpha component is at most linear, and the non-coprime branch
+  reduces to either `Delta1==0` or the graph `tau3=-h/s`.
+- **How it is useful:** Sharpens the Paper B/F1 restricted toy-window wall
+  from the Cycle 16 `Q==0` split to a concrete rational slope-map collapse
+  question.
+- **What to do next:** Extend the Cycle 17 scanner to compute the graph branch
+  and projective map image on source-valid split cubics across growing primes.
+
 ### 2026-06-18 - Paper B counterexample comparison
 
 - **Agent/model:** Codex.
