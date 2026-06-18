@@ -264,6 +264,74 @@ multiplicity ledger:
 That is a strictly stronger theorem and is false for arbitrary received words
 without excluding or quotienting codewords with agreement `> s`.
 
+## Patch-Ready Repaired Package
+
+If this audit is promoted into Paper B, the least disruptive repair is to keep
+the existing raw `Fib_U(s)` definition as a support-enumeration object, then add
+one image object and use that object in the arbitrary-word conjectures.
+
+Suggested definition:
+
+```text
+ImgFib_U(s) = { U mod L_S : S subset H, |S|=s, deg(U mod L_S) < k }.
+```
+
+Suggested proposition:
+
+```text
+For k < s <= n,
+
+    ImgFib_U(s)
+      = { P in F_{<k}[X] : |{x in H : U(x)=P(x)}| >= s }.
+
+In particular, |ImgFib_U(s)| is exactly the list size at radius 1-s/n.
+Moreover,
+
+    |Fib_U(s)| = sum_{P in ImgFib_U(s)} binom(a_P, s),
+
+where a_P = |{x in H : U(x)=P(x)}|.
+```
+
+Suggested repaired local-limit statement:
+
+```text
+Under the same entropy and quotient-profile hypotheses as the current
+arbitrary local-limit conjecture,
+
+    |ImgFib_U(k+sigma)| <= n^B
+
+for every deg U < n.
+```
+
+Optional support-level equivalent:
+
+```text
+MaxFib_U(s) = { {x in H : U(x)=P(x)} :
+                deg P < k and |{x in H : U(x)=P(x)}| >= s }.
+```
+
+For `s > k`, the map `P -> A_P(U)` is injective, so `MaxFib_U(s)` and
+`ImgFib_U(s)` have the same cardinality.  If a fixed-size support interface is
+needed, choose a fixed total order on `H` and use the canonical selector
+`CanFib_U(s)`; this also has the same cardinality as `ImgFib_U(s)`.
+
+The main paper should not replace monomial-prefix prefix fibers by `ImgFib`:
+there the existing exact bijection in `prop:monomial-fiber` is sharper and
+support-level counting is legitimate.
+
+## Theorem / Counterexample Ledger
+
+| Item | Status | Evidence | Consequence |
+|---|---|---|---|
+| Raw support decomposition | PROVED | Elementary argument in this note; verifier checks finite cases. | Raw `Fib_U(s)` is a support-expanded list. |
+| Raw arbitrary local-limit statement | COUNTEREXAMPLE | `U=0` gives `|Fib_0(s)|=binom(n,s)` for every `k<s<=n`. | Literal `|Fib_U(k+sigma)|<=n^B` cannot be the final arbitrary-word theorem. |
+| `ImgFib_U(s)` list equality | PROVED | By definition plus uniqueness of `U mod L_S`; if `s>k`, each support selects a unique degree-`<k` polynomial. | This is the natural repaired list object. |
+| `MaxFib_U(s)` list equality | PROVED for `s>k` | Distinct degree-`<k` polynomials cannot agree on more than `k-1` points. | Gives a support-level repaired object. |
+| `ExactFullFib_U(s)` as list object | AUDIT / INSUFFICIENT | Omits codewords agreeing on more than `s` points. | Useful only as an exact-shell decomposition. |
+| `CanFib_U(s)` list equality | PROVED after choosing an order on `H` | Select one canonical `s`-subset of each maximal agreement set. | Gives a fixed-weight repaired support object. |
+| Monomial-prefix prefix fibers | PROVED in Paper B, not repaired here | `prop:monomial-fiber` gives exact bijection with listed codewords. | PR #74-style prefix collision work remains valid. |
+| Finite verifier | EXPERIMENTAL / AUDIT | `verify_l1_arbitrary_fiber_repair.py` passes default cases. | Regression guard for the repair logic; not an asymptotic theorem. |
+
 ## Consequence For The L1 Attack
 
 The next L1 proof target should not try to prove raw arbitrary-support

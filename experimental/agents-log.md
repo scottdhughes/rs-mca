@@ -59,15 +59,17 @@ Keep entries concise and link to the relevant files.
   verifier checks the raw-fiber multiplicity identity on tiny prime-field
   cases, including zero-word overcount and a random `p=17,n=16,k=8,s=9` case
   where 651 raw supports collapse to 471 repaired image/maximal/canonical
-  objects.
+  objects.  A later refinement adds a patch-ready repaired package and explicit
+  theorem/counterexample ledger for possible Paper B promotion.
 - **How it is useful:** Targets L1 by separating the false raw-support route
   from the list-size object actually needed by the corrected locator local
   limit.  It also checks compatibility with the local locator packet and the
   open L1 monomial-prefix collision packet.
 - **What to do next:** Decide whether Paper B should replace
   `|Fib_U(k+sigma)|` with an image/maximal/canonical repaired object, then
-  review whether the verifier should become the first regression test for this
-  repaired L1 object.
+  review whether `ImgFib_U(s)` should be the primary theorem object and whether
+  the verifier should become the first regression test for this repaired L1
+  object.
 
 ### 2026-06-18 - Streamlined imported-locator ledger
 
