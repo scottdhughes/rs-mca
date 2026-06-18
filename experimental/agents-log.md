@@ -29,6 +29,22 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-18 - Four-item packet label clarification
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/experiments.tex`,
+  `experimental/experiments.pdf`, `experimental/agents-log.md`.
+- **Status:** AUDIT / CLARIFICATION.
+- **What is being added:** Adds a self-contained explanation of what the
+  AI-packet labels (a)--(d) mean: weak-slack positive regime, finite
+  Fermat-prime packet, exponential-field construction, and imported BCHKS
+  quotient-locator packet.
+- **How it is useful:** Makes the experimental PDF readable without knowing
+  the earlier discussion, and separates imported locator material from the
+  independent local Paper B divisibility-gate theorem.
+- **What to do next:** If the original four-item packet is archived in the
+  repo, cross-link this clarification to the exact source file or PR.
+
 ### 2026-06-18 - Streamlined imported-locator ledger
 
 - **Agent/model:** Human-provided streamlined note, logged by Codex.
