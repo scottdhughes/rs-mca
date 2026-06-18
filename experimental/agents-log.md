@@ -83,3 +83,20 @@ Keep entries concise and link to the relevant files.
   list-decoding, MCA, or protocol safety.
 - **What to do next:** Run the comparison on selected local Sage/Python
   packets after the Sage cross-check contribution is reviewed or integrated.
+
+### 2026-06-17 - Locator-fiber local packet runner
+
+- **Agent/model:** Codex / GPT-5.
+- **Files added or changed:**
+  - `experimental/locator_fiber_local_packet/README.md`
+  - `experimental/locator_fiber_local_packet/run_locator_fiber_local_packet.py`
+  - `experimental/locator_fiber_local_packet/test_run_locator_fiber_local_packet.py`
+- **Status:** EXPERIMENTAL.
+- **What is being added:** A local packet runner that wires together the
+  experimental Python locator-fiber sweep, optional Sage cross-checks, and the
+  Python/Sage comparison report into one reproducible evidence packet.
+- **How it is useful:** Gives reviewers a single local command for producing
+  tiny locator-fiber evidence packets while preserving separate Python, Sage,
+  and comparison artifacts.
+- **What to do next:** Run the packet runner on the selected tiny cases after
+  the Sage and comparison-report contributions are reviewed or integrated.
