@@ -284,8 +284,24 @@ shell \(a\ge s\), suppose:
    shells at most \(n^{B-\theta}\);
 2. every aperiodic fiber larger than \(n^{B-1-\theta}\) yields a controlled
    high-multiplicity certificate;
-3. all controlled aperiodic certificates have total extension count at most
-   \(n^{B-1-\theta}\) per shell.
+3. for each shell, the controlled aperiodic certificates cover the aperiodic
+   fiber with total extension-set mass at most \(n^{B-1-\theta}\).
+
+More explicitly, condition 3 should provide a certificate family
+\(\mathcal C_a(b)\) and extension sets \(E(c)\) such that
+
+\[
+        F_a^{\mathrm{aper}}(b)
+        \subseteq
+        \bigcup_{c\in\mathcal C_a(b)}E(c),
+        \qquad
+        \sum_{c\in\mathcal C_a(b)}|E(c)|
+        \le n^{B-1-\theta}.
+\]
+
+The summed extension-set bound is the conservative formulation. It controls
+overlaps by union bound and avoids relying on a per-certificate estimate that
+would not control a large certificate family.
 
 Then
 
