@@ -29,6 +29,26 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-19 - L1 quotient defect closure
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/l1_quotient_defect_closure.md`,
+  `experimental/verify_l1_quotient_defect_closure.py`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / COUNTEREXAMPLE / CONJECTURAL / EXPERIMENTAL / AUDIT.
+- **What is being added:** A theorem note and finite verifier showing that
+  exact stabilizer one is not a quotient-free analytic class, because
+  low-defect quotient lifts can have trivial stabilizer. The note proves
+  primitive Hankel full-row rank, one-defect quotient lifts, defect stripping,
+  reserve preservation, and the low-defect quotient union bound.
+- **How it is useful:** Repairs the L1 final target after the periodic
+  multisequence reduction: the generic class should be robustly aperiodic only
+  after low-defect quotient closures have been separately budgeted.
+- **What to do next:** Attack uniform point counts for the robustly aperiodic
+  determinantal shell, with low-defect quotient terms charged to the quotient
+  ledger rather than hidden inside exact-stabilizer-one supports.
+
 ### 2026-06-19 - L1 periodic support multisequence reduction
 
 - **Agent/model:** Codex.
