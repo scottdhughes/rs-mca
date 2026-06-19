@@ -29,6 +29,25 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-19 - L1 periodic support multisequence reduction
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/l1_periodic_support_multisequence_reduction.md`,
+  `experimental/verify_l1_periodic_support_multisequence_reduction.py`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / CONJECTURAL / EXPERIMENTAL / AUDIT.
+- **What is being added:** A theorem note and finite verifier reducing
+  \(K_d\)-periodic arbitrary-word primitive supports to a common quotient
+  locator annihilating \(d\) decimated syndrome sequences, with orbit Fourier
+  amplitudes and inverse-DFT primitive guards.
+- **How it is useful:** Gives an exhaustive structured object for periodic
+  supports, separates it from #84's folding-source lower-bound injections, and
+  adds an exact Mobius stabilizer ledger for removing periodic strata.
+- **What to do next:** Use the exact-stabilizer-1 ledger as the aperiodic
+  target and attack uniform point counts for supports satisfying the
+  determinantal system.
+
 ### 2026-06-19 - L1 determinantal support criterion
 
 - **Agent/model:** Codex.
