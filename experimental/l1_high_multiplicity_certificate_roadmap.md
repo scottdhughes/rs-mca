@@ -28,16 +28,20 @@ and
         L_s(b):=\sum_{a=s}^{n}|F_a(b)|.
 \]
 
-The remaining theorem gap is not another finite scanner. It is a
-high-multiplicity certificate extraction statement:
+The repaired locator package identifies the exact universal fiber problem, and
+`experimental/l1_slack_rim_extraction.md` now imports the published
+agreement-hypergraph/RIM machinery to discharge the first extraction step. The
+remaining theorem gap is not another finite scanner. It is a classification and
+extension-counting statement for the extracted certificates:
 
-> A large aperiodic fiber of \(\pi_a\) should force a bounded-complexity
-> incidence/rank certificate, and every such certificate should either be one
-> of the explicit quotient/folding structures or lie in a quantitatively small
-> aperiodic exceptional class.
+> A repaired list of size at least
+> \(\lceil 2(n-k)/\sigma\rceil\) forces a small RIM certificate singular on
+> \(H\). Every such certificate should either be one of the explicit
+> quotient/folding structures or lie in a quantitatively small aperiodic
+> exceptional class.
 
 This note isolates the elementary reductions that are already proved and states
-the missing certificate lemma precisely enough to guide the next proof attempt.
+the remaining counting lemma precisely enough to guide the next proof attempt.
 
 ## Coordination Boundary
 
@@ -204,9 +208,9 @@ barrier. It also proves why pairwise incidence cannot establish the desired
 \(a=k+\sigma\) regime below that barrier: a higher-order certificate is
 necessary.
 
-## Missing Lemma 1: High-Multiplicity Extraction
+## Discharged Lemma 1: Slack RIM Extraction
 
-**Status:** CONJECTURAL.
+**Status:** PROVED / AUDIT.
 
 Fix a quotient/folding structured sub-incidence
 
@@ -224,27 +228,44 @@ that contains the explicit structured families imported from #84. Let
         F_a(b)\setminus F_{a,\mathrm{quot}}(b).
 \]
 
-A useful high-multiplicity extraction lemma should say:
-
-If
+The extraction part no longer requires a shell of size \(n^{B-1}\). By
+`experimental/l1_slack_rim_extraction.md`, if the repaired arbitrary-word list
+satisfies
 
 \[
-        |F_a^{\mathrm{aper}}(b)|>n^{B-1},
+        |\mathcal L_U(k+\sigma)|
+        \ge
+        t_0,\qquad
+        t_0:=\left\lceil\frac{2(n-k)}{\sigma}\right\rceil,
 \]
 
-then there exists a controlled-size sublist whose agreement hypergraph:
+then some sublist of size \(3\le t\le t_0\) has an agreement hypergraph that
+is \((k+\delta)\)-weakly-partition-connected, with
 
-1. satisfies the required partition-connectivity condition;
-2. has an associated reduced intersection matrix that is symbolically full
-   rank;
-3. becomes rank deficient after specialization to the smooth subgroup
-   evaluation set \(H\).
+\[
+        \delta:=\left\lfloor\frac{\sigma}{2}\right\rfloor.
+\]
 
-The random-RS RIM framework establishes the analogous
-bad-list-to-connected-hypergraph-to-rank-defect mechanism for generic/random
-evaluation sets. Here the problem is to adapt the extraction to the primitive
-incidence setting and then classify why the fixed smooth subgroup
-specialization loses rank.
+More sharply, a chosen \(t\)-sublist has slack parameter
+
+\[
+        \delta_t
+        =
+        \left\lfloor
+        \frac{t\sigma-(n-k)}{t-1}
+        \right\rfloor,
+\]
+
+and \(t=t_0\) gives \(\delta_t\ge\lfloor\sigma/2\rfloor\). The resulting RIM
+is symbolically full column rank and becomes rank deficient when specialized
+to the evaluation set \(H\). The deterministic GetCertificate import then
+produces a coordinate certificate of length
+\(r=\lfloor\delta_t/2\rfloor\).
+
+The random-RS RIM framework's deterministic certificate construction is the
+part imported here. Its random evaluation probability estimate is not imported:
+in this project \(H\) is fixed, and the remaining problem is to count primitive
+locator tuples extending certificates on that fixed smooth subgroup.
 
 ## Missing Lemma 2: Classification And Counting
 
@@ -282,8 +303,8 @@ shell \(a\ge s\), suppose:
 
 1. quotient/folding structured fibers have total contribution across all
    shells at most \(n^{B-\theta}\);
-2. every aperiodic fiber larger than \(n^{B-1-\theta}\) yields a controlled
-   high-multiplicity certificate;
+2. every repaired list above the slack extraction threshold yields a controlled
+   RIM certificate, as in `experimental/l1_slack_rim_extraction.md`;
 3. for each shell, the controlled aperiodic certificates cover the aperiodic
    fiber with total extension-set mass at most \(n^{B-1-\theta}\).
 
@@ -318,7 +339,8 @@ This is not yet a proof. It is the point at which the remaining work is
 cleanly separated into:
 
 - structured quotient/folding import;
-- high-multiplicity extraction;
+- slack RIM extraction, now import-audited in
+  `experimental/l1_slack_rim_extraction.md`;
 - aperiodic rank-defect classification;
 - quantitative certificate counting.
 
@@ -326,12 +348,13 @@ cleanly separated into:
 
 The repaired theorem package and verifier already settle the statement-level
 and finite-identity issues. More scanning can find examples, but it does not
-close the theorem gap. The gap is now the following precise implication:
+close the theorem gap. The remaining gap is now the following precise
+implication:
 
 \[
-        \text{large aperiodic fiber of }\pi_a
+        \text{small RIM certificate singular on }H
         \quad\Longrightarrow\quad
-        \text{controlled rank/incidence certificate}.
+        \text{quotient/folding structure or bounded aperiodic extensions}.
 \]
 
 This note is meant to keep that proof target explicit so future scripts or
@@ -341,9 +364,11 @@ proof notes do not drift back to raw support counts or pivot-gauge sections.
 
 1. Define the first quotient/folding structured sub-incidence imported from
    #84 in the \(\mathfrak X_a^{\mathrm{prim}}\) notation.
-2. Formalize the agreement hypergraph for primitive shell sublists and specify
-   the exact partition-connectivity parameter needed from the RIM framework.
-3. Prove a small bounded-\(t\) extraction lemma in toy regimes, or find the
-   first obstruction to such extraction.
-4. Only after the certificate target is precise, add a sparse-syndrome scanner
-   that emits candidate high-multiplicity certificates rather than raw counts.
+2. Define, for each extracted certificate \(c\), the primitive extension set
+   \(E(c)\) in the universal incidence notation.
+3. Prove or refute the dichotomy
+   \(E(c)\subseteq E_{\mathrm{quot}}(c)\cup E_{\mathrm{aper}}(c)\), importing
+   #84 for the quotient/folding side.
+4. Prove a quantitative bound for
+   \(\sum_c |E_{\mathrm{aper}}(c)|\), or identify the first aperiodic family
+   that violates the expected budget.

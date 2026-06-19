@@ -29,6 +29,26 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-18 - L1 slack RIM extraction
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/l1_slack_rim_extraction.md`,
+  `experimental/l1_high_multiplicity_certificate_roadmap.md`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / AUDIT / CONJECTURAL.
+- **What is being added:** A theorem note importing the deterministic
+  agreement-hypergraph/RIM machinery to extract a weakly-partition-connected
+  sublist and singular RIM certificate from any repaired list of size
+  \(\lceil2(n-k)/\sigma\rceil\). The high-multiplicity roadmap is updated so
+  extraction is no longer listed as the open conjectural step.
+- **How it is useful:** Closes the certificate-extraction gap in the L1 lane
+  and leaves the remaining frontier as quotient/folding classification plus
+  quantitative aperiodic extension counting on the fixed smooth subgroup.
+- **What to do next:** Define primitive extension sets \(E(c)\) for extracted
+  certificates, import #84's quotient/folding structures as the structured
+  branch, and prove or refute the aperiodic extension-counting bound.
+
 ### 2026-06-18 - L1 high-multiplicity certificate roadmap
 
 - **Agent/model:** Codex.
