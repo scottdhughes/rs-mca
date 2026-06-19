@@ -19,13 +19,13 @@ For a support \(E=\{x_1,\ldots,x_j\}\subseteq H\), the recurrence equations are
 equivalent to vanishing of minors
 
 \[
-        F_r(E;s)=0.
+        F_r(E;\mathbf s)=0.
 \]
 
 Cramer minors encode the nonzero-amplitude guard. Thus the aperiodic counting
 problem becomes a point-counting problem on an explicit quasi-affine
-determinantal system on \(H^j/S_j\), after quotient-periodic components are
-removed.
+determinantal system on \(H^j/S_j\), after quotient-periodic patterns are
+isolated as structured subincidences or strata.
 
 ## Setup
 
@@ -39,6 +39,7 @@ of size \(n\), and let
 For a received word \(U\), let
 
 \[
+        \mathbf s(U):=(s_0,\ldots,s_{D-1}),\qquad
         s_m:=\sum_{x\in H}v_xU(x)x^m,\qquad 0\le m<D,
 \]
 
@@ -73,7 +74,7 @@ For the first shell \(a=k+\sigma\), one has \(j=D-\sigma\) and
 For \(0\le r<\tau\), define
 
 \[
-F_r(E;s)=
+F_r(E;\mathbf s)=
 \det
 \begin{pmatrix}
 x_1^r&\cdots&x_j^r&s_r\\
@@ -86,7 +87,7 @@ x_1^{r+j}&\cdots&x_j^{r+j}&s_{r+j}
 For \(j=0\), interpret this as the one-by-one determinant
 
 \[
-        F_r(\varnothing;s)=s_r.
+        F_r(\varnothing;\mathbf s)=s_r.
 \]
 
 For \(j>0\), the first \(j\) rows and first \(j\) columns form
@@ -103,15 +104,34 @@ Because \(H\subseteq\mathbb F_q^\times\) and the \(x_\ell\) are distinct,
         \prod_{\ell<m}(x_m-x_\ell)\ne0.
 \]
 
-Thus the determinant \(F_r(E;s)\) vanishes exactly when the last column segment
-\((s_r,\ldots,s_{r+j})^T\) lies in the span of the \(j\) support columns.
+Let \(\det V_r(E)\) denote this nonzero generalized Vandermonde denominator.
+The determinant admits the exact factorization
+
+\[
+        F_r(E;\mathbf s)
+        =
+        \det V_r(E)
+        \left(
+        s_{r+j}+\sum_{i=0}^{j-1}m_is_{r+i}
+        \right).
+\]
+
+Equivalently, the cofactor vector of the syndrome column is
+
+\[
+        \det V_r(E)\,(m_0,\ldots,m_{j-1},1).
+\]
+
+Thus the determinant \(F_r(E;\mathbf s)\) vanishes exactly when the last column
+segment \((s_r,\ldots,s_{r+j})^T\) lies in the span of the \(j\) support
+columns, and exactly when the \(r\)-th locator recurrence holds.
 
 ## Equivalence With Locator Recurrences
 
 **Proposition.** For \(j>0\) and \(0\le r<\tau\),
 
 \[
-        F_r(E;s)=0
+        F_r(E;\mathbf s)=0
 \]
 
 if and only if
@@ -126,15 +146,22 @@ For \(j=0\), the condition is \(s_r=0\).
 
 For \(j=0\), both conditions are the same.
 
-Assume \(j>0\). Since \(V_r(E)\) is invertible, the first \(j\) equations
+Assume \(j>0\). By expanding \(F_r(E;\mathbf s)\) along the syndrome column,
+the cofactor of \(s_{r+i}\) is \(\det V_r(E)m_i\) for \(0\le i<j\), and the
+cofactor of \(s_{r+j}\) is \(\det V_r(E)\). This is the usual signed cofactor
+form of the monic polynomial whose roots are \(x_1,\ldots,x_j\). Hence the
+displayed factorization holds, and since \(\det V_r(E)\ne0\), the determinant
+vanishes if and only if the recurrence vanishes.
+
+Equivalently, since \(V_r(E)\) is invertible, the first \(j\) equations
 
 \[
         s_{r+h}=\sum_{\ell=1}^j w_\ell x_\ell^{r+h},
         \qquad 0\le h<j,
 \]
 
-recover unique amplitudes \(w_\ell\). The determinant \(F_r(E;s)\) vanishes
-exactly when the same amplitudes also satisfy
+recover unique amplitudes \(w_\ell\). The determinant \(F_r(E;\mathbf s)\)
+vanishes exactly when the same amplitudes also satisfy
 
 \[
         s_{r+j}=\sum_{\ell=1}^j w_\ell x_\ell^{r+j}.
@@ -157,13 +184,13 @@ If this holds, then
 Conversely, if the recurrence holds, the same displayed identity and
 \(M_E(x_\ell)=0\) show that the predicted value
 \(\sum_\ell w_\ell x_\ell^{r+j}\) equals \(s_{r+j}\). Hence the last column is
-in the support-column span, and \(F_r(E;s)=0\). \(\square\)
+in the support-column span, and \(F_r(E;\mathbf s)=0\). \(\square\)
 
 Consequently, a support \(E\) satisfies all syndrome-locator recurrences if
 and only if
 
 \[
-        F_r(E;s)=0,\qquad 0\le r<\tau.
+        F_r(E;\mathbf s)=0,\qquad 0\le r<\tau.
 \]
 
 ## Cramer Minors And The Amplitude Guard
@@ -174,8 +201,8 @@ Let
         V_0(E)=(x_\ell^h)_{0\le h<j,\ 1\le\ell\le j}.
 \]
 
-For \(1\le\ell\le j\), define \(C_\ell(E;s)\) by replacing the \(\ell\)-th
-column of \(V_0(E)\) with
+For \(1\le\ell\le j\), define \(C_\ell(E;\mathbf s)\) by replacing the
+\(\ell\)-th column of \(V_0(E)\) with
 
 \[
         (s_0,\ldots,s_{j-1})^T
@@ -186,35 +213,35 @@ and taking the determinant.
 Since \(\det V_0(E)\ne0\), Cramer's rule gives
 
 \[
-        w_{x_\ell}=\frac{C_\ell(E;s)}{\det V_0(E)}.
+        w_{x_\ell}=\frac{C_\ell(E;\mathbf s)}{\det V_0(E)}.
 \]
 
 Thus the primitive nonzero-amplitude guard is exactly
 
 \[
-        C_\ell(E;s)\ne0,\qquad 1\le\ell\le j.
+        C_\ell(E;\mathbf s)\ne0,\qquad 1\le\ell\le j.
 \]
 
 Equivalently,
 
 \[
-        \prod_{\ell=1}^j C_\ell(E;s)\ne0.
+        \prod_{\ell=1}^j C_\ell(E;\mathbf s)\ne0.
 \]
 
 For \(j=0\), this guard is vacuous.
 
-## Quasi-Affine Support System
+## Fixed-Syndrome Support System
 
 Let \(\operatorname{Conf}_j(H)\subseteq H^j\) be the ordered configuration
 space of distinct support points. Define
 
 \[
-        \mathcal D_j(s)
+        \mathcal D_j(\mathbf s)
         =
         \left\{
         (x_1,\ldots,x_j)\in\operatorname{Conf}_j(H):
-        F_r(E;s)=0\ \forall\,0\le r<\tau,\quad
-        \prod_{\ell=1}^jC_\ell(E;s)\ne0
+        F_r(E;\mathbf s)=0\ \forall\,0\le r<\tau,\quad
+        \prod_{\ell=1}^jC_\ell(E;\mathbf s)\ne0
         \right\}.
 \]
 
@@ -229,21 +256,77 @@ Thus
 \[
         \operatorname{PrimLoc}_U(n-j)
         \cong
-        \mathcal D_j(s)/S_j.
+        \mathcal D_j(\mathbf s(U))/S_j.
 \]
 
-## Quotient-Periodic And Aperiodic Components
+For fixed \(\mathbf s\), this is a finite fiber. The useful component geometry
+comes from the universal incidence as the syndrome varies.
+
+## Universal Determinantal Incidence
+
+Let
+
+\[
+        \mathbf s=(s_0,\ldots,s_{D-1})\in\mathbb A^D
+\]
+
+be an independent syndrome vector, and let
+
+\[
+        \Delta(\mathbf x):=\prod_{\ell<m}(x_m-x_\ell).
+\]
+
+Define the universal quasi-affine incidence
+
+\[
+\mathfrak D_j
+=
+\left\{
+(\mathbf s,x_1,\ldots,x_j):
+\begin{array}{l}
+\Omega_H(x_\ell)=0\quad(1\le\ell\le j),\\
+\Delta(\mathbf x)\ne0,\\
+F_r(\mathbf x;\mathbf s)=0\quad(0\le r<D-j),\\
+\prod_{\ell=1}^jC_\ell(\mathbf x;\mathbf s)\ne0
+\end{array}
+\right\}.
+\]
+
+Let
+
+\[
+        \pi_j:\mathfrak D_j\longrightarrow\mathbb A^D,
+        \qquad
+        (\mathbf s,\mathbf x)\longmapsto\mathbf s.
+\]
+
+Then
+
+\[
+        \pi_j^{-1}(\mathbf s)=\mathcal D_j(\mathbf s),
+\]
+
+and, for any received word \(U\),
+
+\[
+        \operatorname{PrimLoc}_U(n-j)
+        \cong
+        \pi_j^{-1}(\mathbf s(U))/S_j.
+\]
+
+## Quotient-Periodic And Aperiodic Subincidences
 
 The determinant formulation gives a concrete ambient space for classification.
 Quotient-periodic supports are those whose unordered support set is a union of
 permitted subgroup-coset fibers, for example fibers of \(x\mapsto x^d\) in the
-cyclic case. These should be isolated as structured strata or components inside
-\(\mathcal D_j(s)/S_j\).
+cyclic case. These should be isolated as structured subincidences or strata of
+\(\mathfrak D_j\) until an irreducible-component statement is actually proved.
 
 The aperiodic problem is the remaining point count:
 
 > uniformly bound aperiodic points of the quasi-affine determinantal system
-> \(\mathcal D_j(s)/S_j\), after quotient/folding templates have been removed.
+> \(\pi_j^{-1}(\mathbf s(U))/S_j\), after quotient/folding templates have been
+> removed.
 
 PR #84 supplies quotient/folding templates, dilation symmetry, and structured
 lower-bound obstructions. It should be imported as structured input, not treated
@@ -254,10 +337,12 @@ as a complete arbitrary-word upper bound.
 | Item | Status | Consequence |
 |---|---|---|
 | Nonzero generalized Vandermonde denominator | PROVED | Multiplicative domains make \(V_r(E)\) invertible for distinct support points. |
-| \(F_r(E;s)=0\) iff locator recurrence \(r\) holds | PROVED | Replaces Hankel recurrences by explicit support determinants. |
+| Determinant factorization | PROVED | \(F_r(E;\mathbf s)=\det V_r(E)\) times the \(r\)-th locator recurrence. |
+| \(F_r(E;\mathbf s)=0\) iff locator recurrence \(r\) holds | PROVED | Replaces Hankel recurrences by explicit support determinants. |
 | Cramer minors encode nonzero amplitudes | PROVED | The primitive guard is a quasi-affine open condition. |
-| Guarded split-divisor shell equals \(\mathcal D_j(s)/S_j\) | PROVED / AUDIT | Same object as the primitive shell from #89, in support coordinates. |
-| Quotient-periodic support strata | AUDIT / CONJECTURAL | Templates are structured inputs; full upper-budget classification remains open. |
+| Universal determinantal incidence \(\mathfrak D_j\) | PROVED / AUDIT | Fixed syndrome shells are fibers of \(\pi_j:\mathfrak D_j\to\mathbb A^D\). |
+| Guarded split-divisor shell equals \(\mathcal D_j(\mathbf s(U))/S_j\) | PROVED / AUDIT | Same object as the primitive shell from #89, in support coordinates. |
+| Quotient-periodic support subincidences | AUDIT / CONJECTURAL | Templates are structured inputs; full upper-budget classification remains open. |
 | Aperiodic determinantal point count | CONJECTURAL | Main quantitative target. |
 | Positive worst-case list-size theorem | AUDIT | Not asserted here. |
 

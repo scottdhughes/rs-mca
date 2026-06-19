@@ -43,8 +43,8 @@ Keep entries concise and link to the relevant files.
   nonzero-amplitude guard.
 - **How it is useful:** Converts the guarded split-divisor shell into an
   explicit quasi-affine determinantal system on \(H^j/S_j\), giving a concrete
-  ambient space for quotient-periodic component isolation and aperiodic point
-  counting.
+  universal incidence for quotient-periodic subincidences or strata and
+  aperiodic point counting.
 - **What to do next:** Use the determinant system to define quotient-periodic
   support strata algebraically, then attack the aperiodic determinantal
   point-counting problem.
