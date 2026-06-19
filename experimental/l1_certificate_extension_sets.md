@@ -290,8 +290,10 @@ Then the packing lemma gives the exact deterministic bound
 
 Thus a positive L1 theorem follows from two independent budgets:
 
-1. a structured quotient/folding budget, imported from the #84 lane rather than
-   rederived here;
+1. a structured quotient/folding budget. PR #84 supplies explicit
+   quotient/folding templates, dilation symmetry, and structured lower-bound
+   obstructions, but it does not by itself give a uniform arbitrary-word upper
+   bound for all quotient extension sets;
 2. a uniform aperiodic extension-counting bound, for example
 
 \[
@@ -324,8 +326,11 @@ More concretely, for every extracted certificate \(c\), prove
         E_b^{\mathrm{quot}}(c)\cup E_b^{\mathrm{aper}}(c)
 \]
 
-with #84 controlling the first term and a uniform summed bound controlling the
-second:
+where the quotient/folding term must be controlled by a separate structured
+upper-budget theorem. PR #84 supplies the templates and lower-bound
+obstructions that this branch should import; a complete arbitrary-word quotient
+extension-set classification remains a separate requirement unless subsequently
+proved. The aperiodic side then needs a uniform summed bound:
 
 \[
         \sum_c |E_b^{\mathrm{aper}}(c)|\le n^{B-\theta}.
@@ -344,6 +349,6 @@ gauges, or shell concentration will not by themselves prove this implication.
 | Mixed-shell primitive multi-incidence | PROVED / AUDIT | Keeps extraction compatible with codewords from different exact shells. |
 | Certificate-witness incidence \(\mathfrak W_c\) | AUDIT | Locally closed model for deterministic certificate signatures; exact implementation can be refined. |
 | Union-bound list implication | PROVED | A summed extension-set bound directly yields a repaired list bound up to the \(t_0-1\) remainder. |
-| Quotient/folding branch | AUDIT / CONJECTURAL | Should import #84 structures and budgets rather than duplicate them. |
+| Quotient/folding branch | AUDIT / CONJECTURAL | Should import #84 templates, dilation symmetry, and lower-bound obstructions; a full arbitrary-word quotient extension-set upper budget remains separate. |
 | Aperiodic extension counting | CONJECTURAL | Main remaining quantitative L1 theorem target. |
 | Positive worst-case list-size theorem | AUDIT | Not asserted here; requires the quotient and aperiodic budgets. |

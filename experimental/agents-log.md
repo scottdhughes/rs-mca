@@ -44,9 +44,10 @@ Keep entries concise and link to the relevant files.
   list-size accounting mechanism: all but fewer than
   \(\lceil2(n-k)/\sigma\rceil\) list elements are covered by certified blocks,
   so a summed extension-set bound directly implies a repaired L1 list bound.
-- **What to do next:** Import #84's quotient/folding structures into the
-  \(E_b^{\mathrm{quot}}(c)\) branch and attack the quantitative aperiodic
-  extension-counting bound for \(E_b^{\mathrm{aper}}(c)\).
+- **What to do next:** Import #84's quotient/folding templates, dilation
+  symmetry, and lower-bound obstructions without treating them as a complete
+  arbitrary-word upper budget; then attack the quotient extension-set
+  classification and quantitative aperiodic extension-counting bound.
 
 ### 2026-06-18 - L1 slack RIM extraction
 
