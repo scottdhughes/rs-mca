@@ -29,6 +29,26 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-19 - L1 determinantal support criterion
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/l1_determinantal_support_criterion.md`,
+  `experimental/verify_l1_determinantal_support_criterion.py`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / CONJECTURAL / EXPERIMENTAL / AUDIT.
+- **What is being added:** A theorem note and finite verifier expressing the
+  syndrome-locator recurrences as generalized Vandermonde determinant
+  vanishings on support points, with Cramer minors encoding the primitive
+  nonzero-amplitude guard.
+- **How it is useful:** Converts the guarded split-divisor shell into an
+  explicit quasi-affine determinantal system on \(H^j/S_j\), giving a concrete
+  ambient space for quotient-periodic component isolation and aperiodic point
+  counting.
+- **What to do next:** Use the determinant system to define quotient-periodic
+  support strata algebraically, then attack the aperiodic determinantal
+  point-counting problem.
+
 ### 2026-06-19 - L1 syndrome catalecticant shells
 
 - **Agent/model:** Codex.
