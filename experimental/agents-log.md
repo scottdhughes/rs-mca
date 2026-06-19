@@ -29,6 +29,24 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-19 - L1 syndrome catalecticant shells
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/l1_syndrome_catalecticant_shells.md`,
+  `experimental/verify_l1_syndrome_catalecticant_shells.py`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / CONJECTURAL / EXPERIMENTAL / AUDIT.
+- **What is being added:** A theorem note and finite verifier identifying
+  primitive exact locator shells with guarded \(H\)-split divisors in a
+  syndrome Hankel/catalecticant linear section.
+- **How it is useful:** Provides a canonical syndrome-coordinate object for
+  the remaining L1 local-limit problem and locates the entropy reserve as the
+  codimension of the first-shell Hankel recurrence system.
+- **What to do next:** Use the guarded divisor-in-section formulation to
+  separate quotient-periodic templates from aperiodic divisors and attack the
+  fixed-domain aperiodic counting theorem.
+
 ### 2026-06-19 - L1 certificate extension sets
 
 - **Agent/model:** Codex.
