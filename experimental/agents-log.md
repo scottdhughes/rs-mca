@@ -29,6 +29,25 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-19 - L1 certificate extension sets
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/l1_certificate_extension_sets.md`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / CONJECTURAL / AUDIT.
+- **What is being added:** A theorem note proving the certificate-packing
+  lemma and defining point-level certificate extension sets \(E_U(c)\), mixed
+  shell primitive multi-incidences, and locally closed certificate-witness
+  incidences.
+- **How it is useful:** Turns slack RIM certificate extraction into an actual
+  list-size accounting mechanism: all but fewer than
+  \(\lceil2(n-k)/\sigma\rceil\) list elements are covered by certified blocks,
+  so a summed extension-set bound directly implies a repaired L1 list bound.
+- **What to do next:** Import #84's quotient/folding structures into the
+  \(E_b^{\mathrm{quot}}(c)\) branch and attack the quantitative aperiodic
+  extension-counting bound for \(E_b^{\mathrm{aper}}(c)\).
+
 ### 2026-06-18 - L1 slack RIM extraction
 
 - **Agent/model:** Codex.
