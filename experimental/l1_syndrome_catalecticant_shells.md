@@ -63,6 +63,14 @@ For a received word \(y=\operatorname{ev}_H(U)\), define syndrome moments
 \]
 
 These are exactly the generalized RS parity-check syndromes in moment form.
+The weighted \(D\times n\) Vandermonde matrix
+
+\[
+        \bigl(v_xx^m\bigr)_{0\le m<D,\ x\in H}
+\]
+
+has rank \(D\), since all \(v_x\) are nonzero and the unweighted Vandermonde
+rows have rank \(D\) on distinct evaluation points.
 
 ## Weighted Moment Parity Check
 
@@ -91,8 +99,11 @@ degree \(<n-1\),
         \sum_{x\in H}\frac{F(x)}{\Omega_H'(x)}=0.
 \]
 
-Apply this with \(F(X)=P(X)X^m\). If \(U\) is replaced by \(U+P\) with
-\(P\in V_k\), all displayed moments are unchanged. \(\square\)
+Apply this with \(F(X)=P(X)X^m\). Thus \(\operatorname{RS}[\mathbb F_q,H,k]\)
+lies in the kernel of the weighted moment matrix. Since that matrix has rank
+\(D=n-k\), its kernel has dimension \(k\), so the kernel is exactly the RS
+code. If \(U\) is replaced by \(U+P\) with \(P\in V_k\), all displayed moments
+are unchanged. \(\square\)
 
 ## Necessity: Error Locators Satisfy Hankel Recurrences
 
@@ -227,11 +238,12 @@ Define an error vector
 
 The first \(j\) moments match by construction, and the recurrence for \(M\)
 extends the match through all moments \(0\le m<D\). Hence \(e\) has the same
-syndrome moments as \(U\). Therefore \(y-e\) has zero syndrome, so
-\(y-e\in\operatorname{RS}[\mathbb F_q,H,k]\), and there is a unique
-\(P\in V_k\) with \(\operatorname{ev}_H(P)=y-e\). The nonzero-amplitude guard
-ensures the exact error support is \(E\), so \(P\) agrees with \(U\) on exactly
-\(a=n-j\) points.
+syndrome moments as \(U\). Therefore \(y-e\) has zero syndrome. By the rank
+\(D\) weighted parity-check statement above, zero syndrome is exactly the RS
+code, so \(y-e\in\operatorname{RS}[\mathbb F_q,H,k]\). There is therefore a
+unique \(P\in V_k\) with \(\operatorname{ev}_H(P)=y-e\). The nonzero-amplitude
+guard ensures the exact error support is \(E\), so \(P\) agrees with \(U\) on
+exactly \(a=n-j\) points.
 
 ## Exact Primitive Syndrome-Locator Bijection
 
@@ -306,14 +318,17 @@ divisors of \(\Omega_H\), hence has size
         \binom nj=\binom n{k+\sigma}.
 \]
 
-A random codimension-\(\sigma\) linear section would have heuristic scale
+A random rank-\(\sigma\) linear section over the ambient field would have
+heuristic scale
 
 \[
         \frac{\binom n{k+\sigma}}{q^\sigma}.
 \]
 
-This is the generated-field entropy-reserve scale in Paper B, now located on a
-concrete divisor-in-Hankel-section object.
+This is an ambient-field heuristic scale, now located on a concrete
+divisor-in-Hankel-section object. It matches the generated-field lane only
+under an explicit assumption such as \(\mathbb F_p(H)=\mathbb F_q\); otherwise
+the generated-field and ambient-field ledgers must remain separate.
 
 The corrected local-limit target is therefore:
 

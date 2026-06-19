@@ -41,8 +41,9 @@ Keep entries concise and link to the relevant files.
   primitive exact locator shells with guarded \(H\)-split divisors in a
   syndrome Hankel/catalecticant linear section.
 - **How it is useful:** Provides a canonical syndrome-coordinate object for
-  the remaining L1 local-limit problem and locates the entropy reserve as the
-  codimension of the first-shell Hankel recurrence system.
+  the remaining L1 local-limit problem and locates the entropy heuristic in the
+  first-shell \(\sigma\)-equation Hankel recurrence system, with expected
+  generic codimension \(\sigma\).
 - **What to do next:** Use the guarded divisor-in-section formulation to
   separate quotient-periodic templates from aperiodic divisors and attack the
   fixed-domain aperiodic counting theorem.
