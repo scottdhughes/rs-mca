@@ -30,6 +30,24 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-21 - L1 prefix dyadic characteristic-zero rigidity
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/l1/l1_prefix_dyadic_charzero_rigidity.md`,
+  `experimental/scripts/verify_l1_prefix_dyadic_charzero_rigidity.py`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / EXPERIMENTAL / CONJECTURAL / AUDIT.
+- **What is being added:** Proves dyadic signed first-moment rigidity: a
+  characteristic-zero exchange-core first-moment identity forces both exchange
+  sets to be antipodal `K_2`-coset unions. Also records the prime-power
+  `K_l` generalization and the one-coefficient norm-event consequence.
+- **How it is useful:** Converts the low-excess norm sieve into a sharper
+  arithmetic obstruction: dyadic non-`K_2` exchange cores need only the first
+  high coefficient to certify bad-prime behavior.
+- **What to do next:** Use the one-coefficient norm certificate to pursue a
+  counting or density bound for robustly aperiodic bad-prime exchange events.
+
 ### 2026-06-21 - L1 prefix low-excess norm sieve
 
 - **Agent/model:** Codex.
