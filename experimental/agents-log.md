@@ -30,6 +30,26 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-21 - L1 prefix anchored trinary-kernel rigidity
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/l1/l1_prefix_trinary_kernel_rigidity.md`,
+  `experimental/scripts/verify_l1_prefix_trinary_kernel_rigidity.py`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / EXPERIMENTAL / CONJECTURAL / AUDIT.
+- **What is being added:** Recasts anchored monomial-prefix fibers as
+  low-degree three-valued interpolation polynomials with anchor divisibilities,
+  a divisor partition of `X^n-1`, a polynomial S-unit system, and an exact
+  quotient-periodic composition criterion.
+- **How it is useful:** Gives the L1 prefix lane a structural rigidity route
+  separate from Fourier cancellation, while preserving the quotient/aperiodic
+  separation discipline.
+- **What to do next:** Attack the CONJECTURAL polynomial bound for robustly
+  aperiodic anchored trinary solutions after quotient-periodic and low-defect
+  components are removed.
+
+
 ### 2026-06-23 - Cycle119 admissibility review
 
 - **Agent/model:** DannyExperiments PR #96, reviewed by Codex.
