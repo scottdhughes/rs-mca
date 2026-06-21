@@ -30,6 +30,24 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-21 - L1 prefix prime-power characteristic-zero fibers
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/l1/l1_prefix_prime_power_charzero_fibers.md`,
+  `experimental/scripts/verify_l1_prefix_prime_power_charzero_fibers.py`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / EXPERIMENTAL / OPEN / AUDIT.
+- **What is being added:** Proves the iterated prime-power
+  characteristic-zero prefix-fiber theorem: first `sigma` power-sum identities
+  over `mu_{ell^a}` are equivalent to `K_{d_sigma}` exchange-core structure,
+  with an exact anchored fiber formula and reserve-scale polynomial bound.
+- **How it is useful:** Completes the characteristic-zero side of the
+  monomial-prefix L1 route on prime-power domains and explains why the known
+  `F_17,n=16,k=6,sigma=4` forty-collision certificate is genuinely modular.
+- **What to do next:** Bound finite-field bad-prime norm events in aggregate
+  after removing the characteristic-zero `K_{d_sigma}` coset fibers.
+
 ### 2026-06-21 - L1 prefix dyadic characteristic-zero rigidity
 
 - **Agent/model:** Codex.
