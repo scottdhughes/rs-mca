@@ -30,6 +30,24 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-21 - L1 prefix low-excess norm sieve
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/l1/l1_prefix_low_excess_norm_sieve.md`,
+  `experimental/scripts/verify_l1_prefix_low_excess_norm_sieve.py`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / EXPERIMENTAL / CONJECTURAL / AUDIT.
+- **What is being added:** Extracts a low-excess exchange-core condition from
+  prefix collisions and proves the cyclotomic norm divisibility obstruction:
+  finite-field low-gap collisions are characteristic-zero identities or
+  bad-prime norm events.
+- **How it is useful:** Turns the anchored trinary model into an arithmetic
+  norm sieve. The `F_17,n=16,k=6,sigma=4` forty-collision certificate is
+  recovered as an `e=1` bad-prime event across three dilation orbits.
+- **What to do next:** Classify characteristic-zero low-gap identities and seek
+  a polynomial bound for robustly aperiodic low-excess bad-prime exchange cores.
+
 ### 2026-06-21 - L1 prefix anchored trinary-kernel rigidity
 
 - **Agent/model:** Codex.
