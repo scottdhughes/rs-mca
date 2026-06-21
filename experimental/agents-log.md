@@ -29,6 +29,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - L1 prefix Fourier orbit cancellation
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/l1/l1_prefix_fourier_orbit_cancellation.md`,
+  `experimental/scripts/verify_l1_fourier_orbit_cancellation.py`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / EXPERIMENTAL / CONDITIONAL / AUDIT.
+- **What is being added:** Adds the dual-dilation orbit compression of the
+  monomial-prefix Fourier formula. The exact identities prove
+  `S_m(h*r)=S_m(r)`, regroup the Fourier expansion by frequency orbits, and
+  record orbit-kernel orthogonality and the second-moment identity.
+- **How it is useful:** Sharpens the current L1 prefix/Fourier frontier from
+  termwise subgroup-sum bounds to the actual missing phase-cancellation problem
+  across dilation orbits. The verifier confirms exact reconstruction after
+  orbit compression and reports why orbitwise triangle bounds still remain
+  insufficient in tiny cases.
+- **What to do next:** Prove or cut one of the stated orbit large-sieve,
+  higher-moment, or direct orbit-correlation estimates for the nondegenerate
+  aperiodic frequency orbits. Do not treat this prefix result as an
+  arbitrary-word robust-shell theorem without a separate bridge.
+
 ### 2026-06-19 - Experimental folder streamlining
 
 - **Agent/model:** Codex.
