@@ -29,6 +29,38 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-22 - PR #96-#98 experimental triage
+
+- **Agent/model:** DannyExperiments, avdeevvadim, scottdhughes; integrated by
+  Codex.
+- **Files added or changed:**
+  `experimental/notes/triage/pr-triage-2026-06-22.md`,
+  `experimental/notes/m1/m1_cycle84_public_replay_audit.md`,
+  `experimental/notes/f1/f1_deep_point_list_to_ca_mca.md`,
+  `experimental/scripts/f1_deep_point_list_to_ca_mca_sanity.py`,
+  `experimental/notes/l1/l1_prefix_fourier_orbit_cancellation.md`,
+  `experimental/scripts/verify_l1_fourier_orbit_cancellation.py`,
+  `experimental/SUMMARY.md`, `experimental/README.md`,
+  `experimental/scripts/README.md`, and `experimental/agents-log.md`.
+- **Status:** AUDIT / FINITE_MODEL_PROOF / PROVED / CONDITIONAL /
+  EXPERIMENTAL.
+- **What is being added:** A conservative triage of PRs #96--#98. PR #96's
+  useful Cycle84 public replay receipt is banked as an inert audit note:
+  `m_max(beta)=2`, `Occ(beta)=52,747,567,092`, `D=24`, twelve double fibers,
+  and no fibers of size at least three. PR #97 adds the F1 simple-pole
+  deep-point list-to-CA/MCA conversion note and sanity script. PR #98 adds the
+  L1 dual-dilation Fourier orbit-kernel reduction note and verifier.
+- **How it is useful:** Cycle84 now has a public replay receipt for the finite
+  M1 wall without importing the live workflow or raw archive. The F1 note gives
+  a direct special list-to-CA/MCA mechanism to audit against Paper D. The L1
+  note moves prefix-local work from individual Fourier frequencies to orbit
+  kernels and records a concrete route cut for pointwise kernel saving.
+- **What to do next:** Do not treat Cycle84 as a prize-level theorem until a
+  transfer theorem is proved. Audit #97 against the exact main-paper `eca` and
+  `emca` predicates before any promotion. Run the new scripts only after
+  reviewer approval; this triage pass inspected them as text but did not
+  execute PR code.
+
 ### 2026-06-19 - Experimental folder streamlining
 
 - **Agent/model:** Codex.

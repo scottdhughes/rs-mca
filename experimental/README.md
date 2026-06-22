@@ -41,3 +41,8 @@ Put new material in the narrowest existing bucket:
 Do not add raw model transcripts, generated caches, or bulky run archives unless
 they are the only reproducibility artifact for a result. Prefer a compact audit
 note plus a deterministic script or JSON certificate.
+
+For PRs that add GitHub Actions workflows or executable artifact bundles, first
+bank an inert audit note under `notes/` and record the security/relevance
+decision in `notes/triage/`. Do not merge live workflows from experimental PRs
+unless a human explicitly asks for repository-side replay infrastructure.

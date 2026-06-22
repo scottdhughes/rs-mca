@@ -12,6 +12,9 @@ papers. The source triage records are:
 - `notes/triage/pr-triage-2026-06-18-round3.md`: PRs #79 through #81.
 - `notes/triage/pr-triage-2026-06-19.md`: PRs #82 and #84 through #95, with #85 through
   #91 superseded by #93 and PR #95 integrated only as a compact review layer.
+- `notes/triage/pr-triage-2026-06-22.md`: PRs #96 through #98, with #96
+  integrated only as a compact Cycle84 public replay audit and #97/#98 added as
+  experimental F1/L1 notes plus scripts.
 
 The common policy was: keep Papers A-D unchanged, land new material in
 `experimental/`, preserve explicit status labels, and require review before any
@@ -42,6 +45,29 @@ large theorem yet; it is the reduction of several vague hazards into named,
 script-checkable walls.
 
 ## What Was Added
+
+### Latest 2026-06-22 integration
+
+The 2026-06-22 PR round adds three useful but deliberately scoped items:
+
+- `notes/m1/m1_cycle84_public_replay_audit.md` records the public Cycle84
+  replay receipt. The banked finite-model certificate is
+  `m_max(beta)=2`, `Occ(beta)=52,747,567,092`, `D=24`, twelve double fibers, and
+  no fibers of size at least three. This is important evidence for the finite
+  M1 wall, but it is not a prize-level theorem and was integrated without the
+  live workflow, zip bundles, or raw million-line cycle archive from PR #96.
+- `notes/f1/f1_deep_point_list_to_ca_mca.md` records a simple-pole deep-point
+  identity converting nearby `RS[F,D,k+1]` lists into CA/MCA bad slopes for
+  `RS[F,D,k]`. The identity is the durable part; the direct cap application
+  remains an audit target before any Paper D promotion.
+- `notes/l1/l1_prefix_fourier_orbit_cancellation.md` adds the dual-dilation
+  orbit-kernel reduction for the monomial-prefix L1 Fourier lane. It proves
+  exact orbit identities and records a route cut: pointwise kernel saving can
+  fail even in quotient-free prefix slices.
+
+No PR code was run locally during this triage pass. The new scripts were
+inspected as text for dangerous side effects and kept as experimental
+reproducibility tools pending explicit reviewer execution.
 
 ### Latest 2026-06-19 integration
 
