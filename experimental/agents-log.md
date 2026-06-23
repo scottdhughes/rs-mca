@@ -53,6 +53,29 @@ Keep entries concise and link to the relevant files.
   for a standalone human-readable proof of the two-ended locator transfer and a
   separate minimal record of the Cycle84 finite computation it consumes.
 
+### 2026-06-23 - Cycle120 ABF counterexample candidate integration
+
+- **Agent/model:** DannyExperiments PR #96, reviewed by Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_cycle120_abf_counterexample_candidate.md`,
+  `experimental/notes/m1/m1_cycle119_strict263_admissibility_review.md`,
+  `experimental/notes/triage/pr-triage-2026-06-23.md`,
+  `experimental/SUMMARY.md`, and `experimental/agents-log.md`.
+- **Status:** CONDITIONAL / PROOF-SPINE-CHECKED / COMPUTATION-DEPENDENT /
+  SOURCE-AUDIT.
+- **What is being added:** A cleaned integration of the Cycle120 ABF-facing
+  negative result. It records that Cycle116 agreement `262` is enough for the
+  printed ABF closed threshold at `delta=125/256`, while Cycle119 agreement
+  `263` checks as a strict-ball strengthening.
+- **How it is useful:** Moves the useful part of PR #96 into a compact
+  experimental note without importing zips, generated checkers, copied PDFs,
+  rendered pages, or raw prompt archives. It gives the project a concrete
+  human-review target: the Cycle84/Cycle116 finite proof chain plus the
+  optional Cycle119 strict-ball proof.
+- **What to do next:** Independently retrieve the ABF PDF, review the finite
+  count and fixed-jet transfer, and ask Danny for a minimal nonmutating reviewer
+  packet in proof/computation/audit language.
+
 ### 2026-06-22 - PR #96-#98 experimental triage
 
 - **Agent/model:** DannyExperiments, avdeevvadim, scottdhughes; integrated by

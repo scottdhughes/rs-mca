@@ -162,6 +162,22 @@ printed ABF formulation. It is not a complete determination of delta_C^* and it
 is not an accepted prize solution.
 ```
 
+## Cycle120 Integration Update
+
+The later Cycle120 packet makes the same point more sharply: under the printed
+ABF closed support threshold, Cycle116 agreement `262` is already enough at
+`delta=125/256`, while Cycle119 agreement `263` is the strict-ball addendum.
+
+The cleaned integration note is:
+
+```text
+experimental/notes/m1/m1_cycle120_abf_counterexample_candidate.md
+```
+
+That note records the direct two-ended algebra audit and keeps the result
+conditional on independent review of the Cycle84/Cycle116 finite inputs and
+independent retrieval of the ABF PDF.
+
 ## Integration Decision
 
 Do not merge PR #96 as-is.

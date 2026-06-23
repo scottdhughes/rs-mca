@@ -95,6 +95,13 @@ counterexample candidate for that row, not an accepted prize solution. The
 project should ask for a standalone human-readable proof, not
 another generated archive.
 
+The follow-up Cycle120 packet is integrated only as
+`notes/m1/m1_cycle120_abf_counterexample_candidate.md`. The key clarification is
+that Cycle116 agreement `262` already reaches the printed ABF closed threshold
+at `delta=125/256`; Cycle119 agreement `263` is a checked strict-ball
+strengthening. The result remains conditional on the Cycle84/Cycle116 finite
+inputs and on independent source verification.
+
 ### Latest 2026-06-19 integration
 
 The 2026-06-19 PR round adds five durable experimental bundles:
