@@ -30,6 +30,24 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-25 - L1 prefix dual centered Krawtchouk route cut
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/l1/l1_prefix_dual_centered_krawtchouk_route_cut.md`,
+  `experimental/scripts/verify_l1_prefix_dual_centered_krawtchouk_route_cut.py`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / COUNTEREXAMPLE / OPEN.
+- **What is being added:** A self-contained centered Krawtchouk identity for
+  support-averaged dual Bessel torus mass, the joint-deviation transform, the
+  corrected codimension-`s` Odlyzko bound, and a regression falsifying the
+  uncentered single-zero closure.
+- **How it is useful:** Replaces a false dense-support closure with the exact
+  centered route cut: exponential closure now requires near-full averaged
+  joint-deviation control.
+- **What to do next:** Prove the primitive near-full joint-deviation bound or
+  identify a smaller structured obstruction.
+
 ### 2026-06-25 - Latest PR integration and estimate audit
 
 - **Agent/model:** AllenGrahamHart PRs #101--#107, ScottDHughes PR #99, and
