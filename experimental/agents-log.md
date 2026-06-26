@@ -30,6 +30,26 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-26 - L1 odd-moment Hooley-Katz audit
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/l1/l1_prefix_dual_odd_moment_projective_geometry.md`,
+  `experimental/notes/triage/l1-prefix-dual-odd-moment-hooley-katz-import-audit-2026-06-26.md`,
+  `experimental/scripts/verify_l1_prefix_dual_odd_moment_hooley_katz_audit.py`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / IMPORTED-VERIFIED / AUDIT / ROUTE CUT.
+- **What is being added:** A projective odd-moment collision-geometry theorem
+  for `k>d`, the affine-cone conversion needed for the full-field collision
+  moment, and a Hooley--Katz/Ghorpade--Lachaud constant ledger with the linear
+  equation eliminated in the operative lower-weight bound.
+- **How it is useful:** Tests the last plausible generic full-affine
+  point-count route before moving to the actual torus/subgroup object.  The
+  ledger keeps full-affine, full-torus, and proper-subgroup counts separate.
+- **What to do next:** Human-check the imported theorem citations and decide
+  whether to pursue geometry-specific lower-weight constants or the
+  multiplicative-character-twisted proper-subgroup count.
+
 ### 2026-06-26 - One-by-one experiment run
 
 - **Agent/model:** Codex.
