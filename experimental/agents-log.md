@@ -30,6 +30,26 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-26 - L1 d=2 cubic subgroup twisted bound
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/l1/l1_prefix_dual_d2_cubic_subgroup_twisted_bound.md`,
+  `experimental/notes/triage/l1-prefix-dual-d2-cubic-subgroup-twisted-bound-import-audit-2026-06-26.md`,
+  `experimental/scripts/verify_l1_prefix_dual_d2_cubic_subgroup_twisted_bound.py`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / IMPORTED-VERIFIED / EXPERIMENTAL.
+- **What is being added:** A proper-subgroup `d=2` cubic collision estimate
+  for the actual `H^{2k}` object, using exact Fourier reconstruction,
+  multiplicative-character expansion of `1_H`, and Katz's one-variable mixed
+  character-sum bound with `C(1,3,1)=3`.
+- **How it is useful:** Separates subgroup collision counting from full-affine
+  point-count geometry and supplies a review-sized template for future
+  higher-odd-moment twisted subgroup estimates.
+- **What to do next:** Human-check the imported Katz/Gauss source pin, then
+  treat higher-`d` subgroup bounds as a separate theorem rather than a
+  copy-paste extension.
+
 ### 2026-06-26 - One-by-one experiment run
 
 - **Agent/model:** Codex.
