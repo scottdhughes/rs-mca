@@ -30,6 +30,24 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-26 - L1 large-domain Weil energy floor
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/l1/l1_prefix_dual_large_domain_weil_energy_floor.md`,
+  `experimental/scripts/verify_l1_prefix_dual_large_domain_weil_energy_floor.py`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / EXPERIMENTAL / OPEN.
+- **What is being added:** A self-contained mixed-Weil subgroup-sum theorem
+  proving a pointwise energy floor and Bessel torus-mass decay in the
+  low-degree, large-domain window `D sqrt(p) < n`.
+- **How it is useful:** Closes a tractable monomial-prefix dual-Bessel
+  parameter window and separates it from the dense high-degree primitive
+  counting problem left open by the centered Krawtchouk route cut.
+- **What to do next:** Review the one-variable mixed-character import and
+  then attack the high-degree regime `D sqrt(p) >= n` by an averaged primitive
+  low-energy count rather than another pointwise floor.
+
 ### 2026-06-25 - Latest PR integration and estimate audit
 
 - **Agent/model:** AllenGrahamHart PRs #101--#107, ScottDHughes PR #99, and
