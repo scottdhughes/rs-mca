@@ -30,6 +30,27 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-26 - L1 d=3 subgroup twisted collision bound
+
+- **Agent/model:** GPT-5.5 Pro / Codex.
+- **Files added or changed:**
+  `experimental/notes/triage/l1-prefix-dual-d3-subgroup-twisted-input-audit-2026-06-26.md`,
+  `experimental/notes/l1/l1_prefix_dual_d3_subgroup_twisted_collision_bound.md`,
+  `experimental/scripts/verify_l1_prefix_dual_d3_subgroup_twisted_input_audit.py`,
+  `experimental/scripts/verify_l1_prefix_dual_d3_subgroup_twisted_collision_bound.py`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / IMPORTED STANDARD INPUT / EXPERIMENTAL.
+- **What is being added:** A `d=3` proper-subgroup odd-moment collision theorem
+  for the actual `H^{2k}` object, using Fourier orthogonality,
+  multiplicative-character expansion, and linear/cubic/quintic frequency
+  strata.
+- **How it is useful:** Extends the integrated `d=2` proper-subgroup cubic
+  twisted bound to the `j=1,3,5` moment system, with explicit Katz
+  `C(1,5,1)=5` input and normalized exponential-decay window
+  `n > (5+epsilon) sqrt(p)`.
+- **What to do next:** Treat higher-`d` subgroup twisted bounds and
+  reserve-scale primitive low-energy counts as separate follow-up problems.
+
 ### 2026-06-26 - Tangent-star extremizer barrier
 
 - **Agent/model:** GPT-5.5 Pro tangent-star packet, audited and integrated by
