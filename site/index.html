@@ -2357,6 +2357,19 @@
             }
       ]
 };
+    function enrich(e){
+      const q = parseBigIntExpr(e.q);
+      const N = parseBigIntExpr(e.badSlopes);
+      const logEps = log2BigInt(N) - log2BigInt(q);
+      const epsilonBits = -logEps;
+      const marginBits = 128 + logEps;
+      const delta = 1 - e.agreement / e.n;
+      const eta = 1 - e.rho - delta;
+      const sigma = e.agreement - e.k;
+      const floor = q / POW_2_128;
+      const passes = POW_2_128 * N > q;
+      return {...e, q, N, logEps, epsilonBits, marginBits, delta, eta, sigma, floor, passes};
+    }
     let entriesRaw = fallbackEntriesRaw;
     let updatesRaw = fallbackUpdatesRaw;
     let papersRaw = fallbackPapersRaw;
