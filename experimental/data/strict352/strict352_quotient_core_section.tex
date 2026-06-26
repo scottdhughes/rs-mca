@@ -1,0 +1,306 @@
+\section{Dyadic Quotient-Core MCA Floor Through Strict-352}
+\label{sec:strict352-quotient-core}
+
+\textbf{Status: \textsc{New-local}.}
+This section records a quotient-core lower floor that pushes the finite
+\(\F_{17^{32}}\), \(|H|=512\), \(k=256\) obstruction to agreement \(352\),
+that is slack \(96\) and radius \(5/16\).  The proof is elementary: construct
+large augmented-code lists from quotient-periodic locators, then use a
+quantitative deep-point conversion to obtain support-wise MCA-bad slopes.  The
+result is not an exact threshold theorem, not a protocol theorem, and not an
+upper bound at agreement \(353\).
+
+\subsection{Common high-coefficient locator template}
+
+\begin{proposition}[common high-coefficient augmented-list template]
+\label{prop:common-high-coeff-template}
+Let \(D\subset F\), let \(C^+=\RS[F,D,k+1]\), and fix an agreement level
+\(a>k\).  Let \(\mathcal L\) be a finite family of distinct monic squarefree
+\(D\)-split polynomials of degree \(a\), written
+\[
+  L(X)=X^a+\sum_{d=0}^{a-1}\lambda_d(L)X^d .
+\]
+Assume that the high coefficients are common across the family:
+\[
+  \lambda_d(L)=\lambda_d
+  \qquad\text{for every }L\in\mathcal L
+  \text{ and every }k+1\le d\le a-1.
+\]
+Define
+\[
+  U(X)=X^a+\sum_{d=k+1}^{a-1}\lambda_dX^d .
+\]
+Then for every \(L\in\mathcal L\),
+\[
+  P_L(X)=U(X)-L(X)
+\]
+has degree at most \(k\), hence is a \(C^+\)-codeword, and \(P_L\) agrees with
+\(U\) on all roots of \(L\).  Therefore \(U\) has at least \(|\mathcal L|\)
+distinct \(C^+\)-codewords at agreement \(a\).
+\end{proposition}
+
+\begin{proof}
+The common-high-coefficient hypothesis cancels all degrees
+\(k+1,k+2,\ldots,a\) in \(U-L\), so \(\deg(U-L)\le k\).  If \(x\) is a root of
+\(L\), then \(P_L(x)=U(x)-L(x)=U(x)\), giving agreement on the \(a\) distinct
+roots of \(L\).  Finally, if \(P_L=P_{L'}\), then \(U-L=U-L'\), hence
+\(L=L'\).  Thus distinct locators give distinct codewords.
+\end{proof}
+
+\subsection{Dyadic quotient-periodic locators}
+
+Let
+\[
+  F=\F_{17^{32}},\qquad |H|=512,
+\]
+and let \(H\subset F^*\) be a multiplicative subgroup.  Let \(c\mid512\) be a
+power of two and put
+\[
+  Q_c=H^c=\{x^c:x\in H\},
+  \qquad N_c=|Q_c|=512/c.
+\]
+The group \(Q_c\) is contained in \(K_c=\F_{17^{d_c}}\), where
+\[
+  d_c=\operatorname{ord}_{N_c}(17)
+\]
+for \(N_c>1\), and \(d_c=1\) for \(N_c=1\).  Hence elementary symmetric
+functions of subsets of \(Q_c\) take at most \(|K_c|=17^{d_c}\) values.
+
+Fix an agreement
+\[
+  a=cm+r,
+  \qquad 0\le r<c,
+\]
+and put
+\[
+  s_c(a)=\left\lfloor\frac{a-257}{c}\right\rfloor .
+\]
+For \(r=0\), choose \(m\)-subsets \(A\subseteq Q_c\).  For \(r>0\), fix one
+quotient value \(y_0\in Q_c\), fix an \(r\)-point subset \(T\subset H\) inside
+the fiber \(x^c=y_0\), and choose \(m\)-subsets
+\(A\subseteq Q_c\setminus\{y_0\}\).  Define
+\[
+  E_T(X)=\prod_{t\in T}(X-t)
+\]
+with \(E_T=1\) if \(r=0\), and
+\[
+  R_A(X)=\prod_{y\in A}(X^c-y),
+  \qquad
+  L_A(X)=E_T(X)R_A(X).
+\]
+Then \(L_A\) is monic, squarefree, \(H\)-split, and has degree \(a\).
+
+\begin{lemma}[top coefficients depend only on a short quotient prefix]
+\label{lem:dyadic-prefix-top-coeffs}
+For fixed \(c\) and fixed \(T\), all coefficients of \(L_A\) in degrees
+\[
+  257,258,\ldots,a-1
+\]
+are determined by the tuple
+\[
+  \bigl(e_1(A),\ldots,e_{s_c(a)}(A)\bigr)
+  \in K_c^{s_c(a)}.
+\]
+\end{lemma}
+
+\begin{proof}
+Write
+\[
+  E_T(X)=\sum_{i=0}^r \eta_iX^{r-i},\qquad \eta_0=1,
+\]
+and
+\[
+  R_A(X)=\sum_{j=0}^m (-1)^je_j(A)X^{c(m-j)},
+  \qquad e_0(A)=1.
+\]
+A coefficient of \(L_A=E_TR_A\) in degree \(a-\ell\) is a sum of terms with
+\[
+  \ell=i+cj,
+  \qquad 0\le i\le r.
+\]
+The high-degree range \(257\le a-\ell\le a-1\) is exactly
+\(1\le\ell\le a-257\).  Hence every contributing \(j\) satisfies
+\[
+  j\le \left\lfloor\frac{a-257}{c}\right\rfloor=s_c(a).
+\]
+The \(\eta_i\)'s are fixed by \(T\), and the only varying data are therefore
+\(e_1(A),\ldots,e_{s_c(a)}(A)\).
+\end{proof}
+
+\begin{proposition}[dyadic quotient-core augmented-list floor]
+\label{prop:dyadic-augmented-list-floor}
+Let \(C^+=\RS[F,H,257]\).  Fix \(c\mid512\) a power of two and write
+\(a=cm+r\), \(0\le r<c\).  Define
+\[
+  L_c(a)=
+  \begin{cases}
+  \left\lceil\displaystyle {\binom{N_c}{m}}/{(17^{d_c})^{s_c(a)}}\right\rceil,
+    & r=0,\\[1.2em]
+  \left\lceil\displaystyle {\binom{N_c-1}{m}}/{(17^{d_c})^{s_c(a)}}\right\rceil,
+    & r>0.
+  \end{cases}
+\]
+Whenever the displayed binomial coefficient is meaningful, there is an
+\(F\)-valued received word \(U\) for \(C^+\) with at least \(L_c(a)\) distinct
+nearby codewords at agreement \(a\).
+\end{proposition}
+
+\begin{proof}
+For \(r=0\), there are \(\binom{N_c}{m}\) possible \(m\)-subsets
+\(A\subset Q_c\).  For \(r>0\), after fixing the exceptional set \(T\) inside
+one quotient fiber, there are \(\binom{N_c-1}{m}\) possible \(m\)-subsets
+\(A\subset Q_c\setminus\{y_0\}\).  The tuple
+\((e_1(A),\ldots,e_{s_c(a)}(A))\) takes at most \((17^{d_c})^{s_c(a)}\) values.
+By pigeonholing, some fiber has at least \(L_c(a)\) choices of \(A\).  On that
+fiber, Lemma~\ref{lem:dyadic-prefix-top-coeffs} gives common high coefficients,
+so Proposition~\ref{prop:common-high-coeff-template} gives the claimed
+augmented-code list.
+\end{proof}
+
+\subsection{Quantitative deep-point conversion}
+
+The next theorem is a sharpened form of the deep-point conversion already used
+in Proposition~\ref{prop:deep-point-cap}.  It keeps the exact distinct-slope
+loss instead of only recording a coarse cap.
+
+\begin{theorem}[quantitative deep-point list-to-MCA conversion]
+\label{thm:quant-deep-point}
+Let \(C=\RS[F,D,k]\), let \(C^+=\RS[F,D,k+1]\), let \(|F|=q\), and assume
+\(|D|=n<q\).  Suppose a received word \(U:D\to F\) has \(L\) distinct
+\(C^+\)-codewords agreeing with it on at least \(a>k\) points.  Then there is
+an \(\alpha\in F\setminus D\) such that the line
+\[
+  f_\alpha(x)=\frac{U(x)}{x-\alpha},
+  \qquad
+  g_\alpha(x)=-\frac1{x-\alpha}
+\]
+has at least
+\[
+  \left\lceil
+  \frac{L(q-n)}{q-n+k(L-1)}
+  \right\rceil
+\]
+distinct finite support-wise noncontained MCA-bad slopes at agreement \(a\).
+Consequently
+\[
+  \operatorname{LD}_{\rm sw}(C,a)
+  \ge
+  \left\lceil
+  \frac{L(q-n)}{q-n+k(L-1)}
+  \right\rceil .
+\]
+\end{theorem}
+
+\begin{proof}
+Let \(P_1,\ldots,P_L\) be the listed degree-\(\le k\) polynomials for \(C^+\).
+For \(\alpha\in F\setminus D\), the value \(z_i=P_i(\alpha)\) gives the
+\(C\)-codeword
+\[
+  Q_i(X)=\frac{P_i(X)-P_i(\alpha)}{X-\alpha},
+  \qquad \deg Q_i<k.
+\]
+On every point where \(P_i=U\), one has
+\[
+  f_\alpha(x)+z_ig_\alpha(x)=Q_i(x),
+\]
+so each distinct value among \(P_1(\alpha),\ldots,P_L(\alpha)\) is a bad slope
+candidate at agreement \(a\).
+
+The candidate is support-wise noncontained.  Indeed, if \(g_\alpha\) were equal
+to a degree-\(<k\) polynomial \(R\) on the same agreement support, then
+\((X-\alpha)R(X)+1\) would have degree at most \(k\), vanish on more than \(k\)
+points, and yet take value \(1\) at \(X=\alpha\), a contradiction.
+
+It remains to choose \(\alpha\) with many distinct values.  For each pair
+\(i<j\), the nonzero polynomial \(P_i-P_j\) has degree at most \(k\), so it has
+at most \(k\) zeros in \(F\setminus D\).  Averaging the number of colliding
+pairs over \(F\setminus D\), some \(\alpha\) has collision count at most
+\[
+  \frac{k\binom{L}{2}}{q-n}.
+\]
+If \(M\) is the number of distinct values at that \(\alpha\), then by
+Cauchy--Schwarz, or equivalently by minimizing collisions for fixed \(M\),
+\[
+  M\ge \frac{L^2}{L+2k\binom{L}{2}/(q-n)}
+   =\frac{L(q-n)}{q-n+k(L-1)}.
+\]
+Since \(M\) is an integer, the ceiling gives the displayed bound.
+\end{proof}
+
+\subsection{The strict352 consequence}
+
+For each agreement \(a\), choose the dyadic quotient size \(c\) that maximizes
+the lower bound supplied by Proposition~\ref{prop:dyadic-augmented-list-floor}
+and Theorem~\ref{thm:quant-deep-point}.
+
+\begin{theorem}[strict352 dyadic quotient-core MCA floor]
+\label{thm:strict352-quotient-core}
+Let \(H\subset\F_{17^{32}}^*\) be a multiplicative subgroup of order \(512\), and
+let
+\[
+  C=\RS[\F_{17^{32}},H,256].
+\]
+Under the finite-slope support-wise MCA convention,
+\[
+  \operatorname{LD}_{\rm sw}(C,a)\ge7
+  \qquad\text{for every }264\le a\le352.
+\]
+In particular,
+\[
+  \varepsilon_{\rm mca}(C,5/16)>2^{-128}.
+\]
+\end{theorem}
+
+\begin{proof}
+The table below gives, for each interval of agreements, one dyadic quotient
+\(c\), the quotient size \(N_c\), the extension degree \(d_c\), and the resulting
+guaranteed number of distinct support-wise MCA-bad slopes after applying
+Theorem~\ref{thm:quant-deep-point}.  Every row is at least seven, and the last
+row gives agreement \(352\) with \(16\) guaranteed bad slopes.
+
+Finally,
+\[
+  7\cdot2^{128}>17^{32},
+\]
+so seven bad slopes over the line field \(\F_{17^{32}}\) already exceed the
+\(2^{-128}\) error budget.  Since \(a=352\) corresponds to
+\[
+  \delta=1-352/512=5/16,
+\]
+the displayed MCA inequality follows.
+\end{proof}
+
+\begin{center}
+\textbf{Dyadic quotient-core lower floor for \(C=\RS[\F_{17^{32}},H,256]\).}\par\smallskip
+\begin{tabular}{c c c c c c}
+\textbf{agreements} & \(c\) & \(N_c\) & \(d_c\) & \(s_c(a)\) & guaranteed slopes\\
+\hline
+\(264\) & 4 & 128 & 8 & 1 & \(3{,}226{,}994{,}007{,}649{,}539{,}012{,}619{,}581{,}430\)\\
+\(265\)--\(267\) & 4 & 128 & 8 & 2 & \(224{,}072{,}473{,}307{,}858{,}360\)\\
+\(268\) & 4 & 128 & 8 & 2 & \(428{,}078{,}754{,}976{,}207{,}015\)\\
+\(269\)--\(271\) & 8 & 64 & 4 & 1 & \(10{,}306{,}126{,}669{,}871\)\\
+\(272\) & 8 & 64 & 4 & 1 & \(19{,}399{,}767{,}849{,}168\)\\
+\(273\)--\(279\) & 8 & 64 & 4 & 2 & \(108{,}878{,}500\)\\
+\(280\) & 8 & 64 & 4 & 2 & \(199{,}092{,}114\)\\
+\(281\)--\(287\) & 16 & 32 & 2 & 1 & \(917{,}587\)\\
+\(288\) & 16 & 32 & 2 & 1 & \(1{,}631{,}266\)\\
+\(289\)--\(303\) & 16 & 32 & 2 & 2 & \(2{,}470\)\\
+\(304\) & 16 & 32 & 2 & 2 & \(4{,}160\)\\
+\(305\)--\(319\) & 32 & 16 & 1 & 1 & \(295\)\\
+\(320\) & 32 & 16 & 1 & 1 & \(472\)\\
+\(321\)--\(351\) & 32 & 16 & 1 & 2 & \(11\)\\
+\(352\) & 32 & 16 & 1 & 2 & \(16\)
+\end{tabular}
+\end{center}
+
+\begin{remark}[why the table stops at 352]
+At agreement \(353\), the same coarse dyadic quotient-prefix pigeonhole gives
+fewer than seven slopes for every divisor \(c\mid512\).  The best coarse dyadic row at \(353\) has \(c=128\), \(N_c=4\), \(m=2\), \(r=97\), and \(s_c(353)=0\), giving only
+\[
+  \binom{3}{2}=3.
+\]
+Thus this argument does not prove a seven-slope obstruction at \(353\).  The
+next frontier is either to find genuine collisions in the relevant quotient
+prefix maps, or to prove that all quotient-periodic, tangent, and aperiodic
+branches at agreement \(353\) stay below the seven-slope budget.
+\end{remark}

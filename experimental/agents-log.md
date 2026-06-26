@@ -30,6 +30,25 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-26 - Strict352 dyadic quotient-core MCA floor audit
+
+- **Agent/model:** Codex, auditing user-supplied strict352 packet.
+- **Files added or changed:** `experimental/data/strict352/`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / AUDIT / SUPPORT-WISE-MCA-LOWER-BOUND.
+- **What is being added:** A dyadic quotient-core proof packet for
+  `RS[F_17^32,H,256]`, `|H|=512`, showing `LD_sw(C,a) >= 7` for every
+  agreement `264 <= a <= 352`, with `LD_sw(C,352) >= 16` under the
+  finite-slope support-wise MCA convention.
+- **How it is useful:** Moves the lower-bound obstruction frontier from
+  strict264 to strict352, i.e. to radius `5/16`; the coarse dyadic
+  quotient-prefix route stops at agreement `353`, where it gives only three
+  slopes.
+- **What to do next:** Integrate the theorem packet into `experiments.tex`
+  after review, update the public site to show strict352 as the current
+  quotient-core frontier, and attack the agreement-353 quotient/tangent/
+  aperiodic branches.
+
 ### 2026-06-26 - Strict264 quotient-floor proof packet
 
 - **Agent/model:** Codex, with user-supplied strict264 packet.

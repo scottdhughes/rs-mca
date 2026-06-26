@@ -53,21 +53,59 @@
   },
   {
     "id": "strict264-min",
-    "title": "Strict264 minimal threshold target",
-    "short": "First Paper-B slack upgrade target: only seven retained slopes are enough.",
+    "title": "Strict264 quotient-floor proof record",
+    "short": "Quotient-core entropy plus deep-point conversion gives at least nine bad slopes.",
     "row": "RS[F_17^32,H,256]",
     "n": 512,
     "k": 256,
     "rho": 0.5,
     "agreement": 264,
-    "badSlopes": "7",
+    "badSlopes": "9",
     "q": "17^32",
-    "status": "target",
-    "tag": "target",
-    "label": "target",
+    "status": "proved",
+    "tag": "proved",
+    "label": "proof record",
     "radiusLabel": "31/64",
-    "proof": "Target: find or audit at least seven retained bad slopes at agreement 264.",
-    "nonclaims": "Target row, not a theorem."
+    "proof": "Quotient map x -> x^8 on |H|=512 gives an augmented C+ list of size binom(64,33); deep-point conversion yields at least nine support-wise noncontained slopes at agreement 264.",
+    "nonclaims": "Quotient-core lower floor, not an exact threshold; agreement-265 upper bound remains open.",
+    "links": [
+      {
+        "label": "Strict264 quotient floor",
+        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/strict264_quotient_floor.md"
+      },
+      {
+        "label": "Entropy MCA package",
+        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/entropy_mca_new_results.md"
+      }
+    ]
+  },
+  {
+    "id": "strict352-quotient-core",
+    "title": "Strict352 quotient-core proof record",
+    "short": "Dyadic quotient-core floors give at least seven bad slopes through agreement 352.",
+    "row": "RS[F_17^32,H,256]",
+    "n": 512,
+    "k": 256,
+    "rho": 0.5,
+    "agreement": 352,
+    "badSlopes": "16",
+    "q": "17^32",
+    "status": "proved",
+    "tag": "proved",
+    "label": "proof record",
+    "radiusLabel": "5/16",
+    "proof": "Dyadic quotient maps x -> x^c with c in {4,8,16,32}, quotient-prefix pigeonholing, and quantitative deep-point conversion give LD_sw(C,a) >= 7 for 264 <= a <= 352, with LD_sw(C,352) >= 16.",
+    "nonclaims": "Quotient-core lower floor, not an exact threshold; agreement 353 is the next frontier.",
+    "links": [
+      {
+        "label": "Strict352 summary",
+        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/strict352_quotient_core_summary.md"
+      },
+      {
+        "label": "Strict352 verifier",
+        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/verify_strict352_quotient_core.py"
+      }
+    ]
   },
   {
     "id": "strict264-2187",

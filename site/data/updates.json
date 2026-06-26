@@ -10,12 +10,30 @@
   },
   {
     "date": "2026-06-26",
-    "status": "experiment run",
+    "status": "proof record",
     "author": "Codex",
-    "title": "Strict264 gate checks pass; no new frontier point",
-    "summary": "The Cycle120, strict264, reserve-ladder, F1, L2, A0, and M2 validators were run one by one. All passed, but none produced the seven retained slopes needed for a strict264 frontier upgrade.",
-    "impact": "The next target is unchanged and now sharper: produce a seven-slope certificate for LD_sw(RS[F_17^32,H,256],264) >= 7.",
-    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/triage/experiment-run-2026-06-26.md"
+    "title": "Strict352 dyadic quotient-core proof record",
+    "summary": "The strict352 quotient-core packet proves LD_sw(C,a) >= 7 for every agreement 264 <= a <= 352 for C = RS[F_17^32,H,256], with LD_sw(C,352) >= 16.",
+    "impact": "The rate-1/2 MCA lower-bound frontier moves to delta = 5/16. The next coarse quotient-prefix frontier is agreement 353.",
+    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/strict352_quotient_core_summary.md"
+  },
+  {
+    "date": "2026-06-26",
+    "status": "proof record",
+    "author": "Codex",
+    "title": "Strict264 quotient-floor proof record",
+    "summary": "The strict264 quotient-core construction uses the map x -> x^8, an augmented-code list of size binom(64,33), and deep-point conversion to produce at least nine support-wise bad slopes at agreement 264.",
+    "impact": "The rate-1/2 MCA board now has a proved strict264 row at delta = 31/64. The next threshold-pinning target is the agreement-265 upper bound.",
+    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/strict264_quotient_floor.md"
+  },
+  {
+    "date": "2026-06-26",
+    "status": "proof record",
+    "author": "Codex",
+    "title": "Strict352 dyadic quotient-core proof record",
+    "summary": "The strict352 dyadic quotient-core construction proves LD_sw(C,a) >= 7 for every agreement 264 <= a <= 352, and LD_sw(C,352) >= 16 for C = RS[F_17^32,H,256].",
+    "impact": "This extends the finite support-wise MCA lower floor from strict264/slack8 to strict352/slack96. The next unresolved rung is agreement 353, where the coarse dyadic quotient-prefix method gives only three slopes.",
+    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/strict352_quotient_core_summary.md"
   },
   {
     "date": "2026-06-26",
@@ -46,11 +64,11 @@
   },
   {
     "date": "2026-06-26",
-    "status": "audit target",
+    "status": "audit superseded",
     "author": "AllenGrahamHart",
-    "title": "Strict264 remains a seven-slope target",
-    "summary": "PR #110 confirms the arithmetic: over F_17^32, seven retained slopes at agreement 264 would clear 2^-128.",
-    "impact": "This is not a new frontier point until a retained-slope proof is supplied. The current best numerator remains 52,747,567,092 at Cycle116/119.",
+    "title": "Seven-slope arithmetic gate for strict264",
+    "summary": "PR #110 confirmed the arithmetic gate: over F_17^32, seven retained slopes at agreement 264 clear 2^-128. The newer quotient-floor proof supplies at least nine slopes.",
+    "impact": "Kept as the arithmetic gate, but no longer the frontier status. The strict264 row is now a proof record.",
     "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_strict264_audit.md"
   },
   {

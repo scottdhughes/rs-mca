@@ -190,12 +190,12 @@
           ]
         },
         {
-          "id": "strict264-seven-slope-target",
-          "title": "Strict264 seven-slope finite target",
+          "id": "strict264-quotient-floor",
+          "title": "Strict264 quotient-floor proof record",
           "rho": "1/2",
           "track": "mca",
           "trackLabel": "support-wise MCA",
-          "direction": "target",
+          "direction": "unsafe-lower-bound",
           "n": "512",
           "k": "256",
           "field": "F_17^32",
@@ -211,9 +211,9 @@
           "qGen": "17^32",
           "qLine": "17^32",
           "qChal": "not protocol-bound",
-          "nBad": "7",
-          "failureMarginBits": 0.01,
-          "marginLabel": "+0.01 bits if proved",
+          "nBad": ">=9",
+          "failureMarginBits": 0.37,
+          "marginLabel": "+0.37 bits",
           "prizeBox": {
             "rate": true,
             "smoothDomain": true,
@@ -224,12 +224,57 @@
             "publicSource": true,
             "conditionalImport": false
           },
-          "status": "target",
-          "statusLabel": "target",
-          "source": "strict264 audit target",
-          "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_strict264_audit.md",
+          "status": "proof-record",
+          "statusLabel": "proof record",
+          "source": "strict264 quotient-floor obstruction",
+          "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/strict264_quotient_floor.md",
           "nonClaims": [
-            "Target row until seven certified retained slopes exist."
+            "Quotient-core lower floor, not an exact threshold.",
+            "The agreement-265 upper bound remains the next threshold-pinning target."
+          ]
+        },
+        {
+          "id": "strict352-quotient-core",
+          "title": "Strict352 quotient-core proof record",
+          "rho": "1/2",
+          "track": "mca",
+          "trackLabel": "support-wise MCA",
+          "direction": "unsafe-lower-bound",
+          "n": "512",
+          "k": "256",
+          "field": "F_17^32",
+          "fieldSizeLog2": 130.8,
+          "domainKind": "multiplicative-subgroup",
+          "smoothPowerOfTwo": true,
+          "agreementA": "352",
+          "sigma": "96",
+          "deltaExact": "5/16",
+          "deltaApprox": 0.3125,
+          "etaExact": "3/16",
+          "etaApprox": 0.1875,
+          "qGen": "17^32",
+          "qLine": "17^32",
+          "qChal": "not protocol-bound",
+          "nBad": ">=16",
+          "failureMarginBits": 1.2,
+          "marginLabel": "+1.20 bits",
+          "prizeBox": {
+            "rate": true,
+            "smoothDomain": true,
+            "kBound": true,
+            "fieldBound": true,
+            "denominatorAudited": true,
+            "endpointConvention": true,
+            "publicSource": true,
+            "conditionalImport": false
+          },
+          "status": "proof-record",
+          "statusLabel": "proof record",
+          "source": "strict352 quotient-core obstruction",
+          "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/strict352_quotient_core_summary.md",
+          "nonClaims": [
+            "Quotient-core lower floor, not an exact threshold.",
+            "Agreement 353 is the next quotient/tangent/aperiodic frontier."
           ]
         },
         {

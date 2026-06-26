@@ -566,9 +566,9 @@
       </div>
       <div class="shell stats" aria-label="Frontier metrics">
         <div class="stat"><small>Best certified margin</small><b id="stat-margin">+32.82</b><span>bits above the 2<sup>−128</sup> failure line</span></div>
-        <div class="stat"><small>Best strict radius</small><b id="stat-radius">249/512</b><span>Cycle119 strict263 proof record</span></div>
+        <div class="stat"><small>Deepest proof radius</small><b id="stat-radius">5/16</b><span>Strict352 quotient-core proof record</span></div>
         <div class="stat"><small>Bad challenges</small><b>52.7B</b><span>distinct gamma values imported from Cycle84</span></div>
-        <div class="stat"><small>Next threshold</small><b>≥ 7</b><span>bad slopes clear 2<sup>−128</sup> over F<sub>17<sup>32</sup></sub></span></div>
+        <div class="stat"><small>Strict352 proof</small><b>≥ 16</b><span>quotient-core bad slopes at agreement 352</span></div>
       </div>
     </section>
 
@@ -600,7 +600,7 @@
               </div>
               <div>
                 <label for="searchBox">Search</label>
-                <input id="searchBox" type="search" placeholder="Cycle119, strict264, F_17^32…" />
+                <input id="searchBox" type="search" placeholder="Cycle119, strict352, F_17^32…" />
               </div>
             </div>
             <div class="chart-wrap">
@@ -803,9 +803,9 @@
             </article>
             <article class="program-card result-card" data-update-index="3" tabindex="0">
               <div class="update-meta">2026-06-26 · audit target · AllenGrahamHart</div>
-              <h3>Strict264 remains a seven-slope target</h3>
-              <p>PR #110 confirms the arithmetic: over F_17^32, seven retained slopes at agreement 264 would clear 2^-128.</p>
-              <div class="update-actions"><a class="source-link" href="https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_strict264_audit.md" target="_blank" rel="noopener">Source note</a></div>
+              <h3>Strict352 dyadic quotient-core proof record</h3>
+              <p>The dyadic quotient-core packet proves LD_sw(C,a) ≥ 7 for every agreement 264 ≤ a ≤ 352, with 16 bad slopes at agreement 352.</p>
+              <div class="update-actions"><a class="source-link" href="https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/strict352_quotient_core_summary.md" target="_blank" rel="noopener">Source note</a></div>
             </article>
             <article class="program-card result-card" data-update-index="4" tabindex="0">
               <div class="update-meta">2026-06-26 · conditional route cut · Scott Hughes</div>
@@ -972,8 +972,8 @@
           </article>
           <article class="program-card">
             <span class="stack-label">Next target</span>
-            <h3>Strict264</h3>
-            <p>Agreement 264 means \(\sigma=8\) and \(\delta=31/64\). Since \(\lfloor17^{32}/2^{128}\rfloor=6\), seven retained slopes already beat \(2^{-128}\).</p>
+            <h3>Strict353</h3>
+            <p>Agreement 352 means \(\sigma=96\) and \(\delta=5/16\). The dyadic quotient-core proof gives 16 bad slopes there; the coarse quotient-prefix route gives only three slopes at agreement 353.</p>
           </article>
           <article class="program-card">
             <span class="stack-label">Proof quality</span>
@@ -1130,7 +1130,8 @@
     const fallbackEntriesRaw = [
       { id:'cycle116', title:'Cycle116 closed-threshold proof record', short:'ABF printed closed threshold at 125/256.', row:'RS[F_17^32,H,256]', n:512, k:256, rho:0.5, agreement:262, badSlopes:'52747567092', q:'17^32', status:'proved', tag:'proved', label:'proof record', radiusLabel:'125/256', proof:'Cycle116 transfer: agreement 262, closed ABF threshold.', nonclaims:'Not ordinary list decoding; not protocol soundness; not exact δ*_C.' },
       { id:'cycle119', title:'Cycle119 strict263 proof record', short:'Two-ended upgrade with one-symbol strict margin.', row:'RS[F_17^32,H,256]', n:512, k:256, rho:0.5, agreement:263, badSlopes:'52747567092', q:'17^32', status:'proved', tag:'proved', label:'proof record', radiusLabel:'249/512', proof:'Two-ended locator theorem: common top-six coefficients plus common nonzero constant.', nonclaims:'Finite/source theorem; imported Cycle84 numerator; not an official prize solve by itself.' },
-      { id:'strict264-min', title:'Strict264 minimal threshold target', short:'First Paper-B slack upgrade target: only seven slopes needed.', row:'RS[F_17^32,H,256]', n:512, k:256, rho:0.5, agreement:264, badSlopes:'7', q:'17^32', status:'target', tag:'target', radiusLabel:'31/64', proof:'Target: find or audit ≥7 retained bad slopes at agreement 264.', nonclaims:'Target row, not a theorem.' },
+      { id:'strict264-min', title:'Strict264 quotient-floor proof record', short:'Quotient-core entropy plus deep-point conversion gives at least nine bad slopes.', row:'RS[F_17^32,H,256]', n:512, k:256, rho:0.5, agreement:264, badSlopes:'9', q:'17^32', status:'proved', tag:'proved', label:'proof record', radiusLabel:'31/64', proof:'Quotient map x -> x^8 on |H|=512 gives an augmented C+ list of size binom(64,33); deep-point conversion yields at least nine support-wise noncontained slopes at agreement 264.', nonclaims:'Quotient-core lower floor, not an exact threshold; agreement-265 upper bound remains open.', links:[{label:'Strict264 quotient floor', href:'https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/strict264_quotient_floor.md'}, {label:'Entropy MCA package', href:'https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/entropy_mca_new_results.md'}] },
+      { id:'strict352-quotient-core', title:'Strict352 quotient-core proof record', short:'Dyadic quotient-core floors give at least seven bad slopes through agreement 352.', row:'RS[F_17^32,H,256]', n:512, k:256, rho:0.5, agreement:352, badSlopes:'16', q:'17^32', status:'proved', tag:'proved', label:'proof record', radiusLabel:'5/16', proof:'Dyadic quotient maps x -> x^c with c in {4,8,16,32}, quotient-prefix pigeonholing, and quantitative deep-point conversion give LD_sw(C,a) >= 7 for 264 <= a <= 352, with LD_sw(C,352) >= 16.', nonclaims:'Quotient-core lower floor, not an exact threshold; agreement 353 is the next frontier.', links:[{label:'Strict352 summary', href:'https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/strict352_quotient_core_summary.md'}, {label:'Strict352 verifier', href:'https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/verify_strict352_quotient_core.py'}] },
       { id:'strict264-2187', title:'Strict264 2187-slope candidate', short:'Candidate subpacket shape if the hinted strict264 target is validated.', row:'RS[F_17^32,H,256]', n:512, k:256, rho:0.5, agreement:264, badSlopes:'2187', q:'17^32', status:'candidate', tag:'candidate', radiusLabel:'31/64', proof:'Candidate target; requires independent theorem and admissibility audit.', nonclaims:'Do not cite as proved without a proof record.' },
       { id:'reserve272', title:'Reserve-scale target σ=16', short:'A more serious finite slack target.', row:'RS[F_17^32,H,256]', n:512, k:256, rho:0.5, agreement:272, badSlopes:'7', q:'17^32', status:'target', tag:'target', radiusLabel:'15/32', proof:'Search target for deeper slack frontier.', nonclaims:'Speculative target.' },
       { id:'reserve288', title:'Reserve-scale target σ=32', short:'Deeper below capacity; still only seven slopes needed.', row:'RS[F_17^32,H,256]', n:512, k:256, rho:0.5, agreement:288, badSlopes:'7', q:'17^32', status:'target', tag:'target', radiusLabel:'7/16', proof:'Search target for Paper-B corrected reserve stress tests.', nonclaims:'Speculative target.' },
@@ -1139,6 +1140,8 @@
 
     const fallbackUpdatesRaw = [
       {date:'2026-04-08', status:'survey benchmark', author:'Arnon-Boneh-Fenzi', title:'Proximity Prize MCA benchmark regimes', summary:'Table 1 in Open Problems in List Decoding and Correlated Agreement separates the MCA landscape into zero-radius, unique-decoding, Johnson-radius, and capacity-edge regimes.', impact:'The current RS-MCA frontier is in the capacity-edge lower-bound regime, not the Johnson-radius positive upper-bound regime.', href:'https://github.com/przchojecki/rs-mca/blob/main/open-proximity.tex'},
+      {date:'2026-06-26', status:'proof record', author:'Codex', title:'Strict352 dyadic quotient-core proof record', summary:'The strict352 quotient-core packet proves LD_sw(C,a) >= 7 for every agreement 264 <= a <= 352 for C = RS[F_17^32,H,256], with LD_sw(C,352) >= 16.', impact:'The rate-1/2 MCA lower-bound frontier moves to delta = 5/16. The next coarse quotient-prefix frontier is agreement 353.', href:'https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/strict352_quotient_core_summary.md'},
+      {date:'2026-06-26', status:'proof record', author:'Codex', title:'Strict264 quotient-floor proof record', summary:'The strict264 quotient-core construction uses x -> x^8, an augmented-code list of size binom(64,33), and deep-point conversion to produce at least nine support-wise bad slopes at agreement 264.', impact:'The rate-1/2 MCA board now has a proved strict264 row at delta = 31/64. The next threshold-pinning target is the agreement-265 upper bound.', href:'https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/strict264_quotient_floor.md'},
       {date:'2026-06-25', status:'latest', title:'Latest PR integration', summary:'No larger Cycle120 numerator; endpoint, bridge, and proof-program updates were integrated.', impact:'Use the data files and linked notes for the current public state.', href:'https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/triage/pr-triage-2026-06-25.md'}
     ];
     const fallbackPapersRaw = [
@@ -1158,6 +1161,8 @@
       rates:[
         {rho:'1/2', slug:'1-2', capacityExact:'1/2', capacityApprox:.5, johnsonExact:'1 - sqrt(1/2)', johnsonApprox:.292893, mcaUnsafe:'255/512', listUnsafe:'255/512', unknownInterval:'[Johnson frontier, 255/512)', safeFrontier:'Johnson-radius MCA upper-bound regime.', rows:[
           {id:'mca-cap-rho-1-2', title:'Paper D universal MCA unsafe cap', rho:'1/2', track:'mca', trackLabel:'MCA / CA', direction:'unsafe-lower-bound', n:'smooth dyadic envelope', k:'rho n, k <= 2^40', field:'|F| < 2^256', domainKind:'multiplicative-subgroup', agreementA:'n/2 + n/512', sigma:'n/512', deltaExact:'255/512', deltaApprox:.498047, etaExact:'1/512', etaApprox:.001953, qLine:'|F|', qChal:'protocol-dependent', bound:'epsilon_mca > 2^-86', failureMarginBits:42, marginLabel:'>= +42 bits', prizeBox:{rate:true,smoothDomain:true,kBound:true,fieldBound:true,denominatorAudited:true,endpointConvention:true,publicSource:true,conditionalImport:true}, status:'conditional-theorem', statusLabel:'conditional theorem', source:'Paper D universal cap', sourceHref:'https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v4.tex', nonClaims:['Conditional on the Crites-Stewart import audit.']},
+          {id:'strict264-quotient-floor', title:'Strict264 quotient-floor proof record', rho:'1/2', track:'mca', trackLabel:'support-wise MCA', direction:'unsafe-lower-bound', n:'512', k:'256', field:'F_17^32', domainKind:'multiplicative-subgroup', agreementA:'264', sigma:'8', deltaExact:'31/64', deltaApprox:.484375, etaExact:'1/64', etaApprox:.015625, qGen:'17^32', qLine:'17^32', qChal:'not protocol-bound', nBad:'>=9', failureMarginBits:.37, marginLabel:'+0.37 bits', prizeBox:{rate:true,smoothDomain:true,kBound:true,fieldBound:true,denominatorAudited:true,endpointConvention:true,publicSource:true,conditionalImport:false}, status:'proof-record', statusLabel:'proof record', source:'strict264 quotient-floor obstruction', sourceHref:'https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/strict264_quotient_floor.md', nonClaims:['Quotient-core lower floor, not an exact threshold.', 'The agreement-265 upper bound remains the next threshold-pinning target.']},
+          {id:'strict352-quotient-core', title:'Strict352 quotient-core proof record', rho:'1/2', track:'mca', trackLabel:'support-wise MCA', direction:'unsafe-lower-bound', n:'512', k:'256', field:'F_17^32', domainKind:'multiplicative-subgroup', agreementA:'352', sigma:'96', deltaExact:'5/16', deltaApprox:.3125, etaExact:'3/16', etaApprox:.1875, qGen:'17^32', qLine:'17^32', qChal:'not protocol-bound', nBad:'>=16', failureMarginBits:1.2, marginLabel:'+1.20 bits', prizeBox:{rate:true,smoothDomain:true,kBound:true,fieldBound:true,denominatorAudited:true,endpointConvention:true,publicSource:true,conditionalImport:false}, status:'proof-record', statusLabel:'proof record', source:'strict352 quotient-core obstruction', sourceHref:'https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/strict352_quotient_core_summary.md', nonClaims:['Quotient-core lower floor, not an exact threshold.', 'Agreement 353 is the next quotient/tangent/aperiodic frontier.']},
           {id:'list-cap-rho-1-2', title:'Interleaved-list unsafe cap from base-list obstruction', rho:'1/2', track:'list', trackLabel:'Interleaved-list', direction:'unsafe-lower-bound', n:'quotient scale N=512', k:'rho n', field:'|F| < 2^256', domainKind:'multiplicative-subgroup', agreementA:'rho n + 1', sigma:'1 quotient step', deltaExact:'255/512', deltaApprox:.498047, etaExact:'1/512', etaApprox:.001953, qLine:'|F|', qChal:'protocol-dependent', listLower:'binom(512, 257) / |F|', failureMarginBits:123.17, marginLabel:'+123.17 bits', prizeBox:{rate:true,smoothDomain:true,kBound:true,fieldBound:true,denominatorAudited:true,endpointConvention:true,publicSource:true,conditionalImport:false}, status:'list-corollary', statusLabel:'list corollary', source:'experiments.tex', sourceHref:'https://github.com/przchojecki/rs-mca/blob/main/experimental/experiments.tex', nonClaims:['List lower bound only.']}
         ]},
         {rho:'1/4', slug:'1-4', capacityExact:'3/4', capacityApprox:.75, johnsonExact:'1/2', johnsonApprox:.5, mcaUnsafe:'383/512', listUnsafe:'383/512', unknownInterval:'[Johnson frontier, 383/512)', safeFrontier:'Johnson-radius MCA upper-bound regime.', rows:[]},
