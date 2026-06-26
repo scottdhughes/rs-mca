@@ -1,0 +1,3663 @@
+% !TeX program = lualatex
+% Reconstructed from the uploaded PDF by automated text extraction.
+% This is NOT the original author source. Mathematical layout, large delimiters,
+% and tables were reconstructed approximately from PDF text output.
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{fontspec}
+\setmainfont{STIXGeneral}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parskip}{0.55em}
+\setlength{\parindent}{0pt}
+\emergencystretch=3em
+\sloppy
+
+\title{Open Problems in List Decoding and Correlated Agreement}
+\author{Gal Arnon\\\texttt{galarnon42@gmail.com}\\Bocconi University
+\and Dan Boneh\\\texttt{dabo@cs.stanford.edu}\\Stanford University
+\and Giacomo Fenzi\\\texttt{giacomo.fenzi@epfl.ch}\\EPFL}
+\date{April 8, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The Ethereum Foundation recently announced the Proximity Prize\footnote{\url{https://proximityprize.org/}} which aims to resolve some open problems that play an important role in the design of succinct proof systems. This paper reviews the open problems relevant to the Proximity Prize. We focus on some grand challenges relating to list decoding bounds, proximity gaps, correlated agreement, and mutual correlated agreement, as they relate to proof systems and Reed--Solomon codes. Along the way we survey the known results on these topics.
+\end{abstract}
+
+\noindent\textbf{Keywords:} proximity gaps, correlated agreement, list decoding, proximity prize
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+
+
+
+Recent progress in succinct non-interactive proof systems, called SNARKs, gives rise to new concepts in coding theory called proximity gaps [RVW13; AHIV17], correlated agreement (CA) [BGKS20;
+BCIKS20], and mutual correlated agreement (MCA) [ACFY25]. These SNARK systems also rely
+on classic list decoding bounds from coding theory [Eli57; Woz58]. A better understanding of these
+concepts will lead to more efficient SNARKs, and this gives rise to a number of fascinating open
+problems that are both mathematically interesting and important in practice.
+The goal of this paper is to explicitly list these open problems and to survey our present state
+of knowledge. This is a fast-moving field with a rapid stream of new results. This paper covers the
+known results at the time of this writing.
+List decoding bounds. First, recall that a linear code C is a linear subspace of Fn , where F is
+a finite field, and n is called the code length. For a word f ∈ Fn and δ ∈ [0, 1] we write Λ(C, δ, f )
+for the set of codewords in C whose Hamming distance from f is at most δn. The list decoding
+bound of C is defined as
+Λ(C, δ) := maxn Λ(C, δ, f ) .
+f ∈F
+
+The main list decoding question of relevance to this paper is to find tight upper bounds on Λ(C, δ)
+for an interleaved Reed–Solomon code (as defined in Section 2.3). In particular, the goal is to
+understand for what values of δ the list Λ(C, δ) is “small.” In Section 3 we survey the known
+results and open questions on this topic that are most relevant to the development of succinct
+proof systems.
+Proximity gaps. We next explain the notions of a proximity gap, correlated agreement (CA),
+and mutual correlated agreement (MCA). We begin with some useful terminology.
+• For δ ∈ [0, 1] we say that g ∈ Fn is δ-close to C if there is a codeword c ∈ C whose Hamming
+distance from g is at most δn. Furthermore, for S ⊆ [n] we say that g ∈ Fn is (S, δ)-close to C
+if |S| ≥ (1 − δ)n and there is a codeword c ∈ C such that g and c agree on S, namely gi = ci for
+all i ∈ S. Clearly, if g is (S, δ)-close to C then g is δ-close to C. Conversely, if g is δ-close to C
+then there is a set S ⊆ [n] such that g is (S, δ)-close to C.
+• For a set L ⊆ Fn we say that L is δ-close to C if every element in L is δ-close to C. Similarly we say
+that L is (S, δ)-close to C if every element of L is (S, δ)-close to C. Observe that if g1 , . . . , gℓ ∈ Fn
+are all (S, δ)-close to C then the entire linear span of g1 , . . . , gℓ in Fn is (S, δ)-close to C.
+• We define proximity gaps, correlated agreement, and mutual correlated agreement with respect
+n
+to a family of sets F ⊆ 2(F ) . Some set families of interest include
+– Lines, namely Flines :=
+
+n
+
+\{f1 + γf2 \}γ∈F
+
+o
+
+f1 , f2 ∈ Fn .
+
+– Affine spaces, namely Fspaces :=
+
+n
+
+\{f0 + γ1 f1 + . . . γℓ fℓ \}γ1 ,...,γℓ ∈F
+
+– Power curves, namely Fcurves :=
+
+n
+
+\{f0 + γf1 + . . . γ ℓ fℓ \}γ∈F
+
+o
+
+f0 , . . . , fℓ ∈ Fn .
+o
+
+f0 , . . . , fℓ ∈ Fn .
+
+Throughout the paper we will primarily use the family Flines , but all the open problems we
+discuss can be similarly stated for other families of sets 2 . It is not difficult to see that a line
+L = \{f1 + γf2 \}γ∈F is (S, δ)-close to C if and only if both f1 and f2 are (S, δ)-close to C.
+2
+
+See [BCGM25] for a discussion in the setting of polynomials generators.
+
+With this terminology in place, we can now explain the three concepts: proximity gap, correlated
+n
+agreement, and mutual correlated agreement for a code C ⊆ Fn with respect to a family F ⊆ 2(F ) .
+• Proximity gap: For δ ∈ [0, 1] and L ∈ F, let p(L) ∈ [0, 1] be the fraction of points g ∈ L
+such that g is δ-close to C. We say that C has proximity gap error εpg (C, δ) ∈ [0, 1] if for every
+L ∈ F such that p(L) > εpg (C, δ), we have that L is δ-close to C (which implies that p(L) = 1).
+In other words, there is a dichotomic gap: either p(L) ≤ εpg (C, δ) or p(L) = 1.
+• Correlated agreement (CA): CA provides a stronger guarantee than a proximity gap: when
+p(L) > εca (C, δ), not only is L δ-close to C, but there is an S ⊆ [n] such that L is (S, δ)-close
+to C. More precisely, we say that C has correlated agreement error εca (C, δ) ∈ [0, 1] if for every
+L ∈ F such that p(L) > εca (C, δ), we have that L is (S, δ)-close to C for some S ⊆ [n].
+• Mutual correlated agreement (MCA): MCA provides a stronger guarantee than CA: when
+p(L) > εmca (C, δ), not only is L (S, δ)-close to C for some S, it has to be (S, δ)-close for the same
+S’s as the individual points on L. More precisely, for δ ∈ [0, 1] and L ∈ F , we say that a point
+g ∈ L is “good” if for every S such that g is (S, δ)-close to C it holds that L is (S, δ)-close to C.
+We say that C has mutual correlated agreement error εmca (C, δ) if for every L ∈ F at most
+εmca (C, δ) of the points on L are bad.
+We give the complete definitions in Section 4.1 where we also allow for a proximity loss between
+the pre-condition and the conclusion. Because each notion is a strengthening of the previous, it
+should be clear that for every linear code C and distance δ we have
+εpg (C, δ) ≤ εca (C, δ) ≤ εmca (C, δ).
+What is MCA good for? MCA is an important property in the design of efficient SNARK
+systems. In Section 6 we present an illustrative toy protocol whose knowledge soundness error is
+directly related to the MCA error and list decoding bound of some underlying code C. Briefly,
+suppose the prover is committed to two words f1 , f2 ∈ Fn . It wants to convince the verifier that
+f1 , f2 are close to codewords that encode messages f1 , f2 ∈ Fk , and that both these messages
+satisfy some public linear constraint. This problem is a key component in some proof systems such
+as WHIR [ACFY25] and others. The MCA property of C lets us argue that a simple and natural
+protocol for this problem, described in Section 6, is knowledge sound. The weaker correlated
+agreement (CA) property lets us argue that this natural protocol proves that f1 , f2 are close to
+some codewords in C, but as far as we know, it does not let us prove properties of the messages
+encoded by these close-by codewords. For that we need MCA, although one can alternatively use
+a stronger notion called line-decoding (Section 4.4).
+The grand MCA challenge. From here we will focus almost exclusively on the Reed–Solomon
+code C := RS[F, L, k] where L is a multiplicative subgroup of F whose size is a power of two, since
+that is a widely used code in SNARK systems.3 Moreover, for simplicity we will only consider
+MCA with respect to the family of lines Flines .
+The design of SNARK systems requires a detailed understanding of how the MCA error εmca (C, δ)
+of the Reed–Solomon code C := RS[F, L, k] behaves as δ varies in [0, 1]. Table 1 summarizes what
+is known, and Section 4.2 goes into far more detail. Here n := |L| is the code length, δmin (C) ∈ [0, 1]
+3
+
+Recall that the Reed–Solomon code RS[F, L, k] is the set of all functions f : L → F where there is a degree < k
+univariate polynomial fˆ ∈ F<k [X] with f (x) = fˆ(x) for every x ∈ L.
+
+denotes the relative minimum distance of C, and J δmin (C) := 1− 1 − δmin (C) is the Johnson radius
+of C. Note that for all codes, J δmin (C) ≤ δmin (C). We will refer to δmin (C) as the capacity of C.
+The grand challenge is to resolve how εmca (C, δ) behaves when δ is between the Johnson radius
+of C and the capacity of C. We state this very concretely as the following open question. The
+challenge refers to a smooth evaluation domain L, which is a multiplicative subgroup of F whose
+size is a power of two (Definition 2.12).
+
+
+p
+
+The grand MCA challenge. We are given a Reed–Solomon code C := RS[F, L, k] defined
+over some smooth evaluation domain
+L ⊆ F. The code has constant rate, and in particular
+\{1 1 1 1
+the rate ρ(C) := k/ L is one of 2 , 4 , 8 , 16 . For a given ϵ∗ , say ϵ∗ = 2−128 ,
+determine the largest δC∗ ∈ [0, 1] such that εmca (C, δC∗ ) ≤ ϵ∗ ,
+assuming |F| is sufficiently large so that such a δC∗ exists.
+Resolving the challenge for a code C and ϵ∗ requires specifying a δC∗ ∈ [0, 1] along with a proof that
+for all δ > δC∗ we have εmca (C, δ) > ϵ∗ . Ideally we could determine this δC∗ for every Reed–Solomon
+code RS[F, L, k], namely, for every choice of F, L, and k. However, we are mostly interested in
+determining δC∗ when L ⊆ F is a smooth domain, k ≤ 240 , and |F| < 2256 .
+Roughly speaking, the
+results in Table 1 show that when L /|F| < ϵ∗ then δC∗ is at least the
+
+Johnson radius J δmin (C) minus some small constant. The challenge is to determine when is δC∗
+greater than the Johnson radius. In particular, for which Reed–Solomon codes of interest, is δC∗
+close to the capacity radius of the code? One way to approach this challenge is using the concept
+of line-decoding and its connection to MCA discussed in Theorem 4.21.
+The grand list decoding challenge. In addition to bounds on MCA for a code C, one often
+also requires a good list decoding bound for C. We will see this explicitly in Section 6. We therefore
+state the following list decoding grand challenge, as needed for protocol analysis. The challenge is
+stated as it applies to an m-way interleaved Reed–Solomon code (Definition 2.9) denoted by C ≡m .
+The grand list decoding challenge. We are given a Reed–Solomon code C as in the
+grand MCA challenge. For a given ϵ∗ , say ϵ∗ = 2−128 , and a constant m,
+determine the largest δC∗ ∈ [0, 1] such that |Λ (C ≡m , δC∗ )| ≤ ϵ∗ · |F|,
+assuming |F| is sufficiently large so that such a δC∗ exists.
+The reason for the bound ϵ∗ · |F| on the maximum list size is that the soundness error of coding
+based proof systems often includes a term of the form |Λ (C ≡m , δ)| /|F|, as illustrated in Section 6.
+Hence, we are interested in the largest value of δ for which this expression is negligible, or concretely
+less than ϵ∗ = 2−128 .
+Resolving the challenge for a code C, an m, and an ϵ∗ , requires specifying a δC∗ ∈ [0, 1] along
+with a proof that for all δ > δC∗ we have |Λ (C ≡m , δC∗ )| > ϵ∗ · |F|. Again, the key question is whether
+for the Reed–Solomon codes of interest, δC∗ is close to the capacity radius of the code. We stress
+that we do not need an efficient list decoding algorithm; we are only interested in the value of δC∗ .
+What is in the rest of the paper. After some preliminaries in Section 2, we present in Section 3
+what is known and what is open about the list decoding grand challenge. In Section 4 we present
+
+distance δ
+
+error εmca (C, δ)
+
+reference
+
+δ=0
+
+2
+εmca (C, δ) = |F|
+
+trivial
+
+δ < δmin (C)/2
+
+εmca (C, δ) ≤ O(n)
+|F|
+
+[ACFY25; BCIKS20]
+
+εmca (C, δ) ≤ n·poly(1/η)
+|F|
+
+[BCHKS25; Hab25; BCGM25; BCIKS20]
+
+εmca (C, δ) ≥ nΩ(1) /|F|
+
+[BCHKS25; KK25; CGHLL26],
+
+(δ below the unique decoding radius)
+
+δ = J(δmin (C)) − η
+(as δ approaches the Johnson radius)
+
+1
+δ ≈ δmin (C) − Ω(log
+n)
+
+for a large enough F
+(as δ approaches capacity)
+
+Table 1: The behavior of εmca (C, δ) for δ ∈ [0, 1] and C := RS[F, L, k], where n := L .
+
+what is known and what is open about the MCA grand challenge. In Section 5 we explore the known
+connections between list decoding and correlated agreement. One might hope that in the cases of
+interest to us, a good list decoding bound implies a good MCA bound, so that both our grand
+challenges collapse to one. While this is currently an open problem, some connections between
+these two notions are known and presented in Section 5. In Section 6 we describe a toy problem
+and a toy protocol that explain why our two grand challenges are useful for building a succinct
+proof system. Finally, in Section 7 we discuss a number of interesting open problems related to our
+grand challenges that would also be good to solve.
+
+
+\section{Preliminaries}
+
+
+
+We use the following convention and notation:
+• Logarithms are assumed to be base 2 unless otherwise specified.
+• The “hat” symbol over a function (e.g. p̂) denotes a polynomial.
+• We interchangeably interpret vectors f ∈ Σn as functions f : [n] → Σ.
+• For a field F, a variable count m ∈ N, and an individual degree bound d ∈ N, we let F<d [X1 , . . . , Xm ]
+be the set of all m-variate polynomials over F of individual degree at most d − 1 with variables
+(X1 , . . . , Xm ).
+• In a random process, for a set S, we let x ← S represent that x is a random variable whose
+distribution is uniform over S (we think of it as “sampling x uniformly from the set S”). Similarly,
+if A is a randomized algorithm, we use x ← A to denote that x is a random variable distributed
+as the output distribution of A.
+We recall the polynomial identity lemma:
+Lemma 2.1 (Polynomial identity lemma). Let p̂ ∈ F<d [X1 , . . . , Xm ] be a non-zero polynomial.
+Then,
+m · (d − 1)
+Prm [p̂(v) = 0] ≤
+.
+v←F
+|F|
+
+
+\subsection{Probability}
+
+
+
+We introduce notation for defining random variables and events over these, following [CY24].
+• We write \{x | x ← A\} to denote the random variable that consists of the string x sampled
+according to the probabilistic algorithm A.
+• We write Pr [f (x) = 1 | x ← A] to denote the probability of the event that f (x) = 1 when x is
+sampled according to the probabilistic algorithm A, for a given boolean function f .
+• We write Pr [D(x) = 1 | x ← A] to denote the probability of the event that D(x) = 1 when x is
+sampled according to the probabilistic algorithm A, for a given probabilistic algorithm D. In
+this case the probability is over the randomness of both A and D.
+Sometimes we implicitly define the algorithm A or the boolean function within the expression itself,
+by using pseudocode and logical expressions. For example, we can write
+(
+
+(y, z)
+
+y←B
+z ← C(y)
+
+)
+
+to denote the random variable x := (y, z) that is obtained by the algorithm A that samples y
+according to B, samples z according to C on input y, and outputs the pair (y, z). We can also
+write
+\#
+"
+y←B
+Pr y = z
+z ← C(y)
+to denote the probability that the random variable x = (y, z) sampled as above is such that f (x) = 1
+where f is the boolean function that given a pair x = (y, z) outputs 1 if and only if y = z.
+
+
+\subsection{Information theory}
+
+
+
+We recall the definition of the entropy function with respect to a set.
+Definition 2.2. For q ∈ N, the q-entropy function is the function Hq : [0, 1] → R defined as
+Hq (x) = x · logq (q − 1) − x logq (x) − (1 − x) · logq (1 − x) .
+We overload notation, and, for a set S, let HS (x) := H|S| (x) be the S-entropy function.
+The (fractional) Hamming distance between two vectors is the fraction of points in which they
+differ. We define this notion formally as well as the restricted Hamming distance, which represents
+the Hamming distance over a subset of vector entries.
+Definition 2.3. Let f, g : S → Σ and let T ⊆ S. The restricted (fractional) Hamming
+distance between f and g over T is
+∆T (f, g) = Pr [f (i) ̸= g(i)] .
+i←T
+
+The (fractional) Hamming distance between f and g is ∆(f, g) = ∆S (f, g). For a set C, we
+write ∆T (f, C) = ming∈C ∆T (f, g) and ∆(f, C) = ming∈C ∆(f, g).
+
+The volume of the Hamming ball of distance δ around a point in space is the number of points
+in the space whose Hamming distance to the point is at most δ:
+Definition 2.4. For any q, n ∈ N and δ ∈ (0, 1), we denote the volume of the Hamming ball
+of radius δ over space q n is
+⌊δ·n⌋
+
+Volq (δ, n) =
+
+X
+i=0
+
+!
+
+n
+· (q − 1)i .
+i
+
+\subsection{Error correcting codes}
+
+
+Basic definitions.
+
+We recall the definition of error correcting codes.
+
+Definition 2.5. An error correcting code C over an alphabet Σ with block length n is a subset
+C ⊆ Σn . The minimum distance of C is δmin (C) := minf,g∈C ∆(f, g), and the rate of C is
+ρ(C) :=
+
+log|Σ| |C|
+.
+n
+
+We interchangeably consider a code C as a subset C ⊆ Σn and as the injective map C : Σk → Σn .
+We also write encC for the encoding time of C.
+A crude estimate of the tradeoff between the rate of a code ρ(C) and its minimum distance
+δmin (C) is given by the Singleton bound.
+Lemma 2.6. Let C ⊆ Σn be an error correcting code. Then,
+|C| ≤ |Σ|n·(1−δmin (C)+1/n) .
+This implies that ρ(C) ≤ 1−δmin (C)+1/n. We say that a code C is maximum distance separable
+(MDS) if ρ(C) = 1 − δmin (C) + 1/n.
+Most codes that we consider have additional linear structure.
+Definition 2.7. Let F be a field. An error correcting code C ⊆ Σn is F-additive if Σ = Fs where
+s ∈ N and C is a F-linear subspace of Σn . If s = 1 the code C is F-linear.
+Unique and list decoding. By definition, for a code C ⊆ Σn , for every word f ∈ Σn there
+is at most one codeword u ∈ C with ∆(f, u) < δmin (C)/2. For this reason, we call δmin (C)/2 the
+unique-decoding radius. This definition can be naturally extended to consider the number of
+codewords within arbitrary radius δ:
+Definition 2.8. Let C be an error correcting code over alphabet Σ with block length n. For any
+f : [n] → Σ and δ ∈ (0, 1), we define the list around f at distance δ as
+Λ(C, δ, f ) := \{g ∈ C | ∆(f, g) ≤ δ\} .
+Further, we write |Λ (C, δ)| := maxf |Λ(C, δ, f )|.
+Observe that for every δ1 < δ2 it holds that 0 ≤ |Λ (C, δ1 )| ≤ |Λ (C, δ2 )| ≤ |C|.
+
+Interleaved codes.
+of another code:
+
+An interleaved code is constructed by bundling together multiple codewords
+
+Definition 2.9. Let C be an error correcting code over alphabet Σ with block length n, and let
+m ∈ N. The m-interleaved code C ≡m is the code over alphabet Σm with block length n defined as
+C ≡m := \{(u1 , . . . , um ) | ∀i ∈ [m] : ui ∈ C\} ⊆ (Σm )n .
+That is, a codeword u ∈ C ≡m consists of m · n symbols of Σ, arranged as an m × n size matrix where
+each row corresponds to a codeword of C (and interpreted as a vector of length n over the alphabet
+Σm ).
+Clearly, for any m ∈ N and δ ∈ (0, 1) it holds that |Λ (C, δ)| ≤ |Λ (C ≡m , δ)| ≤ |Λ (C, δ)|m . In fact
+the list size of an interleaved code at some distance is larger than the list size of the base code by
+a factor independent of the interleaving factor (but which depends on the distance δ considered).
+Lemma
+([GGR11]).
+Let
+δ ∈ [0, δmin (C)), η := δmin (C) −
+l 2.10
+m
+l
+m C be a code and consider the following:
+δmin (C)
+b+r
+δ
+≡
+m
+δ, b := η , r := log η
+, and m ≥ 1. Then |Λ (C , δ)| ≤ r · |Λ (C, δ)|r .
+
+
+\subsection{Reed–Solomon codes and their variants}
+
+
+
+The main body of this paper will center around a specific error-correcting code known as the
+Reed–Solomon code.
+Definition 2.11. Let F be a finite field, L ⊆ F and k ∈ N. The Reed–Solomon code over
+alphabet F with message length k and evaluation domain L is defined as
+RS[F, L, k] := f : L → F ∃fˆ ∈ F<k [X], ∀x ∈ L : fˆ(x) = f (x) .
+n
+
+o
+
+We let n := |L| denote the block length of the code and ρ := nk denote the rate.
+Note that we interpret codewords in RS[F, L, k] as functions f : L → F by making use of the
+bijection from [n] to L.
+The Reed–Solomon code has distance δmin (C) = n−k+1
+= 1 − ρ + n1 , achieving the Singleton
+n
+bound (Lemma 2.6), and thus it is a MDS code.
+The most common scenario to use Reed–Solomon codes in applications is over a domain L
+which is highly structured, called a “smooth” domain. This is in large part because, in this setting,
+Reed–Solomon codes have a quasi-linear time encoding via Fast-Fourier-Transforms (FFTs).
+Definition 2.12. We say that a set L ⊆ F is smooth if it is a multiplicative coset of a subgroup
+H ⊆ F∗ whose order is a power of two.
+Interleaved Reed–Solomon codes. In practice, it is quite common to use the interleaved Reed–
+Solomon code, rather than the standard one. Among other benefits, taking the s-interleaving of a
+Reed–Solomon code allows encoding to be done via s FFTs, each of size n/s. This is in contrast to
+the single FFT of size n needed for an equivalent Reed–Solomon code. Since FFTs are a quasi-linear
+time operation, this significantly improves concrete efficiency.
+Definition 2.13. Let F be a finite field, L ⊆ F and k, s ∈ N. The s-interleaved Reed–Solomon
+code over alphabet F with message length k and evaluation domain L is defined as
+IRS[F, L, k, s] := (RS[F, L, k/s])≡s .
+
+Folded Reed–Solomon codes. Another variation of Reed–Solomon codes which are notable
+for having very strong properties (e.g., list decoding and MCA up to capacity) are “folded” Reed–
+Solomon codes. These are constructed by combining every s consecutive symbol of a Reed–Solomon
+code into a single alphabet symbol.
+First, we define admissible field elements. They ensure that in a codeword of a folded Reed–
+Solomon an evaluation point appears only once.
+Definition
+2.14. Let L ⊆ F and s ∈ N. We say that ω ∈ F is (L, s)-admissible if for every
+
+α, β ∈ L2 it holds that α · ω i ̸= β for every 0 ≤ i < s.
+Using this definition, we may define folded Reed–Solomon codes.
+Definition 2.15 ([GR08]). Let F be a finite field, k, s ∈ N, L ⊆ F, and ω ∈ F be (L, s)-admissible.
+We define the folded Reed–Solomon code:
+|
+fˆ(x)
+|
+[
+]|
+|
+ˆ
+\}
+f
+(x
+·
+ω)
+[
+]
+]
+FRS[F, L, k, s, ω] := f : L → Fs ∃fˆ ∈ F<k [X], ∀x ∈ L : f (x) = [
+..
+[
+]| .
+|
+|
+[
+]|
+.
+|
+|
+|
+|
+\}
+\{
+fˆ(x · ω s−1 )
+\{
+|
+|
+|
+|
+\{
+
+[
+
+]\}
+
+From now on, we forgo specifying that ω is (L, s)-admissible when clear from context. Note
+that FRS[F, L, k, 1, ω] = RS[F, L, k]. Further, the encoding time of the folded Reed–Solomon code
+is the same as that of a Reed–Solomon code of block length n · s.
+
+
+\subsection{Subspace-design codes}
+
+
+
+Recent developments [CZ25; GG25] show that a large family of codes achieve desirable properties
+such as list decodability and mutual correlated agreement up to capacity. Most of these codes
+possess this property by virtue of satisfying an algebraic property, known as the “subspace-design”
+property, which we recall next.
+Definition 2.16 ([GX13]). A F-additive code C : Fk → (Fs )n is a τ -subspace-design code if for
+every r ∈ N and F-linear subspace A of C with dim A ≤ r it holds that
+i∈[n] dim Ai
+
+P
+
+n
+
+≤ dim A · τ (r) ,
+
+where Ai := \{a ∈ A : ai = 0s \}.
+For any subspace-design code, the function τ is lower-bounded by ρ − 1/n.
+Lemma 2.17 ([GG25]). If C : Fk → (Fs )n is a τ -subspace-design code of rate ρ then minr∈N τ (r) ≥
+ρ − 1/n.
+Two important examples of codes which exhibit a subspace-design structure are folded Reed–
+Solomon codes (see Definition 2.15) and univariate multiplicity codes. In this paper we consider two
+codes which are subspace-design: folded Reed–Solomon codes (see Definition 2.15) and univariate
+multiplicity codes (see Section A.2).
+Theorem 2.18 ([GK16]). Let C : Fk → (Fs )n be a code with rate ρ. If C is:
+
+• A folded Reed–Solomon code FRS[F, L, k, s, ω], or
+• A univariate multiplicity code UM[F, L, k, s] with |F| > n and char(F) > ρsn > s.
+( s·ρ
+
+Then C is τ -subspace-design for τ (r) :=
+
+2.6
+
+s−r+1
+
+
+r ∈ [s]
+.
+o.w.
+
+Extension fields
+
+We review definitions about extension fields and codes defined over extension fields.
+Definition 2.19. A tuple (B, F, e, ψ, φ) is an extension field presentation if:
+• B, F are fields;
+• ψ : B ,→ F is an injective field homomorphism;
+• e ∈ N is the dimension of F as a B-vector space;
+• φ : F → Be is a B-linear isomorphism.
+For each i ∈ [e], φi : F → B denotes the i-th component of φ. An extension field presentation
+(B, F, e, ψ, φ) is systematic if, for every x ∈ B, φ(ψ(x)) = (x, 0, . . . , 0).
+We also apply ψ to vectors of base field elements and φ, φ1 , . . . , φe to vectors of extension field
+elements by applying each of these maps componentwise.
+An extension code defines a code over a field extension for a linear code over the base field.
+Definition 2.20. Let CB : Bk → Bn be a linear code. The extension code of CB over F (with
+respect to the extension field presentation (B, F, e, ψ, φ)) is the linear code CF : Fk → Fn defined as
+(
+
+)
+
+CF (v) := φ−1 CB (φ1 (v)), . . . , CB (φe (v)) .
+If the extension field presentation is systematic, then CF (ψ(v)) = ψ(CB (v)) for any v ∈ Bk .
+Many properties of the extension code are closely related to the base code. For example,
+distance of the extension code CF equals the distance of the given code CB , i.e., δmin (CB ) = δmin (CF )
+(see e.g. [DP25, Thm 3.2]).
+Further, the list size of the extension code is the list size of the e-interleaved base code (which
+in turn is related to the list size of the base code by Lemma 2.10).
+Lemma 2.21. [BCFW25, Lemma D.3] Let CB : Bk → Bn be a linear code and (B, F, e, ψ, φ) be an
+extension field presentation. For every δ ∈ (0, 1), |Λ (CF , δ)| = |Λ (CBe , δ)|.
+
+
+\section{List decoding}
+
+
+
+List decoding [Eli57; Woz58] is a fundamental question in the theory of error-correcting codes. The
+combinatorial list decoding question is to pin down the list size |Λ (C, δ)| for different codes and,
+specifically, to understand in which regimes the list size is small. Another important avenue of
+research is the algorithmic list decoding question: given a word f and a proximity bound δ such
+that |Λ(C, δ, f )| = poly(n), efficiently compute the list Λ(C, δ, f ). In this paper, we focus on the
+combinatorial question, as most modern SNARK constructions do not require efficient list decoding.
+In this section we describe relevant known results about list decoding. We note that this
+summary is not meant to be an exhaustive list of all known results, but rather ones that are the
+most relevant to the development of SNARKs. For further reading, see the recent survey of Kumar
+and Ron-Zewi [KR26] on list decoding of polynomial codes.
+
+
+\subsection{Positive results}
+
+
+
+Johnson bound. A fundamental result in the list decoding of error-correcting codes is the
+Johnson bound, which gives an upper bound for |Λ (C, δ)| for any error-correcting code up to a
+certain distance.
+Definition 3.1. For q, ℓ ∈ N, we define the following three functions Jq,ℓ , Jq , J : (0, 1) → R which
+are successively rougher bounds, all colloquially referred to as the Johnson bound:
+(
+
+) (
+
+• Jq,ℓ (δ) = 1 − 1q · 1 −
+
+)
+
+q
+
+q
+ℓ
+· ℓ−1
+·δ .
+1 − q−1
+
+(
+
+) (
+
+• Jq (δ) = limℓ→∞ Jq,ℓ (δ) = 1 − 1q · 1 −
+• J(δ) = limq→∞ Jq (δ) = 1 −
+
+√
+
+q
+
+)
+
+q
+·δ .
+1 − q−1
+
+1 − δ.
+
+Theorem 3.2 ([Joh62]). For any C ⊆ Σn with |Σ| = q it holds that |Λ (C, Jq,ℓ (δmin (C)))| ≤ ℓ.
+Recalling that MDS codes (which include the important class of interleaved Reed–Solomon
+codes) have minimum relative distance bounded by 1 − ρ, we can derive the following useful coarse
+list decoding bound:
+
+√
+1
+Corollary 3.3. For every MDS code C with rate ρ and every η > 0: Λ C, 1 − ρ − η ≤ 2·η·ρ
+.
+While the Johnson bound is a combinatorial statement showing that the list size can be polynomial for a large parameter regime, it is not generally computationally feasible to find this list.
+However, in the case of (generalized) Reed–Solomon codes, the celebrated Guruswami–Sudan list
+√
+decoding algorithm [GS99] finds, for every word f , the list Λ(C, 1 − ρ − η, f ) in polynomial time
+√
+provided we are in the range where |Λ(C, 1 − ρ − η)| is polynomial (recently, it was shown that this
+can even be done deterministically [CHK25]). Thus, for Reed–Solomon codes up to the Johnson
+bound, the combinatorial and algorithmic list decoding bounds match.
+Beyond the Johnson bound. For general codes (or even linear codes) it is known that the
+Johnson bound is tight (e.g., [Gur02; GS03]). However, there are specific classes of codes for which
+non-trivial list decoding bounds are known beyond the Johnson bound and even up to capacity.
+An important example for this paper are subspace-design codes:
+
+Theorem 3.4 ([CZ25], Theorem B.5). Let C : Fk → (Fs )n be a τ -subspace-design code. For every
+η > 0 it holds that
+1 − τ (1/η)
+|Λ (C, 1 − τ (1/η) − η)| ≤
+.
+η
+Since folded Reed–Solomon codes are subspace-design codes (see Theorem 2.18) the above
+theorem implies that they are list decodable up to capacity (a similar corollary can be derived for
+univariate multiplicity codes):
+Corollary 3.5 ([CZ25], Corollary 2.21). Let C = FRS[F, L, k, s, ω] be a folded Reed–Solomon code
+of rate ρ. Then, for any η > 0 such that 1/η < s it holds that
+(
+
+Λ C, 1 −
+Observe that if η ≥
+
+ρ·s
+−η
+s − 1/η + 1
+
+)
+
+≤
+
+s · (1 − ρ) + 1 − η1
+(
+
+η s + 1 − η1
+
+)
+
+.
+
+3/s then |Λ (C, 1 − ρ − η)| ≤ η1 .
+
+p
+
+In recent years, an exciting line of work progressed toward showing combinatorial list decoding
+of Reed–Solomon codes close to capacity, with the caveat that these codes are obtained by randomly
+choosing the evaluation domain.
+Over an exponentially sized alphabet [BGM23] showed that with high probability these codes
+are list decodable up to a distance 1 − ρ − η with list size 1−ρ−η
+, resolving the conjecture posed
+η
+in [ST20]. The result was later improved by [GZ23] to polynomial sized alphabet, and further
+strengthened in [AGL24] which shows the following result (see also [AGGLZ25] which combines the
+two prior works).
+Theorem 3.6 ([AGL24], Theorem 1.1). Let ℓ ≥ 2, η ∈ (0, 1), k ∈ N, n ∈ N and let F be a finite
+field with |F| ≥ n + k · 210ℓ/η . Then,
+"
+
+Pr
+
+ℓ
+Λ C,
+· (1 − ρ − η)
+ℓ+1
+(
+
+
+
+)
+
+≤ℓ
+
+L ← nF
+C := RS[F, L, k], ρ := k/n
+
+\#
+
+≥ 1 − 2−ℓn .
+2
+
+As a result, by choosing ℓ = 2·(1−ρ−η)
+and F with |F| ≥ n + k · 220(1−ρ−η)/η , we have that with
+η
+probability 1 − 2−2n(1−ρ−η)/η , the code C has
+|Λ (C, 1 − ρ − η)| ≤
+
+2 · (1 − ρ − η)
+.
+η
+
+A similar statement, also due to [AGL24], shows that random linear codes are list decodable up to
+capacity with high probability.
+
+
+\subsection{Limitations}
+
+
+
+In this section we describe known lower bounds on the list size for error correcting codes, starting
+with results on general (linear) codes, and then focusing on the special case of Reed–Solomon codes.
+
+General linear codes. The earliest lower bound to list decoding goes back to the introduction
+of list decoding by [Eli57], which showed that for any code the list size at a distance δ is lowerbounded by the total volume of the Hamming balls of radius δ around codewords, divided by the
+total number of words.
+Lemma 3.7 ([Eli57]). Let C : Σk → Σn be a code with q := |Σ|. For any δ ∈ (0, 1) it holds that
+|Λ (C, δ)| ≥
+
+Volq (δ, n)
+.
+q n−k
+
+Proof. We begin by observing that there must exist g with |Λ(C, δ, g)| ≥ Ef ←Σn [|Λ(C, δ, f )|], and
+so |Λ (C, δ)| ≥ Ef ←Σn [|Λ(C, δ, f )|]. Finally,
+Ef ←Σn [|Λ(C, δ, f )|] =
+
+X
+u∈C
+
+Pr n [∆(f, u) ≤ δ] =
+
+f ←Σ
+
+X Volq (δ, n)
+u∈C
+
+qn
+
+=
+
+Volq (δ, n)
+.
+q n−k
+
+The volume of a Hamming ball can be roughly estimated by Volq (δ, n) ≈ q n·(ρ−1+Hq (δ)) . Using
+a more precise lower-bound on Volq (δ, n) from [MS77] we derive the following:4
+Corollary 3.8. Let C : Σk → Σn be a code of rate ρ and let q := |Σ|. For any δ ∈ (0, 1),
+|Λ (C, δ)| ≥ p
+
+q n·(ρ−1+Hq (δ))
+.
+8 · n · δ · (1 − δ)
+
+The generalized Singleton bound generalizes Singleton’s classical bound [Sin64] to list decoding
+(here we focus on the bound for linear codes):
+Theorem 3.9 ([ST20], Theorem 1.2). Let F be finite field, 0 < ℓ < |F|, δ ∈ (0, 1) and let C : Fk → Fn
+be a linear error correcting code of rate ρ. If |Λ (C, δ)| ≤ ℓ, then
+ℓ+1
+
+|C| ≤ |F|n−⌊ ℓ ·δ·n⌋ .
+ℓ
+· (1 − ρ).
+Consequently, δ ≤ ℓ+1
+
+We recall a limitation on achieving the generalized singleton bound, first shown in [BDG24,
+Corollary 1.7, Thm 1.8] for the case when ℓ = 2 and then generalized in [AGL23] to the following
+result.
+Theorem 3.10 ([BDG24; AGL23]). Let ℓ ≥ 2 and ρ ∈ (0, 1) be constants. There exists a constant
+αℓ,ρ such that for any η > 0 (and any sufficiently) large n ≥ Ωℓ,ρ (1/η) any error correcting code
+ℓ
+C : Σk → Σn of rate ρ with Λ C, ℓ+1
+· (1 − ρ − η) ≤ ℓ has |Σ| ≥ 2αℓ,ρ /η .
+In particular, this shows that achieving exactly the generalized singleton bound (which implies
+the case when η = Θ(1/n)) requires an alphabet of exponential size, which is undesirable.
+While random linear codes have many desirable properties, limitations to their list size have
+also been shown:
+4
+
+See [DG25] for further analysis bounding this value.
+
+Theorem 3.11 ([GLMRSW22], Theorem 4.1). Fix a prime power q, fix δ ∈ 0, 1 − 1q , and fix
+ε ∈ (0, 1). There exists γ > 0 such that for all 1 − hq (δ) − γ < ρ < 1 − hq (δ) and all sufficiently
+large n, a uniformly random linear code C ⊆ Fnq of rate ρ satisfies
+
+
+\$
+
+|Λ (C, δ)| >
+
+hq (δ)
+−ε
+1 − hq (δ) − ρ
+
+\%
+
+with probability 1 − q −Ω(n) .
+Reed–Solomon codes. As Reed–Solomon codes and their variants are of special interest to this
+paper, we give further limitations specific to this class:
+Theorem 3.12 ([BKR06], Corollary 2.2). Fix 0 < α < β < 1. For infinitely many (prime powers)
+q, there exists w : Fq → Fq such that for C := RS[Fq , Fq , ⌊q α ⌋]:
+2
+
+
+
+|Λ(C, 1 − q β−1 , w)| ≥ q (α−β ) log q = 2(α−β )(log q) .
+In other words, there are codes where the list size is superpolynomial in the block-length.
+Subsequently, there can be no efficient list decoder for such Reed–Solomon codes.
+Theorem 3.12 relies heavily on extension-field structure, and therefore does not directly apply
+to prime fields. For prime fields, the best-known bounds are split into two regimes. The following
+theorem deals with the same low-rate regime as Theorem 3.12, but applies to prime fields, achieving
+slightly worse distances but significantly larger list-sizes:
+Theorem 3.13 ([GHSZ02], Corollary 20). Fix 0 < α, β < 1. For all sufficiently large primes p,
+there exist C := RS[Fp , Fp , ⌊pα ⌋] and a word w : Fp → Fp such that
+1 − β α−1
+Λ C, 1 −
+·p
+,w
+α
+(
+
+)
+
+(
+
+α
+
+)
+
+> Ω pp ·β/2 .
+
+On the other end of the spectrum, in the large-rate regime, further bounds are known for prime
+fields (the statement holds for prime powers, but applies to primes as well):
+Theorem 3.14 ([JH01], Theorem 2). Fix an integer j ≥ 2. For infinitely many prime powers q
+(satisfying q = 1 (mod j + 1)), there exists C := RS[Fq , L, k] with |L| = j + 1 and rate ρ ≈ j−1
+j+1 and
+a word w : L → Fq such that:
+(
+)
+1
+,w > j .
+Λ C,
+j+1
+Finally, we reconsider the computational list-decoding problem. While Theorem 3.6 posits that
+most Reed–Solomon codes have list sizes beyond the Johnson bound, efficient decoding beyond this
+bound is unknown. The following result shows limitations to algorithmic list decoding beyond the
+Johnson bound based on the cryptographic hardness of the discrete logarithm problem. Roughly,
+the discrete logarithm problem5 in a field F is as follows: given two elements g, h ∈ F∗ as input,
+where h is an element in the subgroup of F∗ generated by g, find x such that h = g x .
+5
+
+See [CW07] for a more formal definition of the discrete logarithm problem in the context of Reed–Solomon codes.
+
+Theorem 3.15 ([CW07]). Fix a prime power q and consider
+a Reed–Solomon code C := RS[Fq , L, k]
+n
+where |L| = n. Let t be the smallest integer such that t / q t−k ≤ 1 and let δ := 1 − t/n. If
+there is a polynomial-time algorithm that, given any received word f ∈ Fn , outputs all codewords
+of the list Λ(C, δ, f ), then one obtains a (randomized) polynomial-time algorithm for the discrete
+logarithm problem in Fqt−k .
+We stress that, generally, modern SNARK constructions do not require efficient list decoding,
+and so the above result is not a major obstruction in the context of this paper.
+
+
+\section{Correlated agreement conjectures}
+
+
+
+
+\subsection{Definitions}
+
+
+
+Before defining correlated agreement, let us first start with a weaker notion called a proximity gap.
+Let f1 , f2 ∈ Fn be two words, and let L :=
+\{f1 + γ · f2 \}γ∈F be the corresponding line in Fn . For
+
+δ ∈ (0, 1), let p(L) := Prg←L ∆(g, C) ≤ δ be the fraction of points on L that are δ-close to the
+code C. We say that a linear code C has a proximity gap εpg (C, δ) if for all f1 , f2 ∈ Fn , either
+p(L) ≤ εpg (C, δ) or p(L) = 1. In other words, whenever p(L) > εpg (C, δ) then p(L) = 1. One
+can generalize beyond lines and consider proximity gaps with respect to affine spaces of bounded
+dimension, algebraic curves in Fn , and more. Here, for simplicity, we will only consider proximity
+gaps with respect to lines.
+While they are an important notion, proximity gaps do not seem very useful when constructing
+SNARKs, and will not be focused upon in this section.
+Correlated agreement. Correlated agreement (CA) refines the notion of a proximity gap. We
+say that a linear code C has
+CA error εca (C, δ) if for all f1 , f2 ∈ Fn , whenever p(L) > εca (C, δ) we
+
+≡
+2
+have that ∆ (f1 , f2 ), C
+≤ δ. In other words, whenever p(L) > εca (C, δ), not only are f1 , f2 close
+to C, but there is a set S ⊆ [n] where S ≥ (1 − δ)n, such that f1 and f2 match two codewords in C
+at all the positions in this set S. It is not difficult to see that this implies that p(L) = 1. Because
+correlated agreement implies a proximity gap, it follows that εca (C, δ) ≥ εpg (C, δ) for all codes C and
+all δ ∈ (0, 1). The following definition captures εca (C, δ) more precisely, generalizes to F-additive
+codes and allows for loss in proximity.
+Definition 4.1. The correlated agreement (CA) error of an F-additive code C ⊆ (Fs )n with
+respect to distances δfld , δint ∈ (0, 1) (with δfld ≤ δint ) is
+(
+
+εca (C, δfld , δint ) :=
+
+max
+
+f1 ,f2 ∈(Fs )n
+
+"
+
+Pr
+
+γ←F
+
+∆(f1 + γ · f2 , C) ≤ δfld ∧
+
+\#)
+
+.
+
+∆ (f1 , f2 ), C ≡2 > δint
+
+
+The quantity ϵ = δint − δfld is called the proximity loss. When ϵ = 0 we write εca (C, δ) (where
+δ ∈ (0, 1)).
+n
+
+o
+
+Remark 4.2. For every f, g ∈ (Fs )n it holds that ∆(f, g) ∈ 0, n1 , . . . , n−1
+n , 1 . As a result, for any
+′
+′
+β, β ∈ [0, 1/n) we have εca (C, δ, δ + β) = εca (C, δ, δ + β ) = εca (C, δ).
+Mutual correlated agreement. Mutual correlated agreement (MCA) further refines the notion
+of correlated agreement. Let f1 , f2 ∈ Fn and consider again the line L := \{f1 + γ · f2 \}γ∈F . We say
+that the linear code C has MCA if for all f1 , f2 ∈ Fn , almost all points on L satisfy the following
+condition: if g = f1 + γ · f2 on L satisfies ∆Sγ (g, C) = 0 for some Sγ ⊆ [n] of size at least (1 − δ)n
+(meaning that g is δ-close to C) then ∆Sγ (f1 , f2 ), C ≡2 = 0. In other words, not only are f1 , f2
+mutually correlated with C as in CA, they must be mutually correlated with respect to the same
+set Sγ as the point g. This is formalized in the following definition.
+Definition 4.3. The mutual correlated agreement (MCA) error of an F-additive code C ⊆
+(Fs )n with respect to distance δ ∈ (0, 1) is
+(
+
+εmca (C, δ) :=
+
+max
+
+f1 ,f2 ∈(Fs )n
+
+"
+
+Pr
+
+γ←F
+
+∃ S = Sγ ⊆ [n] s.t.
+|S| ≥ (1 − δ) · n
+17
+
+∆S (f1 + γ · f2 , C) = 0 ∧
+:
+∆S ((f1 , f2 ), C ≡2 ) > 0
+
+\#)
+
+.
+
+Remark 4.4. While it is conceivable to define a version of mutual correlated agreement with
+proximity loss, analogous to correlated agreement, this remains to be thoroughly explored, and so
+we do not attempt to define such a notion in this paper.
+Since MCA implies CA, which in turn implies proximity gaps, we have the following simple fact:
+Fact 4.5. For every F-additive code C ⊆ (Fs )n and distance δ ∈ (0, 1):
+εpg (C, δ) ≤ εca (C, δ) ≤ εmca (C, δ).
+In the other direction, it is unknown whether having a proximity gap implies CA or whether CA
+implies MCA. A simple result towards shows that, at least in the unique decoding regime, CA and
+MCA are equivalent:
+Lemma 4.6 ([ACFY25], Lemma 4.10). For any F-additive code C ⊆ (Fs )n and δ < δmin (C)/2 it
+holds that εmca (C, δ) = εca (C, δ).6
+The following lemma shows that interleaving a code degrades the MCA error by at most the
+number of interleavings. It is an open question whether this bound is tight or can be improved.
+Lemma 4.7. For any F-additive code C ⊆ (Fs )n , t ∈ N and δ ∈ (0, 1): εmca (C ≡t , δ) ≤ t · εmca (C, δ).
+
+
+\subsection{Positive results}
+
+
+
+We describe the positive results of correlated agreement and, when known, mutual correlated
+agreement. We begin by describing results in the unique decoding regime (δ < δmin (C)/2) and then
+move to list decoding (δ ≥ δmin (C)/2).
+
+\subsubsection{Unique decoding}
+
+
+
+We describe known results on CA and MCA in the unique-decoding regime, when δ < δmin (C)/2.
+While all of the results described in this section were originally shown for CA, by Lemma 4.6,
+whenever they hold with 0 proximity loss we are able to describe them as bounds on MCA.
+For general linear codes, the best error bounds within unique decoding are known up to distance
+δ := δmin (C)/3:
+Theorem 4.8 ([AHIV17], Appendix A). For any linear error correcting code C and δ ≤ δmin3(C) ,
+εmca (C, δ) = εca (C, δ) ≤
+
+n·δ+1
+.
+|F|
+
+For the specific case of Reed–Solomon codes results are known all the way up to the uniquedecoding bound:
+Theorem 4.9. Let C := RS[F, L, k] be a Reed–Solomon code with rate ρ. Then, for δfld ≤ 1−ρ
+2 <
+δmin (C)/2:
+n
+1. [BCIKS20, Theorem 1.4]: εmca (C, δfld ) = εca (C, δfld ) ≤ |F|
+.
+6
+
+The proof of [ACFY25] considers linear codes, however an identical proof holds for F-additive codes.
+
+2. [BCHKS25, Theorem 1.3]: for δmin (C)/3 ≤ δfld < δint ,
+εca (C, δfld , δint ) ≤ max
+
+⌊
+
+1 − ρ − δfld
+δint
+,
+δfld (1 − ρ − 2δfld )|F| (δint − δfld )|F|
+
+⌋
+
+.
+
+Remark 4.10. Recall, by Remark 4.2, that if δint − δfld < 1/n, then εca (C, δfld ) = εca (C, δfld , δint ).
+Thus, in this case, in Item 2, we can set δint − δfld = γ/n for any γ < 1, deriving:
+εmca (C, δfld ) = εca (C, δfld ) = εca (C, δfld , δfld + γ/n) ≤ max
+
+⌊
+
+1 − ρ − δfld
+n · δfld + γ
+,
+δfld (1 − ρ − 2δfld )|F|
+γ|F|
+
+⌋
+
+.
+
+n·δfld +γ
+n
+fld
+By setting γ > n·δ
+n−1 (which is possible whenever δfld < 1 − 1/n), we have
+γ|F| < |F| . As a result,
+Item 2 presents a stronger bound than Item 1 whenever
+
+1 − ρ − δfld
+n
+<
+.
+δfld (1 − ρ − 2δfld )|F|
+|F|
+
+\subsubsection{List decoding}
+
+
+
+General linear codes. In the list decoding regime (shown first by [BKS18] and improved by
+[BGKS20; Zei24; GKL24; BCGM25]) every linear error correcting
+code has mutual correlated
+p
+3
+agreement up to the “1.5 Johnson bound” i.e., whenever δ < 1 − 1 − δmin (C).
+Theorem 4.11.
+
+For any linear error correcting code C ⊆ Fn , η > 0 and δ ≤ 1 − 3 1 − δmin (C) + η,
+p
+
+• [GKL24, Theorem 3]:
+εmca (C, δ) ≤
+
+n+6
+2
+p
++ p
+3
+η
+η( 1 − δmin (C) + η − 1 − δmin (C) + η)
+
+!
+
+n
+1
+=O
+|F|
+η · |F|
+(
+
+·
+
+)
+
+.
+
+• [BGKS20, Lemma 3.2]: εca (C, δfld = δ, δint = δ + η) ≤ η22|F| .
+Moreover, it was shown by Bordage, Chiesa, Guan, and Manzur [BCGM25] that MCA holds
+for all linear codes even in a generalization the MCA experiment where rather than looking at
+f0 + γ · f1 , we consider f0 + G(γ) · f1 for a large class of functions G called “polynomial generators”
+(as with most of the results in this paper, this can be extended to multiple functions f1 , . . . , fℓ and
+Pℓ
+i=1 Gi (γ) · fi ).
+Reed–Solomon codes. In the specific case of Reed–Solomon codes, stronger results are known,
+starting from [BKS18] who showed results up to the “double-Johnson” bound and improved by
+√
+[BCIKS20] to hold up to the Johnson bound 1 − ρ. The error parameters of the latter result were
+later improved in [BCHKS25; Hab25].
+Theorem 4.12 ([BCHKS25], Theorem 4.6). Let C := RS[F, L, k] be a Reed–Solomon code with
+√
+rate ρ and η > 0. Then, letting ρ+ = ρ + 1/n, for δ < 1 − ρ+ − η,
+1
+εmca (C, δ) ≤
+·
+|F|
+where m = max
+
+nl √
+
+ρ+
+2η
+
+m
+
+2(m + 21 )5 + 3(m + 12 )δρ+
+3/2
+
+3ρ+
+
+o
+
+,3 .
+19
+
+·n+
+
+m + 12
+1/2
+
+ρ+
+
+!
+
+= Oρ
+
+(
+
+n
+5
+η |F|
+
+)
+
+,
+
+Subspace-design codes. Goyal and Guruswami [GG25] show that a wide variety of error correcting codes exhibit MCA up to capacity.7 Their main result shows that any code that has sufficiently
+good “subspace-design properties” exhibits MCA up to capacity.
+Theorem 4.13 ([GG25], Corollary 4.9). Let C : Fk → (Fs )n be a τ -subspace-design code. Then for
+t∈N
+(
+)
+3
+t · n + 4t2
+εmca C, 1 − τ (t + 1) −
+≤
+.
+2t
+|F|
+While many codes can be cast as subspace-design codes, we specifically highlight folded Reed–
+Solomon codes as we will use them later on, in Section 6. As they are subspace-design, a similar
+statement can be given for univariate multiplicity codes.
+Theorem 4.14 ([GG25], Corollary 4.10). Let η ∈ (0, 1) be a parameter and let C := FRS[F, L, k, s, ω]
+be a folded Reed–Solomon code with s > 16η −2 . Then
+2n
+24
+n
+1
+εmca (C, 1 − ρ − η) ≤
++ 3
+=O
++ 3
+η|F| η |F|
+η|F| η |F|
+(
+
+)
+
+.
+
+A useful property of subspace-design codes is that certain “local properties” of them are shared
+with random Reed–Solomon codes. However, interestingly, MCA does not seem to be such a
+local property. While, due to this fact, we cannot use these connections in a black-box manner,
+Guruswami and Goyal are able to derive implications for random Reed–Solomon code by considering
+a different decodability notion. See [GG25] for details. These results are highly interesting in theory
+and as evidence for Reed–Solomon codes having MCA, but do not seem to be directly useful in
+practice.
+Theorem 4.15 ([GG25], Theorem 5.15). There exists a constant c1 such that for every n ∈ N,
+η ∈ (0, 1), and ρ ∈ (0, 1) with η > c1 · n−1/9 there exists c2 such that for every prime field F = Fp
+with p > c2 · n the following holds:
+2n(1 − ρ) + O(1/η 4 )
+L ← nF
+Pr εmca (C, 1 − ρ − η) ≤
+C := RS[F, L, ρn]
+η|F|
+"
+
+ \#
+
+≥
+
+2
+,
+3
+
+
+
+where L ← nF denotes uniformly sampling a subset of size n from F.
+A similar statement with smaller MCA error term holds for general (random) linear codes.
+
+
+\subsection{Limitations}
+
+
+
+In this section we describe known limitations of CA and MCA. As the main focus of this paper is on
+MCA beyond the Johnson bound, we will primarily discuss this parameter regime. However, there
+is a significant body of research into understanding the exact behavior of CA and MCA within the
+unique-decoding radius (see e.g, [BGKS20; BCIKS20; BCHKS25]).
+Error increase on approaching capacity. Our main interest is pushing CA as close as possible
+to the capacity regime. Roughly, the following theorem shows that one cannot hope to prove a
+general result for CA up to distance 1/ log n from capacity with error that is polynomial in n. A
+variant of this lower-bound was shown to hold in [BCHKS25] under a conjecture, which was later
+proven and improved upon by [KK25].
+7
+
+A subset of the results of [GG25] were independently discovered by Jeronimo, Liu and Rajpal [JLR26].
+
+Theorem 4.16 ([BCHKS25; KK25]). For every c > 0 and rate ρ ∈ (0, 1/2) there exists a power
+of two n ∈ N and Reed–Solomon code C := RS[F, L, k] of rate ρ where |F| = poly(n) is prime and
+L is smooth with |L| = n such that:
+(
+
+εca C, 1 − ρ − Θ
+
+(
+
+1
+log n
+
+))
+
+≥
+
+nc
+.
+|F|
+
+Notably, the theorem above captures both prime fields and smooth domains. Thus it shows that
+for parameters where CA is used in practice we must have the distance from capacity be Ω(1/ log n)
+(at least in order to make general asymptotic statements).
+The following theorem shows that at some point even this “super-polynomial” behavior of CA
+completely breaks down:
+Theorem 4.17 ([CS25], Corollary 1). Let C := RS[F, L, k] with q = |F| ≥ 10 and rate ρ and δ be
+such that
+s
+2
+Hq (δ) − δ
+2
+1 − Hq (δ) + +
+≤ρ≤1−δ− ,
+n
+n
+n
+then εca (C, δ) = 1.
+To interpret the above theorem, observe that, as q grows, we have Hq (δ) ≈ δ − 1/ log q. Thus,
+reordering
+√ the theorem in terms of δ, we have that CA error breaks down at distances 1 − ρ − η for
+η ≈ 1/ n log q + 2/n − 1/ log q.
+Error jump at the Johnson bound. Theorem 4.12 shows that when approaching the Johnson
+bound, the (error )follows roughly n/|F|. That is, at a proximity of J(δmin (C)) − η, the MCA error is
+at most Oρ η5n|F| . The following theorem shows that when we are exactly on the Johnson bound,
+the CA (and therefore MCA) error must be at least Ω(n2 /|F|).
+Theorem 4.18 ([BCHKS25], Corollary 1.7). Fix a constant ϵ > 0 and let δ = 15/16. Then for all
+1
+F of characteristic 2 there exists a code C := RS[F, L, k] with n = |F| 2 (1+ϵ) and minimum distance
+δmin (C) = 15/16 such that
+(
+
+εca
+
+1 1
+C, δfld = J(δmin (C)), δint = J(δmin (C)) + +
+8 n
+
+)
+
+≥
+
+n2(1−ϵ)
+.
+|F|
+
+Note that the above theorem holds for fields of characteristic 2. Thus it may still be the case that
+MCA holds with small error beyond the Johnson bound for our main point of interest, which is
+prime fields over smooth domains.
+CA error is bounded by sampling probability. An intriguing fact, used by both [DG25] and
+[CS25] to achieve lower-bounds for CA error, is that the CA error of error correcting codes at any
+distance δ is bounded from below by (roughly) the probability that a random word is δ-close to the
+code. Thus, codes where the latter probability is large must have large CA error.
+Lemma 4.19 ([DG25], Theorem 2.5). Let C ⊆ Fn be a linear code and let δ ′ = maxu∈Fn \{∆(u, C)\}
+be the covering radius of C. For every δ ∈ (0, δ ′ ) it holds that
+εca (C, δ) ≥
+
+q−1
+· Pr n [∆(u, C) ≤ δ] .
+u←F
+q
+
+
+\subsection{Line-decoding}
+
+
+
+Goyal and Guruswami [GG25] prove their results on mutual correlated agreement for subspacedesign codes by considering a stronger notion called line-decoding (a similar notion called “collinearity of proximates” was independently considered by Haböck [Hab24; Hab25]).
+Definition 4.20 ([GG25], Definition 3.1). Let F be a finite field and C ⊆ (Fs )n be an F-additive
+code. The code C is (δ, a, b) line-decodable if for every f1 , f2 ∈ Σn and every function U : F → C,
+whenever
+a
+Pr [∆ (f1 + γ · f2 , U (γ)) ≤ δ] ≥
+γ←F
+|F|
+b
+there exist u1 , u2 ∈ C such that Prγ←F [U (γ) = u1 + γ · u2 ] ≥ |F|
+.
+
+The above notion can be naturally generalized to general curves, in which case we call it curvedecoding. Line decodability appears implicitly in many of the proofs above as a step towards to
+proving CA and MCA. Indeed, MCA is directly implied by line decoding:
+Theorem 4.21 ([GG25], Theorem 3.5). Let F be a finite field and C ⊆ (Fs )n be an F-additive code.
+If C is (δ, a, n + 1) line-decodable then εmca (C, δ) ≤ a/|F|.8
+As it is stronger than MCA, and has already been used to derive new MCA bounds, line
+decoding may be a useful notion for further understanding of MCA. Additionally, it can be used
+directly in some IOP constructions in place of MCA (see e.g., [Hab24]), and so considering line
+decoding rather than MCA, may provide new insights or tighter analysis of protocols. See also
+the recent paper by Carmon, Goldberg, Haböck, Lerer, and Lesokhin [CGHLL26, Appendix A] for
+further discussion of line-decoding, how to use it in analysis of IOPs, as well as stated conjectures.
+
+
+Better MCA bounds can be derived when the code is list decodable. See [GG25] for more details.
+
+
+\section{Connections between list decoding and correlated agreement}
+
+
+
+In this section we survey known relationships between list decoding and correlated agreement.
+Finding a formal connection between these two notions is a fundamental question about the nature
+of correlated agreement. In particular:
+• Showing a condition under which list decoding directly implies CA may allow us to shift our
+focus to improving list decoding bounds.
+• Showing that CA implies list decoding would show that proving list decoding bounds is a necessary precondition for proving CA.
+In the following we describe what is known about these implications.
+List decoding implies CA. Implications of list decoding bounds to CA are implicit in the proof
+techniques of [BKS18], and an explicit theorem formulating this connection was later shown in
+[GCXK25], whose results extend to MCA. The following theorem asserts
+√ that if a linear code is list
+decodable at radius δ then CA (in fact, MCA) holds at radius ≈ 1 − 1 − δ with error parameter
+related to the list size.
+Theorem 5.1 ([GCXK25], Theorem 3). Let C ⊆ Fn be a linear code over a finite field F and let
+δ, η ∈ (0, 1) be parameters. If C has |Λ (C, δ)| ≤ L then
+(
+
+εmca C, 1 −
+
+L2 δn + 1/η
+1−δ+η ≤
+= Oδ
+|F|
+
+p
+
+)
+
+L2 · n
+η · |F|
+
+!
+
+.
+
+When seen through the lens of Reed–Solomon codes, the above theorem implies MCA up to
+the “2 Johnson bounds” regime for all codes (by applying Corollary 3.3), and, since random Reed–
+Solomon codes are list decodable up to capacity (Theorem 3.6), implies MCA for random Reed–
+Solomon codes up to the Johnson bound.
+Strengthening Theorem 5.1 to remove the square-root loss in proximity would reestablish all
+known results (up to potentially differences in the error bound). However, as we will see later on
+in this section, this cannot hold in general as there exist codes that are list decodable but do not
+exhibit CA at the same radius. The open question must therefore be rephrased to ask whether
+such implications can be shown to hold for interesting special cases.
+CA implies list decoding. The following theorems show that in order to show CA with very
+small error, it is necessary to show list decoding bounds of roughly the field size. Stated differently,
+once the list size becomes large compared to the field size, the CA error cannot be very small.
+We first present a result which states that showing CA with error 1/2n, even with a large
+proximity loss, implies list decoding of size |F| at a similar proximity.
+Theorem 5.2 ([BCHKS25], Theorem 1.9). Let C := RS[F, L, k] be a Reed–Solomon code with rate
+ρ and let δ ∈ (0, 1 − ρ) be a proximity parameter. If
+2
+1
+C, δfld = δ + , δint = 1 − ρ −
+n
+n
+
+(
+
+εca
+
+)
+
+<
+
+1
+,
+2n
+
+then |Λ (C, δ)| < |F|.
+The theorem below shows that if a Reed–Solomon code has CA error roughly 1/k at proximity
+δ then a related code has list decoding of size |F| at the same radius.
+
+Theorem 5.3 ([CS25],Theorem 2). Let C := RS[F, L, k] and C + := RS[F,
+) be Reed–Solomon
+( L, k + 1]
+1
+n
+codes with |L| = n. For δ ∈ (0, δmin (C)) and η ∈ [0, 1), if εca (C, δ) ≤ η · k − k|F| , then
+(
+
+Λ C ,δ
++
+
+)
+
+|F|
+≤
+· εca (C, δ) .
+1−η
+⌈
+
+⌉
+
+Limitations. Finally, we present evidence that, in some regimes, correlated agreement and list
+decoding are separate notions:
+Theorem 5.4 ([BGKS20], Lemma 3.3). For all F of characteristic 2 the code C := RS[F, F, |F|/8]
+with rate ρ = 1/8 has
+)
+(
+1
+εca C, 1 − ρ1/3 ≥ 1 −
+.
+|F|
+(In fact, the above holds also with proximity loss for δfld = 1 − ρ1/3 and δint = 1 − ρ2/3 .)
+The above theorem shows that there are codes that do not exhibit correlated agreement at 1−ρ1/3 =
+0.5. However, by the Johnson bound, at distance 0.55 (i.e., in Theorem 3.2 setting η ≈ 0.1 so that
+√
+1 − ρ − η = 0.55), the code has list size ≈ 40, a constant independent of the field size.
+While this example shows that, in general, we cannot expect list decoding to tightly imply
+correlated agreement, observe that the code is full-domain (i.e., the evaluation domain is the entire
+field). Thus, one could still hope for such a relationship for codes where the gap between the field
+size and the evaluation domain size is large (recall that in the SNARK use-case, we usually think
+of |F| as being very large compared to n).
+
+
+\section{Toy problem}
+
+
+
+In this section, we describe a simple toy problem and a protocol for this problem, whose soundness
+proof captures many of the complexities encountered during the analysis of more complex protocols
+such as [ACFY25; NA25; BCFW25]. In particular, the analysis of this protocol demonstrates the
+need for both mutual correlated agreement (MCA) and a list decoding bound. Appendix A contains
+preliminaries relevant for this section.
+
+
+\subsection{Protocol}
+
+
+
+The protocol considers a relation consisting of codewords whose underlying messages satisfy a given
+linear constraint. We refer to this relation to be about constrained codes.
+Definition 6.1. Let ℓ ∈ N and C : Fk → (Fs )n be a F-additive code. We define the toy problem
+relation as:
+o
+n
+
+F = C ≡ℓ (F ) ∧ F · v = µ
+RℓC := (v, µ), F, F
+where v ∈ Fk , µ ∈ Fℓ , F : [n] → Fℓ·s , and F ∈ Fℓ×k .
+In the toy protocol, we consider the above relation when ℓ = 2, in which case µ = (µ1 , µ2 ),
+F = (f1 , f2 ), and F = (f1 , f2 ). The verifier in the protocol has (v, µ1 , µ2 ) and oracle access to
+the (purported) codewords f1 , f2 . It aims to test whether f1 , f2 belong to the constrained code
+defined by (v, µ1 , µ2 ) and the relation R2C . To do so, the verifier requests from the prover a random
+linear combination of the messages f1 , f2 , encodes the result as a codeword in C, and checks at
+a few uniformly random positions that this encoding agrees with the inputs f1 , f2 . The following
+construction describes this protocol in detail.
+Construction 6.2. Let C : Fk → (Fs )n be a F-additive code and t ∈ N. We let T [C, t] = (P, V)
+be the following protocol.
+• Inputs. The verifier V receives an explicit input x = (v, µ1 , µ2 ) and an implicit input y =
+f1 , f2 : [n] → Fs . The honest prover P receives additionally w = (f1 , f2 ) ∈ (Fk )2 such that
+⟨f1 , v⟩ = µ1 , ⟨f2 , v⟩ = µ2 , f1 = C(f1 ) and f2 = C(f2 ).
+• Interactive phase.
+1. Combination randomness. The verifier samples and sends γ ← F.
+2. The prover sends g ∈ Fk . In the honest case, g := f1 + γ · f2 .
+3. Spot-check randomness. The verifier samples and sends x1 , . . . , xt ← [n].
+• Decision phase. The verifier computes g := C(g) and checks that:
+1. ⟨g, v⟩ = µ1 + γ · µ2 .
+2. for i ∈ [t] it holds that g(xi ) = f1 (xi ) + γ · f2 (xi )
+Argument size. Construction 6.2 can be compiled into a (non-interactive) argument of knowledge
+via standard techniques [BCS16]. Letting |H| denote the digest size (in bits) of the Merkle hash
+function used, the resulting argument size9 is
+2t · (|H| · log n + s · log |F|) bits
+9
+
+This ignores the size of g which would contribute an additional (dominating) factor of k · log |F| bits.
+
+
+(1)
+
+stemming from the Merkle proofs for evaluations of f1 , f2 in step (2) of the decision phase. To
+achieve λ bits of security the digest size must satisfy |H| ≥ 2λ. The above estimates does not
+include optimizations such as Merkle path pruning10 .
+
+
+\subsection{Soundness}
+
+
+
+We prove that the toy protocol is (knowledge) sound. Because the verifier only sees a few elements
+in f1 , f2 , we can only prove soundness with respect to a relaxed relation, which we define next.
+Definition 6.3. Let ℓ ∈ N, C : Fk → (Fs )n be a F-additive code and δ ∈ (0, 1). We define the
+relaxed toy problem relation as:
+(
+
+R̃ℓC,δ :=
+
+∗ 
+
+x, y, (w, y )
+
+∆(y, y∗ ) ≤ δ
+∧ (x, y∗ , w) ∈ RℓC
+
+)
+
+.
+
+The relaxed relation only provides a proximity guarantee that the oracle y is δ-close to a valid
+instance of the relation. This is both necessary (as the verifier does not read y in full) and sufficient
+for applications. We recall the notion of erasure correction for a code which will enable us to achieve
+knowledge soundness in Construction 6.2 for any linear code C.
+Definition 6.4. A code C ⊆ Σn supports erasure correction with correction time ecorC if there
+exists a deterministic algorithm EC (the erasure corrector) that, given input f : [n] → Σ ∪ \{⊥\}:
+• if |f −1 (⊥)| < δmin (C) · n and there exists a codeword u ∈ C such that f (i) = u(i) for all i ∈
+[n] \textbackslash{} f −1 (⊥), then EC (f ) = u (note that such a codeword u is unique); and
+• otherwise, EC (f ) = ⊥.
+Moreover, EC performs at most ecorC field operations.
+Every additive code can be erasure decoded in polynomial time.
+Lemma 6.5 ([GRS12]). Every additive code C : Fk → (Fs )n supports erasure correction with correction time ecorC = O((s · n)3 )
+Lemma 6.6. For any δ ∈ (0, δmin (C)), the protocol T [C, t] (Construction 6.2) has knowledge soundness (Definition A.3) with respect to R̃2C,δ with extraction time O(encC + ecorC ) and error
+|Λ (C ≡2 , δ)|
+max εmca (C, δ) +
+, (1 − δ)t
+|F|
+⌊
+
+⌋
+
+.
+
+The quantity |Λ (C ≡2 , δ)| in the lemma statement is clearly at most |Λ (C, δ)|2 , and in some cases
+may be more tightly related to |Λ (C, δ)| via Lemma 2.10.
+Proof. To prove knowledge soundness of Construction 6.2 we exhibit an extractor that extracts a
+valid witness from a successful prover. We define the extractor E as follows:
+E y, (γ, g) :
+1. Parse y = (f1 , f2 ) and compute g := C(g).
+2. Let S ⊆ [n] be the largest S such that ∆S (f1 + γ · f2 , g) = 0. This S is unique and can be
+constructed efficiently by a simple greedy strategy.
+
+
+
+A crude estimate for the argument size in that setting would be ≈ t · (|H| · (log n − log t) + s · log |F|).
+
+3. Erasure decode f1 , f2 with respect to S to obtain messages f1 , f2 ∈ Fk such that
+∆S f1 , C(f1 ) = ∆S f2 , C(f2 ) = 0.
+
+
+
+
+If erasure decoding fails11 on either f1 or f2 then output ⊥ and abort.
+4. Output (f1 , f2 ).
+We show12 that for every δ ∈ (0, 1) and x, y, P̃,
+Vy (x, (γ, g, x1 , . . . , xt )) = 1
+!
+[
+⟨f1 , v⟩ ̸= µ1 ∨ ⟨f2 , v⟩ ̸= µ2 ∨
+Pr [
+∧
+∆ (f1 , f2 ), C ≡2 (f1 , f2 ) > δ
+[
+
+⌊
+
+γ ← F, x1 , . . . , xt ← [n]
+]
+g := P̃(γ)
+]
+:=
+(f1 , f2 )
+E(y, (γ, g))
+
+≤ max εmca (C, δ) +
+
+]
+
+|Λ (C ≡2 , δ)|
+|F|
+
+, (1 − δ)t
+
+(2)
+
+⌋
+
+.
+
+Write x = (v, µ1 , µ2 ) and y = (f1 , f2 ). Define the event E (defined over the choice of γ) that there
+exists a set S ⊆ [n] with |S| ≥ (1 − δ) · n such that ∆S (f1 + γ · f2 , C) = 0 and ∆S ((f1 , f2 ), C ≡2 ) > 0.
+By Definition 4.3, Prγ [E] ≤ εmca (C, δ), so let us assume that ¬E holds. We consider two cases:
+First, suppose that ∆(f1 + γ · f2 , C(g)) > δ. In this case the verifier Vy (x, (γ, g, x1 , . . . , xt )) accepts
+with probability at most (1 − δ)t .
+Second, suppose that ∆(f1 + γ · f2 , C(g)) ≤ δ. This means that there exists S ⊆ [n] with |S| ≥
+(1 − δ) · n such that ∆S (f1 + γ · f2 , C) = 0, and therefore, as long as ¬E holds, it must be
+that ∆S ((f1 , f2 ), C ≡2 ) = 0. Then erasure decoding in the extractor E will succeed so that
+its
+
+≡
+2
+output (f1 , f2 ) will satisfy ∆S (f1 , f2 ), (C(f1 ), C(f2 )) = 0, and thus ∆ (f1 , f2 ), C (f1 , f2 ) ≤ δ
+as required when the verifier accepts. We are left to bound the probability that ⟨f1 , v⟩ ̸= µ1 or
+⟨f2 , v⟩ ̸= µ2 when the verifier accepts. First we argue that ⟨f1 + γ · f2 , v⟩ = µ1 + γ · µ2 . To see
+why, observe that
+C(g)(S) = (f1 + γ · f2 )(S) = f1 (S) + γ · f2 (S) = C(f1 )(S) + γ · C(f2 )(S) = C(f1 + γ · f2 )(S) (3)
+and therefore g = f1 + γ · f2 because δ < δmin (C) by assumption. Moreover, since the verifier
+accepts, it must be that ⟨g, v⟩ = µ1 + γ · µ2 . Therefore ⟨f1 + γ · f2 , v⟩ = µ1 + γ · µ2 , which for
+1
+any fixed pair f1 , f2 such that ⟨f1 , v⟩ ̸= µ1 or ⟨f2 , v⟩ ̸= µ2 only occurs with probability at most |F|
+over the choice of γ by
+the polynomial identity lemma. Since (assuming ¬E holds) we have that
+
+∆ (f1 , f2 ), C ≡2 (f1 , f2 ) ≤ δ it must be that C ≡2 (f1 , f2 ) ∈ Λ(C ≡2 , δ, (f1 , f2 )) and so there are at
+most |Λ (C ≡2 , δ)| such choices for (f1 , f2 ). Now a union bound gives the error term |Λ (C ≡2 , δ)| /|F|,
+which concludes the proof that (2) holds.
+To make this argument formal, let us write for convenience
+[
+
+]
+
+γ←F
+[
+]
+P := Pr [∆(f1 + γ · f2 , C(g)) > δ g := P̃(γ)
+].
+(f1 , f2 ) := E(y, (γ, g))
+11
+
+Failure can happen, for example, if S is too small, that is S < (1 − δmin (C)) · n.
+Note that this is a stronger notion than what Definition A.3 requires, as the extractor is not allowed to read x nor
+the final transcript, and does not output y∗ . The final extractor is obtained by letting E′ (x, y, tr) be the algorithm
+that parses tr = (γ, g, (x1 , . . . , xt )), compute w = E(y, (γ, g)) and outputs (w, C ≡2 (w)). E′ performs O(encC + tE )
+operations.
+12
+
+Then putting it all together we obtain that:
+Vy (x, (γ, g, x1 , . . . , xt )) = 1
+!
+[
+⟨f1 , v⟩ ̸= µ1 ∨ ⟨f2 , v⟩ ̸= µ2
+Pr [
+∧
+∆((f1 , f2 ), C ≡2 (f1 , f2 )) > δ
+
+γ ← F, x1 , . . . , xt ← [n]
+]
+g := P̃(γ)
+]
+(f1 , f2 ) := E(y, (γ, g))
+]
+
+[
+
+∆(f1 + γ · f2 , C(g)) > δ
+[ ∧ Vy (x, (γ, g, x , . . . , x )) = 1
+1
+t
+[
+!
+= Pr [
+[
+⟨f1 , v⟩ ̸= µ1 ∨ ⟨f2 , v⟩ ̸= µ2
+∧
+∆((f1 , f2 ), C ≡2 (f1 , f2 )) > δ
+
+]
+
+[
+
+γ ← F, x1 , . . . , xt ← [n] ]
+]
+g := P̃(γ)
+]
+]
+(f1 , f2 ) := E(y, (γ, g))
+
+∆(f1 + γ · f2 , C(g)) ≤ δ
+[ ∧ Vy (x, (γ, g, x , . . . , x )) = 1
+1
+t
+[
+!
++ Pr [
+[
+⟨f1 , v⟩ ̸= µ1 ∨ ⟨f2 , v⟩ ̸= µ2
+∧
+∆((f1 , f2 ), C ≡2 (f1 , f2 )) > δ
+
+]
+
+[
+
+γ ← F, x1 , . . . , xt ← [n] ]
+]
+g := P̃(γ)
+]
+]
+(f1 , f2 ) := E(y, (γ, g))
+γ ← F, x1 , . . . , xt ← [n]
+]
+g := P̃(γ)
+]
+]
+(f1 , f2 ) := E(y, (γ, g)) ] · P
+
+[
+
+]
+
+[ Vy (x, (γ, g, x1 , . . . , xt )) = 1
+
+= Pr [
+[
+[
+
+[ ∧
+
+⟨f1 , v⟩ ̸= µ1 ∨ ⟨f2 , v⟩ ̸= µ2
+∆((f1 , f2 ), C ≡2 (f1 , f2 )) > δ
+
+!
+
+∆(f1 + γ · f2 , C(g)) > δ
+
+]
+
+γ ← F, x1 , . . . , xt ← [n]
+]
+g := P̃(γ)
+]
+]
+(f1 , f2 ) := E(y, (γ, g)) ] · (1 − P )
+
+[
+
+]
+
+[ Vy (x, (γ, g, x1 , . . . , xt )) = 1
+
++ Pr [
+[
+[
+
+[ ∧
+\{
+|
+|
+|
+|
+\{
+
+⟨f1 , v⟩ ̸= µ1 ∨ ⟨f2 , v⟩ ̸= µ2
+∆((f1 , f2 ), C ≡2 (f1 , f2 )) > δ
+
+∆(f1 + γ · f2 , C(g)) ≤ δ
+
+[ Vy (x, (γ, g, x1 , . . . , xt )) = 1
+[
+
+[ ∧
+
+]
+
+γ ← F, x1 , . . . , xt ← [n] |
+|
+|
+]|
+g := P̃(γ)
+]\}
+]
+(f1 , f2 ) := E(y, (γ, g)) ]|
+|
+]\}
+
+[
+
+≤ max (1 − δ)t , Pr [
+[
+|
+|
+|
+|
+\{
+\{
+|
+|
+|
+|
+\{
+
+!
+
+⟨f1 , v⟩ ̸= µ1 ∨ ⟨f2 , v⟩ ̸= µ2
+∆((f1 , f2 ), C ≡2 (f1 , f2 )) > δ
+
+!
+
+]|
+|
+∆(f1 + γ · f2 , C(g)) ≤ δ \}
+
+[
+
+¬E
+[
+[ ∧ Vy (x, (γ, g, x1 , . . . , xt )) = 1
+!
+≤ max (1 − δ)t , Pr[E] + Pr [
+[
+|
+⟨f1 , v⟩ ̸= µ1 ∨ ⟨f2 , v⟩ ̸= µ2
+|
+[
+|
+∧
+|
+\{
+∆((f1 , f2 ), C ≡2 (f1 , f2 )) > δ
+
+γ ← F, x1 , . . . , xt ← [n] |
+|
+|
+]|
+g := P̃(γ)
+]\}
+]
+(f1 , f2 ) := E(y, (γ, g)) ]|
+|
+]\}
+
+]|
+|
+∆(f1 + γ · f2 , C(g)) ≤ δ \}
+\{
+[
+]\}
+¬E
+|
+|
+|
+|
+|
+\{
+[ ∧ ∃(f1 , f2 ) s.t. (C(f1 ), C(f2 )) ∈ Λ(C ≡2 , δ, (f1 , f2 )) ]|
+\}
+[
+]
+(
+)
+t
+≤ max (1 − δ) , εmca (C, δ) + Pr [
+]
+|
+[ ∧
+]|
+⟨f1 , v⟩ ̸= µ1 ∨ ⟨f2 , v⟩ ̸= µ2
+|
+|
+|
+|
+\{
+\}
+⌊
+
+≤ max (1 − δ)t , εmca (C, δ) +
+
+∧ ⟨f1 + γ · f2 , v⟩ = µ1 + γ · µ2
+⌋
+≡
+|Λ (C 2 , δ)|
+|F|
+
+,
+
+where we have used that for λ ∈ [0, 1] it holds that a · λ + b · (1 − λ) ≤ max\{a, b\}.
+Remark 6.7. The soundness argument we used to prove Lemma 6.6 relies heavily on mutual
+correlated agreement (MCA). The weaker notion of correlated agreement (CA) is insufficient to
+prove the lemma, even if we replace erasure decoding in the extractor with list decoding. The
+problem is that there could exist an (f1 , f2 ) that is δ-close to C ≡2 , but no (u1 , u2 ) ∈ Λ(C ≡2 , δ, (f1 , f2 ))
+
+satisfies the constraints ⟨C −1 (u1 ), v⟩ = µ1 and ⟨C −1 (u2 ), v⟩ = µ2 . This would violate the soundness
+of the protocol. What breaks in the proof of Lemma 6.6 is that when using CA, instead of MCA,
+we can no longer prove that every codeword u ∈ Λ(C, f1 + γ · f2 , δ) can be written as u = u1 + γ · u2
+for codewords (u1 , u2 ) ∈ Λ(C ≡2 , (f1 , f2 ), δ). Mutual correlated agreement (MCA) lets us prove this
+fact quite easily, as we do in (3), except with probability εmca (C, δ).
+Lemma 6.8. For any δ ∈ (0, δmin (C)), the protocol T [C, t] (Construction 6.2) has round-by-round
+knowledge soundness (Definition A.5) with respect to R̃2C,δ with total extraction time O(encC +ecorC )
+and errors
+(
+)
+|Λ (C ≡2 , δ)|
+t
+εmca (C, δ) +
+, (1 − δ)
+|F|
+Proof. We define the state function and bound the transition probability next.
+• Initial input. We set State(x, y, ∅, w) = 1 if and only if (x, y, w) ∈ R̃2C,δ . That is, State(x, y, ∅, w) =
+1 if and only if w = (f1 , f2 , f 1 , f 2 ) such that ∆((f1 , f2 ), (f 1 , f 2 )) ≤ δ, (f 1 , f 2 ) = C ≡2 (f1 , f2 ),
+⟨f1 , v⟩ = µ1 , and ⟨f2 , v⟩ = µ2 .
+• Combination randomness. At this stage, the transcript tr is empty and the verifier samples
+γ ← F. We set State(x, y, tr∥γ, w) = 1 if and only if w = f such that
+– ⟨f , v⟩ = µ1 + γ · µ2 and
+– ∆(f1 + γ · f2 , C(f )) ≤ δ.
+We define the extractor E as follows:
+E(x, y, tr∥γ, w):
+1. Parse w = f and compute f = C(f ).
+2. Let S ⊆ [n] be the largest S such that f (S) = f1 (S) + γ · f2 (S).
+3. Erasure decode f1 , f2 with respect to S to obtain f1 , f2 .
+4. Output (f1 , f2 , C ≡2 (f1 , f2 )).
+We show that
+"
+
+State(x, y, tr, E(x, y, tr∥γ, w)) = 0
+Pr ∃w :
+State(x, y, tr∥γ, w) = 1
+γ←F
+
+\#
+
+≤ εmca (C, δ) +
+
+|Λ (C ≡2 , δ)|
+.
+|F|
+
+Define the event E (defined over the choice of γ) that there exists a set S ⊆ [n] with |S| ≥ (1−δ)·n
+such that ∆S (f1 + γ · f2 , C) = 0 and ∆S ((f1 , f2 ), C ≡2 ) > 0. By Definition 4.3, Prγ [E] ≤ εmca (C, δ).
+Assuming that ¬E holds, fix a w = f such that State(x, y, tr∥γ, w) = 1.
+Since ∆(f1 +γ·f2 , C(f )) ≤ δ, there exists a set S of size |S| ≥ (1−δ)·n such that ∆S (f1 +γ·f2 , C) =
+0. Take S to be maximal among such sets. Then, by virtue of ¬E holding, it must be that
+∆S ((f1 , f2 ), C ≡2 ) = 0, and so there exists (f1 , f2 ) such that (f1 , f2 )(S) = C ≡2 (f1 , f2 )(S).
+Note in particular that it must be that (f1 , f2 ) are those output by E(x, y, tr∥γ, w) (as by the
+definition of the extractor S is the same set as in the analysis, and the codewords output agree
+on a large set). This implies that there are at most |Λ (C ≡2 , δ)| possible pairs of (f1 , f2 ) that E
+outputs (as we have seen that C ≡2 (f1 , f2 ) ∈ Λ(C ≡2 , δ, (f1 , f2 )).)
+Further, it must be that f = f1 + γ · f2 . This is because by definition we have C(f )(S) = f1 (S) +
+γ · f2 (S) = C(f1 )(S) + γ · C(f2 )(S) = C(f1 + γ · f2 )(S) and since |S| ≥ (1 − δ) · n ≥ (1 − δmin (C)) · n
+it must be that the right and left hand side are the same codeword.
+
+Next, we show that with high probability it must be that ⟨f1 , v⟩ = µ1 and ⟨f2 , v⟩ = µ2 .
+1
+If not, by the polynomial identity lemma unless with probability at most |F|
+it holds that
+⟨f , v⟩ = ⟨f1 , v⟩ + γ · ⟨f2 , v⟩ ̸= µ1 + γ · µ2 , contradicting State(x, y, tr∥γ, w) = 1. Since there are
+at most |Λ (C ≡2 , δ)| such pairs, this concludes the analysis.
+• Spot-check randomness. At this stage, the transcript tr = (γ, g) and the verifier samples
+x1 , . . . , xt ← [n]. We set State(x, y, tr∥(x1 , . . . , xt ), w) = 1 if and only if w = f such that
+– ⟨f , v⟩ = µ1 + γ · µ2 .
+– for i ∈ [t], C(f )(xi ) = f1 (xi ) + γ · f2 (xi ).
+We define the extractor E to be the extractor E(x, y, tr∥(x1 , . . . , xt ), ∅) = g.
+We show that
+"
+
+State(x, y, tr, E(x, y, tr∥(x1 , . . . , xt ), w)) = 0
+Pr
+∃w :
+State(x, y, tr∥(x1 , . . . , xt ), w) = 1
+x1 ,...,xt ←[n]
+
+\#
+
+≤ (1 − δ)t .
+
+If State(x, y, tr, g) = 0, then either:
+1. ⟨g, v⟩ ̸= µ1 + γ · µ2 ; or
+2. ∆(g, f1 + γ · f2 ) > δ where g := C(g).
+If the first case holds, State(x, y, tr∥(x1 , . . . , xt ), ∅) = 0, and we are done. In the second case,
+except with probability at most (1 − δ)t , for some j ∈ [t] it holds that g(xj ) ̸= f1 (xj ) + γ · f2 (xj ),
+and so again State(x, y, tr∥(x1 , . . . , xt ), ∅) = 0.
+
+
+\subsection{Concrete parametrizations}
+
+
+
+We consider the general setting where
+• F is a sextic extension of B = Fq where q = 231 − 224 + 1 (the Koala Bear prime);
+• k = 220 , s · n = 221 so that ρ = 1/2 and;
+• t = 128.
+We analyze the protocol with two different families of codes. In both cases, the code C is an
+extension code of a CB defined over the base field B. In the common case where input messages are
+defined over the base field, and are committed within the same Merkle tree, (1) reduces to
+128 · (256 · log n + 2 · 31 · s) bits.
+The above expression is minimized when n = 218 and s = 23 in which case the result is 79.75 KiB.
+We analyze the knowledge soundness error and argument size of Construction 6.2 under different
+choices of code C (and consequently of n and s).
+
+\subsubsection{Interleaved Reed–Solomon codes}
+
+
+
+The first instantiation is via the interleaving of Reed–Solomon codes.
+• L ⊆ B is a smooth domain with |L| = n.
+• C := IRS[F, L, k, s] and CB := IRS[B, L, k, s].
+
+This instantiation closely resembles concretely deployed
+of hash-based proof systems.
+nl √ m instances
+o
+√
+ρ
+1
+Let η > 0 and set δ := 1− ρ−η and m := max
+2η , 3 + /2. By Theorem 4.12 and lemma 4.7
+we have that
+εmca (C, δ) ≤ s · εmca (RS[F, L, k/s], δ)
+≤
+
+2 · m5 + 3 · m · δ · ρ
+s·m
+·s·n+ √
+ρ · |F|
+3 · ρ3/2 · |F|
+
+≤
+
+2 · m5 + 3 · m · δ · ρ
+s·m
++ 185.5 ,
+2165
+2
+
+and by Theorem 3.2 that:
+|Λ (C
+
+≡2
+
+√
+1
+2
+, δ)| ≤
+.
+√ =
+2·η· ρ
+2·η
+
+Applying this to Lemma 6.8, we obtain that the round by round knowledge errors of Construction 6.2 are
+min
+
+(
+
+δ∈(0,1)
+
+≤ min
+
+εmca (C, δ) +
+
+η∈(0,1)
+
+|Λ (C ≡2 , δ)|
+, (1 − δ)t
+|F|
+
+)
+
+2 · m5 + 3 · m · δ · ρ
+s·m
+2−186.5 1 √
++
++
+, ( / 2 + η)t
+2165
+2185.5
+η
+√
+
+!
+
+.
+
+√
+
+Fixing t = 128. First note that for any η > 0 it holds that (1/ 2 + η)t > (1/ 2)128 = 2−64 , so this
+analysis can offer at most 64 bits of security. For our parameters, the value of η which minimizes
+the above is η = 1/n, as the second term dominates the soundness error.
+Taking s = 20 as an example, then m ≈ 218.5 and the soundness error is upper bounded by
+293.5 + 218.3
+218.5
+2−186.5
+√
++ 185.5 + −21 , (1/ 2 + 2−21 )t
+165
+2
+2
+2
+
+!
+
+≈ (2−71.5 , 2−64.00 ) .
+
+So, the protocol provably provides approximately 64 bits of security in this setting.
+For different choices of s we obtain Table 2.
+Argument size when enforcing 128-bits of security. Conversely, we analyze the argument
+size Construction 6.2 provides when enforcing 128-bits of provable knowledge soundness. Let s ∈ N
+be a folding parameter. We are tasked to find the settings of t ∈ N and η > 0 that minimizes the
+argument size, that is:
+( 2·m5 +3·m·δ·ρ
+
+t · (256 · log n + 62 · s) subject to
+
+√
+
+2165
+
+−186.5
+
+2
++ 2s·m
+185.5 +
+η
+
+(1/ 2 + η)t
+
+≤ 2−128
+≤ 2−128
+
+For example, when s = 20 the minimizing pair is (η, t) ≈ (2−8.57 , 259). In this case, the argument
+size 171.9 KiB and we have that m ≈ 27.08 , so the knowledge soundness error is upper bounded by
+236.5 + 25.9
+27.08
+2−186.5 1 √
++
++
+, ( / 2 + 2−8.57 )259
+2165
+2185.5
+2−8.57
+We detail the result for different values of s in Table 3.
+31
+
+!
+
+≈ (2−128.59 , 2−128.11 ) .
+
+s
+
+η
+
+bits
+
+size
+
+20
+21
+22
+23
+
+2−21
+2−20
+2−19
+2−18
+
+2−64.00
+2−64.00
+2−64.00
+2−64.00
+
+85.0 KiB
+81.9 KiB
+79.9 KiB
+79.8 KiB
+
+24
+25
+26
+27
+28
+29
+210
+211
+212
+
+2−17
+2−16
+2−15
+2−14
+2−13
+2−12
+2−11
+2−10
+2−9
+
+2−64.00
+2−64.00
+2−63.99
+2−63.98
+2−63.97
+2−63.94
+2−63.87
+2−63.75
+2−63.49
+
+83.5 KiB
+95.0 KiB
+122.0 KiB
+180.0 KiB
+300.0 KiB
+544.0 KiB
+1.01 MiB
+1.98 MiB
+3.91 MiB
+
+Table 2: Round-by-round knowledge soundness of Construction 6.2 when instantiated with an interleaved Reed–Solomon code IRS[F, L, k, s]. η refers to the value of η which minimizes the soundness
+error, which in this case is η = 1/n. The horizontal line marks the point after which the argument size
+monotonically increases.
+
+
+\subsubsection{Subspace-design codes}
+
+
+
+The second instantiation is via subspace-design codes. Let C : Fk → (Fs )n be a τ -subspace-design
+code of ρ = 1/2. For concreteness, consider the folded Reed–Solomon case where:
+• L ⊆ B is a smooth domain with |L| = n and ω ∈ F is (L, s)-admissible.
+• C := FRS[F, L, k, s, ω] and CB := FRS[B, L, k, s, ω].
+s·ρ
+• τ is defined τ (r) = s−r+1
+for 1 ≤ r ≤ s and τ (r) = 1 otherwise (as in Theorem 2.18).
+3
+Fix r ∈ N and δ := 1 − τ (r + 1) − 2r
+. By Theorem 4.13
+
+εmca (C, δ) ≤
+
+r · n + 4r3
+,
+|F|
+
+1
+and, since δ ≤ 1 − τ (r + 1) − r+1
+, by Theorem 3.4 we have
+
+1
+|Λ (C, δ)| ≤ Λ C, 1 − τ (r + 1) −
+r+1
+(
+
+)
+
+≤ (1 − τ (r + 1)) · (r + 1) .
+
+To bound the term required by Lemma 6.8, define
+br :=
+
+⌈
+
+δ
+,
+δmin (C) − δ
+⌉
+
+cr := log
+
+δmin (C)
+δmin (C) − δ
+
+br + cr
+cr
+
+· ((1 − τ (r + 1)) · (r + 1))cr .
+
+⌈
+
+⌉
+
+.
+
+Then, by Lemma 2.10,
+|Λ (C
+
+≡2
+
+, δ)| ≤
+
+br + cr
+cr
+
+!
+cr
+
+· |Λ (C, δ)|
+
+≤
+32
+
+!
+
+s
+
+η
+
+t
+
+bits
+
+size
+
+20
+21
+22
+23
+
+2−8.57
+2−8.57
+2−8.57
+2−8.57
+
+259
+259
+259
+259
+
+2−128.11
+2−128.11
+2−128.11
+2−128.11
+
+171.9 KiB
+165.8 KiB
+161.6 KiB
+161.4 KiB
+
+24
+25
+26
+27
+28
+29
+210
+211
+212
+
+2−8.57
+2−8.56
+2−8.56
+2−8.60
+2−8.65
+2−8.43
+2−8.36
+2−8.42
+2−8.55
+
+259
+259
+259
+259
+259
+260
+260
+260
+259
+
+2−128.11
+2−128.11
+2−128.10
+2−128.14
+2−128.18
+2−128.47
+2−128.39
+2−128.46
+2−128.09
+
+169.0 KiB
+192.2 KiB
+246.9 KiB
+364.2 KiB
+607.0 KiB
+1.08 MiB
+2.06 MiB
+4.01 MiB
+7.91 MiB
+
+Table 3: Round-by-round knowledge soundness and argument size of Construction 6.2 when instantiated with an interleaved Reed–Solomon code IRS[F, L, k, s]. η and t refers to the value which minimizes
+the soundness error, subject to achieving 128-bits of security. The horizontal line marks the point after
+which the argument size monotonically increases.
+
+Applying Lemma 6.8, we obtain that the round by round knowledge errors of Construction 6.2 are
+min
+
+(
+
+δ∈(0,1)
+
+≤ min
+r∈N
+
+εmca (C, δ) +
+
+|Λ (C ≡2 , δ)|
+, (1 − δ)t
+|F|
+
+r · n + 4r3
++
+|F|
+
+)
+
+br +cr 
+· ((1 − τ (r + 1)) · (r + 1))cr
+cr
+
+|F|
+
+(
+
+,
+
+3
+τ (r + 1) +
+2r
+
+)t !
+
+.
+
+3
+Note also that for s ≤ 24 and r ∈ N, it holds that τ (r + 1) + 2r
+≥ 1, and so in those cases no
+soundness can be proven.
+Fixing t = 128. Consider s = 25 as an example, the soundness error is minimized by r = 8, in
+5 ·ρ
+which case τ (r + 1) = 252−9+1
+= 2/3. Further, δmin (C) − δ ≈ 17/48, so br = 1 and cr = 1. Then, the
+round-by-round knowledge soundness errors are upperbounded by
+
+8 · 216 + 4 · 83
++
+2186
+
+1+1
+· (1/3 · 9) 2
+1
+, ( /3 + 3/16)128
+2186
+
+!
+
+≈ (2−166.8 , 2−29.11 ) .
+
+We optimize the above bound over integers r ∈ N for each folding parameter s. We report the
+minimizing r and the resulting soundness error in Table 4. For small folding parameters (s ≤ 24 )
+3
+< 1 cannot be met, so we start the table at s = 25 .
+the constraint τ (r + 1) + 2r
+Argument size when enforcing 128-bits of security. We are tasked to find the settings of
+t ∈ N and r ∈ N that minimizes the argument size, that is:
+\{
+br +cr
+cr
+|
+\{ r·n+4r3 + ( cr )·((1−τ (r+1))·(r+1)) ≤ 2−128
+|F|
+t · (256 · log n + 62 · s) subject to ( |F|
+)t
+|
+−128
+\{ τ (r + 1) + 3
+≤2
+2r
+
+
+and
+
+s
+
+r
+
+bits
+
+size
+
+25
+26
+
+8
+11
+
+2−29.11
+2−55.57
+
+95.0 KiB
+122.0 KiB
+
+27
+28
+29
+210
+211
+212
+
+17
+25
+36
+53
+75
+108
+
+2−75.39
+2−90.04
+2−100.76
+2−108.53
+2−114.13
+2−118.14
+
+180.0 KiB
+300.0 KiB
+544.0 KiB
+1.01 MiB
+1.98 MiB
+3.91 MiB
+
+Table 4: Round-by-round knowledge soundness of Construction 6.2 when instantiated with a folded
+Reed–Solomon code FRS[F, L, k, s, ω]. The list size term is bounded via Theorem 3.4 and lemma 2.10.
+r refers to the value of r which minimizes the soundness error. The horizontal line marks the point
+after which the soundness error improves over the interleaved Reed–Solomon equivalent.
+
+where br , cr are as defined above.
+For example, when s = 25 the minimizing pair is (t, r) = (563, 8). In this case, the argument
+size is 417.9 KiB and the round-by-round soundness errors are
+8 · 216 + 4 · 83
++
+2186
+
+1+1
+· ((1 − 2/3) · 9) 2
+1
+, ( /3 + 3/16)563
+2186
+
+!
+
+≈ (2−168.8 , 2−128.03 ) .
+
+The resulting sizes are listed in Table 5.
+s
+25
+
+
+27
+28
+29
+210
+211
+212
+
+r
+8
+11
+16
+25
+32
+50
+61
+86
+
+t
+
+bits
+
+size
+
+563
+295
+218
+182
+163
+151
+144
+139
+
+2−128.03
+
+417.9 KiB
+281.2 KiB
+306.6 KiB
+426.6 KiB
+692.8 KiB
+1.19 MiB
+2.22 MiB
+4.25 MiB
+
+2−128.07
+2−128.22
+2−128.02
+2−128.01
+2−128.00
+2−128.03
+2−128.01
+
+Table 5: Round-by-round knowledge soundness of Construction 6.2 when instantiated with a folded
+Reed–Solomon code FRS[F, L, k, s, ω]. The list size term is bounded via Theorem 3.4 and Lemma 2.10.
+r, t refers to the value of r and t which minimizes the argument size, while achieving 128-bits of security.
+
+
+\subsection{Attacks}
+
+
+
+Instead of analyzing the attack on Construction 6.2, we present a simplified construction, which is
+a interactive oracle reduction (IOR) from R2C to R1C .
+Construction 6.9. Let C : Fk → (Fs )n be a F-additive code and t ∈ N.
+
+• Inputs. The verifier V receives as explicit input x = (v, µ1 , µ2 ) and as implicit input y =
+f1 , f2 : [n] → Fs . The honest prover P receives additionally w = (f1 , f2 ) ∈ (Fk )2 such that
+⟨f1 , v⟩ = µ1 , ⟨f2 , v⟩ = µ2 , f1 = C(f1 ), and f2 = C(f2 ).
+• Interactive phase.
+1. Combination randomness. The verifier samples and sends γ ← F.
+• New instance. The verifier sets and outputs x∗ := (v, µ1 + γ · µ2 ), y∗ := f1 + γ · f2 . The honest
+prover sets w∗ := f1 + γ · f2 .
+It is easy to see by adapting Lemma 6.8 that Construction 6.9 has the following soundness error.
+Lemma 6.10. For any δ ∈ (0, δmin (C)), the protocol T [C, t] (Construction 6.9) has knowledge
+soundness (Definition A.5) from R̃2C,δ to R̃1C,δ with total extraction time O(encC + ecorC ) and error
+εmca (C, δ) +
+
+|Λ (C ≡2 , δ)|
+.
+|F|
+
+We define the winning set of Construction 6.9 to be the set of challenges for which the prover
+can successfully reduce from an invalid instance to a valid instance.
+Definition 6.11. Let:
+n
+
+1 ,f2
+Ωfv,µ
+= γ∈F
+1 ,µ2
+
+(f1 + γ · f2 ) ∈ R̃1C,δ [v, µ1 + γµ2 ]
+
+o
+
+.
+
+Clearly, the soundness error of Construction 6.9 from R̃2C,δ to R̃1C,δ is exactly
+max
+x,y
+
+|Ωyx |
+subject to ∆(y, R2C [x]) > δ .
+|F|
+
+\subsubsection{List decoding lower bound}
+
+
+We show that the existence of a word with a large list of close codewords directly leads to an attack
+on the soundness of Construction 6.213 . The attack exploits the fact that, once the verifier has
+fixed the random linear combination it wants to test, the adversary may select whichever nearby
+codeword in the list is most convenient.
+≡2
+
+Lemma 6.12. Let δ ∈ (0, 1) be such that |F| > |Λ(C 2 ,δ)| . Then, the soundness error of Construction 6.9 from R̃2C,δ to R̃1C,δ is at least
+
+
+|Λ (C ≡2 , δ)|
+.
+|F| + |Λ (C ≡2 , δ)| − 1
+Proof. Fix δ ∈ (0, 1) and choose f1 , f2 such that |Λ(C ≡2 , δ, (f1 , f2 ))| = |Λ (C ≡2 , δ)|. Define the set
+S and, for v ∈ Fk , the map ϕv : S → F2 and the set Sv ⊆ F2 as follows:
+S := \{(f1 , f2 ) | C ≡2 (f1 , f2 ) ∈ Λ(C ≡2 , δ, (f1 , f2 ))\} ,
+ϕv (f1 , f2 ) := (⟨f1 , v⟩, ⟨f2 , v⟩) , Sv := ϕv (S) .
+13
+
+A similar observation (applied to codes over extension fields) previously appeared in [FS25]
+
+Note that |S| = |Λ (C ≡2 , δ)| and clearly for any v it holds that |Sv | ≤ |S|. Further, for any distinct
+F1 , F2 ∈ S we have that
+1
+Pr [ϕv (F1 ) = ϕv (F2 )] ≤
+,
+v
+|F|
+and thus by Claim B.1 it holds that there exists a v ∈ Fk such that
+|Sv | ≥
+
+|F| · |Λ (C ≡2 , δ)|
+|S|
+=
+.
+1
+|F| + |Λ (C ≡2 , δ)| − 1
+1 + (|S| − 1) · |F|
+
+Fixing this v, for any µ1 , µ2 ∈ F, define the set Γµ1 ,µ2 as follows:
+Γµ1 ,µ2 := \{γ ∈ F : ∃ (a1 , a2 ) ∈ Sv s.t. a1 + γ · a2 = µ1 + γ · µ2 \} .
+Note that, letting x = (v, µ1 , µ2 ) and y = (f1 , f2 ), it holds that Γµ1 ,µ2 ⊆ Ωyx , where Ω is as in
+Definition 6.11. Further, if (µ1 , µ2 ) ∈
+/ Sv , it holds that ∆(y, R2C [x]) > δ, and so the soundness error
+of Construction 6.9 is lowerbound by
+|Γµ1 ,µ2 |
+subject to (µ1 , µ2 ) ∈
+/ Sv .
+|F|
+Let Sv2nd = \{a2 : (a1 , a2 ) ∈ Sv \}. Note that |Sv2nd | ≤ |Sv | ≤ |Λ (C ≡2 , δ)| < |F| by assumption, so
+there exists µ2 ∈
+/ Sv2nd . Fix such a µ2 so that for any µ1 ∈ F we have that (µ1 , µ2 ) ∈
+/ Sv . Next, we
+choose µ1 so that the map ψ : Sv → Γµ1 ,µ2 defined as:
+ψ : Sv → Γµ1 ,µ2 ,
+
+(a1 , a2 ) 7→
+
+µ1 − a 1
+,
+a2 − µ2
+≡2
+
+|Λ(C ,δ)|
+is well-defined and injective. This suffices since it implies that |Γµ1 ,µ2 |/|F| ≥ |Sv |/|F| ≥ |F|+|Λ(C
+≡2 ,δ)|−1 .
+2nd
+First note that, since µ2 ∈
+/ Sv , the denominator never vanishes, and for (a1 , a2 ) ∈ Sv we have that
+
+γ = ψ(a1 , a2 ) =
+
+µ1 − a 1
+=⇒ a1 + γ · a2 = µ1 + γ · µ2 ,
+a2 − µ 2
+
+and thus ψ(a1 , a2 ) ∈ Γµ1 ,µ2 as desired. We are left to show that the map is injective when µ1
+is chosen appropriately. Fix distinct pairs (a1 , a2 ), (b1 , b2 ) ∈ Sv , and suppose that ψ(a1 , a2 ) =
+ψ(b1 , b2 ), which implies that
+µ1 − b 1
+µ1 − a 1
+=
+a2 − µ2
+b2 − µ2
+Note that if a2 = b2 we have that a1 = b1 , a contradiction to (a1 , a2 ) ̸= (b1 , b2 ), so we assume that
+1 b2 −b1 a2
+a2 ̸= b2 . Then, by solving the above equation we obtain that µ1 must be µ1 = µ2 ·(a1 −bb12)+a
+.
+−a2
+Define the set
+(
+
+B :=
+
+µ2 · (a1 − b1 ) + a1 b2 − b1 a2
+b2 − a2
+
+≡2
+
+(a1 , a2 ), (b1 , b2 ) ∈
+
+Sv
+2
+
+!)
+
+.
+
+Since |B| ≤ |S2v | ≤ |Λ(C 2 ,δ)| < |F| (where the last inequality follows by assumption), it must be
+that there exists µ1 ∈ F \textbackslash{} B, and then ψ is injective.
+
+
+\subsubsection{Correlated agreement lower bound}
+
+
+
+We show a large correlated agreement error directly leads to an attack on the soundness of Construction 6.9.
+Lemma 6.13. The soundness error of Construction 6.9 from R̃2C,δ to R̃1C,δ is at least εca (C, δ).
+Proof. Let δ ∈ (0, 1). Suppose that εca (C, δ) > 0, if not the statement holds vacuously. Let f1 , f2
+be two functions maximizing the CA error, that is
+"
+
+Pr
+
+γ←F
+
+∆(f1 + γ · f2 , C) ≤ δ
+∧ ∆((f1 , f2 ), C ≡2 ) > δ
+
+\#
+
+= εca (C, δ) .
+
+Since εca (C, δ) > 0, it must be that ∆((f1 , f2 ), C ≡2 ) > δ. Let S = \{γ : ∆(f1 + γ · f2 , C) ≤ δ\}, and
+2
+note that |S| = εca (C, δ) · |F|. Clearly S ⊆ Ωf01k,f,0,0
+, which concludes the lemma.
+Remark 6.14. We stress that Lemma 6.13 lower bounds the soundness of Construction 6.9 in
+terms of the correlated agreement error εca (C, δ), rather than the mutual correlated agreement error
+εmca (C, δ) that appears in the soundness error in Lemma 6.10. A lower bound based on mutual
+correlated agreement would be qualitatively stronger, since εmca (C, δ) ≥ εca (C, δ). However, no
+attack that succeeds all the way to εmca (C, δ), assuming εmca (C, δ) > εca (C, δ), is currently known.
+Note also that the attack in Lemma 6.13 does not leverage the triple x = (v, µ1 , µ2 ), indicating that
+exploiting clever choices of x might lead to sharper results (similar to Lemma 6.12).
+
+
+\section{Related problems and promising directions}
+
+
+
+In this section we briefly state open challenges and possible directions towards either resolving the
+grand challenges in the introduction or improving IOP and SNARK constructions.
+Mutual correlated agreement for non-polynomial codes. This paper focuses on listdecoding and MCA bounds for Reed–Solomon codes and related polynomial codes, as those are the
+most typically deployed and studied codes. A long line of works considers constructions using instead non-polynomial codes with a focus on linear-time encodable codes (e.g., expander codes, turbo
+codes, sketched codes, and others) so as to enable linear-time provers (e.g., [BCGGHJ17; BCG20;
+BCL22; GLSTW23; BCFRRZ25; BMMS25a; BCFW25; BMMS25b; BFRW25]). For many of these
+codes, the best known list-decoding and MCA bounds are those proved for general linear codes,
+which are significantly weaker than what is known for Reed–Solomon codes. A natural line of research is to investigate whether better list-decoding and MCA bounds can be shown for these codes.
+This has implications that are both practical (leading to better succinct arguments) and theoretical
+(as many of these codes have non-explicit constructions, which suggests the techniques to prove
+improved list-decoding and MCA bounds might significantly differ from polynomial-codes). Some
+preliminary results in this direction can be found in [GG25], which showed that random LDPC
+codes and AEL codes have MCA up to capacity.
+Characterization of degenerate codes. On a similar note, we know that some of the listdecoding and MCA bounds known for general linear codes are in fact tight: there exists codes
+for which no better list-decoding or MCA bound can be proven. Typically, these codes tend to
+be degenerate, and one could reasonably conjecture that any “well behaved code” achieves better
+bounds than the ones for generic linear codes. Understanding which codes are indeed well behaved
+and which ones are not is an open ended research question.
+The effect of interleaving. The construction of an interleaved code C ≡s from a base code C has
+many applications to IOPs [AHIV17; GLSTW23; ACFY25; NA25; CFW26], and the soundness of
+the resulting construction depends on the list-decoding and MCA bounds of the interleaved code
+C ≡s . Statements such as Lemma 2.10 and Lemma 4.7 show that these properties are intimately
+connected to the corresponding properties of the base code C. The situation is not, however,
+completely satisfactory. In list-decoding, the list size of the interleaved code C ≡s is bounded from
+above by the list size of the base code C by a factor that is independent of the interleaving parameter
+s, but which grows exponentially when δ → δmin (C). The MCA error instead does not depend on
+δ, but yet grows linearly with the interleaving parameter s, i.e. εmca (C ≡s , δ) ≤ s · εmca (C, δ). We do
+not know whether these bounds are tight in general; are there linear codes such that Lemma 2.10
+and Lemma 4.7 are met with equality for all δ ∈ (0, δmin (C))? An indication that the MCA bound
+is not tight comes in the work of [DG24], which shows that, when δ ∈ (0, δmin (C)/2), we have
+that εmca (C ≡s , δ) = εmca (C, δ). As a research direction, we propose both understanding whether the
+existing bounds are tight and characterizing whether for a chosen family of codes (such as the
+polynomial codes discussed in this paper or the non-polynomial codes mentioned earlier) tighter
+bounds can be derived.
+Improved parameters for subspace-design codes. From the recent works of [CZ25; GG25],
+we know that subspace-design codes exhibit good list-decoding and MCA properties up to the
+capacity regime. The tradeoff is that for the subspace-design codes that we know of, to achieve
+good properties up to δ := δmin (C) − η the size of the alphabet must increase to be s = O(1/η 2 ).
+Empirically (as investigated in Section 6.3) the increase in alphabet size eliminates the gain in
+
+argument size that larger proximity parameters typically translate to. To the best of our knowledge,
+no natural barriers to better dependencies between η and s are known, which might reverse the
+comparison in Section 6.3 and lead to concretely more efficient succinct arguments from subspacedesign codes. Conversely, discovering such a barrier would indicate that the subspace-design route
+is unlikely to be beneficial for succinct arguments.
+MCA for univariate powers. In this paper, we considered MCA for an affine combination of
+codewords, namely combinations of the form f0 + γ · f1 . The design of IOP often mandates more
+general types of combinations, such as polynomial generators (where the combination is generated
+by low-degree polynomials in the randomness sampled), and one can study MCA with respect to
+this class of combination. For example, one could study curve MCA for univariate combinations
+P
+of the form ℓi=0 γ i · fi . The work of [BCGM25] shows that a linear code C that has MCA with
+respect to both affine combinations and univariate combinations is sufficient to show that the C
+has good MCA properties with respect to every polynomial generator. Understanding which codes
+have these two properties is an open question.
+Derandomizing Reed–Solomon results. An important piece of evidence that Reed–Solomon
+codes may have good list-decoding and MCA properties up to capacity is the fact that randomly
+punctured Reed–Solomon codes exhibit such properties (Theorem 4.15). One possible direction to
+show that explicit Reed–Solomon codes have the same properties is to derandomize such results.
+More precisely, these results show that (for any rate
+ρ, a sufficiently large field F, and message
+F 
+length k), the code C := RS[F, L, k], where L ← k/ρ
+, has good list-decoding and MCA properties.
+Instead of choosing the subset L uniformly at random in the field F, one can reasonably consider the
+case where the subset L has more structure, and whether similar properties hold for the resulting
+codes.
+
+
+\appendix
+\section{Additional preliminaries}
+
+
+
+In this section we introduce further concepts that are used throughout this paper.
+
+
+\subsection{Interactive oracle reductions}
+
+
+
+Relations. In this paper a relation is a set of triples (x, y, w):
+• x is the explicit instance of the relation.
+• y is the implicit instance of the relation.
+• w is the witness of the relation.
+Interactive Oracle Reductions (IORs) [BCGGRS19; BMNW25] are a generalization of Interactive Oracle Proofs (IOPs) [BCS16; RRR16]. Below we describe the flavor of IOR relevant to this
+paper.
+A public-coin IOR of proximity from relation R to relation R′ is a tuple IOR = (P, V) that works
+as follows. The prover P is an interactive algorithm that receives as input (x, y, w) ∈ R, and the
+verifier V is an interactive oracle algorithm that receives input x and query access to y (consisting
+of l0 symbols over some alphabet Σ0 ). They interact over k rounds: in each round i ∈ [k], P sends
+a proof string πi consisting of li symbols over some alphabet Σi , and V sends a uniformly random
+message ρi ∈ \{0, 1\}ri . After k rounds of interaction, V makes queries to y, π1 , . . . , πk (each query
+to a symbol). After that: (i) V either rejects or outputs a new explicit instance x′ and implicit
+instance y′ (which is implicitly specified in terms of the oracles y and π1 , . . . , πk ), and (ii) P outputs
+a new witness w′ such that (x′ , y′ , w′ ) ∈ R′ . We write ⟨P, V⟩(x, y, w) for the interaction of P, V
+above.
+Definition A.1. IOR = (P, V) has (perfect) completeness if, for every (x, y, w) ∈ R,
+h
+
+Pr (x′ , y′ , w′ ) ∈ R′
+
+(x′ , y′ , w′ ) ← ⟨P, V⟩(x, y, w)
+
+i
+
+= 1.
+
+Remark A.2. An IOP for a relation R is an IOR from the relation R to the trivial relation
+R⊥ := \{(x = ⊥, y = ⊥, w = ⊥)\}.
+Knowledge soundness for IORs. Applications of IORs typically require a strengthening of the
+classical notion of soundness, known as knowledge soundness.
+Definition A.3. An interactive oracle reduction IOR = (P, V) has knowledge soundness from
+R̃ to R̃′ with error κ and extraction time et if there exists an extractor E that runs in time
+et such that for every statement (x, y), and unbounded malicious prover P̃,
+"
+
+Pr
+
+ρ1 ,...,ρk
+
+(x′ , y′ , w′ ) ∈ R̃′
+∧ (x, y, w) ∈
+/ R̃
+
+tr
+
+(x′ , y′ , w′ ) ←
+− ⟨P̃, V⟩(x, y)
+w ← E(x, y, tr, x′ , y′ , w′ )
+
+\#
+
+≤ κ(x, y) .
+
+Sometimes we leave implicit some parameters of κ if they are clear from context.
+The IORs that we consider in this paper satisfy a strong notion of knowledge soundness, namely
+round-by-round knowledge soundness [BCFW25], that guarantees security after the [FS86] transformation.
+
+Definition A.4. Let IOR = (P, V) be an IOR from a relation R to R′ . A knowledge state
+function from R̃ to R̃′ for IOR is a (possibly inefficient) function State that, on input a statement
+(x, y), interaction transcript tr, and knowledge state witness w, outputs a bit and has the
+following properties.
+• Empty transcript: if tr = ∅ is the empty transcript, then State(x, y, tr, w) = 1 if and only if
+(x, y, w) ∈ R̃.
+• Prover moves: if tr is a transcript where the prover is about to move and State(x, y, tr, w) = 0,
+then State(x, y, tr∥π, w) = 0 for every prover message π.
+• Full transcript: if tr = (π1 , ρ1 , . . . , πk , ρk ) is a full transcript, then State(x, y, tr, w) = 1 if and
+only if Vy,π1 ,...,πk (x, ρ1 , . . . , ρk ) outputs (x′ , y′ ) such that (x′ , y′ , w) ∈ R̃′ .
+Definition A.5. IOR = (P, V) from a relation R to R′ has round-by-round knowledge soundness from R̃ to R̃′ , errors (ε1 , . . . , εk ), and extraction times (et1 , . . . , etk ) if there exist a
+knowledge state function State with relaxation R̃ to R̃′ for IOR and a deterministic extractor Erbr
+with the following property: for every statement (x, y), round index i ∈ [k], and interaction transcript tr = (π1 , ρ1 , . . . , πi−1 , ρi−1 , πi ) where the verifier is about to move, Erbr runs in time at most
+eti and
+"
+\#
+
+State x, y, tr, Erbr (x, y, tr∥ρi , w) = 0
+Pr ∃ w :
+≤ εi (x, y) .
+ρi
+∧ State(x, y, tr∥ρi , w) = 1
+The total extraction time is
+
+A.2
+
+P
+
+i∈[k] eti .
+
+Univariate multiplicity codes
+
+Univariate multiplicity codes instead choose each alphabet symbol Fs to bundle the evaluations of
+the s formal derivatives of the message. We recall the formal derivative of a polynomial.
+Definition A.6. Let k ∈ N, F be a finite field with char(F) ≥ k. For a polynomial fˆ ∈ F<k [X] with
+P
+i
+<k−1 [X] as
+ˆ′
+fˆ(X) = k−1
+i=0 ai · X we define the formal derivative polynomial f ∈ F
+fˆ′ (X) =
+
+k−1
+X
+
+(ai · i) · X i−1 .
+
+i=1
+
+For s ∈ N we also define recursively fˆ(0) = fˆ and fˆ(s) = (fˆ(s−1) )′ .
+Using the formal derivative, we can define multiplicity codes. Note that, compared to folded
+Reed–Solomon codes, univariate multiplicity codes require the characteristic of the field to be larger
+than the message size (but have looser requirements on the size of the field itself).
+Definition A.7 ([GW13; KSY14]). Let n, k, s ∈ N, F be a finite field with char(F) ≥ k and |F| ≥ n
+and let L ⊆ F with |L| = n. We define the univariate multiplicity code:
+|
+fˆ(0) (x)
+|
+[ ˆ(1)
+]|
+|
+\}
+f
+(x)
+[
+]
+]
+UM[F, L, k, s] := f : L → Fs ∃fˆ ∈ F<k [X], ∀x ∈ L : f (x) = [
+..
+[
+]| .
+|
+|
+[
+]|
+.
+|
+|
+|
+|
+\{
+\}
+fˆ(s−1) (x)
+\{
+|
+|
+|
+|
+\{
+
+[
+
+
+]\}
+
+Note that UM[F, L, k, 1] = RS[F, L, k] and that further for any message fˆ ∈ F<k [X] we have that
+UM[F, L, k, s](fˆ) = IRS[F, L, k, s](fˆ(0) , . . . , fˆ(s−1) ), so the encoding can be performed with (roughly)
+the same concrete efficiency as with an interleaved Reed–Solomon code.
+
+
+\section{Omitted claim for Lemma 6.12}
+
+
+
+Claim B.1. Let S, T be finite sets and let Φ be a distribution on functions from S to T such that
+for any distinct x, y ∈ S,
+Pr [ϕ(x) = ϕ(y)] ≤ ϵ .
+ϕ←Φ
+
+Then there exists some ϕ in the support of Φ such that
+|ϕ(S)| ≥
+n
+
+Proof. Let Cϕ = (x, y) ∈ S2
+
+
+
+|S|
+.
+1 + (|S| − 1) · ϵ
+
+o
+
+: ϕ(x) = ϕ(y) be the set of (distinct) colliding elements of S under
+
+ϕ. Note in particular that Eϕ←Φ [|Cϕ |] ≤ |S|
+2 · ϵ since
+
+
+!
+
+Eϕ←Φ [|Cϕ |] =
+
+Pr [ϕ(x) = ϕ(y)] ≤
+
+X
+(x,y)∈( )
+S
+2
+
+ϕ←Φ
+
+|S|
+· ϵ.
+2
+
+Clearly, |S| = µ∈ϕ(S) |ϕ−1 (µ)|, and further (since each µ ∈ ϕ(S) contributes
+pairs) it must be that
+P
+
+|ϕ−1 (µ)|
+2
+
+!
+
+|Cϕ | =
+
+X
+µ∈ϕ(S)
+
+|ϕ−1 (µ)|
+colliding
+2
+
+(
+
+(
+
+X
+1 X
+1
+=
+(|ϕ−1 (µ)| − 1) · |ϕ−1 (µ)| = )−|S| +
+|ϕ−1 (µ)|2 ) .
+2 µ∈ϕ(S)
+2
+µ∈ϕ(S)
+
+Rearranging, multiplying through by |ϕ(S)| (and applying Cauchy–Schwarz), we obtain that
+(2
+
+(
+
+|ϕ(S)| · (2|Cϕ | + |S|) = |ϕ(S)| ·
+
+X
+
+−1
+
+|ϕ
+
+µ∈ϕ(S)
+
+(µ)| ≥ )
+2
+
+X
+
+−1
+
+|ϕ
+
+(µ)|) = |S|2 ,
+
+µ∈ϕ(S)
+
+
+and thus |ϕ(S)| ≥ 2|C|S|
+. By taking expectations, and by Jensen’s we get that
+ϕ |+|S|
+"
+
+EΦ [|Φ(S)|] ≥ EΦ
+
+\#
+
+|S|2
+|S|2
+|S|2
+≥
+≥
+.
+
+2|CΦ | + |S|
+2 · EΦ [|CΦ |] + |S|
+2 · |S| · ϵ + |S|
+2
+
+Rearranging, we get the final bound, and this guarantees the existence of a ϕ with the desired
+properties.
+
+
+\section*{Acknowledgements}
+\addcontentsline{toc}{section}{Acknowledgements}
+
+We would like to thank Justin Drake for creating the Proximity Gaps Prize. We also extend
+our gratitude to the following people for their help in various ways during the writing of this
+paper (listed in surname alphabetical order): Alessandro Chiesa, Elizabeth Crites, Rohan Goyal,
+Venkatesan Guruswami, Ulrich Haböck, Antonio Kambiré, Dmitry Krachun, and Swastik Kopparty,
+and Eylon Yogev.
+Gal Arnon is supported by the European Research Council (ERC) under the EU’s Horizon 2020
+research and innovation program (Grant agreement No. 101019547), and Stellar Foundation Grant.
+Dan Boneh was supported by grants from NSF and DARPA. Giacomo Fenzi was supported in part
+by the Ethereum Foundation and the Sui Foundation.
+Part of this work was conducted while Gal Arnon and Giacomo Fenzi were visiting the Simons
+Institute for the Theory of Computing, and Giacomo Fenzi was visiting Succinct.
+
+
+\section*{References}
+\addcontentsline{toc}{section}{References}
+
+[ACFY25]
+
+Gal Arnon, Alessandro Chiesa, Giacomo Fenzi, and Eylon Yogev. “WHIR: Reed–Solomon
+Proximity Testing with Super-Fast Verification”. In: Proceedings of the 44th Annual International Conference on Theory and Application of Cryptographic Techniques. EUROCRYPT ’25. 2025.
+
+[AGGLZ25]
+
+Omar Alrabiah, Zeyu Guo, Venkatesan Guruswami, Ray Li, and Zihan Zhang. “Random
+Reed-Solomon Codes Achieve List-Decoding Capacity With Linear-Sized Alphabets”. In:
+Advances in Combinatorics (2025). doi: 10.19086/aic.2025.8.
+
+[AGL23]
+
+Omar Alrabiah, Venkatesan Guruswami, and Ray Li. “AG codes have no list-decoding
+friends: Approaching the generalized Singleton bound requires exponential alphabets”. In:
+CoRR abs/2308.13424 (2023). arXiv: 2308.13424.
+
+[AGL24]
+
+Omar Alrabiah, Venkatesan Guruswami, and Ray Li. “Randomly Punctured Reed-Solomon
+Codes Achieve List-Decoding Capacity over Linear-Sized Fields”. In: Proceedings of the 56th
+Annual ACM Symposium on Theory of Computing. STOC ’24. 2024, pp. 1458–1469.
+
+[AHIV17]
+
+Scott Ames, Carmit Hazay, Yuval Ishai, and Muthuramakrishnan Venkitasubramaniam.
+“Ligero: Lightweight Sublinear Arguments Without a Trusted Setup”. In: Proceedings of
+the 24th ACM Conference on Computer and Communications Security. CCS ’17. 2017,
+pp. 2087–2104.
+
+[BCFRRZ25]
+
+Martijn Brehm, Binyi Chen, Ben Fisch, Nicolas Resch, Ron D. Rothblum, and Hadas Zeilberger. “Blaze: Fast SNARKs from Interleaved RAA Codes”. In: Proceedings of the 44th
+Annual International Conference on Theory and Application of Cryptographic Techniques.
+EUROCRYPT ’25. 2025.
+
+[BCFW25]
+
+Benedikt Bünz, Alessandro Chiesa, Giacomo Fenzi, and William Wang. Linear time accumulation schemes. Cryptology ePrint Archive, Report 2025/753. 2025.
+
+[BCG20]
+
+Jonathan Bootle, Alessandro Chiesa, and Jens Groth. “Linear-Time Arguments with Sublinear Verification from Tensor Codes”. In: Proceedings of the 18th Theory of Cryptography
+Conference. TCC ’20. 2020, pp. 19–46.
+
+[BCGGHJ17]
+
+Jonathan Bootle, Andrea Cerulli, Essam Ghadafi, Jens Groth, Mohammad Hajiabadi, and
+Sune K. Jakobsen. “Linear-Time Zero-Knowledge Proofs for Arithmetic Circuit Satisfiability”. In: Proceedings of the 23rd International Conference on the Theory and Applications
+of Cryptology and Information Security. ASIACRYPT ’17. 2017, pp. 336–365.
+
+[BCGGRS19]
+
+Eli Ben-Sasson, Alessandro Chiesa, Lior Goldberg, Tom Gur, Michael Riabzev, and Nicholas
+Spooner. “Linear-Size Constant-Query IOPs for Delegating Computation”. In: Proceedings
+of the 17th Theory of Cryptography Conference. TCC ’19. 2019, pp. 494–521.
+
+[BCGM25]
+
+Sarah Bordage, Alessandro Chiesa, Ziyi Guan, and Ignacio Manzur. All Polynomial Generators Preserve Distance with Mutual Correlated Agreement. Cryptology ePrint Archive,
+Paper 2025/2051. 2025. url: https://eprint.iacr.org/2025/2051.
+
+[BCHKS25]
+
+Eli Ben-Sasson, Dan Carmon, Ulrich Haböck, Swastik Kopparty, and Shubhangi Saraf. On
+Proximity Gaps for Reed–Solomon Codes. Cryptology ePrint Archive, Paper 2025/2055.
+2025. url: https://eprint.iacr.org/2025/2055.
+
+[BCIKS20]
+
+Eli Ben-Sasson, Dan Carmon, Yuval Ishai, Swastik Kopparty, and Shubhangi Saraf. “Proximity Gaps for Reed–Solomon Codes”. In: Proceedings of the 61st Annual IEEE Symposium
+on Foundations of Computer Science. FOCS ’20. 2020, pp. 900–909.
+
+[BCL22]
+
+Jonathan Bootle, Alessandro Chiesa, and Siqi Liu. “Zero-Knowledge IOPs with Linear-Time
+Prover and Polylogarithmic-Time Verifier”. In: Proceedings of the 41st Annual International
+Conference on Theory and Application of Cryptographic Techniques. EUROCRYPT ’22.
+2022, pp. 275–304.
+
+[BCS16]
+
+Eli Ben-Sasson, Alessandro Chiesa, and Nicholas Spooner. “Interactive Oracle Proofs”. In:
+Proceedings of the 14th Theory of Cryptography Conference. TCC ’16-B. 2016, pp. 31–60.
+
+[BDG24]
+
+Joshua Brakensiek, Manik Dhar, and Sivakanth Gopi. “Improved Field Size Bounds for
+Higher Order MDS Codes”. In: IEEE Trans. Inf. Theory 70.10 (2024), pp. 6950–6960.
+
+[BFRW25]
+
+Benedikt Bünz, Giacomo Fenzi, Ron D. Rothblum, and William Wang. TensorSwitch: Nearly
+Optimal Polynomial Commitments from Tensor Codes. Cryptology ePrint Archive, Report
+2025/2065. 2025.
+
+[BGKS20]
+
+Eli Ben-Sasson, Lior Goldberg, Swastik Kopparty, and Shubhangi Saraf. “DEEP-FRI: Sampling Outside the Box Improves Soundness”. In: Proceedings of the 11th Innovations in
+Theoretical Computer Science Conference. ITCS ’20. 2020, 5:1–5:32.
+
+[BGM23]
+
+Joshua Brakensiek, Sivakanth Gopi, and Visu Makam. “Generic Reed-Solomon Codes Achieve
+List-Decoding Capacity”. In: Proceedings of the 55th Annual ACM Symposium on Theory
+of Computing. STOC ’23. 2023, pp. 1488–1501.
+
+[BKR06]
+
+Eli Ben-Sasson, Swastik Kopparty, and Jaikumar Radhakrishnan. “Subspace Polynomials
+and List Decoding of Reed-Solomon Codes”. In: Proceedings of the 47th Annual IEEE Symposium on Foundations of Computer Science. 2006, pp. 207–216.
+
+[BKS18]
+
+Eli Ben-Sasson, Swastik Kopparty, and Shubhangi Saraf. “Worst-Case to Average Case
+Reductions for the Distance to a Code”. In: Proceedings of the 33rd ACM Conference on
+Computer and Communications Security. CCS ’18. 2018, 24:1–24:23.
+
+[BMMS25a]
+
+Anubhav Baweja, Pratyush Mishra, Tushar Mopuri, and Matan Shtepel. FICS and FACS:
+Fast IOPPs and Accumulation via Code-Switching. Cryptology ePrint Archive, Report
+2025/737. 2025.
+
+[BMMS25b]
+
+Anubhav Baweja, Pratyush Mishra, Tushar Mopuri, and Matan Shtepel. Query-Optimal
+IOPPs for Linear-Time Encodable Codes. Cryptology ePrint Archive, Report 2025/1588.
+2025.
+
+[BMNW25]
+
+Benedikt Bünz, Pratyush Mishra, Wilson Nguyen, and William Wang. “Arc: Accumulation
+for Reed–Solomon Codes”. In: Proceedings of the 45th Annual International Cryptology
+Conference. CRYPTO ’25. 2025.
+
+[CFW26]
+
+Alessandro Chiesa, Giacomo Fenzi, and Guy Weissenberg. Zero-Knowledge IOPPs for Constrained Interleaved Codes. Cryptology ePrint Archive, Report 2026/391. 2026.
+
+[CGHLL26]
+
+Dan Carmon, Lior Goldberg, Ulrich Haböck, Leonardo Lerer, and Ilya Lesokhin. “S-two
+Whitepaper”. In: (2026). url: https://eprint.iacr.org/2026/532.
+
+[CHK25]
+
+Soham Chatterjee, Prahladh Harsha, and Mrinal Kumar. “Deterministic list decoding of
+Reed-Solomon codes”. In: Electron. Colloquium Comput. Complex. TR25-170 (2025). ECCC:
+TR25-170. url: https://eccc.weizmann.ac.il/report/2025/170.
+
+[CS25]
+
+Elizabeth Crites and Alistair Stewart. On Reed–Solomon Proximity Gaps Conjectures. Cryptology ePrint Archive, Paper 2025/2046. 2025. url: https://eprint.iacr.org/2025/
+2046.
+
+[CW07]
+
+Qi Cheng and Daqing Wan. “On the List and Bounded Distance Decodability of ReedSolomon Codes”. In: SIAM J. Comput. 37.1 (2007), pp. 195–209. doi: 10.1137/S0097539705447335.
+url: https://doi.org/10.1137/S0097539705447335.
+
+[CY24]
+
+Alessandro Chiesa and Eylon Yogev. Building Cryptographic Proofs from Hash Functions.
+2024. url: https://github.com/hash-based-snargs-book.
+
+[CZ25]
+
+Yeyuan Chen and Zihan Zhang. “Explicit Folded Reed-Solomon and Multiplicity Codes
+Achieve Relaxed Generalized Singleton Bounds”. In: Proceedings of the 57th Annual ACM
+Symposium on Theory of Computing, STOC 2025, Prague, Czechia, June 23-27, 2025. Ed.
+by Michal Koucký and Nikhil Bansal. ACM, 2025, pp. 1–12.
+
+[DG24]
+
+Benjamin Diamond and Angus Gruen. Proximity Gaps in Interleaved Codes. Cryptology
+ePrint Archive, Report 2024/1351. 2024.
+
+[DG25]
+
+Benjamin E. Diamond and Angus Gruen. On the Distribution of the Distances of Random
+Words. Cryptology ePrint Archive, Paper 2025/2010. 2025. url: https://eprint.iacr.
+org/2025/2010.
+
+[DP25]
+
+Benjamin Diamond and Jim Posen. “Succinct Arguments over Towers of Binary Fields”.
+In: Proceedings of the 44th Annual International Conference on Theory and Application of
+Cryptographic Techniques. EUROCRYPT ’25. 2025.
+
+[Eli57]
+
+Peter Elias. “List decoding for noisy channels”. In: (1957).
+
+[FS25]
+
+Giacomo Fenzi and Antonio Sanso. Small-field hash-based SNARGs are less sound than
+conjectured. Cryptology ePrint Archive, Report 2025/2197. 2025.
+
+[FS86]
+
+Amos Fiat and Adi Shamir. “How to prove yourself: practical solutions to identification and
+signature problems”. In: Proceedings of the 6th Annual International Cryptology Conference.
+CRYPTO ’86. 1986, pp. 186–194.
+
+[GCXK25]
+
+Yiwen Gao, Dongliang Cai, Yang Xu, and Haibin Kan. From List-Decodability to Proximity
+Gaps. Cryptology ePrint Archive, Paper 2025/870. 2025. url: https://eprint.iacr.org/
+2025/870.
+
+[GG25]
+
+Rohan Goyal and Venkatesan Guruswami. Optimal Proximity Gaps for Subspace-Design
+Codes and (Random) Reed-Solomon Codes. Cryptology ePrint Archive, Paper 2025/2054.
+2025. url: https://eprint.iacr.org/2025/2054.
+
+[GGR11]
+
+Parikshit Gopalan, Venkatesan Guruswami, and Prasad Raghavendra. “List Decoding Tensor Products and Interleaved Codes”. In: SIAM Journal on Computing 40.5 (2011). Preliminary version appeared in STOC ’09., pp. 1432–1462.
+
+[GHSZ02]
+
+Venkatesan Guruswami, Johan Håstad, Madhu Sudan, and David Zuckerman. “Combinatorial bounds for list decoding”. In: IEEE Trans. Inf. Theory 48.5 (2002), pp. 1021–1034.
+doi: 10.1109/18.995539. url: https://doi.org/10.1109/18.995539.
+
+[GK16]
+
+Venkatesan Guruswami and Swastik Kopparty. “Explicit subspace designs”. In: Combinatorica 36.2 (2016), pp. 161–185.
+
+[GKL24]
+
+Yiwen Gao, Haibin Kan, and Yuan Li. Linear Proximity Gap for Linear Codes within the
+1.5 Johnson Bound. Cryptology ePrint Archive, Report 2024/1810. 2024.
+
+[GLMRSW22]
+
+Venkatesan Guruswami, Ray Li, Jonathan Mosheiff, Nicolas Resch, Shashwat Silas, and
+Mary Wootters. “Bounds for List-Decoding and List-Recovery of Random Linear Codes”.
+In: IEEE Trans. Inf. Theory 68.2 (2022), pp. 923–939. doi: 10.1109/TIT.2021.3127126.
+url: https://doi.org/10.1109/TIT.2021.3127126.
+
+[GLSTW23]
+
+Alexander Golovnev, Jonathan Lee, Srinath T. V. Setty, Justin Thaler, and Riad S. Wahby.
+“Brakedown: Linear-time and field-agnostic SNARKs for R1CS”. In: Proceedings of the 43rd
+Annual International Cryptology Conference. CRYPTO ’23. 2023.
+
+[GR08]
+
+Venkatesan Guruswami and Atri Rudra. “Explicit Codes Achieving List Decoding Capacity:
+Error-Correction With Optimal Redundancy”. In: IEEE Trans. Inf. Theory 54.1 (2008),
+pp. 135–150.
+
+[GRS12]
+
+Venkatesan Guruswami, Atri Rudra, and Madhu Sudan. Essential coding theory. Vol. 2. 1.
+2012.
+
+[GS03]
+
+Venkatesan Guruswami and Igor E. Shparlinski. “Unconditional proof of tightness of Johnson bound”. In: Proceedings of the 14th Annual Symposium on Discrete Algorithms. SODA ’03.
+2003, pp. 754–755.
+
+[GS99]
+
+Venkatesan Guruswami and Madhu Sudan. “Improved decoding of Reed-Solomon and algebraicgeometry codes”. In: IEEE Trans. Inf. Theory 45.6 (1999), pp. 1757–1767. doi: 10.1109/
+18.782097. url: https://doi.org/10.1109/18.782097.
+
+[GW13]
+
+Venkatesan Guruswami and Carol Wang. “Linear-Algebraic List Decoding for Variants of
+Reed-Solomon Codes”. In: IEEE Trans. Inf. Theory 59.6 (2013), pp. 3257–3268. doi: 10.
+1109/TIT.2013.2246813. url: https://doi.org/10.1109/TIT.2013.2246813.
+
+[GX13]
+
+Venkatesan Guruswami and Chaoping Xing. “Combinatorial list-decoding of Reed-Solomon
+codes beyond the Johnson radius”. In: Proceedings of the 45th Annual ACM SIGACT Symposium on Theory of Computing. STOC ’13. 2013, pp. 843–852.
+
+[GZ23]
+
+Zeyu Guo and Zihan Zhang. “Randomly Punctured Reed-Solomon Codes Achieve the List
+Decoding Capacity over Polynomial-Size Alphabets”. In: Proceedings of the 64th Annual
+IEEE Symposium on Foundations of Computer Science. FOCS ’23. 2023, pp. 164–176.
+
+[Gur02]
+
+Venkatesan Guruswami. “Limits to list decodability of linear codes”. In: Proceedings of the
+34th Annual ACM Symposium on Theory of Computing. STOC ’02. 2002, pp. 506–516.
+
+[Hab24]
+
+Ulrich Haböck. “Basefold in the List Decoding Regime”. In: IACR Cryptol. ePrint Arch.
+(2024), p. 1571. url: https://eprint.iacr.org/2024/1571.
+
+[Hab25]
+
+Ulrich Haböck. A note on mutual correlated agreement for Reed-Solomon codes. Cryptology
+ePrint Archive, Paper 2025/2110. 2025. url: https://eprint.iacr.org/2025/2110.
+
+[JH01]
+
+Jørn Justesen and Tom Høholdt. “Bounds on list decoding of MDS codes”. In: IEEE Trans.
+Inf. Theory 47.4 (2001), pp. 1604–1609. doi: 10.1109/18.923744. url: https://doi.org/
+10.1109/18.923744.
+
+[JLR26]
+
+Fernando Granha Jeronimo, Lenny Liu, and Pranav Rajpal. “Optimal Proximity Gap for
+Folded Reed-Solomon Codes via Subspace Designs”. In: CoRR abs/2601.10047 (2026). doi:
+10.48550/ARXIV.2601.10047. arXiv: 2601.10047. url: https://doi.org/10.48550/
+arXiv.2601.10047.
+
+[Joh62]
+
+Selmer M. Johnson. “A new upper bound for error-correcting codes”. In: IRE Transactions
+in Information Theory 8.3 (1962), pp. 203–207.
+
+[KK25]
+
+Dmitry Krachun and Stepan Kazanin. Failure of the proximity gap conjecture for ReedSolomon code close to the capacity regime. personal communications. 2025.
+
+[KR26]
+
+Mrinal Kumar and Noga Ron-Zewi. “Advances in List Decoding of Polynomial Codes”. In:
+Electron. Colloquium Comput. Complex. TR26-032 (2026). ECCC: TR25-090. url: https:
+//eccc.weizmann.ac.il/report/2026/032.
+
+[KSY14]
+
+Swastik Kopparty, Shubhangi Saraf, and Sergey Yekhanin. “High-rate codes with sublineartime decoding”. In: Journal of the ACM 61.5 (2014). Preliminary version appeared in
+STOC ’11., 28:1–28:20.
+
+[MS77]
+
+Florence Jessie MacWilliams and Neil James Alexander Sloane. The theory of error-correcting
+codes. Vol. 16. Elsevier, 1977.
+
+[NA25]
+
+Andrija Novakovic and Guillermo Angeris. Ligerito: A Small and Concretely Fast Polynomial Commitment Scheme. Cryptology ePrint Archive, Report 2025/1187. 2025.
+
+[RRR16]
+
+Omer Reingold, Ron Rothblum, and Guy Rothblum. “Constant-Round Interactive Proofs
+for Delegating Computation”. In: Proceedings of the 48th ACM Symposium on the Theory
+of Computing. STOC ’16. 2016, pp. 49–62.
+
+[RVW13]
+
+Guy N. Rothblum, Salil P. Vadhan, and Avi Wigderson. “Interactive proofs of proximity:
+delegating computation in sublinear time”. In: Proceedings of the 45th ACM Symposium on
+the Theory of Computing. STOC ’13. 2013, pp. 793–802.
+
+[ST20]
+
+Chong Shangguan and Itzhak Tamo. “Combinatorial list-decoding of Reed-Solomon codes
+beyond the Johnson radius”. In: Proceedings of the 52nd Annual ACM SIGACT Symposium
+on Theory of Computing. STOC ’20. 2020, pp. 538–551.
+
+[Sin64]
+
+R. Singleton. “Maximum distance q-nary codes”. In: IEEE Transactions on Information
+Theory 10.2 (1964), pp. 116–118. doi: 10.1109/TIT.1964.1053661.
+
+[Woz58]
+
+John M. Wozencraft. “List decoding”. In: (1958).
+
+[Zei24]
+
+Hadas Zeilberger. Khatam: Reducing the Communication Complexity of Code-Based SNARKs.
+Cryptology ePrint Archive, Report 2024/1843. 2024.
+
+\end{document}

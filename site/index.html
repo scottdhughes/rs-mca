@@ -279,6 +279,14 @@
     .program-card .paper-actions,.program-card .update-actions{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.75rem;}
     .program-card a.source-link{border:1px solid var(--line);border-radius:999px;padding:.35rem .58rem;font-size:.78rem;font-weight:800;background:#fff;color:var(--ink-2);}
     .program-card a.source-link:hover{background:var(--soft);}
+    .benchmark-grid{grid-template-columns:repeat(4,minmax(0,1fr));}
+    .benchmark-card{display:flex;flex-direction:column;min-height:260px;}
+    .benchmark-card .tag{align-self:flex-start;margin-bottom:.7rem;}
+    .benchmark-card .tag.safe{color:var(--good);border-color:rgba(40,115,95,.24);background:rgba(40,115,95,.055)}
+    .benchmark-card .tag.baseline{color:var(--quiet);border-color:var(--line);background:#fff;}
+    .benchmark-card .tag.obstruction{color:var(--bad);border-color:rgba(159,59,72,.24);background:rgba(159,59,72,.055)}
+    .benchmark-formula{font-family:var(--mono);font-size:.82rem;line-height:1.45;color:var(--ink-2);background:#fff;border:1px solid var(--line);border-radius:10px;padding:.58rem .62rem;margin:.42rem 0;}
+    .benchmark-ref{margin-top:auto;padding-top:.75rem;color:var(--quiet);font-family:var(--mono);font-size:.72rem;line-height:1.45;}
     .paper-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem;margin:1rem auto 0;text-align:left;}
     .paper-card{display:flex;flex-direction:column;min-height:245px;}
     .paper-letter{
@@ -354,7 +362,7 @@
       .stats,.calc-grid,.calc-result,.gate-list{grid-template-columns:repeat(2,minmax(0,1fr));}
       .controls{grid-template-columns:1fr;}
       .results-toolbar{grid-template-columns:1fr;}
-      .program-grid,.paper-grid{grid-template-columns:1fr;}
+      .program-grid,.paper-grid,.benchmark-grid{grid-template-columns:1fr;}
       .section-title{display:block}.section-title p{margin-top:.8rem;}
     }
     @media (max-width:620px){
@@ -381,6 +389,7 @@
       <nav class="main-navigation" aria-label="Main navigation">
         <a href="#frontier">Frontier</a>
         <a href="#leaderboard">Leaderboard</a>
+        <a href="#benchmarks">Benchmarks</a>
         <a href="#calculator">Calculator</a>
         <a href="#updates">Results</a>
         <a href="#papers">Papers</a>
@@ -554,6 +563,53 @@
               </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="benchmarks">
+      <div class="shell">
+        <div class="section-title">
+          <h2>Proximity Prize benchmarks</h2>
+          <p>Known MCA regimes from <em>Open Problems in List Decoding and Correlated Agreement</em>. They give the public comparison scale for the frontier rows.</p>
+        </div>
+        <div class="program-grid benchmark-grid" id="benchmarksGrid">
+          <article class="program-card benchmark-card">
+            <span class="tag baseline">Baseline</span>
+            <h3>Zero-radius MCA</h3>
+            <div class="benchmark-formula">\( \delta=0 \)</div>
+            <div class="benchmark-formula">\( \varepsilon_{\rm mca}(C,\delta)=2/|F| \)</div>
+            <p>At zero distance the bad-line event is the two endpoint challenges where the affine line equals one of its defining source words.</p>
+            <div class="benchmark-ref">trivial</div>
+          </article>
+          <article class="program-card benchmark-card">
+            <span class="tag safe">Safe</span>
+            <h3>Below unique decoding</h3>
+            <div class="benchmark-formula">\( \delta&lt;\delta_{\min}(C)/2 \)</div>
+            <div class="benchmark-formula">\( \varepsilon_{\rm mca}(C,\delta)\le O(n)/|F| \)</div>
+            <p>CA and MCA coincide in the unique-decoding regime, and Reed-Solomon codes have small MCA error up to this boundary.</p>
+            <div class="benchmark-ref">ACFY25; BCIKS20</div>
+          </article>
+          <article class="program-card benchmark-card">
+            <span class="tag safe">Safe</span>
+            <h3>Approaching Johnson</h3>
+            <div class="benchmark-formula">\( \delta=J(\delta_{\min}(C))-\eta \)</div>
+            <div class="benchmark-formula">\( \varepsilon_{\rm mca}(C,\delta)\le n\,\mathrm{poly}(1/\eta)/|F| \)</div>
+            <p>The strongest general Reed-Solomon MCA upper bounds reach the Johnson radius with polynomial dependence on the reserve.</p>
+            <div class="benchmark-ref">BCHKS25; Hab25; BCGM25; BCIKS20</div>
+          </article>
+          <article class="program-card benchmark-card">
+            <span class="tag obstruction">Obstruction</span>
+            <h3>Approaching capacity</h3>
+            <div class="benchmark-formula">\( \delta\approx\delta_{\min}(C)-1/\Omega(\log n) \)</div>
+            <div class="benchmark-formula">\( \varepsilon_{\rm mca}(C,\delta)\ge n^{\Omega(1)}/|F| \)</div>
+            <p>Near capacity, known lower bounds show MCA/CA error must grow polynomially in n over the field-size denominator.</p>
+            <div class="benchmark-ref">BCHKS25; KK25; CGHLL26</div>
+          </article>
+        </div>
+        <div class="hero-links" style="margin-top:1rem">
+          <a href="https://github.com/przchojecki/rs-mca/blob/main/open-proximity.tex" target="_blank" rel="noopener">Reconstructed TeX</a>
+          <a href="https://github.com/przchojecki/rs-mca/blob/main/open-proximity.pdf" target="_blank" rel="noopener">PDF mirror</a>
         </div>
       </div>
     </section>
@@ -878,6 +934,7 @@
     ];
 
     const fallbackUpdatesRaw = [
+      {date:'2026-04-08', status:'survey benchmark', author:'Arnon-Boneh-Fenzi', title:'Proximity Prize MCA benchmark regimes', summary:'Table 1 in Open Problems in List Decoding and Correlated Agreement separates the MCA landscape into zero-radius, unique-decoding, Johnson-radius, and capacity-edge regimes.', impact:'The current RS-MCA frontier is in the capacity-edge lower-bound regime, not the Johnson-radius positive upper-bound regime.', href:'https://github.com/przchojecki/rs-mca/blob/main/open-proximity.tex'},
       {date:'2026-06-25', status:'latest', title:'Latest PR integration', summary:'No larger Cycle120 numerator; endpoint, bridge, and proof-program updates were integrated.', impact:'Use the data files and linked notes for the current public state.', href:'https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/triage/pr-triage-2026-06-25.md'}
     ];
     const fallbackPapersRaw = [
@@ -885,6 +942,12 @@
       {letter:'B', title:'Paper B: Slack, Quotient, and Entropy Theory', pdf:'papers/slackMCA_v3.pdf', githubPdf:'https://github.com/przchojecki/rs-mca/blob/main/site/papers/slackMCA_v3.pdf', tex:'https://github.com/przchojecki/rs-mca/blob/main/tex/slackMCA_v3.tex', summary:'Builds the corrected-reserve theory and proof targets.'},
       {letter:'C', title:'Paper C: SNARK and Protocol Ledger', pdf:'papers/snarks_v4.pdf', githubPdf:'https://github.com/przchojecki/rs-mca/blob/main/site/papers/snarks_v4.pdf', tex:'https://github.com/przchojecki/rs-mca/blob/main/tex/snarks_v4.tex', summary:'Separates protocol soundness accounting from MCA/list ledgers.'},
       {letter:'D', title:'Paper D: Universal Field-Size Cap', pdf:'papers/cs25_cap_v4.pdf', githubPdf:'https://github.com/przchojecki/rs-mca/blob/main/site/papers/cs25_cap_v4.pdf', tex:'https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v4.tex', summary:'Proves the universal MCA threshold cap via CS25.'}
+    ];
+    const fallbackBenchmarksRaw = [
+      {id:'zero-radius', label:'Baseline', title:'Zero-radius MCA', distance:'\\(\\delta=0\\)', error:'\\(\\varepsilon_{\\rm mca}(C,\\delta)=2/|F|\\)', reference:'trivial', summary:'At zero distance the bad-line event is the two endpoint challenges where the affine line equals one of its defining source words.'},
+      {id:'unique-decoding', label:'Safe', title:'Below unique decoding', distance:'\\(\\delta<\\delta_{\\min}(C)/2\\)', error:'\\(\\varepsilon_{\\rm mca}(C,\\delta)\\le O(n)/|F|\\)', reference:'ACFY25; BCIKS20', summary:'CA and MCA coincide in the unique-decoding regime, and Reed-Solomon codes have small MCA error up to this boundary.'},
+      {id:'johnson', label:'Safe', title:'Approaching Johnson', distance:'\\(\\delta=J(\\delta_{\\min}(C))-\\eta\\)', error:'\\(\\varepsilon_{\\rm mca}(C,\\delta)\\le n\\,\\mathrm{poly}(1/\\eta)/|F|\\)', reference:'BCHKS25; Hab25; BCGM25; BCIKS20', summary:'The strongest general Reed-Solomon MCA upper bounds reach the Johnson radius with polynomial dependence on the reserve.'},
+      {id:'capacity-edge', label:'Obstruction', title:'Approaching capacity', distance:'\\(\\delta\\approx\\delta_{\\min}(C)-1/\\Omega(\\log n)\\)', error:'\\(\\varepsilon_{\\rm mca}(C,\\delta)\\ge n^{\\Omega(1)}/|F|\\)', reference:'BCHKS25; KK25; CGHLL26', summary:'Near capacity, known lower bounds show MCA/CA error must grow polynomially in n over the field-size denominator.'}
     ];
 
     function enrich(e){
@@ -903,6 +966,7 @@
     let entriesRaw = fallbackEntriesRaw;
     let updatesRaw = fallbackUpdatesRaw;
     let papersRaw = fallbackPapersRaw;
+    let benchmarksRaw = fallbackBenchmarksRaw;
     let entries = entriesRaw.map(enrich);
     let selectedUpdateIndex = 0;
 
@@ -1138,6 +1202,25 @@
       `).join('');
     }
 
+    function renderBenchmarks(){
+      const grid = document.getElementById('benchmarksGrid');
+      if(!grid) return;
+      grid.innerHTML = benchmarksRaw.map(item => {
+        const tagClass = String(item.label || 'Benchmark').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+        return `
+          <article class="program-card benchmark-card">
+            <span class="tag ${escapeHtml(tagClass)}">${escapeHtml(item.label || 'Benchmark')}</span>
+            <h3>${escapeHtml(item.title)}</h3>
+            <div class="benchmark-formula">${escapeHtml(item.distance)}</div>
+            <div class="benchmark-formula">${escapeHtml(item.error)}</div>
+            <p>${escapeHtml(item.summary)}</p>
+            ${item.relevance ? `<p class="small" style="margin-top:.55rem">${escapeHtml(item.relevance)}</p>` : ''}
+            <div class="benchmark-ref">${escapeHtml(item.reference)}</div>
+          </article>
+        `;
+      }).join('');
+    }
+
     function renderTimeline(){
       const t = document.getElementById('timeline');
       if(!t) return;
@@ -1156,14 +1239,16 @@
       }
     }
     async function boot(){
-      const [frontierData, updatesData, papersData] = await Promise.all([
+      const [frontierData, updatesData, papersData, benchmarksData] = await Promise.all([
         loadJson('data/frontier.json', fallbackEntriesRaw),
         loadJson('data/updates.json', fallbackUpdatesRaw),
-        loadJson('data/papers.json', fallbackPapersRaw)
+        loadJson('data/papers.json', fallbackPapersRaw),
+        loadJson('data/benchmarks.json', fallbackBenchmarksRaw)
       ]);
       entriesRaw = frontierData;
       updatesRaw = updatesData;
       papersRaw = papersData;
+      benchmarksRaw = benchmarksData;
       entries = entriesRaw.map(enrich);
       populateUpdateFilter();
       refresh();
@@ -1171,6 +1256,7 @@
       renderTimeline();
       renderUpdates();
       renderPapers();
+      renderBenchmarks();
       selectEntry('cycle119');
       if(window.MathJax?.typesetPromise) MathJax.typesetPromise();
     }

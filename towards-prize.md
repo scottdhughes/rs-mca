@@ -10,28 +10,32 @@
 
 Agents should read these before making claims or opening implementation work.
 
-1. **Proximity Prize statement**  
+1. **Proximity Prize statement**
    <https://proximityprize.org/>
 
-2. **RS-MCA frontier board**  
+2. **Open Problems in List Decoding and Correlated Agreement**
+   Reconstructed local TeX: [`open-proximity.tex`](open-proximity.tex)
+   Local PDF mirror: [`open-proximity.pdf`](open-proximity.pdf)
+
+3. **RS-MCA frontier board**
    <https://www.rsmca.xyz/>
 
-3. **Paper A: no-slack obstruction / smooth RCA disproof**  
+4. **Paper A: no-slack obstruction / smooth RCA disproof**
    <https://github.com/przchojecki/rs-mca/raw/refs/heads/main/tex/RS_disproof_v3.tex>
 
-4. **Paper B: slack MCA program / quotient floors / corrected reserve**  
+5. **Paper B: slack MCA program / quotient floors / corrected reserve**
    <https://github.com/przchojecki/rs-mca/raw/refs/heads/main/tex/slackMCA_v3.tex>
 
-5. **Cycle120 ABF counterexample candidate note**  
+6. **Cycle120 ABF counterexample candidate note**
    <https://github.com/przchojecki/rs-mca/raw/refs/heads/main/experimental/notes/m1/m1_cycle120_abf_counterexample_candidate.md>
 
-6. **strict264 audit**  
+7. **strict264 audit**
    <https://github.com/przchojecki/rs-mca/raw/refs/heads/main/experimental/notes/m1/m1_strict264_audit.md>
 
-7. **F1 syndrome-pencil normal form**  
+8. **F1 syndrome-pencil normal form**
    <https://github.com/przchojecki/rs-mca/raw/refs/heads/main/experimental/notes/f1/f1_syndrome_pencil_normal_form.md>
 
-8. **L2 codegree reduction theorem**  
+9. **L2 codegree reduction theorem**
    <https://github.com/przchojecki/rs-mca/raw/refs/heads/main/experimental/notes/l2/l2_codegree_reduction_theorem.md>
 
 ---
@@ -352,7 +356,61 @@ LD_{\mathrm{sw}}(C,a) \le \lfloor q_{\mathrm{line}}2^{-128}\rfloor
 
 and prove the adjacent lower level is still unsafe.
 
-### 3.4 How to approach the full threshold
+### 3.4 Position relative to Proximity Prize Table 1
+
+The Proximity Prize survey table in `open-proximity.tex` separates four benchmark regimes for
+
+\[
+C=\mathrm{RS}[F,L,k],\qquad n=|L|.
+\]
+
+| Table 1 regime | Benchmark behavior | What it means for this project |
+| --- | --- | --- |
+| \(\delta=0\) | \(\varepsilon_{\mathrm{mca}}(C,\delta)=2/|F|\) | Baseline only. |
+| \(\delta<\delta_{\min}(C)/2\) | \(\varepsilon_{\mathrm{mca}}(C,\delta)\le O(n)/|F|\) | Unique-decoding regime; not where the frontier row lives. |
+| \(\delta=J(\delta_{\min}(C))-\eta\) | \(\varepsilon_{\mathrm{mca}}(C,\delta)\le n\cdot \mathrm{poly}(1/\eta)/|F|\) | Johnson-radius upper-bound regime; useful as the known safe side, but not the current obstruction frontier. |
+| \(\delta\approx\delta_{\min}(C)-1/\Omega(\log n)\) | \(\varepsilon_{\mathrm{mca}}(C,\delta)\ge n^{\Omega(1)}/|F|\) for large enough \(F\) | Capacity-edge lower-bound regime; this is the row our current bad-slope certificates are trying to sharpen. |
+
+So the answer to "are we doing case 3?" is no. Case 3 is the positive Johnson-radius result. The current RS-MCA frontier is a case-4 / capacity-edge lower-bound program.
+
+For the active row
+
+\[
+n=512,\quad k=256,\quad \rho=1/2,
+\]
+
+the exact relative minimum distance is
+
+\[
+\delta_{\min}(C)=\frac{n-k+1}{n}=\frac{257}{512},
+\]
+
+and the Johnson radius is
+
+\[
+J(\delta_{\min}(C))
+=1-\sqrt{1-\delta_{\min}(C)}
+=1-\sqrt{255/512}
+\approx 0.2943.
+\]
+
+The current strict frontier point uses
+
+\[
+\delta=249/512\approx 0.4863,
+\]
+
+and the first strict264 target uses
+
+\[
+\delta=31/64=248/512\approx 0.4844.
+\]
+
+Both are far beyond the Johnson radius and very close to capacity. They are therefore negative-side certificates in the hard band between Johnson and capacity. What remains missing is the matching safe-side upper bound that turns a lower-bound frontier into an actual threshold.
+
+The same source also makes line-decoding relevant: Theorem 4.21 says \((\delta,a,n+1)\) line-decodability implies \(\varepsilon_{\mathrm{mca}}(C,\delta)\le a/|F|\). Our M2 bridge and F1 normal form should be read as attempts to put the support-wise MCA staircase into that line-decoding language without losing the exact finite denominator.
+
+### 3.5 How to approach the full threshold
 
 The route to an actual \(\delta_C^*\) theorem has two tracks.
 
@@ -417,7 +475,7 @@ F, L, k, q_gen, q_line, q_chal
 
 and outputs either a proved threshold interval for \(\delta_C^*(2^{-128})\) or a declared obstruction/counterexample floor.
 
-### 3.5 strict264 is the first clean finite prize push
+### 3.6 strict264 is the first clean finite prize push
 
 At \(a=264\),
 
@@ -456,7 +514,7 @@ The strict264 audit verifies much of the algebraic bridge:
 
 The remaining open piece is the exact survivor count. The seven-slot model must be reconstructed or replaced by an in-repository, independently replayable certificate.
 
-### 3.6 The main theoretical gap is the aperiodic local limit
+### 3.7 The main theoretical gap is the aperiodic local limit
 
 Paper B isolates the correct positive-theorem shape:
 
@@ -480,7 +538,7 @@ aperiodic residue-line mass
 
 The quotient floor is real and must remain on the right-hand side. The missing hard theorem is a finite-field local-limit bound for arbitrary-word list decoding and all-line MCA after quotient cores have been removed.
 
-### 3.7 The F1 normal form is the main algebraic tool
+### 3.8 The F1 normal form is the main algebraic tool
 
 The F1 note turns all-line support-wise MCA into a Hankel-pencil incidence problem.
 

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "zero-radius",
+    "label": "Baseline",
+    "title": "Zero-radius MCA",
+    "distance": "\\(\\delta=0\\)",
+    "error": "\\(\\varepsilon_{\\rm mca}(C,\\delta)=2/|F|\\)",
+    "reference": "trivial",
+    "summary": "At zero distance the bad-line event is the two endpoint challenges where the affine line equals one of its defining source words.",
+    "relevance": "Useful only as a denominator sanity check."
+  },
+  {
+    "id": "unique-decoding",
+    "label": "Safe",
+    "title": "Below unique decoding",
+    "distance": "\\(\\delta<\\delta_{\\min}(C)/2\\)",
+    "error": "\\(\\varepsilon_{\\rm mca}(C,\\delta)\\le O(n)/|F|\\)",
+    "reference": "ACFY25; BCIKS20",
+    "summary": "CA and MCA coincide in the unique-decoding regime, and Reed-Solomon codes have small MCA error up to this boundary.",
+    "relevance": "Known safe region, far below the current frontier radius."
+  },
+  {
+    "id": "johnson",
+    "label": "Safe",
+    "title": "Approaching Johnson",
+    "distance": "\\(\\delta=J(\\delta_{\\min}(C))-\\eta\\)",
+    "error": "\\(\\varepsilon_{\\rm mca}(C,\\delta)\\le n\\,\\mathrm{poly}(1/\\eta)/|F|\\)",
+    "reference": "BCHKS25; Hab25; BCGM25; BCIKS20",
+    "summary": "The strongest general Reed-Solomon MCA upper bounds reach the Johnson radius with polynomial dependence on the reserve.",
+    "relevance": "This is the positive benchmark we are already far beyond."
+  },
+  {
+    "id": "capacity-edge",
+    "label": "Obstruction",
+    "title": "Approaching capacity",
+    "distance": "\\(\\delta\\approx\\delta_{\\min}(C)-1/\\Omega(\\log n)\\)",
+    "error": "\\(\\varepsilon_{\\rm mca}(C,\\delta)\\ge n^{\\Omega(1)}/|F|\\)",
+    "reference": "BCHKS25; KK25; CGHLL26",
+    "summary": "Near capacity, known lower bounds show MCA/CA error must grow polynomially in n over the field-size denominator.",
+    "relevance": "The current RS-MCA frontier lives in this capacity-edge lower-bound regime."
+  }
+]
