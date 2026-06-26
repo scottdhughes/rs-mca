@@ -114,6 +114,210 @@ The intended proof is by contradiction.
    quotient and aperiodic extension budgets.  The leftover packing term is
    `O(log n)` at the intended cutoff and is absorbed by `n^B`.
 
+## Theorem J. Full-List Johnson Region
+
+Status: PROVED.
+
+Let `H` be any Reed--Solomon evaluation domain of size `n`, and let
+`C = RS[H,k]`.  For every received word `U : H -> F_q`, define
+
+```text
+ImgFib_U(s) = { P in F_q[X] : deg P < k and
+                |{x in H : U(x)=P(x)}| >= s }.
+```
+
+Then:
+
+1. If `2s > n+k-1`, then `|ImgFib_U(s)| <= 1`.
+2. If `s^2 > n(k-1)`, then
+
+```text
+|ImgFib_U(s)| <= n(n-k+1) / (s^2 - n(k-1)).
+```
+
+In particular, because `Q_1^list(U,s) <= |ImgFib_U(s)|`, Conjecture 1 holds
+with a polynomial primitive remainder throughout the ordinary Johnson region
+`s^2 > n(k-1)`, without using any quotient-budget term.
+
+### Proof
+
+Let `P_1,...,P_L` be the distinct polynomials in `ImgFib_U(s)`, and write
+
+```text
+A_i = { x in H : U(x)=P_i(x) }.
+```
+
+If `L=0`, there is nothing to prove.  Assume `L>0`.
+Then `|A_i| >= s` for every `i`.  Distinct degree-`<k` polynomials agree on at
+most `k-1` points, hence
+
+```text
+|A_i cap A_j| <= k-1        for i != j.
+```
+
+The unique-decoding claim follows immediately: two listed codewords would have
+`|A_i cap A_j| >= 2s-n`, contradicting `2s-n > k-1`.
+
+For the Johnson bound, put
+
+```text
+m_x = #{ i : x in A_i },        I = sum_x m_x.
+```
+
+Then `I >= Ls`, while the pairwise-intersection bound gives
+
+```text
+sum_x binom(m_x,2) <= binom(L,2)(k-1).
+```
+
+By Cauchy--Schwarz,
+
+```text
+I^2 <= n sum_x m_x^2
+    = n(I + 2 sum_x binom(m_x,2))
+    <= n(I + L(L-1)(k-1)).
+```
+
+Since also `I <= Ln`, we get
+
+```text
+L^2 s^2 <= n(Ln + L(L-1)(k-1)).
+```
+
+After dividing by `L` and rearranging,
+
+```text
+L(s^2 - n(k-1)) <= n(n-k+1).
+```
+
+When `s^2 > n(k-1)`, this is the claimed bound.
+
+### Role In The L1 Program
+
+The theorem supplies a proved base region for the full-list quotient program.
+The remaining L1 difficulty is not ordinary pairwise packing; it is the
+sub-Johnson range where `s^2 <= n(k-1)`.  In that range the quotient ledger,
+sunflower reductions, and aperiodic extension counts below are genuinely needed.
+
+### Profile-Tail Form
+
+For `a>k`, let
+
+```text
+N_{>=a}(U) = #{ P : deg P < k and |A_P(U)| >= a },
+N_{=a}(U)  = #{ P : deg P < k and |A_P(U)| = a }.
+```
+
+Then the same proof gives, for every `a` with `a^2 > n(k-1)`,
+
+```text
+N_{>=a}(U) <= n(n-k+1) / (a^2 - n(k-1)),
+N_{=a}(U)  <= n(n-k+1) / (a^2 - n(k-1)).
+```
+
+If `2a > n+k-1`, then `N_{>=a}(U) <= 1`, and hence `N_{=a}(U) <= 1`.
+
+This is just Theorem J applied with threshold `s=a`, but it is the form needed
+by stratified codegree reductions: any later argument may sum over agreement
+sizes using this proved Johnson tail wherever the punctured or unpunctured
+profile lies inside the ordinary Johnson region.
+
+### Punctured Profile-Tail Form
+
+The same statement holds on every punctured evaluation set.  Let `A subset H`
+have size `N`, let `U_A : A -> F_q`, and consider distinct codewords in the
+punctured code obtained by restricting degree-`<k` polynomials to `A`.  Put
+
+```text
+k_A = min(k,N).
+```
+
+The punctured code has dimension `k_A`, and two distinct punctured codewords
+agree on at most `k_A-1` points.  Put
+
+```text
+N_A,>=a(U_A) = #{ c in RS[A,k] : |{x in A : U_A(x)=c(x)}| >= a },
+N_A,=a(U_A)  = #{ c in RS[A,k] : |{x in A : U_A(x)=c(x)}| = a }.
+```
+
+If `a^2 > N(k_A-1)`, then
+
+```text
+N_A,>=a(U_A) <= N(N-k_A+1) / (a^2 - N(k_A-1)),
+N_A,=a(U_A)  <= N(N-k_A+1) / (a^2 - N(k_A-1)).
+```
+
+If `2a > N+k_A-1`, then `N_A,>=a(U_A) <= 1`.
+
+This is not a new proof: it is Theorem J applied to the evaluation domain
+`A`, with `k` replaced by the effective punctured dimension `k_A`.  It is
+recorded separately because punctured domains are the natural objects in
+codegree decompositions and interleaved-list reductions.
+
+### Abel Profile Ledger
+
+Let
+
+```text
+T(a)=N_{>=a}(U),        E(a)=N_{=a}(U)
+```
+
+for `a=s,...,n`, and let `w(a)` be any nondecreasing nonnegative weight on
+this interval.  Then
+
+```text
+sum_{a=s}^n E(a) w(a)
+  = T(s)w(s) + sum_{a=s+1}^n T(a)(w(a)-w(a-1)).
+```
+
+The same identity holds on a punctured domain `A` with `n` replaced by `N`.
+Consequently, whenever a stratified reduction charges each listed codeword by
+a monotone cost depending only on its agreement size, it may use the Johnson
+tail bounds above for every agreement level in the ordinary Johnson region and
+leave only the genuinely sub-Johnson levels to the non-pairwise L1 machinery.
+
+The identity is just summation by parts: since
+
+```text
+E(a)=T(a)-T(a+1),        T(n+1)=0,
+```
+
+telescoping gives the displayed formula.
+
+### Johnson-Covered Weighted Tail
+
+On a punctured domain of size `N`, put `k_A=min(k,N)` and define the Johnson
+tail envelope
+
+```text
+J_N,k(a) =
+  1                                               if 2a > N+k_A-1,
+  N(N-k_A+1) / (a^2 - N(k_A-1))                  otherwise,
+```
+
+for agreement levels satisfying `a^2 > N(k_A-1)`.  Let
+
+```text
+a_0 >= s,        a_0^2 > N(k_A-1),
+```
+
+and let `w(a)` be nondecreasing and nonnegative for `a_0 <= a <= N`.  Then
+the Johnson-covered part of any punctured agreement profile satisfies
+
+```text
+sum_{a=a_0}^N N_A,=a(U_A) w(a)
+  <= J_N,k(a_0)w(a_0)
+     + sum_{a=a_0+1}^N J_N,k(a)(w(a)-w(a-1)).
+```
+
+Thus a weighted stratified reduction can be split cleanly at the first
+Johnson-covered level `a_0`: the displayed formula controls the high-agreement
+tail, and only levels `a<a_0` remain to be controlled by quotient,
+sunflower, or aperiodic input.
+
+This follows from the Abel profile ledger and the punctured Johnson tail bound
+`T(a)<=J_N,k(a)` at every level in the displayed range.
+
 ## First Lemma Target
 
 The first obstruction family isolated by the falsification scans is a
@@ -1987,6 +2191,960 @@ core defect falls far below the petal size.  Thus the sunflower proof program
 has a two-sided interpretation: bounded average deficit pins `d` to a bounded
 window below `ell`, while Theorem 22 controls bounded excess above `ell`.
 
+## Lemma B1. Background-Aware Near-Saturated Pair Count
+
+Status: PROVED.
+
+Return to the general sunflower notation of Lemma 2; the unused background
+`R` may be nonempty.  Fix integers `e0,u0 >= 0`.  The number of non-planted
+listed codewords satisfying
+
+```text
+d <= ell+e0
+```
+
+and having two touched petals `T_i,T_j` with
+
+```text
+|T_i \ S_i| <= u0,        |T_j \ S_j| <= u0
+```
+
+is at most
+
+```text
+binom(M,2) (sum_{v=0}^{u0} binom(ell,v))^2 q^{2(e0+u0+1)}.
+```
+
+This is the counted near-saturated corollary of Lemma 11 without the
+background-free hypothesis.
+
+### Proof
+
+For each codeword, choose the lexicographically first unordered pair of
+touched petals satisfying the displayed deficit bound.  Let
+
+```text
+a_i=|S_i|,        a_j=|S_j|.
+```
+
+By Lemma 11 there are polynomials `A_i,A_j` such that
+
+```text
+(c_j-c_i)L_D = L_{S_i}A_i - L_{S_j}A_j,
+```
+
+and
+
+```text
+deg A_i <= d-a_i,        deg A_j <= d-a_j.
+```
+
+Since `d<=ell+e0` and `a_i,a_j >= ell-u0`, both cofactors have degree at most
+`e0+u0`.
+
+The chosen certificate
+
+```text
+({i,j}, S_i, S_j, A_i, A_j)
+```
+
+determines `L_D` by the syzygy, hence determines `D` if the right-hand side is
+a valid missed-core locator.  It then determines
+
+```text
+W_P = c_iL_D + L_{S_i}A_i
+```
+
+and finally `P=L_{C\D}W_P`.  Certificates that do not recover a valid listed
+codeword are discarded, so this map from codewords to certificates is
+injective.
+
+There are `binom(M,2)` choices for the petal pair, at most
+`sum_{v=0}^{u0} binom(ell,v)` choices for each near-saturated petal support,
+and at most `q^{e0+u0+1}` choices for each cofactor.  Multiplying gives the
+claimed bound.
+
+### Consequences
+
+Unused background agreements do not affect the two-petal syzygy certificate.
+Thus any sunflower family with bounded cofactor excess and two
+near-saturated touched petals is already polynomially controlled, even before
+the unused background is stripped away.
+
+## Theorem B2. Maximal Average-Deficit Closure With Background
+
+Status: PROVED.
+
+Assume the sunflower is maximal, so its unused background has size
+`b=|R|<ell`, and work at the L1 lower cutoff with generated field
+`q=poly(n)`.  For a non-planted listed codeword put
+
+```text
+t(P)=#{i : S_i nonempty},
+u(P)=sum_i (ell-|S_i|),
+```
+
+where the sum is over touched petals.  Fix integer constants `E,A >= 0`.
+Then the number of non-planted listed codewords satisfying
+
+```text
+d <= ell+E
+```
+
+and
+
+```text
+u(P) <= A t(P),
+```
+
+is polynomial in `n`.
+
+Consequently, any super-polynomial maximal-sunflower family at the L1 lower
+cutoff with bounded cofactor excess `d-ell` must have
+
+```text
+u(P)/t(P) -> infinity.
+```
+
+### Proof
+
+By Lemma 4, maximal sunflowers have no non-planted listed codewords with fewer
+than two touched petals.  Thus `t=t(P)>=2`.
+
+If `u(P)<=At`, then at least two touched petals have deficit at most `2A`;
+otherwise at least `t-1` touched petals would have deficit at least `2A+1`,
+giving
+
+```text
+u(P) >= (t-1)(2A+1) > At
+```
+
+for every `t>=2`, a contradiction.  Therefore every codeword in the displayed
+class has two near-saturated touched petals with `u0=2A`.  Lemma B1, with
+`e0=E` and `u0=2A`, bounds these codewords by
+
+```text
+binom(M,2) (sum_{v=0}^{2A} binom(ell,v))^2 q^{2(E+2A+1)}.
+```
+
+At the L1 lower cutoff, `M=O(log n)`, `ell<=n`, and `q=poly(n)`, so this is
+polynomial in `n` for fixed `E,A`.
+
+For the final assertion, if a super-polynomial family had bounded
+`d-ell` and bounded `u(P)/t(P)`, fixed constants `E,A` would contain it in
+the polynomially bounded union just proved.
+
+### Consequences
+
+This theorem removes the artificial background-free hypothesis from the
+average-deficit sunflower closure.  Unused-background agreements do not create
+a separate residual regime once the sunflower is maximal: with bounded
+cofactor excess, bounded average petal deficit is already polynomially
+controlled.  The remaining maximal-sunflower obstruction is therefore the same
+two-parameter quantitative problem as in the background-free model:
+
+```text
+d-ell -> infinity        or        u(P)/t(P) -> infinity.
+```
+
+## Lemma B3. Maximal Background-Anchor Injection
+
+Status: PROVED.
+
+Assume the sunflower is maximal, so `b=|R|<ell`.  Fix the following data:
+
+```text
+d,
+R_0 subset R,
+I subset {1,...,M},
+S_i subset T_i        for i in I,
+```
+
+where every `S_i` is nonempty.  Write
+
+```text
+r = |R_0|,        a_i=|S_i|,        h=sum_{i in I} a_i,
+a_* = max_{i in I} a_i.
+```
+
+Consider non-planted listed codewords with exact background agreement
+`R_P=R_0`, exact touched-petal set `I`, exact petal supports `S_i`, and core
+defect `d`.  Then this fixed-support-pattern layer has size at most
+
+```text
+q^{max(0, d-max(r,a_*)+1)}.
+```
+
+Equivalently, the layer injects both into a largest-petal cofactor space of
+dimension `max(0,d-a_*+1)` and into the background quotient space
+
+```text
+{ V : deg V <= d-r },        W_P = L_{R_0}V,
+```
+
+with the convention that the relevant space has size `1` when the displayed
+degree bound is negative.
+
+### Proof
+
+Fix an index `i in I`.  As in Lemma 11, every codeword in the layer has
+
+```text
+W_P-c_jL_D = L_{S_j}A_j        for j in I,
+deg A_j <= d-a_j.
+```
+
+We first show that the map `P |-> A_i` is injective on the fixed layer.  If
+two codewords give the same `A_i`, write their data as `(F,W)` and `(F',W')`,
+where `F=L_D` and `F'=L_{D'}` are monic of degree `d`.  Equality of `A_i`
+gives
+
+```text
+W-W' = c_i(F-F').
+```
+
+For every `j in I\{i}`, subtracting the two petal congruences shows that
+`F-F'` vanishes on `S_j`.  On the fixed background support `R_0`, both `W`
+and `W'` vanish, so the displayed identity also gives that `F-F'` vanishes on
+`R_0`.  Hence `F-F'` is divisible by
+
+```text
+L_{R_0} prod_{j in I, j != i} L_{S_j},
+```
+
+whose degree is `r+h-a_i`.  The list condition gives
+
+```text
+r+h >= ell+d.
+```
+
+Since `a_i<=ell`, we have `r+h-a_i>=d`.  If this degree is larger than `d`,
+then `F-F'=0`.  If it equals `d`, the monicity of `F` and `F'` gives
+`deg(F-F')<d` unless `F=F'`, so again `F=F'`.  The displayed identity then
+gives `W=W'`, and hence `P=L_{C\D}W` is the same listed codeword.  Thus the
+petal cofactor map is injective, giving the bound `q^{max(0,d-a_i+1)}`;
+choosing `i` with `a_i=a_*` gives the first exponent.
+
+For the background injection, write `W=L_{R_0}V`, with `V=0` if `d<r`.  If
+two codewords have the same `V`, then they have the same `W`.  Subtracting
+the petal congruences for every `j in I` shows that `F-F'` vanishes on
+`union_{j in I} S_j`, whose size is `h`.  Because the sunflower is maximal,
+`r<ell`, and the list condition gives
+
+```text
+h >= ell+d-r > d.
+```
+
+Therefore `F=F'`; since `W` is also the same, the two listed codewords are
+equal.  The quotient space has size `q^{max(0,d-r+1)}`, proving the second
+injection and the displayed bound.
+
+### Consequences
+
+Background agreement is not just harmless; in fixed support-pattern strata it
+is an additional rank source.  The remaining residual should therefore be
+measured by the support entropy left after charging the cofactor dimension
+
+```text
+max(0, d-max(r,a_*)+1).
+```
+
+This gives a concrete finite-dimensional certificate for any future
+counterexample: it must exhibit enough choices of background and petal support
+patterns to beat this joint petal/background-anchor exponent.
+
+## Proposition B4. Maximal Deficit-Background Stratum Ledger
+
+Status: PROVED.
+
+Assume the sunflower is maximal and work at the L1 lower cutoff.  Fix
+integers
+
+```text
+E>=0,        t>=2,        u>=0,        r>=0.
+```
+
+The number of non-planted listed codewords satisfying
+
+```text
+d <= ell+E,
+|R_P| = r,
+#{i : S_i nonempty} = t,
+sum_i (ell-|S_i|) = u
+```
+
+is at most
+
+```text
+binom(b,r) binom(M,t) binom(t*ell,u) (ell+E+1) q^gamma,
+```
+
+where
+
+```text
+gamma = min(E+floor(u/t)+1, max(0,E+ell-r+1)).
+```
+
+Here `binom(b,r)=0` if `r>b`, and `binom(M,t)=0` if `t>M`.
+
+### Proof
+
+Choose the background support `R_0`, the touched-petal set `I`, and the
+missing petal points inside the `t` touched petals.  This gives at most
+
+```text
+binom(b,r) binom(M,t) binom(t*ell,u)
+```
+
+support patterns.
+
+For a fixed support pattern, let `a_*` be the largest petal support size.
+Since the total petal deficit is `u`, some touched petal has deficit at most
+`floor(u/t)`, so
+
+```text
+a_* >= ell-floor(u/t).
+```
+
+For every defect `d<=ell+E`, Lemma B3 gives the fixed-pattern bound
+
+```text
+q^{max(0,d-max(r,a_*)+1)}
+  <= q^{min(E+floor(u/t)+1, max(0,E+ell-r+1))}.
+```
+
+There are at most `ell+E+1` possible values of `d`.  Multiplying the support
+pattern count, the defect count, and the fixed-pattern bound proves the
+ledger.
+
+### Consequences
+
+Proposition B4 is the current quantitative form of the maximal-sunflower
+residual.  The already-proved bounded-average theorem is the case where
+`floor(u/t)` is bounded and the near-saturated pair certificate avoids paying
+the full support entropy.  Outside that case, any counterexample must beat the
+explicit ledger above: a large number of petal/background support patterns has
+to overcome the joint exponent supplied by the largest petal support and the
+background quotient.
+
+The experimental scanner
+`experimental/scripts/scan_l1_full_list_quotient_conjecture.py` now reports
+the parameters
+
+```text
+(d, r, t, u, a_*, d-ell, max(0,d-max(r,a_*)+1))
+```
+
+for sampled sunflower extras.  These diagnostics are only experimental, but
+they make the B3/B4 residual falsifiable in the same vocabulary as the proof
+ledger.
+
+## Lemma B5. Two-Anchor Deficit Certificate
+
+Status: PROVED.
+
+Return to the general sunflower notation of Lemma 2; the unused background may
+be nonempty.  Fix integers `E,V >= 0`.  The number of non-planted listed
+codewords satisfying
+
+```text
+d <= ell+E
+```
+
+and having two touched petals whose combined deficit is at most `V` is at most
+
+```text
+binom(M,2) (sum_{v=0}^{V} binom(2ell,v)) q^{2E+V+2}.
+```
+
+More explicitly, if the two touched petals are `T_i,T_j` and
+
+```text
+v_i = ell-|S_i|,        v_j = ell-|S_j|,
+```
+
+then the certificate uses only the pair `{i,j}`, the two support subsets
+`S_i,S_j`, and the two cofactors in the syzygy
+
+```text
+(c_j-c_i)L_D = L_{S_i}A_i - L_{S_j}A_j.
+```
+
+### Proof
+
+For each codeword in the displayed class, choose the lexicographically first
+unordered pair of touched petals with `v_i+v_j <= V`.  By Lemma 11 there are
+polynomials `A_i,A_j` such that
+
+```text
+deg A_i <= d-|S_i|,        deg A_j <= d-|S_j|,
+```
+
+and
+
+```text
+(c_j-c_i)L_D = L_{S_i}A_i - L_{S_j}A_j.
+```
+
+Since `d<=ell+E`, these degree bounds give
+
+```text
+deg A_i <= E+v_i,        deg A_j <= E+v_j.
+```
+
+For a fixed petal pair and fixed supports `S_i,S_j`, the two cofactors
+determine `L_D` by the syzygy.  If the right-hand side is not a scalar multiple
+of a valid missed-core locator, the certificate is discarded.  Otherwise it
+determines `D`, then
+
+```text
+W_P = c_iL_D + L_{S_i}A_i,
+```
+
+and finally `P=L_{C\D}W_P`.  Thus the certificate map is injective.
+
+For a fixed unordered petal pair, the number of choices for the two support
+subsets with total deficit `v` is at most `binom(2ell,v)`.  For such a pair of
+supports, the cofactors contribute at most
+
+```text
+q^{E+v_i+1} q^{E+v_j+1} = q^{2E+v+2}
+```
+
+choices.  Summing over `0<=v<=V` and bounding every cofactor term by
+`q^{2E+V+2}` gives the displayed estimate.
+
+### Average-Deficit Corollary
+
+Assume now that the sunflower is maximal, so `b<ell`, and work at the L1 lower
+cutoff with generated field `q=poly(n)`.  Fix integer constants `E,A >= 0`.  The
+number of non-planted listed codewords satisfying
+
+```text
+d <= ell+E,        u(P) <= A t(P)
+```
+
+is at most
+
+```text
+binom(M,2) (sum_{v=0}^{2A} binom(2ell,v)) q^{2E+2A+2}.
+```
+
+Indeed, Lemma 4 gives `t(P)>=2` in a maximal sunflower.  Among the `t(P)`
+touched petals, the two smallest petal deficits have sum at most
+`2u(P)/t(P) <= 2A`.  Lemma B5 with `V=2A` gives the bound.  Since
+`M=O(log n)`, `ell<=n`, and `q=poly(n)`, this is polynomial in `n` for fixed
+`E,A`.
+
+### Consequences
+
+Lemma B5 sharpens Theorem B2: bounded average deficit is controlled by one
+two-petal certificate with total pair deficit at most `2A`, rather than by two
+separately `2A`-near-saturated petals.  The residual target is therefore more
+focused.  A maximal-sunflower counterexample with bounded cofactor excess must
+force the best two-petal combined deficit to grow, unless it escapes through
+growing `d-ell`.  This is stronger than the earlier average-deficit residual:
+if the best two-petal deficit grows, then `u(P)/t(P)->infinity`, but not
+conversely.
+
+The scanner now reports this diagnostic as
+
+```text
+best_two_petal_deficit,
+two_anchor_exponent = 2(d-ell)+best_two_petal_deficit+2,
+```
+
+for sampled sunflower extras with at least two touched petals.
+
+## Lemma B6. Background-Petal Anchor Certificate
+
+Status: PROVED.
+
+Assume the sunflower is maximal, so its unused background has size
+`b=|R|<ell`.  Fix integers `E,V >= 0`.  The number of non-planted listed
+codewords satisfying
+
+```text
+d <= ell+E
+```
+
+and having a touched petal `T_i` for which
+
+```text
+(ell-|R_P|) + (ell-|S_i|) <= V
+```
+
+is at most
+
+```text
+M (sum_{w+v<=V} binom(b,ell-w) binom(ell,v)) q^{2E+V+2},
+```
+
+with the convention that `binom(b,ell-w)=0` unless `0<=ell-w<=b`.
+
+### Proof
+
+For each codeword in the displayed class, choose the smallest touched-petal
+index `i` satisfying the displayed inequality.  Put
+
+```text
+R_0=R_P,        r=|R_0|,        w=ell-r,
+S_i=A_P(U) cap T_i,        v=ell-|S_i|.
+```
+
+Since `W_P` vanishes on `R_0`, there is a polynomial `B` such that
+
+```text
+W_P = L_{R_0}B,        deg B <= d-r.
+```
+
+Here `B=0` if `d<r`.  By Lemma 2, the chosen petal support satisfies
+`|S_i|<=d`, and there is a polynomial `A_i` satisfying
+
+```text
+W_P-c_iL_D = L_{S_i}A_i,        deg A_i <= d-|S_i|.
+```
+
+The bounds `d<=ell+E`, `r=ell-w`, and `|S_i|=ell-v` give
+
+```text
+deg B <= E+w,        deg A_i <= E+v.
+```
+
+The certificate
+
+```text
+(i, R_0, S_i, B, A_i)
+```
+
+determines the missed-core locator by
+
+```text
+c_iL_D = L_{R_0}B - L_{S_i}A_i.
+```
+
+If the right-hand side does not recover a valid monic locator `L_D` with roots
+inside `C`, the certificate is discarded.  Otherwise it determines `D`, then
+`W_P=L_{R_0}B`, and finally `P=L_{C\D}W_P`.  Hence the certificate map is
+injective.
+
+For fixed `w,v`, there are at most `M` choices of `i`,
+`binom(b,ell-w)` choices of `R_0`, and `binom(ell,v)` choices of `S_i`.  The
+two cofactors contribute at most
+
+```text
+q^{E+w+1} q^{E+v+1} = q^{2E+w+v+2} <= q^{2E+V+2}.
+```
+
+Summing over `w+v<=V` proves the estimate.
+
+### Consequences
+
+For fixed `E,V`, this is polynomial at the L1 lower cutoff: `M=O(log n)`,
+`b<ell<=n`, and the sum over `w+v<=V` is polynomial because `V` is fixed.
+Indeed, when `binom(b,ell-w)` is nonzero, its complementary lower index is
+`b-(ell-w) <= w <= V`.
+Thus bounded cofactor excess and bounded background-petal combined deficit
+cannot produce a super-polynomial maximal-sunflower family.
+
+Together, Lemma B5 and Lemma B6 leave a sharper maximal-sunflower residual.
+With bounded `d-ell`, a counterexample must force both diagnostics to grow:
+
+```text
+best_two_petal_deficit -> infinity,
+best_background_petal_deficit -> infinity.
+```
+
+The scanner reports the second diagnostic as
+
+```text
+best_background_petal_deficit
+  = (ell-background_hits) + (ell-max_petal_hit),
+background_petal_exponent
+  = 2(d-ell)+best_background_petal_deficit+2.
+```
+
+## Theorem B7. Maximal Two-Gate Residual Closure
+
+Status: PROVED.
+
+Assume the sunflower is maximal and work at the L1 lower cutoff with generated
+field `q=poly(n)`.  For a non-planted listed codeword, let
+
+```text
+v_i = ell-|S_i|
+```
+
+on touched petals, and let `v_(1)<=v_(2)` be the two smallest touched-petal
+deficits.  Lemma 4 gives at least two touched petals, so these are defined.
+Put
+
+```text
+G_2(P) = v_(1)+v_(2),
+G_R(P) = (ell-|R_P|)+v_(1).
+```
+
+Fix integer constants `E,V_2,V_R >= 0`.  The number of non-planted listed
+codewords satisfying
+
+```text
+d <= ell+E
+```
+
+and
+
+```text
+G_2(P) <= V_2        or        G_R(P) <= V_R
+```
+
+is polynomial in `n`.  More explicitly, it is at most
+
+```text
+binom(M,2) (sum_{v=0}^{V_2} binom(2ell,v)) q^{2E+V_2+2}
+  + M (sum_{w+v<=V_R} binom(b,ell-w) binom(ell,v)) q^{2E+V_R+2}.
+```
+
+Consequently, any super-polynomial maximal-sunflower family at the L1 lower
+cutoff with bounded cofactor excess `d-ell` must satisfy
+
+```text
+G_2(P) -> infinity        and        G_R(P) -> infinity.
+```
+
+### Proof
+
+The first summand is exactly Lemma B5 applied with `V=V_2`.  The second
+summand is Lemma B6 applied with `V=V_R`.  Their union contains every codeword
+in the displayed class, and both summands are polynomial at the L1 lower
+cutoff for fixed `E,V_2,V_R`.
+
+For the final assertion, if a super-polynomial family had bounded `d-ell` and
+one of `G_2,G_R` bounded along an infinite subfamily, fixed constants
+`E,V_2,V_R` would put that subfamily inside the polynomially bounded union
+above, a contradiction.
+
+### Consequences
+
+The current maximal-sunflower residual is now a three-parameter escape:
+
+```text
+d-ell,
+G_2(P),
+G_R(P).
+```
+
+Every bounded region in this parameter space is polynomially controlled.  The
+remaining mixed-petal amplification problem is therefore not just "diffuse
+petals"; it must simultaneously have growing cofactor dimension, or it must
+evade both low-dimensional anchor certificates.  The scanner records this
+combined gate as
+
+```text
+best_anchor_exponent = min(two_anchor_exponent, background_petal_exponent).
+```
+
+## Lemma B8. Largest-Petal Width Floor
+
+Status: PROVED.
+
+Assume the sunflower is maximal.  Let `P` be a non-planted listed codeword, and
+write the positive petal support sizes in decreasing order
+
+```text
+a_1 >= a_2 >= ... >= a_t > 0,
+```
+
+where `t=t(P)` is the touched-petal count.  Put `r=|R_P|` and
+`d=|C\C_P|`.  Then
+
+```text
+t >= ceil((ell+d-r)/a_1).
+```
+
+If `t>=2`, then also
+
+```text
+t >= 1 + ceil(max(0, ell+d-r-a_1)/a_2).
+```
+
+Equivalently, in the two-gate notation of Theorem B7, where
+`v_(1)=ell-a_1` and `G_R=(ell-r)+v_(1)`,
+
+```text
+t >= 1 + ceil(max(0, d-ell+G_R)/a_2).
+```
+
+### Proof
+
+The list condition gives
+
+```text
+h = sum_i |S_i| >= ell+d-r.
+```
+
+Since every touched petal has size at most `a_1`,
+
+```text
+h <= t a_1,
+```
+
+which proves the first lower bound.
+
+For the second, separate the largest touched petal.  The remaining `t-1`
+touched petals have size at most `a_2`, so
+
+```text
+h <= a_1 + (t-1)a_2.
+```
+
+Combining this with `h>=ell+d-r` gives the displayed floor.  Finally,
+
+```text
+ell+d-r-a_1 = d-ell + ((ell-r)+(ell-a_1)) = d-ell+G_R,
+```
+
+which is the equivalent two-gate form.
+
+### Consequences
+
+The two-gate residual cannot stay narrow unless the second-largest petal
+support is large relative to the positive part of `d-ell+G_R(P)`.  In
+particular, in any near-`ell` defect window `|d-ell|=O(1)`, a family with
+`G_R(P)->infinity` and bounded touched-petal count must have `a_2` growing on
+the same scale as `G_R(P)`.
+
+The scanner reports both floors as
+
+```text
+width_floor_a1,
+width_floor_a2.
+```
+
+## Corollary B9. Finite-Width Two-Gate Tradeoff
+
+Status: PROVED.
+
+Keep the maximal-sunflower hypotheses and notation of Lemma B8 and Theorem B7.
+Then every non-planted listed codeword satisfies
+
+```text
+2 max(0,d-ell+G_R(P)) + (t(P)-1)G_2(P) <= 2(t(P)-1)ell.
+```
+
+Consequently, for any fixed width bound `T>=2`, every codeword with
+`t(P)<=T` satisfies
+
+```text
+2 max(0,d-ell+G_R(P)) + (t(P)-1)G_2(P) <= 2(T-1)ell.
+```
+
+### Proof
+
+Let `v_(1)<=v_(2)` be the two smallest touched-petal deficits, and put
+`a_2=ell-v_(2)`.  Lemma B8 gives
+
+```text
+max(0,d-ell+G_R(P)) <= (t(P)-1)a_2.
+```
+
+Since
+
+```text
+G_2(P)=v_(1)+v_(2) <= 2v_(2),
+```
+
+we have
+
+```text
+a_2 = ell-v_(2) <= ell-G_2(P)/2.
+```
+
+Combining the two displays gives
+
+```text
+max(0,d-ell+G_R(P)) <= (t(P)-1)(ell-G_2(P)/2),
+```
+
+which is the first displayed inequality after multiplying by `2`.  The
+`t(P)<=T` version follows immediately.
+
+### Consequences
+
+This is the finite-width obstruction left by the two gates.  In a bounded
+cofactor-excess window, a bounded-width residual cannot make both `G_2` and
+`G_R` independently large relative to `ell`; increasing `G_2` consumes the
+second-largest petal support available to pay for `G_R`.
+
+The scanner reports the exact nonnegative slack in this inequality as
+
+```text
+width_gate_slack
+  = 2(t-1)ell
+    - ((t-1)best_two_petal_deficit
+       + 2 max(0,d-ell+best_background_petal_deficit)).
+```
+
+## Corollary B10. Johnson Over-Agreement Gate
+
+Status: PROVED.
+
+Return to the full-list setting of Theorem J.  Let
+
+```text
+lambda_J = min { lambda >= 0 : (s+lambda)^2 > n(k-1) }.
+```
+
+For any received word `U`, the number of listed codewords with agreement slack
+at least `lambda_J`,
+
+```text
+|A_P(U)| - s >= lambda_J,
+```
+
+is at most
+
+```text
+n(n-k+1) / ((s+lambda_J)^2 - n(k-1)).
+```
+
+If `2(s+lambda_J)>n+k-1`, this tail has size at most `1`.
+
+In the sunflower notation, the agreement slack is
+
+```text
+lambda(P) = |A_P(U)|-s = |R_P| + sum_i |S_i| - (ell+d).
+```
+
+Thus every super-polynomial sunflower obstruction outside the ordinary Johnson
+region may be assumed to satisfy
+
+```text
+lambda(P) < lambda_J.
+```
+
+### Proof
+
+The codewords with `|A_P(U)|-s >= lambda_J` are exactly
+
+```text
+ImgFib_U(s+lambda_J).
+```
+
+The definition of `lambda_J` puts this threshold in the Johnson region, so
+Theorem J gives the displayed bound.  The uniqueness assertion is the
+unique-decoding part of the same theorem.
+
+For the sunflower identity, Lemma 2 gives
+
+```text
+|A_P(U)| = (k-1-d) + |R_P| + sum_i |S_i|,
+```
+
+while `s=k+ell-1`; subtracting gives the formula for `lambda(P)`.
+
+### Consequences
+
+The maximal-sunflower residual now has an additional global gate.  The
+two-gate and finite-width analysis is only needed for low-overagreement
+extras:
+
+```text
+lambda(P) < lambda_J.
+```
+
+High-overagreement sunflower extras are not a separate obstruction; they are
+charged directly to the proved full-list Johnson profile.  The scanner reports
+`johnson_slack_needed` and whether each sampled extra is already
+`johnson_covered`.
+
+## Theorem B11. Maximal Sunflower Residual Frontier
+
+Status: PROVED.
+
+Assume the sunflower is maximal and work at the L1 lower cutoff with generated
+field `q=poly(n)`.  Use the notation of Theorem B7 and Corollary B10.  Fix
+integer constants
+
+```text
+E,V_2,V_R >= 0.
+```
+
+Then the number of non-planted listed codewords satisfying
+
+```text
+d <= ell+E
+```
+
+and at least one of the three gate conditions
+
+```text
+lambda(P) >= lambda_J,
+G_2(P) <= V_2,
+G_R(P) <= V_R
+```
+
+is polynomial in `n`.  More explicitly, it is bounded by
+
+```text
+n(n-k+1) / ((s+lambda_J)^2 - n(k-1))
+  + binom(M,2) (sum_{v=0}^{V_2} binom(2ell,v)) q^{2E+V_2+2}
+  + M (sum_{w+v<=V_R} binom(b,ell-w) binom(ell,v)) q^{2E+V_R+2}.
+```
+
+If `2(s+lambda_J)>n+k-1`, the first summand may be replaced by `1`.
+
+Consequently, any super-polynomial maximal-sunflower family at the L1 lower
+cutoff must, after passing to an infinite subfamily, satisfy at least one of
+the following:
+
+```text
+d-ell -> infinity,
+```
+
+or
+
+```text
+d <= ell+E for some fixed E,        lambda(P) < lambda_J,
+G_2(P) -> infinity,        G_R(P) -> infinity.
+```
+
+If the second alternative also has bounded touched-petal count, then the
+finite-width tradeoff of Corollary B9 is an additional necessary condition:
+
+```text
+2 max(0,d-ell+G_R(P)) + (t(P)-1)G_2(P) <= 2(t(P)-1)ell.
+```
+
+### Proof
+
+The codewords with `lambda(P)>=lambda_J` are bounded by Corollary B10.  The
+codewords with `G_2(P)<=V_2` or `G_R(P)<=V_R`, under `d<=ell+E`, are bounded
+by Theorem B7.  Taking the union bound gives the displayed estimate.  Each
+summand is polynomial at the lower cutoff for fixed `E,V_2,V_R` and
+`q=poly(n)`.
+
+For the residual assertion, suppose a super-polynomial maximal-sunflower
+family had bounded cofactor excess, i.e. `d<=ell+E` for some fixed `E`.  If either
+`lambda(P)>=lambda_J` occurs on a super-polynomial subfamily, or `G_2` or
+`G_R` is bounded on such a subfamily, the polynomial bound above gives a
+contradiction.  Hence any bounded-cofactor-excess residual subfamily must lie
+below the Johnson gate and must have both gates unbounded.  The finite-width
+inequality is exactly Corollary B9.
+
+### Consequences
+
+This theorem is the current maximal-sunflower stopping point for the L1 proof
+program.  With bounded cofactor excess, the remaining high-value sunflower
+target is no longer the broad mixed-petal family; it is the residual frontier
+
+```text
+lambda(P) < lambda_J,        G_2(P)->infinity,        G_R(P)->infinity,
+```
+
+or else genuinely growing positive cofactor excess `d-ell`.  A future proof
+should attack that frontier directly, while a future counterexample search
+should try to populate it.
+
 ## Development Ledger
 
 - **Conjecture 1 full-list primitive remainder:** CONJECTURAL.  Main proof
@@ -2047,5 +3205,39 @@ window below `ell`, while Theorem 22 controls bounded excess above `ell`.
   polynomially controlled.
 - **Defect-deficit sandwich:** PROVED.  Shows bounded average petal deficit
   forces the core defect to stay within a bounded window below `ell`.
+- **Background-aware near-saturated pair count:** PROVED.  Removes the
+  background-free hypothesis from the two-near-saturated-petal certificate
+  count.
+- **Maximal average-deficit closure with background:** PROVED.  Removes the
+  background-free hypothesis from the bounded-excess, bounded-average-deficit
+  sunflower closure; unused-background agreement is not a separate residual
+  escape in maximal sunflowers.
+- **Maximal background-anchor injection:** PROVED.  Adds a second fixed-pattern
+  injection through the background quotient `W_P/L_{R_P}` and bounds strata by
+  `q^max(0,d-max(r,a_*)+1)`.
+- **Maximal deficit-background stratum ledger:** PROVED.  Gives an explicit
+  `(t,u,r)` ledger balancing petal/background support entropy against the
+  joint cofactor exponent.
+- **Two-anchor deficit certificate:** PROVED.  Counts maximal-sunflower
+  extras with bounded cofactor excess and bounded best two-petal deficit,
+  sharpening the average-deficit closure and adding a targeted scanner
+  diagnostic.
+- **Background-petal anchor certificate:** PROVED.  Counts maximal-sunflower
+  extras with bounded cofactor excess and bounded background-petal combined
+  deficit, using the background quotient and one petal cofactor without fixing
+  all petal supports.
+- **Maximal two-gate residual closure:** PROVED.  Combines the two-petal and
+  background-petal anchor certificates: bounded cofactor excess is polynomial
+  unless both anchor deficits escape every fixed bound.
+- **Largest-petal width floor:** PROVED.  Shows the current two-gate residual
+  must either spread across many petals or keep the top two petal supports
+  large enough to meet the list condition.
+- **Finite-width two-gate tradeoff:** PROVED.  Shows bounded-width residuals
+  must satisfy an explicit tradeoff between the two-petal and background-petal
+  gates.
+- **Johnson over-agreement gate:** PROVED.  Removes sunflower extras whose
+  agreement slack already puts them in the ordinary Johnson region.
+- **Maximal sunflower residual frontier:** PROVED.  Combines the Johnson and
+  two-gate controls into the current precise residual target.
 - **Mixed-petal sunflower amplification:** CONJECTURAL.  Next focused bound to
   prove or refute in the large-defect regime.

@@ -1,0 +1,197 @@
+{
+  "date": "2026-06-26",
+  "repo": "przchojecki/rs-mca",
+  "integrator": "Codex",
+  "review_method": "Manual statement-level review, topic-split subagent validity checks, and script side-effect inspection before integration. Contributed scripts were not executed locally in this pass.",
+  "frontier_numeric_update": false,
+  "experiments_tex_updated": true,
+  "site_updated": true,
+  "prs": [
+    {
+      "number": 108,
+      "author": "AllenGrahamHart",
+      "title": "L2: codegree theorem for the interleaved-list saving",
+      "status": "PROVED reduction / CONDITIONAL saving",
+      "integrated": true,
+      "paths": [
+        "experimental/notes/l2/l2_codegree_reduction_theorem.md",
+        "experimental/notes/l2/l2_codegree_theorem_program.md",
+        "experimental/scripts/verify_l2_mu_recursion.py",
+        "experimental/scripts/verify_l2_profile_decay.py",
+        "experimental/scripts/verify_l2_punctured_johnson.py",
+        "experimental/scripts/verify_l2_reduction_bound.py",
+        "experimental/scripts/verify_l2_stratified_sum.py"
+      ],
+      "validity": "The codegree decomposition and two-regime recursion are valid. The exponent saving still needs an L1-family tail-list input.",
+      "site_category": "theory update",
+      "prize_worthy": false
+    },
+    {
+      "number": 109,
+      "author": "AllenGrahamHart",
+      "title": "L1: prove full-list Johnson base region",
+      "status": "PROOF PROGRAM / PARTIAL",
+      "integrated": true,
+      "paths": [
+        "experimental/notes/l1/l1_full_list_quotient_proof_program.md",
+        "experimental/scripts/scan_l1_full_list_quotient_conjecture.py"
+      ],
+      "validity": "Useful proof-program material and standard Johnson-region components. It does not prove the full L1 local limit.",
+      "site_category": "internal proof program",
+      "prize_worthy": false
+    },
+    {
+      "number": 110,
+      "author": "AllenGrahamHart",
+      "title": "M1: strict264 audit (agreement 264 endpoint, slack-8 two-ended)",
+      "status": "AUDIT / TARGET",
+      "integrated": true,
+      "paths": [
+        "experimental/notes/m1/m1_reserve_scale_audit.md",
+        "experimental/notes/m1/m1_strict264_audit.md",
+        "experimental/scripts/verify_m1_reserve_scale_bridge.py",
+        "experimental/scripts/verify_m1_reserve_scale_richness.py",
+        "experimental/scripts/verify_m1_strict264_admissibility.py",
+        "experimental/scripts/verify_m1_strict264_bridge.py",
+        "experimental/scripts/verify_m1_strict264_end_to_end.py",
+        "experimental/scripts/verify_m1_strict264_mechanism.py",
+        "experimental/scripts/verify_m1_strict264_two_ended_transfer.py"
+      ],
+      "validity": "The arithmetic that seven retained slopes over F_17^32 clear 2^-128 is correct. The exact retained-slope proof is not supplied, so this remains a target/audit.",
+      "site_category": "target update",
+      "prize_worthy": false
+    },
+    {
+      "number": 111,
+      "author": "AllenGrahamHart",
+      "title": "M1: add quotient occupancy theorem",
+      "status": "PROVED / AUDIT",
+      "integrated": true,
+      "paths": [
+        "experimental/notes/m1/m1_quotient_occupancy_theorem.md",
+        "experimental/scripts/verify_m1_quotient_occupancy_theorem.py"
+      ],
+      "validity": "Exact fiber-occupancy and whole-fiber exchange formulas are valid combinatorial ledgers.",
+      "site_category": "internal theorem",
+      "prize_worthy": false
+    },
+    {
+      "number": 112,
+      "author": "AllenGrahamHart",
+      "title": "F1: add resonance graph-gate verifier",
+      "status": "AUDIT / RESTRICTED TOY WINDOW",
+      "integrated": true,
+      "paths": [
+        "experimental/notes/f1/f1_resonance_graph_gate.md",
+        "experimental/scripts/fable_loop/local_checks/20260618_cycle18_resonance_slope_symbolic.py",
+        "experimental/scripts/verify_f1_resonance_graph_gate.py"
+      ],
+      "validity": "Valid restricted graph-gate audit. Wording was softened from certificate language to audit language.",
+      "site_category": "internal audit",
+      "prize_worthy": false
+    },
+    {
+      "number": 113,
+      "author": "scottdhughes",
+      "title": "L1: add centered Krawtchouk baseline-cancellation route cut",
+      "status": "AUDIT / ROUTE CUT",
+      "integrated": true,
+      "paths": [
+        "experimental/notes/l1/l1_prefix_dual_centered_krawtchouk_route_cut.md",
+        "experimental/scripts/verify_l1_prefix_dual_centered_krawtchouk_route_cut.py"
+      ],
+      "validity": "Useful route cut. The baseline transform must use full-rank subsets or p^{-rank(T)} rather than a uniform p^{-s} baseline.",
+      "site_category": "internal audit",
+      "prize_worthy": false
+    },
+    {
+      "number": 114,
+      "author": "AllenGrahamHart",
+      "title": "M2: add common code-line residual budget",
+      "status": "PROVED finite MDS theorem",
+      "integrated": true,
+      "paths": [
+        "experimental/notes/m2/m2_common_code_line_residual_budget.md",
+        "experimental/scripts/verify_m2_common_code_line_residual_budget.py"
+      ],
+      "validity": "Valid support-wise MDS residual-budget lemma. Sharpness needs unused residual coordinates kept non-common-zero, which the note does.",
+      "site_category": "theory update",
+      "prize_worthy": false
+    },
+    {
+      "number": 115,
+      "author": "AllenGrahamHart",
+      "title": "A0: split deep-point cap dependency",
+      "status": "PROVED local route / AUDIT import split",
+      "integrated": true,
+      "paths": [
+        "experimental/notes/audits/a0_cs25_import_audit.md",
+        "experimental/notes/audits/a0_deep_point_cap_dependency_split.md",
+        "experimental/notes/audits/cs25_import_audit.md",
+        "experimental/scripts/verify_a0_deep_point_cap_algebra.py"
+      ],
+      "validity": "The deep-point/simple-pole route gives a CS25-free proof path for the headline MCA cap under Paper D hypotheses. CA/list claims still need the CS25 import audit.",
+      "site_category": "theory update",
+      "prize_worthy": false
+    },
+    {
+      "number": 116,
+      "author": "AllenGrahamHart",
+      "title": "L2: sharp-constant falsification exact Quot_rem_mu + stress",
+      "status": "AUDIT / EXPERIMENTAL",
+      "integrated": true,
+      "paths": [
+        "experimental/notes/l2/l2_falsification_log.md",
+        "experimental/scripts/verify_l2_quotient_budget.py"
+      ],
+      "validity": "Useful falsification/stress evidence for sharp constants. No theorem promotion.",
+      "site_category": "internal audit",
+      "prize_worthy": false
+    },
+    {
+      "number": 117,
+      "author": "AllenGrahamHart",
+      "title": "L1 independent audit / M1-L1 reserve connection",
+      "status": "AUDIT",
+      "integrated": true,
+      "paths": [
+        "experimental/notes/audits/audit_l1_fulllist_conjecture.md",
+        "experimental/notes/audits/audit_m1_l1_reserve_connection.md",
+        "experimental/scripts/verify_l1_fulllist_independent_audit.py",
+        "experimental/scripts/verify_l1_m1_reserve_connection.py",
+        "experimental/scripts/verify_m1_cosupport_periodicity.py"
+      ],
+      "validity": "Consistent with existing L1/M1 reserve framing; audit only.",
+      "site_category": "internal audit",
+      "prize_worthy": false
+    },
+    {
+      "number": 118,
+      "author": "AllenGrahamHart",
+      "title": "F1: prove syndrome-pencil normal form",
+      "status": "PROVED normal form / NOT F1 theorem",
+      "integrated": true,
+      "paths": [
+        "experimental/notes/f1/f1_syndrome_pencil_normal_form.md",
+        "experimental/scripts/verify_f1_syndrome_pencil_normal_form.py"
+      ],
+      "validity": "Valid Hankel-pencil incidence and noncontainment normal form. Added explicit finite-slope and 0<=j<=r hypotheses.",
+      "site_category": "theory update",
+      "prize_worthy": false
+    },
+    {
+      "number": 119,
+      "author": "scottdhughes",
+      "title": "L1: add large-domain mixed-Weil energy floor",
+      "status": "CONDITIONAL / AUDIT",
+      "integrated": true,
+      "paths": [
+        "experimental/notes/l1/l1_prefix_dual_large_domain_weil_energy_floor.md",
+        "experimental/scripts/verify_l1_prefix_dual_large_domain_weil_energy_floor.py"
+      ],
+      "validity": "Potentially useful route cut, but conditional until the mixed Kummer-Artin-Schreier Weil citation and constant are checked. Script shells to Sage and was not run.",
+      "site_category": "conditional theory update",
+      "prize_worthy": false
+    }
+  ]
+}

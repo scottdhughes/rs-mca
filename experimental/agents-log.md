@@ -30,6 +30,31 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-26 - PR #108--#119 proof and audit integration
+
+- **Agent/model:** AllenGrahamHart PRs #108--#112, #114--#118, Scott Hughes
+  PRs #113 and #119, reviewed and integrated by Codex with topic-split validity
+  checks.
+- **Files added or changed:** `experimental/notes/triage/pr-triage-2026-06-26.md`,
+  `experimental/data/pr-triage-2026-06-26.json`,
+  `experimental/experiments.tex`, `experimental/experiments.pdf`,
+  `experimental/SUMMARY.md`, `experimental/agents-log.md`, plus new or updated
+  notes and scripts under `experimental/notes/{audits,f1,l1,l2,m1,m2}/` and
+  `experimental/scripts/`.
+- **Status:** PROVED / CONDITIONAL / AUDIT / EXPERIMENTAL.
+- **What is being added:** A one-by-one integration of PRs #108--#119.  The
+  theorem-level additions are the F1 syndrome-pencil normal form, the L2
+  codegree reduction, the A0 deep-point MCA-cap dependency split, and the M2
+  common code-line residual budget.  The remaining material is kept as route
+  cuts, audits, or proof programs.
+- **How it is useful:** Gives future theory work cleaner local statements for
+  F1, L2, Paper D/A0, and M2, while preserving conservative public status.  No
+  new prize-worthy numerator or frontier point is claimed.
+- **What to do next:** Human-review the theorem-level additions before any
+  main-paper promotion, citation-check the mixed-Weil route in PR #119, and
+  require a retained-slope proof before treating strict264 as more than a
+  target.
+
 ### 2026-06-25 - Latest PR integration and estimate audit
 
 - **Agent/model:** AllenGrahamHart PRs #101--#107, ScottDHughes PR #99, and

@@ -23,7 +23,7 @@ import json
 import random
 import sys
 from collections import Counter, defaultdict
-from math import comb, lgamma, log2
+from math import comb, isqrt, lgamma, log2
 from typing import Iterable
 
 
@@ -273,6 +273,58 @@ def entropy_report(p: int, n: int, k: int, s: int, epsilon: float) -> dict[str, 
     }
 
 
+def johnson_full_list_profile(n: int, k: int, s: int) -> dict[str, object]:
+    """Return the proved arbitrary-word full-list Johnson bound, if active."""
+    denominator = s * s - n * (k - 1)
+    numerator = n * (n - k + 1)
+    unique_decoding = 2 * s > n + k - 1
+    profile: dict[str, object] = {
+        "status": "PROVED/FULL_LIST_JOHNSON_REGION",
+        "condition": "s^2 > n(k-1)",
+        "unique_decoding_condition": "2s > n+k-1",
+        "unique_decoding": unique_decoding,
+        "johnson_denominator": denominator,
+        "johnson_numerator": numerator,
+        "in_johnson_region": denominator > 0,
+        "bound": None,
+        "bound_reason": "outside-johnson-region",
+    }
+    if unique_decoding:
+        profile["bound"] = 1
+        profile["bound_reason"] = "unique-decoding"
+    elif denominator > 0:
+        profile["bound"] = numerator // denominator
+        profile["bound_reason"] = "second-moment-johnson"
+    return profile
+
+
+def johnson_slack_needed(n: int, k: int, s: int) -> int:
+    """Minimum slack needed to move threshold s into the Johnson region."""
+    threshold = n * (k - 1)
+    if s * s > threshold:
+        return 0
+    return isqrt(threshold) + 1 - s
+
+
+def johnson_bound_report(
+    profile: dict[str, object],
+    max_total: int,
+    max_primitive: int,
+) -> dict[str, object]:
+    bound = profile.get("bound")
+    if not isinstance(bound, int):
+        return {
+            "johnson_bound_checked": False,
+            "johnson_bound_holds_for_max_list": None,
+            "johnson_bound_holds_for_max_primitive": None,
+        }
+    return {
+        "johnson_bound_checked": True,
+        "johnson_bound_holds_for_max_list": max_total <= bound,
+        "johnson_bound_holds_for_max_primitive": max_primitive <= bound,
+    }
+
+
 def empty_ledger(n: int) -> dict[int, int]:
     return {divisor: 0 for divisor in positive_divisors(n)}
 
@@ -291,6 +343,7 @@ def exact_syndrome_scan(
     low_weight_ball = ball_size(n, r, p)
     min_distance = n - k + 1
     entropy = entropy_report(p, n, k, s, epsilon)
+    johnson_profile = johnson_full_list_profile(n, k, s)
     threshold = n ** alert_power
 
     if 2 * r < min_distance:
@@ -314,10 +367,16 @@ def exact_syndrome_scan(
         max_primitive = 1 if primitive_syndromes else 0
         max_quotient = 1 if quotient_syndromes else 0
         primitive_alert = bool(entropy["reserve_cleared"]) and max_primitive > threshold
+        johnson_report = johnson_bound_report(
+            johnson_profile,
+            1 if low_weight_ball else 0,
+            max_primitive,
+        )
         return {
             "status": "EXPERIMENTAL/FULL_LIST_EXACT_SYNDROME_SCAN",
             "mode": "exact-syndrome",
             "params": {"p": p, "n": n, "k": k, "s": s, **entropy},
+            "johnson_full_list_profile": johnson_profile,
             "low_weight_ball_size": low_weight_ball,
             "occupied_syndromes": low_weight_ball,
             "minimum_distance": min_distance,
@@ -333,6 +392,7 @@ def exact_syndrome_scan(
             },
             "primitive_alert_threshold": round(threshold, 6),
             "primitive_alert": primitive_alert,
+            **johnson_report,
             "max_primitive_examples": (
                 [primitive_example] if primitive_example is not None else []
             ),
@@ -387,10 +447,12 @@ def exact_syndrome_scan(
             })
 
     primitive_alert = bool(entropy["reserve_cleared"]) and max_primitive > threshold
+    johnson_report = johnson_bound_report(johnson_profile, max_total, max_primitive)
     return {
         "status": "EXPERIMENTAL/FULL_LIST_EXACT_SYNDROME_SCAN",
         "mode": "exact-syndrome",
         "params": {"p": p, "n": n, "k": k, "s": s, **entropy},
+        "johnson_full_list_profile": johnson_profile,
         "low_weight_ball_size": low_weight_ball,
         "occupied_syndromes": len(syndromes),
         "minimum_distance": min_distance,
@@ -402,6 +464,7 @@ def exact_syndrome_scan(
         "primitive_count_histogram": dict(sorted(primitive_histogram.items())),
         "primitive_alert_threshold": round(threshold, 6),
         "primitive_alert": primitive_alert,
+        **johnson_report,
         "max_primitive_examples": examples,
     }
 
@@ -605,6 +668,12 @@ def classify_sunflower_listing(
 ) -> dict[str, object]:
     core = set(sunflower["core"])
     petals = [set(petal) for petal in sunflower["petals"]]
+    petal_size = len(petals[0]) if petals else 0
+    k = len(core) + 1
+    s = len(core) + petal_size
+    johnson_slack = johnson_slack_needed(n, k, s)
+    petal_union = set().union(*petals) if petals else set()
+    background = set(range(n)) - core - petal_union
     intended_masks = {
         mask_from_indices(intended)
         for intended in sunflower["intended_agreement_sets"]
@@ -614,28 +683,198 @@ def classify_sunflower_listing(
     missing_planted = intended_masks - listed_mask_set
     extra_masks = sorted(listed_mask_set - intended_masks)
     profile_histogram: Counter[tuple[int, int, int, int, int, int]] = Counter()
+    parameter_histogram: Counter[
+        tuple[
+            int, int, int, int, int, int, int, int, int, int,
+            int, int, int, int, int, int, int, int,
+        ]
+    ] = Counter()
     extra_examples: list[dict[str, object]] = []
+    johnson_covered_extras = 0
     for mask in extra_masks:
         agreement = set(mask_to_exponents(mask, n))
+        agreement_size = len(agreement)
+        agreement_slack = agreement_size - s
+        johnson_covered = agreement_slack >= johnson_slack
+        johnson_unique_covered = 2 * agreement_size > n + k - 1
+        if johnson_covered:
+            johnson_covered_extras += 1
         petal_hits = [len(agreement & petal) for petal in petals]
+        positive_petal_hits = [hit for hit in petal_hits if hit]
+        positive_petal_hits_desc = sorted(positive_petal_hits, reverse=True)
+        core_hits = len(agreement & core)
+        core_defect = len(core) - core_hits
+        background_hits = len(agreement & background)
+        touched_petals = len(positive_petal_hits)
+        petal_deficit = sum(
+            len(petal) - hit
+            for hit, petal in zip(petal_hits, petals, strict=True)
+            if hit
+        )
+        max_petal_hit = positive_petal_hits_desc[0] if positive_petal_hits_desc else 0
+        second_petal_hit = (
+            positive_petal_hits_desc[1] if len(positive_petal_hits_desc) >= 2 else 0
+        )
+        positive_petal_deficits = sorted(
+            len(petal) - hit
+            for hit, petal in zip(petal_hits, petals, strict=True)
+            if hit
+        )
+        best_two_petal_deficit = (
+            positive_petal_deficits[0] + positive_petal_deficits[1]
+            if len(positive_petal_deficits) >= 2
+            else -1
+        )
+        best_background_petal_deficit = (
+            (petal_size - background_hits) + (petal_size - max_petal_hit)
+            if positive_petal_hits
+            else -1
+        )
+        cofactor_excess = core_defect - petal_size
+        anchor_exponent = max(
+            0,
+            core_defect - max(background_hits, max_petal_hit) + 1,
+        )
+        two_anchor_exponent = (
+            2 * cofactor_excess + best_two_petal_deficit + 2
+            if best_two_petal_deficit >= 0
+            else -1
+        )
+        background_petal_exponent = (
+            2 * cofactor_excess + best_background_petal_deficit + 2
+            if best_background_petal_deficit >= 0
+            else -1
+        )
+        valid_anchor_deficits = [
+            value
+            for value in (best_two_petal_deficit, best_background_petal_deficit)
+            if value >= 0
+        ]
+        best_anchor_deficit = (
+            min(valid_anchor_deficits) if valid_anchor_deficits else -1
+        )
+        valid_anchor_exponents = [
+            value
+            for value in (two_anchor_exponent, background_petal_exponent)
+            if value >= 0
+        ]
+        best_anchor_exponent = (
+            min(valid_anchor_exponents) if valid_anchor_exponents else -1
+        )
+        petal_cofactor_exponent = max(0, core_defect - max_petal_hit + 1)
+        background_quotient_exponent = max(0, core_defect - background_hits + 1)
+        required_petal_hits = petal_size + core_defect - background_hits
+        width_floor_a1 = (
+            max(0, -(-required_petal_hits // max_petal_hit))
+            if max_petal_hit > 0
+            else -1
+        )
+        remaining_after_largest = max(0, required_petal_hits - max_petal_hit)
+        width_floor_a2 = (
+            1 + max(0, -(-remaining_after_largest // second_petal_hit))
+            if second_petal_hit > 0
+            else (1 if remaining_after_largest == 0 else -1)
+        )
+        width_gate_slack = (
+            2 * (touched_petals - 1) * petal_size
+            - (
+                (touched_petals - 1) * best_two_petal_deficit
+                + 2 * max(0, cofactor_excess + best_background_petal_deficit)
+            )
+            if touched_petals >= 2
+            and best_two_petal_deficit >= 0
+            and best_background_petal_deficit >= 0
+            else -1
+        )
+        list_condition_slack = (
+            background_hits + sum(petal_hits) - (petal_size + core_defect)
+        )
         profile = (
-            len(agreement),
-            len(agreement & core),
+            agreement_size,
+            core_hits,
             sum(petal_hits),
-            sum(1 for hit in petal_hits if hit),
-            max(petal_hits, default=0),
+            touched_petals,
+            max_petal_hit,
             sum(1 for hit, petal in zip(petal_hits, petals, strict=True)
                 if hit == len(petal)),
         )
+        parameter_profile = (
+            core_defect,
+            background_hits,
+            touched_petals,
+            petal_deficit,
+            max_petal_hit,
+            second_petal_hit,
+            best_two_petal_deficit,
+            best_background_petal_deficit,
+            cofactor_excess,
+            anchor_exponent,
+            two_anchor_exponent,
+            background_petal_exponent,
+            best_anchor_deficit,
+            best_anchor_exponent,
+            width_floor_a1,
+            width_floor_a2,
+            width_gate_slack,
+            list_condition_slack,
+        )
         profile_histogram[profile] += 1
+        parameter_histogram[parameter_profile] += 1
         if len(extra_examples) < max_extra_examples:
             extra_examples.append({
                 "agreement_set": sorted(agreement),
-                "agreement_size": len(agreement),
-                "core_hits": len(agreement & core),
+                "agreement_size": agreement_size,
+                "agreement_slack": agreement_slack,
+                "johnson_slack_needed": johnson_slack,
+                "johnson_covered": johnson_covered,
+                "johnson_unique_covered": johnson_unique_covered,
+                "core_hits": core_hits,
+                "core_defect": core_defect,
+                "background_hits": background_hits,
                 "total_petal_hits": sum(petal_hits),
                 "petal_hits": petal_hits,
-                "positive_petals": sum(1 for hit in petal_hits if hit),
+                "positive_petals": touched_petals,
+                "petal_deficit": petal_deficit,
+                "max_petal_hit": max_petal_hit,
+                "second_petal_hit": second_petal_hit,
+                "best_two_petal_deficit": (
+                    best_two_petal_deficit
+                    if best_two_petal_deficit >= 0
+                    else None
+                ),
+                "best_background_petal_deficit": (
+                    best_background_petal_deficit
+                    if best_background_petal_deficit >= 0
+                    else None
+                ),
+                "cofactor_excess": cofactor_excess,
+                "background_anchor_exponent": anchor_exponent,
+                "two_anchor_exponent": (
+                    two_anchor_exponent if two_anchor_exponent >= 0 else None
+                ),
+                "background_petal_exponent": (
+                    background_petal_exponent
+                    if background_petal_exponent >= 0
+                    else None
+                ),
+                "best_anchor_deficit": (
+                    best_anchor_deficit if best_anchor_deficit >= 0 else None
+                ),
+                "best_anchor_exponent": (
+                    best_anchor_exponent if best_anchor_exponent >= 0 else None
+                ),
+                "width_floor_a1": (
+                    width_floor_a1 if width_floor_a1 >= 0 else None
+                ),
+                "width_floor_a2": (
+                    width_floor_a2 if width_floor_a2 >= 0 else None
+                ),
+                "width_gate_slack": (
+                    width_gate_slack if width_gate_slack >= 0 else None
+                ),
+                "petal_cofactor_exponent": petal_cofactor_exponent,
+                "background_quotient_exponent": background_quotient_exponent,
+                "list_condition_slack": list_condition_slack,
                 "full_petals": [
                     index for index, (hit, petal) in enumerate(
                         zip(petal_hits, petals, strict=True),
@@ -648,6 +887,8 @@ def classify_sunflower_listing(
         "planted_present_count": len(planted_present),
         "planted_missing_count": len(missing_planted),
         "extra_count": len(extra_masks),
+        "johnson_slack_needed": johnson_slack,
+        "johnson_covered_extra_count": johnson_covered_extras,
         "extra_profile_histogram": {
             (
                 f"agreement={profile[0]},core={profile[1]},"
@@ -655,6 +896,20 @@ def classify_sunflower_listing(
                 f"max_petal={profile[4]},full_petals={profile[5]}"
             ): count
             for profile, count in sorted(profile_histogram.items())
+        },
+        "extra_parameter_histogram": {
+            (
+                f"d={profile[0]},r={profile[1]},t={profile[2]},"
+                f"u={profile[3]},a_star={profile[4]},"
+                f"second={profile[5]},pair_def={profile[6]},"
+                f"bg_pair_def={profile[7]},excess={profile[8]},"
+                f"anchor_exp={profile[9]},two_anchor_exp={profile[10]},"
+                f"bg_petal_exp={profile[11]},gate_def={profile[12]},"
+                f"gate_exp={profile[13]},width1={profile[14]},"
+                f"width2={profile[15]},width_gate_slack={profile[16]},"
+                f"list_slack={profile[17]}"
+            ): count
+            for profile, count in sorted(parameter_histogram.items())
         },
         "extra_examples": extra_examples,
     }
@@ -725,6 +980,7 @@ def sample_scan(
 ) -> dict[str, object]:
     domain = subgroup(p, n)
     entropy = entropy_report(p, n, k, s, epsilon)
+    johnson_profile = johnson_full_list_profile(n, k, s)
     threshold = n ** alert_power
     max_total = 0
     max_primitive = 0
@@ -734,7 +990,9 @@ def sample_scan(
     sunflower_rows = 0
     sunflower_rows_with_extras = 0
     sunflower_max_extra_count = 0
+    sunflower_johnson_covered_extras = 0
     sunflower_extra_profile_summary: Counter[str] = Counter()
+    sunflower_extra_parameter_summary: Counter[str] = Counter()
 
     for word in sampled_words(p, n, k, s, samples, seed, sunflower_count):
         values = word["values"]
@@ -743,6 +1001,10 @@ def sample_scan(
         ledger = empty_ledger(n)
         for agreement_mask in listed.values():
             ledger[stabilizer_order(agreement_mask, n)] += 1
+        agreement_size_histogram = Counter(
+            len(mask_to_exponents(agreement_mask, n))
+            for agreement_mask in listed.values()
+        )
         total = len(listed)
         primitive = ledger.get(1, 0)
         quotient = total - primitive
@@ -751,6 +1013,10 @@ def sample_scan(
             "list_size": total,
             "primitive": primitive,
             "quotient_budget": quotient,
+            "agreement_size_histogram": dict(sorted(agreement_size_histogram.items())),
+            "max_agreement_size": (
+                max(agreement_size_histogram) if agreement_size_histogram else 0
+            ),
             "exact_stabilizer_counts": {
                 str(order): count for order, count in ledger.items() if count
             },
@@ -774,8 +1040,13 @@ def sample_scan(
             if extra_count:
                 sunflower_rows_with_extras += 1
                 sunflower_max_extra_count = max(sunflower_max_extra_count, extra_count)
+            sunflower_johnson_covered_extras += int(
+                classification["johnson_covered_extra_count"]
+            )
             for profile, count in classification["extra_profile_histogram"].items():
                 sunflower_extra_profile_summary[profile] += int(count)
+            for profile, count in classification["extra_parameter_histogram"].items():
+                sunflower_extra_parameter_summary[profile] += int(count)
         rows.append(row)
         max_quotient = max(max_quotient, quotient)
         if primitive > max_primitive or total > max_total:
@@ -793,23 +1064,30 @@ def sample_scan(
 
     primitive_alert = bool(entropy["reserve_cleared"]) and max_primitive > threshold
     rows.sort(key=lambda row: (int(row["primitive"]), int(row["list_size"])), reverse=True)
+    johnson_report = johnson_bound_report(johnson_profile, max_total, max_primitive)
     return {
         "status": "EXPERIMENTAL/FULL_LIST_SAMPLE_SCAN",
         "mode": "sample",
         "params": {"p": p, "n": n, "k": k, "s": s, "decoder": decoder, **entropy},
+        "johnson_full_list_profile": johnson_profile,
         "words_scanned": len(rows),
         "max_list_size": max_total,
         "max_primitive_exact": max_primitive,
         "max_quotient_budget": max_quotient,
         "primitive_alert_threshold": round(threshold, 6),
         "primitive_alert": primitive_alert,
+        **johnson_report,
         "top_rows": rows[: min(12, len(rows))],
         "max_primitive_examples": examples,
         "sunflower_summary": {
             "rows": sunflower_rows,
             "rows_with_extras": sunflower_rows_with_extras,
             "max_extra_count": sunflower_max_extra_count,
+            "johnson_covered_extra_count": sunflower_johnson_covered_extras,
             "extra_profile_summary": dict(sorted(sunflower_extra_profile_summary.items())),
+            "extra_parameter_summary": dict(
+                sorted(sunflower_extra_parameter_summary.items())
+            ),
         },
     }
 
@@ -848,6 +1126,7 @@ def seed_sweep_scan(
         raise ValueError("seed_count must be positive")
 
     entropy = entropy_report(p, n, k, s, epsilon)
+    johnson_profile = johnson_full_list_profile(n, k, s)
     max_list_size = max(int(result["max_list_size"]) for result in seed_results)
     max_primitive = max(int(result["max_primitive_exact"]) for result in seed_results)
     max_quotient = max(int(result["max_quotient_budget"]) for result in seed_results)
@@ -855,7 +1134,9 @@ def seed_sweep_scan(
     sunflower_rows = 0
     sunflower_rows_with_extras = 0
     sunflower_max_extra_count = 0
+    sunflower_johnson_covered_extras = 0
     profile_summary: Counter[str] = Counter()
+    parameter_summary: Counter[str] = Counter()
     top_seed_rows: list[dict[str, object]] = []
     for seed, result in zip(range(seed_start, seed_start + seed_count), seed_results, strict=True):
         sunflower_summary = result["sunflower_summary"]
@@ -866,8 +1147,13 @@ def seed_sweep_scan(
             sunflower_max_extra_count,
             int(sunflower_summary["max_extra_count"]),
         )
+        sunflower_johnson_covered_extras += int(
+            sunflower_summary.get("johnson_covered_extra_count", 0)
+        )
         for profile, count in sunflower_summary["extra_profile_summary"].items():
             profile_summary[str(profile)] += int(count)
+        for profile, count in sunflower_summary["extra_parameter_summary"].items():
+            parameter_summary[str(profile)] += int(count)
         top_rows = result["top_rows"]
         assert isinstance(top_rows, list)
         top_seed_rows.append({
@@ -899,18 +1185,22 @@ def seed_sweep_scan(
             "sunflowers_per_seed": sunflower_count,
             **entropy,
         },
+        "johnson_full_list_profile": johnson_profile,
         "words_scanned": sum(int(result["words_scanned"]) for result in seed_results),
         "max_list_size": max_list_size,
         "max_primitive_exact": max_primitive,
         "max_quotient_budget": max_quotient,
         "primitive_alert_threshold": n ** alert_power,
         "primitive_alert": primitive_alert,
+        **johnson_bound_report(johnson_profile, max_list_size, max_primitive),
         "top_seed_rows": top_seed_rows[:max_examples],
         "sunflower_summary": {
             "rows": sunflower_rows,
             "rows_with_extras": sunflower_rows_with_extras,
             "max_extra_count": sunflower_max_extra_count,
+            "johnson_covered_extra_count": sunflower_johnson_covered_extras,
             "extra_profile_summary": dict(sorted(profile_summary.items())),
+            "extra_parameter_summary": dict(sorted(parameter_summary.items())),
         },
     }
 

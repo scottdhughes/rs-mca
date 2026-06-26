@@ -18,6 +18,9 @@ papers. The source triage records are:
 - `notes/triage/pr-triage-2026-06-25.md`: PRs #99 through #107, with #100 not
   imported as a raw generated packet and the remaining useful material added as
   experimental L1/M1/M2/F1/L2/X1 notes, verifiers, and Lean scaffolding.
+- `notes/triage/pr-triage-2026-06-26.md`: PRs #108 through #119, with theorem
+  material extracted into `experiments.tex`, structured triage data recorded in
+  `data/pr-triage-2026-06-26.json`, and no frontier-numerator upgrade.
 
 The common policy was: keep Papers A-D unchanged, land new material in
 `experimental/`, preserve explicit status labels, and require review before any
@@ -48,6 +51,38 @@ large theorem yet; it is the reduction of several vague hazards into named,
 script-checkable walls.
 
 ## What Was Added
+
+### Latest 2026-06-26 integration
+
+The 2026-06-26 PR round does not improve the Cycle116/119 numerator
+`52,747,567,092` and does not add a new prize-worthy frontier point.  It does
+add several proof-infrastructure results that are useful for the next theory
+pass:
+
+- `notes/f1/f1_syndrome_pencil_normal_form.md` gives a proved Hankel-pencil
+  normal form for support-wise line incidence and noncontainment.  This is a
+  clean F1 language upgrade, not a completed F1 theorem.
+- `notes/l2/l2_codegree_reduction_theorem.md` gives an unconditional
+  interleaved-list codegree reduction and arity recursion.  The actual L2
+  exponent saving remains conditional on an L1-family higher-agreement
+  tail-list input.
+- `notes/audits/a0_deep_point_cap_dependency_split.md` shows that Paper D's
+  headline MCA cap has a CS25-free local route using the elementary fiber
+  lower bound, simple-pole transfer, deep-point averaging, and support-wise
+  MCA monotonicity.  The original CA/list import surface still needs the CS25
+  audit.
+- `notes/m2/m2_common_code_line_residual_budget.md` gives a finite MDS
+  residual-budget lemma for common code-line exceptions in line-decoding
+  imports.
+- `notes/m1/m1_strict264_audit.md` keeps strict264 as a useful target: seven
+  retained slopes over `F_17^32` would clear `2^-128`, but no retained-slope
+  proof was supplied in this batch.
+
+The remaining PRs are audit, route-cut, or proof-program material: quotient
+occupancy ledgers, centered Krawtchouk and large-domain Weil route cuts,
+strict264 bridge audits, L1/M1 reserve audits, and L2 sharp-constant stress
+tests.  New theorem-level statements were added to `experiments.tex` and
+compiled into `experiments.pdf`; contributed scripts were not run locally.
 
 ### Latest 2026-06-25 integration
 

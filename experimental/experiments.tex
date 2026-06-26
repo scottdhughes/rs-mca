@@ -39,7 +39,7 @@
 
 \title{Experimental Theorems and Imported-Locator Ledger for RS-MCA}
 \author{RS-MCA experimental notes}
-\date{June 18, 2026}
+\date{June 26, 2026}
 
 \begin{document}
 \maketitle
@@ -730,6 +730,277 @@ The certificate should keep at least
 \end{gathered}
 \]
 
+\section{June 26 Normal-Form and Dependency Results}
+\label{sec:june26}
+
+\textbf{Status: mixed.}
+This section records the parts of the June 26 PR batch that survived a
+statement-level validity check.  The statements below are useful proof
+infrastructure, not prize claims.  In particular, they do not improve the
+current Cycle116/119 numerator \(52{,}747{,}567{,}092\) over
+\(\F_{17^{32}}\), and they do not prove the corrected Paper B MCA conjecture.
+
+\subsection{Syndrome-pencil normal form for support-wise line incidence}
+
+\textbf{Status: \textsc{New-local}.}
+This is the cleanest reusable F1 contribution from the batch.  It turns
+support-wise line incidence into a Hankel-pencil locator equation over the
+actual line field.
+
+Let \(D=\{x_1,\ldots,x_n\}\subset F\) have distinct points and let
+\(C=\RS[F,D,k]\) with redundancy \(r=n-k\).  For each \(x_i\), put
+\[
+  \lambda_i=\left(\prod_{h\ne i}(x_i-x_h)\right)^{-1}.
+\]
+For a word \(y:D\to F\), define
+\[
+  \operatorname{Syn}(y)_m
+  =\sum_i \lambda_i x_i^m y(x_i),
+  \qquad 0\le m<r.
+\]
+Then \(\operatorname{Syn}(y)=0\) if and only if \(y\in C\).  Fix
+\(T\subset D\) with \(|T|=j\), assume \(0\le j\le r\), and set \(t=r-j\).
+Write
+\[
+  L_T(X)=\prod_{x\in T}(X-x)=\ell_0+\ell_1X+\cdots+\ell_jX^j,
+  \qquad
+  \boldsymbol\ell_T=(\ell_0,\ldots,\ell_j)^T .
+\]
+For \(w\in F^r\), define the \(t\times(j+1)\) Hankel window
+\[
+  H_{t,j}(w)_{a,b}=w_{a+b},
+  \qquad 0\le a<t,\quad 0\le b\le j.
+\]
+
+\begin{theorem}[Hankel-pencil test]
+\label{thm:syndrome-pencil}
+Let \(f,g:D\to F\), put \(u=\operatorname{Syn}(f)\) and
+\(v=\operatorname{Syn}(g)\), and let \(S=D\setminus T\).  For a finite slope
+\(z\in F\), the word \(f+zg\) is explained by a codeword of \(C\) on \(S\) if
+and only if
+\[
+  \bigl(H_{t,j}(u)+zH_{t,j}(v)\bigr)\boldsymbol\ell_T=0.
+\]
+Moreover, this explanation is support-wise noncontained for the line
+\(f+zg\) on \(S\) if and only if, in addition,
+\[
+  H_{t,j}(v)\boldsymbol\ell_T\ne0.
+\]
+Consequently the support-wise MCA bad slopes at agreement \(k+t\) are exactly
+the slopes for which there is a squarefree \(D\)-split locator \(L_T\) of
+degree \(j=r-t\) satisfying the displayed incidence and noncontainment tests.
+\end{theorem}
+
+\begin{proof}
+Let \(W_T\subset F^r\) be the span of the parity-check columns indexed by
+\(T\):
+\[
+  W_T=\operatorname{span}_F\{\lambda_x(1,x,\ldots,x^{r-1}):x\in T\}.
+\]
+Equivalently, \(w\in W_T\) means that \(w\) is the syndrome of a word supported
+on \(T\).  For every \(w\in W_T\), write
+\[
+  w_m=\sum_{x\in T}c_xx^m.
+\]
+Then, for \(0\le a<t\),
+\[
+  \bigl(H_{t,j}(w)\boldsymbol\ell_T\bigr)_a
+  =\sum_{b=0}^j\ell_b w_{a+b}
+  =\sum_{x\in T}c_xx^aL_T(x)=0.
+\]
+Conversely, since \(L_T\) is monic, the recurrence
+\(\sum_{b=0}^j\ell_b w_{a+b}=0\) for \(0\le a<r-j\) determines all remaining
+coordinates from the first \(j\) coordinates, so its solution space has
+dimension at most \(j\).  The \(j\) columns indexed by the distinct points of
+\(T\) form a Vandermonde system of rank \(j\), hence the recurrence space is
+exactly \(W_T\).
+
+The word \(f+zg\) is explained on \(S\) if and only if there is \(c\in C\) such
+that \(f+zg-c\) is supported on \(T\).  Taking syndromes, this is equivalent to
+\(u+zv\in W_T\), which is the first displayed equation by the recurrence
+criterion.  Under that equation, simultaneous explanation of \(f\) and \(g\) on
+the same \(S\) is equivalent to \(u,v\in W_T\).  Since
+\(u=(u+zv)-zv\), this is equivalent to \(v\in W_T\), hence to
+\(H_{t,j}(v)\boldsymbol\ell_T=0\).  Noncontainment is therefore exactly the
+negation of that condition.
+\end{proof}
+
+\subsection{Interleaved codegree reduction}
+
+\textbf{Status: \textsc{New-local} reduction; saving remains conditional.}
+This result is useful for the L2 interleaved-list ledger because it replaces
+the naive Cartesian product by a recursion through higher-agreement tails.
+
+Let \(C=\RS[F,D,k]\).  For a word \(V:D\to F\) and codeword \(c\in C\), write
+\[
+  A_V(c)=\{x\in D:c(x)=V(x)\},
+  \qquad
+  \operatorname{Fib}_V(s)=\{c\in C:|A_V(c)|\ge s\},
+\]
+and \(M_V(s)=|\operatorname{Fib}_V(s)|\).  For a \(\mu\)-row word
+\(U=(U_1,\ldots,U_\mu)\), define
+\[
+  \Lambda_\mu^{(s)}(U)
+  =
+  \#\{(c_1,\ldots,c_\mu)\in C^\mu:
+  |\cap_i A_{U_i}(c_i)|\ge s\}.
+\]
+
+\begin{theorem}[two-regime codegree bound]
+\label{thm:l2-codegree}
+For every agreement threshold \(a\),
+\[
+  \Lambda_2^{(a)}(U_1,U_2)
+  \le
+  M_{U_2}(a)+M_{U_2}(2a-k)\,M_{U_1}(a).
+\]
+More generally,
+\[
+  \Lambda_\mu^{(a)}(U_1,\ldots,U_\mu)
+  \le
+  \Lambda_{\mu-1}^{(a)}(U_2,\ldots,U_\mu)
+  +
+  \Lambda_{\mu-1}^{(2a-k)}(U_2,\ldots,U_\mu)\,M_{U_1}(a).
+\]
+\end{theorem}
+
+\begin{proof}
+For the two-row case, sum over \(c_2\in\operatorname{Fib}_{U_2}(a)\), and put
+\(N_2=|A_{U_2}(c_2)|\).  The possible \(c_1\)'s are codewords agreeing with
+\(U_1\) on at least \(a\) points of \(A_{U_2}(c_2)\).  If
+\(N_2<2a-k\), then two such \(c_1\)'s would agree with each other on more than
+\(k\) points, forcing equality.  Thus this punctured list has size at most
+one.  If \(N_2\ge2a-k\), use the trivial bound \(M_{U_1}(a)\).  Summing these
+two regimes gives the displayed two-row inequality.
+
+For the \(\mu\)-row case, fix \((c_2,\ldots,c_\mu)\) and put
+\[
+  S=\bigcap_{i=2}^\mu A_{U_i}(c_i).
+\]
+The listed \(c_1\)'s must agree with \(U_1\) on at least \(a\) points of \(S\).
+If \(|S|<2a-k\), the same unique-decoding argument gives at most one such
+\(c_1\).  If \(|S|\ge2a-k\), use the bound \(M_{U_1}(a)\).  Counting the two
+classes of \((c_2,\ldots,c_\mu)\) gives the recursion.
+\end{proof}
+
+\begin{remark}
+The reduction is unconditional.  The desired L2 saving still requires an
+L1-family input saying that the tail lists at agreement \(2a-k\) are small
+after quotient-periodic contributions are budgeted.
+\end{remark}
+
+\subsection{Deep-point cap dependency split}
+
+\textbf{Status: \textsc{Wrapper} / \textsc{Audit}.}
+This result does not edit Paper D, but it explains why the headline MCA cap can
+be routed locally without using the imported Crites--Stewart conversion.
+
+\begin{proposition}[CS25-free route to the Paper D MCA cap]
+\label{prop:deep-point-cap}
+Assume the finite-field, coset, divisibility, and binomial hypotheses used in
+Paper D's universal cap theorem.  Let \(C=\RS[F,D,k]\), \(C^+=\RS[F,D,k+1]\),
+\(q=|F|\), and suppose the elementary quotient-locator fiber construction gives
+a \(C^+\)-list of size
+\[
+  L\ge \binom{N}{\rho N+2}/|B|\ge q/k+1
+\]
+at the endpoint \(\delta_N=1-\rho-2/N\).  Then there is a support-wise MCA-bad
+line for \(C\) with bad-slope density strictly larger than
+\[
+  \frac1{2k}\left(1-\frac nq\right).
+\]
+By support-wise MCA monotonicity, the same lower bound holds for all
+\(\delta_N\le\delta<1-\rho\).
+\end{proposition}
+
+\begin{proof}
+Let \(U:D\to F\) be the received word with a \(C^+\)-list
+\(\{P_1,\ldots,P_L\}\) at agreement \(m=k+2n/N\).  For
+\(\alpha\in F\setminus D\), form
+\[
+  f_\alpha(x)=\frac{U(x)}{x-\alpha},
+  \qquad
+  g_\alpha(x)=-\frac1{x-\alpha}.
+\]
+For every listed \(P_i\), the slope \(z=P_i(\alpha)\) gives the codeword
+\[
+  Q_i(X)=\frac{P_i(X)-P_i(\alpha)}{X-\alpha}\in F[X]_{<k}
+\]
+on the same agreement support.  Conversely every such slope comes from a
+listed \(P_i\).  Since \(m>k\), the direction \(g_\alpha\) cannot be explained
+by a degree-\(<k\) polynomial on the same support, so these slopes are
+support-wise MCA-bad.
+
+Averaging over \(\Omega=F\setminus D\), two distinct degree-\(<k+1\)
+polynomials collide at at most \(k\) points of \(\Omega\).  Therefore some
+\(\alpha\) has at least
+\[
+  M\ge \frac{L}{1+k(L-1)/(q-n)}
+\]
+distinct values among \(P_1(\alpha),\ldots,P_L(\alpha)\).  Its bad-slope
+density is at least
+\[
+  \frac{L(q-n)}{q(q-n+k(L-1))}.
+\]
+This is strictly greater than \((q-n)/(2kq)\) exactly when
+\[
+  2kL>q-n+k(L-1).
+\]
+The lower bound \(L\ge q/k+1\) gives \(kL\ge q+k\), so the left-minus-right
+quantity is at least \(n+2k>0\).  This proves the endpoint bound, and
+monotonicity in \(\delta\) extends it to the stated interval.
+\end{proof}
+
+\subsection{Common code-line residual budget}
+
+\textbf{Status: \textsc{New-local} finite MDS theorem.}
+This M2 lemma is a guardrail for line-decoding imports: a close common
+code-line exception still pays for residual coordinates outside the common
+support.
+
+\begin{proposition}[common code-line residual budget]
+\label{prop:common-residual}
+Let \(C\subseteq F^D\) be an MDS linear code of dimension \(k\), so every
+nonzero codeword has fewer than \(k\) zeros on \(D\).  Let
+\(\ell_z=f+zg\) be a received line and suppose that for some codewords
+\(c_f,c_g\in C\) there is a common support \(S_0\subseteq D\) of size \(b\)
+such that \(f=c_f\) and \(g=c_g\) on \(S_0\).  Fix an agreement threshold
+\(a\) with \(a+b-n\ge k\).  Put \(\Omega=D\setminus S_0\),
+\[
+  f'=f-c_f,\qquad g'=g-c_g,\qquad
+  h=\max(1,a-b),
+\]
+and
+\[
+  c_0=\#\{x\in\Omega:f'(x)=g'(x)=0\}.
+\]
+Every support-wise noncontained slope at agreement \(a\) satisfies
+\[
+  \#\{x\in\Omega:f'(x)+zg'(x)=0\}\ge h.
+\]
+Consequently, if \(h>c_0\), then the number of such slopes is at most
+\[
+  \left\lfloor\frac{|\Omega|-c_0}{h-c_0}\right\rfloor.
+\]
+\end{proposition}
+
+\begin{proof}
+If \(\ell_z\) is explained on a support \(S\) of size at least \(a\), then
+\[
+  |S\cap S_0|\ge a-|\Omega|=a+b-n\ge k.
+\]
+On \(S\cap S_0\), the explaining codeword agrees with \(c_f+zc_g\).  By the
+MDS zero-rigidity condition, the two codewords are equal.  Thus, outside
+\(S_0\), the line can only be explained where \(f'+zg'=0\), and at least
+\(h=\max(1,a-b)\) such outside zeros are needed for a noncontained support.
+
+Each non-common residual coordinate \(x\in\Omega\) with \((f'(x),g'(x))\ne
+(0,0)\) can vanish for at most one finite slope \(z\).  A bad slope needs at
+least \(h-c_0\) private non-common residual zeros after the \(c_0\) common zeros
+are counted.  Charging these private coordinates to slopes gives the stated
+packing bound.
+\end{proof}
+
 \section{Non-Claims}
 \label{sec:nonclaims}
 
@@ -740,6 +1011,8 @@ This note does not claim:
 \item a \(\qgen\) local-limit theorem;
 \item a list, CA, MCA, line-decoding, SNARK, or protocol consequence;
 \item a large \(\Theta(p^2)\) counterpacket;
+\item a new prize-worthy numerator beyond the current Cycle116/119
+  \(52{,}747{,}567{,}092\) finite/source-scoped record;
 \item priority for the BCHKS quotient-locator proof pattern.
 \end{itemize}
 

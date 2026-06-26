@@ -147,8 +147,73 @@ content, now reduced to standard RS list-decoding on punctured domains.
 4. If `interleaved ≤ max_base` keeps holding, attempt to *prove* it (it would be
    the clean structural statement reducing L2's aperiodic part to L1).
 
+## Iteration 5 — exact `Quot_rem_μ` + quotient-periodic stress (planned-item 3)
+
+Implemented the explicit quotient budget `Quot_rem_μ(n,k,a)` from
+`l2_sharp_target_conjecture.md` §2 and tested the **full** V0 right-hand side on
+quotient-periodic words (the stress case the packets target).
+Scanner: `experimental/scripts/verify_l2_quotient_budget.py`.
+
+**Rigorous core (conjecture-independent, all verified):**
+- `E_empty(R,b,μ) = Σ_j (−1)^j C(R,j) C(R−j,b−j)^μ` matches a **brute-force** count of
+  ordered μ-tuples of `b`-subsets of `[R]` with empty common intersection
+  (`R≤5`, all `b`, `μ∈{1,2,3}`); and `E_empty(R,b,1)=[b=0]`.
+- Aligned endpoint `L_{M,μ}(a,u_M)=C(Q,ℓ_M)` (the note's key non-Cartesian fact —
+  it is `C(Q,ℓ_M)`, **not** `C(Q,ℓ_M)^μ`).
+- Active-scale criterion: a scale `M` contributes iff `M|n` and `σ<M≤a`.
+
+**Probe (n=16,k=3,a=5,μ=2; only active scale `M=4`, `Quot_rem_2 = 3`):** swept 322
+quotient-periodic words per scale (all linear `g(x^M)=g₀+g₁x^M` + random full
+coset-assignments), precomputed fibers, all ordered pairs.
+- worst `interleaved = 18`, but `= max_base` — **entirely single-row (L1) mass**.
+- worst **genuine μ-fold cross-mass** `interleaved − max_base = 0`: quotient-periodic
+  words create **no** cross-mass here (`interleaved ≤ max_base` always), so they do
+  **not** violate V0 and do not even stress `Quot_rem_μ` (cross-mass `0 ≤ 3`).
+
+**Grid gluing attack vs the FULL V0 bound at scale** (the cross-mass family of
+iters 2–3, now with the exact `Quot_rem_μ`; `k=2,a=4`, `μ=2`):
+
+| n | interleaved | rand term | `Quot_rem_μ` | residual→`n^B` | n/a |
+|---|---|---|---|---|---|
+| 12 | 3 | 0.017 | 5 | −2.0 | 3 |
+| 16 | 4 | 0.022 | 3 | +1.0 | 4 |
+| 20 | 5 | 0.002 | 4 | +1.0 | 5 |
+| 24 | 6 | 0.000 | 12 | −6.0 | 6 |
+| 48 | 12 | 0.002 | 26 | −14.0 | 12 |
+
+The grid cross-mass is `~ n/a` (polynomial), and the residual `interleaved − rand −
+Quot_rem_μ` is small (often **negative** — `Quot_rem_μ` alone already covers it). So
+the full V0 bound holds with margin for the worst gluing attack at scale.
+
+**Reading (honest).** Consistent with the conjecture on both natural family types:
+the large interleaved counts from periodic words are the single-row quotient (L1)
+list charged to `n^B`, the aligned packet is `C(Q,ℓ_M)` not `C(Q,ℓ_M)^μ` (no
+Cartesian blow-up), μ-interleaving does **not** amplify periodic mass (cross-mass
+`=0`), and the grid gluing cross-mass stays `~n/a ≪ rand+Quot_rem_μ+n^B`.
+
+## Falsification status (honest ceiling)
+
+Across iters 1–5 the L2-Sharp V0 conjecture has survived every natural adversary:
+- **gluing/grid** (the only family that creates cross-mass): cross-mass `~n/a`,
+  polynomial, within `rand + Quot_rem_μ + n^B` at scale (iter 3, iter 5 table);
+- **quotient-periodic** (the quotient-packet stress case): **no** μ-fold cross-mass
+  (`interleaved ≤ max_base`), so no `Quot_rem_μ` stress (iter 5);
+- the explicit `Quot_rem_μ` budget is **verified** (brute-force `E_empty`, aligned
+  endpoint `C(Q,ℓ_M)`, active-scale criterion) (iter 5);
+- polynomiality of the remainder is **free** from L1 (`interleaved ≤ (base)^μ`,
+  iter 3 reframe); the genuine L2 content is the **sharp saving**, which iter 4
+  reduced to **punctured-RS list decoding + L1** (codegree decomposition → PR #108).
+
+**No super-polynomial excess over `rand + Quot_rem_μ` was found in any tested
+family.** The conjecture is well-hardened at small/below-reserve scales and `μ=2`
+(μ=3 periodic is `≤` by the more-rows-shrink-the-support monotonicity). The
+remaining open piece — the **sharp saving** — is not a falsification target but a
+proof obligation, and it is **L1-gated** (the punctured-list/codegree constant rests
+on L1's aperiodic profile bound, Codex's lane). Falsification has reached its honest
+ceiling; further progress on L2 is the L1-gated proof, not more small-model search.
+
 ## Reproducibility
 ```bash
 python3 experimental/scripts/verify_l2_falsify_interleaved.py
-python3 experimental/scripts/verify_l2_falsify_interleaved.py --json
+python3 experimental/scripts/verify_l2_quotient_budget.py
 ```
