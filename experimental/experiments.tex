@@ -1580,6 +1580,47 @@ budget gives
 This proves the matching upper bound.
 \end{proof}
 
+\begin{corollary}[tangent-star extremizers in the exact range]
+\label{cor:tangent-star-extremizers}
+Let \(C=\RS[F,D,k]\), \(|D|=n\), and suppose that
+\[
+  k+1\le a\le n,
+  \qquad
+  3a-2n\ge k.
+\]
+If a received line \(f+zg\) has exactly \(n-a+1\) support-wise noncontained
+finite bad slopes at agreement at least \(a\), and if \(n-a+1\ge2\), then the
+line is tangent-star extremal in the following sense.  There are codewords
+\(c_f,c_g\in C\) and a common support \(S_0\subseteq D\) of size \(a-1\) such
+that, after replacing \(f,g\) by \(f-c_f,g-c_g\), every bad slope is obtained by
+choosing exactly one residual coordinate in \(D\setminus S_0\).  More precisely,
+writing \(\Omega=D\setminus S_0\), the map
+\[
+  x\longmapsto
+  -\frac{f(x)-c_f(x)}{g(x)-c_g(x)}
+\]
+is a bijection from \(\Omega\) to the bad-slope set.
+\end{corollary}
+
+\begin{proof}
+Choose two distinct bad slopes and form the maximal common code-line support
+\(S_0\) as in the proof of Theorem~\ref{thm:very-high-tangent-staircase}; write
+\(b=|S_0|\), \(s=n-a\), and \(d=n-b\).  Equality in the upper bound from that
+proof cannot occur when \(b\ge a\), because then there are at most \(n-a\) bad
+slopes.  Hence \(b<a\).  The residual-budget bound is
+\[
+  \#\{\text{bad slopes}\}
+  \le
+  \left\lfloor\frac d{d-s}\right\rfloor
+  \le s+1=n-a+1.
+\]
+For equality, the second inequality must be sharp, so \(d-s=1\), equivalently
+\(b=a-1\).  The maximality of \(S_0\) gives no common residual zeros outside
+\(S_0\).  Since \(|\Omega|=n-a+1\) and each residual coordinate can vanish for
+at most one finite slope, equality forces every residual coordinate to be used
+exactly once.  This is precisely the displayed residual-root bijection.
+\end{proof}
+
 \begin{corollary}[exact high-agreement gate for the \(\F_{17^{32}}\), rate-\(1/2\) row]
 \label{cor:f17-32-exact-tangent-gate}
 Let \(H\subset \F_{17^{32}}^*\) be any multiplicative subgroup of order
@@ -1636,6 +1677,25 @@ and
 \]
 \end{proof}
 
+\begin{corollary}[no seventh finite-slope branch past agreement \(506\)]
+\label{cor:no-seventh-finite-slope-past-506}
+For \(C=\RS[\F_{17^{32}},H,256]\) with \(|H|=512\), no finite-slope
+support-wise MCA mechanism can add a seventh bad slope at agreement
+\(a\ge507\).  At equality, any extremal line is tangent-star in the sense of
+Corollary~\ref{cor:tangent-star-extremizers}.
+\end{corollary}
+
+\begin{proof}
+By Corollary~\ref{cor:f17-32-exact-tangent-gate},
+\[
+  \operatorname{LD}_{\rm sw}(C,a)=513-a
+  \qquad (a\ge427).
+\]
+For every \(a\ge507\), the right-hand side is at most \(6\).  Thus a seventh
+finite support-wise bad slope is impossible in this range.  The extremizer
+classification is Corollary~\ref{cor:tangent-star-extremizers}.
+\end{proof}
+
 \begin{remark}[effect on the earlier agreement-353 target]
 The agreement-353 target is no longer a frontier for the rate-\(1/2\),
 \(\F_{17^{32}}\), \(n=512\) row: Theorem~\ref{thm:moving-root-tangent-floor}
@@ -1645,8 +1705,10 @@ already gives
 \]
 The quotient-core strict352 packet remains a useful mechanism record, but the
 generic tangent floor gives a stronger lower bound at agreement \(352\) and
-beyond.  The next issue is whether any non-tangent mechanism survives past the
-exact tangent staircase at agreement \(507\).
+beyond.  Corollary~\ref{cor:no-seventh-finite-slope-past-506} rules out a
+seventh finite-slope branch past agreement \(506\); the remaining ledger checks
+are projective-slope, CA, curve-MCA, interleaved-list, challenge-field, and
+protocol conversions.
 \end{remark}
 
 \section{Towards-Prize Finite-Threshold Theorems}

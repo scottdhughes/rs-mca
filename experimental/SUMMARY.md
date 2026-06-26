@@ -29,6 +29,9 @@ papers. The source triage records are:
   twisted collision bound.
 - `data/tangent/`: high-agreement tangent staircase packet, showing a generic
   moving-root floor and an exact very-high-agreement staircase.
+- `data/tangent-star/`: tangent-star barrier packet, adding the extremizer
+  classification and ruling out a seventh finite-slope branch past agreement
+  `506` for the current `F_17^32`, `n=512`, `k=256` row.
 
 The common policy was: keep Papers A-D unchanged, land new material in
 `experimental/`, preserve explicit status labels, and require review before any
@@ -103,8 +106,12 @@ real-radius safe supremum is approached from below.
 This supersedes the strict264/strict352 framing as a lower-bound frontier:
 agreement `353` already has the tangent lower bound `LD_sw(C,353)>=160`, and
 agreement `352` has `LD_sw(C,352)>=161`.  The quotient-core packets remain
-useful mechanism records, but the next threshold question is whether any
-non-tangent mechanism survives past agreement `507`.
+useful mechanism records.  The tangent-star refinement now closes the finite
+slope follow-up: no non-tangent finite-slope mechanism can add a seventh bad
+slope at agreement `a>=507`.  The remaining questions are whether
+projective-slope, CA, curve-MCA, interleaved-list, challenge-field, or protocol
+ledgers preserve this exact finite-slope threshold or require a different
+object.
 
 ### Latest 2026-06-26 round 2 integration
 

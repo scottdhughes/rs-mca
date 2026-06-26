@@ -82,7 +82,7 @@
   {
     "id": "tangent506-exact-gate",
     "title": "High-agreement tangent exact gate",
-    "short": "Moving-root tangent staircase pins the finite-slope threshold at agreements 506/507.",
+    "short": "Tangent-star classification pins the finite-slope threshold at agreements 506/507.",
     "row": "RS[F_17^32,H,256]",
     "n": 512,
     "k": 256,
@@ -94,16 +94,20 @@
     "tag": "proved",
     "label": "exact gate",
     "radiusLabel": "3/256",
-    "proof": "Generic moving-root tangent floor gives LD_sw(C,a) >= n-a+1 for all k+1 <= a <= n, and the common residual budget proves equality when 3a-2n >= k. For n=512,k=256 this gives LD_sw(C,506)=7 and LD_sw(C,507)=6.",
-    "nonclaims": "Finite-slope support-wise MCA convention only; closed endpoint delta=3/256 is unsafe, while the safe real-radius supremum is approached from below.",
+    "proof": "Generic moving-root tangent floor gives LD_sw(C,a) >= n-a+1 for all k+1 <= a <= n; the common residual budget proves equality when 3a-2n >= k, and the tangent-star refinement classifies extremizers. For n=512,k=256 this gives LD_sw(C,506)=7 and LD_sw(C,507)=6, with no seventh finite-slope branch at a>=507.",
+    "nonclaims": "Finite-slope support-wise MCA convention only; projective-slope, CA, curve-MCA, interleaved-list, challenge-field, and protocol ledgers still require separate checks.",
     "links": [
       {
-        "label": "Tangent summary",
-        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent/tangent_staircase_summary.md"
+        "label": "Tangent-star summary",
+        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent-star/tangent_star_no_nontangent_summary.md"
       },
       {
-        "label": "Tangent verifier",
-        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent/verify_tangent_staircase.py"
+        "label": "Tangent-star verifier",
+        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent-star/verify_tangent_star_threshold.py"
+      },
+      {
+        "label": "Tangent staircase summary",
+        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent/tangent_staircase_summary.md"
       }
     ]
   },

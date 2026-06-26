@@ -1,0 +1,296 @@
+diff --git a/experimental/experiments.tex b/experimental/experiments.tex
+index d12d6a1..0000000 100644
+--- a/experimental/experiments.tex
++++ b/experimental/experiments.tex
+@@ -1002,9 +1002,191 @@
+ A bad slope needs at
+ least \(h-c_0\) private non-common residual zeros after the \(c_0\) common zeros
+ are counted.  Charging these private coordinates to slopes gives the stated
+ packing bound.
+ \end{proof}
+
++\subsection{High-agreement tangent-star barrier}
++\label{sec:tangent-star-barrier}
++
++\textbf{Status: \textsc{New-local} finite MDS theorem.}
++This subsection isolates the high-agreement regime in which the elementary
++``moving root'' or tangent-star obstruction is not only present but optimal.
++It is a support-wise finite-slope statement; projective or vertical-slope
++samplers must add their own endpoint convention.
++
++For a received line \(\ell_z=f+zg\), write \(\mathcal B_a(f,g)\) for the set
++of finite slopes \(z\in F\) for which there are a support \(S\subseteq D\),
++\(|S|\ge a\), and a codeword \(c_z\in C\) such that \(f+zg=c_z\) on \(S\),
++while the same support is support-wise noncontained, i.e. there are no
++\(c_f,c_g\in C\) with \(f=c_f\) and \(g=c_g\) on \(S\).  Thus
++\[
++  \operatorname{LD}_{\rm sw}(C,a)
++  =\sup_{f,g:D\to F}|\mathcal B_a(f,g)|
++\]
++under the finite-slope convention.
++
++\begin{theorem}[tangent-star lower bound and high-agreement optimality]
++\label{thm:tangent-star-exact}
++Let \(C\subseteq F^D\) be an MDS linear code of length \(n\) and dimension
++\(k\).  Let \(k+1\le a\le n\).  Then
++\[
++  \operatorname{LD}_{\rm sw}(C,a)\ge n-a+1.
++\]
++If, in addition,
++\[
++  3a-2n\ge k,
++\]
++then every received line has at most \(n-a+1\) support-wise noncontained finite
++bad slopes at agreement \(a\).  Hence
++\[
++  \operatorname{LD}_{\rm sw}(C,a)=n-a+1
++  \qquad\text{whenever }k+1\le a\le n\text{ and }3a-2n\ge k.
++\]
++Moreover, if equality holds and \(n-a+1\ge2\), then every extremal line is a
++tangent star: there are codewords \(c_f,c_g\in C\) and a set
++\(S_0\subseteq D\) of size \(a-1\) such that \(f=c_f\) and \(g=c_g\) on
++\(S_0\), and, writing \(\Omega=D\setminus S_0\),
++\[
++  x\longmapsto
++  -\frac{f(x)-c_f(x)}{g(x)-c_g(x)}
++\]
++ is a bijection from \(\Omega\) to \(\mathcal B_a(f,g)\).  In particular, each
++bad slope is witnessed on exactly the common support \(S_0\) plus its unique
++moving residual root.
++\end{theorem}
++
++\begin{proof}
++For the lower bound, choose a set \(S_0\subseteq D\) of size \(a-1\), put
++\(\Omega=D\setminus S_0\), and choose distinct finite values
++\(\theta_x\in F\) for \(x\in\Omega\).  This is possible because
++\(|\Omega|=n-a+1\le n\le |F|\).  Let \(f=g=0\) on \(S_0\), and for
++\(x\in\Omega\) set
++\[
++  g(x)=1,
++  \qquad
++  f(x)=-\theta_x .
++\]
++For the slope \(z=\theta_x\), the received word \(f+zg\) agrees with the zero
++codeword on \(S_0\cup\{x\}\), a set of size \(a\).  The same support is
++noncontained: if both \(f\) and \(g\) were restrictions of codewords on it,
++then, since \(|S_0|=a-1\ge k\), those codewords would have to be zero, but
++\(g(x)=1\).  Thus the \(|\Omega|=n-a+1\) slopes \(\theta_x\) are bad.
++
++For the upper bound, let \(M=|\mathcal B_a(f,g)|\).  If \(M\le1\), there is
++nothing to prove.  Otherwise choose two distinct bad slopes \(z_1,z_2\), with
++witnessing supports \(S_1,S_2\) and codewords \(c_1,c_2\).  On
++\(I=S_1\cap S_2\),
++\[
++  f+z_i g=c_i\qquad (i=1,2),
++\]
++so, because \(z_1\ne z_2\), both \(f\) and \(g\) agree on \(I\) with the
++codewords
++\[
++  c_g=\frac{c_1-c_2}{z_1-z_2},
++  \qquad
++  c_f=\frac{z_1c_2-z_2c_1}{z_1-z_2}.
++\]
++Let \(S_0\) be the maximal common code-line support for this pair
++\((c_f,c_g)\), and put \(b=|S_0|\).  Since
++\[
++  |I|\ge |S_1|+|S_2|-n\ge2a-n,
++\]
++we have \(b\ge2a-n\), hence
++\[
++  a+b-n\ge3a-2n\ge k.
++\]
++Apply Proposition~\ref{prop:common-residual} with this maximal \(S_0\).  The
++maximality makes the common residual count \(c_0\) equal to zero.  Therefore
++all support-wise noncontained bad slopes satisfy
++\[
++  M\le
++  \left\lfloor
++    \frac{n-b}{\max(1,a-b)}
++  \right\rfloor .
++\]
++If \(b\ge a\), this is at most \(n-b\le n-a\).  If \(b<a\), write
++\(d=a-b\ge1\) and \(r=n-a\).  Then
++\[
++  M\le \left\lfloor\frac{r+d}{d}\right\rfloor
++    =1+\left\lfloor\frac r d\right\rfloor
++    \le r+1=n-a+1.
++\]
++This proves optimality.
++
++Assume now that equality holds and \(n-a+1=r+1\ge2\).  The displayed bound
++cannot be sharp with \(b\ge a\), and if \(b<a\) it can be sharp only when
++\(d=a-b=1\).  Thus \(|S_0|=a-1\).  Proposition~\ref{prop:common-residual}
++then charges each bad slope to at least one coordinate of
++\(\Omega=D\setminus S_0\), and each coordinate can vanish for at most one
++finite slope.  Since both the number of bad slopes and the number of residual
++coordinates are \(r+1\), every residual coordinate is used exactly once, no
++coordinate has zero direction residual, and the displayed residual-root map is
++a bijection onto \(\mathcal B_a(f,g)\).  Each bad support must therefore be
++\(S_0\) together with the unique residual root for its slope.
++\end{proof}
++
++\begin{corollary}[no seventh non-tangent slope past agreement 506]
++\label{cor:no-nontangent-past-506}
++Let \(F=\F_{17^{32}}\), let \(H\subset F^*\) have order \(512\), and let
++\[
++  C=\RS[F,H,256].
++\]
++Under the finite-slope support-wise MCA convention,
++\[
++  \operatorname{LD}_{\rm sw}(C,a)=513-a
++  \qquad\text{for every }a\ge427.
++\]
++In particular,
++\[
++  \operatorname{LD}_{\rm sw}(C,506)=7,
++  \qquad
++  \operatorname{LD}_{\rm sw}(C,507)=6.
++\]
++Since
++\[
++  6\cdot2^{128}<17^{32}<7\cdot2^{128},
++\]
++agreement \(507\) is below the \(2^{-128}\) bad-slope budget, while agreement
++\(506\) is already above it.  Equivalently, on the integer Hamming-radius grid,
++radius \(5\) is safe from finite-slope support-wise MCA and radius \(6\) is
++not.  In real-radius notation the endpoint lies between
++\(5/512\) and \(6/512\); the convention for closed balls determines which
++endpoint is printed.
++\end{corollary}
++
++\begin{proof}
++Here \(n=512\), \(k=256\), and the high-agreement condition is
++\[
++  3a-2n\ge k
++  \quad\Longleftrightarrow\quad
++  3a-1024\ge256
++  \quad\Longleftrightarrow\quad
++  a\ge427.
++\]
++Theorem~\ref{thm:tangent-star-exact} gives the exact staircase
++\(513-a\) in this range.  The arithmetic inequalities follow by direct integer
++calculation:
++\[
++  17^{32}-6\cdot2^{128}
++  =326217393234836465063858652730341978625>0,
++\]
++while
++\[
++  7\cdot2^{128}-17^{32}
++  =14064973686101998399515954701426232831>0.
++\]
++Thus six finite bad slopes have density at most \(2^{-128}\), and seven have
++density strictly larger than \(2^{-128}\).
++\end{proof}
++
++\begin{remark}[what this settles and what it does not]
++Corollary~\ref{cor:no-nontangent-past-506} rules out any mechanism that would
++add a seventh finite support-wise bad slope at agreements \(a\ge507\) for the
++\(\F_{17^{32}},n=512,k=256\) row.  It does not by itself prove a CA,
++curve-MCA, projective-slope, interleaved-list, or protocol theorem.  Those
++objects still require their own conversion and field-ledger checks.
++\end{remark}
++
+ \section{Non-Claims}
+ \label{sec:nonclaims}
+
+@@ -1011,9 +1196,11 @@ This note does not claim:
+ \item a proof of the corrected MCA conjecture;
+ \item a positive theorem above corrected reserve;
+ \item a \(\qgen\) local-limit theorem;
+-\item a list, CA, MCA, line-decoding, SNARK, or protocol consequence;
++\item a CA, curve-MCA, projective-slope, interleaved-list, SNARK, or
++  protocol consequence beyond the explicitly stated finite-slope
++  support-wise \(\operatorname{LD}_{\rm sw}\)/MCA corollaries;
+ \item a large \(\Theta(p^2)\) counterpacket;
+-\item a new prize-worthy numerator beyond the current Cycle116/119
+-  \(52{,}747{,}567{,}092\) finite/source-scoped record;
++\item a new aperiodic or strict264 retained-slope certificate beyond the
++  current Cycle116/119 \(52{,}747{,}567{,}092\) finite/source-scoped record;
+ \item priority for the BCHKS quotient-locator proof pattern.
+ \end{itemize}
+
+diff --git a/experimental/scripts/verify_tangent_star_threshold.py b/experimental/scripts/verify_tangent_star_threshold.py
+new file mode 100755
+index 0000000..0000000
+--- /dev/null
++++ b/experimental/scripts/verify_tangent_star_threshold.py
+@@ -0,0 +1,51 @@
++#!/usr/bin/env python3
++"""Verify the arithmetic in the tangent-star high-agreement barrier note.
++
++This script is intentionally dependency-free.  It checks the integer gates for
++C = RS[F_{17^32}, H, 256] with |H| = 512 under the finite-slope support-wise
++MCA convention.
++"""
++
++from __future__ import annotations
++
++
++def tangent_ld(n: int, a: int) -> int:
++    if not (0 <= a <= n):
++        raise ValueError("agreement a must lie in [0,n]")
++    return n - a + 1
++
++
++def main() -> None:
++    n = 512
++    k = 256
++    q = 17**32
++    eps_den = 2**128
++
++    exact_from = (2 * n + k + 2) // 3  # ceil((2n+k)/3)
++    assert 3 * exact_from - 2 * n >= k
++    assert 3 * (exact_from - 1) - 2 * n < k
++
++    ld_506 = tangent_ld(n, 506)
++    ld_507 = tangent_ld(n, 507)
++    assert exact_from == 427
++    assert ld_506 == 7
++    assert ld_507 == 6
++
++    lower_margin = q - 6 * eps_den
++    upper_margin = 7 * eps_den - q
++    assert lower_margin > 0
++    assert upper_margin > 0
++
++    print("tangent-star high-agreement arithmetic check")
++    print(f"n={n}, k={k}, q=17^32={q}")
++    print(f"exact tangent-star staircase applies for a >= {exact_from}")
++    print(f"LD_sw(506) = {ld_506}")
++    print(f"LD_sw(507) = {ld_507}")
++    print(f"floor(q / 2^128) = {q // eps_den}")
++    print(f"q - 6*2^128 = {lower_margin}")
++    print(f"7*2^128 - q = {upper_margin}")
++    print("finite-slope budget conclusion: agreement 507 safe, agreement 506 unsafe")
++
++
++if __name__ == "__main__":
++    main()
+
+diff --git a/experimental/agents-log.md b/experimental/agents-log.md
+index 2664a6d..0000000 100644
+--- a/experimental/agents-log.md
++++ b/experimental/agents-log.md
+@@ -33,3 +33,21 @@ Keep entries concise and link to the relevant files.
+ ## Entries
+
++### 2026-06-26 - Tangent-star high-agreement barrier
++
++- **Agent/model:** GPT-5.5 Pro.
++- **Files added or changed:** `experimental/experiments.tex`,
++  `experimental/scripts/verify_tangent_star_threshold.py`,
++  `experimental/agents-log.md`.
++- **Status:** PROVED / NEW-LOCAL / AUDIT.
++- **What is being added:** A finite MDS tangent-star theorem: for agreement
++  `a` with `k+1 <= a <= n` and `3a-2n >= k`, the moving-root tangent floor is
++  exact, `LD_sw(C,a)=n-a+1`, with an extremizer classification.  Applied to
++  `RS[F_17^32,H,256]`, this gives `LD_sw(C,506)=7` and `LD_sw(C,507)=6`.
++- **How it is useful:** It rules out any seventh finite support-wise MCA bad
++  slope at agreement `a >= 507` for the current `n=512,k=256` row, so the
++  finite-slope high-agreement threshold is pinned on the integer radius grid.
++- **What to do next:** Decide whether the same theorem is the right protocol
++  object after projective-slope, CA, curve-MCA, interleaved-list, and challenge
++  field ledgers are applied.
++
+ ### 2026-06-26 - One-by-one experiment run

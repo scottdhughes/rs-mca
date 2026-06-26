@@ -1056,7 +1056,7 @@
           <article class="program-card">
             <span class="stack-label">Next target</span>
             <h3>Beyond 507</h3>
-            <p>The moving-root tangent theorem gives \(\operatorname{LD}_{\rm sw}(C,a)=513-a\) for \(a\ge427\). The next target is to find or rule out non-tangent mechanisms past agreement 507.</p>
+            <p>The tangent-star refinement rules out a seventh finite-slope support-wise branch at \(a\ge507\). Remaining work is to check projective-slope, CA, curve-MCA, interleaved-list, challenge-field, and protocol ledgers.</p>
           </article>
           <article class="program-card">
             <span class="stack-label">Proof quality</span>
@@ -1288,25 +1288,383 @@
     }
 
     const fallbackEntriesRaw = [
-      { id:'cycle116', title:'Cycle116 closed-threshold proof record', short:'ABF printed closed threshold at 125/256.', row:'RS[F_17^32,H,256]', n:512, k:256, rho:0.5, agreement:262, badSlopes:'52747567092', q:'17^32', status:'proved', tag:'proved', label:'proof record', radiusLabel:'125/256', proof:'Cycle116 transfer: agreement 262, closed ABF threshold.', nonclaims:'Not ordinary list decoding; not protocol soundness; not exact δ*_C.' },
-      { id:'cycle119', title:'Cycle119 strict263 proof record', short:'Two-ended upgrade with one-symbol strict margin.', row:'RS[F_17^32,H,256]', n:512, k:256, rho:0.5, agreement:263, badSlopes:'52747567092', q:'17^32', status:'proved', tag:'proved', label:'proof record', radiusLabel:'249/512', proof:'Two-ended locator theorem: common top-six coefficients plus common nonzero constant.', nonclaims:'Finite/source theorem; imported Cycle84 numerator; not an official prize solve by itself.' },
-      { id:'strict264-min', title:'Strict264 quotient-floor proof record', short:'Quotient-core entropy plus deep-point conversion gives at least nine bad slopes.', row:'RS[F_17^32,H,256]', n:512, k:256, rho:0.5, agreement:264, badSlopes:'9', q:'17^32', status:'proved', tag:'proved', label:'proof record', radiusLabel:'31/64', proof:'Quotient map x -> x^8 on |H|=512 gives an augmented C+ list of size binom(64,33); deep-point conversion yields at least nine support-wise noncontained slopes at agreement 264.', nonclaims:'Quotient-core mechanism record superseded by the generic tangent floor, which gives LD_sw(C,264) >= 249.', links:[{label:'Strict264 quotient floor', href:'https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/strict264_quotient_floor.md'}, {label:'Entropy MCA package', href:'https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/entropy_mca_new_results.md'}] },
-      { id:'tangent506-exact-gate', title:'High-agreement tangent exact gate', short:'Moving-root tangent staircase pins the finite-slope threshold at agreements 506/507.', row:'RS[F_17^32,H,256]', n:512, k:256, rho:0.5, agreement:506, badSlopes:'7', q:'17^32', status:'proved', tag:'proved', label:'exact gate', radiusLabel:'3/256', proof:'Generic moving-root tangent floor gives LD_sw(C,a) >= n-a+1 for all k+1 <= a <= n, and the common residual budget proves equality when 3a-2n >= k. For n=512,k=256 this gives LD_sw(C,506)=7 and LD_sw(C,507)=6.', nonclaims:'Finite-slope support-wise MCA convention only; closed endpoint delta=3/256 is unsafe, while the safe real-radius supremum is approached from below.', links:[{label:'Tangent summary', href:'https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent/tangent_staircase_summary.md'}, {label:'Tangent verifier', href:'https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent/verify_tangent_staircase.py'}] },
-      { id:'strict352-quotient-core', title:'Strict352 quotient-core proof record', short:'Dyadic quotient-core floors give at least seven bad slopes through agreement 352.', row:'RS[F_17^32,H,256]', n:512, k:256, rho:0.5, agreement:352, badSlopes:'16', q:'17^32', status:'proved', tag:'proved', label:'proof record', radiusLabel:'5/16', proof:'Dyadic quotient maps x -> x^c with c in {4,8,16,32}, quotient-prefix pigeonholing, and quantitative deep-point conversion give LD_sw(C,a) >= 7 for 264 <= a <= 352, with LD_sw(C,352) >= 16.', nonclaims:'Quotient-core mechanism record superseded by the generic tangent floor, which gives LD_sw(C,352) >= 161 and LD_sw(C,353) >= 160.', links:[{label:'Strict352 summary', href:'https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/strict352_quotient_core_summary.md'}, {label:'Strict352 verifier', href:'https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/verify_strict352_quotient_core.py'}] },
-      { id:'strict264-2187', title:'Strict264 2187-slope candidate', short:'Candidate subpacket shape if the hinted strict264 target is validated.', row:'RS[F_17^32,H,256]', n:512, k:256, rho:0.5, agreement:264, badSlopes:'2187', q:'17^32', status:'candidate', tag:'candidate', radiusLabel:'31/64', proof:'Candidate target; requires independent theorem and admissibility audit.', nonclaims:'Do not cite as proved without a proof record.' },
-      { id:'reserve272', title:'Reserve-scale target σ=16', short:'A more serious finite slack target.', row:'RS[F_17^32,H,256]', n:512, k:256, rho:0.5, agreement:272, badSlopes:'7', q:'17^32', status:'target', tag:'target', radiusLabel:'15/32', proof:'Search target for deeper slack frontier.', nonclaims:'Speculative target.' },
-      { id:'reserve288', title:'Reserve-scale target σ=32', short:'Deeper below capacity; still only seven slopes needed.', row:'RS[F_17^32,H,256]', n:512, k:256, rho:0.5, agreement:288, badSlopes:'7', q:'17^32', status:'target', tag:'target', radiusLabel:'7/16', proof:'Search target for Paper-B corrected reserve stress tests.', nonclaims:'Speculative target.' },
-      { id:'reserve313', title:'n/log n scale target σ≈57', short:'Closer to the local-limit reserve scale.', row:'RS[F_17^32,H,256]', n:512, k:256, rho:0.5, agreement:313, badSlopes:'7', q:'17^32', status:'target', tag:'target', radiusLabel:'199/512', proof:'Longer-range target near n/log2(n).', nonclaims:'Speculative target.' }
+          {
+                "id": "cycle116",
+                "title": "Cycle116 closed-threshold proof record",
+                "short": "ABF printed closed threshold at delta = 125/256.",
+                "row": "RS[F_17^32,H,256]",
+                "n": 512,
+                "k": 256,
+                "rho": 0.5,
+                "agreement": 262,
+                "badSlopes": "52747567092",
+                "q": "17^32",
+                "status": "proved",
+                "tag": "proved",
+                "label": "proof record",
+                "radiusLabel": "125/256",
+                "proof": "Cycle116 agreement-262 transfer reaches the printed ABF closed support threshold.",
+                "nonclaims": "Not ordinary list decoding; not protocol soundness; not exact delta*_C.",
+                "links": [
+                      {
+                            "label": "Cycle120 scope note",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_cycle120_abf_counterexample_candidate.md"
+                      }
+                ]
+          },
+          {
+                "id": "cycle119",
+                "title": "Cycle119 strict263 proof record",
+                "short": "Two-ended upgrade with one-symbol strict margin.",
+                "row": "RS[F_17^32,H,256]",
+                "n": 512,
+                "k": 256,
+                "rho": 0.5,
+                "agreement": 263,
+                "badSlopes": "52747567092",
+                "q": "17^32",
+                "status": "proved",
+                "tag": "proved",
+                "label": "proof record",
+                "radiusLabel": "249/512",
+                "proof": "Two-ended locator theorem: common top-six coefficients plus common nonzero constant coefficient.",
+                "nonclaims": "Finite/source-scoped theorem; imports the Cycle84 numerator; not an official prize solve by itself.",
+                "links": [
+                      {
+                            "label": "Cycle119 review",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_cycle119_strict263_admissibility_review.md"
+                      },
+                      {
+                            "label": "Standalone LDsw note",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_cycle120_standalone_ldsw_proof.md"
+                      }
+                ]
+          },
+          {
+                "id": "strict264-min",
+                "title": "Strict264 quotient-floor proof record",
+                "short": "Quotient-core entropy plus deep-point conversion gives at least nine bad slopes.",
+                "row": "RS[F_17^32,H,256]",
+                "n": 512,
+                "k": 256,
+                "rho": 0.5,
+                "agreement": 264,
+                "badSlopes": "9",
+                "q": "17^32",
+                "status": "proved",
+                "tag": "proved",
+                "label": "proof record",
+                "radiusLabel": "31/64",
+                "proof": "Quotient map x -> x^8 on |H|=512 gives an augmented C+ list of size binom(64,33); deep-point conversion yields at least nine support-wise noncontained slopes at agreement 264.",
+                "nonclaims": "Quotient-core mechanism record superseded as a lower-bound frontier by the generic tangent floor, which gives LD_sw(C,264) >= 249.",
+                "links": [
+                      {
+                            "label": "Strict264 quotient floor",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/strict264_quotient_floor.md"
+                      },
+                      {
+                            "label": "Entropy MCA package",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/entropy_mca_new_results.md"
+                      }
+                ]
+          },
+          {
+                "id": "tangent506-exact-gate",
+                "title": "High-agreement tangent exact gate",
+                "short": "Tangent-star classification pins the finite-slope threshold at agreements 506/507.",
+                "row": "RS[F_17^32,H,256]",
+                "n": 512,
+                "k": 256,
+                "rho": 0.5,
+                "agreement": 506,
+                "badSlopes": "7",
+                "q": "17^32",
+                "status": "proved",
+                "tag": "proved",
+                "label": "exact gate",
+                "radiusLabel": "3/256",
+                "proof": "Generic moving-root tangent floor gives LD_sw(C,a) >= n-a+1 for all k+1 <= a <= n; the common residual budget proves equality when 3a-2n >= k, and the tangent-star refinement classifies extremizers. For n=512,k=256 this gives LD_sw(C,506)=7 and LD_sw(C,507)=6, with no seventh finite-slope branch at a>=507.",
+                "nonclaims": "Finite-slope support-wise MCA convention only; projective-slope, CA, curve-MCA, interleaved-list, challenge-field, and protocol ledgers still require separate checks.",
+                "links": [
+                      {
+                            "label": "Tangent-star summary",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent-star/tangent_star_no_nontangent_summary.md"
+                      },
+                      {
+                            "label": "Tangent-star verifier",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent-star/verify_tangent_star_threshold.py"
+                      },
+                      {
+                            "label": "Tangent staircase summary",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent/tangent_staircase_summary.md"
+                      }
+                ]
+          },
+          {
+                "id": "strict352-quotient-core",
+                "title": "Strict352 quotient-core proof record",
+                "short": "Dyadic quotient-core floors give at least seven bad slopes through agreement 352.",
+                "row": "RS[F_17^32,H,256]",
+                "n": 512,
+                "k": 256,
+                "rho": 0.5,
+                "agreement": 352,
+                "badSlopes": "16",
+                "q": "17^32",
+                "status": "proved",
+                "tag": "proved",
+                "label": "proof record",
+                "radiusLabel": "5/16",
+                "proof": "Dyadic quotient maps x -> x^c with c in {4,8,16,32}, quotient-prefix pigeonholing, and quantitative deep-point conversion give LD_sw(C,a) >= 7 for 264 <= a <= 352, with LD_sw(C,352) >= 16.",
+                "nonclaims": "Quotient-core mechanism record superseded as a lower-bound frontier by the generic tangent floor, which gives LD_sw(C,352) >= 161 and LD_sw(C,353) >= 160.",
+                "links": [
+                      {
+                            "label": "Strict352 summary",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/strict352_quotient_core_summary.md"
+                      },
+                      {
+                            "label": "Strict352 verifier",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/verify_strict352_quotient_core.py"
+                      }
+                ]
+          },
+          {
+                "id": "strict264-2187",
+                "title": "Strict264 2187-slope candidate",
+                "short": "Candidate subpacket shape if the hinted strict264 target is validated.",
+                "row": "RS[F_17^32,H,256]",
+                "n": 512,
+                "k": 256,
+                "rho": 0.5,
+                "agreement": 264,
+                "badSlopes": "2187",
+                "q": "17^32",
+                "status": "candidate",
+                "tag": "candidate",
+                "label": "candidate",
+                "radiusLabel": "31/64",
+                "proof": "Candidate target; requires independent theorem and admissibility audit.",
+                "nonclaims": "Do not cite as proved without a proof record."
+          },
+          {
+                "id": "reserve272",
+                "title": "Reserve-scale target sigma = 16",
+                "short": "A more serious finite-slack target.",
+                "row": "RS[F_17^32,H,256]",
+                "n": 512,
+                "k": 256,
+                "rho": 0.5,
+                "agreement": 272,
+                "badSlopes": "7",
+                "q": "17^32",
+                "status": "target",
+                "tag": "target",
+                "label": "target",
+                "radiusLabel": "15/32",
+                "proof": "Search target for deeper slack frontier.",
+                "nonclaims": "Speculative target."
+          },
+          {
+                "id": "reserve288",
+                "title": "Reserve-scale target sigma = 32",
+                "short": "Deeper below capacity; still only seven retained slopes are enough.",
+                "row": "RS[F_17^32,H,256]",
+                "n": 512,
+                "k": 256,
+                "rho": 0.5,
+                "agreement": 288,
+                "badSlopes": "7",
+                "q": "17^32",
+                "status": "target",
+                "tag": "target",
+                "label": "target",
+                "radiusLabel": "7/16",
+                "proof": "Search target for Paper-B corrected-reserve stress tests.",
+                "nonclaims": "Speculative target."
+          },
+          {
+                "id": "reserve313",
+                "title": "n/log n scale target sigma ~= 57",
+                "short": "Closer to the local-limit reserve scale.",
+                "row": "RS[F_17^32,H,256]",
+                "n": 512,
+                "k": 256,
+                "rho": 0.5,
+                "agreement": 313,
+                "badSlopes": "7",
+                "q": "17^32",
+                "status": "target",
+                "tag": "target",
+                "label": "target",
+                "radiusLabel": "199/512",
+                "proof": "Longer-range target near n/log2(n).",
+                "nonclaims": "Speculative target."
+          }
     ];
-
     const fallbackUpdatesRaw = [
-      {date:'2026-04-08', status:'survey benchmark', author:'Arnon-Boneh-Fenzi', title:'Proximity Prize MCA benchmark regimes', summary:'Table 1 in Open Problems in List Decoding and Correlated Agreement separates the MCA landscape into zero-radius, unique-decoding, Johnson-radius, and capacity-edge regimes.', impact:'The current RS-MCA frontier is in the capacity-edge lower-bound regime, not the Johnson-radius positive upper-bound regime.', href:'https://github.com/przchojecki/rs-mca/blob/main/open-proximity.tex'},
-      {date:'2026-06-26', status:'proof record', author:'Codex', title:'Strict352 dyadic quotient-core proof record', summary:'The strict352 quotient-core packet proves LD_sw(C,a) >= 7 for every agreement 264 <= a <= 352 for C = RS[F_17^32,H,256], with LD_sw(C,352) >= 16.', impact:'This was the quotient-core frontier before the tangent staircase was isolated. It remains a useful mechanism record, but agreement 353 is solved by the generic tangent floor.', href:'https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/strict352_quotient_core_summary.md'},
-      {date:'2026-06-26', status:'exact finite-slope gate', author:'GPT-5.5 Pro / Codex audit', title:'High-agreement tangent staircase pins the F_17^32 row', summary:'The moving-root tangent floor gives LD_sw(C,a) >= n-a+1 for every RS code, and the common residual budget proves equality when 3a-2n >= k.', impact:'For RS[F_17^32,H,256], |H|=512, this gives LD_sw(C,506)=7 and LD_sw(C,507)=6. Agreement 353 is no longer a frontier; the next question is whether non-tangent mechanisms survive past 507.', href:'https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent/tangent_staircase_summary.md'},
-      {date:'2026-06-26', status:'proof record', author:'Codex', title:'Strict264 quotient-floor proof record', summary:'The strict264 quotient-core construction uses x -> x^8, an augmented-code list of size binom(64,33), and deep-point conversion to produce at least nine support-wise bad slopes at agreement 264.', impact:'This remains a quotient-core mechanism record. The moving-root tangent floor now gives stronger lower bounds at agreement 264, so 265 is not the threshold-pinning target.', href:'https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/strict264_quotient_floor.md'},
-      {date:'2026-06-26', status:'proved subgroup bound', author:'Scott Hughes', title:'L1 d=2 cubic subgroup twisted bound', summary:'PR #121 proves a proper-subgroup H^{2k} cubic collision estimate using Fourier reconstruction, multiplicative-character expansion of 1_H, and one-variable Gauss/Kummer-Artin-Schreier input.', impact:'This is useful L1 infrastructure for generated-field local limits, but it is not a new MCA leaderboard row or a general higher-moment theorem.', href:'https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l1/l1_prefix_dual_d2_cubic_subgroup_twisted_bound.md'},
-      {date:'2026-06-26', status:'route-cut audit', author:'Scott Hughes', title:'L1 odd-moment Hooley-Katz audit', summary:'PR #120 proves the full-affine projective odd-moment collision geometry and audits the Hooley-Katz/Ghorpade-Lachaud constant route.', impact:'The audit keeps full-affine, full-torus, and proper-subgroup ledgers separate and shows why the generic full-affine point-count path is not yet enough for the subgroup L1 reserve-scale problem.', href:'https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l1/l1_prefix_dual_odd_moment_projective_geometry.md'},
-      {date:'2026-06-25', status:'latest', title:'Latest PR integration', summary:'No larger Cycle120 numerator; endpoint, bridge, and proof-program updates were integrated.', impact:'Use the data files and linked notes for the current public state.', href:'https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/triage/pr-triage-2026-06-25.md'}
+          {
+                "date": "2026-04-08",
+                "status": "survey benchmark",
+                "author": "Arnon-Boneh-Fenzi",
+                "title": "Proximity Prize MCA benchmark regimes",
+                "summary": "Table 1 in Open Problems in List Decoding and Correlated Agreement separates the MCA landscape into zero-radius, unique-decoding, Johnson-radius, and capacity-edge regimes.",
+                "impact": "The current RS-MCA frontier is in the capacity-edge lower-bound regime, not the Johnson-radius positive upper-bound regime.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/open-proximity.tex"
+          },
+          {
+                "date": "2026-06-26",
+                "status": "proof record",
+                "author": "Codex",
+                "title": "Strict264 quotient-floor proof record",
+                "summary": "The strict264 quotient-core construction uses the map x -> x^8, an augmented-code list of size binom(64,33), and deep-point conversion to produce at least nine support-wise bad slopes at agreement 264.",
+                "impact": "This remains a quotient-core mechanism record. The moving-root tangent floor now gives stronger lower bounds at agreement 264, so 265 is not the threshold-pinning target.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/strict264_quotient_floor.md"
+          },
+          {
+                "date": "2026-06-26",
+                "status": "proof record",
+                "author": "Codex",
+                "title": "Strict352 dyadic quotient-core proof record",
+                "summary": "The strict352 dyadic quotient-core construction proves LD_sw(C,a) >= 7 for every agreement 264 <= a <= 352, and LD_sw(C,352) >= 16 for C = RS[F_17^32,H,256].",
+                "impact": "This was the quotient-core frontier before the tangent staircase was isolated. It remains a useful mechanism record, but agreement 353 is solved by the generic tangent floor.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/strict352_quotient_core_summary.md"
+          },
+          {
+                "date": "2026-06-26",
+                "status": "exact finite-slope gate",
+                "author": "GPT-5.5 Pro / Codex audit",
+                "title": "Tangent-star barrier closes the finite-slope non-tangent branch",
+                "summary": "The moving-root tangent floor is exact in the high-agreement range, and the tangent-star refinement classifies extremizers there.",
+                "impact": "For RS[F_17^32,H,256], |H|=512, this gives LD_sw(C,506)=7 and LD_sw(C,507)=6 and rules out any seventh finite-slope support-wise MCA branch at agreement a>=507. Remaining checks are projective-slope, CA, curve-MCA, interleaved-list, challenge-field, and protocol ledgers.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent-star/tangent_star_no_nontangent_summary.md"
+          },
+          {
+                "date": "2026-06-26",
+                "status": "proved subgroup bound",
+                "author": "Scott Hughes",
+                "title": "L1 d=2 cubic subgroup twisted bound",
+                "summary": "PR #121 proves a proper-subgroup H^{2k} cubic collision estimate using Fourier reconstruction, multiplicative-character expansion of 1_H, and one-variable Gauss/Kummer-Artin-Schreier input.",
+                "impact": "This is useful L1 infrastructure for generated-field local limits, but it is not a new MCA leaderboard row or a general higher-moment theorem.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l1/l1_prefix_dual_d2_cubic_subgroup_twisted_bound.md"
+          },
+          {
+                "date": "2026-06-26",
+                "status": "route-cut audit",
+                "author": "Scott Hughes",
+                "title": "L1 odd-moment Hooley-Katz audit",
+                "summary": "PR #120 proves the full-affine projective odd-moment collision geometry and audits the Hooley-Katz/Ghorpade-Lachaud constant route.",
+                "impact": "The audit keeps full-affine, full-torus, and proper-subgroup ledgers separate and shows why the generic full-affine point-count path is not yet enough for the subgroup L1 reserve-scale problem.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l1/l1_prefix_dual_odd_moment_projective_geometry.md"
+          },
+          {
+                "date": "2026-06-26",
+                "status": "proved normal form",
+                "author": "AllenGrahamHart",
+                "title": "F1 syndrome-pencil normal form",
+                "summary": "PR #118 gives a Hankel-pencil incidence test for support-wise line explanations and a matching noncontainment criterion.",
+                "impact": "This replaces vague extension-line language with an exact locator equation over the actual line field. It is theory infrastructure, not a completed F1 theorem.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/f1/f1_syndrome_pencil_normal_form.md"
+          },
+          {
+                "date": "2026-06-26",
+                "status": "proved reduction",
+                "author": "AllenGrahamHart",
+                "title": "L2 interleaved codegree reduction",
+                "summary": "PR #108 proves a two-regime and recursive reduction from interleaved lists to base-code lists at agreements a and 2a-k.",
+                "impact": "The reduction is unconditional; the desired L2 exponent saving still needs an L1-family tail-list bound.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l2/l2_codegree_reduction_theorem.md"
+          },
+          {
+                "date": "2026-06-26",
+                "status": "dependency split",
+                "author": "AllenGrahamHart",
+                "title": "Paper D MCA cap gets a CS25-free route",
+                "summary": "PR #115 isolates a simple-pole/deep-point averaging proof route for the headline MCA cap under Paper D's finite-field hypotheses.",
+                "impact": "The MCA cap no longer has to load-bear on the CS25 import, though CA/list statements still need the external import audit.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/audits/a0_deep_point_cap_dependency_split.md"
+          },
+          {
+                "date": "2026-06-26",
+                "status": "audit superseded",
+                "author": "AllenGrahamHart",
+                "title": "Seven-slope arithmetic gate for strict264",
+                "summary": "PR #110 confirmed the arithmetic gate: over F_17^32, seven retained slopes at agreement 264 clear 2^-128. The newer quotient-floor proof supplies at least nine slopes.",
+                "impact": "Kept as the arithmetic gate, but no longer the frontier status. The strict264 row is now a proof record.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_strict264_audit.md"
+          },
+          {
+                "date": "2026-06-26",
+                "status": "conditional route cut",
+                "author": "Scott Hughes",
+                "title": "Large-domain mixed-Weil energy floor",
+                "summary": "PR #119 adds a possible L1 route cut for large-domain prefix-dual energy, kept conditional pending the mixed Weil citation and constant check.",
+                "impact": "Useful as an audit target for L1; not promoted as a theorem and not included as a frontier estimate.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l1/l1_prefix_dual_large_domain_weil_energy_floor.md"
+          },
+          {
+                "date": "2026-06-25",
+                "status": "conditional / computation-dependent",
+                "title": "Cycle119/Cycle120 ABF-row obstruction",
+                "summary": "The numerator did not increase: the active value remains 52,747,567,092 bad challenges over F_17^32. The useful update is endpoint precision: Cycle116 reaches the printed ABF closed threshold at delta = 125/256, while Cycle119 gives the strict endpoint delta <= 249/512 if the finite inputs check out.",
+                "impact": "Keeps the strongest current prize-facing obstruction focused on one smooth rate-1/2 row, without claiming ordinary list decoding, protocol soundness, or an official prize solve.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_cycle120_abf_counterexample_candidate.md"
+          },
+          {
+                "date": "2026-06-25",
+                "status": "proof-check-needed",
+                "title": "Standalone Cycle120 LDsw proof note",
+                "summary": "PR #105 adds a compact standalone note for the source-scoped lower bound LD_sw(RS[F_17^32,H,256],262) >= 52,747,567,092.",
+                "impact": "This is the human-review target that replaces a large raw generated packet for public communication.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_cycle120_standalone_ldsw_proof.md"
+          },
+          {
+                "date": "2026-06-25",
+                "status": "bridge",
+                "title": "Exact MCA to line-decoding normalization",
+                "summary": "PR #102 records the support-wise identity epsilon_mca(C,delta) = LD_sw(C,ceil((1-delta)n))/|F| for the two-source object.",
+                "impact": "Future updates should use this bridge to avoid denominator and endpoint drift.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m2/m2_line_decoding_mca_bridge.md"
+          },
+          {
+                "date": "2026-06-25",
+                "status": "counterexample family",
+                "title": "Extension-line lower floors",
+                "summary": "PR #103 strengthens the F1 warning: fixed-rate extension-line families have floors on the order of (1-rho)^2/2 for sigma one and (1-rho)^(sigma+1)/(sigma+1)! at fixed sigma before extension-degree dilution.",
+                "impact": "Naive base-to-extension transfer remains false without an explicit theorem.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/f1/f1_fixed_rate_extension_counterexample.md"
+          },
+          {
+                "date": "2026-06-25",
+                "status": "audit",
+                "title": "M1 beta-pushforward spectral audit",
+                "summary": "PR #104 scans beta-pushforward rows and finds no hidden growing p^2 mass in the tested windows.",
+                "impact": "This supports the current M1 conductor-style proof target but does not prove the missing bounded-conductor estimate.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_beta_pushforward_spectral_audit.md"
+          },
+          {
+                "date": "2026-06-25",
+                "status": "proof program",
+                "title": "L1 quotient-budgeted locator route",
+                "summary": "PRs #99 and #106 add characteristic-zero prefix reductions, bad-prime proof-record machinery, quotient-budgeted locator conjectures, and a full-list quotient proof program.",
+                "impact": "This is the main positive-route infrastructure for generated-field locator local limits.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l1/l1_quotient_budgeted_locator_conjecture.md"
+          },
+          {
+                "date": "2026-06-25",
+                "status": "target",
+                "title": "Sharp interleaved-list target",
+                "summary": "PR #107 sharpens L2: interleaved-list analysis should charge quotient-core mass diagonally and avoid the naive Cartesian-product numerator.",
+                "impact": "This turns a vague interleaving hazard into a finite set of support/codegree targets.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l2/l2_sharp_target_conjecture.md"
+          },
+          {
+                "date": "2026-06-25",
+                "status": "scaffold",
+                "title": "X1 bridges and Lean formalization stub",
+                "summary": "PR #101 adds deep-point/interleaved bridge notes, quotient-reduction notes, prize-path maps, and a small Lean scaffold.",
+                "impact": "This gives future agents a cleaner path from experimental notes toward mechanized statements.",
+                "href": "https://github.com/przchojecki/rs-mca/tree/main/experimental/lean/rs_mca_formalization"
+          }
     ];
     const fallbackPapersRaw = [
       {letter:'A', title:'Paper A: No-Slack Obstruction', pdf:'papers/RS_disproof_v3.pdf', githubPdf:'https://github.com/przchojecki/rs-mca/blob/main/site/papers/RS_disproof_v3.pdf', tex:'https://github.com/przchojecki/rs-mca/blob/main/tex/RS_disproof_v3.tex', summary:'Refutes the old no-slack support-wise line-MCA statement.'},
@@ -1564,7 +1922,7 @@
                             },
                             {
                                   "id": "tangent506-exact-gate",
-                                  "title": "High-agreement tangent exact gate",
+                                  "title": "Tangent-star exact finite-slope gate",
                                   "rho": "1/2",
                                   "track": "mca",
                                   "trackLabel": "support-wise MCA",
@@ -1599,12 +1957,12 @@
                                   },
                                   "status": "exact-gate",
                                   "statusLabel": "exact finite-slope gate",
-                                  "source": "high-agreement tangent staircase",
-                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent/tangent_staircase_summary.md",
+                                  "source": "tangent-star high-agreement barrier",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent-star/tangent_star_no_nontangent_summary.md",
                                   "nonClaims": [
                                         "Finite-slope support-wise MCA convention only.",
-                                        "Closed endpoint delta=3/256 is unsafe; radii below it have the agreement-507 support threshold.",
-                                        "Does not claim protocol soundness or curve-MCA consequences."
+                                        "No seventh finite-slope branch exists at agreement a>=507 for this row.",
+                                        "Projective-slope, CA, curve-MCA, interleaved-list, challenge-field, and protocol consequences require separate ledgers."
                                   ]
                             },
                             {

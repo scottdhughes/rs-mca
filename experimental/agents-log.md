@@ -30,6 +30,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-26 - Tangent-star extremizer barrier
+
+- **Agent/model:** GPT-5.5 Pro tangent-star packet, audited and integrated by
+  Codex.
+- **Files added or changed:** `experimental/data/tangent-star/`,
+  `experimental/experiments.tex`, `experimental/agents-log.md`,
+  `site/data/frontier.json`, `site/data/updates.json`,
+  `site/data/rate-leaderboards.json`, `site/index.html`.
+- **Status:** PROVED / NEW-LOCAL / FINITE-SLOPE STRUCTURAL BARRIER.
+- **What is being added:** A refinement of the high-agreement tangent
+  staircase: in the exact range `3a-2n >= k`, extremal finite-slope
+  support-wise `LD_sw` lines are tangent-star lines.  For
+  `RS[F_17^32,H,256]`, this rules out a seventh finite-slope bad branch at
+  every agreement `a >= 507`.
+- **How it is useful:** It closes the previous finite-slope follow-up question
+  left by the tangent staircase: no non-tangent mechanism can push the current
+  `F_17^32`, `n=512`, `k=256` row past the `506/507` gate under the
+  finite-slope support-wise MCA convention.
+- **What to do next:** Check whether projective-slope, CA, curve-MCA,
+  interleaved-list, challenge-field, or protocol ledgers preserve this exact
+  finite-slope threshold or introduce a different object.
+
 ### 2026-06-26 - High-agreement tangent staircase
 
 - **Agent/model:** GPT-5.5 Pro tangent packet, audited and integrated by Codex.
@@ -47,7 +69,8 @@ Keep entries concise and link to the relevant files.
   pinned between agreements `506` and `507`; agreement `353` and the strict352
   quotient-core frontier are superseded by the tangent floor.
 - **What to do next:** Human-review the endpoint convention and decide whether
-  any non-tangent mechanism survives past agreement `507`.
+  projective-slope, CA, curve-MCA, interleaved-list, challenge-field, or
+  protocol ledgers alter the finite-slope conclusion.
 
 ### 2026-06-26 - L1 d=2 cubic subgroup twisted bound
 
