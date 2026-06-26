@@ -55,21 +55,30 @@
   },
   {
     "date": "2026-06-26",
-    "status": "proved subgroup bound",
+    "status": "proved subgroup estimate",
     "author": "Scott Hughes",
-    "title": "L1 d=2 cubic subgroup twisted bound",
-    "summary": "PR #121 proves a proper-subgroup H^{2k} cubic collision estimate using Fourier reconstruction, multiplicative-character expansion of 1_H, and one-variable Gauss/Kummer-Artin-Schreier input.",
-    "impact": "This is useful L1 infrastructure for generated-field local limits, but it is not a new MCA leaderboard row or a general higher-moment theorem.",
+    "title": "L1 d=2 proper-subgroup cubic twisted collision bound",
+    "summary": "PR #121 proves the d=2 H^{2k} cubic collision estimate using Fourier orthogonality, multiplicative-character expansion of 1_H, and Katz/Gauss one-variable inputs.",
+    "impact": "Separates the actual proper-subgroup collision object from full-affine point-count benchmarks and supplies the cubic template for higher odd-moment subgroup estimates. Non-claims: not a general-d theorem, not a reserve-scale local-limit proof, and no sharp-constant claim.",
     "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l1/l1_prefix_dual_d2_cubic_subgroup_twisted_bound.md"
   },
   {
     "date": "2026-06-26",
-    "status": "route-cut audit",
+    "status": "proved / imported / audit / route cut / open",
     "author": "Scott Hughes",
-    "title": "L1 odd-moment Hooley-Katz audit",
-    "summary": "PR #120 proves the full-affine projective odd-moment collision geometry and audits the Hooley-Katz/Ghorpade-Lachaud constant route.",
-    "impact": "The audit keeps full-affine, full-torus, and proper-subgroup ledgers separate and shows why the generic full-affine point-count path is not yet enough for the subgroup L1 reserve-scale problem.",
+    "title": "L1 odd-moment Hooley-Katz point-count audit",
+    "summary": "PR #120 proves projective odd-moment collision geometry for k>d and audits Hooley-Katz/Ghorpade-Lachaud constants against the high-moment low-energy route.",
+    "impact": "The leading Betti term can be viable in some polynomial-field windows, while generic lower-weight constants and MPP field-size prerequisites do not uniformly close the reserve-scale target. Non-claims: not a proper-subgroup H^{2k} theorem, not a full-torus theorem, and not a reserve-scale local-limit proof.",
     "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l1/l1_prefix_dual_odd_moment_projective_geometry.md"
+  },
+  {
+    "date": "2026-06-26",
+    "status": "proved / counterexample / open",
+    "author": "Scott Hughes",
+    "title": "L1 centered Krawtchouk baseline cancellation",
+    "summary": "PR #113 proves the exact centered Krawtchouk identity for the dual-Bessel support average and records a deterministic counterexample to the false uncentered single-zero closure Pr[M_j=0] <= nu_0^(N-1).",
+    "impact": "Moves the dense-support obstruction to averaged near-full joint deviations and primitive Bessel-energy sums. Non-claims: not a dense-support closure, not a generated-field local-limit proof, and no MCA numerator or leaderboard row.",
+    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l1/l1_prefix_dual_centered_krawtchouk_route_cut.md"
   },
   {
     "date": "2026-06-26",
@@ -109,11 +118,11 @@
   },
   {
     "date": "2026-06-26",
-    "status": "conditional route cut",
+    "status": "status review pending",
     "author": "Scott Hughes",
     "title": "Large-domain mixed-Weil energy floor",
-    "summary": "PR #119 adds a possible L1 route cut for large-domain prefix-dual energy, kept conditional pending the mixed Weil citation and constant check.",
-    "impact": "Useful as an audit target for L1; not promoted as a theorem and not included as a frontier estimate.",
+    "summary": "PR #119 records the large-domain mixed-Weil energy floor as an L1 route-cut candidate; this board row remains a status-review item rather than a duplicate or promotion.",
+    "impact": "Keep conditional wording unless the integrated source note pins the mixed-Weil citation and constants to maintainer satisfaction. Not included as a frontier estimate.",
     "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l1/l1_prefix_dual_large_domain_weil_energy_floor.md"
   },
   {
