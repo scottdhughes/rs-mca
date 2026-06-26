@@ -397,7 +397,6 @@
     .row-source:hover{background:var(--soft);}
     .row-load{margin-top:.38rem;border:1px solid var(--line);border-radius:999px;background:#fff;padding:.32rem .52rem;font-size:.74rem;font-weight:800;color:var(--ink-2);cursor:pointer;}
     .row-load:hover{background:var(--soft);border-color:var(--line-strong);}
-    .missing-grid{grid-template-columns:repeat(5,minmax(0,1fr));margin-top:1rem;}
     .calculator-stack{display:grid;gap:1rem;}
     .calc-subtitle{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--quiet);font-family:var(--mono);font-weight:800;margin:0 0 .65rem;}
 
@@ -500,7 +499,7 @@
       .prize-grid,.rate-summary,.threshold-bands,.track-legend{grid-template-columns:1fr;}
       .controls{grid-template-columns:1fr;}
       .results-toolbar{grid-template-columns:1fr;}
-      .program-grid,.paper-grid,.benchmark-grid,.missing-grid{grid-template-columns:1fr;}
+      .program-grid,.paper-grid,.benchmark-grid{grid-template-columns:1fr;}
       .section-title{display:block}.section-title p{margin-top:.8rem;}
       .prize-box-head{display:block;}
     }
@@ -667,34 +666,6 @@
               <tbody id="rateMatrixBody"></tbody>
             </table>
           </div>
-        </div>
-
-        <div class="program-grid missing-grid" aria-label="What remains missing">
-          <article class="program-card">
-            <span class="stack-label">L1</span>
-            <h3>Locator local limit</h3>
-            <p>Arbitrary-word locator-fiber bounds after quotient-periodic mass is budgeted.</p>
-          </article>
-          <article class="program-card">
-            <span class="stack-label">M1</span>
-            <h3>Residue-line packing</h3>
-            <p>All-line MCA packing bounds above the corrected reserve, beyond tangent and quotient floors.</p>
-          </article>
-          <article class="program-card">
-            <span class="stack-label">F1</span>
-            <h3>Extension-line lift</h3>
-            <p>A theorem or counterexample for genuinely extension-valued MCA lines and denominators.</p>
-          </article>
-          <article class="program-card">
-            <span class="stack-label">CS audit</span>
-            <h3>Conversion dependency</h3>
-            <p>Crites-Stewart/Paper D radius conventions, constants, and list-to-agreement import checks.</p>
-          </article>
-          <article class="program-card">
-            <span class="stack-label">Protocol</span>
-            <h3>Exact ledger rewrite</h3>
-            <p>Separate MCA, list, line-decoding, challenge-field, and interleaving budgets for protocols.</p>
-          </article>
         </div>
 
         <div class="proof-band track-explainer">
@@ -2500,26 +2471,10 @@
           <td><strong class="mono">ρ=${escapeHtml(board.rho)}</strong></td>
           <td class="mono">${escapeHtml(board.capacityExact)} <span class="small">(δcap)</span></td>
           <td class="mono">${escapeHtml(fmt(board.johnsonApprox, 6))}</td>
-          <td>
-            <div class="rate-action-group">
-              <button class="icon-button ${board.rho === selectedRate && selectedRateTrack === 'mca' ? 'active' : ''}" type="button" data-rate="${escapeHtml(board.rho)}" data-track-open="mca">Open MCA</button>
-              <span class="small">δ*<sub>MCA</sub> ≤ <span class="mono">${escapeHtml(board.mcaUnsafe)}</span></span>
-            </div>
-          </td>
-          <td>
-            <div class="rate-action-group">
-              <button class="icon-button ${board.rho === selectedRate && selectedRateTrack === 'list' ? 'active' : ''}" type="button" data-rate="${escapeHtml(board.rho)}" data-track-open="list">Open list</button>
-              <span class="small">δ*<sub>list</sub> ≤ <span class="mono">${escapeHtml(board.listUnsafe)}</span></span>
-            </div>
-          </td>
+          <td class="mono">δ*_MCA ≤ ${escapeHtml(board.mcaUnsafe)}</td>
+          <td class="mono">δ*_list ≤ ${escapeHtml(board.listUnsafe)}</td>
         </tr>
       `).join('');
-      tbody.querySelectorAll('[data-track-open]').forEach(button => {
-        button.addEventListener('click', event => {
-          event.stopPropagation();
-          setRate(button.dataset.rate, button.dataset.trackOpen);
-        });
-      });
       tbody.querySelectorAll('[data-rate-row]').forEach(row => {
         row.addEventListener('click', () => setRate(row.dataset.rateRow));
       });
