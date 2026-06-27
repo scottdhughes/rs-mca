@@ -1,0 +1,59 @@
+{
+  "agreement": 507,
+  "adjacent_interleaved_numerator": 1,
+  "board_consumable": false,
+  "bridge_conditions": {
+    "agreement_preservation": {
+      "agreement": 507,
+      "status": "PROVED_FOR_ADJACENT_LEDGER"
+    },
+    "denominator_preservation": {
+      "denominator": "17^32",
+      "reason": "Same field arithmetic is available in the adjacent ledger, but denominator preservation cannot rescue a predicate contradiction.",
+      "status": "NOT_DECISIVE_AFTER_PREDICATE_FAILURE"
+    },
+    "disjointness_from_existing_six": {
+      "intersection_size": "not_applicable",
+      "reason": "A disjoint same-predicate extra event would force LD_sw(C,507) >= 7, contradicting LD_sw(C,507)=6.",
+      "status": "FAILED_UNDER_PREDICATE_PRESERVATION"
+    },
+    "no_double_counting": {
+      "reason": "No same-predicate extra event exists, so a fiber correction cannot produce a seventh current-row numerator.",
+      "status": "FAILED_UNDER_PREDICATE_PRESERVATION"
+    },
+    "predicate_preservation": {
+      "reason": "The adjacent interleaved-list +1 is not a finite-slope support-wise LD_sw event; if a bridge made it one, disjointness would contradict the exact count LD_sw(C,507)=6.",
+      "status": "FAILED_FOR_CURRENT_BOARD_ROW"
+    }
+  },
+  "conditional_total": 7,
+  "decision_status": "PROVED_OBSTRUCTION",
+  "line_numerator": 6,
+  "nonclaims": [
+    "new frontier row",
+    "protocol soundness failure",
+    "ordinary list-decoding failure",
+    "exact delta*_C",
+    "impossibility of separate protocol or interleaved-list ledgers"
+  ],
+  "obstruction": {
+    "contradiction": "would force LD_sw(C,507) >= 7",
+    "exact_ldsw_count": 6,
+    "reason": "current board row counts the finite-slope support-wise LD_sw predicate",
+    "would_be_count_if_bridge_existed": 7
+  },
+  "q_line": "17^32",
+  "q_line_integer": "2367911594760467245844106297320951247361",
+  "reason": "PROVED_OBSTRUCTION_EXACT_LD_SW_COUNT",
+  "row": "RS[F_17^32,H,256]",
+  "same_predicate_N_bad": 6,
+  "same_predicate_clears_gate": false,
+  "schema": "m1-a507-adjacent-bridge-theorem.v1",
+  "separate_adjacent_ledger": {
+    "conditional_total": 7,
+    "conditional_total_clears_gate_if_consumable": true,
+    "status": "SEPARATE_LEDGER_NOT_CURRENT_BOARD_ROW"
+  },
+  "threshold_bits": 128,
+  "threshold_floor": 6
+}

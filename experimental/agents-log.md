@@ -30,6 +30,25 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-27 - M1 a=507 adjacent bridge obstruction
+
+- **Agent/model:** GPT-5.5 Pro / Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a507_adjacent_bridge_theorem.md`,
+  `experimental/scripts/verify_m1_a507_adjacent_bridge_theorem.py`,
+  `experimental/data/m1_a507_adjacent_bridge_theorem.json`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / ROUTE_CUT / BRIDGE_OBSTRUCTION.
+- **What is being added:** Proves that the adjacent `line + interleaved-list`
+  `6+1=7` ledger cannot be consumed as `N_bad=7` for the same finite-slope
+  support-wise `LD_sw` board predicate at `a=507`.
+- **How it is useful:** Closes the obvious adjacent plus-one path for the
+  current `RS[F_17^32,H,256]` finite MCA row while preserving denominator and
+  event-type discipline.
+- **What to do next:** Treat any future interleaved-list numerator as a
+  separate board track unless a new predicate/denominator bridge theorem is
+  proved.
+
 ### 2026-06-27 - Root-level paper PDF relocation
 
 - **Agent/model:** Codex.
