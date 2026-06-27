@@ -1,0 +1,377 @@
+% Promoted from experimental/experiments.tex lines 2091--2462.
+% Status: stable high-agreement note.  This is a TeX fragment intended to be
+% included from experimental/experiments.tex or another paper-level wrapper.
+% Dependencies: theorem environments, standard macros such as \F and \RS,
+% and earlier local labels referenced inside the note.
+
+\section{General High-Agreement Ledgers Beyond the \texorpdfstring{$\F_{17^{32}}$}{F17^32} Row}
+\label{sec:general-high-agreement-ledgers}
+
+\textbf{Status: \textsc{New-local} finite Reed--Solomon/MDS theorem package plus
+\textsc{Conditional} protocol ledger.}
+This section generalizes the high-agreement tangent-star method away from the
+special field \(\F_{17^{32}}\).  The statements below are finite-grid coding
+statements.  They do not use smoothness, except when one wants to combine them
+with the quotient-core and generated-field ledgers elsewhere in this repository.
+The line lower bound may be proved either by the RS locator construction of
+Theorem~\ref{thm:moving-root-tangent-floor} or by the coordinate tangent-star
+construction below; the upper bounds use only the MDS zero-rigidity property and
+linearity of the code.
+
+Throughout this section let \(C=\RS[F,D,k]\) with \(D\subset F\), \(|D|=n\),
+and dimension \(k\).  The upper-bound arguments below use only the MDS
+zero-rigidity property of Reed--Solomon codes, so they apply verbatim to any
+linear MDS code for which the relevant received words and parameter sets are
+defined.  Put
+\[
+  R=n-k,
+  \qquad r=n-a .
+\]
+Thus \(r\) is the integer Hamming radius and \(a=n-r\) is the agreement
+threshold.  We only discuss the high-agreement range \(a\ge k+1\), equivalently
+\(0\le r\le R-1\).
+
+\subsection{A coordinate tangent star}
+
+The next construction is useful because it removes all dependence on the
+particular field \(\F_{17^{32}}\), on multiplicative smoothness, and on the
+locator-polynomial model.  It uses only coordinate values, linearity, and the
+MDS zero-rigidity of Reed--Solomon codes.
+
+\begin{lemma}[coordinate tangent-star lower bound]
+\label{lem:coordinate-tangent-star}
+Let \(C=\RS[F,D,k]\) with \(D\subset F\).  For every \(a\) with \(k+1\le a\le n\),
+\[
+  \operatorname{LD}_{\rm sw}(C,a)\ge n-a+1 .
+\]
+If in addition \(2a-n-1\ge k\), then the same construction gives
+\[
+  \operatorname{LD}_{\rm ca}(C,a)\ge n-a+1 .
+\]
+\end{lemma}
+
+\begin{proof}
+Choose \(A\subset D\) with \(|A|=a-1\), and write
+\(T=D\setminus A\), so \(|T|=n-a+1\).  Choose an injection
+\(\theta:T\hookrightarrow F\), which exists because \(T\subseteq D\subset F\).
+Define two received words \(f,g:D\to F\) by
+\[
+  f(x)=g(x)=0\quad (x\in A),
+  \qquad
+  f(t)=-\theta(t),\quad g(t)=1\quad (t\in T).
+\]
+For a point \(t\in T\), the finite slope \(z=\theta(t)\) gives
+\(f+zg=0\) on \(A\cup\{t\}\), a support of size \(a\).  Hence this slope is
+explained by the zero codeword.
+
+The same support is support-wise noncontained.  Indeed, if both \(f\) and \(g\)
+were separately explained on \(A\cup\{t\}\), then the explaining codeword for
+\(g\) would vanish on the \(a-1\ge k\) points of \(A\), hence would be the zero
+codeword by the MDS property.  But \(g(t)=1\), a contradiction.
+
+The pair \((f,g)\) is also globally far from \(C^2\) at agreement \(a\).  The
+same argument applied to the word \(g\) shows that no codeword of \(C\) agrees
+with \(g\) on any support of size \(a\): such a support contains at least
+\(a-|T|=2a-n-1\) points of \(A\), and in the high-agreement applications below we
+will have \(2a-n-1\ge k\).  Alternatively, for the lower bound in the line case
+one may use the RS locator construction of Theorem~\ref{thm:moving-root-tangent-floor},
+which gives the no-loss CA witness directly for \(\RS[F,D,k]\).  The displayed
+MCA lower bound holds unconditionally for \(a\ge k+1\), and the CA lower bound
+holds in the range \(2a-n-1\ge k\), in particular throughout the exact staircase
+range \(3a-2n\ge k\).
+\end{proof}
+
+\begin{remark}[scope]
+The support-wise MCA construction is coordinate-level.  It uses MDS rigidity
+and the inclusion \(D\subset F\).  The no-loss CA part needs global farness; in
+the exact range below, the needed support-count condition follows from the
+staircase hypothesis.
+\end{remark}
+
+\subsection{Uniform line, CA, and projective-slope threshold}
+
+\begin{theorem}[uniform high-agreement line staircase]
+\label{thm:uniform-line-staircase}
+Let \(C=\RS[F,D,k]\) with \(|D|=n\), and let \(a=n-r\).  If
+\[
+  3a-2n\ge k
+  \qquad\text{equivalently}\qquad
+  r\le \frac{n-k}{3},
+\]
+then
+\[
+  \operatorname{LD}_{\rm sw}(C,a)
+  =
+  \operatorname{LD}_{\rm ca}(C,a)
+  =
+  \operatorname{LD}_{\rm sw,proj}(C,a)
+  =
+  r+1
+  =n-a+1 .
+\]
+Here \(\operatorname{LD}_{\rm sw,proj}\) allows slopes in \(\mathbb P^1(F)\).
+\end{theorem}
+
+\begin{proof}
+The finite-slope support-wise upper bound is Theorem~\ref{thm:very-high-tangent-staircase},
+whose proof uses only MDS zero-rigidity and the common residual budget.  The
+lower bound is Lemma~\ref{lem:coordinate-tangent-star}, or, for Reed--Solomon
+codes, Theorem~\ref{thm:moving-root-tangent-floor}.  No-loss CA-bad slopes are a
+subset of support-wise MCA-bad slopes, while the same tangent-star witness gives
+\(r+1\) no-loss CA-bad slopes in the present range, so the CA numerator is also
+\(r+1\).
+
+For projective slopes, suppose a projective bad set had size larger than
+\(r+1\).  If there is a nonbad projective point, use it as the point at infinity;
+all projective bad points then become finite bad slopes, contradicting the
+finite-slope bound.  If every point of \(\mathbb P^1(F)\) is bad, choose any
+point as infinity.  The remaining \(|F|\) finite slopes are bad.  Since
+\(|F|\ge n>r+1\), this again contradicts the finite-slope bound.  Thus the
+projective numerator is also \(r+1\), and the finite lower-bound construction
+shows equality.
+\end{proof}
+
+\subsection{Degree-\texorpdfstring{$d$}{d} curve MCA/CA}
+
+For an integer \(d\ge1\), a finite-parameter power curve is a received family
+\[
+  W_\gamma=f_0+\gamma f_1+\cdots+\gamma^d f_d,
+  \qquad \gamma\in F .
+\]
+The support-wise curve-MCA predicate asks for parameters \(\gamma\) for which
+\(W_\gamma\) has an explanation on a support of size at least \(a\), while the
+\((d+1)\)-tuple \((f_0,\ldots,f_d)\) is not simultaneously explained on that
+same support.  The no-loss curve-CA predicate replaces support-wise
+noncontainment by global farness of the \((d+1)\)-tuple from \(C^{d+1}\).
+
+\begin{theorem}[degree-\(d\) high-agreement curve staircase]
+\label{thm:uniform-curve-staircase}
+Let \(C=\RS[F,D,k]\) with \(|D|=n\), and let \(a=n-r\).  If
+\[
+  (d+2)a-(d+1)n\ge k
+  \qquad\text{equivalently}\qquad
+  r\le \frac{n-k}{d+2},
+\]
+then
+\[
+  \operatorname{CurveLD}_{\rm sw}^{(d)}(C,a)
+  =
+  \operatorname{CurveLD}_{\rm ca}^{(d)}(C,a)
+  =
+  \min\{|F|,\ d(r+1)\} .
+\]
+\end{theorem}
+
+\begin{proof}
+First prove the lower bound.  Choose \(A\subset D\) with \(|A|=a-1\) and put
+\(T=D\setminus A\), so \(|T|=r+1\).  Choose disjoint parameter sets
+\(\Gamma_t\subseteq F\), \(t\in T\), with \(|\Gamma_t|\le d\) and
+\(\sum_t |\Gamma_t|=\min\{|F|,d(r+1)\}\).  For each \(t\), choose a nonzero
+polynomial
+\[
+  h_t(Y)=h_{t,0}+h_{t,1}Y+\cdots+h_{t,d}Y^d
+\]
+of degree exactly \(d\), with leading coefficient nonzero, that vanishes on all
+parameters in \(\Gamma_t\).  Define received words by
+\[
+  f_i(x)=0\quad(x\in A),
+  \qquad
+  f_i(t)=h_{t,i}\quad(t\in T),
+  \qquad 0\le i\le d .
+\]
+For \(\gamma\in\Gamma_t\), the curve word \(W_\gamma\) vanishes on
+\(A\cup\{t\}\), hence is explained by the zero codeword on a support of size
+\(a\).  The tuple is not simultaneously explained on that support: on the
+\(a-1\ge k\) points of \(A\), every explaining endpoint codeword would have to be
+zero, but at \(t\) the coefficient vector of \(h_t\) is not zero.  This gives the
+support-wise curve-MCA lower bound.
+
+The same construction is globally far in the exact range.  The last endpoint
+\(f_d\) is zero on \(A\) and nonzero on every point of \(T\).  Any support of
+size \(a\) contains at least \(a-|T|=2a-n-1\) points of \(A\).  The hypothesis
+\(r\le (n-k)/(d+2)\), with \(d\ge1\), implies \(2a-n-1\ge k\).  Therefore any
+codeword agreeing with \(f_d\) on such a support would have to be the zero
+codeword, but the support must contain at least one point of \(T\), where
+\(f_d\ne0\).  Thus the endpoint tuple is not \(C^{d+1}\)-close at agreement
+\(a\), proving the no-loss curve-CA lower bound.
+
+For the upper bound, it is enough to rule out more than \(d(r+1)\) bad
+parameters, because the trivial cap is \(|F|\).  If a curve had more than
+\(d(r+1)\) bad parameters, then in particular it would have at least \(d+1\)
+bad parameters.  Select \(d+1\) distinct bad parameters
+\(\gamma_0,\ldots,\gamma_d\) and supports \(S_i\) of size at least \(a\).  Their
+intersection has size at least
+\[
+  (d+1)a-dn .
+\]
+On this intersection the \(d+1\) explained codewords interpolate, as functions
+of \(\gamma\), to codewords \(c_0,\ldots,c_d\in C\) explaining the endpoints
+\(f_0,\ldots,f_d\).  Let \(S_0\) be a maximal common support for this endpoint tuple,
+put \(b=|S_0|\), and set \(m=n-b\).  Then
+\[
+  m\le (d+1)(n-a)=(d+1)r .
+\]
+For any further bad parameter, its explaining codeword must equal
+\(c_0+\gamma c_1+\cdots+\gamma^d c_d\), because
+\[
+  a+b-n\ge (d+2)a-(d+1)n\ge k .
+\]
+Thus outside \(S_0\) it needs at least \(h=\max(1,a-b)\) zeros of the residual
+coordinate polynomials.  By maximality of \(S_0\), no residual coordinate
+polynomial is identically zero, and each has degree at most \(d\), hence can be
+charged to at most \(d\) bad parameters.  If \(b\ge a\), then \(m\le r\) and the
+count is at most \(dm\le dr\le d(r+1)\).  If \(b<a\), then
+\(h=a-b=m-r\) and \(r<m\le(d+1)r\); the charging bound gives
+\[
+  \#\{\text{bad parameters}\}
+  \le
+  \left\lfloor\frac{dm}{m-r}\right\rfloor
+  \le d(r+1).
+\]
+The trivial parameter-space cap gives the additional upper bound \(|F|\).
+Together with the lower bound this proves equality.
+\end{proof}
+
+\subsection{Interleaved-list uniqueness}
+
+\begin{theorem}[uniform interleaved-list uniqueness]
+\label{thm:uniform-interleaved-uniqueness}
+Let \(C\subseteq F^D\) be a linear MDS code of dimension \(k\), and let
+\(\mu\ge1\).
+If
+\[
+  2a-n\ge k
+  \qquad\text{equivalently}\qquad
+  r\le\frac{n-k}{2},
+\]
+then every \(\mu\)-row received word has at most one \(\mu\)-row codeword tuple
+agreeing with it on at least \(a\) common coordinates.  Since equality is
+attained by taking the received word itself to be a code tuple,
+\[
+  \Lambda_\mu(C,a)=1 .
+\]
+\end{theorem}
+
+\begin{proof}
+If two \(\mu\)-row codeword tuples agree with the same received word on supports
+\(S\) and \(S'\) of size at least \(a\), then they agree with each other on
+\(S\cap S'\), whose size is at least \(2a-n\ge k\).  Row by row, the MDS
+property forces the two codewords to be equal.  Hence the tuples are equal.
+The lower bound \(\Lambda_\mu(C,a)\ge1\) is obtained by choosing the received
+word to be a codeword tuple.
+\end{proof}
+
+\subsection{General finite-grid threshold calculator}
+
+Let \(\varepsilon_*=2^{-128}\) and let \(Q\) be the denominator of the sampler or
+challenge field used by a particular ledger.  Define the integer budget
+\[
+  B_Q=\left\lfloor \varepsilon_* Q\right\rfloor .
+\]
+The high-agreement theorems above convert coding ledgers into integer arithmetic.
+For example, in the exact line range \(r\le\lfloor R/3\rfloor\), a single affine
+line, no-loss CA, or projective-line numerator is
+\[
+  N_{\rm line}(r)=r+1 .
+\]
+Thus the line term alone is safe whenever \(r+1\le B_Q\), and the first unsafe
+radius is \(r=B_Q\), provided \(B_Q\le\lfloor R/3\rfloor\).  If
+\(B_Q>\lfloor R/3\rfloor\), then the tangent-star method proves safety
+throughout the exact high-agreement range but does not locate the eventual
+threshold.
+
+For one degree-\(d\) finite-parameter curve term in its exact range
+\(r\le\lfloor R/(d+2)\rfloor\), the numerator is
+\[
+  N_{\rm curve,d}(r)=\min\{|F|,d(r+1)\}.
+\]
+If all coding terms use the same denominator \(Q\), a protocol ledger with curve
+terms of degrees \(d_1,\ldots,d_s\) and \(\ell\) independent interleaved-list
+terms has high-agreement numerator
+\[
+  N_{\rm total}(r)=\ell+\sum_{i=1}^s d_i(r+1),
+\]
+valid for
+\[
+  r\le
+  \min\left\{
+    \left\lfloor\frac R2\right\rfloor\text{ if }\ell>0,
+    \min_i\left\lfloor\frac R{d_i+2}\right\rfloor
+  \right\}.
+\]
+The ledger is certified at target \(\varepsilon_*\) whenever
+\[
+  N_{\rm total}(r)\le B_Q .
+\]
+With different denominators \(Q_i\), one should not combine numerators; the
+correct test is the rational inequality
+\[
+  \sum_i \frac{N_i(r)}{Q_i}+\varepsilon_{\rm query}\le \varepsilon_* .
+\]
+
+\begin{corollary}[row-independent closed-form gates]
+\label{cor:row-independent-gates}
+Let \(R=n-k\), \(B_Q=\lfloor Q/2^{128}\rfloor\), and assume the relevant radius
+lies in the exact high-agreement range.
+\begin{enumerate}
+\item A single affine/projective line, no-loss CA, or support-wise MCA term is
+safe for every integer radius
+\[
+  r\le B_Q-1 .
+\]
+The first unsafe radius is \(r=B_Q\), if \(B_Q\le\lfloor R/3\rfloor\).
+\item A single line/CA/MCA term plus one interleaved-list term over the same
+field is safe for
+\[
+  r\le B_Q-2 .
+\]
+The first unsafe radius is \(r=B_Q-1\), if \(B_Q-1\le\lfloor R/3\rfloor\).
+\item A single degree-\(d\) curve term is safe for
+\[
+  r\le \left\lfloor \frac{B_Q}{d}\right\rfloor-1 .
+\]
+The first unsafe radius is \(r=\lfloor B_Q/d\rfloor\), if this radius is at most
+\(\lfloor R/(d+2)\rfloor\).
+\item A single degree-\(d\) curve term plus one interleaved-list term over the
+same field is safe for
+\[
+  r\le \left\lfloor \frac{B_Q-1}{d}\right\rfloor-1 .
+\]
+The first unsafe radius is \(r=\lfloor(B_Q-1)/d\rfloor\), if this radius is in
+range.
+\end{enumerate}
+Negative right-hand sides mean that even radius zero is not certified for that
+ledger and denominator.
+\end{corollary}
+
+\subsection{Prize-rate applicability}
+
+For the Proximity Prize rates \(\rho\in\{1/2,1/4,1/8,1/16\}\), with
+\(k\le2^{40}\), the exact line range reaches integer radii
+\[
+  r\le \frac{n-k}{3}=\frac{(1-\rho)n}{3}=\frac{1-\rho}{3\rho}k .
+\]
+Thus, for a field with \(|F|\approx2^\lambda\), the high-agreement tangent gate
+can pin the line threshold only when roughly
+\[
+  2^{\lambda-128}\lesssim \frac{n-k}{3} .
+\]
+At the maximal allowed dimension \(k=2^{40}\), this gives the following
+approximate largest field-bit sizes for which the line threshold can still be
+pinned inside the exact tangent range:
+\[
+\begin{array}{c|c|c}
+\rho & (n-k)/3\text{ at }k=2^{40} & \lambda\text{ up to about}\\
+\hline
+1/2  & 2^{40}/3      & 166.4\\
+1/4  & 2^{40}        & 168.0\\
+1/8  & 7\cdot2^{40}/3 & 169.2\\
+1/16 & 5\cdot2^{40} & 170.3
+\end{array}
+\]
+For substantially larger challenge fields, such as \(2^{192}\) or \(2^{256}\),
+the tangent numerator is below the \(2^{-128}\) budget throughout the exact
+high-agreement range for all prize-size rows.  The threshold, if any, must then
+be controlled by the lower-agreement quotient-core, generated-field entropy,
+curve/folding, or aperiodic local-limit ledgers; the tangent-star method alone
+no longer pins it.

@@ -30,6 +30,101 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-27 - Finite-row threshold note and pure-MCA scanner profile
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/thresholds/f17_32_finite_mca_threshold.tex`,
+  `experimental/notes/thresholds/f17_32_finite_mca_threshold.pdf`,
+  `experimental/notes/certificate_scanner/examples/f17_512_mca_only.json`,
+  `experimental/notes/certificate_scanner/outputs/f17_512_mca_only.report.json`,
+  `experimental/notes/certificate_scanner/outputs/f17_512_mca_only.report.md`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / AUDIT / EXPERIMENTAL-SCANNER.
+- **What is being added:** A standalone finite-row threshold note packages the
+  \(\F_{17^{32}}, n=512,k=256\) row as an exact finite-slope support-wise MCA
+  threshold: agreement \(506\) is unsafe, agreement \(507\) is safe, and the
+  closed-real safe interval is \([0,6/512)\). A pure-MCA scanner profile is
+  added so the 506/507 endpoint is not mixed with the optional line-plus-list
+  protocol ledger.
+- **How it is useful:** Supersedes the old strict264-next threshold plan for
+  this finite row and gives the clean packaging needed for the public board and
+  `towards-prize.md`. It also isolates the next theorem target: the
+  row-independent high-agreement threshold compiler with
+  \(B_Q=\lfloor Q/2^{128}\rfloor\).
+- **What to do next:** Audit the official MCA sampler definition against the
+  finite/projective slope conventions and decide whether to promote the
+  row-independent compiler from experimental notes into a paper-level theorem.
+
+### 2026-06-27 - Prime192 leaderboard sweep rows
+
+- **Agent/model:** Codex, auditing `leaderboard_sweep_192`.
+- **Files added or changed:** `experimental/notes/certificate_scanner/outputs/leaderboard_sweep_192/`,
+  `experimental/notes/certificate_scanner/certificate_scanner.py`,
+  `site/data/rate-leaderboards.json`, `site/data/updates.json`, and
+  `site/index.html`.
+- **Status:** DRAFT THEOREM EXAMPLES / AUDIT.
+- **What is being added:** The scanner sweep contributes four concrete
+  prime-field rows with `q` near `2^192`, `k=2^40`, smooth power-of-two
+  subgroup domains, and one row per official prize rate. It also records a
+  small `F_17^32` Paper D example at agreement `258`.
+- **How it is useful:** These rows instantiate the Paper D v5 cap with exact
+  field/domain arithmetic, making the theorem-envelope rows concrete without
+  promoting them to peer-reviewed or explicit-slope-census status.
+- **What to do next:** Regenerate the sweep from a checked-in sweep script if
+  the scanner API changes, and keep these rows marked as draft theorem examples
+  until Paper D v5 is human-reviewed.
+
+### 2026-06-27 - PR #122--#129 triage and selective integration
+
+- **Agent/model:** Codex, auditing PRs from AllenGrahamHart, Scott Hughes,
+  and Vadim Avdeev.
+- **Files added or changed:** `experimental/notes/triage/pr-triage-2026-06-27.md`,
+  `experimental/notes/l1/l1_prefix_dual_d3_subgroup_twisted_collision_bound.md`,
+  `experimental/notes/l1/l1_monomial_dyadic_descent_survivors.md`,
+  `experimental/notes/f1/f1_arbitrary_anchor_locator_split.md`,
+  `experimental/notes/m1/m1_all_line_hankel_aperiodic_packet_audit.md`,
+  `experimental/data/adjacent-ledgers/`, selected verifier scripts, and
+  `experimental/experiments.tex`.
+- **Status:** PROVED / IMPORTED-STANDARD-INPUT / AUDIT / PROOF PROGRAM /
+  EXPERIMENTAL.
+- **What is being added:** New bounded L1/F1/M2 notes are integrated, while
+  PR #127's large M1 generated packet is distilled into a smaller audit note.
+  The public board is updated only for tangent-floor-backed status corrections:
+  Cycle116/119 gates are unconditional but their exact Cycle84 numerator remains
+  conditional, and reserve272/288/313 are marked as proved only because they are
+  subsumed by tangent/strict352 floors.
+- **How it is useful:** Adds useful L1 `d=3` proper-subgroup and monomial-prefix
+  toy theorems, sharpens the F1 arbitrary-anchor ledger, and records
+  challenge-map pullback accounting for protocol-facing high-agreement ledgers
+  without promoting non-verified material to theorem status.
+- **What to do next:** Split the M1 all-line aperiodic packet into small
+  separately auditable verifiers before considering any stronger theorem claim;
+  human-review the imported Katz/Gauss inputs in the L1 `d=3` note before moving
+  it toward Paper B.
+
+### 2026-06-27 - Promoted high-agreement TeX split
+
+- **Agent/model:** Codex, verifying and promoting the user-supplied
+  `experiments_v2.tex` split.
+- **Files added or changed:** `experimental/experiments.tex`,
+  `experimental/experiments.pdf`, `experimental/notes/high_agreement/`,
+  `experimental/scripts/verify_promoted_high_agreement_ledgers.py`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / CONDITIONAL-PROTOCOL-LEDGER / AUDIT.
+- **What is being added:** The bulky high-agreement tangent, CA/projective,
+  curve, interleaved-list, current-row protocol, and general threshold compiler
+  material is split into reusable TeX fragments under
+  `experimental/notes/high_agreement/` and included from the canonical
+  `experimental/experiments.tex` wrapper.
+- **How it is useful:** Keeps the stable high-agreement theorem package
+  reviewable in smaller files while preserving the compiled experimental memo.
+  The split also fixes the stale missing backslash before the
+  `Towards-Prize Finite-Threshold Theorems` section header.
+- **What to do next:** Human-review the curve sampler caveat before citing the
+  curve statements in protocol settings, and keep protocol query/folding,
+  extension-lift, challenge-field, and cryptographic losses as separate ledger
+  terms.
+
 ### 2026-06-26 - Generalized high-agreement ledgers
 
 - **Agent/model:** GPT-5.5 Pro generalized-ledgers packet, audited and

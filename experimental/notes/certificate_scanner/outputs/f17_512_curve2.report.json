@@ -1,0 +1,1935 @@
+{
+  "row": {
+    "budget_q_chal": 6,
+    "budget_q_line": 6,
+    "k": 256,
+    "n": 512,
+    "q_base": 2367911594760467245844106297320951247361,
+    "q_chal": 2367911594760467245844106297320951247361,
+    "q_gen": 2367911594760467245844106297320951247361,
+    "q_line": 2367911594760467245844106297320951247361,
+    "rho": "1/2"
+  },
+  "scanner_version": "0.1",
+  "scans": [
+    {
+      "a": 257,
+      "combined_protocol": {
+        "safe_by_upper": false,
+        "source": "Paper C protocol ledger composition",
+        "status": "PROVED only for included theorem-backed terms; conditional on actual protocol consuming these objects",
+        "terms_lower": [
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "tangent_mca_lower",
+            "numerator": 256
+          }
+        ],
+        "terms_upper": [],
+        "unknown_terms": [
+          "finite_line_exact",
+          "interleaved_list",
+          "curve_d2"
+        ],
+        "unsafe_by_lower": true,
+        "verdict": "UNSAFE_BY_PROVED_LOWER_BOUND"
+      },
+      "delta_float": 0.498046875,
+      "delta_fraction": "255/512",
+      "eta_float": 0.001953125,
+      "eta_fraction": "1/512",
+      "ledgers": {
+        "corrected_mca_conditional": {
+          "source": "Paper B/C corrected MCA assumption",
+          "status": "not enabled"
+        },
+        "entropy": {
+          "entropy_margin_bits": -376.36911202556905,
+          "eta": 0.001953125,
+          "eta_minus_tau_star": -0.005690915409469647,
+          "log2_binom_n_a": 507.1679229455799,
+          "passes_nonnegative_margin": false,
+          "sigma": 1,
+          "sigma_log2_q_gen": 130.79881092001085,
+          "source": "Paper B / Paper C generated-field entropy ledger",
+          "status": "PROVED necessary floor / certificate check",
+          "tau_star_asymptotic": 0.007644040409469647
+        },
+        "paper_d_cap": {
+          "active_caps": [
+            {
+              "N": 512,
+              "delta_cap_float": 0.49609375,
+              "delta_cap_fraction": "127/256",
+              "ell2": 258,
+              "epsilon_floor_gt_target": true,
+              "gap_2_over_N": 0.00390625,
+              "gap_fraction": "1/256",
+              "hyp_margin_bits": 253.55342728699378,
+              "log2_binom_N_ell2": 507.1510491270155,
+              "log2_requirement": 253.5976218400217,
+              "rhoN": 256
+            }
+          ],
+          "checked_candidate_divisors": 7,
+          "closest_to_capacity_cap_max_delta": {
+            "N": 512,
+            "delta_cap_float": 0.49609375,
+            "delta_cap_fraction": "127/256",
+            "ell2": 258,
+            "epsilon_floor_gt_target": true,
+            "gap_2_over_N": 0.00390625,
+            "gap_fraction": "1/256",
+            "hyp_margin_bits": 253.55342728699378,
+            "log2_binom_N_ell2": 507.1510491270155,
+            "log2_requirement": 253.5976218400217,
+            "rhoN": 256
+          },
+          "num_active_caps": 1,
+          "q_base": 2367911594760467245844106297320951247361,
+          "q_line": 2367911594760467245844106297320951247361,
+          "source": "Paper D v5 universal cap (draft theorem)",
+          "status": "DRAFT theorem: Paper D v5 cap under stated hypotheses; not peer reviewed",
+          "strongest_cap_min_delta": {
+            "N": 512,
+            "delta_cap_float": 0.49609375,
+            "delta_cap_fraction": "127/256",
+            "ell2": 258,
+            "epsilon_floor_gt_target": true,
+            "gap_2_over_N": 0.00390625,
+            "gap_fraction": "1/256",
+            "hyp_margin_bits": 253.55342728699378,
+            "log2_binom_N_ell2": 507.1510491270155,
+            "log2_requirement": 253.5976218400217,
+            "rhoN": 256
+          }
+        },
+        "quotient_profile": {
+          "Qprof_log2": 250.67284305697086,
+          "active_divisors": [
+            {
+              "M": 2,
+              "k_over_M": 128,
+              "log2_floor": 250.67284305697086,
+              "n_over_M": 256
+            },
+            {
+              "M": 4,
+              "k_over_M": 64,
+              "log2_floor": 123.17143420017378,
+              "n_over_M": 128
+            },
+            {
+              "M": 8,
+              "k_over_M": 32,
+              "log2_floor": 59.66861663700344,
+              "n_over_M": 64
+            },
+            {
+              "M": 16,
+              "k_over_M": 16,
+              "log2_floor": 28.16298271259506,
+              "n_over_M": 32
+            },
+            {
+              "M": 32,
+              "k_over_M": 8,
+              "log2_floor": 12.651724433108065,
+              "n_over_M": 16
+            },
+            {
+              "M": 64,
+              "k_over_M": 4,
+              "log2_floor": 5.129283016944966,
+              "n_over_M": 8
+            },
+            {
+              "M": 128,
+              "k_over_M": 2,
+              "log2_floor": 1.584962500721156,
+              "n_over_M": 4
+            },
+            {
+              "M": 256,
+              "k_over_M": 1,
+              "log2_floor": 0.0,
+              "n_over_M": 2
+            }
+          ],
+          "gcd_n_k": 256,
+          "num_active_divisors": 8,
+          "sigma": 1,
+          "source": "Paper B / Paper C quotient-core profile",
+          "status": "PROVED lower-floor profile for exact divisibility; remainder variants not included"
+        },
+        "tangent_high_agreement": {
+          "R_line_exact": 85,
+          "R_list_unique": 128,
+          "R_redundancy": 256,
+          "curve_ledgers": [
+            {
+              "R_curve_exact": 64,
+              "degree": 2,
+              "status": "UNKNOWN outside r <= floor((n-k)/(d+2))"
+            }
+          ],
+          "finite_line_exact": {
+            "condition_r_le": 85,
+            "status": "UNKNOWN outside r <= floor((n-k)/3)"
+          },
+          "interleaved_list_unique": {
+            "condition_r_le": 128,
+            "status": "UNKNOWN outside r <= floor((n-k)/2)"
+          },
+          "projective_line_exact": {
+            "condition_r_le": 85,
+            "status": "UNKNOWN outside r <= floor((n-k)/3)"
+          },
+          "r": 255,
+          "source": "experiments.tex high-agreement tangent/adjacent ledgers",
+          "tangent_mca_lower": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 256,
+            "status": "PROVED lower floor for support-wise finite-slope MCA",
+            "unsafe_at_target": true
+          }
+        }
+      },
+      "r": 255,
+      "sigma": 1
+    },
+    {
+      "a": 352,
+      "combined_protocol": {
+        "safe_by_upper": false,
+        "source": "Paper C protocol ledger composition",
+        "status": "PROVED only for included theorem-backed terms; conditional on actual protocol consuming these objects",
+        "terms_lower": [
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "tangent_mca_lower",
+            "numerator": 161
+          }
+        ],
+        "terms_upper": [],
+        "unknown_terms": [
+          "finite_line_exact",
+          "interleaved_list",
+          "curve_d2"
+        ],
+        "unsafe_by_lower": true,
+        "verdict": "UNSAFE_BY_PROVED_LOWER_BOUND"
+      },
+      "delta_float": 0.3125,
+      "delta_fraction": "160/512",
+      "eta_float": 0.1875,
+      "eta_fraction": "96/512",
+      "ledgers": {
+        "corrected_mca_conditional": {
+          "source": "Paper B/C corrected MCA assumption",
+          "status": "not enabled"
+        },
+        "entropy": {
+          "entropy_margin_bits": 12102.63155932095,
+          "eta": 0.1875,
+          "eta_minus_tau_star": 0.17985595959053036,
+          "log2_binom_n_a": 454.05428900009275,
+          "passes_nonnegative_margin": true,
+          "sigma": 96,
+          "sigma_log2_q_gen": 12556.685848321042,
+          "source": "Paper B / Paper C generated-field entropy ledger",
+          "status": "PROVED necessary floor / certificate check",
+          "tau_star_asymptotic": 0.007644040409469647
+        },
+        "paper_d_cap": {
+          "active_caps": [
+            {
+              "N": 512,
+              "delta_cap_float": 0.49609375,
+              "delta_cap_fraction": "127/256",
+              "ell2": 258,
+              "epsilon_floor_gt_target": true,
+              "gap_2_over_N": 0.00390625,
+              "gap_fraction": "1/256",
+              "hyp_margin_bits": 253.55342728699378,
+              "log2_binom_N_ell2": 507.1510491270155,
+              "log2_requirement": 253.5976218400217,
+              "rhoN": 256
+            }
+          ],
+          "checked_candidate_divisors": 7,
+          "closest_to_capacity_cap_max_delta": {
+            "N": 512,
+            "delta_cap_float": 0.49609375,
+            "delta_cap_fraction": "127/256",
+            "ell2": 258,
+            "epsilon_floor_gt_target": true,
+            "gap_2_over_N": 0.00390625,
+            "gap_fraction": "1/256",
+            "hyp_margin_bits": 253.55342728699378,
+            "log2_binom_N_ell2": 507.1510491270155,
+            "log2_requirement": 253.5976218400217,
+            "rhoN": 256
+          },
+          "num_active_caps": 1,
+          "q_base": 2367911594760467245844106297320951247361,
+          "q_line": 2367911594760467245844106297320951247361,
+          "source": "Paper D v5 universal cap (draft theorem)",
+          "status": "DRAFT theorem: Paper D v5 cap under stated hypotheses; not peer reviewed",
+          "strongest_cap_min_delta": {
+            "N": 512,
+            "delta_cap_float": 0.49609375,
+            "delta_cap_fraction": "127/256",
+            "ell2": 258,
+            "epsilon_floor_gt_target": true,
+            "gap_2_over_N": 0.00390625,
+            "gap_fraction": "1/256",
+            "hyp_margin_bits": 253.55342728699378,
+            "log2_binom_N_ell2": 507.1510491270155,
+            "log2_requirement": 253.5976218400217,
+            "rhoN": 256
+          }
+        },
+        "quotient_profile": {
+          "Qprof_log2": 1.584962500721156,
+          "active_divisors": [
+            {
+              "M": 128,
+              "k_over_M": 2,
+              "log2_floor": 1.584962500721156,
+              "n_over_M": 4
+            },
+            {
+              "M": 256,
+              "k_over_M": 1,
+              "log2_floor": 0.0,
+              "n_over_M": 2
+            }
+          ],
+          "gcd_n_k": 256,
+          "num_active_divisors": 2,
+          "sigma": 96,
+          "source": "Paper B / Paper C quotient-core profile",
+          "status": "PROVED lower-floor profile for exact divisibility; remainder variants not included"
+        },
+        "tangent_high_agreement": {
+          "R_line_exact": 85,
+          "R_list_unique": 128,
+          "R_redundancy": 256,
+          "curve_ledgers": [
+            {
+              "R_curve_exact": 64,
+              "degree": 2,
+              "status": "UNKNOWN outside r <= floor((n-k)/(d+2))"
+            }
+          ],
+          "finite_line_exact": {
+            "condition_r_le": 85,
+            "status": "UNKNOWN outside r <= floor((n-k)/3)"
+          },
+          "interleaved_list_unique": {
+            "condition_r_le": 128,
+            "status": "UNKNOWN outside r <= floor((n-k)/2)"
+          },
+          "projective_line_exact": {
+            "condition_r_le": 85,
+            "status": "UNKNOWN outside r <= floor((n-k)/3)"
+          },
+          "r": 160,
+          "source": "experiments.tex high-agreement tangent/adjacent ledgers",
+          "tangent_mca_lower": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 161,
+            "status": "PROVED lower floor for support-wise finite-slope MCA",
+            "unsafe_at_target": true
+          }
+        }
+      },
+      "r": 160,
+      "sigma": 96
+    },
+    {
+      "a": 384,
+      "combined_protocol": {
+        "safe_by_upper": false,
+        "source": "Paper C protocol ledger composition",
+        "status": "PROVED only for included theorem-backed terms; conditional on actual protocol consuming these objects",
+        "terms_lower": [
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "tangent_mca_lower",
+            "numerator": 129
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "interleaved_list_unique",
+            "numerator": 1
+          }
+        ],
+        "terms_upper": [
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "interleaved_list_unique",
+            "numerator": 1
+          }
+        ],
+        "unknown_terms": [
+          "finite_line_exact",
+          "curve_d2"
+        ],
+        "unsafe_by_lower": true,
+        "verdict": "UNSAFE_BY_PROVED_LOWER_BOUND"
+      },
+      "delta_float": 0.25,
+      "delta_fraction": "128/512",
+      "eta_float": 0.25,
+      "eta_fraction": "128/512",
+      "ledgers": {
+        "corrected_mca_conditional": {
+          "source": "Paper B/C corrected MCA assumption",
+          "status": "not enabled"
+        },
+        "entropy": {
+          "entropy_margin_bits": 16331.492644877257,
+          "eta": 0.25,
+          "eta_minus_tau_star": 0.24235595959053036,
+          "log2_binom_n_a": 410.75515288413186,
+          "passes_nonnegative_margin": true,
+          "sigma": 128,
+          "sigma_log2_q_gen": 16742.24779776139,
+          "source": "Paper B / Paper C generated-field entropy ledger",
+          "status": "PROVED necessary floor / certificate check",
+          "tau_star_asymptotic": 0.007644040409469647
+        },
+        "paper_d_cap": {
+          "active_caps": [
+            {
+              "N": 512,
+              "delta_cap_float": 0.49609375,
+              "delta_cap_fraction": "127/256",
+              "ell2": 258,
+              "epsilon_floor_gt_target": true,
+              "gap_2_over_N": 0.00390625,
+              "gap_fraction": "1/256",
+              "hyp_margin_bits": 253.55342728699378,
+              "log2_binom_N_ell2": 507.1510491270155,
+              "log2_requirement": 253.5976218400217,
+              "rhoN": 256
+            }
+          ],
+          "checked_candidate_divisors": 7,
+          "closest_to_capacity_cap_max_delta": {
+            "N": 512,
+            "delta_cap_float": 0.49609375,
+            "delta_cap_fraction": "127/256",
+            "ell2": 258,
+            "epsilon_floor_gt_target": true,
+            "gap_2_over_N": 0.00390625,
+            "gap_fraction": "1/256",
+            "hyp_margin_bits": 253.55342728699378,
+            "log2_binom_N_ell2": 507.1510491270155,
+            "log2_requirement": 253.5976218400217,
+            "rhoN": 256
+          },
+          "num_active_caps": 1,
+          "q_base": 2367911594760467245844106297320951247361,
+          "q_line": 2367911594760467245844106297320951247361,
+          "source": "Paper D v5 universal cap (draft theorem)",
+          "status": "DRAFT theorem: Paper D v5 cap under stated hypotheses; not peer reviewed",
+          "strongest_cap_min_delta": {
+            "N": 512,
+            "delta_cap_float": 0.49609375,
+            "delta_cap_fraction": "127/256",
+            "ell2": 258,
+            "epsilon_floor_gt_target": true,
+            "gap_2_over_N": 0.00390625,
+            "gap_fraction": "1/256",
+            "hyp_margin_bits": 253.55342728699378,
+            "log2_binom_N_ell2": 507.1510491270155,
+            "log2_requirement": 253.5976218400217,
+            "rhoN": 256
+          }
+        },
+        "quotient_profile": {
+          "Qprof_log2": 0.0,
+          "active_divisors": [
+            {
+              "M": 256,
+              "k_over_M": 1,
+              "log2_floor": 0.0,
+              "n_over_M": 2
+            }
+          ],
+          "gcd_n_k": 256,
+          "num_active_divisors": 1,
+          "sigma": 128,
+          "source": "Paper B / Paper C quotient-core profile",
+          "status": "PROVED lower-floor profile for exact divisibility; remainder variants not included"
+        },
+        "tangent_high_agreement": {
+          "R_line_exact": 85,
+          "R_list_unique": 128,
+          "R_redundancy": 256,
+          "curve_ledgers": [
+            {
+              "R_curve_exact": 64,
+              "degree": 2,
+              "status": "UNKNOWN outside r <= floor((n-k)/(d+2))"
+            }
+          ],
+          "finite_line_exact": {
+            "condition_r_le": 85,
+            "status": "UNKNOWN outside r <= floor((n-k)/3)"
+          },
+          "interleaved_list_unique": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 1,
+            "safe_at_target": true,
+            "status": "PROVED exact list size 1 for every arity mu in high-agreement range"
+          },
+          "projective_line_exact": {
+            "condition_r_le": 85,
+            "status": "UNKNOWN outside r <= floor((n-k)/3)"
+          },
+          "r": 128,
+          "source": "experiments.tex high-agreement tangent/adjacent ledgers",
+          "tangent_mca_lower": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 129,
+            "status": "PROVED lower floor for support-wise finite-slope MCA",
+            "unsafe_at_target": true
+          }
+        }
+      },
+      "r": 128,
+      "sigma": 128
+    },
+    {
+      "a": 427,
+      "combined_protocol": {
+        "safe_by_upper": false,
+        "source": "Paper C protocol ledger composition",
+        "status": "PROVED only for included theorem-backed terms; conditional on actual protocol consuming these objects",
+        "terms_lower": [
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "finite_line_exact",
+            "numerator": 86
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "interleaved_list_unique",
+            "numerator": 1
+          }
+        ],
+        "terms_upper": [
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "finite_line_exact",
+            "numerator": 86
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "interleaved_list_unique",
+            "numerator": 1
+          }
+        ],
+        "unknown_terms": [
+          "curve_d2"
+        ],
+        "unsafe_by_lower": true,
+        "verdict": "UNSAFE_BY_PROVED_LOWER_BOUND"
+      },
+      "delta_float": 0.166015625,
+      "delta_fraction": "85/512",
+      "eta_float": 0.333984375,
+      "eta_fraction": "171/512",
+      "ledgers": {
+        "corrected_mca_conditional": {
+          "source": "Paper B/C corrected MCA assumption",
+          "status": "not enabled"
+        },
+        "entropy": {
+          "entropy_margin_bits": 22038.961242557245,
+          "eta": 0.333984375,
+          "eta_minus_tau_star": 0.32634033459053036,
+          "log2_binom_n_a": 327.6354247646115,
+          "passes_nonnegative_margin": true,
+          "sigma": 171,
+          "sigma_log2_q_gen": 22366.596667321857,
+          "source": "Paper B / Paper C generated-field entropy ledger",
+          "status": "PROVED necessary floor / certificate check",
+          "tau_star_asymptotic": 0.007644040409469647
+        },
+        "paper_d_cap": {
+          "active_caps": [
+            {
+              "N": 512,
+              "delta_cap_float": 0.49609375,
+              "delta_cap_fraction": "127/256",
+              "ell2": 258,
+              "epsilon_floor_gt_target": true,
+              "gap_2_over_N": 0.00390625,
+              "gap_fraction": "1/256",
+              "hyp_margin_bits": 253.55342728699378,
+              "log2_binom_N_ell2": 507.1510491270155,
+              "log2_requirement": 253.5976218400217,
+              "rhoN": 256
+            }
+          ],
+          "checked_candidate_divisors": 7,
+          "closest_to_capacity_cap_max_delta": {
+            "N": 512,
+            "delta_cap_float": 0.49609375,
+            "delta_cap_fraction": "127/256",
+            "ell2": 258,
+            "epsilon_floor_gt_target": true,
+            "gap_2_over_N": 0.00390625,
+            "gap_fraction": "1/256",
+            "hyp_margin_bits": 253.55342728699378,
+            "log2_binom_N_ell2": 507.1510491270155,
+            "log2_requirement": 253.5976218400217,
+            "rhoN": 256
+          },
+          "num_active_caps": 1,
+          "q_base": 2367911594760467245844106297320951247361,
+          "q_line": 2367911594760467245844106297320951247361,
+          "source": "Paper D v5 universal cap (draft theorem)",
+          "status": "DRAFT theorem: Paper D v5 cap under stated hypotheses; not peer reviewed",
+          "strongest_cap_min_delta": {
+            "N": 512,
+            "delta_cap_float": 0.49609375,
+            "delta_cap_fraction": "127/256",
+            "ell2": 258,
+            "epsilon_floor_gt_target": true,
+            "gap_2_over_N": 0.00390625,
+            "gap_fraction": "1/256",
+            "hyp_margin_bits": 253.55342728699378,
+            "log2_binom_N_ell2": 507.1510491270155,
+            "log2_requirement": 253.5976218400217,
+            "rhoN": 256
+          }
+        },
+        "quotient_profile": {
+          "Qprof_log2": 0.0,
+          "active_divisors": [
+            {
+              "M": 256,
+              "k_over_M": 1,
+              "log2_floor": 0.0,
+              "n_over_M": 2
+            }
+          ],
+          "gcd_n_k": 256,
+          "num_active_divisors": 1,
+          "sigma": 171,
+          "source": "Paper B / Paper C quotient-core profile",
+          "status": "PROVED lower-floor profile for exact divisibility; remainder variants not included"
+        },
+        "tangent_high_agreement": {
+          "R_line_exact": 85,
+          "R_list_unique": 128,
+          "R_redundancy": 256,
+          "curve_ledgers": [
+            {
+              "R_curve_exact": 64,
+              "degree": 2,
+              "status": "UNKNOWN outside r <= floor((n-k)/(d+2))"
+            }
+          ],
+          "finite_line_exact": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 86,
+            "safe_at_target": false,
+            "status": "PROVED exact: LD_sw = LD_ca = r+1 in high-agreement range",
+            "unsafe_at_target": true
+          },
+          "interleaved_list_unique": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 1,
+            "safe_at_target": true,
+            "status": "PROVED exact list size 1 for every arity mu in high-agreement range"
+          },
+          "projective_line_exact": {
+            "denominator": 2367911594760467245844106297320951247362,
+            "numerator": 86,
+            "safe_at_target": false,
+            "status": "PROVED exact for uniform P^1 slope sampler in high-agreement range",
+            "unsafe_at_target": true
+          },
+          "r": 85,
+          "source": "experiments.tex high-agreement tangent/adjacent ledgers",
+          "tangent_mca_lower": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 86,
+            "status": "PROVED lower floor for support-wise finite-slope MCA",
+            "unsafe_at_target": true
+          }
+        }
+      },
+      "r": 85,
+      "sigma": 171
+    },
+    {
+      "a": 505,
+      "combined_protocol": {
+        "safe_by_upper": false,
+        "source": "Paper C protocol ledger composition",
+        "status": "PROVED only for included theorem-backed terms; conditional on actual protocol consuming these objects",
+        "terms_lower": [
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "finite_line_exact",
+            "numerator": 8
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "interleaved_list_unique",
+            "numerator": 1
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "curve_d2_lower",
+            "numerator": 16
+          }
+        ],
+        "terms_upper": [
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "finite_line_exact",
+            "numerator": 8
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "interleaved_list_unique",
+            "numerator": 1
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "curve_d2_upper",
+            "numerator": 16
+          }
+        ],
+        "unknown_terms": [],
+        "unsafe_by_lower": true,
+        "verdict": "UNSAFE_BY_PROVED_LOWER_BOUND"
+      },
+      "delta_float": 0.013671875,
+      "delta_fraction": "7/512",
+      "eta_float": 0.486328125,
+      "eta_fraction": "249/512",
+      "ledgers": {
+        "corrected_mca_conditional": {
+          "source": "Paper B/C corrected MCA assumption",
+          "status": "not enabled"
+        },
+        "entropy": {
+          "entropy_margin_bits": 32518.26255213875,
+          "eta": 0.486328125,
+          "eta_minus_tau_star": 0.47868408459053036,
+          "log2_binom_n_a": 50.641366943954715,
+          "passes_nonnegative_margin": true,
+          "sigma": 249,
+          "sigma_log2_q_gen": 32568.903919082702,
+          "source": "Paper B / Paper C generated-field entropy ledger",
+          "status": "PROVED necessary floor / certificate check",
+          "tau_star_asymptotic": 0.007644040409469647
+        },
+        "paper_d_cap": {
+          "active_caps": [
+            {
+              "N": 512,
+              "delta_cap_float": 0.49609375,
+              "delta_cap_fraction": "127/256",
+              "ell2": 258,
+              "epsilon_floor_gt_target": true,
+              "gap_2_over_N": 0.00390625,
+              "gap_fraction": "1/256",
+              "hyp_margin_bits": 253.55342728699378,
+              "log2_binom_N_ell2": 507.1510491270155,
+              "log2_requirement": 253.5976218400217,
+              "rhoN": 256
+            }
+          ],
+          "checked_candidate_divisors": 7,
+          "closest_to_capacity_cap_max_delta": {
+            "N": 512,
+            "delta_cap_float": 0.49609375,
+            "delta_cap_fraction": "127/256",
+            "ell2": 258,
+            "epsilon_floor_gt_target": true,
+            "gap_2_over_N": 0.00390625,
+            "gap_fraction": "1/256",
+            "hyp_margin_bits": 253.55342728699378,
+            "log2_binom_N_ell2": 507.1510491270155,
+            "log2_requirement": 253.5976218400217,
+            "rhoN": 256
+          },
+          "num_active_caps": 1,
+          "q_base": 2367911594760467245844106297320951247361,
+          "q_line": 2367911594760467245844106297320951247361,
+          "source": "Paper D v5 universal cap (draft theorem)",
+          "status": "DRAFT theorem: Paper D v5 cap under stated hypotheses; not peer reviewed",
+          "strongest_cap_min_delta": {
+            "N": 512,
+            "delta_cap_float": 0.49609375,
+            "delta_cap_fraction": "127/256",
+            "ell2": 258,
+            "epsilon_floor_gt_target": true,
+            "gap_2_over_N": 0.00390625,
+            "gap_fraction": "1/256",
+            "hyp_margin_bits": 253.55342728699378,
+            "log2_binom_N_ell2": 507.1510491270155,
+            "log2_requirement": 253.5976218400217,
+            "rhoN": 256
+          }
+        },
+        "quotient_profile": {
+          "Qprof_log2": 0.0,
+          "active_divisors": [
+            {
+              "M": 256,
+              "k_over_M": 1,
+              "log2_floor": 0.0,
+              "n_over_M": 2
+            }
+          ],
+          "gcd_n_k": 256,
+          "num_active_divisors": 1,
+          "sigma": 249,
+          "source": "Paper B / Paper C quotient-core profile",
+          "status": "PROVED lower-floor profile for exact divisibility; remainder variants not included"
+        },
+        "tangent_high_agreement": {
+          "R_line_exact": 85,
+          "R_list_unique": 128,
+          "R_redundancy": 256,
+          "curve_ledgers": [
+            {
+              "R_curve_exact": 64,
+              "degree": 2,
+              "denominator": 2367911594760467245844106297320951247361,
+              "lower_numerator": 16,
+              "safe_by_upper": false,
+              "split_exact": true,
+              "split_reason": "multiplicative subgroup split criterion: d | q-1 and r+1 <= n/gcd(d,n)",
+              "status": "PROVED exact under split criterion",
+              "unsafe_by_lower": true,
+              "upper_numerator": 16
+            }
+          ],
+          "finite_line_exact": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 8,
+            "safe_at_target": false,
+            "status": "PROVED exact: LD_sw = LD_ca = r+1 in high-agreement range",
+            "unsafe_at_target": true
+          },
+          "interleaved_list_unique": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 1,
+            "safe_at_target": true,
+            "status": "PROVED exact list size 1 for every arity mu in high-agreement range"
+          },
+          "projective_line_exact": {
+            "denominator": 2367911594760467245844106297320951247362,
+            "numerator": 8,
+            "safe_at_target": false,
+            "status": "PROVED exact for uniform P^1 slope sampler in high-agreement range",
+            "unsafe_at_target": true
+          },
+          "r": 7,
+          "source": "experiments.tex high-agreement tangent/adjacent ledgers",
+          "tangent_mca_lower": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 8,
+            "status": "PROVED lower floor for support-wise finite-slope MCA",
+            "unsafe_at_target": true
+          }
+        }
+      },
+      "r": 7,
+      "sigma": 249
+    },
+    {
+      "a": 506,
+      "combined_protocol": {
+        "safe_by_upper": false,
+        "source": "Paper C protocol ledger composition",
+        "status": "PROVED only for included theorem-backed terms; conditional on actual protocol consuming these objects",
+        "terms_lower": [
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "finite_line_exact",
+            "numerator": 7
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "interleaved_list_unique",
+            "numerator": 1
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "curve_d2_lower",
+            "numerator": 14
+          }
+        ],
+        "terms_upper": [
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "finite_line_exact",
+            "numerator": 7
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "interleaved_list_unique",
+            "numerator": 1
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "curve_d2_upper",
+            "numerator": 14
+          }
+        ],
+        "unknown_terms": [],
+        "unsafe_by_lower": true,
+        "verdict": "UNSAFE_BY_PROVED_LOWER_BOUND"
+      },
+      "delta_float": 0.01171875,
+      "delta_fraction": "6/512",
+      "eta_float": 0.48828125,
+      "eta_fraction": "250/512",
+      "ledgers": {
+        "corrected_mca_conditional": {
+          "source": "Paper B/C corrected MCA assumption",
+          "status": "not enabled"
+        },
+        "entropy": {
+          "entropy_margin_bits": 32655.237001711394,
+          "eta": 0.48828125,
+          "eta_minus_tau_star": 0.48063720959053036,
+          "log2_binom_n_a": 44.46572829131801,
+          "passes_nonnegative_margin": true,
+          "sigma": 250,
+          "sigma_log2_q_gen": 32699.70273000271,
+          "source": "Paper B / Paper C generated-field entropy ledger",
+          "status": "PROVED necessary floor / certificate check",
+          "tau_star_asymptotic": 0.007644040409469647
+        },
+        "paper_d_cap": {
+          "active_caps": [
+            {
+              "N": 512,
+              "delta_cap_float": 0.49609375,
+              "delta_cap_fraction": "127/256",
+              "ell2": 258,
+              "epsilon_floor_gt_target": true,
+              "gap_2_over_N": 0.00390625,
+              "gap_fraction": "1/256",
+              "hyp_margin_bits": 253.55342728699378,
+              "log2_binom_N_ell2": 507.1510491270155,
+              "log2_requirement": 253.5976218400217,
+              "rhoN": 256
+            }
+          ],
+          "checked_candidate_divisors": 7,
+          "closest_to_capacity_cap_max_delta": {
+            "N": 512,
+            "delta_cap_float": 0.49609375,
+            "delta_cap_fraction": "127/256",
+            "ell2": 258,
+            "epsilon_floor_gt_target": true,
+            "gap_2_over_N": 0.00390625,
+            "gap_fraction": "1/256",
+            "hyp_margin_bits": 253.55342728699378,
+            "log2_binom_N_ell2": 507.1510491270155,
+            "log2_requirement": 253.5976218400217,
+            "rhoN": 256
+          },
+          "num_active_caps": 1,
+          "q_base": 2367911594760467245844106297320951247361,
+          "q_line": 2367911594760467245844106297320951247361,
+          "source": "Paper D v5 universal cap (draft theorem)",
+          "status": "DRAFT theorem: Paper D v5 cap under stated hypotheses; not peer reviewed",
+          "strongest_cap_min_delta": {
+            "N": 512,
+            "delta_cap_float": 0.49609375,
+            "delta_cap_fraction": "127/256",
+            "ell2": 258,
+            "epsilon_floor_gt_target": true,
+            "gap_2_over_N": 0.00390625,
+            "gap_fraction": "1/256",
+            "hyp_margin_bits": 253.55342728699378,
+            "log2_binom_N_ell2": 507.1510491270155,
+            "log2_requirement": 253.5976218400217,
+            "rhoN": 256
+          }
+        },
+        "quotient_profile": {
+          "Qprof_log2": 0.0,
+          "active_divisors": [
+            {
+              "M": 256,
+              "k_over_M": 1,
+              "log2_floor": 0.0,
+              "n_over_M": 2
+            }
+          ],
+          "gcd_n_k": 256,
+          "num_active_divisors": 1,
+          "sigma": 250,
+          "source": "Paper B / Paper C quotient-core profile",
+          "status": "PROVED lower-floor profile for exact divisibility; remainder variants not included"
+        },
+        "tangent_high_agreement": {
+          "R_line_exact": 85,
+          "R_list_unique": 128,
+          "R_redundancy": 256,
+          "curve_ledgers": [
+            {
+              "R_curve_exact": 64,
+              "degree": 2,
+              "denominator": 2367911594760467245844106297320951247361,
+              "lower_numerator": 14,
+              "safe_by_upper": false,
+              "split_exact": true,
+              "split_reason": "multiplicative subgroup split criterion: d | q-1 and r+1 <= n/gcd(d,n)",
+              "status": "PROVED exact under split criterion",
+              "unsafe_by_lower": true,
+              "upper_numerator": 14
+            }
+          ],
+          "finite_line_exact": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 7,
+            "safe_at_target": false,
+            "status": "PROVED exact: LD_sw = LD_ca = r+1 in high-agreement range",
+            "unsafe_at_target": true
+          },
+          "interleaved_list_unique": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 1,
+            "safe_at_target": true,
+            "status": "PROVED exact list size 1 for every arity mu in high-agreement range"
+          },
+          "projective_line_exact": {
+            "denominator": 2367911594760467245844106297320951247362,
+            "numerator": 7,
+            "safe_at_target": false,
+            "status": "PROVED exact for uniform P^1 slope sampler in high-agreement range",
+            "unsafe_at_target": true
+          },
+          "r": 6,
+          "source": "experiments.tex high-agreement tangent/adjacent ledgers",
+          "tangent_mca_lower": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 7,
+            "status": "PROVED lower floor for support-wise finite-slope MCA",
+            "unsafe_at_target": true
+          }
+        }
+      },
+      "r": 6,
+      "sigma": 250
+    },
+    {
+      "a": 507,
+      "combined_protocol": {
+        "safe_by_upper": false,
+        "source": "Paper C protocol ledger composition",
+        "status": "PROVED only for included theorem-backed terms; conditional on actual protocol consuming these objects",
+        "terms_lower": [
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "finite_line_exact",
+            "numerator": 6
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "interleaved_list_unique",
+            "numerator": 1
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "curve_d2_lower",
+            "numerator": 12
+          }
+        ],
+        "terms_upper": [
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "finite_line_exact",
+            "numerator": 6
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "interleaved_list_unique",
+            "numerator": 1
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "curve_d2_upper",
+            "numerator": 12
+          }
+        ],
+        "unknown_terms": [],
+        "unsafe_by_lower": true,
+        "verdict": "UNSAFE_BY_PROVED_LOWER_BOUND"
+      },
+      "delta_float": 0.009765625,
+      "delta_fraction": "5/512",
+      "eta_float": 0.490234375,
+      "eta_fraction": "251/512",
+      "ledgers": {
+        "corrected_mca_conditional": {
+          "source": "Paper B/C corrected MCA assumption",
+          "status": "not enabled"
+        },
+        "entropy": {
+          "entropy_margin_bits": 32792.43669206769,
+          "eta": 0.490234375,
+          "eta_minus_tau_star": 0.48259033459053036,
+          "log2_binom_n_a": 38.06484885503582,
+          "passes_nonnegative_margin": true,
+          "sigma": 251,
+          "sigma_log2_q_gen": 32830.50154092273,
+          "source": "Paper B / Paper C generated-field entropy ledger",
+          "status": "PROVED necessary floor / certificate check",
+          "tau_star_asymptotic": 0.007644040409469647
+        },
+        "paper_d_cap": {
+          "active_caps": [
+            {
+              "N": 512,
+              "delta_cap_float": 0.49609375,
+              "delta_cap_fraction": "127/256",
+              "ell2": 258,
+              "epsilon_floor_gt_target": true,
+              "gap_2_over_N": 0.00390625,
+              "gap_fraction": "1/256",
+              "hyp_margin_bits": 253.55342728699378,
+              "log2_binom_N_ell2": 507.1510491270155,
+              "log2_requirement": 253.5976218400217,
+              "rhoN": 256
+            }
+          ],
+          "checked_candidate_divisors": 7,
+          "closest_to_capacity_cap_max_delta": {
+            "N": 512,
+            "delta_cap_float": 0.49609375,
+            "delta_cap_fraction": "127/256",
+            "ell2": 258,
+            "epsilon_floor_gt_target": true,
+            "gap_2_over_N": 0.00390625,
+            "gap_fraction": "1/256",
+            "hyp_margin_bits": 253.55342728699378,
+            "log2_binom_N_ell2": 507.1510491270155,
+            "log2_requirement": 253.5976218400217,
+            "rhoN": 256
+          },
+          "num_active_caps": 1,
+          "q_base": 2367911594760467245844106297320951247361,
+          "q_line": 2367911594760467245844106297320951247361,
+          "source": "Paper D v5 universal cap (draft theorem)",
+          "status": "DRAFT theorem: Paper D v5 cap under stated hypotheses; not peer reviewed",
+          "strongest_cap_min_delta": {
+            "N": 512,
+            "delta_cap_float": 0.49609375,
+            "delta_cap_fraction": "127/256",
+            "ell2": 258,
+            "epsilon_floor_gt_target": true,
+            "gap_2_over_N": 0.00390625,
+            "gap_fraction": "1/256",
+            "hyp_margin_bits": 253.55342728699378,
+            "log2_binom_N_ell2": 507.1510491270155,
+            "log2_requirement": 253.5976218400217,
+            "rhoN": 256
+          }
+        },
+        "quotient_profile": {
+          "Qprof_log2": 0.0,
+          "active_divisors": [
+            {
+              "M": 256,
+              "k_over_M": 1,
+              "log2_floor": 0.0,
+              "n_over_M": 2
+            }
+          ],
+          "gcd_n_k": 256,
+          "num_active_divisors": 1,
+          "sigma": 251,
+          "source": "Paper B / Paper C quotient-core profile",
+          "status": "PROVED lower-floor profile for exact divisibility; remainder variants not included"
+        },
+        "tangent_high_agreement": {
+          "R_line_exact": 85,
+          "R_list_unique": 128,
+          "R_redundancy": 256,
+          "curve_ledgers": [
+            {
+              "R_curve_exact": 64,
+              "degree": 2,
+              "denominator": 2367911594760467245844106297320951247361,
+              "lower_numerator": 12,
+              "safe_by_upper": false,
+              "split_exact": true,
+              "split_reason": "multiplicative subgroup split criterion: d | q-1 and r+1 <= n/gcd(d,n)",
+              "status": "PROVED exact under split criterion",
+              "unsafe_by_lower": true,
+              "upper_numerator": 12
+            }
+          ],
+          "finite_line_exact": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 6,
+            "safe_at_target": true,
+            "status": "PROVED exact: LD_sw = LD_ca = r+1 in high-agreement range",
+            "unsafe_at_target": false
+          },
+          "interleaved_list_unique": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 1,
+            "safe_at_target": true,
+            "status": "PROVED exact list size 1 for every arity mu in high-agreement range"
+          },
+          "projective_line_exact": {
+            "denominator": 2367911594760467245844106297320951247362,
+            "numerator": 6,
+            "safe_at_target": true,
+            "status": "PROVED exact for uniform P^1 slope sampler in high-agreement range",
+            "unsafe_at_target": false
+          },
+          "r": 5,
+          "source": "experiments.tex high-agreement tangent/adjacent ledgers",
+          "tangent_mca_lower": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 6,
+            "status": "PROVED lower floor for support-wise finite-slope MCA",
+            "unsafe_at_target": false
+          }
+        }
+      },
+      "r": 5,
+      "sigma": 251
+    },
+    {
+      "a": 508,
+      "combined_protocol": {
+        "safe_by_upper": false,
+        "source": "Paper C protocol ledger composition",
+        "status": "PROVED only for included theorem-backed terms; conditional on actual protocol consuming these objects",
+        "terms_lower": [
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "finite_line_exact",
+            "numerator": 5
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "interleaved_list_unique",
+            "numerator": 1
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "curve_d2_lower",
+            "numerator": 10
+          }
+        ],
+        "terms_upper": [
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "finite_line_exact",
+            "numerator": 5
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "interleaved_list_unique",
+            "numerator": 1
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "curve_d2_upper",
+            "numerator": 10
+          }
+        ],
+        "unknown_terms": [],
+        "unsafe_by_lower": true,
+        "verdict": "UNSAFE_BY_PROVED_LOWER_BOUND"
+      },
+      "delta_float": 0.0078125,
+      "delta_fraction": "4/512",
+      "eta_float": 0.4921875,
+      "eta_fraction": "252/512",
+      "ledgers": {
+        "corrected_mca_conditional": {
+          "source": "Paper B/C corrected MCA assumption",
+          "status": "not enabled"
+        },
+        "entropy": {
+          "entropy_margin_bits": 32929.90225957958,
+          "eta": 0.4921875,
+          "eta_minus_tau_star": 0.48454345959053036,
+          "log2_binom_n_a": 31.398092263151018,
+          "passes_nonnegative_margin": true,
+          "sigma": 252,
+          "sigma_log2_q_gen": 32961.300351842736,
+          "source": "Paper B / Paper C generated-field entropy ledger",
+          "status": "PROVED necessary floor / certificate check",
+          "tau_star_asymptotic": 0.007644040409469647
+        },
+        "paper_d_cap": {
+          "active_caps": [
+            {
+              "N": 512,
+              "delta_cap_float": 0.49609375,
+              "delta_cap_fraction": "127/256",
+              "ell2": 258,
+              "epsilon_floor_gt_target": true,
+              "gap_2_over_N": 0.00390625,
+              "gap_fraction": "1/256",
+              "hyp_margin_bits": 253.55342728699378,
+              "log2_binom_N_ell2": 507.1510491270155,
+              "log2_requirement": 253.5976218400217,
+              "rhoN": 256
+            }
+          ],
+          "checked_candidate_divisors": 7,
+          "closest_to_capacity_cap_max_delta": {
+            "N": 512,
+            "delta_cap_float": 0.49609375,
+            "delta_cap_fraction": "127/256",
+            "ell2": 258,
+            "epsilon_floor_gt_target": true,
+            "gap_2_over_N": 0.00390625,
+            "gap_fraction": "1/256",
+            "hyp_margin_bits": 253.55342728699378,
+            "log2_binom_N_ell2": 507.1510491270155,
+            "log2_requirement": 253.5976218400217,
+            "rhoN": 256
+          },
+          "num_active_caps": 1,
+          "q_base": 2367911594760467245844106297320951247361,
+          "q_line": 2367911594760467245844106297320951247361,
+          "source": "Paper D v5 universal cap (draft theorem)",
+          "status": "DRAFT theorem: Paper D v5 cap under stated hypotheses; not peer reviewed",
+          "strongest_cap_min_delta": {
+            "N": 512,
+            "delta_cap_float": 0.49609375,
+            "delta_cap_fraction": "127/256",
+            "ell2": 258,
+            "epsilon_floor_gt_target": true,
+            "gap_2_over_N": 0.00390625,
+            "gap_fraction": "1/256",
+            "hyp_margin_bits": 253.55342728699378,
+            "log2_binom_N_ell2": 507.1510491270155,
+            "log2_requirement": 253.5976218400217,
+            "rhoN": 256
+          }
+        },
+        "quotient_profile": {
+          "Qprof_log2": 0.0,
+          "active_divisors": [
+            {
+              "M": 256,
+              "k_over_M": 1,
+              "log2_floor": 0.0,
+              "n_over_M": 2
+            }
+          ],
+          "gcd_n_k": 256,
+          "num_active_divisors": 1,
+          "sigma": 252,
+          "source": "Paper B / Paper C quotient-core profile",
+          "status": "PROVED lower-floor profile for exact divisibility; remainder variants not included"
+        },
+        "tangent_high_agreement": {
+          "R_line_exact": 85,
+          "R_list_unique": 128,
+          "R_redundancy": 256,
+          "curve_ledgers": [
+            {
+              "R_curve_exact": 64,
+              "degree": 2,
+              "denominator": 2367911594760467245844106297320951247361,
+              "lower_numerator": 10,
+              "safe_by_upper": false,
+              "split_exact": true,
+              "split_reason": "multiplicative subgroup split criterion: d | q-1 and r+1 <= n/gcd(d,n)",
+              "status": "PROVED exact under split criterion",
+              "unsafe_by_lower": true,
+              "upper_numerator": 10
+            }
+          ],
+          "finite_line_exact": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 5,
+            "safe_at_target": true,
+            "status": "PROVED exact: LD_sw = LD_ca = r+1 in high-agreement range",
+            "unsafe_at_target": false
+          },
+          "interleaved_list_unique": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 1,
+            "safe_at_target": true,
+            "status": "PROVED exact list size 1 for every arity mu in high-agreement range"
+          },
+          "projective_line_exact": {
+            "denominator": 2367911594760467245844106297320951247362,
+            "numerator": 5,
+            "safe_at_target": true,
+            "status": "PROVED exact for uniform P^1 slope sampler in high-agreement range",
+            "unsafe_at_target": false
+          },
+          "r": 4,
+          "source": "experiments.tex high-agreement tangent/adjacent ledgers",
+          "tangent_mca_lower": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 5,
+            "status": "PROVED lower floor for support-wise finite-slope MCA",
+            "unsafe_at_target": false
+          }
+        }
+      },
+      "r": 4,
+      "sigma": 252
+    },
+    {
+      "a": 509,
+      "combined_protocol": {
+        "safe_by_upper": false,
+        "source": "Paper C protocol ledger composition",
+        "status": "PROVED only for included theorem-backed terms; conditional on actual protocol consuming these objects",
+        "terms_lower": [
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "finite_line_exact",
+            "numerator": 4
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "interleaved_list_unique",
+            "numerator": 1
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "curve_d2_lower",
+            "numerator": 8
+          }
+        ],
+        "terms_upper": [
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "finite_line_exact",
+            "numerator": 4
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "interleaved_list_unique",
+            "numerator": 1
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "curve_d2_upper",
+            "numerator": 8
+          }
+        ],
+        "unknown_terms": [],
+        "unsafe_by_lower": true,
+        "verdict": "UNSAFE_BY_PROVED_LOWER_BOUND"
+      },
+      "delta_float": 0.005859375,
+      "delta_fraction": "3/512",
+      "eta_float": 0.494140625,
+      "eta_fraction": "253/512",
+      "ledgers": {
+        "corrected_mca_conditional": {
+          "source": "Paper B/C corrected MCA assumption",
+          "status": "not enabled"
+        },
+        "entropy": {
+          "entropy_margin_bits": 33067.692592345666,
+          "eta": 0.494140625,
+          "eta_minus_tau_star": 0.48649658459053036,
+          "log2_binom_n_a": 24.406570417075322,
+          "passes_nonnegative_margin": true,
+          "sigma": 253,
+          "sigma_log2_q_gen": 33092.099162762745,
+          "source": "Paper B / Paper C generated-field entropy ledger",
+          "status": "PROVED necessary floor / certificate check",
+          "tau_star_asymptotic": 0.007644040409469647
+        },
+        "paper_d_cap": {
+          "active_caps": [
+            {
+              "N": 512,
+              "delta_cap_float": 0.49609375,
+              "delta_cap_fraction": "127/256",
+              "ell2": 258,
+              "epsilon_floor_gt_target": true,
+              "gap_2_over_N": 0.00390625,
+              "gap_fraction": "1/256",
+              "hyp_margin_bits": 253.55342728699378,
+              "log2_binom_N_ell2": 507.1510491270155,
+              "log2_requirement": 253.5976218400217,
+              "rhoN": 256
+            }
+          ],
+          "checked_candidate_divisors": 7,
+          "closest_to_capacity_cap_max_delta": {
+            "N": 512,
+            "delta_cap_float": 0.49609375,
+            "delta_cap_fraction": "127/256",
+            "ell2": 258,
+            "epsilon_floor_gt_target": true,
+            "gap_2_over_N": 0.00390625,
+            "gap_fraction": "1/256",
+            "hyp_margin_bits": 253.55342728699378,
+            "log2_binom_N_ell2": 507.1510491270155,
+            "log2_requirement": 253.5976218400217,
+            "rhoN": 256
+          },
+          "num_active_caps": 1,
+          "q_base": 2367911594760467245844106297320951247361,
+          "q_line": 2367911594760467245844106297320951247361,
+          "source": "Paper D v5 universal cap (draft theorem)",
+          "status": "DRAFT theorem: Paper D v5 cap under stated hypotheses; not peer reviewed",
+          "strongest_cap_min_delta": {
+            "N": 512,
+            "delta_cap_float": 0.49609375,
+            "delta_cap_fraction": "127/256",
+            "ell2": 258,
+            "epsilon_floor_gt_target": true,
+            "gap_2_over_N": 0.00390625,
+            "gap_fraction": "1/256",
+            "hyp_margin_bits": 253.55342728699378,
+            "log2_binom_N_ell2": 507.1510491270155,
+            "log2_requirement": 253.5976218400217,
+            "rhoN": 256
+          }
+        },
+        "quotient_profile": {
+          "Qprof_log2": 0.0,
+          "active_divisors": [
+            {
+              "M": 256,
+              "k_over_M": 1,
+              "log2_floor": 0.0,
+              "n_over_M": 2
+            }
+          ],
+          "gcd_n_k": 256,
+          "num_active_divisors": 1,
+          "sigma": 253,
+          "source": "Paper B / Paper C quotient-core profile",
+          "status": "PROVED lower-floor profile for exact divisibility; remainder variants not included"
+        },
+        "tangent_high_agreement": {
+          "R_line_exact": 85,
+          "R_list_unique": 128,
+          "R_redundancy": 256,
+          "curve_ledgers": [
+            {
+              "R_curve_exact": 64,
+              "degree": 2,
+              "denominator": 2367911594760467245844106297320951247361,
+              "lower_numerator": 8,
+              "safe_by_upper": false,
+              "split_exact": true,
+              "split_reason": "multiplicative subgroup split criterion: d | q-1 and r+1 <= n/gcd(d,n)",
+              "status": "PROVED exact under split criterion",
+              "unsafe_by_lower": true,
+              "upper_numerator": 8
+            }
+          ],
+          "finite_line_exact": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 4,
+            "safe_at_target": true,
+            "status": "PROVED exact: LD_sw = LD_ca = r+1 in high-agreement range",
+            "unsafe_at_target": false
+          },
+          "interleaved_list_unique": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 1,
+            "safe_at_target": true,
+            "status": "PROVED exact list size 1 for every arity mu in high-agreement range"
+          },
+          "projective_line_exact": {
+            "denominator": 2367911594760467245844106297320951247362,
+            "numerator": 4,
+            "safe_at_target": true,
+            "status": "PROVED exact for uniform P^1 slope sampler in high-agreement range",
+            "unsafe_at_target": false
+          },
+          "r": 3,
+          "source": "experiments.tex high-agreement tangent/adjacent ledgers",
+          "tangent_mca_lower": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 4,
+            "status": "PROVED lower floor for support-wise finite-slope MCA",
+            "unsafe_at_target": false
+          }
+        }
+      },
+      "r": 3,
+      "sigma": 253
+    },
+    {
+      "a": 511,
+      "combined_protocol": {
+        "safe_by_upper": false,
+        "source": "Paper C protocol ledger composition",
+        "status": "PROVED only for included theorem-backed terms; conditional on actual protocol consuming these objects",
+        "terms_lower": [
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "finite_line_exact",
+            "numerator": 2
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "interleaved_list_unique",
+            "numerator": 1
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "curve_d2_lower",
+            "numerator": 4
+          }
+        ],
+        "terms_upper": [
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "finite_line_exact",
+            "numerator": 2
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "interleaved_list_unique",
+            "numerator": 1
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "curve_d2_upper",
+            "numerator": 4
+          }
+        ],
+        "unknown_terms": [],
+        "unsafe_by_lower": true,
+        "verdict": "UNSAFE_BY_PROVED_LOWER_BOUND"
+      },
+      "delta_float": 0.001953125,
+      "delta_fraction": "1/512",
+      "eta_float": 0.498046875,
+      "eta_fraction": "255/512",
+      "ledgers": {
+        "corrected_mca_conditional": {
+          "source": "Paper B/C corrected MCA assumption",
+          "status": "not enabled"
+        },
+        "entropy": {
+          "entropy_margin_bits": 33344.69678460277,
+          "eta": 0.498046875,
+          "eta_minus_tau_star": 0.49040283459053036,
+          "log2_binom_n_a": 9.0,
+          "passes_nonnegative_margin": true,
+          "sigma": 255,
+          "sigma_log2_q_gen": 33353.69678460277,
+          "source": "Paper B / Paper C generated-field entropy ledger",
+          "status": "PROVED necessary floor / certificate check",
+          "tau_star_asymptotic": 0.007644040409469647
+        },
+        "paper_d_cap": {
+          "active_caps": [
+            {
+              "N": 512,
+              "delta_cap_float": 0.49609375,
+              "delta_cap_fraction": "127/256",
+              "ell2": 258,
+              "epsilon_floor_gt_target": true,
+              "gap_2_over_N": 0.00390625,
+              "gap_fraction": "1/256",
+              "hyp_margin_bits": 253.55342728699378,
+              "log2_binom_N_ell2": 507.1510491270155,
+              "log2_requirement": 253.5976218400217,
+              "rhoN": 256
+            }
+          ],
+          "checked_candidate_divisors": 7,
+          "closest_to_capacity_cap_max_delta": {
+            "N": 512,
+            "delta_cap_float": 0.49609375,
+            "delta_cap_fraction": "127/256",
+            "ell2": 258,
+            "epsilon_floor_gt_target": true,
+            "gap_2_over_N": 0.00390625,
+            "gap_fraction": "1/256",
+            "hyp_margin_bits": 253.55342728699378,
+            "log2_binom_N_ell2": 507.1510491270155,
+            "log2_requirement": 253.5976218400217,
+            "rhoN": 256
+          },
+          "num_active_caps": 1,
+          "q_base": 2367911594760467245844106297320951247361,
+          "q_line": 2367911594760467245844106297320951247361,
+          "source": "Paper D v5 universal cap (draft theorem)",
+          "status": "DRAFT theorem: Paper D v5 cap under stated hypotheses; not peer reviewed",
+          "strongest_cap_min_delta": {
+            "N": 512,
+            "delta_cap_float": 0.49609375,
+            "delta_cap_fraction": "127/256",
+            "ell2": 258,
+            "epsilon_floor_gt_target": true,
+            "gap_2_over_N": 0.00390625,
+            "gap_fraction": "1/256",
+            "hyp_margin_bits": 253.55342728699378,
+            "log2_binom_N_ell2": 507.1510491270155,
+            "log2_requirement": 253.5976218400217,
+            "rhoN": 256
+          }
+        },
+        "quotient_profile": {
+          "Qprof_log2": 0.0,
+          "active_divisors": [
+            {
+              "M": 256,
+              "k_over_M": 1,
+              "log2_floor": 0.0,
+              "n_over_M": 2
+            }
+          ],
+          "gcd_n_k": 256,
+          "num_active_divisors": 1,
+          "sigma": 255,
+          "source": "Paper B / Paper C quotient-core profile",
+          "status": "PROVED lower-floor profile for exact divisibility; remainder variants not included"
+        },
+        "tangent_high_agreement": {
+          "R_line_exact": 85,
+          "R_list_unique": 128,
+          "R_redundancy": 256,
+          "curve_ledgers": [
+            {
+              "R_curve_exact": 64,
+              "degree": 2,
+              "denominator": 2367911594760467245844106297320951247361,
+              "lower_numerator": 4,
+              "safe_by_upper": true,
+              "split_exact": true,
+              "split_reason": "multiplicative subgroup split criterion: d | q-1 and r+1 <= n/gcd(d,n)",
+              "status": "PROVED exact under split criterion",
+              "unsafe_by_lower": false,
+              "upper_numerator": 4
+            }
+          ],
+          "finite_line_exact": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 2,
+            "safe_at_target": true,
+            "status": "PROVED exact: LD_sw = LD_ca = r+1 in high-agreement range",
+            "unsafe_at_target": false
+          },
+          "interleaved_list_unique": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 1,
+            "safe_at_target": true,
+            "status": "PROVED exact list size 1 for every arity mu in high-agreement range"
+          },
+          "projective_line_exact": {
+            "denominator": 2367911594760467245844106297320951247362,
+            "numerator": 2,
+            "safe_at_target": true,
+            "status": "PROVED exact for uniform P^1 slope sampler in high-agreement range",
+            "unsafe_at_target": false
+          },
+          "r": 1,
+          "source": "experiments.tex high-agreement tangent/adjacent ledgers",
+          "tangent_mca_lower": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 2,
+            "status": "PROVED lower floor for support-wise finite-slope MCA",
+            "unsafe_at_target": false
+          }
+        }
+      },
+      "r": 1,
+      "sigma": 255
+    },
+    {
+      "a": 512,
+      "combined_protocol": {
+        "safe_by_upper": true,
+        "source": "Paper C protocol ledger composition",
+        "status": "PROVED only for included theorem-backed terms; conditional on actual protocol consuming these objects",
+        "terms_lower": [
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "finite_line_exact",
+            "numerator": 1
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "interleaved_list_unique",
+            "numerator": 1
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "curve_d2_lower",
+            "numerator": 2
+          }
+        ],
+        "terms_upper": [
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "finite_line_exact",
+            "numerator": 1
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "interleaved_list_unique",
+            "numerator": 1
+          },
+          {
+            "denominator": 2367911594760467245844106297320951247361,
+            "name": "curve_d2_upper",
+            "numerator": 2
+          }
+        ],
+        "unknown_terms": [],
+        "unsafe_by_lower": false,
+        "verdict": "SAFE_BY_PROVED_UPPER_BOUND"
+      },
+      "delta_float": 0.0,
+      "delta_fraction": "0/512",
+      "eta_float": 0.5,
+      "eta_fraction": "256/512",
+      "ledgers": {
+        "corrected_mca_conditional": {
+          "source": "Paper B/C corrected MCA assumption",
+          "status": "not enabled"
+        },
+        "entropy": {
+          "entropy_margin_bits": 33484.49559552278,
+          "eta": 0.5,
+          "eta_minus_tau_star": 0.49235595959053036,
+          "log2_binom_n_a": 0.0,
+          "passes_nonnegative_margin": true,
+          "sigma": 256,
+          "sigma_log2_q_gen": 33484.49559552278,
+          "source": "Paper B / Paper C generated-field entropy ledger",
+          "status": "PROVED necessary floor / certificate check",
+          "tau_star_asymptotic": 0.007644040409469647
+        },
+        "paper_d_cap": {
+          "active_caps": [
+            {
+              "N": 512,
+              "delta_cap_float": 0.49609375,
+              "delta_cap_fraction": "127/256",
+              "ell2": 258,
+              "epsilon_floor_gt_target": true,
+              "gap_2_over_N": 0.00390625,
+              "gap_fraction": "1/256",
+              "hyp_margin_bits": 253.55342728699378,
+              "log2_binom_N_ell2": 507.1510491270155,
+              "log2_requirement": 253.5976218400217,
+              "rhoN": 256
+            }
+          ],
+          "checked_candidate_divisors": 7,
+          "closest_to_capacity_cap_max_delta": {
+            "N": 512,
+            "delta_cap_float": 0.49609375,
+            "delta_cap_fraction": "127/256",
+            "ell2": 258,
+            "epsilon_floor_gt_target": true,
+            "gap_2_over_N": 0.00390625,
+            "gap_fraction": "1/256",
+            "hyp_margin_bits": 253.55342728699378,
+            "log2_binom_N_ell2": 507.1510491270155,
+            "log2_requirement": 253.5976218400217,
+            "rhoN": 256
+          },
+          "num_active_caps": 1,
+          "q_base": 2367911594760467245844106297320951247361,
+          "q_line": 2367911594760467245844106297320951247361,
+          "source": "Paper D v5 universal cap (draft theorem)",
+          "status": "DRAFT theorem: Paper D v5 cap under stated hypotheses; not peer reviewed",
+          "strongest_cap_min_delta": {
+            "N": 512,
+            "delta_cap_float": 0.49609375,
+            "delta_cap_fraction": "127/256",
+            "ell2": 258,
+            "epsilon_floor_gt_target": true,
+            "gap_2_over_N": 0.00390625,
+            "gap_fraction": "1/256",
+            "hyp_margin_bits": 253.55342728699378,
+            "log2_binom_N_ell2": 507.1510491270155,
+            "log2_requirement": 253.5976218400217,
+            "rhoN": 256
+          }
+        },
+        "quotient_profile": {
+          "Qprof_log2": null,
+          "active_divisors": [],
+          "gcd_n_k": 256,
+          "num_active_divisors": 0,
+          "sigma": 256,
+          "source": "Paper B / Paper C quotient-core profile",
+          "status": "PROVED lower-floor profile for exact divisibility; remainder variants not included"
+        },
+        "tangent_high_agreement": {
+          "R_line_exact": 85,
+          "R_list_unique": 128,
+          "R_redundancy": 256,
+          "curve_ledgers": [
+            {
+              "R_curve_exact": 64,
+              "degree": 2,
+              "denominator": 2367911594760467245844106297320951247361,
+              "lower_numerator": 2,
+              "safe_by_upper": true,
+              "split_exact": true,
+              "split_reason": "multiplicative subgroup split criterion: d | q-1 and r+1 <= n/gcd(d,n)",
+              "status": "PROVED exact under split criterion",
+              "unsafe_by_lower": false,
+              "upper_numerator": 2
+            }
+          ],
+          "finite_line_exact": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 1,
+            "safe_at_target": true,
+            "status": "PROVED exact: LD_sw = LD_ca = r+1 in high-agreement range",
+            "unsafe_at_target": false
+          },
+          "interleaved_list_unique": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 1,
+            "safe_at_target": true,
+            "status": "PROVED exact list size 1 for every arity mu in high-agreement range"
+          },
+          "projective_line_exact": {
+            "denominator": 2367911594760467245844106297320951247362,
+            "numerator": 1,
+            "safe_at_target": true,
+            "status": "PROVED exact for uniform P^1 slope sampler in high-agreement range",
+            "unsafe_at_target": false
+          },
+          "r": 0,
+          "source": "experiments.tex high-agreement tangent/adjacent ledgers",
+          "tangent_mca_lower": {
+            "denominator": 2367911594760467245844106297320951247361,
+            "numerator": 1,
+            "status": "PROVED lower floor for support-wise finite-slope MCA",
+            "unsafe_at_target": false
+          }
+        }
+      },
+      "r": 0,
+      "sigma": 256
+    }
+  ],
+  "security_lambda": 128
+}

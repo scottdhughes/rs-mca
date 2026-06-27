@@ -395,6 +395,7 @@
     .prize-badge.fail{color:var(--bad);border-color:rgba(159,59,72,.24);background:rgba(159,59,72,.055);}
     .row-source{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:.34rem .52rem;font-weight:800;font-size:.76rem;background:#fff;white-space:nowrap;}
     .row-source:hover{background:var(--soft);}
+    .row-authors{display:block;margin-top:.36rem;color:var(--muted);font-size:.76rem;font-weight:800;line-height:1.35;}
     .row-load{margin-top:.38rem;border:1px solid var(--line);border-radius:999px;background:#fff;padding:.32rem .52rem;font-size:.74rem;font-weight:800;color:var(--ink-2);cursor:pointer;}
     .row-load:hover{background:var(--soft);border-color:var(--line-strong);}
     .calculator-stack{display:grid;gap:1rem;}
@@ -576,9 +577,9 @@
             </div>
           </div>
         </div>
-        <aside class="receipt-card" aria-label="Best finite MCA proof record">
+        <aside class="receipt-card" aria-label="Exact finite MCA gate">
           <div class="receipt-head">
-            <div class="receipt-title">best finite MCA proof record</div>
+            <div class="receipt-title">exact finite MCA gate</div>
             <div class="dotset"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
           </div>
           <div class="receipt-body">
@@ -603,7 +604,7 @@
       <div class="shell stats" aria-label="Frontier metrics">
         <div class="stat"><small>Prize rates</small><b>4</b><span>MCA and interleaved-list boards for each official rate</span></div>
         <div class="stat"><small>Threshold target</small><b>2<sup>−128</sup></b><span>shown as MCA and list failure scores separately</span></div>
-        <div class="stat"><small>Best finite MCA record</small><b>506/507</b><span>exact tangent gate for the \(F_{17^{32}}\) row</span></div>
+        <div class="stat"><small>Exact finite MCA gate</small><b>506/507</b><span>tangent-star classification for the \(F_{17^{32}}\) row</span></div>
         <div class="stat"><small>Largest failure margin</small><b>+32.82</b><span>Cycle116/119 bad-challenge numerator over \(17^{32}\)</span></div>
       </div>
     </section>
@@ -735,7 +736,7 @@
               </div>
               <div>
                 <label for="searchBox">Search</label>
-                <input id="searchBox" type="search" placeholder="Cycle119, strict352, F_17^32…" />
+                <input id="searchBox" type="search" placeholder="tangent257, Cycle119, F_17^32…" />
               </div>
             </div>
             <div class="chart-wrap">
@@ -960,6 +961,10 @@
             </div>
             <div class="calc-result" id="prizeCalcResult"></div>
             <p class="caption" style="margin-top:1rem">Lower-bound rows clear the target iff \(2^{128}N_{\rm bad}>q_{\rm line}\) for MCA or \(2^{128}L_{\rm lower}>|\mathbb F|\) for list decoding. Upper-bound safe margins use the opposite numerator direction.</p>
+            <div class="hero-links" style="margin-top:1rem">
+              <a href="https://github.com/przchojecki/rs-mca/tree/main/experimental/notes/certificate_scanner" target="_blank" rel="noopener">Certificate scanner</a>
+              <a href="https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/examples/prize_rate_half_k2_40.json" target="_blank" rel="noopener">Prize-scale example</a>
+            </div>
           </div>
 
           <div class="card">
@@ -1106,7 +1111,7 @@
             <h3>Where to put work</h3>
             <div class="collab-list">
               <div class="collab-step"><h4>1. Read <span class="mono">AGENTS.md</span> first</h4><p>Follow the field-ledger, status-label, and no-main-paper-edit rules before proposing a result.</p></div>
-              <div class="collab-step"><h4>2. Add new research under <span class="mono">experimental/</span></h4><p>Use notes for theorem sketches and audits, scripts for reproducible checks, and data certificates for machine-readable outputs.</p></div>
+              <div class="collab-step"><h4>2. Add new research under <span class="mono">experimental/</span></h4><p>Use notes for theorem sketches and audits, scripts for reproducible checks, and data certificates for machine-readable outputs. For row-level ledger checks, start with <span class="mono">experimental/notes/certificate_scanner/</span>.</p></div>
               <div class="collab-step"><h4>3. Update <span class="mono">experimental/agents-log.md</span></h4><p>Record date, contributor, files changed, status, usefulness, and the next step for anything materially changed in <span class="mono">experimental/</span>.</p></div>
               <div class="collab-step"><h4>4. Touch <span class="mono">site/data/</span> only for public entries</h4><p>Add board rows after the source note exists and the status is explicit: proved, conditional, conjectural, experimental, audit, or counterexample.</p></div>
             </div>
@@ -1115,7 +1120,7 @@
             <h3>What a PR should include</h3>
             <details open><summary>Claim and status</summary><p>State the exact claim and label it PROVED, CONDITIONAL, CONJECTURAL, EXPERIMENTAL, AUDIT, or COUNTEREXAMPLE.</p></details>
             <details><summary>Parameters and ledgers</summary><p>Print \(q_{\rm gen}\), \(q_{\rm line}\), \(q_{\rm chal}\), base/extension fields, \(n\), \(k\), \(\rho\), \(\delta\), \(\eta\), and the exact object being bounded.</p></details>
-            <details><summary>Reproducibility</summary><p>Attach a script, JSON certificate, symbolic proof note, seed, hash, or exact command that lets reviewers replay the result.</p></details>
+            <details><summary>Reproducibility</summary><p>Attach a script, JSON certificate, symbolic proof note, seed, hash, or exact command that lets reviewers replay the result. A scanner config plus generated JSON/Markdown report is preferred for row-level ledger claims.</p></details>
             <details><summary>Board impact</summary><p>Say whether the PR changes entropy, quotient, interleaved-list, MCA, line-decoding, field-transfer, or query-budget ledgers.</p></details>
           </div>
         </div>
@@ -1241,410 +1246,593 @@
     }
 
     const fallbackEntriesRaw = [
-      {
-            "id": "cycle116",
-            "title": "Cycle116 closed-threshold proof record",
-            "short": "ABF printed closed threshold at delta = 125/256.",
-            "row": "RS[F_17^32,H,256]",
-            "n": 512,
-            "k": 256,
-            "rho": 0.5,
-            "agreement": 262,
-            "badSlopes": "52747567092",
-            "q": "17^32",
-            "status": "proved",
-            "tag": "proved",
-            "label": "proof record",
-            "radiusLabel": "125/256",
-            "proof": "Cycle116 agreement-262 transfer reaches the printed ABF closed support threshold.",
-            "nonclaims": "Not ordinary list decoding; not protocol soundness; not exact delta*_C.",
-            "links": [
-                  {
-                        "label": "Cycle120 scope note",
-                        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_cycle120_abf_counterexample_candidate.md"
-                  }
-            ]
-      },
-      {
-            "id": "cycle119",
-            "title": "Cycle119 strict263 proof record",
-            "short": "Two-ended upgrade with one-symbol strict margin.",
-            "row": "RS[F_17^32,H,256]",
-            "n": 512,
-            "k": 256,
-            "rho": 0.5,
-            "agreement": 263,
-            "badSlopes": "52747567092",
-            "q": "17^32",
-            "status": "proved",
-            "tag": "proved",
-            "label": "proof record",
-            "radiusLabel": "249/512",
-            "proof": "Two-ended locator theorem: common top-six coefficients plus common nonzero constant coefficient.",
-            "nonclaims": "Finite/source-scoped theorem; imports the Cycle84 numerator; not an official prize solve by itself.",
-            "links": [
-                  {
-                        "label": "Cycle119 review",
-                        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_cycle119_strict263_admissibility_review.md"
-                  },
-                  {
-                        "label": "Standalone LDsw note",
-                        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_cycle120_standalone_ldsw_proof.md"
-                  }
-            ]
-      },
-      {
-            "id": "strict264-min",
-            "title": "Strict264 quotient-floor proof record",
-            "short": "Quotient-core entropy plus deep-point conversion gives at least nine bad slopes.",
-            "row": "RS[F_17^32,H,256]",
-            "n": 512,
-            "k": 256,
-            "rho": 0.5,
-            "agreement": 264,
-            "badSlopes": "9",
-            "q": "17^32",
-            "status": "proved",
-            "tag": "proved",
-            "label": "proof record",
-            "radiusLabel": "31/64",
-            "proof": "Quotient map x -> x^8 on |H|=512 gives an augmented C+ list of size binom(64,33); deep-point conversion yields at least nine support-wise noncontained slopes at agreement 264.",
-            "nonclaims": "Quotient-core mechanism record superseded as a lower-bound frontier by the generic tangent floor, which gives LD_sw(C,264) >= 249.",
-            "links": [
-                  {
-                        "label": "Strict264 quotient floor",
-                        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/strict264_quotient_floor.md"
-                  },
-                  {
-                        "label": "Entropy MCA package",
-                        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/entropy_mca_new_results.md"
-                  }
-            ]
-      },
-      {
-            "id": "tangent506-exact-gate",
-            "title": "High-agreement tangent exact gate",
-            "short": "Tangent-star classification pins the finite-slope threshold at agreements 506/507.",
-            "row": "RS[F_17^32,H,256]",
-            "n": 512,
-            "k": 256,
-            "rho": 0.5,
-            "agreement": 506,
-            "badSlopes": "7",
-            "q": "17^32",
-            "status": "proved",
-            "tag": "proved",
-            "label": "exact gate",
-            "radiusLabel": "3/256",
-            "proof": "Generic moving-root tangent floor gives LD_sw(C,a) >= n-a+1 for all k+1 <= a <= n; the common residual budget proves equality when 3a-2n >= k, and the tangent-star refinement classifies extremizers. For n=512,k=256 this gives LD_sw(C,506)=7 and LD_sw(C,507)=6, with no seventh finite-slope branch at a>=507.",
-            "nonclaims": "Finite-slope support-wise MCA convention for this row; adjacent high-agreement CA/projective/curve/list ledgers are recorded separately, and protocol/folding/query/challenge-field losses remain conditional.",
-            "links": [
-                  {
-                        "label": "Adjacent ledgers summary",
-                        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/adjacent-ledgers/high_agreement_adjacent_ledgers_summary.md"
-                  },
-                  {
-                        "label": "Generalized ledgers summary",
-                        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/generalized-ledgers/generalized_high_agreement_ledgers_summary.md"
-                  },
-                  {
-                        "label": "Tangent-star summary",
-                        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent-star/tangent_star_no_nontangent_summary.md"
-                  },
-                  {
-                        "label": "Tangent-star verifier",
-                        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent-star/verify_tangent_star_threshold.py"
-                  },
-                  {
-                        "label": "Tangent staircase summary",
-                        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent/tangent_staircase_summary.md"
-                  }
-            ]
-      },
-      {
-            "id": "strict352-quotient-core",
-            "title": "Strict352 quotient-core proof record",
-            "short": "Dyadic quotient-core floors give at least seven bad slopes through agreement 352.",
-            "row": "RS[F_17^32,H,256]",
-            "n": 512,
-            "k": 256,
-            "rho": 0.5,
-            "agreement": 352,
-            "badSlopes": "16",
-            "q": "17^32",
-            "status": "proved",
-            "tag": "proved",
-            "label": "proof record",
-            "radiusLabel": "5/16",
-            "proof": "Dyadic quotient maps x -> x^c with c in {4,8,16,32}, quotient-prefix pigeonholing, and quantitative deep-point conversion give LD_sw(C,a) >= 7 for 264 <= a <= 352, with LD_sw(C,352) >= 16.",
-            "nonclaims": "Quotient-core mechanism record superseded as a lower-bound frontier by the generic tangent floor, which gives LD_sw(C,352) >= 161 and LD_sw(C,353) >= 160.",
-            "links": [
-                  {
-                        "label": "Strict352 summary",
-                        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/strict352_quotient_core_summary.md"
-                  },
-                  {
-                        "label": "Strict352 verifier",
-                        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/verify_strict352_quotient_core.py"
-                  }
-            ]
-      },
-      {
-            "id": "strict264-2187",
-            "title": "Strict264 2187-slope candidate",
-            "short": "Candidate subpacket shape if the hinted strict264 target is validated.",
-            "row": "RS[F_17^32,H,256]",
-            "n": 512,
-            "k": 256,
-            "rho": 0.5,
-            "agreement": 264,
-            "badSlopes": "2187",
-            "q": "17^32",
-            "status": "candidate",
-            "tag": "candidate",
-            "label": "candidate",
-            "radiusLabel": "31/64",
-            "proof": "Candidate target; requires independent theorem and admissibility audit.",
-            "nonclaims": "Do not cite as proved without a proof record."
-      },
-      {
-            "id": "reserve272",
-            "title": "Reserve-scale target sigma = 16",
-            "short": "A more serious finite-slack target.",
-            "row": "RS[F_17^32,H,256]",
-            "n": 512,
-            "k": 256,
-            "rho": 0.5,
-            "agreement": 272,
-            "badSlopes": "7",
-            "q": "17^32",
-            "status": "target",
-            "tag": "target",
-            "label": "target",
-            "radiusLabel": "15/32",
-            "proof": "Search target for deeper slack frontier.",
-            "nonclaims": "Speculative target."
-      },
-      {
-            "id": "reserve288",
-            "title": "Reserve-scale target sigma = 32",
-            "short": "Deeper below capacity; still only seven retained slopes are enough.",
-            "row": "RS[F_17^32,H,256]",
-            "n": 512,
-            "k": 256,
-            "rho": 0.5,
-            "agreement": 288,
-            "badSlopes": "7",
-            "q": "17^32",
-            "status": "target",
-            "tag": "target",
-            "label": "target",
-            "radiusLabel": "7/16",
-            "proof": "Search target for Paper-B corrected-reserve stress tests.",
-            "nonclaims": "Speculative target."
-      },
-      {
-            "id": "reserve313",
-            "title": "n/log n scale target sigma ~= 57",
-            "short": "Closer to the local-limit reserve scale.",
-            "row": "RS[F_17^32,H,256]",
-            "n": 512,
-            "k": 256,
-            "rho": 0.5,
-            "agreement": 313,
-            "badSlopes": "7",
-            "q": "17^32",
-            "status": "target",
-            "tag": "target",
-            "label": "target",
-            "radiusLabel": "199/512",
-            "proof": "Longer-range target near n/log2(n).",
-            "nonclaims": "Speculative target."
-      }
-];
+          {
+                "id": "tangent257-lower-floor",
+                "title": "Tangent lower-floor capacity-edge row",
+                "short": "Generic moving-root tangent floor gives 256 bad slopes one step below capacity.",
+                "row": "RS[F_17^32,H,256]",
+                "n": 512,
+                "k": 256,
+                "rho": 0.5,
+                "agreement": 257,
+                "badSlopes": "256",
+                "q": "17^32",
+                "status": "proved",
+                "tag": "proved",
+                "label": "theorem-backed scanner row",
+                "radiusLabel": "255/512",
+                "proof": "The generic moving-root tangent floor gives LD_sw(C,a) >= n-a+1 for all k+1 <= a <= n. At a=257 this gives at least 256 support-wise MCA bad finite slopes, and the certificate scanner verifies 256/17^32 > 2^-128.",
+                "nonclaims": "Finite-slope support-wise MCA lower floor only; not an exact threshold, not ordinary list decoding, and not protocol soundness.",
+                "links": [
+                      {
+                            "label": "Tangent staircase summary",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent/tangent_staircase_summary.md"
+                      },
+                      {
+                            "label": "Scanner report",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/outputs/f17_512.report.md"
+                      }
+                ],
+                "authors": "tangent staircase notes / Codex audit"
+          },
+          {
+                "id": "cycle116",
+                "title": "Cycle116 closed-threshold proof record",
+                "short": "ABF printed closed threshold at delta = 125/256.",
+                "row": "RS[F_17^32,H,256]",
+                "n": 512,
+                "k": 256,
+                "rho": 0.5,
+                "agreement": 262,
+                "badSlopes": "52747567092",
+                "q": "17^32",
+                "status": "proved",
+                "tag": "proved",
+                "label": "proof record",
+                "radiusLabel": "125/256",
+                "proof": "Cycle116 agreement-262 transfer reaches the printed ABF closed support threshold. The weaker >2^-128 gate is independently unconditional via the moving-root tangent floor, which gives LD_sw(C,262) >= n-a+1 = 251 >= 7 with no Cycle84 census input.",
+                "nonclaims": "The >2^-128 gate and delta*_C <= 125/256 conclusion are unconditional via the tangent floor; the printed 52,747,567,092 numerator and ~2^-95 density still import the Cycle84 finite count. Not ordinary list decoding; not protocol soundness; not exact delta*_C.",
+                "links": [
+                      {
+                            "label": "Cycle120 scope note",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_cycle120_abf_counterexample_candidate.md"
+                      },
+                      {
+                            "label": "Tangent gate audit",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/audits/audit_prize_gate_unconditional_via_tangent.md"
+                      }
+                ],
+                "authors": "DannyExperiments / AllenGrahamHart / Codex audit"
+          },
+          {
+                "id": "cycle119",
+                "title": "Cycle119 strict263 proof record",
+                "short": "Two-ended upgrade with one-symbol strict margin.",
+                "row": "RS[F_17^32,H,256]",
+                "n": 512,
+                "k": 256,
+                "rho": 0.5,
+                "agreement": 263,
+                "badSlopes": "52747567092",
+                "q": "17^32",
+                "status": "proved",
+                "tag": "proved",
+                "label": "proof record",
+                "radiusLabel": "249/512",
+                "proof": "Two-ended locator theorem: common top-six coefficients plus common nonzero constant coefficient. The weaker strict >2^-128 gate is independently unconditional via the moving-root tangent floor, which gives LD_sw(C,263) >= n-a+1 = 250 >= 7.",
+                "nonclaims": "The strict >2^-128 gate and delta*_C <= 249/512 conclusion are unconditional via the tangent floor; the exact 52,747,567,092 numerator and ~2^-95 density still import the Cycle84 finite count. Finite/source-scoped; not an official prize solve by itself.",
+                "links": [
+                      {
+                            "label": "Cycle119 review",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_cycle119_strict263_admissibility_review.md"
+                      },
+                      {
+                            "label": "Standalone LDsw note",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_cycle120_standalone_ldsw_proof.md"
+                      },
+                      {
+                            "label": "Tangent gate audit",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/audits/audit_prize_gate_unconditional_via_tangent.md"
+                      }
+                ],
+                "authors": "DannyExperiments / AllenGrahamHart / Codex audit"
+          },
+          {
+                "id": "strict264-min",
+                "title": "Strict264 quotient-floor proof record",
+                "short": "Quotient-core entropy plus deep-point conversion gives at least nine bad slopes.",
+                "row": "RS[F_17^32,H,256]",
+                "n": 512,
+                "k": 256,
+                "rho": 0.5,
+                "agreement": 264,
+                "badSlopes": "9",
+                "q": "17^32",
+                "status": "proved",
+                "tag": "proved",
+                "label": "proof record",
+                "radiusLabel": "31/64",
+                "proof": "Quotient map x -> x^8 on |H|=512 gives an augmented C+ list of size binom(64,33); deep-point conversion yields at least nine support-wise noncontained slopes at agreement 264.",
+                "nonclaims": "Quotient-core mechanism record superseded as a lower-bound frontier by the generic tangent floor, which gives LD_sw(C,264) >= 249.",
+                "links": [
+                      {
+                            "label": "Strict264 quotient floor",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/strict264_quotient_floor.md"
+                      },
+                      {
+                            "label": "Entropy MCA package",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/entropy_mca_new_results.md"
+                      }
+                ],
+                "authors": "RS-MCA strict264 notes / Codex audit"
+          },
+          {
+                "id": "tangent506-exact-gate",
+                "title": "High-agreement tangent exact gate",
+                "short": "Tangent-star classification pins the finite-slope threshold at agreements 506/507.",
+                "row": "RS[F_17^32,H,256]",
+                "n": 512,
+                "k": 256,
+                "rho": 0.5,
+                "agreement": 506,
+                "badSlopes": "7",
+                "q": "17^32",
+                "status": "proved",
+                "tag": "proved",
+                "label": "exact gate",
+                "radiusLabel": "3/256",
+                "proof": "Generic moving-root tangent floor gives LD_sw(C,a) >= n-a+1 for all k+1 <= a <= n; the common residual budget proves equality when 3a-2n >= k, and the tangent-star refinement classifies extremizers. For n=512,k=256 this gives LD_sw(C,506)=7 and LD_sw(C,507)=6, with no seventh finite-slope branch at a>=507.",
+                "nonclaims": "Finite-slope support-wise MCA convention for this row; adjacent high-agreement CA/projective/curve/list ledgers are recorded separately, and protocol/folding/query/challenge-field losses remain conditional.",
+                "links": [
+                      {
+                            "label": "Finite-row threshold note",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/thresholds/f17_32_finite_mca_threshold.pdf"
+                      },
+                      {
+                            "label": "Pure MCA scanner report",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/outputs/f17_512_mca_only.report.md"
+                      },
+                      {
+                            "label": "Adjacent ledgers summary",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/adjacent-ledgers/high_agreement_adjacent_ledgers_summary.md"
+                      },
+                      {
+                            "label": "Generalized ledgers summary",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/generalized-ledgers/generalized_high_agreement_ledgers_summary.md"
+                      },
+                      {
+                            "label": "Tangent-star summary",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent-star/tangent_star_no_nontangent_summary.md"
+                      },
+                      {
+                            "label": "Tangent-star verifier",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent-star/verify_tangent_star_threshold.py"
+                      },
+                      {
+                            "label": "Tangent staircase summary",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent/tangent_staircase_summary.md"
+                      }
+                ],
+                "authors": "tangent-star notes / Codex audit"
+          },
+          {
+                "id": "strict352-quotient-core",
+                "title": "Strict352 quotient-core proof record",
+                "short": "Dyadic quotient-core floors give at least seven bad slopes through agreement 352.",
+                "row": "RS[F_17^32,H,256]",
+                "n": 512,
+                "k": 256,
+                "rho": 0.5,
+                "agreement": 352,
+                "badSlopes": "16",
+                "q": "17^32",
+                "status": "proved",
+                "tag": "proved",
+                "label": "proof record",
+                "radiusLabel": "5/16",
+                "proof": "Dyadic quotient maps x -> x^c with c in {4,8,16,32}, quotient-prefix pigeonholing, and quantitative deep-point conversion give LD_sw(C,a) >= 7 for 264 <= a <= 352, with LD_sw(C,352) >= 16.",
+                "nonclaims": "Quotient-core mechanism record superseded as a lower-bound frontier by the generic tangent floor, which gives LD_sw(C,352) >= 161 and LD_sw(C,353) >= 160.",
+                "links": [
+                      {
+                            "label": "Strict352 summary",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/strict352_quotient_core_summary.md"
+                      },
+                      {
+                            "label": "Strict352 verifier",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/verify_strict352_quotient_core.py"
+                      }
+                ],
+                "authors": "RS-MCA strict352 notes / Codex audit"
+          },
+          {
+                "id": "strict264-2187",
+                "title": "Strict264 2187-slope candidate",
+                "short": "Candidate subpacket shape if the hinted strict264 target is validated.",
+                "row": "RS[F_17^32,H,256]",
+                "n": 512,
+                "k": 256,
+                "rho": 0.5,
+                "agreement": 264,
+                "badSlopes": "2187",
+                "q": "17^32",
+                "status": "candidate",
+                "tag": "candidate",
+                "label": "candidate",
+                "radiusLabel": "31/64",
+                "proof": "Candidate target; requires independent theorem and admissibility audit.",
+                "nonclaims": "Do not cite as proved without a proof record.",
+                "authors": "DannyExperiments / Codex audit"
+          },
+          {
+                "id": "reserve272",
+                "title": "Reserve-scale sigma = 16 (proved, subsumed)",
+                "short": "Deeper finite-slack rung, now subsumed by proved tangent and strict352 floors.",
+                "row": "RS[F_17^32,H,256]",
+                "n": 512,
+                "k": 256,
+                "rho": 0.5,
+                "agreement": 272,
+                "badSlopes": "241",
+                "q": "17^32",
+                "status": "proved",
+                "tag": "proved",
+                "label": "subsumed proof record",
+                "radiusLabel": "15/32",
+                "proof": "The moving-root tangent floor gives LD_sw(C,272) >= n-a+1 = 241; strict352 also gives a much larger quotient-core lower bound through this agreement. Since floor(17^32/2^128)=6, this clears the prize gate without a special reserve272 search.",
+                "nonclaims": "Subsumed lower-bound row, not an independent reserve-scale mechanism. Finite-slope support-wise MCA convention.",
+                "links": [
+                      {
+                            "label": "Reserve subsumption note",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_reserve_subsumed_by_strict352.md"
+                      },
+                      {
+                            "label": "Tangent staircase summary",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent/tangent_staircase_summary.md"
+                      }
+                ],
+                "authors": "AllenGrahamHart / Claude / Codex audit"
+          },
+          {
+                "id": "reserve288",
+                "title": "Reserve-scale sigma = 32 (proved, subsumed)",
+                "short": "Deeper below capacity, now subsumed by proved tangent and strict352 floors.",
+                "row": "RS[F_17^32,H,256]",
+                "n": 512,
+                "k": 256,
+                "rho": 0.5,
+                "agreement": 288,
+                "badSlopes": "225",
+                "q": "17^32",
+                "status": "proved",
+                "tag": "proved",
+                "label": "subsumed proof record",
+                "radiusLabel": "7/16",
+                "proof": "The moving-root tangent floor gives LD_sw(C,288) >= n-a+1 = 225; strict352 also covers this agreement. Since floor(17^32/2^128)=6, this clears the prize gate.",
+                "nonclaims": "Subsumed lower-bound row, not an independent reserve-scale mechanism. Finite-slope support-wise MCA convention.",
+                "links": [
+                      {
+                            "label": "Reserve subsumption note",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_reserve_subsumed_by_strict352.md"
+                      },
+                      {
+                            "label": "Strict352 summary",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/strict352_quotient_core_summary.md"
+                      }
+                ],
+                "authors": "AllenGrahamHart / Claude / Codex audit"
+          },
+          {
+                "id": "reserve313",
+                "title": "n/log n scale sigma ~= 57 (proved, subsumed)",
+                "short": "Closer to the local-limit reserve scale, now covered by proved lower floors.",
+                "row": "RS[F_17^32,H,256]",
+                "n": 512,
+                "k": 256,
+                "rho": 0.5,
+                "agreement": 313,
+                "badSlopes": "200",
+                "q": "17^32",
+                "status": "proved",
+                "tag": "proved",
+                "label": "subsumed proof record",
+                "radiusLabel": "199/512",
+                "proof": "The moving-root tangent floor gives LD_sw(C,313) >= n-a+1 = 200; strict352 also covers this agreement. Since floor(17^32/2^128)=6, this clears the prize gate.",
+                "nonclaims": "Subsumed lower-bound row, not an independent n/log n local-limit theorem. Finite-slope support-wise MCA convention.",
+                "links": [
+                      {
+                            "label": "Reserve subsumption note",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_reserve_subsumed_by_strict352.md"
+                      },
+                      {
+                            "label": "Tangent staircase summary",
+                            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent/tangent_staircase_summary.md"
+                      }
+                ],
+                "authors": "AllenGrahamHart / Claude / Codex audit"
+          }
+    ];
     const fallbackUpdatesRaw = [
-      {
-            "date": "2026-04-08",
-            "status": "survey benchmark",
-            "author": "Arnon-Boneh-Fenzi",
-            "title": "Proximity Prize MCA benchmark regimes",
-            "summary": "Table 1 in Open Problems in List Decoding and Correlated Agreement separates the MCA landscape into zero-radius, unique-decoding, Johnson-radius, and capacity-edge regimes.",
-            "impact": "The current RS-MCA frontier is in the capacity-edge lower-bound regime, not the Johnson-radius positive upper-bound regime.",
-            "href": "https://github.com/przchojecki/rs-mca/blob/main/open-proximity.tex"
-      },
-      {
-            "date": "2026-06-26",
-            "status": "proof record",
-            "author": "Codex",
-            "title": "Strict264 quotient-floor proof record",
-            "summary": "The strict264 quotient-core construction uses the map x -> x^8, an augmented-code list of size binom(64,33), and deep-point conversion to produce at least nine support-wise bad slopes at agreement 264.",
-            "impact": "This remains a quotient-core mechanism record. The moving-root tangent floor now gives stronger lower bounds at agreement 264, so 265 is not the threshold-pinning target.",
-            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/strict264_quotient_floor.md"
-      },
-      {
-            "date": "2026-06-26",
-            "status": "proof record",
-            "author": "Codex",
-            "title": "Strict352 dyadic quotient-core proof record",
-            "summary": "The strict352 dyadic quotient-core construction proves LD_sw(C,a) >= 7 for every agreement 264 <= a <= 352, and LD_sw(C,352) >= 16 for C = RS[F_17^32,H,256].",
-            "impact": "This was the quotient-core frontier before the tangent staircase was isolated. It remains a useful mechanism record, but agreement 353 is solved by the generic tangent floor.",
-            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/strict352_quotient_core_summary.md"
-      },
-      {
-            "date": "2026-06-26",
-            "status": "exact finite-slope gate",
-            "author": "GPT-5.5 Pro / Codex audit",
-            "title": "Tangent-star barrier closes the finite-slope non-tangent branch",
-            "summary": "The moving-root tangent floor is exact in the high-agreement range, and the tangent-star refinement classifies extremizers there.",
-            "impact": "For RS[F_17^32,H,256], |H|=512, this gives LD_sw(C,506)=7 and LD_sw(C,507)=6 and rules out any seventh finite-slope support-wise MCA branch at agreement a>=507. Adjacent CA/projective/curve/list ledgers are now recorded separately.",
-            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent-star/tangent_star_no_nontangent_summary.md"
-      },
-      {
-            "date": "2026-06-26",
-            "status": "conditional protocol ledger",
-            "author": "GPT-5.5 Pro / Codex audit",
-            "title": "Adjacent high-agreement ledgers pin CA/projective/curve/list objects",
-            "summary": "The high-agreement tangent staircase extends to no-loss CA, projective slopes, finite-parameter degree-d curve CA/MCA, and MDS interleaved-list uniqueness.",
-            "impact": "For RS[F_17^32,H,256], |H|=512, the line-plus-list coding numerator is 514-a. With no query/folding loss, this is unsafe at agreement a=507 and safe at a=508; protocol use still needs explicit challenge-field, folding, query, extension-lift, and cryptographic ledgers.",
-            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/adjacent-ledgers/high_agreement_adjacent_ledgers_summary.md"
-      },
-      {
-            "date": "2026-06-26",
-            "status": "general threshold calculator",
-            "author": "GPT-5.5 Pro / Codex audit",
-            "title": "Generalized high-agreement ledgers go beyond the F_17^32 row",
-            "summary": "The adjacent-ledger formulas are rewritten for arbitrary RS[F,D,k] rows using R=n-k, r=n-a, and the denominator budget B_Q=floor(Q/2^128).",
-            "impact": "In the exact tangent range, line/CA/projective numerators are r+1, degree-d curve numerators are d(r+1), and interleaved-list uniqueness contributes one. For prize-scale k=2^40, the tangent method pins line thresholds only up to roughly 166-170 field bits, depending on rate; larger fields need quotient, entropy, curve/folding, or local-limit ledgers.",
-            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/generalized-ledgers/generalized_high_agreement_ledgers_summary.md"
-      },
-      {
-            "date": "2026-06-26",
-            "status": "proved subgroup bound",
-            "author": "Scott Hughes",
-            "title": "L1 d=2 cubic subgroup twisted bound",
-            "summary": "PR #121 proves a proper-subgroup H^{2k} cubic collision estimate using Fourier reconstruction, multiplicative-character expansion of 1_H, and one-variable Gauss/Kummer-Artin-Schreier input.",
-            "impact": "This is useful L1 infrastructure for generated-field local limits, but it is not a new MCA leaderboard row or a general higher-moment theorem.",
-            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l1/l1_prefix_dual_d2_cubic_subgroup_twisted_bound.md"
-      },
-      {
-            "date": "2026-06-26",
-            "status": "route-cut audit",
-            "author": "Scott Hughes",
-            "title": "L1 odd-moment Hooley-Katz audit",
-            "summary": "PR #120 proves the full-affine projective odd-moment collision geometry and audits the Hooley-Katz/Ghorpade-Lachaud constant route.",
-            "impact": "The audit keeps full-affine, full-torus, and proper-subgroup ledgers separate and shows why the generic full-affine point-count path is not yet enough for the subgroup L1 reserve-scale problem.",
-            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l1/l1_prefix_dual_odd_moment_projective_geometry.md"
-      },
-      {
-            "date": "2026-06-26",
-            "status": "proved normal form",
-            "author": "AllenGrahamHart",
-            "title": "F1 syndrome-pencil normal form",
-            "summary": "PR #118 gives a Hankel-pencil incidence test for support-wise line explanations and a matching noncontainment criterion.",
-            "impact": "This replaces vague extension-line language with an exact locator equation over the actual line field. It is theory infrastructure, not a completed F1 theorem.",
-            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/f1/f1_syndrome_pencil_normal_form.md"
-      },
-      {
-            "date": "2026-06-26",
-            "status": "proved reduction",
-            "author": "AllenGrahamHart",
-            "title": "L2 interleaved codegree reduction",
-            "summary": "PR #108 proves a two-regime and recursive reduction from interleaved lists to base-code lists at agreements a and 2a-k.",
-            "impact": "The reduction is unconditional; the desired L2 exponent saving still needs an L1-family tail-list bound.",
-            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l2/l2_codegree_reduction_theorem.md"
-      },
-      {
-            "date": "2026-06-26",
-            "status": "dependency split",
-            "author": "AllenGrahamHart",
-            "title": "Paper D MCA cap gets a CS25-free route",
-            "summary": "PR #115 isolates a simple-pole/deep-point averaging proof route for the headline MCA cap under Paper D's finite-field hypotheses.",
-            "impact": "The MCA cap no longer has to load-bear on the CS25 import, though CA/list statements still need the external import audit.",
-            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/audits/a0_deep_point_cap_dependency_split.md"
-      },
-      {
-            "date": "2026-06-26",
-            "status": "audit superseded",
-            "author": "AllenGrahamHart",
-            "title": "Seven-slope arithmetic gate for strict264",
-            "summary": "PR #110 confirmed the arithmetic gate: over F_17^32, seven retained slopes at agreement 264 clear 2^-128. The newer quotient-floor proof supplies at least nine slopes.",
-            "impact": "Kept as the arithmetic gate, but no longer the frontier status. The strict264 row is now a proof record.",
-            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_strict264_audit.md"
-      },
-      {
-            "date": "2026-06-26",
-            "status": "conditional route cut",
-            "author": "Scott Hughes",
-            "title": "Large-domain mixed-Weil energy floor",
-            "summary": "PR #119 adds a possible L1 route cut for large-domain prefix-dual energy, kept conditional pending the mixed Weil citation and constant check.",
-            "impact": "Useful as an audit target for L1; not promoted as a theorem and not included as a frontier estimate.",
-            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l1/l1_prefix_dual_large_domain_weil_energy_floor.md"
-      },
-      {
-            "date": "2026-06-25",
-            "status": "conditional / computation-dependent",
-            "title": "Cycle119/Cycle120 ABF-row obstruction",
-            "summary": "The numerator did not increase: the active value remains 52,747,567,092 bad challenges over F_17^32. The useful update is endpoint precision: Cycle116 reaches the printed ABF closed threshold at delta = 125/256, while Cycle119 gives the strict endpoint delta <= 249/512 if the finite inputs check out.",
-            "impact": "Keeps the strongest current prize-facing obstruction focused on one smooth rate-1/2 row, without claiming ordinary list decoding, protocol soundness, or an official prize solve.",
-            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_cycle120_abf_counterexample_candidate.md"
-      },
-      {
-            "date": "2026-06-25",
-            "status": "proof-check-needed",
-            "title": "Standalone Cycle120 LDsw proof note",
-            "summary": "PR #105 adds a compact standalone note for the source-scoped lower bound LD_sw(RS[F_17^32,H,256],262) >= 52,747,567,092.",
-            "impact": "This is the human-review target that replaces a large raw generated packet for public communication.",
-            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_cycle120_standalone_ldsw_proof.md"
-      },
-      {
-            "date": "2026-06-25",
-            "status": "bridge",
-            "title": "Exact MCA to line-decoding normalization",
-            "summary": "PR #102 records the support-wise identity epsilon_mca(C,delta) = LD_sw(C,ceil((1-delta)n))/|F| for the two-source object.",
-            "impact": "Future updates should use this bridge to avoid denominator and endpoint drift.",
-            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m2/m2_line_decoding_mca_bridge.md"
-      },
-      {
-            "date": "2026-06-25",
-            "status": "counterexample family",
-            "title": "Extension-line lower floors",
-            "summary": "PR #103 strengthens the F1 warning: fixed-rate extension-line families have floors on the order of (1-rho)^2/2 for sigma one and (1-rho)^(sigma+1)/(sigma+1)! at fixed sigma before extension-degree dilution.",
-            "impact": "Naive base-to-extension transfer remains false without an explicit theorem.",
-            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/f1/f1_fixed_rate_extension_counterexample.md"
-      },
-      {
-            "date": "2026-06-25",
-            "status": "audit",
-            "title": "M1 beta-pushforward spectral audit",
-            "summary": "PR #104 scans beta-pushforward rows and finds no hidden growing p^2 mass in the tested windows.",
-            "impact": "This supports the current M1 conductor-style proof target but does not prove the missing bounded-conductor estimate.",
-            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_beta_pushforward_spectral_audit.md"
-      },
-      {
-            "date": "2026-06-25",
-            "status": "proof program",
-            "title": "L1 quotient-budgeted locator route",
-            "summary": "PRs #99 and #106 add characteristic-zero prefix reductions, bad-prime proof-record machinery, quotient-budgeted locator conjectures, and a full-list quotient proof program.",
-            "impact": "This is the main positive-route infrastructure for generated-field locator local limits.",
-            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l1/l1_quotient_budgeted_locator_conjecture.md"
-      },
-      {
-            "date": "2026-06-25",
-            "status": "target",
-            "title": "Sharp interleaved-list target",
-            "summary": "PR #107 sharpens L2: interleaved-list analysis should charge quotient-core mass diagonally and avoid the naive Cartesian-product numerator.",
-            "impact": "This turns a vague interleaving hazard into a finite set of support/codegree targets.",
-            "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l2/l2_sharp_target_conjecture.md"
-      },
-      {
-            "date": "2026-06-25",
-            "status": "scaffold",
-            "title": "X1 bridges and Lean formalization stub",
-            "summary": "PR #101 adds deep-point/interleaved bridge notes, quotient-reduction notes, prize-path maps, and a small Lean scaffold.",
-            "impact": "This gives future agents a cleaner path from experimental notes toward mechanized statements.",
-            "href": "https://github.com/przchojecki/rs-mca/tree/main/experimental/lean/rs_mca_formalization"
-      }
-];
+          {
+                "date": "2026-04-08",
+                "status": "survey benchmark",
+                "author": "Arnon-Boneh-Fenzi",
+                "title": "Proximity Prize MCA benchmark regimes",
+                "summary": "Table 1 in Open Problems in List Decoding and Correlated Agreement separates the MCA landscape into zero-radius, unique-decoding, Johnson-radius, and capacity-edge regimes.",
+                "impact": "The current RS-MCA frontier is in the capacity-edge lower-bound regime, not the Johnson-radius positive upper-bound regime.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/open-proximity.tex"
+          },
+          {
+                "date": "2026-06-27",
+                "status": "draft theorem examples",
+                "author": "Codex scanner audit",
+                "title": "Prime192 scanner rows instantiate Paper D v5 across all four rates",
+                "summary": "The leaderboard_sweep_192 packet contributes four concrete q≈2^192 smooth subgroup rows with k=2^40, one for each official rate, plus a small F_17^32 Paper D example. They instantiate the Paper D v5 cap with exact primes q = 1 mod n and +87 bit margins on the prime192 rows.",
+                "impact": "Added as public-board examples, not as new theorems beyond Paper D and not as explicit slope censuses. The existing tangent257 row remains the closest-to-capacity proved finite-slope row.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/outputs/leaderboard_sweep_192/site_candidate_rows.md"
+          },
+          {
+                "date": "2026-06-27",
+                "status": "threshold package",
+                "author": "Codex",
+                "title": "Finite-row MCA threshold note packages the 506/507 gate",
+                "summary": "The F_17^32, n=512, k=256 row now has a standalone threshold note: finite-slope support-wise MCA is safe at agreement 507 and unsafe at agreement 506.",
+                "impact": "This supersedes the old strict264-next plan for pinning the finite row. The remaining prize work is definition audit plus the row-independent high-agreement threshold compiler.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/thresholds/f17_32_finite_mca_threshold.pdf"
+          },
+          {
+                "date": "2026-06-27",
+                "status": "audit / proof program",
+                "author": "AllenGrahamHart / Codex audit",
+                "title": "All-line Hankel aperiodic packet distilled but not promoted",
+                "summary": "PR #127 is a large M1 packet around Hankel-pencil and aperiodic residue-line packing. The integration keeps only a concise audit/proof-program note instead of merging the whole generated packet.",
+                "impact": "Potentially important for M1, but no all-line upper bound is promoted until the branch bounds and imported finite computations are independently checkable.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_all_line_hankel_aperiodic_packet_audit.md"
+          },
+          {
+                "date": "2026-06-27",
+                "status": "M2 ledger infrastructure",
+                "author": "AllenGrahamHart",
+                "title": "Challenge-map pullback ledgers for adjacent high-agreement objects",
+                "summary": "PR #122 adds high-agreement adjacent ledgers for challenge-map pullbacks, keeping line, CA/projective, curve, list, folding/query, and denominator ledgers separate.",
+                "impact": "Useful for future protocol-facing calculators; not a new MCA numerator by itself.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/adjacent-ledgers/high_agreement_adjacent_ledgers_summary.md"
+          },
+          {
+                "date": "2026-06-27",
+                "status": "F1 theory infrastructure",
+                "author": "AllenGrahamHart",
+                "title": "Arbitrary-anchor residue-cloud floors",
+                "summary": "PR #126 sharpens the F1 arbitrary-anchor split: residue-cloud floors must be separated into common-core, dense-overlap, and free-packing branches.",
+                "impact": "This is a warning against naive base-to-extension MCA lifts. It does not add a leaderboard numerator but gives a cleaner checklist for extension-valued line theorems.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/f1/f1_arbitrary_anchor_locator_split.md"
+          },
+          {
+                "date": "2026-06-27",
+                "status": "toy theorem / audit",
+                "author": "Vadim / Codex audit",
+                "title": "L1 monomial dyadic descent survivor families",
+                "summary": "PR #129 records monomial-prefix dyadic descent survivor families and a local n=16 audit checklist/verifier.",
+                "impact": "Good bounded toy-model evidence for quotient-periodic survivor structure, but not an arbitrary-word locator local limit and not a protocol result.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l1/l1_monomial_dyadic_descent_survivors.md"
+          },
+          {
+                "date": "2026-06-27",
+                "status": "bounded L1 theorem",
+                "author": "Scott Hughes",
+                "title": "L1 d=3 proper-subgroup twisted collision bound",
+                "summary": "PR #125 adds the d=3 proper-subgroup prefix-dual twisted collision estimate, with the standard Katz/Gauss input kept explicit and an input-audit note beside it.",
+                "impact": "Useful L1 infrastructure for generated-field locator local limits. It is not a leaderboard MCA row and does not prove the arbitrary-word L1 theorem.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l1/l1_prefix_dual_d3_subgroup_twisted_collision_bound.md"
+          },
+          {
+                "date": "2026-06-27",
+                "status": "proved but subsumed",
+                "author": "AllenGrahamHart / Claude / Codex audit",
+                "title": "Reserve272/288/313 targets are now proved lower-bound rows",
+                "summary": "The moving-root tangent floor gives LD_sw(C,a) >= n-a+1 at a=272,288,313, namely 241,225,200 bad slopes. Strict352 independently covers the same range by quotient-core floors.",
+                "impact": "These rows should be displayed as subsumed proof records, not open search targets and not independent reserve-scale local-limit theorems.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_reserve_subsumed_by_strict352.md"
+          },
+          {
+                "date": "2026-06-27",
+                "status": "gate theorem / exact count conditional",
+                "author": "AllenGrahamHart / Claude / Codex audit",
+                "title": "Cycle116/119 gates no longer need Cycle84 density",
+                "summary": "The moving-root tangent floor gives LD_sw(C,262) >= 251 and LD_sw(C,263) >= 250 for C = RS[F_17^32,H,256]. Since floor(17^32/2^128)=6, the >2^-128 gates at delta=125/256 and 249/512 do not depend on the Cycle84 census.",
+                "impact": "Keep 52,747,567,092 as the exact-density computation-dependent record; use the tangent floor for the unconditional threshold gate.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/audits/audit_prize_gate_unconditional_via_tangent.md"
+          },
+          {
+                "date": "2026-06-27",
+                "status": "experimental scanner",
+                "author": "Codex audit",
+                "title": "Proximity certificate scanner prototype",
+                "summary": "The scanner turns a row/config JSON into JSON and Markdown reports for entropy reserve, quotient profile, Paper D cap hypotheses, high-agreement line/list/curve ledgers, and combined protocol-ledger verdicts.",
+                "impact": "Use it as the first replayable audit before adding public board rows. It makes q_gen, q_line, q_chal, quotient divisors, endpoint agreements, and theorem-backed versus conditional terms explicit, but it does not prove extension-line MCA or the missing local-limit theorems.",
+                "href": "https://github.com/przchojecki/rs-mca/tree/main/experimental/notes/certificate_scanner"
+          },
+          {
+                "date": "2026-06-27",
+                "status": "proof record",
+                "author": "Codex audit",
+                "title": "Tangent257 capacity-edge MCA row",
+                "summary": "The tangent lower-floor theorem gives LD_sw(C,257) >= 256 for C = RS[F_17^32,H,256], so epsilon_mca(C,255/512) >= 256/17^32.",
+                "impact": "This is now the closest-to-capacity theorem-backed finite MCA row on the public board, clearing 2^-128 by +5.20 bits. It is still only a finite-slope support-wise MCA lower floor, not an exact threshold or protocol soundness statement.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/outputs/f17_512.report.md"
+          },
+          {
+                "date": "2026-06-26",
+                "status": "proof record",
+                "author": "Codex",
+                "title": "Strict264 quotient-floor proof record",
+                "summary": "The strict264 quotient-core construction uses the map x -> x^8, an augmented-code list of size binom(64,33), and deep-point conversion to produce at least nine support-wise bad slopes at agreement 264.",
+                "impact": "This remains a quotient-core mechanism record. The moving-root tangent floor now gives stronger lower bounds at agreement 264, so 265 is not the threshold-pinning target.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/strict264_quotient_floor.md"
+          },
+          {
+                "date": "2026-06-26",
+                "status": "proof record",
+                "author": "Codex",
+                "title": "Strict352 dyadic quotient-core proof record",
+                "summary": "The strict352 dyadic quotient-core construction proves LD_sw(C,a) >= 7 for every agreement 264 <= a <= 352, and LD_sw(C,352) >= 16 for C = RS[F_17^32,H,256].",
+                "impact": "This was the quotient-core frontier before the tangent staircase was isolated. It remains a useful mechanism record, but agreement 353 is solved by the generic tangent floor.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/strict352_quotient_core_summary.md"
+          },
+          {
+                "date": "2026-06-26",
+                "status": "exact finite-slope gate",
+                "author": "GPT-5.5 Pro / Codex audit",
+                "title": "Tangent-star barrier closes the finite-slope non-tangent branch",
+                "summary": "The moving-root tangent floor is exact in the high-agreement range, and the tangent-star refinement classifies extremizers there.",
+                "impact": "For RS[F_17^32,H,256], |H|=512, this gives LD_sw(C,506)=7 and LD_sw(C,507)=6 and rules out any seventh finite-slope support-wise MCA branch at agreement a>=507. Adjacent CA/projective/curve/list ledgers are now recorded separately.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent-star/tangent_star_no_nontangent_summary.md"
+          },
+          {
+                "date": "2026-06-26",
+                "status": "conditional protocol ledger",
+                "author": "GPT-5.5 Pro / Codex audit",
+                "title": "Adjacent high-agreement ledgers pin CA/projective/curve/list objects",
+                "summary": "The high-agreement tangent staircase extends to no-loss CA, projective slopes, finite-parameter degree-d curve CA/MCA, and MDS interleaved-list uniqueness.",
+                "impact": "For RS[F_17^32,H,256], |H|=512, the line-plus-list coding numerator is 514-a. With no query/folding loss, this is unsafe at agreement a=507 and safe at a=508; protocol use still needs explicit challenge-field, folding, query, extension-lift, and cryptographic ledgers.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/adjacent-ledgers/high_agreement_adjacent_ledgers_summary.md"
+          },
+          {
+                "date": "2026-06-26",
+                "status": "general threshold calculator",
+                "author": "GPT-5.5 Pro / Codex audit",
+                "title": "Generalized high-agreement ledgers go beyond the F_17^32 row",
+                "summary": "The adjacent-ledger formulas are rewritten for arbitrary RS[F,D,k] rows using R=n-k, r=n-a, and the denominator budget B_Q=floor(Q/2^128).",
+                "impact": "In the exact tangent range, line/CA/projective numerators are r+1, degree-d curve numerators are d(r+1), and interleaved-list uniqueness contributes one. For prize-scale k=2^40, the tangent method pins line thresholds only up to roughly 166-170 field bits, depending on rate; larger fields need quotient, entropy, curve/folding, or local-limit ledgers.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/generalized-ledgers/generalized_high_agreement_ledgers_summary.md"
+          },
+          {
+                "date": "2026-06-26",
+                "status": "proved subgroup bound",
+                "author": "Scott Hughes",
+                "title": "L1 d=2 cubic subgroup twisted bound",
+                "summary": "PR #121 proves a proper-subgroup H^{2k} cubic collision estimate using Fourier reconstruction, multiplicative-character expansion of 1_H, and one-variable Gauss/Kummer-Artin-Schreier input.",
+                "impact": "This is useful L1 infrastructure for generated-field local limits, but it is not a new MCA leaderboard row or a general higher-moment theorem.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l1/l1_prefix_dual_d2_cubic_subgroup_twisted_bound.md"
+          },
+          {
+                "date": "2026-06-26",
+                "status": "route-cut audit",
+                "author": "Scott Hughes",
+                "title": "L1 odd-moment Hooley-Katz audit",
+                "summary": "PR #120 proves the full-affine projective odd-moment collision geometry and audits the Hooley-Katz/Ghorpade-Lachaud constant route.",
+                "impact": "The audit keeps full-affine, full-torus, and proper-subgroup ledgers separate and shows why the generic full-affine point-count path is not yet enough for the subgroup L1 reserve-scale problem.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l1/l1_prefix_dual_odd_moment_projective_geometry.md"
+          },
+          {
+                "date": "2026-06-26",
+                "status": "proved normal form",
+                "author": "AllenGrahamHart",
+                "title": "F1 syndrome-pencil normal form",
+                "summary": "PR #118 gives a Hankel-pencil incidence test for support-wise line explanations and a matching noncontainment criterion.",
+                "impact": "This replaces vague extension-line language with an exact locator equation over the actual line field. It is theory infrastructure, not a completed F1 theorem.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/f1/f1_syndrome_pencil_normal_form.md"
+          },
+          {
+                "date": "2026-06-26",
+                "status": "proved reduction",
+                "author": "AllenGrahamHart",
+                "title": "L2 interleaved codegree reduction",
+                "summary": "PR #108 proves a two-regime and recursive reduction from interleaved lists to base-code lists at agreements a and 2a-k.",
+                "impact": "The reduction is unconditional; the desired L2 exponent saving still needs an L1-family tail-list bound.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l2/l2_codegree_reduction_theorem.md"
+          },
+          {
+                "date": "2026-06-26",
+                "status": "dependency split",
+                "author": "AllenGrahamHart",
+                "title": "Paper D MCA cap gets a CS25-free route",
+                "summary": "PR #115 isolates a simple-pole/deep-point averaging proof route for the headline MCA cap under Paper D's finite-field hypotheses.",
+                "impact": "The MCA cap no longer has to load-bear on the CS25 import, though CA/list statements still need the external import audit.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/audits/a0_deep_point_cap_dependency_split.md"
+          },
+          {
+                "date": "2026-06-26",
+                "status": "audit superseded",
+                "author": "AllenGrahamHart",
+                "title": "Seven-slope arithmetic gate for strict264",
+                "summary": "PR #110 confirmed the arithmetic gate: over F_17^32, seven retained slopes at agreement 264 clear 2^-128. The newer quotient-floor proof supplies at least nine slopes.",
+                "impact": "Kept as the arithmetic gate, but no longer the frontier status. The strict264 row is now a proof record.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_strict264_audit.md"
+          },
+          {
+                "date": "2026-06-26",
+                "status": "conditional route cut",
+                "author": "Scott Hughes",
+                "title": "Large-domain mixed-Weil energy floor",
+                "summary": "PR #119 adds a possible L1 route cut for large-domain prefix-dual energy, kept conditional pending the mixed Weil citation and constant check.",
+                "impact": "Useful as an audit target for L1; not promoted as a theorem and not included as a frontier estimate.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l1/l1_prefix_dual_large_domain_weil_energy_floor.md"
+          },
+          {
+                "date": "2026-06-25",
+                "status": "gate theorem / exact count conditional",
+                "title": "Cycle119/Cycle120 ABF-row obstruction",
+                "summary": "The active exact-density numerator remains 52,747,567,092 bad challenges over F_17^32 and is still computation-dependent. Separately, the moving-root tangent floor proves the >2^-128 gates at agreements 262 and 263 without using that numerator.",
+                "impact": "Use the tangent floor for unconditional gate language; use Cycle84/116/119 only for the stronger exact-density record after independent finite-count review.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/audits/audit_prize_gate_unconditional_via_tangent.md"
+          },
+          {
+                "date": "2026-06-25",
+                "status": "proof-check-needed",
+                "title": "Standalone Cycle120 LDsw proof note",
+                "summary": "PR #105 adds a compact standalone note for the source-scoped lower bound LD_sw(RS[F_17^32,H,256],262) >= 52,747,567,092.",
+                "impact": "This is the human-review target that replaces a large raw generated packet for public communication.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_cycle120_standalone_ldsw_proof.md"
+          },
+          {
+                "date": "2026-06-25",
+                "status": "bridge",
+                "title": "Exact MCA to line-decoding normalization",
+                "summary": "PR #102 records the support-wise identity epsilon_mca(C,delta) = LD_sw(C,ceil((1-delta)n))/|F| for the two-source object.",
+                "impact": "Future updates should use this bridge to avoid denominator and endpoint drift.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m2/m2_line_decoding_mca_bridge.md"
+          },
+          {
+                "date": "2026-06-25",
+                "status": "counterexample family",
+                "title": "Extension-line lower floors",
+                "summary": "PR #103 strengthens the F1 warning: fixed-rate extension-line families have floors on the order of (1-rho)^2/2 for sigma one and (1-rho)^(sigma+1)/(sigma+1)! at fixed sigma before extension-degree dilution.",
+                "impact": "Naive base-to-extension transfer remains false without an explicit theorem.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/f1/f1_fixed_rate_extension_counterexample.md"
+          },
+          {
+                "date": "2026-06-25",
+                "status": "audit",
+                "title": "M1 beta-pushforward spectral audit",
+                "summary": "PR #104 scans beta-pushforward rows and finds no hidden growing p^2 mass in the tested windows.",
+                "impact": "This supports the current M1 conductor-style proof target but does not prove the missing bounded-conductor estimate.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_beta_pushforward_spectral_audit.md"
+          },
+          {
+                "date": "2026-06-25",
+                "status": "proof program",
+                "title": "L1 quotient-budgeted locator route",
+                "summary": "PRs #99 and #106 add characteristic-zero prefix reductions, bad-prime proof-record machinery, quotient-budgeted locator conjectures, and a full-list quotient proof program.",
+                "impact": "This is the main positive-route infrastructure for generated-field locator local limits.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l1/l1_quotient_budgeted_locator_conjecture.md"
+          },
+          {
+                "date": "2026-06-25",
+                "status": "target",
+                "title": "Sharp interleaved-list target",
+                "summary": "PR #107 sharpens L2: interleaved-list analysis should charge quotient-core mass diagonally and avoid the naive Cartesian-product numerator.",
+                "impact": "This turns a vague interleaving hazard into a finite set of support/codegree targets.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l2/l2_sharp_target_conjecture.md"
+          },
+          {
+                "date": "2026-06-25",
+                "status": "scaffold",
+                "title": "X1 bridges and Lean formalization stub",
+                "summary": "PR #101 adds deep-point/interleaved bridge notes, quotient-reduction notes, prize-path maps, and a small Lean scaffold.",
+                "impact": "This gives future agents a cleaner path from experimental notes toward mechanized statements.",
+                "href": "https://github.com/przchojecki/rs-mca/tree/main/experimental/lean/rs_mca_formalization"
+          }
+    ];
     const fallbackPapersRaw = [
       {
             "id": "paper-a",
@@ -1694,711 +1882,1021 @@
       {id:'capacity-edge', label:'Obstruction', title:'Approaching capacity', distance:'\\(\\delta\\approx\\delta_{\\min}(C)-1/\\Omega(\\log n)\\)', error:'\\(\\varepsilon_{\\rm mca}(C,\\delta)\\ge n^{\\Omega(1)}/|F|\\)', reference:'BCHKS25; KK25; CGHLL26', summary:'Near capacity, known lower bounds show MCA/CA error must grow polynomially in n over the field-size denominator.'}
     ];
     const fallbackRateBoardsRaw = {
-      "target": "2^-128",
-      "rates": [
-            {
-                  "rho": "1/2",
-                  "slug": "1-2",
-                  "capacityExact": "1/2",
-                  "capacityApprox": 0.5,
-                  "johnsonExact": "1 - sqrt(1/2)",
-                  "johnsonApprox": 0.292893,
-                  "mcaUnsafe": "255/512",
-                  "listUnsafe": "255/512",
-                  "unknownInterval": "[Johnson frontier, 255/512) for MCA; [Johnson frontier, 255/512) for list",
-                  "safeFrontier": "Johnson-radius MCA upper-bound regime, with polynomial reserve.",
-                  "rows": [
-                        {
-                              "id": "mca-cap-rho-1-2",
-                              "title": "Paper D MCA δ* upper cap",
-                              "rho": "1/2",
-                              "track": "mca",
-                              "trackLabel": "MCA / CA",
-                              "direction": "threshold-cap",
-                              "n": "smooth dyadic envelope",
-                              "k": "rho n, k <= 2^40",
-                              "field": "|F| < 2^256",
-                              "fieldSizeLog2": 256,
-                              "domainKind": "multiplicative-subgroup",
-                              "smoothPowerOfTwo": true,
-                              "agreementA": "rho n + n/512",
-                              "sigma": "n/512",
-                              "deltaExact": "255/512",
-                              "deltaApprox": 0.498047,
-                              "etaExact": "1/512",
-                              "etaApprox": 0.001953,
-                              "qGen": "generated field of the smooth row",
-                              "qLine": "|F|",
-                              "qChal": "protocol-dependent",
-                              "bound": "epsilon_mca > 2^-86",
-                              "failureMarginBits": 42,
-                              "marginLabel": ">= +42 bits",
-                              "prizeBox": {
-                                    "rate": true,
-                                    "smoothDomain": true,
-                                    "kBound": true,
-                                    "fieldBound": true,
-                                    "denominatorAudited": true,
-                                    "endpointConvention": true,
-                                    "publicSource": true,
-                                    "conditionalImport": true,
-                                    "rhoNIntegral": true,
-                                    "powerOfTwoQuotient": true,
-                                    "quotientDivisor": "N=1024 divides n"
-                              },
-                              "status": "conditional-theorem",
-                              "statusLabel": "conditional theorem",
-                              "source": "Paper D universal cap",
-                              "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v4.tex",
-                              "nonClaims": [
-                                    "Conditional on the Crites-Stewart import audit.",
-                                    "This is a δ* upper cap from a failure lower bound, not an exact threshold."
-                              ]
-                        },
-                        {
-                              "id": "list-cap-rho-1-2",
-                              "title": "Interleaved-list δ* upper cap from base-list obstruction",
-                              "rho": "1/2",
-                              "track": "list",
-                              "trackLabel": "Interleaved-list",
-                              "direction": "threshold-cap",
-                              "n": "quotient scale N=512",
-                              "k": "rho n",
-                              "field": "|F| < 2^256",
-                              "fieldSizeLog2": 256,
-                              "domainKind": "multiplicative-subgroup",
-                              "smoothPowerOfTwo": true,
-                              "agreementA": "rho n + 1 at quotient scale",
-                              "sigma": "1 quotient step",
-                              "deltaExact": "255/512",
-                              "deltaApprox": 0.498047,
-                              "etaExact": "1/512",
-                              "etaApprox": 0.001953,
-                              "qGen": "generated field of the smooth row",
-                              "denominator": "|F|",
-                              "qChal": "protocol-dependent",
-                              "listLower": "binom(512,257)",
-                              "failureMarginBits": 123.17,
-                              "marginLabel": "+123.17 bits",
-                              "prizeBox": {
-                                    "rate": true,
-                                    "smoothDomain": true,
-                                    "kBound": true,
-                                    "fieldBound": true,
-                                    "denominatorAudited": true,
-                                    "endpointConvention": true,
-                                    "publicSource": true,
-                                    "conditionalImport": false,
-                                    "rhoNIntegral": true,
-                                    "powerOfTwoQuotient": true,
-                                    "quotientDivisor": "N=512 divides n"
-                              },
-                              "status": "list-corollary",
-                              "statusLabel": "list corollary",
-                              "source": "experiments.tex interleaved-list table",
-                              "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/experiments.tex",
-                              "nonClaims": [
-                                    "List lower bound only; it is not by itself an MCA or protocol soundness theorem.",
-                                    "This is a δ*_list upper cap from a list-size lower bound, not an exact threshold."
-                              ]
-                        },
-                        {
-                              "id": "cycle116-rho-1-2",
-                              "title": "Cycle116 closed-threshold proof record",
-                              "rho": "1/2",
-                              "track": "mca",
-                              "trackLabel": "support-wise MCA",
-                              "direction": "unsafe-lower-bound",
-                              "n": "512",
-                              "k": "256",
-                              "field": "F_17^32",
-                              "fieldSizeLog2": 130.8,
-                              "domainKind": "multiplicative-subgroup",
-                              "smoothPowerOfTwo": true,
-                              "agreementA": "262",
-                              "sigma": "6",
-                              "deltaExact": "125/256",
-                              "deltaApprox": 0.488281,
-                              "etaExact": "3/256",
-                              "etaApprox": 0.011719,
-                              "qGen": "17^32",
-                              "qLine": "17^32",
-                              "qChal": "not protocol-bound",
-                              "nBad": "52747567092",
-                              "failureMarginBits": 32.82,
-                              "marginLabel": "+32.82 bits",
-                              "prizeBox": {
-                                    "rate": true,
-                                    "smoothDomain": true,
-                                    "kBound": true,
-                                    "fieldBound": true,
-                                    "denominatorAudited": true,
-                                    "endpointConvention": true,
-                                    "publicSource": true,
-                                    "conditionalImport": false
-                              },
-                              "status": "proof-record",
-                              "statusLabel": "proof record",
-                              "source": "Cycle120 ABF counterexample candidate note",
-                              "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_cycle120_abf_counterexample_candidate.md",
-                              "nonClaims": [
-                                    "Source-scoped finite row.",
-                                    "Not an exact threshold."
-                              ]
-                        },
-                        {
-                              "id": "cycle119-rho-1-2",
-                              "title": "Cycle119 strict263 proof record",
-                              "rho": "1/2",
-                              "track": "mca",
-                              "trackLabel": "support-wise MCA",
-                              "direction": "unsafe-lower-bound",
-                              "n": "512",
-                              "k": "256",
-                              "field": "F_17^32",
-                              "fieldSizeLog2": 130.8,
-                              "domainKind": "multiplicative-subgroup",
-                              "smoothPowerOfTwo": true,
-                              "agreementA": "263",
-                              "sigma": "7",
-                              "deltaExact": "249/512",
-                              "deltaApprox": 0.486328,
-                              "etaExact": "7/512",
-                              "etaApprox": 0.013672,
-                              "qGen": "17^32",
-                              "qLine": "17^32",
-                              "qChal": "not protocol-bound",
-                              "nBad": "52747567092",
-                              "failureMarginBits": 32.82,
-                              "marginLabel": "+32.82 bits",
-                              "prizeBox": {
-                                    "rate": true,
-                                    "smoothDomain": true,
-                                    "kBound": true,
-                                    "fieldBound": true,
-                                    "denominatorAudited": true,
-                                    "endpointConvention": true,
-                                    "publicSource": true,
-                                    "conditionalImport": false
-                              },
-                              "status": "proof-record",
-                              "statusLabel": "proof record",
-                              "source": "Cycle119 admissibility review",
-                              "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_cycle119_strict263_admissibility_review.md",
-                              "nonClaims": [
-                                    "Finite/source-scoped theorem.",
-                                    "Imports the Cycle84 numerator.",
-                                    "Not ordinary list decoding."
-                              ]
-                        },
-                        {
-                              "id": "strict264-quotient-floor",
-                              "title": "Strict264 quotient-floor proof record",
-                              "rho": "1/2",
-                              "track": "mca",
-                              "trackLabel": "support-wise MCA",
-                              "direction": "unsafe-lower-bound",
-                              "n": "512",
-                              "k": "256",
-                              "field": "F_17^32",
-                              "fieldSizeLog2": 130.8,
-                              "domainKind": "multiplicative-subgroup",
-                              "smoothPowerOfTwo": true,
-                              "agreementA": "264",
-                              "sigma": "8",
-                              "deltaExact": "31/64",
-                              "deltaApprox": 0.484375,
-                              "etaExact": "1/64",
-                              "etaApprox": 0.015625,
-                              "qGen": "17^32",
-                              "qLine": "17^32",
-                              "qChal": "not protocol-bound",
-                              "nBad": ">=9",
-                              "failureMarginBits": 0.37,
-                              "marginLabel": "+0.37 bits",
-                              "prizeBox": {
-                                    "rate": true,
-                                    "smoothDomain": true,
-                                    "kBound": true,
-                                    "fieldBound": true,
-                                    "denominatorAudited": true,
-                                    "endpointConvention": true,
-                                    "publicSource": true,
-                                    "conditionalImport": false
-                              },
-                              "status": "proof-record",
-                              "statusLabel": "proof record",
-                              "source": "strict264 quotient-floor obstruction",
-                              "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/strict264_quotient_floor.md",
-                              "nonClaims": [
-                                    "Quotient-core mechanism record, not the active threshold pin.",
-                                    "Superseded as a lower-bound frontier by the generic tangent floor, which gives LD_sw(C,264) >= 249."
-                              ]
-                        },
-                        {
-                              "id": "tangent506-exact-gate",
-                              "title": "Tangent-star exact finite-slope gate",
-                              "rho": "1/2",
-                              "track": "mca",
-                              "trackLabel": "support-wise MCA",
-                              "direction": "exact-finite-slope-gate",
-                              "n": "512",
-                              "k": "256",
-                              "field": "F_17^32",
-                              "fieldSizeLog2": 130.8,
-                              "domainKind": "multiplicative-subgroup",
-                              "smoothPowerOfTwo": true,
-                              "agreementA": "506 unsafe / 507 safe",
-                              "sigma": "250 / 251",
-                              "deltaExact": "3/256",
-                              "deltaApprox": 0.011719,
-                              "etaExact": "125/256",
-                              "etaApprox": 0.488281,
-                              "qGen": "17^32",
-                              "qLine": "17^32",
-                              "qChal": "not protocol-bound",
-                              "nBad": "7 at a=506; 6 at a=507",
-                              "failureMarginBits": 0.01,
-                              "marginLabel": "exact 6/7 gate",
-                              "prizeBox": {
-                                    "rate": true,
-                                    "smoothDomain": true,
-                                    "kBound": true,
-                                    "fieldBound": true,
-                                    "denominatorAudited": true,
-                                    "endpointConvention": true,
-                                    "publicSource": true,
-                                    "conditionalImport": false
-                              },
-                              "status": "exact-gate",
-                              "statusLabel": "exact finite-slope gate",
-                              "source": "tangent-star high-agreement barrier",
-                              "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent-star/tangent_star_no_nontangent_summary.md",
-                              "nonClaims": [
-                                    "Finite-slope support-wise MCA convention only.",
-                                    "Adjacent high-agreement CA/projective/curve/list ledgers are recorded separately.",
-                                    "Protocol, folding, query, extension-lift, and cryptographic losses require separate ledgers."
-                              ]
-                        },
-                        {
-                              "id": "strict352-quotient-core",
-                              "title": "Strict352 quotient-core proof record",
-                              "rho": "1/2",
-                              "track": "mca",
-                              "trackLabel": "support-wise MCA",
-                              "direction": "unsafe-lower-bound",
-                              "n": "512",
-                              "k": "256",
-                              "field": "F_17^32",
-                              "fieldSizeLog2": 130.8,
-                              "domainKind": "multiplicative-subgroup",
-                              "smoothPowerOfTwo": true,
-                              "agreementA": "352",
-                              "sigma": "96",
-                              "deltaExact": "5/16",
-                              "deltaApprox": 0.3125,
-                              "etaExact": "3/16",
-                              "etaApprox": 0.1875,
-                              "qGen": "17^32",
-                              "qLine": "17^32",
-                              "qChal": "not protocol-bound",
-                              "nBad": ">=16",
-                              "failureMarginBits": 1.2,
-                              "marginLabel": "+1.20 bits",
-                              "prizeBox": {
-                                    "rate": true,
-                                    "smoothDomain": true,
-                                    "kBound": true,
-                                    "fieldBound": true,
-                                    "denominatorAudited": true,
-                                    "endpointConvention": true,
-                                    "publicSource": true,
-                                    "conditionalImport": false
-                              },
-                              "status": "proof-record",
-                              "statusLabel": "proof record",
-                              "source": "strict352 quotient-core obstruction",
-                              "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/strict352_quotient_core_summary.md",
-                              "nonClaims": [
-                                    "Quotient-core mechanism record, not the active lower-bound frontier.",
-                                    "The generic tangent floor gives LD_sw(C,352) >= 161 and LD_sw(C,353) >= 160."
-                              ]
-                        },
-                        {
-                              "id": "strict264-2187-candidate",
-                              "title": "Strict264 2187-slope candidate",
-                              "rho": "1/2",
-                              "track": "mca",
-                              "trackLabel": "support-wise MCA",
-                              "direction": "candidate",
-                              "n": "512",
-                              "k": "256",
-                              "field": "F_17^32",
-                              "fieldSizeLog2": 130.8,
-                              "domainKind": "multiplicative-subgroup",
-                              "smoothPowerOfTwo": true,
-                              "agreementA": "264",
-                              "sigma": "8",
-                              "deltaExact": "31/64",
-                              "deltaApprox": 0.484375,
-                              "etaExact": "1/64",
-                              "etaApprox": 0.015625,
-                              "qGen": "17^32",
-                              "qLine": "17^32",
-                              "qChal": "not protocol-bound",
-                              "nBad": "2187",
-                              "failureMarginBits": 8.3,
-                              "marginLabel": "+8.30 bits if proved",
-                              "prizeBox": {
-                                    "rate": true,
-                                    "smoothDomain": true,
-                                    "kBound": true,
-                                    "fieldBound": true,
-                                    "denominatorAudited": true,
-                                    "endpointConvention": true,
-                                    "publicSource": true,
-                                    "conditionalImport": false
-                              },
-                              "status": "candidate",
-                              "statusLabel": "candidate",
-                              "source": "strict264 candidate ledger",
-                              "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_strict264_audit.md",
-                              "nonClaims": [
-                                    "Candidate shape only; requires an independent theorem and admissibility audit."
-                              ]
-                        }
-                  ],
-                  "missingPiece": "L1 / M1 / F1"
-            },
-            {
-                  "rho": "1/4",
-                  "slug": "1-4",
-                  "capacityExact": "3/4",
-                  "capacityApprox": 0.75,
-                  "johnsonExact": "1/2",
-                  "johnsonApprox": 0.5,
-                  "mcaUnsafe": "383/512",
-                  "listUnsafe": "383/512",
-                  "unknownInterval": "[Johnson frontier, 383/512) for MCA; [Johnson frontier, 383/512) for list",
-                  "safeFrontier": "Johnson-radius MCA upper-bound regime, with polynomial reserve.",
-                  "rows": [
-                        {
-                              "id": "mca-cap-rho-1-4",
-                              "title": "Paper D MCA δ* upper cap",
-                              "rho": "1/4",
-                              "track": "mca",
-                              "trackLabel": "MCA / CA",
-                              "direction": "threshold-cap",
-                              "n": "smooth dyadic envelope",
-                              "k": "rho n, k <= 2^40",
-                              "field": "|F| < 2^256",
-                              "fieldSizeLog2": 256,
-                              "domainKind": "multiplicative-subgroup",
-                              "smoothPowerOfTwo": true,
-                              "agreementA": "rho n + n/512",
-                              "sigma": "n/512",
-                              "deltaExact": "383/512",
-                              "deltaApprox": 0.748047,
-                              "etaExact": "1/512",
-                              "etaApprox": 0.001953,
-                              "qGen": "generated field of the smooth row",
-                              "qLine": "|F|",
-                              "qChal": "protocol-dependent",
-                              "bound": "epsilon_mca > 2^-86",
-                              "failureMarginBits": 42,
-                              "marginLabel": ">= +42 bits",
-                              "prizeBox": {
-                                    "rate": true,
-                                    "smoothDomain": true,
-                                    "kBound": true,
-                                    "fieldBound": true,
-                                    "denominatorAudited": true,
-                                    "endpointConvention": true,
-                                    "publicSource": true,
-                                    "conditionalImport": true,
-                                    "rhoNIntegral": true,
-                                    "powerOfTwoQuotient": true,
-                                    "quotientDivisor": "N=1024 divides n"
-                              },
-                              "status": "conditional-theorem",
-                              "statusLabel": "conditional theorem",
-                              "source": "Paper D universal cap",
-                              "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v4.tex",
-                              "nonClaims": [
-                                    "Conditional on the Crites-Stewart import audit.",
-                                    "This is a δ* upper cap from a failure lower bound, not an exact threshold."
-                              ]
-                        },
-                        {
-                              "id": "list-cap-rho-1-4",
-                              "title": "Interleaved-list δ* upper cap from base-list obstruction",
-                              "rho": "1/4",
-                              "track": "list",
-                              "trackLabel": "Interleaved-list",
-                              "direction": "threshold-cap",
-                              "n": "quotient scale N=512",
-                              "k": "rho n",
-                              "field": "|F| < 2^256",
-                              "fieldSizeLog2": 256,
-                              "domainKind": "multiplicative-subgroup",
-                              "smoothPowerOfTwo": true,
-                              "agreementA": "rho n + 1 at quotient scale",
-                              "sigma": "1 quotient step",
-                              "deltaExact": "383/512",
-                              "deltaApprox": 0.748047,
-                              "etaExact": "1/512",
-                              "etaApprox": 0.001953,
-                              "qGen": "generated field of the smooth row",
-                              "denominator": "|F|",
-                              "qChal": "protocol-dependent",
-                              "listLower": "binom(512,129)",
-                              "failureMarginBits": 28.33,
-                              "marginLabel": "+28.33 bits",
-                              "prizeBox": {
-                                    "rate": true,
-                                    "smoothDomain": true,
-                                    "kBound": true,
-                                    "fieldBound": true,
-                                    "denominatorAudited": true,
-                                    "endpointConvention": true,
-                                    "publicSource": true,
-                                    "conditionalImport": false,
-                                    "rhoNIntegral": true,
-                                    "powerOfTwoQuotient": true,
-                                    "quotientDivisor": "N=512 divides n"
-                              },
-                              "status": "list-corollary",
-                              "statusLabel": "list corollary",
-                              "source": "experiments.tex interleaved-list table",
-                              "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/experiments.tex",
-                              "nonClaims": [
-                                    "List lower bound only; it is not by itself an MCA or protocol soundness theorem.",
-                                    "This is a δ*_list upper cap from a list-size lower bound, not an exact threshold."
-                              ]
-                        }
-                  ],
-                  "missingPiece": "L1 / M1 / F1"
-            },
-            {
-                  "rho": "1/8",
-                  "slug": "1-8",
-                  "capacityExact": "7/8",
-                  "capacityApprox": 0.875,
-                  "johnsonExact": "1 - sqrt(1/8)",
-                  "johnsonApprox": 0.646447,
-                  "mcaUnsafe": "447/512",
-                  "listUnsafe": "895/1024",
-                  "unknownInterval": "[Johnson frontier, 447/512) for MCA; [Johnson frontier, 895/1024) for list",
-                  "safeFrontier": "Johnson-radius MCA upper-bound regime, with polynomial reserve.",
-                  "rows": [
-                        {
-                              "id": "mca-cap-rho-1-8",
-                              "title": "Paper D MCA δ* upper cap",
-                              "rho": "1/8",
-                              "track": "mca",
-                              "trackLabel": "MCA / CA",
-                              "direction": "threshold-cap",
-                              "n": "smooth dyadic envelope",
-                              "k": "rho n, k <= 2^40",
-                              "field": "|F| < 2^256",
-                              "fieldSizeLog2": 256,
-                              "domainKind": "multiplicative-subgroup",
-                              "smoothPowerOfTwo": true,
-                              "agreementA": "rho n + n/512",
-                              "sigma": "n/512",
-                              "deltaExact": "447/512",
-                              "deltaApprox": 0.873047,
-                              "etaExact": "1/512",
-                              "etaApprox": 0.001953,
-                              "qGen": "generated field of the smooth row",
-                              "qLine": "|F|",
-                              "qChal": "protocol-dependent",
-                              "bound": "epsilon_mca > 2^-86",
-                              "failureMarginBits": 42,
-                              "marginLabel": ">= +42 bits",
-                              "prizeBox": {
-                                    "rate": true,
-                                    "smoothDomain": true,
-                                    "kBound": true,
-                                    "fieldBound": true,
-                                    "denominatorAudited": true,
-                                    "endpointConvention": true,
-                                    "publicSource": true,
-                                    "conditionalImport": true,
-                                    "rhoNIntegral": true,
-                                    "powerOfTwoQuotient": true,
-                                    "quotientDivisor": "N=1024 divides n"
-                              },
-                              "status": "conditional-theorem",
-                              "statusLabel": "conditional theorem",
-                              "source": "Paper D universal cap",
-                              "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v4.tex",
-                              "nonClaims": [
-                                    "Conditional on the Crites-Stewart import audit.",
-                                    "This is a δ* upper cap from a failure lower bound, not an exact threshold."
-                              ]
-                        },
-                        {
-                              "id": "list-cap-rho-1-8",
-                              "title": "Interleaved-list δ* upper cap from base-list obstruction",
-                              "rho": "1/8",
-                              "track": "list",
-                              "trackLabel": "Interleaved-list",
-                              "direction": "threshold-cap",
-                              "n": "quotient scale N=1024",
-                              "k": "rho n",
-                              "field": "|F| < 2^256",
-                              "fieldSizeLog2": 256,
-                              "domainKind": "multiplicative-subgroup",
-                              "smoothPowerOfTwo": true,
-                              "agreementA": "rho n + 1 at quotient scale",
-                              "sigma": "1 quotient step",
-                              "deltaExact": "895/1024",
-                              "deltaApprox": 0.874023,
-                              "etaExact": "1/1024",
-                              "etaApprox": 0.000977,
-                              "qGen": "generated field of the smooth row",
-                              "denominator": "|F|",
-                              "qChal": "protocol-dependent",
-                              "listLower": "binom(1024,129)",
-                              "failureMarginBits": 170.68,
-                              "marginLabel": "+170.68 bits",
-                              "prizeBox": {
-                                    "rate": true,
-                                    "smoothDomain": true,
-                                    "kBound": true,
-                                    "fieldBound": true,
-                                    "denominatorAudited": true,
-                                    "endpointConvention": true,
-                                    "publicSource": true,
-                                    "conditionalImport": false,
-                                    "rhoNIntegral": true,
-                                    "powerOfTwoQuotient": true,
-                                    "quotientDivisor": "N=1024 divides n"
-                              },
-                              "status": "list-corollary",
-                              "statusLabel": "list corollary",
-                              "source": "experiments.tex interleaved-list table",
-                              "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/experiments.tex",
-                              "nonClaims": [
-                                    "List lower bound only; it is not by itself an MCA or protocol soundness theorem.",
-                                    "This is a δ*_list upper cap from a list-size lower bound, not an exact threshold."
-                              ]
-                        }
-                  ],
-                  "missingPiece": "L1 / M1 / F1"
-            },
-            {
-                  "rho": "1/16",
-                  "slug": "1-16",
-                  "capacityExact": "15/16",
-                  "capacityApprox": 0.9375,
-                  "johnsonExact": "3/4",
-                  "johnsonApprox": 0.75,
-                  "mcaUnsafe": "959/1024",
-                  "listUnsafe": "1919/2048",
-                  "unknownInterval": "[Johnson frontier, 959/1024) for MCA; [Johnson frontier, 1919/2048) for list",
-                  "safeFrontier": "Johnson-radius MCA upper-bound regime, with polynomial reserve.",
-                  "rows": [
-                        {
-                              "id": "mca-cap-rho-1-16",
-                              "title": "Paper D MCA δ* upper cap",
-                              "rho": "1/16",
-                              "track": "mca",
-                              "trackLabel": "MCA / CA",
-                              "direction": "threshold-cap",
-                              "n": "smooth dyadic envelope",
-                              "k": "rho n, k <= 2^40",
-                              "field": "|F| < 2^256",
-                              "fieldSizeLog2": 256,
-                              "domainKind": "multiplicative-subgroup",
-                              "smoothPowerOfTwo": true,
-                              "agreementA": "rho n + n/1024",
-                              "sigma": "n/1024",
-                              "deltaExact": "959/1024",
-                              "deltaApprox": 0.936523,
-                              "etaExact": "1/1024",
-                              "etaApprox": 0.000977,
-                              "qGen": "generated field of the smooth row",
-                              "qLine": "|F|",
-                              "qChal": "protocol-dependent",
-                              "bound": "epsilon_mca > 2^-86",
-                              "failureMarginBits": 42,
-                              "marginLabel": ">= +42 bits",
-                              "prizeBox": {
-                                    "rate": true,
-                                    "smoothDomain": true,
-                                    "kBound": true,
-                                    "fieldBound": true,
-                                    "denominatorAudited": true,
-                                    "endpointConvention": true,
-                                    "publicSource": true,
-                                    "conditionalImport": true,
-                                    "rhoNIntegral": true,
-                                    "powerOfTwoQuotient": true,
-                                    "quotientDivisor": "N=2048 divides n"
-                              },
-                              "status": "conditional-theorem",
-                              "statusLabel": "conditional theorem",
-                              "source": "Paper D universal cap",
-                              "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v4.tex",
-                              "nonClaims": [
-                                    "Conditional on the Crites-Stewart import audit.",
-                                    "This is a δ* upper cap from a failure lower bound, not an exact threshold."
-                              ]
-                        },
-                        {
-                              "id": "list-cap-rho-1-16",
-                              "title": "Interleaved-list δ* upper cap from base-list obstruction",
-                              "rho": "1/16",
-                              "track": "list",
-                              "trackLabel": "Interleaved-list",
-                              "direction": "threshold-cap",
-                              "n": "quotient scale N=2048",
-                              "k": "rho n",
-                              "field": "|F| < 2^256",
-                              "fieldSizeLog2": 256,
-                              "domainKind": "multiplicative-subgroup",
-                              "smoothPowerOfTwo": true,
-                              "agreementA": "rho n + 1 at quotient scale",
-                              "sigma": "1 quotient step",
-                              "deltaExact": "1919/2048",
-                              "deltaApprox": 0.937012,
-                              "etaExact": "1/2048",
-                              "etaApprox": 0.000488,
-                              "qGen": "generated field of the smooth row",
-                              "denominator": "|F|",
-                              "qChal": "protocol-dependent",
-                              "listLower": "binom(2048,129)",
-                              "failureMarginBits": 305.89,
-                              "marginLabel": "+305.89 bits",
-                              "prizeBox": {
-                                    "rate": true,
-                                    "smoothDomain": true,
-                                    "kBound": true,
-                                    "fieldBound": true,
-                                    "denominatorAudited": true,
-                                    "endpointConvention": true,
-                                    "publicSource": true,
-                                    "conditionalImport": false,
-                                    "rhoNIntegral": true,
-                                    "powerOfTwoQuotient": true,
-                                    "quotientDivisor": "N=2048 divides n"
-                              },
-                              "status": "list-corollary",
-                              "statusLabel": "list corollary",
-                              "source": "experiments.tex interleaved-list table",
-                              "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/experiments.tex",
-                              "nonClaims": [
-                                    "List lower bound only; it is not by itself an MCA or protocol soundness theorem.",
-                                    "This is a δ*_list upper cap from a list-size lower bound, not an exact threshold."
-                              ]
-                        }
-                  ],
-                  "missingPiece": "L1 / M1 / F1"
-            }
-      ]
-};
+          "target": "2^-128",
+          "rates": [
+                {
+                      "rho": "1/2",
+                      "slug": "1-2",
+                      "capacityExact": "1/2",
+                      "capacityApprox": 0.5,
+                      "johnsonExact": "1 - sqrt(1/2)",
+                      "johnsonApprox": 0.292893,
+                      "mcaUnsafe": "255/512",
+                      "listUnsafe": "255/512",
+                      "unknownInterval": "[Johnson frontier, 255/512) for MCA; [Johnson frontier, 255/512) for list",
+                      "safeFrontier": "Johnson-radius MCA upper-bound regime, with polynomial reserve.",
+                      "rows": [
+                            {
+                                  "id": "mca-cap-rho-1-2",
+                                  "title": "Paper D MCA δ* upper cap",
+                                  "rho": "1/2",
+                                  "track": "mca",
+                                  "trackLabel": "MCA / CA",
+                                  "direction": "threshold-cap",
+                                  "n": "smooth dyadic envelope",
+                                  "k": "rho n, k <= 2^40",
+                                  "field": "|F| < 2^256",
+                                  "fieldSizeLog2": 256,
+                                  "domainKind": "multiplicative-subgroup",
+                                  "smoothPowerOfTwo": true,
+                                  "agreementA": "rho n + n/512",
+                                  "sigma": "n/512",
+                                  "deltaExact": "255/512",
+                                  "deltaApprox": 0.498047,
+                                  "etaExact": "1/512",
+                                  "etaApprox": 0.001953,
+                                  "qGen": "generated field of the smooth row",
+                                  "qLine": "|F|",
+                                  "qChal": "protocol-dependent",
+                                  "bound": "epsilon_mca > 2^-86",
+                                  "failureMarginBits": 42,
+                                  "marginLabel": ">= +42 bits",
+                                  "prizeBox": {
+                                        "rate": true,
+                                        "smoothDomain": true,
+                                        "kBound": true,
+                                        "fieldBound": true,
+                                        "denominatorAudited": true,
+                                        "endpointConvention": true,
+                                        "publicSource": true,
+                                        "conditionalImport": false,
+                                        "rhoNIntegral": true,
+                                        "powerOfTwoQuotient": true,
+                                        "quotientDivisor": "N=1024 divides n"
+                                  },
+                                  "status": "draft-theorem",
+                                  "statusLabel": "draft theorem",
+                                  "source": "Paper D v5 universal cap",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v5.tex",
+                                  "nonClaims": [
+                                        "Draft paper theorem, not peer reviewed or formally prize-ready.",
+                                        "Paper D v5 routes the MCA cap through the self-contained deep-point argument; CA/list comparison statements still have separate radius and import conventions.",
+                                        "This is a δ* upper cap from a failure lower bound, not an exact threshold."
+                                  ],
+                                  "authors": "Paper D draft authors / Codex audit"
+                            },
+                            {
+                                  "id": "list-cap-rho-1-2",
+                                  "title": "Interleaved-list δ* upper cap from base-list obstruction",
+                                  "rho": "1/2",
+                                  "track": "list",
+                                  "trackLabel": "Interleaved-list",
+                                  "direction": "threshold-cap",
+                                  "n": "quotient scale N=512",
+                                  "k": "rho n",
+                                  "field": "|F| < 2^256",
+                                  "fieldSizeLog2": 256,
+                                  "domainKind": "multiplicative-subgroup",
+                                  "smoothPowerOfTwo": true,
+                                  "agreementA": "rho n + 1 at quotient scale",
+                                  "sigma": "1 quotient step",
+                                  "deltaExact": "255/512",
+                                  "deltaApprox": 0.498047,
+                                  "etaExact": "1/512",
+                                  "etaApprox": 0.001953,
+                                  "qGen": "generated field of the smooth row",
+                                  "denominator": "|F|",
+                                  "qChal": "protocol-dependent",
+                                  "listLower": "binom(512,257)",
+                                  "failureMarginBits": 123.17,
+                                  "marginLabel": "+123.17 bits",
+                                  "prizeBox": {
+                                        "rate": true,
+                                        "smoothDomain": true,
+                                        "kBound": true,
+                                        "fieldBound": true,
+                                        "denominatorAudited": true,
+                                        "endpointConvention": true,
+                                        "publicSource": true,
+                                        "conditionalImport": false,
+                                        "rhoNIntegral": true,
+                                        "powerOfTwoQuotient": true,
+                                        "quotientDivisor": "N=512 divides n"
+                                  },
+                                  "status": "list-corollary",
+                                  "statusLabel": "list corollary",
+                                  "source": "experiments.tex interleaved-list table",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/experiments.tex",
+                                  "nonClaims": [
+                                        "List lower bound only; it is not by itself an MCA or protocol soundness theorem.",
+                                        "This is a δ*_list upper cap from a list-size lower bound, not an exact threshold."
+                                  ],
+                                  "authors": "RS-MCA experimental notes / Codex audit"
+                            },
+                            {
+                                  "id": "prime192-rho1_2-k2^40-paperD-N2199023255552",
+                                  "title": "Prime192 Paper D v5 instantiated cap row",
+                                  "rho": "1/2",
+                                  "track": "mca",
+                                  "trackLabel": "support-wise MCA",
+                                  "direction": "threshold-cap-example",
+                                  "n": "2199023255552",
+                                  "k": "1099511627776",
+                                  "field": "prime q ~= 2^192, q = 1 mod n",
+                                  "fieldSizeLog2": 192,
+                                  "domainKind": "multiplicative-subgroup",
+                                  "smoothPowerOfTwo": true,
+                                  "agreementA": "1099511627778",
+                                  "sigma": "2",
+                                  "deltaExact": "549755813887/1099511627776",
+                                  "deltaApprox": 0.499999999999,
+                                  "etaExact": "1/1099511627776",
+                                  "etaApprox": 9.094947e-13,
+                                  "qGen": "6277101735386680763835789423207666416102355484046453112833",
+                                  "qLine": "6277101735386680763835789423207666416102355484046453112833",
+                                  "qChal": "not protocol-bound",
+                                  "nBad": ">=2854495385411919762116571938898990272765493266",
+                                  "failureMarginBits": 87,
+                                  "marginLabel": "+87 bits",
+                                  "prizeBox": {
+                                        "rate": true,
+                                        "smoothDomain": true,
+                                        "kBound": true,
+                                        "fieldBound": true,
+                                        "denominatorAudited": true,
+                                        "endpointConvention": true,
+                                        "publicSource": true,
+                                        "conditionalImport": false,
+                                        "rhoNIntegral": true,
+                                        "powerOfTwoQuotient": true,
+                                        "quotientDivisor": "scanner cap divisor from leaderboard_sweep_192"
+                                  },
+                                  "status": "draft-theorem-example",
+                                  "statusLabel": "draft theorem example",
+                                  "source": "leaderboard_sweep_192 scanner row",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/outputs/leaderboard_sweep_192/site_candidate_rows.md",
+                                  "nonClaims": [
+                                        "Instantiated example of the Paper D v5 cap, not a new theorem beyond Paper D.",
+                                        "Draft paper status: not peer reviewed or formally prize-ready.",
+                                        "The bad-count field is an equivalent numerator from the MCA error-floor lower bound, not an explicit slope census."
+                                  ],
+                                  "authors": "leaderboard_sweep_192 scanner / Codex audit"
+                            },
+                            {
+                                  "id": "F17^32-n512-k256-paperD-N512",
+                                  "title": "F_17^32 Paper D v5 instantiated cap row",
+                                  "rho": "1/2",
+                                  "track": "mca",
+                                  "trackLabel": "support-wise MCA",
+                                  "direction": "threshold-cap-example",
+                                  "n": "512",
+                                  "k": "256",
+                                  "field": "F_17^32",
+                                  "fieldSizeLog2": 130.799,
+                                  "domainKind": "multiplicative-subgroup",
+                                  "smoothPowerOfTwo": true,
+                                  "agreementA": "258",
+                                  "sigma": "2",
+                                  "deltaExact": "127/256",
+                                  "deltaApprox": 0.49609375,
+                                  "etaExact": "1/256",
+                                  "etaApprox": 0.00390625,
+                                  "qGen": "2367911594760467245844106297320951247361",
+                                  "qLine": "2367911594760467245844106297320951247361",
+                                  "qChal": "not protocol-bound",
+                                  "nBad": ">=4624827333516537589539270111954982905",
+                                  "failureMarginBits": 119,
+                                  "marginLabel": "+119 bits",
+                                  "prizeBox": {
+                                        "rate": true,
+                                        "smoothDomain": true,
+                                        "kBound": true,
+                                        "fieldBound": true,
+                                        "denominatorAudited": true,
+                                        "endpointConvention": true,
+                                        "publicSource": true,
+                                        "conditionalImport": false,
+                                        "rhoNIntegral": true,
+                                        "powerOfTwoQuotient": true,
+                                        "quotientDivisor": "scanner cap divisor from leaderboard_sweep_192"
+                                  },
+                                  "status": "draft-theorem-example",
+                                  "statusLabel": "draft theorem example",
+                                  "source": "leaderboard_sweep_192 scanner row",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/outputs/leaderboard_sweep_192/site_candidate_rows.md",
+                                  "nonClaims": [
+                                        "Instantiated example of the Paper D v5 cap, not a new theorem beyond Paper D.",
+                                        "Draft paper status: not peer reviewed or formally prize-ready.",
+                                        "The bad-count field is an equivalent numerator from the MCA error-floor lower bound, not an explicit slope census."
+                                  ],
+                                  "authors": "leaderboard_sweep_192 scanner / Codex audit"
+                            },
+                            {
+                                  "id": "tangent257-lower-floor",
+                                  "title": "Tangent lower-floor capacity-edge row",
+                                  "rho": "1/2",
+                                  "track": "mca",
+                                  "trackLabel": "support-wise MCA",
+                                  "direction": "unsafe-lower-bound",
+                                  "n": "512",
+                                  "k": "256",
+                                  "field": "F_17^32",
+                                  "fieldSizeLog2": 130.8,
+                                  "domainKind": "multiplicative-subgroup",
+                                  "smoothPowerOfTwo": true,
+                                  "agreementA": "257",
+                                  "sigma": "1",
+                                  "deltaExact": "255/512",
+                                  "deltaApprox": 0.498047,
+                                  "etaExact": "1/512",
+                                  "etaApprox": 0.001953,
+                                  "qGen": "17^32",
+                                  "qLine": "17^32",
+                                  "qChal": "not protocol-bound",
+                                  "nBad": ">=256",
+                                  "failureMarginBits": 5.2,
+                                  "marginLabel": "+5.20 bits",
+                                  "prizeBox": {
+                                        "rate": true,
+                                        "smoothDomain": true,
+                                        "kBound": true,
+                                        "fieldBound": true,
+                                        "denominatorAudited": true,
+                                        "endpointConvention": true,
+                                        "publicSource": true,
+                                        "conditionalImport": false
+                                  },
+                                  "status": "proof-record",
+                                  "statusLabel": "theorem-backed scanner row",
+                                  "source": "tangent staircase plus certificate scanner",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/outputs/f17_512.report.md",
+                                  "nonClaims": [
+                                        "Finite-slope support-wise MCA lower floor only.",
+                                        "Not an exact threshold.",
+                                        "Not ordinary list decoding or protocol soundness."
+                                  ],
+                                  "authors": "tangent staircase notes / Codex audit"
+                            },
+                            {
+                                  "id": "cycle116-rho-1-2",
+                                  "title": "Cycle116 closed-threshold proof record",
+                                  "rho": "1/2",
+                                  "track": "mca",
+                                  "trackLabel": "support-wise MCA",
+                                  "direction": "unsafe-lower-bound",
+                                  "n": "512",
+                                  "k": "256",
+                                  "field": "F_17^32",
+                                  "fieldSizeLog2": 130.8,
+                                  "domainKind": "multiplicative-subgroup",
+                                  "smoothPowerOfTwo": true,
+                                  "agreementA": "262",
+                                  "sigma": "6",
+                                  "deltaExact": "125/256",
+                                  "deltaApprox": 0.488281,
+                                  "etaExact": "3/256",
+                                  "etaApprox": 0.011719,
+                                  "qGen": "17^32",
+                                  "qLine": "17^32",
+                                  "qChal": "not protocol-bound",
+                                  "nBad": "52747567092",
+                                  "failureMarginBits": 32.82,
+                                  "marginLabel": "+32.82 bits",
+                                  "prizeBox": {
+                                        "rate": true,
+                                        "smoothDomain": true,
+                                        "kBound": true,
+                                        "fieldBound": true,
+                                        "denominatorAudited": true,
+                                        "endpointConvention": true,
+                                        "publicSource": true,
+                                        "conditionalImport": false
+                                  },
+                                  "status": "proof-record",
+                                  "statusLabel": "proof record / gate theorem",
+                                  "source": "Cycle120 scope note plus tangent gate audit",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/audits/audit_prize_gate_unconditional_via_tangent.md",
+                                  "nonClaims": [
+                                        "The >2^-128 gate is unconditional via the tangent floor: LD_sw(C,262) >= 251 >= 7.",
+                                        "The exact 52,747,567,092 numerator and +32.82 bit margin still import the Cycle84 finite count.",
+                                        "Source-scoped finite row; not ordinary list decoding, protocol soundness, or an exact threshold."
+                                  ],
+                                  "authors": "DannyExperiments / AllenGrahamHart / Codex audit"
+                            },
+                            {
+                                  "id": "cycle119-rho-1-2",
+                                  "title": "Cycle119 strict263 proof record",
+                                  "rho": "1/2",
+                                  "track": "mca",
+                                  "trackLabel": "support-wise MCA",
+                                  "direction": "unsafe-lower-bound",
+                                  "n": "512",
+                                  "k": "256",
+                                  "field": "F_17^32",
+                                  "fieldSizeLog2": 130.8,
+                                  "domainKind": "multiplicative-subgroup",
+                                  "smoothPowerOfTwo": true,
+                                  "agreementA": "263",
+                                  "sigma": "7",
+                                  "deltaExact": "249/512",
+                                  "deltaApprox": 0.486328,
+                                  "etaExact": "7/512",
+                                  "etaApprox": 0.013672,
+                                  "qGen": "17^32",
+                                  "qLine": "17^32",
+                                  "qChal": "not protocol-bound",
+                                  "nBad": "52747567092",
+                                  "failureMarginBits": 32.82,
+                                  "marginLabel": "+32.82 bits",
+                                  "prizeBox": {
+                                        "rate": true,
+                                        "smoothDomain": true,
+                                        "kBound": true,
+                                        "fieldBound": true,
+                                        "denominatorAudited": true,
+                                        "endpointConvention": true,
+                                        "publicSource": true,
+                                        "conditionalImport": false
+                                  },
+                                  "status": "proof-record",
+                                  "statusLabel": "proof record / gate theorem",
+                                  "source": "Cycle119 review plus tangent gate audit",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/audits/audit_prize_gate_unconditional_via_tangent.md",
+                                  "nonClaims": [
+                                        "The strict >2^-128 gate is unconditional via the tangent floor: LD_sw(C,263) >= 250 >= 7.",
+                                        "The exact 52,747,567,092 numerator and +32.82 bit margin still import the Cycle84 finite count.",
+                                        "Finite/source-scoped; not ordinary list decoding or an official prize solve by itself."
+                                  ],
+                                  "authors": "DannyExperiments / AllenGrahamHart / Codex audit"
+                            },
+                            {
+                                  "id": "strict264-quotient-floor",
+                                  "title": "Strict264 quotient-floor proof record",
+                                  "rho": "1/2",
+                                  "track": "mca",
+                                  "trackLabel": "support-wise MCA",
+                                  "direction": "unsafe-lower-bound",
+                                  "n": "512",
+                                  "k": "256",
+                                  "field": "F_17^32",
+                                  "fieldSizeLog2": 130.8,
+                                  "domainKind": "multiplicative-subgroup",
+                                  "smoothPowerOfTwo": true,
+                                  "agreementA": "264",
+                                  "sigma": "8",
+                                  "deltaExact": "31/64",
+                                  "deltaApprox": 0.484375,
+                                  "etaExact": "1/64",
+                                  "etaApprox": 0.015625,
+                                  "qGen": "17^32",
+                                  "qLine": "17^32",
+                                  "qChal": "not protocol-bound",
+                                  "nBad": ">=9",
+                                  "failureMarginBits": 0.37,
+                                  "marginLabel": "+0.37 bits",
+                                  "prizeBox": {
+                                        "rate": true,
+                                        "smoothDomain": true,
+                                        "kBound": true,
+                                        "fieldBound": true,
+                                        "denominatorAudited": true,
+                                        "endpointConvention": true,
+                                        "publicSource": true,
+                                        "conditionalImport": false
+                                  },
+                                  "status": "proof-record",
+                                  "statusLabel": "proof record",
+                                  "source": "strict264 quotient-floor obstruction",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/strict264_quotient_floor.md",
+                                  "nonClaims": [
+                                        "Quotient-core mechanism record, not the active threshold pin.",
+                                        "Superseded as a lower-bound frontier by the generic tangent floor, which gives LD_sw(C,264) >= 249."
+                                  ],
+                                  "authors": "RS-MCA strict264 notes / Codex audit"
+                            },
+                            {
+                                  "id": "tangent506-exact-gate",
+                                  "title": "Tangent-star exact finite-slope gate",
+                                  "rho": "1/2",
+                                  "track": "mca",
+                                  "trackLabel": "support-wise MCA",
+                                  "direction": "exact-finite-slope-gate",
+                                  "n": "512",
+                                  "k": "256",
+                                  "field": "F_17^32",
+                                  "fieldSizeLog2": 130.8,
+                                  "domainKind": "multiplicative-subgroup",
+                                  "smoothPowerOfTwo": true,
+                                  "agreementA": "506 unsafe / 507 safe",
+                                  "sigma": "250 / 251",
+                                  "deltaExact": "3/256",
+                                  "deltaApprox": 0.011719,
+                                  "etaExact": "125/256",
+                                  "etaApprox": 0.488281,
+                                  "qGen": "17^32",
+                                  "qLine": "17^32",
+                                  "qChal": "not protocol-bound",
+                                  "nBad": "7 at a=506; 6 at a=507",
+                                  "failureMarginBits": 0.01,
+                                  "marginLabel": "exact 6/7 gate",
+                                  "prizeBox": {
+                                        "rate": true,
+                                        "smoothDomain": true,
+                                        "kBound": true,
+                                        "fieldBound": true,
+                                        "denominatorAudited": true,
+                                        "endpointConvention": true,
+                                        "publicSource": true,
+                                        "conditionalImport": false
+                                  },
+                                  "status": "exact-gate",
+                                  "statusLabel": "exact finite-slope gate",
+                                  "source": "finite-row threshold note",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/thresholds/f17_32_finite_mca_threshold.pdf",
+                                  "nonClaims": [
+                                        "Finite-slope support-wise MCA convention only.",
+                                        "Adjacent high-agreement CA/projective/curve/list ledgers are recorded separately.",
+                                        "Protocol, folding, query, extension-lift, and cryptographic losses require separate ledgers."
+                                  ],
+                                  "authors": "tangent-star notes / Codex audit"
+                            },
+                            {
+                                  "id": "strict352-quotient-core",
+                                  "title": "Strict352 quotient-core proof record",
+                                  "rho": "1/2",
+                                  "track": "mca",
+                                  "trackLabel": "support-wise MCA",
+                                  "direction": "unsafe-lower-bound",
+                                  "n": "512",
+                                  "k": "256",
+                                  "field": "F_17^32",
+                                  "fieldSizeLog2": 130.8,
+                                  "domainKind": "multiplicative-subgroup",
+                                  "smoothPowerOfTwo": true,
+                                  "agreementA": "352",
+                                  "sigma": "96",
+                                  "deltaExact": "5/16",
+                                  "deltaApprox": 0.3125,
+                                  "etaExact": "3/16",
+                                  "etaApprox": 0.1875,
+                                  "qGen": "17^32",
+                                  "qLine": "17^32",
+                                  "qChal": "not protocol-bound",
+                                  "nBad": ">=16",
+                                  "failureMarginBits": 1.2,
+                                  "marginLabel": "+1.20 bits",
+                                  "prizeBox": {
+                                        "rate": true,
+                                        "smoothDomain": true,
+                                        "kBound": true,
+                                        "fieldBound": true,
+                                        "denominatorAudited": true,
+                                        "endpointConvention": true,
+                                        "publicSource": true,
+                                        "conditionalImport": false
+                                  },
+                                  "status": "proof-record",
+                                  "statusLabel": "proof record",
+                                  "source": "strict352 quotient-core obstruction",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/strict352_quotient_core_summary.md",
+                                  "nonClaims": [
+                                        "Quotient-core mechanism record, not the active lower-bound frontier.",
+                                        "The generic tangent floor gives LD_sw(C,352) >= 161 and LD_sw(C,353) >= 160."
+                                  ],
+                                  "authors": "RS-MCA strict352 notes / Codex audit"
+                            },
+                            {
+                                  "id": "strict264-2187-candidate",
+                                  "title": "Strict264 2187-slope candidate",
+                                  "rho": "1/2",
+                                  "track": "mca",
+                                  "trackLabel": "support-wise MCA",
+                                  "direction": "candidate",
+                                  "n": "512",
+                                  "k": "256",
+                                  "field": "F_17^32",
+                                  "fieldSizeLog2": 130.8,
+                                  "domainKind": "multiplicative-subgroup",
+                                  "smoothPowerOfTwo": true,
+                                  "agreementA": "264",
+                                  "sigma": "8",
+                                  "deltaExact": "31/64",
+                                  "deltaApprox": 0.484375,
+                                  "etaExact": "1/64",
+                                  "etaApprox": 0.015625,
+                                  "qGen": "17^32",
+                                  "qLine": "17^32",
+                                  "qChal": "not protocol-bound",
+                                  "nBad": "2187",
+                                  "failureMarginBits": 8.3,
+                                  "marginLabel": "+8.30 bits if proved",
+                                  "prizeBox": {
+                                        "rate": true,
+                                        "smoothDomain": true,
+                                        "kBound": true,
+                                        "fieldBound": true,
+                                        "denominatorAudited": true,
+                                        "endpointConvention": true,
+                                        "publicSource": true,
+                                        "conditionalImport": false
+                                  },
+                                  "status": "candidate",
+                                  "statusLabel": "candidate",
+                                  "source": "strict264 candidate ledger",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_strict264_audit.md",
+                                  "nonClaims": [
+                                        "Candidate shape only; requires an independent theorem and admissibility audit."
+                                  ],
+                                  "authors": "DannyExperiments / Codex audit"
+                            }
+                      ],
+                      "missingPiece": "L1 / M1 / F1"
+                },
+                {
+                      "rho": "1/4",
+                      "slug": "1-4",
+                      "capacityExact": "3/4",
+                      "capacityApprox": 0.75,
+                      "johnsonExact": "1/2",
+                      "johnsonApprox": 0.5,
+                      "mcaUnsafe": "383/512",
+                      "listUnsafe": "383/512",
+                      "unknownInterval": "[Johnson frontier, 383/512) for MCA; [Johnson frontier, 383/512) for list",
+                      "safeFrontier": "Johnson-radius MCA upper-bound regime, with polynomial reserve.",
+                      "rows": [
+                            {
+                                  "id": "mca-cap-rho-1-4",
+                                  "title": "Paper D MCA δ* upper cap",
+                                  "rho": "1/4",
+                                  "track": "mca",
+                                  "trackLabel": "MCA / CA",
+                                  "direction": "threshold-cap",
+                                  "n": "smooth dyadic envelope",
+                                  "k": "rho n, k <= 2^40",
+                                  "field": "|F| < 2^256",
+                                  "fieldSizeLog2": 256,
+                                  "domainKind": "multiplicative-subgroup",
+                                  "smoothPowerOfTwo": true,
+                                  "agreementA": "rho n + n/512",
+                                  "sigma": "n/512",
+                                  "deltaExact": "383/512",
+                                  "deltaApprox": 0.748047,
+                                  "etaExact": "1/512",
+                                  "etaApprox": 0.001953,
+                                  "qGen": "generated field of the smooth row",
+                                  "qLine": "|F|",
+                                  "qChal": "protocol-dependent",
+                                  "bound": "epsilon_mca > 2^-86",
+                                  "failureMarginBits": 42,
+                                  "marginLabel": ">= +42 bits",
+                                  "prizeBox": {
+                                        "rate": true,
+                                        "smoothDomain": true,
+                                        "kBound": true,
+                                        "fieldBound": true,
+                                        "denominatorAudited": true,
+                                        "endpointConvention": true,
+                                        "publicSource": true,
+                                        "conditionalImport": false,
+                                        "rhoNIntegral": true,
+                                        "powerOfTwoQuotient": true,
+                                        "quotientDivisor": "N=1024 divides n"
+                                  },
+                                  "status": "draft-theorem",
+                                  "statusLabel": "draft theorem",
+                                  "source": "Paper D v5 universal cap",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v5.tex",
+                                  "nonClaims": [
+                                        "Draft paper theorem, not peer reviewed or formally prize-ready.",
+                                        "Paper D v5 routes the MCA cap through the self-contained deep-point argument; CA/list comparison statements still have separate radius and import conventions.",
+                                        "This is a δ* upper cap from a failure lower bound, not an exact threshold."
+                                  ],
+                                  "authors": "Paper D draft authors / Codex audit"
+                            },
+                            {
+                                  "id": "list-cap-rho-1-4",
+                                  "title": "Interleaved-list δ* upper cap from base-list obstruction",
+                                  "rho": "1/4",
+                                  "track": "list",
+                                  "trackLabel": "Interleaved-list",
+                                  "direction": "threshold-cap",
+                                  "n": "quotient scale N=512",
+                                  "k": "rho n",
+                                  "field": "|F| < 2^256",
+                                  "fieldSizeLog2": 256,
+                                  "domainKind": "multiplicative-subgroup",
+                                  "smoothPowerOfTwo": true,
+                                  "agreementA": "rho n + 1 at quotient scale",
+                                  "sigma": "1 quotient step",
+                                  "deltaExact": "383/512",
+                                  "deltaApprox": 0.748047,
+                                  "etaExact": "1/512",
+                                  "etaApprox": 0.001953,
+                                  "qGen": "generated field of the smooth row",
+                                  "denominator": "|F|",
+                                  "qChal": "protocol-dependent",
+                                  "listLower": "binom(512,129)",
+                                  "failureMarginBits": 28.33,
+                                  "marginLabel": "+28.33 bits",
+                                  "prizeBox": {
+                                        "rate": true,
+                                        "smoothDomain": true,
+                                        "kBound": true,
+                                        "fieldBound": true,
+                                        "denominatorAudited": true,
+                                        "endpointConvention": true,
+                                        "publicSource": true,
+                                        "conditionalImport": false,
+                                        "rhoNIntegral": true,
+                                        "powerOfTwoQuotient": true,
+                                        "quotientDivisor": "N=512 divides n"
+                                  },
+                                  "status": "list-corollary",
+                                  "statusLabel": "list corollary",
+                                  "source": "experiments.tex interleaved-list table",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/experiments.tex",
+                                  "nonClaims": [
+                                        "List lower bound only; it is not by itself an MCA or protocol soundness theorem.",
+                                        "This is a δ*_list upper cap from a list-size lower bound, not an exact threshold."
+                                  ],
+                                  "authors": "RS-MCA experimental notes / Codex audit"
+                            },
+                            {
+                                  "id": "prime192-rho1_4-k2^40-paperD-N4398046511104",
+                                  "title": "Prime192 Paper D v5 instantiated cap row",
+                                  "rho": "1/4",
+                                  "track": "mca",
+                                  "trackLabel": "support-wise MCA",
+                                  "direction": "threshold-cap-example",
+                                  "n": "4398046511104",
+                                  "k": "1099511627776",
+                                  "field": "prime q ~= 2^192, q = 1 mod n",
+                                  "fieldSizeLog2": 192,
+                                  "domainKind": "multiplicative-subgroup",
+                                  "smoothPowerOfTwo": true,
+                                  "agreementA": "1099511627778",
+                                  "sigma": "2",
+                                  "deltaExact": "1649267441663/2199023255552",
+                                  "deltaApprox": 0.75,
+                                  "etaExact": "1/2199023255552",
+                                  "etaApprox": 4.547474e-13,
+                                  "qGen": "6277101735386680763835789423207666416102355484046453112833",
+                                  "qLine": "6277101735386680763835789423207666416102355484046453112833",
+                                  "qChal": "not protocol-bound",
+                                  "nBad": ">=2854495385411919762116571938898990272765493265",
+                                  "failureMarginBits": 87,
+                                  "marginLabel": "+87 bits",
+                                  "prizeBox": {
+                                        "rate": true,
+                                        "smoothDomain": true,
+                                        "kBound": true,
+                                        "fieldBound": true,
+                                        "denominatorAudited": true,
+                                        "endpointConvention": true,
+                                        "publicSource": true,
+                                        "conditionalImport": false,
+                                        "rhoNIntegral": true,
+                                        "powerOfTwoQuotient": true,
+                                        "quotientDivisor": "scanner cap divisor from leaderboard_sweep_192"
+                                  },
+                                  "status": "draft-theorem-example",
+                                  "statusLabel": "draft theorem example",
+                                  "source": "leaderboard_sweep_192 scanner row",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/outputs/leaderboard_sweep_192/site_candidate_rows.md",
+                                  "nonClaims": [
+                                        "Instantiated example of the Paper D v5 cap, not a new theorem beyond Paper D.",
+                                        "Draft paper status: not peer reviewed or formally prize-ready.",
+                                        "The bad-count field is an equivalent numerator from the MCA error-floor lower bound, not an explicit slope census."
+                                  ],
+                                  "authors": "leaderboard_sweep_192 scanner / Codex audit"
+                            }
+                      ],
+                      "missingPiece": "L1 / M1 / F1"
+                },
+                {
+                      "rho": "1/8",
+                      "slug": "1-8",
+                      "capacityExact": "7/8",
+                      "capacityApprox": 0.875,
+                      "johnsonExact": "1 - sqrt(1/8)",
+                      "johnsonApprox": 0.646447,
+                      "mcaUnsafe": "447/512",
+                      "listUnsafe": "895/1024",
+                      "unknownInterval": "[Johnson frontier, 447/512) for MCA; [Johnson frontier, 895/1024) for list",
+                      "safeFrontier": "Johnson-radius MCA upper-bound regime, with polynomial reserve.",
+                      "rows": [
+                            {
+                                  "id": "mca-cap-rho-1-8",
+                                  "title": "Paper D MCA δ* upper cap",
+                                  "rho": "1/8",
+                                  "track": "mca",
+                                  "trackLabel": "MCA / CA",
+                                  "direction": "threshold-cap",
+                                  "n": "smooth dyadic envelope",
+                                  "k": "rho n, k <= 2^40",
+                                  "field": "|F| < 2^256",
+                                  "fieldSizeLog2": 256,
+                                  "domainKind": "multiplicative-subgroup",
+                                  "smoothPowerOfTwo": true,
+                                  "agreementA": "rho n + n/512",
+                                  "sigma": "n/512",
+                                  "deltaExact": "447/512",
+                                  "deltaApprox": 0.873047,
+                                  "etaExact": "1/512",
+                                  "etaApprox": 0.001953,
+                                  "qGen": "generated field of the smooth row",
+                                  "qLine": "|F|",
+                                  "qChal": "protocol-dependent",
+                                  "bound": "epsilon_mca > 2^-86",
+                                  "failureMarginBits": 42,
+                                  "marginLabel": ">= +42 bits",
+                                  "prizeBox": {
+                                        "rate": true,
+                                        "smoothDomain": true,
+                                        "kBound": true,
+                                        "fieldBound": true,
+                                        "denominatorAudited": true,
+                                        "endpointConvention": true,
+                                        "publicSource": true,
+                                        "conditionalImport": false,
+                                        "rhoNIntegral": true,
+                                        "powerOfTwoQuotient": true,
+                                        "quotientDivisor": "N=1024 divides n"
+                                  },
+                                  "status": "draft-theorem",
+                                  "statusLabel": "draft theorem",
+                                  "source": "Paper D v5 universal cap",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v5.tex",
+                                  "nonClaims": [
+                                        "Draft paper theorem, not peer reviewed or formally prize-ready.",
+                                        "Paper D v5 routes the MCA cap through the self-contained deep-point argument; CA/list comparison statements still have separate radius and import conventions.",
+                                        "This is a δ* upper cap from a failure lower bound, not an exact threshold."
+                                  ],
+                                  "authors": "Paper D draft authors / Codex audit"
+                            },
+                            {
+                                  "id": "list-cap-rho-1-8",
+                                  "title": "Interleaved-list δ* upper cap from base-list obstruction",
+                                  "rho": "1/8",
+                                  "track": "list",
+                                  "trackLabel": "Interleaved-list",
+                                  "direction": "threshold-cap",
+                                  "n": "quotient scale N=1024",
+                                  "k": "rho n",
+                                  "field": "|F| < 2^256",
+                                  "fieldSizeLog2": 256,
+                                  "domainKind": "multiplicative-subgroup",
+                                  "smoothPowerOfTwo": true,
+                                  "agreementA": "rho n + 1 at quotient scale",
+                                  "sigma": "1 quotient step",
+                                  "deltaExact": "895/1024",
+                                  "deltaApprox": 0.874023,
+                                  "etaExact": "1/1024",
+                                  "etaApprox": 0.000977,
+                                  "qGen": "generated field of the smooth row",
+                                  "denominator": "|F|",
+                                  "qChal": "protocol-dependent",
+                                  "listLower": "binom(1024,129)",
+                                  "failureMarginBits": 170.68,
+                                  "marginLabel": "+170.68 bits",
+                                  "prizeBox": {
+                                        "rate": true,
+                                        "smoothDomain": true,
+                                        "kBound": true,
+                                        "fieldBound": true,
+                                        "denominatorAudited": true,
+                                        "endpointConvention": true,
+                                        "publicSource": true,
+                                        "conditionalImport": false,
+                                        "rhoNIntegral": true,
+                                        "powerOfTwoQuotient": true,
+                                        "quotientDivisor": "N=1024 divides n"
+                                  },
+                                  "status": "list-corollary",
+                                  "statusLabel": "list corollary",
+                                  "source": "experiments.tex interleaved-list table",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/experiments.tex",
+                                  "nonClaims": [
+                                        "List lower bound only; it is not by itself an MCA or protocol soundness theorem.",
+                                        "This is a δ*_list upper cap from a list-size lower bound, not an exact threshold."
+                                  ],
+                                  "authors": "RS-MCA experimental notes / Codex audit"
+                            },
+                            {
+                                  "id": "prime192-rho1_8-k2^40-paperD-N8796093022208",
+                                  "title": "Prime192 Paper D v5 instantiated cap row",
+                                  "rho": "1/8",
+                                  "track": "mca",
+                                  "trackLabel": "support-wise MCA",
+                                  "direction": "threshold-cap-example",
+                                  "n": "8796093022208",
+                                  "k": "1099511627776",
+                                  "field": "prime q ~= 2^192, q = 1 mod n",
+                                  "fieldSizeLog2": 192,
+                                  "domainKind": "multiplicative-subgroup",
+                                  "smoothPowerOfTwo": true,
+                                  "agreementA": "1099511627778",
+                                  "sigma": "2",
+                                  "deltaExact": "3848290697215/4398046511104",
+                                  "deltaApprox": 0.875,
+                                  "etaExact": "1/4398046511104",
+                                  "etaApprox": 2.273737e-13,
+                                  "qGen": "6277101735386680763835789423207666416102355787511662379009",
+                                  "qLine": "6277101735386680763835789423207666416102355787511662379009",
+                                  "qChal": "not protocol-bound",
+                                  "nBad": ">=2854495385411919762116571938898990272765493401",
+                                  "failureMarginBits": 87,
+                                  "marginLabel": "+87 bits",
+                                  "prizeBox": {
+                                        "rate": true,
+                                        "smoothDomain": true,
+                                        "kBound": true,
+                                        "fieldBound": true,
+                                        "denominatorAudited": true,
+                                        "endpointConvention": true,
+                                        "publicSource": true,
+                                        "conditionalImport": false,
+                                        "rhoNIntegral": true,
+                                        "powerOfTwoQuotient": true,
+                                        "quotientDivisor": "scanner cap divisor from leaderboard_sweep_192"
+                                  },
+                                  "status": "draft-theorem-example",
+                                  "statusLabel": "draft theorem example",
+                                  "source": "leaderboard_sweep_192 scanner row",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/outputs/leaderboard_sweep_192/site_candidate_rows.md",
+                                  "nonClaims": [
+                                        "Instantiated example of the Paper D v5 cap, not a new theorem beyond Paper D.",
+                                        "Draft paper status: not peer reviewed or formally prize-ready.",
+                                        "The bad-count field is an equivalent numerator from the MCA error-floor lower bound, not an explicit slope census."
+                                  ],
+                                  "authors": "leaderboard_sweep_192 scanner / Codex audit"
+                            }
+                      ],
+                      "missingPiece": "L1 / M1 / F1"
+                },
+                {
+                      "rho": "1/16",
+                      "slug": "1-16",
+                      "capacityExact": "15/16",
+                      "capacityApprox": 0.9375,
+                      "johnsonExact": "3/4",
+                      "johnsonApprox": 0.75,
+                      "mcaUnsafe": "959/1024",
+                      "listUnsafe": "1919/2048",
+                      "unknownInterval": "[Johnson frontier, 959/1024) for MCA; [Johnson frontier, 1919/2048) for list",
+                      "safeFrontier": "Johnson-radius MCA upper-bound regime, with polynomial reserve.",
+                      "rows": [
+                            {
+                                  "id": "mca-cap-rho-1-16",
+                                  "title": "Paper D MCA δ* upper cap",
+                                  "rho": "1/16",
+                                  "track": "mca",
+                                  "trackLabel": "MCA / CA",
+                                  "direction": "threshold-cap",
+                                  "n": "smooth dyadic envelope",
+                                  "k": "rho n, k <= 2^40",
+                                  "field": "|F| < 2^256",
+                                  "fieldSizeLog2": 256,
+                                  "domainKind": "multiplicative-subgroup",
+                                  "smoothPowerOfTwo": true,
+                                  "agreementA": "rho n + n/1024",
+                                  "sigma": "n/1024",
+                                  "deltaExact": "959/1024",
+                                  "deltaApprox": 0.936523,
+                                  "etaExact": "1/1024",
+                                  "etaApprox": 0.000977,
+                                  "qGen": "generated field of the smooth row",
+                                  "qLine": "|F|",
+                                  "qChal": "protocol-dependent",
+                                  "bound": "epsilon_mca > 2^-86",
+                                  "failureMarginBits": 42,
+                                  "marginLabel": ">= +42 bits",
+                                  "prizeBox": {
+                                        "rate": true,
+                                        "smoothDomain": true,
+                                        "kBound": true,
+                                        "fieldBound": true,
+                                        "denominatorAudited": true,
+                                        "endpointConvention": true,
+                                        "publicSource": true,
+                                        "conditionalImport": false,
+                                        "rhoNIntegral": true,
+                                        "powerOfTwoQuotient": true,
+                                        "quotientDivisor": "N=2048 divides n"
+                                  },
+                                  "status": "draft-theorem",
+                                  "statusLabel": "draft theorem",
+                                  "source": "Paper D v5 universal cap",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v5.tex",
+                                  "nonClaims": [
+                                        "Draft paper theorem, not peer reviewed or formally prize-ready.",
+                                        "Paper D v5 routes the MCA cap through the self-contained deep-point argument; CA/list comparison statements still have separate radius and import conventions.",
+                                        "This is a δ* upper cap from a failure lower bound, not an exact threshold."
+                                  ],
+                                  "authors": "Paper D draft authors / Codex audit"
+                            },
+                            {
+                                  "id": "list-cap-rho-1-16",
+                                  "title": "Interleaved-list δ* upper cap from base-list obstruction",
+                                  "rho": "1/16",
+                                  "track": "list",
+                                  "trackLabel": "Interleaved-list",
+                                  "direction": "threshold-cap",
+                                  "n": "quotient scale N=2048",
+                                  "k": "rho n",
+                                  "field": "|F| < 2^256",
+                                  "fieldSizeLog2": 256,
+                                  "domainKind": "multiplicative-subgroup",
+                                  "smoothPowerOfTwo": true,
+                                  "agreementA": "rho n + 1 at quotient scale",
+                                  "sigma": "1 quotient step",
+                                  "deltaExact": "1919/2048",
+                                  "deltaApprox": 0.937012,
+                                  "etaExact": "1/2048",
+                                  "etaApprox": 0.000488,
+                                  "qGen": "generated field of the smooth row",
+                                  "denominator": "|F|",
+                                  "qChal": "protocol-dependent",
+                                  "listLower": "binom(2048,129)",
+                                  "failureMarginBits": 305.89,
+                                  "marginLabel": "+305.89 bits",
+                                  "prizeBox": {
+                                        "rate": true,
+                                        "smoothDomain": true,
+                                        "kBound": true,
+                                        "fieldBound": true,
+                                        "denominatorAudited": true,
+                                        "endpointConvention": true,
+                                        "publicSource": true,
+                                        "conditionalImport": false,
+                                        "rhoNIntegral": true,
+                                        "powerOfTwoQuotient": true,
+                                        "quotientDivisor": "N=2048 divides n"
+                                  },
+                                  "status": "list-corollary",
+                                  "statusLabel": "list corollary",
+                                  "source": "experiments.tex interleaved-list table",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/experiments.tex",
+                                  "nonClaims": [
+                                        "List lower bound only; it is not by itself an MCA or protocol soundness theorem.",
+                                        "This is a δ*_list upper cap from a list-size lower bound, not an exact threshold."
+                                  ],
+                                  "authors": "RS-MCA experimental notes / Codex audit"
+                            },
+                            {
+                                  "id": "prime192-rho1_16-k2^40-paperD-N17592186044416",
+                                  "title": "Prime192 Paper D v5 instantiated cap row",
+                                  "rho": "1/16",
+                                  "track": "mca",
+                                  "trackLabel": "support-wise MCA",
+                                  "direction": "threshold-cap-example",
+                                  "n": "17592186044416",
+                                  "k": "1099511627776",
+                                  "field": "prime q ~= 2^192, q = 1 mod n",
+                                  "fieldSizeLog2": 192,
+                                  "domainKind": "multiplicative-subgroup",
+                                  "smoothPowerOfTwo": true,
+                                  "agreementA": "1099511627778",
+                                  "sigma": "2",
+                                  "deltaExact": "8246337208319/8796093022208",
+                                  "deltaApprox": 0.9375,
+                                  "etaExact": "1/8796093022208",
+                                  "etaApprox": 1.136868e-13,
+                                  "qGen": "6277101735386680763835789423207666416102355972229615845377",
+                                  "qLine": "6277101735386680763835789423207666416102355972229615845377",
+                                  "qChal": "not protocol-bound",
+                                  "nBad": ">=2854495385411919762116571938898990272765493481",
+                                  "failureMarginBits": 87,
+                                  "marginLabel": "+87 bits",
+                                  "prizeBox": {
+                                        "rate": true,
+                                        "smoothDomain": true,
+                                        "kBound": true,
+                                        "fieldBound": true,
+                                        "denominatorAudited": true,
+                                        "endpointConvention": true,
+                                        "publicSource": true,
+                                        "conditionalImport": false,
+                                        "rhoNIntegral": true,
+                                        "powerOfTwoQuotient": true,
+                                        "quotientDivisor": "scanner cap divisor from leaderboard_sweep_192"
+                                  },
+                                  "status": "draft-theorem-example",
+                                  "statusLabel": "draft theorem example",
+                                  "source": "leaderboard_sweep_192 scanner row",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/outputs/leaderboard_sweep_192/site_candidate_rows.md",
+                                  "nonClaims": [
+                                        "Instantiated example of the Paper D v5 cap, not a new theorem beyond Paper D.",
+                                        "Draft paper status: not peer reviewed or formally prize-ready.",
+                                        "The bad-count field is an equivalent numerator from the MCA error-floor lower bound, not an explicit slope census."
+                                  ],
+                                  "authors": "leaderboard_sweep_192 scanner / Codex audit"
+                            }
+                      ],
+                      "missingPiece": "L1 / M1 / F1"
+                }
+          ]
+    };
     function enrich(e){
       const q = parseBigIntExpr(e.q);
       const N = parseBigIntExpr(e.badSlopes);
@@ -2425,7 +2923,7 @@
     function entrySearchText(e){
       return [
         e.id, e.title, e.short, e.row, e.status, e.tag, e.label,
-        e.radiusLabel, e.proof, e.nonclaims, e.badSlopes, e.q,
+        e.radiusLabel, e.proof, e.nonclaims, e.badSlopes, e.q, e.authors,
         ...(e.links || []).flatMap(link => [link.label, link.href])
       ].filter(Boolean).join(' ').toLowerCase();
     }
@@ -2582,6 +3080,7 @@
                       <strong>${escapeHtml(row.title)}</strong><br>
                       <span class="tag ${escapeHtml(statusClass(row.direction))}">${escapeHtml(directionText(row))}</span>
                       ${row.sourceHref ? `<br><a class="row-source" href="${escapeHtml(row.sourceHref)}" target="_blank" rel="noopener">${escapeHtml(row.source || 'source')}</a>` : ''}
+                      ${row.authors ? `<span class="row-authors">By ${escapeHtml(row.authors)}</span>` : ''}
                       <br><button class="row-load" type="button" data-load-row="${escapeHtml(row.id)}">Load row</button>
                     </td>
                     <td>${escapeHtml(row.trackLabel || row.track || '—')}</td>
@@ -2701,7 +3200,8 @@
           <div class="mini"><small>Score</small><b class="mono ${e.marginBits>0?'good':'bad'}">${e.marginBits>0?'+':''}${fmt(e.marginBits)} bits</b></div>
         </div>
         ${(e.links || []).length ? `<div class="hero-links">${e.links.map(link => `<a href="${link.href}" target="_blank" rel="noopener">${link.label}</a>`).join('')}</div>` : ''}
-        <pre>${JSON.stringify({id:e.id,status:e.label || e.status,proof:e.proof,q_line:e.q.toString(),floor_q_over_2_128:e.floor.toString(),integer_test:`2^128 * ${e.N.toString()} > ${e.q.toString()}`,passes:e.passes,nonclaims:e.nonclaims}, null, 2)}</pre>`;
+        ${e.authors ? `<p class="caption"><strong>Authors:</strong> ${escapeHtml(e.authors)}</p>` : ''}
+        <pre>${JSON.stringify({id:e.id,status:e.label || e.status,authors:e.authors,proof:e.proof,q_line:e.q.toString(),floor_q_over_2_128:e.floor.toString(),integer_test:`2^128 * ${e.N.toString()} > ${e.q.toString()}`,passes:e.passes,nonclaims:e.nonclaims}, null, 2)}</pre>`;
     }
     function selectEntry(id){
       const e = entries.find(x=>x.id===id) || entries[0];

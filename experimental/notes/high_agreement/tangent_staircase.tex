@@ -1,0 +1,270 @@
+% Promoted from experimental/experiments.tex lines 1451--1715.
+% Status: stable high-agreement note.  This is a TeX fragment intended to be
+% included from experimental/experiments.tex or another paper-level wrapper.
+% Dependencies: theorem environments, standard macros such as \F and \RS,
+% and earlier local labels referenced inside the note.
+
+\section{High-Agreement Tangent Staircase}
+\label{sec:tangent-staircase}
+
+\textbf{Status: \textsc{New-local} finite MDS theorem.}
+This section records a generic moving-root tangent floor and, in the
+very-high-agreement range, a matching upper bound.  It is independent of
+quotient-periodic structure and does not use smoothness.  It is relevant to the
+finite row ledger because the bad slopes are paid with the actual line field
+\(\qline\).
+
+For a polynomial \(P\in F[X]\), write
+\[
+  P=P_{<k}+P_{\ge k},
+  \qquad \deg P_{<k}<k,
+\]
+where \(P_{\ge k}\) is the sum of the terms of degree at least \(k\).  Let
+\(\operatorname{LD}_{\rm sw}(C,a)\) denote the largest possible number of finite
+slopes on a received line that have a support-wise noncontained explanation on
+some support of size at least \(a\).
+
+\begin{theorem}[moving-root tangent floor]
+\label{thm:moving-root-tangent-floor}
+Let \(D\subset F\) have \(|D|=n\), and let
+\(C=\RS[F,D,k]\).  For every integer \(a\) with \(k+1\le a\le n\),
+\[
+  \operatorname{LD}_{\rm sw}(C,a)\ge n-a+1 .
+\]
+\end{theorem}
+
+\begin{proof}
+Choose a subset \(A\subset D\) of size \(a-1\), and put
+\[
+  B_A(X)=\prod_{x\in A}(X-x).
+\]
+Define the received line
+\[
+  f=(XB_A)_{\ge k},
+  \qquad
+  g=-(B_A)_{\ge k}.
+\]
+For every \(t\in D\setminus A\), set
+\[
+  L_t(X)=(X-t)B_A(X).
+\]
+Then \(L_t\) is the locator of the support \(A\cup\{t\}\), which has size
+\(a\), and linearity of truncation gives
+\[
+  f+t g=(L_t)_{\ge k}.
+\]
+On every root of \(L_t\), the word represented by \((L_t)_{\ge k}\) agrees with
+\(- (L_t)_{<k}\), a codeword of \(C\).  Thus the slope \(t\) is explained on
+\(A\cup\{t\}\).
+
+It remains to check support-wise noncontainment on this same support.  On
+\(A\), since \(B_A=0\), we have
+\[
+  g=-(B_A)_{\ge k}=(B_A)_{<k}.
+\]
+If \(g\) were explained on \(A\cup\{t\}\) by a degree-\(<k\) polynomial \(q\),
+then \(q=(B_A)_{<k}\), because \(|A|=a-1\ge k\).  At the remaining point \(t\),
+this would force
+\[
+  -(B_A)_{\ge k}(t)=(B_A)_{<k}(t),
+\]
+that is, \(B_A(t)=0\), contrary to \(t\notin A\).  Hence \(g\) is not
+separately explained on \(A\cup\{t\}\), so the slope is support-wise
+noncontained.  The slopes \(t\in D\setminus A\) are distinct, giving
+\(n-a+1\) bad finite slopes.
+\end{proof}
+
+\begin{theorem}[very-high-agreement tangent staircase]
+\label{thm:very-high-tangent-staircase}
+Let \(C=\RS[F,D,k]\) with \(|D|=n\).  If
+\[
+  3a-2n\ge k,
+\]
+then
+\[
+  \operatorname{LD}_{\rm sw}(C,a)=n-a+1 .
+\]
+\end{theorem}
+
+\begin{proof}
+The lower bound is Theorem~\ref{thm:moving-root-tangent-floor}.  For the upper
+bound, put \(s=n-a\).  If a received line has at most one support-wise
+noncontained finite slope at agreement at least \(a\), then the claimed upper
+bound is immediate.  Otherwise pick two such slopes \(z_1\ne z_2\), with
+explaining codewords \(p_1,p_2\in C\) on supports \(S_1,S_2\), respectively.
+Since \(|S_i|\ge a\),
+\[
+  |S_1\cap S_2|\ge 2a-n.
+\]
+On this intersection,
+\[
+  g=(p_1-p_2)/(z_1-z_2),
+  \qquad
+  f=p_1-z_1g .
+\]
+The condition \(3a-2n\ge k\) and the inequality \(a\le n\) imply
+\(2a-n\ge k\).  Therefore these two right-hand sides extend uniquely to
+codewords \(c_g,c_f\in C\).  Let \(S_0\) be a maximal common support on which
+\(f=c_f\) and \(g=c_g\), and put \(b=|S_0|\) and \(d=n-b\).  Then
+\[
+  b\ge2a-n,\qquad d\le2(n-a)=2s .
+\]
+By maximality, outside \(S_0\) there is no coordinate at which both residuals
+\(f-c_f\) and \(g-c_g\) vanish.
+
+The residual-budget proposition, Proposition~\ref{prop:common-residual}, is
+applicable because
+\[
+  a+b-n\ge a+(2a-n)-n=3a-2n\ge k .
+\]
+Here its common-zero parameter is \(c_0=0\).  If \(b\ge a\), then every
+noncontained slope needs at least one residual zero outside \(S_0\), and there
+are only \(d\le s\) such coordinates.  If \(b<a\), then every noncontained
+slope needs at least
+\[
+  h=a-b=d-s
+\]
+private residual zeros outside \(S_0\).  Since \(s<d\le2s\), the residual
+budget gives
+\[
+  \#\{\text{bad slopes}\}
+  \le
+  \left\lfloor \frac d{d-s}\right\rfloor
+  \le s+1
+  =n-a+1 .
+\]
+This proves the matching upper bound.
+\end{proof}
+
+\begin{corollary}[tangent-star extremizers in the exact range]
+\label{cor:tangent-star-extremizers}
+Let \(C=\RS[F,D,k]\), \(|D|=n\), and suppose that
+\[
+  k+1\le a\le n,
+  \qquad
+  3a-2n\ge k.
+\]
+If a received line \(f+zg\) has exactly \(n-a+1\) support-wise noncontained
+finite bad slopes at agreement at least \(a\), and if \(n-a+1\ge2\), then the
+line is tangent-star extremal in the following sense.  There are codewords
+\(c_f,c_g\in C\) and a common support \(S_0\subseteq D\) of size \(a-1\) such
+that, after replacing \(f,g\) by \(f-c_f,g-c_g\), every bad slope is obtained by
+choosing exactly one residual coordinate in \(D\setminus S_0\).  More precisely,
+writing \(\Omega=D\setminus S_0\), the map
+\[
+  x\longmapsto
+  -\frac{f(x)-c_f(x)}{g(x)-c_g(x)}
+\]
+is a bijection from \(\Omega\) to the bad-slope set.
+\end{corollary}
+
+\begin{proof}
+Choose two distinct bad slopes and form the maximal common code-line support
+\(S_0\) as in the proof of Theorem~\ref{thm:very-high-tangent-staircase}; write
+\(b=|S_0|\), \(s=n-a\), and \(d=n-b\).  Equality in the upper bound from that
+proof cannot occur when \(b\ge a\), because then there are at most \(n-a\) bad
+slopes.  Hence \(b<a\).  The residual-budget bound is
+\[
+  \#\{\text{bad slopes}\}
+  \le
+  \left\lfloor\frac d{d-s}\right\rfloor
+  \le s+1=n-a+1.
+\]
+For equality, the second inequality must be sharp, so \(d-s=1\), equivalently
+\(b=a-1\).  The maximality of \(S_0\) gives no common residual zeros outside
+\(S_0\).  Since \(|\Omega|=n-a+1\) and each residual coordinate can vanish for
+at most one finite slope, equality forces every residual coordinate to be used
+exactly once.  This is precisely the displayed residual-root bijection.
+\end{proof}
+
+\begin{corollary}[exact high-agreement gate for the \(\F_{17^{32}}\), rate-\(1/2\) row]
+\label{cor:f17-32-exact-tangent-gate}
+Let \(H\subset \F_{17^{32}}^*\) be any multiplicative subgroup of order
+\(512\), and let
+\[
+  C=\RS[\F_{17^{32}},H,256].
+\]
+For every \(a\ge427\),
+\[
+  \operatorname{LD}_{\rm sw}(C,a)=513-a.
+\]
+In particular,
+\[
+  \operatorname{LD}_{\rm sw}(C,506)=7,
+  \qquad
+  \operatorname{LD}_{\rm sw}(C,507)=6.
+\]
+Since
+\[
+  6\cdot2^{128}<17^{32}<7\cdot2^{128},
+\]
+we have
+\[
+  \frac{\operatorname{LD}_{\rm sw}(C,507)}{17^{32}}<2^{-128}
+  \quad\text{but}\quad
+  \frac{\operatorname{LD}_{\rm sw}(C,506)}{17^{32}}>2^{-128}.
+\]
+Thus, under the finite-slope support-wise MCA convention, the \(2^{-128}\)
+integer agreement staircase for this row is pinned between \(506\) and \(507\).
+The largest safe integer Hamming radius is \(5\), while integer radius \(6\) is
+already unsafe.  The corresponding normalized grid radii are
+\[
+  5/512
+  \quad\text{and}\quad
+  6/512=3/256.
+\]
+As a real-radius supremum, the transition is \(3/256\), but the closed endpoint
+\(\delta=3/256\) is on the unsafe side.
+\end{corollary}
+
+\begin{proof}
+Here \(n=512\) and \(k=256\).  The hypothesis
+\(3a-2n\ge k\) becomes \(3a-1024\ge256\), hence \(a\ge427\).  The exact formula
+is Theorem~\ref{thm:very-high-tangent-staircase}.  The arithmetic inequalities
+are
+\[
+  17^{32}-6\cdot2^{128}
+  =326217393234836465063858652730341978625>0
+\]
+and
+\[
+  7\cdot2^{128}-17^{32}
+  =14064973686101998399515954701426232831>0 .
+\]
+\end{proof}
+
+\begin{corollary}[no seventh finite-slope branch past agreement \(506\)]
+\label{cor:no-seventh-finite-slope-past-506}
+For \(C=\RS[\F_{17^{32}},H,256]\) with \(|H|=512\), no finite-slope
+support-wise MCA mechanism can add a seventh bad slope at agreement
+\(a\ge507\).  At equality, any extremal line is tangent-star in the sense of
+Corollary~\ref{cor:tangent-star-extremizers}.
+\end{corollary}
+
+\begin{proof}
+By Corollary~\ref{cor:f17-32-exact-tangent-gate},
+\[
+  \operatorname{LD}_{\rm sw}(C,a)=513-a
+  \qquad (a\ge427).
+\]
+For every \(a\ge507\), the right-hand side is at most \(6\).  Thus a seventh
+finite support-wise bad slope is impossible in this range.  The extremizer
+classification is Corollary~\ref{cor:tangent-star-extremizers}.
+\end{proof}
+
+\begin{remark}[effect on the earlier agreement-353 target]
+The agreement-353 target is no longer a frontier for the rate-\(1/2\),
+\(\F_{17^{32}}\), \(n=512\) row: Theorem~\ref{thm:moving-root-tangent-floor}
+already gives
+\[
+  \operatorname{LD}_{\rm sw}(C,353)\ge512-353+1=160.
+\]
+The quotient-core strict352 packet remains a useful mechanism record, but the
+generic tangent floor gives a stronger lower bound at agreement \(352\) and
+beyond.  Corollary~\ref{cor:no-seventh-finite-slope-past-506} rules out a
+seventh finite-slope branch past agreement \(506\).  The adjacent-ledger
+section below treats the high-agreement projective-slope, CA, curve-MCA, and
+interleaved-list coding objects; protocol-facing conversions still require
+separate challenge-field, extension-lift, folding, query, and cryptographic
+ledgers.
+\end{remark}

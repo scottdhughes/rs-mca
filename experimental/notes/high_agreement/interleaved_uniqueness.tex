@@ -1,0 +1,34 @@
+% Promoted from experimental/experiments.tex lines 1915--1943.
+% Status: stable high-agreement note.  This is a TeX fragment intended to be
+% included from experimental/experiments.tex or another paper-level wrapper.
+% Dependencies: theorem environments, standard macros such as \F and \RS,
+% and earlier local labels referenced inside the note.
+
+\subsection{Interleaved-list uniqueness}
+
+For \(\mu\ge1\), let \(\Lambda_\mu(C,a)\) denote the maximum, over all
+\(\mu\)-row received words \(U=(U_1,\ldots,U_\mu)\), of the number of tuples
+\((c_1,\ldots,c_\mu)\in C^\mu\) that agree with \(U\) on at least \(a\) common
+positions.
+
+\begin{theorem}[high-agreement interleaved-list uniqueness]
+\label{thm:interleaved-unique-high-agreement}
+Let \(C\subseteq F^D\) be MDS of length \(n\) and dimension \(k\).  If
+\[
+  2a-n\ge k,
+\]
+then for every \(\mu\ge1\),
+\[
+  \Lambda_\mu(C,a)=1 .
+\]
+\end{theorem}
+
+\begin{proof}
+The lower bound is obtained by taking \(U\) itself to be a code tuple.  For the
+upper bound, suppose two tuples \(c=(c_1,\ldots,c_\mu)\) and
+\(c'=(c'_1,\ldots,c'_\mu)\) both agree with \(U\) on supports of size at least
+\(a\).  The supports intersect in at least \(2a-n\ge k\) positions.  On this
+intersection, each row \(c_i\) agrees with \(c'_i\).  Since \(C\) is MDS, two
+codewords that agree on \(k\) positions are equal.  Thus \(c_i=c'_i\) for every
+row \(i\), so the tuples are identical.
+\end{proof}

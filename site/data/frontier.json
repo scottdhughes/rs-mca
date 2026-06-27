@@ -1,5 +1,34 @@
 [
   {
+    "id": "tangent257-lower-floor",
+    "title": "Tangent lower-floor capacity-edge row",
+    "short": "Generic moving-root tangent floor gives 256 bad slopes one step below capacity.",
+    "row": "RS[F_17^32,H,256]",
+    "n": 512,
+    "k": 256,
+    "rho": 0.5,
+    "agreement": 257,
+    "badSlopes": "256",
+    "q": "17^32",
+    "status": "proved",
+    "tag": "proved",
+    "label": "theorem-backed scanner row",
+    "radiusLabel": "255/512",
+    "proof": "The generic moving-root tangent floor gives LD_sw(C,a) >= n-a+1 for all k+1 <= a <= n. At a=257 this gives at least 256 support-wise MCA bad finite slopes, and the certificate scanner verifies 256/17^32 > 2^-128.",
+    "nonclaims": "Finite-slope support-wise MCA lower floor only; not an exact threshold, not ordinary list decoding, and not protocol soundness.",
+    "links": [
+      {
+        "label": "Tangent staircase summary",
+        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent/tangent_staircase_summary.md"
+      },
+      {
+        "label": "Scanner report",
+        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/outputs/f17_512.report.md"
+      }
+    ],
+    "authors": "tangent staircase notes / Codex audit"
+  },
+  {
     "id": "cycle116",
     "title": "Cycle116 closed-threshold proof record",
     "short": "ABF printed closed threshold at delta = 125/256.",
@@ -14,14 +43,19 @@
     "tag": "proved",
     "label": "proof record",
     "radiusLabel": "125/256",
-    "proof": "Cycle116 agreement-262 transfer reaches the printed ABF closed support threshold.",
-    "nonclaims": "Not ordinary list decoding; not protocol soundness; not exact delta*_C.",
+    "proof": "Cycle116 agreement-262 transfer reaches the printed ABF closed support threshold. The weaker >2^-128 gate is independently unconditional via the moving-root tangent floor, which gives LD_sw(C,262) >= n-a+1 = 251 >= 7 with no Cycle84 census input.",
+    "nonclaims": "The >2^-128 gate and delta*_C <= 125/256 conclusion are unconditional via the tangent floor; the printed 52,747,567,092 numerator and ~2^-95 density still import the Cycle84 finite count. Not ordinary list decoding; not protocol soundness; not exact delta*_C.",
     "links": [
       {
         "label": "Cycle120 scope note",
         "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_cycle120_abf_counterexample_candidate.md"
+      },
+      {
+        "label": "Tangent gate audit",
+        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/audits/audit_prize_gate_unconditional_via_tangent.md"
       }
-    ]
+    ],
+    "authors": "DannyExperiments / AllenGrahamHart / Codex audit"
   },
   {
     "id": "cycle119",
@@ -38,8 +72,8 @@
     "tag": "proved",
     "label": "proof record",
     "radiusLabel": "249/512",
-    "proof": "Two-ended locator theorem: common top-six coefficients plus common nonzero constant coefficient.",
-    "nonclaims": "Finite/source-scoped theorem; imports the Cycle84 numerator; not an official prize solve by itself.",
+    "proof": "Two-ended locator theorem: common top-six coefficients plus common nonzero constant coefficient. The weaker strict >2^-128 gate is independently unconditional via the moving-root tangent floor, which gives LD_sw(C,263) >= n-a+1 = 250 >= 7.",
+    "nonclaims": "The strict >2^-128 gate and delta*_C <= 249/512 conclusion are unconditional via the tangent floor; the exact 52,747,567,092 numerator and ~2^-95 density still import the Cycle84 finite count. Finite/source-scoped; not an official prize solve by itself.",
     "links": [
       {
         "label": "Cycle119 review",
@@ -48,8 +82,13 @@
       {
         "label": "Standalone LDsw note",
         "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_cycle120_standalone_ldsw_proof.md"
+      },
+      {
+        "label": "Tangent gate audit",
+        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/audits/audit_prize_gate_unconditional_via_tangent.md"
       }
-    ]
+    ],
+    "authors": "DannyExperiments / AllenGrahamHart / Codex audit"
   },
   {
     "id": "strict264-min",
@@ -77,7 +116,8 @@
         "label": "Entropy MCA package",
         "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict264/entropy_mca_new_results.md"
       }
-    ]
+    ],
+    "authors": "RS-MCA strict264 notes / Codex audit"
   },
   {
     "id": "tangent506-exact-gate",
@@ -98,6 +138,14 @@
     "nonclaims": "Finite-slope support-wise MCA convention for this row; adjacent high-agreement CA/projective/curve/list ledgers are recorded separately, and protocol/folding/query/challenge-field losses remain conditional.",
     "links": [
       {
+        "label": "Finite-row threshold note",
+        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/thresholds/f17_32_finite_mca_threshold.pdf"
+      },
+      {
+        "label": "Pure MCA scanner report",
+        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/outputs/f17_512_mca_only.report.md"
+      },
+      {
         "label": "Adjacent ledgers summary",
         "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/adjacent-ledgers/high_agreement_adjacent_ledgers_summary.md"
       },
@@ -117,7 +165,8 @@
         "label": "Tangent staircase summary",
         "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent/tangent_staircase_summary.md"
       }
-    ]
+    ],
+    "authors": "tangent-star notes / Codex audit"
   },
   {
     "id": "strict352-quotient-core",
@@ -145,7 +194,8 @@
         "label": "Strict352 verifier",
         "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/verify_strict352_quotient_core.py"
       }
-    ]
+    ],
+    "authors": "RS-MCA strict352 notes / Codex audit"
   },
   {
     "id": "strict264-2187",
@@ -163,60 +213,94 @@
     "label": "candidate",
     "radiusLabel": "31/64",
     "proof": "Candidate target; requires independent theorem and admissibility audit.",
-    "nonclaims": "Do not cite as proved without a proof record."
+    "nonclaims": "Do not cite as proved without a proof record.",
+    "authors": "DannyExperiments / Codex audit"
   },
   {
     "id": "reserve272",
-    "title": "Reserve-scale target sigma = 16",
-    "short": "A more serious finite-slack target.",
+    "title": "Reserve-scale sigma = 16 (proved, subsumed)",
+    "short": "Deeper finite-slack rung, now subsumed by proved tangent and strict352 floors.",
     "row": "RS[F_17^32,H,256]",
     "n": 512,
     "k": 256,
     "rho": 0.5,
     "agreement": 272,
-    "badSlopes": "7",
+    "badSlopes": "241",
     "q": "17^32",
-    "status": "target",
-    "tag": "target",
-    "label": "target",
+    "status": "proved",
+    "tag": "proved",
+    "label": "subsumed proof record",
     "radiusLabel": "15/32",
-    "proof": "Search target for deeper slack frontier.",
-    "nonclaims": "Speculative target."
+    "proof": "The moving-root tangent floor gives LD_sw(C,272) >= n-a+1 = 241; strict352 also gives a much larger quotient-core lower bound through this agreement. Since floor(17^32/2^128)=6, this clears the prize gate without a special reserve272 search.",
+    "nonclaims": "Subsumed lower-bound row, not an independent reserve-scale mechanism. Finite-slope support-wise MCA convention.",
+    "links": [
+      {
+        "label": "Reserve subsumption note",
+        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_reserve_subsumed_by_strict352.md"
+      },
+      {
+        "label": "Tangent staircase summary",
+        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent/tangent_staircase_summary.md"
+      }
+    ],
+    "authors": "AllenGrahamHart / Claude / Codex audit"
   },
   {
     "id": "reserve288",
-    "title": "Reserve-scale target sigma = 32",
-    "short": "Deeper below capacity; still only seven retained slopes are enough.",
+    "title": "Reserve-scale sigma = 32 (proved, subsumed)",
+    "short": "Deeper below capacity, now subsumed by proved tangent and strict352 floors.",
     "row": "RS[F_17^32,H,256]",
     "n": 512,
     "k": 256,
     "rho": 0.5,
     "agreement": 288,
-    "badSlopes": "7",
+    "badSlopes": "225",
     "q": "17^32",
-    "status": "target",
-    "tag": "target",
-    "label": "target",
+    "status": "proved",
+    "tag": "proved",
+    "label": "subsumed proof record",
     "radiusLabel": "7/16",
-    "proof": "Search target for Paper-B corrected-reserve stress tests.",
-    "nonclaims": "Speculative target."
+    "proof": "The moving-root tangent floor gives LD_sw(C,288) >= n-a+1 = 225; strict352 also covers this agreement. Since floor(17^32/2^128)=6, this clears the prize gate.",
+    "nonclaims": "Subsumed lower-bound row, not an independent reserve-scale mechanism. Finite-slope support-wise MCA convention.",
+    "links": [
+      {
+        "label": "Reserve subsumption note",
+        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_reserve_subsumed_by_strict352.md"
+      },
+      {
+        "label": "Strict352 summary",
+        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/strict352/strict352_quotient_core_summary.md"
+      }
+    ],
+    "authors": "AllenGrahamHart / Claude / Codex audit"
   },
   {
     "id": "reserve313",
-    "title": "n/log n scale target sigma ~= 57",
-    "short": "Closer to the local-limit reserve scale.",
+    "title": "n/log n scale sigma ~= 57 (proved, subsumed)",
+    "short": "Closer to the local-limit reserve scale, now covered by proved lower floors.",
     "row": "RS[F_17^32,H,256]",
     "n": 512,
     "k": 256,
     "rho": 0.5,
     "agreement": 313,
-    "badSlopes": "7",
+    "badSlopes": "200",
     "q": "17^32",
-    "status": "target",
-    "tag": "target",
-    "label": "target",
+    "status": "proved",
+    "tag": "proved",
+    "label": "subsumed proof record",
     "radiusLabel": "199/512",
-    "proof": "Longer-range target near n/log2(n).",
-    "nonclaims": "Speculative target."
+    "proof": "The moving-root tangent floor gives LD_sw(C,313) >= n-a+1 = 200; strict352 also covers this agreement. Since floor(17^32/2^128)=6, this clears the prize gate.",
+    "nonclaims": "Subsumed lower-bound row, not an independent n/log n local-limit theorem. Finite-slope support-wise MCA convention.",
+    "links": [
+      {
+        "label": "Reserve subsumption note",
+        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_reserve_subsumed_by_strict352.md"
+      },
+      {
+        "label": "Tangent staircase summary",
+        "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/tangent/tangent_staircase_summary.md"
+      }
+    ],
+    "authors": "AllenGrahamHart / Claude / Codex audit"
   }
 ]

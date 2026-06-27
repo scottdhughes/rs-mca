@@ -157,11 +157,255 @@ distinct slopes. This is not an above-reserve counterexample: at
 `sigma >= C |D|/log |D|` the floor is only `O(log |D|)` at fixed rate. It is,
 however, a structural lower term that any sharp repaired F1 theorem must allow.
 
+This is the strongest lower term delivered by this sunflower construction.
+Indeed, for fixed `n=|D|`, `a=k+sigma`, and core size `0<=c<=k`, the construction
+gives
+
+```text
+m(c) = floor((n-c)/(a-c)).
+```
+
+Since `a<=n`, the real function `(n-c)/(a-c)` is nondecreasing in `c` on
+`0<=c<a`.  Thus `m(c)` is maximized by the largest allowed core `c=k`, giving
+
+```text
+max_{0<=c<=k} m(c) = floor((n-k)/sigma).
+```
+
+So the `floor((|D|-k)/sigma)` term is not an artifact of a particular core
+choice; it is the optimized sunflower lower floor for this arbitrary-anchor
+construction.
+
+## Degenerate Support-Packing Sharpening
+
+The same floor exhausts a larger interpolation-free support-packing mechanism.
+Call an ordered family of `a`-subsets
+
+```text
+S_1,...,S_m subset D
+```
+
+`k`-degenerate if, for each `i>1`,
+
+```text
+|S_i cap (S_1 union ... union S_{i-1})| <= k.
+```
+
+For every `k`-degenerate family and every choice of distinct slopes
+`z_1,...,z_m in F`, there is an anchor word `w:D->F` such that the same
+balanced datum `(E,N,w)` has support-wise noncontained witnesses for all
+slopes `z_i` on the supports `S_i`.
+
+Indeed, build the anchor inductively.  Suppose `w` has already been defined
+on the union of the previous supports.  On
+
+```text
+J_i = S_i cap (S_1 union ... union S_{i-1})
+```
+
+we need a degree-`<k` polynomial `P_i` satisfying
+
+```text
+E(x) P_i(x) + z_i N(x) = w(x),        x in J_i.
+```
+
+Since `E` is nonzero on `D` and `|J_i|<=k`, ordinary interpolation gives such
+a `P_i`.  Then
+
+```text
+Q_i = z_i N + E P_i
+```
+
+has degree `<k+t=a`, agrees with the old anchor on `J_i`, and defines the
+new anchor values on `S_i \ J_i`.  The same divisibility argument as above
+shows every active support is noncontained: if the direction were explained
+by a degree-`<k` polynomial `G` on `S_i`, then `E G+N` would have degree `<a`
+and `a` roots, forcing `E|N`, impossible because `deg N < deg E` and
+`[N]_E != 0`.
+
+This broader construction has the same exact packing ceiling.  A
+`k`-degenerate family satisfies
+
+```text
+|S_1 union ... union S_m| >= a + (m-1)(a-k) = k + m sigma,
+```
+
+so necessarily
+
+```text
+m <= floor((|D|-k)/sigma).
+```
+
+The sunflower with core size `k` attains this ceiling.  Therefore the
+`floor((|D|-k)/sigma)` term is not merely the best common-core sunflower
+floor; it is the exact maximum for every ordered support family whose slopes
+can be added freely by at most `k` old interpolation constraints at each step.
+Any larger arbitrary-anchor obstruction must use a dense-overlap packet, where
+each remaining support meets the previous union in more than `k` points and
+the compatibility equations no longer decouple by interpolation.
+
+## High-Overlap Pair Gate
+
+The dense-overlap condition has an exact local test.  Fix two `a`-subsets
+`S,T subset D` and two distinct slopes `z_S != z_T`.  Put
+
+```text
+J = S cap T.
+```
+
+There is an anchor word `w` and degree-`<k` polynomials `P_S,P_T` such that
+
+```text
+Q_S = z_S N + E P_S,        Q_T = z_T N + E P_T
+```
+
+agree with `w` on `S` and `T`, respectively, if and only if the function
+
+```text
+x |-> N(x)/E(x),        x in J,
+```
+
+is the restriction to `J` of a degree-`<k` polynomial.  For `|J|<=k` this is
+automatic, recovering the free interpolation used above.  For `|J|>k` it is a
+genuine residue-direction gate.
+
+The proof is just the overlap equation.  If the two witnesses agree on `J`,
+then for every `x in J`
+
+```text
+E(x)(P_T(x)-P_S(x)) = (z_S-z_T)N(x),
+```
+
+so `(P_T-P_S)/(z_S-z_T)` is a degree-`<k` interpolant for `N/E` on `J`.
+Conversely, if `R_J` is such an interpolant, then taking `P_S=0` and
+`P_T=(z_S-z_T)R_J` makes `Q_S` and `Q_T` agree on `J`; the anchor is then
+defined by these two witnesses on `S union T`.  Noncontainment on the full
+supports is automatic in the balanced datum: if `N/E` agreed with a
+degree-`<k` polynomial on all of an `a`-subset, then `E P-N` would have
+degree `<a` and `a` roots, hence would vanish identically, contradicting
+`deg N < deg E` and `[N]_E != 0`.
+
+Thus any super-floor arbitrary-anchor packet must be supported on a dense
+overlap graph whose high-overlap edges all pass this residue-direction gate.
+In the explicit `F_17^2` packet below with `k=3` and `a=5`, exactly four
+four-point overlaps pass the gate for `N=1` and `E=X(X-alpha)`, while no
+five-point support is contained.  The verifier records this as the first
+finite dense-overlap audit target.
+
+## Gated-Core Lower Floor
+
+The high-overlap gate is not only necessary; when a large gated core exists it
+produces a stronger lower floor.
+
+Let `J subset D` have size
+
+```text
+k < c = |J| < a,
+```
+
+and suppose that `N/E` on `J` is the restriction of a degree-`<k` polynomial
+`R_J`.  If
+
+```text
+m <= floor((|D|-c)/(a-c)),
+```
+
+then there are `m` supports
+
+```text
+S_i = J union P_i,        |P_i|=a-c,
+```
+
+with pairwise disjoint petals `P_i subset D\J`.  For any distinct slopes
+`z_1,...,z_m`, the same balanced datum `(E,N,w)` has support-wise
+noncontained witnesses for all `z_i`.
+
+Take the anchor to be zero on `J` and set
+
+```text
+Q_i = z_i N - z_i E R_J.
+```
+
+Then `Q_i` has degree `<a`, satisfies `Q_i == z_i N mod E`, and vanishes on
+`J`.  The disjoint petals define the remaining anchor values independently.
+The noncontainment argument is the same as before: a degree-`<k` explanation
+of the direction on an active support would make `E G+N` a degree-`<a`
+polynomial with `a` roots, forcing `E|N`, impossible.
+
+This is the dense-overlap analogue of the sunflower construction.  For a
+gated core of size `c>k`, its floor
+
+```text
+floor((|D|-c)/(a-c))
+```
+
+can be strictly larger than the free support-packing floor
+`floor((|D|-k)/sigma)`.  In the explicit `F_17^2` packet below, one gated
+core has
+
+```text
+c=4,        k=3,        a=5,
+```
+
+so it realizes
+
+```text
+floor((16-4)/(5-4)) = 12
+```
+
+distinct bad slopes, twice the core-`k` sunflower floor `6`.  Thus the sharp
+arbitrary-anchor lower ledger must include gated dense cores, not only
+freely attached support packings.
+
+## Multi-Support Compatibility System
+
+The previous constructions are all instances of one exact finite linear
+criterion.  Fix `a`-subsets
+
+```text
+S_1,...,S_m subset D
+```
+
+and slopes `z_1,...,z_m`.  There is an anchor word `w:D->F` and
+degree-`<k` polynomials `P_i` such that
+
+```text
+Q_i = z_i N + E P_i
+```
+
+agrees with `w` on `S_i` for every `i` if and only if the following overlap
+system has a solution in the coefficients of the `P_i`:
+
+```text
+P_i(x) - P_j(x) = (z_j-z_i) N(x)/E(x),
+        x in S_i cap S_j,        1 <= i < j <= m.        (Compat)
+```
+
+Proof.  If a common anchor exists, then `Q_i(x)=Q_j(x)` on every overlap, and
+dividing by the nonzero value `E(x)` gives `(Compat)`.  Conversely, if
+`(Compat)` has a solution, then the values `Q_i` agree on all pairwise
+overlaps.  Hence they glue to a well-defined word on `S_1 union ... union
+S_m`, which can be extended arbitrarily to an anchor on all of `D`.
+Noncontainment on each active support is still automatic for the balanced
+datum by the same divisibility argument.
+
+This criterion is the right normal form for the remaining arbitrary-anchor
+search.  Free support packing is the case where every new overlap contributes
+at most `k` interpolation constraints.  A gated core is the case where many
+overlap constraints are compatible because `N/E` has a low-degree trace on
+the common core.  Any denser packet that is not explained by a common gated
+core must be a genuine compatibility-system solution with nontrivial cycle
+relations among the overlaps.
+
 ## Status
 
 PROVED residual-slack reduction for `t <= sigma`; PROVED / COUNTEREXAMPLE to
 the naive promotion of the monic-anchor base-core reduction to arbitrary
-balanced anchors.
+balanced anchors; PROVED `k`-degenerate support-packing sharpening of the
+sunflower lower floor; PROVED high-overlap pair gate for the remaining dense
+overlap obstruction; COUNTEREXAMPLE to universality of the free-packing floor
+via a gated-core lower floor; PROVED multi-support linear compatibility
+criterion for arbitrary-anchor packets.
 
 This does not refute the repaired F1 conjecture above the corrected reserve.
 For `t<sigma`, it routes the datum to the extension list ledger with residual
@@ -407,15 +651,20 @@ S |-> [Q_S^w]_E,
 
 where `Q_S^w` is the unique degree-`<a` interpolant of the arbitrary anchor
 word `w` on `S`. Bounding rich intersections of this cloud with residue lines
-is the actual arbitrary-anchor problem. The sunflower floor shows that even a
-successful upper bound should include at least a
-`floor((|D|-k)/sigma)` arbitrary-anchor term.
+is the actual arbitrary-anchor problem. The degenerate support-packing theorem
+shows that even a successful upper bound should include at least the
+`floor((|D|-k)/sigma)` free-packing term.  The gated-core construction shows
+that this is not the universal arbitrary-anchor floor: compatible dense cores
+can be larger, and any sharp repaired F1 ledger must budget the best
+residue-compatible dense-core terms or prove that they cannot persist above
+the corrected reserve.  The compatibility-system criterion gives the exact
+finite object to attack next: dense packets not explained by a common gated
+core correspond to nontrivial overlap-cycle solutions of `(Compat)`.
 
 ## Reproducibility
 
 The finite packet above is checked by
 
 ```text
-python3 experimental/scripts/codex_f1_l1_20260617/verifiers/\
-verify_f1_arbitrary_anchor_split.py
+python3 experimental/scripts/verify_f1_arbitrary_anchor_split.py
 ```

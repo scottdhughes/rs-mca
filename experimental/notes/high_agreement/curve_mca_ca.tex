@@ -1,0 +1,113 @@
+% Promoted from experimental/experiments.tex lines 1807--1914.
+% Status: stable high-agreement note.  This is a TeX fragment intended to be
+% included from experimental/experiments.tex or another paper-level wrapper.
+% Dependencies: theorem environments, standard macros such as \F and \RS,
+% and earlier local labels referenced inside the note.
+
+\subsection{Finite-parameter curve MCA}
+
+Fix an integer \(d\ge1\).  A degree-\(d\) received curve is a family
+\[
+  W_\gamma=f_0+\gamma f_1+\cdots+\gamma^d f_d,
+  \qquad \gamma\in F .
+\]
+Let \(\operatorname{CurveLD}_{\rm sw}^{(d)}(C,a)\) be the maximum number of
+parameters \(\gamma\in F\) for which \(W_\gamma\) has a \(C\)-explanation on a
+support of size at least \(a\), while the tuple \((f_0,\ldots,f_d)\) is not
+simultaneously explained by \(C^{d+1}\) on that support.  Define
+\(\operatorname{CurveLD}_{\rm ca}^{(d)}(C,a)\) similarly, replacing the
+support-wise condition by the no-loss global CA condition that
+\((f_0,\ldots,f_d)\) is not \(C^{d+1}\)-close at agreement \(a\).
+
+\begin{theorem}[degree-\(d\) curve tangent staircase]
+\label{thm:curve-tangent-staircase}
+Let \(C=\RS[F,D,k]\), \(|D|=n\), \(|F|=q\), and \(d\ge1\).  If
+\[
+  (d+2)a-(d+1)n\ge k,
+\]
+then
+\[
+  \operatorname{CurveLD}_{\rm sw}^{(d)}(C,a)
+  =
+  \operatorname{CurveLD}_{\rm ca}^{(d)}(C,a)
+  =
+  \min\{q,\ d(n-a+1)\}.
+\]
+\end{theorem}
+
+\begin{proof}
+Put \(m=n-a+1\).  For the lower bound, choose \(A\subset D\) with
+\(|A|=a-1\) and let \(\Omega=D\setminus A\), so \(|\Omega|=m\).  Choose
+\(M=\min\{q,dm\}\) distinct parameters in \(F\), partition them among the
+points \(x\in\Omega\) into sets \(R_x\) of size at most \(d\), and for each
+\(x\in\Omega\) choose a nonzero polynomial
+\[
+  P_x(T)=\sum_{i=0}^d p_{i,x}T^i
+\]
+whose root set contains \(R_x\).  Define \(f_i=0\) on \(A\) and
+\(f_i(x)=p_{i,x}\) for \(x\in\Omega\).  If \(\gamma\in R_x\), then
+\(W_\gamma\) vanishes on \(A\cup\{x\}\), so it is explained by the zero codeword
+on a support of size \(a\).  On this same support the tuple
+\((f_0,\ldots,f_d)\) is not simultaneously explained: every component vanishes
+on \(A\), which has at least \(k\) points, so the only possible explaining
+codewords are all zero, but \(P_x\) is not the zero polynomial and hence some
+component is nonzero at \(x\).
+
+The same construction is CA-far.  If the tuple were globally explained on a
+support \(T\) of size at least \(a\), then
+\[
+  |T\cap A|\ge 2a-n-1.
+\]
+The curve-range hypothesis implies \(2a-n-1\ge k\) when \(a<n\), and the case
+\(a=n\) is immediate from \(n-1\ge k\).  Thus all explaining codewords would be
+zero, which is impossible on every point of \(\Omega\) by construction.  Hence
+all \(M\) parameters are curve-CA-bad and support-wise curve-MCA-bad.
+
+For the upper bound, it is enough to prove the support-wise statement, since
+curve-CA-bad parameters are support-wise bad.  If there are at most \(d\) bad
+parameters, the bound is immediate.  Otherwise pick \(d+1\) distinct bad
+parameters \(\gamma_0,\ldots,\gamma_d\), with explaining codewords on supports
+\(S_0,\ldots,S_d\).  Their intersection has size at least
+\[
+  b_0\ge (d+1)a-dn .
+\]
+On this intersection, interpolation in the parameter \(\gamma\) expresses each
+component \(f_i\) as an \(F\)-linear combination of the \(d+1\) explaining
+codewords, hence as a codeword \(c_i\in C\).  Let \(S_*\) be a maximal support
+on which all \(f_i=c_i\), and put \(b=|S_*|\).  Then
+\(b\ge b_0\), and the hypothesis gives
+\[
+  a+b-n\ge a+b_0-n=(d+2)a-(d+1)n\ge k .
+\]
+
+Now consider any bad parameter \(\gamma\), with explaining codeword \(p_\gamma\)
+on a support \(S\) of size at least \(a\).  On \(S\cap S_*\), whose size is at
+least \(a+b-n\ge k\), the codeword \(p_\gamma\) agrees with
+\[
+  c_\gamma=\sum_{i=0}^d\gamma^i c_i\in C.
+\]
+Therefore the residual word \(W_\gamma-c_\gamma\) must vanish on at least
+\(h=\max\{1,a-b\}\) points of \(D\setminus S_*\).  By maximality of \(S_*\), for
+each residual coordinate \(x\in D\setminus S_*\) the polynomial
+\[
+  R_x(T)=\sum_{i=0}^d T^i(f_i(x)-c_i(x))
+\]
+is not identically zero, so it has at most \(d\) roots in \(F\).  Counting
+incidences \((\gamma,x)\) with \(R_x(\gamma)=0\) gives
+\[
+  \#\{\text{bad parameters}\}\cdot h
+  \le d(n-b).
+\]
+If \(b\ge a\), then \(h=1\) and the right side is at most
+\(d(n-a)\le d(n-a+1)\).  If \(b<a\), then
+\[
+  \#\{\text{bad parameters}\}
+  \le
+  d\,\frac{n-b}{a-b}
+  =
+  d\left(1+\frac{n-a}{a-b}\right)
+  \le d(n-a+1),
+\]
+because \(a-b\ge1\).  The trivial field-size cap gives the additional upper
+bound \(q\).  This proves the exact formula.
+\end{proof}

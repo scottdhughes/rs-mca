@@ -1,0 +1,152 @@
+% Promoted from experimental/experiments.tex lines 1944--2090.
+% Status: stable high-agreement note.  This is a TeX fragment intended to be
+% included from experimental/experiments.tex or another paper-level wrapper.
+% Dependencies: theorem environments, standard macros such as \F and \RS,
+% and earlier local labels referenced inside the note.
+
+\subsection{The \(\F_{17^{32}}\), \(n=512\), \(k=256\) protocol-facing ledger}
+
+\begin{corollary}[high-agreement adjacent ledgers for the \(17^{32}\) row]
+\label{cor:f17-adjacent-ledgers}
+Let \(H\subset\F_{17^{32}}^*\) have order \(512\), and let
+\[
+  C=\RS[\F_{17^{32}},H,256].
+\]
+Put \(q=17^{32}\) and
+\[
+  B_*=\left\lfloor q/2^{128}\right\rfloor=6.
+\]
+Then the following statements hold.
+
+\begin{enumerate}
+\item For every \(a\ge427\),
+\[
+  \operatorname{LD}_{\rm ca}(C,a)
+  =
+  \operatorname{LD}_{\rm sw,proj}(C,a)
+  =
+  \operatorname{LD}_{\rm sw}(C,a)
+  =
+  513-a.
+\]
+Thus the affine/projective line numerator is \(6\) at \(a=507\) and \(7\) at
+\(a=506\).
+
+\item For every \(\mu\ge1\) and every \(a\ge384\),
+\[
+  \Lambda_\mu(C,a)=1.
+\]
+
+\item For degree-\(d\) finite-parameter curves, whenever
+\[
+  a\ge
+  \left\lceil\frac{(d+1)512+256}{d+2}\right\rceil,
+\]
+we have
+\[
+  \operatorname{CurveLD}_{\rm sw}^{(d)}(C,a)
+  =
+  \operatorname{CurveLD}_{\rm ca}^{(d)}(C,a)
+  =
+  \min\{17^{32},\,d(513-a)\}.
+\]
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+The first item is Corollary~\ref{cor:f17-32-exact-tangent-gate} together with
+Theorem~\ref{thm:ca-projective-tangent-staircase}.  The second item is
+Theorem~\ref{thm:interleaved-unique-high-agreement}, because
+\(2a-512\ge256\) is equivalent to \(a\ge384\).  The third item is
+Theorem~\ref{thm:curve-tangent-staircase} after substituting \(n=512\) and
+\(k=256\).  The integer \(B_*=6\) follows from
+\[
+  6\cdot2^{128}<17^{32}<7\cdot2^{128}.
+\]
+\end{proof}
+
+\begin{corollary}[conditional high-agreement protocol ledger]
+\label{cor:high-agreement-protocol-ledger}
+Consider a protocol reduction for the row of
+Corollary~\ref{cor:f17-adjacent-ledgers} whose coding-theoretic error at
+agreement \(a\) is exactly
+\[
+  \frac{N_{\rm geom}(a)}{17^{32}}
+  +
+  \frac{\Lambda_\mu(C,a)}{17^{32}}
+  +
+  \varepsilon_{\rm query},
+\]
+where \(N_{\rm geom}(a)\) is one affine/projective line CA/MCA numerator or one
+degree-\(d\) finite-parameter curve numerator, and where no additional fold,
+hash, Fiat--Shamir, or extension-lift loss is hidden in the notation.  In the
+high-agreement ranges above, this ledger becomes the following explicit integer
+test.
+
+For affine/projective line CA/MCA,
+\[
+  N_{\rm geom}(a)+\Lambda_\mu(C,a)
+  =
+  (513-a)+1
+  =
+  514-a
+  \qquad (a\ge427).
+\]
+With \(\varepsilon_{\rm query}=0\), this is at most the \(2^{-128}\) budget iff
+\(a\ge508\).  Thus the combined line-plus-list ledger is safe at agreement
+\(508\) and unsafe at agreement \(507\).
+
+For degree-\(d\) finite-parameter curve MCA/CA,
+\[
+  N_{\rm geom}(a)+\Lambda_\mu(C,a)
+  =
+  d(513-a)+1
+\]
+in the curve-staircase range.  With \(\varepsilon_{\rm query}=0\), the safe
+grid points are exactly those satisfying
+\[
+  d(513-a)+1\le6 .
+\]
+In particular:
+\[
+\begin{array}{c|c|c}
+d & \text{curve-plus-list safe grid} & \text{curve term alone safe grid}\\
+\hline
+1 & a\ge508\ (r\le4) & a\ge507\ (r\le5)\\
+2 & a\ge511\ (r\le1) & a\ge510\ (r\le2)\\
+3 & a=512\ (r=0) & a\ge511\ (r\le1)\\
+4 & a=512\ (r=0) & a=512\ (r=0)\\
+5 & a=512\ (r=0) & a=512\ (r=0)\\
+6 & \text{no safe grid point with the list term} & a=512\ (r=0)\\
+d\ge7 & \text{no safe grid point with the list term} &
+        \text{no safe grid point for the curve term alone}
+\end{array}
+\]
+where \(r=n-a\) is the integer Hamming radius.
+\end{corollary}
+
+\begin{proof}
+By Corollary~\ref{cor:f17-adjacent-ledgers}, the interleaved-list numerator is
+\(1\) throughout the displayed high-agreement range.  The affine/projective line
+numerator is \(513-a\), and the degree-\(d\) curve numerator is \(d(513-a)\).
+Since
+\[
+  \left\lfloor 17^{32}/2^{128}\right\rfloor=6,
+\]
+the code-level numerator must be at most \(6\) when
+\(\varepsilon_{\rm query}=0\).  The displayed inequalities are exactly the
+resulting integer conditions.
+\end{proof}
+
+\begin{remark}[what this does and does not settle]
+Theorems~\ref{thm:ca-projective-tangent-staircase},
+\ref{thm:curve-tangent-staircase}, and
+\ref{thm:interleaved-unique-high-agreement} are unconditional finite
+statements under the hypotheses printed above: the CA/projective/curve
+statements are Reed--Solomon evaluation-domain statements, while interleaved
+uniqueness is MDS.  Corollary~\ref{cor:high-agreement-protocol-ledger} is
+conditional on the protocol really consuming only the printed coding terms over
+the printed field.  It does not cover reductions with additional curve
+families, extension-line lifts, folding losses, query errors, or cryptographic
+errors unless those terms are added to the ledger.
+\end{remark}

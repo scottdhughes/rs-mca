@@ -1,0 +1,36 @@
+{
+  "row": {
+    "n": 512,
+    "k": 256
+  },
+  "fields": {
+    "q_gen": "17^32",
+    "q_line": "17^32",
+    "q_chal": "17^32",
+    "q_base": "17^32"
+  },
+  "security": {
+    "lambda": 128
+  },
+  "protocol": {
+    "include_line_term": true,
+    "line_sampler": "finite",
+    "include_interleaved_list_term": true,
+    "implementation_interleaving_nu": 1,
+    "curve_degrees": [
+      2
+    ]
+  },
+  "scan": {
+    "a_values": [
+      352,
+      427,
+      506,
+      507,
+      508,
+      511,
+      512
+    ],
+    "include_thresholds": true
+  }
+}

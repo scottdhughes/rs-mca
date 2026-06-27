@@ -9,6 +9,105 @@
     "href": "https://github.com/przchojecki/rs-mca/blob/main/open-proximity.tex"
   },
   {
+    "date": "2026-06-27",
+    "status": "draft theorem examples",
+    "author": "Codex scanner audit",
+    "title": "Prime192 scanner rows instantiate Paper D v5 across all four rates",
+    "summary": "The leaderboard_sweep_192 packet contributes four concrete q≈2^192 smooth subgroup rows with k=2^40, one for each official rate, plus a small F_17^32 Paper D example. They instantiate the Paper D v5 cap with exact primes q = 1 mod n and +87 bit margins on the prime192 rows.",
+    "impact": "Added as public-board examples, not as new theorems beyond Paper D and not as explicit slope censuses. The existing tangent257 row remains the closest-to-capacity proved finite-slope row.",
+    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/outputs/leaderboard_sweep_192/site_candidate_rows.md"
+  },
+  {
+    "date": "2026-06-27",
+    "status": "threshold package",
+    "author": "Codex",
+    "title": "Finite-row MCA threshold note packages the 506/507 gate",
+    "summary": "The F_17^32, n=512, k=256 row now has a standalone threshold note: finite-slope support-wise MCA is safe at agreement 507 and unsafe at agreement 506.",
+    "impact": "This supersedes the old strict264-next plan for pinning the finite row. The remaining prize work is definition audit plus the row-independent high-agreement threshold compiler.",
+    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/thresholds/f17_32_finite_mca_threshold.pdf"
+  },
+  {
+    "date": "2026-06-27",
+    "status": "audit / proof program",
+    "author": "AllenGrahamHart / Codex audit",
+    "title": "All-line Hankel aperiodic packet distilled but not promoted",
+    "summary": "PR #127 is a large M1 packet around Hankel-pencil and aperiodic residue-line packing. The integration keeps only a concise audit/proof-program note instead of merging the whole generated packet.",
+    "impact": "Potentially important for M1, but no all-line upper bound is promoted until the branch bounds and imported finite computations are independently checkable.",
+    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_all_line_hankel_aperiodic_packet_audit.md"
+  },
+  {
+    "date": "2026-06-27",
+    "status": "M2 ledger infrastructure",
+    "author": "AllenGrahamHart",
+    "title": "Challenge-map pullback ledgers for adjacent high-agreement objects",
+    "summary": "PR #122 adds high-agreement adjacent ledgers for challenge-map pullbacks, keeping line, CA/projective, curve, list, folding/query, and denominator ledgers separate.",
+    "impact": "Useful for future protocol-facing calculators; not a new MCA numerator by itself.",
+    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/data/adjacent-ledgers/high_agreement_adjacent_ledgers_summary.md"
+  },
+  {
+    "date": "2026-06-27",
+    "status": "F1 theory infrastructure",
+    "author": "AllenGrahamHart",
+    "title": "Arbitrary-anchor residue-cloud floors",
+    "summary": "PR #126 sharpens the F1 arbitrary-anchor split: residue-cloud floors must be separated into common-core, dense-overlap, and free-packing branches.",
+    "impact": "This is a warning against naive base-to-extension MCA lifts. It does not add a leaderboard numerator but gives a cleaner checklist for extension-valued line theorems.",
+    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/f1/f1_arbitrary_anchor_locator_split.md"
+  },
+  {
+    "date": "2026-06-27",
+    "status": "toy theorem / audit",
+    "author": "Vadim / Codex audit",
+    "title": "L1 monomial dyadic descent survivor families",
+    "summary": "PR #129 records monomial-prefix dyadic descent survivor families and a local n=16 audit checklist/verifier.",
+    "impact": "Good bounded toy-model evidence for quotient-periodic survivor structure, but not an arbitrary-word locator local limit and not a protocol result.",
+    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l1/l1_monomial_dyadic_descent_survivors.md"
+  },
+  {
+    "date": "2026-06-27",
+    "status": "bounded L1 theorem",
+    "author": "Scott Hughes",
+    "title": "L1 d=3 proper-subgroup twisted collision bound",
+    "summary": "PR #125 adds the d=3 proper-subgroup prefix-dual twisted collision estimate, with the standard Katz/Gauss input kept explicit and an input-audit note beside it.",
+    "impact": "Useful L1 infrastructure for generated-field locator local limits. It is not a leaderboard MCA row and does not prove the arbitrary-word L1 theorem.",
+    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/l1/l1_prefix_dual_d3_subgroup_twisted_collision_bound.md"
+  },
+  {
+    "date": "2026-06-27",
+    "status": "proved but subsumed",
+    "author": "AllenGrahamHart / Claude / Codex audit",
+    "title": "Reserve272/288/313 targets are now proved lower-bound rows",
+    "summary": "The moving-root tangent floor gives LD_sw(C,a) >= n-a+1 at a=272,288,313, namely 241,225,200 bad slopes. Strict352 independently covers the same range by quotient-core floors.",
+    "impact": "These rows should be displayed as subsumed proof records, not open search targets and not independent reserve-scale local-limit theorems.",
+    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_reserve_subsumed_by_strict352.md"
+  },
+  {
+    "date": "2026-06-27",
+    "status": "gate theorem / exact count conditional",
+    "author": "AllenGrahamHart / Claude / Codex audit",
+    "title": "Cycle116/119 gates no longer need Cycle84 density",
+    "summary": "The moving-root tangent floor gives LD_sw(C,262) >= 251 and LD_sw(C,263) >= 250 for C = RS[F_17^32,H,256]. Since floor(17^32/2^128)=6, the >2^-128 gates at delta=125/256 and 249/512 do not depend on the Cycle84 census.",
+    "impact": "Keep 52,747,567,092 as the exact-density computation-dependent record; use the tangent floor for the unconditional threshold gate.",
+    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/audits/audit_prize_gate_unconditional_via_tangent.md"
+  },
+  {
+    "date": "2026-06-27",
+    "status": "experimental scanner",
+    "author": "Codex audit",
+    "title": "Proximity certificate scanner prototype",
+    "summary": "The scanner turns a row/config JSON into JSON and Markdown reports for entropy reserve, quotient profile, Paper D cap hypotheses, high-agreement line/list/curve ledgers, and combined protocol-ledger verdicts.",
+    "impact": "Use it as the first replayable audit before adding public board rows. It makes q_gen, q_line, q_chal, quotient divisors, endpoint agreements, and theorem-backed versus conditional terms explicit, but it does not prove extension-line MCA or the missing local-limit theorems.",
+    "href": "https://github.com/przchojecki/rs-mca/tree/main/experimental/notes/certificate_scanner"
+  },
+  {
+    "date": "2026-06-27",
+    "status": "proof record",
+    "author": "Codex audit",
+    "title": "Tangent257 capacity-edge MCA row",
+    "summary": "The tangent lower-floor theorem gives LD_sw(C,257) >= 256 for C = RS[F_17^32,H,256], so epsilon_mca(C,255/512) >= 256/17^32.",
+    "impact": "This is now the closest-to-capacity theorem-backed finite MCA row on the public board, clearing 2^-128 by +5.20 bits. It is still only a finite-slope support-wise MCA lower floor, not an exact threshold or protocol soundness statement.",
+    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/outputs/f17_512.report.md"
+  },
+  {
     "date": "2026-06-26",
     "status": "proof record",
     "author": "Codex",
@@ -118,11 +217,11 @@
   },
   {
     "date": "2026-06-25",
-    "status": "conditional / computation-dependent",
+    "status": "gate theorem / exact count conditional",
     "title": "Cycle119/Cycle120 ABF-row obstruction",
-    "summary": "The numerator did not increase: the active value remains 52,747,567,092 bad challenges over F_17^32. The useful update is endpoint precision: Cycle116 reaches the printed ABF closed threshold at delta = 125/256, while Cycle119 gives the strict endpoint delta <= 249/512 if the finite inputs check out.",
-    "impact": "Keeps the strongest current prize-facing obstruction focused on one smooth rate-1/2 row, without claiming ordinary list decoding, protocol soundness, or an official prize solve.",
-    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_cycle120_abf_counterexample_candidate.md"
+    "summary": "The active exact-density numerator remains 52,747,567,092 bad challenges over F_17^32 and is still computation-dependent. Separately, the moving-root tangent floor proves the >2^-128 gates at agreements 262 and 263 without using that numerator.",
+    "impact": "Use the tangent floor for unconditional gate language; use Cycle84/116/119 only for the stronger exact-density record after independent finite-count review.",
+    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/audits/audit_prize_gate_unconditional_via_tangent.md"
   },
   {
     "date": "2026-06-25",

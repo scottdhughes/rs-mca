@@ -1,0 +1,26 @@
+{
+  "row": {"n": "2^41", "k": "2^40"},
+  "fields": {
+    "q_gen": "2^64",
+    "q_line": "2^192",
+    "q_chal": "2^192",
+    "q_base": "2^64"
+  },
+  "security": {"lambda": 128},
+  "protocol": {
+    "include_line_term": true,
+    "line_sampler": "finite",
+    "include_interleaved_list_term": true,
+    "curve_degrees": [1, 2, 4, 8]
+  },
+  "scan": {
+    "sigma_values": [1, 512, 1024, 1048576, 17179869184, 366503875925],
+    "r_values": [0, 1, 10, 1000, 366503875925],
+    "include_thresholds": true
+  },
+  "assumptions": {
+    "enable_corrected_mca_conjecture": false,
+    "B_L": 4,
+    "A_M": 1
+  }
+}

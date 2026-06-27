@@ -1,0 +1,96 @@
+% Promoted from experimental/experiments.tex lines 1716--1806.
+% Status: stable high-agreement note.  This is a TeX fragment intended to be
+% included from experimental/experiments.tex or another paper-level wrapper.
+% Dependencies: theorem environments, standard macros such as \F and \RS,
+% and earlier local labels referenced inside the note.
+
+\section{High-Agreement Adjacent Ledgers}
+\label{sec:high-agreement-adjacent-ledgers}
+
+\textbf{Status: \textsc{New-local} finite Reed--Solomon theorem package,
+one MDS interleaved-list theorem, and a \textsc{Conditional} protocol-ledger
+corollary.}
+The tangent staircase of Section~\ref{sec:tangent-staircase} settles more than
+finite-slope support-wise MCA.  In the same high-agreement range it also pins
+the no-loss correlated-agreement line count, the projective-slope line count,
+the finite-parameter degree-\(d\) curve count, and the interleaved-list size.
+The protocol statement at the end of this section is only a ledger corollary:
+it applies to reductions whose coding error is exactly one of the listed
+terms, plus an explicitly added query/folding error.
+
+Except in the interleaved-list theorem, \(C=\RS[F,D,k]\) with
+\(|D|=n\), dimension \(k\), and \(q=|F|\).  The interleaved-list uniqueness
+statement only uses the MDS property.  The agreement parameter is an integer
+\(a\), so the corresponding closed Hamming radius is \(1-a/n\).
+
+\subsection{No-loss CA and projective slopes}
+
+Let \(\operatorname{LD}_{\rm ca}(C,a)\) denote the maximum number of finite
+slopes \(z\in F\) on an affine received line \(f+zg\) such that \(f+zg\) has a
+\(C\)-explanation on at least \(a\) positions while the pair \((f,g)\) has no
+\(C^2\)-explanation on any support of size at least \(a\).  This is the
+integer-agreement version of no-loss CA.  Let
+\(\operatorname{LD}_{\rm sw,proj}(C,a)\) be the corresponding support-wise MCA
+count when slopes are points of \(\mathbb P^1(F)\), so the point at infinity is
+also allowed.
+
+\begin{theorem}[high-agreement CA and projective tangent staircase]
+\label{thm:ca-projective-tangent-staircase}
+Let \(C=\RS[F,D,k]\) with \(|D|=n\).  If
+\[
+  3a-2n\ge k,
+\]
+then
+\[
+  \operatorname{LD}_{\rm ca}(C,a)
+  =
+  \operatorname{LD}_{\rm sw,proj}(C,a)
+  =
+  n-a+1 .
+\]
+\end{theorem}
+
+\begin{proof}
+The finite-slope support-wise count is \(n-a+1\) by
+Theorem~\ref{thm:very-high-tangent-staircase}.  Every no-loss CA-bad finite
+slope is support-wise MCA-bad: if the line word is explained on a support
+\(S\) of size at least \(a\) and \((f,g)\) were simultaneously explained on
+that same \(S\), then \((f,g)\) would be \(C^2\)-close at the no-loss CA radius.
+Thus
+\[
+  \operatorname{LD}_{\rm ca}(C,a)\le n-a+1 .
+\]
+
+The moving-root line from Theorem~\ref{thm:moving-root-tangent-floor} gives the
+matching CA lower bound.  Indeed, with \(A\subset D\), \(|A|=a-1\), put
+\(B_A(X)=\prod_{x\in A}(X-x)\),
+\[
+  f=(XB_A)_{\ge k},
+  \qquad
+  g=-(B_A)_{\ge k}.
+\]
+For each \(t\in D\setminus A\), the slope \(t\) is explained on
+\(A\cup\{t\}\).  Suppose \((f,g)\) were explained by two degree-\(<k\)
+polynomials on some support \(T\) of size at least \(a\).  Since
+\[
+  |T\cap A|\ge a-(n-a+1)=2a-n-1,
+\]
+and the hypothesis \(3a-2n\ge k\) implies \(2a-n-1\ge k\) when \(a<n\)
+(the case \(a=n\) gives \(n-1\ge k\)), the two explaining polynomials must be
+the unique degree-\(<k\) polynomials agreeing with \(f\) and \(g\) on \(A\),
+namely \(-(XB_A)_{<k}\) and \((B_A)_{<k}\).  At any point
+\(x\in D\setminus A\), simultaneous agreement with those two polynomials would
+force both \(XB_A(x)=0\) and \(B_A(x)=0\), impossible.  Hence \((f,g)\) is
+globally CA-far at agreement \(a\), and the \(n-a+1\) slopes are CA-bad.
+
+It remains to pass from finite to projective slopes.  A projective bad-slope
+set cannot be all of \(\mathbb P^1(F)\): otherwise, after choosing any
+projective point as infinity, the remaining \(q\) points would be finite bad
+slopes in an affine coordinate, contradicting
+\(q>n-a+1\) since \(D\subseteq F\) and \(a>k\).  Choose a nonbad projective
+point and send it to infinity by a change of basis of the two-dimensional
+received-line span.  All bad projective points are then finite slopes in the
+new coordinate, so Theorem~\ref{thm:very-high-tangent-staircase} bounds their
+number by \(n-a+1\).  The affine moving-root construction gives the matching
+projective lower bound.
+\end{proof}

@@ -38,11 +38,15 @@ Agents should read these before making claims or opening implementation work.
 9. **L2 codegree reduction theorem**
    <https://github.com/przchojecki/rs-mca/raw/refs/heads/main/experimental/notes/l2/l2_codegree_reduction_theorem.md>
 
+10. **Current finite-row threshold note**
+   Local TeX: [`experimental/notes/thresholds/f17_32_finite_mca_threshold.tex`](experimental/notes/thresholds/f17_32_finite_mca_threshold.tex)
+   Local PDF: [`experimental/notes/thresholds/f17_32_finite_mca_threshold.pdf`](experimental/notes/thresholds/f17_32_finite_mca_threshold.pdf)
+
 ---
 
 ## 1. Executive summary
 
-The current project is not yet a full Proximity Prize solution. It is, however, close to producing a serious partial result and a clean finite frontier push.
+The current project is not yet a full Proximity Prize solution. It now has a clean solved finite-row threshold theorem for the main \(\mathbb F_{17^{32}}\), \(n=512,k=256\) row under the finite-slope support-wise MCA convention, plus a clear compiler theorem that explains which rows are solved by the high-agreement tangent regime.
 
 The Proximity Prize asks for the MCA threshold for Reed-Solomon codes over smooth domains at rates
 
@@ -64,7 +68,7 @@ The prize-shaped object is not merely a lower bound. It is the threshold
 
 or, equivalently, the integer agreement threshold where the bad-line/slack count drops below the \(2^{-128}\) budget.
 
-Current strongest finite row:
+Current solved finite row:
 
 \[
 C = \mathrm{RS}[\mathbb F_{17^{32}}, H, 256],
@@ -72,70 +76,61 @@ C = \mathrm{RS}[\mathbb F_{17^{32}}, H, 256],
 \qquad \rho = 1/2.
 \]
 
-The public frontier records
+For this row,
 
 \[
-N_{\mathrm{bad}} = 52{,}747{,}567{,}092
+\left\lfloor 17^{32}/2^{128}\right\rfloor=6.
 \]
 
-bad challenges over denominator
+The high-agreement tangent staircase proves the exact finite-slope support-wise MCA numerator
 
 \[
-q_{\mathrm{line}} = 17^{32}
+B_C(a)=LD_{\mathrm{sw}}(C,a)=513-a
+\qquad (a\ge427).
 \]
 
-at agreement \(263\), giving approximately
+Therefore
 
 \[
-\varepsilon_{\mathrm{mca}} \gtrsim 2^{-95.18}.
+LD_{\mathrm{sw}}(C,506)=7,
+\qquad
+LD_{\mathrm{sw}}(C,507)=6.
 \]
 
-This is far above \(2^{-128}\), but it is still a one-sided lower-bound certificate, not a threshold determination.
-
-The most important immediate target is **strict264**:
+Since
 
 \[
-n=512,\quad k=256,\quad a=264,\quad \sigma=a-k=8,\quad \delta = 1 - 264/512 = 31/64.
+6\cdot2^{128}<17^{32}<7\cdot2^{128},
 \]
 
-Because
+the pure finite-slope MCA grid threshold is pinned exactly:
+
+```text
+safe:   integer radius r <= 5, agreement a >= 507
+unsafe: integer radius r >= 6, agreement a <= 506
+```
+
+With closed real Hamming balls, the safe interval is
 
 \[
-17^{32}/2^{128} \approx 6.9587,
+0\le\delta<6/512=3/256.
 \]
 
-it is enough to prove
+Thus the supremal transition radius is \(3/256\), but the endpoint is unsafe. If a formulation asks for a maximum safe closed radius on the finite grid, the answer is \(5/512\).
 
-\[
-LD_{\mathrm{sw}}(C,264) \ge 7
-\]
-
-to cross the \(2^{-128}\) line at this row.
-
-The next prize-shaped finite target is the matching upper bound
-
-\[
-LD_{\mathrm{sw}}(C,265) \le 6.
-\]
-
-Together,
-
-\[
-LD_{\mathrm{sw}}(C,264)\ge 7
-\quad\text{and}\quad
-LD_{\mathrm{sw}}(C,265)\le 6
-\]
-
-would nearly pin the threshold for this finite row, up to the exact closed/strict endpoint convention.
+This supersedes the old "strict264 next" plan. The strict264 and strict352 packets remain useful mechanism records, but they are no longer the shortest path to pinning the \(\mathbb F_{17^{32}}\), \(512,256\) row.
 
 The full-prize path is:
 
-1. make the current finite row replayable;
-2. prove strict264 with a tiny seven-slope certificate;
-3. prove or refute the agreement-265 upper bound;
-4. generalize via the Hankel/residue-line normal form;
-5. prove the floor-corrected local-limit theorem above the corrected reserve;
-6. package an explicit, peer-reviewed threshold theorem for the prize rates.
+1. finish the definition audit against the official MCA sampler: finite/projective slopes, endpoint convention, denominator, and support-wise predicate;
+2. package the finite-row theorem as a clean threshold result, with scanner output attached;
+3. promote the row-independent high-agreement threshold compiler:
+   \[
+   B_Q=\lfloor Q/2^{128}\rfloor,\qquad r=n-a;
+   \]
+4. prove the compiler theorem cleanly: if \(B_Q\le\lfloor(n-k)/3\rfloor\), then the line/MCA grid threshold is exactly \(r=B_Q\);
+5. use the compiler to carve out the solved high-agreement region of the prize envelope;
+6. isolate the remaining hard work: lower-agreement quotient cores, aperiodic local limits, extension transfer, and interleaved-list constants.
 
 ---
 
@@ -394,19 +389,27 @@ J(\delta_{\min}(C))
 \approx 0.2943.
 \]
 
-The current strict frontier point uses
+The old lower-agreement frontier records certificates near
 
 \[
 \delta=249/512\approx 0.4863,
 \]
 
-and the first strict264 target uses
+and the former strict264 target used
 
 \[
 \delta=31/64=248/512\approx 0.4844.
 \]
 
-Both are far beyond the Johnson radius and very close to capacity. They are therefore negative-side certificates in the hard band between Johnson and capacity. What remains missing is the matching safe-side upper bound that turns a lower-bound frontier into an actual threshold.
+Both are far beyond the Johnson radius and very close to capacity. They are therefore useful negative-side mechanism records in the hard band between Johnson and capacity. For the finite \(\mathbb F_{17^{32}}\) row, however, the exact high-agreement tangent theorem now gives a complete threshold much closer to zero radius:
+
+\[
+\delta_{\rm grid}^{\rm safe}=5/512,
+\qquad
+\delta_{\rm grid}^{\rm first\ unsafe}=6/512.
+\]
+
+What remains missing for the full prize is not this finite-row threshold, but the lower-agreement local-limit theory needed near capacity for large prize-envelope rows.
 
 The same source also makes line-decoding relevant: Theorem 4.21 says \((\delta,a,n+1)\) line-decodability implies \(\varepsilon_{\mathrm{mca}}(C,\delta)\le a/|F|\). Our M2 bridge and F1 normal form should be read as attempts to put the support-wise MCA staircase into that line-decoding language without losing the exact finite denominator.
 
@@ -414,7 +417,7 @@ The same source also makes line-decoding relevant: Theorem 4.21 says \((\delta,a
 
 The route to an actual \(\delta_C^*\) theorem has two tracks.
 
-**Finite-row track.** Start with the main board row
+**Finite-row track.** The main board row
 
 \[
 C=\mathrm{RS}[\mathbb F_{17^{32}},H,256],
@@ -422,36 +425,58 @@ C=\mathrm{RS}[\mathbb F_{17^{32}},H,256],
 \quad \rho=1/2.
 \]
 
-For this row the numerical cutoff is
+is now pinned in the high-agreement regime. The numerical cutoff is
 
 \[
 \lfloor 17^{32}/2^{128}\rfloor = 6.
 \]
 
-Thus the immediate goal is not a huge asymptotic theorem. It is the adjacent-pair statement
+The tangent staircase gives
 
 \[
-LD_{\mathrm{sw}}(C,264)\ge 7
+LD_{\mathrm{sw}}(C,a)=513-a
+\qquad(a\ge427),
 \]
 
-and
+so
 
 \[
-LD_{\mathrm{sw}}(C,265)\le 6
+LD_{\mathrm{sw}}(C,506)=7,
+\qquad
+LD_{\mathrm{sw}}(C,507)=6.
 \]
 
-or a counterexample showing that the first safe level is later. This would turn the current one-sided obstruction frontier into a finite threshold computation.
+This turns the row into an exact finite threshold computation under the finite-slope support-wise MCA convention. The immediate finite-row work is now packaging and audit, not strict264 search.
 
 Concrete attacks:
 
-- replay the Cycle116/119 numerator and reduce it to a small independent certificate;
-- reconstruct or replace the strict264 seven-slot survivor model;
-- use the F1 Hankel-pencil normal form to enumerate support-complement strata at \(a=264\) and \(a=265\);
-- split quotient-periodic witnesses from aperiodic witnesses before counting;
-- certify noncontainment ranks and endpoint conventions in machine-checkable JSON;
-- if \(LD_{\mathrm{sw}}(C,265)>6\), record the new obstruction and move the threshold target to \(266\) or beyond.
+- audit the finite-slope support-wise MCA definition against the official prize definition and paper definitions;
+- state the theorem as a threshold theorem with exact closed endpoint language;
+- attach scanner output for the pure MCA profile, not only the line-plus-list protocol profile;
+- record the projective-slope variant separately, with denominator \(|F|+1\);
+- keep strict264/strict352 as mechanism and lower-agreement stress tests, not as the active threshold target for this row.
 
-**General smooth-domain track.** After the finite row is understood, prove the floor-corrected local-limit theorem. The target theorem should not say "smooth RS is safe up to capacity." It should say that above a stated reserve
+**General smooth-domain track.** The next theorem is the row-independent high-agreement compiler. Let
+
+\[
+B_Q=\lfloor Q/2^{128}\rfloor,
+\qquad
+r=n-a.
+\]
+
+If
+
+\[
+B_Q\le \left\lfloor\frac{n-k}{3}\right\rfloor,
+\]
+
+then the high-agreement tangent theorem pins the single line/MCA/CA grid threshold exactly:
+
+\[
+r\le B_Q-1 \quad\text{is safe},\qquad r=B_Q\quad\text{is unsafe}.
+\]
+
+This gives a clean solved region of the prize envelope. Outside that region, prove the floor-corrected local-limit theorem. The target theorem should not say "smooth RS is safe up to capacity." It should say that above a stated reserve
 
 \[
 \eta = 1-\rho-\delta
@@ -475,7 +500,7 @@ F, L, k, q_gen, q_line, q_chal
 
 and outputs either a proved threshold interval for \(\delta_C^*(2^{-128})\) or a declared obstruction/counterexample floor.
 
-### 3.6 strict264 is the first clean finite prize push
+### 3.6 strict264 is now a mechanism record
 
 At \(a=264\),
 
@@ -512,7 +537,7 @@ The strict264 audit verifies much of the algebraic bridge:
 - noncontainment rank checks;
 - end-to-end support-wise line-decoding transfer.
 
-The remaining open piece is the exact survivor count. The seven-slot model must be reconstructed or replaced by an in-repository, independently replayable certificate.
+The remaining open piece is the exact survivor count. That is still useful as a lower-agreement mechanism test and as input for the harder local-limit program. It is no longer the first clean finite prize push, because the high-agreement tangent theorem already pins the current row's finite-slope MCA threshold at \(a=506/507\).
 
 ### 3.7 The main theoretical gap is the aperiodic local limit
 
@@ -632,16 +657,26 @@ C = \mathrm{RS}[\mathbb F_{17^{32}},H,256],
 The desired finite theorem is:
 
 \[
-LD_{\mathrm{sw}}(C,264)\ge7,
+LD_{\mathrm{sw}}(C,a)=513-a
+\qquad(a\ge427),
 \]
 
-and
+with the target comparison
 
 \[
-LD_{\mathrm{sw}}(C,265)\le6.
+LD_{\mathrm{sw}}(C,506)=7>17^{32}/2^{128},
+\qquad
+LD_{\mathrm{sw}}(C,507)=6\le17^{32}/2^{128}.
 \]
 
-This is not by itself the entire Proximity Prize, but it is the right local shape: it pins an agreement staircase, not merely a lower bound.
+This is not by itself the entire Proximity Prize, but it is the right local shape: it pins an agreement staircase, not merely a lower bound. The exact endpoint statement is:
+
+```text
+closed grid: largest safe integer radius is 5/512
+closed grid: first unsafe integer radius is 6/512
+real closed balls: safe interval is [0,6/512)
+supremum: 6/512 = 3/256, not attained
+```
 
 ### 4.3 Asymptotic/full theorem target
 
@@ -722,7 +757,7 @@ Each lane has concrete tasks and exit criteria below.
 
 ## A.0 Objective
 
-Make the current \(52.7\)B row and the strict264 target independently replayable.
+Make the historical \(52.7\)B row, strict264 packet, and strict352 packet independently replayable as lower-agreement mechanism records. The current finite-row threshold itself is handled by the high-agreement tangent theorem and belongs to Lane B / Lane V packaging.
 
 This lane is about trust. Its output should be:
 
@@ -1566,45 +1601,42 @@ license
 
 Prepare papers in modules, not one sprawling manuscript.
 
-### Paper 1: finite MCA obstruction certificate
+### Paper 1: finite-row MCA threshold theorem
 
 Claim:
 
 \[
-\varepsilon_{\mathrm{mca}}
-\big(
-\mathrm{RS}[\mathbb F_{17^{32}},H,256],
-31/64
-\big)
->
-2^{-128}
+\mathrm{RS}[\mathbb F_{17^{32}},H,256]
+\quad\text{has finite-slope support-wise MCA grid threshold}\quad
+r=6.
 \]
 
-assuming strict264 succeeds.
+Equivalently, \(r=5\) is safe, \(r=6\) is unsafe, the real closed-ball safe interval is \([0,6/512)\), and the endpoint \(6/512=3/256\) is unsafe.
 
 Contents:
 
 ```text
 definitions
 field/domain ledger
-support-wise line-decoding bridge
-two-ended fixed-jet construction
-strict264 seven-slope certificate
-independent verifier transcripts
+high-agreement tangent theorem
+finite/projective slope definition audit
+closed endpoint convention
+pure-MCA scanner output
 non-claims
 ```
 
-### Paper 2: finite threshold pinning
+### Paper 2: high-agreement threshold compiler
 
 Claim:
 
 \[
-LD_{\mathrm{sw}}(C,264)\ge7,
-\qquad
-LD_{\mathrm{sw}}(C,265)\le6.
+B_Q=\lfloor Q/2^{128}\rfloor,\quad r=n-a,\quad
+B_Q\le\lfloor(n-k)/3\rfloor
+\quad\Longrightarrow\quad
+\text{threshold pinned at }r=B_Q.
 \]
 
-This is the first paper that looks like threshold determination rather than counterexample collection.
+This identifies the solved high-agreement region of the prize envelope and isolates where the lower-agreement local-limit work begins.
 
 ### Paper 3: floor-corrected MCA theorem
 
@@ -1980,31 +2012,29 @@ LD_{\mathrm{sw}}
 
 with a replayable or compressed certificate.
 
-### Milestone 2: strict264
+### Milestone 2: finite-row threshold package
 
 **Exit criterion.**
 
 \[
-LD_{\mathrm{sw}}
-(
-\mathrm{RS}[\mathbb F_{17^{32}},H,256],264
-)
-\ge 7.
-\]
-
-This is the cleanest next public frontier push.
-
-### Milestone 3: finite threshold pinning
-
-**Exit criterion.**
-
-\[
-LD_{\mathrm{sw}}(C,264)\ge7,
+LD_{\mathrm{sw}}(C,506)=7,
 \qquad
-LD_{\mathrm{sw}}(C,265)\le6.
+LD_{\mathrm{sw}}(C,507)=6,
 \]
 
-This turns the finite row from obstruction into threshold determination.
+with the definition audit and scanner output included.
+
+### Milestone 3: row-independent compiler
+
+**Exit criterion.**
+
+\[
+B_Q\le\lfloor(n-k)/3\rfloor
+\quad\Longrightarrow\quad
+\text{safe for }r\le B_Q-1,\ \text{unsafe at }r=B_Q.
+\]
+
+This turns the high-agreement tangent theorem into a reusable threshold certificate generator.
 
 ### Milestone 4: quotient-floor theorem
 
@@ -2168,14 +2198,14 @@ The shortest credible path toward the prize is:
 
 ```text
 1. Freeze definitions and field ledgers.
-2. Build independent F_17^32 verifier.
-3. Replay or audit the 52.7B row.
-4. Finish strict264 with seven slopes.
-5. Formulate the a=265 upper-bound problem exactly in F1 notation.
-6. Classify all a=265 branches.
-7. Prove or refute LD_sw(C,265) <= 6.
-8. Convert the finite row into a threshold-pinning paper.
-9. Generalize the branch proof into a floor-corrected MCA theorem.
+2. Finish the official-definition audit for the finite-row theorem.
+3. Keep the F_17^32 pure-MCA scanner output replayable.
+4. Package the a=506/507 row as a finite threshold note/paper.
+5. Promote the row-independent high-agreement threshold compiler theorem.
+6. Use the compiler to mark the solved high-agreement region of the prize envelope.
+7. Audit the projective-slope and no-loss CA variants with their denominators.
+8. Keep strict264/strict352 as lower-agreement mechanism records.
+9. Generalize beyond the compiler range via quotient/residue-line local limits.
 10. Prove the aperiodic local-limit theorem with explicit constants.
 ```
 
@@ -2183,9 +2213,9 @@ The main finite slogan:
 
 \[
 \boxed{
-LD_{\mathrm{sw}}(C,264)\ge7
-\quad\text{then}\quad
-LD_{\mathrm{sw}}(C,265)\le6.
+LD_{\mathrm{sw}}(C,506)=7
+\quad\text{and}\quad
+LD_{\mathrm{sw}}(C,507)=6.
 }
 \]
 
@@ -2252,36 +2282,42 @@ The top priority is:
 
 \[
 \boxed{
-\textbf{strict264 seven-slope certificate}
+\textbf{finite-row threshold packaging and compiler theorem}
 }
 \]
 
-Specifically:
+Specifically, for
 
 \[
 C=\mathrm{RS}[\mathbb F_{17^{32}},H,256],
 \quad n=512,
-\quad a=264,
-\quad \sigma=8,
-\quad \delta=31/64.
+\quad k=256,
+\quad \rho=1/2,
 \]
 
-Produce:
+the current theorem is:
 
 \[
-LD_{\mathrm{sw}}(C,264)\ge7.
+LD_{\mathrm{sw}}(C,a)=513-a
+\qquad(a\ge427),
 \]
 
-This is the cleanest next step because seven slopes are enough to exceed \(2^{-128}\) over \(\mathbb F_{17^{32}}\), and the strict264 audit indicates that most of the bridge is already structurally verified.
-
-The second priority is:
+so
 
 \[
-\boxed{
-LD_{\mathrm{sw}}(C,265)\le6
-}
+LD_{\mathrm{sw}}(C,506)=7,
+\qquad
+LD_{\mathrm{sw}}(C,507)=6.
 \]
 
-or a definitive counterexample to that inequality.
+The deliverables are:
 
-That pair is the fastest way to transform the project from lower-bound frontier hunting into actual threshold determination.
+- definition audit against the official MCA sampler and endpoint convention;
+- finite-row note/paper with scanner output attached;
+- row-independent compiler theorem using
+  \[
+  B_Q=\lfloor Q/2^{128}\rfloor,\qquad r=n-a;
+  \]
+- a clear statement that if \(B_Q\le\lfloor(n-k)/3\rfloor\), then the single line/MCA grid threshold is pinned exactly at \(r=B_Q\).
+
+The strict264 seven-slope certificate remains a useful lower-agreement experiment, but it is no longer the top priority for threshold determination.

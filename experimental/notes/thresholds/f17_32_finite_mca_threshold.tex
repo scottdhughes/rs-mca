@@ -1,0 +1,326 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{xurl}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\newcommand{\F}{\mathbb F}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\RS}{\operatorname{RS}}
+\newcommand{\LD}{\operatorname{LD}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\qline}{q_{\rm line}}
+
+\title{A Finite-Row Threshold Theorem for \texorpdfstring{$\RS[\F_{17^{32}},H,256]$}{RS[F17^32,H,256]}}
+\author{RS-MCA experimental note}
+\date{2026-06-27}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This note packages the high-agreement tangent staircase as a clean finite-row
+threshold theorem for
+\[
+  C=\RS[\F_{17^{32}},H,256],
+  \qquad |H|=512.
+\]
+Under the finite-slope support-wise MCA convention used in the experimental
+ledger, the target \(\eps_*=2^{-128}\) threshold is pinned exactly on the
+integer grid: integer Hamming radius \(5\) is safe and integer Hamming radius
+\(6\) is already unsafe.  Equivalently, with closed Hamming balls, the real
+safe interval is \([0,6/512)\); the supremal transition radius is
+\(6/512=3/256\), but the endpoint is unsafe.
+\end{abstract}
+
+\section{Scope and Definition Audit}
+\label{sec:scope}
+
+The public Proximity Prize page asks, for smooth-domain Reed--Solomon codes at
+rates
+\[
+  \rho\in\{1/2,1/4,1/8,1/16\},
+\]
+to determine the largest radius \(\delta_C^*\) for which the MCA error is at
+most \(\eps_*=2^{-128}\) \cite{ProximityPrize2026}.  The row treated here is the
+rate-\(1/2\) smooth subgroup row
+\[
+  F=\F_{17^{32}},\qquad H\le F^*,\qquad |H|=512,\qquad k=256.
+\]
+The divisibility \(512\mid 17^{32}-1\) ensures such a multiplicative subgroup
+exists; it is a power-of-two smooth domain.
+
+This note proves a theorem for the finite-slope support-wise MCA normalization
+used in the experimental ledger.  The exact object is:
+\begin{itemize}
+\item slopes are sampled from the finite line field \(F\), so the denominator is
+  \(\qline=|F|=17^{32}\);
+\item a closed integer Hamming radius \(r\) means agreement threshold
+  \(a=n-r\);
+\item a real closed radius \(\delta\) means integer radius
+  \(r(\delta)=\lfloor \delta n\rfloor\), hence agreement threshold
+  \(a(\delta)=n-r(\delta)\);
+\item support-wise noncontainment is tested on the same support on which the
+  line word is explained by a codeword.
+\end{itemize}
+
+The high-agreement note also proves the matching projective-slope and no-loss CA
+numerators in the same range.  If the sampler is instead uniform on
+\(\PP^1(F)\), the numerator below is unchanged in this row and the denominator is
+\(|F|+1\).  The same \(5/6\) integer-radius threshold remains true because
+\[
+  6\cdot 2^{128}<17^{32}<17^{32}+1<7\cdot2^{128}.
+\]
+
+\begin{remark}[audit status]
+The public prize page is a high-level challenge statement; companion paper
+definitions control the official MCA sampler, finite/projective slope choice,
+and endpoint convention.  This note therefore records an exact local theorem
+and the definition match that has been checked inside this repository.  It is
+not a peer-reviewed prize submission.
+\end{remark}
+
+\section{Finite-Slope Threshold}
+\label{sec:threshold}
+
+Let \(D\subset F\), \(|D|=n\), and \(C=\RS[F,D,k]\).  For an agreement threshold
+\(a\), let
+\[
+  B_{\rm fin}(C,a)=\LD_{\rm sw}(C,a)
+\]
+be the largest possible number of finite slopes on a received affine line
+\(f+zg\) that admit a codeword explanation on some support of size at least
+\(a\), but for which \(f\) and \(g\) are not separately explained on that same
+support.  The finite-slope MCA error at grid agreement \(a\) is then
+\[
+  \eps_{\rm mca}^{\rm fin}(C,a)=\frac{B_{\rm fin}(C,a)}{|F|}.
+\]
+
+\begin{lemma}[high-agreement tangent staircase]
+\label{lem:tangent-staircase}
+For \(C=\RS[F,D,k]\), \(|D|=n\), if
+\[
+  3a-2n\ge k,
+\]
+then
+\[
+  B_{\rm fin}(C,a)=n-a+1.
+\]
+For every \(k+1\le a\le n\), the lower bound
+\[
+  B_{\rm fin}(C,a)\ge n-a+1
+\]
+also holds.
+\end{lemma}
+
+\begin{proof}
+This is the moving-root tangent floor and the very-high-agreement tangent
+staircase from \path{experimental/notes/high_agreement/tangent_staircase.tex}.
+The proof is finite and uses the MDS rigidity of Reed--Solomon codes plus a
+residual-root budget.
+\end{proof}
+
+\begin{theorem}[finite-row MCA threshold]
+\label{thm:f17-threshold}
+Let \(H\subset\F_{17^{32}}^*\) have order \(512\), and put
+\[
+  C=\RS[\F_{17^{32}},H,256].
+\]
+Under the finite-slope support-wise MCA convention,
+\[
+  \eps_{\rm mca}^{\rm fin}(C,a)\le 2^{-128}
+  \quad\text{if and only if}\quad
+  a\ge507.
+\]
+Here \(a\) ranges over integer agreement thresholds \(0\le a\le512\).
+Equivalently, on the integer Hamming grid, the largest safe radius is
+\[
+  r=5,\qquad \delta=5/512,
+\]
+and the first unsafe radius is
+\[
+  r=6,\qquad \delta=6/512=3/256.
+\]
+\end{theorem}
+
+\begin{proof}
+Here \(n=512\), \(k=256\), and the high-agreement condition
+\[
+  3a-2n\ge k
+\]
+is \(3a-1024\ge256\), namely \(a\ge427\).  Lemma~\ref{lem:tangent-staircase}
+therefore gives
+\[
+  B_{\rm fin}(C,a)=513-a
+  \qquad(a\ge427).
+\]
+In particular,
+\[
+  B_{\rm fin}(C,506)=7,
+  \qquad
+  B_{\rm fin}(C,507)=6.
+\]
+The exact field arithmetic is
+\[
+  17^{32}
+  =2367911594760467245844106297320951247361,
+\]
+\[
+  17^{32}-6\cdot2^{128}
+  =326217393234836465063858652730341978625>0,
+\]
+and
+\[
+  7\cdot2^{128}-17^{32}
+  =14064973686101998399515954701426232831>0.
+\]
+Thus \(6/17^{32}<2^{-128}<7/17^{32}\).
+
+For every \(a\ge507\), the exact high-agreement formula gives
+\(B_{\rm fin}(C,a)\le6\), hence the row is safe.  At \(a=506\), the formula gives
+seven bad finite slopes, hence the row is unsafe.  For smaller \(a\), closed
+balls only get larger, so the MCA error cannot decrease; those thresholds are
+unsafe as well.  This proves the claimed grid transition.
+\end{proof}
+
+\begin{corollary}[closed endpoint language]
+\label{cor:endpoint}
+With real closed Hamming balls normalized by
+\[
+  r(\delta)=\lfloor512\delta\rfloor,
+\]
+the finite-slope support-wise MCA safe set is
+\[
+  0\le\delta<6/512.
+\]
+The supremal safe radius is
+\[
+  \sup\{\delta:\eps_{\rm mca}^{\rm fin}(C,\delta)\le2^{-128}\}=6/512=3/256,
+\]
+but the endpoint \(\delta=3/256\) is unsafe.
+\end{corollary}
+
+\begin{remark}[maximum versus supremum]
+If a challenge statement asks for a maximum radius satisfying the inequality at
+the endpoint, the finite real-radius maximum is not attained under this closed
+endpoint convention; the largest safe grid point is \(5/512\).  If the intended
+object is a supremal threshold, the transition value is \(3/256\), with the
+endpoint on the unsafe side.
+\end{remark}
+
+\section{Row-Independent Compiler Target}
+\label{sec:compiler}
+
+The preceding row is an instance of a more general finite-grid compiler.  Let
+\[
+  R=n-k,\qquad r=n-a,\qquad B_Q=\left\lfloor\frac{Q}{2^{128}}\right\rfloor,
+\]
+where \(Q\) is the denominator used by the sampler or protocol term.
+
+\begin{theorem}[high-agreement threshold compiler]
+\label{thm:compiler}
+Assume \(C=\RS[F,D,k]\), \(|D|=n\), and that the relevant line/MCA/CA object is
+in the high-agreement tangent regime.  If
+\[
+  1\le B_Q\le \left\lfloor\frac{n-k}{3}\right\rfloor,
+\]
+then the single line/MCA/CA grid threshold at target \(2^{-128}\) is pinned
+exactly:
+\[
+  r\le B_Q-1 \quad\Longrightarrow\quad \text{safe},
+\]
+while
+\[
+  r=B_Q \quad\Longrightarrow\quad \text{unsafe}.
+\]
+Under the same closed-radius convention as Corollary~\ref{cor:endpoint}, the
+safe real interval is \([0,B_Q/n)\), the supremal transition radius is \(B_Q/n\),
+and the endpoint is unsafe.
+\end{theorem}
+
+\begin{proof}
+For \(r\le B_Q-1\), the high-agreement condition is valid because
+\[
+  r\le B_Q-1< B_Q\le\left\lfloor\frac{n-k}{3}\right\rfloor.
+\]
+The tangent staircase gives numerator \(r+1\le B_Q\).  By definition of
+\(B_Q=\lfloor Q/2^{128}\rfloor\), this gives
+\[
+  \frac{r+1}{Q}\le 2^{-128}.
+\]
+At \(r=B_Q\), the same exact formula gives numerator \(B_Q+1\), and
+\[
+  B_Q+1>\frac{Q}{2^{128}},
+\]
+so the error is strictly larger than \(2^{-128}\).  Larger radii are unsafe by
+monotonicity of closed balls.
+\end{proof}
+
+For the row of Theorem~\ref{thm:f17-threshold},
+\[
+  Q=17^{32},\qquad B_Q=6,\qquad
+  \left\lfloor\frac{512-256}{3}\right\rfloor=85,
+\]
+so the compiler applies with substantial room.
+
+\section{Scanner Attachment}
+\label{sec:scanner}
+
+The reproducibility attachment is generated from the repository root by running
+\texttt{python3} on
+\path{experimental/notes/certificate_scanner/certificate_scanner.py} with input
+\path{experimental/notes/certificate_scanner/examples/f17_512_mca_only.json};
+the JSON and Markdown outputs are written to
+\path{experimental/notes/certificate_scanner/outputs/f17_512_mca_only.report.json}
+and
+\path{experimental/notes/certificate_scanner/outputs/f17_512_mca_only.report.md}.
+The attached report confirms:
+\[
+  \left\lfloor\frac{17^{32}}{2^{128}}\right\rfloor=6,
+\]
+and gives the following pure line/MCA verdicts.
+
+\begin{center}
+\begin{tabular}{rrrrl}
+\toprule
+\(a\) & \(\sigma=a-k\) & \(r=n-a\) & exact line numerator & verdict\\
+\midrule
+506 & 250 & 6 & 7 & unsafe\\
+507 & 251 & 5 & 6 & safe\\
+508 & 252 & 4 & 5 & safe\\
+512 & 256 & 0 & 1 & safe\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The older combined protocol scanner profile also includes an interleaved-list
+term.  That is a different ledger: with one extra list term over the same
+denominator, the numerator at \(a=507\) is \(6+1\), so the combined line-plus-list
+ledger is unsafe at \(a=507\) and safe at \(a=508\).  The theorem in this note is
+the pure finite-slope support-wise MCA threshold.
+
+\begin{thebibliography}{9}
+\bibitem{ProximityPrize2026}
+The Proximity Prize.
+\newblock Public challenge page.
+\newblock \url{https://proximityprize.org/}, accessed 2026-06-27.
+\end{thebibliography}
+
+\end{document}

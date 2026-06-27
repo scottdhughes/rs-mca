@@ -4,6 +4,10 @@ Run scripts from the repository root, for example:
 
 ```sh
 python3 experimental/scripts/verify_l1_prefix_divisor_count.py
+python3 experimental/scripts/verify_l1_prefix_dual_d3_subgroup_twisted_collision_bound.py
+python3 experimental/scripts/verify_l1_monomial_dyadic_descent_local16.py
+python3 experimental/scripts/verify_f1_arbitrary_anchor_split.py
+python3 experimental/scripts/verify_m1_tangent_floor_gate_ladder.py
 python3 experimental/scripts/verify_m1_depth_two_line_conic_resonance_reduction.py
 python3 experimental/scripts/verify_q17_locator_mca.py \
   --check experimental/data/certificates/q17-locator-mca/q17_locator_mca_certificate.json

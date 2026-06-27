@@ -164,7 +164,7 @@ A rough status map:
 | Extension-line MCA transfer | Open: prove a clean lift or find counterexamples. |
 | Sharp interleaved-list constants near capacity | Open. Important for protocol soundness budgets. |
 | Protocol-level FRI/WHIR ledger rewrites | Open engineering/proof task. |
-| Certificate scanner | To be implemented. |
+| Certificate scanner | Prototype in `experimental/notes/certificate_scanner/`; emits JSON/Markdown A/B/C/D ledger reports. |
 
 ## How to contribute
 
@@ -183,6 +183,14 @@ See `AGENTS.md` for a prioritized task list and suggested toy cases.
 
 The first heuristic script is `scripts/run_frontier.py`, an **EXPERIMENTAL** Paper B frontier scanner. For each prime `p` passed on the command line, intended with `32 | p-1`, it builds the order-32 multiplicative subgroup of `F_p`, uses a meet-in-the-middle subset enumeration at fixed `l = 18`, and records which elementary-symmetric fingerprints `(e1, e2)` are realized by `l` subgroup elements. Its coverage line measures how much of `F_p^2` this restricted quotient-locator map hits and appends the result to `frontier_results.txt`; full coverage is evidence about quotient/restricted-sum frontier behavior, not a proof by itself. The script currently requires `numpy` and `sympy`.
 
+The certificate scanner prototype lives in
+`experimental/notes/certificate_scanner/`.  It reads a row/config JSON and emits
+both a machine-readable report and a Markdown audit for generated-field entropy,
+exact-divisibility quotient profile, Paper D cap hypotheses, high-agreement
+line/list/curve ledgers, and the combined protocol-ledger verdict.  It is a
+ledger-audit tool, not a proof of extension-line MCA, arbitrary-word locator
+local limits, aperiodic Hankel-pencil packing, or deployed protocol soundness.
+
 The broader intended script layer is:
 
 ```text
@@ -195,6 +203,11 @@ scripts/
   mca_slope_scan.py          # small-field bad-slope / residue-line experiments
   interleaved_budget.py      # base/interleaved list-to-field soundness budget
   certificate_emit.py        # JSON + TeX certificate tables for Paper C
+
+experimental/notes/certificate_scanner/
+  certificate_scanner.py     # EXPERIMENTAL A/B/C/D + high-agreement ledger scanner
+  examples/*.json            # reproducible row configs
+  outputs/*.report.{json,md} # replayable scanner outputs
 ```
 
 A useful script should emit both human-readable output and a machine-checkable certificate. Hand-computed tables should eventually be replaced by script output.
