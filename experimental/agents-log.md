@@ -211,6 +211,25 @@ Keep entries concise and link to the relevant files.
   extension-lift, challenge-field, and cryptographic losses as separate ledger
   terms.
 
+### 2026-06-27 - M1 a=507 plus-one slope route-cut audit
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a507_plus_one_slope_hunt.md`,
+  `experimental/scripts/scan_m1_a507_plus_one_slope_hunt.py`,
+  `experimental/scripts/verify_m1_a507_plus_one_slope_hunt.py`,
+  `experimental/data/m1_a507_plus_one_slope_hunt.json`,
+  `experimental/agents-log.md`.
+- **Status:** AUDIT / ROUTE_CUT / BRIDGE_NEEDED.
+- **What is being added:** A targeted audit of the `a=507` endpoint for
+  `RS[F_17^32,H,256]`, showing that the same-predicate finite-slope
+  support-wise count remains `N_bad=6` and does not clear the `2^-128` gate.
+- **How it is useful:** It records that the adjacent `line + interleaved-list`
+  arithmetic gives `6+1=7` only as a bridge-needed coding-ledger target, not as
+  a seventh `LD_sw` slope or a new board frontier row.
+- **What to do next:** Attack the adjacent bridge theorem separately: prove or
+  reject whether the `6+1=7` ledger can be consumed with the same denominator
+  and event semantics as the board's finite-slope support-wise predicate.
+
 ### 2026-06-26 - Generalized high-agreement ledgers
 
 - **Agent/model:** GPT-5.5 Pro generalized-ledgers packet, audited and

@@ -1,0 +1,204 @@
+{
+  "adjacent_bridge_ledger": {
+    "conditional_total_clears_gate": true,
+    "conditional_total_numerator": 7,
+    "counted_in_N_bad": false,
+    "interleaved_list_numerator": 1,
+    "line_numerator": 6,
+    "status": "BRIDGE_NEEDED"
+  },
+  "board_replay_rows": [
+    {
+      "N_bad": 7,
+      "agreement": 506,
+      "clears_gate": true,
+      "closed_distance": 6,
+      "closed_radius": "3/256",
+      "status": "PROOF_RECORD_UNSAFE"
+    },
+    {
+      "N_bad": 6,
+      "agreement": 507,
+      "clears_gate": false,
+      "closed_distance": 5,
+      "closed_radius": "5/512",
+      "status": "PROOF_RECORD_SAFE_GATE"
+    },
+    {
+      "N_bad": 5,
+      "agreement": 508,
+      "clears_gate": false,
+      "closed_distance": 4,
+      "closed_radius": "1/128",
+      "status": "PROOF_RECORD_SAFE"
+    },
+    {
+      "N_bad": 4,
+      "agreement": 509,
+      "clears_gate": false,
+      "closed_distance": 3,
+      "closed_radius": "3/512",
+      "status": "PROOF_RECORD_SAFE"
+    },
+    {
+      "N_bad": 3,
+      "agreement": 510,
+      "clears_gate": false,
+      "closed_distance": 2,
+      "closed_radius": "1/256",
+      "status": "PROOF_RECORD_SAFE"
+    }
+  ],
+  "candidate_events": [
+    {
+      "agreement": 507,
+      "bridge_needed": "This is an interleaved-list coding-ledger term, not a finite support-wise bad slope.",
+      "counted_in_N_bad": false,
+      "denominator": "17^32",
+      "denominator_integer": "2367911594760467245844106297320951247361",
+      "disjoint_from_existing_six": true,
+      "existing_slope_hash": "29475dd5ca72e7f3d0ca92843167d539530d799e178b678c870e542496404797",
+      "is_existing_slope": false,
+      "predicate_family": "adjacent_line_plus_interleaved_list",
+      "proof_status": "BRIDGE_NEEDED",
+      "retained_event_hash": "a2995753ae6b0d0345636a601c8cf9731b57930a0f3f99c9d84a707b349c1caf",
+      "slope_id": "adjacent_interleaved_unique_list_term_not_a_slope",
+      "slope_list_hash": "29475dd5ca72e7f3d0ca92843167d539530d799e178b678c870e542496404797",
+      "support_template_hash": "56b3854523a649c26a1c375fbdd2dadec95a125f2b9d98648e033b57f2561a51"
+    }
+  ],
+  "existing_a507_slope_hash": "29475dd5ca72e7f3d0ca92843167d539530d799e178b678c870e542496404797",
+  "existing_a507_slopes": [
+    "a507_finite_tangent_slope_000",
+    "a507_finite_tangent_slope_001",
+    "a507_finite_tangent_slope_002",
+    "a507_finite_tangent_slope_003",
+    "a507_finite_tangent_slope_004",
+    "a507_finite_tangent_slope_005"
+  ],
+  "generated_at_utc": "2026-06-27T15:50:34.696461+00:00",
+  "integer_gate": {
+    "inequality": "2^128 * N_bad > 17^32",
+    "seven_is_unsafe": true,
+    "six_is_safe": true,
+    "threshold_floor": 6
+  },
+  "nonclaims": [
+    "ordinary list decoding",
+    "protocol soundness failure",
+    "efficient attack",
+    "exact delta*_C",
+    "new finite-slope support-wise frontier at a=507",
+    "combining different event semantics without a bridge"
+  ],
+  "parameters": {
+    "exact_staircase_start": 427,
+    "field_base": 17,
+    "field_degree": 32,
+    "k": 256,
+    "n": 512,
+    "q_line": "17^32",
+    "q_line_integer": "2367911594760467245844106297320951247361",
+    "rate": "1/2",
+    "row": "RS[F_17^32,H,256]",
+    "target_agreement": 507,
+    "threshold_bits": 128,
+    "threshold_floor": 6
+  },
+  "plus_one_result": {
+    "N_bad_507_new": 6,
+    "N_bad_507_old": 6,
+    "clears_gate": false,
+    "extra_valid_same_predicate_count": 0,
+    "route_cut_scope": "same_denominator_same_finite_slope_supportwise_LD_sw_predicate_only",
+    "same_predicate_frontier_moved": false,
+    "status": "ROUTE_CUT",
+    "threshold_floor": 6
+  },
+  "repository": {
+    "git_branch": "scott/m1-a507-plus-one-slope-route-cut-pr",
+    "git_head_before_write": "285e975160b9e52c370650949f15060a654a85f5",
+    "git_status_short_before_write": ""
+  },
+  "runtime": {
+    "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+    "python": "3.14.5 (main, May 10 2026, 10:21:34) [Clang 21.0.0 (clang-2100.0.123.102)]"
+  },
+  "schema": "m1-a507-plus-one-slope-hunt.v1",
+  "script_sha256": "aa30d2f7671a28b0a752bb2e89ea1916878fbbd0255366ab78fe621f15ae2188",
+  "script_version": "m1-a507-plus-one-slope-hunt.v1",
+  "searched_families": [
+    {
+      "classification_scope": "same_predicate_exclusion_only",
+      "extra_same_predicate_slopes": 0,
+      "family": "finite_slope_supportwise_tangent_star",
+      "reason": "exact tangent-star upper bound gives LD_sw(C,507)=6",
+      "same_predicate": true,
+      "source": "experimental/data/tangent-star/tangent_star_no_nontangent_summary.md",
+      "status": "ROUTE_CUT"
+    },
+    {
+      "classification_scope": "same_predicate_exclusion_only",
+      "extra_same_predicate_slopes": 0,
+      "family": "tangent_floor_refinement",
+      "reason": "moving-root floor is already exact for a>=427",
+      "same_predicate": true,
+      "source": "experimental/data/tangent/tangent_staircase_summary.md",
+      "status": "ROUTE_CUT"
+    },
+    {
+      "classification_scope": "not_exhaustive_outside_LD_sw_predicate",
+      "extra_same_predicate_slopes": 0,
+      "family": "projective_slope_or_no_loss_CA",
+      "reason": "if recast as a same-predicate finite support-wise slope, the exact LD_sw(C,507)=6 bound excludes a seventh counted event",
+      "same_predicate": false,
+      "source": "experimental/data/adjacent-ledgers/high_agreement_adjacent_ledgers_summary.md",
+      "status": "ROUTE_CUT"
+    },
+    {
+      "classification_scope": "same_predicate_exclusion_only",
+      "extra_same_predicate_slopes": 0,
+      "family": "quotient_core_refinement_same_predicate",
+      "reason": "any same-predicate a=507 event is counted by LD_sw and is excluded by the exact upper bound",
+      "same_predicate": true,
+      "source": "experimental/SUMMARY.md",
+      "status": "ROUTE_CUT"
+    },
+    {
+      "classification_scope": "same_predicate_exclusion_only",
+      "extra_same_predicate_slopes": 0,
+      "family": "two_ended_locator_variant_same_predicate",
+      "reason": "same-predicate locator outputs at a=507 would contradict LD_sw(C,507)=6",
+      "same_predicate": true,
+      "source": "experimental/notes/m1/m1_cycle120_standalone_ldsw_proof.md",
+      "status": "ROUTE_CUT"
+    },
+    {
+      "classification_scope": "same_predicate_exclusion_only",
+      "extra_same_predicate_slopes": 0,
+      "family": "slope_symmetry_frobenius_dilation",
+      "reason": "symmetry images inside the same row and predicate are still finite support-wise slopes and are included in LD_sw(C,507)",
+      "same_predicate": true,
+      "source": "experimental/data/tangent-star/tangent_star_no_nontangent_summary.md",
+      "status": "ROUTE_CUT"
+    },
+    {
+      "classification_scope": "bridge_target_not_counted_in_LD_sw",
+      "conditional_total_numerator": 7,
+      "extra_same_predicate_slopes": 0,
+      "family": "adjacent_line_plus_interleaved_list",
+      "reason": "line numerator 6 plus interleaved-list numerator 1 gives a conditional coding-ledger total 7, not a seventh support-wise slope",
+      "same_predicate": false,
+      "source": "experimental/data/adjacent-ledgers/high_agreement_adjacent_ledgers_summary.md",
+      "status": "BRIDGE_NEEDED"
+    }
+  ],
+  "source_records": [
+    "experimental/data/tangent/tangent_staircase_summary.md",
+    "experimental/data/tangent/verify_tangent_staircase.py",
+    "experimental/data/tangent-star/tangent_star_no_nontangent_summary.md",
+    "experimental/data/tangent-star/verify_tangent_star_threshold.py",
+    "experimental/data/adjacent-ledgers/high_agreement_adjacent_ledgers_summary.md",
+    "experimental/data/adjacent-ledgers/verify_high_agreement_adjacent_ledgers.py"
+  ]
+}
