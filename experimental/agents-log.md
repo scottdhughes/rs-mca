@@ -897,3 +897,26 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Run verifiers and audits on the integrated material,
   review mathematical notes before promotion, and close the original PRs as
   manually integrated once the integration commit is pushed.
+
+### 2026-06-27 - M1 interleaved-list hybrid quotient-residual certificate
+
+- **Agent/model:** GPT-5.5 / Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_interleaved_list_hybrid_quotient_residual.md`,
+  `experimental/scripts/scan_m1_interleaved_list_hybrid_quotient_residual.py`,
+  `experimental/scripts/verify_m1_interleaved_list_hybrid_quotient_residual.py`,
+  `experimental/scripts/audit_m1_interleaved_list_hybrid_quotient_residual.sage`,
+  `experimental/data/m1_interleaved_list_hybrid_quotient_residual.json`,
+  `experimental/agents-log.md`.
+- **Status:** PROOF_RECORD / LOWER_BOUND / ROUTE_CUT / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A hybrid quotient-residual interleaved-list
+  certificate for `RS[F_17^32,H,256]`: seven quotient-packet witnesses and an
+  explicit value-class received-word schedule give agreement counts
+  `327,327,327,326,326,326,327`, proving `Lambda_mu(C,326) >= 7`.
+- **How it is useful:** Improves the list-track lower-bound candidate beyond
+  the pure quotient-fiber row at `a=320`, while preserving the separation from
+  MCA `N_bad`. The same packet has a total-agreement upper bound ruling out
+  agreement `a >= 330` inside this 32-witness quotient family.
+- **What to do next:** Sharpen the remaining `327..329` band for this quotient
+  packet, then look for other hybrid or non-quotient families in `330..372`.
