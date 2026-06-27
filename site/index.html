@@ -1052,22 +1052,22 @@
             <div class="paper-letter">B</div>
             <span class="stack-label">Paper B</span>
             <h3>Paper B: Slack, Quotient, and Entropy Theory</h3>
-            <p>Builds the corrected-reserve theory and names the main local-limit, quotient, extension, and MCA proof targets.</p>
+            <p>Builds the corrected-reserve theory and adds the solved high-agreement line/list/curve boundary layer.</p>
             <div class="paper-link-strip">
-              <a href="https://github.com/przchojecki/rs-mca/blob/main/site/papers/slackMCA_v3.pdf" target="_blank" rel="noopener">PDF on GitHub</a>
-              <a href="https://github.com/przchojecki/rs-mca/blob/main/tex/slackMCA_v3.tex" target="_blank" rel="noopener">TeX on GitHub</a>
-              <a href="papers/slackMCA_v3.pdf" target="_blank" rel="noopener">Local mirror</a>
+              <a href="https://github.com/przchojecki/rs-mca/blob/main/site/papers/slackMCA_v4.pdf" target="_blank" rel="noopener">PDF on GitHub</a>
+              <a href="https://github.com/przchojecki/rs-mca/blob/main/tex/slackMCA_v4.tex" target="_blank" rel="noopener">TeX on GitHub</a>
+              <a href="papers/slackMCA_v4.pdf" target="_blank" rel="noopener">Local mirror</a>
             </div>
           </article>
           <article class="program-card paper-card">
             <div class="paper-letter">C</div>
             <span class="stack-label">Paper C</span>
             <h3>Paper C: SNARK and Protocol Ledger</h3>
-            <p>Separates protocol soundness accounting from list, CA, MCA, line-decoding, extension, and interleaving ledgers.</p>
+            <p>Separates protocol soundness accounting and adds a theorem-backed high-agreement ledger compiler.</p>
             <div class="paper-link-strip">
-              <a href="https://github.com/przchojecki/rs-mca/blob/main/site/papers/snarks_v4.pdf" target="_blank" rel="noopener">PDF on GitHub</a>
-              <a href="https://github.com/przchojecki/rs-mca/blob/main/tex/snarks_v4.tex" target="_blank" rel="noopener">TeX on GitHub</a>
-              <a href="papers/snarks_v4.pdf" target="_blank" rel="noopener">Local mirror</a>
+              <a href="https://github.com/przchojecki/rs-mca/blob/main/site/papers/snarks_v5.pdf" target="_blank" rel="noopener">PDF on GitHub</a>
+              <a href="https://github.com/przchojecki/rs-mca/blob/main/tex/snarks_v5.tex" target="_blank" rel="noopener">TeX on GitHub</a>
+              <a href="papers/snarks_v5.pdf" target="_blank" rel="noopener">Local mirror</a>
             </div>
           </article>
           <article class="program-card paper-card">
@@ -1553,6 +1553,15 @@
     ];
     const fallbackUpdatesRaw = [
           {
+                "date": "2026-06-27",
+                "status": "paper versions / leaderboard audit",
+                "author": "Codex",
+                "title": "Papers B v4, C v5, and D v5 are now the public theory set",
+                "summary": "Paper B v4 promotes the high-agreement line/list/curve boundary layer, Paper C v5 adds the theorem-backed protocol ledger compiler, and Paper D v5 makes the headline MCA universal cap self-contained.",
+                "impact": "The leaderboard impact is status and source hygiene: verified Paper D cap rows stay PROVED_PAPERD_V5_CAP, and list-cap rows now cite Paper B v4 instead of only experimental notes. Paper C v5 changes certificate packaging rather than adding a new cap row.",
+                "href": "https://github.com/przchojecki/rs-mca/blob/main/readme.md"
+          },
+          {
                 "date": "2026-04-08",
                 "status": "survey benchmark",
                 "author": "Arnon-Boneh-Fenzi",
@@ -1857,21 +1866,21 @@
             "id": "paper-b",
             "letter": "B",
             "title": "Paper B: Slack, Quotient, and Entropy Theory",
-            "file": "slackMCA_v3.pdf",
-            "pdf": "papers/slackMCA_v3.pdf",
-            "githubPdf": "https://github.com/przchojecki/rs-mca/blob/main/site/papers/slackMCA_v3.pdf",
-            "tex": "https://github.com/przchojecki/rs-mca/blob/main/tex/slackMCA_v3.tex",
-            "summary": "Builds the corrected-reserve theory and names the main local-limit, quotient, extension, and MCA proof targets."
+            "file": "slackMCA_v4.pdf",
+            "pdf": "papers/slackMCA_v4.pdf",
+            "githubPdf": "https://github.com/przchojecki/rs-mca/blob/main/site/papers/slackMCA_v4.pdf",
+            "tex": "https://github.com/przchojecki/rs-mca/blob/main/tex/slackMCA_v4.tex",
+            "summary": "Builds the corrected-reserve theory and adds the solved high-agreement line/list/curve boundary layer."
       },
       {
             "id": "paper-c",
             "letter": "C",
             "title": "Paper C: SNARK and Protocol Ledger",
-            "file": "snarks_v4.pdf",
-            "pdf": "papers/snarks_v4.pdf",
-            "githubPdf": "https://github.com/przchojecki/rs-mca/blob/main/site/papers/snarks_v4.pdf",
-            "tex": "https://github.com/przchojecki/rs-mca/blob/main/tex/snarks_v4.tex",
-            "summary": "Separates protocol soundness accounting from list, CA, MCA, line-decoding, extension, and interleaving ledgers."
+            "file": "snarks_v5.pdf",
+            "pdf": "papers/snarks_v5.pdf",
+            "githubPdf": "https://github.com/przchojecki/rs-mca/blob/main/site/papers/snarks_v5.pdf",
+            "tex": "https://github.com/przchojecki/rs-mca/blob/main/tex/snarks_v5.tex",
+            "summary": "Separates protocol soundness accounting and adds a theorem-backed high-agreement ledger compiler."
       },
       {
             "id": "paper-d",
@@ -1994,8 +2003,8 @@
                                   },
                                   "status": "list-corollary",
                                   "statusLabel": "list corollary",
-                                  "source": "experiments.tex interleaved-list table",
-                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/experiments.tex",
+                                  "source": "Paper B v4 interleaved-list obstruction",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/slackMCA_v4.tex",
                                   "nonClaims": [
                                         "List lower bound only; it is not by itself an MCA or protocol soundness theorem.",
                                         "This is a δ*_list upper cap from a list-size lower bound, not an exact threshold."
@@ -2522,8 +2531,8 @@
                                   },
                                   "status": "list-corollary",
                                   "statusLabel": "list corollary",
-                                  "source": "experiments.tex interleaved-list table",
-                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/experiments.tex",
+                                  "source": "Paper B v4 interleaved-list obstruction",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/slackMCA_v4.tex",
                                   "nonClaims": [
                                         "List lower bound only; it is not by itself an MCA or protocol soundness theorem.",
                                         "This is a δ*_list upper cap from a list-size lower bound, not an exact threshold."
@@ -2683,8 +2692,8 @@
                                   },
                                   "status": "list-corollary",
                                   "statusLabel": "list corollary",
-                                  "source": "experiments.tex interleaved-list table",
-                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/experiments.tex",
+                                  "source": "Paper B v4 interleaved-list obstruction",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/slackMCA_v4.tex",
                                   "nonClaims": [
                                         "List lower bound only; it is not by itself an MCA or protocol soundness theorem.",
                                         "This is a δ*_list upper cap from a list-size lower bound, not an exact threshold."
@@ -2844,8 +2853,8 @@
                                   },
                                   "status": "list-corollary",
                                   "statusLabel": "list corollary",
-                                  "source": "experiments.tex interleaved-list table",
-                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/experiments.tex",
+                                  "source": "Paper B v4 interleaved-list obstruction",
+                                  "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/slackMCA_v4.tex",
                                   "nonClaims": [
                                         "List lower bound only; it is not by itself an MCA or protocol soundness theorem.",
                                         "This is a δ*_list upper cap from a list-size lower bound, not an exact threshold."

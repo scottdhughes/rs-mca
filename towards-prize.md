@@ -24,7 +24,7 @@ Agents should read these before making claims or opening implementation work.
    <https://github.com/przchojecki/rs-mca/raw/refs/heads/main/tex/RS_disproof_v3.tex>
 
 5. **Paper B: slack MCA program / quotient floors / corrected reserve**
-   <https://github.com/przchojecki/rs-mca/raw/refs/heads/main/tex/slackMCA_v3.tex>
+   <https://github.com/przchojecki/rs-mca/raw/refs/heads/main/tex/slackMCA_v4.tex>
 
 6. **Cycle120 ABF counterexample candidate note**
    <https://github.com/przchojecki/rs-mca/raw/refs/heads/main/experimental/notes/m1/m1_cycle120_abf_counterexample_candidate.md>

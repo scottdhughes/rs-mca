@@ -18,9 +18,9 @@ The core repo consists of four papers and two guide files. .tex versions are in 
 | File | Short name | Role |
 |---|---|---|
 | `RS_disproof_v3.tex` | **Paper A: no-slack obstruction** | Refutes the unslacked, support-wise line-MCA reading of “up to capacity” for smooth multiplicative RS domains. Provides explicit lower-bound mechanisms and deployed-field obstructions. |
-| `slackMCA_v3.tex` | **Paper B: slack / quotient / entropy theory** | Main theory paper. Builds the corrected reserve framework: locator fibers, generated-field entropy, quotient cores, slack bad-slope calculus, failure ladders, quotient floors, and final local-limit conjectures. |
+| `slackMCA_v4.tex` | **Paper B: slack / quotient / entropy theory** | Main theory paper. Builds the corrected reserve framework and now promotes the solved high-agreement line/list/curve boundary layer into the main theory. |
 | `cs25_cap_v5.tex` | **Paper D: universal cap** | Extracts and sharpens the cap result. In v5 the main MCA universal cap is self-contained; the scanner marks verified divisor/binomial/subfield instances as `PROVED_PAPERD_V5_CAP`. |
-| `snarks_v4.tex` | **Paper C: SNARK ledger** | Turns the corrected theory into a protocol-facing certificate: field-separated ledgers, list-over-field budgets, MCA/line-decoding assumptions, dimension hygiene, and fallback modes. |
+| `snarks_v5.tex` | **Paper C: SNARK ledger** | Turns the corrected theory into a protocol-facing certificate and adds a theorem-backed high-agreement ledger compiler for line/list/curve coding numerators. |
 | `README.md` | Repo overview | Explains what the papers do, how they depend on each other, and what the project is trying to prove. |
 | `AGENTS.md` | Research-agent guide | Gives AI agents and new contributors a prioritized list of proof targets, toy cases, scripts, and “do not confuse these” rules. |
 
@@ -75,6 +75,23 @@ The ledgers that must be separated are:
 6. **MCA / CA / line-decoding / curve-MCA.** These are related but not interchangeable without a theorem.
 7. **Known failure ladders and universal caps.** Some gaps are ruled out by explicit lower bounds or by the universal cap.
 
+## Current paper versions and leaderboard impact
+
+The current public paper set is **A v3, B v4, D v5, C v5**.
+The version changes matter for the website and scanner as follows:
+
+- **Paper B v4** promotes the high-agreement tangent/list/curve boundary layer
+  from experimental notes into the main theory. Public tangent and
+  interleaved-list high-agreement rows should now cite `slackMCA_v4.tex` when
+  they use this theorem package.
+- **Paper D v5** makes the headline universal MCA cap self-contained. Scanner
+  rows that pass the printed divisor/binomial/subfield hypotheses are
+  `PROVED_PAPERD_V5_CAP`, not conditional-import rows.
+- **Paper C v5** adds the theorem-backed high-agreement ledger compiler for
+  protocol-facing line/list/curve numerator accounting. It changes certificate
+  packaging and denominator checks, not the mathematical value of the MCA cap
+  rows.
+
 ## How the papers fit together
 
 ```text
@@ -103,7 +120,7 @@ The paper gives explicit consequences over common smooth prime fields such as Ba
 
 ### Paper B: slack / quotient / entropy theory
 
-`slackMCA_v3.tex` is the main theory paper.
+`slackMCA_v4.tex` is the main theory paper.
 
 It generalizes the obstruction into a corrected positive/negative theory. It separates:
 
@@ -115,6 +132,12 @@ It generalizes the obstruction into a corrected positive/negative theory. It sep
 - tangent and quotient-periodic MCA floors,
 - residue-line normal forms,
 - local-limit conjectures for list decoding and MCA.
+
+Version v4 additionally closes the theorem-backed high-agreement boundary layer:
+affine/projective line and no-loss CA numerators are exact in the tangent range,
+interleaved lists are unique in their high-agreement range, and degree-`d`
+finite power-curve ledgers have a proved upper envelope with split moving-root
+exactness.
 
 Paper B is where most new mathematics should land. It contains the theorem/conjecture shape for a corrected reserve theorem: not “up to capacity,” but “up to capacity minus every explicit floor.”
 
@@ -135,7 +158,7 @@ Paper D supersedes the older internal cap in Paper B for final constants. Paper 
 
 ### Paper C: SNARK ledger
 
-`snarks_v4.tex` turns the corrected theory into a protocol-facing reserve certificate.
+`snarks_v5.tex` turns the corrected theory into a protocol-facing reserve certificate.
 
 Its purpose is not to prove all missing MCA/list theorems. Its purpose is to prevent protocol analyses from mixing ledgers. In particular, it insists on distinguishing:
 
@@ -144,6 +167,10 @@ Its purpose is not to prove all missing MCA/list theorems. Its purpose is to pre
 - base-code lists vs interleaved lists,
 - CA vs MCA vs line-decoding vs curve-MCA,
 - theorem-backed mode vs conjectural aggressive mode vs obstruction-audit mode.
+
+Version v5 also adds the high-agreement ledger compiler: before invoking
+near-capacity conjectures, a protocol certificate can first check the exact
+line/list/curve numerator formulas in the small-radius theorem-backed range.
 
 Paper C is the bridge from theory to systems. Once the missing local-limit and line/MCA statements are proved, Paper C should become a compiler from a code/domain tuple to a soundness certificate.
 

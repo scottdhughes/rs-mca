@@ -1,0 +1,1064 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage[expansion=false]{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+\hypersetup{colorlinks=true,linkcolor=blue!55!black,citecolor=blue!55!black,urlcolor=blue!55!black}
+\setlength{\emergencystretch}{3em}
+\setcounter{tocdepth}{2}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{openproblem}[theorem]{Open Problem}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{designrule}[theorem]{Design Rule}
+
+\crefname{theorem}{Theorem}{Theorems}
+\Crefname{theorem}{Theorem}{Theorems}
+\crefname{proposition}{Proposition}{Propositions}
+\Crefname{proposition}{Proposition}{Propositions}
+\crefname{lemma}{Lemma}{Lemmas}
+\Crefname{lemma}{Lemma}{Lemmas}
+\crefname{corollary}{Corollary}{Corollaries}
+\Crefname{corollary}{Corollary}{Corollaries}
+\crefname{conjecture}{Conjecture}{Conjectures}
+\Crefname{conjecture}{Conjecture}{Conjectures}
+\crefname{assumption}{Assumption}{Assumptions}
+\Crefname{assumption}{Assumption}{Assumptions}
+\crefname{openproblem}{Open Problem}{Open Problems}
+\Crefname{openproblem}{Open Problem}{Open Problems}
+\crefname{definition}{Definition}{Definitions}
+\Crefname{definition}{Definition}{Definitions}
+\crefname{example}{Example}{Examples}
+\Crefname{example}{Example}{Examples}
+\crefname{remark}{Remark}{Remarks}
+\Crefname{remark}{Remark}{Remarks}
+\crefname{construction}{Construction}{Constructions}
+\Crefname{construction}{Construction}{Constructions}
+\crefname{designrule}{Design Rule}{Design Rules}
+\Crefname{designrule}{Design Rule}{Design Rules}
+\crefname{table}{Table}{Tables}
+\Crefname{table}{Table}{Tables}
+
+\newcommand{\F}{\mathbb F}
+\newcommand{\N}{\mathbb N}
+\newcommand{\RS}{\operatorname{RS}}
+\newcommand{\IRS}{\operatorname{IRS}}
+\newcommand{\FRS}{\operatorname{FRS}}
+\newcommand{\poly}{\operatorname{poly}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\Hbin}{\operatorname{H}_2}
+\newcommand{\taustar}{\tau^{*}}
+\newcommand{\mca}{\varepsilon_{\rm mca}}
+\newcommand{\ca}{\varepsilon_{\rm ca}}
+\newcommand{\Qprof}{\mathcal Q}
+\newcommand{\qgen}{q_{\rm gen}}
+\newcommand{\qarith}{q_{\rm arith}}
+\newcommand{\qchal}{q_{\rm chal}}
+\newcommand{\qline}{q_{\rm line}}
+\newcommand{\Lst}{\operatorname{List}}
+\newcommand{\Fib}{\mathsf{Fib}}
+\newcommand{\Adv}{\operatorname{Adv}}
+\newcommand{\entres}{R_{\rm ent}}
+\newcommand{\cert}{\mathsf{Cert}}
+\newcommand{\Int}[2]{#1^{\equiv #2}}
+\newcommand{\ceil}[1]{\left\lceil #1\right\rceil}
+\newcommand{\floor}[1]{\left\lfloor #1\right\rfloor}
+
+\title{Efficient Proximity-Gap SNARKs from Field-Separated\\ Reed--Solomon Reserve Certificates}
+\author{Przemek Chojecki\\ \small ulam.ai}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Reed--Solomon proximity SNARKs are most efficient when the proximity layer is run near capacity rather than at the Johnson radius, but a near-capacity soundness claim must budget exactly the coding-theoretic quantities consumed by the protocol reduction.  This paper turns the corrected smooth-domain Reed--Solomon reserve theory of the companion manuscript into a protocol-facing certificate.  The certificate separates six ledgers: generated-field list entropy; quotient-core obstructions at the actual (possibly dithered) dimension; a locator-fiber list bound, bridged explicitly to the interleaved list size $|\Lambda(\Int{C}{\mu},\delta)|$ consumed by the reduction; the list-size-over-field budget $|\Lambda(\Int{C}{\mu},\delta)|/\qline\le2^{-\lambda_{\rm list}}$; mutual correlated agreement (MCA) or line-decoding over the field in which the line experiment is actually analyzed; and theorem-backed failure-ladder audits.  Three field-accounting rules are central and easy to violate.  First, an extension challenge field cannot be credited in the MCA or list denominators unless the protocol is analyzed over the corresponding extension code or an explicit extension-line transfer assumption is invoked.  Second, the generated-field entropy floor binds regardless of the challenge field: every $2$-smooth domain over a $31$-bit FFT prime such as KoalaBear has generated field of $31$ bits, so reserves below $\taustar(\rho,2^{31})\approx1/31$ at rate $1/2$ lie in the proven-large-list region no matter how large the extension used for challenges.  Third, the self-contained universal field-size cap of the companion cap paper binds the line field itself: no reserve at or below $2^{-9}$ at the prize rates ($2^{-10}$ at rate $1/16$) is certifiable at $2^{-128}$ over any field of size up to $2^{256}$, and structurally none below $\approx\Hbin(\rho)/\log_2\qline$ --- a floor that enlarging the challenge field shifts but never clears.  We give a corrected concrete comparison against the toy parameters of Arnon--Boneh--Fenzi: at the entropy-feasible reserve $\eta=1/16$ over KoalaBear, the conjectural corrected layer reduces $128$-bit argument size from $161$ KiB to $97$ KiB, and a field-size trade-off analysis shows that this small-field, larger-reserve configuration beats both a Goldilocks instantiation at $\eta=1/32$ and a $128$-bit-field instantiation at $\eta=1/64$.  Quotient hygiene---dithering $k=\rho n$ to $\rho n-1$---removes all exact dyadic quotient-core obstructions at rate loss $1/n$ and, by a maximal-remainder lemma, also defeats the natural remainder variant of the quotient-core construction.  Without the final locator and line/MCA local-limit conjectures, the same machinery remains useful as an obstruction audit and as a guide to fallbacks: larger challenge fields with matching extension statements, dimension dithering, domain shattering, hybrid schedules, or theorem-backed folded and subspace-design codes.
+
+This strengthened version adds a theorem-backed high-agreement ledger compiler: in the exact tangent range the line/CA/projective-line numerator is $r+1$, interleaved lists contribute the single numerator unit $1$, and finite power-curve branches contribute $d(r+1)$ in the split moving-root model.  These formulas give a concrete coding numerator certificate for the small-radius boundary layer while preserving the separation between protocol denominators, query/folding losses, and near-capacity local-limit assumptions.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+\label{sec:intro}
+
+A Reed--Solomon proximity SNARK commits to evaluations of low-degree polynomials on a structured domain and then proves that a committed word is close to a code.  Write
+\[
+        C=\RS[\F_q,H,k],\qquad |H|=n,
+        \qquad \rho=k/n,
+\]
+where $H\le \F_q^\times$ is usually a power-of-two multiplicative subgroup or coset.  A verifier that reasons at distance
+\[
+        \delta=1-\rho-\eta
+\]
+is operating $\eta$ below Singleton capacity; we call $\eta$ the \emph{reserve}.  Johnson-regime analyses \cite{Joh62,GS99,BCIKS20} use roughly
+\[
+        \delta_J=1-\sqrt\rho,
+        \qquad
+        \eta_J(\rho)=\sqrt\rho-\rho .
+\]
+For moderate rates this reserve is a large constant.  The natural efficiency question is whether a FRI/WHIR-like layer \cite{FRI,ACFY25} can safely use $\eta=o(1)$, thereby increasing rate, reducing low-degree-extension blowup, and shrinking oracle commitments.
+
+The answer is not governed by a one-line entropy rule.  Smooth domains have quotient structure.  The companion manuscript \cite{SlackMCAEntropyMerged} identifies two list-decoding lower-bound scales and matching MCA floors: a generated-field coefficient-pigeonhole obstruction, quotient-core obstructions at internal subgroup scales, a tangent MCA floor of order $n/q$, and quotient-periodic bad-slope floors, building on the no-slack disproof of \cite{NoSlack}; concurrent near-capacity failures over prime-field multiplicative subgroups appear in \cite{KKH26,Kambire26}.  The survey of Arnon--Boneh--Fenzi \cite{ABF26} stresses, independently, that protocol soundness consumes both MCA and a list-size term for an \emph{interleaved} code: in their toy protocol the round error contains
+\[
+        \mca(C,\delta)+\frac{|\Lambda(\Int{C}{2},\delta)|}{|\F|},
+\]
+not merely a base-code list bound.  This paper translates those code facts into an explicit SNARK parameter ledger.  The governing principle is:
+\begin{center}
+\fbox{\begin{minipage}{0.86\linewidth}
+Do not run a high-rate proximity layer from a single inequality such as ``$\eta$ exceeds the entropy gap.''  Emit a certificate that proves or assumes the exact list and MCA objects consumed by the protocol reduction---including interleaving arity, extension-field lifting, the list-size-over-field term, and the generated-field entropy floor---and that states plainly which entries are theorem-backed and which are conjectural.
+\end{minipage}}
+\end{center}
+
+The practical benefits remain attractive.  If a proximity protocol needs target distance $\delta_0$, Johnson operation imposes roughly
+\[
+        \rho\le (1-\delta_0)^2,
+\]
+whereas a capacity-like layer would use
+\[
+        \rho\le 1-\delta_0-\eta .
+\]
+At $\delta_0=1/2$, Johnson gives $\rho\le1/4$ and blowup at least $4$.  A reserve $\eta=1/64$ would allow $\rho=31/64$ and blowup $64/31\approx2.06$, a $1.94\times$ oracle-length improvement.  Three caveats attach immediately, and all are quantitative statements rather than hedges.  First, $\eta=1/64$ is \emph{entropy-feasible only when the generated field has at least roughly $64$ bits} (\cref{rule:entropy-feasibility}); over a $31$-bit FFT prime it lies deep inside the proven-large-list region.  Second, for exact deployed-rate dimensions over base prime fields of at most about $150$ bits, the companion's theorem-backed challenge cap places $\eta\le1/64$ outside the certified safe region for support-wise line MCA at $128$-bit targets.  Third, the self-contained universal cap of the companion cap paper \cite{UniversalCap} pins the threshold below $1-\rho-2^{-9}$ for \emph{every} field below $2^{256}$, and its reach at the deployed sextic parameters is already gap $2^{-7}$ --- so reserves of $1/128$ or below are certifiably unsafe there regardless of the challenge field.  A certificate must therefore say whether a parameter point is theorem-backed, conjectural with explicit named assumptions, or merely an obstruction audit.
+
+\paragraph{Contributions.}
+This paper makes six structural contributions to the proximity-layer design problem.
+\begin{enumerate}[label=(\arabic*),leftmargin=2.2em]
+\item It defines locator fibers in a protocol-sufficient form and proves the bridge from fiber bounds to list bounds (\cref{lem:fiber-list}), so the locator local-limit assumption can be consumed directly by a soundness proof.
+\item It states the locator and MCA assumptions with $k=\rho n+O(1)$, so dimension dithering such as $k=\rho n-1$ is not excluded by the very assumptions it is meant to exploit, and the quotient profile is computed at the actual pair $(n,k)$.
+\item It separates $\qgen$ from $\qline$ and $\qchal$.  The generated field controls locator entropy unconditionally; the line or challenge field controls random-line denominators only after the protocol is analyzed over that field, via a proved extension statement or the explicit \cref{ass:extension-mca-lift}.
+\item It adds the interleaved-list budget $\lambda_{\rm list}$, with the explicit inequality $\widehat L_{\mu}(\delta)/\qline\le2^{-\lambda_{\rm list}}$, matching the list-size-over-field term that appears in concrete reductions \cite{ABF26}.
+\item It replaces a black-box ``compiler theorem'' by a ledger theorem (\cref{thm:ledger}) that applies exactly to reductions whose code-level errors are the listed list/MCA/curve/query/fold terms, together with a worked instantiation on the Arnon--Boneh--Fenzi toy protocol (\cref{ex:toy-ledger}).
+\item It distinguishes theorem-backed certificates from obstruction audits, and it corrects the efficiency comparison accordingly: the headline near-capacity numbers are computed at \emph{entropy-feasible} reserves, with an explicit field-size trade-off table (\cref{sec:efficiency}).
+\end{enumerate}
+
+\paragraph{Scope.}
+The paper treats the Reed--Solomon proximity layer and its coding-theoretic soundness ledger.  Commitment schemes, hash assumptions, recursion, Fiat--Shamir, arithmetization, and Merkle-path accounting are recorded only insofar as they determine list arity, line/curve arity, challenge field, and query/folding errors.
+
+\section{Protocol-facing code objects}
+\label{sec:objects}
+
+\subsection{Distances, agreement size, and reserve}
+
+Let $C=\RS[\F,H,k]$ with $|H|=n$.  For a target radius $\delta<\delta_{\min}(C)$ define the required agreement size
+\[
+        a=a(\delta):=\ceil{(1-\delta)n}
+\]
+and the reserve in agreement coordinates
+\[
+        \sigma:=a-k,
+        \qquad
+        \eta:=\sigma/n .
+\]
+When $k=\rho n$ exactly and $\delta=1-\rho-\eta$, this matches the simpler rate-based notation.  The agreement-size notation is safer because dimension dithering deliberately changes $k$ by $O(1)$.
+
+The exact finite-length entropy ledger is
+\begin{equation}
+\label{eq:entropy-ledger}
+        \entres(a;\qgen)
+        :=(a-k)\log_2\qgen-\log_2\binom n a .
+\end{equation}
+Here $\qgen$ is the size of the field generated by the evaluation domain, hence the field containing the locator coefficients of $a$-subsets of $H$.  If $H$ lies in a proper subfield, a larger ambient extension field does not improve \eqref{eq:entropy-ledger} unless the code and the locator problem are genuinely lifted.
+
+\subsection{Locator fibers and the list bridge}
+\label{sec:fibers}
+
+\begin{definition}[Feasible locator fiber]
+\label{def:fiber}
+Let $U:H\to\F$ be a received word and let $a\ge k$.  Define
+\[
+        \Fib_U(a):=\bigl\{S\subseteq H:\
+        |S|=a \text{ and there exists } p\in\F[X]_{<k}
+        \text{ with } p(x)=U(x) \text{ for all } x\in S\bigr\}.
+\]
+Equivalently, writing $L_S(X)=\prod_{x\in S}(X-x)$ for the locator of $S$ and $\widehat U$ for the degree-$<n$ interpolant of $U$ on $H$, we have $S\in\Fib_U(a)$ if and only if $\deg(\widehat U\bmod L_S)<k$.  In the companion paper finer fibers are organized by locator coefficients or moments; this coarse feasible fiber is the object needed for the list bridge below.
+\end{definition}
+
+\begin{lemma}[Fiber-to-list bridge]
+\label{lem:fiber-list}
+For every received word $U:H\to\F$ and every $a\ge k$,
+\[
+        |\Lambda(C,1-a/n,U)|\le |\Fib_U(a)| .
+\]
+Consequently, a uniform bound $|\Fib_U(a)|\le n^{B_L}$ over all $U$ implies $|\Lambda(C,1-a/n)|\le n^{B_L}$.
+\end{lemma}
+
+\begin{proof}
+Every codeword $p\in\Lambda(C,1-a/n,U)$ agrees with $U$ on at least $a$ points; choose a canonical $a$-subset $S_p$ of its agreement set, so $S_p\in\Fib_U(a)$.  If $p\ne p'$ had $S_p=S_{p'}=S$, then $p$ and $p'$ are degree-$<k$ polynomials agreeing on the $a\ge k$ points of $S$, hence $p=p'$.  The map $p\mapsto S_p$ is therefore injective.
+\end{proof}
+
+\subsection{Interleaved lists}
+\label{sec:interleaved}
+
+Protocol reductions rarely consume the base-code list size alone.  If the reduction bundles $\mu$ committed words, or if an extension-code view turns one extension symbol into several base-field coordinates, the relevant object is an interleaved list.
+
+\begin{definition}[Protocol list arity]
+\label{def:list-arity}
+Let $C_{\rm line}$ be the code over the field from which the protocol's combination challenge is sampled.  The protocol list arity is the smallest integer $\mu\ge1$ such that the reduction's list term is bounded by
+\[
+        |\Lambda(\Int{C_{\rm line}}{\mu},\delta)|/\qline .
+\]
+A certificate records an explicit number $\widehat L_{\mu}(\delta)$ with
+\[
+        |\Lambda(\Int{C_{\rm line}}{\mu},\delta)|
+        \le \widehat L_{\mu}(\delta).
+\]
+\end{definition}
+
+A conservative derivation is the trivial product bound
+\begin{equation}
+\label{eq:trivial-interleaving}
+        \widehat L_{\mu}(\delta)
+        :=\widehat L_1(\delta)^{\mu},
+\end{equation}
+which is adequate for the constant arities ($\mu=2$ or $3$) of typical batching steps.  Sharper Gopalan--Guruswami--Raghavendra interleaving bounds may be used instead, but the certificate should print the exact lemma and its hypotheses: the GGR factor is independent of $\mu$ but grows rapidly as $\delta\to\delta_{\min}(C)$, so near capacity the trivial bound can be the better choice for constant $\mu$ \cite{GGR11,ABF26}.
+
+\subsection{Extension fields}
+\label{sec:extension}
+
+Suppose a base code $C_B:B^k\to B^n$ is used with challenges in an extension $F/B$ of degree $e$.  The extension code $C_F:F^k\to F^n$ is not the same object as $C_B$ with a larger denominator.  The survey records the list-side identity
+\begin{equation}
+\label{eq:extension-list}
+        |\Lambda(C_F,\delta)|=|\Lambda(\Int{C_B}{e},\delta)|
+\end{equation}
+under the usual extension-code presentation \cite{ABF26}.  Extension challenges thus move the list ledger into an interleaved base-code ledger; they do not increase the generated-field entropy reserve.
+
+The MCA side needs an analogous transfer, and it is \emph{not} automatic from a base-field MCA conjecture: the companion's line/MCA local limit is stated for lines $f+zg$ with $f,g$ over, and $z$ ranging over, the generated field.  After one folding round of a protocol with extension challenges, the committed words live over $F$ and the line experiment runs over $F$.  We therefore isolate the needed transfer as an explicit assumption rather than silently substituting denominators.
+
+\begin{assumption}[Extension-line MCA lift]
+\label{ass:extension-mca-lift}
+Let $C_B=\RS[\F_{\qgen},H,k]$ satisfy an MCA bound $\mca(C_B,\delta)\le N_{\rm mca}/\qgen$ for a numerator $N_{\rm mca}$, and let $C_F$ be its extension code over a challenge field $F$ with $|F|=\qchal$.  Then the same numerator transfers:
+\[
+        \mca(C_F,\delta)\le \frac{N_{\rm mca}^{\,1+o(1)}}{\qchal}
+\]
+for the line family $\{f+zg:z\in F\}$ with $f,g\in F^H$, and likewise for the line-decoding form.
+\end{assumption}
+
+\begin{remark}[Why the lift is plausible, and what is genuinely open]
+\label{rem:lift-evidence}
+Three observations delimit \cref{ass:extension-mca-lift}.  (i) The tangent floor over the extension is $\floor{\delta n}/\qchal$, so the target shape is consistent: extension challenges suppress the floor exactly as the assumption predicts.  (ii) The quotient-periodic bad slopes constructed in the companion are values of symmetric functions of subsets of $H$; they lie in $\F_{\qgen}$, and their \emph{count} does not grow under field extension, so the known lower-bound families are compatible with a field-independent numerator.  (iii) Unconditionally, the one-bad-parameter-per-support bound gives $\mca(C_F,\delta)\le2^{n}/\qchal$ over \emph{any} field, so the lift holds trivially once $\qchal\ge2^{n+\lambda}$; the assumption is only needed in the practical window $\poly(n)\le\qchal\le2^{o(n)}$.  What is genuinely open is whether \emph{new} bad slopes appear from witnesses that exist only over the extension---lines whose anchor, direction, and explaining codewords all use extension coordinates.  No such family is currently known, but none is excluded.  \Cref{op:extension-mca} records this as an open problem.
+\end{remark}
+
+If \cref{ass:extension-mca-lift} is neither invoked nor replaced by a proved extension-field theorem, the certificate must use the field of the line experiment actually covered by the cited statement.  In particular, a numerator proved over $\F_{\qgen}$ cannot simply be divided by $\qchal$.
+
+\subsection{MCA, line-decoding, and curves}
+\label{sec:mca-objects}
+
+For a linear code $C\subseteq\F^n$, MCA at radius $\delta$ bounds the fraction of slopes $z\in\F$ for which the line $f+zg$ has a false support-wise explanation: a support $S$ with $|S|\ge(1-\delta)n$ on which $f+zg$ matches a codeword while $(f,g)$ does not match $\Int{C}{2}$.  A closely related and often cleaner protocol interface is \emph{line-decoding}: if $C$ is $(\delta,a_{\rm LD},n+1)$ line-decodable, then
+\[
+        \mca(C,\delta)\le a_{\rm LD}/|\F| ,
+\]
+and some interactive-oracle-proof analyses consume line-decoding directly, occasionally with tighter constants \cite{GG25,Hab24,Hab25,ABF26}.  The companion's corrected MCA conjecture is itself phrased through residue-line packing, which is essentially the line-decoding form; \cref{op:line-decoding} asks to make that alignment exact.
+
+Some batching steps use power curves
+\[
+        f_0+\gamma f_1+\cdots+\gamma^d f_d
+\]
+rather than affine lines.  A ledger theorem must therefore carry either a curve-MCA term or an explicit reduction from the affine-line and univariate-power cases to the full polynomial-generator family, as in Bordage--Chiesa--Guan--Manzur \cite{BCGM25}.  The certificate records this as a separate error term $\Adv_{\rm curve}$, which is zero when the protocol uses only affine lines.
+
+Finally, implementations typically commit to an $s$-interleaved presentation $\IRS[\F,H,k,s]$ for FFT locality.  Interleaving degrades MCA by at most the interleaving factor,
+\begin{equation}
+\label{eq:interleaved-mca}
+        \mca(\Int{C}{\nu},\delta)\le\nu\cdot\mca(C,\delta),
+\end{equation}
+and below the unique-decoding radius the factor disappears entirely, $\mca(\Int{C}{\nu},\delta)=\mca(C,\delta)$ for $\delta<\delta_{\min}(C)/2$ \cite{ABF26,DG24}.  The certificate carries the factor $\nu$ explicitly.
+
+\section{Corrected Reed--Solomon input}
+\label{sec:input}
+
+This section states the code-level input in a form that survives dimension dithering and extension-field accounting.
+
+\subsection{Generated-field list entropy}
+\label{sec:entropy}
+
+The coefficient-pigeonhole obstruction of the companion paper produces, below the entropy scale, an explicit received word with list size at least $\qgen^{-(a-k)}\binom na$.  Polynomial list size therefore requires
+\begin{equation}
+\label{eq:entropy-necessary}
+        (a-k)\log_2\qgen
+        \gtrsim \log_2\binom n a .
+\end{equation}
+A finite certificate uses the exact ledger \eqref{eq:entropy-ledger} with an additive margin:
+\begin{equation}
+\label{eq:entropy-margin}
+        \entres(a;\qgen)\ge \Gamma_{\rm ent}.
+\end{equation}
+An implementation preferring a multiplicative margin
+\[
+        (a-k)\log_2\qgen
+        \ge (1+\gamma_{\rm ent})\log_2\binom n a
+\]
+should convert it by setting $\Gamma_{\rm ent}=\gamma_{\rm ent}\log_2\binom na$.  We use the additive convention throughout, with distinct symbols $\Gamma_{\rm ent}$, $\Gamma_Q$, $\Gamma_M$ for the entropy, quotient-profile, and MCA slacks.
+
+It is useful to record the asymptotic feasibility threshold.  Let $\taustar(\rho,q)$ be the unique solution of $\tau\log_2q=\Hbin(\rho+\tau)$; then \eqref{eq:entropy-necessary} forces $\eta\ge(1-o(1))\taustar(\rho,\qgen)$, and $\taustar(\rho,q)=(\Hbin(\rho)+o(1))/\log_2q$ for large $q$.
+
+\begin{designrule}[Generated-field feasibility]
+\label{rule:entropy-feasibility}
+Before any other tuning, check $\eta\ge(1+\gamma_{\rm ent})\taustar(\rho,\qgen)$ using the exact ledger \eqref{eq:entropy-margin}.  This floor depends only on the generated field and binds regardless of the challenge field.  \Cref{tab:feasibility} tabulates $\taustar(1/2,q)$ for common FFT fields.  Note that every $2$-smooth domain over a KoalaBear-type tower lies in the $31$-bit base field---all $2$-power roots of unity of relevant order already live there---so $\qgen\approx2^{31}$ for \emph{any} extension degree.
+\end{designrule}
+
+\begin{table}[ht]\centering\small
+\caption{Entropy-feasibility floor $\taustar(1/2,\qgen)$ for common generated fields, and the smallest convenient dyadic reserve clearing it with multiplicative margin near $2$.}
+\label{tab:feasibility}
+\begin{tabular}{lccc}
+\toprule
+Generated field & $\log_2\qgen$ & $\taustar(1/2,\qgen)$ & feasible dyadic $\eta$ (margin $\approx2$) \\
+\midrule
+KoalaBear / BabyBear class & $31$ & $0.0322\approx1/31$ & $1/16$ \\
+Goldilocks & $64$ & $0.0156\approx1/64$ & $1/32$ \\
+$128$-bit $2$-adic prime & $128$ & $0.0078\approx1/128$ & $1/64$ \\
+Stark-prime class & $252$ & $0.0040\approx1/252$ & $1/128$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Two consequences deserve emphasis.  First, $\eta=1/64$ over a $31$-bit generated field has entropy ratio $(\eta\log_2\qgen)/\Hbin(\rho+\eta)\approx0.48$ at rate $1/2$: it is not merely uncertified but lies in the region where the pigeonhole theorem \emph{proves} exponential lists.  Second, $\eta=1/64$ over Goldilocks sits exactly at the threshold (ratio $1.0007$), with no usable margin; the first comfortable dyadic reserve there is $1/32$.  These facts reshape the efficiency comparison of \cref{sec:efficiency}.
+
+\subsection{Quotient-core profile}
+\label{sec:qprofile}
+
+For $M\mid n$, quotient cores become dangerous when $k$ is aligned with the quotient scale and the slack is smaller than that scale: the companion constructs, for $M\mid k$, $k/M\le n/M-1$, and $1\le\sigma<M$, a received word with at least $\binom{n/M-1}{k/M}$ codewords at agreement $k+\sigma$ \cite[Thm.~3.5]{SlackMCAEntropyMerged}.  The exact-divisibility profile used by the certificate is
+\begin{equation}
+\label{eq:qprofile}
+        \Qprof_H(a,k)
+        :=
+        \max_{\substack{M\mid\gcd(n,k),\ M>1,\ a-k<M\\ k/M\le n/M-1}}
+        \log_2\binom{n/M-1}{k/M},
+\end{equation}
+with value $-\infty$ if the maximum is empty.  The condition $M>1$ removes the vacuous $M=1$ edge case (the underlying construction needs $1\le\sigma<M$, hence $M\ge2$), which would otherwise appear when $a=k$ or $\eta<1/n$.
+
+A list certificate with target exponent $B_L$ requires
+\begin{equation}
+\label{eq:qprofile-list-budget}
+        \Qprof_H(a,k)\le B_L\log_2n+\Gamma_Q .
+\end{equation}
+The profile is computed at the actual pair $(n,k)$ \emph{after} dimension dithering, not at an idealized exact value $k=\rho n$.  In scale form, the quotient-core family forces $\sigma=\Omega(n/\log n)$ for unspecified polynomial list size and $\sigma\gtrsim(\Hbin(\rho)/B_L)\,n/\log_2n$ for a fixed list exponent $B_L$.
+
+\subsection{Locator local-limit assumption}
+\label{sec:locator}
+
+\begin{assumption}[Field-aware locator local limit]
+\label{ass:locator}
+Fix $\rho\in(0,1)$, $B_L>0$, and $\eps>0$.  There is a constant $C_{\rho,B_L,\eps}$ such that the following holds.  Let $H_n\le\F_{q_n}^{\times}$ be generated-field smooth domains of order $n=2^m$ (so $q_n=\qgen$), and let $k_n=\rho n+O(1)$.  For every received word $U:H_n\to\F_{q_n}$,
+\[
+        |\Fib_U(k_n+\sigma_n)|\le n^{B_L}
+\]
+whenever
+\[
+        \sigma_n\ge C_{\rho,B_L,\eps}\frac n{\log_2 n},
+        \qquad
+        \sigma_n\log_2 q_n
+        \ge (1+\eps)\log_2\binom n{k_n+\sigma_n},
+\]
+and all active quotient-core profiles satisfy \eqref{eq:qprofile-list-budget}.  Equivalently, after quotient-periodic classes are accounted for, locator fibers behave like random codimension-$\sigma_n$ fibers on $(k_n+\sigma_n)$-subsets.
+\end{assumption}
+
+The $O(1)$ freedom in $k_n$ is intentional: it makes the assumption compatible with quotient hygiene, whose whole point is to replace exact deployed dimensions such as $k=\rho n$ by nearby dimensions such as $k=\rho n-1$.  Via \cref{lem:fiber-list}, the assumption yields $|\Lambda(C,1-\rho-\eta_n)|\le n^{B_L}$ at the corrected reserve.
+
+\paragraph{Theorem-backed lanes.}
+The companion proves several special lanes and obstruction families.  In characteristic zero, equal prefix moments on power-of-two roots of unity are exactly quotient-periodic, so characteristic-zero prefix fibers are polynomial once $\sigma\ge Cn/\log n$ \cite[Thm.~4.2, Cor.~4.3]{SlackMCAEntropyMerged}.  In split prime fields $p\equiv1\pmod n$, a Galois-amplified collision sieve \cite[Thm.~5.2, Cor.~5.3]{SlackMCAEntropyMerged} transfers this structure whenever
+\[
+        p>\exp\!\left(C\frac{n\log n}{\sigma}\right),
+\]
+which at the corrected reserve is the quasi-polynomial range $p>\exp(O((\log n)^2))$.  These results are valuable for auditing and for monomial-prefix instances.  They are not, by themselves, a full arbitrary-word polynomial-field list theorem.
+
+\subsection{MCA floors and corrected MCA assumption}
+\label{sec:mca-input}
+
+The companion proves unavoidable MCA floors.  The tangent floor \cite[Prop.~9.4]{SlackMCAEntropyMerged} states that for $C=\RS[\F,H,k]$, $\delta\in(0,1-\rho)$, and $\floor{\delta n}\le q$,
+\begin{equation}
+\label{eq:tangent-floor}
+        \mca(C,\delta)\ \ge\ \floor{\delta n}/q ,
+\end{equation}
+where $q$ is the size of the field over which the line experiment is actually run.  A raw MCA target below $n/q$ is therefore impossible without enlarging that field.
+
+There is also a quotient-periodic floor.  Let $\beta(\rho)$ denote the companion's quotient value-set exponent; for deployed rates $\rho\in\{1/2,1/4,1/8,1/16\}$, the ratios $\Hbin(\rho)/\beta(\rho)$ are approximately $1.262$, $1.082$, $1.024$, and $1.009$.  Above the quotient norm threshold, the companion proves \cite[Prop.~19.1, Thm.~19.4]{SlackMCAEntropyMerged}
+\begin{equation}
+\label{eq:mca-necessity}
+        \mca(C,1-\rho-\eta)
+        \ge
+        \frac{2^{(\beta(\rho)/\Hbin(\rho))\Qprof_H(a,k)(1-o(1))}}{q} .
+\end{equation}
+A clean numerator $n^{1+o(1)}$ is therefore available only when quotient-periodic contributions are removed by parameter choice or explicitly paid for in the challenge budget.
+
+\paragraph{Universal-cap floor.}
+A third floor, proved self-contained in the companion cap paper \cite{UniversalCap}, binds the line field itself.  Whenever some divisor $N\mid n$ has $n/N\mid k$ and $\binom{N}{\rho N+2}\ge\qgen\bigl(\qline/k+1\bigr)$, every radius $\delta\in[1-\rho-2/N,\,1-\rho)$ carries
+\begin{equation}
+\label{eq:cap-floor}
+        \mca(C,\delta)\ \ge\ \frac1{2k}\Bigl(1-\frac n{\qline}\Bigr),
+\end{equation}
+where $\qline$ is the field from which the line challenge is actually drawn.  At the prize rates with $2^{10}\mid n$ ($2^{11}\mid n$ at rate $1/16$) this rules out every reserve $\eta\le2^{-9}$ (resp.\ $2^{-10}$) over every field below $2^{256}$, and structurally the mechanism reaches gap $\approx\Hbin(\rho)/\log_2\qline$: the floor moves with the line field but is never removed by enlarging it, which quantitatively bounds the ``increase $\qline$'' repair of \cref{sec:modes}.  At the deployed sextic parameters the certified reach is gap $2^{-7}$ with error $>2^{-22}$.
+
+\begin{assumption}[Line/MCA local limit over the actual line field]
+\label{ass:mca}
+Let $H_n\le\F_{q_n}^{\times}$ be generated-field smooth domains of order $n$, let $k_n=\rho n+O(1)$, and let the line experiment be defined over $\F_{q_n}$ for the code used by the protocol.  Assume $\poly(n)\le q_n\le2^{o(n)}$.  If
+\[
+        \sigma_n\ge C\frac n{\log_2n},
+        \qquad
+        \sigma_n\log_2q_n\ge(1+\eps)\log_2\binom n{k_n+\sigma_n},
+\]
+then, with $a_n=k_n+\sigma_n$ and $\eta_n=\sigma_n/n$,
+\begin{equation}
+\label{eq:mca-assumption}
+        \mca(\RS[\F_{q_n},H_n,k_n],1-\rho-\eta_n)
+        \le
+        \frac{n^{1+o(1)}
+        +2^{(\beta(\rho)/\Hbin(\rho))\Qprof_{H_n}(a_n,k_n)(1+o(1))}}{q_n}.
+\end{equation}
+The statement may equivalently be supplied in line-decoding form with numerator $a_{\rm LD}$, using the implication $(\delta,a_{\rm LD},n+1)$ line-decodable $\Rightarrow\mca\le a_{\rm LD}/q_n$.
+\end{assumption}
+
+In a concrete certificate the $n^{1+o(1)}$ term is recorded as $n^{A_M}$ for an explicit conservative exponent $A_M$, and the $(1+o(1))$ in the quotient exponent is absorbed into the slack $\Gamma_M$.
+
+\begin{remark}[No automatic $\qchal$ substitution]
+\label{rem:no-substitution}
+If \cref{ass:mca} is invoked over the generated field, then $q_n=\qgen$ in \eqref{eq:mca-assumption}.  To divide by $\qchal>\qgen$, one must either prove the bound over the extension code directly or invoke \cref{ass:extension-mca-lift}.  Conflating the two fields is the precise ambient-field accounting mistake that the generated-field pigeonhole already refutes on the list side.
+\end{remark}
+
+\section{Reserve certificates}
+\label{sec:certificate}
+
+A proximity implementation should output a small, checkable certificate for the code-level part of its security statement.
+
+\begin{definition}[Field-separated proximity reserve certificate]
+\label{def:cert}
+A certificate for a Reed--Solomon proximity layer consists of the tuple
+\[
+\begin{gathered}
+        \cert=(\qarith,\qgen,\qline,H,n,k,\rho,\delta,a,\sigma,
+        \mu,\nu,e,B_L,A_M,
+        \Gamma_{\rm ent},\Gamma_Q,\Gamma_M,C_{\rm loc},
+        \lambda_{\rm list},\lambda_{\rm mca}),
+\end{gathered}
+\]
+where $\mu$ is the protocol list arity of \cref{def:list-arity}, $\nu$ is the implementation interleaving factor of the committed presentation (e.g.\ $\nu=s$ for $\IRS[\cdot,\cdot,\cdot,s]$), and $e$ is the extension degree $[\F_{\qline}:\F_{\qgen}]$ (with $e=1$ when no lift is used); together with the following evidence.
+\begin{enumerate}[label=(\alph*),leftmargin=2.2em]
+\item \textbf{Generated-field ledger.}  The exact value $\entres(a;\qgen)$ and a proof of \eqref{eq:entropy-margin}, including the feasibility check of \cref{rule:entropy-feasibility}.
+\item \textbf{Quotient profile.}  The complete divisor list used to compute $\Qprof_H(a,k)$ in \eqref{eq:qprofile} at the actual $(n,k)$, and a proof of \eqref{eq:qprofile-list-budget}.
+\item \textbf{Locator/list bound.}  A theorem or assumption giving a base-list bound $\widehat L_1(\delta)$, usually $\widehat L_1(\delta)\le n^{B_L}$ via \cref{ass:locator} and \cref{lem:fiber-list}.
+\item \textbf{Interleaved-list bound.}  A documented bound
+\begin{equation}
+\label{eq:interleaved-list-bound}
+        |\Lambda(\Int{C_{\rm line}}{\mu},\delta)|
+        \le \widehat L_{\mu}(\delta),
+\end{equation}
+obtained by the trivial product bound \eqref{eq:trivial-interleaving}, by the extension identity \eqref{eq:extension-list}, or by a sharper cited interleaving theorem with its hypotheses.
+\item \textbf{List-over-field budget.}  The explicit inequality
+\begin{equation}
+\label{eq:list-field-budget}
+        \frac{\widehat L_{\mu}(\delta)}{\qline}
+        \le 2^{-\lambda_{\rm list}} .
+\end{equation}
+\item \textbf{MCA or line-decoding budget.}  A theorem or assumption for the line family actually used by the protocol, over the field actually used.  For the corrected RS assumption this is recorded as
+\begin{equation}
+\label{eq:mca-budget}
+        \frac{\nu\left(n^{A_M}
+        +2^{(\beta(\rho)/\Hbin(\rho))\Qprof_H(a,k)+\Gamma_M}\right)}{\qline}
+        \le 2^{-\lambda_{\rm mca}},
+\end{equation}
+where the factor $\nu$ comes from \eqref{eq:interleaved-mca} and may be replaced by a sharper theorem for $\mca(\Int{C}{\nu},\delta)$, or removed below the unique-decoding radius \cite{DG24}.
+\item \textbf{Failure-ladder audit.}  A scan of theorem-backed lower-bound rungs active at the chosen radius: tangent floors \eqref{eq:tangent-floor}, restricted-sum and two-moment rungs, quotient-exact floors above their norm thresholds, and any deployed-rate challenge-cap theorem.
+\item \textbf{Extension status.}  A flag saying whether $C_{\rm line}$ is the base code, an extension code, an interleaved base-code presentation, or a curve-generated family.  If $\qline=\qchal>\qgen$, the certificate must point to the extension-list derivation \eqref{eq:extension-list} and to either a proved extension-line MCA theorem or \cref{ass:extension-mca-lift}.
+\end{enumerate}
+\end{definition}
+
+The certificate is cheap.  On a dyadic domain it records the divisor list of $\gcd(n,k)$, two high-precision logarithms for the entropy ledger, and a failure scan that enumerates divisors of $n$ against a small set of slack values; this is negligible next to proof generation, and it gives auditors a concrete account of why a high-rate layer avoids the known bad slices.
+
+\begin{designrule}[Corrected reserve rule]
+\label{rule:reserve}
+Choose the smallest agreement reserve $\sigma=a-k$ for which all of the following hold:
+\begin{align}
+        \entres(a;\qgen)&\ge \Gamma_{\rm ent},
+        \label{eq:reserve-ent}\\
+        \sigma&\ge C_{\rm loc}\frac n{\log_2 n},
+        \label{eq:reserve-local}\\
+        \Qprof_H(a,k)&\le B_L\log_2 n+\Gamma_Q,
+        \label{eq:reserve-q}\\
+        \delta<\delta_{\min}(C) \quad&\text{and}\quad \eta>\eta_{\rm fail},
+        \label{eq:reserve-fail}\\
+        \widehat L_{\mu}(\delta)/\qline&\le2^{-\lambda_{\rm list}},
+        \label{eq:reserve-list}\\
+        \varepsilon_{\rm mca}^{\rm used}(C_{\rm line},\delta)&\le2^{-\lambda_{\rm mca}} .
+        \label{eq:reserve-mca}
+\end{align}
+Here $\eta_{\rm fail}$ is the largest gap already ruled out by a proved lower-bound ladder for the target soundness.  Bad slopes propagate to larger radii, hence to smaller gaps, so a point with $\eta\le\eta_{\rm fail}$ is outside the certified safe region.
+\end{designrule}
+
+The phrase ``smallest $\sigma$'' should be read with care: the entropy and local-limit conditions are monotone in the usual regime $\qgen\ge n$ at fixed $k/n$, while quotient-profile and failure-ladder conditions can jump at divisors.  Implementations should enumerate candidate $\sigma$ values around active divisor thresholds rather than binary-search a presumed-monotone predicate.
+
+\begin{theorem}[Ledger theorem for a reserve-certified layer]
+\label{thm:ledger}
+Consider a FRI/WHIR/IOP layer whose code-level soundness reduction has been written in the form
+\begin{equation}
+\label{eq:protocol-reduction}
+        \Adv_{\rm code}
+        \le
+        \Adv_{\rm fold}
+        +\Adv_{\rm curve}
+        +|\Lambda(\Int{C_{\rm line}}{\mu},\delta)|\cdot\Adv_{\rm query}
+        +\frac{|\Lambda(\Int{C_{\rm line}}{\mu},\delta)|}{\qline}
+        +\varepsilon_{\rm mca}^{\rm used}(C_{\rm line},\delta),
+\end{equation}
+where any of the five terms may be absent for a given protocol.  Assume the certificate of \cref{def:cert} satisfies \cref{rule:reserve} and that its cited assumptions or theorems apply to the actual code, interleaving arities $\mu$ and $\nu$, curve family, and line field used in the reduction.  Then
+\begin{equation}
+\label{eq:ledger-bound}
+        \Adv_{\rm code}
+        \le
+        \Adv_{\rm fold}
+        +\Adv_{\rm curve}
+        +\widehat L_{\mu}(\delta)\cdot\Adv_{\rm query}
+        +2^{-\lambda_{\rm list}}
+        +2^{-\lambda_{\rm mca}} .
+\end{equation}
+If the query/folding ledger is otherwise unchanged, the proximity layer may use rate $\rho=k/n$ at radius $\delta=1-a/n$ instead of reverting to the Johnson radius.
+\end{theorem}
+
+\begin{proof}
+The locator evidence gives the base-list bound, \cref{lem:fiber-list} converts locator fibers into codeword lists, and the interleaving evidence gives \eqref{eq:interleaved-list-bound}; substituting bounds term by term into \eqref{eq:protocol-reduction} and applying \eqref{eq:list-field-budget} and \eqref{eq:reserve-mca} gives \eqref{eq:ledger-bound}.  The failure-ladder audit ensures the cited positive statements are not invoked at a parameter point already contradicted by a lower-bound theorem.
+\end{proof}
+
+\begin{remark}[Why this is a ledger theorem, not a universal compiler]
+\label{rem:ledger-not-compiler}
+Different IOPs consume different coding objects: base-code lists, interleaved lists, extension-code lists, affine-line MCA, power-curve MCA, or line-decoding.  \Cref{thm:ledger} applies exactly to reductions rewritten in the form \eqref{eq:protocol-reduction}; it becomes a drop-in compiler only after that rewriting, which is itself \cref{op:protocol-rewrite}.
+\end{remark}
+
+\begin{example}[Worked instantiation: the Arnon--Boneh--Fenzi toy protocol]
+\label{ex:toy-ledger}
+The toy protocol of \cite{ABF26} tests that two committed words are close to constrained codewords by sending one combination challenge $\gamma$ and spot-checking $t$ positions.  Its round-by-round knowledge errors are
+\[
+        \left(\ \mca(C,\delta)+\frac{|\Lambda(\Int{C}{2},\delta)|}{|\F|},\quad (1-\delta)^{t}\ \right).
+\]
+This is \eqref{eq:protocol-reduction} with $\mu=2$, $\Adv_{\rm fold}=\Adv_{\rm curve}=0$, no list multiplier on the query term, and $\Adv_{\rm query}=(1-\delta)^t$ budgeted separately at $\lambda_{\rm query}$ bits.  A corrected-reserve certificate therefore needs: $\widehat L_2(\delta)=\widehat L_1(\delta)^2\le n^{2B_L}$ by \eqref{eq:trivial-interleaving}; the budget $n^{2B_L}/\qline\le2^{-\lambda_{\rm list}}$; the MCA budget \eqref{eq:mca-budget} with $\nu$ equal to the implementation interleaving of the commitment; and $t\ge\lambda_{\rm query}/\log_2\frac1{1-\delta}$.  \Cref{sec:efficiency} evaluates exactly this ledger at concrete parameters.
+\end{example}
+
+\section{Quotient hygiene and dimension dithering}
+\label{sec:hygiene}
+
+Quotient cores are exact-alignment phenomena.  The cheapest practical repair is often to change the claimed degree bound by one coefficient.
+
+\begin{proposition}[Dyadic one-step hygiene]
+\label{prop:dyadic-hygiene}
+Let $n=2^m$ and let $k_0$ be even.  If $k=k_0-1$, then $\gcd(n,k)=1$.  Hence the exact-divisibility profile \eqref{eq:qprofile} is empty for all dyadic quotients $M>1$, and all exact quotient-core obstructions with $M\mid\gcd(n,k)$ disappear.  The rate loss relative to $k_0$ is exactly $1/n$.
+\end{proposition}
+
+\begin{proof}
+The integer $k_0-1$ is odd, and the only odd divisor of $2^m$ is $1$.
+\end{proof}
+
+Exact divisibility is not the only worry.  The quotient-core construction generalizes to dimensions with remainder $r=k\bmod M$: padding the witness polynomial by $X^r$ produces, for $1\le\sigma<M$, a received word with $\binom{n/M-1}{\floor{k/M}}$ nearby codewords at agreement $k+\sigma-r$ rather than $k+\sigma$.\footnote{With $k=M\floor{k/M}+r$, take $Y=X^kL_T$ for a $\sigma$-subset $T$ of one $M$-coset and, for each union of $\floor{k/M}$ cosets $U_A$ avoiding it, with locator $L_A=X^{k-r}+c_1X^{k-r-M}+\cdots$, set $P_A=L_T\,X^r(X^{k-r}-L_A)$.  Then $\deg P_A\le \sigma+r+(k-r-M)<k$ when $\sigma<M$, and $P_A$ agrees with $Y$ on $T\cup U_A$, a set of size $k+\sigma-r$.}  The effective slack at gap $\eta$ is therefore reduced by $r$, and the family stays dangerous whenever $r$ is small.  One-step dithering is in fact \emph{maximally} robust against this variant:
+
+\begin{lemma}[Maximal-remainder hygiene at deployed dyadic rates]
+\label{lem:max-remainder}
+Let $n=2^m$, let $\rho=2^{-b}$ with $1\le b<m$, and set $k_0=\rho n=2^{m-b}$ and $k=k_0-1$.  For every dyadic quotient scale $M=2^j$ with $1\le j\le m-b$,
+\[
+        k\equiv M-1\pmod M .
+\]
+Thus the remainder variant of the quotient-core construction has maximal remainder at every quotient scale that divided the original deployed dimension $k_0$, and in the active window $\sigma<M$ its agreement $k+\sigma-r=k+\sigma-M+1\le k$ never exceeds trivial agreement.
+\end{lemma}
+
+\begin{proof}
+For $j\le m-b$, $M=2^j$ divides $k_0$, so $k=k_0-1\equiv-1\equiv M-1\pmod M$.  With $r=M-1$ and $\sigma<M$, the construction's agreement size is $k+\sigma-(M-1)\le k$, which produces no codewords beyond the agreement already guaranteed by interpolation.
+\end{proof}
+
+\begin{remark}[What the remainder lemma buys]
+\label{rem:remainder}
+\Cref{prop:dyadic-hygiene} removes the exact-divisibility family; \cref{lem:max-remainder} removes its natural remainder generalization at the same stroke.  This is attack removal for the theorem-backed quotient-core families, not a proof that all lists are small: the local-limit scale $\sigma\gtrsim n/\log n$ of \cref{ass:locator} may still be necessary.  But it means the explicit superpolynomial quotient lists, the quotient-periodic MCA floor \eqref{eq:mca-necessity}, and the deployed-rate challenge-cap mechanism (whose quotient machinery requires $n/N'\mid k$) are all disabled by a $1/n$ rate loss.
+\end{remark}
+
+\begin{designrule}[Dimension dithering]
+\label{rule:dither}
+On dyadic FFT domains, avoid dimensions with large $2$-adic valuation.  Start from the arithmetization degree bound $k_0$ and try $k=k_0-1$ when $k_0$ is even; more generally, choose the largest feasible $k\le k_0$ with a small divisor profile.  The certificate should print $\gcd(n,k)$ and all active divisors, not merely the nominal rate.
+\end{designrule}
+
+In practice a one-coefficient loss can be achieved by reserving one top-degree coefficient, padding the trace by one column, splitting a high-degree relation into two lower-degree relations, or rounding the evaluation domain upward and the degree bound downward.  These repairs preserve the FFT domain; they only change the quotient arithmetic of the claimed degree bound.  For mixed-smoothness domains the same rule applies prime by prime: minimize the large divisors of $\gcd(n,k)$, eliminating first the divisors $M$ just above $\sigma$ for which $k/M$ has constant density in $n/M$.
+
+\section{Fields and challenge accounting}
+\label{sec:fields}
+
+The corrected ledger distinguishes three fields.
+\begin{description}[leftmargin=2.6em,style=nextline]
+\item[Arithmetic field $\F_{\qarith}$.]
+The field in which the trace, constraints, and committed values are represented.
+\item[Generated field $\F_{\qgen}$.]
+The smallest field containing the evaluation domain, hence the locator coefficients used in the entropy and list problem.
+\item[Line or challenge field $\F_{\qline}$.]
+The field over which random linear combinations, line-decoding, MCA, power curves, DEEP points, or folding challenges are actually analyzed.  Often $\qline=\qchal$, but only after the protocol proof is lifted to that field.
+\end{description}
+
+\begin{designrule}[No double-crediting of extension fields]
+\label{rule:no-double-credit}
+Use $\qgen$ in the entropy ledger \eqref{eq:entropy-ledger} and the feasibility check of \cref{rule:entropy-feasibility}.  Use $\qline$ in \eqref{eq:list-field-budget} and \eqref{eq:mca-budget} only for the code and line family actually covered by the reduction.  If $\qline>\qgen$, the certificate must include the extension-code list derivation \eqref{eq:extension-list} and an MCA/line-decoding statement over the extension---a proved theorem or \cref{ass:extension-mca-lift}.
+\end{designrule}
+
+\begin{designrule}[Challenge-size target]
+\label{rule:qchal}
+After fixing the interleaved-list bound and MCA numerator, choose $\qline$ so that
+\begin{gather*}
+        \log_2\qline
+        \ge
+        \max\left\{
+        \lambda_{\rm list}+\log_2\widehat L_{\mu}(\delta),\
+        \lambda_{\rm mca}+\log_2 N_{\rm mca}
+        \right\},\\
+        N_{\rm mca}:=\nu\left(n^{A_M}
+        +2^{(\beta(\rho)/\Hbin(\rho))\Qprof_H(a,k)+\Gamma_M}\right).
+\end{gather*}
+When the quotient profile is empty and $N_{\rm mca}\approx\nu n$, the MCA side asks for about $\lambda_{\rm mca}+\log_2(\nu n)$ bits.  If the interleaved list is bounded only by $n^{\mu B_L}$, the list side asks for $\lambda_{\rm list}+\mu B_L\log_2n$ bits and typically dominates.
+\end{designrule}
+
+The companion's deployed-rate challenge cap \cite[Prop.~19.7]{SlackMCAEntropyMerged} is a warning, not a tuning annoyance.  For exact deployed dimensions $\rho\in\{1/2,1/4,1/8,1/16\}$ on smooth domains with $64\mid n$, over base prime fields of size at most about $2^{150}$ (per-rate reaches between $2^{150.6}$ and $2^{161.8}$), the MCA threshold at target $2^{-128}$ is provably below $1-\rho-1/64$.  Repairs, in increasing cost: dither $k$ to disable the quotient attack family (\cref{lem:max-remainder}); increase $\eta$; sample line challenges from a larger field with a valid extension-line statement; split the proximity claim; or fall back to a Johnson or theorem-backed folded/subspace-design layer.  Beyond the prime-field reach the universal cap of \cite{UniversalCap} keeps the pressure on: every field below $2^{256}$ has the threshold pinned below $1-\rho-2^{-9}$ at the prize rates ($2^{-10}$ at rate $1/16$), so the larger-challenge-field repair buys room only down to the $\approx\Hbin(\rho)/\log_2\qline$ floor of \eqref{eq:cap-floor}, never past it.
+
+
+\section{Theorem-backed high-agreement ledger compiler}\label{sec:high-agreement-ledger-compiler}
+
+\textbf{Status: theorem-backed coding ledger, not a deployed protocol theorem.}
+The reserve certificate of the previous sections is designed for the
+near-capacity regime.  There is, however, a complementary high-agreement regime
+where the coding numerators consumed by the protocol are exactly computable.  We
+record it here because it is a useful boundary condition for any concrete
+SNARK/proximity reduction and a regression test for the field-accounting rules.
+
+Let
+\[
+        C=\RS[F,D,k],\qquad |D|=n,
+\]
+write \(a=n-r\), and define
+\[
+        R_{\rm line}=\left\lfloor\frac{n-k}{3}\right\rfloor,
+        \qquad
+        R_{\rm list}=\left\lfloor\frac{n-k}{2}\right\rfloor,
+        \qquad
+        B(Q,\lambda)=\left\lfloor\frac{Q}{2^\lambda}\right\rfloor .
+\]
+The companion slack paper proves the following coding ledger theorem.
+
+\begin{theorem}[high-agreement coding numerators]\label{thm:C-high-agreement-coding-numerators}
+For \(0\le r\le R_{\rm line}\), the affine line, no-loss CA, and projective-line
+support-wise numerators are all exactly
+\[
+        r+1 .
+\]
+For every interleaving arity \(\mu\ge1\), if \(0\le r\le R_{\rm list}\), then
+\[
+        |\Lambda(\Int{C}{\mu},n-r)|=1
+\]
+for the worst-case interleaved list numerator.  For the finite degree-\(d\)
+power-curve/evaluation-domain model in the split moving-root regime, if
+\[
+        r\le R_d:=\left\lfloor\frac{n-k}{d+2}\right\rfloor,
+\]
+then the curve numerator is \(d(r+1)\).  Without the split moving-root check, the
+safe theorem-backed envelope is an upper bound by \(d(r+1)\) and a line lower
+bound by \(r+1\).
+\end{theorem}
+
+\begin{remark}[projective denominators]
+If projective slopes are sampled uniformly from \(\mathbb P^1(F)\), the
+numerator remains \(r+1\) but the denominator is \(|F|+1\), not \(|F|\).  If the
+protocol samples an affine chart, the denominator is the affine line field.  The
+certificate must print which sampler is used.
+\end{remark}
+
+\subsection{Same-denominator formulas}
+
+Suppose a reduction consumes \(s\) line/CA/projective-line branches, finite
+power-curve branches of degrees \(d_1,\ldots,d_t\), and \(\ell\) independent
+interleaved-list terms, all divided by the same challenge denominator \(Q\), and
+suppose all terms lie in their high-agreement theorem-backed ranges.  Then the
+coding numerator is
+\[
+        N_{\rm code}(r)=\ell+s(r+1)+\sum_{i=1}^t d_i(r+1).
+\]
+The exact same-denominator coding safety condition at target \(2^{-\lambda}\) is
+\[
+        N_{\rm code}(r)\le B(Q,\lambda).
+\]
+For a single line term this is \(r+1\le B(Q,\lambda)\); for one line term plus
+one interleaved-list term it is \(r+2\le B(Q,\lambda)\); and for one degree-\(d\)
+curve plus one list term it is \(d(r+1)+1\le B(Q,\lambda)\).
+
+\subsection{Different-denominator formulas}
+
+If the line, list, and curve terms are paid by different fields, numerators must
+not be merged.  The certificate must check the rational inequality
+\[
+        \sum_j \frac{N_j(r)}{Q_j}
+        +\eps_{\rm query}
+        +\eps_{\rm fold}
+        +\eps_{\rm crypto}
+        \le 2^{-\lambda}.
+\]
+This is the high-agreement analogue of the field-separation rules in
+\Cref{sec:fields}: \(\qgen\), \(\qline\), \(\qchal\), projective
+line denominators, and curve parameter spaces remain distinct unless a theorem
+identifies them.
+
+\subsection{Worked boundary check: \texorpdfstring{$\F_{17^{32}}$}{F17^32}, \texorpdfstring{$n=512$}{n=512}, \texorpdfstring{$k=256$}{k=256}}
+
+For
+\[
+        C=\RS[\F_{17^{32}},H,256],\qquad |H|=512,
+\]
+we have
+\[
+        B(17^{32},128)=6,
+        \qquad
+        R_{\rm line}=85,
+        \qquad
+        R_{\rm list}=128.
+\]
+Thus, inside the high-agreement theorem-backed range,
+\[
+        \text{line alone: largest safe radius }r=5,
+\]
+whereas
+\[
+        \text{line plus one interleaved-list term: largest safe radius }r=4.
+\]
+Equivalently, an affine or projective line/CA/MCA term alone is below the
+\(2^{-128}\) ledger at agreement \(a=507\), but a same-field line-plus-list
+ledger first becomes safe at \(a=508\).  For a degree-\(2\) finite power-curve
+term, the same-field curve-plus-list condition is
+\[
+        2(r+1)+1\le6,
+\]
+so the largest safe radius is \(r=1\).  These are coding numerators only: query,
+folding, Fiat--Shamir, cryptographic binding, and sampler-to-model losses must
+be added separately.
+
+\subsection{Certificate row to print}
+
+A high-agreement certificate should print at least the following row:
+\[
+\begin{array}{ll}
+\text{code row} & n,k,\rho,D,\qgen,\qline,\qchal,\text{projective?}\\
+\text{radius} & r=n-a\\
+\text{line range} & r\le R_{\mathrm{line}}\text{?}\\
+\text{list range} & r\le R_{\mathrm{list}}\text{?}\\
+\text{line numerator} & r+1\text{ if in range}\\
+\text{list numerator} & 1\text{ if in range}\\
+\text{curve numerator} & d(r+1)\text{ if split and in range; otherwise upper-envelope only}\\
+\text{denominators} & Q_{\mathrm{line}},Q_{\mathrm{proj}},Q_{\mathrm{curve}},Q_{\mathrm{list}}\\
+\text{external terms} & \eps_{\mathrm{query}},\eps_{\mathrm{fold}},\eps_{\mathrm{crypto}}\\
+\text{status} & \text{proved / conditional sampler model / unknown.}
+\end{array}
+\]
+
+\begin{remark}[how this strengthens the certificate paper]
+The high-agreement compiler does not replace the near-capacity reserve
+certificate.  It gives an exact theorem-backed boundary layer.  Therefore a
+protocol whose target radius lies in this layer can be certified by elementary
+coding numerators.  A protocol whose radius lies outside this layer still needs
+the locator local-limit, all-line MCA, extension-line, quotient-hygiene, and
+interleaved-list machinery of the rest of the paper.
+\end{remark}
+
+
+\section{Reserve-certified proximity layer}
+\label{sec:construction}
+
+\begin{construction}[Reserve-certified RS proximity layer]
+\label{con:layer}
+Fix a target soundness allocation
+\[
+        (\lambda_{\rm list},\lambda_{\rm mca},\lambda_{\rm query},\lambda_{\rm fold})
+\]
+and a protocol reduction whose code-level terms have the form \eqref{eq:protocol-reduction}.
+\begin{enumerate}[label=\textbf{Step \arabic*.},leftmargin=3.2em]
+\item \textbf{Choose the target radius.}  Determine the largest protocol radius $\delta_0$ tolerated by the folding/query analysis.
+\item \textbf{Check generated-field feasibility.}  Determine $\qgen$ from the domain family and test candidate reserves against \cref{rule:entropy-feasibility}.  If the implementation field pins $\qgen$ too low for the desired reserve, either accept the larger feasible reserve or change the domain family.
+\item \textbf{Choose a candidate rate.}  Start from $\rho_0=1-\delta_0$ and pick a feasible reserve $\eta$.  Set $k\le(1-\delta_0-\eta)n$.
+\item \textbf{Dither the dimension.}  Apply \cref{rule:dither}; compute the actual $a=\ceil{(1-\delta_0)n}$ and $\sigma=a-k$.
+\item \textbf{Compute generated-field entropy.}  Check \eqref{eq:reserve-ent} and \eqref{eq:reserve-local} exactly.  If they fail, increase $\sigma$, enlarge the generated field, or lower $k$.
+\item \textbf{Enumerate quotient cores.}  Compute \eqref{eq:qprofile} at the actual $(n,k)$.  If \eqref{eq:reserve-q} fails, dither again or increase $\sigma$ past the active divisors.
+\item \textbf{Derive the interleaved-list bound.}  Determine $\mu$ from the protocol proof.  Derive $\widehat L_{\mu}$ by the trivial product bound, a GGR-type bound, or the extension identity \eqref{eq:extension-list}.
+\item \textbf{Prove or assume line/MCA over the actual field.}  Determine $\qline$ and the factor $\nu$.  If $\qline=\qchal>\qgen$, record the extension-list and extension-MCA status.  If batching uses power curves, record the curve-MCA status.
+\item \textbf{Scan proved failures.}  Record tangent floors, quotient floors, challenge caps, and other lower-bound rungs.  Set $\eta>\eta_{\rm fail}$ as required by \eqref{eq:reserve-fail}.
+\item \textbf{Finalize the soundness ledger.}  Check \eqref{eq:reserve-list} and \eqref{eq:reserve-mca}; emit the certificate; add query/folding/hash/Fiat--Shamir terms outside the code certificate.
+\end{enumerate}
+\end{construction}
+
+\paragraph{FRI interpretation.}
+A FRI prover \cite{FRI} benefits when low-degree-extension blowup $1/\rho$ falls.  The corrected reserve changes the admissible code rate, not the ordinary FRI query analysis: keep the standard folding and sampling analysis and replace only the code-level list and MCA premises by the certificate.  FRI folding combinations are affine lines, so $\Adv_{\rm curve}=0$ for the folds themselves; batching steps may still need the curve entry.
+
+\paragraph{WHIR interpretation.}
+WHIR-style protocols \cite{ACFY25} use random combinations and proximity reasoning in exactly the regime where MCA and interleaved lists matter.  The certificate matches the toy analysis of \cite{ABF26}: it budgets both the MCA failure and the $|\Lambda(\Int{C}{\mu},\delta)|/\qline$ list term.  Quotient hygiene is particularly natural here because it changes only the claimed degree bound, never the multiplicative FFT domain.
+
+\paragraph{DEEP and extension hybrids.}
+DEEP and extension challenges \cite{BGKS20} are valuable for the line/challenge denominators.  They do not improve locator entropy unless the code and locator problem are themselves lifted, which for $2$-smooth domains over small FFT primes is impossible without changing the domain family (\cref{rule:entropy-feasibility}).  A DEEP hybrid should therefore print both $\qgen$ and $\qline$, the extension-list identity, and the extension-MCA status.
+
+\section{Efficiency estimates}
+\label{sec:efficiency}
+
+\subsection{Blowup from capacity-like reserves}
+
+For a target distance $\delta_0$, Johnson operation uses $\rho_J=(1-\delta_0)^2$, while a capacity-like reserve $\eta$ uses $\rho_{\rm cap}=1-\delta_0-\eta$.  \Cref{tab:blowup} keeps the illustrative $\eta=1/64$ with an explicit status column; by \cref{tab:feasibility}, this reserve requires a generated field of at least roughly $128$ bits (with margin), and the deployed-rate challenge cap must additionally be cleared by dithering or extension challenges.
+
+\begin{table}[ht]\centering\small
+\caption{Illustrative blowup gains at reserve $\eta=1/64$.  Feasibility requires $\log_2\qgen\gtrsim128$ and a cleared challenge cap.}
+\label{tab:blowup}
+\begin{tabular}{ccccc}
+\toprule
+Target $\delta_0$ & Johnson rate & Corrected rate & Blowup improvement & Status \\
+\midrule
+$1/2$ & $1/4$ & $31/64$ & $4/(64/31)\approx1.94\times$ & conditional/audited \\
+$2/3$ & $1/9$ & $61/192$ & $9/(192/61)\approx2.86\times$ & conditional/audited \\
+$3/4$ & $1/16$ & $15/64$ & $16/(64/15)\approx3.75\times$ & conditional/audited \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Corrected toy comparison against the survey parameters}
+\label{sec:toy-comparison}
+
+The toy setting of \cite{ABF26} uses a sextic KoalaBear extension for challenges, message length $k=2^{20}$, committed length $sn=2^{21}$, and the argument-size proxy
+\[
+        t\,(256\log_2 n+2\log_2|B|\cdot s)\ \text{bits}
+\]
+for an $s$-interleaved presentation over base field $B$, minimized near $s=8$, $n=2^{18}$.  Their theorem-backed Johnson-regime configuration at $128$-bit security uses $t=259$ and about $161.4$ KiB; their theorem-backed capacity-like folded-RS configuration pays the subspace-design alphabet overhead and bottoms out at $281.2$ KiB.
+
+The generated field of every $2$-smooth domain in this tower is KoalaBear itself, $\log_2\qgen=31$, regardless of the sextic challenge extension: by \eqref{eq:extension-list} the list problem reduces to the interleaved \emph{base} code, whose locator coefficients live in $\F_p$.  \Cref{rule:entropy-feasibility} therefore forbids $\eta=1/64$ here---its entropy ratio is $0.48$, inside the proven-large-list region---and the smallest comfortable dyadic reserve is $\eta=1/16$ (ratio $1.96$).  At $\rho=1/2$ and $\delta=1/2-1/16=7/16$, the per-query survival is $9/16$ and the query branch needs
+\[
+        t=\ceil{\frac{128}{\log_2(16/9)}}=155,
+\]
+giving $155\,(256\cdot18+62\cdot8)$ bits $\approx96.6$ KiB.  The challenge budget is comfortable: with the quotient profile emptied by dithering the per-row dimension to $k_{\rm row}=2^{17}-1$ (total dimension $8(2^{17}-1)=2^{20}-8$), $\nu=8$, and $A_M\approx1$, the MCA side asks for about $128+\log_2(8n)\approx149$ bits and the list side ($\mu=2$, $B_L=1$) for about $128+2\log_2n\approx164$ bits, against $185.9$ available---provided the extension-status entries (extension-list identity plus \cref{ass:extension-mca-lift}) are present, and noting that $\eta=1/16$ at $n=2^{18}$ presumes a local-limit constant $C_{\rm loc}\le1.13$ in \eqref{eq:reserve-local}.  The universal-cap rung is also cleared with margin: its structural reach at these parameters is gap $\approx\Hbin(1/2)/\log_2\qline\approx2^{-7.5}$, far below $\eta=1/16$, and the certified failure interval $[1/2-2^{-7},\,1/2)$ does not approach $\delta=7/16$ \cite{UniversalCap} --- the cap bounds this configuration from outside rather than contradicting it.
+
+Larger generated fields permit smaller reserves but pay more per opened element.  Holding the survey's structural proxy fixed and varying only the base-field bit width gives \cref{tab:field-tradeoff}.
+
+\begin{table}[ht]\centering\small
+\caption{Field-size/reserve trade-off on the survey's toy proxy ($\rho=1/2$, $n=2^{18}$, $s=8$, $128$-bit target, query branch).  Corrected rows are conditional on \cref{ass:locator,ass:mca,ass:extension-mca-lift}; the Johnson and folded rows are theorem-backed.}
+\label{tab:field-tradeoff}
+\begin{tabular}{@{}L{0.34\linewidth}ccrr@{}}
+\toprule
+Setting & $\log_2\qgen$ & feasible $\eta$ & $t$ & size \\
+\midrule
+Survey IRS, Johnson radius & $31$ & --- & $259$ & $161.4$ KiB \\
+Survey folded RS, capacity-like & $31$ & --- & $295$ & $281.2$ KiB \\
+Corrected RS, KoalaBear & $31$ & $1/16$ & $155$ & $96.6$ KiB \\
+Corrected RS, Goldilocks-class & $64$ & $1/32$ & $141$ & $96.9$ KiB \\
+Corrected RS, $128$-bit prime & $128$ & $1/64$ & $134$ & $108.9$ KiB \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Two lessons follow.  First, the conjectural corrected route beats both theorem-backed routes by roughly $1.7\times$ against Johnson and $2.9\times$ against folded RS on this proxy.  Second, and less obviously, the generated-field entropy floor creates a genuine trade-off in which the \emph{small-field, larger-reserve} configuration wins: the query savings from shrinking $\eta$ below $1/16$ are smaller than the per-element opening cost of the wider base field needed to make such reserves entropy-feasible.  The corrected theory thus does not simply say ``use the smallest reserve''; it locates an interior optimum.
+
+\subsection{Hybrid schedule}
+
+A practical compromise is a hybrid schedule: use quotient-hygienic corrected RS in the early, large rounds where oracle length and LDE cost dominate, and switch to folded-RS or another subspace-design code in the final small rounds, where the $O(1/\eta^2)$ alphabet overhead of the theorem-backed capacity results is bounded \cite{CZ25,GG25,ABF26}.  This confines conjectural assumptions to the rounds where they buy the most and gives a theorem-backed landing zone near the end of the reduction.
+
+\subsection{Prover and verifier work}
+
+If an arithmetization degree $d$ is fixed and blowup falls from $b_J$ to $b_{\rm cap}$, the FFT part of prover work scales roughly like
+\[
+        \frac{b_{\rm cap}\log(b_{\rm cap}d)}{b_J\log(b_Jd)} .
+\]
+Hashing and commitment work scale with oracle length.  Extension-field challenges add verifier arithmetic and sometimes prover arithmetic, but when used only for combination coefficients or DEEP points their cost is far below returning the entire LDE to Johnson blowup.
+
+\section{Modes and fallback strategy}
+\label{sec:modes}
+
+\subsection{Conjectural aggressive mode}
+
+The fastest mode invokes \cref{ass:locator,ass:mca} and, when $\qline>\qgen$, \cref{ass:extension-mca-lift}.  The security statement must name these assumptions and the exact line/curve family they cover.  Appropriate for research systems and parameter exploration.
+
+\subsection{Theorem-backed certificate mode}
+
+This mode uses only proved positive results: Johnson-regime RS bounds \cite{BCIKS20,BCHKS25}, subspace-design and folded-RS capacity theorems \cite{CZ25,GG25}, extension-code list identities, proved interleaving inequalities, and the companion's special lanes \cite[Cor.~4.3, Cor.~5.3]{SlackMCAEntropyMerged} (characteristic-zero prefix structure; Galois-amplified split-prime monomial-prefix bounds above $p>\exp(Cn\log n/\sigma)$).  Slower, but with a conventional theorem-backed coding statement.
+
+\subsection{Obstruction-audit mode}
+
+This mode does not prove soundness.  It scans for known bad regions: entropy deficits against \cref{rule:entropy-feasibility}, active quotient cores, tangent floors, quotient-exact floors above norm thresholds, deployed-rate and universal field-size challenge caps \cite{UniversalCap}, and known CA/MCA lower-bound rungs \cite{NoSlack,SlackMCAEntropyMerged}.  Passing the audit means the parameters avoid known attacks; it does not imply a proximity theorem, and a certificate produced in this mode must say so.
+
+\subsection{Fallback hierarchy}
+
+When a candidate high-rate certificate fails, repair in this order:
+\begin{enumerate}[label=(\arabic*),leftmargin=2.2em]
+\item dither $k$ to remove exact quotient cores and maximize remainders (\cref{prop:dyadic-hygiene,lem:max-remainder});
+\item increase $\qline$, but only together with the matching extension-code list derivation and extension-line statement, and only down to the universal-cap floor: no enlargement certifies gaps below $\approx\Hbin(\rho)/\log_2\qline$ \cite{UniversalCap};
+\item increase $\sigma$ past active failure-ladder gaps;
+\item split one large proximity claim into independently challenged lower-divisibility claims;
+\item adopt the hybrid schedule, switching to folded/subspace-design codes in small rounds;
+\item return to a Johnson or near-Johnson radius for the affected layer.
+\end{enumerate}
+The hierarchy degrades smoothly: even when the conjectural constants disappoint, quotient hygiene and field-separated accounting remain valid and nearly free.
+
+\subsection{Domain shattering}
+
+Domain shattering splits a smooth subgroup into cosets or punctured pieces and runs separate proximity claims.  It sacrifices some FFT regularity but destroys exact quotient-periodic structure.  The far endpoint is not mysterious: randomly punctured Reed--Solomon codes achieve list-decoding capacity with high probability \cite{AGL24}, and random-domain RS codes have MCA up to capacity with constant probability \cite{GG25}.  Shattering is therefore an interpolation between two regimes that are each understood---fully smooth FFT domains with their quotient pathology, and random evaluation sets with theorem-backed capacity behavior---and a clean theory of intermediate shattering is a promising route if fixed-prime local limits remain hard.
+
+\section{Open problems}
+\label{sec:open}
+
+\begin{openproblem}[Polynomial-field locator local limit]
+\label{op:locator}
+Prove \cref{ass:locator} for generated-field smooth domains with $q=\poly(n)$ and arbitrary received words, with finite constants usable in \eqref{eq:entropy-margin} and \eqref{eq:qprofile-list-budget}.
+\end{openproblem}
+
+\begin{openproblem}[Extension-line MCA]
+\label{op:extension-mca}
+Prove or refute \cref{ass:extension-mca-lift}.  The list side has the clean identity \eqref{eq:extension-list}; the MCA side needs an equally explicit transfer theorem, or a counterexample exhibiting bad slopes whose witnesses exist only over the extension.
+\end{openproblem}
+
+\begin{openproblem}[Line-decoding form of the corrected conjecture]
+\label{op:line-decoding}
+Restate the companion's residue-line packing conjecture as a line-decoding statement with explicit $(\delta,a_{\rm LD},n+1)$ parameters.  This would align the assumption with protocol analyses that consume line-decoding directly and make the MCA conclusion a corollary.
+\end{openproblem}
+
+\begin{openproblem}[Curve-MCA for batching]
+\label{op:curve}
+For power-curve batching $\sum_i\gamma^if_i$, prove a corrected-reserve theorem with the same quotient and field separation, or prove that affine-line MCA plus univariate-power MCA imply the needed polynomial-generator guarantee with concrete constants, sharpening \cite{BCGM25} at the corrected reserve.
+\end{openproblem}
+
+\begin{openproblem}[Sharp quotient-profile and local-limit constants]
+\label{op:constants}
+Determine the finite-length constants in \eqref{eq:qprofile-list-budget}, \eqref{eq:mca-necessity}, and $C_{\rm loc}$ in \eqref{eq:reserve-local}.  The toy comparison of \cref{sec:toy-comparison} presumes $C_{\rm loc}\lesssim1.1$; for proof systems, the difference between $C/\log n$ and $2C/\log n$ is a large concrete cost.
+\end{openproblem}
+
+\begin{openproblem}[Sharp interleaved-list constants near capacity]
+\label{op:interleaving}
+Determine the best interleaving bound for the concrete arities used in SNARKs near capacity.  The trivial product bound is safe but overcharges $\lambda_{\rm list}$ linearly in $\mu$; GGR-style bounds are arity-independent but deteriorate as $\delta\to\delta_{\min}$.
+\end{openproblem}
+
+\begin{openproblem}[Protocol-level reductions in ledger form]
+\label{op:protocol-rewrite}
+Rewrite the FRI and WHIR soundness analyses so that their code-level premises are exactly the terms of \eqref{eq:protocol-reduction}.  This would make \cref{thm:ledger} a drop-in compiler rather than a design pattern, extending \cref{ex:toy-ledger} from the toy protocol to deployed systems.
+\end{openproblem}
+
+\begin{openproblem}[Quotient-hygienic arithmetization]
+\label{op:arithmetization}
+Design AIR/R1CS/Plonkish layouts that naturally produce low-divisibility degree bounds without increasing constraint count, making $\Qprof_H(a,k)$ empty or logarithmic by construction.
+\end{openproblem}
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+A high-rate Reed--Solomon proximity layer can be efficient only if its soundness ledger is exact about what the protocol consumes.  The corrected certificate has six non-negotiable features: a generated-field entropy floor checked before all other tuning; quotient-core accounting at the actual, possibly dithered, dimension; a locator-fiber list bound bridged to the interleaved list actually used; an interleaved-list-over-field budget; MCA or line-decoding over the field in which the line experiment is analyzed; and a clear separation between theorem-backed proof and obstruction audit.
+
+Under the final corrected locator and line/MCA local-limit assumptions, quotient-hygienic RS can plausibly replace Johnson-regime blowup by a near-capacity reserve in the large rounds of FRI/WHIR-style systems, with concrete argument-size gains near $1.7\times$ on the surveyed toy parameters---achieved, perhaps surprisingly, at a \emph{small} generated field with a correspondingly larger reserve, because the entropy floor and per-element opening costs trade off at an interior optimum.  The most robust practical improvements are low-cost and theorem-guided even before the conjectures are proved: check generated-field feasibility first, dither dimensions, never double-credit extension fields, budget $\lambda_{\rm list}$ explicitly, use extension challenges only with matching extension-code statements, and fall back to folded or subspace-design codes where a theorem-backed capacity guarantee justifies the alphabet overhead.
+
+\begin{thebibliography}{99}
+
+\bibitem{SlackMCAEntropyMerged}
+Przemys\l{}aw Chojecki.
+\newblock \emph{Slack, Quotient Cores, and the Entropy Gap for Smooth-Domain Reed--Solomon Codes: List fibers, cyclotomic rigidity, Galois-amplified collisions, and the corrected slack mutual-correlated-agreement theory}.
+\newblock Companion manuscript, merged corrected edition, 2026.
+
+\bibitem{NoSlack}
+Przemys\l{}aw Chojecki.
+\newblock \emph{Capacity-Edge Obstructions to Reed--Solomon Mutual Correlated Agreement over Smooth Multiplicative Domains}.
+\newblock Companion manuscript, June 2026.
+
+\bibitem{UniversalCap}
+Przemys\l{}aw Chojecki.
+\newblock \emph{A Universal Field-Size Cap for Mutual Correlated Agreement on Smooth Reed--Solomon Domains}.
+\newblock Companion manuscript, June 2026.
+
+\bibitem{ABF26}
+Gal Arnon, Dan Boneh, and Giacomo Fenzi.
+\newblock Open Problems in List Decoding and Correlated Agreement.
+\newblock Cryptology ePrint Archive, Report 2026/680, April 2026.
+
+\bibitem{ACFY25}
+Gal Arnon, Alessandro Chiesa, Giacomo Fenzi, and Eylon Yogev.
+\newblock WHIR: Reed--Solomon Proximity Testing with Super-Fast Verification.
+\newblock EUROCRYPT, 2025.
+
+\bibitem{AGL24}
+Omar Alrabiah, Venkatesan Guruswami, and Ray Li.
+\newblock Randomly Punctured Reed--Solomon Codes Achieve List-Decoding Capacity over Linear-Sized Fields.
+\newblock STOC, 2024.
+
+\bibitem{BCGM25}
+Sarah Bordage, Alessandro Chiesa, Ziyi Guan, and Ignacio Manzur.
+\newblock All Polynomial Generators Preserve Distance with Mutual Correlated Agreement.
+\newblock Cryptology ePrint Archive, Report 2025/2051, 2025.
+
+\bibitem{BCHKS25}
+Eli Ben-Sasson, Dan Carmon, Ulrich Hab\"ock, Swastik Kopparty, and Shubhangi Saraf.
+\newblock On Proximity Gaps for Reed--Solomon Codes.
+\newblock Cryptology ePrint Archive, Report 2025/2055, 2025.
+
+\bibitem{BCIKS20}
+Eli Ben-Sasson, Dan Carmon, Yuval Ishai, Swastik Kopparty, and Shubhangi Saraf.
+\newblock Proximity Gaps for Reed--Solomon Codes.
+\newblock FOCS, 2020.
+
+\bibitem{BGKS20}
+Eli Ben-Sasson, Lior Goldberg, Swastik Kopparty, and Shubhangi Saraf.
+\newblock DEEP-FRI: Sampling Outside the Box Improves Soundness.
+\newblock ITCS, 2020.
+
+\bibitem{CZ25}
+Yeyuan Chen and Zihan Zhang.
+\newblock Explicit Folded Reed--Solomon and Multiplicity Codes Achieve Relaxed Generalized Singleton Bounds.
+\newblock STOC, 2025.
+
+\bibitem{DG24}
+Benjamin Diamond and Angus Gruen.
+\newblock Proximity Gaps in Interleaved Codes.
+\newblock IACR Communications in Cryptology, 1(4), 2025.  Cryptology ePrint Archive, Report 2024/1351.
+
+\bibitem{FRI}
+Eli Ben-Sasson, Iddo Bentov, Yinon Horesh, and Michael Riabzev.
+\newblock Fast Reed--Solomon Interactive Oracle Proofs of Proximity.
+\newblock ICALP, 2018.
+
+\bibitem{GGR11}
+Parikshit Gopalan, Venkatesan Guruswami, and Prasad Raghavendra.
+\newblock List Decoding Tensor Products and Interleaved Codes.
+\newblock SIAM Journal on Computing, 40(5):1432--1462, 2011.
+
+\bibitem{GG25}
+Rohan Goyal and Venkatesan Guruswami.
+\newblock Optimal Proximity Gaps for Subspace-Design Codes and (Random) Reed--Solomon Codes.
+\newblock Cryptology ePrint Archive, Report 2025/2054, 2025.
+
+\bibitem{GS99}
+Venkatesan Guruswami and Madhu Sudan.
+\newblock Improved Decoding of Reed--Solomon and Algebraic-Geometry Codes.
+\newblock IEEE Transactions on Information Theory, 45(6):1757--1767, 1999.
+
+\bibitem{Hab24}
+Ulrich Hab\"ock.
+\newblock Basefold in the List Decoding Regime.
+\newblock Cryptology ePrint Archive, Report 2024/1571, 2024.
+
+\bibitem{Hab25}
+Ulrich Hab\"ock.
+\newblock A Note on Mutual Correlated Agreement for Reed--Solomon Codes.
+\newblock Cryptology ePrint Archive, Report 2025/2110, 2025.
+
+\bibitem{Joh62}
+Selmer M. Johnson.
+\newblock A New Upper Bound for Error-Correcting Codes.
+\newblock IRE Transactions on Information Theory, 8(3):203--207, 1962.
+
+\bibitem{KKH26}
+D. Krachun, S. Kazanin, and U. Hab\"ock.
+\newblock Failure of Proximity Gaps Close to Capacity.
+\newblock Cryptology ePrint Archive, Report 2026/782, 2026.
+
+\bibitem{Kambire26}
+A. Kambir\'e.
+\newblock Proximity Gaps Conjecture Fails Near Capacity over Prime Fields.
+\newblock arXiv:2604.09724, 2026.
+
+\end{thebibliography}
+
+\end{document}

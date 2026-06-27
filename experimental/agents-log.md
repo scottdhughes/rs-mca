@@ -30,6 +30,30 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-27 - Paper B/C/D version promotion and leaderboard source audit
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `tex/slackMCA_v4.tex`,
+  `tex/slackMCA_v4.pdf`, `tex/snarks_v5.tex`, `tex/snarks_v5.pdf`,
+  `site/papers/slackMCA_v4.pdf`, `site/papers/snarks_v5.pdf`, `readme.md`,
+  `site/data/rate-leaderboards.json`, `site/data/updates.json`,
+  `site/index.html`, `experimental/agents-log.md`.
+- **Status:** PROVED / AUDIT.
+- **What is being added:** Two clarification edits are added to the promoted
+  Paper B/C versions: the Paper B unsplit curve-envelope lower bound is
+  explicitly the line witness embedded as a degree-`d` curve, and Paper C now
+  says the curve compiler applies to the finite power-curve/evaluation-domain
+  model rather than arbitrary protocol samplers. The README records the current
+  public versions B v4, C v5, and D v5.
+- **How it is useful:** Keeps the paper prose aligned with the public board:
+  Paper D v5 cap rows are proved under their printed scanner hypotheses,
+  high-agreement/list rows cite Paper B v4 after promotion, and Paper C v5 is
+  framed as protocol-ledger packaging rather than a new cap row.
+- **What to do next:** Commit the version promotion after final review, and
+  keep future leaderboard rows explicit about whether they are Paper B
+  high-agreement theorem rows, Paper D v5 cap rows, or Paper C protocol-ledger
+  packaging rows.
+
 ### 2026-06-27 - M1 variable-line packet and singleton lemmas
 
 - **Agent/model:** AllenGrahamHart / Codex audit.

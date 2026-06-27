@@ -8,9 +8,9 @@ The four papers are:
 
 ```text
 RS_disproof_v3.tex      Paper A: no-slack obstruction
-slackMCA_v3.tex         Paper B: slack / quotient / entropy theory
+slackMCA_v4.tex         Paper B: slack / quotient / entropy theory
 cs25_cap_v5.tex         Paper D: universal field-size cap
-snarks_v4.tex           Paper C: SNARK / protocol ledger
+snarks_v5.tex           Paper C: SNARK / protocol ledger
 ```
 
 Use logical order **A → B → D → C** unless you are working specifically on protocol ledgers.
@@ -77,9 +77,9 @@ Treat Papers A-D as stable reference documents unless a maintainer explicitly as
 
 ```text
 tex/RS_disproof_v3.tex
-tex/slackMCA_v3.tex
+tex/slackMCA_v4.tex
 tex/cs25_cap_v5.tex
-tex/snarks_v4.tex
+tex/snarks_v5.tex
 ```
 
 New material should go into `experimental/` first. Use separate files there for proof notes, audits, theorem-label maps, formalization plans, reproducible experiments, and certificate generators. After review, stable `.tex` contributions can be promoted to `tex/`, and stable `.py` scripts can be promoted to `scripts/`.
@@ -91,9 +91,9 @@ Whenever you add or materially change something under `experimental/`, add an en
 ### Minimal reading path
 
 1. Read the abstract and scope section of `RS_disproof_v3.tex`.
-2. Read the introduction and frontier/open-problems section of `slackMCA_v3.tex`.
+2. Read the introduction and frontier/open-problems section of `slackMCA_v4.tex`.
 3. Read the main theorem and open problems of `cs25_cap_v5.tex`.
-4. Read the certificate ledgers and open problems of `snarks_v4.tex`.
+4. Read the certificate ledgers and open problems of `snarks_v5.tex`.
 5. Return to Paper B for the exact theorem labels relevant to your task.
 
 ### Fast orientation
