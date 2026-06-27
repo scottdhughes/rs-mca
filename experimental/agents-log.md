@@ -30,6 +30,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-27 - M1 interleaved-list threshold upward push
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_interleaved_list_threshold_upward_push.md`,
+  `experimental/scripts/scan_m1_interleaved_list_threshold_upward_push.py`,
+  `experimental/scripts/verify_m1_interleaved_list_threshold_upward_push.py`,
+  `experimental/scripts/audit_m1_interleaved_list_threshold_upward_push.sage`,
+  `experimental/data/m1_interleaved_list_threshold_upward_push.json`,
+  `experimental/agents-log.md`.
+- **Status:** PROOF_RECORD / LOWER_BOUND / ROUTE_CUT / PARTIAL.
+- **What is being added:** Specializes the quotient-fiber list floor for
+  `RS[F_17^32,H,256]` using the quotient map `x -> x^32`, proving
+  `Lambda_mu(C,320) >= 28` and auditing every witness in the heaviest
+  quotient-coefficient fiber in Sage; the audited fiber contains `32`
+  explicit witnesses.
+- **How it is useful:** Pushes the list-track clearing agreement from the
+  Sage-hardened `a=292` row to `a=320`, while preserving the separation from
+  MCA `N_bad` and protocol claims.
+- **What to do next:** Attack the remaining open interval `321..372` for a
+  higher-agreement quotient, hybrid, or upper-obstruction result.
+
 ### 2026-06-27 - M1 interleaved-list threshold interval Sage audit
 
 - **Agent/model:** Codex.
