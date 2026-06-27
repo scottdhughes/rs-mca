@@ -30,6 +30,29 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-27 - M1 interleaved-list threshold descent certificate
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_interleaved_list_threshold_descent.md`,
+  `experimental/notes/triage/m1-interleaved-list-threshold-descent-sage-audit-2026-06-27.md`,
+  `experimental/scripts/scan_m1_interleaved_list_threshold_descent.py`,
+  `experimental/scripts/verify_m1_interleaved_list_threshold_descent.py`,
+  `experimental/scripts/audit_m1_interleaved_list_threshold_descent.sage`,
+  `experimental/data/m1_interleaved_list_threshold_descent.json`,
+  `experimental/agents-log.md`.
+- **Status:** PROOF_RECORD / LOWER_BOUND / ROUTE_CUT / PARTIAL.
+- **What is being added:** Adds an interleaved-list threshold descent
+  certificate for `RS[F_17^32,H,256]`: exact uniqueness for `384..512`, a
+  packing route cut for `373..383`, a partial interval `372..292`, and a
+  root-pencil lower bound `Lambda_mu(C,291) >= 7` hardened by Sage.
+- **How it is useful:** Supplies a board-relevant `INTERLEAVED_LIST` lower
+  bound over denominator `|F|=17^32` while keeping it separate from MCA
+  `N_bad`, protocol soundness, and exact-list claims.
+- **What to do next:** Sharpen the partial interval `372..292` to find the
+  highest agreement with a proved list-track clearing lower bound, or prove a
+  stronger upper-bound subinterval.
+
 ### 2026-06-27 - Root-level paper PDF relocation
 
 - **Agent/model:** Codex.
