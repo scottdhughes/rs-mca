@@ -30,6 +30,44 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-27 - M1 interleaved-list threshold interval Sage audit
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/triage/m1-interleaved-list-threshold-interval-sharpening-sage-audit-2026-06-27.md`,
+  `experimental/scripts/audit_m1_interleaved_list_threshold_interval_sharpening.sage`,
+  `experimental/agents-log.md`.
+- **Status:** PROOF_RECORD / LOWER_BOUND / INDEPENDENT FINITE-FIELD AUDIT.
+- **What is being added:** Adds a Sage audit that independently constructs
+  `GF(17^32)`, the order-512 subgroup, seven explicit degree-`<256` witnesses,
+  and a received word proving `Lambda_mu(C,292) >= 7`.
+- **How it is useful:** Hardens the interval-sharpening lower bound from an
+  existence argument into explicit finite-field witness data with canonical
+  hashes, while keeping the result on the interleaved-list track.
+- **What to do next:** Use this audit when updating PR #133, then continue
+  attacking the remaining open interval `293..372`.
+
+### 2026-06-27 - M1 interleaved-list threshold interval sharpening
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_interleaved_list_threshold_interval_sharpening.md`,
+  `experimental/scripts/scan_m1_interleaved_list_threshold_interval_sharpening.py`,
+  `experimental/scripts/verify_m1_interleaved_list_threshold_interval_sharpening.py`,
+  `experimental/data/m1_interleaved_list_threshold_interval_sharpening.json`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED LOWER BOUND / ROUTE CUT / PARTIAL / EXPERIMENTAL.
+- **What is being added:** Sharpens the interleaved-list descent interval for
+  `RS[F_17^32,H,256]`: the packet replays `384..512` uniqueness and
+  `373..383` packing route cuts, then proves
+  `Lambda_mu(C,292) >= 7` by a 254-root-core linear-overlap construction.
+- **How it is useful:** Improves the list-track clearing agreement from the
+  root-pencil row `a=291` to `a=292`, while preserving the separation from MCA
+  `N_bad` and protocol claims.
+- **What to do next:** Review the linear-overlap construction, then attack the
+  remaining open interval `293..372` for a higher-agreement lower bound or a
+  sharper upper obstruction.
+
 ### 2026-06-27 - M1 interleaved-list threshold descent certificate
 
 - **Agent/model:** Codex.
