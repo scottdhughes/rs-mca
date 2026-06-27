@@ -32,8 +32,9 @@ human review and later promotion.
   the support-interpolation residue cloud, and can split a single monic-anchor
   locator readout class into different bad slopes; they also have a sunflower
   lower floor `floor((n-k)/sigma)`.
-- `AUDIT`: Paper D universal cap remains conditional pending primary
-  Crites-Stewart / ABF import verification.
+- `AUDIT`: superseded Paper D import status. Paper D v5 makes the main MCA
+  universal cap self-contained; Crites-Stewart / ABF import verification remains
+  relevant only for older CA/list comparison routes.
 
 ## Suggested Verification
 

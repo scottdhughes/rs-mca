@@ -9,7 +9,7 @@ The four papers are:
 ```text
 RS_disproof_v3.tex      Paper A: no-slack obstruction
 slackMCA_v3.tex         Paper B: slack / quotient / entropy theory
-cs25_cap_v4.tex         Paper D: universal field-size cap
+cs25_cap_v5.tex         Paper D: universal field-size cap
 snarks_v4.tex           Paper C: SNARK / protocol ledger
 ```
 
@@ -78,7 +78,7 @@ Treat Papers A-D as stable reference documents unless a maintainer explicitly as
 ```text
 tex/RS_disproof_v3.tex
 tex/slackMCA_v3.tex
-tex/cs25_cap_v4.tex
+tex/cs25_cap_v5.tex
 tex/snarks_v4.tex
 ```
 
@@ -92,7 +92,7 @@ Whenever you add or materially change something under `experimental/`, add an en
 
 1. Read the abstract and scope section of `RS_disproof_v3.tex`.
 2. Read the introduction and frontier/open-problems section of `slackMCA_v3.tex`.
-3. Read the main theorem and open problems of `cs25_cap_v4.tex`.
+3. Read the main theorem and open problems of `cs25_cap_v5.tex`.
 4. Read the certificate ledgers and open problems of `snarks_v4.tex`.
 5. Return to Paper B for the exact theorem labels relevant to your task.
 
@@ -103,7 +103,7 @@ The current research picture is:
 ```text
 Paper A gives explicit no-slack lower bounds.
 Paper B builds the corrected reserve theory and states the main missing local limits.
-Paper D gives a universal cap using a list-to-agreement conversion.
+Paper D v5 gives a self-contained universal MCA cap.
 Paper C says how a protocol must consume the theory without mixing ledgers.
 ```
 
@@ -255,7 +255,7 @@ Record which quotient scales remain active.
 
 **Goal.** Determine when a corrected-reserve list bound implies a corrected-reserve CA/MCA/line-decoding bound at essentially the same radius.
 
-**Why it matters.** Paper D uses a list-to-agreement conversion in the contrapositive direction to cap the challenge. A forward positive equivalence would be powerful, but may be false.
+**Why it matters.** Paper D v5 uses a self-contained deep-point conversion to cap the MCA challenge; older list-to-agreement routes remain relevant for CA/list comparison audits. A forward positive equivalence would be powerful, but may be false.
 
 **First attacks.**
 
@@ -280,9 +280,11 @@ Record which quotient scales remain active.
 
 ## Highest-priority audit targets
 
-### A0. Audit the imported list-to-agreement conversion
+### A0. Audit older imported CA/list conversions
 
-Paper D’s universal cap is conditional on an imported Crites--Stewart conversion. Audit:
+Paper D v5's main MCA universal cap is self-contained. The older CS25/ABF
+list-to-agreement routes remain relevant for CA and list-comparison statements.
+Audit:
 
 - exact admissible radius range,
 - exact definition of the augmented code,
@@ -451,7 +453,6 @@ Do **not**:
 - replace interleaved-list size by base-list size without a bridge theorem;
 - replace MCA by CA or line-decoding without stating the conversion;
 - cite Paper D’s cap as error-one in the forbidden band;
-- treat the universal cap as unconditional before auditing the imported conversion;
 - present a small-case experiment as a theorem.
 - edit the main Papers A-D directly unless a maintainer explicitly asks for that change; put new material in `experimental/` first.
 
@@ -490,7 +491,7 @@ Attach script, seed, exact command, or symbolic certificate.
 1. Implement `quotient_profile.py` for dyadic `n` and dithered `k`.
 2. Implement `entropy_margin.py` and reproduce the reserve inequalities used in the papers.
 3. Write a theorem-label map across the four papers.
-4. Audit the Crites--Stewart import used by Paper D.
+4. Audit older Crites--Stewart/ABF imports used by CA/list comparison routes.
 5. Exhaust `q=17`, `n=16`, `rho=1/2,1/4` for locator fibers and MCA bad slopes.
 6. Compare base-list product bounds with direct interleaved-list enumeration for tiny `mu=2` cases.
 7. Search for the first genuinely extension-valued bad line over `F_{p^2}`.

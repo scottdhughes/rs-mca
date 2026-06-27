@@ -201,10 +201,10 @@
   - Role: grand-challenge cap below roughly 150--162 bits.
 - `tex/slackMCA_v3.tex` `thm:capimport`
   - Kind/status: theorem; CONDITIONAL.
-  - Role: imported list-to-agreement conversion used by the cap.
+  - Role: older imported list-to-agreement conversion used by CA/list comparison routes; superseded for the main MCA cap by Paper D v5.
 - `tex/slackMCA_v3.tex` `thm:cap`
-  - Kind/status: theorem; CONDITIONAL.
-  - Role: universal cap conditional on the imported conversion.
+  - Kind/status: theorem; CONDITIONAL in Paper B v3; superseded by Paper D v5 for the main MCA cap.
+  - Role: older universal-cap route; Paper D v5 is the self-contained reference for the proved MCA cap.
 - `tex/slackMCA_v3.tex` `thm:subfield`
   - Kind/status: theorem; PROVED.
   - Role: subfield confinement for base-valued line witnesses.

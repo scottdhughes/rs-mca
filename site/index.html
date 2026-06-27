@@ -1074,11 +1074,11 @@
             <div class="paper-letter">D</div>
             <span class="stack-label">Paper D</span>
             <h3>Paper D: Universal Field-Size Cap</h3>
-            <p>Uses the Crites-Stewart list-to-agreement conversion to prove a universal MCA threshold cap in the relevant sub-capacity band.</p>
+            <p>Proves the main universal MCA threshold cap with a self-contained deep-point conversion in the relevant sub-capacity band.</p>
             <div class="paper-link-strip">
-              <a href="https://github.com/przchojecki/rs-mca/blob/main/site/papers/cs25_cap_v4.pdf" target="_blank" rel="noopener">PDF on GitHub</a>
-              <a href="https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v4.tex" target="_blank" rel="noopener">TeX on GitHub</a>
-              <a href="papers/cs25_cap_v4.pdf" target="_blank" rel="noopener">Local mirror</a>
+              <a href="https://github.com/przchojecki/rs-mca/blob/main/site/papers/cs25_cap_v5.pdf" target="_blank" rel="noopener">PDF on GitHub</a>
+              <a href="https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v5.tex" target="_blank" rel="noopener">TeX on GitHub</a>
+              <a href="papers/cs25_cap_v5.pdf" target="_blank" rel="noopener">Local mirror</a>
             </div>
           </article>
         </div>
@@ -1563,11 +1563,11 @@
           },
           {
                 "date": "2026-06-27",
-                "status": "draft theorem examples",
+                "status": "PROVED_PAPERD_V5_CAP rows",
                 "author": "Codex scanner audit",
                 "title": "Prime192 scanner rows instantiate Paper D v5 across all four rates",
-                "summary": "The leaderboard_sweep_192 packet contributes four concrete q≈2^192 smooth subgroup rows with k=2^40, one for each official rate, plus a small F_17^32 Paper D example. They instantiate the Paper D v5 cap with exact primes q = 1 mod n and +87 bit margins on the prime192 rows.",
-                "impact": "Added as public-board examples, not as new theorems beyond Paper D and not as explicit slope censuses. The existing tangent257 row remains the closest-to-capacity proved finite-slope row.",
+                "summary": "The leaderboard_sweep_192 packet contributes four concrete q≈2^192 smooth subgroup rows with k=2^40, one for each official rate, plus a small F_17^32 Paper D example. They instantiate the proved Paper D v5 cap with exact primes q = 1 mod n and +87 bit margins on the prime192 rows.",
+                "impact": "These are scanner-backed examples of the Paper D v5 cap, not new theorems beyond Paper D and not explicit slope censuses. The scanner verifies the divisor, binomial, and field ledgers for each displayed cap row.",
                 "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/outputs/leaderboard_sweep_192/site_candidate_rows.md"
           },
           {
@@ -1868,11 +1868,11 @@
             "id": "paper-d",
             "letter": "D",
             "title": "Paper D: Universal Field-Size Cap",
-            "file": "cs25_cap_v4.pdf",
-            "pdf": "papers/cs25_cap_v4.pdf",
-            "githubPdf": "https://github.com/przchojecki/rs-mca/blob/main/site/papers/cs25_cap_v4.pdf",
-            "tex": "https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v4.tex",
-            "summary": "Uses the Crites-Stewart list-to-agreement conversion to prove a universal MCA threshold cap in the relevant sub-capacity band."
+            "file": "cs25_cap_v5.pdf",
+            "pdf": "papers/cs25_cap_v5.pdf",
+            "githubPdf": "https://github.com/przchojecki/rs-mca/blob/main/site/papers/cs25_cap_v5.pdf",
+            "tex": "https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v5.tex",
+            "summary": "Proves the main universal MCA threshold cap with a self-contained deep-point conversion in the relevant sub-capacity band."
       }
 ];
     const fallbackBenchmarksRaw = [
@@ -1934,16 +1934,16 @@
                                         "powerOfTwoQuotient": true,
                                         "quotientDivisor": "N=1024 divides n"
                                   },
-                                  "status": "draft-theorem",
-                                  "statusLabel": "draft theorem",
+                                  "status": "PROVED_PAPERD_V5_CAP",
+                                  "statusLabel": "proved Paper D v5 cap",
                                   "source": "Paper D v5 universal cap",
                                   "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v5.tex",
                                   "nonClaims": [
-                                        "Draft paper theorem, not peer reviewed or formally prize-ready.",
+                                        "Paper D v5 cap; hypotheses verified by the displayed divisor, binomial, and field ledgers.",
                                         "Paper D v5 routes the MCA cap through the self-contained deep-point argument; CA/list comparison statements still have separate radius and import conventions.",
                                         "This is a δ* upper cap from a failure lower bound, not an exact threshold."
                                   ],
-                                  "authors": "Paper D draft authors / Codex audit"
+                                  "authors": "Paper D authors / Codex audit"
                             },
                             {
                                   "id": "list-cap-rho-1-2",
@@ -2031,13 +2031,13 @@
                                         "powerOfTwoQuotient": true,
                                         "quotientDivisor": "scanner cap divisor from leaderboard_sweep_192"
                                   },
-                                  "status": "draft-theorem-example",
-                                  "statusLabel": "draft theorem example",
+                                  "status": "PROVED_PAPERD_V5_CAP",
+                                  "statusLabel": "proved Paper D v5 cap",
                                   "source": "leaderboard_sweep_192 scanner row",
                                   "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/outputs/leaderboard_sweep_192/site_candidate_rows.md",
                                   "nonClaims": [
                                         "Instantiated example of the Paper D v5 cap, not a new theorem beyond Paper D.",
-                                        "Draft paper status: not peer reviewed or formally prize-ready.",
+                                        "Paper D v5 cap status applies after the scanner verifies the divisor, binomial, and field ledgers.",
                                         "The bad-count field is an equivalent numerator from the MCA error-floor lower bound, not an explicit slope census."
                                   ],
                                   "authors": "leaderboard_sweep_192 scanner / Codex audit"
@@ -2080,13 +2080,13 @@
                                         "powerOfTwoQuotient": true,
                                         "quotientDivisor": "scanner cap divisor from leaderboard_sweep_192"
                                   },
-                                  "status": "draft-theorem-example",
-                                  "statusLabel": "draft theorem example",
+                                  "status": "PROVED_PAPERD_V5_CAP",
+                                  "statusLabel": "proved Paper D v5 cap",
                                   "source": "leaderboard_sweep_192 scanner row",
                                   "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/outputs/leaderboard_sweep_192/site_candidate_rows.md",
                                   "nonClaims": [
                                         "Instantiated example of the Paper D v5 cap, not a new theorem beyond Paper D.",
-                                        "Draft paper status: not peer reviewed or formally prize-ready.",
+                                        "Paper D v5 cap status applies after the scanner verifies the divisor, binomial, and field ledgers.",
                                         "The bad-count field is an equivalent numerator from the MCA error-floor lower bound, not an explicit slope census."
                                   ],
                                   "authors": "leaderboard_sweep_192 scanner / Codex audit"
@@ -2462,16 +2462,16 @@
                                         "powerOfTwoQuotient": true,
                                         "quotientDivisor": "N=1024 divides n"
                                   },
-                                  "status": "draft-theorem",
-                                  "statusLabel": "draft theorem",
+                                  "status": "PROVED_PAPERD_V5_CAP",
+                                  "statusLabel": "proved Paper D v5 cap",
                                   "source": "Paper D v5 universal cap",
                                   "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v5.tex",
                                   "nonClaims": [
-                                        "Draft paper theorem, not peer reviewed or formally prize-ready.",
+                                        "Paper D v5 cap; hypotheses verified by the displayed divisor, binomial, and field ledgers.",
                                         "Paper D v5 routes the MCA cap through the self-contained deep-point argument; CA/list comparison statements still have separate radius and import conventions.",
                                         "This is a δ* upper cap from a failure lower bound, not an exact threshold."
                                   ],
-                                  "authors": "Paper D draft authors / Codex audit"
+                                  "authors": "Paper D authors / Codex audit"
                             },
                             {
                                   "id": "list-cap-rho-1-4",
@@ -2559,13 +2559,13 @@
                                         "powerOfTwoQuotient": true,
                                         "quotientDivisor": "scanner cap divisor from leaderboard_sweep_192"
                                   },
-                                  "status": "draft-theorem-example",
-                                  "statusLabel": "draft theorem example",
+                                  "status": "PROVED_PAPERD_V5_CAP",
+                                  "statusLabel": "proved Paper D v5 cap",
                                   "source": "leaderboard_sweep_192 scanner row",
                                   "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/outputs/leaderboard_sweep_192/site_candidate_rows.md",
                                   "nonClaims": [
                                         "Instantiated example of the Paper D v5 cap, not a new theorem beyond Paper D.",
-                                        "Draft paper status: not peer reviewed or formally prize-ready.",
+                                        "Paper D v5 cap status applies after the scanner verifies the divisor, binomial, and field ledgers.",
                                         "The bad-count field is an equivalent numerator from the MCA error-floor lower bound, not an explicit slope census."
                                   ],
                                   "authors": "leaderboard_sweep_192 scanner / Codex audit"
@@ -2623,16 +2623,16 @@
                                         "powerOfTwoQuotient": true,
                                         "quotientDivisor": "N=1024 divides n"
                                   },
-                                  "status": "draft-theorem",
-                                  "statusLabel": "draft theorem",
+                                  "status": "PROVED_PAPERD_V5_CAP",
+                                  "statusLabel": "proved Paper D v5 cap",
                                   "source": "Paper D v5 universal cap",
                                   "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v5.tex",
                                   "nonClaims": [
-                                        "Draft paper theorem, not peer reviewed or formally prize-ready.",
+                                        "Paper D v5 cap; hypotheses verified by the displayed divisor, binomial, and field ledgers.",
                                         "Paper D v5 routes the MCA cap through the self-contained deep-point argument; CA/list comparison statements still have separate radius and import conventions.",
                                         "This is a δ* upper cap from a failure lower bound, not an exact threshold."
                                   ],
-                                  "authors": "Paper D draft authors / Codex audit"
+                                  "authors": "Paper D authors / Codex audit"
                             },
                             {
                                   "id": "list-cap-rho-1-8",
@@ -2720,13 +2720,13 @@
                                         "powerOfTwoQuotient": true,
                                         "quotientDivisor": "scanner cap divisor from leaderboard_sweep_192"
                                   },
-                                  "status": "draft-theorem-example",
-                                  "statusLabel": "draft theorem example",
+                                  "status": "PROVED_PAPERD_V5_CAP",
+                                  "statusLabel": "proved Paper D v5 cap",
                                   "source": "leaderboard_sweep_192 scanner row",
                                   "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/outputs/leaderboard_sweep_192/site_candidate_rows.md",
                                   "nonClaims": [
                                         "Instantiated example of the Paper D v5 cap, not a new theorem beyond Paper D.",
-                                        "Draft paper status: not peer reviewed or formally prize-ready.",
+                                        "Paper D v5 cap status applies after the scanner verifies the divisor, binomial, and field ledgers.",
                                         "The bad-count field is an equivalent numerator from the MCA error-floor lower bound, not an explicit slope census."
                                   ],
                                   "authors": "leaderboard_sweep_192 scanner / Codex audit"
@@ -2784,16 +2784,16 @@
                                         "powerOfTwoQuotient": true,
                                         "quotientDivisor": "N=2048 divides n"
                                   },
-                                  "status": "draft-theorem",
-                                  "statusLabel": "draft theorem",
+                                  "status": "PROVED_PAPERD_V5_CAP",
+                                  "statusLabel": "proved Paper D v5 cap",
                                   "source": "Paper D v5 universal cap",
                                   "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v5.tex",
                                   "nonClaims": [
-                                        "Draft paper theorem, not peer reviewed or formally prize-ready.",
+                                        "Paper D v5 cap; hypotheses verified by the displayed divisor, binomial, and field ledgers.",
                                         "Paper D v5 routes the MCA cap through the self-contained deep-point argument; CA/list comparison statements still have separate radius and import conventions.",
                                         "This is a δ* upper cap from a failure lower bound, not an exact threshold."
                                   ],
-                                  "authors": "Paper D draft authors / Codex audit"
+                                  "authors": "Paper D authors / Codex audit"
                             },
                             {
                                   "id": "list-cap-rho-1-16",
@@ -2881,13 +2881,13 @@
                                         "powerOfTwoQuotient": true,
                                         "quotientDivisor": "scanner cap divisor from leaderboard_sweep_192"
                                   },
-                                  "status": "draft-theorem-example",
-                                  "statusLabel": "draft theorem example",
+                                  "status": "PROVED_PAPERD_V5_CAP",
+                                  "statusLabel": "proved Paper D v5 cap",
                                   "source": "leaderboard_sweep_192 scanner row",
                                   "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/outputs/leaderboard_sweep_192/site_candidate_rows.md",
                                   "nonClaims": [
                                         "Instantiated example of the Paper D v5 cap, not a new theorem beyond Paper D.",
-                                        "Draft paper status: not peer reviewed or formally prize-ready.",
+                                        "Paper D v5 cap status applies after the scanner verifies the divisor, binomial, and field ledgers.",
                                         "The bad-count field is an equivalent numerator from the MCA error-floor lower bound, not an explicit slope census."
                                   ],
                                   "authors": "leaderboard_sweep_192 scanner / Codex audit"

@@ -11,7 +11,8 @@ if epsilon < (q - n)/(k q), then
 Lst(C+,delta) <= ceil(epsilon q (q - n)/(q - n - k epsilon q)).
 ```
 
-Then the relaxed import used in Paper D follows by one line of algebra:
+Then the older relaxed import used for CA/list comparison routes follows by one
+line of algebra:
 for every `theta in [0,1)`,
 
 ```text
@@ -40,7 +41,9 @@ manuscript.
 
 ## Source Status
 
-The exact rational statement above is the form reported in public summaries of
+The main MCA universal cap is now self-contained in Paper D v5 and no longer
+depends on this import. The exact rational statement above remains useful for
+older CA/list comparison routes. It is the form reported in public summaries of
 Crites-Stewart Theorem 2 and is compatible with the relaxed restatement already
 printed in `tex/cs25_cap_v4.tex`. The primary source remains:
 
@@ -48,8 +51,8 @@ printed in `tex/cs25_cap_v4.tex`. The primary source remains:
 https://eprint.iacr.org/2025/2046
 ```
 
-That primary theorem should still be checked directly before promoting the
-universal cap from conditional to source-certified.
+That primary theorem should still be checked directly before promoting older
+CA/list comparison statements that depend on it.
 
 ## Derivation
 
@@ -86,8 +89,8 @@ After applying ceilings,
 Lst(C+,delta) <= ceil(q epsilon/(1 - theta)).
 ```
 
-This is exactly the relaxed local import in Paper D after identifying the
-theorem interpolation parameter with `theta`.
+This is exactly the older relaxed local import after identifying the theorem
+interpolation parameter with `theta`.
 
 ## The `theta = 1/2` Contrapositive
 

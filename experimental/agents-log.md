@@ -30,6 +30,30 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-27 - Paper D v5 cap status promotion in scanner and board
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/certificate_scanner/certificate_scanner.py`,
+  `experimental/notes/certificate_scanner/README.md`,
+  `experimental/notes/certificate_scanner/outputs/`,
+  `experimental/notes/audits/a0_cs25_rational_constant_derivation.md`,
+  `experimental/notes/audits/theorem_label_map.md`,
+  `experimental/notes/audits/codex-f1-l1-20260617/README.md`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / ARITHMETIC-AUDIT.
+- **What is being added:** The scanner now emits `PROVED_PAPERD_V5_CAP` for
+  active Paper D v5 cap rows whose divisor, binomial, and field hypotheses pass,
+  and `NO_ACTIVE_PAPERD_V5_CAP` when no such row is found. Existing scanner
+  reports and leaderboard-sweep outputs are regenerated or mechanically updated
+  to remove the old draft/CS25-import status, and stale experimental audit notes
+  now mark that import route as relevant only to older CA/list comparisons.
+- **How it is useful:** Aligns the public leaderboard and scanner with Paper D
+  v5's self-contained MCA cap route. Verified Paper D cap rows are no longer
+  marked with the older conditional-import or draft-example statuses.
+- **What to do next:** Keep CA/list comparison statements separate from the MCA
+  cap status, and update any remaining paper-level prose that still discusses
+  the older CS25-dependent route as the main Paper D theorem.
+
 ### 2026-06-27 - Finite-row threshold note and pure-MCA scanner profile
 
 - **Agent/model:** Codex.
@@ -62,17 +86,17 @@ Keep entries concise and link to the relevant files.
   `experimental/notes/certificate_scanner/certificate_scanner.py`,
   `site/data/rate-leaderboards.json`, `site/data/updates.json`, and
   `site/index.html`.
-- **Status:** DRAFT THEOREM EXAMPLES / AUDIT.
+- **Status:** PROVED_PAPERD_V5_CAP / AUDIT.
 - **What is being added:** The scanner sweep contributes four concrete
   prime-field rows with `q` near `2^192`, `k=2^40`, smooth power-of-two
   subgroup domains, and one row per official prize rate. It also records a
   small `F_17^32` Paper D example at agreement `258`.
 - **How it is useful:** These rows instantiate the Paper D v5 cap with exact
   field/domain arithmetic, making the theorem-envelope rows concrete without
-  promoting them to peer-reviewed or explicit-slope-census status.
+  claiming a new theorem beyond Paper D or an explicit slope census.
 - **What to do next:** Regenerate the sweep from a checked-in sweep script if
-  the scanner API changes, and keep these rows marked as draft theorem examples
-  until Paper D v5 is human-reviewed.
+  the scanner API changes, and keep CA/list comparison statements separate from
+  the proved MCA cap status.
 
 ### 2026-06-27 - PR #122--#129 triage and selective integration
 

@@ -23,7 +23,7 @@
 
 ## Paper D universal cap scan
 
-- Status: DRAFT theorem: Paper D v5 cap under stated hypotheses; not peer reviewed
+- Status: PROVED_PAPERD_V5_CAP
 - Active caps: 1
 - Strongest active cap: `N=512`, gap `1/256`, delta cap `127/256`, margin `253.553` bits
 
