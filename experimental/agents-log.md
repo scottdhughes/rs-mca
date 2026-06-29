@@ -30,6 +30,27 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-29 - M1 a327 nondegenerate exact lift
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_nondegenerate_exact_lift.md`,
+  `experimental/scripts/scan_m1_a327_nondegenerate_exact_lift.py`,
+  `experimental/scripts/verify_m1_a327_nondegenerate_exact_lift.py`,
+  `experimental/scripts/audit_m1_a327_nondegenerate_exact_lift.sage`,
+  `experimental/data/m1_a327_nondegenerate_exact_lift.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A bounded exact `GF(17^32)` lift audit for the top
+  robust proxy-positive system from `f9a43ea`. The audit tests 32 exact vectors
+  across proxy-support, balanced-block, and seeded common-free schedules with
+  four exact value patterns; no vector reaches `a=327`.
+- **How it is useful:** Sharpens the exact-lift failure mode: proxy-support
+  schedules keep high capacity but remain degenerate, while balanced free
+  schedules make codewords distinct but collapse the value-class capacity.
+- **What to do next:** Use the nondegeneracy/capacity split to design exact
+  schedules that preserve the proxy-support collision structure while forcing
+  nonzero coefficient support in all six witness blocks.
+
 ### 2026-06-29 - M1 a327 robust-proxy constrained extraction
 
 - **Agent/model:** Codex.
