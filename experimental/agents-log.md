@@ -317,6 +317,31 @@ Keep entries concise and link to the relevant files.
   MILP, to select constraints by predicted post-reschedule balance rather than
   fixed coordinate-order heuristics.
 
+### 2026-06-29 - M1 a327 balanced target MILP codeword solver
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_balanced_target_milp_codeword_solver.md`,
+  `experimental/scripts/scan_m1_a327_balanced_target_milp_codeword_solver.py`,
+  `experimental/scripts/verify_m1_a327_balanced_target_milp_codeword_solver.py`,
+  `experimental/scripts/audit_m1_a327_balanced_target_milp_codeword_solver.sage`,
+  `experimental/data/m1_a327_balanced_target_milp_codeword_solver.json`,
+  `experimental/data/m1_a327_balanced_target_milp_codeword_solver_exact_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** TESTED_TARGET_SYSTEMS_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A MILP-selected balanced target/codeword layer. It
+  tests 120 target systems across three row budgets and five balance
+  objectives, samples 1,920 nullspace codeword tuples over `GF(12289)`, and
+  globally reschedules each high-capacity proxy tuple. The best raw capacity
+  upper bound is 457 and the best proxy rescheduled max-min agreement improves
+  to 319.
+- **How it is useful:** Directly attacks the imbalance bottleneck exposed by
+  the prior joint solver, moving the best proxy max-min from 311 to 319
+  without producing an `a=327` certificate.
+- **What to do next:** Refine around the best `B512 / fiber_diversity` and
+  `hybrid_balance` systems with local target-coordinate mutations and larger
+  nullspace sampling.
+
 ### 2026-06-29 - Paper D v7 first-grid cap promotion
 
 - **Agent/model:** Codex.
