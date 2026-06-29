@@ -30,6 +30,30 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-29 - M1 a327 incumbent-guided target mutation
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_incumbent_guided_target_mutation.md`,
+  `experimental/scripts/scan_m1_a327_incumbent_guided_target_mutation.py`,
+  `experimental/scripts/verify_m1_a327_incumbent_guided_target_mutation.py`,
+  `experimental/scripts/audit_m1_a327_incumbent_guided_target_mutation.sage`,
+  `experimental/data/m1_a327_incumbent_guided_target_mutation.json`,
+  `experimental/data/m1_a327_incumbent_guided_target_mutation_exact_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A feedback-driven target mutation pass around the
+  best balanced target/codeword solver incumbents. The proxy search tests 50
+  mutated systems and 1600 codeword tuple samples over `GF(12289)`, improving
+  the best proxy rescheduled max-min from 319 to 329. A bounded Sage lift audit
+  over `GF(17^32)` checks the top lifted proxy tuples and finds no exact
+  `a=327` lift; full exact nullspace extraction remains open.
+- **How it is useful:** Shows that the post-rescheduling deficit can be
+  attacked directly by incumbent-guided target mutation, while preserving the
+  boundary between proxy candidates and exact interleaved-list proof records.
+- **What to do next:** Implement an exact extraction path for the proxy-positive
+  target systems, avoiding dense full `GF(17^32)` RREF where possible, then
+  Sage-audit any exact nullspace sample that reaches `a>=327`.
+
 ### 2026-06-29 - M1 a327 random low-degree list-witness search
 
 - **Agent/model:** Codex.
