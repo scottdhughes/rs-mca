@@ -1,0 +1,4359 @@
+{
+  "agreement_target": 327,
+  "construction_mode": "support_overlap_rankfree_pivot_rule",
+  "denominator": "17^32",
+  "field_denominator": "2367911594760467245844106297320951247361",
+  "global_status": {
+    "candidate_found": false,
+    "improves_pr_133": false,
+    "status": "RREF_DERIVED_PATTERN_ONLY"
+  },
+  "interpretation": {
+    "a327_certificate_found": false,
+    "candidate_found": false,
+    "deterministic_pivot_schedule_theorem_proved": false,
+    "global_Lambda_mu_327_upper_bound": false,
+    "rankfree_rule_found": false,
+    "status": "AUDIT",
+    "support_overlap_candidates_certified_full_rank": true
+  },
+  "k": 256,
+  "matrix_schedules": [
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "mixed_boundary_spread_cyclic_3456_balanced_seed_202607280",
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3771,
+        19
+      ],
+      "nullity": 0,
+      "pattern_class": "support_overlap_rref_pivot",
+      "pivot_schedule": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "combinatorial_private_pivot_count": null,
+        "covered_columns": 19,
+        "deterministic_combinatorial_schedule": false,
+        "minor_hash": "9a0c0a73dbcc37ada8065d02d364d85505d13a0b581bb08896dfda35c494e322",
+        "pair_pivot_counts": {
+          "1,2": 2,
+          "1,3": 6,
+          "1,4": 9,
+          "1,5": 1,
+          "1,6": 1
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,4",
+          "max_pair_pivots": 9,
+          "min_pair_pivots": 1,
+          "pair_pivot_total": 19
+        },
+        "pivot_cols_hash": "32794311e255ade983641fe7760fad54acee082818ba8fc8e0c1a5e9f44cabb1",
+        "pivot_columns_used": 19,
+        "pivot_pairs_hash": "19070af95f2377a31901c79e4a734718440d90a64d6658ee5ee4bf3ba7a78c0c",
+        "pivot_rows_hash": "f62766263b129caf5efdbb99d3d625a584d1c71f0bfd3d3e5c7b43a262e2cfde",
+        "pivot_rows_used": 19,
+        "row_type_counts": {
+          "support_overlap_row": 19
+        },
+        "row_type_signature": "support_overlap_row:19",
+        "rref_private_pivot_count": 19,
+        "schedule_origin": "RREF_DERIVED_PATTERN",
+        "schedule_status": "CERTIFIED_RREF_DERIVED",
+        "support_overlap_pivot_count": 19,
+        "support_overlap_pivot_fraction": "1"
+      },
+      "rank": 19,
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 1,
+          "pair_pivot_counts": {
+            "1,2": 1,
+            "1,3": 1,
+            "1,4": 2,
+            "1,5": 1,
+            "1,6": 1,
+            "2,3": 1,
+            "2,4": 1,
+            "2,5": 1,
+            "2,6": 1,
+            "3,4": 2,
+            "3,5": 2,
+            "3,6": 1,
+            "4,5": 2,
+            "4,6": 1,
+            "5,6": 1
+          },
+          "pivot_cols_hash": "32794311e255ade983641fe7760fad54acee082818ba8fc8e0c1a5e9f44cabb1",
+          "pivot_pairs_hash": "cc7c2cea99cdf694a2fdfe9aa0cc0835108ca4ee982ad3a6ac02bb48d2c70b15",
+          "pivot_rows_hash": "ce1fff2b0c35f0caca52437395eddb07b245eb0cf660ac3ce3354593faf39403",
+          "rule": "coordinate_pair_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 19,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 0,
+          "pair_pivot_counts": {
+            "1,2": 2,
+            "1,3": 1,
+            "1,4": 2,
+            "1,5": 1,
+            "1,6": 2,
+            "2,3": 1,
+            "2,4": 2,
+            "2,5": 1,
+            "2,6": 1,
+            "3,4": 1,
+            "3,5": 1,
+            "3,6": 1,
+            "4,5": 1,
+            "4,6": 1,
+            "5,6": 1
+          },
+          "pivot_cols_hash": "32794311e255ade983641fe7760fad54acee082818ba8fc8e0c1a5e9f44cabb1",
+          "pivot_pairs_hash": "68cb853d4ec7cd2c3e92d46c9e67bbca5d1807de82915b5022c6d6d312171ab9",
+          "pivot_rows_hash": "af5e41ceae5354df460a6798cc54aaca9eed73e11412ccbc2f57b550f67a93d5",
+          "rule": "fiber_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 19,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 1,
+          "pair_pivot_counts": {
+            "1,2": 19
+          },
+          "pivot_cols_hash": "32794311e255ade983641fe7760fad54acee082818ba8fc8e0c1a5e9f44cabb1",
+          "pivot_pairs_hash": "aa7730355be9c059fb9cd15c3d92f2cc62017912f21cc33c6e7792c9bb86065e",
+          "pivot_rows_hash": "e5f0e92e512a1e15b03846bfa06a7fc7dd54b9f33139ebeed2bbf18cd5df8844",
+          "rule": "fiber_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 19,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 2,
+          "pair_pivot_counts": {
+            "1,2": 19
+          },
+          "pivot_cols_hash": "32794311e255ade983641fe7760fad54acee082818ba8fc8e0c1a5e9f44cabb1",
+          "pivot_pairs_hash": "aa7730355be9c059fb9cd15c3d92f2cc62017912f21cc33c6e7792c9bb86065e",
+          "pivot_rows_hash": "32794311e255ade983641fe7760fad54acee082818ba8fc8e0c1a5e9f44cabb1",
+          "rule": "matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 19,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 2,
+          "pair_pivot_counts": {
+            "1,2": 19
+          },
+          "pivot_cols_hash": "32794311e255ade983641fe7760fad54acee082818ba8fc8e0c1a5e9f44cabb1",
+          "pivot_pairs_hash": "aa7730355be9c059fb9cd15c3d92f2cc62017912f21cc33c6e7792c9bb86065e",
+          "pivot_rows_hash": "32794311e255ade983641fe7760fad54acee082818ba8fc8e0c1a5e9f44cabb1",
+          "rule": "pair_label_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 19,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 4,
+          "pair_pivot_counts": {
+            "3,6": 19
+          },
+          "pivot_cols_hash": "32794311e255ade983641fe7760fad54acee082818ba8fc8e0c1a5e9f44cabb1",
+          "pivot_pairs_hash": "a344914d006196643b58d5eb61103d42c89909c1a4882f8fcd74a25ae6df412c",
+          "pivot_rows_hash": "b9cc2d262b5dd71369cf4911fc43193255b1cf6f7c13876873f5d5fcf390c6ed",
+          "rule": "pair_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 19,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 2,
+          "pair_pivot_counts": {
+            "1,2": 19
+          },
+          "pivot_cols_hash": "32794311e255ade983641fe7760fad54acee082818ba8fc8e0c1a5e9f44cabb1",
+          "pivot_pairs_hash": "aa7730355be9c059fb9cd15c3d92f2cc62017912f21cc33c6e7792c9bb86065e",
+          "pivot_rows_hash": "32794311e255ade983641fe7760fad54acee082818ba8fc8e0c1a5e9f44cabb1",
+          "rule": "pair_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 19,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 2,
+          "pair_pivot_counts": {
+            "5,6": 19
+          },
+          "pivot_cols_hash": "32794311e255ade983641fe7760fad54acee082818ba8fc8e0c1a5e9f44cabb1",
+          "pivot_pairs_hash": "45fefcc2a6c5237aa609f94e86ca332ced935726d151303b48015a0be8cf508e",
+          "pivot_rows_hash": "41f6e8c8174d7dc982e2c00a813ce6ffa91c92715af7d0552b17e5f250dfc326",
+          "rule": "reverse_matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 19,
+          "status": "FAILED_SINGULAR_MINOR"
+        }
+      ],
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "schedule_classification": "RREF_DERIVED_PATTERN",
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_multiplicity_mutation_search::mixed_boundary_spread_cyclic_3456_balanced_seed_202607280",
+      "source_matrix_metadata_hash": "cda57f07e7ab6dc3881a9f51ac5fbabcc5810c8a062e3b9079f119c2d68a288e",
+      "source_packet": "support_pattern_multiplicity_mutation_search",
+      "status": "CERTIFIED_RREF_DERIVED"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "multiplicity_spread_cyclic_45_balanced_seed_202607014",
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3753,
+        23
+      ],
+      "nullity": 0,
+      "pattern_class": "support_overlap_rref_pivot",
+      "pivot_schedule": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "combinatorial_private_pivot_count": null,
+        "covered_columns": 23,
+        "deterministic_combinatorial_schedule": false,
+        "minor_hash": "fd6d03b99a136b8407d771c71b6be19445a4df03b855056adbc466c7ac4ca91b",
+        "pair_pivot_counts": {
+          "1,2": 2,
+          "1,3": 9,
+          "1,4": 5,
+          "1,5": 6,
+          "1,6": 1
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,3",
+          "max_pair_pivots": 9,
+          "min_pair_pivots": 1,
+          "pair_pivot_total": 23
+        },
+        "pivot_cols_hash": "40c1130abddfda2f14450d5c3ec3046cee84e7e1094ceab67f98df8bc0280c9f",
+        "pivot_columns_used": 23,
+        "pivot_pairs_hash": "206cb366525fe44b8b4e259d7d028696440fcf3c409a647219a1d7e89eb80366",
+        "pivot_rows_hash": "d3f157aed90b675ea04fc48661c0d73b922c7f1c439f4c7b6dcc7ab104fc1801",
+        "pivot_rows_used": 23,
+        "row_type_counts": {
+          "support_overlap_row": 23
+        },
+        "row_type_signature": "support_overlap_row:23",
+        "rref_private_pivot_count": 23,
+        "schedule_origin": "RREF_DERIVED_PATTERN",
+        "schedule_status": "CERTIFIED_RREF_DERIVED",
+        "support_overlap_pivot_count": 23,
+        "support_overlap_pivot_fraction": "1"
+      },
+      "rank": 23,
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 3,
+          "pair_pivot_counts": {
+            "1,2": 3,
+            "1,3": 3,
+            "1,4": 2,
+            "1,5": 1,
+            "1,6": 1,
+            "2,3": 2,
+            "2,4": 2,
+            "2,5": 1,
+            "2,6": 1,
+            "3,4": 2,
+            "3,5": 1,
+            "3,6": 1,
+            "4,5": 1,
+            "4,6": 1,
+            "5,6": 1
+          },
+          "pivot_cols_hash": "40c1130abddfda2f14450d5c3ec3046cee84e7e1094ceab67f98df8bc0280c9f",
+          "pivot_pairs_hash": "a86c26e4bdbb92dfd541c125809f94d5cfe67420970468290780d0d248aa5c26",
+          "pivot_rows_hash": "81b04cd94bfdbb949bf485b9183e6e0b10b589c172953cde1056fa7096e57659",
+          "rule": "coordinate_pair_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 23,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 0,
+          "pair_pivot_counts": {
+            "1,2": 1,
+            "1,3": 2,
+            "1,4": 2,
+            "1,5": 2,
+            "1,6": 2,
+            "2,3": 1,
+            "2,4": 1,
+            "2,5": 1,
+            "2,6": 1,
+            "3,4": 2,
+            "3,5": 2,
+            "3,6": 2,
+            "4,5": 2,
+            "4,6": 1,
+            "5,6": 1
+          },
+          "pivot_cols_hash": "40c1130abddfda2f14450d5c3ec3046cee84e7e1094ceab67f98df8bc0280c9f",
+          "pivot_pairs_hash": "7710e4a8f28ef7a6b1de04224791168f4e15f1c4c01c173199701b215438e42a",
+          "pivot_rows_hash": "ed7dbeaeac79d13147ca6ea22496e211d22792ca8c89d3a5f38d770fd54d9d12",
+          "rule": "fiber_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 23,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 3,
+          "pair_pivot_counts": {
+            "1,2": 19,
+            "1,3": 4
+          },
+          "pivot_cols_hash": "40c1130abddfda2f14450d5c3ec3046cee84e7e1094ceab67f98df8bc0280c9f",
+          "pivot_pairs_hash": "64f96c18137535bf1ceaf5ec72551c7a737c5844dd7ea8c372ce76e1a66d5923",
+          "pivot_rows_hash": "92c1c0bd4de630672e0a0bdaab713125572a0574aeb77ecdfed0af3e4f0bb80f",
+          "rule": "fiber_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 23,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 2,
+          "pair_pivot_counts": {
+            "1,2": 23
+          },
+          "pivot_cols_hash": "40c1130abddfda2f14450d5c3ec3046cee84e7e1094ceab67f98df8bc0280c9f",
+          "pivot_pairs_hash": "7b7776f7eed75ca93b90fd92a4c76ebe900d5f00032e3a50ba81f5c1c39f23f7",
+          "pivot_rows_hash": "40c1130abddfda2f14450d5c3ec3046cee84e7e1094ceab67f98df8bc0280c9f",
+          "rule": "matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 23,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 2,
+          "pair_pivot_counts": {
+            "1,2": 23
+          },
+          "pivot_cols_hash": "40c1130abddfda2f14450d5c3ec3046cee84e7e1094ceab67f98df8bc0280c9f",
+          "pivot_pairs_hash": "7b7776f7eed75ca93b90fd92a4c76ebe900d5f00032e3a50ba81f5c1c39f23f7",
+          "pivot_rows_hash": "40c1130abddfda2f14450d5c3ec3046cee84e7e1094ceab67f98df8bc0280c9f",
+          "rule": "pair_label_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 23,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 2,
+          "pair_pivot_counts": {
+            "3,6": 23
+          },
+          "pivot_cols_hash": "40c1130abddfda2f14450d5c3ec3046cee84e7e1094ceab67f98df8bc0280c9f",
+          "pivot_pairs_hash": "acfc524a7869a592c07dd8b7d842a2dae1af9747e8414af54fa1a4a2fd2e7115",
+          "pivot_rows_hash": "f6a1d9b13544819caf04c48992077fb4d56c07bf65d43f1e064c5933a69e2a2f",
+          "rule": "pair_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 23,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 2,
+          "pair_pivot_counts": {
+            "1,2": 23
+          },
+          "pivot_cols_hash": "40c1130abddfda2f14450d5c3ec3046cee84e7e1094ceab67f98df8bc0280c9f",
+          "pivot_pairs_hash": "7b7776f7eed75ca93b90fd92a4c76ebe900d5f00032e3a50ba81f5c1c39f23f7",
+          "pivot_rows_hash": "40c1130abddfda2f14450d5c3ec3046cee84e7e1094ceab67f98df8bc0280c9f",
+          "rule": "pair_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 23,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 4,
+          "pair_pivot_counts": {
+            "5,6": 23
+          },
+          "pivot_cols_hash": "40c1130abddfda2f14450d5c3ec3046cee84e7e1094ceab67f98df8bc0280c9f",
+          "pivot_pairs_hash": "daacd06dd6168df158278c755b27149342687ecea7a458a9b22e369b66ceb049",
+          "pivot_rows_hash": "14bfdf1e4eba87f074b971536ec42e9ac8e548fa595a7f8800fe1ae80ffa67e6",
+          "rule": "reverse_matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 23,
+          "status": "FAILED_SINGULAR_MINOR"
+        }
+      ],
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "schedule_classification": "RREF_DERIVED_PATTERN",
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_multiplicity_mutation_search::multiplicity_spread_cyclic_45_balanced_seed_202607014",
+      "source_matrix_metadata_hash": "8a0464b8935810ac53c6cc28a0b6ce5a4b6d1d5a36429c4cc1a101736aa859fa",
+      "source_packet": "support_pattern_multiplicity_mutation_search",
+      "status": "CERTIFIED_RREF_DERIVED"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "multiplicity_spread_cyclic_3456_balanced_seed_202607204",
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3767,
+        30
+      ],
+      "nullity": 0,
+      "pattern_class": "support_overlap_rref_pivot",
+      "pivot_schedule": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "combinatorial_private_pivot_count": null,
+        "covered_columns": 30,
+        "deterministic_combinatorial_schedule": false,
+        "minor_hash": "adca40f97e0f0e961aecf686350884b33f67cef2e8f6b0026b4a940c3aa656d0",
+        "pair_pivot_counts": {
+          "1,2": 9,
+          "1,3": 10,
+          "1,4": 4,
+          "1,5": 6,
+          "1,6": 1
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,3",
+          "max_pair_pivots": 10,
+          "min_pair_pivots": 1,
+          "pair_pivot_total": 30
+        },
+        "pivot_cols_hash": "a6442ecc61a4de61e54fe0f8b19a20dfa668ac6b03491ae7cff4fe8261f6c7e1",
+        "pivot_columns_used": 30,
+        "pivot_pairs_hash": "266d95bab03a6563cf336edec308dbaf3c7a6bc3bfa5195d0a44e14ecd931e18",
+        "pivot_rows_hash": "e13d3cb6f66bbdee7c4064db89d3bc52650b58754be74567b95201567498da7d",
+        "pivot_rows_used": 30,
+        "row_type_counts": {
+          "support_overlap_row": 30
+        },
+        "row_type_signature": "support_overlap_row:30",
+        "rref_private_pivot_count": 30,
+        "schedule_origin": "RREF_DERIVED_PATTERN",
+        "schedule_status": "CERTIFIED_RREF_DERIVED",
+        "support_overlap_pivot_count": 30,
+        "support_overlap_pivot_fraction": "1"
+      },
+      "rank": 30,
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 4,
+          "pair_pivot_counts": {
+            "1,2": 3,
+            "1,3": 3,
+            "1,4": 3,
+            "1,5": 3,
+            "1,6": 1,
+            "2,3": 2,
+            "2,4": 2,
+            "2,5": 2,
+            "2,6": 1,
+            "3,4": 2,
+            "3,5": 2,
+            "3,6": 1,
+            "4,5": 3,
+            "4,6": 1,
+            "5,6": 1
+          },
+          "pivot_cols_hash": "a6442ecc61a4de61e54fe0f8b19a20dfa668ac6b03491ae7cff4fe8261f6c7e1",
+          "pivot_pairs_hash": "c24261425faf0f91df10c3ceee5643a81e9fbc10daf5996f60b370cb7cb795a0",
+          "pivot_rows_hash": "f429385a03a866d14bda90796b7091cd33b2402d39fa92a6117e1367aed4276c",
+          "rule": "coordinate_pair_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 30,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 0,
+          "pair_pivot_counts": {
+            "1,2": 2,
+            "1,3": 2,
+            "1,4": 2,
+            "1,5": 2,
+            "1,6": 2,
+            "2,3": 2,
+            "2,4": 2,
+            "2,5": 2,
+            "2,6": 2,
+            "3,4": 2,
+            "3,5": 2,
+            "3,6": 2,
+            "4,5": 2,
+            "4,6": 2,
+            "5,6": 2
+          },
+          "pivot_cols_hash": "a6442ecc61a4de61e54fe0f8b19a20dfa668ac6b03491ae7cff4fe8261f6c7e1",
+          "pivot_pairs_hash": "2ebd050e8a8c75ba4d864678a619c3105c260708fd89377a15847ca69ed8f5f5",
+          "pivot_rows_hash": "4ab0c795fa3c42cdb05c0feeaf13acff052aae9393a23e57a54f485b10f4a20c",
+          "rule": "fiber_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 30,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 1,
+          "pair_pivot_counts": {
+            "1,2": 20,
+            "1,3": 10
+          },
+          "pivot_cols_hash": "a6442ecc61a4de61e54fe0f8b19a20dfa668ac6b03491ae7cff4fe8261f6c7e1",
+          "pivot_pairs_hash": "a159b78a6f2fdd00b82efccfe5f7614c748fddc212e288587f983a6caa2c82c4",
+          "pivot_rows_hash": "2c3b11d4d81189ba8dab39a96892db585e4c9c509de19a851433b53fd9652c79",
+          "rule": "fiber_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 30,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 1,
+          "pair_pivot_counts": {
+            "1,2": 30
+          },
+          "pivot_cols_hash": "a6442ecc61a4de61e54fe0f8b19a20dfa668ac6b03491ae7cff4fe8261f6c7e1",
+          "pivot_pairs_hash": "4373c5d04b9773935fd01654f1aa0dfcd19980e8be78609dba312ff24d206eca",
+          "pivot_rows_hash": "a6442ecc61a4de61e54fe0f8b19a20dfa668ac6b03491ae7cff4fe8261f6c7e1",
+          "rule": "matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 30,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 1,
+          "pair_pivot_counts": {
+            "1,2": 30
+          },
+          "pivot_cols_hash": "a6442ecc61a4de61e54fe0f8b19a20dfa668ac6b03491ae7cff4fe8261f6c7e1",
+          "pivot_pairs_hash": "4373c5d04b9773935fd01654f1aa0dfcd19980e8be78609dba312ff24d206eca",
+          "pivot_rows_hash": "a6442ecc61a4de61e54fe0f8b19a20dfa668ac6b03491ae7cff4fe8261f6c7e1",
+          "rule": "pair_label_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 30,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 1,
+          "pair_pivot_counts": {
+            "1,3": 30
+          },
+          "pivot_cols_hash": "a6442ecc61a4de61e54fe0f8b19a20dfa668ac6b03491ae7cff4fe8261f6c7e1",
+          "pivot_pairs_hash": "cec1b497dbe97af9a792fc3fb28c32a2460e17481a385c77248b1a45fbf02637",
+          "pivot_rows_hash": "e446f518d38e9d9f892fd754e8318fadd86979d3e0dfeb2ea5f7c124c643efcc",
+          "rule": "pair_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 30,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 1,
+          "pair_pivot_counts": {
+            "1,2": 30
+          },
+          "pivot_cols_hash": "a6442ecc61a4de61e54fe0f8b19a20dfa668ac6b03491ae7cff4fe8261f6c7e1",
+          "pivot_pairs_hash": "4373c5d04b9773935fd01654f1aa0dfcd19980e8be78609dba312ff24d206eca",
+          "pivot_rows_hash": "a6442ecc61a4de61e54fe0f8b19a20dfa668ac6b03491ae7cff4fe8261f6c7e1",
+          "rule": "pair_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 30,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 2,
+          "pair_pivot_counts": {
+            "5,6": 30
+          },
+          "pivot_cols_hash": "a6442ecc61a4de61e54fe0f8b19a20dfa668ac6b03491ae7cff4fe8261f6c7e1",
+          "pivot_pairs_hash": "048d48b10a67b0c042dda50d2debe920c3198255411bad05d5de6a3b3ae87e27",
+          "pivot_rows_hash": "29f0d5e116e920a7e5268ec323b3d7f817a6d86af48c30ba51e36edb629dc430",
+          "rule": "reverse_matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 30,
+          "status": "FAILED_SINGULAR_MINOR"
+        }
+      ],
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "schedule_classification": "RREF_DERIVED_PATTERN",
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_multiplicity_mutation_search::multiplicity_spread_cyclic_3456_balanced_seed_202607204",
+      "source_matrix_metadata_hash": "090c3758db9babc79c3c06b23db434c8790897f6ea5402c7b8a963a3462efd9b",
+      "source_packet": "support_pattern_multiplicity_mutation_search",
+      "status": "CERTIFIED_RREF_DERIVED"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "mixed_boundary_spread_cyclic_45_balanced_seed_202607090",
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3773,
+        32
+      ],
+      "nullity": 0,
+      "pattern_class": "support_overlap_rref_pivot",
+      "pivot_schedule": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "combinatorial_private_pivot_count": null,
+        "covered_columns": 32,
+        "deterministic_combinatorial_schedule": false,
+        "minor_hash": "2d82d25580f304326598bbd6320dbffe63ba837a6dc8460c54d8d1f1a7cb8477",
+        "pair_pivot_counts": {
+          "1,2": 6,
+          "1,3": 12,
+          "1,4": 8,
+          "1,5": 5,
+          "1,6": 1
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,3",
+          "max_pair_pivots": 12,
+          "min_pair_pivots": 1,
+          "pair_pivot_total": 32
+        },
+        "pivot_cols_hash": "23b22df6bf551a4e788327db3b3d3d96e1eca49078d2c6bd0049da2d390eca8b",
+        "pivot_columns_used": 32,
+        "pivot_pairs_hash": "abc95e7fbdd089aabf2aaea36a47c28177961c6f9f3c42191109cf0a04975a09",
+        "pivot_rows_hash": "3179e9afad5e553ded59281be6397fc43a7adbfbbf373b6286ca327879d012ee",
+        "pivot_rows_used": 32,
+        "row_type_counts": {
+          "support_overlap_row": 32
+        },
+        "row_type_signature": "support_overlap_row:32",
+        "rref_private_pivot_count": 32,
+        "schedule_origin": "RREF_DERIVED_PATTERN",
+        "schedule_status": "CERTIFIED_RREF_DERIVED",
+        "support_overlap_pivot_count": 32,
+        "support_overlap_pivot_fraction": "1"
+      },
+      "rank": 32,
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 2,
+          "pair_pivot_counts": {
+            "1,2": 3,
+            "1,3": 3,
+            "1,4": 2,
+            "1,5": 2,
+            "1,6": 2,
+            "2,3": 2,
+            "2,4": 2,
+            "2,5": 2,
+            "2,6": 2,
+            "3,4": 2,
+            "3,5": 2,
+            "3,6": 2,
+            "4,5": 2,
+            "4,6": 2,
+            "5,6": 2
+          },
+          "pivot_cols_hash": "23b22df6bf551a4e788327db3b3d3d96e1eca49078d2c6bd0049da2d390eca8b",
+          "pivot_pairs_hash": "d843d345b682f11b3d142d3bf5961870f7ab70fb62f8c0af08df56a9bc93c8e9",
+          "pivot_rows_hash": "5b94238be0db7492165a5cc097f3a43cc35f44a9b7273ab6e1111b14462a0a45",
+          "rule": "coordinate_pair_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 32,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 6,
+          "pair_pivot_counts": {
+            "1,2": 2,
+            "1,3": 2,
+            "1,4": 2,
+            "1,5": 2,
+            "1,6": 1,
+            "2,3": 3,
+            "2,4": 3,
+            "2,5": 2,
+            "2,6": 2,
+            "3,4": 2,
+            "3,5": 2,
+            "3,6": 1,
+            "4,5": 4,
+            "4,6": 2,
+            "5,6": 2
+          },
+          "pivot_cols_hash": "23b22df6bf551a4e788327db3b3d3d96e1eca49078d2c6bd0049da2d390eca8b",
+          "pivot_pairs_hash": "65c74222b31b6e0b88dc67ffbe40d46126b9058c778acfc0483ec658d7d29e48",
+          "pivot_rows_hash": "2f5ff9298d86198eb8954d0468e86008ccf1cdf8adabbf62a609967f38a00f3a",
+          "rule": "fiber_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 32,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 4,
+          "pair_pivot_counts": {
+            "1,2": 20,
+            "1,3": 12
+          },
+          "pivot_cols_hash": "23b22df6bf551a4e788327db3b3d3d96e1eca49078d2c6bd0049da2d390eca8b",
+          "pivot_pairs_hash": "89de91aae3908d79b141f374f33dafa97661c2a53608564f65c250d59ed9a88e",
+          "pivot_rows_hash": "fc8ebdc1afd4779b9694787c2dc140b2334b086eba2f7ef12c439f6d7dad7bd7",
+          "rule": "fiber_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 32,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 6,
+          "pair_pivot_counts": {
+            "1,2": 32
+          },
+          "pivot_cols_hash": "23b22df6bf551a4e788327db3b3d3d96e1eca49078d2c6bd0049da2d390eca8b",
+          "pivot_pairs_hash": "954134dbd9711f4ca1b02e1019d297f67207aac57a025ed4294d2487940281c2",
+          "pivot_rows_hash": "23b22df6bf551a4e788327db3b3d3d96e1eca49078d2c6bd0049da2d390eca8b",
+          "rule": "matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 32,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 6,
+          "pair_pivot_counts": {
+            "1,2": 32
+          },
+          "pivot_cols_hash": "23b22df6bf551a4e788327db3b3d3d96e1eca49078d2c6bd0049da2d390eca8b",
+          "pivot_pairs_hash": "954134dbd9711f4ca1b02e1019d297f67207aac57a025ed4294d2487940281c2",
+          "pivot_rows_hash": "23b22df6bf551a4e788327db3b3d3d96e1eca49078d2c6bd0049da2d390eca8b",
+          "rule": "pair_label_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 32,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 7,
+          "pair_pivot_counts": {
+            "4,6": 32
+          },
+          "pivot_cols_hash": "23b22df6bf551a4e788327db3b3d3d96e1eca49078d2c6bd0049da2d390eca8b",
+          "pivot_pairs_hash": "206ceae30d35cde65b1db2290c78f74a0604e9e57ab2043b3a7f8ee70fd1ffde",
+          "pivot_rows_hash": "25d61fe26fcbb7e410938372ce0abc6e1a31d5af74eb0e5d33fbc54a8b9bbe6f",
+          "rule": "pair_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 32,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 6,
+          "pair_pivot_counts": {
+            "1,2": 32
+          },
+          "pivot_cols_hash": "23b22df6bf551a4e788327db3b3d3d96e1eca49078d2c6bd0049da2d390eca8b",
+          "pivot_pairs_hash": "954134dbd9711f4ca1b02e1019d297f67207aac57a025ed4294d2487940281c2",
+          "pivot_rows_hash": "23b22df6bf551a4e788327db3b3d3d96e1eca49078d2c6bd0049da2d390eca8b",
+          "rule": "pair_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 32,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 4,
+          "pair_pivot_counts": {
+            "5,6": 32
+          },
+          "pivot_cols_hash": "23b22df6bf551a4e788327db3b3d3d96e1eca49078d2c6bd0049da2d390eca8b",
+          "pivot_pairs_hash": "6eae7d522c84370d9ea7a91ba3b62b0b818001f9e4b5d42a1b45b525a6201a3c",
+          "pivot_rows_hash": "9bcb39fd90a4a984b8be37e2e9f88f247b279478b61ba8149952a16badc60c52",
+          "rule": "reverse_matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 32,
+          "status": "FAILED_SINGULAR_MINOR"
+        }
+      ],
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "schedule_classification": "RREF_DERIVED_PATTERN",
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_multiplicity_mutation_search::mixed_boundary_spread_cyclic_45_balanced_seed_202607090",
+      "source_matrix_metadata_hash": "60e0d922304c22a20735f18543442802e27edcb6325e1aaca2a79f7da95d3d8f",
+      "source_packet": "support_pattern_multiplicity_mutation_search",
+      "status": "CERTIFIED_RREF_DERIVED"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "multiplicity_spread_cyclic_45_balanced_r2_seed_202607755",
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3651,
+        59
+      ],
+      "nullity": 0,
+      "pattern_class": "support_overlap_rref_pivot",
+      "pivot_schedule": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "combinatorial_private_pivot_count": null,
+        "covered_columns": 59,
+        "deterministic_combinatorial_schedule": false,
+        "minor_hash": "e9dbfa6a2df7a2114fb05dfbb14afe8358aac8a8f1e1adedbf8bd90a96ae1e17",
+        "pair_pivot_counts": {
+          "1,2": 19,
+          "1,3": 3,
+          "1,4": 12,
+          "1,5": 17,
+          "1,6": 8
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 19,
+          "min_pair_pivots": 3,
+          "pair_pivot_total": 59
+        },
+        "pivot_cols_hash": "385c723be4bcf19bf6e35b35cbe6e0ba6348cae4d813d908085d91fc5b1fdfc7",
+        "pivot_columns_used": 59,
+        "pivot_pairs_hash": "f3afdc2e14d818eafc0fdcf95c2bce3d80b942553a318da435610474419c013a",
+        "pivot_rows_hash": "fad635140c9fa73ea9668161f27eeef75185a85e0543bd25db363af82910b2c2",
+        "pivot_rows_used": 59,
+        "row_type_counts": {
+          "support_overlap_row": 59
+        },
+        "row_type_signature": "support_overlap_row:59",
+        "rref_private_pivot_count": 59,
+        "schedule_origin": "RREF_DERIVED_PATTERN",
+        "schedule_status": "CERTIFIED_RREF_DERIVED",
+        "support_overlap_pivot_count": 59,
+        "support_overlap_pivot_fraction": "1"
+      },
+      "rank": 59,
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 1,
+          "pair_pivot_counts": {
+            "1,2": 4,
+            "1,3": 4,
+            "1,4": 3,
+            "1,5": 3,
+            "1,6": 4,
+            "2,3": 5,
+            "2,4": 4,
+            "2,5": 4,
+            "2,6": 4,
+            "3,4": 4,
+            "3,5": 4,
+            "3,6": 4,
+            "4,5": 4,
+            "4,6": 4,
+            "5,6": 4
+          },
+          "pivot_cols_hash": "385c723be4bcf19bf6e35b35cbe6e0ba6348cae4d813d908085d91fc5b1fdfc7",
+          "pivot_pairs_hash": "beb4d7340cb66ae920674be9d70ed2c987ebf3784908d00ab4adc8d96df72a58",
+          "pivot_rows_hash": "fbd2e90acdb8aec2bb4dd884c77d3da4485d65ce6273e94832d50b652d79aac9",
+          "rule": "coordinate_pair_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 59,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 8,
+          "pair_pivot_counts": {
+            "1,2": 5,
+            "1,3": 4,
+            "1,4": 4,
+            "1,5": 4,
+            "1,6": 3,
+            "2,3": 5,
+            "2,4": 3,
+            "2,5": 5,
+            "2,6": 4,
+            "3,4": 3,
+            "3,5": 5,
+            "3,6": 4,
+            "4,5": 3,
+            "4,6": 3,
+            "5,6": 4
+          },
+          "pivot_cols_hash": "385c723be4bcf19bf6e35b35cbe6e0ba6348cae4d813d908085d91fc5b1fdfc7",
+          "pivot_pairs_hash": "e36bce744c4181e0fd4a085e2c342f1b155409b118ae6aba23b1646560e6e2a1",
+          "pivot_rows_hash": "6a6248a9c4fdb2a803e03c5dae54c3b9a533c5ef6d73af2da9d9b9e2eccec4a5",
+          "rule": "fiber_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 59,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 7,
+          "pair_pivot_counts": {
+            "1,2": 17,
+            "1,3": 16,
+            "1,4": 18,
+            "1,5": 8
+          },
+          "pivot_cols_hash": "385c723be4bcf19bf6e35b35cbe6e0ba6348cae4d813d908085d91fc5b1fdfc7",
+          "pivot_pairs_hash": "f80d96ee2a0b925137549b1ad112541fb392e43b4a6f727004b704946a6377e7",
+          "pivot_rows_hash": "24db6101ffbde36d48b107151f3e4913c79cb26efe368a5b761a32cee4e76ecd",
+          "rule": "fiber_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 59,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 7,
+          "pair_pivot_counts": {
+            "1,2": 59
+          },
+          "pivot_cols_hash": "385c723be4bcf19bf6e35b35cbe6e0ba6348cae4d813d908085d91fc5b1fdfc7",
+          "pivot_pairs_hash": "492e44269aab38efe6a753a5a98430faa7448acac2dc6556c04a55fdf3302750",
+          "pivot_rows_hash": "385c723be4bcf19bf6e35b35cbe6e0ba6348cae4d813d908085d91fc5b1fdfc7",
+          "rule": "matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 59,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 7,
+          "pair_pivot_counts": {
+            "1,2": 59
+          },
+          "pivot_cols_hash": "385c723be4bcf19bf6e35b35cbe6e0ba6348cae4d813d908085d91fc5b1fdfc7",
+          "pivot_pairs_hash": "492e44269aab38efe6a753a5a98430faa7448acac2dc6556c04a55fdf3302750",
+          "pivot_rows_hash": "385c723be4bcf19bf6e35b35cbe6e0ba6348cae4d813d908085d91fc5b1fdfc7",
+          "rule": "pair_label_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 59,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 16,
+          "pair_pivot_counts": {
+            "1,6": 59
+          },
+          "pivot_cols_hash": "385c723be4bcf19bf6e35b35cbe6e0ba6348cae4d813d908085d91fc5b1fdfc7",
+          "pivot_pairs_hash": "44a30c15703b133baa8e673143ed9c8bd8143adca051f0fed4f244be5cfe9044",
+          "pivot_rows_hash": "f0acb82c2071e09681795777eaab749867e6882126eac03c4d0d6f9b35d9c189",
+          "rule": "pair_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 59,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 15,
+          "pair_pivot_counts": {
+            "5,6": 59
+          },
+          "pivot_cols_hash": "385c723be4bcf19bf6e35b35cbe6e0ba6348cae4d813d908085d91fc5b1fdfc7",
+          "pivot_pairs_hash": "0e4788dfad3ab89d28d296d67433acc66f098c35e1079226cb6fb6cc929ffc22",
+          "pivot_rows_hash": "e4d6893599bbe683108b51e98c97d3f3b5e60e9c0fd56b03f02308a583b273d6",
+          "rule": "pair_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 59,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 5,
+          "pair_pivot_counts": {
+            "5,6": 59
+          },
+          "pivot_cols_hash": "385c723be4bcf19bf6e35b35cbe6e0ba6348cae4d813d908085d91fc5b1fdfc7",
+          "pivot_pairs_hash": "0e4788dfad3ab89d28d296d67433acc66f098c35e1079226cb6fb6cc929ffc22",
+          "pivot_rows_hash": "635c59395e80c2ecd96543235bb5d59413825cce885693fe803a1bc09dd1ef14",
+          "rule": "reverse_matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 59,
+          "status": "FAILED_SINGULAR_MINOR"
+        }
+      ],
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "schedule_classification": "RREF_DERIVED_PATTERN",
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_surrogate_rank_feedback_search::multiplicity_spread_cyclic_45_balanced_r2_seed_202607755",
+      "source_matrix_metadata_hash": "ef3e6ba7351f521a7f57a5cfd2e7ca490b6faec6814c9761924e6f15d315ab7f",
+      "source_packet": "support_pattern_surrogate_rank_feedback_search",
+      "status": "CERTIFIED_RREF_DERIVED"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "multiplicity_spread_cyclic_3456_balanced_r0_seed_202608129",
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3625,
+        67
+      ],
+      "nullity": 0,
+      "pattern_class": "support_overlap_rref_pivot",
+      "pivot_schedule": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "combinatorial_private_pivot_count": null,
+        "covered_columns": 67,
+        "deterministic_combinatorial_schedule": false,
+        "minor_hash": "190575420e6c64ef911293438362581ee972a0413845d4e48cf82bc6a2cd0d1e",
+        "pair_pivot_counts": {
+          "1,2": 24,
+          "1,3": 14,
+          "1,4": 8,
+          "1,5": 14,
+          "1,6": 7
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 24,
+          "min_pair_pivots": 7,
+          "pair_pivot_total": 67
+        },
+        "pivot_cols_hash": "3c4a161f016fc9d119c57b04f46749d254b1e1f3f9027192186368f3199e42f2",
+        "pivot_columns_used": 67,
+        "pivot_pairs_hash": "c5de7246fcf34e027142268f25a1c65a10dd6b0abe1f1fc592850a46611a7bac",
+        "pivot_rows_hash": "6b8e4009ffccb191bcf02f29c3e8cac5fd183e590bc7e089f3a2b665edeae441",
+        "pivot_rows_used": 67,
+        "row_type_counts": {
+          "support_overlap_row": 67
+        },
+        "row_type_signature": "support_overlap_row:67",
+        "rref_private_pivot_count": 67,
+        "schedule_origin": "RREF_DERIVED_PATTERN",
+        "schedule_status": "CERTIFIED_RREF_DERIVED",
+        "support_overlap_pivot_count": 67,
+        "support_overlap_pivot_fraction": "1"
+      },
+      "rank": 67,
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 8,
+          "pair_pivot_counts": {
+            "1,2": 4,
+            "1,3": 4,
+            "1,4": 4,
+            "1,5": 3,
+            "1,6": 3,
+            "2,3": 5,
+            "2,4": 6,
+            "2,5": 5,
+            "2,6": 5,
+            "3,4": 5,
+            "3,5": 5,
+            "3,6": 4,
+            "4,5": 5,
+            "4,6": 4,
+            "5,6": 5
+          },
+          "pivot_cols_hash": "3c4a161f016fc9d119c57b04f46749d254b1e1f3f9027192186368f3199e42f2",
+          "pivot_pairs_hash": "22adf1aa9d7c0ed526ea5795eb7fe03f4b7be5f1ae9f78a1fb62e47d675d737f",
+          "pivot_rows_hash": "9d5f0cd2ade49270f6279bd5a88a5a15bd4d1007f2d71ea83475641ff400e6b2",
+          "rule": "coordinate_pair_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 67,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 4,
+          "pair_pivot_counts": {
+            "1,2": 4,
+            "1,3": 5,
+            "1,4": 4,
+            "1,5": 4,
+            "1,6": 5,
+            "2,3": 5,
+            "2,4": 5,
+            "2,5": 4,
+            "2,6": 5,
+            "3,4": 4,
+            "3,5": 5,
+            "3,6": 4,
+            "4,5": 4,
+            "4,6": 5,
+            "5,6": 4
+          },
+          "pivot_cols_hash": "3c4a161f016fc9d119c57b04f46749d254b1e1f3f9027192186368f3199e42f2",
+          "pivot_pairs_hash": "88dc181f3b3f94b44859560c93ef18cff0b02ac3f6f273c54840a8f2ae1831b1",
+          "pivot_rows_hash": "95a8e83d8612f723384f2d3032ef3dd56989739aca9d3b6b22296f70ca4d923f",
+          "rule": "fiber_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 67,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 9,
+          "pair_pivot_counts": {
+            "1,2": 23,
+            "1,3": 20,
+            "1,4": 20,
+            "1,5": 4
+          },
+          "pivot_cols_hash": "3c4a161f016fc9d119c57b04f46749d254b1e1f3f9027192186368f3199e42f2",
+          "pivot_pairs_hash": "8e331b6faf25ae1518ddd2818fe8db3bda93b4d1ffda8696c1f2b79daf8ec49f",
+          "pivot_rows_hash": "53bed11562d217257488387442dc9e7a0dc820812301a5ae65b55cf250ed8fcc",
+          "rule": "fiber_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 67,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 11,
+          "pair_pivot_counts": {
+            "1,2": 67
+          },
+          "pivot_cols_hash": "3c4a161f016fc9d119c57b04f46749d254b1e1f3f9027192186368f3199e42f2",
+          "pivot_pairs_hash": "2fbb0df73a3e4a69d5d2f79643d524864ff70201c53f176c91e9ff3cc393e886",
+          "pivot_rows_hash": "3c4a161f016fc9d119c57b04f46749d254b1e1f3f9027192186368f3199e42f2",
+          "rule": "matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 67,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 11,
+          "pair_pivot_counts": {
+            "1,2": 67
+          },
+          "pivot_cols_hash": "3c4a161f016fc9d119c57b04f46749d254b1e1f3f9027192186368f3199e42f2",
+          "pivot_pairs_hash": "2fbb0df73a3e4a69d5d2f79643d524864ff70201c53f176c91e9ff3cc393e886",
+          "pivot_rows_hash": "3c4a161f016fc9d119c57b04f46749d254b1e1f3f9027192186368f3199e42f2",
+          "rule": "pair_label_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 67,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 12,
+          "pair_pivot_counts": {
+            "4,6": 67
+          },
+          "pivot_cols_hash": "3c4a161f016fc9d119c57b04f46749d254b1e1f3f9027192186368f3199e42f2",
+          "pivot_pairs_hash": "1ecc02e5686c947cfe98af197e86323e80e76a529a0d739756c684414fba9972",
+          "pivot_rows_hash": "cc4edf20c78ef50f719e4925e3b655a5d4f97177cc2c7b8d865d6965b585d02d",
+          "rule": "pair_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 67,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 11,
+          "pair_pivot_counts": {
+            "2,3": 67
+          },
+          "pivot_cols_hash": "3c4a161f016fc9d119c57b04f46749d254b1e1f3f9027192186368f3199e42f2",
+          "pivot_pairs_hash": "5831b6c719262f7dc3767f331152253a525715cc9cc217089a8b1dde722e25c0",
+          "pivot_rows_hash": "d65434c98a722d241099d303218913d1f81cb937f04ed1a45f8e1b73eaf898f6",
+          "rule": "pair_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 67,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 14,
+          "pair_pivot_counts": {
+            "5,6": 67
+          },
+          "pivot_cols_hash": "3c4a161f016fc9d119c57b04f46749d254b1e1f3f9027192186368f3199e42f2",
+          "pivot_pairs_hash": "0ec9c18f107cb2b64ab4638796ddca576fa199521413baa95cb0fcbd7b57897c",
+          "pivot_rows_hash": "1a2c1d0dbad916b4684971d14ba6bc7c1cf099fef5b32d693c585dd7098237fb",
+          "rule": "reverse_matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 67,
+          "status": "FAILED_SINGULAR_MINOR"
+        }
+      ],
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "schedule_classification": "RREF_DERIVED_PATTERN",
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_surrogate_rank_feedback_search::multiplicity_spread_cyclic_3456_balanced_r0_seed_202608129",
+      "source_matrix_metadata_hash": "a858176036f34179779eb07cf0605179660a69b4f0951d2318478088af96c744",
+      "source_packet": "support_pattern_surrogate_rank_feedback_search",
+      "status": "CERTIFIED_RREF_DERIVED"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "multiplicity_spread_cyclic_45_balanced_r0_seed_202607721",
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3618,
+        69
+      ],
+      "nullity": 0,
+      "pattern_class": "support_overlap_rref_pivot",
+      "pivot_schedule": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "combinatorial_private_pivot_count": null,
+        "covered_columns": 69,
+        "deterministic_combinatorial_schedule": false,
+        "minor_hash": "256fb58e8fb15de6731a93d9e991ef4a81dae02577029809611ec09a63fd4dda",
+        "pair_pivot_counts": {
+          "1,2": 21,
+          "1,3": 16,
+          "1,4": 18,
+          "1,5": 12,
+          "1,6": 2
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 21,
+          "min_pair_pivots": 2,
+          "pair_pivot_total": 69
+        },
+        "pivot_cols_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+        "pivot_columns_used": 69,
+        "pivot_pairs_hash": "26370e5edc1fc61503cb6e806cdd70da8605e66764608c8239d44240472fd070",
+        "pivot_rows_hash": "13a59c5f623445220b31cbfd8a257174f9ffb7d46bd378cc9153cc051261d040",
+        "pivot_rows_used": 69,
+        "row_type_counts": {
+          "support_overlap_row": 69
+        },
+        "row_type_signature": "support_overlap_row:69",
+        "rref_private_pivot_count": 69,
+        "schedule_origin": "RREF_DERIVED_PATTERN",
+        "schedule_status": "CERTIFIED_RREF_DERIVED",
+        "support_overlap_pivot_count": 69,
+        "support_overlap_pivot_fraction": "1"
+      },
+      "rank": 69,
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 2,
+          "pair_pivot_counts": {
+            "1,2": 5,
+            "1,3": 5,
+            "1,4": 4,
+            "1,5": 6,
+            "1,6": 5,
+            "2,3": 4,
+            "2,4": 3,
+            "2,5": 5,
+            "2,6": 4,
+            "3,4": 4,
+            "3,5": 5,
+            "3,6": 5,
+            "4,5": 5,
+            "4,6": 4,
+            "5,6": 5
+          },
+          "pivot_cols_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+          "pivot_pairs_hash": "d2eb4313edde862e2b2c405ea19cbd534ff1fb0b44782ee8e2ace735c197289a",
+          "pivot_rows_hash": "5eb87c19178b2e093bbae9c4308e94a282d867427b0ad956ad4ddf5fbd5c56c8",
+          "rule": "coordinate_pair_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 69,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 3,
+          "pair_pivot_counts": {
+            "1,2": 6,
+            "1,3": 6,
+            "1,4": 4,
+            "1,5": 4,
+            "1,6": 4,
+            "2,3": 6,
+            "2,4": 5,
+            "2,5": 4,
+            "2,6": 5,
+            "3,4": 5,
+            "3,5": 4,
+            "3,6": 5,
+            "4,5": 3,
+            "4,6": 4,
+            "5,6": 4
+          },
+          "pivot_cols_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+          "pivot_pairs_hash": "dcff49b97e4427781d345f9b10383abff2bac513b37cd6cea15c0398af1a4cac",
+          "pivot_rows_hash": "4b5d31ea3f9ba4d6860a84c5eb6247ca6ac57fa84304f5a4597513eda6ad9bc7",
+          "rule": "fiber_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 69,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 12,
+          "pair_pivot_counts": {
+            "1,2": 17,
+            "1,3": 17,
+            "1,4": 17,
+            "1,5": 16,
+            "1,6": 2
+          },
+          "pivot_cols_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+          "pivot_pairs_hash": "f4a78ebd2afa545e1b7094819cadc2d0bbcf82ef77796a6625205bdc560d6533",
+          "pivot_rows_hash": "cfe480eec0737add11d7e38a377a9ed986ae955dbe78a00a6479169e157828bb",
+          "rule": "fiber_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 69,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 19,
+          "pair_pivot_counts": {
+            "1,2": 69
+          },
+          "pivot_cols_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+          "pivot_pairs_hash": "fdb896f4eb309f940662771936cd69b1618b23846959c8688bbd6eb0e45eade4",
+          "pivot_rows_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+          "rule": "matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 69,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 19,
+          "pair_pivot_counts": {
+            "1,2": 69
+          },
+          "pivot_cols_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+          "pivot_pairs_hash": "fdb896f4eb309f940662771936cd69b1618b23846959c8688bbd6eb0e45eade4",
+          "pivot_rows_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+          "rule": "pair_label_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 69,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 14,
+          "pair_pivot_counts": {
+            "1,4": 69
+          },
+          "pivot_cols_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+          "pivot_pairs_hash": "6516e0adb1c5704eb370b3f8219cc5ed8449de48ca345061853aae908f664884",
+          "pivot_rows_hash": "b31d5f6b2329498ba16041f1fa8637b66a4702f1fbada257e848fd9d63af7c40",
+          "rule": "pair_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 69,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 21,
+          "pair_pivot_counts": {
+            "2,3": 69
+          },
+          "pivot_cols_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+          "pivot_pairs_hash": "81258d551a064b7e91f98fec97c9eab7e6b965160f9016472b35d24933446091",
+          "pivot_rows_hash": "da22b2f80464a6ed17cd425b5a6c634db0891bde57761db1ce6d65fede2ddfe4",
+          "rule": "pair_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 69,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 10,
+          "pair_pivot_counts": {
+            "5,6": 69
+          },
+          "pivot_cols_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+          "pivot_pairs_hash": "5cd23a108f40ca2230d0210bbd1866a781663ce3e6661fb98328fd849e8df251",
+          "pivot_rows_hash": "438d8f1ad170f01f2d589fdf9d0846d5ff292fe341910da4292c792611c9b34f",
+          "rule": "reverse_matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 69,
+          "status": "FAILED_SINGULAR_MINOR"
+        }
+      ],
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "schedule_classification": "RREF_DERIVED_PATTERN",
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_surrogate_rank_feedback_search::multiplicity_spread_cyclic_45_balanced_r0_seed_202607721",
+      "source_matrix_metadata_hash": "ed8fa6c7bfa985c95a78c7b6711670142cbd4ded1082b184ee9f3b166e90f8e6",
+      "source_packet": "support_pattern_surrogate_rank_feedback_search",
+      "status": "CERTIFIED_RREF_DERIVED"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "multiplicity_spread_cyclic_45_interval_high_overlap_seed_202606919",
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3697,
+        69
+      ],
+      "nullity": 0,
+      "pattern_class": "support_overlap_rref_pivot",
+      "pivot_schedule": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "combinatorial_private_pivot_count": null,
+        "covered_columns": 69,
+        "deterministic_combinatorial_schedule": false,
+        "minor_hash": "dfc8c2bfbcaa8c5bcd51fb4fb6b9f7f07345af45871aff61341a4fb74430e41d",
+        "pair_pivot_counts": {
+          "1,2": 17,
+          "1,3": 20,
+          "1,4": 17,
+          "1,5": 14,
+          "1,6": 1
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,3",
+          "max_pair_pivots": 20,
+          "min_pair_pivots": 1,
+          "pair_pivot_total": 69
+        },
+        "pivot_cols_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+        "pivot_columns_used": 69,
+        "pivot_pairs_hash": "ed3d2c06d67960bdb958e79e229e5be2c52743ec49ad12b99494304642e4ce63",
+        "pivot_rows_hash": "9b50dfc52744c02d08e33073d31e5690d3539e0d5ecc9c909d7165cc54f344aa",
+        "pivot_rows_used": 69,
+        "row_type_counts": {
+          "support_overlap_row": 69
+        },
+        "row_type_signature": "support_overlap_row:69",
+        "rref_private_pivot_count": 69,
+        "schedule_origin": "RREF_DERIVED_PATTERN",
+        "schedule_status": "CERTIFIED_RREF_DERIVED",
+        "support_overlap_pivot_count": 69,
+        "support_overlap_pivot_fraction": "1"
+      },
+      "rank": 69,
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 5,
+          "pair_pivot_counts": {
+            "1,2": 4,
+            "1,3": 5,
+            "1,4": 6,
+            "1,5": 6,
+            "1,6": 5,
+            "2,3": 4,
+            "2,4": 4,
+            "2,5": 4,
+            "2,6": 4,
+            "3,4": 4,
+            "3,5": 4,
+            "3,6": 4,
+            "4,5": 5,
+            "4,6": 5,
+            "5,6": 5
+          },
+          "pivot_cols_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+          "pivot_pairs_hash": "b3da3f3cfe063fdda3c0bdfe86d08627232c01e335e31d2cccc82462094e7732",
+          "pivot_rows_hash": "d8a8a3449d9fb5868c71cb0b7e1e2142d98bbce7a57f21fc14ac8a70182a4b07",
+          "rule": "coordinate_pair_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 69,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 2,
+          "pair_pivot_counts": {
+            "1,2": 5,
+            "1,3": 5,
+            "1,4": 6,
+            "1,5": 5,
+            "1,6": 4,
+            "2,3": 5,
+            "2,4": 5,
+            "2,5": 5,
+            "2,6": 4,
+            "3,4": 5,
+            "3,5": 6,
+            "3,6": 3,
+            "4,5": 4,
+            "4,6": 3,
+            "5,6": 4
+          },
+          "pivot_cols_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+          "pivot_pairs_hash": "05436a6ca8252b8cfa658e0251871bad891d33446b14cd1daf2c632b66fdebf5",
+          "pivot_rows_hash": "63b336c30a645b2739ba1b35b01e63239fd9945d0de9428a02d382a945b2aca0",
+          "rule": "fiber_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 69,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 9,
+          "pair_pivot_counts": {
+            "1,2": 16,
+            "1,3": 15,
+            "1,4": 14,
+            "1,5": 17,
+            "1,6": 7
+          },
+          "pivot_cols_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+          "pivot_pairs_hash": "10d3330e4940e507b40471ae78cf54fea923200a6239b5f8cfbb16ac8573641d",
+          "pivot_rows_hash": "0fa291765d5ac78df8c452f4ca3b52f2f2515bd310cf9d61257389c5aa108904",
+          "rule": "fiber_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 69,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 14,
+          "pair_pivot_counts": {
+            "1,2": 69
+          },
+          "pivot_cols_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+          "pivot_pairs_hash": "fdb896f4eb309f940662771936cd69b1618b23846959c8688bbd6eb0e45eade4",
+          "pivot_rows_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+          "rule": "matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 69,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 14,
+          "pair_pivot_counts": {
+            "1,2": 69
+          },
+          "pivot_cols_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+          "pivot_pairs_hash": "fdb896f4eb309f940662771936cd69b1618b23846959c8688bbd6eb0e45eade4",
+          "pivot_rows_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+          "rule": "pair_label_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 69,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 8,
+          "pair_pivot_counts": {
+            "1,5": 69
+          },
+          "pivot_cols_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+          "pivot_pairs_hash": "b0aec3ba5ac75200341f7aa0cf64d30d18a8ca4c1b1ebde3a8f358ddf58285d0",
+          "pivot_rows_hash": "d5a1b0d0445615c666a5e6b2a50e590c8c6697d8c79303e5c3d35c80488722b1",
+          "rule": "pair_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 69,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 14,
+          "pair_pivot_counts": {
+            "1,2": 69
+          },
+          "pivot_cols_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+          "pivot_pairs_hash": "fdb896f4eb309f940662771936cd69b1618b23846959c8688bbd6eb0e45eade4",
+          "pivot_rows_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+          "rule": "pair_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 69,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 13,
+          "pair_pivot_counts": {
+            "5,6": 69
+          },
+          "pivot_cols_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+          "pivot_pairs_hash": "5cd23a108f40ca2230d0210bbd1866a781663ce3e6661fb98328fd849e8df251",
+          "pivot_rows_hash": "28e31a7940582f989fe82b8ca3012b1e6cc18e4403b7d67d1db71d3efbf32f0d",
+          "rule": "reverse_matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 69,
+          "status": "FAILED_SINGULAR_MINOR"
+        }
+      ],
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "schedule_classification": "RREF_DERIVED_PATTERN",
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_multiplicity_mutation_search::multiplicity_spread_cyclic_45_interval_high_overlap_seed_202606919",
+      "source_matrix_metadata_hash": "fef29becc20cda3f06f36f9b3d50e3bbb6310594d72ee563d65403c2e6bd927e",
+      "source_packet": "support_pattern_multiplicity_mutation_search",
+      "status": "CERTIFIED_RREF_DERIVED"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "multiplicity_spread_cyclic_45_balanced_r1_seed_202607738",
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3631,
+        77
+      ],
+      "nullity": 0,
+      "pattern_class": "support_overlap_rref_pivot",
+      "pivot_schedule": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "combinatorial_private_pivot_count": null,
+        "covered_columns": 77,
+        "deterministic_combinatorial_schedule": false,
+        "minor_hash": "db790b799fa9c526049a047af7339e4985975e562d8f73e3a6df381c9b320912",
+        "pair_pivot_counts": {
+          "1,2": 24,
+          "1,3": 8,
+          "1,4": 25,
+          "1,5": 10,
+          "1,6": 10
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,4",
+          "max_pair_pivots": 25,
+          "min_pair_pivots": 8,
+          "pair_pivot_total": 77
+        },
+        "pivot_cols_hash": "7187e9568ba8468e45a1b1cb5b37153c2ffefb05da2707b60cf3dba8da44edd7",
+        "pivot_columns_used": 77,
+        "pivot_pairs_hash": "ba8078fdd66c94c91200a66477b10cce588b631bb95bcd99f1b981524f5c9dcf",
+        "pivot_rows_hash": "d7faee293b9df4ed79fa26527ee94910ab09b41979cc76fee12831dd9dde1f5e",
+        "pivot_rows_used": 77,
+        "row_type_counts": {
+          "support_overlap_row": 77
+        },
+        "row_type_signature": "support_overlap_row:77",
+        "rref_private_pivot_count": 77,
+        "schedule_origin": "RREF_DERIVED_PATTERN",
+        "schedule_status": "CERTIFIED_RREF_DERIVED",
+        "support_overlap_pivot_count": 77,
+        "support_overlap_pivot_fraction": "1"
+      },
+      "rank": 77,
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 8,
+          "pair_pivot_counts": {
+            "1,2": 5,
+            "1,3": 4,
+            "1,4": 5,
+            "1,5": 2,
+            "1,6": 4,
+            "2,3": 6,
+            "2,4": 7,
+            "2,5": 5,
+            "2,6": 7,
+            "3,4": 7,
+            "3,5": 6,
+            "3,6": 6,
+            "4,5": 6,
+            "4,6": 4,
+            "5,6": 3
+          },
+          "pivot_cols_hash": "7187e9568ba8468e45a1b1cb5b37153c2ffefb05da2707b60cf3dba8da44edd7",
+          "pivot_pairs_hash": "e5e11bff6c0fef5aa06a063c09300424b7303f07efe394be207667e0d05ba28f",
+          "pivot_rows_hash": "dc69e7b468b1ec307d23ddcc822727e7db265424433c7382504a3e929ba9f2f4",
+          "rule": "coordinate_pair_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 77,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 5,
+          "pair_pivot_counts": {
+            "1,2": 7,
+            "1,3": 4,
+            "1,4": 4,
+            "1,5": 7,
+            "1,6": 6,
+            "2,3": 5,
+            "2,4": 4,
+            "2,5": 9,
+            "2,6": 6,
+            "3,4": 3,
+            "3,5": 6,
+            "3,6": 3,
+            "4,5": 4,
+            "4,6": 3,
+            "5,6": 6
+          },
+          "pivot_cols_hash": "7187e9568ba8468e45a1b1cb5b37153c2ffefb05da2707b60cf3dba8da44edd7",
+          "pivot_pairs_hash": "a0b636918dd3df9b0c7376587787be5347cd019f0c8cc4e0624ea2267af7511e",
+          "pivot_rows_hash": "c1b5f328c144af0e41f3e6161e9583760a63c4c81b4f3e915c6ecd6bbf70c061",
+          "rule": "fiber_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 77,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 12,
+          "pair_pivot_counts": {
+            "1,2": 18,
+            "1,3": 19,
+            "1,4": 21,
+            "1,5": 19
+          },
+          "pivot_cols_hash": "7187e9568ba8468e45a1b1cb5b37153c2ffefb05da2707b60cf3dba8da44edd7",
+          "pivot_pairs_hash": "64994f2ba318a10a9449f23c13c7094ae7549a84545a62fc3fa07db39afc1cfe",
+          "pivot_rows_hash": "8ad31b8d62f0865397a918149135ca2ef81a0f1af17895b2ada40a6c2fe03b35",
+          "rule": "fiber_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 77,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 17,
+          "pair_pivot_counts": {
+            "1,2": 77
+          },
+          "pivot_cols_hash": "7187e9568ba8468e45a1b1cb5b37153c2ffefb05da2707b60cf3dba8da44edd7",
+          "pivot_pairs_hash": "f5fab2be4e02f9b939a91ec456eacb165e4e80ea36ee495d3a6e38d0cebb870e",
+          "pivot_rows_hash": "7187e9568ba8468e45a1b1cb5b37153c2ffefb05da2707b60cf3dba8da44edd7",
+          "rule": "matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 77,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 17,
+          "pair_pivot_counts": {
+            "1,2": 77
+          },
+          "pivot_cols_hash": "7187e9568ba8468e45a1b1cb5b37153c2ffefb05da2707b60cf3dba8da44edd7",
+          "pivot_pairs_hash": "f5fab2be4e02f9b939a91ec456eacb165e4e80ea36ee495d3a6e38d0cebb870e",
+          "pivot_rows_hash": "7187e9568ba8468e45a1b1cb5b37153c2ffefb05da2707b60cf3dba8da44edd7",
+          "rule": "pair_label_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 77,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 17,
+          "pair_pivot_counts": {
+            "2,4": 77
+          },
+          "pivot_cols_hash": "7187e9568ba8468e45a1b1cb5b37153c2ffefb05da2707b60cf3dba8da44edd7",
+          "pivot_pairs_hash": "69d59bc85729203b4a9ed3574ab3f2e8c20e0f6512cfd2e8c4fd572796836ef3",
+          "pivot_rows_hash": "73f2791abfd9c927c6710c8689f351e3e2277086397a6eecdc9ea7f7aaca4767",
+          "rule": "pair_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 77,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 14,
+          "pair_pivot_counts": {
+            "5,6": 77
+          },
+          "pivot_cols_hash": "7187e9568ba8468e45a1b1cb5b37153c2ffefb05da2707b60cf3dba8da44edd7",
+          "pivot_pairs_hash": "491c48bf5dd1fa6d4c35f63b253614811565837f15c55c02bc4a5a61ddab797b",
+          "pivot_rows_hash": "90ca553a9e53d045a2ea6a3bd2d31e27497970abe1b262aa7e229e096835931b",
+          "rule": "pair_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 77,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 12,
+          "pair_pivot_counts": {
+            "5,6": 77
+          },
+          "pivot_cols_hash": "7187e9568ba8468e45a1b1cb5b37153c2ffefb05da2707b60cf3dba8da44edd7",
+          "pivot_pairs_hash": "491c48bf5dd1fa6d4c35f63b253614811565837f15c55c02bc4a5a61ddab797b",
+          "pivot_rows_hash": "9dfdb1be6b60b909984286a30028430a93f35b782513a5e0570e3044dbdb2e89",
+          "rule": "reverse_matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 77,
+          "status": "FAILED_SINGULAR_MINOR"
+        }
+      ],
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "schedule_classification": "RREF_DERIVED_PATTERN",
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_surrogate_rank_feedback_search::multiplicity_spread_cyclic_45_balanced_r1_seed_202607738",
+      "source_matrix_metadata_hash": "d6d73d38ace5fb9f4229132dffe98baca875d2395134a0d44f6cdfbca4cbd7fe",
+      "source_packet": "support_pattern_surrogate_rank_feedback_search",
+      "status": "CERTIFIED_RREF_DERIVED"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "multiplicity_spread_cyclic_3456_balanced_r2_seed_202608163",
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3597,
+        87
+      ],
+      "nullity": 0,
+      "pattern_class": "support_overlap_rref_pivot",
+      "pivot_schedule": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "combinatorial_private_pivot_count": null,
+        "covered_columns": 87,
+        "deterministic_combinatorial_schedule": false,
+        "minor_hash": "3bc9a06c658f7af81c50a21d5e9a8f9c679dbaf89283c8e1343b9cea243b8c8d",
+        "pair_pivot_counts": {
+          "1,2": 22,
+          "1,3": 15,
+          "1,4": 20,
+          "1,5": 20,
+          "1,6": 10
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 22,
+          "min_pair_pivots": 10,
+          "pair_pivot_total": 87
+        },
+        "pivot_cols_hash": "459ca44abc60643feff73a215b2ec340b6b1bde94dc81fc0131051bceae92bf1",
+        "pivot_columns_used": 87,
+        "pivot_pairs_hash": "66e18eefadd2d33bbd46bef79018967c9828f7708185fca955cfa914e5a099e9",
+        "pivot_rows_hash": "2e30a8a2a4639be116aa60758e7fb36f9fe5b4769f0cf65bf24fd072f69ce423",
+        "pivot_rows_used": 87,
+        "row_type_counts": {
+          "support_overlap_row": 87
+        },
+        "row_type_signature": "support_overlap_row:87",
+        "rref_private_pivot_count": 87,
+        "schedule_origin": "RREF_DERIVED_PATTERN",
+        "schedule_status": "CERTIFIED_RREF_DERIVED",
+        "support_overlap_pivot_count": 87,
+        "support_overlap_pivot_fraction": "1"
+      },
+      "rank": 87,
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 7,
+          "pair_pivot_counts": {
+            "1,2": 5,
+            "1,3": 5,
+            "1,4": 7,
+            "1,5": 5,
+            "1,6": 7,
+            "2,3": 6,
+            "2,4": 5,
+            "2,5": 6,
+            "2,6": 7,
+            "3,4": 5,
+            "3,5": 5,
+            "3,6": 6,
+            "4,5": 5,
+            "4,6": 6,
+            "5,6": 7
+          },
+          "pivot_cols_hash": "459ca44abc60643feff73a215b2ec340b6b1bde94dc81fc0131051bceae92bf1",
+          "pivot_pairs_hash": "f71c7775fa7ff6409ca822f8d6ac3a3e4c95db4491be83dd5dff490189b446c8",
+          "pivot_rows_hash": "88329bb28b34f4ac904cd0368dee206c3e723604079735b99aecbdfd224543c7",
+          "rule": "coordinate_pair_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 87,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 16,
+          "pair_pivot_counts": {
+            "1,2": 5,
+            "1,3": 6,
+            "1,4": 6,
+            "1,5": 3,
+            "1,6": 8,
+            "2,3": 6,
+            "2,4": 6,
+            "2,5": 6,
+            "2,6": 8,
+            "3,4": 4,
+            "3,5": 6,
+            "3,6": 9,
+            "4,5": 3,
+            "4,6": 6,
+            "5,6": 5
+          },
+          "pivot_cols_hash": "459ca44abc60643feff73a215b2ec340b6b1bde94dc81fc0131051bceae92bf1",
+          "pivot_pairs_hash": "08481497096d747ac0fcc6281d89f5b0f96f81bc9e8f3e4bcf77ebba2d0dc216",
+          "pivot_rows_hash": "36bcfcbfbcd3ca94ff4139c1c9ae3aebffd5eca82aa9a274d4185e1ff2a880db",
+          "rule": "fiber_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 87,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 14,
+          "pair_pivot_counts": {
+            "1,2": 23,
+            "1,3": 22,
+            "1,4": 23,
+            "1,5": 19
+          },
+          "pivot_cols_hash": "459ca44abc60643feff73a215b2ec340b6b1bde94dc81fc0131051bceae92bf1",
+          "pivot_pairs_hash": "5d5eb03bdb76244a84ff941aa951ae4aa2d7e5e6507eb7ab11e898cca0e45d39",
+          "pivot_rows_hash": "4a30a9531abdf5b08affaa9c74bbacf351f6552043023d76245dac372bbd2294",
+          "rule": "fiber_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 87,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 16,
+          "pair_pivot_counts": {
+            "1,2": 87
+          },
+          "pivot_cols_hash": "459ca44abc60643feff73a215b2ec340b6b1bde94dc81fc0131051bceae92bf1",
+          "pivot_pairs_hash": "a0e81bfb5fdc0159aebed59e87f4307d7b9310ede48647f89a3c4ddeb59abf4b",
+          "pivot_rows_hash": "459ca44abc60643feff73a215b2ec340b6b1bde94dc81fc0131051bceae92bf1",
+          "rule": "matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 87,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 16,
+          "pair_pivot_counts": {
+            "1,2": 87
+          },
+          "pivot_cols_hash": "459ca44abc60643feff73a215b2ec340b6b1bde94dc81fc0131051bceae92bf1",
+          "pivot_pairs_hash": "a0e81bfb5fdc0159aebed59e87f4307d7b9310ede48647f89a3c4ddeb59abf4b",
+          "pivot_rows_hash": "459ca44abc60643feff73a215b2ec340b6b1bde94dc81fc0131051bceae92bf1",
+          "rule": "pair_label_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 87,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 18,
+          "pair_pivot_counts": {
+            "2,4": 87
+          },
+          "pivot_cols_hash": "459ca44abc60643feff73a215b2ec340b6b1bde94dc81fc0131051bceae92bf1",
+          "pivot_pairs_hash": "bdb7d1005721e372a3031cbe654e4a90b358c26508d08697e6320256e71f6f9c",
+          "pivot_rows_hash": "6de53dac7b818ba593ecffca6f8be437ba4a93e7f4e12be234f3399c813c9cae",
+          "rule": "pair_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 87,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 18,
+          "pair_pivot_counts": {
+            "3,4": 87
+          },
+          "pivot_cols_hash": "459ca44abc60643feff73a215b2ec340b6b1bde94dc81fc0131051bceae92bf1",
+          "pivot_pairs_hash": "c84fc8a329e95903510f29fccabdb8753479cc4c128a17356afd4241bb2dca5a",
+          "pivot_rows_hash": "5faf139363e9bd28b5910f570067da53ec75442ff6c193066109fcd1a20f83b4",
+          "rule": "pair_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 87,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 12,
+          "pair_pivot_counts": {
+            "5,6": 87
+          },
+          "pivot_cols_hash": "459ca44abc60643feff73a215b2ec340b6b1bde94dc81fc0131051bceae92bf1",
+          "pivot_pairs_hash": "c994994a5ac65d1eb304729dcdd082a2f6dbee5848dcef1372095cf1bffa7672",
+          "pivot_rows_hash": "4f33630167da4fda6de1fd76ba1400e60c1b64966b60fe5143d54b585397ad84",
+          "rule": "reverse_matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 87,
+          "status": "FAILED_SINGULAR_MINOR"
+        }
+      ],
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "schedule_classification": "RREF_DERIVED_PATTERN",
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_surrogate_rank_feedback_search::multiplicity_spread_cyclic_3456_balanced_r2_seed_202608163",
+      "source_matrix_metadata_hash": "261e4f24e6488c49c87649aba3abd9eef1a9400530c9f8b729f5d2a2ab47035d",
+      "source_packet": "support_pattern_surrogate_rank_feedback_search",
+      "status": "CERTIFIED_RREF_DERIVED"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "multiplicity_spread_cyclic_3456_near_boundary_seed_202607109",
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3654,
+        89
+      ],
+      "nullity": 0,
+      "pattern_class": "support_overlap_rref_pivot",
+      "pivot_schedule": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "combinatorial_private_pivot_count": null,
+        "covered_columns": 89,
+        "deterministic_combinatorial_schedule": false,
+        "minor_hash": "7ebf9146c094c202b2e7f75c4c6f8c4293cdb066e4bf4fc5a29d92b8e6ccb5a0",
+        "pair_pivot_counts": {
+          "1,2": 26,
+          "1,3": 26,
+          "1,4": 19,
+          "1,5": 1,
+          "1,6": 17
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,3",
+          "max_pair_pivots": 26,
+          "min_pair_pivots": 1,
+          "pair_pivot_total": 89
+        },
+        "pivot_cols_hash": "cddb19b049b2d0dda032f8d67cb9f9771af75659ebd7c3675c877b463204acba",
+        "pivot_columns_used": 89,
+        "pivot_pairs_hash": "f7f057803156f1f777daf9cfe5821b642462245e2aebd64a8f6358d381eac2ad",
+        "pivot_rows_hash": "8efe24d83662712cfeaab60f9eb061305733b48a25ac58dd105587db255156fe",
+        "pivot_rows_used": 89,
+        "row_type_counts": {
+          "support_overlap_row": 89
+        },
+        "row_type_signature": "support_overlap_row:89",
+        "rref_private_pivot_count": 89,
+        "schedule_origin": "RREF_DERIVED_PATTERN",
+        "schedule_status": "CERTIFIED_RREF_DERIVED",
+        "support_overlap_pivot_count": 89,
+        "support_overlap_pivot_fraction": "1"
+      },
+      "rank": 89,
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 9,
+          "pair_pivot_counts": {
+            "1,2": 6,
+            "1,3": 7,
+            "1,4": 7,
+            "1,5": 6,
+            "1,6": 6,
+            "2,3": 5,
+            "2,4": 6,
+            "2,5": 6,
+            "2,6": 5,
+            "3,4": 6,
+            "3,5": 7,
+            "3,6": 5,
+            "4,5": 6,
+            "4,6": 6,
+            "5,6": 5
+          },
+          "pivot_cols_hash": "cddb19b049b2d0dda032f8d67cb9f9771af75659ebd7c3675c877b463204acba",
+          "pivot_pairs_hash": "367626f0c9aad9e60943db45dee0a64da46e2b518365c7ec312c881dbf49d504",
+          "pivot_rows_hash": "c1f47f2b9d6f029af3c2ab78497f77374fbc590b37bc8424eeb1a10377de7672",
+          "rule": "coordinate_pair_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 89,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 3,
+          "pair_pivot_counts": {
+            "1,2": 7,
+            "1,3": 8,
+            "1,4": 5,
+            "1,5": 5,
+            "1,6": 5,
+            "2,3": 6,
+            "2,4": 7,
+            "2,5": 7,
+            "2,6": 7,
+            "3,4": 5,
+            "3,5": 6,
+            "3,6": 5,
+            "4,5": 6,
+            "4,6": 5,
+            "5,6": 5
+          },
+          "pivot_cols_hash": "cddb19b049b2d0dda032f8d67cb9f9771af75659ebd7c3675c877b463204acba",
+          "pivot_pairs_hash": "9f47d3ff6e6944f82132d1d75106ce061b427e3d4c628bd4ad44acd889729f7c",
+          "pivot_rows_hash": "aa9540b5098683c7415c3d732820c372e7dd6cc221fd1589de33567c209143c4",
+          "rule": "fiber_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 89,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 11,
+          "pair_pivot_counts": {
+            "1,2": 20,
+            "1,3": 21,
+            "1,4": 20,
+            "1,5": 21,
+            "1,6": 7
+          },
+          "pivot_cols_hash": "cddb19b049b2d0dda032f8d67cb9f9771af75659ebd7c3675c877b463204acba",
+          "pivot_pairs_hash": "9b684e16682b99e6471e45026e57bec8f023e7ebc2da0cfba84bb417e8a5fc46",
+          "pivot_rows_hash": "a63d3f8f3d55fc272f7f6173fa8ff65413474cca86f65f7e0ceb136947d99667",
+          "rule": "fiber_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 89,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 14,
+          "pair_pivot_counts": {
+            "1,2": 89
+          },
+          "pivot_cols_hash": "cddb19b049b2d0dda032f8d67cb9f9771af75659ebd7c3675c877b463204acba",
+          "pivot_pairs_hash": "389afb908b2976bed02fb8c9b64deb912375248fc8b67f9d19927fd5688f7f6c",
+          "pivot_rows_hash": "cddb19b049b2d0dda032f8d67cb9f9771af75659ebd7c3675c877b463204acba",
+          "rule": "matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 89,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 14,
+          "pair_pivot_counts": {
+            "1,2": 89
+          },
+          "pivot_cols_hash": "cddb19b049b2d0dda032f8d67cb9f9771af75659ebd7c3675c877b463204acba",
+          "pivot_pairs_hash": "389afb908b2976bed02fb8c9b64deb912375248fc8b67f9d19927fd5688f7f6c",
+          "pivot_rows_hash": "cddb19b049b2d0dda032f8d67cb9f9771af75659ebd7c3675c877b463204acba",
+          "rule": "pair_label_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 89,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 13,
+          "pair_pivot_counts": {
+            "2,3": 89
+          },
+          "pivot_cols_hash": "cddb19b049b2d0dda032f8d67cb9f9771af75659ebd7c3675c877b463204acba",
+          "pivot_pairs_hash": "9ba9f1c755e175d89fd314ce9d02d4b895bb0aef5da09175ed66fd8db5d9f2f7",
+          "pivot_rows_hash": "a0a23abb6433e3a78273c6a095d589d29f25a0f77a73e8e97183309f76cf858c",
+          "rule": "pair_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 89,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 20,
+          "pair_pivot_counts": {
+            "1,3": 89
+          },
+          "pivot_cols_hash": "cddb19b049b2d0dda032f8d67cb9f9771af75659ebd7c3675c877b463204acba",
+          "pivot_pairs_hash": "14511c584939d5b605c2c6d178eb0edbf5431ee62e06fda79078b18747fbd174",
+          "pivot_rows_hash": "dad1b8253446290e0356cf040114d94e5e5765ff9abe1331b316692e270e50f1",
+          "rule": "pair_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 89,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 13,
+          "pair_pivot_counts": {
+            "5,6": 89
+          },
+          "pivot_cols_hash": "cddb19b049b2d0dda032f8d67cb9f9771af75659ebd7c3675c877b463204acba",
+          "pivot_pairs_hash": "3914562a33fdc134b488545fcf3c621968d00a6c48cd675a709ebc7d083359c7",
+          "pivot_rows_hash": "3a95fb8d3cb40830ebd15f0835f2f425026815f8bc0b5dc60d03417a54cc33b6",
+          "rule": "reverse_matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 89,
+          "status": "FAILED_SINGULAR_MINOR"
+        }
+      ],
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "schedule_classification": "RREF_DERIVED_PATTERN",
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_multiplicity_mutation_search::multiplicity_spread_cyclic_3456_near_boundary_seed_202607109",
+      "source_matrix_metadata_hash": "1a2352c19e096144415102b5165c35ee167dcd837d11b6e3907e40aa9414c693",
+      "source_packet": "support_pattern_multiplicity_mutation_search",
+      "status": "CERTIFIED_RREF_DERIVED"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "multiplicity_spread_cyclic_3456_balanced_r1_seed_202608146",
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3648,
+        101
+      ],
+      "nullity": 0,
+      "pattern_class": "support_overlap_rref_pivot",
+      "pivot_schedule": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "combinatorial_private_pivot_count": null,
+        "covered_columns": 101,
+        "deterministic_combinatorial_schedule": false,
+        "minor_hash": "40beecfb7634a3b9363d0551ac42735450946e51a751b9787d024f3c46e8f73a",
+        "pair_pivot_counts": {
+          "1,2": 28,
+          "1,3": 19,
+          "1,4": 24,
+          "1,5": 22,
+          "1,6": 8
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 28,
+          "min_pair_pivots": 8,
+          "pair_pivot_total": 101
+        },
+        "pivot_cols_hash": "e6c8b83a0a38c978d199f8542337640f7820a9567ac11561b69eed207dae19e9",
+        "pivot_columns_used": 101,
+        "pivot_pairs_hash": "481999277cf56b67e581e80bde379d102ae0f6e3a7c50a5811af6a2e9833d7e0",
+        "pivot_rows_hash": "dfc562468fc6b7bb79625712487483e6e33e66c9e701fb2e8f5b0583686d23e2",
+        "pivot_rows_used": 101,
+        "row_type_counts": {
+          "support_overlap_row": 101
+        },
+        "row_type_signature": "support_overlap_row:101",
+        "rref_private_pivot_count": 101,
+        "schedule_origin": "RREF_DERIVED_PATTERN",
+        "schedule_status": "CERTIFIED_RREF_DERIVED",
+        "support_overlap_pivot_count": 101,
+        "support_overlap_pivot_fraction": "1"
+      },
+      "rank": 101,
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 5,
+          "pair_pivot_counts": {
+            "1,2": 8,
+            "1,3": 9,
+            "1,4": 6,
+            "1,5": 7,
+            "1,6": 6,
+            "2,3": 9,
+            "2,4": 7,
+            "2,5": 7,
+            "2,6": 7,
+            "3,4": 7,
+            "3,5": 6,
+            "3,6": 6,
+            "4,5": 6,
+            "4,6": 5,
+            "5,6": 5
+          },
+          "pivot_cols_hash": "e6c8b83a0a38c978d199f8542337640f7820a9567ac11561b69eed207dae19e9",
+          "pivot_pairs_hash": "ac94482549cdf1e8b4908ea329b49d1ac6f81f191af5220548da2995e1d4f9d6",
+          "pivot_rows_hash": "430766195c854d77c06b4fd342bf704305ea6f8216010c8db2e760b8e7aff1ea",
+          "rule": "coordinate_pair_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 101,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 17,
+          "pair_pivot_counts": {
+            "1,2": 7,
+            "1,3": 8,
+            "1,4": 8,
+            "1,5": 7,
+            "1,6": 7,
+            "2,3": 8,
+            "2,4": 9,
+            "2,5": 8,
+            "2,6": 4,
+            "3,4": 6,
+            "3,5": 7,
+            "3,6": 6,
+            "4,5": 6,
+            "4,6": 5,
+            "5,6": 5
+          },
+          "pivot_cols_hash": "e6c8b83a0a38c978d199f8542337640f7820a9567ac11561b69eed207dae19e9",
+          "pivot_pairs_hash": "a066ee75db9f27548cf2ecd3b3589bfc42208ef94448919bf664b19a71f84a1d",
+          "pivot_rows_hash": "4ead8334cc4c543988620b0aa4af2cea65e3411aaf8b0971a7525a1b506761db",
+          "rule": "fiber_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 101,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 8,
+          "pair_pivot_counts": {
+            "1,2": 21,
+            "1,3": 20,
+            "1,4": 24,
+            "1,5": 20,
+            "1,6": 16
+          },
+          "pivot_cols_hash": "e6c8b83a0a38c978d199f8542337640f7820a9567ac11561b69eed207dae19e9",
+          "pivot_pairs_hash": "94bfd1336e87f4e33becdb5fab529e94884862c0aa96f11daadad338699a1cde",
+          "pivot_rows_hash": "8790e64e9aa7bbc9337e0c032dffc86c4fcef955a4d6d0b472a62510a2483e0f",
+          "rule": "fiber_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 101,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 20,
+          "pair_pivot_counts": {
+            "1,2": 101
+          },
+          "pivot_cols_hash": "e6c8b83a0a38c978d199f8542337640f7820a9567ac11561b69eed207dae19e9",
+          "pivot_pairs_hash": "7d1063c687b2a93a1a313499409fa968796fddf20f4a308e7ebcfa0bf9a8f2c8",
+          "pivot_rows_hash": "e6c8b83a0a38c978d199f8542337640f7820a9567ac11561b69eed207dae19e9",
+          "rule": "matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 101,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 20,
+          "pair_pivot_counts": {
+            "1,2": 101
+          },
+          "pivot_cols_hash": "e6c8b83a0a38c978d199f8542337640f7820a9567ac11561b69eed207dae19e9",
+          "pivot_pairs_hash": "7d1063c687b2a93a1a313499409fa968796fddf20f4a308e7ebcfa0bf9a8f2c8",
+          "pivot_rows_hash": "e6c8b83a0a38c978d199f8542337640f7820a9567ac11561b69eed207dae19e9",
+          "rule": "pair_label_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 101,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 23,
+          "pair_pivot_counts": {
+            "2,5": 101
+          },
+          "pivot_cols_hash": "e6c8b83a0a38c978d199f8542337640f7820a9567ac11561b69eed207dae19e9",
+          "pivot_pairs_hash": "715b4e764d1c348351825223d9ed565d66a27014d98651fd31b655943b7c30c5",
+          "pivot_rows_hash": "959d058c92fd8bf90dbf4a123611d5a04a2a7e1f4ded25cfb3a270a9ecc565e0",
+          "rule": "pair_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 101,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 25,
+          "pair_pivot_counts": {
+            "4,5": 101
+          },
+          "pivot_cols_hash": "e6c8b83a0a38c978d199f8542337640f7820a9567ac11561b69eed207dae19e9",
+          "pivot_pairs_hash": "16f9d022213988d314cff3eb8979e21c3d141426fa28f21681fdf263a1e85a9d",
+          "pivot_rows_hash": "c1a4a5835bb22abdef16671a6456c654659d2081812ecd72933a201782a7879b",
+          "rule": "pair_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 101,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 16,
+          "pair_pivot_counts": {
+            "5,6": 101
+          },
+          "pivot_cols_hash": "e6c8b83a0a38c978d199f8542337640f7820a9567ac11561b69eed207dae19e9",
+          "pivot_pairs_hash": "c67cb91047368cac4fb018d7405d4f2ab6413e4915fd4f334e6c2c7a2fb760b5",
+          "pivot_rows_hash": "2cbef6d5a88e3e96cf9b0808a817d8641a45bf221d2b72d90273ec6ef7fdfb4e",
+          "rule": "reverse_matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 101,
+          "status": "FAILED_SINGULAR_MINOR"
+        }
+      ],
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "schedule_classification": "RREF_DERIVED_PATTERN",
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_surrogate_rank_feedback_search::multiplicity_spread_cyclic_3456_balanced_r1_seed_202608146",
+      "source_matrix_metadata_hash": "def98ed532024ed996bde92f432273d812fdf4b7a7a0df53023f33d45c6d6c85",
+      "source_packet": "support_pattern_surrogate_rank_feedback_search",
+      "status": "CERTIFIED_RREF_DERIVED"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "anchored_zero_cyclic_45_balanced_r12_seed_202609189",
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3381,
+        134
+      ],
+      "nullity": 0,
+      "pattern_class": "support_overlap_rref_pivot",
+      "pivot_schedule": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "combinatorial_private_pivot_count": null,
+        "covered_columns": 134,
+        "deterministic_combinatorial_schedule": false,
+        "minor_hash": "0ac54c885bf92b909405b5838fd30778681d33b134487c94d31daa084688b886",
+        "pair_pivot_counts": {
+          "1,2": 33,
+          "1,3": 24,
+          "1,4": 32,
+          "1,5": 28,
+          "1,6": 17
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 33,
+          "min_pair_pivots": 17,
+          "pair_pivot_total": 134
+        },
+        "pivot_cols_hash": "dd3dddb7a5e4ee8e8d7654a0ad056d58b6b552ec0b6b4517081df27345117281",
+        "pivot_columns_used": 134,
+        "pivot_pairs_hash": "305cbf9295db40a87af94a6ea32f3f53ffe8e7f22c729ca423537b16a1b6e699",
+        "pivot_rows_hash": "8ca88576b2af04902935be5fb6c08ee41edcc82da52592877bf09c2af0490b09",
+        "pivot_rows_used": 134,
+        "row_type_counts": {
+          "support_overlap_row": 134
+        },
+        "row_type_signature": "support_overlap_row:134",
+        "rref_private_pivot_count": 134,
+        "schedule_origin": "RREF_DERIVED_PATTERN",
+        "schedule_status": "CERTIFIED_RREF_DERIVED",
+        "support_overlap_pivot_count": 134,
+        "support_overlap_pivot_fraction": "1"
+      },
+      "rank": 134,
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 28,
+          "pair_pivot_counts": {
+            "1,2": 12,
+            "1,3": 10,
+            "1,4": 9,
+            "1,5": 11,
+            "1,6": 10,
+            "2,3": 10,
+            "2,4": 9,
+            "2,5": 9,
+            "2,6": 9,
+            "3,4": 6,
+            "3,5": 9,
+            "3,6": 8,
+            "4,5": 8,
+            "4,6": 7,
+            "5,6": 7
+          },
+          "pivot_cols_hash": "dd3dddb7a5e4ee8e8d7654a0ad056d58b6b552ec0b6b4517081df27345117281",
+          "pivot_pairs_hash": "5bf3f5a57e78c5d5353be1cf8b0d31f12d49a2e09d3824ae25c059812f787f40",
+          "pivot_rows_hash": "6b3835be0df98e80e281c586fe795baa25c3aaad4a134ba549adf2119b940252",
+          "rule": "coordinate_pair_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 134,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 15,
+          "pair_pivot_counts": {
+            "1,2": 12,
+            "1,3": 10,
+            "1,4": 11,
+            "1,5": 9,
+            "1,6": 7,
+            "2,3": 9,
+            "2,4": 10,
+            "2,5": 10,
+            "2,6": 8,
+            "3,4": 9,
+            "3,5": 7,
+            "3,6": 5,
+            "4,5": 10,
+            "4,6": 8,
+            "5,6": 9
+          },
+          "pivot_cols_hash": "dd3dddb7a5e4ee8e8d7654a0ad056d58b6b552ec0b6b4517081df27345117281",
+          "pivot_pairs_hash": "6f0fde7f393b534258bee4ca920ec372909ad17c749773caf05c48c5fe1bc944",
+          "pivot_rows_hash": "39f651f42b6abfd3be2a1e5319da901096c9d837e718d5aef8a1934c687505bd",
+          "rule": "fiber_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 134,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 17,
+          "pair_pivot_counts": {
+            "1,2": 17,
+            "1,3": 20,
+            "1,4": 18,
+            "1,5": 18,
+            "1,6": 22,
+            "2,3": 19,
+            "2,4": 18,
+            "2,5": 2
+          },
+          "pivot_cols_hash": "dd3dddb7a5e4ee8e8d7654a0ad056d58b6b552ec0b6b4517081df27345117281",
+          "pivot_pairs_hash": "e6282e6a3276e2af3489bf6bd60ce52c9adcb61040c7975f0dd2c1ae14e19550",
+          "pivot_rows_hash": "3a3502d582e2cc20f001767633ae092b86c96db1b72323efcea5346f23fc89b0",
+          "rule": "fiber_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 134,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 30,
+          "pair_pivot_counts": {
+            "1,2": 134
+          },
+          "pivot_cols_hash": "dd3dddb7a5e4ee8e8d7654a0ad056d58b6b552ec0b6b4517081df27345117281",
+          "pivot_pairs_hash": "a59dd226ff90f451b9a0d4624c34e8f2e1b735f7512fdf265e04dfb37efd020a",
+          "pivot_rows_hash": "dd3dddb7a5e4ee8e8d7654a0ad056d58b6b552ec0b6b4517081df27345117281",
+          "rule": "matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 134,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 30,
+          "pair_pivot_counts": {
+            "1,2": 134
+          },
+          "pivot_cols_hash": "dd3dddb7a5e4ee8e8d7654a0ad056d58b6b552ec0b6b4517081df27345117281",
+          "pivot_pairs_hash": "a59dd226ff90f451b9a0d4624c34e8f2e1b735f7512fdf265e04dfb37efd020a",
+          "pivot_rows_hash": "dd3dddb7a5e4ee8e8d7654a0ad056d58b6b552ec0b6b4517081df27345117281",
+          "rule": "pair_label_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 134,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 34,
+          "pair_pivot_counts": {
+            "3,6": 134
+          },
+          "pivot_cols_hash": "dd3dddb7a5e4ee8e8d7654a0ad056d58b6b552ec0b6b4517081df27345117281",
+          "pivot_pairs_hash": "db1a2edbbc9747d215cafe5a0675f1aebd58348f7f0a7c4d10eab52ff363c58e",
+          "pivot_rows_hash": "a37f79ae0e685f1f3fc021a22669c83956e445f8d858b80b3f85e998f8135ba5",
+          "rule": "pair_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 134,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 30,
+          "pair_pivot_counts": {
+            "1,2": 134
+          },
+          "pivot_cols_hash": "dd3dddb7a5e4ee8e8d7654a0ad056d58b6b552ec0b6b4517081df27345117281",
+          "pivot_pairs_hash": "a59dd226ff90f451b9a0d4624c34e8f2e1b735f7512fdf265e04dfb37efd020a",
+          "pivot_rows_hash": "dd3dddb7a5e4ee8e8d7654a0ad056d58b6b552ec0b6b4517081df27345117281",
+          "rule": "pair_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 134,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 20,
+          "pair_pivot_counts": {
+            "5,6": 134
+          },
+          "pivot_cols_hash": "dd3dddb7a5e4ee8e8d7654a0ad056d58b6b552ec0b6b4517081df27345117281",
+          "pivot_pairs_hash": "f5fc51895bebc90af633af02a30edd214367c6315c80c8a16bf549ff9b177f09",
+          "pivot_rows_hash": "9e408b474ab63b582ef0ab0d96e6b647c9e207c43c03fd453b1068090204b31c",
+          "rule": "reverse_matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 134,
+          "status": "FAILED_SINGULAR_MINOR"
+        }
+      ],
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "schedule_classification": "RREF_DERIVED_PATTERN",
+      "source_family": "support_pattern",
+      "source_key": "constructive_rank_defect_support_design::anchored_zero_cyclic_45_balanced_r12_seed_202609189",
+      "source_matrix_metadata_hash": "be8ea29a9c284334ec0d400bea2b0514f80e80dea3599184009fd1051c526591",
+      "source_packet": "constructive_rank_defect_support_design",
+      "status": "CERTIFIED_RREF_DERIVED"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "overlap_cycle_cyclic_3456_balanced_r12_seed_202608929",
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3468,
+        136
+      ],
+      "nullity": 0,
+      "pattern_class": "support_overlap_rref_pivot",
+      "pivot_schedule": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "combinatorial_private_pivot_count": null,
+        "covered_columns": 136,
+        "deterministic_combinatorial_schedule": false,
+        "minor_hash": "539e7dabbcf13d33e7e59cd6a8de60ce6b2ad1cd417382aff8df43c3084454b5",
+        "pair_pivot_counts": {
+          "1,2": 42,
+          "1,3": 24,
+          "1,4": 30,
+          "1,5": 26,
+          "1,6": 14
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 42,
+          "min_pair_pivots": 14,
+          "pair_pivot_total": 136
+        },
+        "pivot_cols_hash": "87ef3e03a99fdd08632d1e74dda2c6287b549293c6d781c0693789f1095ae25c",
+        "pivot_columns_used": 136,
+        "pivot_pairs_hash": "7eef77d73db99c9ada60b25fc38bb756134904294ad5588a6ebee1b8f0cb5568",
+        "pivot_rows_hash": "37dd1e883e162833ee61f336144989407059648853f0b5987343a42cc939e67d",
+        "pivot_rows_used": 136,
+        "row_type_counts": {
+          "support_overlap_row": 136
+        },
+        "row_type_signature": "support_overlap_row:136",
+        "rref_private_pivot_count": 136,
+        "schedule_origin": "RREF_DERIVED_PATTERN",
+        "schedule_status": "CERTIFIED_RREF_DERIVED",
+        "support_overlap_pivot_count": 136,
+        "support_overlap_pivot_fraction": "1"
+      },
+      "rank": 136,
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 10,
+          "pair_pivot_counts": {
+            "1,2": 9,
+            "1,3": 9,
+            "1,4": 10,
+            "1,5": 10,
+            "1,6": 9,
+            "2,3": 9,
+            "2,4": 11,
+            "2,5": 10,
+            "2,6": 8,
+            "3,4": 9,
+            "3,5": 8,
+            "3,6": 7,
+            "4,5": 9,
+            "4,6": 10,
+            "5,6": 8
+          },
+          "pivot_cols_hash": "87ef3e03a99fdd08632d1e74dda2c6287b549293c6d781c0693789f1095ae25c",
+          "pivot_pairs_hash": "be3e93b405a6392600350b83418067314e67dfef945cab278ca9149a7b0a6d8c",
+          "pivot_rows_hash": "30d4e6b0478c002ecba898aed27ee5f528c13841c438652c2ba290e6af5dcbcc",
+          "rule": "coordinate_pair_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 136,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 22,
+          "pair_pivot_counts": {
+            "1,2": 7,
+            "1,3": 9,
+            "1,4": 7,
+            "1,5": 9,
+            "1,6": 8,
+            "2,3": 10,
+            "2,4": 13,
+            "2,5": 8,
+            "2,6": 10,
+            "3,4": 9,
+            "3,5": 12,
+            "3,6": 11,
+            "4,5": 7,
+            "4,6": 12,
+            "5,6": 4
+          },
+          "pivot_cols_hash": "87ef3e03a99fdd08632d1e74dda2c6287b549293c6d781c0693789f1095ae25c",
+          "pivot_pairs_hash": "d0b92d8ba27db08b208fa25a1678414cdcf070fdd220279a3d8554a225cd14a4",
+          "pivot_rows_hash": "5c69a276288935343aa2b1fc35c87c427b2fba73b241edef1396a56fa957a342",
+          "rule": "fiber_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 136,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 23,
+          "pair_pivot_counts": {
+            "1,2": 19,
+            "1,3": 18,
+            "1,4": 20,
+            "1,5": 18,
+            "1,6": 17,
+            "2,3": 20,
+            "2,4": 21,
+            "2,5": 3
+          },
+          "pivot_cols_hash": "87ef3e03a99fdd08632d1e74dda2c6287b549293c6d781c0693789f1095ae25c",
+          "pivot_pairs_hash": "e44915445069a9f8461ac4f9e13b027efad87dcdb9ebf3ca3a86f235b4a9eaac",
+          "pivot_rows_hash": "f1f1598ea1e9151892feaccbee1f95b64d017c4292c6e78750fbff10f5adcbe6",
+          "rule": "fiber_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 136,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 29,
+          "pair_pivot_counts": {
+            "1,2": 136
+          },
+          "pivot_cols_hash": "87ef3e03a99fdd08632d1e74dda2c6287b549293c6d781c0693789f1095ae25c",
+          "pivot_pairs_hash": "559cf3ff8791e99bde4854612bbbb0b12487f4978c38c3779599d04bea117690",
+          "pivot_rows_hash": "87ef3e03a99fdd08632d1e74dda2c6287b549293c6d781c0693789f1095ae25c",
+          "rule": "matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 136,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 29,
+          "pair_pivot_counts": {
+            "1,2": 136
+          },
+          "pivot_cols_hash": "87ef3e03a99fdd08632d1e74dda2c6287b549293c6d781c0693789f1095ae25c",
+          "pivot_pairs_hash": "559cf3ff8791e99bde4854612bbbb0b12487f4978c38c3779599d04bea117690",
+          "pivot_rows_hash": "87ef3e03a99fdd08632d1e74dda2c6287b549293c6d781c0693789f1095ae25c",
+          "rule": "pair_label_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 136,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 33,
+          "pair_pivot_counts": {
+            "1,4": 136
+          },
+          "pivot_cols_hash": "87ef3e03a99fdd08632d1e74dda2c6287b549293c6d781c0693789f1095ae25c",
+          "pivot_pairs_hash": "64d807ed6b0146e7b1fd61cb9ad6cb49c5bc3995e9bcc6c906f3d3c17fc63ef6",
+          "pivot_rows_hash": "3c9097f1c9536fd526cbb0f4e142f4dcbd656dfc79922ed73edf647b7657c7e3",
+          "rule": "pair_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 136,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 36,
+          "pair_pivot_counts": {
+            "2,3": 136
+          },
+          "pivot_cols_hash": "87ef3e03a99fdd08632d1e74dda2c6287b549293c6d781c0693789f1095ae25c",
+          "pivot_pairs_hash": "c0681eae31f97587a3562e0301bc6e62d4179cdf485f34086d5f7bfac1c86aa6",
+          "pivot_rows_hash": "6a6eb51c1f5a6c72fe7a4f989e1075b2d4391e4882964901898b05457833d4c4",
+          "rule": "pair_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 136,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 24,
+          "pair_pivot_counts": {
+            "5,6": 136
+          },
+          "pivot_cols_hash": "87ef3e03a99fdd08632d1e74dda2c6287b549293c6d781c0693789f1095ae25c",
+          "pivot_pairs_hash": "1c69e82d5cc081c3a579c8720c80980b3dac42dde0550cf7780a15e9e4ea91fc",
+          "pivot_rows_hash": "8cc2d566cfee130b64bedacec1870f90be0694123ee824be6cab233973fced3a",
+          "rule": "reverse_matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 136,
+          "status": "FAILED_SINGULAR_MINOR"
+        }
+      ],
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "schedule_classification": "RREF_DERIVED_PATTERN",
+      "source_family": "support_pattern",
+      "source_key": "constructive_rank_defect_support_design::overlap_cycle_cyclic_3456_balanced_r12_seed_202608929",
+      "source_matrix_metadata_hash": "fde2879dbfa5ae62cbe65c170590606edd0967197889911ef1ebf3b97d72a5ce",
+      "source_packet": "constructive_rank_defect_support_design",
+      "status": "CERTIFIED_RREF_DERIVED"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "anchored_zero_cyclic_45_balanced_r0_seed_202609033",
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3372,
+        138
+      ],
+      "nullity": 0,
+      "pattern_class": "support_overlap_rref_pivot",
+      "pivot_schedule": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "combinatorial_private_pivot_count": null,
+        "covered_columns": 138,
+        "deterministic_combinatorial_schedule": false,
+        "minor_hash": "f11da2837d706c4033a1aed7f1ffefe8bfc5b5ff6fe5b796486ede21dde6622a",
+        "pair_pivot_counts": {
+          "1,2": 42,
+          "1,3": 31,
+          "1,4": 26,
+          "1,5": 32,
+          "1,6": 7
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 42,
+          "min_pair_pivots": 7,
+          "pair_pivot_total": 138
+        },
+        "pivot_cols_hash": "8c2f3e291e221ca3d478f846bce612397d62c7d3fd4a5e4d06a1c1f12570e1ee",
+        "pivot_columns_used": 138,
+        "pivot_pairs_hash": "901d808276c20620c05c0b26141424d48ce3f92717bda04ad803001c24b6a147",
+        "pivot_rows_hash": "b899d60b5442aee291847ac31ce9a234d28970b765a7f4e5b1882fa234ab1e12",
+        "pivot_rows_used": 138,
+        "row_type_counts": {
+          "support_overlap_row": 138
+        },
+        "row_type_signature": "support_overlap_row:138",
+        "rref_private_pivot_count": 138,
+        "schedule_origin": "RREF_DERIVED_PATTERN",
+        "schedule_status": "CERTIFIED_RREF_DERIVED",
+        "support_overlap_pivot_count": 138,
+        "support_overlap_pivot_fraction": "1"
+      },
+      "rank": 138,
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 11,
+          "pair_pivot_counts": {
+            "1,2": 12,
+            "1,3": 9,
+            "1,4": 11,
+            "1,5": 9,
+            "1,6": 10,
+            "2,3": 7,
+            "2,4": 9,
+            "2,5": 10,
+            "2,6": 9,
+            "3,4": 6,
+            "3,5": 9,
+            "3,6": 10,
+            "4,5": 8,
+            "4,6": 8,
+            "5,6": 11
+          },
+          "pivot_cols_hash": "8c2f3e291e221ca3d478f846bce612397d62c7d3fd4a5e4d06a1c1f12570e1ee",
+          "pivot_pairs_hash": "ea0292bd73619992a7cb7f4670cd80c29dfd02415c10b6895b3d40fe9b318db8",
+          "pivot_rows_hash": "64d54a38869a221cdfafa1a6afc9c0b5e4972f3fc732c328ca78da3396bb3765",
+          "rule": "coordinate_pair_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 138,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 15,
+          "pair_pivot_counts": {
+            "1,2": 11,
+            "1,3": 12,
+            "1,4": 7,
+            "1,5": 9,
+            "1,6": 8,
+            "2,3": 12,
+            "2,4": 10,
+            "2,5": 9,
+            "2,6": 9,
+            "3,4": 10,
+            "3,5": 9,
+            "3,6": 10,
+            "4,5": 8,
+            "4,6": 8,
+            "5,6": 6
+          },
+          "pivot_cols_hash": "8c2f3e291e221ca3d478f846bce612397d62c7d3fd4a5e4d06a1c1f12570e1ee",
+          "pivot_pairs_hash": "64d58d5bef477908ed3b3700642cb8ba779adf854dd9f544c4a9e133693c3bda",
+          "pivot_rows_hash": "70cae56ed4c3c446d9a77644428ffa84c8d545929c1f232e70e0fe540b322356",
+          "rule": "fiber_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 138,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 21,
+          "pair_pivot_counts": {
+            "1,2": 23,
+            "1,3": 20,
+            "1,4": 21,
+            "1,5": 24,
+            "1,6": 22,
+            "2,3": 19,
+            "2,4": 9
+          },
+          "pivot_cols_hash": "8c2f3e291e221ca3d478f846bce612397d62c7d3fd4a5e4d06a1c1f12570e1ee",
+          "pivot_pairs_hash": "c30a1f24746711848b53c0716c8cc855029362181aaf1d8aba2df93b10852fcb",
+          "pivot_rows_hash": "1e856fbb587447745c79da9eb90a0056b2712222c1d316e355a3b88b994d8b01",
+          "rule": "fiber_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 138,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 35,
+          "pair_pivot_counts": {
+            "1,2": 138
+          },
+          "pivot_cols_hash": "8c2f3e291e221ca3d478f846bce612397d62c7d3fd4a5e4d06a1c1f12570e1ee",
+          "pivot_pairs_hash": "3c383e62218d56a04c650f07439457efbdae8ed0be50d6c6b7afea7302f1937f",
+          "pivot_rows_hash": "8c2f3e291e221ca3d478f846bce612397d62c7d3fd4a5e4d06a1c1f12570e1ee",
+          "rule": "matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 138,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 35,
+          "pair_pivot_counts": {
+            "1,2": 138
+          },
+          "pivot_cols_hash": "8c2f3e291e221ca3d478f846bce612397d62c7d3fd4a5e4d06a1c1f12570e1ee",
+          "pivot_pairs_hash": "3c383e62218d56a04c650f07439457efbdae8ed0be50d6c6b7afea7302f1937f",
+          "pivot_rows_hash": "8c2f3e291e221ca3d478f846bce612397d62c7d3fd4a5e4d06a1c1f12570e1ee",
+          "rule": "pair_label_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 138,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 34,
+          "pair_pivot_counts": {
+            "2,4": 138
+          },
+          "pivot_cols_hash": "8c2f3e291e221ca3d478f846bce612397d62c7d3fd4a5e4d06a1c1f12570e1ee",
+          "pivot_pairs_hash": "9bba937eeff8a23c6ebe1760fad25c13d7cb7dce8d75a134d78457ced03affd8",
+          "pivot_rows_hash": "d53956ad12750ebb2b0ab1510d9ac63520c879ec2f3609c8c96b90b6554fcd3f",
+          "rule": "pair_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 138,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 26,
+          "pair_pivot_counts": {
+            "5,6": 138
+          },
+          "pivot_cols_hash": "8c2f3e291e221ca3d478f846bce612397d62c7d3fd4a5e4d06a1c1f12570e1ee",
+          "pivot_pairs_hash": "8da818e2afbc84256fe91a5369dc40b6b5e811b991a289a77b06c314ab37bf71",
+          "pivot_rows_hash": "19a79e465cfc4a6896cec300eeacc69a0e4fdc287ad5dce6e84e24ef9ac7de0e",
+          "rule": "pair_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 138,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 23,
+          "pair_pivot_counts": {
+            "5,6": 138
+          },
+          "pivot_cols_hash": "8c2f3e291e221ca3d478f846bce612397d62c7d3fd4a5e4d06a1c1f12570e1ee",
+          "pivot_pairs_hash": "8da818e2afbc84256fe91a5369dc40b6b5e811b991a289a77b06c314ab37bf71",
+          "pivot_rows_hash": "ff44af4ba1ea536ea28b0193dcae920ee3ac54dcbfe21bee8ec5e83f311f85be",
+          "rule": "reverse_matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 138,
+          "status": "FAILED_SINGULAR_MINOR"
+        }
+      ],
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "schedule_classification": "RREF_DERIVED_PATTERN",
+      "source_family": "support_pattern",
+      "source_key": "constructive_rank_defect_support_design::anchored_zero_cyclic_45_balanced_r0_seed_202609033",
+      "source_matrix_metadata_hash": "fc8230b95edd0588179434df9cc7884ee1692002249045603811d08bd2519f3a",
+      "source_packet": "constructive_rank_defect_support_design",
+      "status": "CERTIFIED_RREF_DERIVED"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "anchored_zero_cyclic_45_balanced_r16_seed_202609241",
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3335,
+        150
+      ],
+      "nullity": 0,
+      "pattern_class": "support_overlap_rref_pivot",
+      "pivot_schedule": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "combinatorial_private_pivot_count": null,
+        "covered_columns": 150,
+        "deterministic_combinatorial_schedule": false,
+        "minor_hash": "570ed0e6c16d99de225883803cf2bc462eeb6890429d5640231d7d1a8e8c5053",
+        "pair_pivot_counts": {
+          "1,2": 46,
+          "1,3": 24,
+          "1,4": 29,
+          "1,5": 29,
+          "1,6": 22
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 46,
+          "min_pair_pivots": 22,
+          "pair_pivot_total": 150
+        },
+        "pivot_cols_hash": "1a7b80b181100aba628ccce7ba02bab13462893ae11015f7d9e72184bacbfeca",
+        "pivot_columns_used": 150,
+        "pivot_pairs_hash": "36fdb322f44d0e0855d2a5b0be42097a5f6ea865a5ffea97084e04e1c4eda7f0",
+        "pivot_rows_hash": "ae433f7f406d2410579677188de1f192ccb759731ca95be53c984c4a2a86a846",
+        "pivot_rows_used": 150,
+        "row_type_counts": {
+          "support_overlap_row": 150
+        },
+        "row_type_signature": "support_overlap_row:150",
+        "rref_private_pivot_count": 150,
+        "schedule_origin": "RREF_DERIVED_PATTERN",
+        "schedule_status": "CERTIFIED_RREF_DERIVED",
+        "support_overlap_pivot_count": 150,
+        "support_overlap_pivot_fraction": "1"
+      },
+      "rank": 150,
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 18,
+          "pair_pivot_counts": {
+            "1,2": 10,
+            "1,3": 9,
+            "1,4": 11,
+            "1,5": 10,
+            "1,6": 11,
+            "2,3": 11,
+            "2,4": 10,
+            "2,5": 7,
+            "2,6": 12,
+            "3,4": 10,
+            "3,5": 7,
+            "3,6": 12,
+            "4,5": 11,
+            "4,6": 11,
+            "5,6": 8
+          },
+          "pivot_cols_hash": "1a7b80b181100aba628ccce7ba02bab13462893ae11015f7d9e72184bacbfeca",
+          "pivot_pairs_hash": "d8b6232e30c94f8c88b5d29aa2cdbb63a506f8730006861f7dfc53a380078f5e",
+          "pivot_rows_hash": "d2e54344578822d5d13ba6dcf704850dcd0f739dc0d9681e96fc5800d2eec909",
+          "rule": "coordinate_pair_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 150,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 12,
+          "pair_pivot_counts": {
+            "1,2": 7,
+            "1,3": 10,
+            "1,4": 10,
+            "1,5": 7,
+            "1,6": 7,
+            "2,3": 12,
+            "2,4": 12,
+            "2,5": 10,
+            "2,6": 10,
+            "3,4": 14,
+            "3,5": 12,
+            "3,6": 10,
+            "4,5": 11,
+            "4,6": 9,
+            "5,6": 9
+          },
+          "pivot_cols_hash": "1a7b80b181100aba628ccce7ba02bab13462893ae11015f7d9e72184bacbfeca",
+          "pivot_pairs_hash": "d4f467d90120182eb61fd128059cdebefd2e39f1671cecd53dca1b3952a6eb92",
+          "pivot_rows_hash": "04d0a4ae4ba413a5d1109ade6cad7ab966a06a54472f7025e3f07ea26e66cb09",
+          "rule": "fiber_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 150,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 20,
+          "pair_pivot_counts": {
+            "1,2": 17,
+            "1,3": 20,
+            "1,4": 18,
+            "1,5": 19,
+            "1,6": 22,
+            "2,3": 14,
+            "2,4": 12,
+            "2,5": 13,
+            "2,6": 14,
+            "3,4": 1
+          },
+          "pivot_cols_hash": "1a7b80b181100aba628ccce7ba02bab13462893ae11015f7d9e72184bacbfeca",
+          "pivot_pairs_hash": "0af1ae9c27a24c842bb97f699df9bab262040f145b9b84678142ad33bc9a82a4",
+          "pivot_rows_hash": "03254ec99edf5056fbaf88225b00dec939c3a8399cf1cb17fe2227727af2890d",
+          "rule": "fiber_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 150,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 29,
+          "pair_pivot_counts": {
+            "1,2": 150
+          },
+          "pivot_cols_hash": "1a7b80b181100aba628ccce7ba02bab13462893ae11015f7d9e72184bacbfeca",
+          "pivot_pairs_hash": "b4ab1e8c6d50956fbd47768a48be018e037aa1916a9e401786f4df23a971518e",
+          "pivot_rows_hash": "1a7b80b181100aba628ccce7ba02bab13462893ae11015f7d9e72184bacbfeca",
+          "rule": "matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 150,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 29,
+          "pair_pivot_counts": {
+            "1,2": 150
+          },
+          "pivot_cols_hash": "1a7b80b181100aba628ccce7ba02bab13462893ae11015f7d9e72184bacbfeca",
+          "pivot_pairs_hash": "b4ab1e8c6d50956fbd47768a48be018e037aa1916a9e401786f4df23a971518e",
+          "pivot_rows_hash": "1a7b80b181100aba628ccce7ba02bab13462893ae11015f7d9e72184bacbfeca",
+          "rule": "pair_label_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 150,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 38,
+          "pair_pivot_counts": {
+            "2,6": 150
+          },
+          "pivot_cols_hash": "1a7b80b181100aba628ccce7ba02bab13462893ae11015f7d9e72184bacbfeca",
+          "pivot_pairs_hash": "4a8677eb82df88215719da5e949bf42605e67c20f3fa30e7149a3c7b8357df4e",
+          "pivot_rows_hash": "1cc4e801f753271657464c4d5dce846167e7b824ba4bd96ad7a38c26572adba0",
+          "rule": "pair_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 150,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 40,
+          "pair_pivot_counts": {
+            "4,5": 150
+          },
+          "pivot_cols_hash": "1a7b80b181100aba628ccce7ba02bab13462893ae11015f7d9e72184bacbfeca",
+          "pivot_pairs_hash": "4b21e830b8cf16c9ff2bfb983c5ca5b141f4a9a751b04dfcb731db3aab4f9c22",
+          "pivot_rows_hash": "20f0e65d3035e90f1032910970b9d147581e677d4b069eedd3b81e3fb923e018",
+          "rule": "pair_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 150,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 32,
+          "pair_pivot_counts": {
+            "5,6": 150
+          },
+          "pivot_cols_hash": "1a7b80b181100aba628ccce7ba02bab13462893ae11015f7d9e72184bacbfeca",
+          "pivot_pairs_hash": "6245f279e8809828ad502e6f6c60a02167a384f606212fa46852c9b29daf96a7",
+          "pivot_rows_hash": "31755e07bd1d345af6557ae1f9177590ebd8e7755edf7ef949207f3985d40d9d",
+          "rule": "reverse_matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 150,
+          "status": "FAILED_SINGULAR_MINOR"
+        }
+      ],
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "schedule_classification": "RREF_DERIVED_PATTERN",
+      "source_family": "support_pattern",
+      "source_key": "constructive_rank_defect_support_design::anchored_zero_cyclic_45_balanced_r16_seed_202609241",
+      "source_matrix_metadata_hash": "54ce4aee1820b9d7400a64d5e67edbd6642628ac347086c7a247df43c4f9e293",
+      "source_packet": "constructive_rank_defect_support_design",
+      "status": "CERTIFIED_RREF_DERIVED"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "anchored_zero_cyclic_45_balanced_r14_seed_202609215",
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3396,
+        152
+      ],
+      "nullity": 0,
+      "pattern_class": "support_overlap_rref_pivot",
+      "pivot_schedule": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "combinatorial_private_pivot_count": null,
+        "covered_columns": 152,
+        "deterministic_combinatorial_schedule": false,
+        "minor_hash": "7d54ce181e3e95e4b11990c08625438ad66f661dfe44873610612d68e6b41d4b",
+        "pair_pivot_counts": {
+          "1,2": 58,
+          "1,3": 28,
+          "1,4": 26,
+          "1,5": 27,
+          "1,6": 13
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 58,
+          "min_pair_pivots": 13,
+          "pair_pivot_total": 152
+        },
+        "pivot_cols_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+        "pivot_columns_used": 152,
+        "pivot_pairs_hash": "ba9747dbcbe8a6c577468aca2553408023a56a904b6548c628076881570e6e81",
+        "pivot_rows_hash": "24120d8998bf8683989bc6bc2a6f3f5b8e434d31d270de23785781b494d8f1db",
+        "pivot_rows_used": 152,
+        "row_type_counts": {
+          "support_overlap_row": 152
+        },
+        "row_type_signature": "support_overlap_row:152",
+        "rref_private_pivot_count": 152,
+        "schedule_origin": "RREF_DERIVED_PATTERN",
+        "schedule_status": "CERTIFIED_RREF_DERIVED",
+        "support_overlap_pivot_count": 152,
+        "support_overlap_pivot_fraction": "1"
+      },
+      "rank": 152,
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 13,
+          "pair_pivot_counts": {
+            "1,2": 10,
+            "1,3": 10,
+            "1,4": 10,
+            "1,5": 12,
+            "1,6": 8,
+            "2,3": 11,
+            "2,4": 12,
+            "2,5": 13,
+            "2,6": 11,
+            "3,4": 9,
+            "3,5": 10,
+            "3,6": 8,
+            "4,5": 10,
+            "4,6": 9,
+            "5,6": 9
+          },
+          "pivot_cols_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+          "pivot_pairs_hash": "92e6e7c47cf5f63c02630a7218111a83cfbc8b7645ab05f7cc516343a0de9566",
+          "pivot_rows_hash": "344f428de60496b95c4ced39178b1c5758eccf61116e7f4373415823fee729b3",
+          "rule": "coordinate_pair_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 152,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 28,
+          "pair_pivot_counts": {
+            "1,2": 11,
+            "1,3": 11,
+            "1,4": 7,
+            "1,5": 10,
+            "1,6": 11,
+            "2,3": 11,
+            "2,4": 9,
+            "2,5": 14,
+            "2,6": 12,
+            "3,4": 9,
+            "3,5": 10,
+            "3,6": 11,
+            "4,5": 9,
+            "4,6": 7,
+            "5,6": 10
+          },
+          "pivot_cols_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+          "pivot_pairs_hash": "447e6b9d8c9f564ea3d6ee390ee49368490a817d602211f6816558a03ace5f02",
+          "pivot_rows_hash": "9f6f87abdf36c35ba0364abdb521b9bff76fdd1b0c12ad35b3e487b21e122932",
+          "rule": "fiber_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 152,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 21,
+          "pair_pivot_counts": {
+            "1,2": 18,
+            "1,3": 20,
+            "1,4": 22,
+            "1,5": 21,
+            "1,6": 21,
+            "2,3": 17,
+            "2,4": 18,
+            "2,5": 15
+          },
+          "pivot_cols_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+          "pivot_pairs_hash": "d1af85ab8384886504e7a1a3cfb3be990a649313d49bc8d86a7b27cf196027cd",
+          "pivot_rows_hash": "6ef1e9246e77dd76d4960085146e5c03073ca65dd22cdf28c93fc77c390e75c9",
+          "rule": "fiber_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 152,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 40,
+          "pair_pivot_counts": {
+            "1,2": 152
+          },
+          "pivot_cols_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+          "pivot_pairs_hash": "576c948ac0c21bb03a5bb4edeac835b26f59e4ab3fa10f3f0c0c672765ebe2b6",
+          "pivot_rows_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+          "rule": "matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 152,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 40,
+          "pair_pivot_counts": {
+            "1,2": 152
+          },
+          "pivot_cols_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+          "pivot_pairs_hash": "576c948ac0c21bb03a5bb4edeac835b26f59e4ab3fa10f3f0c0c672765ebe2b6",
+          "pivot_rows_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+          "rule": "pair_label_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 152,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 29,
+          "pair_pivot_counts": {
+            "2,6": 152
+          },
+          "pivot_cols_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+          "pivot_pairs_hash": "055d7fc93e8b35dfc7dc317cc6601e351b92cd0c2a8982b6de6abfac9ae84bed",
+          "pivot_rows_hash": "0491b9a1f91518c96ab6741e9820f544d1cf9bdc4774ceecb11b503df83dbe01",
+          "rule": "pair_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 152,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 40,
+          "pair_pivot_counts": {
+            "4,5": 152
+          },
+          "pivot_cols_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+          "pivot_pairs_hash": "7c7f6f3dee51455c09767f3a60fe9f09181179a8305e5c3804bf50ef317e313d",
+          "pivot_rows_hash": "2a7f64bedd7d1523847db5d16a503ce755bda86a4a7633fe67d015398b6070e0",
+          "rule": "pair_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 152,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 28,
+          "pair_pivot_counts": {
+            "5,6": 152
+          },
+          "pivot_cols_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+          "pivot_pairs_hash": "3ee060ed823bdd7161d1d70ffaa8b8720e19c62f12fee0b967fd28c6f5ad4128",
+          "pivot_rows_hash": "92a02cec1efe30aca194892ad199890a1ac237cad84405f898aa8255d55513b4",
+          "rule": "reverse_matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 152,
+          "status": "FAILED_SINGULAR_MINOR"
+        }
+      ],
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "schedule_classification": "RREF_DERIVED_PATTERN",
+      "source_family": "support_pattern",
+      "source_key": "constructive_rank_defect_support_design::anchored_zero_cyclic_45_balanced_r14_seed_202609215",
+      "source_matrix_metadata_hash": "1d2d260229d89b01171145837a44e4597ebad28fcdb9174397cef0a86b116f6e",
+      "source_packet": "constructive_rank_defect_support_design",
+      "status": "CERTIFIED_RREF_DERIVED"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "anchored_zero_cyclic_45_balanced_r8_seed_202609137",
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3329,
+        152
+      ],
+      "nullity": 0,
+      "pattern_class": "support_overlap_rref_pivot",
+      "pivot_schedule": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "combinatorial_private_pivot_count": null,
+        "covered_columns": 152,
+        "deterministic_combinatorial_schedule": false,
+        "minor_hash": "d5649ca09ec021fb3be0fb7935c29e2880c1db6c3ba6bbbb8a01860086a64833",
+        "pair_pivot_counts": {
+          "1,2": 53,
+          "1,3": 33,
+          "1,4": 29,
+          "1,5": 24,
+          "1,6": 13
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 53,
+          "min_pair_pivots": 13,
+          "pair_pivot_total": 152
+        },
+        "pivot_cols_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+        "pivot_columns_used": 152,
+        "pivot_pairs_hash": "e816728f1c213d5f93b5ddc7f8656f6232aff42733c06596a07753a273321b75",
+        "pivot_rows_hash": "129b192f309976464f6bdcf5151ad45dfec42d592c24ef3d359af2f44d96f486",
+        "pivot_rows_used": 152,
+        "row_type_counts": {
+          "support_overlap_row": 152
+        },
+        "row_type_signature": "support_overlap_row:152",
+        "rref_private_pivot_count": 152,
+        "schedule_origin": "RREF_DERIVED_PATTERN",
+        "schedule_status": "CERTIFIED_RREF_DERIVED",
+        "support_overlap_pivot_count": 152,
+        "support_overlap_pivot_fraction": "1"
+      },
+      "rank": 152,
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 19,
+          "pair_pivot_counts": {
+            "1,2": 10,
+            "1,3": 10,
+            "1,4": 10,
+            "1,5": 13,
+            "1,6": 9,
+            "2,3": 12,
+            "2,4": 10,
+            "2,5": 11,
+            "2,6": 7,
+            "3,4": 11,
+            "3,5": 12,
+            "3,6": 8,
+            "4,5": 12,
+            "4,6": 8,
+            "5,6": 9
+          },
+          "pivot_cols_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+          "pivot_pairs_hash": "a25d3f2506a9817a6974f5af131744643a403638920db7c53fe7a42888f5eaa7",
+          "pivot_rows_hash": "a26c8d74ce9de4b221035a0fe59084f72727dc9bcd41e461caf39dd3956c6a03",
+          "rule": "coordinate_pair_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 152,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 15,
+          "pair_pivot_counts": {
+            "1,2": 10,
+            "1,3": 11,
+            "1,4": 9,
+            "1,5": 11,
+            "1,6": 8,
+            "2,3": 11,
+            "2,4": 10,
+            "2,5": 11,
+            "2,6": 9,
+            "3,4": 11,
+            "3,5": 10,
+            "3,6": 10,
+            "4,5": 13,
+            "4,6": 9,
+            "5,6": 9
+          },
+          "pivot_cols_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+          "pivot_pairs_hash": "be4371a65647e4c5d790b4872249c4a5e6e83619edda2a69488f7b15f273cd6b",
+          "pivot_rows_hash": "8d4ba3bdb5127b9373280018d8052d98dcbd3cd4f1b530df28d52c6fc81c9583",
+          "rule": "fiber_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 152,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 22,
+          "pair_pivot_counts": {
+            "1,2": 20,
+            "1,3": 20,
+            "1,4": 17,
+            "1,5": 19,
+            "1,6": 14,
+            "2,3": 20,
+            "2,4": 15,
+            "2,5": 18,
+            "2,6": 9
+          },
+          "pivot_cols_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+          "pivot_pairs_hash": "d1e8f7c5223c7c08183e05356e1e61a71052700aa2838efd8e20a0eecb4a9282",
+          "pivot_rows_hash": "42bfc489082a02c38af09a4acbe981c0203ba6350f1606af17353fcf642a8b20",
+          "rule": "fiber_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 152,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 44,
+          "pair_pivot_counts": {
+            "1,2": 152
+          },
+          "pivot_cols_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+          "pivot_pairs_hash": "576c948ac0c21bb03a5bb4edeac835b26f59e4ab3fa10f3f0c0c672765ebe2b6",
+          "pivot_rows_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+          "rule": "matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 152,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 44,
+          "pair_pivot_counts": {
+            "1,2": 152
+          },
+          "pivot_cols_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+          "pivot_pairs_hash": "576c948ac0c21bb03a5bb4edeac835b26f59e4ab3fa10f3f0c0c672765ebe2b6",
+          "pivot_rows_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+          "rule": "pair_label_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 152,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 26,
+          "pair_pivot_counts": {
+            "1,6": 152
+          },
+          "pivot_cols_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+          "pivot_pairs_hash": "ef29a1656b29dd56e833816d33be7be2b4af97eb3243a51bd9486c5358924dd7",
+          "pivot_rows_hash": "4ff43ee922f8642b02c4819631718e6ec7c04768820f8fb0cb7fad129a962a53",
+          "rule": "pair_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 152,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 44,
+          "pair_pivot_counts": {
+            "1,2": 152
+          },
+          "pivot_cols_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+          "pivot_pairs_hash": "576c948ac0c21bb03a5bb4edeac835b26f59e4ab3fa10f3f0c0c672765ebe2b6",
+          "pivot_rows_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+          "rule": "pair_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 152,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 24,
+          "pair_pivot_counts": {
+            "5,6": 152
+          },
+          "pivot_cols_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+          "pivot_pairs_hash": "3ee060ed823bdd7161d1d70ffaa8b8720e19c62f12fee0b967fd28c6f5ad4128",
+          "pivot_rows_hash": "d7463f4d92e5dd18afbbb74c96e2573561ef6c29f6e7b8e36796c5b1ed554810",
+          "rule": "reverse_matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 152,
+          "status": "FAILED_SINGULAR_MINOR"
+        }
+      ],
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "schedule_classification": "RREF_DERIVED_PATTERN",
+      "source_family": "support_pattern",
+      "source_key": "constructive_rank_defect_support_design::anchored_zero_cyclic_45_balanced_r8_seed_202609137",
+      "source_matrix_metadata_hash": "f16c572b31a9ed7134f53f8181910753531c29e3c49522cf8df488f6a34b1ece",
+      "source_packet": "constructive_rank_defect_support_design",
+      "status": "CERTIFIED_RREF_DERIVED"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "overlap_cycle_cyclic_3456_balanced_r6_seed_202608851",
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3426,
+        158
+      ],
+      "nullity": 0,
+      "pattern_class": "support_overlap_rref_pivot",
+      "pivot_schedule": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "combinatorial_private_pivot_count": null,
+        "covered_columns": 158,
+        "deterministic_combinatorial_schedule": false,
+        "minor_hash": "d7818036927cfd0be6388efe6ff387116beeee83d78fe302e66e90b81bf29280",
+        "pair_pivot_counts": {
+          "1,2": 54,
+          "1,3": 32,
+          "1,4": 29,
+          "1,5": 27,
+          "1,6": 16
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 54,
+          "min_pair_pivots": 16,
+          "pair_pivot_total": 158
+        },
+        "pivot_cols_hash": "38b87d9945ccfd66661676bfaf6a8546c6a44a158c16fd1fd747ba2950d107fe",
+        "pivot_columns_used": 158,
+        "pivot_pairs_hash": "362f29b43d26f436fabbceff1ced52b398d3d05b529c8c01083eb36051570700",
+        "pivot_rows_hash": "a3b47a64c16b0d3c23398abffa6d8de151ef7363b3b5f0621faa69066f3dc8bd",
+        "pivot_rows_used": 158,
+        "row_type_counts": {
+          "support_overlap_row": 158
+        },
+        "row_type_signature": "support_overlap_row:158",
+        "rref_private_pivot_count": 158,
+        "schedule_origin": "RREF_DERIVED_PATTERN",
+        "schedule_status": "CERTIFIED_RREF_DERIVED",
+        "support_overlap_pivot_count": 158,
+        "support_overlap_pivot_fraction": "1"
+      },
+      "rank": 158,
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 11,
+          "pair_pivot_counts": {
+            "1,2": 13,
+            "1,3": 12,
+            "1,4": 9,
+            "1,5": 10,
+            "1,6": 12,
+            "2,3": 13,
+            "2,4": 8,
+            "2,5": 11,
+            "2,6": 12,
+            "3,4": 10,
+            "3,5": 11,
+            "3,6": 11,
+            "4,5": 9,
+            "4,6": 8,
+            "5,6": 9
+          },
+          "pivot_cols_hash": "38b87d9945ccfd66661676bfaf6a8546c6a44a158c16fd1fd747ba2950d107fe",
+          "pivot_pairs_hash": "ec89805de6b75428b4a197677d5f59bc7aac04b2e524303146f28be6fce1210f",
+          "pivot_rows_hash": "f2288277b355062cb4a04638fbb10dd91eaccd61f15829cb464bc3d4e75d0063",
+          "rule": "coordinate_pair_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 158,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 23,
+          "pair_pivot_counts": {
+            "1,2": 9,
+            "1,3": 11,
+            "1,4": 11,
+            "1,5": 10,
+            "1,6": 10,
+            "2,3": 12,
+            "2,4": 13,
+            "2,5": 10,
+            "2,6": 11,
+            "3,4": 11,
+            "3,5": 10,
+            "3,6": 10,
+            "4,5": 8,
+            "4,6": 14,
+            "5,6": 8
+          },
+          "pivot_cols_hash": "38b87d9945ccfd66661676bfaf6a8546c6a44a158c16fd1fd747ba2950d107fe",
+          "pivot_pairs_hash": "5ec81bc3158120251f49e71895927b89360ed9ddfb53c107975ec7db4a7325d7",
+          "pivot_rows_hash": "f15550bf2e336aafab65b42626cee5a1dd94eeeb9166ed86a7b9cd6e331a4370",
+          "rule": "fiber_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 158,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 13,
+          "pair_pivot_counts": {
+            "1,2": 19,
+            "1,3": 20,
+            "1,4": 20,
+            "1,5": 22,
+            "1,6": 20,
+            "2,3": 20,
+            "2,4": 20,
+            "2,5": 17
+          },
+          "pivot_cols_hash": "38b87d9945ccfd66661676bfaf6a8546c6a44a158c16fd1fd747ba2950d107fe",
+          "pivot_pairs_hash": "a5256560c7b3a224a9e0291b5519c33dbc652cda340a4f9d531c0ad9bad7cac2",
+          "pivot_rows_hash": "7b205a59c00cfeecf671258d9345794aaadd227c3bd80715270569737ddf67b2",
+          "rule": "fiber_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 158,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 41,
+          "pair_pivot_counts": {
+            "1,2": 158
+          },
+          "pivot_cols_hash": "38b87d9945ccfd66661676bfaf6a8546c6a44a158c16fd1fd747ba2950d107fe",
+          "pivot_pairs_hash": "45ba47084361c5f035e2fd09c0e1bf9753a3baf134185baf3e8def65373b6a31",
+          "pivot_rows_hash": "38b87d9945ccfd66661676bfaf6a8546c6a44a158c16fd1fd747ba2950d107fe",
+          "rule": "matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 158,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 41,
+          "pair_pivot_counts": {
+            "1,2": 158
+          },
+          "pivot_cols_hash": "38b87d9945ccfd66661676bfaf6a8546c6a44a158c16fd1fd747ba2950d107fe",
+          "pivot_pairs_hash": "45ba47084361c5f035e2fd09c0e1bf9753a3baf134185baf3e8def65373b6a31",
+          "pivot_rows_hash": "38b87d9945ccfd66661676bfaf6a8546c6a44a158c16fd1fd747ba2950d107fe",
+          "rule": "pair_label_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 158,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 47,
+          "pair_pivot_counts": {
+            "2,4": 158
+          },
+          "pivot_cols_hash": "38b87d9945ccfd66661676bfaf6a8546c6a44a158c16fd1fd747ba2950d107fe",
+          "pivot_pairs_hash": "89ed92725c8452ce9dc4171f8e03ca693e0b320e45d5307aeb5298048ab9641e",
+          "pivot_rows_hash": "235309a1f7309a6a9639d533c6e6ce3cad9d4b5b8d8849accaeb12d4be390445",
+          "rule": "pair_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 158,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 40,
+          "pair_pivot_counts": {
+            "4,5": 158
+          },
+          "pivot_cols_hash": "38b87d9945ccfd66661676bfaf6a8546c6a44a158c16fd1fd747ba2950d107fe",
+          "pivot_pairs_hash": "982cc5f7e8b07e181868434df6091802b363b9cc16737789bab665b0ba0116b1",
+          "pivot_rows_hash": "66942b54208cdd74f17feed0115ad8b971cb652973c6aaeba966074ae6dd45b7",
+          "rule": "pair_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 158,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 29,
+          "pair_pivot_counts": {
+            "5,6": 158
+          },
+          "pivot_cols_hash": "38b87d9945ccfd66661676bfaf6a8546c6a44a158c16fd1fd747ba2950d107fe",
+          "pivot_pairs_hash": "81e7e14a1fa0b8a3a641606fea851d60118cacd0f84b1cac80d1c1a37ff5d0fd",
+          "pivot_rows_hash": "33e160f9a31c862c7db059a10ad12f97991a3ad91495a9e34be66e3c82f8ab45",
+          "rule": "reverse_matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 158,
+          "status": "FAILED_SINGULAR_MINOR"
+        }
+      ],
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "schedule_classification": "RREF_DERIVED_PATTERN",
+      "source_family": "support_pattern",
+      "source_key": "constructive_rank_defect_support_design::overlap_cycle_cyclic_3456_balanced_r6_seed_202608851",
+      "source_matrix_metadata_hash": "da645cb5869b6b85f39b02237973ec273f0056008c264d28c4dd909d7f8b1e46",
+      "source_packet": "constructive_rank_defect_support_design",
+      "status": "CERTIFIED_RREF_DERIVED"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "overlap_cycle_cyclic_3456_balanced_r2_seed_202608799",
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3411,
+        159
+      ],
+      "nullity": 0,
+      "pattern_class": "support_overlap_rref_pivot",
+      "pivot_schedule": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "combinatorial_private_pivot_count": null,
+        "covered_columns": 159,
+        "deterministic_combinatorial_schedule": false,
+        "minor_hash": "b881b29c7f8ff6c5cdbf62f0b5079421504bf94b269b23a2467d83d7253fa1db",
+        "pair_pivot_counts": {
+          "1,2": 41,
+          "1,3": 32,
+          "1,4": 34,
+          "1,5": 32,
+          "1,6": 20
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 41,
+          "min_pair_pivots": 20,
+          "pair_pivot_total": 159
+        },
+        "pivot_cols_hash": "08d44416d05bab0e6de9f9bc0f69a9873499ad7b804945d8eef9f031dc5a4e54",
+        "pivot_columns_used": 159,
+        "pivot_pairs_hash": "d5f5788e5a457378eaae9c06abc83ce3f8d67247c8a3f423db1f6aeacc1ac5f6",
+        "pivot_rows_hash": "b45a404c16a0a8123041638420c83b0ecf0923693098db9803e6bd4e26d8b349",
+        "pivot_rows_used": 159,
+        "row_type_counts": {
+          "support_overlap_row": 159
+        },
+        "row_type_signature": "support_overlap_row:159",
+        "rref_private_pivot_count": 159,
+        "schedule_origin": "RREF_DERIVED_PATTERN",
+        "schedule_status": "CERTIFIED_RREF_DERIVED",
+        "support_overlap_pivot_count": 159,
+        "support_overlap_pivot_fraction": "1"
+      },
+      "rank": 159,
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 19,
+          "pair_pivot_counts": {
+            "1,2": 12,
+            "1,3": 10,
+            "1,4": 10,
+            "1,5": 10,
+            "1,6": 10,
+            "2,3": 11,
+            "2,4": 11,
+            "2,5": 10,
+            "2,6": 11,
+            "3,4": 11,
+            "3,5": 11,
+            "3,6": 9,
+            "4,5": 12,
+            "4,6": 10,
+            "5,6": 11
+          },
+          "pivot_cols_hash": "08d44416d05bab0e6de9f9bc0f69a9873499ad7b804945d8eef9f031dc5a4e54",
+          "pivot_pairs_hash": "5da383fa62a2f131f9feaffebeeb32320195373d711f377cef91f67bcc0612fa",
+          "pivot_rows_hash": "ceac676b3152cddbae41f413c80ec8bb601a8a94f2843b3318581dad10e42bdc",
+          "rule": "coordinate_pair_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 159,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 22,
+          "pair_pivot_counts": {
+            "1,2": 12,
+            "1,3": 13,
+            "1,4": 11,
+            "1,5": 11,
+            "1,6": 11,
+            "2,3": 10,
+            "2,4": 13,
+            "2,5": 9,
+            "2,6": 12,
+            "3,4": 9,
+            "3,5": 9,
+            "3,6": 9,
+            "4,5": 8,
+            "4,6": 12,
+            "5,6": 10
+          },
+          "pivot_cols_hash": "08d44416d05bab0e6de9f9bc0f69a9873499ad7b804945d8eef9f031dc5a4e54",
+          "pivot_pairs_hash": "9d830f37cbc3a77bc8fe3f39cbd647f0a4ed876c1786d77616c98ab9ff8bb1d4",
+          "pivot_rows_hash": "4d64fbfd785fb311a33d70737337c0436ce9ce77d20f483ca97719a7e513d321",
+          "rule": "fiber_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 159,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 5,
+          "pair_pivot_counts": {
+            "1,2": 20,
+            "1,3": 19,
+            "1,4": 20,
+            "1,5": 19,
+            "1,6": 22,
+            "2,3": 18,
+            "2,4": 19,
+            "2,5": 17,
+            "2,6": 5
+          },
+          "pivot_cols_hash": "08d44416d05bab0e6de9f9bc0f69a9873499ad7b804945d8eef9f031dc5a4e54",
+          "pivot_pairs_hash": "cfa6f81dca918832f1362b7340a130209210c98b2a84142b9e630c47247f5568",
+          "pivot_rows_hash": "2bb555c54b9ff6844966c1f8689ae3e2321060ec0388e527f1b1ac7a892f7b08",
+          "rule": "fiber_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 159,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 34,
+          "pair_pivot_counts": {
+            "1,2": 159
+          },
+          "pivot_cols_hash": "08d44416d05bab0e6de9f9bc0f69a9873499ad7b804945d8eef9f031dc5a4e54",
+          "pivot_pairs_hash": "8ef032ac32b4c85b245987e2fd0a5fb3ac29eff4faa1dad9b6eb0a9f5786a65f",
+          "pivot_rows_hash": "08d44416d05bab0e6de9f9bc0f69a9873499ad7b804945d8eef9f031dc5a4e54",
+          "rule": "matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 159,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 34,
+          "pair_pivot_counts": {
+            "1,2": 159
+          },
+          "pivot_cols_hash": "08d44416d05bab0e6de9f9bc0f69a9873499ad7b804945d8eef9f031dc5a4e54",
+          "pivot_pairs_hash": "8ef032ac32b4c85b245987e2fd0a5fb3ac29eff4faa1dad9b6eb0a9f5786a65f",
+          "pivot_rows_hash": "08d44416d05bab0e6de9f9bc0f69a9873499ad7b804945d8eef9f031dc5a4e54",
+          "rule": "pair_label_coordinate_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 159,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 41,
+          "pair_pivot_counts": {
+            "2,5": 159
+          },
+          "pivot_cols_hash": "08d44416d05bab0e6de9f9bc0f69a9873499ad7b804945d8eef9f031dc5a4e54",
+          "pivot_pairs_hash": "a361e3e79d2b099b22495f73dacecf4275f979f6a04dca743622e9a96daab9b5",
+          "pivot_rows_hash": "638bbeb97b6468661c94c21b1fb7193cbcb5e6b13eb97a37778248f3cf583e2e",
+          "rule": "pair_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 159,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 41,
+          "pair_pivot_counts": {
+            "3,4": 159
+          },
+          "pivot_cols_hash": "08d44416d05bab0e6de9f9bc0f69a9873499ad7b804945d8eef9f031dc5a4e54",
+          "pivot_pairs_hash": "3c7d3863bee32458c268bc5541537933038b2d7e27706bf5d3d6cc0739369806",
+          "pivot_rows_hash": "838e027cbc0fe6f95c557c89d02d9bf1ae13376a3c0218afe6880c1d2ecea692",
+          "rule": "pair_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 159,
+          "status": "FAILED_SINGULAR_MINOR"
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 40,
+          "pair_pivot_counts": {
+            "5,6": 159
+          },
+          "pivot_cols_hash": "08d44416d05bab0e6de9f9bc0f69a9873499ad7b804945d8eef9f031dc5a4e54",
+          "pivot_pairs_hash": "71c93c35071cd24ffaec8bd372dd2629a37e0cb5c33bc3a4a40e39af7626a398",
+          "pivot_rows_hash": "9d198c08d58bba8db9ff6df92f09324167479296629a196bfb520b89b9086969",
+          "rule": "reverse_matrix_order_first_n",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 159,
+          "status": "FAILED_SINGULAR_MINOR"
+        }
+      ],
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "schedule_classification": "RREF_DERIVED_PATTERN",
+      "source_family": "support_pattern",
+      "source_key": "constructive_rank_defect_support_design::overlap_cycle_cyclic_3456_balanced_r2_seed_202608799",
+      "source_matrix_metadata_hash": "69132663d57d90f8a7c360bb50527cfe7125f7ad7b5947dced5e8585574c0252",
+      "source_packet": "constructive_rank_defect_support_design",
+      "status": "CERTIFIED_RREF_DERIVED"
+    }
+  ],
+  "minimum_to_clear": 7,
+  "n": 512,
+  "record_hash": "591a94333c4100e5d895659372f144275b7aec8c79e413ef8010863e6c851d28",
+  "repo_claim": {
+    "mca_counted": false,
+    "not_claimed": [
+      "MCA N_bad",
+      "protocol soundness",
+      "ordinary list decoding beyond the stated interleaved-list predicate",
+      "a=327 interleaved-list certificate",
+      "global Lambda_mu(C,327) <= 6",
+      "global RIM full-rank theorem",
+      "deterministic combinatorial pivot schedule",
+      "exact Lambda_mu",
+      "exact delta*_C",
+      "improvement over PR #133"
+    ]
+  },
+  "row": "RS[F_17^32,H,256]",
+  "sage_audit": {
+    "checks_GF_17_32": true,
+    "recomputes_rref_schedule_hashes": true,
+    "reconstructs_20_support_matrices": true,
+    "script": "experimental/scripts/audit_m1_support_overlap_rankfree_pivot_rule.sage",
+    "tests_rankfree_rule_minors": true,
+    "verifies_selected_minors_full_rank": true
+  },
+  "schedule_summary": {
+    "aggregate_pair_pivot_counts": {
+      "1,2": 569,
+      "1,3": 386,
+      "1,4": 404,
+      "1,5": 353,
+      "1,6": 189
+    },
+    "all_pivots_support_overlap": true,
+    "all_schedules_rref_derived": true,
+    "block_triangular_order_proved": false,
+    "compressed_variable_range": [
+      19,
+      159
+    ],
+    "covered_by_incidence_rule": 0,
+    "covered_by_rankfree_rule": 0,
+    "deterministic_combinatorial_schedule_found": false,
+    "rankfree_rule_summary": {
+      "best_failed_minor_rank_ratio": [
+        21,
+        69
+      ],
+      "rankfree_rule_attempts": 160,
+      "rankfree_rule_failures": 160,
+      "rankfree_rule_success_by_rule": {
+        "coordinate_pair_order": {
+          "failed": 20,
+          "success": 0,
+          "tested": 20
+        },
+        "fiber_coordinate_order": {
+          "failed": 20,
+          "success": 0,
+          "tested": 20
+        },
+        "fiber_pressure_desc": {
+          "failed": 20,
+          "success": 0,
+          "tested": 20
+        },
+        "matrix_order_first_n": {
+          "failed": 20,
+          "success": 0,
+          "tested": 20
+        },
+        "pair_label_coordinate_order": {
+          "failed": 20,
+          "success": 0,
+          "tested": 20
+        },
+        "pair_pressure_asc": {
+          "failed": 20,
+          "success": 0,
+          "tested": 20
+        },
+        "pair_pressure_desc": {
+          "failed": 20,
+          "success": 0,
+          "tested": 20
+        },
+        "reverse_matrix_order_first_n": {
+          "failed": 20,
+          "success": 0,
+          "tested": 20
+        }
+      },
+      "rankfree_rule_successes": 0,
+      "rankfree_rules_tested": [
+        "coordinate_pair_order",
+        "fiber_coordinate_order",
+        "fiber_pressure_desc",
+        "matrix_order_first_n",
+        "pair_label_coordinate_order",
+        "pair_pressure_asc",
+        "pair_pressure_desc",
+        "reverse_matrix_order_first_n"
+      ]
+    },
+    "route_cut_certified_candidates": 20,
+    "source_packet_counts": {
+      "constructive_rank_defect_support_design": 8,
+      "support_pattern_multiplicity_mutation_search": 6,
+      "support_pattern_surrogate_rank_feedback_search": 6
+    },
+    "status": "RREF_DERIVED_PATTERN_ONLY",
+    "still_rref_derived_only": 20,
+    "support_overlap_matrices": 20
+  },
+  "source_profile": {
+    "path": "experimental/data/m1_rim_pivot_pattern_theorem.json",
+    "record_hash": "721d4aeefcafa48c715541ebc29ab558427f80093c6ccfb250a97ba749a5acea",
+    "source_matrices": 34,
+    "status": "CANDIDATE_THEOREM_ONLY",
+    "support_overlap_profiles": 20
+  },
+  "status": "M1_SUPPORT_OVERLAP_RANKFREE_PIVOT_RULE_AUDIT",
+  "target_bits": 128,
+  "theorem_assessment": {
+    "deterministic_schedule_proved": false,
+    "rankfree_rule_attempts": 160,
+    "rankfree_rule_successes": 0,
+    "rankfree_rules_tested": [
+      "coordinate_pair_order",
+      "fiber_coordinate_order",
+      "fiber_pressure_desc",
+      "matrix_order_first_n",
+      "pair_label_coordinate_order",
+      "pair_pressure_asc",
+      "pair_pressure_desc",
+      "reverse_matrix_order_first_n"
+    ],
+    "reason_not_proved": "The certified schedules are extracted from Sage RREF pivot rows. The tested rank-free metadata rules all selected singular minors.",
+    "status": "RREF_DERIVED_PATTERN_ONLY",
+    "target_statement": "For every reduced matrix in the support_overlap_rref_pivot class, a deterministic support-overlap schedule selects a full column-rank minor over GF(17^32).",
+    "tested_rows_support_rref_schedule": true
+  },
+  "threshold_floor": 6,
+  "track": "INTERLEAVED_LIST"
+}

@@ -30,6 +30,31 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-29 - M1 a327 RIM obstruction pivot audit
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_rim_obstruction_summary.md`,
+  `experimental/data/m1_a327_rim_obstruction_summary.json`,
+  `experimental/scripts/verify_m1_a327_rim_obstruction_summary.py`,
+  and the focused M1 RIM rank-gate, pivot-replay, pivot-pattern, and
+  rank-free rule audit packets under `experimental/notes/m1/`,
+  `experimental/data/`, and `experimental/scripts/`.
+- **Status:** AUDIT / COMPUTATIONAL_CERTIFICATE / ROUTE_CUT / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A focused `a=327` interleaved-list RIM obstruction
+  audit. It records one full-rank nonquotient pairwise overlap rank gate,
+  34/34 Sage-replayed pivot certificates for prior exact full-rank RIM
+  matrices over `GF(17^32)`, pivot-profile mining, and rank-free rule audits
+  for support-overlap, generic-pairwise, and quotient-residual classes.
+- **How it is useful:** It turns a collection of failed `a=327` support/RIM
+  attempts into replayable route-cut evidence while preserving the current
+  #133 board row `Lambda_mu(C,326) >= 7` and keeping the work strictly on the
+  `INTERLEAVED_LIST` track.
+- **What to do next:** Do not treat this as a global
+  `Lambda_mu(C,327) <= 6` theorem or MCA evidence. If future work continues
+  this lane, target an actual deterministic pivot theorem or return to
+  constructive `a>=327` witness search.
+
 ### 2026-06-29 - Paper D v7 first-grid cap promotion
 
 - **Agent/model:** Codex.

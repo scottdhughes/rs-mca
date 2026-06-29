@@ -1,0 +1,1822 @@
+{
+  "baseline": {
+    "current_pr_133_agreement": 326,
+    "current_pr_133_lambda_lower": 7,
+    "source": "PR #133 hybrid quotient-residual certificate"
+  },
+  "candidates": [
+    {
+      "accepted_mutations": 41,
+      "candidate_id": "pair_boundary_cyclic_3456_near_boundary_seed_202606399",
+      "extraction": {
+        "agreement_verified": false,
+        "non_diagonal_solution_found": false,
+        "status": "NOT_RUN"
+      },
+      "mutation_family": "balanced_two_switch_membership_hypergraph",
+      "mutation_steps": 1200,
+      "proof_status": "ROUTE_CUT_TESTED_CANDIDATE",
+      "quotient_fiber_profile": {
+        "distinct_pattern_counts": [
+          17,
+          17,
+          18,
+          20,
+          16,
+          18,
+          18,
+          18,
+          18,
+          16,
+          17,
+          19,
+          16,
+          18,
+          18,
+          18
+        ],
+        "fiber_count": 16,
+        "fiber_size": 32,
+        "largest_pattern_multiplicities": [
+          4,
+          5,
+          4,
+          4,
+          4,
+          4,
+          3,
+          5,
+          3,
+          4,
+          4,
+          5,
+          4,
+          7,
+          4,
+          6
+        ],
+        "multiplicity_profiles": [
+          {
+            "3": 1,
+            "4": 16,
+            "5": 13,
+            "6": 1,
+            "7": 1
+          },
+          {
+            "3": 2,
+            "4": 16,
+            "5": 13,
+            "6": 1
+          },
+          {
+            "3": 2,
+            "4": 15,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 2,
+            "4": 15,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 2,
+            "4": 15,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 2,
+            "4": 15,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 13,
+            "6": 2
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 13,
+            "6": 2
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 13,
+            "6": 2
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 13,
+            "6": 2
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 13,
+            "6": 2
+          }
+        ]
+      },
+      "random_seed": 202606399,
+      "rank_proxy": {
+        "compressed_variables": 360,
+        "method": "row_pattern_pair_boundary_proxy",
+        "proxy_score": 4487278,
+        "repeated_fiber_pattern_score": 70,
+        "status": "SCORED"
+      },
+      "restrict_same_quotient_fiber": false,
+      "sage_exact_rank": {
+        "compressed_dimensions_by_witness": {
+          "1": 108,
+          "2": 6,
+          "3": 61,
+          "4": 74,
+          "5": 1,
+          "6": 110
+        },
+        "compressed_variables": 360,
+        "field_label": "GF(17^32)",
+        "field_mode": "exact",
+        "field_size": "2367911594760467245844106297320951247361",
+        "matrix_metadata_hash": "749e4b520081459c11126fe37b12b2b01f4a1f46922d9c4c68c0f226932d5420",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 360,
+        "remaining_equations_by_pair": {
+          "1,2": 148,
+          "1,3": 240,
+          "1,4": 189,
+          "1,5": 183,
+          "1,6": 255,
+          "2,3": 149,
+          "2,4": 250,
+          "2,5": 184,
+          "2,6": 182,
+          "3,4": 145,
+          "3,5": 255,
+          "3,6": 180,
+          "4,5": 145,
+          "4,6": 255,
+          "5,6": 145
+        },
+        "remaining_pairwise_equations": 2905,
+        "status": "RANK_COMPUTED"
+      },
+      "search_objective": "pair_boundary",
+      "seed_design": "cyclic_3456_near_boundary",
+      "support_design": {
+        "membership_pattern_count": 41,
+        "membership_pattern_histogram_hash": "458d550b3dc55eab02f737b33178570a24206d7daefcf96d7f8424428e4af79e",
+        "multiplicity_histogram": {
+          "3": 21,
+          "4": 252,
+          "5": 217,
+          "6": 21,
+          "7": 1
+        },
+        "pair_intersection_max": 255,
+        "pair_intersection_min": 145,
+        "pair_intersection_square_sum": 832839,
+        "pair_intersection_sum": 4081,
+        "pair_intersection_values": [
+          145,
+          145,
+          145,
+          146,
+          148,
+          148,
+          149,
+          180,
+          182,
+          182,
+          183,
+          184,
+          189,
+          195,
+          240,
+          250,
+          250,
+          255,
+          255,
+          255,
+          255
+        ],
+        "pair_intersections": {
+          "0,1": 148,
+          "0,2": 250,
+          "0,3": 195,
+          "0,4": 182,
+          "0,5": 255,
+          "0,6": 146,
+          "1,2": 148,
+          "1,3": 240,
+          "1,4": 189,
+          "1,5": 183,
+          "1,6": 255,
+          "2,3": 149,
+          "2,4": 250,
+          "2,5": 184,
+          "2,6": 182,
+          "3,4": 145,
+          "3,5": 255,
+          "3,6": 180,
+          "4,5": 145,
+          "4,6": 255,
+          "5,6": 145
+        },
+        "pair_intersections_at_254_or_255": 4,
+        "pair_intersections_at_255": 4,
+        "support_hash": "a926a5e721749e96d548f3dd78115023efce8e493e3631572fdead3b5d83ad14",
+        "witness_support_sizes": [
+          327,
+          327,
+          327,
+          327,
+          327,
+          327,
+          327
+        ]
+      },
+      "surrogate_rank_gate": {
+        "compressed_dimensions_by_witness": {
+          "1": 108,
+          "2": 6,
+          "3": 61,
+          "4": 74,
+          "5": 1,
+          "6": 110
+        },
+        "compressed_variables": 360,
+        "field_label": "GF(12289)_surrogate",
+        "field_mode": "surrogate",
+        "field_size": "12289",
+        "matrix_metadata_hash": "c3afd73c0e0241e15be723b5dd494cf5643863b841e4d751c68687604107825f",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 360,
+        "remaining_equations_by_pair": {
+          "1,2": 148,
+          "1,3": 240,
+          "1,4": 189,
+          "1,5": 183,
+          "1,6": 255,
+          "2,3": 149,
+          "2,4": 250,
+          "2,5": 184,
+          "2,6": 182,
+          "3,4": 145,
+          "3,5": 255,
+          "3,6": 180,
+          "4,5": 145,
+          "4,6": 255,
+          "5,6": 145
+        },
+        "remaining_pairwise_equations": 2905,
+        "status": "RANK_COMPUTED"
+      }
+    },
+    {
+      "accepted_mutations": 57,
+      "candidate_id": "pair_boundary_cyclic_45_interval_high_overlap_seed_202606297",
+      "extraction": {
+        "agreement_verified": false,
+        "non_diagonal_solution_found": false,
+        "status": "NOT_RUN"
+      },
+      "mutation_family": "balanced_two_switch_membership_hypergraph",
+      "mutation_steps": 1200,
+      "proof_status": "ROUTE_CUT_TESTED_CANDIDATE",
+      "quotient_fiber_profile": {
+        "distinct_pattern_counts": [
+          18,
+          15,
+          16,
+          16,
+          15,
+          16,
+          15,
+          15,
+          15,
+          16,
+          15,
+          15,
+          14,
+          14,
+          15,
+          13
+        ],
+        "fiber_count": 16,
+        "fiber_size": 32,
+        "largest_pattern_multiplicities": [
+          4,
+          5,
+          5,
+          5,
+          5,
+          4,
+          6,
+          4,
+          4,
+          4,
+          4,
+          6,
+          6,
+          4,
+          4,
+          6
+        ],
+        "multiplicity_profiles": [
+          {
+            "4": 17,
+            "5": 14,
+            "7": 1
+          },
+          {
+            "4": 18,
+            "5": 14
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          }
+        ]
+      },
+      "random_seed": 202606297,
+      "rank_proxy": {
+        "compressed_variables": 365,
+        "method": "row_pattern_pair_boundary_proxy",
+        "proxy_score": 4482016,
+        "repeated_fiber_pattern_score": 76,
+        "status": "SCORED"
+      },
+      "restrict_same_quotient_fiber": false,
+      "sage_exact_rank": {
+        "compressed_dimensions_by_witness": {
+          "1": 1,
+          "2": 66,
+          "3": 102,
+          "4": 110,
+          "5": 73,
+          "6": 13
+        },
+        "compressed_variables": 365,
+        "field_label": "GF(17^32)",
+        "field_mode": "exact",
+        "field_size": "2367911594760467245844106297320951247361",
+        "matrix_metadata_hash": "716181398e6e125e04a14fb56c3f9a89309fa9a9d460c054ec4c3f919d0829de",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 365,
+        "remaining_equations_by_pair": {
+          "1,2": 255,
+          "1,3": 183,
+          "1,4": 142,
+          "1,5": 142,
+          "1,6": 179,
+          "2,3": 242,
+          "2,4": 176,
+          "2,5": 142,
+          "2,6": 143,
+          "3,4": 242,
+          "3,5": 177,
+          "3,6": 147,
+          "4,5": 255,
+          "4,6": 188,
+          "5,6": 255
+        },
+        "remaining_pairwise_equations": 2868,
+        "status": "RANK_COMPUTED"
+      },
+      "search_objective": "pair_boundary",
+      "seed_design": "cyclic_45_interval_high_overlap",
+      "support_design": {
+        "membership_pattern_count": 28,
+        "membership_pattern_histogram_hash": "bdcc016f44b0848fe3c3c38ee29963c9e0bd810cd2fedfdbdebe34eb229f45d6",
+        "multiplicity_histogram": {
+          "4": 273,
+          "5": 238,
+          "7": 1
+        },
+        "pair_intersection_max": 255,
+        "pair_intersection_min": 142,
+        "pair_intersection_square_sum": 816627,
+        "pair_intersection_sum": 4039,
+        "pair_intersection_values": [
+          142,
+          142,
+          142,
+          143,
+          146,
+          147,
+          154,
+          176,
+          177,
+          179,
+          183,
+          183,
+          188,
+          190,
+          242,
+          242,
+          243,
+          255,
+          255,
+          255,
+          255
+        ],
+        "pair_intersections": {
+          "0,1": 255,
+          "0,2": 190,
+          "0,3": 154,
+          "0,4": 146,
+          "0,5": 183,
+          "0,6": 243,
+          "1,2": 255,
+          "1,3": 183,
+          "1,4": 142,
+          "1,5": 142,
+          "1,6": 179,
+          "2,3": 242,
+          "2,4": 176,
+          "2,5": 142,
+          "2,6": 143,
+          "3,4": 242,
+          "3,5": 177,
+          "3,6": 147,
+          "4,5": 255,
+          "4,6": 188,
+          "5,6": 255
+        },
+        "pair_intersections_at_254_or_255": 4,
+        "pair_intersections_at_255": 4,
+        "support_hash": "f14012b84af68461901b52bcf6200d8059ac7fa490c84d9936b01c5f92a27452",
+        "witness_support_sizes": [
+          327,
+          327,
+          327,
+          327,
+          327,
+          327,
+          327
+        ]
+      },
+      "surrogate_rank_gate": {
+        "compressed_dimensions_by_witness": {
+          "1": 1,
+          "2": 66,
+          "3": 102,
+          "4": 110,
+          "5": 73,
+          "6": 13
+        },
+        "compressed_variables": 365,
+        "field_label": "GF(12289)_surrogate",
+        "field_mode": "surrogate",
+        "field_size": "12289",
+        "matrix_metadata_hash": "3edd6176f84ae30ebae35e42ac44959daeed8ed68313b25510f8a19d407a5049",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 365,
+        "remaining_equations_by_pair": {
+          "1,2": 255,
+          "1,3": 183,
+          "1,4": 142,
+          "1,5": 142,
+          "1,6": 179,
+          "2,3": 242,
+          "2,4": 176,
+          "2,5": 142,
+          "2,6": 143,
+          "3,4": 242,
+          "3,5": 177,
+          "3,6": 147,
+          "4,5": 255,
+          "4,6": 188,
+          "5,6": 255
+        },
+        "remaining_pairwise_equations": 2868,
+        "status": "RANK_COMPUTED"
+      }
+    },
+    {
+      "accepted_mutations": 14,
+      "candidate_id": "fiber_repetition_cyclic_45_interval_high_overlap_seed_202606331",
+      "extraction": {
+        "agreement_verified": false,
+        "non_diagonal_solution_found": false,
+        "status": "NOT_RUN"
+      },
+      "mutation_family": "balanced_two_switch_membership_hypergraph",
+      "mutation_steps": 1200,
+      "proof_status": "ROUTE_CUT_TESTED_CANDIDATE",
+      "quotient_fiber_profile": {
+        "distinct_pattern_counts": [
+          15,
+          15,
+          16,
+          14,
+          14,
+          14,
+          14,
+          14,
+          16,
+          15,
+          15,
+          14,
+          15,
+          14,
+          14,
+          15
+        ],
+        "fiber_count": 16,
+        "fiber_size": 32,
+        "largest_pattern_multiplicities": [
+          3,
+          4,
+          4,
+          3,
+          3,
+          3,
+          3,
+          3,
+          4,
+          3,
+          4,
+          3,
+          4,
+          3,
+          3,
+          4
+        ],
+        "multiplicity_profiles": [
+          {
+            "4": 17,
+            "5": 14,
+            "7": 1
+          },
+          {
+            "4": 18,
+            "5": 14
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          }
+        ]
+      },
+      "random_seed": 202606331,
+      "rank_proxy": {
+        "compressed_variables": 381,
+        "method": "row_pattern_pair_boundary_proxy",
+        "proxy_score": 4139711,
+        "repeated_fiber_pattern_score": 54,
+        "status": "SCORED"
+      },
+      "restrict_same_quotient_fiber": true,
+      "sage_exact_rank": {
+        "compressed_dimensions_by_witness": {
+          "1": 1,
+          "2": 76,
+          "3": 112,
+          "4": 114,
+          "5": 77,
+          "6": 1
+        },
+        "compressed_variables": 381,
+        "field_label": "GF(17^32)",
+        "field_mode": "exact",
+        "field_size": "2367911594760467245844106297320951247361",
+        "matrix_metadata_hash": "19f4b5c75414c8deb2adc8679d2588e45ccebed63ffa8417ad93b736b0ab5177",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 381,
+        "remaining_equations_by_pair": {
+          "1,2": 250,
+          "1,3": 180,
+          "1,4": 142,
+          "1,5": 143,
+          "1,6": 186,
+          "2,3": 255,
+          "2,4": 181,
+          "2,5": 145,
+          "2,6": 143,
+          "3,4": 251,
+          "3,5": 182,
+          "3,6": 143,
+          "4,5": 255,
+          "4,6": 181,
+          "5,6": 247
+        },
+        "remaining_pairwise_equations": 2884,
+        "status": "RANK_COMPUTED"
+      },
+      "search_objective": "fiber_repetition",
+      "seed_design": "cyclic_45_interval_high_overlap",
+      "support_design": {
+        "membership_pattern_count": 24,
+        "membership_pattern_histogram_hash": "3561c8971178d26f61bd3ce62c382bf2a867800998d54cd2f2467ce05aceba77",
+        "multiplicity_histogram": {
+          "4": 273,
+          "5": 238,
+          "7": 1
+        },
+        "pair_intersection_max": 255,
+        "pair_intersection_min": 142,
+        "pair_intersection_square_sum": 820129,
+        "pair_intersection_sum": 4039,
+        "pair_intersection_values": [
+          142,
+          142,
+          143,
+          143,
+          143,
+          144,
+          145,
+          179,
+          180,
+          180,
+          181,
+          181,
+          182,
+          186,
+          247,
+          250,
+          251,
+          255,
+          255,
+          255,
+          255
+        ],
+        "pair_intersections": {
+          "0,1": 255,
+          "0,2": 180,
+          "0,3": 144,
+          "0,4": 142,
+          "0,5": 179,
+          "0,6": 255,
+          "1,2": 250,
+          "1,3": 180,
+          "1,4": 142,
+          "1,5": 143,
+          "1,6": 186,
+          "2,3": 255,
+          "2,4": 181,
+          "2,5": 145,
+          "2,6": 143,
+          "3,4": 251,
+          "3,5": 182,
+          "3,6": 143,
+          "4,5": 255,
+          "4,6": 181,
+          "5,6": 247
+        },
+        "pair_intersections_at_254_or_255": 4,
+        "pair_intersections_at_255": 4,
+        "support_hash": "d86c1fdfd11b14f18167a3a4f2203e0f9b4ea0acee7d3dac411197f69d27615e",
+        "witness_support_sizes": [
+          327,
+          327,
+          327,
+          327,
+          327,
+          327,
+          327
+        ]
+      },
+      "surrogate_rank_gate": {
+        "compressed_dimensions_by_witness": {
+          "1": 1,
+          "2": 76,
+          "3": 112,
+          "4": 114,
+          "5": 77,
+          "6": 1
+        },
+        "compressed_variables": 381,
+        "field_label": "GF(12289)_surrogate",
+        "field_mode": "surrogate",
+        "field_size": "12289",
+        "matrix_metadata_hash": "7b301a1510620d96d4a62cf82c3fda9ec8b5b5868aa41e90af89354187ab5b1c",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 381,
+        "remaining_equations_by_pair": {
+          "1,2": 250,
+          "1,3": 180,
+          "1,4": 142,
+          "1,5": 143,
+          "1,6": 186,
+          "2,3": 255,
+          "2,4": 181,
+          "2,5": 145,
+          "2,6": 143,
+          "3,4": 251,
+          "3,5": 182,
+          "3,6": 143,
+          "4,5": 255,
+          "4,6": 181,
+          "5,6": 247
+        },
+        "remaining_pairwise_equations": 2884,
+        "status": "RANK_COMPUTED"
+      }
+    },
+    {
+      "accepted_mutations": 46,
+      "candidate_id": "anchor_compression_cyclic_3456_near_boundary_seed_202606416",
+      "extraction": {
+        "agreement_verified": false,
+        "non_diagonal_solution_found": false,
+        "status": "NOT_RUN"
+      },
+      "mutation_family": "balanced_two_switch_membership_hypergraph",
+      "mutation_steps": 1200,
+      "proof_status": "ROUTE_CUT_TESTED_CANDIDATE",
+      "quotient_fiber_profile": {
+        "distinct_pattern_counts": [
+          18,
+          17,
+          18,
+          18,
+          19,
+          20,
+          16,
+          17,
+          17,
+          15,
+          18,
+          16,
+          18,
+          19,
+          18,
+          16
+        ],
+        "fiber_count": 16,
+        "fiber_size": 32,
+        "largest_pattern_multiplicities": [
+          4,
+          3,
+          4,
+          4,
+          5,
+          4,
+          7,
+          5,
+          4,
+          4,
+          5,
+          4,
+          3,
+          4,
+          4,
+          5
+        ],
+        "multiplicity_profiles": [
+          {
+            "3": 1,
+            "4": 16,
+            "5": 13,
+            "6": 1,
+            "7": 1
+          },
+          {
+            "3": 2,
+            "4": 16,
+            "5": 13,
+            "6": 1
+          },
+          {
+            "3": 2,
+            "4": 15,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 2,
+            "4": 15,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 2,
+            "4": 15,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 2,
+            "4": 15,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 13,
+            "6": 2
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 13,
+            "6": 2
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 13,
+            "6": 2
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 13,
+            "6": 2
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 13,
+            "6": 2
+          }
+        ]
+      },
+      "random_seed": 202606416,
+      "rank_proxy": {
+        "compressed_variables": 355,
+        "method": "row_pattern_pair_boundary_proxy",
+        "proxy_score": 3874984,
+        "repeated_fiber_pattern_score": 69,
+        "status": "SCORED"
+      },
+      "restrict_same_quotient_fiber": false,
+      "sage_exact_rank": {
+        "compressed_dimensions_by_witness": {
+          "1": 103,
+          "2": 9,
+          "3": 65,
+          "4": 72,
+          "5": 1,
+          "6": 105
+        },
+        "compressed_variables": 355,
+        "field_label": "GF(17^32)",
+        "field_mode": "exact",
+        "field_size": "2367911594760467245844106297320951247361",
+        "matrix_metadata_hash": "d0f91c40f243f5f99715b38e6d1288b9e13f6d921ff3b5bd1f5716c6afd65a0e",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 355,
+        "remaining_equations_by_pair": {
+          "1,2": 149,
+          "1,3": 236,
+          "1,4": 187,
+          "1,5": 183,
+          "1,6": 255,
+          "2,3": 152,
+          "2,4": 250,
+          "2,5": 182,
+          "2,6": 183,
+          "3,4": 146,
+          "3,5": 255,
+          "3,6": 177,
+          "4,5": 145,
+          "4,6": 255,
+          "5,6": 145
+        },
+        "remaining_pairwise_equations": 2900,
+        "status": "RANK_COMPUTED"
+      },
+      "search_objective": "anchor_compression",
+      "seed_design": "cyclic_3456_near_boundary",
+      "support_design": {
+        "membership_pattern_count": 39,
+        "membership_pattern_histogram_hash": "1a757cddb04012c963f355d29dbc3755697ee085dd80cd278fd5a986bc2bf116",
+        "multiplicity_histogram": {
+          "3": 21,
+          "4": 252,
+          "5": 217,
+          "6": 21,
+          "7": 1
+        },
+        "pair_intersection_max": 255,
+        "pair_intersection_min": 145,
+        "pair_intersection_square_sum": 830923,
+        "pair_intersection_sum": 4081,
+        "pair_intersection_values": [
+          145,
+          145,
+          146,
+          149,
+          151,
+          152,
+          153,
+          177,
+          182,
+          183,
+          183,
+          184,
+          187,
+          191,
+          236,
+          247,
+          250,
+          255,
+          255,
+          255,
+          255
+        ],
+        "pair_intersections": {
+          "0,1": 153,
+          "0,2": 247,
+          "0,3": 191,
+          "0,4": 184,
+          "0,5": 255,
+          "0,6": 151,
+          "1,2": 149,
+          "1,3": 236,
+          "1,4": 187,
+          "1,5": 183,
+          "1,6": 255,
+          "2,3": 152,
+          "2,4": 250,
+          "2,5": 182,
+          "2,6": 183,
+          "3,4": 146,
+          "3,5": 255,
+          "3,6": 177,
+          "4,5": 145,
+          "4,6": 255,
+          "5,6": 145
+        },
+        "pair_intersections_at_254_or_255": 4,
+        "pair_intersections_at_255": 4,
+        "support_hash": "3c7805e624027f33b57761bcfd398a20733bdefa5b180c46a92a172b584462b7",
+        "witness_support_sizes": [
+          327,
+          327,
+          327,
+          327,
+          327,
+          327,
+          327
+        ]
+      },
+      "surrogate_rank_gate": {
+        "compressed_dimensions_by_witness": {
+          "1": 103,
+          "2": 9,
+          "3": 65,
+          "4": 72,
+          "5": 1,
+          "6": 105
+        },
+        "compressed_variables": 355,
+        "field_label": "GF(12289)_surrogate",
+        "field_mode": "surrogate",
+        "field_size": "12289",
+        "matrix_metadata_hash": "5ebdd1180a48fb4111babcd87f26c326eadb881a3eb96720862085fc8d39b6a1",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 355,
+        "remaining_equations_by_pair": {
+          "1,2": 149,
+          "1,3": 236,
+          "1,4": 187,
+          "1,5": 183,
+          "1,6": 255,
+          "2,3": 152,
+          "2,4": 250,
+          "2,5": 182,
+          "2,6": 183,
+          "3,4": 146,
+          "3,5": 255,
+          "3,6": 177,
+          "4,5": 145,
+          "4,6": 255,
+          "5,6": 145
+        },
+        "remaining_pairwise_equations": 2900,
+        "status": "RANK_COMPUTED"
+      }
+    },
+    {
+      "accepted_mutations": 44,
+      "candidate_id": "anchor_compression_cyclic_45_interval_high_overlap_seed_202606314",
+      "extraction": {
+        "agreement_verified": false,
+        "non_diagonal_solution_found": false,
+        "status": "NOT_RUN"
+      },
+      "mutation_family": "balanced_two_switch_membership_hypergraph",
+      "mutation_steps": 1200,
+      "proof_status": "ROUTE_CUT_TESTED_CANDIDATE",
+      "quotient_fiber_profile": {
+        "distinct_pattern_counts": [
+          15,
+          13,
+          13,
+          15,
+          13,
+          14,
+          17,
+          14,
+          13,
+          14,
+          15,
+          14,
+          17,
+          15,
+          14,
+          13
+        ],
+        "fiber_count": 16,
+        "fiber_size": 32,
+        "largest_pattern_multiplicities": [
+          4,
+          5,
+          7,
+          5,
+          7,
+          5,
+          5,
+          5,
+          5,
+          5,
+          4,
+          5,
+          4,
+          6,
+          5,
+          5
+        ],
+        "multiplicity_profiles": [
+          {
+            "4": 17,
+            "5": 14,
+            "7": 1
+          },
+          {
+            "4": 18,
+            "5": 14
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          },
+          {
+            "4": 17,
+            "5": 15
+          }
+        ]
+      },
+      "random_seed": 202606314,
+      "rank_proxy": {
+        "compressed_variables": 374,
+        "method": "row_pattern_pair_boundary_proxy",
+        "proxy_score": 3836241,
+        "repeated_fiber_pattern_score": 82,
+        "status": "SCORED"
+      },
+      "restrict_same_quotient_fiber": false,
+      "sage_exact_rank": {
+        "compressed_dimensions_by_witness": {
+          "1": 10,
+          "2": 74,
+          "3": 112,
+          "4": 109,
+          "5": 68,
+          "6": 1
+        },
+        "compressed_variables": 374,
+        "field_label": "GF(17^32)",
+        "field_mode": "exact",
+        "field_size": "2367911594760467245844106297320951247361",
+        "matrix_metadata_hash": "e7553de7ff693dc973057f2e06ef2d856b3980b0e353dbbb0f22852e72845283",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 374,
+        "remaining_equations_by_pair": {
+          "1,2": 255,
+          "1,3": 186,
+          "1,4": 146,
+          "1,5": 142,
+          "1,6": 180,
+          "2,3": 255,
+          "2,4": 178,
+          "2,5": 142,
+          "2,6": 142,
+          "3,4": 246,
+          "3,5": 177,
+          "3,6": 143,
+          "4,5": 250,
+          "4,6": 180,
+          "5,6": 255
+        },
+        "remaining_pairwise_equations": 2877,
+        "status": "RANK_COMPUTED"
+      },
+      "search_objective": "anchor_compression",
+      "seed_design": "cyclic_45_interval_high_overlap",
+      "support_design": {
+        "membership_pattern_count": 24,
+        "membership_pattern_histogram_hash": "0ecd4f23b1a82c9a24b15870ed4a240b7f00fca2c5b0cf365e029eef4831a40c",
+        "multiplicity_histogram": {
+          "4": 273,
+          "5": 238,
+          "7": 1
+        },
+        "pair_intersection_max": 255,
+        "pair_intersection_min": 142,
+        "pair_intersection_square_sum": 819111,
+        "pair_intersection_sum": 4039,
+        "pair_intersection_values": [
+          142,
+          142,
+          142,
+          143,
+          144,
+          146,
+          147,
+          177,
+          178,
+          180,
+          180,
+          182,
+          186,
+          188,
+          246,
+          246,
+          250,
+          255,
+          255,
+          255,
+          255
+        ],
+        "pair_intersections": {
+          "0,1": 246,
+          "0,2": 182,
+          "0,3": 144,
+          "0,4": 147,
+          "0,5": 188,
+          "0,6": 255,
+          "1,2": 255,
+          "1,3": 186,
+          "1,4": 146,
+          "1,5": 142,
+          "1,6": 180,
+          "2,3": 255,
+          "2,4": 178,
+          "2,5": 142,
+          "2,6": 142,
+          "3,4": 246,
+          "3,5": 177,
+          "3,6": 143,
+          "4,5": 250,
+          "4,6": 180,
+          "5,6": 255
+        },
+        "pair_intersections_at_254_or_255": 4,
+        "pair_intersections_at_255": 4,
+        "support_hash": "126f049832b2a2c48ee77f95a01105ba262288d7f636f3143ef6d213b056ef3b",
+        "witness_support_sizes": [
+          327,
+          327,
+          327,
+          327,
+          327,
+          327,
+          327
+        ]
+      },
+      "surrogate_rank_gate": {
+        "compressed_dimensions_by_witness": {
+          "1": 10,
+          "2": 74,
+          "3": 112,
+          "4": 109,
+          "5": 68,
+          "6": 1
+        },
+        "compressed_variables": 374,
+        "field_label": "GF(12289)_surrogate",
+        "field_mode": "surrogate",
+        "field_size": "12289",
+        "matrix_metadata_hash": "88d6d4a510824697d45f80a0e0d45e11f2a983a80ec503600ed2decdbc21c1a6",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 374,
+        "remaining_equations_by_pair": {
+          "1,2": 255,
+          "1,3": 186,
+          "1,4": 146,
+          "1,5": 142,
+          "1,6": 180,
+          "2,3": 255,
+          "2,4": 178,
+          "2,5": 142,
+          "2,6": 142,
+          "3,4": 246,
+          "3,5": 177,
+          "3,6": 143,
+          "4,5": 250,
+          "4,6": 180,
+          "5,6": 255
+        },
+        "remaining_pairwise_equations": 2877,
+        "status": "RANK_COMPUTED"
+      }
+    },
+    {
+      "accepted_mutations": 16,
+      "candidate_id": "fiber_repetition_cyclic_3456_near_boundary_seed_202606433",
+      "extraction": {
+        "agreement_verified": false,
+        "non_diagonal_solution_found": false,
+        "status": "NOT_RUN"
+      },
+      "mutation_family": "balanced_two_switch_membership_hypergraph",
+      "mutation_steps": 1200,
+      "proof_status": "ROUTE_CUT_TESTED_CANDIDATE",
+      "quotient_fiber_profile": {
+        "distinct_pattern_counts": [
+          17,
+          17,
+          18,
+          17,
+          18,
+          17,
+          18,
+          16,
+          16,
+          17,
+          16,
+          18,
+          18,
+          17,
+          18,
+          18
+        ],
+        "fiber_count": 16,
+        "fiber_size": 32,
+        "largest_pattern_multiplicities": [
+          3,
+          3,
+          4,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          4,
+          3,
+          4,
+          4,
+          3,
+          3,
+          4
+        ],
+        "multiplicity_profiles": [
+          {
+            "3": 1,
+            "4": 16,
+            "5": 13,
+            "6": 1,
+            "7": 1
+          },
+          {
+            "3": 2,
+            "4": 16,
+            "5": 13,
+            "6": 1
+          },
+          {
+            "3": 2,
+            "4": 15,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 2,
+            "4": 15,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 2,
+            "4": 15,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 2,
+            "4": 15,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 14,
+            "6": 1
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 13,
+            "6": 2
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 13,
+            "6": 2
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 13,
+            "6": 2
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 13,
+            "6": 2
+          },
+          {
+            "3": 1,
+            "4": 16,
+            "5": 13,
+            "6": 2
+          }
+        ]
+      },
+      "random_seed": 202606433,
+      "rank_proxy": {
+        "compressed_variables": 366,
+        "method": "row_pattern_pair_boundary_proxy",
+        "proxy_score": 3122020,
+        "repeated_fiber_pattern_score": 53,
+        "status": "SCORED"
+      },
+      "restrict_same_quotient_fiber": true,
+      "sage_exact_rank": {
+        "compressed_dimensions_by_witness": {
+          "1": 109,
+          "2": 5,
+          "3": 70,
+          "4": 72,
+          "5": 1,
+          "6": 109
+        },
+        "compressed_variables": 366,
+        "field_label": "GF(17^32)",
+        "field_mode": "exact",
+        "field_size": "2367911594760467245844106297320951247361",
+        "matrix_metadata_hash": "d0f8aaeed536f4259ee14b65c75452f319490c781d9daf143bfaaca6e6fb2f9f",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 366,
+        "remaining_equations_by_pair": {
+          "1,2": 147,
+          "1,3": 255,
+          "1,4": 185,
+          "1,5": 184,
+          "1,6": 250,
+          "2,3": 146,
+          "2,4": 250,
+          "2,5": 185,
+          "2,6": 184,
+          "3,4": 145,
+          "3,5": 250,
+          "3,6": 184,
+          "4,5": 145,
+          "4,6": 255,
+          "5,6": 146
+        },
+        "remaining_pairwise_equations": 2911,
+        "status": "RANK_COMPUTED"
+      },
+      "search_objective": "fiber_repetition",
+      "seed_design": "cyclic_3456_near_boundary",
+      "support_design": {
+        "membership_pattern_count": 40,
+        "membership_pattern_histogram_hash": "3f08b172d5981699cfb00810f2815593f94b58cb3760f40f465117e0541102ac",
+        "multiplicity_histogram": {
+          "3": 21,
+          "4": 252,
+          "5": 217,
+          "6": 21,
+          "7": 1
+        },
+        "pair_intersection_max": 255,
+        "pair_intersection_min": 145,
+        "pair_intersection_square_sum": 833555,
+        "pair_intersection_sum": 4081,
+        "pair_intersection_values": [
+          145,
+          145,
+          146,
+          146,
+          147,
+          147,
+          147,
+          184,
+          184,
+          184,
+          184,
+          185,
+          185,
+          186,
+          250,
+          250,
+          250,
+          251,
+          255,
+          255,
+          255
+        ],
+        "pair_intersections": {
+          "0,1": 147,
+          "0,2": 251,
+          "0,3": 186,
+          "0,4": 184,
+          "0,5": 255,
+          "0,6": 147,
+          "1,2": 147,
+          "1,3": 255,
+          "1,4": 185,
+          "1,5": 184,
+          "1,6": 250,
+          "2,3": 146,
+          "2,4": 250,
+          "2,5": 185,
+          "2,6": 184,
+          "3,4": 145,
+          "3,5": 250,
+          "3,6": 184,
+          "4,5": 145,
+          "4,6": 255,
+          "5,6": 146
+        },
+        "pair_intersections_at_254_or_255": 3,
+        "pair_intersections_at_255": 3,
+        "support_hash": "21b792c74834b69dce2e3dbbdf05529a2ce3d8a51171d1da789867cb01da50de",
+        "witness_support_sizes": [
+          327,
+          327,
+          327,
+          327,
+          327,
+          327,
+          327
+        ]
+      },
+      "surrogate_rank_gate": {
+        "compressed_dimensions_by_witness": {
+          "1": 109,
+          "2": 5,
+          "3": 70,
+          "4": 72,
+          "5": 1,
+          "6": 109
+        },
+        "compressed_variables": 366,
+        "field_label": "GF(12289)_surrogate",
+        "field_mode": "surrogate",
+        "field_size": "12289",
+        "matrix_metadata_hash": "8e2b39515f21790d455f3e0ffb58b236c4cffef75a79191c063e06bac8a381bc",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 366,
+        "remaining_equations_by_pair": {
+          "1,2": 147,
+          "1,3": 255,
+          "1,4": 185,
+          "1,5": 184,
+          "1,6": 250,
+          "2,3": 146,
+          "2,4": 250,
+          "2,5": 185,
+          "2,6": 184,
+          "3,4": 145,
+          "3,5": 250,
+          "3,6": 184,
+          "4,5": 145,
+          "4,6": 255,
+          "5,6": 146
+        },
+        "remaining_pairwise_equations": 2911,
+        "status": "RANK_COMPUTED"
+      }
+    }
+  ],
+  "field_denominator": "2367911594760467245844106297320951247361",
+  "field_denominator_label": "17^32",
+  "global_status": {
+    "candidate_found": false,
+    "improves_pr_133": false,
+    "status": "ROUTE_CUT_TESTED_CANDIDATES"
+  },
+  "interpretation": {
+    "candidate_found": false,
+    "proxy_search_found_exact_nullity": false,
+    "status": "ROUTE_CUT_TESTED_CANDIDATES",
+    "support_packing_blocks_a327": false
+  },
+  "k": 256,
+  "minimum_to_clear": 7,
+  "n": 512,
+  "open_layers": {
+    "global_Lambda_mu_327_upper_bound": true,
+    "larger_mutation_search": true,
+    "non_diagonal_nullspace_extraction": true,
+    "positive_exact_nullity_candidate": false,
+    "status": "PARTIAL"
+  },
+  "record_hash": "8f4f60484f1e6c4f39d8bd82fadde03ece237ec253fcd5221a2e0e11a19a7092",
+  "repo_claim": {
+    "mca_counted": false,
+    "not_claimed": [
+      "MCA N_bad",
+      "protocol soundness",
+      "ordinary list decoding beyond the stated interleaved-list predicate",
+      "a=327 interleaved-list certificate",
+      "global Lambda_mu(C,327) <= 6",
+      "exact Lambda_mu",
+      "exact delta*_C",
+      "improvement over PR #133"
+    ]
+  },
+  "row": "RS[F_17^32,H,256]",
+  "sage_audit": {
+    "constructs_GF_17_32": true,
+    "recomputes_retained_candidates": true,
+    "script": "experimental/scripts/audit_m1_support_pattern_surrogate_nullity_search.sage",
+    "uses_exact_rank_gate": true,
+    "uses_surrogate_rank_gate": true
+  },
+  "search_summary": {
+    "best_exact_nullity": 0,
+    "candidate_family": "surrogate-scored balanced two-switch membership mutations",
+    "exact_audited_count": 6,
+    "exact_field": "GF(17^32)",
+    "generated_candidate_count": 12,
+    "rank_proxy": "row-pattern/pair-boundary score plus GF(12289) Sage rank gate",
+    "retained_candidate_count": 6,
+    "status": "ROUTE_CUT_TESTED_CANDIDATES",
+    "surrogate_field": "GF(12289), 512 | 12288"
+  },
+  "status": "M1_SUPPORT_PATTERN_SURROGATE_NULLITY_SEARCH_ROUTE_CUT_PARTIAL",
+  "target_agreement": 327,
+  "target_bits": 128,
+  "threshold_floor": 6,
+  "track": "INTERLEAVED_LIST"
+}

@@ -1,0 +1,95 @@
+{
+  "track": "INTERLEAVED_LIST",
+  "row": "RS[F_17^32,H,256]",
+  "denominator": "17^32",
+  "agreement_target": 327,
+  "baseline": {
+    "current_pr_133_agreement": 326,
+    "current_pr_133_lambda_lower": 7
+  },
+  "status": "AUDIT / COMPUTATIONAL_CERTIFICATE / ROUTE_CUT / PARTIAL / EXPERIMENTAL",
+  "source_files": [
+    "experimental/data/m1_a327_pairwise_divisibility_nullvector_system.json",
+    "experimental/data/m1_a327_two_level_pairwise_divisibility.json",
+    "experimental/data/m1_constructive_rank_defect_support_design.json",
+    "experimental/data/m1_support_pattern_surrogate_nullity_search.json",
+    "experimental/data/m1_support_pattern_multiplicity_mutation_search.json",
+    "experimental/data/m1_support_pattern_surrogate_rank_feedback_search.json",
+    "experimental/data/m1_nonquotient_pairwise_overlap_rank_gate.json",
+    "experimental/data/m1_quotient_residual_rim_pivot_certificates.json",
+    "experimental/data/m1_rim_support_pattern_pivot_replay.json",
+    "experimental/data/m1_rim_pivot_pattern_theorem.json",
+    "experimental/data/m1_support_overlap_pivot_schedule.json",
+    "experimental/data/m1_support_overlap_rankfree_pivot_rule.json",
+    "experimental/data/m1_generic_pairwise_rankfree_pivot_rule.json",
+    "experimental/data/m1_quotient_residual_rankfree_pivot_rule.json"
+  ],
+  "rank_gate": {
+    "support_count": 7,
+    "support_size": 327,
+    "max_pair_intersection": 254,
+    "matrix_shape": [2882, 382],
+    "rank": 382,
+    "nullity": 0,
+    "status": "ROUTE_CUT_SUPPORT_DESIGN"
+  },
+  "pivot_coverage": {
+    "source_matrices": 34,
+    "pivot_certified": 34,
+    "certificate_type": "Sage-replayed RREF pivot minor over GF(17^32)",
+    "pattern_classes": {
+      "support_overlap_rref_pivot": 20,
+      "generic_pairwise_rref_pivot": 6,
+      "quotient_residual_rref_pivot": 8
+    },
+    "aggregate_row_type_counts": {
+      "support_overlap_row": 1901,
+      "balanced_or_generic_pairwise_row": 1226,
+      "quotient_full_fiber_row": 383,
+      "residual_or_partial_fiber_row": 37
+    },
+    "common_structural_pattern_found": false,
+    "status": "PIVOT_COVERAGE_COMPLETE"
+  },
+  "rank_free_audits": {
+    "support_overlap": {
+      "matrices": 20,
+      "attempts": 160,
+      "successes": 0,
+      "deterministic_rule_successes": 0,
+      "status": "RREF_DERIVED_PATTERN_ONLY"
+    },
+    "generic_pairwise": {
+      "matrices": 6,
+      "attempts": 48,
+      "successes": 0,
+      "deterministic_rule_successes": 0,
+      "status": "RREF_DERIVED_PATTERN_ONLY"
+    },
+    "quotient_residual": {
+      "matrices": 8,
+      "attempts": 88,
+      "successes": 2,
+      "deterministic_rule_successes": 0,
+      "rref_mimic_successes": 2,
+      "large_matrix_successes": 0,
+      "status": "RREF_MIMIC_PARTIAL_SUCCESS"
+    }
+  },
+  "repo_claim": {
+    "improves_pr_133": false,
+    "mca_counted": false,
+    "not_claimed": [
+      "MCA N_bad",
+      "protocol soundness",
+      "ordinary list decoding beyond the stated interleaved-list predicate",
+      "a=327 interleaved-list certificate",
+      "global Lambda_mu(C,327) <= 6",
+      "global RIM full-rank theorem",
+      "deterministic combinatorial pivot schedule",
+      "exact Lambda_mu",
+      "exact delta*_C",
+      "improvement over PR #133"
+    ]
+  }
+}

@@ -1,0 +1,1558 @@
+{
+  "agreement_target": 327,
+  "baseline": {
+    "current_pr_133_agreement": 326,
+    "current_pr_133_lambda_lower": 7,
+    "source": "PR #133 hybrid quotient-residual certificate"
+  },
+  "candidates": [
+    {
+      "candidate_id": "balanced_clique_m2_o1",
+      "construction_family": "balanced_clique_blocks",
+      "construction_mode": "pairwise_divisibility_nullvector",
+      "equality_design": {
+        "block_size_histogram": {
+          "3": 512,
+          "4": 512
+        },
+        "coordinate_count": 512,
+        "equality_pattern_hash": "3f41ea1ba4cb7838933a4ededf5f88a1f0fdd9dbcd159ad4f4b4e584205c51c7",
+        "max_pair_equality_size": 249,
+        "min_witness_equality_incidence": 512,
+        "pair_equalities_at_255": 0,
+        "pair_equality_counts": {
+          "0,1": 207,
+          "0,2": 232,
+          "0,3": 229,
+          "0,4": 235,
+          "0,5": 244,
+          "0,6": 210,
+          "1,2": 207,
+          "1,3": 218,
+          "1,4": 186,
+          "1,5": 235,
+          "1,6": 245,
+          "2,3": 213,
+          "2,4": 229,
+          "2,5": 212,
+          "2,6": 226,
+          "3,4": 210,
+          "3,5": 225,
+          "3,6": 217,
+          "4,5": 189,
+          "4,6": 249,
+          "5,6": 190
+        },
+        "pair_equality_sum": 4608,
+        "pair_equality_values": [
+          186,
+          189,
+          190,
+          207,
+          207,
+          210,
+          210,
+          212,
+          213,
+          217,
+          218,
+          225,
+          226,
+          229,
+          229,
+          232,
+          235,
+          235,
+          244,
+          245,
+          249
+        ],
+        "partition_pattern_count": 35,
+        "partition_pattern_histogram_hash": "b48be93b1f3dff3f50d32bb69924284eb7e1f72648ce40464aaf312f13e6cf7a",
+        "quotient_fiber_profile": [
+          {
+            "distinct_patterns": 22,
+            "fiber": 0,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 20,
+            "fiber": 1,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 21,
+            "fiber": 2,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 21,
+            "fiber": 3,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 20,
+            "fiber": 4,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 19,
+            "fiber": 5,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 21,
+            "fiber": 6,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 22,
+            "fiber": 7,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 22,
+            "fiber": 8,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 25,
+            "fiber": 9,
+            "largest_pattern_multiplicity": 2
+          },
+          {
+            "distinct_patterns": 20,
+            "fiber": 10,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 22,
+            "fiber": 11,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 19,
+            "fiber": 12,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 20,
+            "fiber": 13,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 17,
+            "fiber": 14,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 20,
+            "fiber": 15,
+            "largest_pattern_multiplicity": 4
+          }
+        ],
+        "witness_equality_incidences": [
+          512,
+          512,
+          512,
+          512,
+          512,
+          512,
+          512
+        ]
+      },
+      "extraction": {
+        "agreement_verified": false,
+        "non_diagonal_solution_found": false,
+        "status": "NOT_RUN"
+      },
+      "proof_status": "ROUTE_CUT_TESTED_CANDIDATE",
+      "sage_exact_rank": {
+        "compressed_dimensions_by_witness": {
+          "1": 49,
+          "2": 24,
+          "3": 27,
+          "4": 21,
+          "5": 12,
+          "6": 46
+        },
+        "compressed_variables": 179,
+        "field_label": "GF(17^32)",
+        "field_mode": "exact",
+        "field_size": "2367911594760467245844106297320951247361",
+        "matrix_metadata_hash": "b1dadb8a93eb5d76e4ec240a69c83fd4f0f523532ab7c41dbbb8a5bc5b9164e0",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 179,
+        "remaining_equations_by_pair": {
+          "1,2": 207,
+          "1,3": 218,
+          "1,4": 186,
+          "1,5": 235,
+          "1,6": 245,
+          "2,3": 213,
+          "2,4": 229,
+          "2,5": 212,
+          "2,6": 226,
+          "3,4": 210,
+          "3,5": 225,
+          "3,6": 217,
+          "4,5": 189,
+          "4,6": 249,
+          "5,6": 190
+        },
+        "remaining_pairwise_equations": 3251,
+        "status": "RANK_COMPUTED"
+      },
+      "structural_score": {
+        "boundary_pressure": 1,
+        "compressed_variables_estimate": 179,
+        "method": "pairwise_divisibility_structural_screen",
+        "pair_balance_penalty": 63,
+        "score": 47,
+        "status": "SCORED"
+      },
+      "surrogate_rank_gate": {
+        "compressed_dimensions_by_witness": {
+          "1": 49,
+          "2": 24,
+          "3": 27,
+          "4": 21,
+          "5": 12,
+          "6": 46
+        },
+        "compressed_variables": 179,
+        "field_label": "GF(12289)_surrogate",
+        "field_mode": "surrogate",
+        "field_size": "12289",
+        "matrix_metadata_hash": "a80769a94885807bb3ab640add4e9f8686cfd7a2a94d726e85c0a05579759fa8",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 179,
+        "remaining_equations_by_pair": {
+          "1,2": 207,
+          "1,3": 218,
+          "1,4": 186,
+          "1,5": 235,
+          "1,6": 245,
+          "2,3": 213,
+          "2,4": 229,
+          "2,5": 212,
+          "2,6": 226,
+          "3,4": 210,
+          "3,5": 225,
+          "3,6": 217,
+          "4,5": 189,
+          "4,6": 249,
+          "5,6": 190
+        },
+        "remaining_pairwise_equations": 3251,
+        "status": "RANK_COMPUTED"
+      }
+    },
+    {
+      "candidate_id": "balanced_clique_m6_o1",
+      "construction_family": "balanced_clique_blocks",
+      "construction_mode": "pairwise_divisibility_nullvector",
+      "equality_design": {
+        "block_size_histogram": {
+          "3": 512,
+          "4": 512
+        },
+        "coordinate_count": 512,
+        "equality_pattern_hash": "8521c08f3d8b62b91b553aec36d4bb34fb16330499d2700e1bc71e8a1c8478dd",
+        "max_pair_equality_size": 251,
+        "min_witness_equality_incidence": 512,
+        "pair_equalities_at_255": 0,
+        "pair_equality_counts": {
+          "0,1": 251,
+          "0,2": 221,
+          "0,3": 213,
+          "0,4": 206,
+          "0,5": 225,
+          "0,6": 215,
+          "1,2": 232,
+          "1,3": 204,
+          "1,4": 205,
+          "1,5": 188,
+          "1,6": 222,
+          "2,3": 206,
+          "2,4": 215,
+          "2,5": 232,
+          "2,6": 208,
+          "3,4": 249,
+          "3,5": 222,
+          "3,6": 224,
+          "4,5": 223,
+          "4,6": 215,
+          "5,6": 232
+        },
+        "pair_equality_sum": 4608,
+        "pair_equality_values": [
+          188,
+          204,
+          205,
+          206,
+          206,
+          208,
+          213,
+          215,
+          215,
+          215,
+          221,
+          222,
+          222,
+          223,
+          224,
+          225,
+          232,
+          232,
+          232,
+          249,
+          251
+        ],
+        "partition_pattern_count": 35,
+        "partition_pattern_histogram_hash": "f7b3eb5f1573c091d98a0456c136b1a960e785e6a05646b081e6edeb0eed6b32",
+        "quotient_fiber_profile": [
+          {
+            "distinct_patterns": 21,
+            "fiber": 0,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 19,
+            "fiber": 1,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 22,
+            "fiber": 2,
+            "largest_pattern_multiplicity": 5
+          },
+          {
+            "distinct_patterns": 18,
+            "fiber": 3,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 22,
+            "fiber": 4,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 22,
+            "fiber": 5,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 21,
+            "fiber": 6,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 19,
+            "fiber": 7,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 19,
+            "fiber": 8,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 23,
+            "fiber": 9,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 19,
+            "fiber": 10,
+            "largest_pattern_multiplicity": 5
+          },
+          {
+            "distinct_patterns": 23,
+            "fiber": 11,
+            "largest_pattern_multiplicity": 5
+          },
+          {
+            "distinct_patterns": 23,
+            "fiber": 12,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 21,
+            "fiber": 13,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 19,
+            "fiber": 14,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 22,
+            "fiber": 15,
+            "largest_pattern_multiplicity": 3
+          }
+        ],
+        "witness_equality_incidences": [
+          512,
+          512,
+          512,
+          512,
+          512,
+          512,
+          512
+        ]
+      },
+      "extraction": {
+        "agreement_verified": false,
+        "non_diagonal_solution_found": false,
+        "status": "NOT_RUN"
+      },
+      "proof_status": "ROUTE_CUT_TESTED_CANDIDATE",
+      "sage_exact_rank": {
+        "compressed_dimensions_by_witness": {
+          "1": 5,
+          "2": 35,
+          "3": 43,
+          "4": 50,
+          "5": 31,
+          "6": 41
+        },
+        "compressed_variables": 205,
+        "field_label": "GF(17^32)",
+        "field_mode": "exact",
+        "field_size": "2367911594760467245844106297320951247361",
+        "matrix_metadata_hash": "0959dcb1db0842d8e668526fc159147dddee590e81fcce31d7b345fca36b045a",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 205,
+        "remaining_equations_by_pair": {
+          "1,2": 232,
+          "1,3": 204,
+          "1,4": 205,
+          "1,5": 188,
+          "1,6": 222,
+          "2,3": 206,
+          "2,4": 215,
+          "2,5": 232,
+          "2,6": 208,
+          "3,4": 249,
+          "3,5": 222,
+          "3,6": 224,
+          "4,5": 223,
+          "4,6": 215,
+          "5,6": 232
+        },
+        "remaining_pairwise_equations": 3277,
+        "status": "RANK_COMPUTED"
+      },
+      "structural_score": {
+        "boundary_pressure": 4,
+        "compressed_variables_estimate": 205,
+        "method": "pairwise_divisibility_structural_screen",
+        "pair_balance_penalty": 63,
+        "score": 49,
+        "status": "SCORED"
+      },
+      "surrogate_rank_gate": {
+        "compressed_dimensions_by_witness": {
+          "1": 5,
+          "2": 35,
+          "3": 43,
+          "4": 50,
+          "5": 31,
+          "6": 41
+        },
+        "compressed_variables": 205,
+        "field_label": "GF(12289)_surrogate",
+        "field_mode": "surrogate",
+        "field_size": "12289",
+        "matrix_metadata_hash": "12a8bab3c4c4f58c8b854a273afc9b818df9c46b3debdd54475835520f6a3c04",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 205,
+        "remaining_equations_by_pair": {
+          "1,2": 232,
+          "1,3": 204,
+          "1,4": 205,
+          "1,5": 188,
+          "1,6": 222,
+          "2,3": 206,
+          "2,4": 215,
+          "2,5": 232,
+          "2,6": 208,
+          "3,4": 249,
+          "3,5": 222,
+          "3,6": 224,
+          "4,5": 223,
+          "4,6": 215,
+          "5,6": 232
+        },
+        "remaining_pairwise_equations": 3277,
+        "status": "RANK_COMPUTED"
+      }
+    },
+    {
+      "candidate_id": "balanced_clique_m5_o1",
+      "construction_family": "balanced_clique_blocks",
+      "construction_mode": "pairwise_divisibility_nullvector",
+      "equality_design": {
+        "block_size_histogram": {
+          "3": 512,
+          "4": 512
+        },
+        "coordinate_count": 512,
+        "equality_pattern_hash": "633030f6cd7c5c80bd65472a149c1d3cdb08271b5afcff3bdb25d62a1537f985",
+        "max_pair_equality_size": 241,
+        "min_witness_equality_incidence": 512,
+        "pair_equalities_at_255": 0,
+        "pair_equality_counts": {
+          "0,1": 205,
+          "0,2": 241,
+          "0,3": 239,
+          "0,4": 211,
+          "0,5": 238,
+          "0,6": 197,
+          "1,2": 214,
+          "1,3": 222,
+          "1,4": 224,
+          "1,5": 223,
+          "1,6": 224,
+          "2,3": 194,
+          "2,4": 238,
+          "2,5": 205,
+          "2,6": 234,
+          "3,4": 196,
+          "3,5": 227,
+          "3,6": 236,
+          "4,5": 211,
+          "4,6": 226,
+          "5,6": 203
+        },
+        "pair_equality_sum": 4608,
+        "pair_equality_values": [
+          194,
+          196,
+          197,
+          203,
+          205,
+          205,
+          211,
+          211,
+          214,
+          222,
+          223,
+          224,
+          224,
+          226,
+          227,
+          234,
+          236,
+          238,
+          238,
+          239,
+          241
+        ],
+        "partition_pattern_count": 35,
+        "partition_pattern_histogram_hash": "d1431895799394a593a3bd1710b27d34ed9c7a428d2c76b03c62a042e65d9fbe",
+        "quotient_fiber_profile": [
+          {
+            "distinct_patterns": 20,
+            "fiber": 0,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 20,
+            "fiber": 1,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 20,
+            "fiber": 2,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 24,
+            "fiber": 3,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 21,
+            "fiber": 4,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 19,
+            "fiber": 5,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 19,
+            "fiber": 6,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 28,
+            "fiber": 7,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 18,
+            "fiber": 8,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 20,
+            "fiber": 9,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 19,
+            "fiber": 10,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 23,
+            "fiber": 11,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 21,
+            "fiber": 12,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 20,
+            "fiber": 13,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 20,
+            "fiber": 14,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 20,
+            "fiber": 15,
+            "largest_pattern_multiplicity": 3
+          }
+        ],
+        "witness_equality_incidences": [
+          512,
+          512,
+          512,
+          512,
+          512,
+          512,
+          512
+        ]
+      },
+      "extraction": {
+        "agreement_verified": false,
+        "non_diagonal_solution_found": false,
+        "status": "NOT_RUN"
+      },
+      "proof_status": "ROUTE_CUT_TESTED_CANDIDATE",
+      "sage_exact_rank": {
+        "compressed_dimensions_by_witness": {
+          "1": 51,
+          "2": 15,
+          "3": 17,
+          "4": 45,
+          "5": 18,
+          "6": 59
+        },
+        "compressed_variables": 205,
+        "field_label": "GF(17^32)",
+        "field_mode": "exact",
+        "field_size": "2367911594760467245844106297320951247361",
+        "matrix_metadata_hash": "7d54bb69fa18f95d8534d246a808d97312b0ecd4df96e2acb7264b92fdf5ed63",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 205,
+        "remaining_equations_by_pair": {
+          "1,2": 214,
+          "1,3": 222,
+          "1,4": 224,
+          "1,5": 223,
+          "1,6": 224,
+          "2,3": 194,
+          "2,4": 238,
+          "2,5": 205,
+          "2,6": 234,
+          "3,4": 196,
+          "3,5": 227,
+          "3,6": 236,
+          "4,5": 211,
+          "4,6": 226,
+          "5,6": 203
+        },
+        "remaining_pairwise_equations": 3277,
+        "status": "RANK_COMPUTED"
+      },
+      "structural_score": {
+        "boundary_pressure": 0,
+        "compressed_variables_estimate": 205,
+        "method": "pairwise_divisibility_structural_screen",
+        "pair_balance_penalty": 47,
+        "score": 47,
+        "status": "SCORED"
+      },
+      "surrogate_rank_gate": {
+        "compressed_dimensions_by_witness": {
+          "1": 51,
+          "2": 15,
+          "3": 17,
+          "4": 45,
+          "5": 18,
+          "6": 59
+        },
+        "compressed_variables": 205,
+        "field_label": "GF(12289)_surrogate",
+        "field_mode": "surrogate",
+        "field_size": "12289",
+        "matrix_metadata_hash": "3a42904d0e776c65b3281ce089df14f7bb4afd7bddd7df3e9378c2f444bd066b",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 205,
+        "remaining_equations_by_pair": {
+          "1,2": 214,
+          "1,3": 222,
+          "1,4": 224,
+          "1,5": 223,
+          "1,6": 224,
+          "2,3": 194,
+          "2,4": 238,
+          "2,5": 205,
+          "2,6": 234,
+          "3,4": 196,
+          "3,5": 227,
+          "3,6": 236,
+          "4,5": 211,
+          "4,6": 226,
+          "5,6": 203
+        },
+        "remaining_pairwise_equations": 3277,
+        "status": "RANK_COMPUTED"
+      }
+    },
+    {
+      "candidate_id": "balanced_clique_m2_o0",
+      "construction_family": "balanced_clique_blocks",
+      "construction_mode": "pairwise_divisibility_nullvector",
+      "equality_design": {
+        "block_size_histogram": {
+          "3": 512,
+          "4": 512
+        },
+        "coordinate_count": 512,
+        "equality_pattern_hash": "15f4aef96d3bd8fa48265163b2c92a577766b200cd043d14e9bb23e00c238311",
+        "max_pair_equality_size": 254,
+        "min_witness_equality_incidence": 512,
+        "pair_equalities_at_255": 0,
+        "pair_equality_counts": {
+          "0,1": 217,
+          "0,2": 215,
+          "0,3": 231,
+          "0,4": 219,
+          "0,5": 247,
+          "0,6": 201,
+          "1,2": 196,
+          "1,3": 238,
+          "1,4": 206,
+          "1,5": 218,
+          "1,6": 246,
+          "2,3": 212,
+          "2,4": 254,
+          "2,5": 214,
+          "2,6": 222,
+          "3,4": 198,
+          "3,5": 214,
+          "3,6": 222,
+          "4,5": 214,
+          "4,6": 222,
+          "5,6": 202
+        },
+        "pair_equality_sum": 4608,
+        "pair_equality_values": [
+          196,
+          198,
+          201,
+          202,
+          206,
+          212,
+          214,
+          214,
+          214,
+          215,
+          217,
+          218,
+          219,
+          222,
+          222,
+          222,
+          231,
+          238,
+          246,
+          247,
+          254
+        ],
+        "partition_pattern_count": 35,
+        "partition_pattern_histogram_hash": "1b6843fc02db1fb9f7350cb63d96d9c05e6470a480768399b4dcd41e327d0400",
+        "quotient_fiber_profile": [
+          {
+            "distinct_patterns": 23,
+            "fiber": 0,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 24,
+            "fiber": 1,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 20,
+            "fiber": 2,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 21,
+            "fiber": 3,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 22,
+            "fiber": 4,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 22,
+            "fiber": 5,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 19,
+            "fiber": 6,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 22,
+            "fiber": 7,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 21,
+            "fiber": 8,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 20,
+            "fiber": 9,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 23,
+            "fiber": 10,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 22,
+            "fiber": 11,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 23,
+            "fiber": 12,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 25,
+            "fiber": 13,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 21,
+            "fiber": 14,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 20,
+            "fiber": 15,
+            "largest_pattern_multiplicity": 3
+          }
+        ],
+        "witness_equality_incidences": [
+          512,
+          512,
+          512,
+          512,
+          512,
+          512,
+          512
+        ]
+      },
+      "extraction": {
+        "agreement_verified": false,
+        "non_diagonal_solution_found": false,
+        "status": "NOT_RUN"
+      },
+      "proof_status": "ROUTE_CUT_TESTED_CANDIDATE",
+      "sage_exact_rank": {
+        "compressed_dimensions_by_witness": {
+          "1": 39,
+          "2": 41,
+          "3": 25,
+          "4": 37,
+          "5": 9,
+          "6": 55
+        },
+        "compressed_variables": 206,
+        "field_label": "GF(17^32)",
+        "field_mode": "exact",
+        "field_size": "2367911594760467245844106297320951247361",
+        "matrix_metadata_hash": "c06a4e283897b7b60a61dbdbe673637bb939d8b231da3010153f4b81369eb1e0",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 206,
+        "remaining_equations_by_pair": {
+          "1,2": 196,
+          "1,3": 238,
+          "1,4": 206,
+          "1,5": 218,
+          "1,6": 246,
+          "2,3": 212,
+          "2,4": 254,
+          "2,5": 214,
+          "2,6": 222,
+          "3,4": 198,
+          "3,5": 214,
+          "3,6": 222,
+          "4,5": 214,
+          "4,6": 222,
+          "5,6": 202
+        },
+        "remaining_pairwise_equations": 3278,
+        "status": "RANK_COMPUTED"
+      },
+      "structural_score": {
+        "boundary_pressure": 6,
+        "compressed_variables_estimate": 206,
+        "method": "pairwise_divisibility_structural_screen",
+        "pair_balance_penalty": 58,
+        "score": 51,
+        "status": "SCORED"
+      },
+      "surrogate_rank_gate": {
+        "compressed_dimensions_by_witness": {
+          "1": 39,
+          "2": 41,
+          "3": 25,
+          "4": 37,
+          "5": 9,
+          "6": 55
+        },
+        "compressed_variables": 206,
+        "field_label": "GF(12289)_surrogate",
+        "field_mode": "surrogate",
+        "field_size": "12289",
+        "matrix_metadata_hash": "047b16db0d0266742ba0a713a29c32fc3035245553d201862cada40898a28b03",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 206,
+        "remaining_equations_by_pair": {
+          "1,2": 196,
+          "1,3": 238,
+          "1,4": 206,
+          "1,5": 218,
+          "1,6": 246,
+          "2,3": 212,
+          "2,4": 254,
+          "2,5": 214,
+          "2,6": 222,
+          "3,4": 198,
+          "3,5": 214,
+          "3,6": 222,
+          "4,5": 214,
+          "4,6": 222,
+          "5,6": 202
+        },
+        "remaining_pairwise_equations": 3278,
+        "status": "RANK_COMPUTED"
+      }
+    },
+    {
+      "candidate_id": "balanced_clique_m6_o0",
+      "construction_family": "balanced_clique_blocks",
+      "construction_mode": "pairwise_divisibility_nullvector",
+      "equality_design": {
+        "block_size_histogram": {
+          "3": 512,
+          "4": 512
+        },
+        "coordinate_count": 512,
+        "equality_pattern_hash": "ef3eda0a3e394521806dd7fc8680791559cb0a2bac2b8e7a1c7668ae0a0f5958",
+        "max_pair_equality_size": 254,
+        "min_witness_equality_incidence": 512,
+        "pair_equalities_at_255": 0,
+        "pair_equality_counts": {
+          "0,1": 254,
+          "0,2": 196,
+          "0,3": 214,
+          "0,4": 212,
+          "0,5": 208,
+          "0,6": 238,
+          "1,2": 230,
+          "1,3": 190,
+          "1,4": 214,
+          "1,5": 206,
+          "1,6": 222,
+          "2,3": 252,
+          "2,4": 224,
+          "2,5": 208,
+          "2,6": 212,
+          "3,4": 234,
+          "3,5": 212,
+          "3,6": 216,
+          "4,5": 242,
+          "4,6": 194,
+          "5,6": 230
+        },
+        "pair_equality_sum": 4608,
+        "pair_equality_values": [
+          190,
+          194,
+          196,
+          206,
+          208,
+          208,
+          212,
+          212,
+          212,
+          214,
+          214,
+          216,
+          222,
+          224,
+          230,
+          230,
+          234,
+          238,
+          242,
+          252,
+          254
+        ],
+        "partition_pattern_count": 35,
+        "partition_pattern_histogram_hash": "c9c1aa5104937e15060d99b5996a0d93f3b796d3b3d70bc9d70f3548e2a58a6c",
+        "quotient_fiber_profile": [
+          {
+            "distinct_patterns": 22,
+            "fiber": 0,
+            "largest_pattern_multiplicity": 2
+          },
+          {
+            "distinct_patterns": 23,
+            "fiber": 1,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 21,
+            "fiber": 2,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 22,
+            "fiber": 3,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 22,
+            "fiber": 4,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 19,
+            "fiber": 5,
+            "largest_pattern_multiplicity": 5
+          },
+          {
+            "distinct_patterns": 20,
+            "fiber": 6,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 20,
+            "fiber": 7,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 21,
+            "fiber": 8,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 23,
+            "fiber": 9,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 22,
+            "fiber": 10,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 18,
+            "fiber": 11,
+            "largest_pattern_multiplicity": 5
+          },
+          {
+            "distinct_patterns": 23,
+            "fiber": 12,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 20,
+            "fiber": 13,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 23,
+            "fiber": 14,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 23,
+            "fiber": 15,
+            "largest_pattern_multiplicity": 3
+          }
+        ],
+        "witness_equality_incidences": [
+          512,
+          512,
+          512,
+          512,
+          512,
+          512,
+          512
+        ]
+      },
+      "extraction": {
+        "agreement_verified": false,
+        "non_diagonal_solution_found": false,
+        "status": "NOT_RUN"
+      },
+      "proof_status": "ROUTE_CUT_TESTED_CANDIDATE",
+      "sage_exact_rank": {
+        "compressed_dimensions_by_witness": {
+          "1": 2,
+          "2": 60,
+          "3": 42,
+          "4": 44,
+          "5": 48,
+          "6": 18
+        },
+        "compressed_variables": 214,
+        "field_label": "GF(17^32)",
+        "field_mode": "exact",
+        "field_size": "2367911594760467245844106297320951247361",
+        "matrix_metadata_hash": "af5704490f49d175caa196e161978a46a66356ecd986c76b31d44311c5c785fa",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 214,
+        "remaining_equations_by_pair": {
+          "1,2": 230,
+          "1,3": 190,
+          "1,4": 214,
+          "1,5": 206,
+          "1,6": 222,
+          "2,3": 252,
+          "2,4": 224,
+          "2,5": 208,
+          "2,6": 212,
+          "3,4": 234,
+          "3,5": 212,
+          "3,6": 216,
+          "4,5": 242,
+          "4,6": 194,
+          "5,6": 230
+        },
+        "remaining_pairwise_equations": 3286,
+        "status": "RANK_COMPUTED"
+      },
+      "structural_score": {
+        "boundary_pressure": 10,
+        "compressed_variables_estimate": 214,
+        "method": "pairwise_divisibility_structural_screen",
+        "pair_balance_penalty": 64,
+        "score": 53,
+        "status": "SCORED"
+      },
+      "surrogate_rank_gate": {
+        "compressed_dimensions_by_witness": {
+          "1": 2,
+          "2": 60,
+          "3": 42,
+          "4": 44,
+          "5": 48,
+          "6": 18
+        },
+        "compressed_variables": 214,
+        "field_label": "GF(12289)_surrogate",
+        "field_mode": "surrogate",
+        "field_size": "12289",
+        "matrix_metadata_hash": "c5105ce4aaf168000f22ab7030cbfca19a28fce7ca410e473b16fdf5bd59fa5a",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 214,
+        "remaining_equations_by_pair": {
+          "1,2": 230,
+          "1,3": 190,
+          "1,4": 214,
+          "1,5": 206,
+          "1,6": 222,
+          "2,3": 252,
+          "2,4": 224,
+          "2,5": 208,
+          "2,6": 212,
+          "3,4": 234,
+          "3,5": 212,
+          "3,6": 216,
+          "4,5": 242,
+          "4,6": 194,
+          "5,6": 230
+        },
+        "remaining_pairwise_equations": 3286,
+        "status": "RANK_COMPUTED"
+      }
+    },
+    {
+      "candidate_id": "balanced_clique_m1_o0",
+      "construction_family": "balanced_clique_blocks",
+      "construction_mode": "pairwise_divisibility_nullvector",
+      "equality_design": {
+        "block_size_histogram": {
+          "3": 512,
+          "4": 512
+        },
+        "coordinate_count": 512,
+        "equality_pattern_hash": "c9dfe687ed64f95db757344617759f0d4b202a1b3321848f861281494b63627e",
+        "max_pair_equality_size": 254,
+        "min_witness_equality_incidence": 512,
+        "pair_equalities_at_255": 0,
+        "pair_equality_counts": {
+          "0,1": 242,
+          "0,2": 212,
+          "0,3": 214,
+          "0,4": 215,
+          "0,5": 197,
+          "0,6": 239,
+          "1,2": 236,
+          "1,3": 216,
+          "1,4": 203,
+          "1,5": 211,
+          "1,6": 199,
+          "2,3": 254,
+          "2,4": 215,
+          "2,5": 191,
+          "2,6": 207,
+          "3,4": 215,
+          "3,5": 231,
+          "3,6": 197,
+          "4,5": 236,
+          "4,6": 226,
+          "5,6": 252
+        },
+        "pair_equality_sum": 4608,
+        "pair_equality_values": [
+          191,
+          197,
+          197,
+          199,
+          203,
+          207,
+          211,
+          212,
+          214,
+          215,
+          215,
+          215,
+          216,
+          226,
+          231,
+          236,
+          236,
+          239,
+          242,
+          252,
+          254
+        ],
+        "partition_pattern_count": 35,
+        "partition_pattern_histogram_hash": "daf35c99341e8581909ac7aa02a9b1c7234a063207e07f5ff7b3954c3e2c8d34",
+        "quotient_fiber_profile": [
+          {
+            "distinct_patterns": 19,
+            "fiber": 0,
+            "largest_pattern_multiplicity": 6
+          },
+          {
+            "distinct_patterns": 21,
+            "fiber": 1,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 22,
+            "fiber": 2,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 21,
+            "fiber": 3,
+            "largest_pattern_multiplicity": 5
+          },
+          {
+            "distinct_patterns": 24,
+            "fiber": 4,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 20,
+            "fiber": 5,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 20,
+            "fiber": 6,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 20,
+            "fiber": 7,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 20,
+            "fiber": 8,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 20,
+            "fiber": 9,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 22,
+            "fiber": 10,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 21,
+            "fiber": 11,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 19,
+            "fiber": 12,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 17,
+            "fiber": 13,
+            "largest_pattern_multiplicity": 4
+          },
+          {
+            "distinct_patterns": 21,
+            "fiber": 14,
+            "largest_pattern_multiplicity": 3
+          },
+          {
+            "distinct_patterns": 21,
+            "fiber": 15,
+            "largest_pattern_multiplicity": 3
+          }
+        ],
+        "witness_equality_incidences": [
+          512,
+          512,
+          512,
+          512,
+          512,
+          512,
+          512
+        ]
+      },
+      "extraction": {
+        "agreement_verified": false,
+        "non_diagonal_solution_found": false,
+        "status": "NOT_RUN"
+      },
+      "proof_status": "ROUTE_CUT_TESTED_CANDIDATE",
+      "sage_exact_rank": {
+        "compressed_dimensions_by_witness": {
+          "1": 14,
+          "2": 44,
+          "3": 42,
+          "4": 41,
+          "5": 59,
+          "6": 17
+        },
+        "compressed_variables": 217,
+        "field_label": "GF(17^32)",
+        "field_mode": "exact",
+        "field_size": "2367911594760467245844106297320951247361",
+        "matrix_metadata_hash": "1b770f5aaf1cc84f0626a2398a4eeaa1f010c77c5945cfae746569a505f6d307",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 217,
+        "remaining_equations_by_pair": {
+          "1,2": 236,
+          "1,3": 216,
+          "1,4": 203,
+          "1,5": 211,
+          "1,6": 199,
+          "2,3": 254,
+          "2,4": 215,
+          "2,5": 191,
+          "2,6": 207,
+          "3,4": 215,
+          "3,5": 231,
+          "3,6": 197,
+          "4,5": 236,
+          "4,6": 226,
+          "5,6": 252
+        },
+        "remaining_pairwise_equations": 3289,
+        "status": "RANK_COMPUTED"
+      },
+      "structural_score": {
+        "boundary_pressure": 10,
+        "compressed_variables_estimate": 217,
+        "method": "pairwise_divisibility_structural_screen",
+        "pair_balance_penalty": 63,
+        "score": 54,
+        "status": "SCORED"
+      },
+      "surrogate_rank_gate": {
+        "compressed_dimensions_by_witness": {
+          "1": 14,
+          "2": 44,
+          "3": 42,
+          "4": 41,
+          "5": 59,
+          "6": 17
+        },
+        "compressed_variables": 217,
+        "field_label": "GF(12289)_surrogate",
+        "field_mode": "surrogate",
+        "field_size": "12289",
+        "matrix_metadata_hash": "111f5d3dc42d27aa223249098a2197395b15d15e209c5233687d90b4d9db1edd",
+        "non_diagonal_solution_found": false,
+        "nullity": 0,
+        "rank": 217,
+        "remaining_equations_by_pair": {
+          "1,2": 236,
+          "1,3": 216,
+          "1,4": 203,
+          "1,5": 211,
+          "1,6": 199,
+          "2,3": 254,
+          "2,4": 215,
+          "2,5": 191,
+          "2,6": 207,
+          "3,4": 215,
+          "3,5": 231,
+          "3,6": 197,
+          "4,5": 236,
+          "4,6": 226,
+          "5,6": 252
+        },
+        "remaining_pairwise_equations": 3289,
+        "status": "RANK_COMPUTED"
+      }
+    }
+  ],
+  "construction_mode": "pairwise_divisibility_nullvector",
+  "denominator": "17^32",
+  "field_denominator": "2367911594760467245844106297320951247361",
+  "global_status": {
+    "candidate_found": false,
+    "improves_pr_133": false,
+    "status": "ROUTE_CUT_TESTED_CANDIDATES"
+  },
+  "interpretation": {
+    "a327_certificate_found": false,
+    "exact_audited_candidate_found_nullity": false,
+    "global_Lambda_mu_327_upper_bound": false,
+    "pairwise_equalities_designed_jointly": true,
+    "status": "ROUTE_CUT_TESTED_CANDIDATES",
+    "support_packing_only": false
+  },
+  "k": 256,
+  "minimum_to_clear": 7,
+  "n": 512,
+  "open_layers": {
+    "global_Lambda_mu_327_upper_bound": true,
+    "larger_pairwise_divisibility_systems": true,
+    "non_diagonal_nullspace_extraction": true,
+    "status": "PARTIAL",
+    "two_level_quotient_plus_residual": true,
+    "value_class_max_min_after_positive_nullity": true
+  },
+  "record_hash": "89fca11d631fd1a253c5e414d8f4dade9f832b741a20cc9220d99823617d50c0",
+  "repo_claim": {
+    "mca_counted": false,
+    "not_claimed": [
+      "MCA N_bad",
+      "protocol soundness",
+      "ordinary list decoding beyond the stated interleaved-list predicate",
+      "a=327 interleaved-list certificate",
+      "PROOF_RECORD lower bound without Sage extraction",
+      "exact Lambda_mu",
+      "exact delta*_C",
+      "global Lambda_mu(C,327) <= 6",
+      "global pairwise-divisibility obstruction",
+      "improvement over PR #133"
+    ]
+  },
+  "row": "RS[F_17^32,H,256]",
+  "sage_audit": {
+    "checks_surrogate_rank_gate": true,
+    "constructs_GF_17_32": true,
+    "extracts_codewords_only_if_positive_nullity": true,
+    "recomputes_retained_candidates": true,
+    "script": "experimental/scripts/audit_m1_a327_pairwise_divisibility_nullvector_system.sage",
+    "uses_exact_pairwise_divisibility_rank_gate": true
+  },
+  "search_summary": {
+    "best_exact_nullity": 0,
+    "candidate_found": false,
+    "exact_audited_count": 6,
+    "exact_field": "GF(17^32)",
+    "families": [
+      "balanced_clique_blocks",
+      "quotient_fiber_pairwise_blocks",
+      "pair_boundary_design",
+      "mixed_clique_design"
+    ],
+    "generated_spec_count": 48,
+    "proxy_positive_count": 0,
+    "random_seed": 2026062804,
+    "rank_proxy": "GF(12289) pairwise-divisibility reduced rank",
+    "rank_screen_candidate_count": 12,
+    "retained_candidate_count": 6,
+    "retained_family_counts": {
+      "balanced_clique_blocks": 6
+    },
+    "status": "ROUTE_CUT_TESTED_CANDIDATES",
+    "surrogate_field": "GF(12289), 512 | 12288",
+    "valid_family_counts": {
+      "balanced_clique_blocks": 11,
+      "mixed_clique_design": 8
+    },
+    "valid_pairwise_design_count": 19
+  },
+  "status": "M1_A327_PAIRWISE_DIVISIBILITY_NULLVECTOR_SYSTEM_PARTIAL",
+  "target_bits": 128,
+  "threshold_floor": 6,
+  "track": "INTERLEAVED_LIST"
+}

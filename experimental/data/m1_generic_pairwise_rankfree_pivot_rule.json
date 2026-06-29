@@ -1,0 +1,1368 @@
+{
+  "aggregate_pair_pivot_counts": {
+    "1,2": 379,
+    "1,3": 196,
+    "1,4": 238,
+    "1,5": 177,
+    "1,6": 236
+  },
+  "agreement": 327,
+  "agreement_target": 327,
+  "construction_mode": "generic_pairwise_rankfree_pivot_rule",
+  "denominator": "17^32",
+  "field_denominator": "2367911594760467245844106297320951247361",
+  "global_status": {
+    "candidate_found": false,
+    "improves_pr_133": false,
+    "status": "RREF_DERIVED_PATTERN_ONLY"
+  },
+  "interpretation": {
+    "a327_certificate_found": false,
+    "candidate_found": false,
+    "deterministic_pivot_schedule_theorem_proved": false,
+    "generic_pairwise_candidates_certified_full_rank": true,
+    "global_Lambda_mu_327_upper_bound": false,
+    "rankfree_rule_found": false,
+    "status": "AUDIT"
+  },
+  "k": 256,
+  "matrices": [
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "balanced_clique_m1_o0",
+      "compressed_dimensions_by_witness": {
+        "1": 14,
+        "2": 44,
+        "3": 42,
+        "4": 41,
+        "5": 59,
+        "6": 17
+      },
+      "matrix_shape": [
+        3289,
+        217
+      ],
+      "nullity": 0,
+      "pattern_class": "generic_pairwise_rref_pivot",
+      "rank": 217,
+      "rankfree_rule_successes": [],
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 58,
+          "pair_pivot_counts": {
+            "1,2": 217
+          },
+          "pivot_cols_hash": "31b7967ee6d08d156126305a2efb84fcd6a042d7e4a2ad5a9d5007c8defa8159",
+          "pivot_pairs_hash": "c28de95bc5319e247317178f6fd62c35f3877b9676e6fac9acb4e25da3ebddaf",
+          "pivot_rows_hash": "31b7967ee6d08d156126305a2efb84fcd6a042d7e4a2ad5a9d5007c8defa8159",
+          "rule": "anchored_pair_proxy_first",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 217,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 43,
+          "pair_pivot_counts": {
+            "1,4": 18,
+            "1,6": 199
+          },
+          "pivot_cols_hash": "31b7967ee6d08d156126305a2efb84fcd6a042d7e4a2ad5a9d5007c8defa8159",
+          "pivot_pairs_hash": "8969afc423463d796973fe852c41108763a13b443d5f99de3bcae4fd939654a6",
+          "pivot_rows_hash": "ab26c5779e278f5baf25a86bb875e4beafc3ffde7d7c6f0b1fa1a9965bf3c9b6",
+          "rule": "compressed_variable_block_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 217,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 43,
+          "pair_pivot_counts": {
+            "1,4": 18,
+            "1,6": 199
+          },
+          "pivot_cols_hash": "31b7967ee6d08d156126305a2efb84fcd6a042d7e4a2ad5a9d5007c8defa8159",
+          "pivot_pairs_hash": "8969afc423463d796973fe852c41108763a13b443d5f99de3bcae4fd939654a6",
+          "pivot_rows_hash": "ab26c5779e278f5baf25a86bb875e4beafc3ffde7d7c6f0b1fa1a9965bf3c9b6",
+          "rule": "incidence_greedy_matching_v1",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 217,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 86,
+          "pair_pivot_counts": {
+            "2,3": 217
+          },
+          "pivot_cols_hash": "31b7967ee6d08d156126305a2efb84fcd6a042d7e4a2ad5a9d5007c8defa8159",
+          "pivot_pairs_hash": "4890a9023f9ebc4d84f0050d17d3207684de0a862df9081a403da6e3c9dfd449",
+          "pivot_rows_hash": "2fee84a45d388f7661488f406b3c5fe5cf66e6564f3df35365d4702a3bee12ee",
+          "rule": "nonanchored_difference_first",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 217,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 121,
+          "pair_pivot_counts": {
+            "2,5": 191,
+            "3,6": 26
+          },
+          "pivot_cols_hash": "31b7967ee6d08d156126305a2efb84fcd6a042d7e4a2ad5a9d5007c8defa8159",
+          "pivot_pairs_hash": "5542ea0ec47a9db7d8e1b61cf3cbe4f2007c380c5671e608af0fca93d5907f80",
+          "pivot_rows_hash": "3ee153712336891289fa70cd8524a817fadcedb5e1948a453c9b4d0ed7b7cb19",
+          "rule": "pair_boundary_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 217,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 86,
+          "pair_pivot_counts": {
+            "2,3": 217
+          },
+          "pivot_cols_hash": "31b7967ee6d08d156126305a2efb84fcd6a042d7e4a2ad5a9d5007c8defa8159",
+          "pivot_pairs_hash": "4890a9023f9ebc4d84f0050d17d3207684de0a862df9081a403da6e3c9dfd449",
+          "pivot_rows_hash": "2fee84a45d388f7661488f406b3c5fe5cf66e6564f3df35365d4702a3bee12ee",
+          "rule": "pair_boundary_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 217,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 58,
+          "pair_pivot_counts": {
+            "1,2": 217
+          },
+          "pivot_cols_hash": "31b7967ee6d08d156126305a2efb84fcd6a042d7e4a2ad5a9d5007c8defa8159",
+          "pivot_pairs_hash": "c28de95bc5319e247317178f6fd62c35f3877b9676e6fac9acb4e25da3ebddaf",
+          "pivot_rows_hash": "31b7967ee6d08d156126305a2efb84fcd6a042d7e4a2ad5a9d5007c8defa8159",
+          "rule": "pair_label_lexicographic_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 217,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 139,
+          "pair_pivot_counts": {
+            "1,2": 58,
+            "1,3": 42,
+            "1,4": 41,
+            "1,5": 59,
+            "1,6": 17
+          },
+          "pivot_cols_hash": "31b7967ee6d08d156126305a2efb84fcd6a042d7e4a2ad5a9d5007c8defa8159",
+          "pivot_pairs_hash": "70a21d948b5fa50fbccfc2cf4b8c8d965485c3f17444ae575fcd388e7ca77415",
+          "pivot_rows_hash": "381b0b93b9713b9d78eecedb1aeced11795a8c2b49561289df9ae8688f6496d4",
+          "rule": "rref_profile_pair_quota_mimic",
+          "rule_class": "RREF_MIMIC_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 217,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        }
+      ],
+      "remaining_equations_by_pair": {
+        "1,2": 236,
+        "1,3": 216,
+        "1,4": 203,
+        "1,5": 211,
+        "1,6": 199,
+        "2,3": 254,
+        "2,4": 215,
+        "2,5": 191,
+        "2,6": 207,
+        "3,4": 215,
+        "3,5": 231,
+        "3,6": 197,
+        "4,5": 236,
+        "4,6": 226,
+        "5,6": 252
+      },
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "rref_certificate": {
+        "certificate_type": "RREF_PIVOT_MINOR",
+        "determinant_nonzero": true,
+        "minor_hash": "53a8d5f46e1ba26ac666e2e6ec380366c10889a0fc284df2b12fdf833edaf4df",
+        "minor_rank_full": true,
+        "minor_size": 217,
+        "pair_pivot_counts": {
+          "1,2": 58,
+          "1,3": 42,
+          "1,4": 41,
+          "1,5": 59,
+          "1,6": 17
+        },
+        "pivot_cols_hash": "31b7967ee6d08d156126305a2efb84fcd6a042d7e4a2ad5a9d5007c8defa8159",
+        "pivot_pairs_hash": "70a21d948b5fa50fbccfc2cf4b8c8d965485c3f17444ae575fcd388e7ca77415",
+        "pivot_rows_hash": "ddb17203b6eae7d7db917e5cc680077f8db02669a56ac838bd7d0f876af0bc45",
+        "row_type_counts": {
+          "balanced_or_generic_pairwise_row": 217
+        },
+        "status": "CERTIFIED_FULL_RANK"
+      },
+      "rref_certificate_status": "CERTIFIED",
+      "source_family": "balanced_clique",
+      "source_key": "pairwise_divisibility_nullvector_system::balanced_clique_m1_o0",
+      "source_packet": "pairwise_divisibility_nullvector_system"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "balanced_clique_m2_o0",
+      "compressed_dimensions_by_witness": {
+        "1": 39,
+        "2": 41,
+        "3": 25,
+        "4": 37,
+        "5": 9,
+        "6": 55
+      },
+      "matrix_shape": [
+        3278,
+        206
+      ],
+      "nullity": 0,
+      "pattern_class": "generic_pairwise_rref_pivot",
+      "rank": 206,
+      "rankfree_rule_successes": [],
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 88,
+          "pair_pivot_counts": {
+            "1,2": 196,
+            "1,3": 10
+          },
+          "pivot_cols_hash": "5579579a9def9d04eecefd7df8004db96744f50e20bf32c680920cb859f8193c",
+          "pivot_pairs_hash": "72a0abb4d5aadda9650b6b7203a2bcb69cca1af63286c03be10d7fe5b77ca0a9",
+          "pivot_rows_hash": "5579579a9def9d04eecefd7df8004db96744f50e20bf32c680920cb859f8193c",
+          "rule": "anchored_pair_proxy_first",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 206,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 64,
+          "pair_pivot_counts": {
+            "1,3": 206
+          },
+          "pivot_cols_hash": "5579579a9def9d04eecefd7df8004db96744f50e20bf32c680920cb859f8193c",
+          "pivot_pairs_hash": "347ffbce7683e6071d38a0a47c19e7f781a4c785aa8e40ddb7ffdff6afce8b9a",
+          "pivot_rows_hash": "7cd40d544dba7d5b56265a9349c0881cd56310d7484f25d610a6715f3ca437c4",
+          "rule": "compressed_variable_block_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 206,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 34,
+          "pair_pivot_counts": {
+            "3,5": 206
+          },
+          "pivot_cols_hash": "5579579a9def9d04eecefd7df8004db96744f50e20bf32c680920cb859f8193c",
+          "pivot_pairs_hash": "e8fe8855bcf7331bfd4a45244899c879f5ec0b3c1f8c1fa7f44930b6673a2e78",
+          "pivot_rows_hash": "71c759680677ba0481fc6c2888229703fed061829bd2209997f3c059d4615472",
+          "rule": "incidence_greedy_matching_v1",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 206,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 66,
+          "pair_pivot_counts": {
+            "2,3": 206
+          },
+          "pivot_cols_hash": "5579579a9def9d04eecefd7df8004db96744f50e20bf32c680920cb859f8193c",
+          "pivot_pairs_hash": "25e0556f0079d3d9b1bc585ea6fcddb9d4ddbd077a95eeb936920939c03f3a07",
+          "pivot_rows_hash": "937092d822b877a0fd42c0d3fd0709e78c452d00a1d2c0a3cbc85d3dc62f281c",
+          "rule": "nonanchored_difference_first",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 206,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 89,
+          "pair_pivot_counts": {
+            "1,2": 196,
+            "3,4": 10
+          },
+          "pivot_cols_hash": "5579579a9def9d04eecefd7df8004db96744f50e20bf32c680920cb859f8193c",
+          "pivot_pairs_hash": "9f7902020de185b237652d7673394912442c48650d86c4323feece79a55be650",
+          "pivot_rows_hash": "a848ea3c4282ffc37a683f50b7f88e7892b4eef41b5e80860e7647377ec06fb5",
+          "rule": "pair_boundary_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 206,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 78,
+          "pair_pivot_counts": {
+            "2,4": 206
+          },
+          "pivot_cols_hash": "5579579a9def9d04eecefd7df8004db96744f50e20bf32c680920cb859f8193c",
+          "pivot_pairs_hash": "250290199d5e554d1af8068b360a2a930e5dbda12d6b9e8973680ad09d82d5ae",
+          "pivot_rows_hash": "777060b0ffa9cb9c2f8fd9c129770d67de7a01994d4da302d3d27926c1f3dd2d",
+          "rule": "pair_boundary_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 206,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 88,
+          "pair_pivot_counts": {
+            "1,2": 196,
+            "1,3": 10
+          },
+          "pivot_cols_hash": "5579579a9def9d04eecefd7df8004db96744f50e20bf32c680920cb859f8193c",
+          "pivot_pairs_hash": "72a0abb4d5aadda9650b6b7203a2bcb69cca1af63286c03be10d7fe5b77ca0a9",
+          "pivot_rows_hash": "5579579a9def9d04eecefd7df8004db96744f50e20bf32c680920cb859f8193c",
+          "rule": "pair_label_lexicographic_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 206,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 147,
+          "pair_pivot_counts": {
+            "1,2": 80,
+            "1,3": 25,
+            "1,4": 37,
+            "1,5": 9,
+            "1,6": 55
+          },
+          "pivot_cols_hash": "5579579a9def9d04eecefd7df8004db96744f50e20bf32c680920cb859f8193c",
+          "pivot_pairs_hash": "ca921d87e19ae110cf5595ef8e56a04148afdc4a4674c262b8de46872258310a",
+          "pivot_rows_hash": "6232f572ab17d9045ba3df85fbe40c10711af8651413840691fa6317cf85abbf",
+          "rule": "rref_profile_pair_quota_mimic",
+          "rule_class": "RREF_MIMIC_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 206,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        }
+      ],
+      "remaining_equations_by_pair": {
+        "1,2": 196,
+        "1,3": 238,
+        "1,4": 206,
+        "1,5": 218,
+        "1,6": 246,
+        "2,3": 212,
+        "2,4": 254,
+        "2,5": 214,
+        "2,6": 222,
+        "3,4": 198,
+        "3,5": 214,
+        "3,6": 222,
+        "4,5": 214,
+        "4,6": 222,
+        "5,6": 202
+      },
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "rref_certificate": {
+        "certificate_type": "RREF_PIVOT_MINOR",
+        "determinant_nonzero": true,
+        "minor_hash": "c0766d953a156d13ac2828dd589d2c668b512bf8b20bfb5782d3137c925b5fbe",
+        "minor_rank_full": true,
+        "minor_size": 206,
+        "pair_pivot_counts": {
+          "1,2": 80,
+          "1,3": 25,
+          "1,4": 37,
+          "1,5": 9,
+          "1,6": 55
+        },
+        "pivot_cols_hash": "5579579a9def9d04eecefd7df8004db96744f50e20bf32c680920cb859f8193c",
+        "pivot_pairs_hash": "ca921d87e19ae110cf5595ef8e56a04148afdc4a4674c262b8de46872258310a",
+        "pivot_rows_hash": "4fdbf36f0d9f324ee3587b7246d3445ef161d7bbcd2223e18da2b186c7e22c92",
+        "row_type_counts": {
+          "balanced_or_generic_pairwise_row": 206
+        },
+        "status": "CERTIFIED_FULL_RANK"
+      },
+      "rref_certificate_status": "CERTIFIED",
+      "source_family": "balanced_clique",
+      "source_key": "pairwise_divisibility_nullvector_system::balanced_clique_m2_o0",
+      "source_packet": "pairwise_divisibility_nullvector_system"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "balanced_clique_m2_o1",
+      "compressed_dimensions_by_witness": {
+        "1": 49,
+        "2": 24,
+        "3": 27,
+        "4": 21,
+        "5": 12,
+        "6": 46
+      },
+      "matrix_shape": [
+        3251,
+        179
+      ],
+      "nullity": 0,
+      "pattern_class": "generic_pairwise_rref_pivot",
+      "rank": 179,
+      "rankfree_rule_successes": [],
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 73,
+          "pair_pivot_counts": {
+            "1,2": 179
+          },
+          "pivot_cols_hash": "cd937930bc33ae05da489bebc91dc66f0f63b28158ea74140df552bc705f3df2",
+          "pivot_pairs_hash": "8da676ff9cd87c0d4ff544be8c78f588ea085c811d7b90eef90b8388cd9c72b5",
+          "pivot_rows_hash": "cd937930bc33ae05da489bebc91dc66f0f63b28158ea74140df552bc705f3df2",
+          "rule": "anchored_pair_proxy_first",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 179,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 73,
+          "pair_pivot_counts": {
+            "1,2": 179
+          },
+          "pivot_cols_hash": "cd937930bc33ae05da489bebc91dc66f0f63b28158ea74140df552bc705f3df2",
+          "pivot_pairs_hash": "8da676ff9cd87c0d4ff544be8c78f588ea085c811d7b90eef90b8388cd9c72b5",
+          "pivot_rows_hash": "cd937930bc33ae05da489bebc91dc66f0f63b28158ea74140df552bc705f3df2",
+          "rule": "compressed_variable_block_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 179,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 33,
+          "pair_pivot_counts": {
+            "4,5": 179
+          },
+          "pivot_cols_hash": "cd937930bc33ae05da489bebc91dc66f0f63b28158ea74140df552bc705f3df2",
+          "pivot_pairs_hash": "646d6e0a1864d573991d13038ba07310ec077e44a381933af58e208d1a518385",
+          "pivot_rows_hash": "0f9c505bd9652f694bf2e48ce0bdc0fc27a66e247136641a16546c45b35aaca4",
+          "rule": "incidence_greedy_matching_v1",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 179,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 51,
+          "pair_pivot_counts": {
+            "2,3": 179
+          },
+          "pivot_cols_hash": "cd937930bc33ae05da489bebc91dc66f0f63b28158ea74140df552bc705f3df2",
+          "pivot_pairs_hash": "f55e431060e9ca2f2ec6a7be11e458b65b17b4f403a1eb7c63be3f3244ab503d",
+          "pivot_rows_hash": "3dd0e3b9a5125cea07171c44ca99e0d8e0b8005dd2b2d3fa20cf267d8b6b09ef",
+          "rule": "nonanchored_difference_first",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 179,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 70,
+          "pair_pivot_counts": {
+            "1,4": 179
+          },
+          "pivot_cols_hash": "cd937930bc33ae05da489bebc91dc66f0f63b28158ea74140df552bc705f3df2",
+          "pivot_pairs_hash": "688748751aaa8c138e7285b9bb4424fa209ffbce73b225bf862d3758d73364a0",
+          "pivot_rows_hash": "7f79145af919973417e03e4f86acee09f117d8287a88a04145767e6ba3f9c764",
+          "rule": "pair_boundary_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 179,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 67,
+          "pair_pivot_counts": {
+            "4,6": 179
+          },
+          "pivot_cols_hash": "cd937930bc33ae05da489bebc91dc66f0f63b28158ea74140df552bc705f3df2",
+          "pivot_pairs_hash": "119971abdd466a5777c62842675822ea886754005afa9cf8988d2034188b61bc",
+          "pivot_rows_hash": "8f341c483172e460d584b952d2abef77e17ec5e1ec01f2833a67f9ca9e165e8c",
+          "rule": "pair_boundary_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 179,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 73,
+          "pair_pivot_counts": {
+            "1,2": 179
+          },
+          "pivot_cols_hash": "cd937930bc33ae05da489bebc91dc66f0f63b28158ea74140df552bc705f3df2",
+          "pivot_pairs_hash": "8da676ff9cd87c0d4ff544be8c78f588ea085c811d7b90eef90b8388cd9c72b5",
+          "pivot_rows_hash": "cd937930bc33ae05da489bebc91dc66f0f63b28158ea74140df552bc705f3df2",
+          "rule": "pair_label_lexicographic_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 179,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 116,
+          "pair_pivot_counts": {
+            "1,2": 73,
+            "1,3": 27,
+            "1,4": 21,
+            "1,5": 12,
+            "1,6": 46
+          },
+          "pivot_cols_hash": "cd937930bc33ae05da489bebc91dc66f0f63b28158ea74140df552bc705f3df2",
+          "pivot_pairs_hash": "f1ea12f06a216173ce89b6ecab2f243ba694e1224f56d5dca17c040a646f3597",
+          "pivot_rows_hash": "f98e08802e03e406edf6d33eee50f3d2ba30113150ee1f181b8c5e5d897c3fca",
+          "rule": "rref_profile_pair_quota_mimic",
+          "rule_class": "RREF_MIMIC_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 179,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        }
+      ],
+      "remaining_equations_by_pair": {
+        "1,2": 207,
+        "1,3": 218,
+        "1,4": 186,
+        "1,5": 235,
+        "1,6": 245,
+        "2,3": 213,
+        "2,4": 229,
+        "2,5": 212,
+        "2,6": 226,
+        "3,4": 210,
+        "3,5": 225,
+        "3,6": 217,
+        "4,5": 189,
+        "4,6": 249,
+        "5,6": 190
+      },
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "rref_certificate": {
+        "certificate_type": "RREF_PIVOT_MINOR",
+        "determinant_nonzero": true,
+        "minor_hash": "e2b3f56530fcda347b2e63d6b2cba0c5d70e92ee4137871b0a7b8defcc0fc3a8",
+        "minor_rank_full": true,
+        "minor_size": 179,
+        "pair_pivot_counts": {
+          "1,2": 73,
+          "1,3": 27,
+          "1,4": 21,
+          "1,5": 12,
+          "1,6": 46
+        },
+        "pivot_cols_hash": "cd937930bc33ae05da489bebc91dc66f0f63b28158ea74140df552bc705f3df2",
+        "pivot_pairs_hash": "f1ea12f06a216173ce89b6ecab2f243ba694e1224f56d5dca17c040a646f3597",
+        "pivot_rows_hash": "ed937ddd12e688f1a8592ea63130fc71d24797a1a18bfdfa8584fa808285bf8b",
+        "row_type_counts": {
+          "balanced_or_generic_pairwise_row": 179
+        },
+        "status": "CERTIFIED_FULL_RANK"
+      },
+      "rref_certificate_status": "CERTIFIED",
+      "source_family": "balanced_clique",
+      "source_key": "pairwise_divisibility_nullvector_system::balanced_clique_m2_o1",
+      "source_packet": "pairwise_divisibility_nullvector_system"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "balanced_clique_m5_o1",
+      "compressed_dimensions_by_witness": {
+        "1": 51,
+        "2": 15,
+        "3": 17,
+        "4": 45,
+        "5": 18,
+        "6": 59
+      },
+      "matrix_shape": [
+        3277,
+        205
+      ],
+      "nullity": 0,
+      "pattern_class": "generic_pairwise_rref_pivot",
+      "rank": 205,
+      "rankfree_rule_successes": [],
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 66,
+          "pair_pivot_counts": {
+            "1,2": 205
+          },
+          "pivot_cols_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+          "pivot_pairs_hash": "a879dc23cc869b28d2bf95cf4d97dc4e5edead2f2c4a6d24331eaea4483be0f6",
+          "pivot_rows_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+          "rule": "anchored_pair_proxy_first",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 205,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 66,
+          "pair_pivot_counts": {
+            "1,2": 205
+          },
+          "pivot_cols_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+          "pivot_pairs_hash": "a879dc23cc869b28d2bf95cf4d97dc4e5edead2f2c4a6d24331eaea4483be0f6",
+          "pivot_rows_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+          "rule": "compressed_variable_block_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 205,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 35,
+          "pair_pivot_counts": {
+            "3,5": 205
+          },
+          "pivot_cols_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+          "pivot_pairs_hash": "5134c49c700df929ad08ad2c537aca5afe2d41e009e4144fa181628561bf95a9",
+          "pivot_rows_hash": "853dce541cfd74df067ddb5055e6427a7e24f6b7556b1a9c9ae8e8012cb59173",
+          "rule": "incidence_greedy_matching_v1",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 205,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 39,
+          "pair_pivot_counts": {
+            "2,3": 194,
+            "2,4": 11
+          },
+          "pivot_cols_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+          "pivot_pairs_hash": "bb2532c99033885ed7e900260e9420fb3e2b52ad33911984652046c9678570a9",
+          "pivot_rows_hash": "dfb6e9968f08cd93abaad1cd66394e2a3a39e8bd44bcb0669a5ce8a1fdcd93e3",
+          "rule": "nonanchored_difference_first",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 205,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 41,
+          "pair_pivot_counts": {
+            "2,3": 194,
+            "3,4": 11
+          },
+          "pivot_cols_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+          "pivot_pairs_hash": "72f447f33c1346091860d4b61258899d5b7fa4392369d9760899673c3d225193",
+          "pivot_rows_hash": "6e72b4312655a032fae1a2dc0a44fb5b5ccebc852e2b6e75cd471636ac90eca7",
+          "rule": "pair_boundary_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 205,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 60,
+          "pair_pivot_counts": {
+            "2,4": 205
+          },
+          "pivot_cols_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+          "pivot_pairs_hash": "dbbb3b01123873175798533ee7d830bdff6630b8895a3e6020a3a841b9e154d3",
+          "pivot_rows_hash": "9a58194e7026807430a4e235d791c2ee8588fdeb98787b74843083ba207b0efe",
+          "rule": "pair_boundary_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 205,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 66,
+          "pair_pivot_counts": {
+            "1,2": 205
+          },
+          "pivot_cols_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+          "pivot_pairs_hash": "a879dc23cc869b28d2bf95cf4d97dc4e5edead2f2c4a6d24331eaea4483be0f6",
+          "pivot_rows_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+          "rule": "pair_label_lexicographic_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 205,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 149,
+          "pair_pivot_counts": {
+            "1,2": 66,
+            "1,3": 17,
+            "1,4": 45,
+            "1,5": 18,
+            "1,6": 59
+          },
+          "pivot_cols_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+          "pivot_pairs_hash": "ed3225e66fa70aa4a38881feb6418250ab51a1e23f3612207b183c6af53b41c0",
+          "pivot_rows_hash": "a0ca9be41efc2127db9e1b70336c1c93f56f56125d3bb49cd1bd4730cb374ac8",
+          "rule": "rref_profile_pair_quota_mimic",
+          "rule_class": "RREF_MIMIC_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 205,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        }
+      ],
+      "remaining_equations_by_pair": {
+        "1,2": 214,
+        "1,3": 222,
+        "1,4": 224,
+        "1,5": 223,
+        "1,6": 224,
+        "2,3": 194,
+        "2,4": 238,
+        "2,5": 205,
+        "2,6": 234,
+        "3,4": 196,
+        "3,5": 227,
+        "3,6": 236,
+        "4,5": 211,
+        "4,6": 226,
+        "5,6": 203
+      },
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "rref_certificate": {
+        "certificate_type": "RREF_PIVOT_MINOR",
+        "determinant_nonzero": true,
+        "minor_hash": "139b4501f030f1201fdc769155080202776e850f1841c4c42063587c11d64bf5",
+        "minor_rank_full": true,
+        "minor_size": 205,
+        "pair_pivot_counts": {
+          "1,2": 66,
+          "1,3": 17,
+          "1,4": 45,
+          "1,5": 18,
+          "1,6": 59
+        },
+        "pivot_cols_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+        "pivot_pairs_hash": "ed3225e66fa70aa4a38881feb6418250ab51a1e23f3612207b183c6af53b41c0",
+        "pivot_rows_hash": "8927ca0b3f4325ad63d1260f90111199befbe9230a66bdc9e44798f71932eb12",
+        "row_type_counts": {
+          "balanced_or_generic_pairwise_row": 205
+        },
+        "status": "CERTIFIED_FULL_RANK"
+      },
+      "rref_certificate_status": "CERTIFIED",
+      "source_family": "balanced_clique",
+      "source_key": "pairwise_divisibility_nullvector_system::balanced_clique_m5_o1",
+      "source_packet": "pairwise_divisibility_nullvector_system"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "balanced_clique_m6_o0",
+      "compressed_dimensions_by_witness": {
+        "1": 2,
+        "2": 60,
+        "3": 42,
+        "4": 44,
+        "5": 48,
+        "6": 18
+      },
+      "matrix_shape": [
+        3286,
+        214
+      ],
+      "nullity": 0,
+      "pattern_class": "generic_pairwise_rref_pivot",
+      "rank": 214,
+      "rankfree_rule_successes": [],
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 62,
+          "pair_pivot_counts": {
+            "1,2": 214
+          },
+          "pivot_cols_hash": "ed419f4db9dcb7af892a4bc5b151e655eb5a7492f065b7c9b127b09989169429",
+          "pivot_pairs_hash": "beef09f3147d80a840648d9ca0fb3bb9ccc3df66865a2369661cdbaba6906298",
+          "pivot_rows_hash": "ed419f4db9dcb7af892a4bc5b151e655eb5a7492f065b7c9b127b09989169429",
+          "rule": "anchored_pair_proxy_first",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 214,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 20,
+          "pair_pivot_counts": {
+            "1,6": 214
+          },
+          "pivot_cols_hash": "ed419f4db9dcb7af892a4bc5b151e655eb5a7492f065b7c9b127b09989169429",
+          "pivot_pairs_hash": "d43a48746bc580bbe9a53cf13a6b74478d2ce40f2fa6ba90a15135dc92f63a13",
+          "pivot_rows_hash": "e89654e56ebb4447ba07fffac41f8767d205f581b51f13b38f06a9df36388795",
+          "rule": "compressed_variable_block_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 214,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 20,
+          "pair_pivot_counts": {
+            "1,6": 214
+          },
+          "pivot_cols_hash": "ed419f4db9dcb7af892a4bc5b151e655eb5a7492f065b7c9b127b09989169429",
+          "pivot_pairs_hash": "d43a48746bc580bbe9a53cf13a6b74478d2ce40f2fa6ba90a15135dc92f63a13",
+          "pivot_rows_hash": "e89654e56ebb4447ba07fffac41f8767d205f581b51f13b38f06a9df36388795",
+          "rule": "incidence_greedy_matching_v1",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 214,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 102,
+          "pair_pivot_counts": {
+            "2,3": 214
+          },
+          "pivot_cols_hash": "ed419f4db9dcb7af892a4bc5b151e655eb5a7492f065b7c9b127b09989169429",
+          "pivot_pairs_hash": "a987f6c49c0d4e0d4fcd264e88f3b3c545c1cfa0368e4cbaae21c1bbe8cf47a2",
+          "pivot_rows_hash": "a778bb4c73a53d37e12e3e24f406cd0254f39f124b5d836c7c4aa62bafbb1114",
+          "rule": "nonanchored_difference_first",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 214,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 58,
+          "pair_pivot_counts": {
+            "1,3": 190,
+            "4,6": 24
+          },
+          "pivot_cols_hash": "ed419f4db9dcb7af892a4bc5b151e655eb5a7492f065b7c9b127b09989169429",
+          "pivot_pairs_hash": "8d82218c98a3631ab427147a5257712dd59082ba6d67ec1eaa4c7efa9fcd9b39",
+          "pivot_rows_hash": "ee8a8650e322f681969adbb68278abacb03eb3bb7283c8633dba45d4d359f82f",
+          "rule": "pair_boundary_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 214,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 102,
+          "pair_pivot_counts": {
+            "2,3": 214
+          },
+          "pivot_cols_hash": "ed419f4db9dcb7af892a4bc5b151e655eb5a7492f065b7c9b127b09989169429",
+          "pivot_pairs_hash": "a987f6c49c0d4e0d4fcd264e88f3b3c545c1cfa0368e4cbaae21c1bbe8cf47a2",
+          "pivot_rows_hash": "a778bb4c73a53d37e12e3e24f406cd0254f39f124b5d836c7c4aa62bafbb1114",
+          "rule": "pair_boundary_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 214,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 62,
+          "pair_pivot_counts": {
+            "1,2": 214
+          },
+          "pivot_cols_hash": "ed419f4db9dcb7af892a4bc5b151e655eb5a7492f065b7c9b127b09989169429",
+          "pivot_pairs_hash": "beef09f3147d80a840648d9ca0fb3bb9ccc3df66865a2369661cdbaba6906298",
+          "pivot_rows_hash": "ed419f4db9dcb7af892a4bc5b151e655eb5a7492f065b7c9b127b09989169429",
+          "rule": "pair_label_lexicographic_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 214,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 133,
+          "pair_pivot_counts": {
+            "1,2": 62,
+            "1,3": 42,
+            "1,4": 44,
+            "1,5": 48,
+            "1,6": 18
+          },
+          "pivot_cols_hash": "ed419f4db9dcb7af892a4bc5b151e655eb5a7492f065b7c9b127b09989169429",
+          "pivot_pairs_hash": "4b76a093693f8536386f96aec7e06a715d87f2e1a48d447e7da2f13dae94e069",
+          "pivot_rows_hash": "8c74e1e3db3dd3310f05105970f560c7aac7b3823c767ce8a7c2e7c8cf933e91",
+          "rule": "rref_profile_pair_quota_mimic",
+          "rule_class": "RREF_MIMIC_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 214,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        }
+      ],
+      "remaining_equations_by_pair": {
+        "1,2": 230,
+        "1,3": 190,
+        "1,4": 214,
+        "1,5": 206,
+        "1,6": 222,
+        "2,3": 252,
+        "2,4": 224,
+        "2,5": 208,
+        "2,6": 212,
+        "3,4": 234,
+        "3,5": 212,
+        "3,6": 216,
+        "4,5": 242,
+        "4,6": 194,
+        "5,6": 230
+      },
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "rref_certificate": {
+        "certificate_type": "RREF_PIVOT_MINOR",
+        "determinant_nonzero": true,
+        "minor_hash": "4380840db10c5e9cb598538539b25c47f02a92342fe519e43366249fa4963b6a",
+        "minor_rank_full": true,
+        "minor_size": 214,
+        "pair_pivot_counts": {
+          "1,2": 62,
+          "1,3": 42,
+          "1,4": 44,
+          "1,5": 48,
+          "1,6": 18
+        },
+        "pivot_cols_hash": "ed419f4db9dcb7af892a4bc5b151e655eb5a7492f065b7c9b127b09989169429",
+        "pivot_pairs_hash": "4b76a093693f8536386f96aec7e06a715d87f2e1a48d447e7da2f13dae94e069",
+        "pivot_rows_hash": "2031da6544efc22a8abfc68cc4c5945b88c1aa4902cf4880377d5fad0f08d034",
+        "row_type_counts": {
+          "balanced_or_generic_pairwise_row": 214
+        },
+        "status": "CERTIFIED_FULL_RANK"
+      },
+      "rref_certificate_status": "CERTIFIED",
+      "source_family": "balanced_clique",
+      "source_key": "pairwise_divisibility_nullvector_system::balanced_clique_m6_o0",
+      "source_packet": "pairwise_divisibility_nullvector_system"
+    },
+    {
+      "best_rule_status": "RREF_DERIVED_ONLY",
+      "candidate_id": "balanced_clique_m6_o1",
+      "compressed_dimensions_by_witness": {
+        "1": 5,
+        "2": 35,
+        "3": 43,
+        "4": 50,
+        "5": 31,
+        "6": 41
+      },
+      "matrix_shape": [
+        3277,
+        205
+      ],
+      "nullity": 0,
+      "pattern_class": "generic_pairwise_rref_pivot",
+      "rank": 205,
+      "rankfree_rule_successes": [],
+      "rankfree_rules": [
+        {
+          "minor_nonzero": false,
+          "minor_rank": 40,
+          "pair_pivot_counts": {
+            "1,2": 205
+          },
+          "pivot_cols_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+          "pivot_pairs_hash": "a879dc23cc869b28d2bf95cf4d97dc4e5edead2f2c4a6d24331eaea4483be0f6",
+          "pivot_rows_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+          "rule": "anchored_pair_proxy_first",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 205,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 45,
+          "pair_pivot_counts": {
+            "1,2": 17,
+            "1,5": 188
+          },
+          "pivot_cols_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+          "pivot_pairs_hash": "9fe67c8cee845cee4aaec1b0920ff6b93791608376a371ec7c89a26d56d07d12",
+          "pivot_rows_hash": "fac63bc9c2c83514ef2a3cbe066fd73807c95ef415e804dd129a4217dbddda4d",
+          "rule": "compressed_variable_block_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 205,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 40,
+          "pair_pivot_counts": {
+            "1,2": 205
+          },
+          "pivot_cols_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+          "pivot_pairs_hash": "a879dc23cc869b28d2bf95cf4d97dc4e5edead2f2c4a6d24331eaea4483be0f6",
+          "pivot_rows_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+          "rule": "incidence_greedy_matching_v1",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 205,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 78,
+          "pair_pivot_counts": {
+            "2,3": 205
+          },
+          "pivot_cols_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+          "pivot_pairs_hash": "540e0c3330d01528ef70ec09bd1d50c9be2898b544d75c57d50da53e018988d2",
+          "pivot_rows_hash": "742239eec6c8d35e9d212c09f3be3522563dd867b92b56aee0804db6313153bb",
+          "rule": "nonanchored_difference_first",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 205,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 48,
+          "pair_pivot_counts": {
+            "1,3": 17,
+            "1,5": 188
+          },
+          "pivot_cols_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+          "pivot_pairs_hash": "c461c01a9a2315bfc46beb7275284689f82d9fff5d6098227dd40d1dc97a7bc2",
+          "pivot_rows_hash": "33387da7a95c08db957d79d27d01194e8f3655833407af11827667d137f67b96",
+          "rule": "pair_boundary_pressure_asc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 205,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 93,
+          "pair_pivot_counts": {
+            "3,4": 205
+          },
+          "pivot_cols_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+          "pivot_pairs_hash": "53fc083f71a0dc6df491d7163dd959b80fe46bf35d7ecca986ea6fe3146bc485",
+          "pivot_rows_hash": "1443c2cf168b4ab68e1aca0f468015674bf7a75e3f5861c8cd4aebf9900d9be3",
+          "rule": "pair_boundary_pressure_desc",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 205,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 40,
+          "pair_pivot_counts": {
+            "1,2": 205
+          },
+          "pivot_cols_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+          "pivot_pairs_hash": "a879dc23cc869b28d2bf95cf4d97dc4e5edead2f2c4a6d24331eaea4483be0f6",
+          "pivot_rows_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+          "rule": "pair_label_lexicographic_order",
+          "rule_class": "DETERMINISTIC_COMBINATORIAL_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 205,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        },
+        {
+          "minor_nonzero": false,
+          "minor_rank": 131,
+          "pair_pivot_counts": {
+            "1,2": 40,
+            "1,3": 43,
+            "1,4": 50,
+            "1,5": 31,
+            "1,6": 41
+          },
+          "pivot_cols_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+          "pivot_pairs_hash": "4a841d2eea09dcd710da96f85ecf0b018f7556bd0e11f24ae7bab423a80aa60e",
+          "pivot_rows_hash": "21f471f26157e08232c721533331e620e42b4a539151a509357eee3edd16dac5",
+          "rule": "rref_profile_pair_quota_mimic",
+          "rule_class": "RREF_MIMIC_RULE",
+          "rule_uses_field_arithmetic": false,
+          "selected_minor_size": 205,
+          "status": "SINGULAR_MINOR",
+          "uses_field_arithmetic": false
+        }
+      ],
+      "remaining_equations_by_pair": {
+        "1,2": 232,
+        "1,3": 204,
+        "1,4": 205,
+        "1,5": 188,
+        "1,6": 222,
+        "2,3": 206,
+        "2,4": 215,
+        "2,5": 232,
+        "2,6": 208,
+        "3,4": 249,
+        "3,5": 222,
+        "3,6": 224,
+        "4,5": 223,
+        "4,6": 215,
+        "5,6": 232
+      },
+      "route_cut_status": "ROUTE_CUT_CERTIFIED_CANDIDATE",
+      "rref_certificate": {
+        "certificate_type": "RREF_PIVOT_MINOR",
+        "determinant_nonzero": true,
+        "minor_hash": "adec68f68d42e8636b1eb86ae76856bf8b56abeed63966077944b9cf532c6e04",
+        "minor_rank_full": true,
+        "minor_size": 205,
+        "pair_pivot_counts": {
+          "1,2": 40,
+          "1,3": 43,
+          "1,4": 50,
+          "1,5": 31,
+          "1,6": 41
+        },
+        "pivot_cols_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+        "pivot_pairs_hash": "4a841d2eea09dcd710da96f85ecf0b018f7556bd0e11f24ae7bab423a80aa60e",
+        "pivot_rows_hash": "1a60895c20d5703d13eff827bdfe23b0b798381f672a54b695b223a50ed7eba3",
+        "row_type_counts": {
+          "balanced_or_generic_pairwise_row": 205
+        },
+        "status": "CERTIFIED_FULL_RANK"
+      },
+      "rref_certificate_status": "CERTIFIED",
+      "source_family": "balanced_clique",
+      "source_key": "pairwise_divisibility_nullvector_system::balanced_clique_m6_o1",
+      "source_packet": "pairwise_divisibility_nullvector_system"
+    }
+  ],
+  "matrix_count": 6,
+  "minimum_to_clear": 7,
+  "n": 512,
+  "pattern_class": "generic_pairwise_rref_pivot",
+  "rank_free_successes": 0,
+  "record_hash": "22d24927c49999fa99b36563d5d4a952b580718ce6090ba454fd9fcd0d17d181",
+  "repo_claim": {
+    "mca_counted": false,
+    "not_claimed": [
+      "a=327 interleaved-list certificate",
+      "global Lambda_mu(C,327) <= 6",
+      "MCA N_bad",
+      "protocol soundness",
+      "ordinary list decoding beyond the stated interleaved-list predicate",
+      "exact Lambda_mu",
+      "exact delta*_C",
+      "improvement over PR #133"
+    ]
+  },
+  "row": "RS[F_17^32,H,256]",
+  "rref_derived_certificates_replayed": 6,
+  "rule_summary": {
+    "best_failed_minor": {
+      "candidate_id": "balanced_clique_m5_o1",
+      "minor_rank": 149,
+      "rule": "rref_profile_pair_quota_mimic",
+      "selected_minor_size": 205
+    },
+    "best_failed_minor_rank_ratio": [
+      149,
+      205
+    ],
+    "rank_free_attempts": 48,
+    "rank_free_failures": 48,
+    "rank_free_successes": 0,
+    "rule_names": [
+      "anchored_pair_proxy_first",
+      "compressed_variable_block_order",
+      "incidence_greedy_matching_v1",
+      "nonanchored_difference_first",
+      "pair_boundary_pressure_asc",
+      "pair_boundary_pressure_desc",
+      "pair_label_lexicographic_order",
+      "rref_profile_pair_quota_mimic"
+    ],
+    "rules_tested": 8,
+    "status": "RREF_DERIVED_PATTERN_ONLY",
+    "success_by_rule": {
+      "anchored_pair_proxy_first": {
+        "failed": 6,
+        "success": 0,
+        "tested": 6
+      },
+      "compressed_variable_block_order": {
+        "failed": 6,
+        "success": 0,
+        "tested": 6
+      },
+      "incidence_greedy_matching_v1": {
+        "failed": 6,
+        "success": 0,
+        "tested": 6
+      },
+      "nonanchored_difference_first": {
+        "failed": 6,
+        "success": 0,
+        "tested": 6
+      },
+      "pair_boundary_pressure_asc": {
+        "failed": 6,
+        "success": 0,
+        "tested": 6
+      },
+      "pair_boundary_pressure_desc": {
+        "failed": 6,
+        "success": 0,
+        "tested": 6
+      },
+      "pair_label_lexicographic_order": {
+        "failed": 6,
+        "success": 0,
+        "tested": 6
+      },
+      "rref_profile_pair_quota_mimic": {
+        "failed": 6,
+        "success": 0,
+        "tested": 6
+      }
+    },
+    "success_by_rule_class": {
+      "DETERMINISTIC_COMBINATORIAL_RULE": {
+        "failed": 42,
+        "success": 0,
+        "tested": 42
+      },
+      "RREF_MIMIC_RULE": {
+        "failed": 6,
+        "success": 0,
+        "tested": 6
+      }
+    }
+  },
+  "sage_audit": {
+    "checks_GF_17_32": true,
+    "reconstructs_6_generic_pairwise_matrices": true,
+    "replays_rref_derived_pivot_certificates": true,
+    "script": "experimental/scripts/audit_m1_generic_pairwise_rankfree_pivot_rule.sage",
+    "tests_rankfree_rule_minors": true
+  },
+  "source_family_counts": {
+    "balanced_clique": 6
+  },
+  "source_packet_counts": {
+    "pairwise_divisibility_nullvector_system": 6
+  },
+  "source_profile": {
+    "generic_pairwise_profiles": 6,
+    "path": "experimental/data/m1_rim_pivot_pattern_theorem.json",
+    "record_hash": "721d4aeefcafa48c715541ebc29ab558427f80093c6ccfb250a97ba749a5acea",
+    "source_matrices": 34,
+    "status": "CANDIDATE_THEOREM_ONLY"
+  },
+  "status": "M1_GENERIC_PAIRWISE_RANKFREE_PIVOT_RULE_AUDIT",
+  "target_bits": 128,
+  "theorem_assessment": {
+    "deterministic_schedule_proved": false,
+    "rankfree_rule_attempts": 48,
+    "rankfree_rule_successes": 0,
+    "rankfree_rules_tested": [
+      "anchored_pair_proxy_first",
+      "compressed_variable_block_order",
+      "incidence_greedy_matching_v1",
+      "nonanchored_difference_first",
+      "pair_boundary_pressure_asc",
+      "pair_boundary_pressure_desc",
+      "pair_label_lexicographic_order",
+      "rref_profile_pair_quota_mimic"
+    ],
+    "reason_not_proved": "All tested generic-pairwise metadata rules selected singular minors; the full-rank certificates remain RREF-derived.",
+    "status": "RREF_DERIVED_PATTERN_ONLY",
+    "target_statement": "For the generic_pairwise_rref_pivot class, a metadata-only row schedule selects a full column-rank minor over GF(17^32)."
+  },
+  "threshold_floor": 6,
+  "track": "INTERLEAVED_LIST"
+}

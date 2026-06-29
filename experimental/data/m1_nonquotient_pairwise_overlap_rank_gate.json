@@ -1,0 +1,176 @@
+{
+  "baseline": {
+    "current_pr_133_agreement": 326,
+    "current_pr_133_lambda_lower": 7,
+    "source": "PR #133 hybrid quotient-residual certificate"
+  },
+  "field_denominator": "2367911594760467245844106297320951247361",
+  "field_denominator_label": "17^32",
+  "global_status": {
+    "candidate_found": false,
+    "improves_pr_133": false,
+    "status": "ROUTE_CUT_SUPPORT_DESIGN"
+  },
+  "interpretation": {
+    "candidate_found": false,
+    "pairwise_overlap_rank_decided": true,
+    "status": "ROUTE_CUT_SUPPORT_DESIGN",
+    "support_design_interpolable": false,
+    "support_packing_blocks_a327": false
+  },
+  "k": 256,
+  "minimum_to_clear": 7,
+  "n": 512,
+  "open_layers": {
+    "global_Lambda_mu_327_upper_bound": true,
+    "multi_core_nonquotient_families": true,
+    "non_quotient_randomized_support_search": true,
+    "rank_friendly_support_designs": true,
+    "status": "PARTIAL"
+  },
+  "pairwise_overlap_rank_gate": {
+    "compressed_dimensions_by_witness": {
+      "1": 74,
+      "2": 81,
+      "3": 108,
+      "4": 81,
+      "5": 36,
+      "6": 2
+    },
+    "compressed_variables": 382,
+    "diagonal_vanish_equations": 1154,
+    "difference_variables": 1536,
+    "explicit_witness_extracted": false,
+    "field_denominator": "2367911594760467245844106297320951247361",
+    "field_denominator_label": "17^32",
+    "matrix_hash": "8ac5f55f37637dc3324f80ae4afd1240c58a760db1df84911e8ffb4f4bec34df",
+    "non_diagonal_solution_found": false,
+    "nullity": 0,
+    "rank": 382,
+    "remaining_equations_by_pair": {
+      "1,2": 253,
+      "1,3": 246,
+      "1,4": 149,
+      "1,5": 142,
+      "1,6": 181,
+      "2,3": 253,
+      "2,4": 188,
+      "2,5": 142,
+      "2,6": 142,
+      "3,4": 215,
+      "3,5": 149,
+      "3,6": 142,
+      "4,5": 246,
+      "4,6": 180,
+      "5,6": 254
+    },
+    "remaining_pairwise_equations": 2882,
+    "status": "RANK_COMPUTED",
+    "subgroup_order": 512,
+    "total_pairwise_overlap_equations": 4036,
+    "vanish_intersections_with_anchor": {
+      "1": 182,
+      "2": 175,
+      "3": 148,
+      "4": 175,
+      "5": 220,
+      "6": 254
+    }
+  },
+  "record_hash": "b3cc87ac6ec005329c9554bf087e8cad81908c145eff0460b0732b5dba081bd6",
+  "repo_claim": {
+    "mca_counted": false,
+    "not_claimed": [
+      "MCA N_bad",
+      "protocol soundness",
+      "ordinary list decoding beyond the stated interleaved-list predicate",
+      "a=327 interleaved-list certificate",
+      "global Lambda_mu(C,327) <= 6",
+      "exact Lambda_mu",
+      "exact delta*_C",
+      "improvement over PR #133"
+    ]
+  },
+  "row": "RS[F_17^32,H,256]",
+  "sage_audit": {
+    "constructs_GF_17_32": true,
+    "optional_modes": [
+      "--no-rank",
+      "--rank-only",
+      "--sample-nullspace",
+      "--extract-witness"
+    ],
+    "rank_mode": "compressed_pairwise_overlap",
+    "recomputes_support_design": true,
+    "script": "experimental/scripts/audit_m1_nonquotient_pairwise_overlap_rank_gate.sage",
+    "uses_reduced_difference_system": true
+  },
+  "status": "M1_NONQUOTIENT_PAIRWISE_OVERLAP_RANK_GATE_ROUTE_CUT",
+  "support_design": {
+    "multiplicity_histogram": {
+      "4": 271,
+      "5": 241
+    },
+    "pair_intersection_max": 254,
+    "pair_intersection_min": 142,
+    "pair_intersection_values": [
+      142,
+      142,
+      142,
+      142,
+      148,
+      149,
+      149,
+      175,
+      175,
+      180,
+      181,
+      182,
+      188,
+      215,
+      220,
+      246,
+      246,
+      253,
+      253,
+      254,
+      254
+    ],
+    "pair_intersections": {
+      "0,1": 182,
+      "0,2": 175,
+      "0,3": 148,
+      "0,4": 175,
+      "0,5": 220,
+      "0,6": 254,
+      "1,2": 253,
+      "1,3": 246,
+      "1,4": 149,
+      "1,5": 142,
+      "1,6": 181,
+      "2,3": 253,
+      "2,4": 188,
+      "2,5": 142,
+      "2,6": 142,
+      "3,4": 215,
+      "3,5": 149,
+      "3,6": 142,
+      "4,5": 246,
+      "4,6": 180,
+      "5,6": 254
+    },
+    "witness_support_sizes": [
+      327,
+      327,
+      327,
+      327,
+      327,
+      327,
+      327
+    ]
+  },
+  "target_agreement": 327,
+  "target_bits": 128,
+  "threshold_floor": 6,
+  "track": "INTERLEAVED_LIST"
+}

@@ -1,0 +1,2361 @@
+{
+  "agreement_target": 327,
+  "common_pattern_candidates": [
+    {
+      "aggregate_pair_pivot_counts": {
+        "1,2": 379,
+        "1,3": 196,
+        "1,4": 238,
+        "1,5": 177,
+        "1,6": 236
+      },
+      "aggregate_row_type_counts": {
+        "balanced_or_generic_pairwise_row": 1226
+      },
+      "candidate_theorem": {
+        "proved": false,
+        "statement": "For the tested balanced-clique pairwise rows, generic pairwise rows provide one RREF pivot for every compressed variable.",
+        "status": "CANDIDATE_THEOREM"
+      },
+      "compressed_variable_range": [
+        179,
+        217
+      ],
+      "covered_count": 6,
+      "families_covered": [
+        "balanced_clique"
+      ],
+      "global_coverage": false,
+      "pattern_id": "generic_pairwise_rref_pivot",
+      "source_packets_covered": [
+        "pairwise_divisibility_nullvector_system"
+      ],
+      "status": "CANDIDATE_PATTERN",
+      "uncovered_count": 28
+    },
+    {
+      "aggregate_pair_pivot_counts": {
+        "1,2": 140,
+        "1,3": 70,
+        "1,4": 70,
+        "1,5": 70,
+        "1,6": 70
+      },
+      "aggregate_row_type_counts": {
+        "quotient_full_fiber_row": 383,
+        "residual_or_partial_fiber_row": 37
+      },
+      "candidate_theorem": {
+        "proved": false,
+        "statement": "For the tested two-level quotient-residual rows, quotient-fiber and residual rows jointly provide one RREF pivot for every compressed variable.",
+        "status": "CANDIDATE_THEOREM"
+      },
+      "compressed_variable_range": [
+        6,
+        192
+      ],
+      "covered_count": 8,
+      "families_covered": [
+        "two_level_quotient_residual"
+      ],
+      "global_coverage": false,
+      "pattern_id": "quotient_residual_rref_pivot",
+      "source_packets_covered": [
+        "two_level_pairwise_divisibility"
+      ],
+      "status": "CANDIDATE_PATTERN",
+      "uncovered_count": 26
+    },
+    {
+      "aggregate_pair_pivot_counts": {
+        "1,2": 569,
+        "1,3": 386,
+        "1,4": 404,
+        "1,5": 353,
+        "1,6": 189
+      },
+      "aggregate_row_type_counts": {
+        "support_overlap_row": 1901
+      },
+      "candidate_theorem": {
+        "proved": false,
+        "statement": "For the tested support-pattern RIM rows, the RREF pivot schedule uses support-overlap rows to cover every compressed variable.",
+        "status": "CANDIDATE_THEOREM"
+      },
+      "compressed_variable_range": [
+        19,
+        159
+      ],
+      "covered_count": 20,
+      "families_covered": [
+        "support_pattern"
+      ],
+      "global_coverage": false,
+      "pattern_id": "support_overlap_rref_pivot",
+      "source_packets_covered": [
+        "constructive_rank_defect_support_design",
+        "support_pattern_multiplicity_mutation_search",
+        "support_pattern_surrogate_rank_feedback_search"
+      ],
+      "status": "CANDIDATE_PATTERN",
+      "uncovered_count": 14
+    },
+    {
+      "aggregate_pair_pivot_counts": {
+        "1,2": 1088,
+        "1,3": 652,
+        "1,4": 712,
+        "1,5": 600,
+        "1,6": 495
+      },
+      "aggregate_row_type_counts": {
+        "balanced_or_generic_pairwise_row": 1226,
+        "quotient_full_fiber_row": 383,
+        "residual_or_partial_fiber_row": 37,
+        "support_overlap_row": 1901
+      },
+      "candidate_theorem": {
+        "proved": true,
+        "statement": "Each tested matrix has an explicit Sage-replayed RREF pivot-minor certificate over GF(17^32).",
+        "status": "COMPUTATIONAL_CERTIFICATE"
+      },
+      "compressed_variable_range": [
+        6,
+        217
+      ],
+      "covered_count": 34,
+      "families_covered": [
+        "balanced_clique",
+        "support_pattern",
+        "two_level_quotient_residual"
+      ],
+      "global_coverage": true,
+      "pattern_id": "rref_pivot_minor_certificate",
+      "source_packets_covered": [
+        "constructive_rank_defect_support_design",
+        "pairwise_divisibility_nullvector_system",
+        "support_pattern_multiplicity_mutation_search",
+        "support_pattern_surrogate_rank_feedback_search",
+        "two_level_pairwise_divisibility"
+      ],
+      "status": "CERTIFICATE_PATTERN",
+      "uncovered_count": 0
+    }
+  ],
+  "construction_mode": "rim_pivot_pattern_theorem_audit",
+  "denominator": "17^32",
+  "field_denominator": "2367911594760467245844106297320951247361",
+  "global_status": {
+    "candidate_found": false,
+    "improves_pr_133": false,
+    "status": "CANDIDATE_THEOREM_ONLY"
+  },
+  "interpretation": {
+    "a327_certificate_found": false,
+    "candidate_found": false,
+    "common_pivot_pattern_theorem_proved": false,
+    "global_Lambda_mu_327_upper_bound": false,
+    "pivot_profiles_mined": true,
+    "status": "AUDIT"
+  },
+  "k": 256,
+  "matrix_profiles": [
+    {
+      "candidate_id": "anchored_zero_cyclic_45_balanced_r12_seed_202609189",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "support_overlap_rref_pivot",
+      "compressed_variables": 134,
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3381,
+        134
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 134
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "0ac54c885bf92b909405b5838fd30778681d33b134487c94d31daa084688b886",
+        "pair_pivot_counts": {
+          "1,2": 33,
+          "1,3": 24,
+          "1,4": 32,
+          "1,5": 28,
+          "1,6": 17
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 33,
+          "min_pair_pivots": 17,
+          "pair_pivot_total": 134
+        },
+        "pattern_id": "support_overlap_rref_pivot",
+        "pivot_cols_hash": "dd3dddb7a5e4ee8e8d7654a0ad056d58b6b552ec0b6b4517081df27345117281",
+        "pivot_columns_used": 134,
+        "pivot_pairs_hash": "305cbf9295db40a87af94a6ea32f3f53ffe8e7f22c729ca423537b16a1b6e699",
+        "pivot_rows_hash": "8ca88576b2af04902935be5fb6c08ee41edcc82da52592877bf09c2af0490b09",
+        "pivot_rows_used": 134,
+        "private_pivot_blocks": 134,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "support_overlap_row": 134
+        },
+        "row_type_signature": "support_overlap_row:134",
+        "row_type_total": 134,
+        "rref_pivot_blocks": 134,
+        "single_row_type_schedule": true,
+        "structural_family": "support_overlap_rows_only",
+        "support_overlap_schedule": true
+      },
+      "rank": 134,
+      "source_family": "support_pattern",
+      "source_key": "constructive_rank_defect_support_design::anchored_zero_cyclic_45_balanced_r12_seed_202609189",
+      "source_matrix_metadata_hash": "be8ea29a9c284334ec0d400bea2b0514f80e80dea3599184009fd1051c526591",
+      "source_packet": "constructive_rank_defect_support_design",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "overlap_cycle_cyclic_3456_balanced_r12_seed_202608929",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "support_overlap_rref_pivot",
+      "compressed_variables": 136,
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3468,
+        136
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 136
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "539e7dabbcf13d33e7e59cd6a8de60ce6b2ad1cd417382aff8df43c3084454b5",
+        "pair_pivot_counts": {
+          "1,2": 42,
+          "1,3": 24,
+          "1,4": 30,
+          "1,5": 26,
+          "1,6": 14
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 42,
+          "min_pair_pivots": 14,
+          "pair_pivot_total": 136
+        },
+        "pattern_id": "support_overlap_rref_pivot",
+        "pivot_cols_hash": "87ef3e03a99fdd08632d1e74dda2c6287b549293c6d781c0693789f1095ae25c",
+        "pivot_columns_used": 136,
+        "pivot_pairs_hash": "7eef77d73db99c9ada60b25fc38bb756134904294ad5588a6ebee1b8f0cb5568",
+        "pivot_rows_hash": "37dd1e883e162833ee61f336144989407059648853f0b5987343a42cc939e67d",
+        "pivot_rows_used": 136,
+        "private_pivot_blocks": 136,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "support_overlap_row": 136
+        },
+        "row_type_signature": "support_overlap_row:136",
+        "row_type_total": 136,
+        "rref_pivot_blocks": 136,
+        "single_row_type_schedule": true,
+        "structural_family": "support_overlap_rows_only",
+        "support_overlap_schedule": true
+      },
+      "rank": 136,
+      "source_family": "support_pattern",
+      "source_key": "constructive_rank_defect_support_design::overlap_cycle_cyclic_3456_balanced_r12_seed_202608929",
+      "source_matrix_metadata_hash": "fde2879dbfa5ae62cbe65c170590606edd0967197889911ef1ebf3b97d72a5ce",
+      "source_packet": "constructive_rank_defect_support_design",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "anchored_zero_cyclic_45_balanced_r0_seed_202609033",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "support_overlap_rref_pivot",
+      "compressed_variables": 138,
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3372,
+        138
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 138
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "f11da2837d706c4033a1aed7f1ffefe8bfc5b5ff6fe5b796486ede21dde6622a",
+        "pair_pivot_counts": {
+          "1,2": 42,
+          "1,3": 31,
+          "1,4": 26,
+          "1,5": 32,
+          "1,6": 7
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 42,
+          "min_pair_pivots": 7,
+          "pair_pivot_total": 138
+        },
+        "pattern_id": "support_overlap_rref_pivot",
+        "pivot_cols_hash": "8c2f3e291e221ca3d478f846bce612397d62c7d3fd4a5e4d06a1c1f12570e1ee",
+        "pivot_columns_used": 138,
+        "pivot_pairs_hash": "901d808276c20620c05c0b26141424d48ce3f92717bda04ad803001c24b6a147",
+        "pivot_rows_hash": "b899d60b5442aee291847ac31ce9a234d28970b765a7f4e5b1882fa234ab1e12",
+        "pivot_rows_used": 138,
+        "private_pivot_blocks": 138,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "support_overlap_row": 138
+        },
+        "row_type_signature": "support_overlap_row:138",
+        "row_type_total": 138,
+        "rref_pivot_blocks": 138,
+        "single_row_type_schedule": true,
+        "structural_family": "support_overlap_rows_only",
+        "support_overlap_schedule": true
+      },
+      "rank": 138,
+      "source_family": "support_pattern",
+      "source_key": "constructive_rank_defect_support_design::anchored_zero_cyclic_45_balanced_r0_seed_202609033",
+      "source_matrix_metadata_hash": "fc8230b95edd0588179434df9cc7884ee1692002249045603811d08bd2519f3a",
+      "source_packet": "constructive_rank_defect_support_design",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "anchored_zero_cyclic_45_balanced_r16_seed_202609241",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "support_overlap_rref_pivot",
+      "compressed_variables": 150,
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3335,
+        150
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 150
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "570ed0e6c16d99de225883803cf2bc462eeb6890429d5640231d7d1a8e8c5053",
+        "pair_pivot_counts": {
+          "1,2": 46,
+          "1,3": 24,
+          "1,4": 29,
+          "1,5": 29,
+          "1,6": 22
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 46,
+          "min_pair_pivots": 22,
+          "pair_pivot_total": 150
+        },
+        "pattern_id": "support_overlap_rref_pivot",
+        "pivot_cols_hash": "1a7b80b181100aba628ccce7ba02bab13462893ae11015f7d9e72184bacbfeca",
+        "pivot_columns_used": 150,
+        "pivot_pairs_hash": "36fdb322f44d0e0855d2a5b0be42097a5f6ea865a5ffea97084e04e1c4eda7f0",
+        "pivot_rows_hash": "ae433f7f406d2410579677188de1f192ccb759731ca95be53c984c4a2a86a846",
+        "pivot_rows_used": 150,
+        "private_pivot_blocks": 150,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "support_overlap_row": 150
+        },
+        "row_type_signature": "support_overlap_row:150",
+        "row_type_total": 150,
+        "rref_pivot_blocks": 150,
+        "single_row_type_schedule": true,
+        "structural_family": "support_overlap_rows_only",
+        "support_overlap_schedule": true
+      },
+      "rank": 150,
+      "source_family": "support_pattern",
+      "source_key": "constructive_rank_defect_support_design::anchored_zero_cyclic_45_balanced_r16_seed_202609241",
+      "source_matrix_metadata_hash": "54ce4aee1820b9d7400a64d5e67edbd6642628ac347086c7a247df43c4f9e293",
+      "source_packet": "constructive_rank_defect_support_design",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "anchored_zero_cyclic_45_balanced_r14_seed_202609215",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "support_overlap_rref_pivot",
+      "compressed_variables": 152,
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3396,
+        152
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 152
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "7d54ce181e3e95e4b11990c08625438ad66f661dfe44873610612d68e6b41d4b",
+        "pair_pivot_counts": {
+          "1,2": 58,
+          "1,3": 28,
+          "1,4": 26,
+          "1,5": 27,
+          "1,6": 13
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 58,
+          "min_pair_pivots": 13,
+          "pair_pivot_total": 152
+        },
+        "pattern_id": "support_overlap_rref_pivot",
+        "pivot_cols_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+        "pivot_columns_used": 152,
+        "pivot_pairs_hash": "ba9747dbcbe8a6c577468aca2553408023a56a904b6548c628076881570e6e81",
+        "pivot_rows_hash": "24120d8998bf8683989bc6bc2a6f3f5b8e434d31d270de23785781b494d8f1db",
+        "pivot_rows_used": 152,
+        "private_pivot_blocks": 152,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "support_overlap_row": 152
+        },
+        "row_type_signature": "support_overlap_row:152",
+        "row_type_total": 152,
+        "rref_pivot_blocks": 152,
+        "single_row_type_schedule": true,
+        "structural_family": "support_overlap_rows_only",
+        "support_overlap_schedule": true
+      },
+      "rank": 152,
+      "source_family": "support_pattern",
+      "source_key": "constructive_rank_defect_support_design::anchored_zero_cyclic_45_balanced_r14_seed_202609215",
+      "source_matrix_metadata_hash": "1d2d260229d89b01171145837a44e4597ebad28fcdb9174397cef0a86b116f6e",
+      "source_packet": "constructive_rank_defect_support_design",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "anchored_zero_cyclic_45_balanced_r8_seed_202609137",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "support_overlap_rref_pivot",
+      "compressed_variables": 152,
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3329,
+        152
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 152
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "d5649ca09ec021fb3be0fb7935c29e2880c1db6c3ba6bbbb8a01860086a64833",
+        "pair_pivot_counts": {
+          "1,2": 53,
+          "1,3": 33,
+          "1,4": 29,
+          "1,5": 24,
+          "1,6": 13
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 53,
+          "min_pair_pivots": 13,
+          "pair_pivot_total": 152
+        },
+        "pattern_id": "support_overlap_rref_pivot",
+        "pivot_cols_hash": "166c2b263ce84795fbd88c32e4c31ae64174f2973136e50760c60b15ce6a463e",
+        "pivot_columns_used": 152,
+        "pivot_pairs_hash": "e816728f1c213d5f93b5ddc7f8656f6232aff42733c06596a07753a273321b75",
+        "pivot_rows_hash": "129b192f309976464f6bdcf5151ad45dfec42d592c24ef3d359af2f44d96f486",
+        "pivot_rows_used": 152,
+        "private_pivot_blocks": 152,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "support_overlap_row": 152
+        },
+        "row_type_signature": "support_overlap_row:152",
+        "row_type_total": 152,
+        "rref_pivot_blocks": 152,
+        "single_row_type_schedule": true,
+        "structural_family": "support_overlap_rows_only",
+        "support_overlap_schedule": true
+      },
+      "rank": 152,
+      "source_family": "support_pattern",
+      "source_key": "constructive_rank_defect_support_design::anchored_zero_cyclic_45_balanced_r8_seed_202609137",
+      "source_matrix_metadata_hash": "f16c572b31a9ed7134f53f8181910753531c29e3c49522cf8df488f6a34b1ece",
+      "source_packet": "constructive_rank_defect_support_design",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "overlap_cycle_cyclic_3456_balanced_r6_seed_202608851",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "support_overlap_rref_pivot",
+      "compressed_variables": 158,
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3426,
+        158
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 158
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "d7818036927cfd0be6388efe6ff387116beeee83d78fe302e66e90b81bf29280",
+        "pair_pivot_counts": {
+          "1,2": 54,
+          "1,3": 32,
+          "1,4": 29,
+          "1,5": 27,
+          "1,6": 16
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 54,
+          "min_pair_pivots": 16,
+          "pair_pivot_total": 158
+        },
+        "pattern_id": "support_overlap_rref_pivot",
+        "pivot_cols_hash": "38b87d9945ccfd66661676bfaf6a8546c6a44a158c16fd1fd747ba2950d107fe",
+        "pivot_columns_used": 158,
+        "pivot_pairs_hash": "362f29b43d26f436fabbceff1ced52b398d3d05b529c8c01083eb36051570700",
+        "pivot_rows_hash": "a3b47a64c16b0d3c23398abffa6d8de151ef7363b3b5f0621faa69066f3dc8bd",
+        "pivot_rows_used": 158,
+        "private_pivot_blocks": 158,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "support_overlap_row": 158
+        },
+        "row_type_signature": "support_overlap_row:158",
+        "row_type_total": 158,
+        "rref_pivot_blocks": 158,
+        "single_row_type_schedule": true,
+        "structural_family": "support_overlap_rows_only",
+        "support_overlap_schedule": true
+      },
+      "rank": 158,
+      "source_family": "support_pattern",
+      "source_key": "constructive_rank_defect_support_design::overlap_cycle_cyclic_3456_balanced_r6_seed_202608851",
+      "source_matrix_metadata_hash": "da645cb5869b6b85f39b02237973ec273f0056008c264d28c4dd909d7f8b1e46",
+      "source_packet": "constructive_rank_defect_support_design",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "overlap_cycle_cyclic_3456_balanced_r2_seed_202608799",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "support_overlap_rref_pivot",
+      "compressed_variables": 159,
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3411,
+        159
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 159
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "b881b29c7f8ff6c5cdbf62f0b5079421504bf94b269b23a2467d83d7253fa1db",
+        "pair_pivot_counts": {
+          "1,2": 41,
+          "1,3": 32,
+          "1,4": 34,
+          "1,5": 32,
+          "1,6": 20
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 41,
+          "min_pair_pivots": 20,
+          "pair_pivot_total": 159
+        },
+        "pattern_id": "support_overlap_rref_pivot",
+        "pivot_cols_hash": "08d44416d05bab0e6de9f9bc0f69a9873499ad7b804945d8eef9f031dc5a4e54",
+        "pivot_columns_used": 159,
+        "pivot_pairs_hash": "d5f5788e5a457378eaae9c06abc83ce3f8d67247c8a3f423db1f6aeacc1ac5f6",
+        "pivot_rows_hash": "b45a404c16a0a8123041638420c83b0ecf0923693098db9803e6bd4e26d8b349",
+        "pivot_rows_used": 159,
+        "private_pivot_blocks": 159,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "support_overlap_row": 159
+        },
+        "row_type_signature": "support_overlap_row:159",
+        "row_type_total": 159,
+        "rref_pivot_blocks": 159,
+        "single_row_type_schedule": true,
+        "structural_family": "support_overlap_rows_only",
+        "support_overlap_schedule": true
+      },
+      "rank": 159,
+      "source_family": "support_pattern",
+      "source_key": "constructive_rank_defect_support_design::overlap_cycle_cyclic_3456_balanced_r2_seed_202608799",
+      "source_matrix_metadata_hash": "69132663d57d90f8a7c360bb50527cfe7125f7ad7b5947dced5e8585574c0252",
+      "source_packet": "constructive_rank_defect_support_design",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "balanced_clique_m2_o1",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "generic_pairwise_rref_pivot",
+      "compressed_variables": 179,
+      "matrix_model": "pairwise_divisibility",
+      "matrix_shape": [
+        3251,
+        179
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 179,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 0
+        },
+        "generic_pairwise_schedule": true,
+        "minor_hash": "e2b3f56530fcda347b2e63d6b2cba0c5d70e92ee4137871b0a7b8defcc0fc3a8",
+        "pair_pivot_counts": {
+          "1,2": 73,
+          "1,3": 27,
+          "1,4": 21,
+          "1,5": 12,
+          "1,6": 46
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 73,
+          "min_pair_pivots": 12,
+          "pair_pivot_total": 179
+        },
+        "pattern_id": "generic_pairwise_rref_pivot",
+        "pivot_cols_hash": "cd937930bc33ae05da489bebc91dc66f0f63b28158ea74140df552bc705f3df2",
+        "pivot_columns_used": 179,
+        "pivot_pairs_hash": "f1ea12f06a216173ce89b6ecab2f243ba694e1224f56d5dca17c040a646f3597",
+        "pivot_rows_hash": "ed937ddd12e688f1a8592ea63130fc71d24797a1a18bfdfa8584fa808285bf8b",
+        "pivot_rows_used": 179,
+        "private_pivot_blocks": 179,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "balanced_or_generic_pairwise_row": 179
+        },
+        "row_type_signature": "balanced_or_generic_pairwise_row:179",
+        "row_type_total": 179,
+        "rref_pivot_blocks": 179,
+        "single_row_type_schedule": true,
+        "structural_family": "balanced_or_generic_pairwise_rows_only",
+        "support_overlap_schedule": false
+      },
+      "rank": 179,
+      "source_family": "balanced_clique",
+      "source_key": "pairwise_divisibility_nullvector_system::balanced_clique_m2_o1",
+      "source_matrix_metadata_hash": "b1dadb8a93eb5d76e4ec240a69c83fd4f0f523532ab7c41dbbb8a5bc5b9164e0",
+      "source_packet": "pairwise_divisibility_nullvector_system",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "balanced_clique_m5_o1",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "generic_pairwise_rref_pivot",
+      "compressed_variables": 205,
+      "matrix_model": "pairwise_divisibility",
+      "matrix_shape": [
+        3277,
+        205
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 205,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 0
+        },
+        "generic_pairwise_schedule": true,
+        "minor_hash": "139b4501f030f1201fdc769155080202776e850f1841c4c42063587c11d64bf5",
+        "pair_pivot_counts": {
+          "1,2": 66,
+          "1,3": 17,
+          "1,4": 45,
+          "1,5": 18,
+          "1,6": 59
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 66,
+          "min_pair_pivots": 17,
+          "pair_pivot_total": 205
+        },
+        "pattern_id": "generic_pairwise_rref_pivot",
+        "pivot_cols_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+        "pivot_columns_used": 205,
+        "pivot_pairs_hash": "ed3225e66fa70aa4a38881feb6418250ab51a1e23f3612207b183c6af53b41c0",
+        "pivot_rows_hash": "8927ca0b3f4325ad63d1260f90111199befbe9230a66bdc9e44798f71932eb12",
+        "pivot_rows_used": 205,
+        "private_pivot_blocks": 205,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "balanced_or_generic_pairwise_row": 205
+        },
+        "row_type_signature": "balanced_or_generic_pairwise_row:205",
+        "row_type_total": 205,
+        "rref_pivot_blocks": 205,
+        "single_row_type_schedule": true,
+        "structural_family": "balanced_or_generic_pairwise_rows_only",
+        "support_overlap_schedule": false
+      },
+      "rank": 205,
+      "source_family": "balanced_clique",
+      "source_key": "pairwise_divisibility_nullvector_system::balanced_clique_m5_o1",
+      "source_matrix_metadata_hash": "7d54bb69fa18f95d8534d246a808d97312b0ecd4df96e2acb7264b92fdf5ed63",
+      "source_packet": "pairwise_divisibility_nullvector_system",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "balanced_clique_m6_o1",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "generic_pairwise_rref_pivot",
+      "compressed_variables": 205,
+      "matrix_model": "pairwise_divisibility",
+      "matrix_shape": [
+        3277,
+        205
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 205,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 0
+        },
+        "generic_pairwise_schedule": true,
+        "minor_hash": "adec68f68d42e8636b1eb86ae76856bf8b56abeed63966077944b9cf532c6e04",
+        "pair_pivot_counts": {
+          "1,2": 40,
+          "1,3": 43,
+          "1,4": 50,
+          "1,5": 31,
+          "1,6": 41
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,4",
+          "max_pair_pivots": 50,
+          "min_pair_pivots": 31,
+          "pair_pivot_total": 205
+        },
+        "pattern_id": "generic_pairwise_rref_pivot",
+        "pivot_cols_hash": "75e37549a34898503e7c38ca0da2eef7631a6e54519b1d40c7aa83e637f62f70",
+        "pivot_columns_used": 205,
+        "pivot_pairs_hash": "4a841d2eea09dcd710da96f85ecf0b018f7556bd0e11f24ae7bab423a80aa60e",
+        "pivot_rows_hash": "1a60895c20d5703d13eff827bdfe23b0b798381f672a54b695b223a50ed7eba3",
+        "pivot_rows_used": 205,
+        "private_pivot_blocks": 205,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "balanced_or_generic_pairwise_row": 205
+        },
+        "row_type_signature": "balanced_or_generic_pairwise_row:205",
+        "row_type_total": 205,
+        "rref_pivot_blocks": 205,
+        "single_row_type_schedule": true,
+        "structural_family": "balanced_or_generic_pairwise_rows_only",
+        "support_overlap_schedule": false
+      },
+      "rank": 205,
+      "source_family": "balanced_clique",
+      "source_key": "pairwise_divisibility_nullvector_system::balanced_clique_m6_o1",
+      "source_matrix_metadata_hash": "0959dcb1db0842d8e668526fc159147dddee590e81fcce31d7b345fca36b045a",
+      "source_packet": "pairwise_divisibility_nullvector_system",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "balanced_clique_m2_o0",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "generic_pairwise_rref_pivot",
+      "compressed_variables": 206,
+      "matrix_model": "pairwise_divisibility",
+      "matrix_shape": [
+        3278,
+        206
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 206,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 0
+        },
+        "generic_pairwise_schedule": true,
+        "minor_hash": "c0766d953a156d13ac2828dd589d2c668b512bf8b20bfb5782d3137c925b5fbe",
+        "pair_pivot_counts": {
+          "1,2": 80,
+          "1,3": 25,
+          "1,4": 37,
+          "1,5": 9,
+          "1,6": 55
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 80,
+          "min_pair_pivots": 9,
+          "pair_pivot_total": 206
+        },
+        "pattern_id": "generic_pairwise_rref_pivot",
+        "pivot_cols_hash": "5579579a9def9d04eecefd7df8004db96744f50e20bf32c680920cb859f8193c",
+        "pivot_columns_used": 206,
+        "pivot_pairs_hash": "ca921d87e19ae110cf5595ef8e56a04148afdc4a4674c262b8de46872258310a",
+        "pivot_rows_hash": "4fdbf36f0d9f324ee3587b7246d3445ef161d7bbcd2223e18da2b186c7e22c92",
+        "pivot_rows_used": 206,
+        "private_pivot_blocks": 206,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "balanced_or_generic_pairwise_row": 206
+        },
+        "row_type_signature": "balanced_or_generic_pairwise_row:206",
+        "row_type_total": 206,
+        "rref_pivot_blocks": 206,
+        "single_row_type_schedule": true,
+        "structural_family": "balanced_or_generic_pairwise_rows_only",
+        "support_overlap_schedule": false
+      },
+      "rank": 206,
+      "source_family": "balanced_clique",
+      "source_key": "pairwise_divisibility_nullvector_system::balanced_clique_m2_o0",
+      "source_matrix_metadata_hash": "c06a4e283897b7b60a61dbdbe673637bb939d8b231da3010153f4b81369eb1e0",
+      "source_packet": "pairwise_divisibility_nullvector_system",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "balanced_clique_m6_o0",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "generic_pairwise_rref_pivot",
+      "compressed_variables": 214,
+      "matrix_model": "pairwise_divisibility",
+      "matrix_shape": [
+        3286,
+        214
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 214,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 0
+        },
+        "generic_pairwise_schedule": true,
+        "minor_hash": "4380840db10c5e9cb598538539b25c47f02a92342fe519e43366249fa4963b6a",
+        "pair_pivot_counts": {
+          "1,2": 62,
+          "1,3": 42,
+          "1,4": 44,
+          "1,5": 48,
+          "1,6": 18
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 62,
+          "min_pair_pivots": 18,
+          "pair_pivot_total": 214
+        },
+        "pattern_id": "generic_pairwise_rref_pivot",
+        "pivot_cols_hash": "ed419f4db9dcb7af892a4bc5b151e655eb5a7492f065b7c9b127b09989169429",
+        "pivot_columns_used": 214,
+        "pivot_pairs_hash": "4b76a093693f8536386f96aec7e06a715d87f2e1a48d447e7da2f13dae94e069",
+        "pivot_rows_hash": "2031da6544efc22a8abfc68cc4c5945b88c1aa4902cf4880377d5fad0f08d034",
+        "pivot_rows_used": 214,
+        "private_pivot_blocks": 214,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "balanced_or_generic_pairwise_row": 214
+        },
+        "row_type_signature": "balanced_or_generic_pairwise_row:214",
+        "row_type_total": 214,
+        "rref_pivot_blocks": 214,
+        "single_row_type_schedule": true,
+        "structural_family": "balanced_or_generic_pairwise_rows_only",
+        "support_overlap_schedule": false
+      },
+      "rank": 214,
+      "source_family": "balanced_clique",
+      "source_key": "pairwise_divisibility_nullvector_system::balanced_clique_m6_o0",
+      "source_matrix_metadata_hash": "af5704490f49d175caa196e161978a46a66356ecd986c76b31d44311c5c785fa",
+      "source_packet": "pairwise_divisibility_nullvector_system",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "balanced_clique_m1_o0",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "generic_pairwise_rref_pivot",
+      "compressed_variables": 217,
+      "matrix_model": "pairwise_divisibility",
+      "matrix_shape": [
+        3289,
+        217
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 217,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 0
+        },
+        "generic_pairwise_schedule": true,
+        "minor_hash": "53a8d5f46e1ba26ac666e2e6ec380366c10889a0fc284df2b12fdf833edaf4df",
+        "pair_pivot_counts": {
+          "1,2": 58,
+          "1,3": 42,
+          "1,4": 41,
+          "1,5": 59,
+          "1,6": 17
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,5",
+          "max_pair_pivots": 59,
+          "min_pair_pivots": 17,
+          "pair_pivot_total": 217
+        },
+        "pattern_id": "generic_pairwise_rref_pivot",
+        "pivot_cols_hash": "31b7967ee6d08d156126305a2efb84fcd6a042d7e4a2ad5a9d5007c8defa8159",
+        "pivot_columns_used": 217,
+        "pivot_pairs_hash": "70a21d948b5fa50fbccfc2cf4b8c8d965485c3f17444ae575fcd388e7ca77415",
+        "pivot_rows_hash": "ddb17203b6eae7d7db917e5cc680077f8db02669a56ac838bd7d0f876af0bc45",
+        "pivot_rows_used": 217,
+        "private_pivot_blocks": 217,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "balanced_or_generic_pairwise_row": 217
+        },
+        "row_type_signature": "balanced_or_generic_pairwise_row:217",
+        "row_type_total": 217,
+        "rref_pivot_blocks": 217,
+        "single_row_type_schedule": true,
+        "structural_family": "balanced_or_generic_pairwise_rows_only",
+        "support_overlap_schedule": false
+      },
+      "rank": 217,
+      "source_family": "balanced_clique",
+      "source_key": "pairwise_divisibility_nullvector_system::balanced_clique_m1_o0",
+      "source_matrix_metadata_hash": "1b770f5aaf1cc84f0626a2398a4eeaa1f010c77c5945cfae746569a505f6d307",
+      "source_packet": "pairwise_divisibility_nullvector_system",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "mixed_boundary_spread_cyclic_3456_balanced_seed_202607280",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "support_overlap_rref_pivot",
+      "compressed_variables": 19,
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3771,
+        19
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 19
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "9a0c0a73dbcc37ada8065d02d364d85505d13a0b581bb08896dfda35c494e322",
+        "pair_pivot_counts": {
+          "1,2": 2,
+          "1,3": 6,
+          "1,4": 9,
+          "1,5": 1,
+          "1,6": 1
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,4",
+          "max_pair_pivots": 9,
+          "min_pair_pivots": 1,
+          "pair_pivot_total": 19
+        },
+        "pattern_id": "support_overlap_rref_pivot",
+        "pivot_cols_hash": "32794311e255ade983641fe7760fad54acee082818ba8fc8e0c1a5e9f44cabb1",
+        "pivot_columns_used": 19,
+        "pivot_pairs_hash": "19070af95f2377a31901c79e4a734718440d90a64d6658ee5ee4bf3ba7a78c0c",
+        "pivot_rows_hash": "f62766263b129caf5efdbb99d3d625a584d1c71f0bfd3d3e5c7b43a262e2cfde",
+        "pivot_rows_used": 19,
+        "private_pivot_blocks": 19,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "support_overlap_row": 19
+        },
+        "row_type_signature": "support_overlap_row:19",
+        "row_type_total": 19,
+        "rref_pivot_blocks": 19,
+        "single_row_type_schedule": true,
+        "structural_family": "support_overlap_rows_only",
+        "support_overlap_schedule": true
+      },
+      "rank": 19,
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_multiplicity_mutation_search::mixed_boundary_spread_cyclic_3456_balanced_seed_202607280",
+      "source_matrix_metadata_hash": "cda57f07e7ab6dc3881a9f51ac5fbabcc5810c8a062e3b9079f119c2d68a288e",
+      "source_packet": "support_pattern_multiplicity_mutation_search",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "multiplicity_spread_cyclic_45_balanced_seed_202607014",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "support_overlap_rref_pivot",
+      "compressed_variables": 23,
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3753,
+        23
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 23
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "fd6d03b99a136b8407d771c71b6be19445a4df03b855056adbc466c7ac4ca91b",
+        "pair_pivot_counts": {
+          "1,2": 2,
+          "1,3": 9,
+          "1,4": 5,
+          "1,5": 6,
+          "1,6": 1
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,3",
+          "max_pair_pivots": 9,
+          "min_pair_pivots": 1,
+          "pair_pivot_total": 23
+        },
+        "pattern_id": "support_overlap_rref_pivot",
+        "pivot_cols_hash": "40c1130abddfda2f14450d5c3ec3046cee84e7e1094ceab67f98df8bc0280c9f",
+        "pivot_columns_used": 23,
+        "pivot_pairs_hash": "206cb366525fe44b8b4e259d7d028696440fcf3c409a647219a1d7e89eb80366",
+        "pivot_rows_hash": "d3f157aed90b675ea04fc48661c0d73b922c7f1c439f4c7b6dcc7ab104fc1801",
+        "pivot_rows_used": 23,
+        "private_pivot_blocks": 23,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "support_overlap_row": 23
+        },
+        "row_type_signature": "support_overlap_row:23",
+        "row_type_total": 23,
+        "rref_pivot_blocks": 23,
+        "single_row_type_schedule": true,
+        "structural_family": "support_overlap_rows_only",
+        "support_overlap_schedule": true
+      },
+      "rank": 23,
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_multiplicity_mutation_search::multiplicity_spread_cyclic_45_balanced_seed_202607014",
+      "source_matrix_metadata_hash": "8a0464b8935810ac53c6cc28a0b6ce5a4b6d1d5a36429c4cc1a101736aa859fa",
+      "source_packet": "support_pattern_multiplicity_mutation_search",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "multiplicity_spread_cyclic_3456_balanced_seed_202607204",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "support_overlap_rref_pivot",
+      "compressed_variables": 30,
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3767,
+        30
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 30
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "adca40f97e0f0e961aecf686350884b33f67cef2e8f6b0026b4a940c3aa656d0",
+        "pair_pivot_counts": {
+          "1,2": 9,
+          "1,3": 10,
+          "1,4": 4,
+          "1,5": 6,
+          "1,6": 1
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,3",
+          "max_pair_pivots": 10,
+          "min_pair_pivots": 1,
+          "pair_pivot_total": 30
+        },
+        "pattern_id": "support_overlap_rref_pivot",
+        "pivot_cols_hash": "a6442ecc61a4de61e54fe0f8b19a20dfa668ac6b03491ae7cff4fe8261f6c7e1",
+        "pivot_columns_used": 30,
+        "pivot_pairs_hash": "266d95bab03a6563cf336edec308dbaf3c7a6bc3bfa5195d0a44e14ecd931e18",
+        "pivot_rows_hash": "e13d3cb6f66bbdee7c4064db89d3bc52650b58754be74567b95201567498da7d",
+        "pivot_rows_used": 30,
+        "private_pivot_blocks": 30,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "support_overlap_row": 30
+        },
+        "row_type_signature": "support_overlap_row:30",
+        "row_type_total": 30,
+        "rref_pivot_blocks": 30,
+        "single_row_type_schedule": true,
+        "structural_family": "support_overlap_rows_only",
+        "support_overlap_schedule": true
+      },
+      "rank": 30,
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_multiplicity_mutation_search::multiplicity_spread_cyclic_3456_balanced_seed_202607204",
+      "source_matrix_metadata_hash": "090c3758db9babc79c3c06b23db434c8790897f6ea5402c7b8a963a3462efd9b",
+      "source_packet": "support_pattern_multiplicity_mutation_search",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "mixed_boundary_spread_cyclic_45_balanced_seed_202607090",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "support_overlap_rref_pivot",
+      "compressed_variables": 32,
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3773,
+        32
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 32
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "2d82d25580f304326598bbd6320dbffe63ba837a6dc8460c54d8d1f1a7cb8477",
+        "pair_pivot_counts": {
+          "1,2": 6,
+          "1,3": 12,
+          "1,4": 8,
+          "1,5": 5,
+          "1,6": 1
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,3",
+          "max_pair_pivots": 12,
+          "min_pair_pivots": 1,
+          "pair_pivot_total": 32
+        },
+        "pattern_id": "support_overlap_rref_pivot",
+        "pivot_cols_hash": "23b22df6bf551a4e788327db3b3d3d96e1eca49078d2c6bd0049da2d390eca8b",
+        "pivot_columns_used": 32,
+        "pivot_pairs_hash": "abc95e7fbdd089aabf2aaea36a47c28177961c6f9f3c42191109cf0a04975a09",
+        "pivot_rows_hash": "3179e9afad5e553ded59281be6397fc43a7adbfbbf373b6286ca327879d012ee",
+        "pivot_rows_used": 32,
+        "private_pivot_blocks": 32,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "support_overlap_row": 32
+        },
+        "row_type_signature": "support_overlap_row:32",
+        "row_type_total": 32,
+        "rref_pivot_blocks": 32,
+        "single_row_type_schedule": true,
+        "structural_family": "support_overlap_rows_only",
+        "support_overlap_schedule": true
+      },
+      "rank": 32,
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_multiplicity_mutation_search::mixed_boundary_spread_cyclic_45_balanced_seed_202607090",
+      "source_matrix_metadata_hash": "60e0d922304c22a20735f18543442802e27edcb6325e1aaca2a79f7da95d3d8f",
+      "source_packet": "support_pattern_multiplicity_mutation_search",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "multiplicity_spread_cyclic_45_interval_high_overlap_seed_202606919",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "support_overlap_rref_pivot",
+      "compressed_variables": 69,
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3697,
+        69
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 69
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "dfc8c2bfbcaa8c5bcd51fb4fb6b9f7f07345af45871aff61341a4fb74430e41d",
+        "pair_pivot_counts": {
+          "1,2": 17,
+          "1,3": 20,
+          "1,4": 17,
+          "1,5": 14,
+          "1,6": 1
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,3",
+          "max_pair_pivots": 20,
+          "min_pair_pivots": 1,
+          "pair_pivot_total": 69
+        },
+        "pattern_id": "support_overlap_rref_pivot",
+        "pivot_cols_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+        "pivot_columns_used": 69,
+        "pivot_pairs_hash": "ed3d2c06d67960bdb958e79e229e5be2c52743ec49ad12b99494304642e4ce63",
+        "pivot_rows_hash": "9b50dfc52744c02d08e33073d31e5690d3539e0d5ecc9c909d7165cc54f344aa",
+        "pivot_rows_used": 69,
+        "private_pivot_blocks": 69,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "support_overlap_row": 69
+        },
+        "row_type_signature": "support_overlap_row:69",
+        "row_type_total": 69,
+        "rref_pivot_blocks": 69,
+        "single_row_type_schedule": true,
+        "structural_family": "support_overlap_rows_only",
+        "support_overlap_schedule": true
+      },
+      "rank": 69,
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_multiplicity_mutation_search::multiplicity_spread_cyclic_45_interval_high_overlap_seed_202606919",
+      "source_matrix_metadata_hash": "fef29becc20cda3f06f36f9b3d50e3bbb6310594d72ee563d65403c2e6bd927e",
+      "source_packet": "support_pattern_multiplicity_mutation_search",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "multiplicity_spread_cyclic_3456_near_boundary_seed_202607109",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "support_overlap_rref_pivot",
+      "compressed_variables": 89,
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3654,
+        89
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 89
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "7ebf9146c094c202b2e7f75c4c6f8c4293cdb066e4bf4fc5a29d92b8e6ccb5a0",
+        "pair_pivot_counts": {
+          "1,2": 26,
+          "1,3": 26,
+          "1,4": 19,
+          "1,5": 1,
+          "1,6": 17
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,3",
+          "max_pair_pivots": 26,
+          "min_pair_pivots": 1,
+          "pair_pivot_total": 89
+        },
+        "pattern_id": "support_overlap_rref_pivot",
+        "pivot_cols_hash": "cddb19b049b2d0dda032f8d67cb9f9771af75659ebd7c3675c877b463204acba",
+        "pivot_columns_used": 89,
+        "pivot_pairs_hash": "f7f057803156f1f777daf9cfe5821b642462245e2aebd64a8f6358d381eac2ad",
+        "pivot_rows_hash": "8efe24d83662712cfeaab60f9eb061305733b48a25ac58dd105587db255156fe",
+        "pivot_rows_used": 89,
+        "private_pivot_blocks": 89,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "support_overlap_row": 89
+        },
+        "row_type_signature": "support_overlap_row:89",
+        "row_type_total": 89,
+        "rref_pivot_blocks": 89,
+        "single_row_type_schedule": true,
+        "structural_family": "support_overlap_rows_only",
+        "support_overlap_schedule": true
+      },
+      "rank": 89,
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_multiplicity_mutation_search::multiplicity_spread_cyclic_3456_near_boundary_seed_202607109",
+      "source_matrix_metadata_hash": "1a2352c19e096144415102b5165c35ee167dcd837d11b6e3907e40aa9414c693",
+      "source_packet": "support_pattern_multiplicity_mutation_search",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "multiplicity_spread_cyclic_45_balanced_r2_seed_202607755",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "support_overlap_rref_pivot",
+      "compressed_variables": 59,
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3651,
+        59
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 59
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "e9dbfa6a2df7a2114fb05dfbb14afe8358aac8a8f1e1adedbf8bd90a96ae1e17",
+        "pair_pivot_counts": {
+          "1,2": 19,
+          "1,3": 3,
+          "1,4": 12,
+          "1,5": 17,
+          "1,6": 8
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 19,
+          "min_pair_pivots": 3,
+          "pair_pivot_total": 59
+        },
+        "pattern_id": "support_overlap_rref_pivot",
+        "pivot_cols_hash": "385c723be4bcf19bf6e35b35cbe6e0ba6348cae4d813d908085d91fc5b1fdfc7",
+        "pivot_columns_used": 59,
+        "pivot_pairs_hash": "f3afdc2e14d818eafc0fdcf95c2bce3d80b942553a318da435610474419c013a",
+        "pivot_rows_hash": "fad635140c9fa73ea9668161f27eeef75185a85e0543bd25db363af82910b2c2",
+        "pivot_rows_used": 59,
+        "private_pivot_blocks": 59,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "support_overlap_row": 59
+        },
+        "row_type_signature": "support_overlap_row:59",
+        "row_type_total": 59,
+        "rref_pivot_blocks": 59,
+        "single_row_type_schedule": true,
+        "structural_family": "support_overlap_rows_only",
+        "support_overlap_schedule": true
+      },
+      "rank": 59,
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_surrogate_rank_feedback_search::multiplicity_spread_cyclic_45_balanced_r2_seed_202607755",
+      "source_matrix_metadata_hash": "ef3e6ba7351f521a7f57a5cfd2e7ca490b6faec6814c9761924e6f15d315ab7f",
+      "source_packet": "support_pattern_surrogate_rank_feedback_search",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "multiplicity_spread_cyclic_3456_balanced_r0_seed_202608129",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "support_overlap_rref_pivot",
+      "compressed_variables": 67,
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3625,
+        67
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 67
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "190575420e6c64ef911293438362581ee972a0413845d4e48cf82bc6a2cd0d1e",
+        "pair_pivot_counts": {
+          "1,2": 24,
+          "1,3": 14,
+          "1,4": 8,
+          "1,5": 14,
+          "1,6": 7
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 24,
+          "min_pair_pivots": 7,
+          "pair_pivot_total": 67
+        },
+        "pattern_id": "support_overlap_rref_pivot",
+        "pivot_cols_hash": "3c4a161f016fc9d119c57b04f46749d254b1e1f3f9027192186368f3199e42f2",
+        "pivot_columns_used": 67,
+        "pivot_pairs_hash": "c5de7246fcf34e027142268f25a1c65a10dd6b0abe1f1fc592850a46611a7bac",
+        "pivot_rows_hash": "6b8e4009ffccb191bcf02f29c3e8cac5fd183e590bc7e089f3a2b665edeae441",
+        "pivot_rows_used": 67,
+        "private_pivot_blocks": 67,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "support_overlap_row": 67
+        },
+        "row_type_signature": "support_overlap_row:67",
+        "row_type_total": 67,
+        "rref_pivot_blocks": 67,
+        "single_row_type_schedule": true,
+        "structural_family": "support_overlap_rows_only",
+        "support_overlap_schedule": true
+      },
+      "rank": 67,
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_surrogate_rank_feedback_search::multiplicity_spread_cyclic_3456_balanced_r0_seed_202608129",
+      "source_matrix_metadata_hash": "a858176036f34179779eb07cf0605179660a69b4f0951d2318478088af96c744",
+      "source_packet": "support_pattern_surrogate_rank_feedback_search",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "multiplicity_spread_cyclic_45_balanced_r0_seed_202607721",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "support_overlap_rref_pivot",
+      "compressed_variables": 69,
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3618,
+        69
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 69
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "256fb58e8fb15de6731a93d9e991ef4a81dae02577029809611ec09a63fd4dda",
+        "pair_pivot_counts": {
+          "1,2": 21,
+          "1,3": 16,
+          "1,4": 18,
+          "1,5": 12,
+          "1,6": 2
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 21,
+          "min_pair_pivots": 2,
+          "pair_pivot_total": 69
+        },
+        "pattern_id": "support_overlap_rref_pivot",
+        "pivot_cols_hash": "a5d641e8007ba2f8af756fa131e2be3291899456be0ea09ea0ae966f40e81f24",
+        "pivot_columns_used": 69,
+        "pivot_pairs_hash": "26370e5edc1fc61503cb6e806cdd70da8605e66764608c8239d44240472fd070",
+        "pivot_rows_hash": "13a59c5f623445220b31cbfd8a257174f9ffb7d46bd378cc9153cc051261d040",
+        "pivot_rows_used": 69,
+        "private_pivot_blocks": 69,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "support_overlap_row": 69
+        },
+        "row_type_signature": "support_overlap_row:69",
+        "row_type_total": 69,
+        "rref_pivot_blocks": 69,
+        "single_row_type_schedule": true,
+        "structural_family": "support_overlap_rows_only",
+        "support_overlap_schedule": true
+      },
+      "rank": 69,
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_surrogate_rank_feedback_search::multiplicity_spread_cyclic_45_balanced_r0_seed_202607721",
+      "source_matrix_metadata_hash": "ed8fa6c7bfa985c95a78c7b6711670142cbd4ded1082b184ee9f3b166e90f8e6",
+      "source_packet": "support_pattern_surrogate_rank_feedback_search",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "multiplicity_spread_cyclic_45_balanced_r1_seed_202607738",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "support_overlap_rref_pivot",
+      "compressed_variables": 77,
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3631,
+        77
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 77
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "db790b799fa9c526049a047af7339e4985975e562d8f73e3a6df381c9b320912",
+        "pair_pivot_counts": {
+          "1,2": 24,
+          "1,3": 8,
+          "1,4": 25,
+          "1,5": 10,
+          "1,6": 10
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,4",
+          "max_pair_pivots": 25,
+          "min_pair_pivots": 8,
+          "pair_pivot_total": 77
+        },
+        "pattern_id": "support_overlap_rref_pivot",
+        "pivot_cols_hash": "7187e9568ba8468e45a1b1cb5b37153c2ffefb05da2707b60cf3dba8da44edd7",
+        "pivot_columns_used": 77,
+        "pivot_pairs_hash": "ba8078fdd66c94c91200a66477b10cce588b631bb95bcd99f1b981524f5c9dcf",
+        "pivot_rows_hash": "d7faee293b9df4ed79fa26527ee94910ab09b41979cc76fee12831dd9dde1f5e",
+        "pivot_rows_used": 77,
+        "private_pivot_blocks": 77,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "support_overlap_row": 77
+        },
+        "row_type_signature": "support_overlap_row:77",
+        "row_type_total": 77,
+        "rref_pivot_blocks": 77,
+        "single_row_type_schedule": true,
+        "structural_family": "support_overlap_rows_only",
+        "support_overlap_schedule": true
+      },
+      "rank": 77,
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_surrogate_rank_feedback_search::multiplicity_spread_cyclic_45_balanced_r1_seed_202607738",
+      "source_matrix_metadata_hash": "d6d73d38ace5fb9f4229132dffe98baca875d2395134a0d44f6cdfbca4cbd7fe",
+      "source_packet": "support_pattern_surrogate_rank_feedback_search",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "multiplicity_spread_cyclic_3456_balanced_r2_seed_202608163",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "support_overlap_rref_pivot",
+      "compressed_variables": 87,
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3597,
+        87
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 87
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "3bc9a06c658f7af81c50a21d5e9a8f9c679dbaf89283c8e1343b9cea243b8c8d",
+        "pair_pivot_counts": {
+          "1,2": 22,
+          "1,3": 15,
+          "1,4": 20,
+          "1,5": 20,
+          "1,6": 10
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 22,
+          "min_pair_pivots": 10,
+          "pair_pivot_total": 87
+        },
+        "pattern_id": "support_overlap_rref_pivot",
+        "pivot_cols_hash": "459ca44abc60643feff73a215b2ec340b6b1bde94dc81fc0131051bceae92bf1",
+        "pivot_columns_used": 87,
+        "pivot_pairs_hash": "66e18eefadd2d33bbd46bef79018967c9828f7708185fca955cfa914e5a099e9",
+        "pivot_rows_hash": "2e30a8a2a4639be116aa60758e7fb36f9fe5b4769f0cf65bf24fd072f69ce423",
+        "pivot_rows_used": 87,
+        "private_pivot_blocks": 87,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "support_overlap_row": 87
+        },
+        "row_type_signature": "support_overlap_row:87",
+        "row_type_total": 87,
+        "rref_pivot_blocks": 87,
+        "single_row_type_schedule": true,
+        "structural_family": "support_overlap_rows_only",
+        "support_overlap_schedule": true
+      },
+      "rank": 87,
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_surrogate_rank_feedback_search::multiplicity_spread_cyclic_3456_balanced_r2_seed_202608163",
+      "source_matrix_metadata_hash": "261e4f24e6488c49c87649aba3abd9eef1a9400530c9f8b729f5d2a2ab47035d",
+      "source_packet": "support_pattern_surrogate_rank_feedback_search",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "multiplicity_spread_cyclic_3456_balanced_r1_seed_202608146",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "support_overlap_rref_pivot",
+      "compressed_variables": 101,
+      "matrix_model": "support_design_reduced_intersection_matrix",
+      "matrix_shape": [
+        3648,
+        101
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 0,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 101
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "40beecfb7634a3b9363d0551ac42735450946e51a751b9787d024f3c46e8f73a",
+        "pair_pivot_counts": {
+          "1,2": 28,
+          "1,3": 19,
+          "1,4": 24,
+          "1,5": 22,
+          "1,6": 8
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 28,
+          "min_pair_pivots": 8,
+          "pair_pivot_total": 101
+        },
+        "pattern_id": "support_overlap_rref_pivot",
+        "pivot_cols_hash": "e6c8b83a0a38c978d199f8542337640f7820a9567ac11561b69eed207dae19e9",
+        "pivot_columns_used": 101,
+        "pivot_pairs_hash": "481999277cf56b67e581e80bde379d102ae0f6e3a7c50a5811af6a2e9833d7e0",
+        "pivot_rows_hash": "dfc562468fc6b7bb79625712487483e6e33e66c9e701fb2e8f5b0583686d23e2",
+        "pivot_rows_used": 101,
+        "private_pivot_blocks": 101,
+        "quotient_residual_schedule": false,
+        "row_type_counts": {
+          "support_overlap_row": 101
+        },
+        "row_type_signature": "support_overlap_row:101",
+        "row_type_total": 101,
+        "rref_pivot_blocks": 101,
+        "single_row_type_schedule": true,
+        "structural_family": "support_overlap_rows_only",
+        "support_overlap_schedule": true
+      },
+      "rank": 101,
+      "source_family": "support_pattern",
+      "source_key": "support_pattern_surrogate_rank_feedback_search::multiplicity_spread_cyclic_3456_balanced_r1_seed_202608146",
+      "source_matrix_metadata_hash": "def98ed532024ed996bde92f432273d812fdf4b7a7a0df53023f33d45c6d6c85",
+      "source_packet": "support_pattern_surrogate_rank_feedback_search",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "common_six_fiber_residual_10",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "quotient_residual_rref_pivot",
+      "compressed_variables": 6,
+      "matrix_model": "two_level_pairwise_divisibility",
+      "matrix_shape": [
+        3825,
+        6
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 1,
+          "residual_pivots": 5,
+          "support_overlap_pivots": 0
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "5119ccf6bd4df6d993faba0107cc547ffab27f18b66f0e9cc839db1fc79b00f2",
+        "pair_pivot_counts": {
+          "1,2": 2,
+          "1,3": 1,
+          "1,4": 1,
+          "1,5": 1,
+          "1,6": 1
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 2,
+          "min_pair_pivots": 1,
+          "pair_pivot_total": 6
+        },
+        "pattern_id": "quotient_residual_rref_pivot",
+        "pivot_cols_hash": "4e098021cf9ec15699efd082b803811ec67394af4b3ea324e86edbccc3cbeac3",
+        "pivot_columns_used": 6,
+        "pivot_pairs_hash": "b9feeb7c7988405c37e927a5e7685c70754f7b7bf155c7d1b3d981d69909eef0",
+        "pivot_rows_hash": "f396b70fb65886f54a5e2262918bddc58bb510d6b5d6b1e5a3cd101caf1d6da1",
+        "pivot_rows_used": 6,
+        "private_pivot_blocks": 6,
+        "quotient_residual_schedule": true,
+        "row_type_counts": {
+          "quotient_full_fiber_row": 1,
+          "residual_or_partial_fiber_row": 5
+        },
+        "row_type_signature": "quotient_full_fiber_row:1;residual_or_partial_fiber_row:5",
+        "row_type_total": 6,
+        "rref_pivot_blocks": 6,
+        "single_row_type_schedule": false,
+        "structural_family": "quotient_fiber_plus_residual_rows",
+        "support_overlap_schedule": false
+      },
+      "rank": 6,
+      "source_family": "two_level_quotient_residual",
+      "source_key": "two_level_pairwise_divisibility::common_six_fiber_residual_10",
+      "source_matrix_metadata_hash": "81b914bb7bb33740bd367cbd9dd4510c204ff84c60040ef8f4486cfa57acf7a1",
+      "source_packet": "two_level_pairwise_divisibility",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "common_six_fiber_residual_11",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "quotient_residual_rref_pivot",
+      "compressed_variables": 6,
+      "matrix_model": "two_level_pairwise_divisibility",
+      "matrix_shape": [
+        3825,
+        6
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 1,
+          "residual_pivots": 5,
+          "support_overlap_pivots": 0
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "c5d643b2f9e54db8b75b36fa92e4fd29c74bda5e871c22b39e8058b39b69de36",
+        "pair_pivot_counts": {
+          "1,2": 2,
+          "1,3": 1,
+          "1,4": 1,
+          "1,5": 1,
+          "1,6": 1
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 2,
+          "min_pair_pivots": 1,
+          "pair_pivot_total": 6
+        },
+        "pattern_id": "quotient_residual_rref_pivot",
+        "pivot_cols_hash": "4e098021cf9ec15699efd082b803811ec67394af4b3ea324e86edbccc3cbeac3",
+        "pivot_columns_used": 6,
+        "pivot_pairs_hash": "b9feeb7c7988405c37e927a5e7685c70754f7b7bf155c7d1b3d981d69909eef0",
+        "pivot_rows_hash": "0ccd87610e937eeb211aa990e4ed406b6dfd3c6b86d2f2454e007b9d1e448341",
+        "pivot_rows_used": 6,
+        "private_pivot_blocks": 6,
+        "quotient_residual_schedule": true,
+        "row_type_counts": {
+          "quotient_full_fiber_row": 1,
+          "residual_or_partial_fiber_row": 5
+        },
+        "row_type_signature": "quotient_full_fiber_row:1;residual_or_partial_fiber_row:5",
+        "row_type_total": 6,
+        "rref_pivot_blocks": 6,
+        "single_row_type_schedule": false,
+        "structural_family": "quotient_fiber_plus_residual_rows",
+        "support_overlap_schedule": false
+      },
+      "rank": 6,
+      "source_family": "two_level_quotient_residual",
+      "source_key": "two_level_pairwise_divisibility::common_six_fiber_residual_11",
+      "source_matrix_metadata_hash": "9056354fcd9961ae40caff6fed0b2a31e185d392c4675627032972d0a0d89218",
+      "source_packet": "two_level_pairwise_divisibility",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "punctured_eight_fiber_10",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "quotient_residual_rref_pivot",
+      "compressed_variables": 6,
+      "matrix_model": "two_level_pairwise_divisibility",
+      "matrix_shape": [
+        3825,
+        6
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 5,
+          "residual_pivots": 1,
+          "support_overlap_pivots": 0
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "8538fd5b9691c2b027b33d82dcd2e4d357d18cb4f634039494b3975fcc7644a4",
+        "pair_pivot_counts": {
+          "1,2": 2,
+          "1,3": 1,
+          "1,4": 1,
+          "1,5": 1,
+          "1,6": 1
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 2,
+          "min_pair_pivots": 1,
+          "pair_pivot_total": 6
+        },
+        "pattern_id": "quotient_residual_rref_pivot",
+        "pivot_cols_hash": "4e098021cf9ec15699efd082b803811ec67394af4b3ea324e86edbccc3cbeac3",
+        "pivot_columns_used": 6,
+        "pivot_pairs_hash": "b9feeb7c7988405c37e927a5e7685c70754f7b7bf155c7d1b3d981d69909eef0",
+        "pivot_rows_hash": "8d6e092d43f0c07a5409348979bc03bb1b7bd310dc41ffae7b61b101e2438ba5",
+        "pivot_rows_used": 6,
+        "private_pivot_blocks": 6,
+        "quotient_residual_schedule": true,
+        "row_type_counts": {
+          "quotient_full_fiber_row": 5,
+          "residual_or_partial_fiber_row": 1
+        },
+        "row_type_signature": "quotient_full_fiber_row:5;residual_or_partial_fiber_row:1",
+        "row_type_total": 6,
+        "rref_pivot_blocks": 6,
+        "single_row_type_schedule": false,
+        "structural_family": "quotient_fiber_plus_residual_rows",
+        "support_overlap_schedule": false
+      },
+      "rank": 6,
+      "source_family": "two_level_quotient_residual",
+      "source_key": "two_level_pairwise_divisibility::punctured_eight_fiber_10",
+      "source_matrix_metadata_hash": "2aebca19e0802ca2b313fe38314a2dd5ba6afbc031c3047324879df732812f87",
+      "source_packet": "two_level_pairwise_divisibility",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "punctured_eight_fiber_11",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "quotient_residual_rref_pivot",
+      "compressed_variables": 6,
+      "matrix_model": "two_level_pairwise_divisibility",
+      "matrix_shape": [
+        3825,
+        6
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 5,
+          "residual_pivots": 1,
+          "support_overlap_pivots": 0
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "dba9dc3cac5518762146bb6688a29a4c1347e256d6ba2267f84bca773f349dc8",
+        "pair_pivot_counts": {
+          "1,2": 2,
+          "1,3": 1,
+          "1,4": 1,
+          "1,5": 1,
+          "1,6": 1
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 2,
+          "min_pair_pivots": 1,
+          "pair_pivot_total": 6
+        },
+        "pattern_id": "quotient_residual_rref_pivot",
+        "pivot_cols_hash": "4e098021cf9ec15699efd082b803811ec67394af4b3ea324e86edbccc3cbeac3",
+        "pivot_columns_used": 6,
+        "pivot_pairs_hash": "b9feeb7c7988405c37e927a5e7685c70754f7b7bf155c7d1b3d981d69909eef0",
+        "pivot_rows_hash": "b467614b919254a1fed4c7fa757955aa2317ebd4d588dfe78014dd35f9d96bdc",
+        "pivot_rows_used": 6,
+        "private_pivot_blocks": 6,
+        "quotient_residual_schedule": true,
+        "row_type_counts": {
+          "quotient_full_fiber_row": 5,
+          "residual_or_partial_fiber_row": 1
+        },
+        "row_type_signature": "quotient_full_fiber_row:5;residual_or_partial_fiber_row:1",
+        "row_type_total": 6,
+        "rref_pivot_blocks": 6,
+        "single_row_type_schedule": false,
+        "structural_family": "quotient_fiber_plus_residual_rows",
+        "support_overlap_schedule": false
+      },
+      "rank": 6,
+      "source_family": "two_level_quotient_residual",
+      "source_key": "two_level_pairwise_divisibility::punctured_eight_fiber_11",
+      "source_matrix_metadata_hash": "9c3fc8c7fae3f8e4c4c80ef0e4d4cf7d69ba1045e32e3ab127b8a11d13b5045b",
+      "source_packet": "two_level_pairwise_divisibility",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "seven_fibers_plus_residual_10",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "quotient_residual_rref_pivot",
+      "compressed_variables": 6,
+      "matrix_model": "two_level_pairwise_divisibility",
+      "matrix_shape": [
+        3825,
+        6
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 6,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 0
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "7098d77173a61bc304ed16a35357835816658fb9735c6fc092f44acd540de326",
+        "pair_pivot_counts": {
+          "1,2": 2,
+          "1,3": 1,
+          "1,4": 1,
+          "1,5": 1,
+          "1,6": 1
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 2,
+          "min_pair_pivots": 1,
+          "pair_pivot_total": 6
+        },
+        "pattern_id": "quotient_residual_rref_pivot",
+        "pivot_cols_hash": "4e098021cf9ec15699efd082b803811ec67394af4b3ea324e86edbccc3cbeac3",
+        "pivot_columns_used": 6,
+        "pivot_pairs_hash": "b9feeb7c7988405c37e927a5e7685c70754f7b7bf155c7d1b3d981d69909eef0",
+        "pivot_rows_hash": "62d246c9b94e5e6a0e51ba46a69ef7282c86d57a7dfd1fb21733904ea6128e52",
+        "pivot_rows_used": 6,
+        "private_pivot_blocks": 6,
+        "quotient_residual_schedule": true,
+        "row_type_counts": {
+          "quotient_full_fiber_row": 6
+        },
+        "row_type_signature": "quotient_full_fiber_row:6",
+        "row_type_total": 6,
+        "rref_pivot_blocks": 6,
+        "single_row_type_schedule": true,
+        "structural_family": "quotient_fiber_plus_residual_rows",
+        "support_overlap_schedule": false
+      },
+      "rank": 6,
+      "source_family": "two_level_quotient_residual",
+      "source_key": "two_level_pairwise_divisibility::seven_fibers_plus_residual_10",
+      "source_matrix_metadata_hash": "70ccf4ba113e0bcde2ac9b7ad41bae470792d27f319fd5b8eca93938bb99abef",
+      "source_packet": "two_level_pairwise_divisibility",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "seven_fibers_plus_residual_11",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "quotient_residual_rref_pivot",
+      "compressed_variables": 6,
+      "matrix_model": "two_level_pairwise_divisibility",
+      "matrix_shape": [
+        3825,
+        6
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 6,
+          "residual_pivots": 0,
+          "support_overlap_pivots": 0
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "e1566d5d193640edf8be4d64e581022450f0db2dda09e14076b3ed037a53e99c",
+        "pair_pivot_counts": {
+          "1,2": 2,
+          "1,3": 1,
+          "1,4": 1,
+          "1,5": 1,
+          "1,6": 1
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 2,
+          "min_pair_pivots": 1,
+          "pair_pivot_total": 6
+        },
+        "pattern_id": "quotient_residual_rref_pivot",
+        "pivot_cols_hash": "4e098021cf9ec15699efd082b803811ec67394af4b3ea324e86edbccc3cbeac3",
+        "pivot_columns_used": 6,
+        "pivot_pairs_hash": "b9feeb7c7988405c37e927a5e7685c70754f7b7bf155c7d1b3d981d69909eef0",
+        "pivot_rows_hash": "8c22c7baabb9c6d5688bf3d6b053efe86b614799d88995ff29977caa3f8f2bad",
+        "pivot_rows_used": 6,
+        "private_pivot_blocks": 6,
+        "quotient_residual_schedule": true,
+        "row_type_counts": {
+          "quotient_full_fiber_row": 6
+        },
+        "row_type_signature": "quotient_full_fiber_row:6",
+        "row_type_total": 6,
+        "rref_pivot_blocks": 6,
+        "single_row_type_schedule": true,
+        "structural_family": "quotient_fiber_plus_residual_rows",
+        "support_overlap_schedule": false
+      },
+      "rank": 6,
+      "source_family": "two_level_quotient_residual",
+      "source_key": "two_level_pairwise_divisibility::seven_fibers_plus_residual_11",
+      "source_matrix_metadata_hash": "f9db6b1f9cf69186af308a2ece43f58cbbd43678e48e6851c8be14731df47652",
+      "source_packet": "two_level_pairwise_divisibility",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "anchor_relaxed_boundary_10",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "quotient_residual_rref_pivot",
+      "compressed_variables": 192,
+      "matrix_model": "two_level_pairwise_divisibility",
+      "matrix_shape": [
+        3825,
+        192
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 179,
+          "residual_pivots": 13,
+          "support_overlap_pivots": 0
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "ec21fc3b27ffa53c8fb645a46267bf6ab922677255cfd6b43d470ca5becbe1b4",
+        "pair_pivot_counts": {
+          "1,2": 64,
+          "1,3": 32,
+          "1,4": 32,
+          "1,5": 32,
+          "1,6": 32
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 64,
+          "min_pair_pivots": 32,
+          "pair_pivot_total": 192
+        },
+        "pattern_id": "quotient_residual_rref_pivot",
+        "pivot_cols_hash": "8f824944b05312482763055d2d994a8aba1ca5173513fb48c04d6f0d3159c54e",
+        "pivot_columns_used": 192,
+        "pivot_pairs_hash": "1a72f5d27c6db475207a88fce772c8acedf99863d8475dc4910c59139436ae9b",
+        "pivot_rows_hash": "b121600f941d5909c5f2d8b9edf467f7ddecfebe9d0a050cbd3673060d55668b",
+        "pivot_rows_used": 192,
+        "private_pivot_blocks": 192,
+        "quotient_residual_schedule": true,
+        "row_type_counts": {
+          "quotient_full_fiber_row": 179,
+          "residual_or_partial_fiber_row": 13
+        },
+        "row_type_signature": "quotient_full_fiber_row:179;residual_or_partial_fiber_row:13",
+        "row_type_total": 192,
+        "rref_pivot_blocks": 192,
+        "single_row_type_schedule": false,
+        "structural_family": "quotient_fiber_plus_residual_rows",
+        "support_overlap_schedule": false
+      },
+      "rank": 192,
+      "source_family": "two_level_quotient_residual",
+      "source_key": "two_level_pairwise_divisibility::anchor_relaxed_boundary_10",
+      "source_matrix_metadata_hash": "3ed1a1a9495903166cab8570529441f334696640736ade1162e2f33da768edbd",
+      "source_packet": "two_level_pairwise_divisibility",
+      "status": "PATTERN_PROFILED"
+    },
+    {
+      "candidate_id": "anchor_relaxed_boundary_11",
+      "certificate_type": "RREF_PIVOT",
+      "classification": "quotient_residual_rref_pivot",
+      "compressed_variables": 192,
+      "matrix_model": "two_level_pairwise_divisibility",
+      "matrix_shape": [
+        3825,
+        192
+      ],
+      "nullity": 0,
+      "pivot_certificate_status": "CERTIFIED",
+      "pivot_pattern": {
+        "block_triangular_order_exists": false,
+        "block_triangular_order_status": "NOT_PROVED",
+        "category_counts": {
+          "generic_pairwise_pivots": 0,
+          "quotient_fiber_pivots": 180,
+          "residual_pivots": 12,
+          "support_overlap_pivots": 0
+        },
+        "generic_pairwise_schedule": false,
+        "minor_hash": "30e7285bb24f94198fda2bd9982997b715b40d29d61cbaa6e29675afccdc8f7f",
+        "pair_pivot_counts": {
+          "1,2": 64,
+          "1,3": 32,
+          "1,4": 32,
+          "1,5": 32,
+          "1,6": 32
+        },
+        "pair_profile": {
+          "active_pairs": 5,
+          "dominant_pair": "1,2",
+          "max_pair_pivots": 64,
+          "min_pair_pivots": 32,
+          "pair_pivot_total": 192
+        },
+        "pattern_id": "quotient_residual_rref_pivot",
+        "pivot_cols_hash": "8f824944b05312482763055d2d994a8aba1ca5173513fb48c04d6f0d3159c54e",
+        "pivot_columns_used": 192,
+        "pivot_pairs_hash": "1a72f5d27c6db475207a88fce772c8acedf99863d8475dc4910c59139436ae9b",
+        "pivot_rows_hash": "7ec1faeb57beff51e461b6a119c74e940a9ee86295d7b031b076406f6ec03df7",
+        "pivot_rows_used": 192,
+        "private_pivot_blocks": 192,
+        "quotient_residual_schedule": true,
+        "row_type_counts": {
+          "quotient_full_fiber_row": 180,
+          "residual_or_partial_fiber_row": 12
+        },
+        "row_type_signature": "quotient_full_fiber_row:180;residual_or_partial_fiber_row:12",
+        "row_type_total": 192,
+        "rref_pivot_blocks": 192,
+        "single_row_type_schedule": false,
+        "structural_family": "quotient_fiber_plus_residual_rows",
+        "support_overlap_schedule": false
+      },
+      "rank": 192,
+      "source_family": "two_level_quotient_residual",
+      "source_key": "two_level_pairwise_divisibility::anchor_relaxed_boundary_11",
+      "source_matrix_metadata_hash": "b04d074373a9173574bb9e5e10ce5352fe33075ac3c86b35f57ee04d84d20a33",
+      "source_packet": "two_level_pairwise_divisibility",
+      "status": "PATTERN_PROFILED"
+    }
+  ],
+  "minimum_to_clear": 7,
+  "n": 512,
+  "profile_summary": {
+    "aggregate_pair_pivot_counts": {
+      "1,2": 1088,
+      "1,3": 652,
+      "1,4": 712,
+      "1,5": 600,
+      "1,6": 495
+    },
+    "aggregate_row_type_counts": {
+      "balanced_or_generic_pairwise_row": 1226,
+      "quotient_full_fiber_row": 383,
+      "residual_or_partial_fiber_row": 37,
+      "support_overlap_row": 1901
+    },
+    "global_certificate_pattern_found": true,
+    "global_common_structural_pattern_found": false,
+    "matrix_model_counts": {
+      "pairwise_divisibility": 6,
+      "support_design_reduced_intersection_matrix": 20,
+      "two_level_pairwise_divisibility": 8
+    },
+    "pivot_covered": 34,
+    "source_family_counts": {
+      "balanced_clique": 6,
+      "support_pattern": 20,
+      "two_level_quotient_residual": 8
+    },
+    "source_matrices": 34,
+    "source_packet_counts": {
+      "constructive_rank_defect_support_design": 8,
+      "pairwise_divisibility_nullvector_system": 6,
+      "support_pattern_multiplicity_mutation_search": 6,
+      "support_pattern_surrogate_rank_feedback_search": 6,
+      "two_level_pairwise_divisibility": 8
+    },
+    "status": "PIVOT_PROFILED",
+    "support_pattern_all_support_overlap": true,
+    "support_pattern_rows": 20
+  },
+  "record_hash": "721d4aeefcafa48c715541ebc29ab558427f80093c6ccfb250a97ba749a5acea",
+  "repo_claim": {
+    "mca_counted": false,
+    "not_claimed": [
+      "MCA N_bad",
+      "protocol soundness",
+      "ordinary list decoding beyond the stated interleaved-list predicate",
+      "a=327 interleaved-list certificate",
+      "global Lambda_mu(C,327) <= 6",
+      "global RIM full-rank theorem",
+      "deterministic pivot-pattern theorem",
+      "exact Lambda_mu",
+      "exact delta*_C",
+      "improvement over PR #133"
+    ]
+  },
+  "row": "RS[F_17^32,H,256]",
+  "sage_audit": {
+    "checks_profile_derivation": true,
+    "checks_source_replay_hash": true,
+    "recomputes_expensive_rank_gates": false,
+    "reuses_existing_pivot_certificates": true,
+    "script": "experimental/scripts/audit_m1_rim_pivot_pattern_theorem.sage"
+  },
+  "source_replay": {
+    "path": "experimental/data/m1_rim_support_pattern_pivot_replay.json",
+    "pivot_covered": 34,
+    "record_hash": "6e76346d9e81aee1a40a573ae0ee2439f551ab6cdb64cfe0f869ca6c4931aed6",
+    "source_matrices": 34,
+    "status": "PIVOT_COVERAGE_COMPLETE"
+  },
+  "status": "M1_RIM_PIVOT_PATTERN_THEOREM_AUDIT",
+  "target_bits": 128,
+  "theorem_status": {
+    "candidate_theorem_count": 3,
+    "common_pivot_pattern_theorem_proved": false,
+    "proved_theorem_count": 0,
+    "status": "CANDIDATE_THEOREM_ONLY",
+    "support_overlap_schedule_candidate": true
+  },
+  "threshold_floor": 6,
+  "track": "INTERLEAVED_LIST"
+}
