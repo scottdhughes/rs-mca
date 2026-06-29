@@ -266,6 +266,31 @@ Keep entries concise and link to the relevant files.
   PARI/GP or Sage sieve for all-pair-boundary embeddings, or move to a
   genuinely joint codeword/received-word construction.
 
+### 2026-06-29 - M1 a327 all-pair multi-prime sieve
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_allpair_multiprime_sieve.md`,
+  `experimental/scripts/scan_m1_a327_allpair_multiprime_sieve.py`,
+  `experimental/scripts/verify_m1_a327_allpair_multiprime_sieve.py`,
+  `experimental/scripts/audit_m1_a327_allpair_multiprime_sieve.sage`,
+  `experimental/data/m1_a327_allpair_multiprime_sieve.json`,
+  `experimental/data/m1_a327_allpair_multiprime_sieve_exact_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** TESTED_EMBEDDINGS_NO_MULTIPRIME_PROXY_ANOMALY / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A PARI/GP-seeded multi-prime proxy sieve for the
+  all-pair-boundary scalar-locator embeddings. The scanner tests all 515
+  embeddings over 23 primes `p == 1 mod 512`, for 11,845 reduced-rank
+  evaluations, and finds no rank or capacity anomaly. The Sage wrapper records
+  that no exact `GF(17^32)` audit was triggered.
+- **How it is useful:** Hardens the all-pair-boundary scalar-locator negative
+  signal across many proxy fields before spending exact field time.
+- **What to do next:** Leave the scalar all-pair-boundary locator model unless
+  a new anomaly mechanism appears; the next constructive attack should allow
+  richer residual factors or jointly solve for codewords and received-word
+  classes.
+
 ### 2026-06-29 - Paper D v7 first-grid cap promotion
 
 - **Agent/model:** Codex.
