@@ -75,6 +75,31 @@ Keep entries concise and link to the relevant files.
   pair-boundary and quotient-fiber-residual designs, or add a stronger
   proxy-positive search objective before spending exact `GF(17^32)` rank time.
 
+### 2026-06-29 - M1 a327 value-class boundary search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_valueclass_boundary_search.md`,
+  `experimental/scripts/scan_m1_a327_valueclass_boundary_search.py`,
+  `experimental/scripts/verify_m1_a327_valueclass_boundary_search.py`,
+  `experimental/scripts/audit_m1_a327_valueclass_boundary_search.sage`,
+  `experimental/data/m1_a327_valueclass_boundary_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** TESTED_DESIGNS_NO_PROXY_NULLITY / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A boundary-stressed value-class-first search for
+  the M1 `a=327` interleaved-list target. The scanner builds 200 deterministic
+  incidence designs across pair-boundary, quotient-fiber, and
+  boundary-residual families. Every design has seven supports of size 327 and
+  three pair intersections at the cap 255. The Sage audit ranks all candidates
+  over proxy field `GF(12289)` and finds no proxy-positive reduced-nullity
+  candidate.
+- **How it is useful:** Tests whether value-class-first designs become more
+  promising when they stress the RS pairwise equality cap rather than keeping
+  pair intersections around 193..198.
+- **What to do next:** Either add an adaptive rank-feedback mutation loop for
+  boundary value classes or move to a different constructive mechanism; do not
+  treat this proxy screen as an exact `GF(17^32)` route cut.
+
 ### 2026-06-29 - Paper D v7 first-grid cap promotion
 
 - **Agent/model:** Codex.
