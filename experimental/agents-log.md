@@ -30,6 +30,29 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-29 - M1 a327 proxy-positive exact extraction
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_proxy_positive_exact_extraction.md`,
+  `experimental/scripts/scan_m1_a327_proxy_positive_exact_extraction.py`,
+  `experimental/scripts/verify_m1_a327_proxy_positive_exact_extraction.py`,
+  `experimental/scripts/audit_m1_a327_proxy_positive_exact_extraction.sage`,
+  `experimental/data/m1_a327_proxy_positive_exact_extraction.json`,
+  `experimental/data/m1_a327_proxy_positive_exact_extraction_exact_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** MULTIPRIME_ROBUST_PROXY_CANDIDATE / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A diagnostic/extraction pass for the 13
+  proxy-positive systems from the incumbent-guided target mutation checkpoint.
+  All 13 remain proxy-positive over five `p == 1 mod 512` proxy fields with
+  rank/nullity `640/896`, and the top system has full row rank in the first 16
+  and 32 exact `GF(17^32)` target rows.
+- **How it is useful:** Shows that the `a>=327` proxy hit is not merely a
+  `GF(12289)` accident, while keeping the exact `GF(17^32)` witness extraction
+  boundary explicit.
+- **What to do next:** Use the robust multi-prime pivot/free-column structure to
+  implement exact constrained extraction over `GF(17^32)` without dense full
+  RREF, then Sage-audit any exact sample reaching `a>=327`.
+
 ### 2026-06-29 - M1 a327 incumbent-guided target mutation
 
 - **Agent/model:** Codex.
