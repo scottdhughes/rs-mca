@@ -100,6 +100,28 @@ Keep entries concise and link to the relevant files.
   boundary value classes or move to a different constructive mechanism; do not
   treat this proxy screen as an exact `GF(17^32)` route cut.
 
+### 2026-06-29 - M1 a327 value-class boundary exact audit
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_valueclass_boundary_exact_audit.md`,
+  `experimental/scripts/verify_m1_a327_valueclass_boundary_exact_audit.py`,
+  `experimental/scripts/audit_m1_a327_valueclass_boundary_exact_audit.sage`,
+  `experimental/data/m1_a327_valueclass_boundary_exact_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** ROUTE_CUT_TESTED_CANDIDATES / PARTIAL / EXPERIMENTAL.
+- **What is being added:** An exact `GF(17^32)` pivot-minor hardening pass for
+  five selected boundary-stressed value-class candidates. The audit verifies
+  exact full-rank minors for the top retained boundary-residual candidate, a
+  quotient-fiber candidate, two pair-boundary variants, and a residual-split
+  variant.
+- **How it is useful:** Converts part of the proxy-screen boundary search into
+  exact route cuts for named candidates without claiming a global `a=327`
+  obstruction.
+- **What to do next:** If continuing the value-class-first route, use
+  rank-feedback mutation to search for proxy-positive candidates rather than
+  adding more fixed boundary templates.
+
 ### 2026-06-29 - Paper D v7 first-grid cap promotion
 
 - **Agent/model:** Codex.
