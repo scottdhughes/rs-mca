@@ -30,6 +30,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-29 - M1 a327 collision-preserving nondegenerate lift
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_collision_preserving_nondegenerate_lift.md`,
+  `experimental/scripts/scan_m1_a327_collision_preserving_nondegenerate_lift.py`,
+  `experimental/scripts/verify_m1_a327_collision_preserving_nondegenerate_lift.py`,
+  `experimental/scripts/audit_m1_a327_collision_preserving_nondegenerate_lift.sage`,
+  `experimental/data/m1_a327_collision_preserving_nondegenerate_lift.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A pinned exact-lift audit that starts from the
+  high-capacity proxy-support schedules and adds small coefficient pins in the
+  other witness blocks. Across three robust proxy systems, 36 exact vectors
+  were tested; 18 were nondegenerate but none retained capacity at least 327.
+- **How it is useful:** Confirms the sharper obstruction: the tested minimal
+  coefficient pins break degeneracy only by destroying the value-class
+  collision structure.
+- **What to do next:** Try less destructive separation mechanisms, especially
+  evaluation or pairwise-separation pins chosen on coordinates outside the
+  dominant collision classes, or solve for separation inside a partial exact
+  nullspace rather than pinning common-free coefficients directly.
+
 ### 2026-06-29 - M1 a327 nondegenerate exact lift
 
 - **Agent/model:** Codex.

@@ -1,0 +1,1512 @@
+{
+  "agreement_target": 327,
+  "baseline": {
+    "baseline_result_hash": "e8c37657f9835d5d8e1ec6c4cb54dc56913931bcc1160e5c22b98e0c1b3e5db8",
+    "best_degenerate_max_min": 288,
+    "best_high_capacity_degenerate_capacity": 448,
+    "best_nondegenerate_capacity": 94
+  },
+  "candidate": {
+    "reaches_327_exact": false,
+    "sage_audited": false
+  },
+  "construction_mode": "collision_preserving_nondegenerate_lift",
+  "denominator": "17^32",
+  "exact_a327_vector_count": 0,
+  "exact_field": "GF(17^32)",
+  "field_denominator": "2367911594760467245844106297320951247361",
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C",
+    "improvement over PR #133",
+    "full GF(17^32) nullspace extraction"
+  ],
+  "pin_search": {
+    "best_agreement_vector": null,
+    "best_capacity_upper_bound": 91,
+    "best_exact_max_min": null,
+    "best_failure_mode": "PIN_DESTROYS_COLLISION",
+    "exact_vectors_constructed": 36,
+    "nondegenerate_high_capacity_vectors": 0,
+    "nondegenerate_vectors": 18,
+    "pin_families_tested": [
+      "coefficient_proxy_plus_5x1",
+      "coefficient_proxy_plus_5x2",
+      "coefficient_proxy_plus_5x4",
+      "coefficient_proxy_plus_6x1"
+    ],
+    "pivot_schedules_tested": [
+      "prefix_pivots",
+      "mixed_block_pivots"
+    ],
+    "systems_tested": 3
+  },
+  "proof_status": "EXACT_EXTRACTION_NO_A327",
+  "result_hash": "01aeae68669be55e40d84ff542b55f700dc7c873a9140dc073152f2749948e49",
+  "results": [
+    {
+      "best": {
+        "evaluation": {
+          "assignment": null,
+          "capacity_total": 640,
+          "capacity_upper_bound": 91,
+          "codeword_value_hash": "5275d38b8fffa426a9fce61a8109e0accd9853cd44d0929dd8b2246447b0eeb5",
+          "coefficient_support_by_block": {
+            "D_2": 148,
+            "D_3": 1,
+            "D_4": 1,
+            "D_5": 1,
+            "D_6": 1,
+            "D_7": 1
+          },
+          "distinct_codewords": true,
+          "largest_class_histogram": {
+            "1": 384,
+            "2": 128
+          },
+          "nonzero_witness_blocks": [
+            "D_2",
+            "D_3",
+            "D_4",
+            "D_5",
+            "D_6",
+            "D_7"
+          ],
+          "status": "PIN_DESTROYS_COLLISION"
+        },
+        "free_block_distribution": {
+          "D_2": 20,
+          "D_3": 1,
+          "D_4": 1,
+          "D_5": 1,
+          "D_6": 1,
+          "D_7": 1
+        },
+        "free_column_count": 25,
+        "pin_family": "coefficient_proxy_plus_5x1",
+        "pivot_schedule": "prefix_pivots",
+        "rows": 128,
+        "solve": {
+          "pivot_minor_rank": 128,
+          "pivot_minor_size": 128,
+          "status": "PINNED_SOLVE_OK"
+        },
+        "subset": "proxy_pivot_rows_128"
+      },
+      "common_free_count": 896,
+      "common_pivot_count": 640,
+      "evaluations": [
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "codeword_value_hash": "d1167f7c0613de5b4fef33974ad194f777848e24d23ed20442163d368f4224ed",
+            "coefficient_support_by_block": {
+              "D_2": 84,
+              "D_3": 1,
+              "D_4": 1,
+              "D_5": 1,
+              "D_6": 1,
+              "D_7": 1
+            },
+            "distinct_codewords": true,
+            "largest_class_histogram": {
+              "1": 448,
+              "2": 64
+            },
+            "nonzero_witness_blocks": [
+              "D_2",
+              "D_3",
+              "D_4",
+              "D_5",
+              "D_6",
+              "D_7"
+            ],
+            "status": "PIN_DESTROYS_COLLISION"
+          },
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 1,
+            "D_4": 1,
+            "D_5": 1,
+            "D_6": 1,
+            "D_7": 1
+          },
+          "free_column_count": 25,
+          "pin_family": "coefficient_proxy_plus_5x1",
+          "pivot_schedule": "prefix_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 64,
+            "pivot_minor_size": 64,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": null,
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 1,
+            "D_4": 1,
+            "D_5": 1,
+            "D_6": 1,
+            "D_7": 1
+          },
+          "free_column_count": 25,
+          "pin_family": "coefficient_proxy_plus_5x1",
+          "pivot_schedule": "mixed_block_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 33,
+            "pivot_minor_size": 64,
+            "reason": "singular_scheduled_pivot_minor",
+            "status": "PIN_INCONSISTENT"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "codeword_value_hash": "c056a65d34317b16584f3b7a3138d7e9d5c874e54553226e1349f1ef0d39e3bb",
+            "coefficient_support_by_block": {
+              "D_2": 84,
+              "D_3": 2,
+              "D_4": 2,
+              "D_5": 2,
+              "D_6": 2,
+              "D_7": 2
+            },
+            "distinct_codewords": true,
+            "largest_class_histogram": {
+              "1": 448,
+              "2": 64
+            },
+            "nonzero_witness_blocks": [
+              "D_2",
+              "D_3",
+              "D_4",
+              "D_5",
+              "D_6",
+              "D_7"
+            ],
+            "status": "PIN_DESTROYS_COLLISION"
+          },
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 2,
+            "D_4": 2,
+            "D_5": 2,
+            "D_6": 2,
+            "D_7": 2
+          },
+          "free_column_count": 30,
+          "pin_family": "coefficient_proxy_plus_5x2",
+          "pivot_schedule": "prefix_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 64,
+            "pivot_minor_size": 64,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": null,
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 2,
+            "D_4": 2,
+            "D_5": 2,
+            "D_6": 2,
+            "D_7": 2
+          },
+          "free_column_count": 30,
+          "pin_family": "coefficient_proxy_plus_5x2",
+          "pivot_schedule": "mixed_block_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 33,
+            "pivot_minor_size": 64,
+            "reason": "singular_scheduled_pivot_minor",
+            "status": "PIN_INCONSISTENT"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "codeword_value_hash": "e5239644d573faa3afa1c18980bb3dcf3428d54effe96c8f1c5211f0ad25849b",
+            "coefficient_support_by_block": {
+              "D_2": 84,
+              "D_3": 4,
+              "D_4": 4,
+              "D_5": 4,
+              "D_6": 4,
+              "D_7": 4
+            },
+            "distinct_codewords": true,
+            "largest_class_histogram": {
+              "1": 448,
+              "2": 64
+            },
+            "nonzero_witness_blocks": [
+              "D_2",
+              "D_3",
+              "D_4",
+              "D_5",
+              "D_6",
+              "D_7"
+            ],
+            "status": "PIN_DESTROYS_COLLISION"
+          },
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 4,
+            "D_4": 4,
+            "D_5": 4,
+            "D_6": 4,
+            "D_7": 4
+          },
+          "free_column_count": 40,
+          "pin_family": "coefficient_proxy_plus_5x4",
+          "pivot_schedule": "prefix_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 64,
+            "pivot_minor_size": 64,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": null,
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 4,
+            "D_4": 4,
+            "D_5": 4,
+            "D_6": 4,
+            "D_7": 4
+          },
+          "free_column_count": 40,
+          "pin_family": "coefficient_proxy_plus_5x4",
+          "pivot_schedule": "mixed_block_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 33,
+            "pivot_minor_size": 64,
+            "reason": "singular_scheduled_pivot_minor",
+            "status": "PIN_INCONSISTENT"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "codeword_value_hash": "d1167f7c0613de5b4fef33974ad194f777848e24d23ed20442163d368f4224ed",
+            "coefficient_support_by_block": {
+              "D_2": 84,
+              "D_3": 1,
+              "D_4": 1,
+              "D_5": 1,
+              "D_6": 1,
+              "D_7": 1
+            },
+            "distinct_codewords": true,
+            "largest_class_histogram": {
+              "1": 448,
+              "2": 64
+            },
+            "nonzero_witness_blocks": [
+              "D_2",
+              "D_3",
+              "D_4",
+              "D_5",
+              "D_6",
+              "D_7"
+            ],
+            "status": "PIN_DESTROYS_COLLISION"
+          },
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 1,
+            "D_4": 1,
+            "D_5": 1,
+            "D_6": 1,
+            "D_7": 1
+          },
+          "free_column_count": 25,
+          "pin_family": "coefficient_proxy_plus_6x1",
+          "pivot_schedule": "prefix_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 64,
+            "pivot_minor_size": 64,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": null,
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 1,
+            "D_4": 1,
+            "D_5": 1,
+            "D_6": 1,
+            "D_7": 1
+          },
+          "free_column_count": 25,
+          "pin_family": "coefficient_proxy_plus_6x1",
+          "pivot_schedule": "mixed_block_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 33,
+            "pivot_minor_size": 64,
+            "reason": "singular_scheduled_pivot_minor",
+            "status": "PIN_INCONSISTENT"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 640,
+            "capacity_upper_bound": 91,
+            "codeword_value_hash": "5275d38b8fffa426a9fce61a8109e0accd9853cd44d0929dd8b2246447b0eeb5",
+            "coefficient_support_by_block": {
+              "D_2": 148,
+              "D_3": 1,
+              "D_4": 1,
+              "D_5": 1,
+              "D_6": 1,
+              "D_7": 1
+            },
+            "distinct_codewords": true,
+            "largest_class_histogram": {
+              "1": 384,
+              "2": 128
+            },
+            "nonzero_witness_blocks": [
+              "D_2",
+              "D_3",
+              "D_4",
+              "D_5",
+              "D_6",
+              "D_7"
+            ],
+            "status": "PIN_DESTROYS_COLLISION"
+          },
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 1,
+            "D_4": 1,
+            "D_5": 1,
+            "D_6": 1,
+            "D_7": 1
+          },
+          "free_column_count": 25,
+          "pin_family": "coefficient_proxy_plus_5x1",
+          "pivot_schedule": "prefix_pivots",
+          "rows": 128,
+          "solve": {
+            "pivot_minor_rank": 128,
+            "pivot_minor_size": 128,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "subset": "proxy_pivot_rows_128"
+        },
+        {
+          "evaluation": null,
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 1,
+            "D_4": 1,
+            "D_5": 1,
+            "D_6": 1,
+            "D_7": 1
+          },
+          "free_column_count": 25,
+          "pin_family": "coefficient_proxy_plus_5x1",
+          "pivot_schedule": "mixed_block_pivots",
+          "rows": 128,
+          "solve": {
+            "pivot_minor_rank": 65,
+            "pivot_minor_size": 128,
+            "reason": "singular_scheduled_pivot_minor",
+            "status": "PIN_INCONSISTENT"
+          },
+          "subset": "proxy_pivot_rows_128"
+        },
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 640,
+            "capacity_upper_bound": 91,
+            "codeword_value_hash": "e6b7691b202f8e2d093d19dfd9cdfc04f8beb9e35c4814acb9676df7b1472c5e",
+            "coefficient_support_by_block": {
+              "D_2": 148,
+              "D_3": 2,
+              "D_4": 2,
+              "D_5": 2,
+              "D_6": 2,
+              "D_7": 2
+            },
+            "distinct_codewords": true,
+            "largest_class_histogram": {
+              "1": 384,
+              "2": 128
+            },
+            "nonzero_witness_blocks": [
+              "D_2",
+              "D_3",
+              "D_4",
+              "D_5",
+              "D_6",
+              "D_7"
+            ],
+            "status": "PIN_DESTROYS_COLLISION"
+          },
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 2,
+            "D_4": 2,
+            "D_5": 2,
+            "D_6": 2,
+            "D_7": 2
+          },
+          "free_column_count": 30,
+          "pin_family": "coefficient_proxy_plus_5x2",
+          "pivot_schedule": "prefix_pivots",
+          "rows": 128,
+          "solve": {
+            "pivot_minor_rank": 128,
+            "pivot_minor_size": 128,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "subset": "proxy_pivot_rows_128"
+        },
+        {
+          "evaluation": null,
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 2,
+            "D_4": 2,
+            "D_5": 2,
+            "D_6": 2,
+            "D_7": 2
+          },
+          "free_column_count": 30,
+          "pin_family": "coefficient_proxy_plus_5x2",
+          "pivot_schedule": "mixed_block_pivots",
+          "rows": 128,
+          "solve": {
+            "pivot_minor_rank": 65,
+            "pivot_minor_size": 128,
+            "reason": "singular_scheduled_pivot_minor",
+            "status": "PIN_INCONSISTENT"
+          },
+          "subset": "proxy_pivot_rows_128"
+        }
+      ],
+      "exact_a327_vectors": 0,
+      "exact_vectors_constructed": 12,
+      "failure_histogram": {
+        "PIN_DESTROYS_COLLISION": 6,
+        "PIN_INCONSISTENT": 6
+      },
+      "nondegenerate_high_capacity_vectors": 0,
+      "nondegenerate_vectors": 6,
+      "source_proxy_best_max_min": 329,
+      "status": "EXACT_EXTRACTION_NO_A327",
+      "system_id": "all_pair_boundary_bit_reversal__B512__hybrid_balance__M1002__variance_min__B640"
+    },
+    {
+      "best": {
+        "evaluation": {
+          "assignment": null,
+          "capacity_total": 640,
+          "capacity_upper_bound": 91,
+          "codeword_value_hash": "a850a45c00e1065f55f4cb04845eee363a1b40dfa60a1b16e2980b6b48a124f1",
+          "coefficient_support_by_block": {
+            "D_2": 148,
+            "D_3": 1,
+            "D_4": 1,
+            "D_5": 1,
+            "D_6": 1,
+            "D_7": 1
+          },
+          "distinct_codewords": true,
+          "largest_class_histogram": {
+            "1": 384,
+            "2": 128
+          },
+          "nonzero_witness_blocks": [
+            "D_2",
+            "D_3",
+            "D_4",
+            "D_5",
+            "D_6",
+            "D_7"
+          ],
+          "status": "PIN_DESTROYS_COLLISION"
+        },
+        "free_block_distribution": {
+          "D_2": 20,
+          "D_3": 1,
+          "D_4": 1,
+          "D_5": 1,
+          "D_6": 1,
+          "D_7": 1
+        },
+        "free_column_count": 25,
+        "pin_family": "coefficient_proxy_plus_5x1",
+        "pivot_schedule": "prefix_pivots",
+        "rows": 128,
+        "solve": {
+          "pivot_minor_rank": 128,
+          "pivot_minor_size": 128,
+          "status": "PINNED_SOLVE_OK"
+        },
+        "subset": "proxy_pivot_rows_128"
+      },
+      "common_free_count": 896,
+      "common_pivot_count": 640,
+      "evaluations": [
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "codeword_value_hash": "4425ece2057bbdf5058556a78fb364dd7bf4edf726ece99c46c6c123ea230f49",
+            "coefficient_support_by_block": {
+              "D_2": 84,
+              "D_3": 1,
+              "D_4": 1,
+              "D_5": 1,
+              "D_6": 1,
+              "D_7": 1
+            },
+            "distinct_codewords": true,
+            "largest_class_histogram": {
+              "1": 448,
+              "2": 64
+            },
+            "nonzero_witness_blocks": [
+              "D_2",
+              "D_3",
+              "D_4",
+              "D_5",
+              "D_6",
+              "D_7"
+            ],
+            "status": "PIN_DESTROYS_COLLISION"
+          },
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 1,
+            "D_4": 1,
+            "D_5": 1,
+            "D_6": 1,
+            "D_7": 1
+          },
+          "free_column_count": 25,
+          "pin_family": "coefficient_proxy_plus_5x1",
+          "pivot_schedule": "prefix_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 64,
+            "pivot_minor_size": 64,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": null,
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 1,
+            "D_4": 1,
+            "D_5": 1,
+            "D_6": 1,
+            "D_7": 1
+          },
+          "free_column_count": 25,
+          "pin_family": "coefficient_proxy_plus_5x1",
+          "pivot_schedule": "mixed_block_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 39,
+            "pivot_minor_size": 64,
+            "reason": "singular_scheduled_pivot_minor",
+            "status": "PIN_INCONSISTENT"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "codeword_value_hash": "a2244c641255ffda3722c25346c6ddf7cfa5b9b724bb8723187b257096e7d726",
+            "coefficient_support_by_block": {
+              "D_2": 84,
+              "D_3": 2,
+              "D_4": 2,
+              "D_5": 2,
+              "D_6": 2,
+              "D_7": 2
+            },
+            "distinct_codewords": true,
+            "largest_class_histogram": {
+              "1": 448,
+              "2": 64
+            },
+            "nonzero_witness_blocks": [
+              "D_2",
+              "D_3",
+              "D_4",
+              "D_5",
+              "D_6",
+              "D_7"
+            ],
+            "status": "PIN_DESTROYS_COLLISION"
+          },
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 2,
+            "D_4": 2,
+            "D_5": 2,
+            "D_6": 2,
+            "D_7": 2
+          },
+          "free_column_count": 30,
+          "pin_family": "coefficient_proxy_plus_5x2",
+          "pivot_schedule": "prefix_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 64,
+            "pivot_minor_size": 64,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": null,
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 2,
+            "D_4": 2,
+            "D_5": 2,
+            "D_6": 2,
+            "D_7": 2
+          },
+          "free_column_count": 30,
+          "pin_family": "coefficient_proxy_plus_5x2",
+          "pivot_schedule": "mixed_block_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 39,
+            "pivot_minor_size": 64,
+            "reason": "singular_scheduled_pivot_minor",
+            "status": "PIN_INCONSISTENT"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "codeword_value_hash": "efbf291bdde264385c5f982102f1d28ba34eeb2baf988c1474011d5211a295de",
+            "coefficient_support_by_block": {
+              "D_2": 84,
+              "D_3": 4,
+              "D_4": 4,
+              "D_5": 4,
+              "D_6": 4,
+              "D_7": 4
+            },
+            "distinct_codewords": true,
+            "largest_class_histogram": {
+              "1": 448,
+              "2": 64
+            },
+            "nonzero_witness_blocks": [
+              "D_2",
+              "D_3",
+              "D_4",
+              "D_5",
+              "D_6",
+              "D_7"
+            ],
+            "status": "PIN_DESTROYS_COLLISION"
+          },
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 4,
+            "D_4": 4,
+            "D_5": 4,
+            "D_6": 4,
+            "D_7": 4
+          },
+          "free_column_count": 40,
+          "pin_family": "coefficient_proxy_plus_5x4",
+          "pivot_schedule": "prefix_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 64,
+            "pivot_minor_size": 64,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": null,
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 4,
+            "D_4": 4,
+            "D_5": 4,
+            "D_6": 4,
+            "D_7": 4
+          },
+          "free_column_count": 40,
+          "pin_family": "coefficient_proxy_plus_5x4",
+          "pivot_schedule": "mixed_block_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 39,
+            "pivot_minor_size": 64,
+            "reason": "singular_scheduled_pivot_minor",
+            "status": "PIN_INCONSISTENT"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "codeword_value_hash": "4425ece2057bbdf5058556a78fb364dd7bf4edf726ece99c46c6c123ea230f49",
+            "coefficient_support_by_block": {
+              "D_2": 84,
+              "D_3": 1,
+              "D_4": 1,
+              "D_5": 1,
+              "D_6": 1,
+              "D_7": 1
+            },
+            "distinct_codewords": true,
+            "largest_class_histogram": {
+              "1": 448,
+              "2": 64
+            },
+            "nonzero_witness_blocks": [
+              "D_2",
+              "D_3",
+              "D_4",
+              "D_5",
+              "D_6",
+              "D_7"
+            ],
+            "status": "PIN_DESTROYS_COLLISION"
+          },
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 1,
+            "D_4": 1,
+            "D_5": 1,
+            "D_6": 1,
+            "D_7": 1
+          },
+          "free_column_count": 25,
+          "pin_family": "coefficient_proxy_plus_6x1",
+          "pivot_schedule": "prefix_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 64,
+            "pivot_minor_size": 64,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": null,
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 1,
+            "D_4": 1,
+            "D_5": 1,
+            "D_6": 1,
+            "D_7": 1
+          },
+          "free_column_count": 25,
+          "pin_family": "coefficient_proxy_plus_6x1",
+          "pivot_schedule": "mixed_block_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 39,
+            "pivot_minor_size": 64,
+            "reason": "singular_scheduled_pivot_minor",
+            "status": "PIN_INCONSISTENT"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 640,
+            "capacity_upper_bound": 91,
+            "codeword_value_hash": "a850a45c00e1065f55f4cb04845eee363a1b40dfa60a1b16e2980b6b48a124f1",
+            "coefficient_support_by_block": {
+              "D_2": 148,
+              "D_3": 1,
+              "D_4": 1,
+              "D_5": 1,
+              "D_6": 1,
+              "D_7": 1
+            },
+            "distinct_codewords": true,
+            "largest_class_histogram": {
+              "1": 384,
+              "2": 128
+            },
+            "nonzero_witness_blocks": [
+              "D_2",
+              "D_3",
+              "D_4",
+              "D_5",
+              "D_6",
+              "D_7"
+            ],
+            "status": "PIN_DESTROYS_COLLISION"
+          },
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 1,
+            "D_4": 1,
+            "D_5": 1,
+            "D_6": 1,
+            "D_7": 1
+          },
+          "free_column_count": 25,
+          "pin_family": "coefficient_proxy_plus_5x1",
+          "pivot_schedule": "prefix_pivots",
+          "rows": 128,
+          "solve": {
+            "pivot_minor_rank": 128,
+            "pivot_minor_size": 128,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "subset": "proxy_pivot_rows_128"
+        },
+        {
+          "evaluation": null,
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 1,
+            "D_4": 1,
+            "D_5": 1,
+            "D_6": 1,
+            "D_7": 1
+          },
+          "free_column_count": 25,
+          "pin_family": "coefficient_proxy_plus_5x1",
+          "pivot_schedule": "mixed_block_pivots",
+          "rows": 128,
+          "solve": {
+            "pivot_minor_rank": 78,
+            "pivot_minor_size": 128,
+            "reason": "singular_scheduled_pivot_minor",
+            "status": "PIN_INCONSISTENT"
+          },
+          "subset": "proxy_pivot_rows_128"
+        },
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 640,
+            "capacity_upper_bound": 91,
+            "codeword_value_hash": "d5a43668087644d9e100529167ca01c41d750a465124fc4ed9a9ef2037a27785",
+            "coefficient_support_by_block": {
+              "D_2": 148,
+              "D_3": 2,
+              "D_4": 2,
+              "D_5": 2,
+              "D_6": 2,
+              "D_7": 2
+            },
+            "distinct_codewords": true,
+            "largest_class_histogram": {
+              "1": 384,
+              "2": 128
+            },
+            "nonzero_witness_blocks": [
+              "D_2",
+              "D_3",
+              "D_4",
+              "D_5",
+              "D_6",
+              "D_7"
+            ],
+            "status": "PIN_DESTROYS_COLLISION"
+          },
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 2,
+            "D_4": 2,
+            "D_5": 2,
+            "D_6": 2,
+            "D_7": 2
+          },
+          "free_column_count": 30,
+          "pin_family": "coefficient_proxy_plus_5x2",
+          "pivot_schedule": "prefix_pivots",
+          "rows": 128,
+          "solve": {
+            "pivot_minor_rank": 128,
+            "pivot_minor_size": 128,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "subset": "proxy_pivot_rows_128"
+        },
+        {
+          "evaluation": null,
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 2,
+            "D_4": 2,
+            "D_5": 2,
+            "D_6": 2,
+            "D_7": 2
+          },
+          "free_column_count": 30,
+          "pin_family": "coefficient_proxy_plus_5x2",
+          "pivot_schedule": "mixed_block_pivots",
+          "rows": 128,
+          "solve": {
+            "pivot_minor_rank": 78,
+            "pivot_minor_size": 128,
+            "reason": "singular_scheduled_pivot_minor",
+            "status": "PIN_INCONSISTENT"
+          },
+          "subset": "proxy_pivot_rows_128"
+        }
+      ],
+      "exact_a327_vectors": 0,
+      "exact_vectors_constructed": 12,
+      "failure_histogram": {
+        "PIN_DESTROYS_COLLISION": 6,
+        "PIN_INCONSISTENT": 6
+      },
+      "nondegenerate_high_capacity_vectors": 0,
+      "nondegenerate_vectors": 6,
+      "source_proxy_best_max_min": 329,
+      "status": "EXACT_EXTRACTION_NO_A327",
+      "system_id": "all_pair_boundary_bit_reversal__B512__fiber_diversity__M07__variance_min__B640"
+    },
+    {
+      "best": {
+        "evaluation": {
+          "assignment": null,
+          "capacity_total": 640,
+          "capacity_upper_bound": 91,
+          "codeword_value_hash": "18db346f22437130958a7b90ef41b3c5532ca555f4b79ba06dbe0c65925b904d",
+          "coefficient_support_by_block": {
+            "D_2": 148,
+            "D_3": 1,
+            "D_4": 1,
+            "D_5": 1,
+            "D_6": 1,
+            "D_7": 1
+          },
+          "distinct_codewords": true,
+          "largest_class_histogram": {
+            "1": 384,
+            "2": 128
+          },
+          "nonzero_witness_blocks": [
+            "D_2",
+            "D_3",
+            "D_4",
+            "D_5",
+            "D_6",
+            "D_7"
+          ],
+          "status": "PIN_DESTROYS_COLLISION"
+        },
+        "free_block_distribution": {
+          "D_2": 20,
+          "D_3": 1,
+          "D_4": 1,
+          "D_5": 1,
+          "D_6": 1,
+          "D_7": 1
+        },
+        "free_column_count": 25,
+        "pin_family": "coefficient_proxy_plus_5x1",
+        "pivot_schedule": "prefix_pivots",
+        "rows": 128,
+        "solve": {
+          "pivot_minor_rank": 128,
+          "pivot_minor_size": 128,
+          "status": "PINNED_SOLVE_OK"
+        },
+        "subset": "proxy_pivot_rows_128"
+      },
+      "common_free_count": 896,
+      "common_pivot_count": 640,
+      "evaluations": [
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "codeword_value_hash": "1cc666d09b8914ff7c114d8b7080e237f8c696fd52b6c24db7489e0e877afa5a",
+            "coefficient_support_by_block": {
+              "D_2": 84,
+              "D_3": 1,
+              "D_4": 1,
+              "D_5": 1,
+              "D_6": 1,
+              "D_7": 1
+            },
+            "distinct_codewords": true,
+            "largest_class_histogram": {
+              "1": 448,
+              "2": 64
+            },
+            "nonzero_witness_blocks": [
+              "D_2",
+              "D_3",
+              "D_4",
+              "D_5",
+              "D_6",
+              "D_7"
+            ],
+            "status": "PIN_DESTROYS_COLLISION"
+          },
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 1,
+            "D_4": 1,
+            "D_5": 1,
+            "D_6": 1,
+            "D_7": 1
+          },
+          "free_column_count": 25,
+          "pin_family": "coefficient_proxy_plus_5x1",
+          "pivot_schedule": "prefix_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 64,
+            "pivot_minor_size": 64,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": null,
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 1,
+            "D_4": 1,
+            "D_5": 1,
+            "D_6": 1,
+            "D_7": 1
+          },
+          "free_column_count": 25,
+          "pin_family": "coefficient_proxy_plus_5x1",
+          "pivot_schedule": "mixed_block_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 39,
+            "pivot_minor_size": 64,
+            "reason": "singular_scheduled_pivot_minor",
+            "status": "PIN_INCONSISTENT"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "codeword_value_hash": "6065134948508a45fc33aa7e6b450260ccbf44dff652c1f70a55719cb9772548",
+            "coefficient_support_by_block": {
+              "D_2": 84,
+              "D_3": 2,
+              "D_4": 2,
+              "D_5": 2,
+              "D_6": 2,
+              "D_7": 2
+            },
+            "distinct_codewords": true,
+            "largest_class_histogram": {
+              "1": 448,
+              "2": 64
+            },
+            "nonzero_witness_blocks": [
+              "D_2",
+              "D_3",
+              "D_4",
+              "D_5",
+              "D_6",
+              "D_7"
+            ],
+            "status": "PIN_DESTROYS_COLLISION"
+          },
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 2,
+            "D_4": 2,
+            "D_5": 2,
+            "D_6": 2,
+            "D_7": 2
+          },
+          "free_column_count": 30,
+          "pin_family": "coefficient_proxy_plus_5x2",
+          "pivot_schedule": "prefix_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 64,
+            "pivot_minor_size": 64,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": null,
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 2,
+            "D_4": 2,
+            "D_5": 2,
+            "D_6": 2,
+            "D_7": 2
+          },
+          "free_column_count": 30,
+          "pin_family": "coefficient_proxy_plus_5x2",
+          "pivot_schedule": "mixed_block_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 39,
+            "pivot_minor_size": 64,
+            "reason": "singular_scheduled_pivot_minor",
+            "status": "PIN_INCONSISTENT"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "codeword_value_hash": "d373dace5fe25dad7836328a4b603971b349246381afa4f182d37d3b1af2e6d9",
+            "coefficient_support_by_block": {
+              "D_2": 84,
+              "D_3": 4,
+              "D_4": 4,
+              "D_5": 4,
+              "D_6": 4,
+              "D_7": 4
+            },
+            "distinct_codewords": true,
+            "largest_class_histogram": {
+              "1": 448,
+              "2": 64
+            },
+            "nonzero_witness_blocks": [
+              "D_2",
+              "D_3",
+              "D_4",
+              "D_5",
+              "D_6",
+              "D_7"
+            ],
+            "status": "PIN_DESTROYS_COLLISION"
+          },
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 4,
+            "D_4": 4,
+            "D_5": 4,
+            "D_6": 4,
+            "D_7": 4
+          },
+          "free_column_count": 40,
+          "pin_family": "coefficient_proxy_plus_5x4",
+          "pivot_schedule": "prefix_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 64,
+            "pivot_minor_size": 64,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": null,
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 4,
+            "D_4": 4,
+            "D_5": 4,
+            "D_6": 4,
+            "D_7": 4
+          },
+          "free_column_count": 40,
+          "pin_family": "coefficient_proxy_plus_5x4",
+          "pivot_schedule": "mixed_block_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 39,
+            "pivot_minor_size": 64,
+            "reason": "singular_scheduled_pivot_minor",
+            "status": "PIN_INCONSISTENT"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "codeword_value_hash": "1cc666d09b8914ff7c114d8b7080e237f8c696fd52b6c24db7489e0e877afa5a",
+            "coefficient_support_by_block": {
+              "D_2": 84,
+              "D_3": 1,
+              "D_4": 1,
+              "D_5": 1,
+              "D_6": 1,
+              "D_7": 1
+            },
+            "distinct_codewords": true,
+            "largest_class_histogram": {
+              "1": 448,
+              "2": 64
+            },
+            "nonzero_witness_blocks": [
+              "D_2",
+              "D_3",
+              "D_4",
+              "D_5",
+              "D_6",
+              "D_7"
+            ],
+            "status": "PIN_DESTROYS_COLLISION"
+          },
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 1,
+            "D_4": 1,
+            "D_5": 1,
+            "D_6": 1,
+            "D_7": 1
+          },
+          "free_column_count": 25,
+          "pin_family": "coefficient_proxy_plus_6x1",
+          "pivot_schedule": "prefix_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 64,
+            "pivot_minor_size": 64,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": null,
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 1,
+            "D_4": 1,
+            "D_5": 1,
+            "D_6": 1,
+            "D_7": 1
+          },
+          "free_column_count": 25,
+          "pin_family": "coefficient_proxy_plus_6x1",
+          "pivot_schedule": "mixed_block_pivots",
+          "rows": 64,
+          "solve": {
+            "pivot_minor_rank": 39,
+            "pivot_minor_size": 64,
+            "reason": "singular_scheduled_pivot_minor",
+            "status": "PIN_INCONSISTENT"
+          },
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 640,
+            "capacity_upper_bound": 91,
+            "codeword_value_hash": "18db346f22437130958a7b90ef41b3c5532ca555f4b79ba06dbe0c65925b904d",
+            "coefficient_support_by_block": {
+              "D_2": 148,
+              "D_3": 1,
+              "D_4": 1,
+              "D_5": 1,
+              "D_6": 1,
+              "D_7": 1
+            },
+            "distinct_codewords": true,
+            "largest_class_histogram": {
+              "1": 384,
+              "2": 128
+            },
+            "nonzero_witness_blocks": [
+              "D_2",
+              "D_3",
+              "D_4",
+              "D_5",
+              "D_6",
+              "D_7"
+            ],
+            "status": "PIN_DESTROYS_COLLISION"
+          },
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 1,
+            "D_4": 1,
+            "D_5": 1,
+            "D_6": 1,
+            "D_7": 1
+          },
+          "free_column_count": 25,
+          "pin_family": "coefficient_proxy_plus_5x1",
+          "pivot_schedule": "prefix_pivots",
+          "rows": 128,
+          "solve": {
+            "pivot_minor_rank": 128,
+            "pivot_minor_size": 128,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "subset": "proxy_pivot_rows_128"
+        },
+        {
+          "evaluation": null,
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 1,
+            "D_4": 1,
+            "D_5": 1,
+            "D_6": 1,
+            "D_7": 1
+          },
+          "free_column_count": 25,
+          "pin_family": "coefficient_proxy_plus_5x1",
+          "pivot_schedule": "mixed_block_pivots",
+          "rows": 128,
+          "solve": {
+            "pivot_minor_rank": 77,
+            "pivot_minor_size": 128,
+            "reason": "singular_scheduled_pivot_minor",
+            "status": "PIN_INCONSISTENT"
+          },
+          "subset": "proxy_pivot_rows_128"
+        },
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 640,
+            "capacity_upper_bound": 91,
+            "codeword_value_hash": "89438292e05821458baab430ba94b9831b3ca97c0120c827bdd214e55cb75f74",
+            "coefficient_support_by_block": {
+              "D_2": 148,
+              "D_3": 2,
+              "D_4": 2,
+              "D_5": 2,
+              "D_6": 2,
+              "D_7": 2
+            },
+            "distinct_codewords": true,
+            "largest_class_histogram": {
+              "1": 384,
+              "2": 128
+            },
+            "nonzero_witness_blocks": [
+              "D_2",
+              "D_3",
+              "D_4",
+              "D_5",
+              "D_6",
+              "D_7"
+            ],
+            "status": "PIN_DESTROYS_COLLISION"
+          },
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 2,
+            "D_4": 2,
+            "D_5": 2,
+            "D_6": 2,
+            "D_7": 2
+          },
+          "free_column_count": 30,
+          "pin_family": "coefficient_proxy_plus_5x2",
+          "pivot_schedule": "prefix_pivots",
+          "rows": 128,
+          "solve": {
+            "pivot_minor_rank": 128,
+            "pivot_minor_size": 128,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "subset": "proxy_pivot_rows_128"
+        },
+        {
+          "evaluation": null,
+          "free_block_distribution": {
+            "D_2": 20,
+            "D_3": 2,
+            "D_4": 2,
+            "D_5": 2,
+            "D_6": 2,
+            "D_7": 2
+          },
+          "free_column_count": 30,
+          "pin_family": "coefficient_proxy_plus_5x2",
+          "pivot_schedule": "mixed_block_pivots",
+          "rows": 128,
+          "solve": {
+            "pivot_minor_rank": 77,
+            "pivot_minor_size": 128,
+            "reason": "singular_scheduled_pivot_minor",
+            "status": "PIN_INCONSISTENT"
+          },
+          "subset": "proxy_pivot_rows_128"
+        }
+      ],
+      "exact_a327_vectors": 0,
+      "exact_vectors_constructed": 12,
+      "failure_histogram": {
+        "PIN_DESTROYS_COLLISION": 6,
+        "PIN_INCONSISTENT": 6
+      },
+      "nondegenerate_high_capacity_vectors": 0,
+      "nondegenerate_vectors": 6,
+      "source_proxy_best_max_min": 329,
+      "status": "EXACT_EXTRACTION_NO_A327",
+      "system_id": "all_pair_boundary_bit_reversal__B512__fiber_diversity__M01__anti_six_of_seven__B640"
+    }
+  ],
+  "row": "RS[F_17^32,H,256]",
+  "source_commit": "9c2f278",
+  "subgroup_order": 512,
+  "track": "INTERLEAVED_LIST"
+}
