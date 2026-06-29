@@ -122,6 +122,30 @@ Keep entries concise and link to the relevant files.
   rank-feedback mutation to search for proxy-positive candidates rather than
   adding more fixed boundary templates.
 
+### 2026-06-29 - M1 a327 value-class high-overlap beam
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_valueclass_high_overlap_beam.md`,
+  `experimental/scripts/scan_m1_a327_valueclass_high_overlap_beam.py`,
+  `experimental/scripts/verify_m1_a327_valueclass_high_overlap_beam.py`,
+  `experimental/scripts/audit_m1_a327_valueclass_high_overlap_beam.sage`,
+  `experimental/data/m1_a327_valueclass_high_overlap_beam.json`,
+  `experimental/agents-log.md`.
+- **Status:** TESTED_DESIGNS_NO_PROXY_NULLITY / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A rank-feedback mutation layer for value-class-first
+  `a=327` search. The scanner starts from boundary value-class seeds and runs
+  degree-preserving two-coordinate mutations allowing membership sizes
+  3,4,5,6. It generates 64 candidates, reaching nine pair intersections at
+  the cap 255, then Sage screens all candidates over proxy field `GF(12289)`.
+- **How it is useful:** Tests a much higher-overlap value-class incidence
+  family than the fixed 4/5 boundary templates, while keeping support size 327
+  and pair cap 255 exact.
+- **What to do next:** If this route continues, exact-audit structurally
+  interesting retained candidates or redesign the generator to target equation
+  template repetition directly; do not treat the proxy screen as an exact
+  `GF(17^32)` route cut.
+
 ### 2026-06-29 - Paper D v7 first-grid cap promotion
 
 - **Agent/model:** Codex.
