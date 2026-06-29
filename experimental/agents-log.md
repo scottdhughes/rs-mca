@@ -192,6 +192,31 @@ Keep entries concise and link to the relevant files.
   any next constructive search should target algebraic row dependencies or
   jointly construct codewords and received-word values.
 
+### 2026-06-29 - M1 a327 singular all-pair-boundary embedding search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_singular_all_pair_boundary_embedding_search.md`,
+  `experimental/scripts/scan_m1_a327_singular_all_pair_boundary_embedding_search.py`,
+  `experimental/scripts/verify_m1_a327_singular_all_pair_boundary_embedding_search.py`,
+  `experimental/scripts/audit_m1_a327_singular_all_pair_boundary_embedding_search.sage`,
+  `experimental/data/m1_a327_singular_all_pair_boundary_embedding_search.json`,
+  `experimental/data/m1_a327_singular_all_pair_boundary_embedding_search_exact_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** ROUTE_CUT_TESTED_EMBEDDINGS / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A placement search for the MILP
+  all-pair-boundary value-class multiset. The scanner tests 515 embeddings of
+  the same multiset, including deterministic layouts and 512 seeded shuffles;
+  all have full proxy rank over `GF(12289)`. Sage exact-audits nine
+  representative embeddings over `GF(17^32)` and all nine remain full rank.
+- **How it is useful:** Attacks the precise algebraic placement failure mode
+  left by the MILP incidence seed search: even with all 21 pair intersections
+  at 255 and only six compressed variables, tested placements do not create
+  a reduced rank defect.
+- **What to do next:** A further search should stop relying on the same MILP
+  optimum and instead construct row dependencies directly, or jointly solve
+  for codeword coefficients and received-word classes.
+
 ### 2026-06-29 - Paper D v7 first-grid cap promotion
 
 - **Agent/model:** Codex.
