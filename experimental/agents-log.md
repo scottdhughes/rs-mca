@@ -168,6 +168,30 @@ Keep entries concise and link to the relevant files.
   produces proxy-positive candidates or a structurally different incidence
   family; no #133 update follows from this route cut.
 
+### 2026-06-29 - M1 a327 value-class MILP incidence seeds
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_valueclass_milp_incidence_seeds.md`,
+  `experimental/scripts/scan_m1_a327_valueclass_milp_incidence_seeds.py`,
+  `experimental/scripts/verify_m1_a327_valueclass_milp_incidence_seeds.py`,
+  `experimental/scripts/audit_m1_a327_valueclass_milp_incidence_seeds.sage`,
+  `experimental/data/m1_a327_valueclass_milp_incidence_seeds.json`,
+  `experimental/data/m1_a327_valueclass_milp_incidence_seeds_rank_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** ROUTE_CUT_TESTED_CANDIDATES / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A solver-assisted value-class incidence seed search
+  using `scipy.optimize.milp`. The MILP count profile can put all 21 pair
+  intersections exactly at 255, but Sage proxy-ranks all 18 embedded candidates
+  with nullity zero and exact-audits eight selected candidates over
+  `GF(17^32)` with full-rank minors.
+- **How it is useful:** Separates the combinatorial incidence-count question
+  from the algebraic rank gate and shows that even all-pair-boundary
+  value-class profiles can remain full rank in tested embeddings.
+- **What to do next:** Do not keep maximizing pair-boundary pressure alone;
+  any next constructive search should target algebraic row dependencies or
+  jointly construct codewords and received-word values.
+
 ### 2026-06-29 - Paper D v7 first-grid cap promotion
 
 - **Agent/model:** Codex.
