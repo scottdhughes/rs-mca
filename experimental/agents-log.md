@@ -291,6 +291,32 @@ Keep entries concise and link to the relevant files.
   richer residual factors or jointly solve for codewords and received-word
   classes.
 
+### 2026-06-29 - M1 a327 joint target/codeword solver
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_joint_target_codeword_solver.md`,
+  `experimental/scripts/scan_m1_a327_joint_target_codeword_solver.py`,
+  `experimental/scripts/verify_m1_a327_joint_target_codeword_solver.py`,
+  `experimental/scripts/audit_m1_a327_joint_target_codeword_solver.sage`,
+  `experimental/data/m1_a327_joint_target_codeword_solver.json`,
+  `experimental/data/m1_a327_joint_target_codeword_solver_exact_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** TESTED_TARGET_SYSTEMS_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A bounded joint target/codeword proxy solver. It
+  selects partial received-word value-class constraints from all-pair-boundary
+  embeddings, solves the induced homogeneous systems for six degree `<256`
+  difference polynomials over `GF(12289)`, samples 320 nullspace codeword
+  tuples, and globally reschedules each tuple with the exact value-class
+  max-min solver. The best capacity upper bound is 454, but the best
+  rescheduled proxy max-min agreement is 311.
+- **How it is useful:** Tests the missing middle between support-first rank
+  gates and codeword-first tuple generation by constructing codeword
+  coefficients from partial received-word target systems.
+- **What to do next:** Use a stronger target-set chooser, such as CP-SAT or
+  MILP, to select constraints by predicted post-reschedule balance rather than
+  fixed coordinate-order heuristics.
+
 ### 2026-06-29 - Paper D v7 first-grid cap promotion
 
 - **Agent/model:** Codex.
