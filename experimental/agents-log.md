@@ -30,6 +30,25 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-29 - Paper D v7 first-grid cap promotion
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `tex/cs25_cap_v7.tex`, `cs25_cap_v7.pdf`,
+  `site/papers/cs25_cap_v7.pdf`,
+  `experimental/notes/audits/paperD_v7_vs_v6_audit.md`, scanner status labels,
+  `readme.md`, and site paper/leaderboard/update data.
+- **Status:** AUDIT / VERSION-PROMOTION / PROVED_PAPERD_V7_CAP /
+  PROVED_PAPERD_V7_FIRST_GRID.
+- **What is being added:** Paper D v7 is promoted as the current public Paper D
+  source. It preserves the v6 universal fixed-divisor MCA cap, extends the
+  no-loss CA endpoint to `floor(delta n) <= n-k-1`, and adds the first-grid
+  deep-point cap for large official-envelope rows.
+- **How it is useful:** The public board can now show two Paper D theorem
+  layers: the older uniform fixed-divisor cap and the stronger large-row
+  first-grid cap `delta*_C(2^-128) <= 1-rho-1/n`.
+- **What to do next:** Keep first-grid rows separate from exact-threshold
+  claims. The missing safe-side work remains the L1/M1/F1/M2 completion package.
+
 ### 2026-06-29 - PR #136 width-one fixed-root closure
 
 - **Agent/model:** AllenGrahamHart / Codex audit.

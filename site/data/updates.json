@@ -1,6 +1,15 @@
 [
   {
     "date": "2026-06-29",
+    "status": "paper promotion / first-grid theorem",
+    "author": "Przemek Chojecki / Codex audit",
+    "title": "Paper D v7 adds the first-grid MCA cap",
+    "summary": "Paper D v7 keeps the v6 self-contained universal cap, extends the no-loss CA endpoint from f<n-k-1 to f<=n-k-1, and adds a quotient-remainder/first-grid theorem showing that large official-envelope rows are already CA/MCA unsafe at delta=1-rho-1/n.",
+    "impact": "The public Paper D cap rows now cite v7. The leaderboard also has new PROVED_PAPERD_V7_FIRST_GRID rows for the four official rates, separate from the older fixed-divisor universal-cap rows.",
+    "href": "https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v7.tex"
+  },
+  {
+    "date": "2026-06-29",
     "status": "proof record / lower bound",
     "author": "Vadim Avdeev / Codex audit",
     "title": "Finite-slope floors now cover a=257..288 on the F_17^32 row",
@@ -31,17 +40,17 @@
     "status": "paper promotion / audit",
     "author": "Przemek Chojecki / Codex audit",
     "title": "Paper D v6 adds the prize-facing completion program",
-    "summary": "Paper D v6 keeps the v5 universal MCA cap constants and CS25-free proof route, tightens the conversion collision-count derivation, and adds the integer-staircase formulation plus conditional MCA/list completion theorems for turning the cap into a full threshold determination.",
-    "impact": "The public cap rows now cite Paper D v6 and use PROVED_PAPERD_V6_CAP. This is a stronger prize-facing package, not a new tighter numerical cap row.",
+    "summary": "Paper D v6 kept the v5 universal MCA cap constants and CS25-free proof route, tightened the conversion collision-count derivation, and added the integer-staircase formulation plus conditional MCA/list completion theorems for turning the cap into a full threshold determination.",
+    "impact": "Historical version-promotion note: v6 made the cap self-contained and prize-facing. v7 now supersedes it as the public Paper D source.",
     "href": "https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v6.tex"
   },
   {
     "date": "2026-06-27",
     "status": "paper versions / leaderboard audit",
     "author": "Codex",
-    "title": "Papers B v4, C v5, and D v6 are now the public theory set",
-    "summary": "Paper B v4 promotes the high-agreement line/list/curve boundary layer, Paper C v5 adds the theorem-backed protocol ledger compiler, and Paper D v6 makes the headline MCA universal cap self-contained while adding the prize-facing completion program.",
-    "impact": "The leaderboard impact is status and source hygiene: verified Paper D cap rows are now PROVED_PAPERD_V6_CAP, and list-cap rows cite Paper B v4. Paper D v6 changes completion packaging rather than adding a tighter cap row.",
+    "title": "Papers B v4, C v5, and D v7 are now the public theory set",
+    "summary": "Paper B v4 promotes the high-agreement line/list/curve boundary layer, Paper C v5 adds the theorem-backed protocol ledger compiler, and Paper D v7 makes the headline MCA universal cap self-contained while adding the first-grid cap.",
+    "impact": "The leaderboard impact is both status and cap strength: verified Paper D cap rows are now PROVED_PAPERD_V7_CAP, first-grid rows are PROVED_PAPERD_V7_FIRST_GRID, and list-cap rows cite Paper B v4.",
     "href": "https://github.com/przchojecki/rs-mca/blob/main/readme.md"
   },
   {
@@ -55,11 +64,11 @@
   },
   {
     "date": "2026-06-27",
-    "status": "PROVED_PAPERD_V6_CAP rows",
+    "status": "PROVED_PAPERD_V7_CAP rows",
     "author": "Codex scanner audit",
-    "title": "Prime192 scanner rows instantiate Paper D v6 across all four rates",
-    "summary": "The leaderboard_sweep_192 packet contributes four concrete q≈2^192 smooth subgroup rows with k=2^40, one for each official rate, plus a small F_17^32 Paper D example. They instantiate the proved Paper D v6 cap with exact primes q = 1 mod n and +87 bit margins on the prime192 rows.",
-    "impact": "These are scanner-backed examples of the Paper D v6 cap, not new theorems beyond Paper D and not explicit slope censuses. The scanner verifies the divisor, binomial, and field ledgers for each displayed cap row.",
+    "title": "Prime192 scanner rows instantiate Paper D v7 across all four rates",
+    "summary": "The leaderboard_sweep_192 packet contributes four concrete q\u22482^192 smooth subgroup rows with k=2^40, one for each official rate, plus a small F_17^32 Paper D example. They instantiate the proved Paper D v7 cap with exact primes q = 1 mod n and +87 bit margins on the prime192 rows.",
+    "impact": "These are scanner-backed examples of the Paper D v7 cap, not new theorems beyond Paper D and not explicit slope censuses. The scanner verifies the divisor, binomial, and field ledgers for each displayed cap row.",
     "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/outputs/leaderboard_sweep_192/site_candidate_rows.md"
   },
   {
