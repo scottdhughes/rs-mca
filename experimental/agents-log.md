@@ -241,6 +241,31 @@ Keep entries concise and link to the relevant files.
   constructive attempt should allow non-scalar residual factors `R_i` or solve
   codeword coefficients and received-word classes jointly.
 
+### 2026-06-29 - M1 a327 degree-1 residual nullspace search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_degree1_residual_nullspace_search.md`,
+  `experimental/scripts/scan_m1_a327_degree1_residual_nullspace_search.py`,
+  `experimental/scripts/verify_m1_a327_degree1_residual_nullspace_search.py`,
+  `experimental/scripts/audit_m1_a327_degree1_residual_nullspace_search.sage`,
+  `experimental/data/m1_a327_degree1_residual_nullspace_search.json`,
+  `experimental/data/m1_a327_degree1_residual_nullspace_search_exact_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** ROUTE_CUT_TESTED_CANDIDATES / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A degree-1 residual relaxation of the scalar
+  locator nullspace search. The scanner tests 48,048 proxy candidates of the
+  form `D_i=c_i L_i R_i`, with `deg L_i=254` and `deg R_i<=1`, over
+  `GF(12289)` and finds no `a=327` candidate; a Sage audit then exact-checks
+  seven selected candidates over `GF(17^32)` and all remain below capacity
+  target.
+- **How it is useful:** Tests the first affine residual extension after the
+  scalar locator model without returning to support shuffles or RIM replay
+  audits.
+- **What to do next:** If continuing this locator lane, use a multi-prime
+  PARI/GP or Sage sieve for all-pair-boundary embeddings, or move to a
+  genuinely joint codeword/received-word construction.
+
 ### 2026-06-29 - Paper D v7 first-grid cap promotion
 
 - **Agent/model:** Codex.
