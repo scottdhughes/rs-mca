@@ -217,6 +217,30 @@ Keep entries concise and link to the relevant files.
   optimum and instead construct row dependencies directly, or jointly solve
   for codeword coefficients and received-word classes.
 
+### 2026-06-29 - M1 a327 coefficient-nullspace target search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_coefficient_nullspace_target_search.md`,
+  `experimental/scripts/scan_m1_a327_coefficient_nullspace_target_search.py`,
+  `experimental/scripts/verify_m1_a327_coefficient_nullspace_target_search.py`,
+  `experimental/scripts/audit_m1_a327_coefficient_nullspace_target_search.sage`,
+  `experimental/data/m1_a327_coefficient_nullspace_target_search.json`,
+  `experimental/data/m1_a327_coefficient_nullspace_target_search_exact_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** ROUTE_CUT_TESTED_ROOT_SETS / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A coefficient-level scalar nullspace search. The
+  scanner chooses 255-root locator sets, writes `D_i=c_i L_i`, tests 10,736
+  scalar/root candidates over `GF(12289)`, and finds best capacity upper bound
+  293. A Sage exact audit over `GF(17^32)` tests six selected root tuples and
+  finds best exact capacity upper bound at most 292.
+- **How it is useful:** Directly attacks the six-scalar determinant condition
+  left by all-pair-boundary incidence designs, rather than shuffling the same
+  membership multiset.
+- **What to do next:** Scalar locator models look too low-capacity; the next
+  constructive attempt should allow non-scalar residual factors `R_i` or solve
+  codeword coefficients and received-word classes jointly.
+
 ### 2026-06-29 - Paper D v7 first-grid cap promotion
 
 - **Agent/model:** Codex.
