@@ -51,6 +51,30 @@ Keep entries concise and link to the relevant files.
   received-word value classes first or uses staged interpolation constraints;
   do not treat this as a global `Lambda_mu(C,327) <= 6` result or MCA evidence.
 
+### 2026-06-29 - M1 a327 value-class-first witness search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_valueclass_first_witness_search.md`,
+  `experimental/scripts/scan_m1_a327_valueclass_first_witness_search.py`,
+  `experimental/scripts/verify_m1_a327_valueclass_first_witness_search.py`,
+  `experimental/scripts/audit_m1_a327_valueclass_first_witness_search.sage`,
+  `experimental/data/m1_a327_valueclass_first_witness_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** TESTED_DESIGNS_NO_PROXY_NULLITY / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A first value-class-first incidence search for
+  the M1 `a=327` interleaved-list target. The scanner builds 14 deterministic
+  balanced 4/5 membership designs with support size 327 for each of seven
+  witnesses and pair intersections below the 255 cap. The Sage audit runs a
+  reduced-rank proxy over `GF(12289)` and finds proxy nullity zero for every
+  tested design, so exact `GF(17^32)` extraction is not triggered.
+- **How it is useful:** Tests the missing middle between support-first RIM
+  gates and codeword-first tuple generation by designing received-word value
+  classes before interpolation.
+- **What to do next:** Broaden value-class incidence generation toward
+  pair-boundary and quotient-fiber-residual designs, or add a stronger
+  proxy-positive search objective before spending exact `GF(17^32)` rank time.
+
 ### 2026-06-29 - Paper D v7 first-grid cap promotion
 
 - **Agent/model:** Codex.
