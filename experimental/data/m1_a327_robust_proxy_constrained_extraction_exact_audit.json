@@ -1,0 +1,105 @@
+{
+  "agreement_target": 327,
+  "construction_mode": "robust_proxy_constrained_extraction_exact_audit",
+  "degree_bound": 256,
+  "denominator": "17^32",
+  "exact_audited_system_count": 1,
+  "exact_field": "GF(17^32)",
+  "exact_partial_solve_a327_count": 0,
+  "field_denominator": "2367911594760467245844106297320951247361",
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond the stated interleaved-list predicate",
+    "a=327 interleaved-list proof record",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C",
+    "improvement over PR #133",
+    "full GF(17^32) nullspace extraction"
+  ],
+  "partial_solve_row_subset": "proxy_pivot_rows_64",
+  "proof_status": "EXACT_CONSTRAINED_EXTRACTION_NO_A327",
+  "result_hash": "a58d2539344059307edf70501a0bafcc68f0dfb58fa72b9957abac9563067972",
+  "results": [
+    {
+      "best_schedule_candidate_prime_count": 5,
+      "best_schedule_id": "proxy_support_common_free_24",
+      "common_free_count": 896,
+      "common_pivot_count": 640,
+      "partial_solve": {
+        "direct_evaluation": {
+          "assignment": {
+            "agreement_vector": [
+              256,
+              256,
+              256,
+              256,
+              256,
+              256,
+              256
+            ],
+            "chosen_masks_hash": "087fa7e8ecbd4efb1ca874fe23c369b263884c5c975638cf4694d5f543c10dff",
+            "exact_max_min": 256
+          },
+          "capacity_total": 3072,
+          "capacity_upper_bound": 438,
+          "codeword_value_hash": "cedb012faee6be451a94e36dadd5a307bd499d2952d7fb762083d7f516418390",
+          "distinct_codewords": false,
+          "largest_class_histogram": {
+            "6": 512
+          },
+          "status": "EXACT_DEGENERATE_CODEWORDS"
+        },
+        "free_column_count": 24,
+        "row_subset": "proxy_pivot_rows_64",
+        "rows": 64,
+        "status": "PARTIAL_SOLVE_OK"
+      },
+      "pivot_stability_score": 1.0,
+      "row_subset_rank_drop_found": false,
+      "row_subset_rank_results": [
+        {
+          "full_row_rank": true,
+          "rank": 64,
+          "rows": 64,
+          "subset": "proxy_pivot_rows_64"
+        },
+        {
+          "full_row_rank": true,
+          "rank": 64,
+          "rows": 64,
+          "subset": "fiber_diverse_rows_64"
+        }
+      ],
+      "source_proxy_best_agreement": [
+        329,
+        329,
+        329,
+        329,
+        329,
+        329,
+        329
+      ],
+      "source_proxy_best_max_min": 329,
+      "status": "EXACT_PARTIAL_SOLVE_NO_A327",
+      "system_id": "all_pair_boundary_bit_reversal__B512__hybrid_balance__M1002__variance_min__B640"
+    }
+  ],
+  "row": "RS[F_17^32,H,256]",
+  "row_subset_rank_drop_count": 0,
+  "row_subsets": [
+    "proxy_pivot_rows_64",
+    "fiber_diverse_rows_64"
+  ],
+  "source": {
+    "source_constrained_schedule_proxy_positive_system_count": 13,
+    "source_json": "experimental/data/m1_a327_robust_proxy_constrained_extraction.json",
+    "source_proof_status": "CONSTRAINED_SCHEDULE_PROXY_A327",
+    "source_result_hash": "ac2f0c83216bd96d7ba8db4892f58e1d01be9c3d817d200bcdd936c068f22c15",
+    "source_system_count": 13
+  },
+  "subgroup_order": 512,
+  "track": "INTERLEAVED_LIST"
+}

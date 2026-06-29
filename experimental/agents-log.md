@@ -30,6 +30,29 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-29 - M1 a327 robust-proxy constrained extraction
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_robust_proxy_constrained_extraction.md`,
+  `experimental/scripts/scan_m1_a327_robust_proxy_constrained_extraction.py`,
+  `experimental/scripts/verify_m1_a327_robust_proxy_constrained_extraction.py`,
+  `experimental/scripts/audit_m1_a327_robust_proxy_constrained_extraction.sage`,
+  `experimental/data/m1_a327_robust_proxy_constrained_extraction.json`,
+  `experimental/data/m1_a327_robust_proxy_constrained_extraction_exact_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** CONSTRAINED_SCHEDULE_PROXY_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A constrained extraction diagnostic for the 13
+  robust proxy-positive a=327 systems. All 13 have stable pivot columns, free
+  columns, and pivot rows across five proxy primes, and the best deterministic
+  common-free schedule preserves proxy `a>=327` across all five primes. A
+  bounded Sage exact audit finds no `GF(17^32)` witness from the first 64-row
+  partial solve.
+- **How it is useful:** Narrows the live problem from broad proxy search to
+  exact constrained extraction from a stable free-column mechanism.
+- **What to do next:** Try larger or block-structured exact partial solves,
+  vary free-column values, and use stable proxy pivot rows to avoid dense full
+  `GF(17^32)` RREF.
+
 ### 2026-06-29 - M1 a327 proxy-positive exact extraction
 
 - **Agent/model:** Codex.
