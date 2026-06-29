@@ -146,6 +146,28 @@ Keep entries concise and link to the relevant files.
   template repetition directly; do not treat the proxy screen as an exact
   `GF(17^32)` route cut.
 
+### 2026-06-29 - M1 a327 value-class high-overlap exact audit
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_valueclass_high_overlap_exact_audit.md`,
+  `experimental/scripts/verify_m1_a327_valueclass_high_overlap_exact_audit.py`,
+  `experimental/scripts/audit_m1_a327_valueclass_high_overlap_exact_audit.sage`,
+  `experimental/data/m1_a327_valueclass_high_overlap_exact_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** ROUTE_CUT_TESTED_CANDIDATES / PARTIAL / EXPERIMENTAL.
+- **What is being added:** An exact `GF(17^32)` pivot-minor hardening pass for
+  six retained or structurally notable high-overlap value-class candidates.
+  The audit verifies exact full-rank minors for all six selected candidates,
+  including low-variable boundary-residual variants and nine-capped-pair
+  quotient-fiber / pair-boundary variants.
+- **How it is useful:** Upgrades the high-overlap value-class beam from a
+  proxy-only negative into exact route cuts for named candidates, without
+  claiming a global `a=327` obstruction.
+- **What to do next:** Stop this exact-audit layer unless a new generator
+  produces proxy-positive candidates or a structurally different incidence
+  family; no #133 update follows from this route cut.
+
 ### 2026-06-29 - Paper D v7 first-grid cap promotion
 
 - **Agent/model:** Codex.
