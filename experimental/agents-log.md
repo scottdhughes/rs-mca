@@ -30,6 +30,27 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-29 - M1 a327 random low-degree list-witness search
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_random_lowdegree_list_witness_search.md`,
+  `experimental/data/m1_a327_random_lowdegree_list_witness_search.json`,
+  `experimental/scripts/scan_m1_a327_random_lowdegree_list_witness_search.py`,
+  `experimental/scripts/verify_m1_a327_random_lowdegree_list_witness_search.py`,
+  `experimental/scripts/audit_m1_a327_random_lowdegree_list_witness_search.sage`,
+  `experimental/agents-log.md`.
+- **Status:** PARTIAL / TESTED_TUPLES_NO_A327 / EXPERIMENTAL.
+- **What is being added:** A first direct constructive `a=327`
+  interleaved-list search over deterministic low-degree codeword tuples. The
+  Sage audit evaluates 116 tuples over `GF(17^32)` and applies the exact
+  value-class capacity upper bound; the best upper bound is `291`.
+- **How it is useful:** Moves the active thread away from RIM pivot audits and
+  back toward positive `a>=327` witness construction, while route-cutting the
+  named first-layer random/sparse/root-core/monomial tuple families.
+- **What to do next:** Try a more adaptive construction that designs the
+  received-word value classes first or uses staged interpolation constraints;
+  do not treat this as a global `Lambda_mu(C,327) <= 6` result or MCA evidence.
+
 ### 2026-06-29 - Paper D v7 first-grid cap promotion
 
 - **Agent/model:** Codex.
