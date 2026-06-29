@@ -24,11 +24,11 @@
 1. `tex/RS_disproof_v3.tex` proves the no-slack obstruction.  Its main theorem
    uses the quotient locator, restricted-sum coverage, monotonicity, Fermat
    digit checks, and the cyclotomic sieve.
-2. `tex/slackMCA_v3.tex` separates the corrected list and MCA ledgers.  Its
-   integrated theorem package is the fastest status map inside Paper B.
-3. `tex/cs25_cap_v4.tex` composes the locator-fiber list lower bound with the
-   imported Crites--Stewart list-to-agreement conversion to get a universal cap.
-4. `tex/snarks_v4.tex` consumes the previous papers as protocol ledger inputs:
+2. `tex/slackMCA_v4.tex` separates the corrected list and MCA ledgers and
+   promotes the high-agreement line/list/curve boundary layer into Paper B.
+3. `tex/cs25_cap_v6.tex` proves the universal MCA cap through a self-contained
+   deep-point conversion and records the prize-facing completion program.
+4. `tex/snarks_v5.tex` consumes the previous papers as protocol ledger inputs:
    entropy reserve, quotient profile, list/interleaving, MCA or line-decoding,
    field separation, and failure-ladder audits.
 
@@ -201,10 +201,10 @@
   - Role: grand-challenge cap below roughly 150--162 bits.
 - `tex/slackMCA_v3.tex` `thm:capimport`
   - Kind/status: theorem; CONDITIONAL.
-  - Role: older imported list-to-agreement conversion used by CA/list comparison routes; superseded for the main MCA cap by Paper D v5.
+  - Role: older imported list-to-agreement conversion used by CA/list comparison routes; superseded for the main MCA cap by Paper D v6.
 - `tex/slackMCA_v3.tex` `thm:cap`
-  - Kind/status: theorem; CONDITIONAL in Paper B v3; superseded by Paper D v5 for the main MCA cap.
-  - Role: older universal-cap route; Paper D v5 is the self-contained reference for the proved MCA cap.
+  - Kind/status: theorem; CONDITIONAL in Paper B v3; superseded by Paper D v6 for the main MCA cap.
+  - Role: older universal-cap route; Paper D v6 is the self-contained reference for the proved MCA cap.
 - `tex/slackMCA_v3.tex` `thm:subfield`
   - Kind/status: theorem; PROVED.
   - Role: subfield confinement for base-valued line witnesses.

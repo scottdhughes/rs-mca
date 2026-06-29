@@ -41,7 +41,7 @@ manuscript.
 
 ## Source Status
 
-The main MCA universal cap is now self-contained in Paper D v5 and no longer
+The main MCA universal cap is now self-contained in Paper D v6 and no longer
 depends on this import. The exact rational statement above remains useful for
 older CA/list comparison routes. It is the form reported in public summaries of
 Crites-Stewart Theorem 2 and is compatible with the relaxed restatement already

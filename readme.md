@@ -19,7 +19,7 @@ The core repo consists of four papers and two guide files. .tex versions are in 
 |---|---|---|
 | `RS_disproof_v3.tex` | **Paper A: no-slack obstruction** | Refutes the unslacked, support-wise line-MCA reading of “up to capacity” for smooth multiplicative RS domains. Provides explicit lower-bound mechanisms and deployed-field obstructions. |
 | `slackMCA_v4.tex` | **Paper B: slack / quotient / entropy theory** | Main theory paper. Builds the corrected reserve framework and now promotes the solved high-agreement line/list/curve boundary layer into the main theory. |
-| `cs25_cap_v5.tex` | **Paper D: universal cap** | Extracts and sharpens the cap result. In v5 the main MCA universal cap is self-contained; the scanner marks verified divisor/binomial/subfield instances as `PROVED_PAPERD_V5_CAP`. |
+| `cs25_cap_v6.tex` | **Paper D: universal cap and completion program** | Extracts and sharpens the cap result. In v6 the main MCA universal cap remains self-contained, the conversion proof is slightly tightened, and the paper adds the prize-facing integer-staircase/completion program; the scanner marks verified divisor/binomial/subfield instances as `PROVED_PAPERD_V6_CAP`. |
 | `snarks_v5.tex` | **Paper C: SNARK ledger** | Turns the corrected theory into a protocol-facing certificate and adds a theorem-backed high-agreement ledger compiler for line/list/curve coding numerators. |
 | `README.md` | Repo overview | Explains what the papers do, how they depend on each other, and what the project is trying to prove. |
 | `AGENTS.md` | Research-agent guide | Gives AI agents and new contributors a prioritized list of proof targets, toy cases, scripts, and “do not confuse these” rules. |
@@ -77,16 +77,17 @@ The ledgers that must be separated are:
 
 ## Current paper versions and leaderboard impact
 
-The current public paper set is **A v3, B v4, D v5, C v5**.
+The current public paper set is **A v3, B v4, D v6, C v5**.
 The version changes matter for the website and scanner as follows:
 
 - **Paper B v4** promotes the high-agreement tangent/list/curve boundary layer
   from experimental notes into the main theory. Public tangent and
   interleaved-list high-agreement rows should now cite `slackMCA_v4.tex` when
   they use this theorem package.
-- **Paper D v5** makes the headline universal MCA cap self-contained. Scanner
+- **Paper D v6** makes the headline universal MCA cap self-contained and adds
+  the prize-facing integer-staircase/completion program. Scanner
   rows that pass the printed divisor/binomial/subfield hypotheses are
-  `PROVED_PAPERD_V5_CAP`, not conditional-import rows.
+  `PROVED_PAPERD_V6_CAP`, not conditional-import rows.
 - **Paper C v5** adds the theorem-backed high-agreement ledger compiler for
   protocol-facing line/list/curve numerator accounting. It changes certificate
   packaging and denominator checks, not the mathematical value of the MCA cap
@@ -143,9 +144,9 @@ Paper B is where most new mathematics should land. It contains the theorem/conje
 
 ### Paper D: universal field-size cap
 
-`cs25_cap_v5.tex` is a short cap paper.
+`cs25_cap_v6.tex` is a short cap paper plus a prize-facing completion program.
 
-In v5, the main Paper D universal MCA cap is self-contained. It proves a field-size-universal cap for the MCA challenge:
+In v6, the main Paper D universal MCA cap is self-contained. It proves a field-size-universal cap for the MCA challenge:
 
 ```text
 delta*_C(2^-128) <= 1 - rho - 2^-9      for rho in {1/2, 1/4, 1/8},
@@ -155,6 +156,12 @@ delta*_C(2^-128) <= 1 - rho - 2^-10     for rho = 1/16,
 throughout the challenge range `|F| < 2^256`, with the stated smoothness/divisibility hypotheses. It gives error `> 2^-86` uniformly and improves to `> 2^-42` when `|F| >= 2n`.
 
 Paper D supersedes the older internal cap in Paper B for final constants. Paper B keeps its native quotient-core cap because it explains the mechanism; Paper D owns the sharp field-size-universal statement.
+
+Version v6 is strictly stronger as a paper package than v5: it keeps the same
+universal cap constants, preserves the CS25-free proof route, tightens the
+conversion collision-count derivation, and adds the integer-staircase theorem,
+conditional MCA/list completion theorems, and concrete proof obligations needed
+to turn the one-sided cap into a full Proximity Prize threshold determination.
 
 ### Paper C: SNARK ledger
 
@@ -184,7 +191,7 @@ A rough status map:
 | Explicit deployed-field lower-bound floors | Proved in Paper A/B for the stated regimes. |
 | Quotient-core list obstructions | Proved in Paper B. |
 | Exact slack calculus and many failure ladders | Proved in Paper B. |
-| Universal field-size MCA cap | Proved in Paper D v5 under its printed divisor/binomial/subfield hypotheses. |
+| Universal field-size MCA cap | Proved in Paper D v6 under its printed divisor/binomial/subfield hypotheses. |
 | Generated-field locator local limit above all floors | Open. Main list-side positive theorem target. |
 | Corrected MCA / residue-line local limit above all floors | Open. Main MCA-side positive theorem target. |
 | Line-decoding formulation of corrected MCA | Open. Important for protocols. |
@@ -200,7 +207,7 @@ Good first contributions include:
 1. **Proof audits.** Verify individual lemmas and theorem dependencies in the four papers. Flag any hidden field-size, divisibility, monotonicity, or support-wise assumptions.
 2. **Scripted certificates.** Implement scanners for entropy reserve, quotient profiles, restricted sums, interleaved-list budgets, and challenge-field accounting.
 3. **Toy-case exploration.** Exhaust small fields/domains to discover or refute local-limit behavior.
-4. **External-import audit.** Check the exact hypotheses and constants of the Crites-Stewart list-to-agreement conversion for older CA/list comparison routes. The main Paper D v5 MCA cap is self-contained.
+4. **External-import audit.** Check the exact hypotheses and constants of the Crites-Stewart list-to-agreement conversion for older CA/list comparison routes. The main Paper D v6 MCA cap is self-contained.
 5. **New bounds.** Attack the local-limit conjectures, interleaved-list constants, extension-line MCA, or domain-shattering alternatives.
 6. **Protocol rewrites.** Rewrite FRI, WHIR, or other proximity reductions in the exact ledger format of Paper C.
 
@@ -261,7 +268,7 @@ When editing the papers:
 
 - Cite companion results with theorem/proposition numbers, not just “the companion proves.”
 - Mark every result as proved, conditional, conjectural, experimental, or audit-only.
-- Cite the main Paper D v5 MCA universal cap as proved under its printed divisor/binomial/subfield hypotheses; keep older CS25-based CA/list comparison routes separately labeled until audited.
+- Cite the main Paper D v6 MCA universal cap as proved under its printed divisor/binomial/subfield hypotheses; keep older CS25-based CA/list comparison routes separately labeled until audited.
 - Do not state an error-one result from Paper D’s cap; Paper D caps the threshold and gives a small certified failure probability, but the error-one-in-the-band problem remains open.
 - Keep Paper D as the canonical reference for the final universal-cap constants.
 - Keep Paper C as the canonical reference for protocol ledgers and field-accounting rules.

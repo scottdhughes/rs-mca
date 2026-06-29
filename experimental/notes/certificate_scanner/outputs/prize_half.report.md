@@ -24,7 +24,7 @@
 
 ## Paper D universal cap scan
 
-- Status: PROVED_PAPERD_V5_CAP
+- Status: PROVED_PAPERD_V6_CAP
 - Active caps: 34
 - Strongest active cap: `N=256`, gap `1/128`, delta cap `63/128`, margin `35.628` bits
 

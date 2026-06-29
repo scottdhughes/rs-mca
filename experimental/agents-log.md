@@ -30,6 +30,26 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-29 - Paper D v6 promotion and completion-program audit
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `tex/cs25_cap_v6.tex`, `cs25_cap_v6.pdf`,
+  `site/papers/cs25_cap_v6.pdf`,
+  `experimental/notes/audits/paperD_v6_vs_v5_audit.md`, scanner status labels,
+  `readme.md`, and site paper/leaderboard/update data.
+- **Status:** AUDIT / VERSION-PROMOTION / PROVED_PAPERD_V6_CAP.
+- **What is being added:** Paper D v6 is promoted as the current public Paper D
+  source. It keeps the v5 universal MCA cap constants and CS25-free route,
+  tightens the conversion collision-count derivation, and adds the
+  prize-facing integer-staircase/completion program.
+- **How it is useful:** Public rows now cite the strongest Paper D package:
+  same cap theorem, clearer prize posture, and explicit conditional MCA/list
+  completion theorems for turning the one-sided cap into a full threshold
+  determination.
+- **What to do next:** Use `PROVED_PAPERD_V6_CAP` for verified Paper D cap rows,
+  while keeping the missing L1/M1/F1/M2 completion obligations separate from
+  the proved cap itself.
+
 ### 2026-06-27 - Root-level paper PDF relocation
 
 - **Agent/model:** Codex.
