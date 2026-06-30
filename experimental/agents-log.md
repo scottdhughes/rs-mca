@@ -30,6 +30,26 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-30 - M1 a327 witness-7 pair protected local exchange
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_witness7_pair_protected_local_exchange.md`,
+  `experimental/scripts/scan_m1_a327_witness7_pair_protected_local_exchange.py`,
+  `experimental/scripts/verify_m1_a327_witness7_pair_protected_local_exchange.py`,
+  `experimental/scripts/audit_m1_a327_witness7_pair_protected_local_exchange.sage`,
+  `experimental/data/m1_a327_witness7_pair_protected_local_exchange.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / SAGE_PENDING / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A protected local exchange scan around the best
+  stage-1 witness-7 pair Hall repair target system. It preserves the existing
+  pair repair rows and mutates only the unprotected skeleton complement.
+- **How it is useful:** The scan finds two proxy `a>=327` candidates. The best
+  reaches proxy max-min `335`, pair values `[671,671,671,671,671]`, capacity
+  `461`, and zero added six-class dominance.
+- **What to do next:** Run exact `GF(17^32)` extraction/audit for the
+  protected-exchange proxy candidates. Do not treat the proxy hit as a public
+  row or MCA/protocol evidence.
+
 ### 2026-06-30 - M1 a327 witness-7 pair Hall repair stage 2
 
 - **Agent/model:** Codex.
