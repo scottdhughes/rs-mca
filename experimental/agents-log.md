@@ -30,6 +30,29 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-30 - M1 a327 collapse-constrained Hall repair
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_collapse_constrained_hall_repair.md`,
+  `experimental/scripts/scan_m1_a327_collapse_constrained_hall_repair.py`,
+  `experimental/scripts/verify_m1_a327_collapse_constrained_hall_repair.py`,
+  `experimental/scripts/audit_m1_a327_collapse_constrained_hall_repair.sage`,
+  `experimental/data/m1_a327_collapse_constrained_hall_repair.json`,
+  `experimental/agents-log.md`.
+- **Status:** TESTED_CONSTRAINED_HALL_REPAIR_NO_A327 / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A hard dominance-cap Hall repair sweep following
+  `4d5ce7f`. The scan tests 128 target systems and 2048 proxy tuple samples
+  across dominance caps `350..25`, with no acceptable proxy `a>=327`
+  candidate.
+- **How it is useful:** Measures the Hall-repair/collapse tradeoff directly:
+  cap-satisfying samples remove six-class dominance but collapse to capacity
+  165, while the strongest rejected repair reaches proxy max-min 334 only by
+  returning to six-class dominance 356.
+- **What to do next:** Search for Hall repair inside the existing
+  low-collapse tangent skeleton, rather than allowing generic Hall rows to
+  rebuild the collapse basin or forcing all collapse rows out at once.
+
 ### 2026-06-30 - M1 a327 Hall-guided target mutation
 
 - **Agent/model:** Codex.
