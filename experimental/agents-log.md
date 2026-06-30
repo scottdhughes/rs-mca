@@ -30,6 +30,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-30 - M1 a327 collapse-quotient line search
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_collapse_quotient_line_search.md`,
+  `experimental/scripts/scan_m1_a327_collapse_quotient_line_search.py`,
+  `experimental/scripts/verify_m1_a327_collapse_quotient_line_search.py`,
+  `experimental/scripts/audit_m1_a327_collapse_quotient_line_search.sage`,
+  `experimental/data/m1_a327_collapse_quotient_line_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** TESTED_QUOTIENT_LINES_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** An affine quotient-line search around the
+  high-capacity collapse anchors from `8dbcb6b`. The first pass tests 6
+  anchors, 32 ranked quotient directions, and 3,072 lambda values; the best
+  line preserves capacity 403 and reduces six-class dominance to 2, but
+  reschedules only to max-min 259.
+- **How it is useful:** Shows that quotient-line perturbations can break most
+  of the `[1,3,4,5,6,7]` dominance without immediate capacity collapse, but the
+  resulting value-class geometry is badly unbalanced.
+- **What to do next:** Study two-dimensional quotient planes or rescheduler-
+  aware quotient direction selection, targeting the `LINE_LOW_RESCHEDULE`
+  failure rather than the earlier capacity-collapse failure.
+
 ### 2026-06-29 - M1 a327 collapse-subspace quotient solver
 
 - **Agent/model:** Codex.
