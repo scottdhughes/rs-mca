@@ -30,6 +30,27 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-30 - M1 a327 witness-7 pair Hall repair stage 2
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_witness7_pair_hall_repair_stage2.md`,
+  `experimental/scripts/scan_m1_a327_witness7_pair_hall_repair_stage2.py`,
+  `experimental/scripts/verify_m1_a327_witness7_pair_hall_repair_stage2.py`,
+  `experimental/scripts/audit_m1_a327_witness7_pair_hall_repair_stage2.sage`,
+  `experimental/data/m1_a327_witness7_pair_hall_repair_stage2.json`,
+  `experimental/agents-log.md`.
+- **Status:** TESTED_PAIR7_STAGE2_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A second-stage witness-7 pair Hall repair scan
+  around the top first-stage `315` geometries from `8669680`. The bounded run
+  tests 108 target systems and 1728 proxy samples.
+- **How it is useful:** The scan is a negative local checkpoint: it finds no
+  proxy `a>=327` candidate and does not improve the first-stage incumbent.
+  Best retained values are proxy max-min `314`, capacity `455`, pair values
+  `[628,628,628,628,628]`, and zero added six-class dominance.
+- **What to do next:** Preserve the first-stage pair-repair rows as protected
+  skeleton rows and try local additive/exchange mutations rather than
+  reconstructing a second-stage target system from scratch.
+
 ### 2026-06-30 - M1 a327 witness-7 pair Hall repair
 
 - **Agent/model:** Codex.
