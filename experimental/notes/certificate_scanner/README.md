@@ -47,11 +47,11 @@ When active, it reports the corresponding cap
 delta* <= 1 - rho - 2/N
 ```
 
-with status `PROVED_PAPERD_V7_CAP`. The scanner only gives this status when the
+with status `PROVED_PAPERD_V8_CAP`. The scanner only gives this status when the
 divisor/binomial ledger passes and the configured field ledger verifies
 `q_line < 2^256`, `n <= q_line`, and `q_line` as an integral power of `q_base`.
 If no divisor/binomial/subfield row passes the theorem hypotheses, the cap
-ledger is reported as `NO_ACTIVE_PAPERD_V7_CAP`.
+ledger is reported as `NO_ACTIVE_PAPERD_V8_CAP`.
 
 ### experiments.tex high-agreement ledgers
 

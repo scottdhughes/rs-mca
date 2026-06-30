@@ -30,6 +30,26 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-30 - Paper D v8 quotient ledger promotion
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `tex/cs25_cap_v8.tex`, `cs25_cap_v8.pdf`,
+  `site/papers/cs25_cap_v8.pdf`,
+  `experimental/notes/audits/paperD_v8_vs_v7_audit.md`, scanner status labels,
+  `readme.md`, and site paper/leaderboard/update data.
+- **Status:** AUDIT / VERSION-PROMOTION / PROVED_PAPERD_V8_CAP /
+  PROVED_PAPERD_V8_FIRST_GRID.
+- **What is being added:** Paper D v8 is promoted as the current public Paper D
+  source. It preserves the v7 universal and first-grid caps, restores the
+  explicit `q>n` and endpoint-radius fixes, and adds quotient-support plus
+  distinct-parameter quotient image ledgers.
+- **How it is useful:** The new ledgers give future staircase scanners and
+  proof notes a safe way to account for declared quotient-remainder branches
+  without double-counting supports or slope images.
+- **What to do next:** Treat these ledgers as branch accounting only. The
+  full safe-side theorem still needs the aperiodic Hankel-packing and
+  extension-line completion inputs.
+
 ### 2026-06-29 - Paper D v7 first-grid cap promotion
 
 - **Agent/model:** Codex.

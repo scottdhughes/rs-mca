@@ -380,7 +380,7 @@ def paper_d_cap(row: Row, lam: int, eps_target_log2: Optional[float] = None) -> 
             # exact: 2^lam*(q-n) >? 2kq
             eps_floor_gt_target = (1 << lam) * (q - n) > 2 * k * q
             active.append({
-                "status": "PROVED_PAPERD_V7_CAP",
+                "status": "PROVED_PAPERD_V8_CAP",
                 "N": N,
                 "rhoN": rhoN,
                 "ell2": ell2,
@@ -396,8 +396,8 @@ def paper_d_cap(row: Row, lam: int, eps_target_log2: Optional[float] = None) -> 
             })
     active.sort(key=lambda x: x["delta_cap_float"])
     return {
-        "source": "Paper D v7 universal cap",
-        "status": "PROVED_PAPERD_V7_CAP" if active else "NO_ACTIVE_PAPERD_V7_CAP",
+        "source": "Paper D v8 universal cap",
+        "status": "PROVED_PAPERD_V8_CAP" if active else "NO_ACTIVE_PAPERD_V8_CAP",
         "q_base": B,
         "q_line": q,
         "field_hypotheses": field_hypotheses,
