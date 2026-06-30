@@ -30,6 +30,29 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-29 - M1 a327 collapse-subspace quotient solver
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_collapse_subspace_quotient_solver.md`,
+  `experimental/scripts/scan_m1_a327_collapse_subspace_quotient_solver.py`,
+  `experimental/scripts/verify_m1_a327_collapse_subspace_quotient_solver.py`,
+  `experimental/scripts/audit_m1_a327_collapse_subspace_quotient_solver.sage`,
+  `experimental/data/m1_a327_collapse_subspace_quotient_solver.json`,
+  `experimental/agents-log.md`.
+- **Status:** TESTED_QUOTIENT_DIRECTIONS_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A quotient-nullspace diagnostic for the two
+  distinct high-performing soft target cores. Each has proxy nullity 896,
+  collapse-subspace dimension 103, and quotient dimension 793; 232 sampled
+  collapse/quotient directions find no collapse-reduced proxy `a>=327`
+  candidate.
+- **How it is useful:** Shows that quotient directions exist in abundance, but
+  the tested directions either destroy capacity or reschedule below target;
+  the best high-capacity sample remains collapse-only with proxy max-min 332.
+- **What to do next:** Study the capacity-preserving quotient directions that
+  land in `QUOTIENT_DIRECTION_LOW_RESCHEDULE`, or formulate an obstruction
+  explaining why leaving the collapse subspace loses the balanced high-capacity
+  schedule.
+
 ### 2026-06-29 - M1 a327 soft collapse-penalty target solver
 
 - **Agent/model:** Codex.
