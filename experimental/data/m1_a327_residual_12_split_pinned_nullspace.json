@@ -1,0 +1,7059 @@
+{
+  "agreement_target": 327,
+  "baseline": {
+    "best_capacity_upper_bound": 438,
+    "best_failure_mode": "PIN_DOES_NOT_SPLIT",
+    "best_pair_B_values": [
+      1024,
+      1024,
+      512,
+      1024,
+      1024
+    ],
+    "strongest_split_capacity_upper_bound": 155,
+    "strongest_split_pair_B_values": [
+      575,
+      575,
+      512,
+      512,
+      512
+    ],
+    "strongest_split_remaining_collapse": [
+      [
+        1,
+        2
+      ],
+      [
+        7
+      ],
+      [
+        6
+      ],
+      [
+        5
+      ],
+      [
+        4
+      ],
+      [
+        3
+      ]
+    ]
+  },
+  "construction_mode": "residual_12_split_pinned_nullspace",
+  "denominator": "17^32",
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C"
+  ],
+  "proof_status": "EXACT_EXTRACTION_NO_A327",
+  "residual12_search": {
+    "best_capacity_upper_bound": 83,
+    "best_degenerate_classes": [
+      [
+        7
+      ],
+      [
+        6
+      ],
+      [
+        5
+      ],
+      [
+        4
+      ],
+      [
+        3
+      ],
+      [
+        2
+      ],
+      [
+        1
+      ]
+    ],
+    "best_exact_max_min": null,
+    "best_failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+    "best_pair_B_values": [
+      575,
+      513,
+      512,
+      512,
+      512
+    ],
+    "capacity_preserving_nondegenerate_vectors": 0,
+    "exact_field": "GF(17^32)",
+    "exact_vectors_constructed": 40,
+    "field_denominator": "2367911594760467245844106297320951247361",
+    "nondegenerate_vectors": 38,
+    "nullspace_samples_tested": 8,
+    "pin_sets_tested": 32,
+    "results": [
+      {
+        "attempt_count": 20,
+        "best": {
+          "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+          "capacity_total": 583,
+          "capacity_upper_bound": 83,
+          "chosen_masks_hash": null,
+          "degenerate_classes": [
+            [
+              7
+            ],
+            [
+              6
+            ],
+            [
+              5
+            ],
+            [
+              4
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ],
+            [
+              1
+            ]
+          ],
+          "distinct_codewords": true,
+          "exact_agreement_vector": null,
+          "exact_max_min": null,
+          "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+          "free_pattern": "d2_even_sparse",
+          "largest_class_histogram": {
+            "1": 442,
+            "2": 69,
+            "3": 1
+          },
+          "min_pair_B": 512,
+          "old_three_subset_B_values": [
+            514,
+            514,
+            514
+          ],
+          "old_three_subset_min_hall_bound": 171,
+          "pair_B_values": [
+            575,
+            513,
+            512,
+            512,
+            512
+          ],
+          "pair_deficit_to_654": [
+            79,
+            141,
+            142,
+            142,
+            142
+          ],
+          "pair_hall_bound": 256,
+          "pin_family": "anchor_split_34567",
+          "pin_specs": [
+            {
+              "gamma": 1,
+              "kind": "anchor_split",
+              "left": 1,
+              "position": 16,
+              "right": 3
+            },
+            {
+              "gamma": 2,
+              "kind": "anchor_split",
+              "left": 1,
+              "position": 18,
+              "right": 4
+            },
+            {
+              "gamma": 3,
+              "kind": "anchor_split",
+              "left": 1,
+              "position": 19,
+              "right": 5
+            },
+            {
+              "gamma": 4,
+              "kind": "anchor_split",
+              "left": 1,
+              "position": 20,
+              "right": 6
+            },
+            {
+              "gamma": 5,
+              "kind": "anchor_split",
+              "left": 1,
+              "position": 21,
+              "right": 7
+            }
+          ],
+          "search_layer": "pinned_nullspace_sample",
+          "six_class_dominance": 0,
+          "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+        },
+        "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+        "failure_mode_counts": {
+          "RESIDUAL12_PIN_DOES_NOT_SPLIT": 1,
+          "RESIDUAL12_SPLIT_CAPACITY_LOSS": 19
+        },
+        "proxy_max_min": 335,
+        "proxy_pair_B_values": [
+          671,
+          671,
+          671,
+          671,
+          671
+        ],
+        "retained_results": [
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 583,
+            "capacity_upper_bound": 83,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_even_sparse",
+            "largest_class_histogram": {
+              "1": 442,
+              "2": 69,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              514,
+              514,
+              514
+            ],
+            "old_three_subset_min_hall_bound": 171,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              }
+            ],
+            "search_layer": "pinned_nullspace_sample",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 579,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first_free",
+            "largest_class_histogram": {
+              "1": 446,
+              "2": 65,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              513,
+              513
+            ],
+            "old_three_subset_min_hall_bound": 171,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              }
+            ],
+            "search_layer": "pinned_nullspace_sample",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 579,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first4_free",
+            "largest_class_histogram": {
+              "1": 446,
+              "2": 65,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              514,
+              513,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              }
+            ],
+            "search_layer": "pinned_nullspace_sample",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 1,
+                "kind": "residual12",
+                "left": 2,
+                "position": 16,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 1,
+              "kind": "residual12",
+              "left": 2,
+              "position": 16,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 2,
+                "kind": "residual12",
+                "left": 2,
+                "position": 16,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 2,
+              "kind": "residual12",
+              "left": 2,
+              "position": 16,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 3,
+                "kind": "residual12",
+                "left": 2,
+                "position": 16,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 3,
+              "kind": "residual12",
+              "left": 2,
+              "position": 16,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 4,
+                "kind": "residual12",
+                "left": 2,
+                "position": 16,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 4,
+              "kind": "residual12",
+              "left": 2,
+              "position": 16,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 1,
+                "kind": "residual12",
+                "left": 2,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 1,
+              "kind": "residual12",
+              "left": 2,
+              "position": 18,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 2,
+                "kind": "residual12",
+                "left": 2,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 2,
+              "kind": "residual12",
+              "left": 2,
+              "position": 18,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 3,
+                "kind": "residual12",
+                "left": 2,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 3,
+              "kind": "residual12",
+              "left": 2,
+              "position": 18,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          }
+        ],
+        "vector_results": [
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 1087,
+            "capacity_upper_bound": 155,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                1,
+                2
+              ],
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_PIN_DOES_NOT_SPLIT",
+            "free_pattern": "affine_pivot_solution",
+            "largest_class_histogram": {
+              "2": 449,
+              "3": 63
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              1024,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              575,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              79,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              }
+            ],
+            "search_layer": "pinned_nullspace_sample",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 579,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first_free",
+            "largest_class_histogram": {
+              "1": 446,
+              "2": 65,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              513,
+              513
+            ],
+            "old_three_subset_min_hall_bound": 171,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              }
+            ],
+            "search_layer": "pinned_nullspace_sample",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 579,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first4_free",
+            "largest_class_histogram": {
+              "1": 446,
+              "2": 65,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              514,
+              513,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              }
+            ],
+            "search_layer": "pinned_nullspace_sample",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 583,
+            "capacity_upper_bound": 83,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_even_sparse",
+            "largest_class_histogram": {
+              "1": 442,
+              "2": 69,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              514,
+              514,
+              514
+            ],
+            "old_three_subset_min_hall_bound": 171,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              }
+            ],
+            "search_layer": "pinned_nullspace_sample",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 1,
+                "kind": "residual12",
+                "left": 2,
+                "position": 16,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 1,
+              "kind": "residual12",
+              "left": 2,
+              "position": 16,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 2,
+                "kind": "residual12",
+                "left": 2,
+                "position": 16,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 2,
+              "kind": "residual12",
+              "left": 2,
+              "position": 16,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 3,
+                "kind": "residual12",
+                "left": 2,
+                "position": 16,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 3,
+              "kind": "residual12",
+              "left": 2,
+              "position": 16,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 4,
+                "kind": "residual12",
+                "left": 2,
+                "position": 16,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 4,
+              "kind": "residual12",
+              "left": 2,
+              "position": 16,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 1,
+                "kind": "residual12",
+                "left": 2,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 1,
+              "kind": "residual12",
+              "left": 2,
+              "position": 18,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 2,
+                "kind": "residual12",
+                "left": 2,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 2,
+              "kind": "residual12",
+              "left": 2,
+              "position": 18,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 3,
+                "kind": "residual12",
+                "left": 2,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 3,
+              "kind": "residual12",
+              "left": 2,
+              "position": 18,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 4,
+                "kind": "residual12",
+                "left": 2,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 4,
+              "kind": "residual12",
+              "left": 2,
+              "position": 18,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 1,
+                "kind": "residual12",
+                "left": 2,
+                "position": 19,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 1,
+              "kind": "residual12",
+              "left": 2,
+              "position": 19,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 2,
+                "kind": "residual12",
+                "left": 2,
+                "position": 19,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 2,
+              "kind": "residual12",
+              "left": 2,
+              "position": 19,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 3,
+                "kind": "residual12",
+                "left": 2,
+                "position": 19,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 3,
+              "kind": "residual12",
+              "left": 2,
+              "position": 19,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 4,
+                "kind": "residual12",
+                "left": 2,
+                "position": 19,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 4,
+              "kind": "residual12",
+              "left": 2,
+              "position": 19,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 1,
+                "kind": "residual12",
+                "left": 2,
+                "position": 20,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 1,
+              "kind": "residual12",
+              "left": 2,
+              "position": 20,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 2,
+                "kind": "residual12",
+                "left": 2,
+                "position": 20,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 2,
+              "kind": "residual12",
+              "left": 2,
+              "position": 20,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 3,
+                "kind": "residual12",
+                "left": 2,
+                "position": 20,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 3,
+              "kind": "residual12",
+              "left": 2,
+              "position": 20,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+            "capacity_total": 576,
+            "capacity_upper_bound": 82,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 449,
+              "2": 62,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              575,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              79,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 4,
+                "kind": "residual12",
+                "left": 2,
+                "position": 20,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 4,
+              "kind": "residual12",
+              "left": 2,
+              "position": 20,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          }
+        ]
+      },
+      {
+        "attempt_count": 20,
+        "best": {
+          "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+          "capacity_total": 567,
+          "capacity_upper_bound": 81,
+          "chosen_masks_hash": null,
+          "degenerate_classes": [
+            [
+              7
+            ],
+            [
+              6
+            ],
+            [
+              5
+            ],
+            [
+              4
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ],
+            [
+              1
+            ]
+          ],
+          "distinct_codewords": true,
+          "exact_agreement_vector": null,
+          "exact_max_min": null,
+          "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+          "free_pattern": "d2_first_free",
+          "largest_class_histogram": {
+            "1": 458,
+            "2": 53,
+            "3": 1
+          },
+          "min_pair_B": 512,
+          "old_three_subset_B_values": [
+            513,
+            513,
+            513
+          ],
+          "old_three_subset_min_hall_bound": 171,
+          "pair_B_values": [
+            563,
+            513,
+            512,
+            512,
+            512
+          ],
+          "pair_deficit_to_654": [
+            91,
+            141,
+            142,
+            142,
+            142
+          ],
+          "pair_hall_bound": 256,
+          "pin_family": "anchor_split_34567",
+          "pin_specs": [
+            {
+              "gamma": 1,
+              "kind": "anchor_split",
+              "left": 1,
+              "position": 16,
+              "right": 3
+            },
+            {
+              "gamma": 2,
+              "kind": "anchor_split",
+              "left": 1,
+              "position": 18,
+              "right": 4
+            },
+            {
+              "gamma": 3,
+              "kind": "anchor_split",
+              "left": 1,
+              "position": 19,
+              "right": 5
+            },
+            {
+              "gamma": 4,
+              "kind": "anchor_split",
+              "left": 1,
+              "position": 20,
+              "right": 6
+            },
+            {
+              "gamma": 5,
+              "kind": "anchor_split",
+              "left": 1,
+              "position": 21,
+              "right": 7
+            }
+          ],
+          "search_layer": "pinned_nullspace_sample",
+          "six_class_dominance": 0,
+          "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+        },
+        "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+        "failure_mode_counts": {
+          "RESIDUAL12_PIN_DOES_NOT_SPLIT": 1,
+          "RESIDUAL12_SPLIT_CAPACITY_LOSS": 19
+        },
+        "proxy_max_min": 330,
+        "proxy_pair_B_values": [
+          661,
+          661,
+          661,
+          661,
+          661
+        ],
+        "retained_results": [
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 567,
+            "capacity_upper_bound": 81,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first_free",
+            "largest_class_histogram": {
+              "1": 458,
+              "2": 53,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              513,
+              513
+            ],
+            "old_three_subset_min_hall_bound": 171,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              }
+            ],
+            "search_layer": "pinned_nullspace_sample",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 567,
+            "capacity_upper_bound": 81,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first4_free",
+            "largest_class_histogram": {
+              "1": 458,
+              "2": 53,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              514,
+              513,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              }
+            ],
+            "search_layer": "pinned_nullspace_sample",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 571,
+            "capacity_upper_bound": 81,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_even_sparse",
+            "largest_class_histogram": {
+              "1": 454,
+              "2": 57,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              514,
+              514,
+              514
+            ],
+            "old_three_subset_min_hall_bound": 171,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              }
+            ],
+            "search_layer": "pinned_nullspace_sample",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 1,
+                "kind": "residual12",
+                "left": 2,
+                "position": 16,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 1,
+              "kind": "residual12",
+              "left": 2,
+              "position": 16,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 2,
+                "kind": "residual12",
+                "left": 2,
+                "position": 16,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 2,
+              "kind": "residual12",
+              "left": 2,
+              "position": 16,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 3,
+                "kind": "residual12",
+                "left": 2,
+                "position": 16,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 3,
+              "kind": "residual12",
+              "left": 2,
+              "position": 16,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 4,
+                "kind": "residual12",
+                "left": 2,
+                "position": 16,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 4,
+              "kind": "residual12",
+              "left": 2,
+              "position": 16,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 1,
+                "kind": "residual12",
+                "left": 2,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 1,
+              "kind": "residual12",
+              "left": 2,
+              "position": 18,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 2,
+                "kind": "residual12",
+                "left": 2,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 2,
+              "kind": "residual12",
+              "left": 2,
+              "position": 18,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 3,
+                "kind": "residual12",
+                "left": 2,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 3,
+              "kind": "residual12",
+              "left": 2,
+              "position": 18,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          }
+        ],
+        "vector_results": [
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 1075,
+            "capacity_upper_bound": 153,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                1,
+                2
+              ],
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_PIN_DOES_NOT_SPLIT",
+            "free_pattern": "affine_pivot_solution",
+            "largest_class_histogram": {
+              "2": 461,
+              "3": 51
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              1024,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              563,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              91,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              }
+            ],
+            "search_layer": "pinned_nullspace_sample",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 567,
+            "capacity_upper_bound": 81,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first_free",
+            "largest_class_histogram": {
+              "1": 458,
+              "2": 53,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              513,
+              513
+            ],
+            "old_three_subset_min_hall_bound": 171,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              }
+            ],
+            "search_layer": "pinned_nullspace_sample",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 567,
+            "capacity_upper_bound": 81,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first4_free",
+            "largest_class_histogram": {
+              "1": 458,
+              "2": 53,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              514,
+              513,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              }
+            ],
+            "search_layer": "pinned_nullspace_sample",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 571,
+            "capacity_upper_bound": 81,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_even_sparse",
+            "largest_class_histogram": {
+              "1": 454,
+              "2": 57,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              514,
+              514,
+              514
+            ],
+            "old_three_subset_min_hall_bound": 171,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              }
+            ],
+            "search_layer": "pinned_nullspace_sample",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 1,
+                "kind": "residual12",
+                "left": 2,
+                "position": 16,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 1,
+              "kind": "residual12",
+              "left": 2,
+              "position": 16,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 2,
+                "kind": "residual12",
+                "left": 2,
+                "position": 16,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 2,
+              "kind": "residual12",
+              "left": 2,
+              "position": 16,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 3,
+                "kind": "residual12",
+                "left": 2,
+                "position": 16,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 3,
+              "kind": "residual12",
+              "left": 2,
+              "position": 16,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 4,
+                "kind": "residual12",
+                "left": 2,
+                "position": 16,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 4,
+              "kind": "residual12",
+              "left": 2,
+              "position": 16,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 1,
+                "kind": "residual12",
+                "left": 2,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 1,
+              "kind": "residual12",
+              "left": 2,
+              "position": 18,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 2,
+                "kind": "residual12",
+                "left": 2,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 2,
+              "kind": "residual12",
+              "left": 2,
+              "position": 18,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 3,
+                "kind": "residual12",
+                "left": 2,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 3,
+              "kind": "residual12",
+              "left": 2,
+              "position": 18,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 4,
+                "kind": "residual12",
+                "left": 2,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 4,
+              "kind": "residual12",
+              "left": 2,
+              "position": 18,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 1,
+                "kind": "residual12",
+                "left": 2,
+                "position": 19,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 1,
+              "kind": "residual12",
+              "left": 2,
+              "position": 19,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 2,
+                "kind": "residual12",
+                "left": 2,
+                "position": 19,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 2,
+              "kind": "residual12",
+              "left": 2,
+              "position": 19,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 3,
+                "kind": "residual12",
+                "left": 2,
+                "position": 19,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 3,
+              "kind": "residual12",
+              "left": 2,
+              "position": 19,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 4,
+                "kind": "residual12",
+                "left": 2,
+                "position": 19,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 4,
+              "kind": "residual12",
+              "left": 2,
+              "position": 19,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 1,
+                "kind": "residual12",
+                "left": 2,
+                "position": 20,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 1,
+              "kind": "residual12",
+              "left": 2,
+              "position": 20,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 2,
+                "kind": "residual12",
+                "left": 2,
+                "position": 20,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 2,
+              "kind": "residual12",
+              "left": 2,
+              "position": 20,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 3,
+                "kind": "residual12",
+                "left": 2,
+                "position": 20,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 3,
+              "kind": "residual12",
+              "left": 2,
+              "position": 20,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          },
+          {
+            "candidate_id": "7d2bb937c72e__PX32__one_for_two",
+            "capacity_total": 564,
+            "capacity_upper_bound": 80,
+            "chosen_masks_hash": null,
+            "degenerate_classes": [
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                5
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ],
+              [
+                1
+              ]
+            ],
+            "distinct_codewords": true,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "RESIDUAL12_SPLIT_CAPACITY_LOSS",
+            "largest_class_histogram": {
+              "1": 461,
+              "2": 50,
+              "3": 1
+            },
+            "min_pair_B": 512,
+            "old_three_subset_B_values": [
+              513,
+              512,
+              512
+            ],
+            "old_three_subset_min_hall_bound": 170,
+            "pair_B_values": [
+              563,
+              513,
+              512,
+              512,
+              512
+            ],
+            "pair_deficit_to_654": [
+              91,
+              141,
+              142,
+              142,
+              142
+            ],
+            "pair_hall_bound": 256,
+            "pin_family": "anchor_split_34567_plus_residual12",
+            "pin_specs": [
+              {
+                "gamma": 1,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 16,
+                "right": 3
+              },
+              {
+                "gamma": 2,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 18,
+                "right": 4
+              },
+              {
+                "gamma": 3,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 19,
+                "right": 5
+              },
+              {
+                "gamma": 4,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 20,
+                "right": 6
+              },
+              {
+                "gamma": 5,
+                "kind": "anchor_split",
+                "left": 1,
+                "position": 21,
+                "right": 7
+              },
+              {
+                "gamma": 4,
+                "kind": "residual12",
+                "left": 2,
+                "position": 20,
+                "right": 1
+              }
+            ],
+            "residual_pin": {
+              "gamma": 4,
+              "kind": "residual12",
+              "left": 2,
+              "position": 20,
+              "right": 1
+            },
+            "search_layer": "residual_12_single_pin",
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+          }
+        ]
+      }
+    ]
+  },
+  "result_hash": "4bf221d82f2c1080c96a6ba076b1f2d0b0b305470864fdfdac0d3b1dac796799",
+  "row": "RS[F_17^32,H,256]",
+  "source_commit": "024481e",
+  "track": "INTERLEAVED_LIST"
+}

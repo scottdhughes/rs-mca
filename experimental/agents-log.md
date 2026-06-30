@@ -30,6 +30,29 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-30 - M1 a327 residual [1,2] split pinned nullspace
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_residual_12_split_pinned_nullspace.md`,
+  `experimental/scripts/scan_m1_a327_residual_12_split_pinned_nullspace.py`,
+  `experimental/scripts/verify_m1_a327_residual_12_split_pinned_nullspace.py`,
+  `experimental/scripts/audit_m1_a327_residual_12_split_pinned_nullspace.sage`,
+  `experimental/data/m1_a327_residual_12_split_pinned_nullspace.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A bounded exact `GF(17^32)` residual `[1,2]`
+  split and pinned-nullspace audit following `024481e`. It starts from the
+  strongest prior split, adds residual `P_2(h)=gamma` pins, and samples
+  deterministic `D_2` free-column assignments.
+- **How it is useful:** The audit shows the residual `[1,2]` collapse can be
+  split exactly, but every tested nondegenerate vector loses capacity. Across
+  40 constructed exact vectors, 38 are nondegenerate, zero are
+  capacity-preserving, and the best capacity upper bound is `83`.
+- **What to do next:** Avoid hard residual pins after the destructive
+  `anchor_split_34567` layer. Try a gentler capacity-preserving residual split
+  earlier in the partial-split hierarchy or search for `D_2` perturbations
+  that preserve protected-exchange pair repair.
+
 ### 2026-06-30 - M1 a327 protected-exchange nondegenerate lift
 
 - **Agent/model:** Codex.
