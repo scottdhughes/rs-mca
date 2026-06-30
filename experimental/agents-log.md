@@ -30,6 +30,29 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-30 - M1 a327 Hall-guided target mutation
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_hall_guided_target_mutation.md`,
+  `experimental/scripts/scan_m1_a327_hall_guided_target_mutation.py`,
+  `experimental/scripts/verify_m1_a327_hall_guided_target_mutation.py`,
+  `experimental/scripts/audit_m1_a327_hall_guided_target_mutation.sage`,
+  `experimental/data/m1_a327_hall_guided_target_mutation.json`,
+  `experimental/agents-log.md`.
+- **Status:** TESTED_HALL_MUTATIONS_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A Hall-guided target mutation scan using the tight
+  three-witness subsets from `ed4cf43` as first-class target-selection
+  objectives. The first bounded pass tests 16 target systems and 256 proxy
+  codeword tuples; no acceptable proxy `a>=327` candidate is found.
+- **How it is useful:** The best raw sample repairs the Hall obstruction
+  strongly, raising the Hall bound to 332 with tight-subset values
+  `[1177,1177,1177]`, but it does so by returning to high six-class dominance
+  359. This separates "Hall repair works" from "Hall repair currently returns
+  the collapse basin."
+- **What to do next:** Try collapse-constrained Hall repair: increase
+  `B(U)` for the tight subsets while explicitly capping six-class dominance or
+  preserving the low-collapse tangent skeleton.
+
 ### 2026-06-30 - M1 a327 rescheduler dual Hall obstruction
 
 - **Agent/model:** Codex.
