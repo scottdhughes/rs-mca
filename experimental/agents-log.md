@@ -30,6 +30,29 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-30 - M1 a327 collision-tangent quotient-plane search
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_collision_tangent_quotient_plane_search.md`,
+  `experimental/scripts/scan_m1_a327_collision_tangent_quotient_plane_search.py`,
+  `experimental/scripts/verify_m1_a327_collision_tangent_quotient_plane_search.py`,
+  `experimental/scripts/audit_m1_a327_collision_tangent_quotient_plane_search.sage`,
+  `experimental/data/m1_a327_collision_tangent_quotient_plane_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** TESTED_TANGENT_PLANES_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A collision-tangent quotient-plane proxy search
+  that constrains second directions to preserve protected dominant value
+  classes from the best quotient lines. The first pass builds 20 tangent
+  spaces, tests 320 directions and 10,240 `mu` values, and finds no proxy
+  `a>=327` candidate.
+- **How it is useful:** Shows that tangent directions fix the immediate
+  capacity-loss failure from `84d5194`: best capacity remains 404 with
+  six-class dominance 4, but the proxy rescheduler only improves from 259 to
+  260.
+- **What to do next:** Search within the capacity-preserving tangent space for
+  better balance objectives or multi-direction combinations; the live
+  obstruction is now rescheduler balance, not collapse or capacity loss.
+
 ### 2026-06-30 - M1 a327 rescheduler-aware quotient-plane search
 
 - **Agent/model:** Codex.
