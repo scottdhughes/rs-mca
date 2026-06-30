@@ -30,6 +30,27 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-30 - M1 a327 protected-exchange nondegenerate lift
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_protected_exchange_nondegenerate_lift.md`,
+  `experimental/scripts/scan_m1_a327_protected_exchange_nondegenerate_lift.py`,
+  `experimental/scripts/verify_m1_a327_protected_exchange_nondegenerate_lift.py`,
+  `experimental/scripts/audit_m1_a327_protected_exchange_nondegenerate_lift.sage`,
+  `experimental/data/m1_a327_protected_exchange_nondegenerate_lift.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A bounded exact `GF(17^32)` pinned-lift audit inside
+  the protected-exchange row schedule. It tests affine evaluation separation
+  pins intended to break the degenerate exact lifts from `a2d31ee`.
+- **How it is useful:** The pins split portions of the collapse class but no
+  tested pin set produces seven distinct codewords. The best high-capacity
+  split has capacity `438` and pair values `[1024,1024,512,1024,1024]`; the
+  strongest split leaves only `[1,2]` collapsed but loses capacity.
+- **What to do next:** Target the residual `[1,2]` collapse directly, or use
+  exact nullspace sampling with nondegeneracy constraints rather than a single
+  affine pivot solution.
+
 ### 2026-06-30 - M1 a327 protected-exchange exact audit
 
 - **Agent/model:** Codex.
