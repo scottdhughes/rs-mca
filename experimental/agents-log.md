@@ -30,6 +30,29 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-29 - M1 a327 collapse-aware target system
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_collapse_aware_target_system.md`,
+  `experimental/scripts/scan_m1_a327_collapse_aware_target_system.py`,
+  `experimental/scripts/verify_m1_a327_collapse_aware_target_system.py`,
+  `experimental/scripts/audit_m1_a327_collapse_aware_target_system.sage`,
+  `experimental/data/m1_a327_collapse_aware_target_system.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A collapse-aware proxy target-system audit that
+  modifies the robust a=327 proxy systems by inserting internal split
+  constraints for the known exact collapse class `[1,3,4,5,6,7]`. The first
+  pass tests 27 modified affine proxy systems and 216 sampled vectors; all
+  samples destroy capacity, with best proxy capacity upper bound 162.
+- **How it is useful:** Shows that direct inhomogeneous target splits remove
+  six-class dominance but are too rigid in the tested budgets and partitions:
+  they destroy the high-capacity collision skeleton before exact `GF(17^32)`
+  extraction is triggered.
+- **What to do next:** Try softer collapse penalties or exact-field target
+  selection that discourages six-witness collapse without forcing hard split
+  equalities at high-overlap coordinates.
+
 ### 2026-06-29 - M1 a327 residual-degeneracy separation
 
 - **Agent/model:** Codex.
