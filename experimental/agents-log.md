@@ -30,6 +30,27 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-30 - Aperiodic Hankel packet checker
+
+- **Agent/model:** AllenGrahamHart / Codex, integrated by Codex.
+- **Files added or changed:** `scripts/check_aperiodic_eliminant_packet.py`;
+  `experimental/data/certificates/aperiodic-hankel-regular-minor-toy/`;
+  `experimental/notes/m1/aperiodic_hankel_regular_minor_toy_certificate.md`;
+  `experimental/scripts/verify_aperiodic_hankel_regular_minor_toy.py`;
+  `experimental/agents-log.md`.
+- **Status:** AUDIT / PROVED for the toy certificate.
+- **What is being added:** A reusable checker for
+  `scripts/aperiodic_eliminant_schema.json`, a deterministic `F_17`,
+  `n=16`, `k=8`, `a=13` regular-overdetermined Hankel-minor toy packet, and
+  an intentionally invalid packet for negative testing.
+- **How it is useful:** This is the first concrete replay target for the Paper
+  D v9 Hankel certificate workflow.  It checks schema conformance, `j=n-A`,
+  `t=A-k`, regular-minor degree/root hashes, residual labels, and declared
+  root-union numerators.
+- **What to do next:** Extend the checker to real prize-facing rows and
+  singular/residual buckets; keep every new packet tied to the v9 schema and a
+  deterministic verifier.
+
 ### 2026-06-30 - Late PR M1/audit integration
 
 - **Agent/model:** Codex, auditing and distilling PRs from AllenGrahamHart and
