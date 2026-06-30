@@ -30,6 +30,26 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-30 - M1 a327 protected-exchange exact audit
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_protected_exchange_exact_audit.md`,
+  `experimental/scripts/scan_m1_a327_protected_exchange_exact_audit.py`,
+  `experimental/scripts/verify_m1_a327_protected_exchange_exact_audit.py`,
+  `experimental/scripts/audit_m1_a327_protected_exchange_exact_audit.sage`,
+  `experimental/data/m1_a327_protected_exchange_exact_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_AUDIT_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A bounded exact `GF(17^32)` audit of the two
+  protected-exchange proxy candidates from `c9f2e4c`, including exact row
+  schedule rank checks and proxy-guided exact vector construction.
+- **How it is useful:** The audit confirms the tested exact row schedules are
+  full row rank but finds no exact `a>=327` witness. All 26 constructed exact
+  vectors are degenerate; the best reaches exact max-min `287` with capacity
+  `447` and pair values `[575,575,575,575,575]`.
+- **What to do next:** Try nondegeneracy-constrained exact lifting inside the
+  protected-exchange row schedule before returning to proxy search.
+
 ### 2026-06-30 - M1 a327 witness-7 pair protected local exchange
 
 - **Agent/model:** Codex.
