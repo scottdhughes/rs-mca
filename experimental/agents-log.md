@@ -30,6 +30,27 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-30 - M1 a327 witness-7 pair Hall repair
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_witness7_pair_hall_repair.md`,
+  `experimental/scripts/scan_m1_a327_witness7_pair_hall_repair.py`,
+  `experimental/scripts/verify_m1_a327_witness7_pair_hall_repair.py`,
+  `experimental/scripts/audit_m1_a327_witness7_pair_hall_repair.sage`,
+  `experimental/data/m1_a327_witness7_pair_hall_repair.json`,
+  `experimental/agents-log.md`.
+- **Status:** TESTED_PAIR7_REPAIR_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A surgical witness-7 pair Hall repair scan on top
+  of the repaired tangent-skeleton geometries from `d1fd9d0`. The first pass
+  tests 125 target systems and 2000 proxy samples.
+- **How it is useful:** The scan improves the current bottleneck without
+  adding collapse: proxy max-min rises from 308 to 315, pair values rise from
+  616 to 631, and added six-class dominance remains 0. It still misses the
+  `B({i,7})>=654` pair target by 23 credits.
+- **What to do next:** Run a second-stage pair repair around the best 315
+  geometry or increase repair budgets while keeping the repaired skeleton and
+  zero-added-collapse constraint.
+
 ### 2026-06-30 - M1 a327 tangent-skeleton Hall repair
 
 - **Agent/model:** Codex.
