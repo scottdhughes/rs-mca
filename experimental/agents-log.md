@@ -30,6 +30,27 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-30 - M1 a327 rescheduler-aware quotient-plane search
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_rescheduler_aware_quotient_plane_search.md`,
+  `experimental/scripts/scan_m1_a327_rescheduler_aware_quotient_plane_search.py`,
+  `experimental/scripts/verify_m1_a327_rescheduler_aware_quotient_plane_search.py`,
+  `experimental/scripts/audit_m1_a327_rescheduler_aware_quotient_plane_search.sage`,
+  `experimental/data/m1_a327_rescheduler_aware_quotient_plane_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** TESTED_QUOTIENT_PLANES_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A rescheduler-aware quotient-plane proxy search
+  around the best collapse-breaking quotient lines from `ad3d73a`. The first
+  pass tests 10 lines, 320 second directions, and 10,240 lambda/mu pairs; all
+  samples fail the capacity screen, with best capacity upper bound 165.
+- **How it is useful:** Shows that the tested weak-block `q2` perturbations
+  reduce the six-class collapse but destroy the high-capacity collision
+  skeleton before the rescheduler can help.
+- **What to do next:** Refine second-direction selection around
+  capacity-preserving tangent directions, or analyze why weak-block repair
+  directions are transverse to the high-capacity line skeleton.
+
 ### 2026-06-30 - M1 a327 collapse-quotient line search
 
 - **Agent/model:** Codex.
