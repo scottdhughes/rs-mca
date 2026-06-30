@@ -1,0 +1,949 @@
+{
+  "agreement_target": 327,
+  "baseline": {
+    "baseline_result_hash": "8416d05316349e728221bd40b99d0e76d0725c6fa9a6b3875f1726bd9a359dee",
+    "best_degenerate_capacity_upper_bound": 374,
+    "best_pinned_nondegenerate_capacity_upper_bound": 82
+  },
+  "candidate": {
+    "reaches_327_exact": false,
+    "sage_audited": false
+  },
+  "construction_mode": "residual_degeneracy_separation",
+  "denominator": "17^32",
+  "diagnostic": {
+    "degeneracy_ledgers": 3,
+    "systems_tested": 3
+  },
+  "exact_a327_vector_count": 0,
+  "exact_field": "GF(17^32)",
+  "field_denominator": "2367911594760467245844106297320951247361",
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C",
+    "improvement over PR #133",
+    "full GF(17^32) nullspace extraction"
+  ],
+  "proof_status": "EXACT_EXTRACTION_NO_A327",
+  "result_hash": "361a2c7ca7d10f7ed41341e0398f8123340f791cbb78f7b0c97a3cc1385c674c",
+  "results": [
+    {
+      "best": {
+        "evaluation": {
+          "assignment": {
+            "agreement_vector": [
+              192,
+              192,
+              192,
+              192,
+              192,
+              192,
+              192
+            ],
+            "chosen_masks_hash": "0dd1de3e673caad3e4e06aec6844cb51994b2c7a06118b172548b0f377123672",
+            "exact_max_min": 192
+          },
+          "capacity_total": 2624,
+          "capacity_upper_bound": 374,
+          "codeword_value_hash": "6c7d819da1b81daaff52f775013699a98bad314568ebb2fd424f9ef80663acb5",
+          "distinct_codewords": false,
+          "largest_class_histogram": {
+            "5": 448,
+            "6": 64
+          },
+          "status": "PIN_DOES_NOT_SPLIT"
+        },
+        "fixed_proxy_support_coefficients": 20,
+        "solve": {
+          "rank": 65,
+          "rows": 65,
+          "status": "PINNED_SOLVE_OK"
+        },
+        "split_family": "largest_pair_quotient_safe",
+        "split_specs": [
+          {
+            "fiber": 0,
+            "pair": [
+              1,
+              3
+            ],
+            "position": 0,
+            "rhs_hash": "391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf"
+          }
+        ],
+        "target_rows": 64
+      },
+      "capacity_preserving_nondegenerate_vectors": 0,
+      "degeneracy_ledger": {
+        "capacity_upper_bound": 448,
+        "distinct_evaluation_vectors": 2,
+        "largest_class_histogram": {
+          "6": 448,
+          "7": 64
+        },
+        "pair_equality_roots": {
+          "1,3": 512,
+          "1,4": 512,
+          "1,5": 512,
+          "1,6": 512,
+          "1,7": 512,
+          "3,4": 512,
+          "3,5": 512,
+          "3,6": 512,
+          "3,7": 512,
+          "4,5": 512,
+          "4,6": 512,
+          "4,7": 512,
+          "5,6": 512,
+          "5,7": 512,
+          "6,7": 512
+        },
+        "witness_equivalence_classes": [
+          [
+            1,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            2
+          ]
+        ],
+        "zero_blocks": [
+          "D_3",
+          "D_4",
+          "D_5",
+          "D_6",
+          "D_7"
+        ]
+      },
+      "evaluations": [
+        {
+          "evaluation": {
+            "assignment": {
+              "agreement_vector": [
+                192,
+                192,
+                192,
+                192,
+                192,
+                192,
+                192
+              ],
+              "chosen_masks_hash": "0dd1de3e673caad3e4e06aec6844cb51994b2c7a06118b172548b0f377123672",
+              "exact_max_min": 192
+            },
+            "capacity_total": 2624,
+            "capacity_upper_bound": 374,
+            "codeword_value_hash": "6c7d819da1b81daaff52f775013699a98bad314568ebb2fd424f9ef80663acb5",
+            "distinct_codewords": false,
+            "largest_class_histogram": {
+              "5": 448,
+              "6": 64
+            },
+            "status": "PIN_DOES_NOT_SPLIT"
+          },
+          "fixed_proxy_support_coefficients": 20,
+          "solve": {
+            "rank": 65,
+            "rows": 65,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "split_family": "largest_pair_quotient_safe",
+          "split_specs": [
+            {
+              "fiber": 0,
+              "pair": [
+                1,
+                3
+              ],
+              "position": 0,
+              "rhs_hash": "391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf"
+            }
+          ],
+          "target_rows": 64
+        },
+        {
+          "evaluation": {
+            "assignment": {
+              "agreement_vector": [
+                192,
+                192,
+                192,
+                192,
+                192,
+                192,
+                192
+              ],
+              "chosen_masks_hash": "0dd1de3e673caad3e4e06aec6844cb51994b2c7a06118b172548b0f377123672",
+              "exact_max_min": 192
+            },
+            "capacity_total": 2624,
+            "capacity_upper_bound": 374,
+            "codeword_value_hash": "b319253a02d98a25774b0dd6d046ee13cf2d5b4eec50de49d69360627eadf1a3",
+            "distinct_codewords": false,
+            "largest_class_histogram": {
+              "5": 448,
+              "6": 64
+            },
+            "status": "PIN_DOES_NOT_SPLIT"
+          },
+          "fixed_proxy_support_coefficients": 20,
+          "solve": {
+            "rank": 65,
+            "rows": 65,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "split_family": "largest_pair_same_fiber_next",
+          "split_specs": [
+            {
+              "fiber": 1,
+              "pair": [
+                1,
+                3
+              ],
+              "position": 241,
+              "rhs_hash": "cc11310c456c3690d5a74c23aa31cc25b4e74cdae146c71e54ad9dbc1d109fde"
+            }
+          ],
+          "target_rows": 64
+        },
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 1596,
+            "capacity_upper_bound": 228,
+            "codeword_value_hash": "538587f352d46e0234c1b4928c9597f2331ab22866d4a7f951e4a6015e37b2f6",
+            "distinct_codewords": false,
+            "largest_class_histogram": {
+              "3": 452,
+              "4": 60
+            },
+            "status": "DEGENERATE_CODEWORDS"
+          },
+          "fixed_proxy_support_coefficients": 20,
+          "solve": {
+            "rank": 67,
+            "rows": 67,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "split_family": "all_classes_one_pair",
+          "split_specs": [
+            {
+              "fiber": 0,
+              "pair": [
+                1,
+                3
+              ],
+              "position": 0,
+              "rhs_hash": "391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf"
+            },
+            {
+              "fiber": 0,
+              "pair": [
+                3,
+                4
+              ],
+              "position": 0,
+              "rhs_hash": "cc11310c456c3690d5a74c23aa31cc25b4e74cdae146c71e54ad9dbc1d109fde"
+            },
+            {
+              "fiber": 0,
+              "pair": [
+                4,
+                5
+              ],
+              "position": 0,
+              "rhs_hash": "a4aab3f1f08004e907d2357fafe74cab56359bcb32e23f52e7eb1d3a9c0a2ad3"
+            }
+          ],
+          "target_rows": 64
+        },
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 1596,
+            "capacity_upper_bound": 228,
+            "codeword_value_hash": "0e15e95b17d195bb0185c2e02850a41120ca7b6a912ecaadefbf76a2592478d6",
+            "distinct_codewords": false,
+            "largest_class_histogram": {
+              "3": 452,
+              "4": 60
+            },
+            "status": "DEGENERATE_CODEWORDS"
+          },
+          "fixed_proxy_support_coefficients": 20,
+          "solve": {
+            "rank": 67,
+            "rows": 67,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "split_family": "largest_class_eval_profile",
+          "split_specs": [
+            {
+              "fiber": 0,
+              "pair": [
+                1,
+                3
+              ],
+              "position": 0,
+              "rhs_hash": "c9db591741e4650ce19383666c2bf7e4ff94113357e63bf4b3ba240f042b0c8c"
+            },
+            {
+              "fiber": 0,
+              "pair": [
+                1,
+                4
+              ],
+              "position": 0,
+              "rhs_hash": "6e997c524cdf82d57f0fe17e6aa4bf056ae735da42b268c80eba634e6bd9f4d9"
+            },
+            {
+              "fiber": 0,
+              "pair": [
+                1,
+                5
+              ],
+              "position": 0,
+              "rhs_hash": "29eb265b2059c433614a63b45a83309b35e8351e6defd6b6b8d2b9c01066d48e"
+            }
+          ],
+          "target_rows": 64
+        }
+      ],
+      "exact_a327_vectors": 0,
+      "exact_vectors_constructed": 4,
+      "failure_histogram": {
+        "DEGENERATE_CODEWORDS": 2,
+        "PIN_DOES_NOT_SPLIT": 2
+      },
+      "nondegenerate_vectors": 0,
+      "pin_sets_tested": 4,
+      "status": "EXACT_EXTRACTION_NO_A327",
+      "system_id": "all_pair_boundary_bit_reversal__B512__hybrid_balance__M1002__variance_min__B640"
+    },
+    {
+      "best": {
+        "evaluation": {
+          "assignment": {
+            "agreement_vector": [
+              192,
+              192,
+              192,
+              192,
+              192,
+              192,
+              192
+            ],
+            "chosen_masks_hash": "fdf61050a134d511b0dfdd5027ea5ea57b6571c468d55817b6ce911a2ad1f4a7",
+            "exact_max_min": 192
+          },
+          "capacity_total": 2616,
+          "capacity_upper_bound": 373,
+          "codeword_value_hash": "bdd2193c7551e0747b1f63d18cb1dd17cf57ef74d332145dd3b64479264afe7c",
+          "distinct_codewords": false,
+          "largest_class_histogram": {
+            "5": 456,
+            "6": 56
+          },
+          "status": "PIN_DOES_NOT_SPLIT"
+        },
+        "fixed_proxy_support_coefficients": 20,
+        "solve": {
+          "rank": 65,
+          "rows": 65,
+          "status": "PINNED_SOLVE_OK"
+        },
+        "split_family": "largest_pair_quotient_safe",
+        "split_specs": [
+          {
+            "fiber": 0,
+            "pair": [
+              1,
+              3
+            ],
+            "position": 0,
+            "rhs_hash": "391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf"
+          }
+        ],
+        "target_rows": 64
+      },
+      "capacity_preserving_nondegenerate_vectors": 0,
+      "degeneracy_ledger": {
+        "capacity_upper_bound": 448,
+        "distinct_evaluation_vectors": 2,
+        "largest_class_histogram": {
+          "6": 448,
+          "7": 64
+        },
+        "pair_equality_roots": {
+          "1,3": 512,
+          "1,4": 512,
+          "1,5": 512,
+          "1,6": 512,
+          "1,7": 512,
+          "3,4": 512,
+          "3,5": 512,
+          "3,6": 512,
+          "3,7": 512,
+          "4,5": 512,
+          "4,6": 512,
+          "4,7": 512,
+          "5,6": 512,
+          "5,7": 512,
+          "6,7": 512
+        },
+        "witness_equivalence_classes": [
+          [
+            1,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            2
+          ]
+        ],
+        "zero_blocks": [
+          "D_3",
+          "D_4",
+          "D_5",
+          "D_6",
+          "D_7"
+        ]
+      },
+      "evaluations": [
+        {
+          "evaluation": {
+            "assignment": {
+              "agreement_vector": [
+                192,
+                192,
+                192,
+                192,
+                192,
+                192,
+                192
+              ],
+              "chosen_masks_hash": "fdf61050a134d511b0dfdd5027ea5ea57b6571c468d55817b6ce911a2ad1f4a7",
+              "exact_max_min": 192
+            },
+            "capacity_total": 2616,
+            "capacity_upper_bound": 373,
+            "codeword_value_hash": "bdd2193c7551e0747b1f63d18cb1dd17cf57ef74d332145dd3b64479264afe7c",
+            "distinct_codewords": false,
+            "largest_class_histogram": {
+              "5": 456,
+              "6": 56
+            },
+            "status": "PIN_DOES_NOT_SPLIT"
+          },
+          "fixed_proxy_support_coefficients": 20,
+          "solve": {
+            "rank": 65,
+            "rows": 65,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "split_family": "largest_pair_quotient_safe",
+          "split_specs": [
+            {
+              "fiber": 0,
+              "pair": [
+                1,
+                3
+              ],
+              "position": 0,
+              "rhs_hash": "391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf"
+            }
+          ],
+          "target_rows": 64
+        },
+        {
+          "evaluation": {
+            "assignment": {
+              "agreement_vector": [
+                192,
+                192,
+                192,
+                192,
+                192,
+                192,
+                192
+              ],
+              "chosen_masks_hash": "fdf61050a134d511b0dfdd5027ea5ea57b6571c468d55817b6ce911a2ad1f4a7",
+              "exact_max_min": 192
+            },
+            "capacity_total": 2616,
+            "capacity_upper_bound": 373,
+            "codeword_value_hash": "2f09b49aff368dd411bce4cc021f0573752ee6a0ffecad520d2f37260ebf8015",
+            "distinct_codewords": false,
+            "largest_class_histogram": {
+              "5": 456,
+              "6": 56
+            },
+            "status": "PIN_DOES_NOT_SPLIT"
+          },
+          "fixed_proxy_support_coefficients": 20,
+          "solve": {
+            "rank": 65,
+            "rows": 65,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "split_family": "largest_pair_same_fiber_next",
+          "split_specs": [
+            {
+              "fiber": 1,
+              "pair": [
+                1,
+                3
+              ],
+              "position": 1,
+              "rhs_hash": "cc11310c456c3690d5a74c23aa31cc25b4e74cdae146c71e54ad9dbc1d109fde"
+            }
+          ],
+          "target_rows": 64
+        },
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 1589,
+            "capacity_upper_bound": 227,
+            "codeword_value_hash": "4e4748202ff49dae5b849db602ef5ed1c937312ad7ed69dbf0840269238ead1e",
+            "distinct_codewords": false,
+            "largest_class_histogram": {
+              "3": 459,
+              "4": 53
+            },
+            "status": "DEGENERATE_CODEWORDS"
+          },
+          "fixed_proxy_support_coefficients": 20,
+          "solve": {
+            "rank": 67,
+            "rows": 67,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "split_family": "all_classes_one_pair",
+          "split_specs": [
+            {
+              "fiber": 0,
+              "pair": [
+                1,
+                3
+              ],
+              "position": 0,
+              "rhs_hash": "391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf"
+            },
+            {
+              "fiber": 0,
+              "pair": [
+                3,
+                4
+              ],
+              "position": 0,
+              "rhs_hash": "cc11310c456c3690d5a74c23aa31cc25b4e74cdae146c71e54ad9dbc1d109fde"
+            },
+            {
+              "fiber": 0,
+              "pair": [
+                4,
+                5
+              ],
+              "position": 0,
+              "rhs_hash": "a4aab3f1f08004e907d2357fafe74cab56359bcb32e23f52e7eb1d3a9c0a2ad3"
+            }
+          ],
+          "target_rows": 64
+        },
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 1589,
+            "capacity_upper_bound": 227,
+            "codeword_value_hash": "3edb9923a6e2d0dd81967cd79d7269ddbee5e3bfbe8911209194894dec2a36c9",
+            "distinct_codewords": false,
+            "largest_class_histogram": {
+              "3": 459,
+              "4": 53
+            },
+            "status": "DEGENERATE_CODEWORDS"
+          },
+          "fixed_proxy_support_coefficients": 20,
+          "solve": {
+            "rank": 67,
+            "rows": 67,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "split_family": "largest_class_eval_profile",
+          "split_specs": [
+            {
+              "fiber": 0,
+              "pair": [
+                1,
+                3
+              ],
+              "position": 0,
+              "rhs_hash": "c9db591741e4650ce19383666c2bf7e4ff94113357e63bf4b3ba240f042b0c8c"
+            },
+            {
+              "fiber": 0,
+              "pair": [
+                1,
+                4
+              ],
+              "position": 0,
+              "rhs_hash": "6e997c524cdf82d57f0fe17e6aa4bf056ae735da42b268c80eba634e6bd9f4d9"
+            },
+            {
+              "fiber": 0,
+              "pair": [
+                1,
+                5
+              ],
+              "position": 0,
+              "rhs_hash": "29eb265b2059c433614a63b45a83309b35e8351e6defd6b6b8d2b9c01066d48e"
+            }
+          ],
+          "target_rows": 64
+        }
+      ],
+      "exact_a327_vectors": 0,
+      "exact_vectors_constructed": 4,
+      "failure_histogram": {
+        "DEGENERATE_CODEWORDS": 2,
+        "PIN_DOES_NOT_SPLIT": 2
+      },
+      "nondegenerate_vectors": 0,
+      "pin_sets_tested": 4,
+      "status": "EXACT_EXTRACTION_NO_A327",
+      "system_id": "all_pair_boundary_bit_reversal__B512__fiber_diversity__M07__variance_min__B640"
+    },
+    {
+      "best": {
+        "evaluation": {
+          "assignment": {
+            "agreement_vector": [
+              192,
+              192,
+              192,
+              192,
+              192,
+              192,
+              192
+            ],
+            "chosen_masks_hash": "2183649a84e08d4bd365015263c1ab6c22f9fb276eeebab2862155a8df24f757",
+            "exact_max_min": 192
+          },
+          "capacity_total": 2616,
+          "capacity_upper_bound": 373,
+          "codeword_value_hash": "883c3cffc9d0018c20b44c37df3b98fadb002b6955989afedd4b003211c82a6d",
+          "distinct_codewords": false,
+          "largest_class_histogram": {
+            "5": 456,
+            "6": 56
+          },
+          "status": "PIN_DOES_NOT_SPLIT"
+        },
+        "fixed_proxy_support_coefficients": 20,
+        "solve": {
+          "rank": 65,
+          "rows": 65,
+          "status": "PINNED_SOLVE_OK"
+        },
+        "split_family": "largest_pair_quotient_safe",
+        "split_specs": [
+          {
+            "fiber": 0,
+            "pair": [
+              1,
+              3
+            ],
+            "position": 0,
+            "rhs_hash": "391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf"
+          }
+        ],
+        "target_rows": 64
+      },
+      "capacity_preserving_nondegenerate_vectors": 0,
+      "degeneracy_ledger": {
+        "capacity_upper_bound": 448,
+        "distinct_evaluation_vectors": 2,
+        "largest_class_histogram": {
+          "6": 448,
+          "7": 64
+        },
+        "pair_equality_roots": {
+          "1,3": 512,
+          "1,4": 512,
+          "1,5": 512,
+          "1,6": 512,
+          "1,7": 512,
+          "3,4": 512,
+          "3,5": 512,
+          "3,6": 512,
+          "3,7": 512,
+          "4,5": 512,
+          "4,6": 512,
+          "4,7": 512,
+          "5,6": 512,
+          "5,7": 512,
+          "6,7": 512
+        },
+        "witness_equivalence_classes": [
+          [
+            1,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            2
+          ]
+        ],
+        "zero_blocks": [
+          "D_3",
+          "D_4",
+          "D_5",
+          "D_6",
+          "D_7"
+        ]
+      },
+      "evaluations": [
+        {
+          "evaluation": {
+            "assignment": {
+              "agreement_vector": [
+                192,
+                192,
+                192,
+                192,
+                192,
+                192,
+                192
+              ],
+              "chosen_masks_hash": "2183649a84e08d4bd365015263c1ab6c22f9fb276eeebab2862155a8df24f757",
+              "exact_max_min": 192
+            },
+            "capacity_total": 2616,
+            "capacity_upper_bound": 373,
+            "codeword_value_hash": "883c3cffc9d0018c20b44c37df3b98fadb002b6955989afedd4b003211c82a6d",
+            "distinct_codewords": false,
+            "largest_class_histogram": {
+              "5": 456,
+              "6": 56
+            },
+            "status": "PIN_DOES_NOT_SPLIT"
+          },
+          "fixed_proxy_support_coefficients": 20,
+          "solve": {
+            "rank": 65,
+            "rows": 65,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "split_family": "largest_pair_quotient_safe",
+          "split_specs": [
+            {
+              "fiber": 0,
+              "pair": [
+                1,
+                3
+              ],
+              "position": 0,
+              "rhs_hash": "391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf"
+            }
+          ],
+          "target_rows": 64
+        },
+        {
+          "evaluation": {
+            "assignment": {
+              "agreement_vector": [
+                192,
+                192,
+                192,
+                192,
+                192,
+                192,
+                192
+              ],
+              "chosen_masks_hash": "2183649a84e08d4bd365015263c1ab6c22f9fb276eeebab2862155a8df24f757",
+              "exact_max_min": 192
+            },
+            "capacity_total": 2616,
+            "capacity_upper_bound": 373,
+            "codeword_value_hash": "b2dc0397edf75cc9c0f3e42cbc2648afdf1bfdb6aca50506f428a5a581894b8a",
+            "distinct_codewords": false,
+            "largest_class_histogram": {
+              "5": 456,
+              "6": 56
+            },
+            "status": "PIN_DOES_NOT_SPLIT"
+          },
+          "fixed_proxy_support_coefficients": 20,
+          "solve": {
+            "rank": 65,
+            "rows": 65,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "split_family": "largest_pair_same_fiber_next",
+          "split_specs": [
+            {
+              "fiber": 1,
+              "pair": [
+                1,
+                3
+              ],
+              "position": 1,
+              "rhs_hash": "cc11310c456c3690d5a74c23aa31cc25b4e74cdae146c71e54ad9dbc1d109fde"
+            }
+          ],
+          "target_rows": 64
+        },
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 1589,
+            "capacity_upper_bound": 227,
+            "codeword_value_hash": "fc3d59a2cd9ecca08d9262cf394d627d8671860f0cf4d1903744c88a244653c0",
+            "distinct_codewords": false,
+            "largest_class_histogram": {
+              "3": 459,
+              "4": 53
+            },
+            "status": "DEGENERATE_CODEWORDS"
+          },
+          "fixed_proxy_support_coefficients": 20,
+          "solve": {
+            "rank": 67,
+            "rows": 67,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "split_family": "all_classes_one_pair",
+          "split_specs": [
+            {
+              "fiber": 0,
+              "pair": [
+                1,
+                3
+              ],
+              "position": 0,
+              "rhs_hash": "391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf"
+            },
+            {
+              "fiber": 0,
+              "pair": [
+                3,
+                4
+              ],
+              "position": 0,
+              "rhs_hash": "cc11310c456c3690d5a74c23aa31cc25b4e74cdae146c71e54ad9dbc1d109fde"
+            },
+            {
+              "fiber": 0,
+              "pair": [
+                4,
+                5
+              ],
+              "position": 0,
+              "rhs_hash": "a4aab3f1f08004e907d2357fafe74cab56359bcb32e23f52e7eb1d3a9c0a2ad3"
+            }
+          ],
+          "target_rows": 64
+        },
+        {
+          "evaluation": {
+            "assignment": null,
+            "capacity_total": 1589,
+            "capacity_upper_bound": 227,
+            "codeword_value_hash": "8d93b05b81e8bbdabc702b04f38b763637c28a46966f1f9ddd0b791bcf919a75",
+            "distinct_codewords": false,
+            "largest_class_histogram": {
+              "3": 459,
+              "4": 53
+            },
+            "status": "DEGENERATE_CODEWORDS"
+          },
+          "fixed_proxy_support_coefficients": 20,
+          "solve": {
+            "rank": 67,
+            "rows": 67,
+            "status": "PINNED_SOLVE_OK"
+          },
+          "split_family": "largest_class_eval_profile",
+          "split_specs": [
+            {
+              "fiber": 0,
+              "pair": [
+                1,
+                3
+              ],
+              "position": 0,
+              "rhs_hash": "c9db591741e4650ce19383666c2bf7e4ff94113357e63bf4b3ba240f042b0c8c"
+            },
+            {
+              "fiber": 0,
+              "pair": [
+                1,
+                4
+              ],
+              "position": 0,
+              "rhs_hash": "6e997c524cdf82d57f0fe17e6aa4bf056ae735da42b268c80eba634e6bd9f4d9"
+            },
+            {
+              "fiber": 0,
+              "pair": [
+                1,
+                5
+              ],
+              "position": 0,
+              "rhs_hash": "29eb265b2059c433614a63b45a83309b35e8351e6defd6b6b8d2b9c01066d48e"
+            }
+          ],
+          "target_rows": 64
+        }
+      ],
+      "exact_a327_vectors": 0,
+      "exact_vectors_constructed": 4,
+      "failure_histogram": {
+        "DEGENERATE_CODEWORDS": 2,
+        "PIN_DOES_NOT_SPLIT": 2
+      },
+      "nondegenerate_vectors": 0,
+      "pin_sets_tested": 4,
+      "status": "EXACT_EXTRACTION_NO_A327",
+      "system_id": "all_pair_boundary_bit_reversal__B512__fiber_diversity__M01__anti_six_of_seven__B640"
+    }
+  ],
+  "row": "RS[F_17^32,H,256]",
+  "separation_search": {
+    "best_agreement_vector": [
+      192,
+      192,
+      192,
+      192,
+      192,
+      192,
+      192
+    ],
+    "best_capacity_upper_bound": 374,
+    "best_exact_max_min": 192,
+    "best_failure_mode": "PIN_DOES_NOT_SPLIT",
+    "capacity_preserving_nondegenerate_vectors": 0,
+    "exact_vectors_constructed": 12,
+    "nondegenerate_vectors": 0,
+    "pin_sets_tested": 12
+  },
+  "source_commit": "8255f1c",
+  "subgroup_order": 512,
+  "track": "INTERLEAVED_LIST"
+}

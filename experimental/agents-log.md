@@ -30,6 +30,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-29 - M1 a327 residual-degeneracy separation
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_residual_degeneracy_separation.md`,
+  `experimental/scripts/scan_m1_a327_residual_degeneracy_separation.py`,
+  `experimental/scripts/verify_m1_a327_residual_degeneracy_separation.py`,
+  `experimental/scripts/audit_m1_a327_residual_degeneracy_separation.sage`,
+  `experimental/data/m1_a327_residual_degeneracy_separation.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A residual-degeneracy ledger and targeted split
+  audit for the high-capacity exact skeleton. In all three tested robust
+  systems, the exact high-capacity vector identifies witnesses
+  `[1,3,4,5,6,7]` and separates witness `2`; 12 quotient-aware split attempts
+  do not break this class while preserving capacity.
+- **How it is useful:** Converts the vague degeneracy failure into a precise
+  residual identification pattern: the obstacle is a six-witness collapse, not
+  arbitrary non-distinctness.
+- **What to do next:** Target the `[1,3,4,5,6,7]` class directly by modifying
+  the collision skeleton or target rows, rather than adding more off-skeleton
+  pins to the same exact solve.
+
 ### 2026-06-29 - M1 a327 dominant-collision-preserving separation
 
 - **Agent/model:** Codex.
