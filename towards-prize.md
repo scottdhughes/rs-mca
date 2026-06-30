@@ -1,2323 +1,732 @@
-# Towards the Full Proximity Prize
+# Towards the Proximity Prize: v9 Execution Plan
 
-**Purpose.** This document is a work plan for collaborators and agents working on the RS-MCA / slack-threshold program. It is written as an execution document, not as a polished paper. The goal is to move from the current finite obstruction frontier toward a full Proximity Prize solution.
+Status: working plan / source-of-truth roadmap
 
-**Core principle.** Smooth no-slack RCA/MCA is false. Do not try to resurrect it. Work with slack, track the agreement staircase, separate quotient-periodic floors from aperiodic mass, and aim to determine exact or near-exact thresholds.
+Date: 2026-06-30
 
----
+This document is the current execution plan for turning the RS-MCA repository
+into a serious Proximity Prize submission package.  It replaces the older
+strict264/frontier-search roadmap.  The center of gravity is now Paper D v9:
+the aperiodic Hankel chart atlas and the corresponding proof-packet schema.
 
-## 0. Required sources
+The goal is not to collect more impressive-looking lower bounds.  The goal is
+to determine thresholds.  For a row \(C\), that means proving adjacent
+safe/unsafe agreement levels for the exact MCA/list object used by the prize.
 
-Agents should read these before making claims or opening implementation work.
+## 1. The Prize-Shaped Object
 
-1. **Proximity Prize statement**
-   <https://proximityprize.org/>
-
-2. **Open Problems in List Decoding and Correlated Agreement**
-   Reconstructed local TeX: [`open-proximity.tex`](open-proximity.tex)
-   Local PDF mirror: [`open-proximity.pdf`](open-proximity.pdf)
-
-3. **RS-MCA frontier board**
-   <https://www.rsmca.xyz/>
-
-4. **Paper A: no-slack obstruction / smooth RCA disproof**
-   <https://github.com/przchojecki/rs-mca/raw/refs/heads/main/tex/RS_disproof_v3.tex>
-
-5. **Paper B: slack MCA program / quotient floors / corrected reserve**
-   <https://github.com/przchojecki/rs-mca/raw/refs/heads/main/tex/slackMCA_v4.tex>
-
-6. **Cycle120 ABF counterexample candidate note**
-   <https://github.com/przchojecki/rs-mca/raw/refs/heads/main/experimental/notes/m1/m1_cycle120_abf_counterexample_candidate.md>
-
-7. **strict264 audit**
-   <https://github.com/przchojecki/rs-mca/raw/refs/heads/main/experimental/notes/m1/m1_strict264_audit.md>
-
-8. **F1 syndrome-pencil normal form**
-   <https://github.com/przchojecki/rs-mca/raw/refs/heads/main/experimental/notes/f1/f1_syndrome_pencil_normal_form.md>
-
-9. **L2 codegree reduction theorem**
-   <https://github.com/przchojecki/rs-mca/raw/refs/heads/main/experimental/notes/l2/l2_codegree_reduction_theorem.md>
-
-10. **Current finite-row threshold note**
-   Local TeX: [`experimental/notes/thresholds/f17_32_finite_mca_threshold.tex`](experimental/notes/thresholds/f17_32_finite_mca_threshold.tex)
-   Local PDF: [`experimental/notes/thresholds/f17_32_finite_mca_threshold.pdf`](experimental/notes/thresholds/f17_32_finite_mca_threshold.pdf)
-
----
-
-## 1. Executive summary
-
-The current project is not yet a full Proximity Prize solution. It now has a clean solved finite-row threshold theorem for the main \(\mathbb F_{17^{32}}\), \(n=512,k=256\) row under the finite-slope support-wise MCA convention, plus a clear compiler theorem that explains which rows are solved by the high-agreement tangent regime.
-
-The Proximity Prize asks for the MCA threshold for Reed-Solomon codes over smooth domains at rates
-
+For
 \[
-\rho \in \{1/2,1/4,1/8,1/16\}
+        C=\operatorname{RS}[\mathbb F,D,k],
+        \qquad n=|D|,\qquad \rho=k/n,
+\]
+the Proximity Prize regime uses
+\[
+        \rho\in\{1/2,1/4,1/8,1/16\},
+        \qquad k\le 2^{40},
+        \qquad |\mathbb F|<2^{256},
+        \qquad \varepsilon^*=2^{-128}.
 \]
 
-against target error
-
+For support-wise MCA, write
 \[
-\varepsilon^* = 2^{-128}.
+        B_C(a)
+        =
+        \#\{\text{bad line parameters with agreement at least }a\},
+\]
+with the denominator \(q_{\rm line}\) explicitly stated.  Define
+\[
+        B_*(q_{\rm line})=\left\lfloor q_{\rm line}/2^{128}\right\rfloor .
 \]
 
-The prize-shaped object is not merely a lower bound. It is the threshold
-
+A row is threshold-pinned at adjacent agreement levels \(a_0,a_0+1\) if
 \[
-\delta_C^*
+        B_C(a_0)>B_*(q_{\rm line})
+        \quad\text{and}\quad
+        B_C(a_0+1)\le B_*(q_{\rm line}).
 \]
+Everything else is secondary.  A lower bound without the adjacent safe-side
+upper bound is useful evidence, but it is not a prize-shaped solution.
 
-or, equivalently, the integer agreement threshold where the bad-line/slack count drops below the \(2^{-128}\) budget.
-
-Current solved finite row:
-
-\[
-C = \mathrm{RS}[\mathbb F_{17^{32}}, H, 256],
-\qquad |H| = 512,
-\qquad \rho = 1/2.
-\]
-
-For this row,
-
-\[
-\left\lfloor 17^{32}/2^{128}\right\rfloor=6.
-\]
-
-The high-agreement tangent staircase proves the exact finite-slope support-wise MCA numerator
-
-\[
-B_C(a)=LD_{\mathrm{sw}}(C,a)=513-a
-\qquad (a\ge427).
-\]
-
-Therefore
-
-\[
-LD_{\mathrm{sw}}(C,506)=7,
-\qquad
-LD_{\mathrm{sw}}(C,507)=6.
-\]
-
-Since
-
-\[
-6\cdot2^{128}<17^{32}<7\cdot2^{128},
-\]
-
-the pure finite-slope MCA grid threshold is pinned exactly:
-
-```text
-safe:   integer radius r <= 5, agreement a >= 507
-unsafe: integer radius r >= 6, agreement a <= 506
-```
-
-With closed real Hamming balls, the safe interval is
-
-\[
-0\le\delta<6/512=3/256.
-\]
-
-Thus the supremal transition radius is \(3/256\), but the endpoint is unsafe. If a formulation asks for a maximum safe closed radius on the finite grid, the answer is \(5/512\).
-
-This supersedes the old "strict264 next" plan. The strict264 and strict352 packets remain useful mechanism records, but they are no longer the shortest path to pinning the \(\mathbb F_{17^{32}}\), \(512,256\) row.
-
-The full-prize path is:
-
-1. finish the definition audit against the official MCA sampler: finite/projective slopes, endpoint convention, denominator, and support-wise predicate;
-2. package the finite-row theorem as a clean threshold result, with scanner output attached;
-3. promote the row-independent high-agreement threshold compiler:
-   \[
-   B_Q=\lfloor Q/2^{128}\rfloor,\qquad r=n-a;
-   \]
-4. prove the compiler theorem cleanly: if \(B_Q\le\lfloor(n-k)/3\rfloor\), then the line/MCA grid threshold is exactly \(r=B_Q\);
-5. use the compiler to carve out the solved high-agreement region of the prize envelope;
-6. isolate the remaining hard work: lower-agreement quotient cores, aperiodic local limits, extension transfer, and interleaved-list constants.
-
----
-
-## 2. Glossary and notation
-
-Use the following notation consistently.
-
-### 2.1 Code parameters
-
-Let
-
-\[
-C = \mathrm{RS}[\mathbb F, H, k],
-\]
-
-where
-
-\[
-n = |H|,
-\qquad
-\rho = k/n.
-\]
-
-The agreement level is
-
-\[
-a.
-\]
-
-The slack is
-
-\[
-\sigma = a-k.
-\]
-
-The relative radius is
-
-\[
-\delta = 1-a/n = 1-\rho-\sigma/n.
-\]
-
-The redundancy is
-
-\[
-r = n-k.
-\]
-
-The support-complement size is
-
-\[
-j = n-a.
-\]
-
-Thus
-
-\[
-\sigma = a-k = r-j.
-\]
-
-### 2.2 Field ledgers
-
-Every note, script, and certificate must print all three field quantities:
-
-```text
-q_gen   = field generated by the domain or construction
-q_line  = field from which MCA line slopes/challenges are sampled
-q_chal  = field in the challenge/protocol interpretation, if different
-```
-
-Do not conflate these. Many false or overstated claims arise from silently replacing one by another.
-
-### 2.3 Bad-slope count
-
-Let
-
-\[
-B_C(a)
-=
-\#\{\text{bad MCA line slopes at agreement at least } a\}.
-\]
-
-Depending on the note, this may also be written as
-
-\[
-LD_{\mathrm{sw}}(C,a).
-\]
-
-The MCA error at radius \(\delta\) is, up to endpoint convention,
-
-\[
-\varepsilon_{\mathrm{mca}}(C,\delta)
-=
-\frac{B_C(\lceil (1-\delta)n\rceil)}{q_{\mathrm{line}}}.
-\]
-
-The Proximity Prize threshold is the largest radius \(\delta_C^*\) such that
-
-\[
-\varepsilon_{\mathrm{mca}}(C,\delta_C^*) \le 2^{-128}.
-\]
-
-Equivalently, determine the agreement staircase
-
-\[
-B_C(k),B_C(k+1),B_C(k+2),\ldots
-\]
-
-well enough to locate the first safe level.
-
-### 2.4 Endpoint convention
-
-Every result must say whether it uses:
+Endpoint conventions must be printed every time:
 
 ```text
 agreement at least a
-agreement greater than a
-distance at most delta n
-distance less than delta n
-closed radius
-strict radius
-supremum threshold
-maximum threshold
+closed integer radius r = n-a
+closed real radius via floor(delta n)
+finite affine slope denominator |F|
+projective slope denominator |P^1(F)| = |F|+1
+challenge/protocol denominator q_chal, if different
 ```
 
-Do not hide endpoint choices.
+## 2. Current State
 
----
+### 2.1 Settled
 
-## 3. Where we are
+The no-slack smooth-domain MCA/RCA optimism is dead.  Paper A gives explicit
+obstructions.  Positive statements must include reserve and explicit quotient
+floors.
 
-### 3.1 The no-slack direction is dead
+Paper D v9 is the current Paper D package.  It preserves the v8 universal cap,
+first-grid cap, quotient-support ledger, and quotient-image ledger, and adds
+the aperiodic Hankel chart atlas.
 
-Paper A establishes no-slack obstructions for smooth-domain Reed-Solomon MCA/RCA-type claims. The obstruction is quotient-locator mass: smooth domains with quotient structure produce many bad slopes at the no-slack boundary.
-
-The correct response is not to try to repair no-slack RCA/MCA. The correct response is to work with slack and to determine how much slack is needed after quotient-periodic floors are accounted for.
-
-Project rule:
+For the finite row
+\[
+        C=\operatorname{RS}[\mathbb F_{17^{32}},H,256],
+        \qquad |H|=512,
+\]
+the pure finite-slope support-wise MCA threshold is pinned in the
+high-agreement tangent range:
+\[
+        LD_{\rm sw}(C,506)=7,
+        \qquad
+        LD_{\rm sw}(C,507)=6,
+\]
+and
+\[
+        6\cdot2^{128}<17^{32}<7\cdot2^{128}.
+\]
+So the closed integer-grid transition is:
 
 ```text
-No collaborator should pursue smooth no-slack MCA/RCA as a positive theorem.
-All positive statements must include slack and explicit quotient floors.
-```
-
-### 3.2 The current finite frontier is a real lower bound
-
-Current row:
-
-\[
-C = \mathrm{RS}[\mathbb F_{17^{32}}, H, 256],
-\quad |H|=512,
-\quad \rho=1/2.
-\]
-
-Board value:
-
-\[
-N_{\mathrm{bad}} = 52{,}747{,}567{,}092.
-\]
-
-Denominator:
-
-\[
-q_{\mathrm{line}} = 17^{32}.
-\]
-
-This gives
-
-\[
-N_{\mathrm{bad}}/q_{\mathrm{line}} \approx 2^{-95.18}.
-\]
-
-The row is strong because it is more than 32 bits above the \(2^{-128}\) target. But it is not a full prize solution because it only proves unsafety at a radius. It does not prove the matching safe radius.
-
-### 3.3 What has and has not been solved
-
-The project has not yet determined the full Proximity Prize threshold for smooth-domain Reed-Solomon codes.
-
-What is settled:
-
-```text
-smooth no-slack MCA/RCA optimism is false;
-explicit smooth-domain obstruction floors exist;
-the current finite frontier gives real bad-side certificates;
-Paper D caps delta_C^*(2^-128) away from capacity across the challenge envelope.
-```
-
-What is not yet settled:
-
-```text
-the exact delta_C^*(2^-128) for every smooth-domain RS[F,L,k];
-the matching safe-side upper bounds below the obstruction radius;
-the full agreement staircase B_C(a) for the main finite rows;
-the aperiodic local-limit theorem after quotient-periodic floors are removed.
-```
-
-In the language of the ePrint challenge, current results mostly prove statements of the form
-
-\[
-\delta_C^*(2^{-128}) \le \Delta_{\mathrm{cap}}
-\]
-
-or produce explicit radii where
-
-\[
-\varepsilon_{\mathrm{mca}}(C,\delta)>2^{-128}.
-\]
-
-That is necessary but not sufficient for resolving the challenge. To resolve it for a code \(C\), one must specify a candidate threshold \(\delta_C^*\) and prove both sides of the staircase:
-
-1. for every \(\delta>\delta_C^*\), the MCA error is larger than \(2^{-128}\);
-2. for every \(\delta<\delta_C^*\), or for the corresponding next safer agreement level after endpoint conventions are fixed, the MCA error is at most \(2^{-128}\).
-
-Equivalently, in integer agreement language, one must locate the first agreement level \(a\) at which
-
-\[
-LD_{\mathrm{sw}}(C,a) \le \lfloor q_{\mathrm{line}}2^{-128}\rfloor
-\]
-
-and prove the adjacent lower level is still unsafe.
-
-### 3.4 Position relative to Proximity Prize Table 1
-
-The Proximity Prize survey table in `open-proximity.tex` separates four benchmark regimes for
-
-\[
-C=\mathrm{RS}[F,L,k],\qquad n=|L|.
-\]
-
-| Table 1 regime | Benchmark behavior | What it means for this project |
-| --- | --- | --- |
-| \(\delta=0\) | \(\varepsilon_{\mathrm{mca}}(C,\delta)=2/|F|\) | Baseline only. |
-| \(\delta<\delta_{\min}(C)/2\) | \(\varepsilon_{\mathrm{mca}}(C,\delta)\le O(n)/|F|\) | Unique-decoding regime; not where the frontier row lives. |
-| \(\delta=J(\delta_{\min}(C))-\eta\) | \(\varepsilon_{\mathrm{mca}}(C,\delta)\le n\cdot \mathrm{poly}(1/\eta)/|F|\) | Johnson-radius upper-bound regime; useful as the known safe side, but not the current obstruction frontier. |
-| \(\delta\approx\delta_{\min}(C)-1/\Omega(\log n)\) | \(\varepsilon_{\mathrm{mca}}(C,\delta)\ge n^{\Omega(1)}/|F|\) for large enough \(F\) | Capacity-edge lower-bound regime; this is the row our current bad-slope certificates are trying to sharpen. |
-
-So the answer to "are we doing case 3?" is no. Case 3 is the positive Johnson-radius result. The current RS-MCA frontier is a case-4 / capacity-edge lower-bound program.
-
-For the active row
-
-\[
-n=512,\quad k=256,\quad \rho=1/2,
-\]
-
-the exact relative minimum distance is
-
-\[
-\delta_{\min}(C)=\frac{n-k+1}{n}=\frac{257}{512},
-\]
-
-and the Johnson radius is
-
-\[
-J(\delta_{\min}(C))
-=1-\sqrt{1-\delta_{\min}(C)}
-=1-\sqrt{255/512}
-\approx 0.2943.
-\]
-
-The old lower-agreement frontier records certificates near
-
-\[
-\delta=249/512\approx 0.4863,
-\]
-
-and the former strict264 target used
-
-\[
-\delta=31/64=248/512\approx 0.4844.
-\]
-
-Both are far beyond the Johnson radius and very close to capacity. They are therefore useful negative-side mechanism records in the hard band between Johnson and capacity. For the finite \(\mathbb F_{17^{32}}\) row, however, the exact high-agreement tangent theorem now gives a complete threshold much closer to zero radius:
-
-\[
-\delta_{\rm grid}^{\rm safe}=5/512,
-\qquad
-\delta_{\rm grid}^{\rm first\ unsafe}=6/512.
-\]
-
-What remains missing for the full prize is not this finite-row threshold, but the lower-agreement local-limit theory needed near capacity for large prize-envelope rows.
-
-The same source also makes line-decoding relevant: Theorem 4.21 says \((\delta,a,n+1)\) line-decodability implies \(\varepsilon_{\mathrm{mca}}(C,\delta)\le a/|F|\). Our M2 bridge and F1 normal form should be read as attempts to put the support-wise MCA staircase into that line-decoding language without losing the exact finite denominator.
-
-### 3.5 How to approach the full threshold
-
-The route to an actual \(\delta_C^*\) theorem has two tracks.
-
-**Finite-row track.** The main board row
-
-\[
-C=\mathrm{RS}[\mathbb F_{17^{32}},H,256],
-\quad n=512,
-\quad \rho=1/2.
-\]
-
-is now pinned in the high-agreement regime. The numerical cutoff is
-
-\[
-\lfloor 17^{32}/2^{128}\rfloor = 6.
-\]
-
-The tangent staircase gives
-
-\[
-LD_{\mathrm{sw}}(C,a)=513-a
-\qquad(a\ge427),
-\]
-
-so
-
-\[
-LD_{\mathrm{sw}}(C,506)=7,
-\qquad
-LD_{\mathrm{sw}}(C,507)=6.
-\]
-
-This turns the row into an exact finite threshold computation under the finite-slope support-wise MCA convention. The immediate finite-row work is now packaging and audit, not strict264 search.
-
-Concrete attacks:
-
-- audit the finite-slope support-wise MCA definition against the official prize definition and paper definitions;
-- state the theorem as a threshold theorem with exact closed endpoint language;
-- attach scanner output for the pure MCA profile, not only the line-plus-list protocol profile;
-- record the projective-slope variant separately, with denominator \(|F|+1\);
-- keep strict264/strict352 as mechanism and lower-agreement stress tests, not as the active threshold target for this row.
-
-**General smooth-domain track.** The next theorem is the row-independent high-agreement compiler. Let
-
-\[
-B_Q=\lfloor Q/2^{128}\rfloor,
-\qquad
-r=n-a.
-\]
-
-If
-
-\[
-B_Q\le \left\lfloor\frac{n-k}{3}\right\rfloor,
-\]
-
-then the high-agreement tangent theorem pins the single line/MCA/CA grid threshold exactly:
-
-\[
-r\le B_Q-1 \quad\text{is safe},\qquad r=B_Q\quad\text{is unsafe}.
-\]
-
-This gives a clean solved region of the prize envelope. Outside that region, prove the floor-corrected local-limit theorem. The target theorem should not say "smooth RS is safe up to capacity." It should say that above a stated reserve
-
-\[
-\eta = 1-\rho-\delta
-\]
-
-the bad-slope count is bounded by tangent, quotient-profile, and aperiodic terms divided by \(q_{\mathrm{line}}\). The quotient term must remain explicit.
-
-Concrete attacks:
-
-- prove generated-field locator local limits after quotient cores are budgeted;
-- prove residue-line packing bounds in the F1 Hankel-pencil normal form;
-- show interleaved-list codegree reductions do not lose the exponent needed for protocol fields;
-- prove extension-line transfer theorems or exhibit extension-only counterexamples;
-- convert the resulting bounds into explicit agreement thresholds for all prize rates and all admissible \(k\le2^{40}\), \(|F|<2^{256}\).
-
-The end product should be a theorem or certificate generator that takes
-
-```text
-F, L, k, q_gen, q_line, q_chal
-```
-
-and outputs either a proved threshold interval for \(\delta_C^*(2^{-128})\) or a declared obstruction/counterexample floor.
-
-### 3.6 strict264 is now a mechanism record
-
-At \(a=264\),
-
-\[
-\sigma = a-k = 8.
-\]
-
-The target is
-
-\[
-LD_{\mathrm{sw}}(C,264)\ge 7.
-\]
-
-Since
-
-\[
-17^{32}/2^{128} \approx 6.9587,
-\]
-
-the inequality
-
-\[
-7/17^{32} > 2^{-128}
-\]
-
-holds.
-
-The strict264 audit verifies much of the algebraic bridge:
-
-- bridge arithmetic;
-- slack-8 two-ended setup;
-- common parity-check identity;
-- triangular recovery;
-- noncontainment rank checks;
-- end-to-end support-wise line-decoding transfer.
-
-The remaining open piece is the exact survivor count. That is still useful as a lower-agreement mechanism test and as input for the harder local-limit program. It is no longer the first clean finite prize push, because the high-agreement tangent theorem already pins the current row's finite-slope MCA threshold at \(a=506/507\).
-
-### 3.7 The main theoretical gap is the aperiodic local limit
-
-Paper B isolates the correct positive-theorem shape:
-
-\[
-\varepsilon_{\mathrm{mca}}(C_n,1-\rho-\eta_n)
-\le
-\frac{
-n^{1+o(1)}
-+
-2^{(\beta(\rho)/H(\rho))\mathcal Q_{H_n}(\eta_n)(1+o(1))}
-}{q_n}.
-\]
-
-The terms are:
-
-```text
-tangent floor
-quotient-periodic floor
-aperiodic residue-line mass
-```
-
-The quotient floor is real and must remain on the right-hand side. The missing hard theorem is a finite-field local-limit bound for arbitrary-word list decoding and all-line MCA after quotient cores have been removed.
-
-### 3.8 The F1 normal form is the main algebraic tool
-
-The F1 note turns all-line support-wise MCA into a Hankel-pencil incidence problem.
-
-For a support complement \(T\) of size \(j\), let
-
-\[
-L_T(X)=\prod_{x\in T}(X-x)
-\]
-
-be its locator, with coefficient vector \(\ell_T\). A slope \(z\) is bad only if
-
-\[
-H_{t,j}(u+zv)\ell_T=0,
-\qquad
-t = r-j = \sigma.
-\]
-
-This gives an exact finite object for upper bounds. For agreement \(265\) in the main row:
-
-\[
-a=265,\quad j=247,\quad t=\sigma=9.
-\]
-
-Thus the finite upper-bound problem is:
-
-\[
-\#\left\{
-z\in\mathbb F_{17^{32}}:
-\exists\text{ split squarefree locator }\ell_T
-\text{ of degree }247
-\text{ with }
-H_{9,247}(u+zv)\ell_T=0
-\right\}
-\le 6,
-\]
-
-with noncontainment enforced.
-
----
-
-## 4. The win condition
-
-### 4.1 Full-prize-shaped theorem
-
-For each challenge row \(C\), determine
-
-\[
-\delta_C^*
-\]
-
-or the equivalent agreement threshold
-
-\[
-a_C^*.
-\]
-
-A full result should produce both:
-
-1. a lower-bound floor showing unsafety below or at one agreement level;
-2. an upper-bound theorem showing safety above the next agreement level.
-
-A typical threshold statement should look like:
-
-\[
-B_C(a_0) > 2^{-128}q_{\mathrm{line}},
-\]
-
-but
-
-\[
-B_C(a_0+1) \le 2^{-128}q_{\mathrm{line}}.
-\]
-
-Then
-
-\[
-\delta_C^*
-\]
-
-is determined by the agreement/radius conversion and the endpoint convention.
-
-### 4.2 Finite-row threshold target
-
-For the current row:
-
-\[
-C = \mathrm{RS}[\mathbb F_{17^{32}},H,256],
-\quad n=512.
-\]
-
-The desired finite theorem is:
-
-\[
-LD_{\mathrm{sw}}(C,a)=513-a
-\qquad(a\ge427),
-\]
-
-with the target comparison
-
-\[
-LD_{\mathrm{sw}}(C,506)=7>17^{32}/2^{128},
-\qquad
-LD_{\mathrm{sw}}(C,507)=6\le17^{32}/2^{128}.
-\]
-
-This is not by itself the entire Proximity Prize, but it is the right local shape: it pins an agreement staircase, not merely a lower bound. The exact endpoint statement is:
-
-```text
-closed grid: largest safe integer radius is 5/512
-closed grid: first unsafe integer radius is 6/512
-real closed balls: safe interval is [0,6/512)
+safe:        radius <= 5, agreement >= 507
+first unsafe radius: 6, agreement 506
+real closed safe interval: [0, 6/512)
 supremum: 6/512 = 3/256, not attained
 ```
 
-### 4.3 Asymptotic/full theorem target
+This is a good partial result.  It is not the full prize.
 
-For families
+### 2.2 Not Settled
 
+The full prize still needs safe-side upper bounds in the lower-agreement,
+near-capacity region where tangent exactness is not enough and quotient floors
+are large.
+
+The central unresolved object is:
 \[
-C_n = \mathrm{RS}[\mathbb F_{q_n},H_n,k_n],
-\qquad |H_n|=n,
-\qquad k_n=\rho n+O(1),
+        B_C(a)
+        \le
+        B_{\rm tan}(a)
+        +
+        B_{\rm quot}(a)
+        +
+        B_{\rm ap}(a)
+        +
+        B_{\rm ext}(a),
 \]
+with each term explicitly defined, deduplicated, and divided by the correct
+field denominator.
 
-with
+The new v9 atlas is designed to attack \(B_{\rm ap}(a)\), the aperiodic
+Hankel/residue-line term after tangent and quotient branches have been removed.
 
-\[
-\rho \in \{1/2,1/4,1/8,1/16\},
-\]
+## 3. Strategic Decision
 
-prove an explicit floor-corrected MCA theorem.
+The best path now is:
 
-Desired form:
+1. keep the finite \(F_{17^{32}}\) threshold as the clean partial-submission
+   result;
+2. stop treating strict264/strict352 as the main frontier;
+3. use strict264/strict352 only as mechanism tests and quotient-floor examples;
+4. make Hankel proof packets the standard format for every new safe-side claim;
+5. prove or refute the aperiodic local limit through the v9 chart atlas.
 
-\[
-\varepsilon_{\mathrm{mca}}(C_n,1-\rho-\eta_n)
-\le
-\frac{
-A_\rho(n,\sigma_n)
-+
-Q_\rho(H_n,\sigma_n)
-}{q_n},
-\]
-
-where:
-
-- \(A_\rho\) is the tangent/aperiodic term, ideally \(n^{1+o(1)}\) or an explicit \(n^B\);
-- \(Q_\rho\) is the quotient-profile floor;
-- \(\sigma_n = \eta_n n\);
-- the constants are explicit enough to compare against \(2^{-128}\).
-
-Then solve:
-
-\[
-A_\rho(n,\sigma)+Q_\rho(H,\sigma)
-\le
-2^{-128}q
-\]
-
-for \(\sigma\), and convert to
-
-\[
-\delta = 1-\rho-\sigma/n.
-\]
-
----
-
-## 5. Project lanes
-
-Run the project in five coordinated lanes.
+In practice, every useful PR should now answer one of these questions:
 
 ```text
-Lane A: finite certificate lane
-Lane B: finite threshold lane
-Lane C: general MCA theorem lane
-Lane D: list/interleaving lane
-Lane E: extension-field and sampler lane
+Does it produce a v9 Hankel proof packet?
+Does it reduce a residual v9 chart to quotient/tangent/extension structure?
+Does it prove a reusable theorem needed by such packets?
+Does it audit the exact prize object, denominator, or endpoint convention?
 ```
 
-A sixth support lane should handle formalization and peer-review packaging.
+If the answer is no, it is probably not on the shortest path.
 
-```text
-Lane V: verification, formalization, and review lane
-```
+## 4. The v9 Hankel Proof Packet
 
-Each lane has concrete tasks and exit criteria below.
-
----
-
-# Lane A: finite certificate lane
-
-## A.0 Objective
-
-Make the historical \(52.7\)B row, strict264 packet, and strict352 packet independently replayable as lower-agreement mechanism records. The current finite-row threshold itself is handled by the high-agreement tangent theorem and belongs to Lane B / Lane V packaging.
-
-This lane is about trust. Its output should be:
-
-```text
-small certificate files
-independent verifiers
-exact field/domain ledgers
-deduped bad-slope lists or compressed proof of slope count
-noncontainment certificates
-radius/agreement/endpoint checks
-```
-
-## A.1 Freeze the finite row
-
-For
-
+Paper D v9 gives the contributor-facing atlas.  For a row and exact agreement
 \[
-C=\mathrm{RS}[\mathbb F_{17^{32}},H,256],
-\qquad |H|=512,
+        A,\qquad j=n-A,\qquad t=A-k,
+\]
+a proof packet must do the following.
+
+### 4.1 Remove Paid Ledgers
+
+Before calling anything aperiodic, remove the branches already paid by:
+
+```text
+tangent/common-code-line ledger
+quotient-support ledger
+quotient-image ledger
+known subfield/confinement ledger
+known projective or curve endpoint ledger
+```
+
+These removals must be referenced in the JSON packet.  The schema field is
+`removed_ledgers`.
+
+### 4.2 Regular Overdetermined Bucket
+
+If
+\[
+        t\ge j+1
+        \quad\Longleftrightarrow\quad
+        2A\ge n+k+1,
+\]
+form
+\[
+        M_A(Z)=H_{t,j}(u)+Z H_{t,j}(v).
 \]
 
-freeze:
+A nonzero \((j+1)\times(j+1)\) minor
+\[
+        \Delta_A(Z)
+\]
+is a root-containment certificate:
+\[
+        \text{bad finite slopes at exact agreement }A
+        \subseteq
+        \{\Delta_A=0\},
+\]
+so the contribution is at most
+\[
+        \deg \Delta_A \le j+1=n-A+1.
+\]
+
+This is the first thing to try.  It is cheap and should become scripted.
+
+### 4.3 Affine Pivot Charts
+
+If the regular bucket is singular or too weak, build locator charts \(X\) and
+split by finite affine pivots
+\[
+        B_h(\ell)\ne0.
+\]
+
+On such a chart the slope is
+\[
+        Z=-A_h(\ell)/B_h(\ell),
+\]
+and the chart ideal is generated by the collinearity equations
+\[
+        A_mB_h-A_hB_m=0
+\]
+plus the graph equation
+\[
+        ZB_h+A_h=0,
+\]
+saturated by the chart denominator \(\Delta_X B_h\).
+
+A nonzero eliminant
+\[
+        Q_{X,h}(Z)
+        \in
+        \widehat J^{\rm aff}_{X,h}\cap F[Z]
+\]
+bounds the chart contribution by \(\deg Q_{X,h}\).
+
+### 4.4 Projective Infinity
+
+For projective slopes \([Z_0:Z_1]\), the finite patch is the affine atlas.
+The extra point is
+\[
+        [0:1],
+\]
+controlled by the chart
+\[
+        B=0,\qquad A\ne0.
+\]
+
+Each projective packet must certify the infinity chart as empty or nonempty.
+If nonempty, it contributes at most one projective parameter.
+
+### 4.5 Curve Pivots
+
+For a finite-parameter degree-\(d\) power curve
+\[
+        W_\Gamma=f_0+\Gamma f_1+\cdots+\Gamma^d f_d,
+\]
+split by coefficient pivots
+\[
+        (V_i)_h\ne0.
+\]
+
+A nonzero eliminant
+\[
+        Q_{X,i,h}(\Gamma)
+\]
+in the saturated curve incidence ideal bounds the bad curve parameters in that
+chart by \(\deg Q_{X,i,h}\).
+
+### 4.6 Allowed End States
+
+Every exact-agreement bucket and every chart must end as exactly one of:
 
 ```text
-field polynomial for F_17^32
-basis convention
-domain generator
-domain ordering
-hash of H
-k=256
-n=512
-rho=1/2
-line field
-challenge denominator q_line
-received words f1, f2 or their reproducible construction
-support convention
+eliminant
+empty
+dimension_degree
+residual_obstruction
+```
+
+Residual obstructions must be labelled as:
+
+```text
+quotient
+tangent
+extension
+candidate_new_obstruction
+unknown
+```
+
+Do not hide a singular bucket under "aperiodic evidence."  If the chart is not
+closed, name the obstruction.
+
+### 4.7 Machine Format
+
+Use:
+
+```text
+scripts/aperiodic_eliminant_schema.json
+```
+
+Required packet fields:
+
+```text
+schema_version = "aperiodic-hankel-eliminant-v1"
+row: n, k, field, domain_hash
+agreement_threshold
+sampler
+removed_ledgers
+exact_agreements
+regular_minor records
+chart records
+pivot records
+root_union_table_ref
+declared_aperiodic_numerator
+```
+
+The schema is not a proof by itself.  It is the index of the proof packet.  The
+packet must also include equation files, eliminant files, root tables, and
+verification transcripts.
+
+## 5. Immediate Milestones
+
+These are ordered.  Do not jump to later milestones before the earlier ones
+exist in a reviewable form.
+
+### M0. Definition Freeze
+
+Produce a short definition note that fixes the exact object for the prize-facing
+MCA row:
+
+```text
+support-wise MCA predicate
+same-support noncontainment
+finite affine slope sampler versus projective sampler
 endpoint convention
+q_gen, q_line, q_chal
+closed-grid versus supremum threshold
 ```
 
-Every certificate must be reproducible from these data.
-
-### Acceptance checklist
-
-A frozen row is accepted only if an independent checker can print:
+Exit criterion:
 
 ```text
-n = 512
-k = 256
-rho = 1/2
-field = F_17^32
-q_line = 2367911594760467245844106297320951247361
-2^128 = 340282366920938463463374607431768211456
-floor(q_line / 2^128) = 6
-7 * 2^128 > q_line
+one file under experimental/notes/audits/
+one table saying which repo theorem uses which convention
+no "officially solved" language
 ```
 
-## A.2 Certificate schema
+### M1. v9 Schema Verifier
 
-For each bad slope \(\gamma\), or for each compressed orbit class, the certificate should contain:
+Write a checker for `scripts/aperiodic_eliminant_schema.json`.
+
+It should verify:
 
 ```text
-gamma
-agreement a
-slack sigma = a-k
-support S_gamma or complement J_gamma
-locator L_J(X)
-explaining polynomial P_gamma(X), or enough data to recover it
-rank / syndrome proof that explanation exists
-noncontainment proof
-deduplication key
-endpoint convention
+JSON schema validity
+j = n-A
+t = A-k
+removed ledgers are referenced
+residual labels are present when required
+degree/root counts are arithmetically consistent
+declared numerator matches the root-union table
 ```
 
-Mathematically, the verifier should check:
+This checker does not need to verify Groebner/ideal membership at first.  It
+should make bad packets impossible to pass off as complete.
 
+Exit criterion:
+
+```text
+scripts/check_aperiodic_eliminant_packet.py
+one passing toy packet
+one intentionally failing packet
+documented expected output
+```
+
+### M2. Smoke-Test v9 on a Settled Row
+
+Create a proof packet for the already-settled high-agreement row
 \[
-\deg P_\gamma < k,
+        C=\operatorname{RS}[\mathbb F_{17^{32}},H,256],
+        \qquad A=506,507.
 \]
 
+This is not mathematically new.  It tests the packet format on a row whose
+answer is known:
+
+```text
+A=506: numerator 7, unsafe
+A=507: numerator 6, safe
+```
+
+Exit criterion:
+
+```text
+experimental/data/certificates/hankel-smoke-f17-506-507/
+JSON packet conforming to v1 schema
+root/numerator table
+auditor note explaining why this is a format test, not a new theorem
+```
+
+### M3. Regular Non-Tangent Window
+
+For the \(F_{17^{32}}\), \(n=512,k=256\) row, the regular overdetermined minor
+condition starts at
 \[
-(f_1+\gamma f_2)|_{S_\gamma} = P_\gamma|_{S_\gamma},
+        A\ge385,
+\]
+while the tangent exact theorem starts at
+\[
+        A\ge427.
 \]
 
+The window
 \[
-|S_\gamma|\ge a,
+        385\le A\le426
 \]
+is the first useful v9 stress test: regular Hankel minors may give upper bounds
+where tangent exactness does not.
 
+Exit criterion:
+
+```text
+for each A in a selected subrange:
+  nonzero minor or singular declaration
+  degree bound
+  root-count table
+  comparison against tangent/quotient ledgers
+```
+
+If the minors vanish or give weak bounds, that is useful.  It identifies the
+first real singular bucket.
+
+### M4. Quotient and Tangent Subtraction
+
+Integrate the v9 packets with the existing quotient-image and tangent ledgers.
+For each exact agreement \(A\), output:
+
+```text
+B_tan(A)
+B_quot_support(A)
+B_quot_image(A)
+B_ap_regular(A)
+B_ap_pivot(A)
+B_ext(A)
+deduped total upper bound
+known lower bound
+gap to B_*(q_line)
+```
+
+Exit criterion:
+
+```text
+one table for the F_17^32 row
+one table for a Prime192 scanner row
+no double-counting between removed ledgers and aperiodic roots
+```
+
+### M5. Singular Bucket Program
+
+For every singular bucket produced by M3/M4, build pivot charts.
+
+Attack order:
+
+1. affine pivots \(B_h\ne0\);
+2. projective infinity \(B=0,A\ne0\);
+3. curve coefficient pivots \((V_i)_h\ne0\);
+4. dimension-degree fallback only as a diagnostic;
+5. residual classification.
+
+Exit criterion:
+
+```text
+each singular chart is eliminant / empty / dimension_degree / residual_obstruction
+every residual has label quotient/tangent/extension/candidate_new_obstruction/unknown
+candidate_new_obstruction has a minimal reproducible example
+```
+
+### M6. M1 Theorem Candidate
+
+Once enough rows/charts are understood, state the theorem we actually want:
+
+\[
+        B_{\rm ap}(a)\le n^B
+\]
+after quotient, tangent, and extension-confined branches are removed.
+
+There are two acceptable forms:
+
+```text
+finite-row theorem:
+  proves a specific row's threshold
+
+uniform theorem:
+  proves an explicit n^B bound for all rows satisfying printed hypotheses
+```
+
+The finite-row theorem is enough for a partial result.  The uniform theorem is
+the route to the full prize.
+
+## 6. Parallel Mathematical Lanes
+
+The v9 Hankel lane is central, but it cannot finish the whole prize alone.
+These lanes feed into or consume the Hankel packets.
+
+### L1. Generated-Field Locator Local Limit
+
+Needed for list decoding and for converting arbitrary received-word locator
+fibers into usable ledgers.
+
+Target:
+\[
+        \#\{\text{aperiodic locator fibers}\}\le n^B
+\]
+above the corrected reserve, with quotient-periodic fibers explicitly budgeted.
+
+First deliverables:
+
+```text
+monomial-prefix proof packets
+quotient-removed toy enumerations
+arbitrary-word Hankel/catalecticant reductions
+bad-prime or finite-collision classification
+```
+
+Do not use \(q_{\rm line}\) to pay a \(q_{\rm gen}\) entropy bill.
+
+### M1. Aperiodic Residue-Line Packing
+
+This is the main MCA theorem lane.  It should now be written in v9 language:
+
+```text
+tangent and quotient branches removed
+regular minors tested
+affine/projective/curve pivot charts built
+singular residual buckets classified
+deduped root count compared to B_*(q_line)
+```
+
+The first useful theorem is not "MCA is small."  It is:
+
+```text
+Every non-small v9 residual bucket is quotient, tangent, extension-confined,
+or a named new obstruction.
+```
+
+### F1. Extension-Line Lift or Counterexample
+
+Needed because extension-valued lines may not be explained by base-field
+witnesses.
+
+Target:
+
+```text
+Either prove base/generated-field MCA bounds lift to F-valued lines,
+or produce a genuinely F-valued obstruction with its own ledger.
+```
+
+Every F1 result must say:
+
+```text
+B, F
+q_gen, q_line, q_chal
+whether the line is B-valued, F-valued, or subfield-confined
+whether the bad slopes live in a proper subfield
+```
+
+### L2. Interleaved-List Constants
+
+Needed for the list side of the prize and for protocol ledgers.
+
+Use the codegree reduction, but do not oversell it.  It reduces interleaved
+lists to base-list fibers at agreements \(a\) and \(2a-k\); it does not prove
+the base L1 input.
+
+Target:
+
+```text
+base aperiodic list bound at a
+higher-agreement decay at 2a-k
+quotient tails kept explicit
+interleaved numerator divided by the correct challenge field
+```
+
+### M2. Line-Decoding Formulation
+
+Needed to state the corrected MCA theorem in the language many protocols use.
+
+Target:
+
+```text
+exact equivalence or one-way implication between support-wise MCA bad slopes
+and line-decoding ambiguity, with agreement/radius endpoints explicit
+```
+
+M2 should consume the M1/Hankel packets and output line-decoding threshold
+statements without changing denominators.
+
+### X1. List-CA-MCA Bridges
+
+Needed only when a proof crosses objects.  Every bridge must state the loss:
+
+```text
+radius loss
+field-size loss
+square-root or no-square-root loss
+support-wise versus ordinary support convention
+finite/projective/curve sampler
+```
+
+No bridge may be used silently.
+
+## 7. Full-Prize Assembly Theorem
+
+The final theorem should not be vague.  It should have this form.
+
+Input:
+
+```text
+field tower B <= F
+smooth domain D
+n, k, rho
+q_gen, q_line, q_chal
+sampler type
+target epsilon = 2^-128
+quotient profile
+certificate packets for relevant exact agreements
+```
+
+Output:
+
+```text
+safe agreement a_safe
+unsafe agreement a_unsafe = a_safe - 1
+delta convention
+B_tan, B_quot, B_ap, B_ext, B_list ledgers
+proof status for each ledger
+final comparison against B_*(q_line) or protocol denominator
+```
+
+The final comparison should look like:
+
+\[
+        B_{\rm total}(a_{\rm safe})
+        \le
+        \left\lfloor q_{\rm line}/2^{128}\right\rfloor
+\]
 and
-
 \[
-(f_1,f_2)
-\text{ are not simultaneously explained by codewords on }S_\gamma.
+        B_{\rm lower}(a_{\rm unsafe})
+        >
+        \left\lfloor q_{\rm line}/2^{128}\right\rfloor.
 \]
 
-The noncontainment condition is essential. A bad line slope without support-wise noncontainment is not an MCA obstruction.
+For protocol/list statements replace \(q_{\rm line}\) by the exact denominator
+used by that statement and print the replacement.
 
-## A.3 Independent verifiers
+## 8. What To Work On Next
 
-Build two independent verifiers.
+The next useful PRs, in order:
 
-### Verifier 1: high-level algebra verifier
+1. **Schema checker.**
+   Validate v9 proof packets before any new math is claimed.
 
-Suggested stack:
+2. **Hankel smoke packet for \(F_{17^{32}}\), \(A=506,507\).**
+   Exercise the format on a settled row.
 
-```text
-Sage
-Magma
-PARI/GP
-```
+3. **Regular-minor extractor.**
+   Given row data and exact agreement \(A\), compute candidate nonzero minors
+   and root-count bounds.
 
-Checks:
+4. **Regular-window audit \(385\le A\le426\).**
+   Determine where the regular bucket succeeds and where singular buckets begin.
 
-```text
-field construction
-domain construction
-locator splitting
-interpolation
-degree bound
-agreement count
-slope distinctness
-noncontainment rank
-```
+5. **Quotient/tangent subtraction table.**
+   Produce one deduped table combining existing ledgers with v9 root counts.
 
-### Verifier 2: low-level arithmetic verifier
+6. **First singular pivot packet.**
+   Pick one singular bucket and close it by affine pivots or certify the
+   residual obstruction.
 
-Suggested stack:
+7. **F1 denominator audit for any extension-valued packet.**
+   Prevent base-field witnesses from being overcounted under extension sampling.
 
-```text
-Rust
-C++
-minimal Python
-```
+8. **L1 base-list proof packet.**
+   Prove a locator local-limit statement that the interleaved/list side can
+   reuse.
 
-Do not reuse Sage's finite-field implementation.
+9. **M2 line-decoding statement.**
+   Convert the support-wise MCA theorem into line-decoding language without
+   changing the object.
 
-Checks:
+10. **Submission note.**
+    Package the finite-row \(506/507\) threshold as a partial, human-reviewed
+    result, with clear non-claims.
 
-```text
-polynomial-basis multiplication mod m(alpha)
-addition/subtraction
-inversion if needed
-evaluation on H
-Vandermonde/rank check
-hash of certificate
-```
+## 9. Non-Claims
 
-### Acceptance checklist
-
-A slope certificate is accepted only if both verifiers agree on:
+Do not claim any of the following until the corresponding proof packet exists:
 
 ```text
-gamma hash
-support hash
-agreement a
-deg P < k
-noncontainment = true
+full Proximity Prize solved
+all smooth RS rows safe or unsafe at a stated radius
+ordinary list decoding failure from an MCA row
+protocol soundness break
+extension-field lift without F1 proof
+interleaved-list theorem from base-list theorem without L2 constants
+aperiodic local limit from quotient/tangent examples
+official acceptance by prize judges
 ```
 
-## A.4 Replay the 52.7B row
+## 10. Success Criteria
 
-The current row
-
-\[
-N_{\mathrm{bad}}=52{,}747{,}567{,}092
-\]
-
-must be converted into one of the following accepted formats:
-
-1. full slope list;
-2. compressed orbit list with exact orbit-size proof;
-3. slot-model count with proof of injection into distinct slopes;
-4. deterministic generator with transcript hash;
-5. algebraic family with proof of deduplicated slope count.
-
-Unacceptable formats:
+The project is moving toward the prize if it produces:
 
 ```text
-raw support count
-pre-deduplication count
-count over wrong field
-count without endpoint convention
-count without noncontainment
-count imported from an external cycle without in-repo reproduction
+v9 Hankel proof packets with checked eliminants
+named and minimized singular residual buckets
+explicit quotient/tangent/aperiodic/extension ledger tables
+threshold-pinned rows, not just lower bounds
+definition-audited sampler and endpoint statements
+human-reviewable finite proof notes
+formalized or independently replayed arithmetic gates
 ```
 
-### Acceptance criterion
-
-The row is replayed when an independent machine can verify:
-
-\[
-LD_{\mathrm{sw}}(C,263)
-\ge
-52{,}747{,}567{,}092
-\]
-
-or a corrected number with a clear explanation of the correction.
-
-## A.5 strict264 task
-
-Parameters:
-
-\[
-n=512,
-\qquad k=256,
-\qquad a=264,
-\qquad \sigma=8,
-\qquad j=248,
-\qquad r=256.
-\]
-
-Target:
-
-\[
-LD_{\mathrm{sw}}(C,264)\ge 7.
-\]
-
-Because
-
-\[
-7/17^{32} > 2^{-128},
-\]
-
-this proves failure at radius
-
-\[
-\delta = 1-264/512 = 31/64.
-\]
-
-### Corrected two-ended fixed-jet condition
-
-The strict264 audit caught an off-by-one. The valid setup fixes:
+The shortest current path is:
 
 ```text
-e_1, e_2, ..., e_7
-plus the endpoint condition
+finite threshold package for F_17^32
+  +
+v9 Hankel proof-packet pipeline
+  +
+M1 aperiodic residual classification
+  +
+L1/F1/L2/M2 assembly
 ```
 
-Do not use a version that frees the last top coefficient.
-
-### Work plan
-
-1. Recover or reconstruct the seven-slot co-support model.
-2. Implement the corrected fixed-jet filter.
-3. For each candidate co-support \(J\):
-   - compute locator \(P_J(X)\);
-   - check the fixed \(e_1,\ldots,e_7\) conditions;
-   - check the endpoint condition;
-   - compute \(P_J(\beta)\);
-   - compute slope \(z_J=-1/P_J(\beta)\);
-   - deduplicate slopes.
-4. Verify support-wise noncontainment.
-5. Output at least seven distinct slopes with certificates.
-
-### Minimal output
-
-Do not wait for a massive count. The minimal accepted result is:
-
-```text
-strict264-seven.jsonl
-strict264-row.md
-verifier-1 transcript
-verifier-2 transcript
-```
-
-containing exactly seven verified slopes.
-
-## A.6 If strict264 fails
-
-A failed strict264 attempt is still useful if it is exact.
-
-If the seven-slot model yields fewer than seven slopes, output:
-
-```text
-model definition
-candidate count
-post-filter count
-post-dedup count
-reason for each rejection class
-```
-
-Then try alternatives in this order:
-
-1. different \(\beta\notin H\);
-2. different endpoint;
-3. different two-ended jet family;
-4. three-ended or mixed-ended constraints;
-5. non-slot aperiodic search through the Hankel-pencil normal form;
-6. nearby fields with \(512\mid(q-1)\) and \(q\) close enough to \(2^{128}\) that a small number of slopes suffices.
-
----
-
-# Lane B: finite threshold lane
-
-## B.0 Objective
-
-Move from finite lower bounds to finite threshold pinning.
-
-For the current row, prove:
-
-\[
-LD_{\mathrm{sw}}(C,264)\ge 7
-\]
-
-and
-
-\[
-LD_{\mathrm{sw}}(C,265)\le 6.
-\]
-
-The first inequality is a lower-bound certificate. The second is an all-line upper-bound theorem.
-
-## B.1 Formulate agreement 265 as a Hankel-pencil problem
-
-At \(a=265\),
-
-\[
-j=n-a=247,
-\qquad
-t=r-j=256-247=9.
-\]
-
-Use the F1 normal form:
-
-\[
-H_{9,247}(u+zv)\ell_T=0.
-\]
-
-The upper-bound target is:
-
-\[
-\#\left\{
-z\in\mathbb F_{17^{32}}:
-\exists T\subset H,\ |T|=247,\ L_T \text{ split squarefree},
-H_{9,247}(u+zv)\ell_T=0,
-\text{ noncontainment}
-\right\}
-\le 6.
-\]
-
-## B.2 Branch classification
-
-Every potential bad slope/support pair must be classified as exactly one of:
-
-```text
-quotient-periodic
-tangent/fixed-root
-rank-defective
-subfield-confined
-aperiodic residue-line
-collision-borne finite-field artifact
-unresolved
-```
-
-The quotient-periodic class is not an error. It is part of the lower and upper theorem.
-
-## B.3 Prove small-t ledgers first
-
-Before trying \(t=9\), write clean proofs for low \(t\).
-
-Tasks:
-
-```text
-B3.1 Reprove t=1.
-B3.2 Reprove t=2 from the F1 note.
-B3.3 Extend to t=3.
-B3.4 Identify which arguments scale to t=8 and t=9.
-B3.5 Record exactly where scaling fails.
-```
-
-The \(t=2\) ledger should include:
-
-```text
-determinant quadric
-fixed-slope codimension-two fibers
-rank-defective slopes
-fixed-root stars
-global monic-rank defects
-quotient-periodic sparse pullbacks
-```
-
-## B.4 Use \(X^{512}-1\)
-
-In the current row, \(H\) has size \(512\), and split squarefree locators over \(H\) correspond to divisors of
-
-\[
-X^{512}-1.
-\]
-
-Use the quotient ring
-
-\[
-\mathbb F_{17^{32}}[X]/(X^{512}-1)
-\]
-
-to reduce the upper-bound problem.
-
-Allowed strategies:
-
-```text
-orbit reduction under H-multiplication
-quotient-map reduction X -> X^M
-resultants eliminating locator coefficients
-Gröbner basis on reduced branch variables
-Nullstellensatz certificates for no-seven-slope branches
-syndrome-rank certificates for exceptional branches
-```
-
-## B.5 Upper-bound artifact
-
-An acceptable agreement-265 upper-bound artifact should include:
-
-```text
-finite branch decomposition
-for each branch:
-  branch definition
-  proof all cases in branch are covered
-  maximum number of bad slopes from branch
-  certificate or symbolic proof
-global union bound
-deduplication handling
-endpoint convention
-```
-
-The target is
-
-\[
-LD_{\mathrm{sw}}(C,265)\le6.
-\]
-
-A weaker but useful intermediate target is:
-
-\[
-LD_{\mathrm{sw}}(C,265)\le n^{O(1)}
-\]
-
-with quotient and aperiodic branches separated.
-
----
-
-# Lane C: general MCA theorem lane
-
-## C.0 Objective
-
-Prove the floor-corrected all-line MCA theorem above the corrected reserve.
-
-The theorem should cover the rates:
-
-\[
-\rho\in\{1/2,1/4,1/8,1/16\}.
-\]
-
-It should output explicit slack thresholds that can be compared with \(2^{-128}\).
-
-## C.1 Desired theorem shape
-
-Let
-
-\[
-C_n=\mathrm{RS}[\mathbb F_{q_n},H_n,k_n],
-\quad |H_n|=n,
-\quad k_n=\rho n+O(1).
-\]
-
-Let
-
-\[
-a_n=k_n+\sigma_n,
-\qquad
-\eta_n=\sigma_n/n.
-\]
-
-For slack above the corrected reserve, prove:
-
-\[
-\varepsilon_{\mathrm{mca}}(C_n,1-\rho-\eta_n)
-\le
-\frac{
-A_\rho(n,\sigma_n)
-+
-Q_\rho(H_n,\sigma_n)
-}{q_n}.
-\]
-
-Interpretation:
-
-```text
-A_rho = tangent + aperiodic residue-line contribution
-Q_rho = quotient-periodic floor
-```
-
-A useful asymptotic version is:
-
-\[
-A_\rho(n,\sigma_n) = n^{1+o(1)}
-\]
-
-and
-
-\[
-Q_\rho(H_n,\sigma_n)
-=
-2^{(\beta(\rho)/H(\rho))\mathcal Q_{H_n}(\eta_n)(1+o(1))}.
-\]
-
-But a prize-grade theorem must eventually be explicit:
-
-\[
-A_\rho(n,\sigma) \le C_\rho n^{B_\rho}
-\]
-
-or better, with computable constants.
-
-## C.2 Lower-bound floor theorem
-
-First, make the lower floors clean and computable.
-
-For every smooth domain \(H\), slack \(\sigma\), and rate \(\rho\), compute:
-
-```text
-tangent floor
-quotient-periodic floor
-finite collision floor, if present
-```
-
-The quotient floor is necessary. Do not sweep it into an error term.
-
-Deliverable:
-
-```text
-theorem: explicit MCA lower floors
-inputs:
-  H, n, k, sigma, q_line
-outputs:
-  lower bound on B_C(k+sigma)
-  lower bound on epsilon_mca
-  class labels for each floor
-```
-
-## C.3 Aperiodic residue-line bound
-
-This is the central mathematical problem.
-
-After quotient-periodic and tangent branches are removed, prove:
-
-\[
-\#\{\text{aperiodic bad slopes}\}
-\le n^{1+o(1)}
-\]
-
-or an explicit \(n^B\) bound.
-
-Equivalently, prove that many bad slopes force structure:
-
-\[
-\text{many bad slopes}
-\Rightarrow
-\text{many locator collisions}
-\Rightarrow
-\text{quotient periodicity or template structure}.
-\]
-
-## C.4 Local-limit program
-
-Attack the local-limit theorem in stages.
-
-### C4.1 Prefix-map local limit
-
-For subsets \(S\subset H\) of size \(a\), study
-
-\[
-\Phi_\sigma(S) = (e_1(S),\ldots,e_\sigma(S)).
-\]
-
-After quotient cores are removed, prove small fibers:
-
-\[
-\#\{S:\Phi_\sigma(S)=c\}
-\le n^B.
-\]
-
-Start with:
-
-```text
-monomial-prefix words
-canonical multiplicative subgroups
-zero-base lines
-fixed direction lines
-arbitrary base lines
-```
-
-### C4.2 Locator-fiber local limit
-
-Generalize from elementary-symmetric prefixes to arbitrary received-word locator constraints.
-
-Target:
-
-\[
-\#\{T\subset H:\ |T|=j,\ H_{t,j}(w)\ell_T=0\}
-\le
-Q(H,\sigma,w)+n^B.
-\]
-
-### C4.3 Residue-line local limit
-
-Now allow line data \(w=u+zv\). Bound the number of slopes \(z\) for which there exists an admissible split squarefree locator.
-
-Target:
-
-\[
-\#\{z:\exists T,\ H_{t,j}(u+zv)\ell_T=0,\ T \text{ aperiodic}\}
-\le n^B.
-\]
-
-### C4.4 Inverse theorem
-
-Prove:
-
-```text
-If an aperiodic branch produces too many slopes,
-then the support complements must have quotient-periodic,
-subfield, or low-template structure.
-```
-
-This converts high multiplicity into one of the already-budgeted floors.
-
-## C.5 Constants and finite ranges
-
-The asymptotic theorem is not enough for the prize. The target error \(2^{-128}\) forces explicit constants.
-
-For each rate
-
-\[
-\rho\in\{1/2,1/4,1/8,1/16\},
-\]
-
-produce:
-
-```text
-C_rho
-B_rho
-n0_rho
-```
-
-such that for \(n\ge n0_\rho\),
-
-\[
-\varepsilon_{\mathrm{mca}}(C,1-\rho-C_\rho/\log n)
-\le 2^{-128}
-\]
-
-whenever the quotient floor is below budget.
-
-For \(n<n0_\rho\), use finite verification.
-
----
-
-# Lane D: list-decoding and interleaving lane
-
-## D.0 Objective
-
-Prove the list-decoding local-limit inputs needed by the MCA theorem, and use the L2 codegree theorem correctly.
-
-Do not conflate:
-
-```text
-ordinary list decoding
-interleaved list decoding
-CA
-MCA
-support-wise line decoding
-protocol soundness
-```
-
-Every claim must say which object it proves.
-
-## D.1 Arbitrary-word list theorem
-
-Target:
-
-\[
-\#\{S\subset H:\ |S|=k+\sigma,\ \text{locator constraints match }U\}
-\le
-Q(H,\sigma,U)+n^B.
-\]
-
-Here \(Q\) captures quotient-periodic floors.
-
-Prove in stages:
-
-```text
-monomial-prefix received words
-sparse received words
-quotient-periodic received words
-random-looking received words
-arbitrary received words
-```
-
-## D.2 Higher-agreement decay
-
-The L2 codegree theorem reduces interleaved list size to base-code list sizes at agreements \(a\) and \(2a-k\). Since
-
-\[
-2a-k = a+\sigma,
-\]
-
-we need stronger decay at the higher agreement.
-
-Target:
-
-\[
-M_U(a+\sigma)\le \mathrm{poly}(n)
-\]
-
-for aperiodic \(U\).
-
-## D.3 Use the L2 theorem
-
-The L2 note gives a reduction of the form:
-
-\[
-\Lambda_2^{(a)}
-\le
-|Fib_{U_2}|
-+
-M_{U_2}(2a-k)|Fib_{U_1}|.
-\]
-
-For higher interleaving arity \(\mu\), apply the recursive version.
-
-Work sequence:
-
-```text
-D3.1 Prove L1 aperiodic list bound at agreement a.
-D3.2 Prove L1 higher-agreement decay at 2a-k.
-D3.3 Plug into L2 codegree theorem.
-D3.4 Keep quotient tails explicit.
-D3.5 State interleaved theorem with all floors visible.
-```
-
-Do not claim an interleaved-list solution until D3.1 and D3.2 are proved.
-
----
-
-# Lane E: extension-field and sampler lane
-
-## E.0 Objective
-
-Prevent false conclusions caused by subfield confinement or wrong denominators.
-
-Every line/slope count must specify the actual sampling field.
-
-## E.1 Field-ledger rule
-
-Every public result must contain:
-
-```text
-q_gen
-q_line
-q_chal
-```
-
-Example for the main finite row:
-
-```text
-q_gen  = 17^32, unless domain generation says otherwise
-q_line = 17^32 for the ABF line sampler
-q_chal = explicitly stated; do not assume it equals q_line
-```
-
-## E.2 Classify witnesses by field origin
-
-Each witness family must be labeled:
-
-```text
-B-valued line
-F-valued line
-mixed-valued line
-subfield-confined
-genuinely extension-field
-```
-
-A base-field witness over \(B\subset F\) may deflate by \(|B|/|F|\) when slopes are sampled from \(F\). This distinction matters.
-
-## E.3 Build genuinely extension-field witnesses
-
-Use the F1 residue-line normal form to search for line data \(u,v\) that are genuinely \(F\)-valued and whose bad slopes are not confined to a small subfield.
-
-Deliverable:
-
-```text
-explicit F-valued f,g
-field ledger
-bad-slope certificates
-subfield-confinement test
-comparison to base-field baseline
-```
-
----
-
-# Lane V: verification, formalization, and review
-
-## V.0 Objective
-
-Make every finite and threshold claim reviewable.
-
-The prize page expects public academic materials and peer review. Build this infrastructure early.
-
-## V.1 Formalize easy finite gates first
-
-Recommended formalization targets:
-
-```text
-V1 endpoint monotonicity
-V2 agreement/radius staircase
-V3 7 * 2^128 > 17^32
-V4 Vandermonde rank noncontainment lemma
-V5 Hankel recurrence equivalence
-V6 duplicate-slope semantics
-V7 quotient-periodic locator definition
-```
-
-Do not start formalization with the hardest local-limit theorem. Formalize the finite gates and the bridges reviewers will inspect first.
-
-## V.2 Reproducibility package
-
-Every public result should ship with:
-
-```text
-README
-exact claim
-non-claims
-field/domain ledger
-certificate files
-verifier scripts
-expected transcript
-hashes
-license
-```
-
-## V.3 Peer-review strategy
-
-Prepare papers in modules, not one sprawling manuscript.
-
-### Paper 1: finite-row MCA threshold theorem
-
-Claim:
-
-\[
-\mathrm{RS}[\mathbb F_{17^{32}},H,256]
-\quad\text{has finite-slope support-wise MCA grid threshold}\quad
-r=6.
-\]
-
-Equivalently, \(r=5\) is safe, \(r=6\) is unsafe, the real closed-ball safe interval is \([0,6/512)\), and the endpoint \(6/512=3/256\) is unsafe.
-
-Contents:
-
-```text
-definitions
-field/domain ledger
-high-agreement tangent theorem
-finite/projective slope definition audit
-closed endpoint convention
-pure-MCA scanner output
-non-claims
-```
-
-### Paper 2: high-agreement threshold compiler
-
-Claim:
-
-\[
-B_Q=\lfloor Q/2^{128}\rfloor,\quad r=n-a,\quad
-B_Q\le\lfloor(n-k)/3\rfloor
-\quad\Longrightarrow\quad
-\text{threshold pinned at }r=B_Q.
-\]
-
-This identifies the solved high-agreement region of the prize envelope and isolates where the lower-agreement local-limit work begins.
-
-### Paper 3: floor-corrected MCA theorem
-
-Claim:
-
-\[
-\varepsilon_{\mathrm{mca}}(C,1-\rho-\eta)
-\le
-\frac{
-\text{tangent}
-+
-\text{quotient}
-+
-\text{aperiodic}
-}{q}.
-\]
-
-This is the main full-prize paper.
-
-### Paper 4: arbitrary-word list and interleaving theorem
-
-Claim:
-
-```text
-Above corrected reserve, arbitrary-word lists are polynomial
-after quotient cores are separated,
-and interleaving reduces via the codegree theorem.
-```
-
----
-
-## 6. Agent work packages
-
-Use these as task briefs.
-
----
-
-### Work package A1: finite-field verifier
-
-**Goal.** Build an independent verifier for \(\mathbb F_{17^{32}}\) certificates.
-
-**Inputs.**
-
-```text
-field polynomial m(alpha)
-basis convention
-domain H
-certificate JSONL
-```
-
-**Outputs.**
-
-```text
-verified/failed status
-hash of H
-hash of each slope certificate
-agreement count
-degree check
-noncontainment check
-deduplication check
-```
-
-**Acceptance tests.**
-
-```text
-Print q_line exactly.
-Print floor(q_line / 2^128) = 6.
-Print 7 * 2^128 > q_line.
-Verify at least one known certificate.
-Reject a certificate with a duplicated slope.
-Reject a certificate with missing noncontainment.
-```
-
----
-
-### Work package A2: strict264 seven-slope search
-
-**Goal.** Produce seven strict264 bad slopes.
-
-**Parameters.**
-
-```text
-n = 512
-k = 256
-a = 264
-sigma = 8
-j = 248
-r = 256
-q_line = 17^32
-```
-
-**Core condition.**
-
-```text
-Fix e_1,...,e_7 plus endpoint.
-Do not use the off-by-one relaxed condition.
-```
-
-**Outputs.**
-
-```text
-strict264-seven.jsonl
-strict264-proof.md
-deduped slopes
-support complements
-locators
-rank proofs
-verifier transcripts
-```
-
-**Acceptance test.**
-
-\[
-LD_{\mathrm{sw}}(C,264)\ge 7.
-\]
-
----
-
-### Work package A3: current-row replay
-
-**Goal.** Replay or replace the \(52.7\)B count.
-
-**Outputs.**
-
-```text
-compressed count proof or deterministic replay
-deduped slope count
-endpoint convention
-noncontainment proof
-field ledger
-```
-
-**Acceptance test.**
-
-\[
-LD_{\mathrm{sw}}(C,263)
-\ge
-52{,}747{,}567{,}092
-\]
-
-or a corrected count with exact explanation.
-
----
-
-### Work package B1: F1 normal form rewrite
-
-**Goal.** Rewrite the syndrome-pencil normal form into final notation.
-
-**Outputs.**
-
-```text
-definitions.md
-hankel-pencil-theorem.md
-proof of equivalence
-noncontainment lemma
-examples for t=1,2
-```
-
-**Acceptance test.**
-
-Given \(u,v,T,z\), the note proves equivalence between bad support and
-
-\[
-H_{t,j}(u+zv)\ell_T=0.
-\]
-
----
-
-### Work package B2: agreement-265 upper-bound branch ledger
-
-**Goal.** Start the proof of
-
-\[
-LD_{\mathrm{sw}}(C,265)\le6.
-\]
-
-**Parameters.**
-
-```text
-a = 265
-j = 247
-t = 9
-```
-
-**Outputs.**
-
-```text
-branch definitions
-coverage proof
-bound per branch
-unresolved branch list
-```
-
-**Acceptance test.**
-
-All possible bad slopes/supports are assigned to one branch:
-
-```text
-quotient-periodic
-tangent/fixed-root
-rank-defective
-subfield-confined
-aperiodic residue-line
-finite collision
-unresolved
-```
-
----
-
-### Work package C1: quotient-floor theorem
-
-**Goal.** State and prove the explicit quotient lower floor.
-
-**Outputs.**
-
-```text
-definition of quotient profile Q_H(eta)
-lower-bound theorem
-examples for rho = 1/2, 1/4, 1/8, 1/16
-computation script
-```
-
-**Acceptance test.**
-
-For a given smooth \(H\) and slack \(\sigma\), the script outputs the quotient-periodic lower floor that must appear in any upper theorem.
-
----
-
-### Work package C2: prefix local-limit theorem
-
-**Goal.** Bound fibers of the elementary-symmetric prefix map after quotient cores are removed.
-
-**Map.**
-
-\[
-S\mapsto(e_1(S),\ldots,e_\sigma(S)).
-\]
-
-**Target.**
-
-\[
-\#\{S:\Phi_\sigma(S)=c,\ S\text{ aperiodic}\}
-\le n^B.
-\]
-
-**Acceptance test.**
-
-Prove the theorem for at least one nontrivial smooth-domain family beyond the trivial random model.
-
----
-
-### Work package C3: residue-line local-limit theorem
-
-**Goal.** Bound the number of bad slopes after quotient and tangent branches are removed.
-
-**Target.**
-
-\[
-\#\{z:\exists T,\ H_{t,j}(u+zv)\ell_T=0,\ T\text{ aperiodic}\}
-\le n^B.
-\]
-
-**Acceptance test.**
-
-Prove or experimentally validate the bound in a finite row where all quotient branches have been separated.
-
----
-
-### Work package D1: arbitrary-word list bound
-
-**Goal.** Prove list-size bounds above corrected reserve.
-
-**Target.**
-
-\[
-\#\{S:\ |S|=k+\sigma,\ U\text{ matches on }S\}
-\le Q(H,\sigma,U)+n^B.
-\]
-
-**Acceptance test.**
-
-Handle quotient-periodic received words separately and prove aperiodic polynomial bound for a nontrivial class.
-
----
-
-### Work package D2: L2 integration
-
-**Goal.** Use the L2 codegree theorem without overclaiming.
-
-**Required inputs.**
-
-```text
-L1 bound at agreement a
-L1 higher-agreement bound at 2a-k
-quotient-tail accounting
-```
-
-**Acceptance test.**
-
-State a theorem for interleaving arity \(\mu=2\) with explicit dependence on the L1 inputs.
-
----
-
-### Work package E1: subfield-confinement audit
-
-**Goal.** Audit every finite witness for subfield confinement.
-
-**Outputs.**
-
-```text
-witness field label
-B-valued/F-valued classification
-bad-slope field span
-q_line denominator
-deflation factor, if any
-```
-
-**Acceptance test.**
-
-No public row may be listed unless this audit is complete.
-
----
-
-### Work package V1: formal finite gates
-
-**Goal.** Formalize the arithmetic and endpoint lemmas.
-
-**First targets.**
-
-```text
-7 * 2^128 > 17^32
-agreement/radius conversion at n=512, a=264
-monotonicity of B_C(a)
-Vandermonde degree/rank lemma
-```
-
-**Acceptance test.**
-
-A formal checker verifies the strict264 threshold inequality and the agreement/radius conversion.
-
----
-
-## 7. Milestones
-
-### Milestone 0: definitions freeze
-
-**Exit criterion.**
-
-A single definitions note fixes:
-
-```text
-epsilon_mca
-LD_sw
-agreement/radius conversion
-closed vs strict endpoint
-q_gen/q_line/q_chal
-support-wise noncontainment
-duplicate-slope semantics
-```
-
-### Milestone 1: current-row replay
-
-**Exit criterion.**
-
-\[
-LD_{\mathrm{sw}}
-(
-\mathrm{RS}[\mathbb F_{17^{32}},H,256],263
-)
-\ge
-52{,}747{,}567{,}092
-\]
-
-with a replayable or compressed certificate.
-
-### Milestone 2: finite-row threshold package
-
-**Exit criterion.**
-
-\[
-LD_{\mathrm{sw}}(C,506)=7,
-\qquad
-LD_{\mathrm{sw}}(C,507)=6,
-\]
-
-with the definition audit and scanner output included.
-
-### Milestone 3: row-independent compiler
-
-**Exit criterion.**
-
-\[
-B_Q\le\lfloor(n-k)/3\rfloor
-\quad\Longrightarrow\quad
-\text{safe for }r\le B_Q-1,\ \text{unsafe at }r=B_Q.
-\]
-
-This turns the high-agreement tangent theorem into a reusable threshold certificate generator.
-
-### Milestone 4: quotient-floor theorem
-
-**Exit criterion.**
-
-For every smooth \(H\) and slack \(\sigma\), the tangent and quotient-periodic floors are:
-
-```text
-explicit
-necessary
-computable
-included in both lower and upper theorem statements
-```
-
-### Milestone 5: aperiodic local-limit theorem
-
-**Exit criterion.**
-
-\[
-\#\{\text{aperiodic bad slopes}\}
-\le n^{1+o(1)}
-\]
-
-or an explicit \(n^B\) version, after quotient floors are removed.
-
-### Milestone 6: explicit threshold theorem
-
-**Exit criterion.**
-
-Given
-
-```text
-C
-rho
-n
-q
-H
-epsilon* = 2^-128
-```
-
-the theorem outputs
-
-```text
-sigma_C^*
-```
-
-or a one-step endpoint interval with matching lower and upper bounds.
-
-### Milestone 7: peer-review package
-
-**Exit criterion.**
-
-```text
-main paper
-certificate repository
-independent verifier
-review/audit notes
-formalized finite gates
-clear relation to the Proximity Prize
-```
-
----
-
-## 8. Risk register
-
-### Risk 1: strict264 slot model does not yield seven slopes
-
-**Impact.** The clean \(a=264\) finite obstruction fails in its current form.
-
-**Mitigation.**
-
-```text
-try alternative beta
-try alternative endpoint
-try alternative two-ended jet family
-try three-ended constraints
-use F1 non-slot search
-switch to nearby field with favorable q_line
-```
-
-### Risk 2: the 52.7B count is not replayable
-
-**Impact.** The strongest public row remains source-scoped and weak for review.
-
-**Mitigation.**
-
-```text
-produce corrected smaller count if needed
-prefer seven-slope strict264 proof
-write exact failure audit
-```
-
-### Risk 3: agreement-265 upper bound is false
-
-**Impact.** Threshold is lower/higher than expected; finite pinning target changes.
-
-**Mitigation.**
-
-```text
-search for agreement-265 witnesses
-if >=7 found, move threshold target to a=265/266
-keep staircase approach
-```
-
-### Risk 4: aperiodic local-limit theorem needs larger slack
-
-**Impact.** Corrected reserve may be larger than expected.
-
-**Mitigation.**
-
-```text
-make constants explicit
-accept larger sigma if threshold can still be computed
-separate finite small-n verification from asymptotic theorem
-```
-
-### Risk 5: subfield confinement deflates witnesses
-
-**Impact.** Some extension-field lower bounds vanish under the intended sampler.
-
-**Mitigation.**
-
-```text
-maintain q_gen/q_line/q_chal ledger
-classify B-valued vs F-valued lines
-construct genuinely F-valued witnesses
-```
-
----
-
-## 9. Non-claims and forbidden shortcuts
-
-Do not claim any of the following unless separately proved.
-
-```text
-protocol soundness failure
-ordinary list-decoding lower bound
-full delta_C^* from a one-sided obstruction
-base-field sampler result from extension-field data
-no-slack smooth RCA/MCA theorem
-interleaved-list theorem without L1 higher-agreement input
-```
-
-Do not do any of the following.
-
-```text
-Do not count supports when the quantity is slopes.
-Do not report pre-deduplication counts.
-Do not omit noncontainment.
-Do not hide endpoint conventions.
-Do not use q_gen, q_line, q_chal interchangeably.
-Do not treat quotient-periodic mass as negligible.
-Do not publish a huge count without replayable certificate.
-```
-
----
-
-## 10. Recommended immediate sequence
-
-The shortest credible path toward the prize is:
-
-```text
-1. Freeze definitions and field ledgers.
-2. Finish the official-definition audit for the finite-row theorem.
-3. Keep the F_17^32 pure-MCA scanner output replayable.
-4. Package the a=506/507 row as a finite threshold note/paper.
-5. Promote the row-independent high-agreement threshold compiler theorem.
-6. Use the compiler to mark the solved high-agreement region of the prize envelope.
-7. Audit the projective-slope and no-loss CA variants with their denominators.
-8. Keep strict264/strict352 as lower-agreement mechanism records.
-9. Generalize beyond the compiler range via quotient/residue-line local limits.
-10. Prove the aperiodic local-limit theorem with explicit constants.
-```
-
-The main finite slogan:
-
-\[
-\boxed{
-LD_{\mathrm{sw}}(C,506)=7
-\quad\text{and}\quad
-LD_{\mathrm{sw}}(C,507)=6.
-}
-\]
-
-The main theoretical slogan:
-
-\[
-\boxed{
-\text{slack}+\text{quotient floors}+\text{aperiodic local limit}
-\Rightarrow
-\text{threshold theorem}.
-}
-\]
-
-The main collaboration slogan:
-
-\[
-\boxed{
-\text{Every claim must be replayable, field-ledgered, endpoint-explicit, and floor-separated.}
-}
-\]
-
----
-
-## 11. Agent handoff prompt
-
-Use the following prompt when handing this plan to a coding/proof agent.
-
-```text
-You are contributing to the RS-MCA path toward the full Proximity Prize.
-Read towards-prize.md and the required sources listed at the top.
-
-Core rules:
-- Smooth no-slack RCA/MCA is false; work with slack.
-- Always print q_gen, q_line, q_chal.
-- Always state agreement a, slack sigma, radius delta, and endpoint convention.
-- Separate quotient-periodic floors from aperiodic mass.
-- Never count supports as slopes.
-- Never report pre-deduplication counts.
-- Never omit noncontainment.
-- Prefer small replayable certificates over huge unverified counts.
-
-Pick exactly one work package from Section 6.
-Before coding or proving, restate:
-1. the target theorem or artifact;
-2. the exact parameters;
-3. the acceptance test;
-4. the non-claims.
-
-Then produce either:
-- a certificate,
-- a verifier,
-- a proof note,
-- a branch ledger,
-- or a failure audit with exact reasons.
-
-Do not claim full prize progress unless your output moves one of the numbered milestones.
-```
-
----
-
-## 12. Current top priority
-
-The top priority is:
-
-\[
-\boxed{
-\textbf{finite-row threshold packaging and compiler theorem}
-}
-\]
-
-Specifically, for
-
-\[
-C=\mathrm{RS}[\mathbb F_{17^{32}},H,256],
-\quad n=512,
-\quad k=256,
-\quad \rho=1/2,
-\]
-
-the current theorem is:
-
-\[
-LD_{\mathrm{sw}}(C,a)=513-a
-\qquad(a\ge427),
-\]
-
-so
-
-\[
-LD_{\mathrm{sw}}(C,506)=7,
-\qquad
-LD_{\mathrm{sw}}(C,507)=6.
-\]
-
-The deliverables are:
-
-- definition audit against the official MCA sampler and endpoint convention;
-- finite-row note/paper with scanner output attached;
-- row-independent compiler theorem using
-  \[
-  B_Q=\lfloor Q/2^{128}\rfloor,\qquad r=n-a;
-  \]
-- a clear statement that if \(B_Q\le\lfloor(n-k)/3\rfloor\), then the single line/MCA grid threshold is pinned exactly at \(r=B_Q\).
-
-The strict264 seven-slope certificate remains a useful lower-agreement experiment, but it is no longer the top priority for threshold determination.
+That is the route from the current repository to a credible full Proximity
+Prize solution.
