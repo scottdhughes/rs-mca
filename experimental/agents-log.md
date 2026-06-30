@@ -30,6 +30,27 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-30 - M1 a327 rescheduler dual Hall obstruction
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_rescheduler_dual_hall_obstruction.md`,
+  `experimental/scripts/scan_m1_a327_rescheduler_dual_hall_obstruction.py`,
+  `experimental/scripts/verify_m1_a327_rescheduler_dual_hall_obstruction.py`,
+  `experimental/data/m1_a327_rescheduler_dual_hall_obstruction.json`,
+  `experimental/agents-log.md`.
+- **Status:** RESCHEDULER_OBSTRUCTION_CERTIFICATE / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A Hall-style subset-credit audit for the
+  rescheduler bottleneck in the recent line/plane/tangent proxy tuples. The
+  scanner replays 86 retained samples, deduplicates them to 30 value-class
+  geometries, and finds 11 Hall-tight high-capacity samples.
+- **How it is useful:** Explains the current best tangent tuple exactly:
+  capacity upper bound 404 and low collapse are not enough because a
+  three-witness Hall subset has `B(U)=781`, giving Hall bound 260 and matching
+  the exact proxy rescheduler optimum.
+- **What to do next:** Use the tight Hall subsets to drive target mutation or
+  tangent-direction selection; specifically, increase `B(U)` for the tight
+  three-witness subsets rather than optimizing global capacity alone.
+
 ### 2026-06-30 - M1 a327 collision-tangent quotient-plane search
 
 - **Agent/model:** Codex.
