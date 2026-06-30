@@ -30,6 +30,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-30 - M1 a327 tangent-skeleton Hall repair
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_tangent_skeleton_hall_repair.md`,
+  `experimental/scripts/scan_m1_a327_tangent_skeleton_hall_repair.py`,
+  `experimental/scripts/verify_m1_a327_tangent_skeleton_hall_repair.py`,
+  `experimental/scripts/audit_m1_a327_tangent_skeleton_hall_repair.sage`,
+  `experimental/data/m1_a327_tangent_skeleton_hall_repair.json`,
+  `experimental/agents-log.md`.
+- **Status:** TESTED_TANGENT_HALL_REPAIR_NO_A327 / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A localized Hall-repair scan inside retained
+  low-collapse tangent value-class skeletons. The first pass tests 80 target
+  systems and 1280 proxy samples; no proxy `a>=327` candidate is found.
+- **How it is useful:** Unlike hard global Hall repair, this branch improves
+  the low-collapse tangent proxy max-min from 260 to 308 with capacity 453 and
+  zero added six-class dominance. The original three-witness Hall subsets are
+  over-repaired, exposing a new pair bottleneck involving witness 7.
+- **What to do next:** Target the new tight pair family `{i,7}` inside the
+  repaired tangent skeleton; the remaining pair deficit is 38 credits rather
+  than the previous 200-credit three-witness deficit.
+
 ### 2026-06-30 - M1 a327 collapse-constrained Hall repair
 
 - **Agent/model:** Codex.
