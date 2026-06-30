@@ -30,6 +30,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-29 - M1 a327 dominant-collision-preserving separation
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_dominant_collision_preserving_separation.md`,
+  `experimental/scripts/scan_m1_a327_dominant_collision_preserving_separation.py`,
+  `experimental/scripts/verify_m1_a327_dominant_collision_preserving_separation.py`,
+  `experimental/scripts/audit_m1_a327_dominant_collision_preserving_separation.sage`,
+  `experimental/data/m1_a327_dominant_collision_preserving_separation.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A safe-coordinate separation audit for the robust
+  proxy high-capacity skeleton. The audit tests 24 off-skeleton pairwise or
+  evaluation separation pin sets across the top three robust systems; nine
+  exact vectors are constructed, but none are both nondegenerate and
+  capacity-preserving.
+- **How it is useful:** Shows that even separation pins outside the all-seven
+  protected collision coordinates fail to combine high capacity with witness
+  distinctness in the tested schedules.
+- **What to do next:** Study the high-capacity degenerate `374`-capacity
+  samples to identify which lower-dimensional witness identifications remain,
+  then try quotient-aware separation inside that residual degenerate class.
+
 ### 2026-06-29 - M1 a327 collision-preserving nondegenerate lift
 
 - **Agent/model:** Codex.
