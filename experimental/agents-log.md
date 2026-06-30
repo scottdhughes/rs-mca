@@ -30,6 +30,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-30 - M1 a327 capacity-preserving residual [1,2] split
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_capacity_preserving_residual12_split.md`,
+  `experimental/scripts/scan_m1_a327_capacity_preserving_residual12_split.py`,
+  `experimental/scripts/verify_m1_a327_capacity_preserving_residual12_split.py`,
+  `experimental/scripts/audit_m1_a327_capacity_preserving_residual12_split.sage`,
+  `experimental/data/m1_a327_capacity_preserving_residual12_split.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A bounded exact `GF(17^32)` audit that splits
+  residual `[1,2]` earlier, before the destructive `anchor_split_34567`
+  layer, while preserving the protected-exchange row schedule.
+- **How it is useful:** Unlike the prior hard residual split, this search
+  finds 48 capacity-preserving `D_2` split vectors, including 24 low-collapse
+  capacity-preserving splits. None preserve pair-7 repair; the best capacity
+  split returns six-class dominance, while the best low-collapse split leaves
+  weak pair values near `512`.
+- **What to do next:** Search inside the low-collapse capacity-preserving
+  `D_2` split regime for pair-7 repair, especially improving `B({2,7})` and
+  `B({3,7})`, without rebuilding the six-class collapse.
+
 ### 2026-06-30 - M1 a327 residual [1,2] split pinned nullspace
 
 - **Agent/model:** Codex.
