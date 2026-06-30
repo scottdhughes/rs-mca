@@ -30,6 +30,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-29 - M1 a327 soft collapse-penalty target solver
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_soft_collapse_penalty_target_solver.md`,
+  `experimental/scripts/scan_m1_a327_soft_collapse_penalty_target_solver.py`,
+  `experimental/scripts/verify_m1_a327_soft_collapse_penalty_target_solver.py`,
+  `experimental/scripts/audit_m1_a327_soft_collapse_penalty_target_solver.sage`,
+  `experimental/data/m1_a327_soft_collapse_penalty_target_solver.json`,
+  `experimental/agents-log.md`.
+- **Status:** TESTED_TARGET_SYSTEMS_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A soft collapse-penalty target-selection audit
+  starting from the robust proxy systems. It tests 180 target systems and
+  2,880 proxy codeword tuple samples; the best proxy max-min improves to 332
+  with capacity upper bound 460, but all proxy-positive systems remain
+  high-capacity degenerate with no collapse-reduced proxy candidate.
+- **How it is useful:** Separates hard-split capacity destruction from soft
+  target selection: soft penalties preserve and even improve proxy capacity,
+  but do not move the evaluated `[1,3,4,5,6,7]` collapse.
+- **What to do next:** Use the proxy-positive soft systems as a diagnostic set
+  for collapse-specific exact lifting or add nonlinear/evaluation-level
+  collapse penalties, rather than more linear target-row penalties alone.
+
 ### 2026-06-29 - M1 a327 collapse-aware target system
 
 - **Agent/model:** Codex.
