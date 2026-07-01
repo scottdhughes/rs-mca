@@ -1,0 +1,1275 @@
+{
+  "agreement_target": 327,
+  "baseline": {
+    "B27_deficit": 9,
+    "B37_deficit": 10,
+    "B57": 1024,
+    "capacity": 330,
+    "collapse_pattern": [
+      [
+        1,
+        4,
+        5,
+        7
+      ],
+      [
+        6
+      ],
+      [
+        3
+      ],
+      [
+        2
+      ]
+    ],
+    "failure_mode": "MICROREPAIR_PAIRCLASS_NOT_REPAIRED",
+    "pair_B_values": [
+      1024,
+      645,
+      644,
+      1024,
+      1024
+    ]
+  },
+  "construction_mode": "postsplit_pair27_37_microrepair_stage2",
+  "denominator": "17^32",
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C"
+  ],
+  "proof_status": "EXACT_EXTRACTION_NO_A327",
+  "row": "RS[F_17^32,H,256]",
+  "source_commit": "44a03e2",
+  "stage2_microrepair": {
+    "base_system": "postsplit_microrepair_triple_237_budget8",
+    "best_agreement_vector": null,
+    "best_capacity": 333,
+    "best_exact_max_min": null,
+    "best_failure_mode": "MICROREPAIR_STAGE2_LOW_RESCHEDULE",
+    "best_pair_B_values": [
+      1024,
+      657,
+      656,
+      1024,
+      1024
+    ],
+    "capacity_preserving_vectors": 4,
+    "collapse_preserving_vectors": 4,
+    "exact_field": "GF(17^32)",
+    "exact_vectors_constructed": 4,
+    "execution_mode": "single_context_in_process",
+    "failure_mode_counts": {
+      "MICROREPAIR_STAGE2_LOW_RESCHEDULE": 1,
+      "MICROREPAIR_STAGE2_PAIRCLASS_NOT_REPAIRED": 3
+    },
+    "pair27_37_repaired_vectors": 1,
+    "pair27_repaired_vectors": 1,
+    "pair37_repaired_vectors": 1,
+    "pair57_preserving_vectors": 4,
+    "repair_families": [
+      "triple_237"
+    ],
+    "results": [
+      {
+        "base_system": "postsplit_microrepair_triple_237_budget8",
+        "baseline_stage1": {
+          "capacity_upper_bound": 330,
+          "degenerate_classes": [
+            [
+              1,
+              4,
+              5,
+              7
+            ],
+            [
+              6
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ]
+          ],
+          "pair_B_values": [
+            1024,
+            645,
+            644,
+            1024,
+            1024
+          ],
+          "pair_deficit_to_654": [
+            -370,
+            9,
+            10,
+            -370,
+            -370
+          ]
+        },
+        "capacity_preserving": true,
+        "capacity_reserve": false,
+        "capacity_total": 2317,
+        "capacity_upper_bound": 331,
+        "chosen_masks_hash": null,
+        "collapse_preserving": true,
+        "collapse_reduced": true,
+        "d2_split": true,
+        "degenerate_classes": [
+          [
+            1,
+            4,
+            5,
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "distinct_codewords": false,
+        "effective_row_count": 334,
+        "elapsed_seconds": 97.531,
+        "exact_agreement_vector": null,
+        "exact_max_min": null,
+        "extra_repair_budget": 4,
+        "failure_mode": "MICROREPAIR_STAGE2_PAIRCLASS_NOT_REPAIRED",
+        "full_pair_repaired": false,
+        "largest_class_histogram": {
+          "4": 377,
+          "5": 1,
+          "6": 134
+        },
+        "low_collapse": true,
+        "min_pair_B": 646,
+        "nullity_after": 1202,
+        "old_three_subset_B_values": [
+          781,
+          781,
+          781
+        ],
+        "old_three_subset_min_hall_bound": 260,
+        "pair27_37_repaired": false,
+        "pair27_B": 647,
+        "pair27_repaired": false,
+        "pair37_B": 646,
+        "pair37_repaired": false,
+        "pair57_preserving": true,
+        "pair_B_values": [
+          1024,
+          647,
+          646,
+          1024,
+          1024
+        ],
+        "pair_deficit_to_654": [
+          -370,
+          7,
+          8,
+          -370,
+          -370
+        ],
+        "pair_hall_bound": 323,
+        "phase": "postsplit_microrepair_stage2",
+        "pre_pair27_37_near_target": true,
+        "rank_after": 334,
+        "repair_family": "triple_237",
+        "row_count": 334,
+        "row_reduction": "pivot_row_subset",
+        "six_class_dominance": 0,
+        "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+        "stage1_repair_budget": 8,
+        "stage1_repair_family": "triple_237",
+        "stage2_repair_delta_summary": {
+          "post_B27_delta": 2,
+          "post_B37_delta": 2,
+          "post_B57_delta": 0,
+          "rows": 2,
+          "score": 172
+        },
+        "stage2_repair_specs_preview": [
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 29,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 13,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 2,
+            "position": 29,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 29,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 13,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 3,
+            "position": 29,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 30,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 14,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 2,
+            "position": 30,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 30,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 14,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 3,
+            "position": 30,
+            "right": 7
+          }
+        ],
+        "total_triple_237_budget": 12
+      },
+      {
+        "base_system": "postsplit_microrepair_triple_237_budget8",
+        "baseline_stage1": {
+          "capacity_upper_bound": 330,
+          "degenerate_classes": [
+            [
+              1,
+              4,
+              5,
+              7
+            ],
+            [
+              6
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ]
+          ],
+          "pair_B_values": [
+            1024,
+            645,
+            644,
+            1024,
+            1024
+          ],
+          "pair_deficit_to_654": [
+            -370,
+            9,
+            10,
+            -370,
+            -370
+          ]
+        },
+        "capacity_preserving": true,
+        "capacity_reserve": false,
+        "capacity_total": 2321,
+        "capacity_upper_bound": 331,
+        "chosen_masks_hash": null,
+        "collapse_preserving": true,
+        "collapse_reduced": true,
+        "d2_split": true,
+        "degenerate_classes": [
+          [
+            1,
+            4,
+            5,
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "distinct_codewords": false,
+        "effective_row_count": 338,
+        "elapsed_seconds": 100.925,
+        "exact_agreement_vector": null,
+        "exact_max_min": null,
+        "extra_repair_budget": 8,
+        "failure_mode": "MICROREPAIR_STAGE2_PAIRCLASS_NOT_REPAIRED",
+        "full_pair_repaired": false,
+        "largest_class_histogram": {
+          "4": 375,
+          "5": 1,
+          "6": 136
+        },
+        "low_collapse": true,
+        "min_pair_B": 648,
+        "nullity_after": 1198,
+        "old_three_subset_B_values": [
+          785,
+          785,
+          785
+        ],
+        "old_three_subset_min_hall_bound": 261,
+        "pair27_37_repaired": false,
+        "pair27_B": 649,
+        "pair27_repaired": false,
+        "pair37_B": 648,
+        "pair37_repaired": false,
+        "pair57_preserving": true,
+        "pair_B_values": [
+          1024,
+          649,
+          648,
+          1024,
+          1024
+        ],
+        "pair_deficit_to_654": [
+          -370,
+          5,
+          6,
+          -370,
+          -370
+        ],
+        "pair_hall_bound": 324,
+        "phase": "postsplit_microrepair_stage2",
+        "pre_pair27_37_near_target": true,
+        "rank_after": 338,
+        "repair_family": "triple_237",
+        "row_count": 338,
+        "row_reduction": "pivot_row_subset",
+        "six_class_dominance": 0,
+        "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+        "stage1_repair_budget": 8,
+        "stage1_repair_family": "triple_237",
+        "stage2_repair_delta_summary": {
+          "post_B27_delta": 4,
+          "post_B37_delta": 4,
+          "post_B57_delta": 0,
+          "rows": 4,
+          "score": 344
+        },
+        "stage2_repair_specs_preview": [
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 29,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 13,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 2,
+            "position": 29,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 29,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 13,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 3,
+            "position": 29,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 30,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 14,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 2,
+            "position": 30,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 30,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 14,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 3,
+            "position": 30,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 45,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 13,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 2,
+            "position": 45,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 45,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 13,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 3,
+            "position": 45,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 46,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 14,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 2,
+            "position": 46,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 46,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 14,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 3,
+            "position": 46,
+            "right": 7
+          }
+        ],
+        "total_triple_237_budget": 16
+      },
+      {
+        "base_system": "postsplit_microrepair_triple_237_budget8",
+        "baseline_stage1": {
+          "capacity_upper_bound": 330,
+          "degenerate_classes": [
+            [
+              1,
+              4,
+              5,
+              7
+            ],
+            [
+              6
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ]
+          ],
+          "pair_B_values": [
+            1024,
+            645,
+            644,
+            1024,
+            1024
+          ],
+          "pair_deficit_to_654": [
+            -370,
+            9,
+            10,
+            -370,
+            -370
+          ]
+        },
+        "capacity_preserving": true,
+        "capacity_reserve": false,
+        "capacity_total": 2329,
+        "capacity_upper_bound": 332,
+        "chosen_masks_hash": null,
+        "collapse_preserving": true,
+        "collapse_reduced": true,
+        "d2_split": true,
+        "degenerate_classes": [
+          [
+            1,
+            4,
+            5,
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "distinct_codewords": false,
+        "effective_row_count": 346,
+        "elapsed_seconds": 102.337,
+        "exact_agreement_vector": null,
+        "exact_max_min": null,
+        "extra_repair_budget": 16,
+        "failure_mode": "MICROREPAIR_STAGE2_PAIRCLASS_NOT_REPAIRED",
+        "full_pair_repaired": false,
+        "largest_class_histogram": {
+          "4": 371,
+          "5": 1,
+          "6": 140
+        },
+        "low_collapse": true,
+        "min_pair_B": 652,
+        "nullity_after": 1190,
+        "old_three_subset_B_values": [
+          793,
+          793,
+          793
+        ],
+        "old_three_subset_min_hall_bound": 264,
+        "pair27_37_repaired": false,
+        "pair27_B": 653,
+        "pair27_repaired": false,
+        "pair37_B": 652,
+        "pair37_repaired": false,
+        "pair57_preserving": true,
+        "pair_B_values": [
+          1024,
+          653,
+          652,
+          1024,
+          1024
+        ],
+        "pair_deficit_to_654": [
+          -370,
+          1,
+          2,
+          -370,
+          -370
+        ],
+        "pair_hall_bound": 326,
+        "phase": "postsplit_microrepair_stage2",
+        "pre_pair27_37_near_target": true,
+        "rank_after": 346,
+        "repair_family": "triple_237",
+        "row_count": 346,
+        "row_reduction": "pivot_row_subset",
+        "six_class_dominance": 0,
+        "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+        "stage1_repair_budget": 8,
+        "stage1_repair_family": "triple_237",
+        "stage2_repair_delta_summary": {
+          "post_B27_delta": 8,
+          "post_B37_delta": 8,
+          "post_B57_delta": 0,
+          "rows": 8,
+          "score": 688
+        },
+        "stage2_repair_specs_preview": [
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 29,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 13,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 2,
+            "position": 29,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 29,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 13,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 3,
+            "position": 29,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 30,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 14,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 2,
+            "position": 30,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 30,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 14,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 3,
+            "position": 30,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 45,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 13,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 2,
+            "position": 45,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 45,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 13,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 3,
+            "position": 45,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 46,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 14,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 2,
+            "position": 46,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 46,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 14,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 3,
+            "position": 46,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 61,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 13,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 2,
+            "position": 61,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 61,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 13,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 3,
+            "position": 61,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 62,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 14,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 2,
+            "position": 62,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 62,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 14,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 3,
+            "position": 62,
+            "right": 7
+          }
+        ],
+        "total_triple_237_budget": 24
+      },
+      {
+        "base_system": "postsplit_microrepair_triple_237_budget8",
+        "baseline_stage1": {
+          "capacity_upper_bound": 330,
+          "degenerate_classes": [
+            [
+              1,
+              4,
+              5,
+              7
+            ],
+            [
+              6
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ]
+          ],
+          "pair_B_values": [
+            1024,
+            645,
+            644,
+            1024,
+            1024
+          ],
+          "pair_deficit_to_654": [
+            -370,
+            9,
+            10,
+            -370,
+            -370
+          ]
+        },
+        "capacity_preserving": true,
+        "capacity_reserve": false,
+        "capacity_total": 2337,
+        "capacity_upper_bound": 333,
+        "chosen_masks_hash": null,
+        "collapse_preserving": true,
+        "collapse_reduced": true,
+        "d2_split": true,
+        "degenerate_classes": [
+          [
+            1,
+            4,
+            5,
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "distinct_codewords": false,
+        "effective_row_count": 354,
+        "elapsed_seconds": 112.377,
+        "exact_agreement_vector": null,
+        "exact_max_min": null,
+        "extra_repair_budget": 24,
+        "failure_mode": "MICROREPAIR_STAGE2_LOW_RESCHEDULE",
+        "full_pair_repaired": true,
+        "largest_class_histogram": {
+          "4": 367,
+          "5": 1,
+          "6": 144
+        },
+        "low_collapse": true,
+        "min_pair_B": 656,
+        "nullity_after": 1182,
+        "old_three_subset_B_values": [
+          801,
+          801,
+          801
+        ],
+        "old_three_subset_min_hall_bound": 267,
+        "pair27_37_repaired": true,
+        "pair27_B": 657,
+        "pair27_repaired": true,
+        "pair37_B": 656,
+        "pair37_repaired": true,
+        "pair57_preserving": true,
+        "pair_B_values": [
+          1024,
+          657,
+          656,
+          1024,
+          1024
+        ],
+        "pair_deficit_to_654": [
+          -370,
+          -3,
+          -2,
+          -370,
+          -370
+        ],
+        "pair_hall_bound": 328,
+        "phase": "postsplit_microrepair_stage2",
+        "pre_pair27_37_near_target": true,
+        "rank_after": 354,
+        "repair_family": "triple_237",
+        "row_count": 354,
+        "row_reduction": "pivot_row_subset",
+        "six_class_dominance": 0,
+        "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+        "stage1_repair_budget": 8,
+        "stage1_repair_family": "triple_237",
+        "stage2_repair_delta_summary": {
+          "post_B27_delta": 12,
+          "post_B37_delta": 12,
+          "post_B57_delta": 0,
+          "rows": 12,
+          "score": 1032
+        },
+        "stage2_repair_specs_preview": [
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 29,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 13,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 2,
+            "position": 29,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 29,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 13,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 3,
+            "position": 29,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 30,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 14,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 2,
+            "position": 30,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 30,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 14,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 3,
+            "position": 30,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 45,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 13,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 2,
+            "position": 45,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 45,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 13,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 3,
+            "position": 45,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 46,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 14,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 2,
+            "position": 46,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 46,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 14,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 3,
+            "position": 46,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 61,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 13,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 2,
+            "position": 61,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 61,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 13,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 3,
+            "position": 61,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 62,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 14,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 2,
+            "position": 62,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 62,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 14,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 3,
+            "position": 62,
+            "right": 7
+          }
+        ],
+        "total_triple_237_budget": 32
+      }
+    ],
+    "stage1_repair_budget": 8,
+    "stage1_repair_family": "triple_237",
+    "systems_tested": 4,
+    "timeouts": 0,
+    "total_triple_237_budgets": [
+      12,
+      16,
+      24,
+      32
+    ]
+  },
+  "track": "INTERLEAVED_LIST"
+}

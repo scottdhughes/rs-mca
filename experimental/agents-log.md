@@ -30,6 +30,29 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-01 - M1 a327 post-split pair27/37 microrepair stage 2
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_postsplit_pair27_37_microrepair_stage2.md`,
+  `experimental/scripts/scan_m1_a327_postsplit_pair27_37_microrepair_stage2.py`,
+  `experimental/scripts/verify_m1_a327_postsplit_pair27_37_microrepair_stage2.py`,
+  `experimental/scripts/audit_m1_a327_postsplit_pair27_37_microrepair_stage2.sage`,
+  `experimental/data/m1_a327_postsplit_pair27_37_microrepair_stage2.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A stage-2 exact `GF(17^32)` microrepair ladder
+  that continues the successful `triple_237` direction from the budget-8
+  post-split incumbent through total budgets `12,16,24,32`.
+- **How it is useful:** The total-budget-32 case clears the local pair Hall
+  targets with capacity `333`, `B({2,7})/B({3,7}) = 657/656`,
+  `B({5,7}) = 1024`, pair Hall bound `328`, and six-class dominance `0`.
+  It is still not an exact witness because the tuple remains degenerate with
+  classes `[[1,4,5,7],[6],[3],[2]]`.
+- **What to do next:** Work inside the repaired post-split skeleton on
+  nondegeneracy/rescheduling, especially splitting the residual
+  `[1,4,5,7]` class without losing the newly repaired pair Hall and capacity
+  guards.
+
 ### 2026-07-01 - M1 a327 post-split pair27/37 microrepair
 
 - **Agent/model:** Codex.
