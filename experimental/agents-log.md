@@ -30,6 +30,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-30 - M1 a327 pair27/37 class creation
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_pair27_37_class_creation.md`,
+  `experimental/scripts/scan_m1_a327_pair27_37_class_creation.py`,
+  `experimental/scripts/verify_m1_a327_pair27_37_class_creation.py`,
+  `experimental/scripts/audit_m1_a327_pair27_37_class_creation.sage`,
+  `experimental/data/m1_a327_pair27_37_class_creation.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A bounded exact `GF(17^32)` class-creation probe
+  that adds structured first-class target rows for `P_2=P_7` and `P_3=P_7`
+  on quotient-fiber coordinate sets of size 32.
+- **How it is useful:** The probe raises the weak pair values from
+  `B({2,7})=514`, `B({3,7})=513` to `545` and `544` while retaining `D2`
+  split and capacity `375`, but it remains a partial repair and all exact
+  vectors are still degenerate.
+- **What to do next:** Continue class creation with larger structured
+  `T_27/T_37` sets and better exact linear-algebra strategy; the size-64+
+  systems were left open because dense `GF(17^32)` echelonization was too slow
+  for this checkpoint.
+
 ### 2026-06-30 - M1 a327 pair27/37 exchange obstruction
 
 - **Agent/model:** Codex.
