@@ -30,6 +30,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-30 - M1 a327 pair27/37 exchange obstruction
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_pair27_37_exchange_obstruction.md`,
+  `experimental/scripts/scan_m1_a327_pair27_37_exchange_obstruction.py`,
+  `experimental/scripts/verify_m1_a327_pair27_37_exchange_obstruction.py`,
+  `experimental/scripts/audit_m1_a327_pair27_37_exchange_obstruction.sage`,
+  `experimental/data/m1_a327_pair27_37_exchange_obstruction.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** An exact `GF(17^32)` Hall/exchange diagnostic for
+  the weak pair subsets `{2,7}` and `{3,7}` inside the stable low-collapse
+  post-`D2` split geometry.
+- **How it is useful:** The audit analyzes all 78 exact vectors from the
+  prior checkpoint and shows the exchange graph is infeasible: `{2,7}` shares
+  a value at only 2 coordinates, and `{3,7}` at only 1 coordinate, far below
+  the `B>=654` pair target.
+- **What to do next:** Stop trying to exchange among existing value classes in
+  this tuple. Search for exact perturbations that create new `{2,7}` and
+  `{3,7}` pair-credit coordinates while preserving the `D2` split and
+  capacity.
+
 ### 2026-06-30 - M1 a327 post-D2-split pair-7 repair
 
 - **Agent/model:** Codex.
