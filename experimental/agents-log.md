@@ -30,6 +30,27 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-30 - M1 a327 post-D2-split pair-7 repair
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_post_d2split_pair7_repair.md`,
+  `experimental/scripts/scan_m1_a327_post_d2split_pair7_repair.py`,
+  `experimental/scripts/verify_m1_a327_post_d2split_pair7_repair.py`,
+  `experimental/scripts/audit_m1_a327_post_d2split_pair7_repair.sage`,
+  `experimental/data/m1_a327_post_d2split_pair7_repair.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A bounded exact `GF(17^32)` pair-repair audit
+  after the capacity-preserving `D_2` split checkpoint. It adds local
+  homogeneous `P_2=P_7`, `P_3=P_7`, and `P_2=P_3=P_7` repair rows to the
+  stable low-collapse split regime.
+- **How it is useful:** All 78 constructed exact vectors retain `D_2` split,
+  capacity, and low six-class dominance, but none repair the weak pair values.
+  The best remains at pair values `[1024,514,513,1024,1024]`.
+- **What to do next:** Replace local homogeneous repair pins with
+  pair-Hall-guided exact nullspace sampling inside the stable low-collapse
+  capacity-preserving `D_2` split regime.
+
 ### 2026-06-30 - M1 a327 capacity-preserving residual [1,2] split
 
 - **Agent/model:** Codex.
