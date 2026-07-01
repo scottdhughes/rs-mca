@@ -30,6 +30,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-30 - M1 a327 pair27/37 class creation scalable solve
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_pair27_37_class_creation_scalable.md`,
+  `experimental/scripts/scan_m1_a327_pair27_37_class_creation_scalable.py`,
+  `experimental/scripts/verify_m1_a327_pair27_37_class_creation_scalable.py`,
+  `experimental/scripts/audit_m1_a327_pair27_37_class_creation_scalable.sage`,
+  `experimental/data/m1_a327_pair27_37_class_creation_scalable.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A timeout-bounded exact `GF(17^32)` scalable
+  class-creation audit that extends the successful size-32 `{2,7}` / `{3,7}`
+  class-creation system with structured row blocks for target sizes 64 and 96.
+- **How it is useful:** The scalable pass shows the pair-class creation
+  mechanism continues to move the exact Hall values in the right direction:
+  best pair values improve to `[1024,577,576,1024,1024]` with capacity `384`,
+  `D2` split retained, and no timeouts.
+- **What to do next:** Couple larger pair-class creation blocks with
+  nondegeneracy constraints for the persistent `[1,4,5,6,7]` class; all
+  scalable vectors remain degenerate and still fall short of the `654` pair
+  target.
+
 ### 2026-06-30 - M1 a327 pair27/37 class creation
 
 - **Agent/model:** Codex.

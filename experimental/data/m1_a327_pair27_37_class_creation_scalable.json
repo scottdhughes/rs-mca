@@ -1,0 +1,980 @@
+{
+  "agreement_target": 327,
+  "baseline": {
+    "D2_split": true,
+    "best_capacity_upper_bound": 375,
+    "best_pair_B_values": [
+      1024,
+      545,
+      544,
+      1024,
+      1024
+    ],
+    "failure_mode": "PAIR_CLASS_PARTIAL_REPAIR",
+    "low_collapse_vectors": 2,
+    "systems_tested": 6
+  },
+  "construction_mode": "pair27_37_class_creation_scalable",
+  "denominator": "17^32",
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C"
+  ],
+  "proof_status": "EXACT_EXTRACTION_NO_A327",
+  "row": "RS[F_17^32,H,256]",
+  "scalable_class_creation": {
+    "D2_split_vectors": 12,
+    "T27_sizes": [
+      64,
+      96
+    ],
+    "T37_sizes": [
+      64,
+      96
+    ],
+    "best_B27": 577,
+    "best_B37": 576,
+    "best_capacity_upper_bound": 384,
+    "best_exact_max_min": null,
+    "best_failure_mode": "PAIR_CLASS_PARTIAL_REPAIR",
+    "best_pair_B_values": [
+      1024,
+      577,
+      576,
+      1024,
+      1024
+    ],
+    "case_timeout_seconds": 35,
+    "designs_tested": [
+      "overlap_all",
+      "same_fiber_shifted",
+      "disjoint_low_high"
+    ],
+    "exact_field": "GF(17^32)",
+    "exact_vectors_constructed": 12,
+    "extension_row_blocks": [
+      32,
+      64
+    ],
+    "failure_mode_counts": {
+      "PAIR_CLASS_COLLAPSE_RETURNS": 2,
+      "PAIR_CLASS_PARTIAL_REPAIR": 10
+    },
+    "full_pair_repaired_vectors": 0,
+    "incremental_blocks_tested": 12,
+    "low_collapse_vectors": 10,
+    "pair27_repaired_vectors": 0,
+    "pair37_repaired_vectors": 0,
+    "results": [
+      {
+        "base_creation_rows": 64,
+        "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+        "capacity_preserving": true,
+        "capacity_total": 2657,
+        "capacity_upper_bound": 379,
+        "chosen_masks_hash": null,
+        "d2_split": true,
+        "degenerate_classes": [
+          [
+            1,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "design": "overlap_all",
+        "distinct_codewords": false,
+        "elapsed_seconds": 10.121,
+        "exact_agreement_vector": null,
+        "exact_max_min": null,
+        "extension_row_block": 32,
+        "extension_rows": 32,
+        "failure_mode": "PAIR_CLASS_PARTIAL_REPAIR",
+        "free_pattern": "d2_first_free",
+        "full_pair_repaired": false,
+        "largest_class_histogram": {
+          "5": 463,
+          "6": 1,
+          "7": 48
+        },
+        "low_collapse": true,
+        "min_pair_B": 560,
+        "nullity_after": 1375,
+        "old_three_subset_B_values": [
+          609,
+          609,
+          609
+        ],
+        "old_three_subset_min_hall_bound": 203,
+        "pair27_B": 561,
+        "pair27_repaired": false,
+        "pair37_B": 560,
+        "pair37_repaired": false,
+        "pair_B_values": [
+          1024,
+          561,
+          560,
+          1024,
+          1024
+        ],
+        "pair_deficit_to_654": [
+          -370,
+          93,
+          94,
+          -370,
+          -370
+        ],
+        "pair_hall_bound": 280,
+        "partial_split_family": "one_pair_13",
+        "protected_rows": 64,
+        "rank_after": 161,
+        "row_count": 161,
+        "search_layer": "pair27_37_class_creation_scalable",
+        "six_class_dominance": 0,
+        "size": 64,
+        "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+      },
+      {
+        "base_creation_rows": 64,
+        "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+        "capacity_preserving": true,
+        "capacity_total": 2689,
+        "capacity_upper_bound": 384,
+        "chosen_masks_hash": null,
+        "d2_split": true,
+        "degenerate_classes": [
+          [
+            1,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "design": "overlap_all",
+        "distinct_codewords": false,
+        "elapsed_seconds": 15.233,
+        "exact_agreement_vector": null,
+        "exact_max_min": null,
+        "extension_row_block": 64,
+        "extension_rows": 64,
+        "failure_mode": "PAIR_CLASS_PARTIAL_REPAIR",
+        "free_pattern": "d2_first_free",
+        "full_pair_repaired": false,
+        "largest_class_histogram": {
+          "5": 447,
+          "6": 1,
+          "7": 64
+        },
+        "low_collapse": true,
+        "min_pair_B": 576,
+        "nullity_after": 1343,
+        "old_three_subset_B_values": [
+          641,
+          641,
+          641
+        ],
+        "old_three_subset_min_hall_bound": 213,
+        "pair27_B": 577,
+        "pair27_repaired": false,
+        "pair37_B": 576,
+        "pair37_repaired": false,
+        "pair_B_values": [
+          1024,
+          577,
+          576,
+          1024,
+          1024
+        ],
+        "pair_deficit_to_654": [
+          -370,
+          77,
+          78,
+          -370,
+          -370
+        ],
+        "pair_hall_bound": 288,
+        "partial_split_family": "one_pair_13",
+        "protected_rows": 64,
+        "rank_after": 193,
+        "row_count": 193,
+        "search_layer": "pair27_37_class_creation_scalable",
+        "six_class_dominance": 0,
+        "size": 64,
+        "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+      },
+      {
+        "base_creation_rows": 64,
+        "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+        "capacity_preserving": true,
+        "capacity_total": 2657,
+        "capacity_upper_bound": 379,
+        "chosen_masks_hash": null,
+        "d2_split": true,
+        "degenerate_classes": [
+          [
+            1,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "design": "same_fiber_shifted",
+        "distinct_codewords": false,
+        "elapsed_seconds": 9.866,
+        "exact_agreement_vector": null,
+        "exact_max_min": null,
+        "extension_row_block": 32,
+        "extension_rows": 32,
+        "failure_mode": "PAIR_CLASS_PARTIAL_REPAIR",
+        "free_pattern": "d2_first_free",
+        "full_pair_repaired": false,
+        "largest_class_histogram": {
+          "5": 463,
+          "6": 1,
+          "7": 48
+        },
+        "low_collapse": true,
+        "min_pair_B": 560,
+        "nullity_after": 1375,
+        "old_three_subset_B_values": [
+          609,
+          609,
+          609
+        ],
+        "old_three_subset_min_hall_bound": 203,
+        "pair27_B": 561,
+        "pair27_repaired": false,
+        "pair37_B": 560,
+        "pair37_repaired": false,
+        "pair_B_values": [
+          1024,
+          561,
+          560,
+          1024,
+          1024
+        ],
+        "pair_deficit_to_654": [
+          -370,
+          93,
+          94,
+          -370,
+          -370
+        ],
+        "pair_hall_bound": 280,
+        "partial_split_family": "one_pair_13",
+        "protected_rows": 64,
+        "rank_after": 161,
+        "row_count": 161,
+        "search_layer": "pair27_37_class_creation_scalable",
+        "six_class_dominance": 0,
+        "size": 64,
+        "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+      },
+      {
+        "base_creation_rows": 64,
+        "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+        "capacity_preserving": true,
+        "capacity_total": 2689,
+        "capacity_upper_bound": 384,
+        "chosen_masks_hash": null,
+        "d2_split": true,
+        "degenerate_classes": [
+          [
+            1,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "design": "same_fiber_shifted",
+        "distinct_codewords": false,
+        "elapsed_seconds": 14.498,
+        "exact_agreement_vector": null,
+        "exact_max_min": null,
+        "extension_row_block": 64,
+        "extension_rows": 64,
+        "failure_mode": "PAIR_CLASS_PARTIAL_REPAIR",
+        "free_pattern": "d2_first_free",
+        "full_pair_repaired": false,
+        "largest_class_histogram": {
+          "5": 447,
+          "6": 1,
+          "7": 64
+        },
+        "low_collapse": true,
+        "min_pair_B": 576,
+        "nullity_after": 1343,
+        "old_three_subset_B_values": [
+          641,
+          641,
+          641
+        ],
+        "old_three_subset_min_hall_bound": 213,
+        "pair27_B": 577,
+        "pair27_repaired": false,
+        "pair37_B": 576,
+        "pair37_repaired": false,
+        "pair_B_values": [
+          1024,
+          577,
+          576,
+          1024,
+          1024
+        ],
+        "pair_deficit_to_654": [
+          -370,
+          77,
+          78,
+          -370,
+          -370
+        ],
+        "pair_hall_bound": 288,
+        "partial_split_family": "one_pair_13",
+        "protected_rows": 64,
+        "rank_after": 193,
+        "row_count": 193,
+        "search_layer": "pair27_37_class_creation_scalable",
+        "six_class_dominance": 0,
+        "size": 64,
+        "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+      },
+      {
+        "base_creation_rows": 64,
+        "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+        "capacity_preserving": true,
+        "capacity_total": 2657,
+        "capacity_upper_bound": 379,
+        "chosen_masks_hash": null,
+        "d2_split": true,
+        "degenerate_classes": [
+          [
+            1,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "design": "disjoint_low_high",
+        "distinct_codewords": false,
+        "elapsed_seconds": 9.951,
+        "exact_agreement_vector": null,
+        "exact_max_min": null,
+        "extension_row_block": 32,
+        "extension_rows": 32,
+        "failure_mode": "PAIR_CLASS_PARTIAL_REPAIR",
+        "free_pattern": "d2_first_free",
+        "full_pair_repaired": false,
+        "largest_class_histogram": {
+          "5": 447,
+          "6": 33,
+          "7": 32
+        },
+        "low_collapse": true,
+        "min_pair_B": 560,
+        "nullity_after": 1375,
+        "old_three_subset_B_values": [
+          609,
+          609,
+          609
+        ],
+        "old_three_subset_min_hall_bound": 203,
+        "pair27_B": 561,
+        "pair27_repaired": false,
+        "pair37_B": 560,
+        "pair37_repaired": false,
+        "pair_B_values": [
+          1024,
+          561,
+          560,
+          1024,
+          1024
+        ],
+        "pair_deficit_to_654": [
+          -370,
+          93,
+          94,
+          -370,
+          -370
+        ],
+        "pair_hall_bound": 280,
+        "partial_split_family": "one_pair_13",
+        "protected_rows": 64,
+        "rank_after": 161,
+        "row_count": 161,
+        "search_layer": "pair27_37_class_creation_scalable",
+        "six_class_dominance": 16,
+        "size": 64,
+        "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+      },
+      {
+        "base_creation_rows": 64,
+        "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+        "capacity_preserving": true,
+        "capacity_total": 2689,
+        "capacity_upper_bound": 384,
+        "chosen_masks_hash": null,
+        "d2_split": true,
+        "degenerate_classes": [
+          [
+            1,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "design": "disjoint_low_high",
+        "distinct_codewords": false,
+        "elapsed_seconds": 14.397,
+        "exact_agreement_vector": null,
+        "exact_max_min": null,
+        "extension_row_block": 64,
+        "extension_rows": 64,
+        "failure_mode": "PAIR_CLASS_COLLAPSE_RETURNS",
+        "free_pattern": "d2_first_free",
+        "full_pair_repaired": false,
+        "largest_class_histogram": {
+          "5": 415,
+          "6": 65,
+          "7": 32
+        },
+        "low_collapse": false,
+        "min_pair_B": 576,
+        "nullity_after": 1343,
+        "old_three_subset_B_values": [
+          641,
+          641,
+          641
+        ],
+        "old_three_subset_min_hall_bound": 213,
+        "pair27_B": 577,
+        "pair27_repaired": false,
+        "pair37_B": 576,
+        "pair37_repaired": false,
+        "pair_B_values": [
+          1024,
+          577,
+          576,
+          1024,
+          1024
+        ],
+        "pair_deficit_to_654": [
+          -370,
+          77,
+          78,
+          -370,
+          -370
+        ],
+        "pair_hall_bound": 288,
+        "partial_split_family": "one_pair_13",
+        "protected_rows": 64,
+        "rank_after": 193,
+        "row_count": 193,
+        "search_layer": "pair27_37_class_creation_scalable",
+        "six_class_dominance": 32,
+        "size": 64,
+        "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+      },
+      {
+        "base_creation_rows": 64,
+        "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+        "capacity_preserving": true,
+        "capacity_total": 2657,
+        "capacity_upper_bound": 379,
+        "chosen_masks_hash": null,
+        "d2_split": true,
+        "degenerate_classes": [
+          [
+            1,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "design": "overlap_all",
+        "distinct_codewords": false,
+        "elapsed_seconds": 9.339,
+        "exact_agreement_vector": null,
+        "exact_max_min": null,
+        "extension_row_block": 32,
+        "extension_rows": 32,
+        "failure_mode": "PAIR_CLASS_PARTIAL_REPAIR",
+        "free_pattern": "d2_first_free",
+        "full_pair_repaired": false,
+        "largest_class_histogram": {
+          "5": 463,
+          "6": 1,
+          "7": 48
+        },
+        "low_collapse": true,
+        "min_pair_B": 560,
+        "nullity_after": 1375,
+        "old_three_subset_B_values": [
+          609,
+          609,
+          609
+        ],
+        "old_three_subset_min_hall_bound": 203,
+        "pair27_B": 561,
+        "pair27_repaired": false,
+        "pair37_B": 560,
+        "pair37_repaired": false,
+        "pair_B_values": [
+          1024,
+          561,
+          560,
+          1024,
+          1024
+        ],
+        "pair_deficit_to_654": [
+          -370,
+          93,
+          94,
+          -370,
+          -370
+        ],
+        "pair_hall_bound": 280,
+        "partial_split_family": "one_pair_13",
+        "protected_rows": 64,
+        "rank_after": 161,
+        "row_count": 161,
+        "search_layer": "pair27_37_class_creation_scalable",
+        "six_class_dominance": 0,
+        "size": 96,
+        "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+      },
+      {
+        "base_creation_rows": 64,
+        "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+        "capacity_preserving": true,
+        "capacity_total": 2689,
+        "capacity_upper_bound": 384,
+        "chosen_masks_hash": null,
+        "d2_split": true,
+        "degenerate_classes": [
+          [
+            1,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "design": "overlap_all",
+        "distinct_codewords": false,
+        "elapsed_seconds": 15.212,
+        "exact_agreement_vector": null,
+        "exact_max_min": null,
+        "extension_row_block": 64,
+        "extension_rows": 64,
+        "failure_mode": "PAIR_CLASS_PARTIAL_REPAIR",
+        "free_pattern": "d2_first_free",
+        "full_pair_repaired": false,
+        "largest_class_histogram": {
+          "5": 447,
+          "6": 1,
+          "7": 64
+        },
+        "low_collapse": true,
+        "min_pair_B": 576,
+        "nullity_after": 1343,
+        "old_three_subset_B_values": [
+          641,
+          641,
+          641
+        ],
+        "old_three_subset_min_hall_bound": 213,
+        "pair27_B": 577,
+        "pair27_repaired": false,
+        "pair37_B": 576,
+        "pair37_repaired": false,
+        "pair_B_values": [
+          1024,
+          577,
+          576,
+          1024,
+          1024
+        ],
+        "pair_deficit_to_654": [
+          -370,
+          77,
+          78,
+          -370,
+          -370
+        ],
+        "pair_hall_bound": 288,
+        "partial_split_family": "one_pair_13",
+        "protected_rows": 64,
+        "rank_after": 193,
+        "row_count": 193,
+        "search_layer": "pair27_37_class_creation_scalable",
+        "six_class_dominance": 0,
+        "size": 96,
+        "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+      },
+      {
+        "base_creation_rows": 64,
+        "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+        "capacity_preserving": true,
+        "capacity_total": 2657,
+        "capacity_upper_bound": 379,
+        "chosen_masks_hash": null,
+        "d2_split": true,
+        "degenerate_classes": [
+          [
+            1,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "design": "same_fiber_shifted",
+        "distinct_codewords": false,
+        "elapsed_seconds": 9.943,
+        "exact_agreement_vector": null,
+        "exact_max_min": null,
+        "extension_row_block": 32,
+        "extension_rows": 32,
+        "failure_mode": "PAIR_CLASS_PARTIAL_REPAIR",
+        "free_pattern": "d2_first_free",
+        "full_pair_repaired": false,
+        "largest_class_histogram": {
+          "5": 463,
+          "6": 1,
+          "7": 48
+        },
+        "low_collapse": true,
+        "min_pair_B": 560,
+        "nullity_after": 1375,
+        "old_three_subset_B_values": [
+          609,
+          609,
+          609
+        ],
+        "old_three_subset_min_hall_bound": 203,
+        "pair27_B": 561,
+        "pair27_repaired": false,
+        "pair37_B": 560,
+        "pair37_repaired": false,
+        "pair_B_values": [
+          1024,
+          561,
+          560,
+          1024,
+          1024
+        ],
+        "pair_deficit_to_654": [
+          -370,
+          93,
+          94,
+          -370,
+          -370
+        ],
+        "pair_hall_bound": 280,
+        "partial_split_family": "one_pair_13",
+        "protected_rows": 64,
+        "rank_after": 161,
+        "row_count": 161,
+        "search_layer": "pair27_37_class_creation_scalable",
+        "six_class_dominance": 0,
+        "size": 96,
+        "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+      },
+      {
+        "base_creation_rows": 64,
+        "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+        "capacity_preserving": true,
+        "capacity_total": 2689,
+        "capacity_upper_bound": 384,
+        "chosen_masks_hash": null,
+        "d2_split": true,
+        "degenerate_classes": [
+          [
+            1,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "design": "same_fiber_shifted",
+        "distinct_codewords": false,
+        "elapsed_seconds": 16.312,
+        "exact_agreement_vector": null,
+        "exact_max_min": null,
+        "extension_row_block": 64,
+        "extension_rows": 64,
+        "failure_mode": "PAIR_CLASS_PARTIAL_REPAIR",
+        "free_pattern": "d2_first_free",
+        "full_pair_repaired": false,
+        "largest_class_histogram": {
+          "5": 447,
+          "6": 1,
+          "7": 64
+        },
+        "low_collapse": true,
+        "min_pair_B": 576,
+        "nullity_after": 1343,
+        "old_three_subset_B_values": [
+          641,
+          641,
+          641
+        ],
+        "old_three_subset_min_hall_bound": 213,
+        "pair27_B": 577,
+        "pair27_repaired": false,
+        "pair37_B": 576,
+        "pair37_repaired": false,
+        "pair_B_values": [
+          1024,
+          577,
+          576,
+          1024,
+          1024
+        ],
+        "pair_deficit_to_654": [
+          -370,
+          77,
+          78,
+          -370,
+          -370
+        ],
+        "pair_hall_bound": 288,
+        "partial_split_family": "one_pair_13",
+        "protected_rows": 64,
+        "rank_after": 193,
+        "row_count": 193,
+        "search_layer": "pair27_37_class_creation_scalable",
+        "six_class_dominance": 0,
+        "size": 96,
+        "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+      },
+      {
+        "base_creation_rows": 64,
+        "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+        "capacity_preserving": true,
+        "capacity_total": 2657,
+        "capacity_upper_bound": 379,
+        "chosen_masks_hash": null,
+        "d2_split": true,
+        "degenerate_classes": [
+          [
+            1,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "design": "disjoint_low_high",
+        "distinct_codewords": false,
+        "elapsed_seconds": 10.23,
+        "exact_agreement_vector": null,
+        "exact_max_min": null,
+        "extension_row_block": 32,
+        "extension_rows": 32,
+        "failure_mode": "PAIR_CLASS_PARTIAL_REPAIR",
+        "free_pattern": "d2_first_free",
+        "full_pair_repaired": false,
+        "largest_class_histogram": {
+          "5": 447,
+          "6": 33,
+          "7": 32
+        },
+        "low_collapse": true,
+        "min_pair_B": 560,
+        "nullity_after": 1375,
+        "old_three_subset_B_values": [
+          609,
+          609,
+          609
+        ],
+        "old_three_subset_min_hall_bound": 203,
+        "pair27_B": 561,
+        "pair27_repaired": false,
+        "pair37_B": 560,
+        "pair37_repaired": false,
+        "pair_B_values": [
+          1024,
+          561,
+          560,
+          1024,
+          1024
+        ],
+        "pair_deficit_to_654": [
+          -370,
+          93,
+          94,
+          -370,
+          -370
+        ],
+        "pair_hall_bound": 280,
+        "partial_split_family": "one_pair_13",
+        "protected_rows": 64,
+        "rank_after": 161,
+        "row_count": 161,
+        "search_layer": "pair27_37_class_creation_scalable",
+        "six_class_dominance": 16,
+        "size": 96,
+        "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+      },
+      {
+        "base_creation_rows": 64,
+        "candidate_id": "7d2bb937c72e__PX48__one_for_two",
+        "capacity_preserving": true,
+        "capacity_total": 2689,
+        "capacity_upper_bound": 384,
+        "chosen_masks_hash": null,
+        "d2_split": true,
+        "degenerate_classes": [
+          [
+            1,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "design": "disjoint_low_high",
+        "distinct_codewords": false,
+        "elapsed_seconds": 16.808,
+        "exact_agreement_vector": null,
+        "exact_max_min": null,
+        "extension_row_block": 64,
+        "extension_rows": 64,
+        "failure_mode": "PAIR_CLASS_COLLAPSE_RETURNS",
+        "free_pattern": "d2_first_free",
+        "full_pair_repaired": false,
+        "largest_class_histogram": {
+          "5": 415,
+          "6": 65,
+          "7": 32
+        },
+        "low_collapse": false,
+        "min_pair_B": 576,
+        "nullity_after": 1343,
+        "old_three_subset_B_values": [
+          641,
+          641,
+          641
+        ],
+        "old_three_subset_min_hall_bound": 213,
+        "pair27_B": 577,
+        "pair27_repaired": false,
+        "pair37_B": 576,
+        "pair37_repaired": false,
+        "pair_B_values": [
+          1024,
+          577,
+          576,
+          1024,
+          1024
+        ],
+        "pair_deficit_to_654": [
+          -370,
+          77,
+          78,
+          -370,
+          -370
+        ],
+        "pair_hall_bound": 288,
+        "partial_split_family": "one_pair_13",
+        "protected_rows": 64,
+        "rank_after": 193,
+        "row_count": 193,
+        "search_layer": "pair27_37_class_creation_scalable",
+        "six_class_dominance": 32,
+        "size": 96,
+        "solve_status": "EXACT_VECTOR_CONSTRUCTED"
+      }
+    ],
+    "systems_tested": 12,
+    "timeouts": 0
+  },
+  "source_commit": "07e987c",
+  "track": "INTERLEAVED_LIST"
+}
