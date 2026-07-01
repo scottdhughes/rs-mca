@@ -30,6 +30,26 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-01 - M1 a327 compensated split-and-replace
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_compensated_split_replace.md`,
+  `experimental/scripts/scan_m1_a327_compensated_split_replace.py`,
+  `experimental/scripts/verify_m1_a327_compensated_split_replace.py`,
+  `experimental/scripts/audit_m1_a327_compensated_split_replace.sage`,
+  `experimental/data/m1_a327_compensated_split_replace.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A 30-system exact `GF(17^32)` compensated
+  split-and-replace audit that pairs collapse-reducing split rows with one or
+  two capacity-replacement rows.
+- **How it is useful:** All 30 constructed vectors preserve `{5,7}`, preserve
+  the `B({2,7})/B({3,7})` gain at `593/592`, and reduce collapse, but zero
+  vectors restore capacity above `315`.
+- **What to do next:** Stop small local surgery in this basin. Either test
+  larger compensated exchanges explicitly or redesign the upstream pair-class
+  target system so it has capacity slack above `400` before the split.
+
 ### 2026-07-01 - M1 a327 capacity-slack split selector
 
 - **Agent/model:** Codex.
