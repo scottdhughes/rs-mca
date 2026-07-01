@@ -30,6 +30,27 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-01 - M1 a327 reserve-pairclass co-design before split
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_reserve_pairclass_codesign_before_split.md`,
+  `experimental/scripts/scan_m1_a327_reserve_pairclass_codesign_before_split.py`,
+  `experimental/scripts/verify_m1_a327_reserve_pairclass_codesign_before_split.py`,
+  `experimental/scripts/audit_m1_a327_reserve_pairclass_codesign_before_split.sage`,
+  `experimental/data/m1_a327_reserve_pairclass_codesign_before_split.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A split-aware exact `GF(17^32)` co-design audit
+  that chooses pre-split pairclass/reserve rows by predicted post-split
+  survival rather than raw pre-split capacity alone.
+- **How it is useful:** The best completed case clears post-split capacity
+  with capacity `329`, preserves `{5,7}`, reduces collapse, and improves
+  post-split `B({2,7})/B({3,7})` to `641/640`; the remaining deficit is
+  `13/14` pair credits, with no exact `a>=327` witness.
+- **What to do next:** Start from the 96-row quotient-fiber buffer geometry
+  and add a small B27/B37-only repair layer while preserving capacity `>=327`
+  and `B({5,7})>=654`.
+
 ### 2026-07-01 - M1 a327 high-buffer pairclass before split
 
 - **Agent/model:** Codex.
