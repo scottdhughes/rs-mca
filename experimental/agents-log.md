@@ -30,6 +30,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-01 - M1 a327 capacity-slack split selector
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_capacity_slack_split_selector.md`,
+  `experimental/scripts/scan_m1_a327_capacity_slack_split_selector.py`,
+  `experimental/scripts/verify_m1_a327_capacity_slack_split_selector.py`,
+  `experimental/scripts/audit_m1_a327_capacity_slack_split_selector.sage`,
+  `experimental/data/m1_a327_capacity_slack_split_selector.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** An exact `GF(17^32)` coordinate-level capacity
+  ledger and slack-ranked split selector for the scalable pair-class
+  extension-96 basin.
+- **How it is useful:** The ledger shows all 512 coordinates are both
+  capacity-critical and `{5,7}`-critical; all retained locally safe split rows
+  have score `0`. The selector constructs 36 exact vectors, all preserving
+  `{5,7}` and reducing collapse, but none preserve capacity above `315`.
+- **What to do next:** Stop using single-coordinate split placement in this
+  basin; either add compensated capacity rows with the split or redesign the
+  target system so pair-class creation does not make every coordinate
+  capacity-critical before splitting.
+
 ### 2026-07-01 - M1 a327 capacity-skeleton protected split placement
 
 - **Agent/model:** Codex.
