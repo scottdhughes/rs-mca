@@ -30,6 +30,29 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-01 - M1 a327 scalable pairclass with 14567 split
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_scalable_pairclass_with_14567_split.md`,
+  `experimental/scripts/scan_m1_a327_scalable_pairclass_with_14567_split.py`,
+  `experimental/scripts/verify_m1_a327_scalable_pairclass_with_14567_split.py`,
+  `experimental/scripts/audit_m1_a327_scalable_pairclass_with_14567_split.sage`,
+  `experimental/data/m1_a327_scalable_pairclass_with_14567_split.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A timeout-bounded exact `GF(17^32)` audit that
+  combines scalable `{2,7}` / `{3,7}` pair-class creation with controlled
+  evaluation split constraints for the persistent `[1,4,5,6,7]` class.
+- **How it is useful:** The audit shows both mechanisms work separately in the
+  same exact systems: pair values grow to `[1024,593,592,1024,514]`, and all
+  36 sampled vectors reduce the `[1,4,5,6,7]` collapse. The obstruction is
+  now capacity: zero vectors remain capacity-preserving, with best capacity
+  `315`.
+- **What to do next:** Choose split coordinates from a capacity-critical
+  ledger for the scalable pairclass geometry rather than using generic split
+  families; the next goal is split placement that preserves capacity
+  `>=327`.
+
 ### 2026-06-30 - M1 a327 pair27/37 class creation scalable solve
 
 - **Agent/model:** Codex.
