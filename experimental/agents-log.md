@@ -30,6 +30,30 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-01 - M1 a327 repaired-skeleton nondegenerate split
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_repaired_skeleton_nondegenerate_split.md`,
+  `experimental/scripts/scan_m1_a327_repaired_skeleton_nondegenerate_split.py`,
+  `experimental/scripts/verify_m1_a327_repaired_skeleton_nondegenerate_split.py`,
+  `experimental/scripts/audit_m1_a327_repaired_skeleton_nondegenerate_split.sage`,
+  `experimental/data/m1_a327_repaired_skeleton_nondegenerate_split.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A guarded exact `GF(17^32)` split audit starting
+  from the budget-32 repaired skeleton with capacity `333`,
+  `B({2,7})/B({3,7}) = 657/656`, `B({5,7}) = 1024`, and residual collapse
+  `[[1,4,5,7],[6],[3],[2]]`.
+- **How it is useful:** The first retained `split_4_from_157` row reduces the
+  residual class to `[[1,5,6,7],[4],[3],[2]]`, but capacity drops to `315`
+  and pair values fall to `[1024,593,592,512,1024]`. The ledger records all
+  `512` coordinates as capacity-critical and pair57-critical in this repaired
+  skeleton.
+- **What to do next:** Do not treat blind split pins as candidates. Either
+  develop a compensated/non-dense split solver that preserves the repaired
+  pair guards, or bank this as evidence for a local conservation obstruction
+  around the `[1,4,5,7]` residual class.
+
 ### 2026-07-01 - M1 a327 post-split pair27/37 microrepair stage 2
 
 - **Agent/model:** Codex.
