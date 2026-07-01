@@ -1,0 +1,388 @@
+{
+  "agreement_target": 327,
+  "baseline": {
+    "B27_deficit": 13,
+    "B37_deficit": 14,
+    "collapse_pattern": [
+      [
+        1,
+        4,
+        5,
+        7
+      ],
+      [
+        6
+      ],
+      [
+        3
+      ],
+      [
+        2
+      ]
+    ],
+    "failure_mode": "RESERVE_NOT_CREATED",
+    "post_split_capacity": 329,
+    "post_split_pair_B_values": [
+      1024,
+      641,
+      640,
+      1024,
+      1024
+    ]
+  },
+  "construction_mode": "postsplit_pair27_37_microrepair",
+  "denominator": "17^32",
+  "mca_counted": false,
+  "microrepair": {
+    "base_row_extension_size": 96,
+    "base_row_family": "quotient_fiber_buffer",
+    "base_system": "reserve_pairclass_codesign_quotient_fiber_buffer_extension96",
+    "best_agreement_vector": null,
+    "best_capacity": 330,
+    "best_exact_max_min": null,
+    "best_failure_mode": "MICROREPAIR_PAIRCLASS_NOT_REPAIRED",
+    "best_pair_B_values": [
+      1024,
+      645,
+      644,
+      1024,
+      1024
+    ],
+    "capacity_preserving_vectors": 1,
+    "case_timeout_seconds": null,
+    "collapse_preserving_vectors": 1,
+    "exact_field": "GF(17^32)",
+    "exact_vectors_constructed": 1,
+    "execution_mode": "single_context_in_process",
+    "failure_mode_counts": {
+      "MICROREPAIR_PAIRCLASS_NOT_REPAIRED": 1
+    },
+    "pair27_37_repaired_vectors": 0,
+    "pair27_repaired_vectors": 0,
+    "pair37_repaired_vectors": 0,
+    "pair57_preserving_vectors": 1,
+    "planned_repair_budgets": [
+      8,
+      16,
+      24,
+      32
+    ],
+    "planned_repair_families": [
+      "pair27_micro",
+      "pair37_micro",
+      "balanced_pair27_37_micro",
+      "triple_237",
+      "postsplit_survivor_pair_micro",
+      "quotient_fiber_pair27_37_micro"
+    ],
+    "repair_budgets": [
+      8
+    ],
+    "repair_families": [
+      "triple_237"
+    ],
+    "results": [
+      {
+        "base_system": "reserve_pairclass_codesign_quotient_fiber_buffer_extension96",
+        "baseline_post_split": {
+          "capacity_upper_bound": 329,
+          "degenerate_classes": [
+            [
+              1,
+              4,
+              5,
+              7
+            ],
+            [
+              6
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ]
+          ],
+          "pair_B_values": [
+            1024,
+            641,
+            640,
+            1024,
+            1024
+          ],
+          "pair_deficit_to_654": [
+            -370,
+            13,
+            14,
+            -370,
+            -370
+          ]
+        },
+        "capacity_preserving": true,
+        "capacity_reserve": false,
+        "capacity_total": 2313,
+        "capacity_upper_bound": 330,
+        "chosen_masks_hash": null,
+        "codesign_row_count": 96,
+        "collapse_preserving": true,
+        "collapse_reduced": true,
+        "d2_split": true,
+        "degenerate_classes": [
+          [
+            1,
+            4,
+            5,
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "distinct_codewords": false,
+        "effective_row_count": 330,
+        "elapsed_seconds": 89.431,
+        "exact_agreement_vector": null,
+        "exact_max_min": null,
+        "failure_mode": "MICROREPAIR_PAIRCLASS_NOT_REPAIRED",
+        "full_pair_repaired": false,
+        "largest_class_histogram": {
+          "4": 379,
+          "5": 1,
+          "6": 132
+        },
+        "low_collapse": true,
+        "microrepair_row_count": 8,
+        "min_pair_B": 644,
+        "nullity_after": 1206,
+        "old_three_subset_B_values": [
+          777,
+          777,
+          777
+        ],
+        "old_three_subset_min_hall_bound": 259,
+        "pair27_37_repaired": false,
+        "pair27_B": 645,
+        "pair27_repaired": false,
+        "pair37_B": 644,
+        "pair37_repaired": false,
+        "pair57_preserving": true,
+        "pair_B_values": [
+          1024,
+          645,
+          644,
+          1024,
+          1024
+        ],
+        "pair_deficit_to_654": [
+          -370,
+          9,
+          10,
+          -370,
+          -370
+        ],
+        "pair_hall_bound": 322,
+        "phase": "postsplit_microrepair",
+        "pre_pair27_37_near_target": true,
+        "rank_after": 330,
+        "repair_budget": 8,
+        "repair_delta_summary": {
+          "post_B27_delta": 4,
+          "post_B37_delta": 4,
+          "post_B57_delta": 0,
+          "rows": 4,
+          "score": 344
+        },
+        "repair_family": "triple_237",
+        "repair_specs_preview": [
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 12,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 12,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 2,
+            "position": 12,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 12,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 12,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 3,
+            "position": 12,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 13,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 13,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 2,
+            "position": 13,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 13,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 13,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 3,
+            "position": 13,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 14,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 14,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 2,
+            "position": 14,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 14,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 14,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 3,
+            "position": 14,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 15,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 15,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 2,
+            "position": 15,
+            "right": 7
+          },
+          {
+            "delta": {
+              "B57_contribution": 2,
+              "capacity_contribution": 4,
+              "coordinate": 15,
+              "family": "triple_237",
+              "post_B27_delta": 1,
+              "post_B37_delta": 1,
+              "post_B57_delta": 0,
+              "quotient_fiber": 15,
+              "score": 86,
+              "triple": true
+            },
+            "gamma": 0,
+            "kind": "triple_237",
+            "left": 3,
+            "position": 15,
+            "right": 7
+          }
+        ],
+        "row_count": 330,
+        "row_extension_size": 96,
+        "row_family": "quotient_fiber_buffer",
+        "row_reduction": "pivot_row_subset",
+        "six_class_dominance": 0,
+        "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+        "split_specs": [
+          {
+            "gamma": 1,
+            "kind": "split_6_keep1457",
+            "left": 6,
+            "position": 1,
+            "right": 1
+          }
+        ]
+      }
+    ],
+    "systems_tested": 1,
+    "timeouts": 0
+  },
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C"
+  ],
+  "proof_status": "EXACT_EXTRACTION_NO_A327",
+  "row": "RS[F_17^32,H,256]",
+  "source_commit": "6c54e44",
+  "track": "INTERLEAVED_LIST"
+}

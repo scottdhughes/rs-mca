@@ -30,6 +30,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-01 - M1 a327 post-split pair27/37 microrepair
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_postsplit_pair27_37_microrepair.md`,
+  `experimental/scripts/scan_m1_a327_postsplit_pair27_37_microrepair.py`,
+  `experimental/scripts/verify_m1_a327_postsplit_pair27_37_microrepair.py`,
+  `experimental/scripts/audit_m1_a327_postsplit_pair27_37_microrepair.sage`,
+  `experimental/data/m1_a327_postsplit_pair27_37_microrepair.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A bounded exact `GF(17^32)` post-split
+  microrepair audit starting from the `6c54e44` capacity-preserving
+  co-design geometry and testing a matched `triple_237` budget-8 repair.
+- **How it is useful:** The checked repair preserves capacity and collapse,
+  improving post-split capacity `329 -> 330` and
+  `B({2,7})/B({3,7})` from `641/640` to `645/644`, but remains short of
+  the `654/654` pair target and produces no exact `a>=327` witness.
+- **What to do next:** Either broaden the same microrepair family carefully
+  beyond budget 8 or test a nullspace-sampled variant; avoid returning to
+  broad capacity buffering until the remaining `9/10` pair-credit gap is
+  understood.
+
 ### 2026-07-01 - M1 a327 reserve-pairclass co-design before split
 
 - **Agent/model:** Codex.
