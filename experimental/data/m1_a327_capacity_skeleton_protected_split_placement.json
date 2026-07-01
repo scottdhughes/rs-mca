@@ -1,0 +1,5841 @@
+{
+  "agreement_target": 327,
+  "baseline": {
+    "failure_mode": "PAIRCLASS_SPLIT_CAPACITY_LOSS",
+    "previous_pair_B_values": [
+      1024,
+      577,
+      576,
+      1024,
+      1024
+    ],
+    "split_capacity": 315,
+    "split_collapse_pattern": [
+      [
+        1,
+        4,
+        6,
+        7
+      ],
+      [
+        5
+      ],
+      [
+        3
+      ],
+      [
+        2
+      ]
+    ],
+    "split_pair_B_values": [
+      1024,
+      593,
+      592,
+      1024,
+      514
+    ]
+  },
+  "capacity_skeleton_search": {
+    "best_capacity_upper_bound": 315,
+    "best_collapse_pattern": [
+      [
+        1,
+        4,
+        5,
+        7
+      ],
+      [
+        6
+      ],
+      [
+        3
+      ],
+      [
+        2
+      ]
+    ],
+    "best_exact_max_min": null,
+    "best_failure_mode": "SPLIT_CAPACITY_LOSS",
+    "best_pair_B_values": [
+      1024,
+      593,
+      592,
+      1024,
+      1024
+    ],
+    "capacity_preserving_vectors": 0,
+    "case_timeout_seconds": 55,
+    "collapse_reduced_vectors": 45,
+    "exact_field": "GF(17^32)",
+    "exact_vectors_constructed": 45,
+    "failure_mode_counts": {
+      "SPLIT_CAPACITY_LOSS": 27,
+      "SPLIT_DESTROYS_PAIR57": 18
+    },
+    "free_patterns": [
+      "d2_first_free",
+      "d2_first4_free",
+      "d2_even_sparse"
+    ],
+    "pair27_37_improved_vectors": 15,
+    "pair57_preserving_vectors": 27,
+    "pair_row_extensions": [
+      32,
+      64,
+      96
+    ],
+    "results": [
+      {
+        "best": {
+          "base_creation_rows": 64,
+          "capacity_preserving": false,
+          "capacity_total": 1600,
+          "capacity_upper_bound": 228,
+          "chosen_masks_hash": null,
+          "collapse_reduced": true,
+          "d2_split": true,
+          "degenerate_classes": [
+            [
+              1,
+              4,
+              6
+            ],
+            [
+              7
+            ],
+            [
+              5
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ]
+          ],
+          "distinct_codewords": false,
+          "exact_agreement_vector": null,
+          "exact_max_min": null,
+          "extension_rows": 32,
+          "failure_mode": "SPLIT_DESTROYS_PAIR57",
+          "free_pattern": "d2_first_free",
+          "full_pair_repaired": false,
+          "largest_class_histogram": {
+            "3": 449,
+            "4": 62,
+            "5": 1
+          },
+          "low_collapse": true,
+          "min_pair_B": 513,
+          "nullity_after": 1373,
+          "old_three_subset_B_values": [
+            561,
+            561,
+            560
+          ],
+          "old_three_subset_min_hall_bound": 186,
+          "pair27_37_improved": false,
+          "pair27_B": 561,
+          "pair27_repaired": false,
+          "pair37_B": 560,
+          "pair37_repaired": false,
+          "pair57_preserving": false,
+          "pair_B_values": [
+            575,
+            561,
+            560,
+            575,
+            513
+          ],
+          "pair_deficit_to_654": [
+            79,
+            93,
+            94,
+            79,
+            141
+          ],
+          "pair_hall_bound": 256,
+          "pair_row_extension": 32,
+          "protected_rows": 64,
+          "rank_after": 163,
+          "row_count": 163,
+          "six_class_dominance": 0,
+          "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+          "split_family": "keep_57_split_146_vs_57",
+          "split_rows": 2,
+          "split_specs": [
+            {
+              "gamma": 1,
+              "kind": "keep_57_split_146_vs_57",
+              "left": 5,
+              "position": 18,
+              "right": 1
+            },
+            {
+              "gamma": 1,
+              "kind": "keep_57_split_146_vs_57",
+              "left": 7,
+              "position": 18,
+              "right": 1
+            }
+          ],
+          "target_size": 128
+        },
+        "elapsed_seconds": 12.005,
+        "failure_mode": "SPLIT_DESTROYS_PAIR57",
+        "nullity_after": 1373,
+        "pair_row_extension": 32,
+        "rank_after": 163,
+        "row_count": 163,
+        "split_family": "keep_57_split_146_vs_57",
+        "target_size": 128,
+        "vector_results": [
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1600,
+            "capacity_upper_bound": 228,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                4,
+                6
+              ],
+              [
+                7
+              ],
+              [
+                5
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 32,
+            "failure_mode": "SPLIT_DESTROYS_PAIR57",
+            "free_pattern": "d2_first_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "3": 449,
+              "4": 62,
+              "5": 1
+            },
+            "low_collapse": true,
+            "min_pair_B": 513,
+            "nullity_after": 1373,
+            "old_three_subset_B_values": [
+              561,
+              561,
+              560
+            ],
+            "old_three_subset_min_hall_bound": 186,
+            "pair27_37_improved": false,
+            "pair27_B": 561,
+            "pair27_repaired": false,
+            "pair37_B": 560,
+            "pair37_repaired": false,
+            "pair57_preserving": false,
+            "pair_B_values": [
+              575,
+              561,
+              560,
+              575,
+              513
+            ],
+            "pair_deficit_to_654": [
+              79,
+              93,
+              94,
+              79,
+              141
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 32,
+            "protected_rows": 64,
+            "rank_after": 163,
+            "row_count": 163,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_57_split_146_vs_57",
+            "split_rows": 2,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_57_split_146_vs_57",
+                "left": 5,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_57_split_146_vs_57",
+                "left": 7,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1600,
+            "capacity_upper_bound": 228,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                4,
+                6
+              ],
+              [
+                7
+              ],
+              [
+                5
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 32,
+            "failure_mode": "SPLIT_DESTROYS_PAIR57",
+            "free_pattern": "d2_first4_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "3": 449,
+              "4": 62,
+              "5": 1
+            },
+            "low_collapse": true,
+            "min_pair_B": 513,
+            "nullity_after": 1373,
+            "old_three_subset_B_values": [
+              561,
+              561,
+              560
+            ],
+            "old_three_subset_min_hall_bound": 186,
+            "pair27_37_improved": false,
+            "pair27_B": 561,
+            "pair27_repaired": false,
+            "pair37_B": 560,
+            "pair37_repaired": false,
+            "pair57_preserving": false,
+            "pair_B_values": [
+              575,
+              561,
+              560,
+              575,
+              513
+            ],
+            "pair_deficit_to_654": [
+              79,
+              93,
+              94,
+              79,
+              141
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 32,
+            "protected_rows": 64,
+            "rank_after": 163,
+            "row_count": 163,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_57_split_146_vs_57",
+            "split_rows": 2,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_57_split_146_vs_57",
+                "left": 5,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_57_split_146_vs_57",
+                "left": 7,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1600,
+            "capacity_upper_bound": 228,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                4,
+                6
+              ],
+              [
+                7
+              ],
+              [
+                5
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 32,
+            "failure_mode": "SPLIT_DESTROYS_PAIR57",
+            "free_pattern": "d2_even_sparse",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "3": 449,
+              "4": 62,
+              "5": 1
+            },
+            "low_collapse": true,
+            "min_pair_B": 513,
+            "nullity_after": 1373,
+            "old_three_subset_B_values": [
+              561,
+              561,
+              560
+            ],
+            "old_three_subset_min_hall_bound": 186,
+            "pair27_37_improved": false,
+            "pair27_B": 561,
+            "pair27_repaired": false,
+            "pair37_B": 560,
+            "pair37_repaired": false,
+            "pair57_preserving": false,
+            "pair_B_values": [
+              575,
+              561,
+              560,
+              575,
+              513
+            ],
+            "pair_deficit_to_654": [
+              79,
+              93,
+              94,
+              79,
+              141
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 32,
+            "protected_rows": 64,
+            "rank_after": 163,
+            "row_count": 163,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_57_split_146_vs_57",
+            "split_rows": 2,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_57_split_146_vs_57",
+                "left": 5,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_57_split_146_vs_57",
+                "left": 7,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          }
+        ]
+      },
+      {
+        "best": {
+          "base_creation_rows": 64,
+          "capacity_preserving": false,
+          "capacity_total": 1137,
+          "capacity_upper_bound": 162,
+          "chosen_masks_hash": null,
+          "collapse_reduced": true,
+          "d2_split": true,
+          "degenerate_classes": [
+            [
+              5,
+              6
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              7
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ]
+          ],
+          "distinct_codewords": false,
+          "exact_agreement_vector": null,
+          "exact_max_min": null,
+          "extension_rows": 32,
+          "failure_mode": "SPLIT_DESTROYS_PAIR57",
+          "free_pattern": "d2_first_free",
+          "full_pair_repaired": false,
+          "largest_class_histogram": {
+            "2": 400,
+            "3": 111,
+            "4": 1
+          },
+          "low_collapse": true,
+          "min_pair_B": 513,
+          "nullity_after": 1372,
+          "old_three_subset_B_values": [
+            561,
+            561,
+            560
+          ],
+          "old_three_subset_min_hall_bound": 186,
+          "pair27_37_improved": false,
+          "pair27_B": 561,
+          "pair27_repaired": false,
+          "pair37_B": 560,
+          "pair37_repaired": false,
+          "pair57_preserving": false,
+          "pair_B_values": [
+            575,
+            561,
+            560,
+            575,
+            513
+          ],
+          "pair_deficit_to_654": [
+            79,
+            93,
+            94,
+            79,
+            141
+          ],
+          "pair_hall_bound": 256,
+          "pair_row_extension": 32,
+          "protected_rows": 64,
+          "rank_after": 164,
+          "row_count": 164,
+          "six_class_dominance": 0,
+          "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+          "split_family": "keep_567_split_14_vs_567",
+          "split_rows": 3,
+          "split_specs": [
+            {
+              "gamma": 1,
+              "kind": "keep_567_split_14_vs_567",
+              "left": 5,
+              "position": 18,
+              "right": 1
+            },
+            {
+              "gamma": 1,
+              "kind": "keep_567_split_14_vs_567",
+              "left": 6,
+              "position": 18,
+              "right": 1
+            },
+            {
+              "gamma": 1,
+              "kind": "keep_567_split_14_vs_567",
+              "left": 7,
+              "position": 18,
+              "right": 1
+            }
+          ],
+          "target_size": 128
+        },
+        "elapsed_seconds": 11.682,
+        "failure_mode": "SPLIT_DESTROYS_PAIR57",
+        "nullity_after": 1372,
+        "pair_row_extension": 32,
+        "rank_after": 164,
+        "row_count": 164,
+        "split_family": "keep_567_split_14_vs_567",
+        "target_size": 128,
+        "vector_results": [
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1137,
+            "capacity_upper_bound": 162,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                5,
+                6
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                7
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 32,
+            "failure_mode": "SPLIT_DESTROYS_PAIR57",
+            "free_pattern": "d2_first_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "2": 400,
+              "3": 111,
+              "4": 1
+            },
+            "low_collapse": true,
+            "min_pair_B": 513,
+            "nullity_after": 1372,
+            "old_three_subset_B_values": [
+              561,
+              561,
+              560
+            ],
+            "old_three_subset_min_hall_bound": 186,
+            "pair27_37_improved": false,
+            "pair27_B": 561,
+            "pair27_repaired": false,
+            "pair37_B": 560,
+            "pair37_repaired": false,
+            "pair57_preserving": false,
+            "pair_B_values": [
+              575,
+              561,
+              560,
+              575,
+              513
+            ],
+            "pair_deficit_to_654": [
+              79,
+              93,
+              94,
+              79,
+              141
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 32,
+            "protected_rows": 64,
+            "rank_after": 164,
+            "row_count": 164,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_567_split_14_vs_567",
+            "split_rows": 3,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 5,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 7,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1137,
+            "capacity_upper_bound": 162,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                5,
+                6
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                7
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 32,
+            "failure_mode": "SPLIT_DESTROYS_PAIR57",
+            "free_pattern": "d2_first4_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "2": 400,
+              "3": 111,
+              "4": 1
+            },
+            "low_collapse": true,
+            "min_pair_B": 513,
+            "nullity_after": 1372,
+            "old_three_subset_B_values": [
+              561,
+              561,
+              560
+            ],
+            "old_three_subset_min_hall_bound": 186,
+            "pair27_37_improved": false,
+            "pair27_B": 561,
+            "pair27_repaired": false,
+            "pair37_B": 560,
+            "pair37_repaired": false,
+            "pair57_preserving": false,
+            "pair_B_values": [
+              575,
+              561,
+              560,
+              575,
+              513
+            ],
+            "pair_deficit_to_654": [
+              79,
+              93,
+              94,
+              79,
+              141
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 32,
+            "protected_rows": 64,
+            "rank_after": 164,
+            "row_count": 164,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_567_split_14_vs_567",
+            "split_rows": 3,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 5,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 7,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1137,
+            "capacity_upper_bound": 162,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                5,
+                6
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                7
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 32,
+            "failure_mode": "SPLIT_DESTROYS_PAIR57",
+            "free_pattern": "d2_even_sparse",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "2": 400,
+              "3": 111,
+              "4": 1
+            },
+            "low_collapse": true,
+            "min_pair_B": 513,
+            "nullity_after": 1372,
+            "old_three_subset_B_values": [
+              561,
+              561,
+              560
+            ],
+            "old_three_subset_min_hall_bound": 186,
+            "pair27_37_improved": false,
+            "pair27_B": 561,
+            "pair27_repaired": false,
+            "pair37_B": 560,
+            "pair37_repaired": false,
+            "pair57_preserving": false,
+            "pair_B_values": [
+              575,
+              561,
+              560,
+              575,
+              513
+            ],
+            "pair_deficit_to_654": [
+              79,
+              93,
+              94,
+              79,
+              141
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 32,
+            "protected_rows": 64,
+            "rank_after": 164,
+            "row_count": 164,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_567_split_14_vs_567",
+            "split_rows": 3,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 5,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 7,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          }
+        ]
+      },
+      {
+        "best": {
+          "base_creation_rows": 64,
+          "capacity_preserving": false,
+          "capacity_total": 2145,
+          "capacity_upper_bound": 306,
+          "chosen_masks_hash": null,
+          "collapse_reduced": true,
+          "d2_split": true,
+          "degenerate_classes": [
+            [
+              1,
+              4,
+              5,
+              7
+            ],
+            [
+              6
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ]
+          ],
+          "distinct_codewords": false,
+          "exact_agreement_vector": null,
+          "exact_max_min": null,
+          "extension_rows": 32,
+          "failure_mode": "SPLIT_CAPACITY_LOSS",
+          "free_pattern": "d2_first_free",
+          "full_pair_repaired": false,
+          "largest_class_histogram": {
+            "4": 463,
+            "5": 1,
+            "6": 48
+          },
+          "low_collapse": true,
+          "min_pair_B": 560,
+          "nullity_after": 1374,
+          "old_three_subset_B_values": [
+            609,
+            609,
+            609
+          ],
+          "old_three_subset_min_hall_bound": 203,
+          "pair27_37_improved": false,
+          "pair27_B": 561,
+          "pair27_repaired": false,
+          "pair37_B": 560,
+          "pair37_repaired": false,
+          "pair57_preserving": true,
+          "pair_B_values": [
+            1024,
+            561,
+            560,
+            1024,
+            1024
+          ],
+          "pair_deficit_to_654": [
+            -370,
+            93,
+            94,
+            -370,
+            -370
+          ],
+          "pair_hall_bound": 280,
+          "pair_row_extension": 32,
+          "protected_rows": 64,
+          "rank_after": 162,
+          "row_count": 162,
+          "six_class_dominance": 0,
+          "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+          "split_family": "keep_1457_split_6",
+          "split_rows": 1,
+          "split_specs": [
+            {
+              "gamma": 1,
+              "kind": "keep_1457_split_6",
+              "left": 6,
+              "position": 18,
+              "right": 1
+            }
+          ],
+          "target_size": 128
+        },
+        "elapsed_seconds": 11.754,
+        "failure_mode": "SPLIT_CAPACITY_LOSS",
+        "nullity_after": 1374,
+        "pair_row_extension": 32,
+        "rank_after": 162,
+        "row_count": 162,
+        "split_family": "keep_1457_split_6",
+        "target_size": 128,
+        "vector_results": [
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 2145,
+            "capacity_upper_bound": 306,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                4,
+                5,
+                7
+              ],
+              [
+                6
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 32,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "4": 463,
+              "5": 1,
+              "6": 48
+            },
+            "low_collapse": true,
+            "min_pair_B": 560,
+            "nullity_after": 1374,
+            "old_three_subset_B_values": [
+              609,
+              609,
+              609
+            ],
+            "old_three_subset_min_hall_bound": 203,
+            "pair27_37_improved": false,
+            "pair27_B": 561,
+            "pair27_repaired": false,
+            "pair37_B": 560,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              561,
+              560,
+              1024,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              93,
+              94,
+              -370,
+              -370
+            ],
+            "pair_hall_bound": 280,
+            "pair_row_extension": 32,
+            "protected_rows": 64,
+            "rank_after": 162,
+            "row_count": 162,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_1457_split_6",
+            "split_rows": 1,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_1457_split_6",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 2145,
+            "capacity_upper_bound": 306,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                4,
+                5,
+                7
+              ],
+              [
+                6
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 32,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first4_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "4": 463,
+              "5": 1,
+              "6": 48
+            },
+            "low_collapse": true,
+            "min_pair_B": 560,
+            "nullity_after": 1374,
+            "old_three_subset_B_values": [
+              609,
+              609,
+              609
+            ],
+            "old_three_subset_min_hall_bound": 203,
+            "pair27_37_improved": false,
+            "pair27_B": 561,
+            "pair27_repaired": false,
+            "pair37_B": 560,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              561,
+              560,
+              1024,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              93,
+              94,
+              -370,
+              -370
+            ],
+            "pair_hall_bound": 280,
+            "pair_row_extension": 32,
+            "protected_rows": 64,
+            "rank_after": 162,
+            "row_count": 162,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_1457_split_6",
+            "split_rows": 1,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_1457_split_6",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 2145,
+            "capacity_upper_bound": 306,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                4,
+                5,
+                7
+              ],
+              [
+                6
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 32,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_even_sparse",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "4": 463,
+              "5": 1,
+              "6": 48
+            },
+            "low_collapse": true,
+            "min_pair_B": 560,
+            "nullity_after": 1374,
+            "old_three_subset_B_values": [
+              609,
+              609,
+              609
+            ],
+            "old_three_subset_min_hall_bound": 203,
+            "pair27_37_improved": false,
+            "pair27_B": 561,
+            "pair27_repaired": false,
+            "pair37_B": 560,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              561,
+              560,
+              1024,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              93,
+              94,
+              -370,
+              -370
+            ],
+            "pair_hall_bound": 280,
+            "pair_row_extension": 32,
+            "protected_rows": 64,
+            "rank_after": 162,
+            "row_count": 162,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_1457_split_6",
+            "split_rows": 1,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_1457_split_6",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          }
+        ]
+      },
+      {
+        "best": {
+          "base_creation_rows": 64,
+          "capacity_preserving": false,
+          "capacity_total": 1633,
+          "capacity_upper_bound": 233,
+          "chosen_masks_hash": null,
+          "collapse_reduced": true,
+          "d2_split": true,
+          "degenerate_classes": [
+            [
+              1,
+              5,
+              7
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ]
+          ],
+          "distinct_codewords": false,
+          "exact_agreement_vector": null,
+          "exact_max_min": null,
+          "extension_rows": 32,
+          "failure_mode": "SPLIT_CAPACITY_LOSS",
+          "free_pattern": "d2_first_free",
+          "full_pair_repaired": false,
+          "largest_class_histogram": {
+            "3": 463,
+            "4": 1,
+            "5": 48
+          },
+          "low_collapse": true,
+          "min_pair_B": 512,
+          "nullity_after": 1373,
+          "old_three_subset_B_values": [
+            609,
+            560,
+            609
+          ],
+          "old_three_subset_min_hall_bound": 186,
+          "pair27_37_improved": false,
+          "pair27_B": 561,
+          "pair27_repaired": false,
+          "pair37_B": 560,
+          "pair37_repaired": false,
+          "pair57_preserving": true,
+          "pair_B_values": [
+            1024,
+            561,
+            560,
+            512,
+            1024
+          ],
+          "pair_deficit_to_654": [
+            -370,
+            93,
+            94,
+            142,
+            -370
+          ],
+          "pair_hall_bound": 256,
+          "pair_row_extension": 32,
+          "protected_rows": 64,
+          "rank_after": 163,
+          "row_count": 163,
+          "six_class_dominance": 0,
+          "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+          "split_family": "keep_157_split_46",
+          "split_rows": 2,
+          "split_specs": [
+            {
+              "gamma": 1,
+              "kind": "keep_157_split_46",
+              "left": 4,
+              "position": 18,
+              "right": 1
+            },
+            {
+              "gamma": 1,
+              "kind": "keep_157_split_46",
+              "left": 6,
+              "position": 18,
+              "right": 1
+            }
+          ],
+          "target_size": 128
+        },
+        "elapsed_seconds": 11.608,
+        "failure_mode": "SPLIT_CAPACITY_LOSS",
+        "nullity_after": 1373,
+        "pair_row_extension": 32,
+        "rank_after": 163,
+        "row_count": 163,
+        "split_family": "keep_157_split_46",
+        "target_size": 128,
+        "vector_results": [
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1633,
+            "capacity_upper_bound": 233,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                5,
+                7
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 32,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "3": 463,
+              "4": 1,
+              "5": 48
+            },
+            "low_collapse": true,
+            "min_pair_B": 512,
+            "nullity_after": 1373,
+            "old_three_subset_B_values": [
+              609,
+              560,
+              609
+            ],
+            "old_three_subset_min_hall_bound": 186,
+            "pair27_37_improved": false,
+            "pair27_B": 561,
+            "pair27_repaired": false,
+            "pair37_B": 560,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              561,
+              560,
+              512,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              93,
+              94,
+              142,
+              -370
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 32,
+            "protected_rows": 64,
+            "rank_after": 163,
+            "row_count": 163,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_157_split_46",
+            "split_rows": 2,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_157_split_46",
+                "left": 4,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_157_split_46",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1633,
+            "capacity_upper_bound": 233,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                5,
+                7
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 32,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first4_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "3": 463,
+              "4": 1,
+              "5": 48
+            },
+            "low_collapse": true,
+            "min_pair_B": 512,
+            "nullity_after": 1373,
+            "old_three_subset_B_values": [
+              609,
+              560,
+              609
+            ],
+            "old_three_subset_min_hall_bound": 186,
+            "pair27_37_improved": false,
+            "pair27_B": 561,
+            "pair27_repaired": false,
+            "pair37_B": 560,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              561,
+              560,
+              512,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              93,
+              94,
+              142,
+              -370
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 32,
+            "protected_rows": 64,
+            "rank_after": 163,
+            "row_count": 163,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_157_split_46",
+            "split_rows": 2,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_157_split_46",
+                "left": 4,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_157_split_46",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1633,
+            "capacity_upper_bound": 233,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                5,
+                7
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 32,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_even_sparse",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "3": 463,
+              "4": 1,
+              "5": 48
+            },
+            "low_collapse": true,
+            "min_pair_B": 512,
+            "nullity_after": 1373,
+            "old_three_subset_B_values": [
+              609,
+              560,
+              609
+            ],
+            "old_three_subset_min_hall_bound": 186,
+            "pair27_37_improved": false,
+            "pair27_B": 561,
+            "pair27_repaired": false,
+            "pair37_B": 560,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              561,
+              560,
+              512,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              93,
+              94,
+              142,
+              -370
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 32,
+            "protected_rows": 64,
+            "rank_after": 163,
+            "row_count": 163,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_157_split_46",
+            "split_rows": 2,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_157_split_46",
+                "left": 4,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_157_split_46",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          }
+        ]
+      },
+      {
+        "best": {
+          "base_creation_rows": 64,
+          "capacity_preserving": false,
+          "capacity_total": 2145,
+          "capacity_upper_bound": 306,
+          "chosen_masks_hash": null,
+          "collapse_reduced": true,
+          "d2_split": true,
+          "degenerate_classes": [
+            [
+              1,
+              5,
+              6,
+              7
+            ],
+            [
+              4
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ]
+          ],
+          "distinct_codewords": false,
+          "exact_agreement_vector": null,
+          "exact_max_min": null,
+          "extension_rows": 32,
+          "failure_mode": "SPLIT_CAPACITY_LOSS",
+          "free_pattern": "d2_first_free",
+          "full_pair_repaired": false,
+          "largest_class_histogram": {
+            "4": 463,
+            "5": 1,
+            "6": 48
+          },
+          "low_collapse": true,
+          "min_pair_B": 512,
+          "nullity_after": 1374,
+          "old_three_subset_B_values": [
+            609,
+            560,
+            609
+          ],
+          "old_three_subset_min_hall_bound": 186,
+          "pair27_37_improved": false,
+          "pair27_B": 561,
+          "pair27_repaired": false,
+          "pair37_B": 560,
+          "pair37_repaired": false,
+          "pair57_preserving": true,
+          "pair_B_values": [
+            1024,
+            561,
+            560,
+            512,
+            1024
+          ],
+          "pair_deficit_to_654": [
+            -370,
+            93,
+            94,
+            142,
+            -370
+          ],
+          "pair_hall_bound": 256,
+          "pair_row_extension": 32,
+          "protected_rows": 64,
+          "rank_after": 162,
+          "row_count": 162,
+          "six_class_dominance": 0,
+          "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+          "split_family": "capacity_slack_only",
+          "split_rows": 1,
+          "split_specs": [
+            {
+              "gamma": 1,
+              "kind": "capacity_slack_only",
+              "left": 4,
+              "position": 18,
+              "right": 1
+            }
+          ],
+          "target_size": 128
+        },
+        "elapsed_seconds": 11.666,
+        "failure_mode": "SPLIT_CAPACITY_LOSS",
+        "nullity_after": 1374,
+        "pair_row_extension": 32,
+        "rank_after": 162,
+        "row_count": 162,
+        "split_family": "capacity_slack_only",
+        "target_size": 128,
+        "vector_results": [
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 2145,
+            "capacity_upper_bound": 306,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                5,
+                6,
+                7
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 32,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "4": 463,
+              "5": 1,
+              "6": 48
+            },
+            "low_collapse": true,
+            "min_pair_B": 512,
+            "nullity_after": 1374,
+            "old_three_subset_B_values": [
+              609,
+              560,
+              609
+            ],
+            "old_three_subset_min_hall_bound": 186,
+            "pair27_37_improved": false,
+            "pair27_B": 561,
+            "pair27_repaired": false,
+            "pair37_B": 560,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              561,
+              560,
+              512,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              93,
+              94,
+              142,
+              -370
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 32,
+            "protected_rows": 64,
+            "rank_after": 162,
+            "row_count": 162,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "capacity_slack_only",
+            "split_rows": 1,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "capacity_slack_only",
+                "left": 4,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 2145,
+            "capacity_upper_bound": 306,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                5,
+                6,
+                7
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 32,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first4_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "4": 463,
+              "5": 1,
+              "6": 48
+            },
+            "low_collapse": true,
+            "min_pair_B": 512,
+            "nullity_after": 1374,
+            "old_three_subset_B_values": [
+              609,
+              560,
+              609
+            ],
+            "old_three_subset_min_hall_bound": 186,
+            "pair27_37_improved": false,
+            "pair27_B": 561,
+            "pair27_repaired": false,
+            "pair37_B": 560,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              561,
+              560,
+              512,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              93,
+              94,
+              142,
+              -370
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 32,
+            "protected_rows": 64,
+            "rank_after": 162,
+            "row_count": 162,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "capacity_slack_only",
+            "split_rows": 1,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "capacity_slack_only",
+                "left": 4,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 2145,
+            "capacity_upper_bound": 306,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                5,
+                6,
+                7
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 32,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_even_sparse",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "4": 463,
+              "5": 1,
+              "6": 48
+            },
+            "low_collapse": true,
+            "min_pair_B": 512,
+            "nullity_after": 1374,
+            "old_three_subset_B_values": [
+              609,
+              560,
+              609
+            ],
+            "old_three_subset_min_hall_bound": 186,
+            "pair27_37_improved": false,
+            "pair27_B": 561,
+            "pair27_repaired": false,
+            "pair37_B": 560,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              561,
+              560,
+              512,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              93,
+              94,
+              142,
+              -370
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 32,
+            "protected_rows": 64,
+            "rank_after": 162,
+            "row_count": 162,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "capacity_slack_only",
+            "split_rows": 1,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "capacity_slack_only",
+                "left": 4,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          }
+        ]
+      },
+      {
+        "best": {
+          "base_creation_rows": 64,
+          "capacity_preserving": false,
+          "capacity_total": 1600,
+          "capacity_upper_bound": 228,
+          "chosen_masks_hash": null,
+          "collapse_reduced": true,
+          "d2_split": true,
+          "degenerate_classes": [
+            [
+              1,
+              4,
+              6
+            ],
+            [
+              7
+            ],
+            [
+              5
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ]
+          ],
+          "distinct_codewords": false,
+          "exact_agreement_vector": null,
+          "exact_max_min": null,
+          "extension_rows": 64,
+          "failure_mode": "SPLIT_DESTROYS_PAIR57",
+          "free_pattern": "d2_first_free",
+          "full_pair_repaired": false,
+          "largest_class_histogram": {
+            "3": 449,
+            "4": 62,
+            "5": 1
+          },
+          "low_collapse": true,
+          "min_pair_B": 513,
+          "nullity_after": 1341,
+          "old_three_subset_B_values": [
+            577,
+            577,
+            576
+          ],
+          "old_three_subset_min_hall_bound": 192,
+          "pair27_37_improved": false,
+          "pair27_B": 577,
+          "pair27_repaired": false,
+          "pair37_B": 576,
+          "pair37_repaired": false,
+          "pair57_preserving": false,
+          "pair_B_values": [
+            575,
+            577,
+            576,
+            575,
+            513
+          ],
+          "pair_deficit_to_654": [
+            79,
+            77,
+            78,
+            79,
+            141
+          ],
+          "pair_hall_bound": 256,
+          "pair_row_extension": 64,
+          "protected_rows": 64,
+          "rank_after": 195,
+          "row_count": 195,
+          "six_class_dominance": 0,
+          "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+          "split_family": "keep_57_split_146_vs_57",
+          "split_rows": 2,
+          "split_specs": [
+            {
+              "gamma": 1,
+              "kind": "keep_57_split_146_vs_57",
+              "left": 5,
+              "position": 18,
+              "right": 1
+            },
+            {
+              "gamma": 1,
+              "kind": "keep_57_split_146_vs_57",
+              "left": 7,
+              "position": 18,
+              "right": 1
+            }
+          ],
+          "target_size": 128
+        },
+        "elapsed_seconds": 18.491,
+        "failure_mode": "SPLIT_DESTROYS_PAIR57",
+        "nullity_after": 1341,
+        "pair_row_extension": 64,
+        "rank_after": 195,
+        "row_count": 195,
+        "split_family": "keep_57_split_146_vs_57",
+        "target_size": 128,
+        "vector_results": [
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1600,
+            "capacity_upper_bound": 228,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                4,
+                6
+              ],
+              [
+                7
+              ],
+              [
+                5
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 64,
+            "failure_mode": "SPLIT_DESTROYS_PAIR57",
+            "free_pattern": "d2_first_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "3": 449,
+              "4": 62,
+              "5": 1
+            },
+            "low_collapse": true,
+            "min_pair_B": 513,
+            "nullity_after": 1341,
+            "old_three_subset_B_values": [
+              577,
+              577,
+              576
+            ],
+            "old_three_subset_min_hall_bound": 192,
+            "pair27_37_improved": false,
+            "pair27_B": 577,
+            "pair27_repaired": false,
+            "pair37_B": 576,
+            "pair37_repaired": false,
+            "pair57_preserving": false,
+            "pair_B_values": [
+              575,
+              577,
+              576,
+              575,
+              513
+            ],
+            "pair_deficit_to_654": [
+              79,
+              77,
+              78,
+              79,
+              141
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 64,
+            "protected_rows": 64,
+            "rank_after": 195,
+            "row_count": 195,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_57_split_146_vs_57",
+            "split_rows": 2,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_57_split_146_vs_57",
+                "left": 5,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_57_split_146_vs_57",
+                "left": 7,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1600,
+            "capacity_upper_bound": 228,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                4,
+                6
+              ],
+              [
+                7
+              ],
+              [
+                5
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 64,
+            "failure_mode": "SPLIT_DESTROYS_PAIR57",
+            "free_pattern": "d2_first4_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "3": 449,
+              "4": 62,
+              "5": 1
+            },
+            "low_collapse": true,
+            "min_pair_B": 513,
+            "nullity_after": 1341,
+            "old_three_subset_B_values": [
+              577,
+              577,
+              576
+            ],
+            "old_three_subset_min_hall_bound": 192,
+            "pair27_37_improved": false,
+            "pair27_B": 577,
+            "pair27_repaired": false,
+            "pair37_B": 576,
+            "pair37_repaired": false,
+            "pair57_preserving": false,
+            "pair_B_values": [
+              575,
+              577,
+              576,
+              575,
+              513
+            ],
+            "pair_deficit_to_654": [
+              79,
+              77,
+              78,
+              79,
+              141
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 64,
+            "protected_rows": 64,
+            "rank_after": 195,
+            "row_count": 195,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_57_split_146_vs_57",
+            "split_rows": 2,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_57_split_146_vs_57",
+                "left": 5,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_57_split_146_vs_57",
+                "left": 7,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1600,
+            "capacity_upper_bound": 228,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                4,
+                6
+              ],
+              [
+                7
+              ],
+              [
+                5
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 64,
+            "failure_mode": "SPLIT_DESTROYS_PAIR57",
+            "free_pattern": "d2_even_sparse",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "3": 449,
+              "4": 62,
+              "5": 1
+            },
+            "low_collapse": true,
+            "min_pair_B": 513,
+            "nullity_after": 1341,
+            "old_three_subset_B_values": [
+              577,
+              577,
+              576
+            ],
+            "old_three_subset_min_hall_bound": 192,
+            "pair27_37_improved": false,
+            "pair27_B": 577,
+            "pair27_repaired": false,
+            "pair37_B": 576,
+            "pair37_repaired": false,
+            "pair57_preserving": false,
+            "pair_B_values": [
+              575,
+              577,
+              576,
+              575,
+              513
+            ],
+            "pair_deficit_to_654": [
+              79,
+              77,
+              78,
+              79,
+              141
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 64,
+            "protected_rows": 64,
+            "rank_after": 195,
+            "row_count": 195,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_57_split_146_vs_57",
+            "split_rows": 2,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_57_split_146_vs_57",
+                "left": 5,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_57_split_146_vs_57",
+                "left": 7,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          }
+        ]
+      },
+      {
+        "best": {
+          "base_creation_rows": 64,
+          "capacity_preserving": false,
+          "capacity_total": 1153,
+          "capacity_upper_bound": 164,
+          "chosen_masks_hash": null,
+          "collapse_reduced": true,
+          "d2_split": true,
+          "degenerate_classes": [
+            [
+              5,
+              6
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              7
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ]
+          ],
+          "distinct_codewords": false,
+          "exact_agreement_vector": null,
+          "exact_max_min": null,
+          "extension_rows": 64,
+          "failure_mode": "SPLIT_DESTROYS_PAIR57",
+          "free_pattern": "d2_first_free",
+          "full_pair_repaired": false,
+          "largest_class_histogram": {
+            "2": 384,
+            "3": 127,
+            "4": 1
+          },
+          "low_collapse": true,
+          "min_pair_B": 513,
+          "nullity_after": 1340,
+          "old_three_subset_B_values": [
+            577,
+            577,
+            576
+          ],
+          "old_three_subset_min_hall_bound": 192,
+          "pair27_37_improved": false,
+          "pair27_B": 577,
+          "pair27_repaired": false,
+          "pair37_B": 576,
+          "pair37_repaired": false,
+          "pair57_preserving": false,
+          "pair_B_values": [
+            575,
+            577,
+            576,
+            575,
+            513
+          ],
+          "pair_deficit_to_654": [
+            79,
+            77,
+            78,
+            79,
+            141
+          ],
+          "pair_hall_bound": 256,
+          "pair_row_extension": 64,
+          "protected_rows": 64,
+          "rank_after": 196,
+          "row_count": 196,
+          "six_class_dominance": 0,
+          "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+          "split_family": "keep_567_split_14_vs_567",
+          "split_rows": 3,
+          "split_specs": [
+            {
+              "gamma": 1,
+              "kind": "keep_567_split_14_vs_567",
+              "left": 5,
+              "position": 18,
+              "right": 1
+            },
+            {
+              "gamma": 1,
+              "kind": "keep_567_split_14_vs_567",
+              "left": 6,
+              "position": 18,
+              "right": 1
+            },
+            {
+              "gamma": 1,
+              "kind": "keep_567_split_14_vs_567",
+              "left": 7,
+              "position": 18,
+              "right": 1
+            }
+          ],
+          "target_size": 128
+        },
+        "elapsed_seconds": 18.405,
+        "failure_mode": "SPLIT_DESTROYS_PAIR57",
+        "nullity_after": 1340,
+        "pair_row_extension": 64,
+        "rank_after": 196,
+        "row_count": 196,
+        "split_family": "keep_567_split_14_vs_567",
+        "target_size": 128,
+        "vector_results": [
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1153,
+            "capacity_upper_bound": 164,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                5,
+                6
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                7
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 64,
+            "failure_mode": "SPLIT_DESTROYS_PAIR57",
+            "free_pattern": "d2_first_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "2": 384,
+              "3": 127,
+              "4": 1
+            },
+            "low_collapse": true,
+            "min_pair_B": 513,
+            "nullity_after": 1340,
+            "old_three_subset_B_values": [
+              577,
+              577,
+              576
+            ],
+            "old_three_subset_min_hall_bound": 192,
+            "pair27_37_improved": false,
+            "pair27_B": 577,
+            "pair27_repaired": false,
+            "pair37_B": 576,
+            "pair37_repaired": false,
+            "pair57_preserving": false,
+            "pair_B_values": [
+              575,
+              577,
+              576,
+              575,
+              513
+            ],
+            "pair_deficit_to_654": [
+              79,
+              77,
+              78,
+              79,
+              141
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 64,
+            "protected_rows": 64,
+            "rank_after": 196,
+            "row_count": 196,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_567_split_14_vs_567",
+            "split_rows": 3,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 5,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 7,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1153,
+            "capacity_upper_bound": 164,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                5,
+                6
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                7
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 64,
+            "failure_mode": "SPLIT_DESTROYS_PAIR57",
+            "free_pattern": "d2_first4_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "2": 384,
+              "3": 127,
+              "4": 1
+            },
+            "low_collapse": true,
+            "min_pair_B": 513,
+            "nullity_after": 1340,
+            "old_three_subset_B_values": [
+              577,
+              577,
+              576
+            ],
+            "old_three_subset_min_hall_bound": 192,
+            "pair27_37_improved": false,
+            "pair27_B": 577,
+            "pair27_repaired": false,
+            "pair37_B": 576,
+            "pair37_repaired": false,
+            "pair57_preserving": false,
+            "pair_B_values": [
+              575,
+              577,
+              576,
+              575,
+              513
+            ],
+            "pair_deficit_to_654": [
+              79,
+              77,
+              78,
+              79,
+              141
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 64,
+            "protected_rows": 64,
+            "rank_after": 196,
+            "row_count": 196,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_567_split_14_vs_567",
+            "split_rows": 3,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 5,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 7,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1153,
+            "capacity_upper_bound": 164,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                5,
+                6
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                7
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 64,
+            "failure_mode": "SPLIT_DESTROYS_PAIR57",
+            "free_pattern": "d2_even_sparse",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "2": 384,
+              "3": 127,
+              "4": 1
+            },
+            "low_collapse": true,
+            "min_pair_B": 513,
+            "nullity_after": 1340,
+            "old_three_subset_B_values": [
+              577,
+              577,
+              576
+            ],
+            "old_three_subset_min_hall_bound": 192,
+            "pair27_37_improved": false,
+            "pair27_B": 577,
+            "pair27_repaired": false,
+            "pair37_B": 576,
+            "pair37_repaired": false,
+            "pair57_preserving": false,
+            "pair_B_values": [
+              575,
+              577,
+              576,
+              575,
+              513
+            ],
+            "pair_deficit_to_654": [
+              79,
+              77,
+              78,
+              79,
+              141
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 64,
+            "protected_rows": 64,
+            "rank_after": 196,
+            "row_count": 196,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_567_split_14_vs_567",
+            "split_rows": 3,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 5,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 7,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          }
+        ]
+      },
+      {
+        "best": {
+          "base_creation_rows": 64,
+          "capacity_preserving": false,
+          "capacity_total": 2177,
+          "capacity_upper_bound": 311,
+          "chosen_masks_hash": null,
+          "collapse_reduced": true,
+          "d2_split": true,
+          "degenerate_classes": [
+            [
+              1,
+              4,
+              5,
+              7
+            ],
+            [
+              6
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ]
+          ],
+          "distinct_codewords": false,
+          "exact_agreement_vector": null,
+          "exact_max_min": null,
+          "extension_rows": 64,
+          "failure_mode": "SPLIT_CAPACITY_LOSS",
+          "free_pattern": "d2_first_free",
+          "full_pair_repaired": false,
+          "largest_class_histogram": {
+            "4": 447,
+            "5": 1,
+            "6": 64
+          },
+          "low_collapse": true,
+          "min_pair_B": 576,
+          "nullity_after": 1342,
+          "old_three_subset_B_values": [
+            641,
+            641,
+            641
+          ],
+          "old_three_subset_min_hall_bound": 213,
+          "pair27_37_improved": false,
+          "pair27_B": 577,
+          "pair27_repaired": false,
+          "pair37_B": 576,
+          "pair37_repaired": false,
+          "pair57_preserving": true,
+          "pair_B_values": [
+            1024,
+            577,
+            576,
+            1024,
+            1024
+          ],
+          "pair_deficit_to_654": [
+            -370,
+            77,
+            78,
+            -370,
+            -370
+          ],
+          "pair_hall_bound": 288,
+          "pair_row_extension": 64,
+          "protected_rows": 64,
+          "rank_after": 194,
+          "row_count": 194,
+          "six_class_dominance": 0,
+          "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+          "split_family": "keep_1457_split_6",
+          "split_rows": 1,
+          "split_specs": [
+            {
+              "gamma": 1,
+              "kind": "keep_1457_split_6",
+              "left": 6,
+              "position": 18,
+              "right": 1
+            }
+          ],
+          "target_size": 128
+        },
+        "elapsed_seconds": 17.87,
+        "failure_mode": "SPLIT_CAPACITY_LOSS",
+        "nullity_after": 1342,
+        "pair_row_extension": 64,
+        "rank_after": 194,
+        "row_count": 194,
+        "split_family": "keep_1457_split_6",
+        "target_size": 128,
+        "vector_results": [
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 2177,
+            "capacity_upper_bound": 311,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                4,
+                5,
+                7
+              ],
+              [
+                6
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 64,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "4": 447,
+              "5": 1,
+              "6": 64
+            },
+            "low_collapse": true,
+            "min_pair_B": 576,
+            "nullity_after": 1342,
+            "old_three_subset_B_values": [
+              641,
+              641,
+              641
+            ],
+            "old_three_subset_min_hall_bound": 213,
+            "pair27_37_improved": false,
+            "pair27_B": 577,
+            "pair27_repaired": false,
+            "pair37_B": 576,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              577,
+              576,
+              1024,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              77,
+              78,
+              -370,
+              -370
+            ],
+            "pair_hall_bound": 288,
+            "pair_row_extension": 64,
+            "protected_rows": 64,
+            "rank_after": 194,
+            "row_count": 194,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_1457_split_6",
+            "split_rows": 1,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_1457_split_6",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 2177,
+            "capacity_upper_bound": 311,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                4,
+                5,
+                7
+              ],
+              [
+                6
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 64,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first4_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "4": 447,
+              "5": 1,
+              "6": 64
+            },
+            "low_collapse": true,
+            "min_pair_B": 576,
+            "nullity_after": 1342,
+            "old_three_subset_B_values": [
+              641,
+              641,
+              641
+            ],
+            "old_three_subset_min_hall_bound": 213,
+            "pair27_37_improved": false,
+            "pair27_B": 577,
+            "pair27_repaired": false,
+            "pair37_B": 576,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              577,
+              576,
+              1024,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              77,
+              78,
+              -370,
+              -370
+            ],
+            "pair_hall_bound": 288,
+            "pair_row_extension": 64,
+            "protected_rows": 64,
+            "rank_after": 194,
+            "row_count": 194,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_1457_split_6",
+            "split_rows": 1,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_1457_split_6",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 2177,
+            "capacity_upper_bound": 311,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                4,
+                5,
+                7
+              ],
+              [
+                6
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 64,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_even_sparse",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "4": 447,
+              "5": 1,
+              "6": 64
+            },
+            "low_collapse": true,
+            "min_pair_B": 576,
+            "nullity_after": 1342,
+            "old_three_subset_B_values": [
+              641,
+              641,
+              641
+            ],
+            "old_three_subset_min_hall_bound": 213,
+            "pair27_37_improved": false,
+            "pair27_B": 577,
+            "pair27_repaired": false,
+            "pair37_B": 576,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              577,
+              576,
+              1024,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              77,
+              78,
+              -370,
+              -370
+            ],
+            "pair_hall_bound": 288,
+            "pair_row_extension": 64,
+            "protected_rows": 64,
+            "rank_after": 194,
+            "row_count": 194,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_1457_split_6",
+            "split_rows": 1,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_1457_split_6",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          }
+        ]
+      },
+      {
+        "best": {
+          "base_creation_rows": 64,
+          "capacity_preserving": false,
+          "capacity_total": 1665,
+          "capacity_upper_bound": 237,
+          "chosen_masks_hash": null,
+          "collapse_reduced": true,
+          "d2_split": true,
+          "degenerate_classes": [
+            [
+              1,
+              5,
+              7
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ]
+          ],
+          "distinct_codewords": false,
+          "exact_agreement_vector": null,
+          "exact_max_min": null,
+          "extension_rows": 64,
+          "failure_mode": "SPLIT_CAPACITY_LOSS",
+          "free_pattern": "d2_first_free",
+          "full_pair_repaired": false,
+          "largest_class_histogram": {
+            "3": 447,
+            "4": 1,
+            "5": 64
+          },
+          "low_collapse": true,
+          "min_pair_B": 512,
+          "nullity_after": 1341,
+          "old_three_subset_B_values": [
+            641,
+            576,
+            641
+          ],
+          "old_three_subset_min_hall_bound": 192,
+          "pair27_37_improved": false,
+          "pair27_B": 577,
+          "pair27_repaired": false,
+          "pair37_B": 576,
+          "pair37_repaired": false,
+          "pair57_preserving": true,
+          "pair_B_values": [
+            1024,
+            577,
+            576,
+            512,
+            1024
+          ],
+          "pair_deficit_to_654": [
+            -370,
+            77,
+            78,
+            142,
+            -370
+          ],
+          "pair_hall_bound": 256,
+          "pair_row_extension": 64,
+          "protected_rows": 64,
+          "rank_after": 195,
+          "row_count": 195,
+          "six_class_dominance": 0,
+          "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+          "split_family": "keep_157_split_46",
+          "split_rows": 2,
+          "split_specs": [
+            {
+              "gamma": 1,
+              "kind": "keep_157_split_46",
+              "left": 4,
+              "position": 18,
+              "right": 1
+            },
+            {
+              "gamma": 1,
+              "kind": "keep_157_split_46",
+              "left": 6,
+              "position": 18,
+              "right": 1
+            }
+          ],
+          "target_size": 128
+        },
+        "elapsed_seconds": 18.12,
+        "failure_mode": "SPLIT_CAPACITY_LOSS",
+        "nullity_after": 1341,
+        "pair_row_extension": 64,
+        "rank_after": 195,
+        "row_count": 195,
+        "split_family": "keep_157_split_46",
+        "target_size": 128,
+        "vector_results": [
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1665,
+            "capacity_upper_bound": 237,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                5,
+                7
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 64,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "3": 447,
+              "4": 1,
+              "5": 64
+            },
+            "low_collapse": true,
+            "min_pair_B": 512,
+            "nullity_after": 1341,
+            "old_three_subset_B_values": [
+              641,
+              576,
+              641
+            ],
+            "old_three_subset_min_hall_bound": 192,
+            "pair27_37_improved": false,
+            "pair27_B": 577,
+            "pair27_repaired": false,
+            "pair37_B": 576,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              577,
+              576,
+              512,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              77,
+              78,
+              142,
+              -370
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 64,
+            "protected_rows": 64,
+            "rank_after": 195,
+            "row_count": 195,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_157_split_46",
+            "split_rows": 2,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_157_split_46",
+                "left": 4,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_157_split_46",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1665,
+            "capacity_upper_bound": 237,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                5,
+                7
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 64,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first4_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "3": 447,
+              "4": 1,
+              "5": 64
+            },
+            "low_collapse": true,
+            "min_pair_B": 512,
+            "nullity_after": 1341,
+            "old_three_subset_B_values": [
+              641,
+              576,
+              641
+            ],
+            "old_three_subset_min_hall_bound": 192,
+            "pair27_37_improved": false,
+            "pair27_B": 577,
+            "pair27_repaired": false,
+            "pair37_B": 576,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              577,
+              576,
+              512,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              77,
+              78,
+              142,
+              -370
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 64,
+            "protected_rows": 64,
+            "rank_after": 195,
+            "row_count": 195,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_157_split_46",
+            "split_rows": 2,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_157_split_46",
+                "left": 4,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_157_split_46",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1665,
+            "capacity_upper_bound": 237,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                5,
+                7
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 64,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_even_sparse",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "3": 447,
+              "4": 1,
+              "5": 64
+            },
+            "low_collapse": true,
+            "min_pair_B": 512,
+            "nullity_after": 1341,
+            "old_three_subset_B_values": [
+              641,
+              576,
+              641
+            ],
+            "old_three_subset_min_hall_bound": 192,
+            "pair27_37_improved": false,
+            "pair27_B": 577,
+            "pair27_repaired": false,
+            "pair37_B": 576,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              577,
+              576,
+              512,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              77,
+              78,
+              142,
+              -370
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 64,
+            "protected_rows": 64,
+            "rank_after": 195,
+            "row_count": 195,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_157_split_46",
+            "split_rows": 2,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_157_split_46",
+                "left": 4,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_157_split_46",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          }
+        ]
+      },
+      {
+        "best": {
+          "base_creation_rows": 64,
+          "capacity_preserving": false,
+          "capacity_total": 2177,
+          "capacity_upper_bound": 311,
+          "chosen_masks_hash": null,
+          "collapse_reduced": true,
+          "d2_split": true,
+          "degenerate_classes": [
+            [
+              1,
+              5,
+              6,
+              7
+            ],
+            [
+              4
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ]
+          ],
+          "distinct_codewords": false,
+          "exact_agreement_vector": null,
+          "exact_max_min": null,
+          "extension_rows": 64,
+          "failure_mode": "SPLIT_CAPACITY_LOSS",
+          "free_pattern": "d2_first_free",
+          "full_pair_repaired": false,
+          "largest_class_histogram": {
+            "4": 447,
+            "5": 1,
+            "6": 64
+          },
+          "low_collapse": true,
+          "min_pair_B": 512,
+          "nullity_after": 1342,
+          "old_three_subset_B_values": [
+            641,
+            576,
+            641
+          ],
+          "old_three_subset_min_hall_bound": 192,
+          "pair27_37_improved": false,
+          "pair27_B": 577,
+          "pair27_repaired": false,
+          "pair37_B": 576,
+          "pair37_repaired": false,
+          "pair57_preserving": true,
+          "pair_B_values": [
+            1024,
+            577,
+            576,
+            512,
+            1024
+          ],
+          "pair_deficit_to_654": [
+            -370,
+            77,
+            78,
+            142,
+            -370
+          ],
+          "pair_hall_bound": 256,
+          "pair_row_extension": 64,
+          "protected_rows": 64,
+          "rank_after": 194,
+          "row_count": 194,
+          "six_class_dominance": 0,
+          "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+          "split_family": "capacity_slack_only",
+          "split_rows": 1,
+          "split_specs": [
+            {
+              "gamma": 1,
+              "kind": "capacity_slack_only",
+              "left": 4,
+              "position": 18,
+              "right": 1
+            }
+          ],
+          "target_size": 128
+        },
+        "elapsed_seconds": 17.884,
+        "failure_mode": "SPLIT_CAPACITY_LOSS",
+        "nullity_after": 1342,
+        "pair_row_extension": 64,
+        "rank_after": 194,
+        "row_count": 194,
+        "split_family": "capacity_slack_only",
+        "target_size": 128,
+        "vector_results": [
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 2177,
+            "capacity_upper_bound": 311,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                5,
+                6,
+                7
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 64,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "4": 447,
+              "5": 1,
+              "6": 64
+            },
+            "low_collapse": true,
+            "min_pair_B": 512,
+            "nullity_after": 1342,
+            "old_three_subset_B_values": [
+              641,
+              576,
+              641
+            ],
+            "old_three_subset_min_hall_bound": 192,
+            "pair27_37_improved": false,
+            "pair27_B": 577,
+            "pair27_repaired": false,
+            "pair37_B": 576,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              577,
+              576,
+              512,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              77,
+              78,
+              142,
+              -370
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 64,
+            "protected_rows": 64,
+            "rank_after": 194,
+            "row_count": 194,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "capacity_slack_only",
+            "split_rows": 1,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "capacity_slack_only",
+                "left": 4,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 2177,
+            "capacity_upper_bound": 311,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                5,
+                6,
+                7
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 64,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first4_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "4": 447,
+              "5": 1,
+              "6": 64
+            },
+            "low_collapse": true,
+            "min_pair_B": 512,
+            "nullity_after": 1342,
+            "old_three_subset_B_values": [
+              641,
+              576,
+              641
+            ],
+            "old_three_subset_min_hall_bound": 192,
+            "pair27_37_improved": false,
+            "pair27_B": 577,
+            "pair27_repaired": false,
+            "pair37_B": 576,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              577,
+              576,
+              512,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              77,
+              78,
+              142,
+              -370
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 64,
+            "protected_rows": 64,
+            "rank_after": 194,
+            "row_count": 194,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "capacity_slack_only",
+            "split_rows": 1,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "capacity_slack_only",
+                "left": 4,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 2177,
+            "capacity_upper_bound": 311,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                5,
+                6,
+                7
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 64,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_even_sparse",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "4": 447,
+              "5": 1,
+              "6": 64
+            },
+            "low_collapse": true,
+            "min_pair_B": 512,
+            "nullity_after": 1342,
+            "old_three_subset_B_values": [
+              641,
+              576,
+              641
+            ],
+            "old_three_subset_min_hall_bound": 192,
+            "pair27_37_improved": false,
+            "pair27_B": 577,
+            "pair27_repaired": false,
+            "pair37_B": 576,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              577,
+              576,
+              512,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              77,
+              78,
+              142,
+              -370
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 64,
+            "protected_rows": 64,
+            "rank_after": 194,
+            "row_count": 194,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "capacity_slack_only",
+            "split_rows": 1,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "capacity_slack_only",
+                "left": 4,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          }
+        ]
+      },
+      {
+        "best": {
+          "base_creation_rows": 64,
+          "capacity_preserving": false,
+          "capacity_total": 1600,
+          "capacity_upper_bound": 228,
+          "chosen_masks_hash": null,
+          "collapse_reduced": true,
+          "d2_split": true,
+          "degenerate_classes": [
+            [
+              1,
+              4,
+              6
+            ],
+            [
+              7
+            ],
+            [
+              5
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ]
+          ],
+          "distinct_codewords": false,
+          "exact_agreement_vector": null,
+          "exact_max_min": null,
+          "extension_rows": 96,
+          "failure_mode": "SPLIT_DESTROYS_PAIR57",
+          "free_pattern": "d2_first_free",
+          "full_pair_repaired": false,
+          "largest_class_histogram": {
+            "3": 449,
+            "4": 62,
+            "5": 1
+          },
+          "low_collapse": true,
+          "min_pair_B": 513,
+          "nullity_after": 1309,
+          "old_three_subset_B_values": [
+            593,
+            593,
+            592
+          ],
+          "old_three_subset_min_hall_bound": 197,
+          "pair27_37_improved": true,
+          "pair27_B": 593,
+          "pair27_repaired": false,
+          "pair37_B": 592,
+          "pair37_repaired": false,
+          "pair57_preserving": false,
+          "pair_B_values": [
+            575,
+            593,
+            592,
+            575,
+            513
+          ],
+          "pair_deficit_to_654": [
+            79,
+            61,
+            62,
+            79,
+            141
+          ],
+          "pair_hall_bound": 256,
+          "pair_row_extension": 96,
+          "protected_rows": 64,
+          "rank_after": 227,
+          "row_count": 227,
+          "six_class_dominance": 0,
+          "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+          "split_family": "keep_57_split_146_vs_57",
+          "split_rows": 2,
+          "split_specs": [
+            {
+              "gamma": 1,
+              "kind": "keep_57_split_146_vs_57",
+              "left": 5,
+              "position": 18,
+              "right": 1
+            },
+            {
+              "gamma": 1,
+              "kind": "keep_57_split_146_vs_57",
+              "left": 7,
+              "position": 18,
+              "right": 1
+            }
+          ],
+          "target_size": 128
+        },
+        "elapsed_seconds": 26.147,
+        "failure_mode": "SPLIT_DESTROYS_PAIR57",
+        "nullity_after": 1309,
+        "pair_row_extension": 96,
+        "rank_after": 227,
+        "row_count": 227,
+        "split_family": "keep_57_split_146_vs_57",
+        "target_size": 128,
+        "vector_results": [
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1600,
+            "capacity_upper_bound": 228,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                4,
+                6
+              ],
+              [
+                7
+              ],
+              [
+                5
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 96,
+            "failure_mode": "SPLIT_DESTROYS_PAIR57",
+            "free_pattern": "d2_first_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "3": 449,
+              "4": 62,
+              "5": 1
+            },
+            "low_collapse": true,
+            "min_pair_B": 513,
+            "nullity_after": 1309,
+            "old_three_subset_B_values": [
+              593,
+              593,
+              592
+            ],
+            "old_three_subset_min_hall_bound": 197,
+            "pair27_37_improved": true,
+            "pair27_B": 593,
+            "pair27_repaired": false,
+            "pair37_B": 592,
+            "pair37_repaired": false,
+            "pair57_preserving": false,
+            "pair_B_values": [
+              575,
+              593,
+              592,
+              575,
+              513
+            ],
+            "pair_deficit_to_654": [
+              79,
+              61,
+              62,
+              79,
+              141
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 96,
+            "protected_rows": 64,
+            "rank_after": 227,
+            "row_count": 227,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_57_split_146_vs_57",
+            "split_rows": 2,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_57_split_146_vs_57",
+                "left": 5,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_57_split_146_vs_57",
+                "left": 7,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1600,
+            "capacity_upper_bound": 228,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                4,
+                6
+              ],
+              [
+                7
+              ],
+              [
+                5
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 96,
+            "failure_mode": "SPLIT_DESTROYS_PAIR57",
+            "free_pattern": "d2_first4_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "3": 449,
+              "4": 62,
+              "5": 1
+            },
+            "low_collapse": true,
+            "min_pair_B": 513,
+            "nullity_after": 1309,
+            "old_three_subset_B_values": [
+              593,
+              593,
+              592
+            ],
+            "old_three_subset_min_hall_bound": 197,
+            "pair27_37_improved": true,
+            "pair27_B": 593,
+            "pair27_repaired": false,
+            "pair37_B": 592,
+            "pair37_repaired": false,
+            "pair57_preserving": false,
+            "pair_B_values": [
+              575,
+              593,
+              592,
+              575,
+              513
+            ],
+            "pair_deficit_to_654": [
+              79,
+              61,
+              62,
+              79,
+              141
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 96,
+            "protected_rows": 64,
+            "rank_after": 227,
+            "row_count": 227,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_57_split_146_vs_57",
+            "split_rows": 2,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_57_split_146_vs_57",
+                "left": 5,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_57_split_146_vs_57",
+                "left": 7,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1600,
+            "capacity_upper_bound": 228,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                4,
+                6
+              ],
+              [
+                7
+              ],
+              [
+                5
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 96,
+            "failure_mode": "SPLIT_DESTROYS_PAIR57",
+            "free_pattern": "d2_even_sparse",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "3": 449,
+              "4": 62,
+              "5": 1
+            },
+            "low_collapse": true,
+            "min_pair_B": 513,
+            "nullity_after": 1309,
+            "old_three_subset_B_values": [
+              593,
+              593,
+              592
+            ],
+            "old_three_subset_min_hall_bound": 197,
+            "pair27_37_improved": true,
+            "pair27_B": 593,
+            "pair27_repaired": false,
+            "pair37_B": 592,
+            "pair37_repaired": false,
+            "pair57_preserving": false,
+            "pair_B_values": [
+              575,
+              593,
+              592,
+              575,
+              513
+            ],
+            "pair_deficit_to_654": [
+              79,
+              61,
+              62,
+              79,
+              141
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 96,
+            "protected_rows": 64,
+            "rank_after": 227,
+            "row_count": 227,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_57_split_146_vs_57",
+            "split_rows": 2,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_57_split_146_vs_57",
+                "left": 5,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_57_split_146_vs_57",
+                "left": 7,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          }
+        ]
+      },
+      {
+        "best": {
+          "base_creation_rows": 64,
+          "capacity_preserving": false,
+          "capacity_total": 1169,
+          "capacity_upper_bound": 167,
+          "chosen_masks_hash": null,
+          "collapse_reduced": true,
+          "d2_split": true,
+          "degenerate_classes": [
+            [
+              5,
+              6
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              7
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ]
+          ],
+          "distinct_codewords": false,
+          "exact_agreement_vector": null,
+          "exact_max_min": null,
+          "extension_rows": 96,
+          "failure_mode": "SPLIT_DESTROYS_PAIR57",
+          "free_pattern": "d2_first_free",
+          "full_pair_repaired": false,
+          "largest_class_histogram": {
+            "2": 368,
+            "3": 143,
+            "4": 1
+          },
+          "low_collapse": true,
+          "min_pair_B": 513,
+          "nullity_after": 1308,
+          "old_three_subset_B_values": [
+            593,
+            593,
+            592
+          ],
+          "old_three_subset_min_hall_bound": 197,
+          "pair27_37_improved": true,
+          "pair27_B": 593,
+          "pair27_repaired": false,
+          "pair37_B": 592,
+          "pair37_repaired": false,
+          "pair57_preserving": false,
+          "pair_B_values": [
+            575,
+            593,
+            592,
+            575,
+            513
+          ],
+          "pair_deficit_to_654": [
+            79,
+            61,
+            62,
+            79,
+            141
+          ],
+          "pair_hall_bound": 256,
+          "pair_row_extension": 96,
+          "protected_rows": 64,
+          "rank_after": 228,
+          "row_count": 228,
+          "six_class_dominance": 0,
+          "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+          "split_family": "keep_567_split_14_vs_567",
+          "split_rows": 3,
+          "split_specs": [
+            {
+              "gamma": 1,
+              "kind": "keep_567_split_14_vs_567",
+              "left": 5,
+              "position": 18,
+              "right": 1
+            },
+            {
+              "gamma": 1,
+              "kind": "keep_567_split_14_vs_567",
+              "left": 6,
+              "position": 18,
+              "right": 1
+            },
+            {
+              "gamma": 1,
+              "kind": "keep_567_split_14_vs_567",
+              "left": 7,
+              "position": 18,
+              "right": 1
+            }
+          ],
+          "target_size": 128
+        },
+        "elapsed_seconds": 26.431,
+        "failure_mode": "SPLIT_DESTROYS_PAIR57",
+        "nullity_after": 1308,
+        "pair_row_extension": 96,
+        "rank_after": 228,
+        "row_count": 228,
+        "split_family": "keep_567_split_14_vs_567",
+        "target_size": 128,
+        "vector_results": [
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1169,
+            "capacity_upper_bound": 167,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                5,
+                6
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                7
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 96,
+            "failure_mode": "SPLIT_DESTROYS_PAIR57",
+            "free_pattern": "d2_first_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "2": 368,
+              "3": 143,
+              "4": 1
+            },
+            "low_collapse": true,
+            "min_pair_B": 513,
+            "nullity_after": 1308,
+            "old_three_subset_B_values": [
+              593,
+              593,
+              592
+            ],
+            "old_three_subset_min_hall_bound": 197,
+            "pair27_37_improved": true,
+            "pair27_B": 593,
+            "pair27_repaired": false,
+            "pair37_B": 592,
+            "pair37_repaired": false,
+            "pair57_preserving": false,
+            "pair_B_values": [
+              575,
+              593,
+              592,
+              575,
+              513
+            ],
+            "pair_deficit_to_654": [
+              79,
+              61,
+              62,
+              79,
+              141
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 96,
+            "protected_rows": 64,
+            "rank_after": 228,
+            "row_count": 228,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_567_split_14_vs_567",
+            "split_rows": 3,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 5,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 7,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1169,
+            "capacity_upper_bound": 167,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                5,
+                6
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                7
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 96,
+            "failure_mode": "SPLIT_DESTROYS_PAIR57",
+            "free_pattern": "d2_first4_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "2": 368,
+              "3": 143,
+              "4": 1
+            },
+            "low_collapse": true,
+            "min_pair_B": 513,
+            "nullity_after": 1308,
+            "old_three_subset_B_values": [
+              593,
+              593,
+              592
+            ],
+            "old_three_subset_min_hall_bound": 197,
+            "pair27_37_improved": true,
+            "pair27_B": 593,
+            "pair27_repaired": false,
+            "pair37_B": 592,
+            "pair37_repaired": false,
+            "pair57_preserving": false,
+            "pair_B_values": [
+              575,
+              593,
+              592,
+              575,
+              513
+            ],
+            "pair_deficit_to_654": [
+              79,
+              61,
+              62,
+              79,
+              141
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 96,
+            "protected_rows": 64,
+            "rank_after": 228,
+            "row_count": 228,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_567_split_14_vs_567",
+            "split_rows": 3,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 5,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 7,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1169,
+            "capacity_upper_bound": 167,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                5,
+                6
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                7
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 96,
+            "failure_mode": "SPLIT_DESTROYS_PAIR57",
+            "free_pattern": "d2_even_sparse",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "2": 368,
+              "3": 143,
+              "4": 1
+            },
+            "low_collapse": true,
+            "min_pair_B": 513,
+            "nullity_after": 1308,
+            "old_three_subset_B_values": [
+              593,
+              593,
+              592
+            ],
+            "old_three_subset_min_hall_bound": 197,
+            "pair27_37_improved": true,
+            "pair27_B": 593,
+            "pair27_repaired": false,
+            "pair37_B": 592,
+            "pair37_repaired": false,
+            "pair57_preserving": false,
+            "pair_B_values": [
+              575,
+              593,
+              592,
+              575,
+              513
+            ],
+            "pair_deficit_to_654": [
+              79,
+              61,
+              62,
+              79,
+              141
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 96,
+            "protected_rows": 64,
+            "rank_after": 228,
+            "row_count": 228,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_567_split_14_vs_567",
+            "split_rows": 3,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 5,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_567_split_14_vs_567",
+                "left": 7,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          }
+        ]
+      },
+      {
+        "best": {
+          "base_creation_rows": 64,
+          "capacity_preserving": false,
+          "capacity_total": 2209,
+          "capacity_upper_bound": 315,
+          "chosen_masks_hash": null,
+          "collapse_reduced": true,
+          "d2_split": true,
+          "degenerate_classes": [
+            [
+              1,
+              4,
+              5,
+              7
+            ],
+            [
+              6
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ]
+          ],
+          "distinct_codewords": false,
+          "exact_agreement_vector": null,
+          "exact_max_min": null,
+          "extension_rows": 96,
+          "failure_mode": "SPLIT_CAPACITY_LOSS",
+          "free_pattern": "d2_first_free",
+          "full_pair_repaired": false,
+          "largest_class_histogram": {
+            "4": 431,
+            "5": 1,
+            "6": 80
+          },
+          "low_collapse": true,
+          "min_pair_B": 592,
+          "nullity_after": 1310,
+          "old_three_subset_B_values": [
+            673,
+            673,
+            673
+          ],
+          "old_three_subset_min_hall_bound": 224,
+          "pair27_37_improved": true,
+          "pair27_B": 593,
+          "pair27_repaired": false,
+          "pair37_B": 592,
+          "pair37_repaired": false,
+          "pair57_preserving": true,
+          "pair_B_values": [
+            1024,
+            593,
+            592,
+            1024,
+            1024
+          ],
+          "pair_deficit_to_654": [
+            -370,
+            61,
+            62,
+            -370,
+            -370
+          ],
+          "pair_hall_bound": 296,
+          "pair_row_extension": 96,
+          "protected_rows": 64,
+          "rank_after": 226,
+          "row_count": 226,
+          "six_class_dominance": 0,
+          "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+          "split_family": "keep_1457_split_6",
+          "split_rows": 1,
+          "split_specs": [
+            {
+              "gamma": 1,
+              "kind": "keep_1457_split_6",
+              "left": 6,
+              "position": 18,
+              "right": 1
+            }
+          ],
+          "target_size": 128
+        },
+        "elapsed_seconds": 25.543,
+        "failure_mode": "SPLIT_CAPACITY_LOSS",
+        "nullity_after": 1310,
+        "pair_row_extension": 96,
+        "rank_after": 226,
+        "row_count": 226,
+        "split_family": "keep_1457_split_6",
+        "target_size": 128,
+        "vector_results": [
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 2209,
+            "capacity_upper_bound": 315,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                4,
+                5,
+                7
+              ],
+              [
+                6
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 96,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "4": 431,
+              "5": 1,
+              "6": 80
+            },
+            "low_collapse": true,
+            "min_pair_B": 592,
+            "nullity_after": 1310,
+            "old_three_subset_B_values": [
+              673,
+              673,
+              673
+            ],
+            "old_three_subset_min_hall_bound": 224,
+            "pair27_37_improved": true,
+            "pair27_B": 593,
+            "pair27_repaired": false,
+            "pair37_B": 592,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              593,
+              592,
+              1024,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              61,
+              62,
+              -370,
+              -370
+            ],
+            "pair_hall_bound": 296,
+            "pair_row_extension": 96,
+            "protected_rows": 64,
+            "rank_after": 226,
+            "row_count": 226,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_1457_split_6",
+            "split_rows": 1,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_1457_split_6",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 2209,
+            "capacity_upper_bound": 315,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                4,
+                5,
+                7
+              ],
+              [
+                6
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 96,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first4_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "4": 431,
+              "5": 1,
+              "6": 80
+            },
+            "low_collapse": true,
+            "min_pair_B": 592,
+            "nullity_after": 1310,
+            "old_three_subset_B_values": [
+              673,
+              673,
+              673
+            ],
+            "old_three_subset_min_hall_bound": 224,
+            "pair27_37_improved": true,
+            "pair27_B": 593,
+            "pair27_repaired": false,
+            "pair37_B": 592,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              593,
+              592,
+              1024,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              61,
+              62,
+              -370,
+              -370
+            ],
+            "pair_hall_bound": 296,
+            "pair_row_extension": 96,
+            "protected_rows": 64,
+            "rank_after": 226,
+            "row_count": 226,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_1457_split_6",
+            "split_rows": 1,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_1457_split_6",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 2209,
+            "capacity_upper_bound": 315,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                4,
+                5,
+                7
+              ],
+              [
+                6
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 96,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_even_sparse",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "4": 431,
+              "5": 1,
+              "6": 80
+            },
+            "low_collapse": true,
+            "min_pair_B": 592,
+            "nullity_after": 1310,
+            "old_three_subset_B_values": [
+              673,
+              673,
+              673
+            ],
+            "old_three_subset_min_hall_bound": 224,
+            "pair27_37_improved": true,
+            "pair27_B": 593,
+            "pair27_repaired": false,
+            "pair37_B": 592,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              593,
+              592,
+              1024,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              61,
+              62,
+              -370,
+              -370
+            ],
+            "pair_hall_bound": 296,
+            "pair_row_extension": 96,
+            "protected_rows": 64,
+            "rank_after": 226,
+            "row_count": 226,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_1457_split_6",
+            "split_rows": 1,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_1457_split_6",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          }
+        ]
+      },
+      {
+        "best": {
+          "base_creation_rows": 64,
+          "capacity_preserving": false,
+          "capacity_total": 1697,
+          "capacity_upper_bound": 242,
+          "chosen_masks_hash": null,
+          "collapse_reduced": true,
+          "d2_split": true,
+          "degenerate_classes": [
+            [
+              1,
+              5,
+              7
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ]
+          ],
+          "distinct_codewords": false,
+          "exact_agreement_vector": null,
+          "exact_max_min": null,
+          "extension_rows": 96,
+          "failure_mode": "SPLIT_CAPACITY_LOSS",
+          "free_pattern": "d2_first_free",
+          "full_pair_repaired": false,
+          "largest_class_histogram": {
+            "3": 431,
+            "4": 1,
+            "5": 80
+          },
+          "low_collapse": true,
+          "min_pair_B": 512,
+          "nullity_after": 1309,
+          "old_three_subset_B_values": [
+            673,
+            592,
+            673
+          ],
+          "old_three_subset_min_hall_bound": 197,
+          "pair27_37_improved": true,
+          "pair27_B": 593,
+          "pair27_repaired": false,
+          "pair37_B": 592,
+          "pair37_repaired": false,
+          "pair57_preserving": true,
+          "pair_B_values": [
+            1024,
+            593,
+            592,
+            512,
+            1024
+          ],
+          "pair_deficit_to_654": [
+            -370,
+            61,
+            62,
+            142,
+            -370
+          ],
+          "pair_hall_bound": 256,
+          "pair_row_extension": 96,
+          "protected_rows": 64,
+          "rank_after": 227,
+          "row_count": 227,
+          "six_class_dominance": 0,
+          "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+          "split_family": "keep_157_split_46",
+          "split_rows": 2,
+          "split_specs": [
+            {
+              "gamma": 1,
+              "kind": "keep_157_split_46",
+              "left": 4,
+              "position": 18,
+              "right": 1
+            },
+            {
+              "gamma": 1,
+              "kind": "keep_157_split_46",
+              "left": 6,
+              "position": 18,
+              "right": 1
+            }
+          ],
+          "target_size": 128
+        },
+        "elapsed_seconds": 26.043,
+        "failure_mode": "SPLIT_CAPACITY_LOSS",
+        "nullity_after": 1309,
+        "pair_row_extension": 96,
+        "rank_after": 227,
+        "row_count": 227,
+        "split_family": "keep_157_split_46",
+        "target_size": 128,
+        "vector_results": [
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1697,
+            "capacity_upper_bound": 242,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                5,
+                7
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 96,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "3": 431,
+              "4": 1,
+              "5": 80
+            },
+            "low_collapse": true,
+            "min_pair_B": 512,
+            "nullity_after": 1309,
+            "old_three_subset_B_values": [
+              673,
+              592,
+              673
+            ],
+            "old_three_subset_min_hall_bound": 197,
+            "pair27_37_improved": true,
+            "pair27_B": 593,
+            "pair27_repaired": false,
+            "pair37_B": 592,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              593,
+              592,
+              512,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              61,
+              62,
+              142,
+              -370
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 96,
+            "protected_rows": 64,
+            "rank_after": 227,
+            "row_count": 227,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_157_split_46",
+            "split_rows": 2,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_157_split_46",
+                "left": 4,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_157_split_46",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1697,
+            "capacity_upper_bound": 242,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                5,
+                7
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 96,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first4_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "3": 431,
+              "4": 1,
+              "5": 80
+            },
+            "low_collapse": true,
+            "min_pair_B": 512,
+            "nullity_after": 1309,
+            "old_three_subset_B_values": [
+              673,
+              592,
+              673
+            ],
+            "old_three_subset_min_hall_bound": 197,
+            "pair27_37_improved": true,
+            "pair27_B": 593,
+            "pair27_repaired": false,
+            "pair37_B": 592,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              593,
+              592,
+              512,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              61,
+              62,
+              142,
+              -370
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 96,
+            "protected_rows": 64,
+            "rank_after": 227,
+            "row_count": 227,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_157_split_46",
+            "split_rows": 2,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_157_split_46",
+                "left": 4,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_157_split_46",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 1697,
+            "capacity_upper_bound": 242,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                5,
+                7
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 96,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_even_sparse",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "3": 431,
+              "4": 1,
+              "5": 80
+            },
+            "low_collapse": true,
+            "min_pair_B": 512,
+            "nullity_after": 1309,
+            "old_three_subset_B_values": [
+              673,
+              592,
+              673
+            ],
+            "old_three_subset_min_hall_bound": 197,
+            "pair27_37_improved": true,
+            "pair27_B": 593,
+            "pair27_repaired": false,
+            "pair37_B": 592,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              593,
+              592,
+              512,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              61,
+              62,
+              142,
+              -370
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 96,
+            "protected_rows": 64,
+            "rank_after": 227,
+            "row_count": 227,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "keep_157_split_46",
+            "split_rows": 2,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "keep_157_split_46",
+                "left": 4,
+                "position": 18,
+                "right": 1
+              },
+              {
+                "gamma": 1,
+                "kind": "keep_157_split_46",
+                "left": 6,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          }
+        ]
+      },
+      {
+        "best": {
+          "base_creation_rows": 64,
+          "capacity_preserving": false,
+          "capacity_total": 2209,
+          "capacity_upper_bound": 315,
+          "chosen_masks_hash": null,
+          "collapse_reduced": true,
+          "d2_split": true,
+          "degenerate_classes": [
+            [
+              1,
+              5,
+              6,
+              7
+            ],
+            [
+              4
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ]
+          ],
+          "distinct_codewords": false,
+          "exact_agreement_vector": null,
+          "exact_max_min": null,
+          "extension_rows": 96,
+          "failure_mode": "SPLIT_CAPACITY_LOSS",
+          "free_pattern": "d2_first_free",
+          "full_pair_repaired": false,
+          "largest_class_histogram": {
+            "4": 431,
+            "5": 1,
+            "6": 80
+          },
+          "low_collapse": true,
+          "min_pair_B": 512,
+          "nullity_after": 1310,
+          "old_three_subset_B_values": [
+            673,
+            592,
+            673
+          ],
+          "old_three_subset_min_hall_bound": 197,
+          "pair27_37_improved": true,
+          "pair27_B": 593,
+          "pair27_repaired": false,
+          "pair37_B": 592,
+          "pair37_repaired": false,
+          "pair57_preserving": true,
+          "pair_B_values": [
+            1024,
+            593,
+            592,
+            512,
+            1024
+          ],
+          "pair_deficit_to_654": [
+            -370,
+            61,
+            62,
+            142,
+            -370
+          ],
+          "pair_hall_bound": 256,
+          "pair_row_extension": 96,
+          "protected_rows": 64,
+          "rank_after": 226,
+          "row_count": 226,
+          "six_class_dominance": 0,
+          "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+          "split_family": "capacity_slack_only",
+          "split_rows": 1,
+          "split_specs": [
+            {
+              "gamma": 1,
+              "kind": "capacity_slack_only",
+              "left": 4,
+              "position": 18,
+              "right": 1
+            }
+          ],
+          "target_size": 128
+        },
+        "elapsed_seconds": 25.789,
+        "failure_mode": "SPLIT_CAPACITY_LOSS",
+        "nullity_after": 1310,
+        "pair_row_extension": 96,
+        "rank_after": 226,
+        "row_count": 226,
+        "split_family": "capacity_slack_only",
+        "target_size": 128,
+        "vector_results": [
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 2209,
+            "capacity_upper_bound": 315,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                5,
+                6,
+                7
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 96,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "4": 431,
+              "5": 1,
+              "6": 80
+            },
+            "low_collapse": true,
+            "min_pair_B": 512,
+            "nullity_after": 1310,
+            "old_three_subset_B_values": [
+              673,
+              592,
+              673
+            ],
+            "old_three_subset_min_hall_bound": 197,
+            "pair27_37_improved": true,
+            "pair27_B": 593,
+            "pair27_repaired": false,
+            "pair37_B": 592,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              593,
+              592,
+              512,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              61,
+              62,
+              142,
+              -370
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 96,
+            "protected_rows": 64,
+            "rank_after": 226,
+            "row_count": 226,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "capacity_slack_only",
+            "split_rows": 1,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "capacity_slack_only",
+                "left": 4,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 2209,
+            "capacity_upper_bound": 315,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                5,
+                6,
+                7
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 96,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_first4_free",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "4": 431,
+              "5": 1,
+              "6": 80
+            },
+            "low_collapse": true,
+            "min_pair_B": 512,
+            "nullity_after": 1310,
+            "old_three_subset_B_values": [
+              673,
+              592,
+              673
+            ],
+            "old_three_subset_min_hall_bound": 197,
+            "pair27_37_improved": true,
+            "pair27_B": 593,
+            "pair27_repaired": false,
+            "pair37_B": 592,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              593,
+              592,
+              512,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              61,
+              62,
+              142,
+              -370
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 96,
+            "protected_rows": 64,
+            "rank_after": 226,
+            "row_count": 226,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "capacity_slack_only",
+            "split_rows": 1,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "capacity_slack_only",
+                "left": 4,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          },
+          {
+            "base_creation_rows": 64,
+            "capacity_preserving": false,
+            "capacity_total": 2209,
+            "capacity_upper_bound": 315,
+            "chosen_masks_hash": null,
+            "collapse_reduced": true,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                5,
+                6,
+                7
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "distinct_codewords": false,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "extension_rows": 96,
+            "failure_mode": "SPLIT_CAPACITY_LOSS",
+            "free_pattern": "d2_even_sparse",
+            "full_pair_repaired": false,
+            "largest_class_histogram": {
+              "4": 431,
+              "5": 1,
+              "6": 80
+            },
+            "low_collapse": true,
+            "min_pair_B": 512,
+            "nullity_after": 1310,
+            "old_three_subset_B_values": [
+              673,
+              592,
+              673
+            ],
+            "old_three_subset_min_hall_bound": 197,
+            "pair27_37_improved": true,
+            "pair27_B": 593,
+            "pair27_repaired": false,
+            "pair37_B": 592,
+            "pair37_repaired": false,
+            "pair57_preserving": true,
+            "pair_B_values": [
+              1024,
+              593,
+              592,
+              512,
+              1024
+            ],
+            "pair_deficit_to_654": [
+              -370,
+              61,
+              62,
+              142,
+              -370
+            ],
+            "pair_hall_bound": 256,
+            "pair_row_extension": 96,
+            "protected_rows": 64,
+            "rank_after": 226,
+            "row_count": 226,
+            "six_class_dominance": 0,
+            "solve_status": "EXACT_VECTOR_CONSTRUCTED",
+            "split_family": "capacity_slack_only",
+            "split_rows": 1,
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "capacity_slack_only",
+                "left": 4,
+                "position": 18,
+                "right": 1
+              }
+            ],
+            "target_size": 128
+          }
+        ]
+      }
+    ],
+    "split_families": [
+      "keep_57_split_146_vs_57",
+      "keep_567_split_14_vs_567",
+      "keep_1457_split_6",
+      "keep_157_split_46",
+      "capacity_slack_only"
+    ],
+    "systems_tested": 15,
+    "target_sizes": [
+      128
+    ],
+    "timeouts": 0
+  },
+  "construction_mode": "capacity_skeleton_protected_split_placement",
+  "denominator": "17^32",
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C"
+  ],
+  "proof_status": "EXACT_EXTRACTION_NO_A327",
+  "row": "RS[F_17^32,H,256]",
+  "source_commit": "6aa1f9e",
+  "track": "INTERLEAVED_LIST"
+}

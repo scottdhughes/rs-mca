@@ -30,6 +30,26 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-01 - M1 a327 capacity-skeleton protected split placement
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_capacity_skeleton_protected_split_placement.md`,
+  `experimental/scripts/scan_m1_a327_capacity_skeleton_protected_split_placement.py`,
+  `experimental/scripts/verify_m1_a327_capacity_skeleton_protected_split_placement.py`,
+  `experimental/scripts/audit_m1_a327_capacity_skeleton_protected_split_placement.sage`,
+  `experimental/data/m1_a327_capacity_skeleton_protected_split_placement.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A timeout-bounded exact `GF(17^32)` audit of
+  split placements designed to preserve the capacity skeleton, especially
+  `{5,7}`, while continuing the scalable `{2,7}` / `{3,7}` pair-class repair.
+- **How it is useful:** The audit separates two failure modes: 27 vectors
+  preserve `{5,7}` and reduce collapse, but all 45 sampled vectors still fall
+  below capacity `327`; the best row keeps pair values
+  `[1024,593,592,1024,1024]` but has capacity `315`.
+- **What to do next:** Build a coordinate-level capacity ledger and choose
+  split placements from actual slack, rather than fixed split families.
+
 ### 2026-07-01 - M1 a327 scalable pairclass with 14567 split
 
 - **Agent/model:** Codex.
