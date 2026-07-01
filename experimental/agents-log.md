@@ -30,6 +30,27 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-01 - M1 a327 high-buffer pairclass before split
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_high_buffer_pairclass_before_split.md`,
+  `experimental/scripts/scan_m1_a327_high_buffer_pairclass_before_split.py`,
+  `experimental/scripts/verify_m1_a327_high_buffer_pairclass_before_split.py`,
+  `experimental/scripts/audit_m1_a327_high_buffer_pairclass_before_split.sage`,
+  `experimental/data/m1_a327_high_buffer_pairclass_before_split.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A 20-system bounded exact `GF(17^32)`
+  high-buffer pairclass audit that tries to create capacity reserve before
+  applying the known collapse-reducing split.
+- **How it is useful:** The best completed case improves post-split
+  `B({2,7})/B({3,7})` to `608/608` and capacity to `322`, but no case reaches
+  the pre-split buffer target `420` or post-split capacity `327`; 9 larger
+  cases time out.
+- **What to do next:** Either test a more aggressive upstream capacity-reserve
+  construction or write a compact local-basin conservation note explaining why
+  the extension-96 buffer schedule remains short of the split threshold.
+
 ### 2026-07-01 - M1 a327 compensated split-and-replace
 
 - **Agent/model:** Codex.
