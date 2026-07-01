@@ -81,6 +81,7 @@
 \newcommand{\Acl}{A}
 \newcommand{\C}{\mathbb C}
 \newcommand{\Fib}{\mathcal F}
+\newcommand{\ImgFib}{\mathcal F^{\rm img}}
 \newcommand{\List}{\operatorname{List}}
 
 \title{Slack, Quotient Cores, and the Entropy Gap\\ for Smooth-Domain Reed--Solomon Codes\\\large List fibers, cyclotomic rigidity, Galois-amplified collisions,\\\large and the corrected slack mutual-correlated-agreement theory}
@@ -168,6 +169,10 @@ For $k<s\le n$ and $\deg U<n$, define
 \[
         \Fib_U(s)=\{S\subseteq H:\ |S|=s,\ \deg(U\bmod L_S)<k\}.
 \]
+Define the associated codeword-image fiber
+\[
+        \ImgFib_U(s)=\{U\bmod L_S:\ S\in\Fib_U(s)\}\subseteq \F_q[X]_{<k}.
+\]
 For monomial-prefix data $c=(c_1,\ldots,c_\sigma)\in\F_q^\sigma$, $s=k+\sigma$, define
 \[
         \Phi_\sigma(S)=(e_1(S),\ldots,e_\sigma(S)),
@@ -188,6 +193,39 @@ Consequently
 
 \begin{proof}
 Each codeword $P$ agreeing with $y$ on at least $s$ coordinates has an $s$-subset $S$ of its agreement set.  Then $U\equiv P\pmod{L_S}$, so $S\in\Fib_U(s)$.  For a fixed $S$, the residue $U\bmod L_S$ is unique, hence the corresponding $P$ is unique.  Choosing one such $S$ for each listed codeword injects the list into $\Fib_U(s)$.
+\end{proof}
+
+\begin{proposition}[Image fibers are exact lists]\label{prop:imgfib-list}
+For every received word $y$ with interpolant $U$,
+\[
+        \ImgFib_U(s)
+        =
+        \{P\in\F_q[X]_{<k}:\ |\{x\in H:U(x)=P(x)\}|\ge s\}.
+\]
+Consequently
+\[
+        |\List(y,1-s/n)|=|\ImgFib_U(s)|.
+\]
+Moreover, if
+\[
+        a_P:=|\{x\in H:U(x)=P(x)\}|,
+\]
+then
+\[
+        |\Fib_U(s)|
+        =
+        \sum_{P\in\ImgFib_U(s)}\binom{a_P}{s}.
+\]
+\end{proposition}
+
+\begin{proof}
+If $S\in\Fib_U(s)$, then $P_S:=U\bmod L_S$ has degree $<k$ and agrees with $U$
+on $S$, so $P_S$ belongs to the displayed list.  Conversely, if
+$P\in\F_q[X]_{<k}$ agrees with $U$ on a set $A$ of size at least $s$, then for
+every $s$-subset $S\subseteq A$ we have $S\in\Fib_U(s)$ and
+$U\bmod L_S=P$.  Thus the image fiber is exactly the list.  The final identity
+counts, for each listed codeword $P$, the number of $s$-subsets of its agreement
+set with $U$.
 \end{proof}
 
 \begin{proposition}[Monomial-prefix words are exact prefix fibers]\label{prop:monomial-fiber}
@@ -211,7 +249,7 @@ If $\Phi_\sigma(S)=c$, then the top $\sigma$ coefficients of $U_c$ and $L_S$ agr
 
 Thus the positive half of list decoding can be stated without coding language:
 \[
-        \max_{\deg U<n}|\Fib_U(k+\sigma)|\quad\text{should be polynomial above the corrected reserve.}
+        \max_{\deg U<n}|\ImgFib_U(k+\sigma)|\quad\text{should be polynomial above the corrected reserve.}
 \]
 
 \section{Two lower-bound scales}\label{sec:lower}
@@ -569,14 +607,17 @@ where $\mathrm{Quot}_{\sigma,c}$ is an explicit finite sum of quotient-core cont
 \begin{conjecture}[Arbitrary locator-fiber local limit]\label{conj:arbitrary-local}
 Under the same hypotheses as Conjecture~\ref{conj:prefix-local}, for every interpolant $U\in\F_q[X]$ with $\deg U<n$,
 \[
-        |\Fib_U(k+\sigma)|\le n^B.
+        |\ImgFib_U(k+\sigma)|\le n^B.
 \]
 The predicted pre-threshold asymptotic is the same random-codimension-$\sigma$ law:
 \[
-        |\Fib_U(k+\sigma)|
+        |\ImgFib_U(k+\sigma)|
         \approx \frac1{q^\sigma}\binom n{k+\sigma}
 \]
-except for quotient-periodic and low-denominator structured families.
+except for quotient-periodic and low-denominator structured families.  The raw
+support fiber $\Fib_U(k+\sigma)$ can be exponentially larger than the list when
+many supports explain the same codeword; the image fiber is the object matched
+exactly by \cref{prop:imgfib-list}.
 \end{conjecture}
 
 \begin{theorem}[Conditional corrected list theorem]\label{thm:conditional-list}
@@ -594,7 +635,10 @@ If only Conjecture~\ref{conj:prefix-local} holds, the same conclusion holds for 
 \end{theorem}
 
 \begin{proof}
-The arbitrary-word claim is exactly \Cref{prop:arb-fiber}.  The monomial-prefix claim is \Cref{prop:monomial-fiber}.
+The arbitrary-word claim follows from \cref{prop:imgfib-list}, which identifies
+the codeword list with $\ImgFib_U(k+\sigma)$ exactly, combined with
+\cref{conj:arbitrary-local}.  The monomial-prefix claim is
+\Cref{prop:monomial-fiber}.
 \end{proof}
 
 \begin{remark}[Subfield correction]\label{rem:subfield}
@@ -1702,7 +1746,7 @@ The expected final list theorem is the following local-limit statement, which st
 \begin{conjecture}[Final locator local limit]\label{conj:final-locator}
 For every fixed $\rho\in(0,1)$ and every $B,\eps>0$, there is $C_{\rho,B,\eps}$ such that for every generated-field smooth domain $H\le\F_q^\times$ of order $n=2^m$ (so $q=q_D$), every $k=\rho n+O(1)$, and every $\deg U<n$,
 \[
-        |\Fib_U(k+\sigma)|\le n^B
+        |\ImgFib_U(k+\sigma)|\le n^B
 \]
 whenever
 \[
@@ -1710,7 +1754,9 @@ whenever
         \qquad\text{and}\qquad
         \sigma\log_2q\ge(1+\eps)\log_2\binom n{k+\sigma}.
 \]
-Equivalently, after quotient-periodic classes are removed, the map $S\mapsto U\bmod L_S$ behaves like a random codimension-$\sigma$ hash on $(k+\sigma)$-subsets.
+Equivalently, after quotient-periodic classes are removed, the distinct codeword
+images of the map $S\mapsto U\bmod L_S$ behave like a random
+codimension-$\sigma$ hash on $(k+\sigma)$-subsets.
 \end{conjecture}
 
 The expected final MCA theorem is the residue-line analogue.

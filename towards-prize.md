@@ -83,6 +83,18 @@ It also adds an extension-pole conversion: large lists over `D subset B` can be
 converted using poles in `F \ B`, giving genuinely extension-valued witness
 lines with a printed numerator.
 
+The PR 161--169 integration adds two important roadmap corrections:
+
+```text
+L1 targets codeword-image fibers ImgFib_U, not raw support fibers Fib_U;
+the F_17^32 regular non-tangent window now has compact row, window, and
+generic-minor artifacts, but still no root-table safe-side proof.
+```
+
+The image-fiber repair is now reflected in Papers B and C.  Raw support fibers
+can be exponentially inflated by many supports explaining the same codeword;
+the exact list object is the image fiber.
+
 For the finite row
 \[
         C=\operatorname{RS}[\mathbb F_{17^{32}},H,256],
@@ -470,6 +482,22 @@ root-count ledger for every nonsingular regular bucket.  The next M3 task is to
 run this checker on selected agreements in `385 <= A <= 426` for the
 `F_17^32` row and classify each result as regular-closed or singular.
 
+The PR 161 selected integration supplies the compact starting artifacts:
+
+```text
+experimental/data/certificates/hankel-f17-32-row-descriptor/
+experimental/data/certificates/hankel-regular-window-f17-385-426/
+experimental/data/certificates/hankel-f17-32-generic-regular-minor/
+experimental/scripts/extract_regular_hankel_minors.py
+experimental/scripts/verify_f17_32_m3_generic_regular_minor.py
+```
+
+The generic-minor note proves that every maximal row-set regular minor in the
+window is generically nonzero of degree `j+1`.  This rules out a structural
+collapse of the regular method, but it does not bound a worst-case MCA line:
+the degree-only sum is still `4515`, while the finite-slope budget is only `6`.
+The next packet must compute actual root tables or identify singular buckets.
+
 ### M4. Quotient and Tangent Subtraction
 
 Integrate the v9 packets with the existing quotient-image and tangent ledgers.
@@ -578,9 +606,14 @@ fibers into usable ledgers.
 
 Target:
 \[
-        \#\{\text{aperiodic locator fibers}\}\le n^B
+        \#\{\text{aperiodic locator image fibers}\}\le n^B
 \]
 above the corrected reserve, with quotient-periodic fibers explicitly budgeted.
+
+Use `ImgFib_U(a)` for the list object.  Do not state the positive conjecture
+for raw `Fib_U(a)`: low-degree words can have exponentially many explaining
+supports for one codeword.  The raw fiber remains useful only as a coarse upper
+bound or when multiplicity is explicitly budgeted.
 
 First deliverables:
 
@@ -589,6 +622,14 @@ monomial-prefix proof packets
 quotient-removed toy enumerations
 arbitrary-word Hankel/catalecticant reductions
 bad-prime or finite-collision classification
+full-petal sunflower branch bounds
+```
+
+Current new inputs:
+
+```text
+monomial dyadic descent replay packet for the F_17^32 row;
+full-petal growing-defect witnesses showing that branch is nonempty.
 ```
 
 Do not use \(q_{\rm line}\) to pay a \(q_{\rm gen}\) entropy bill.
@@ -610,6 +651,15 @@ The first useful theorem is not "MCA is small."  It is:
 ```text
 Every non-small v10 residual bucket is quotient, tangent, extension-confined,
 or a named new obstruction.
+```
+
+Current new inputs:
+
+```text
+full-overlap low-tail completion is proved;
+projection-to-Graver remains a real wall;
+BETA_2 is localized to a global monodromy/conductor input, not closed by finite
+local data.
 ```
 
 ### F1. Extension-Line Lift or Counterexample
@@ -636,6 +686,10 @@ So F1 is no longer asking whether extension-valued witnesses exist below the
 reserve.  The remaining question is safe-side classification: prove these
 witnesses are covered by the extension/aperiodic ledger in the corrected
 reserve, or print explicit bucket tables when they are counterexamples.
+
+The new Lean F1 extension ledger formalizes a sigma-1 algebraic core and typed
+bridge target.  Treat it as formalization support, not as the full extension
+MCA lift theorem.
 
 Every F1 result must say:
 

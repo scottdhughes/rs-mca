@@ -74,6 +74,7 @@
 \newcommand{\qline}{q_{\rm line}}
 \newcommand{\Lst}{\operatorname{List}}
 \newcommand{\Fib}{\mathsf{Fib}}
+\newcommand{\ImgFib}{\mathsf{ImgFib}}
 \newcommand{\Adv}{\operatorname{Adv}}
 \newcommand{\entres}{R_{\rm ent}}
 \newcommand{\cert}{\mathsf{Cert}}
@@ -186,6 +187,11 @@ Let $U:H\to\F$ be a received word and let $a\ge k$.  Define
         \text{ with } p(x)=U(x) \text{ for all } x\in S\bigr\}.
 \]
 Equivalently, writing $L_S(X)=\prod_{x\in S}(X-x)$ for the locator of $S$ and $\widehat U$ for the degree-$<n$ interpolant of $U$ on $H$, we have $S\in\Fib_U(a)$ if and only if $\deg(\widehat U\bmod L_S)<k$.  In the companion paper finer fibers are organized by locator coefficients or moments; this coarse feasible fiber is the object needed for the list bridge below.
+Define also the codeword-image fiber
+\[
+        \ImgFib_U(a):=\{\widehat U\bmod L_S:\ S\in\Fib_U(a)\}
+        \subseteq \F[X]_{<k}.
+\]
 \end{definition}
 
 \begin{lemma}[Fiber-to-list bridge]
@@ -194,11 +200,20 @@ For every received word $U:H\to\F$ and every $a\ge k$,
 \[
         |\Lambda(C,1-a/n,U)|\le |\Fib_U(a)| .
 \]
-Consequently, a uniform bound $|\Fib_U(a)|\le n^{B_L}$ over all $U$ implies $|\Lambda(C,1-a/n)|\le n^{B_L}$.
+More precisely,
+\[
+        |\Lambda(C,1-a/n,U)|=|\ImgFib_U(a)|.
+\]
+Consequently, a uniform bound $|\ImgFib_U(a)|\le n^{B_L}$ over all $U$ implies $|\Lambda(C,1-a/n)|\le n^{B_L}$.
 \end{lemma}
 
 \begin{proof}
-Every codeword $p\in\Lambda(C,1-a/n,U)$ agrees with $U$ on at least $a$ points; choose a canonical $a$-subset $S_p$ of its agreement set, so $S_p\in\Fib_U(a)$.  If $p\ne p'$ had $S_p=S_{p'}=S$, then $p$ and $p'$ are degree-$<k$ polynomials agreeing on the $a\ge k$ points of $S$, hence $p=p'$.  The map $p\mapsto S_p$ is therefore injective.
+Every codeword $p\in\Lambda(C,1-a/n,U)$ agrees with $U$ on at least $a$ points;
+choose an $a$-subset $S_p$ of its agreement set.  Then $S_p\in\Fib_U(a)$ and
+$\widehat U\bmod L_{S_p}=p$, so $p\in\ImgFib_U(a)$.  Conversely, every residue
+in $\ImgFib_U(a)$ has degree $<k$ and agrees with $U$ on its defining support.
+Thus $\ImgFib_U(a)$ is exactly the list.  The inequality
+$|\ImgFib_U(a)|\le|\Fib_U(a)|$ gives the displayed support-fiber upper bound.
 \end{proof}
 
 \subsection{Interleaved lists}
@@ -354,7 +369,7 @@ The profile is computed at the actual pair $(n,k)$ \emph{after} dimension dither
 \label{ass:locator}
 Fix $\rho\in(0,1)$, $B_L>0$, and $\eps>0$.  There is a constant $C_{\rho,B_L,\eps}$ such that the following holds.  Let $H_n\le\F_{q_n}^{\times}$ be generated-field smooth domains of order $n=2^m$ (so $q_n=\qgen$), and let $k_n=\rho n+O(1)$.  For every received word $U:H_n\to\F_{q_n}$,
 \[
-        |\Fib_U(k_n+\sigma_n)|\le n^{B_L}
+        |\ImgFib_U(k_n+\sigma_n)|\le n^{B_L}
 \]
 whenever
 \[
@@ -363,7 +378,7 @@ whenever
         \sigma_n\log_2 q_n
         \ge (1+\eps)\log_2\binom n{k_n+\sigma_n},
 \]
-and all active quotient-core profiles satisfy \eqref{eq:qprofile-list-budget}.  Equivalently, after quotient-periodic classes are accounted for, locator fibers behave like random codimension-$\sigma_n$ fibers on $(k_n+\sigma_n)$-subsets.
+and all active quotient-core profiles satisfy \eqref{eq:qprofile-list-budget}.  Equivalently, after quotient-periodic classes are accounted for, distinct locator-image fibers behave like random codimension-$\sigma_n$ fibers on $(k_n+\sigma_n)$-subsets.
 \end{assumption}
 
 The $O(1)$ freedom in $k_n$ is intentional: it makes the assumption compatible with quotient hygiene, whose whole point is to replace exact deployed dimensions such as $k=\rho n$ by nearby dimensions such as $k=\rho n-1$.  Via \cref{lem:fiber-list}, the assumption yields $|\Lambda(C,1-\rho-\eta_n)|\le n^{B_L}$ at the corrected reserve.

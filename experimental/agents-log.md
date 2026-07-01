@@ -30,6 +30,46 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-01 - PR 161--169 frontier integration
+
+- **Agent/model:** Codex, integrating contributions from holmbuar,
+  AllenGrahamHart, DannyExperiments, and Gia.
+- **Files added or changed:** `tex/slackMCA_v3.tex`;
+  `tex/slackMCA_v4.tex`; `tex/snarks_v4.tex`; `tex/snarks_v5.tex`;
+  `experimental/notes/audits/pr161_169_integration_audit.md`;
+  `experimental/notes/l1/l1_full_petal_growing_defect_witnesses.md`;
+  `experimental/notes/l1/l1_monomial_dyadic_descent_survivors.md`;
+  `experimental/data/certificates/l1-monomial-dyadic-descent/`;
+  `experimental/notes/m1/m1_full_overlap_low_tail_completion_projection_wall.md`;
+  `experimental/notes/m1/m1_beta2_conditional_close.md`;
+  `experimental/notes/m1/m1_beta2_obstruction_floor.md`;
+  `experimental/notes/m1/hankel_regular_window_plan.md`;
+  `experimental/notes/m1/f17_32_m3_generic_regular_minor.md`;
+  `experimental/notes/m1/f17_32_hankel_row_descriptor.md`;
+  `experimental/notes/m1/f17_32_m3_rank_witness_packet.md`;
+  `experimental/notes/thresholds/f17_32_high_agreement_tangent_table.md`;
+  `experimental/lean/rs_mca_formalization/RsMca.lean`;
+  `experimental/lean/rs_mca_formalization/RsMca/F1ExtensionLedger.lean`;
+  `experimental/lean/rs_mca_formalization/RsMca/BetaTwoReductionLedger.lean`;
+  selected verifier scripts and Hankel/L1 data packets.
+- **Status:** AUDIT / PROVED-SUBPACKETS / CONDITIONAL / EXPERIMENTAL.
+- **What is being added:** The L1 target in Papers B/C is repaired from raw
+  support fibers to image fibers; full-petal L1 witnesses and a monomial
+  dyadic replay packet are banked; M1 full-overlap and BETA_2 route-cut notes
+  are integrated; F1/BETA Lean ledgers are wired; and selected M3 regular
+  Hankel row-descriptor/window/minor artifacts are added from the large
+  regular-minor PR.
+- **How it is useful:** This turns the current PR wave into usable proof
+  infrastructure for the v10 prize plan: L1 is now stated against the right
+  object, M1 route cuts are named, F1/BETA algebra cores are formalized, and
+  the `F_17^32` non-tangent regular window has compact row and generic-minor
+  artifacts.
+- **What to do next:** Use the M3 row descriptor and regular-minor extractor
+  to compute actual root tables in `385 <= A <= 426`; compress any remaining
+  generated PR #161 material into small audited proof packets before adding it;
+  and seek a genuine BETA_2 monodromy/conductor theorem rather than promoting
+  finite local data.
+
 ### 2026-07-01 - Paper D v10 milestone integration
 
 - **Agent/model:** Codex.

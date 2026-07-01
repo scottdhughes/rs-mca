@@ -601,3 +601,31 @@ The main points to audit are:
 4. The quotient identity L_S(X)=L_T(X^Q) matches the forced K_Q-periodicity.
 5. The structural families Z_1, Z_2, and Z_3 are normal forms, not explicit orbit-representative lists.
 ```
+
+## Replay Packet
+
+The finite arithmetic gates in this note are packaged in:
+
+```text
+experimental/data/certificates/l1-monomial-dyadic-descent/
+  f17_32_n512_deg256_monomial_dyadic_packet.json
+```
+
+Run:
+
+```sh
+python3 experimental/scripts/verify_l1_monomial_dyadic_descent_packet.py \
+  --check experimental/data/certificates/l1-monomial-dyadic-descent/f17_32_n512_deg256_monomial_dyadic_packet.json
+```
+
+The packet verifier checks the local length-16 lemma, binomial basis gate,
+dyadic descent thresholds, survivor table, impossible rows, final admissible
+size list, and the structural nonemptiness witnesses.  It also constructs one
+explicit quotient-complement witness for every admissible row and checks the
+required quotient power sums `p_1,...,p_d` directly in the `F_17` basis
+determined by `alpha^(N/16)=3`.  It then forms the quotient support `T=G_N\C`
+and checks the elementary vanishings `e_1(T),...,e_d(T)=0`, which are the
+quotient coefficient conditions.  Finally it lifts `T` back to a support
+`S subset H` and checks `e_1(S),...,e_(A-257)(S)=0` in `F_17[z]/(z^32-3)`,
+which is the direct monomial-admissibility condition for `deg P <= 256`.  It
+does not enumerate all support orbits in the large admissible families.
