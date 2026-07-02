@@ -30,6 +30,30 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-01 - M1 a327 repaired-skeleton prepared matrix cache
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_repaired_skeleton_prepared_matrix_cache.md`,
+  `experimental/scripts/scan_m1_a327_repaired_skeleton_prepared_matrix_cache.py`,
+  `experimental/scripts/verify_m1_a327_repaired_skeleton_prepared_matrix_cache.py`,
+  `experimental/scripts/audit_m1_a327_repaired_skeleton_prepared_matrix_cache.sage`,
+  `experimental/data/m1_a327_repaired_skeleton_prepared_matrix_cache.json`,
+  `experimental/agents-log.md`.
+- **Status:** PARTIAL / EXACT_INFRASTRUCTURE_LIMIT / EXPERIMENTAL.
+- **What is being added:** A prepared-state cache manifest for the budget-32
+  repaired skeleton, recording the available `GF(17^32)` linear-algebra
+  metadata: matrix shape `[354,1536]`, rank `354`, nullity `1182`, fixed specs
+  count `129`, and the `d2_first_free` pattern.
+- **How it is useful:** The manifest confirms the parent exact replay passes
+  and that the current cache type is only `RECONSTRUCTION_ONLY`; pivot columns,
+  free columns, independent row indices, and a Sage-native prepared matrix are
+  not persisted. This explains why the `1a75dfe` compensated grid still timed
+  out before constructing exact vectors.
+- **What to do next:** Build a stronger Sage-native cache or pivot/free-column
+  artifact for the budget-32 skeleton before rerunning compensated
+  split/replacement. Do not treat this as evidence that compensated splitting
+  fails mathematically.
+
 ### 2026-07-01 - M1 a327 compensated repaired-skeleton split
 
 - **Agent/model:** Codex.

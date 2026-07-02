@@ -1,0 +1,103 @@
+{
+  "agreement_target": 327,
+  "cache_replay": {
+    "cache_labels": [
+      "CACHE_REPLAY_PASS",
+      "CACHE_SMALL_APPEND_TIMEOUT",
+      "CACHE_PIVOT_REUSE_FAILS"
+    ],
+    "cache_replay_hash": "17b1154d907f6671514c63e365e54828801d791b497a9820d8a6b2b521fc4cde",
+    "replay_status": "PASS",
+    "small_append_exact_vectors_constructed": 0,
+    "small_append_test_failure_mode": "COMP_REPAIRED_SPLIT_TIMEOUT",
+    "small_append_test_run": true,
+    "small_append_test_source_commit": "1a75dfe",
+    "small_append_test_timeout": true,
+    "small_append_test_timeout_stage": "repaired_context GF(17^32) skeleton reconstruction"
+  },
+  "construction_mode": "repaired_skeleton_prepared_matrix_cache",
+  "denominator": "17^32",
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C"
+  ],
+  "prepared_state": {
+    "H_order": 512,
+    "base_capacity": 333,
+    "base_collapse_pattern": [
+      [
+        1,
+        4,
+        5,
+        7
+      ],
+      [
+        6
+      ],
+      [
+        3
+      ],
+      [
+        2
+      ]
+    ],
+    "base_pair_B_values": [
+      1024,
+      657,
+      656,
+      1024,
+      1024
+    ],
+    "base_source_commit": "2dfd1d9",
+    "cache_limitations": [
+      "parent replay persists deterministic specs and vector/value hashes but not pivot columns",
+      "parent replay persists rank/nullity but not independent row indices",
+      "parent replay does not expose a Sage-native prepared matrix or transformation object"
+    ],
+    "cache_type": "RECONSTRUCTION_ONLY",
+    "failed_split_capacity": 315,
+    "failed_split_commit": "7a02b97",
+    "failed_split_pair_B_values": [
+      1024,
+      593,
+      592,
+      512,
+      1024
+    ],
+    "field": "GF(17^32)",
+    "field_construction_hash": "1ce7d756c0b1a4e29e78f794024224473b85df655c9ef3f3a8ed558c9138d2f3",
+    "fixed_specs_count": 129,
+    "free_columns_hash": null,
+    "free_pattern": "d2_first_free",
+    "independent_rows_hash": null,
+    "matrix_shape": [
+      354,
+      1536
+    ],
+    "metadata_hashes": {
+      "base_codeword_value_hash": "e70f6ab8767640199aebc6960328af10bb5a0fd732bbdc2469e13075a392a50b",
+      "base_value_class_hash": "468aed80826de87e5a57a346d82f9c27a9048b53e5940ac7a360aa5fb84cc9ba",
+      "base_vector_hash": "92925ff8027945fa70d2c440b8d9dddde964e49626ea98ebcf92f82b29a42f19",
+      "coordinate_ledger_hash": "f6f8a45d325bc13b1cf04afd21cc5a7d519f3fe02cac76db44b0a77b7e880ba1",
+      "fixed_specs_hash": "697115002df589bba78397a5d67d1a850f5fe8cf2fc30fc3a6340ca0ddf3eb9c",
+      "parent_result_hash": "1ce7d756c0b1a4e29e78f794024224473b85df655c9ef3f3a8ed558c9138d2f3"
+    },
+    "nullity": 1182,
+    "pivot_columns_hash": null,
+    "rank": 354,
+    "row_reduced_state_hash": null,
+    "sage_cache_artifact": null,
+    "sage_cache_hash": null,
+    "subgroup_generator_hash": null,
+    "subgroup_generator_hash_status": "not_persisted_in_parent_replay"
+  },
+  "proof_status": "PARTIAL",
+  "row": "RS[F_17^32,H,256]",
+  "source_commit": "1a75dfe",
+  "track": "INTERLEAVED_LIST"
+}
