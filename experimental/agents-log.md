@@ -30,6 +30,31 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-01 - M1 a327 repaired-skeleton Sage-native cache
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_repaired_skeleton_sage_native_cache.md`,
+  `experimental/scripts/scan_m1_a327_repaired_skeleton_sage_native_cache.py`,
+  `experimental/scripts/verify_m1_a327_repaired_skeleton_sage_native_cache.py`,
+  `experimental/scripts/audit_m1_a327_repaired_skeleton_sage_native_cache.sage`,
+  `experimental/data/m1_a327_repaired_skeleton_sage_native_cache.json`,
+  `experimental/data/cache/m1_a327_repaired_skeleton_budget32_prepared_state.sobj`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_STATE_CACHE / EXPERIMENTAL.
+- **What is being added:** A Sage-native prepared linear-algebra cache for the
+  budget-32 repaired skeleton, including the independent matrix, RHS, pivot
+  columns, free columns, pivot matrix, pivot inverse, base vector, and fixed
+  specs.
+- **How it is useful:** The cache avoids the `repaired_context()` timeout path
+  from `1a75dfe`: the small append test now returns
+  `CACHE_SMALL_APPEND_PASS` and constructs an exact vector. The append vector
+  has capacity `260`, pair values `[1024,657,656,512,1024]`, and collapse
+  `[[1,5,7],[4,6],[3],[2]]`, so it is only an infrastructure success, not an
+  `a=327` candidate.
+- **What to do next:** Rerun the compensated repaired-skeleton split grid using
+  this cache, targeting simultaneous restoration of capacity plus
+  `B({2,7})`, `B({3,7})`, and `B({4,7})`.
+
 ### 2026-07-01 - M1 a327 repaired-skeleton prepared matrix cache
 
 - **Agent/model:** Codex.
