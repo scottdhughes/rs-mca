@@ -1,0 +1,360 @@
+{
+  "best_probe_capacity": 179,
+  "best_probe_pair_B_values": [
+    575,
+    657,
+    657,
+    575,
+    513
+  ],
+  "best_robustness_score": -148,
+  "case": {
+    "budget": 1,
+    "candidate_family": "alt_14_57",
+    "case_index": 0
+  },
+  "case_index": 0,
+  "command": [
+    "/usr/local/bin/sage",
+    "experimental/scripts/audit_m1_a327_upstream_b47_robust_exact_scanner.sage",
+    "--case-index",
+    "0",
+    "--json"
+  ],
+  "failure_mode": "UPSTREAM_CAPACITY_NOT_ROBUST",
+  "pre_split_capacity": 179,
+  "result": {
+    "best_probe": {
+      "appended_rows": 3,
+      "budget": 1,
+      "candidate_family": "alt_14_57",
+      "candidate_positions": [
+        16
+      ],
+      "candidate_specs_count": 3,
+      "capacity_preserving": false,
+      "capacity_total": 1255,
+      "capacity_upper_bound": 179,
+      "case_index": 0,
+      "chosen_masks_hash": null,
+      "contains_fragile_1457_class": false,
+      "d2_split": true,
+      "degenerate_classes": [
+        [
+          1,
+          4
+        ],
+        [
+          7
+        ],
+        [
+          6
+        ],
+        [
+          5
+        ],
+        [
+          3
+        ],
+        [
+          2
+        ]
+      ],
+      "direction_cache_size": 0,
+      "distinct_codewords": false,
+      "elapsed_seconds": 129.353,
+      "exact_agreement_vector": null,
+      "exact_max_min": null,
+      "failure_mode": "UPSTREAM_CAPACITY_NOT_ROBUST",
+      "free_columns_considered": 1182,
+      "free_columns_used": 2,
+      "guard_margins": {
+        "B27": 3,
+        "B37": 3,
+        "B47": -79,
+        "B57": -141,
+        "capacity": -148
+      },
+      "largest_class_histogram": {
+        "2": 327,
+        "3": 162,
+        "5": 23
+      },
+      "min_pair_B": 513,
+      "nondegenerate": false,
+      "old_three_subset_B_values": [
+        679,
+        679,
+        657
+      ],
+      "old_three_subset_min_hall_bound": 219,
+      "pair_B_values": [
+        575,
+        657,
+        657,
+        575,
+        513
+      ],
+      "pair_deficit_to_654": [
+        79,
+        -3,
+        -3,
+        79,
+        141
+      ],
+      "pair_guard_preserving": false,
+      "pair_hall_bound": 256,
+      "partial_split": true,
+      "phase": "upstream_b47_robust_exact_scanner_split_probe",
+      "robustness_score": -148,
+      "selected_split_rows": [],
+      "six_class_dominance": 0,
+      "solve_status": "CACHE_APPEND_SOLVED",
+      "split_family": "split_14_vs_57",
+      "split_specs": []
+    },
+    "best_robustness_score": -148,
+    "budget": 1,
+    "candidate_family": "alt_14_57",
+    "candidate_positions": [
+      16
+    ],
+    "candidate_specs_count": 3,
+    "case_index": 0,
+    "elapsed_seconds": 530.218,
+    "failure_mode": "UPSTREAM_CAPACITY_NOT_ROBUST",
+    "pre_split": {
+      "appended_rows": 3,
+      "budget": 1,
+      "candidate_family": "alt_14_57",
+      "candidate_positions": [
+        16
+      ],
+      "candidate_specs_count": 3,
+      "capacity_preserving": false,
+      "capacity_total": 1255,
+      "capacity_upper_bound": 179,
+      "case_index": 0,
+      "chosen_masks_hash": null,
+      "contains_fragile_1457_class": false,
+      "d2_split": true,
+      "degenerate_classes": [
+        [
+          1,
+          4
+        ],
+        [
+          7
+        ],
+        [
+          6
+        ],
+        [
+          5
+        ],
+        [
+          3
+        ],
+        [
+          2
+        ]
+      ],
+      "direction_cache_size": 0,
+      "distinct_codewords": false,
+      "elapsed_seconds": 121.605,
+      "exact_agreement_vector": null,
+      "exact_max_min": null,
+      "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+      "free_columns_considered": 1182,
+      "free_columns_used": 2,
+      "guard_margins": {
+        "B27": 3,
+        "B37": 3,
+        "B47": -79,
+        "B57": -141,
+        "capacity": -148
+      },
+      "largest_class_histogram": {
+        "2": 327,
+        "3": 162,
+        "5": 23
+      },
+      "min_pair_B": 513,
+      "nondegenerate": false,
+      "old_three_subset_B_values": [
+        679,
+        679,
+        657
+      ],
+      "old_three_subset_min_hall_bound": 219,
+      "pair_B_values": [
+        575,
+        657,
+        657,
+        575,
+        513
+      ],
+      "pair_deficit_to_654": [
+        79,
+        -3,
+        -3,
+        79,
+        141
+      ],
+      "pair_guard_preserving": false,
+      "pair_hall_bound": 256,
+      "partial_split": true,
+      "phase": "upstream_b47_robust_exact_scanner_pre_split",
+      "robustness_score": -148,
+      "six_class_dominance": 0,
+      "solve_status": "CACHE_APPEND_SOLVED"
+    },
+    "pre_split_contains_fragile_1457": false,
+    "probe_results": [
+      {
+        "failure_mode": "UPSTREAM_INCONSISTENT",
+        "selected_split_rows": [
+          {
+            "collapse_reduction_benefit": 1,
+            "coordinate": 16,
+            "predicted_B27_damage": 0,
+            "predicted_B27_gain": 0,
+            "predicted_B37_damage": 0,
+            "predicted_B37_gain": 0,
+            "predicted_B57_damage": 0,
+            "predicted_capacity_damage": 1,
+            "quotient_fiber": 0,
+            "split_family": "split_4_from_157",
+            "split_safe_score": 4
+          }
+        ],
+        "solve_meta": {
+          "appended_rows": 4,
+          "elapsed_seconds": 142.753,
+          "error": "matrix equation has no solutions",
+          "free_columns_considered": 1182,
+          "solve_status": "COMP_REPAIRED_SPLIT_INCONSISTENT"
+        },
+        "split_family": "split_4_from_157"
+      },
+      {
+        "appended_rows": 3,
+        "budget": 1,
+        "candidate_family": "alt_14_57",
+        "candidate_positions": [
+          16
+        ],
+        "candidate_specs_count": 3,
+        "capacity_preserving": false,
+        "capacity_total": 1255,
+        "capacity_upper_bound": 179,
+        "case_index": 0,
+        "chosen_masks_hash": null,
+        "contains_fragile_1457_class": false,
+        "d2_split": true,
+        "degenerate_classes": [
+          [
+            1,
+            4
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            5
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "direction_cache_size": 0,
+        "distinct_codewords": false,
+        "elapsed_seconds": 129.353,
+        "exact_agreement_vector": null,
+        "exact_max_min": null,
+        "failure_mode": "UPSTREAM_CAPACITY_NOT_ROBUST",
+        "free_columns_considered": 1182,
+        "free_columns_used": 2,
+        "guard_margins": {
+          "B27": 3,
+          "B37": 3,
+          "B47": -79,
+          "B57": -141,
+          "capacity": -148
+        },
+        "largest_class_histogram": {
+          "2": 327,
+          "3": 162,
+          "5": 23
+        },
+        "min_pair_B": 513,
+        "nondegenerate": false,
+        "old_three_subset_B_values": [
+          679,
+          679,
+          657
+        ],
+        "old_three_subset_min_hall_bound": 219,
+        "pair_B_values": [
+          575,
+          657,
+          657,
+          575,
+          513
+        ],
+        "pair_deficit_to_654": [
+          79,
+          -3,
+          -3,
+          79,
+          141
+        ],
+        "pair_guard_preserving": false,
+        "pair_hall_bound": 256,
+        "partial_split": true,
+        "phase": "upstream_b47_robust_exact_scanner_split_probe",
+        "robustness_score": -148,
+        "selected_split_rows": [],
+        "six_class_dominance": 0,
+        "solve_status": "CACHE_APPEND_SOLVED",
+        "split_family": "split_14_vs_57",
+        "split_specs": []
+      },
+      {
+        "failure_mode": "UPSTREAM_INCONSISTENT",
+        "selected_split_rows": [
+          {
+            "collapse_reduction_benefit": 1,
+            "coordinate": 16,
+            "predicted_B27_damage": 0,
+            "predicted_B27_gain": 0,
+            "predicted_B37_damage": 0,
+            "predicted_B37_gain": 0,
+            "predicted_B57_damage": 0,
+            "predicted_capacity_damage": 1,
+            "quotient_fiber": 0,
+            "split_family": "split_1_from_457",
+            "split_safe_score": 4
+          }
+        ],
+        "solve_meta": {
+          "appended_rows": 6,
+          "elapsed_seconds": 135.678,
+          "error": "matrix equation has no solutions",
+          "free_columns_considered": 1182,
+          "solve_status": "COMP_REPAIRED_SPLIT_INCONSISTENT"
+        },
+        "split_family": "split_1_from_457"
+      }
+    ],
+    "split_resilient": false
+  },
+  "runtime_seconds": 568.731,
+  "status": "DONE"
+}

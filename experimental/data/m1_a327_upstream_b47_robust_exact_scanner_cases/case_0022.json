@@ -1,0 +1,44 @@
+{
+  "best_probe_capacity": null,
+  "best_probe_pair_B_values": null,
+  "best_robustness_score": null,
+  "case": {
+    "budget": 4,
+    "candidate_family": "triple_237_b47_guard",
+    "case_index": 22
+  },
+  "case_index": 22,
+  "command": [
+    "/usr/local/bin/sage",
+    "experimental/scripts/audit_m1_a327_upstream_b47_robust_exact_scanner.sage",
+    "--case-index",
+    "22",
+    "--json"
+  ],
+  "failure_mode": "UPSTREAM_INCONSISTENT",
+  "pre_split_capacity": null,
+  "result": {
+    "budget": 4,
+    "candidate_family": "triple_237_b47_guard",
+    "candidate_positions": [
+      16,
+      87,
+      88,
+      93
+    ],
+    "candidate_specs_count": 14,
+    "case_index": 22,
+    "elapsed_seconds": 144.088,
+    "failure_mode": "UPSTREAM_INCONSISTENT",
+    "probe_results": [],
+    "solve_meta": {
+      "appended_rows": 14,
+      "elapsed_seconds": 144.035,
+      "error": "matrix equation has no solutions",
+      "free_columns_considered": 1182,
+      "solve_status": "COMP_REPAIRED_SPLIT_INCONSISTENT"
+    }
+  },
+  "runtime_seconds": 183.075,
+  "status": "DONE"
+}

@@ -30,6 +30,25 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-02 - M1 a327 upstream B47 robust exact scanner full grid
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/data/m1_a327_upstream_b47_robust_exact_scanner.json`,
+  `experimental/data/m1_a327_upstream_b47_robust_exact_scanner_cases/*.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PARTIAL / EXPERIMENTAL.
+- **What is being added:** The full 24-system upstream B47-robust exact scanner
+  grid. It constructed 11 exact vectors, found 13 inconsistent systems, had no
+  timeouts, and found zero split-resilient skeletons.
+- **How it is useful:** Tests the first upstream alternatives to the banked
+  `[1,4,5,7]` repaired-skeleton basin. The best vector still fails capacity
+  robustness, with best capacity 235 and pair values
+  `[575,657,657,575,575]`.
+- **What to do next:** Treat this as a local exact-search negative for the
+  tested upstream scanner, not a global theorem. Decide whether to write a
+  broader upstream B47-basin audit or design a materially different upstream
+  skeleton family.
+
 ### 2026-07-02 - M1 a327 upstream B47 robust exact scanner
 
 - **Agent/model:** Codex.
