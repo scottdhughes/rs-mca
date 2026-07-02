@@ -1,0 +1,2886 @@
+{
+  "capacity": 179,
+  "case": {
+    "case_index": 11,
+    "replacement_bundle_size": 8,
+    "selector": "balanced_repair",
+    "split_family": "split_4_from_157"
+  },
+  "case_index": 11,
+  "collapse_pattern": [
+    [
+      1,
+      5
+    ],
+    [
+      7
+    ],
+    [
+      6
+    ],
+    [
+      4
+    ],
+    [
+      3
+    ],
+    [
+      2
+    ]
+  ],
+  "command": [
+    "/usr/local/bin/sage",
+    "experimental/scripts/audit_m1_a327_compensated_repaired_skeleton_split_v2.sage",
+    "--case-index",
+    "11",
+    "--json"
+  ],
+  "distinct_codewords": false,
+  "exact_max_min": null,
+  "exact_vector_constructed": true,
+  "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+  "pair_B_values": [
+    575,
+    657,
+    656,
+    513,
+    575
+  ],
+  "prescreen": {
+    "reason": "no safe static skip; exact residual solve required",
+    "status": "PASS_CONSERVATIVE",
+    "targets": [
+      "capacity",
+      "B27",
+      "B37",
+      "B47",
+      "B57"
+    ]
+  },
+  "result": {
+    "best": {
+      "appended_rows": 16,
+      "base_system": "postsplit_microrepair_stage2_triple_237_budget32",
+      "capacity_preserving": false,
+      "capacity_total": 1255,
+      "capacity_upper_bound": 179,
+      "case_index": 11,
+      "chosen_masks_hash": null,
+      "d2_split": true,
+      "degenerate_classes": [
+        [
+          1,
+          5
+        ],
+        [
+          7
+        ],
+        [
+          6
+        ],
+        [
+          4
+        ],
+        [
+          3
+        ],
+        [
+          2
+        ]
+      ],
+      "direction_cache_size": 0,
+      "distinct_codewords": false,
+      "elapsed_seconds": 145.74,
+      "exact_agreement_vector": null,
+      "exact_max_min": null,
+      "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+      "free_columns_considered": 1182,
+      "free_columns_used": 2,
+      "largest_class_histogram": {
+        "2": 328,
+        "3": 160,
+        "4": 1,
+        "5": 23
+      },
+      "min_pair_B": 513,
+      "nondegenerate": false,
+      "old_three_subset_B_values": [
+        679,
+        657,
+        679
+      ],
+      "old_three_subset_min_hall_bound": 219,
+      "pair_B_values": [
+        575,
+        657,
+        656,
+        513,
+        575
+      ],
+      "pair_deficit_to_654": [
+        79,
+        -3,
+        -2,
+        141,
+        79
+      ],
+      "pair_guard_preserving": false,
+      "pair_hall_bound": 256,
+      "partial_split": true,
+      "phase": "compensated_repaired_skeleton_split_v2",
+      "replacement_bundle_size": 8,
+      "replacement_specs_count": 15,
+      "replacement_specs_preview": [
+        {
+          "delta": {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 144,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 0,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 65,
+            "split_damage_score": 52
+          },
+          "gamma": 0,
+          "kind": "balanced_repair",
+          "left": 2,
+          "position": 144,
+          "replacement_class": [
+            2,
+            3,
+            7
+          ],
+          "right": 7
+        },
+        {
+          "delta": {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 144,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 0,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 65,
+            "split_damage_score": 52
+          },
+          "gamma": 0,
+          "kind": "balanced_repair",
+          "left": 3,
+          "position": 144,
+          "replacement_class": [
+            2,
+            3,
+            7
+          ],
+          "right": 7
+        },
+        {
+          "delta": {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 160,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 0,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 65,
+            "split_damage_score": 52
+          },
+          "gamma": 0,
+          "kind": "balanced_repair",
+          "left": 2,
+          "position": 160,
+          "replacement_class": [
+            2,
+            3,
+            7
+          ],
+          "right": 7
+        },
+        {
+          "delta": {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 160,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 0,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 65,
+            "split_damage_score": 52
+          },
+          "gamma": 0,
+          "kind": "balanced_repair",
+          "left": 3,
+          "position": 160,
+          "replacement_class": [
+            2,
+            3,
+            7
+          ],
+          "right": 7
+        },
+        {
+          "delta": {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 176,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 0,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 65,
+            "split_damage_score": 52
+          },
+          "gamma": 0,
+          "kind": "balanced_repair",
+          "left": 2,
+          "position": 176,
+          "replacement_class": [
+            2,
+            3,
+            7
+          ],
+          "right": 7
+        },
+        {
+          "delta": {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 176,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 0,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 65,
+            "split_damage_score": 52
+          },
+          "gamma": 0,
+          "kind": "balanced_repair",
+          "left": 3,
+          "position": 176,
+          "replacement_class": [
+            2,
+            3,
+            7
+          ],
+          "right": 7
+        },
+        {
+          "delta": {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 17,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 1,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 64,
+            "split_damage_score": 52
+          },
+          "gamma": 0,
+          "kind": "balanced_repair",
+          "left": 2,
+          "position": 17,
+          "replacement_class": [
+            2,
+            3,
+            7
+          ],
+          "right": 7
+        },
+        {
+          "delta": {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 17,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 1,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 64,
+            "split_damage_score": 52
+          },
+          "gamma": 0,
+          "kind": "balanced_repair",
+          "left": 3,
+          "position": 17,
+          "replacement_class": [
+            2,
+            3,
+            7
+          ],
+          "right": 7
+        },
+        {
+          "delta": {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 33,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 1,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 64,
+            "split_damage_score": 52
+          },
+          "gamma": 0,
+          "kind": "balanced_repair",
+          "left": 2,
+          "position": 33,
+          "replacement_class": [
+            2,
+            3,
+            7
+          ],
+          "right": 7
+        },
+        {
+          "delta": {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 33,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 1,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 64,
+            "split_damage_score": 52
+          },
+          "gamma": 0,
+          "kind": "balanced_repair",
+          "left": 3,
+          "position": 33,
+          "replacement_class": [
+            2,
+            3,
+            7
+          ],
+          "right": 7
+        },
+        {
+          "delta": {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 49,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 1,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 64,
+            "split_damage_score": 52
+          },
+          "gamma": 0,
+          "kind": "balanced_repair",
+          "left": 2,
+          "position": 49,
+          "replacement_class": [
+            2,
+            3,
+            7
+          ],
+          "right": 7
+        },
+        {
+          "delta": {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 49,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 1,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 64,
+            "split_damage_score": 52
+          },
+          "gamma": 0,
+          "kind": "balanced_repair",
+          "left": 3,
+          "position": 49,
+          "replacement_class": [
+            2,
+            3,
+            7
+          ],
+          "right": 7
+        },
+        {
+          "delta": {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 65,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 1,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 64,
+            "split_damage_score": 52
+          },
+          "gamma": 0,
+          "kind": "balanced_repair",
+          "left": 2,
+          "position": 65,
+          "replacement_class": [
+            2,
+            3,
+            7
+          ],
+          "right": 7
+        },
+        {
+          "delta": {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 65,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 1,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 64,
+            "split_damage_score": 52
+          },
+          "gamma": 0,
+          "kind": "balanced_repair",
+          "left": 3,
+          "position": 65,
+          "replacement_class": [
+            2,
+            3,
+            7
+          ],
+          "right": 7
+        },
+        {
+          "delta": {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 144,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 0,
+              "B47": 1,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 0,
+            "replacement_class": [
+              2,
+              4,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 64,
+            "split_damage_score": 52
+          },
+          "gamma": 0,
+          "kind": "balanced_repair",
+          "left": 4,
+          "position": 144,
+          "replacement_class": [
+            2,
+            4,
+            7
+          ],
+          "right": 7
+        }
+      ],
+      "selected_replacements_count": 8,
+      "selected_replacements_preview": [
+        {
+          "before_after": {
+            "B27": [
+              2,
+              1
+            ],
+            "B37": [
+              2,
+              1
+            ],
+            "B47": [
+              2,
+              1
+            ],
+            "B57": [
+              2,
+              2
+            ],
+            "capacity": [
+              6,
+              4
+            ]
+          },
+          "coordinate": 144,
+          "predicted_delta": {
+            "B27": 1,
+            "B37": 1,
+            "B47": 0,
+            "B57": 0,
+            "capacity": 0
+          },
+          "quotient_fiber": 0,
+          "replacement_class": [
+            2,
+            3,
+            7
+          ],
+          "replacement_priority_score": 68,
+          "selector_score": 65,
+          "split_damage_score": 52
+        },
+        {
+          "before_after": {
+            "B27": [
+              2,
+              1
+            ],
+            "B37": [
+              2,
+              1
+            ],
+            "B47": [
+              2,
+              1
+            ],
+            "B57": [
+              2,
+              2
+            ],
+            "capacity": [
+              6,
+              4
+            ]
+          },
+          "coordinate": 160,
+          "predicted_delta": {
+            "B27": 1,
+            "B37": 1,
+            "B47": 0,
+            "B57": 0,
+            "capacity": 0
+          },
+          "quotient_fiber": 0,
+          "replacement_class": [
+            2,
+            3,
+            7
+          ],
+          "replacement_priority_score": 68,
+          "selector_score": 65,
+          "split_damage_score": 52
+        },
+        {
+          "before_after": {
+            "B27": [
+              2,
+              1
+            ],
+            "B37": [
+              2,
+              1
+            ],
+            "B47": [
+              2,
+              1
+            ],
+            "B57": [
+              2,
+              2
+            ],
+            "capacity": [
+              6,
+              4
+            ]
+          },
+          "coordinate": 176,
+          "predicted_delta": {
+            "B27": 1,
+            "B37": 1,
+            "B47": 0,
+            "B57": 0,
+            "capacity": 0
+          },
+          "quotient_fiber": 0,
+          "replacement_class": [
+            2,
+            3,
+            7
+          ],
+          "replacement_priority_score": 68,
+          "selector_score": 65,
+          "split_damage_score": 52
+        },
+        {
+          "before_after": {
+            "B27": [
+              2,
+              1
+            ],
+            "B37": [
+              2,
+              1
+            ],
+            "B47": [
+              2,
+              1
+            ],
+            "B57": [
+              2,
+              2
+            ],
+            "capacity": [
+              6,
+              4
+            ]
+          },
+          "coordinate": 17,
+          "predicted_delta": {
+            "B27": 1,
+            "B37": 1,
+            "B47": 0,
+            "B57": 0,
+            "capacity": 0
+          },
+          "quotient_fiber": 1,
+          "replacement_class": [
+            2,
+            3,
+            7
+          ],
+          "replacement_priority_score": 68,
+          "selector_score": 64,
+          "split_damage_score": 52
+        },
+        {
+          "before_after": {
+            "B27": [
+              2,
+              1
+            ],
+            "B37": [
+              2,
+              1
+            ],
+            "B47": [
+              2,
+              1
+            ],
+            "B57": [
+              2,
+              2
+            ],
+            "capacity": [
+              6,
+              4
+            ]
+          },
+          "coordinate": 33,
+          "predicted_delta": {
+            "B27": 1,
+            "B37": 1,
+            "B47": 0,
+            "B57": 0,
+            "capacity": 0
+          },
+          "quotient_fiber": 1,
+          "replacement_class": [
+            2,
+            3,
+            7
+          ],
+          "replacement_priority_score": 68,
+          "selector_score": 64,
+          "split_damage_score": 52
+        },
+        {
+          "before_after": {
+            "B27": [
+              2,
+              1
+            ],
+            "B37": [
+              2,
+              1
+            ],
+            "B47": [
+              2,
+              1
+            ],
+            "B57": [
+              2,
+              2
+            ],
+            "capacity": [
+              6,
+              4
+            ]
+          },
+          "coordinate": 49,
+          "predicted_delta": {
+            "B27": 1,
+            "B37": 1,
+            "B47": 0,
+            "B57": 0,
+            "capacity": 0
+          },
+          "quotient_fiber": 1,
+          "replacement_class": [
+            2,
+            3,
+            7
+          ],
+          "replacement_priority_score": 68,
+          "selector_score": 64,
+          "split_damage_score": 52
+        },
+        {
+          "before_after": {
+            "B27": [
+              2,
+              1
+            ],
+            "B37": [
+              2,
+              1
+            ],
+            "B47": [
+              2,
+              1
+            ],
+            "B57": [
+              2,
+              2
+            ],
+            "capacity": [
+              6,
+              4
+            ]
+          },
+          "coordinate": 65,
+          "predicted_delta": {
+            "B27": 1,
+            "B37": 1,
+            "B47": 0,
+            "B57": 0,
+            "capacity": 0
+          },
+          "quotient_fiber": 1,
+          "replacement_class": [
+            2,
+            3,
+            7
+          ],
+          "replacement_priority_score": 68,
+          "selector_score": 64,
+          "split_damage_score": 52
+        },
+        {
+          "before_after": {
+            "B27": [
+              2,
+              1
+            ],
+            "B37": [
+              2,
+              1
+            ],
+            "B47": [
+              2,
+              1
+            ],
+            "B57": [
+              2,
+              2
+            ],
+            "capacity": [
+              6,
+              4
+            ]
+          },
+          "coordinate": 144,
+          "predicted_delta": {
+            "B27": 1,
+            "B37": 0,
+            "B47": 1,
+            "B57": 0,
+            "capacity": 0
+          },
+          "quotient_fiber": 0,
+          "replacement_class": [
+            2,
+            4,
+            7
+          ],
+          "replacement_priority_score": 68,
+          "selector_score": 64,
+          "split_damage_score": 52
+        }
+      ],
+      "selected_split_rows": [
+        {
+          "collapse_reduction_benefit": 1,
+          "coordinate": 16,
+          "predicted_B27_damage": 0,
+          "predicted_B27_gain": 0,
+          "predicted_B37_damage": 0,
+          "predicted_B37_gain": 0,
+          "predicted_B57_damage": 0,
+          "predicted_capacity_damage": 1,
+          "quotient_fiber": 0,
+          "split_family": "split_4_from_157",
+          "split_safe_score": 4
+        }
+      ],
+      "selector": "balanced_repair",
+      "six_class_dominance": 0,
+      "solve_status": "CACHE_APPEND_SOLVED",
+      "split_family": "split_4_from_157",
+      "split_specs": [
+        {
+          "gamma": 1,
+          "kind": "split_4_from_157",
+          "left": 4,
+          "position": 16,
+          "right": 1
+        }
+      ]
+    },
+    "case_index": 11,
+    "elapsed_seconds": 145.74,
+    "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+    "replacement_bundle_size": 8,
+    "replacement_specs_count": 15,
+    "selected_replacements_count": 8,
+    "selected_replacements_preview": [
+      {
+        "before_after": {
+          "B27": [
+            2,
+            1
+          ],
+          "B37": [
+            2,
+            1
+          ],
+          "B47": [
+            2,
+            1
+          ],
+          "B57": [
+            2,
+            2
+          ],
+          "capacity": [
+            6,
+            4
+          ]
+        },
+        "coordinate": 144,
+        "predicted_delta": {
+          "B27": 1,
+          "B37": 1,
+          "B47": 0,
+          "B57": 0,
+          "capacity": 0
+        },
+        "quotient_fiber": 0,
+        "replacement_class": [
+          2,
+          3,
+          7
+        ],
+        "replacement_priority_score": 68,
+        "selector_score": 65,
+        "split_damage_score": 52
+      },
+      {
+        "before_after": {
+          "B27": [
+            2,
+            1
+          ],
+          "B37": [
+            2,
+            1
+          ],
+          "B47": [
+            2,
+            1
+          ],
+          "B57": [
+            2,
+            2
+          ],
+          "capacity": [
+            6,
+            4
+          ]
+        },
+        "coordinate": 160,
+        "predicted_delta": {
+          "B27": 1,
+          "B37": 1,
+          "B47": 0,
+          "B57": 0,
+          "capacity": 0
+        },
+        "quotient_fiber": 0,
+        "replacement_class": [
+          2,
+          3,
+          7
+        ],
+        "replacement_priority_score": 68,
+        "selector_score": 65,
+        "split_damage_score": 52
+      },
+      {
+        "before_after": {
+          "B27": [
+            2,
+            1
+          ],
+          "B37": [
+            2,
+            1
+          ],
+          "B47": [
+            2,
+            1
+          ],
+          "B57": [
+            2,
+            2
+          ],
+          "capacity": [
+            6,
+            4
+          ]
+        },
+        "coordinate": 176,
+        "predicted_delta": {
+          "B27": 1,
+          "B37": 1,
+          "B47": 0,
+          "B57": 0,
+          "capacity": 0
+        },
+        "quotient_fiber": 0,
+        "replacement_class": [
+          2,
+          3,
+          7
+        ],
+        "replacement_priority_score": 68,
+        "selector_score": 65,
+        "split_damage_score": 52
+      },
+      {
+        "before_after": {
+          "B27": [
+            2,
+            1
+          ],
+          "B37": [
+            2,
+            1
+          ],
+          "B47": [
+            2,
+            1
+          ],
+          "B57": [
+            2,
+            2
+          ],
+          "capacity": [
+            6,
+            4
+          ]
+        },
+        "coordinate": 17,
+        "predicted_delta": {
+          "B27": 1,
+          "B37": 1,
+          "B47": 0,
+          "B57": 0,
+          "capacity": 0
+        },
+        "quotient_fiber": 1,
+        "replacement_class": [
+          2,
+          3,
+          7
+        ],
+        "replacement_priority_score": 68,
+        "selector_score": 64,
+        "split_damage_score": 52
+      },
+      {
+        "before_after": {
+          "B27": [
+            2,
+            1
+          ],
+          "B37": [
+            2,
+            1
+          ],
+          "B47": [
+            2,
+            1
+          ],
+          "B57": [
+            2,
+            2
+          ],
+          "capacity": [
+            6,
+            4
+          ]
+        },
+        "coordinate": 33,
+        "predicted_delta": {
+          "B27": 1,
+          "B37": 1,
+          "B47": 0,
+          "B57": 0,
+          "capacity": 0
+        },
+        "quotient_fiber": 1,
+        "replacement_class": [
+          2,
+          3,
+          7
+        ],
+        "replacement_priority_score": 68,
+        "selector_score": 64,
+        "split_damage_score": 52
+      },
+      {
+        "before_after": {
+          "B27": [
+            2,
+            1
+          ],
+          "B37": [
+            2,
+            1
+          ],
+          "B47": [
+            2,
+            1
+          ],
+          "B57": [
+            2,
+            2
+          ],
+          "capacity": [
+            6,
+            4
+          ]
+        },
+        "coordinate": 49,
+        "predicted_delta": {
+          "B27": 1,
+          "B37": 1,
+          "B47": 0,
+          "B57": 0,
+          "capacity": 0
+        },
+        "quotient_fiber": 1,
+        "replacement_class": [
+          2,
+          3,
+          7
+        ],
+        "replacement_priority_score": 68,
+        "selector_score": 64,
+        "split_damage_score": 52
+      },
+      {
+        "before_after": {
+          "B27": [
+            2,
+            1
+          ],
+          "B37": [
+            2,
+            1
+          ],
+          "B47": [
+            2,
+            1
+          ],
+          "B57": [
+            2,
+            2
+          ],
+          "capacity": [
+            6,
+            4
+          ]
+        },
+        "coordinate": 65,
+        "predicted_delta": {
+          "B27": 1,
+          "B37": 1,
+          "B47": 0,
+          "B57": 0,
+          "capacity": 0
+        },
+        "quotient_fiber": 1,
+        "replacement_class": [
+          2,
+          3,
+          7
+        ],
+        "replacement_priority_score": 68,
+        "selector_score": 64,
+        "split_damage_score": 52
+      },
+      {
+        "before_after": {
+          "B27": [
+            2,
+            1
+          ],
+          "B37": [
+            2,
+            1
+          ],
+          "B47": [
+            2,
+            1
+          ],
+          "B57": [
+            2,
+            2
+          ],
+          "capacity": [
+            6,
+            4
+          ]
+        },
+        "coordinate": 144,
+        "predicted_delta": {
+          "B27": 1,
+          "B37": 0,
+          "B47": 1,
+          "B57": 0,
+          "capacity": 0
+        },
+        "quotient_fiber": 0,
+        "replacement_class": [
+          2,
+          4,
+          7
+        ],
+        "replacement_priority_score": 68,
+        "selector_score": 64,
+        "split_damage_score": 52
+      }
+    ],
+    "selected_split_rows": [
+      {
+        "collapse_reduction_benefit": 1,
+        "coordinate": 16,
+        "predicted_B27_damage": 0,
+        "predicted_B27_gain": 0,
+        "predicted_B37_damage": 0,
+        "predicted_B37_gain": 0,
+        "predicted_B57_damage": 0,
+        "predicted_capacity_damage": 1,
+        "quotient_fiber": 0,
+        "split_family": "split_4_from_157",
+        "split_safe_score": 4
+      }
+    ],
+    "selector": "balanced_repair",
+    "split_family": "split_4_from_157",
+    "split_specs": [
+      {
+        "gamma": 1,
+        "kind": "split_4_from_157",
+        "left": 4,
+        "position": 16,
+        "right": 1
+      }
+    ],
+    "vector_results": [
+      {
+        "appended_rows": 16,
+        "base_system": "postsplit_microrepair_stage2_triple_237_budget32",
+        "capacity_preserving": false,
+        "capacity_total": 1255,
+        "capacity_upper_bound": 179,
+        "case_index": 11,
+        "chosen_masks_hash": null,
+        "d2_split": true,
+        "degenerate_classes": [
+          [
+            1,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            4
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "direction_cache_size": 0,
+        "distinct_codewords": false,
+        "elapsed_seconds": 145.74,
+        "exact_agreement_vector": null,
+        "exact_max_min": null,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "free_columns_considered": 1182,
+        "free_columns_used": 2,
+        "largest_class_histogram": {
+          "2": 328,
+          "3": 160,
+          "4": 1,
+          "5": 23
+        },
+        "min_pair_B": 513,
+        "nondegenerate": false,
+        "old_three_subset_B_values": [
+          679,
+          657,
+          679
+        ],
+        "old_three_subset_min_hall_bound": 219,
+        "pair_B_values": [
+          575,
+          657,
+          656,
+          513,
+          575
+        ],
+        "pair_deficit_to_654": [
+          79,
+          -3,
+          -2,
+          141,
+          79
+        ],
+        "pair_guard_preserving": false,
+        "pair_hall_bound": 256,
+        "partial_split": true,
+        "phase": "compensated_repaired_skeleton_split_v2",
+        "replacement_bundle_size": 8,
+        "replacement_specs_count": 15,
+        "replacement_specs_preview": [
+          {
+            "delta": {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 144,
+              "predicted_delta": {
+                "B27": 1,
+                "B37": 1,
+                "B47": 0,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 0,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 65,
+              "split_damage_score": 52
+            },
+            "gamma": 0,
+            "kind": "balanced_repair",
+            "left": 2,
+            "position": 144,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "right": 7
+          },
+          {
+            "delta": {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 144,
+              "predicted_delta": {
+                "B27": 1,
+                "B37": 1,
+                "B47": 0,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 0,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 65,
+              "split_damage_score": 52
+            },
+            "gamma": 0,
+            "kind": "balanced_repair",
+            "left": 3,
+            "position": 144,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "right": 7
+          },
+          {
+            "delta": {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 160,
+              "predicted_delta": {
+                "B27": 1,
+                "B37": 1,
+                "B47": 0,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 0,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 65,
+              "split_damage_score": 52
+            },
+            "gamma": 0,
+            "kind": "balanced_repair",
+            "left": 2,
+            "position": 160,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "right": 7
+          },
+          {
+            "delta": {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 160,
+              "predicted_delta": {
+                "B27": 1,
+                "B37": 1,
+                "B47": 0,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 0,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 65,
+              "split_damage_score": 52
+            },
+            "gamma": 0,
+            "kind": "balanced_repair",
+            "left": 3,
+            "position": 160,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "right": 7
+          },
+          {
+            "delta": {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 176,
+              "predicted_delta": {
+                "B27": 1,
+                "B37": 1,
+                "B47": 0,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 0,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 65,
+              "split_damage_score": 52
+            },
+            "gamma": 0,
+            "kind": "balanced_repair",
+            "left": 2,
+            "position": 176,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "right": 7
+          },
+          {
+            "delta": {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 176,
+              "predicted_delta": {
+                "B27": 1,
+                "B37": 1,
+                "B47": 0,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 0,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 65,
+              "split_damage_score": 52
+            },
+            "gamma": 0,
+            "kind": "balanced_repair",
+            "left": 3,
+            "position": 176,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "right": 7
+          },
+          {
+            "delta": {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 17,
+              "predicted_delta": {
+                "B27": 1,
+                "B37": 1,
+                "B47": 0,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 1,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 64,
+              "split_damage_score": 52
+            },
+            "gamma": 0,
+            "kind": "balanced_repair",
+            "left": 2,
+            "position": 17,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "right": 7
+          },
+          {
+            "delta": {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 17,
+              "predicted_delta": {
+                "B27": 1,
+                "B37": 1,
+                "B47": 0,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 1,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 64,
+              "split_damage_score": 52
+            },
+            "gamma": 0,
+            "kind": "balanced_repair",
+            "left": 3,
+            "position": 17,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "right": 7
+          },
+          {
+            "delta": {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 33,
+              "predicted_delta": {
+                "B27": 1,
+                "B37": 1,
+                "B47": 0,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 1,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 64,
+              "split_damage_score": 52
+            },
+            "gamma": 0,
+            "kind": "balanced_repair",
+            "left": 2,
+            "position": 33,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "right": 7
+          },
+          {
+            "delta": {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 33,
+              "predicted_delta": {
+                "B27": 1,
+                "B37": 1,
+                "B47": 0,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 1,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 64,
+              "split_damage_score": 52
+            },
+            "gamma": 0,
+            "kind": "balanced_repair",
+            "left": 3,
+            "position": 33,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "right": 7
+          },
+          {
+            "delta": {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 49,
+              "predicted_delta": {
+                "B27": 1,
+                "B37": 1,
+                "B47": 0,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 1,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 64,
+              "split_damage_score": 52
+            },
+            "gamma": 0,
+            "kind": "balanced_repair",
+            "left": 2,
+            "position": 49,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "right": 7
+          },
+          {
+            "delta": {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 49,
+              "predicted_delta": {
+                "B27": 1,
+                "B37": 1,
+                "B47": 0,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 1,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 64,
+              "split_damage_score": 52
+            },
+            "gamma": 0,
+            "kind": "balanced_repair",
+            "left": 3,
+            "position": 49,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "right": 7
+          },
+          {
+            "delta": {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 65,
+              "predicted_delta": {
+                "B27": 1,
+                "B37": 1,
+                "B47": 0,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 1,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 64,
+              "split_damage_score": 52
+            },
+            "gamma": 0,
+            "kind": "balanced_repair",
+            "left": 2,
+            "position": 65,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "right": 7
+          },
+          {
+            "delta": {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 65,
+              "predicted_delta": {
+                "B27": 1,
+                "B37": 1,
+                "B47": 0,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 1,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 64,
+              "split_damage_score": 52
+            },
+            "gamma": 0,
+            "kind": "balanced_repair",
+            "left": 3,
+            "position": 65,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "right": 7
+          },
+          {
+            "delta": {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 144,
+              "predicted_delta": {
+                "B27": 1,
+                "B37": 0,
+                "B47": 1,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 0,
+              "replacement_class": [
+                2,
+                4,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 64,
+              "split_damage_score": 52
+            },
+            "gamma": 0,
+            "kind": "balanced_repair",
+            "left": 4,
+            "position": 144,
+            "replacement_class": [
+              2,
+              4,
+              7
+            ],
+            "right": 7
+          }
+        ],
+        "selected_replacements_count": 8,
+        "selected_replacements_preview": [
+          {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 144,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 0,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 65,
+            "split_damage_score": 52
+          },
+          {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 160,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 0,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 65,
+            "split_damage_score": 52
+          },
+          {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 176,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 0,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 65,
+            "split_damage_score": 52
+          },
+          {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 17,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 1,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 64,
+            "split_damage_score": 52
+          },
+          {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 33,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 1,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 64,
+            "split_damage_score": 52
+          },
+          {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 49,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 1,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 64,
+            "split_damage_score": 52
+          },
+          {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 65,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 1,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 64,
+            "split_damage_score": 52
+          },
+          {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 144,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 0,
+              "B47": 1,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 0,
+            "replacement_class": [
+              2,
+              4,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 64,
+            "split_damage_score": 52
+          }
+        ],
+        "selected_split_rows": [
+          {
+            "collapse_reduction_benefit": 1,
+            "coordinate": 16,
+            "predicted_B27_damage": 0,
+            "predicted_B27_gain": 0,
+            "predicted_B37_damage": 0,
+            "predicted_B37_gain": 0,
+            "predicted_B57_damage": 0,
+            "predicted_capacity_damage": 1,
+            "quotient_fiber": 0,
+            "split_family": "split_4_from_157",
+            "split_safe_score": 4
+          }
+        ],
+        "selector": "balanced_repair",
+        "six_class_dominance": 0,
+        "solve_status": "CACHE_APPEND_SOLVED",
+        "split_family": "split_4_from_157",
+        "split_specs": [
+          {
+            "gamma": 1,
+            "kind": "split_4_from_157",
+            "left": 4,
+            "position": 16,
+            "right": 1
+          }
+        ]
+      }
+    ]
+  },
+  "runtime_seconds": 183.444,
+  "status": "DONE"
+}
