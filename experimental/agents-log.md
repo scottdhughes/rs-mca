@@ -30,6 +30,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-02 - M1 a327 selected-class thin exact lift
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_selected_class_thin_exact_lift.md`,
+  `experimental/scripts/scan_m1_a327_selected_class_thin_exact_lift.py`,
+  `experimental/scripts/verify_m1_a327_selected_class_thin_exact_lift.py`,
+  `experimental/scripts/audit_m1_a327_selected_class_thin_exact_lift.sage`,
+  `experimental/data/m1_a327_selected_class_thin_exact_lift.json`,
+  `experimental/agents-log.md`.
+- **Status:** PROOF_RECORD / CANDIDATE / EXACT_EXTRACTION_NO_A327 / PARTIAL.
+- **What is being added:** A thin selected-class lift target derived from the
+  RS-feasible `2e134d7` hypergraph. The best target has supports exactly
+  `[327,327,327,327,327,327,327]`, `2289` selected incidences, max pair count
+  `194`, and pair-7 counts `[194,194,194,193,194]`.
+- **How it is useful:** Gives the first exact-lift target in this lane that
+  keeps the Reed-Solomon pair cap and uses explicit received-word variables
+  instead of forcing non-selected value-class equalities.
+- **What to do next:** Replace the current prefix-rank-only Sage audit with an
+  optimized full exact solve or prepared matrix cache for the `2289 x 2304`
+  selected-class system, then sample the nullspace for seven distinct
+  degree-`<256` codewords.
+
 ### 2026-07-02 - M1 a327 RS-feasible value-class hypergraph pre-solver
 
 - **Agent/model:** Codex.
