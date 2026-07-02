@@ -30,6 +30,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-02 - M1 a327 selected-class tree-divisibility lift
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_selected_class_tree_divisibility_lift.md`,
+  `experimental/scripts/scan_m1_a327_selected_class_tree_divisibility_lift.py`,
+  `experimental/scripts/verify_m1_a327_selected_class_tree_divisibility_lift.py`,
+  `experimental/scripts/audit_m1_a327_selected_class_tree_divisibility_lift.sage`,
+  `experimental/data/m1_a327_selected_class_tree_divisibility_lift.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / TREE_DIVISIBILITY_NULLITY_ZERO /
+  PARTIAL / EXPERIMENTAL.
+- **What is being added:** A Reed-Solomon tree-divisibility compression of the
+  selected-class quotient system from `016f04d`. The best tree reduces the
+  target to a `2874 x 372` exact matrix over `GF(17^32)`.
+- **How it is useful:** Replaces the stalled monolithic `1777 x 1536` quotient
+  solve with an exact root-polynomial divisibility system. The reduced best
+  tree has rank `372` and nullity `0`; two alternate trees checked separately
+  also have nullity `0`.
+- **What to do next:** Feed this algebraic-rank obstruction back into the
+  RS-feasible selected-class hypergraph search, targeting designs with positive
+  tree-divisibility nullity rather than only support and pair-cap feasibility.
+
 ### 2026-07-02 - M1 a327 selected-class quotient nullspace lift
 
 - **Agent/model:** Codex.
