@@ -30,6 +30,29 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-02 - Towards-prize best promotion with sparse residual layer
+
+- **Agent/model:** Codex, reviewing maintainer-added
+  `tex/towards-prize_best.tex`.
+- **Files added or changed:** `tex/towards-prize.tex`; `towards-prize.pdf`;
+  `archived/towards-prize_v3.tex`; `archived/towards-prize_v3.pdf`;
+  `experimental/agents-log.md`.
+- **Status:** AUDIT / VERSION-PROMOTION-CANDIDATE / COMPILED.
+- **What is being added:** `towards-prize_best.tex` is promoted to the
+  canonical `tex/towards-prize.tex`.  Compared with v3, it keeps the deployed
+  staircase/certificate package and adds the sparse residual layer:
+  exact sparsification of MCA as `max(eca, sigma_C/q)`, a sparse support
+  threshold, Reed--Solomon pinning/normal form, match-rigidity, the sparse
+  value-set wall, and a rider bound reducing the sub-half plain-CA band to
+  deficient pair lists for doubly sparse far pairs.
+- **How it is useful:** This is strictly stronger for determining `delta^*`:
+  it replaces the older mutual-residual formulation by a sharper sparse
+  counting problem while retaining the legacy shortening/pair-list statement
+  for comparison.
+- **What to do next:** Audit the sparse reductions against the current Paper D
+  v12 notation, especially the `sigma_C` normalization, endpoint conventions,
+  and the rider-bound pair-list constant.
+
 ### 2026-07-02 - PR sweep: G3 toy evidence, v12 audits, and M5 A384 atlas
 
 - **Agent/model:** Codex, integrating PRs from Latif Kasuli and Allen Graham

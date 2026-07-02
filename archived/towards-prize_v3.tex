@@ -43,22 +43,20 @@
 \newcommand{\B}{\mathbb{B}}
 \newcommand{\RS}{\mathrm{RS}}
 \newcommand{\dist}{\operatorname{dist}}
-\newcommand{\wt}{\operatorname{wt}}
 \newcommand{\supp}{\operatorname{supp}}
 \newcommand{\eca}{\varepsilon_{\mathrm{ca}}}
 \newcommand{\emca}{\varepsilon_{\mathrm{mca}}}
 \newcommand{\Lst}{\Lambda}
 \newcommand{\Hb}{\mathrm{H}_2}
 
-\title[Pincer, Sparse, and Certificate Picture]{A Pincer, Sparse, and Certificate Picture for the Mutual Correlated Agreement Threshold}
+\title{A Pincer and Certificate Picture for the Mutual Correlated Agreement Threshold}
 \author{Przemek Chojecki}
 \date{July 2, 2026}
 
 \begin{document}
 
-
 \begin{abstract}
-For Reed--Solomon codes with $k\le2^{40}$ and $|\F|<2^{256}$ --- the parameter box singled out by the Proximity Prize --- we give a sharpened pincer picture for the grand mutual correlated agreement threshold $\delta^*_C(2^{-128})$. For $|\F|<2^{128}$ the threshold is exactly $0$. For $|\F|\ge2^{128}$ and the four challenge rates, ordinary locator-prefix floors already force plain correlated-agreement failure from $\delta=1-\rho-s_\rho/n$ up to capacity, where $s_\rho=\lceil\alpha_\rho n\rceil$ and $\alpha_{1/2}=1/300$, $\alpha_{1/4}=3/1000$, $\alpha_{1/8}=41/20000$, $\alpha_{1/16}=3/2500$; in particular the old near-capacity problem has a negative answer on an explicit upper slice of its band. On the safe side, a self-contained theorem gives MCA with error $(\lfloor\delta n\rfloor+1)/q$ below one third of the distance, an elementary half-Johnson certificate improves that self-contained edge in low-rate rows, and the unique-decoding proximity gap of Ben-Sasson--Carmon--Ishai--Kopparty--Saraf raises the safe frontier to one half of the distance whenever $|\F|\ge2^{128}n$. We then integrate the sparse band reductions: the mutual-only layer is exactly the maximum of the sparse layer $\sigma_C(\delta)/q$ and plain CA, non-tangent sparse witnesses have an explicit Reed--Solomon normal form and budget-rigidity constraint, and in the sub-half-radius part of the residual plain-CA band a radius-free rider argument reduces failures to deficient interleaved pair lists for doubly sparse far pairs. The half-distance wall is sharp, and the remaining threshold problem is reduced to a middle plain-CA band together with a sparse, budget-restricted value-set problem. Finally, a companion certificate framework turns these bounds into finite row certificates for deployed multiplicative, circle, and genus-one/rational-smooth rows.
+For Reed--Solomon codes with $k\le2^{40}$ and $|\F|<2^{256}$ --- the parameter box singled out by the Proximity Prize --- we give a sharpened pincer picture for the grand mutual correlated agreement threshold $\delta^*_C(2^{-128})$. For $|\F|<2^{128}$ the threshold is exactly $0$. For $|\F|\ge2^{128}$ and the four challenge rates, ordinary locator-prefix floors already force plain correlated-agreement failure from $\delta=1-\rho-s_\rho/n$ up to capacity, where $s_\rho=\lceil\alpha_\rho n\rceil$ and $\alpha_{1/2}=1/300$, $\alpha_{1/4}=3/1000$, $\alpha_{1/8}=41/20000$, $\alpha_{1/16}=3/2500$; in particular the old near-capacity problem has a negative answer on an explicit upper slice of its band. On the safe side, a self-contained theorem gives MCA with error $(\lfloor\delta n\rfloor+1)/q$ below one third of the distance, an elementary half-Johnson certificate improves that self-contained edge in low-rate rows, and the unique-decoding proximity gap of Ben-Sasson--Carmon--Ishai--Kopparty--Saraf raises the safe frontier to one half of the distance whenever $|\F|\ge2^{128}n$. Above half the distance, the extra mutual-only layer is reduced to explicit finite objects: tangent slopes, residual Reed--Solomon shortenings of dimension at most $\max(0,2r-(n-k))$, and equivalently a doubled-radius pair-list obstruction. The half-distance wall is sharp, and the remaining threshold problem is reduced to a middle plain-CA band together with those residual shortening or pair-list images.  Finally, the cap-paper certificate grammar turns these bounds into finite row certificates for deployed multiplicative, circle, and genus-one/rational-smooth rows.
 \end{abstract}
 
 \maketitle
@@ -96,22 +94,22 @@ a determination within a factor smaller than two.
 \end{enumerate}
 \end{theorem}
 
-Every ingredient except the single import in (3) is proved here from first principles: a graded locator-prefix pigeonhole (\cref{lem:floor}), a deep-point list-to-correlated-agreement conversion (\cref{thm:conversion}), an ordinary locator-prefix specialization that resolves the top of the plain-CA band (\cref{cor:ordinary-top}), a deep-regime theorem showing MCA \emph{holds} with error $(\lfloor\delta n\rfloor+1)/q$ below one third of the minimum distance for every linear code (\cref{thm:deep}), and a theorem showing that below one half of the distance mutual and plain correlated agreement coincide up to an explicit tangent term (\cref{thm:half}). The sparse reductions of \cref{sec:sparse-band} then sharpen the residual kernel: MCA is exactly the maximum of plain CA and a sparse mutual layer, the sparse layer has a Reed--Solomon normal form with a budget-rigidity constraint, and the sub-half-radius part of the remaining plain-CA problem reduces to deficient interleaved pair lists for doubly sparse far pairs. No value-set counting, exponential-sum estimate, or equidistribution input is used. The one import, \cite[Thm.~4.1]{BCIKS20}, is a published theorem, so clause (3) stands on the literature as stated; we track it separately only to delimit the self-contained core. \Cref{sec:barriers} then proves two barriers --- an entropy envelope past which no prefix floor can certify failure (\cref{prop:envelope-barrier}), and a ceiling of $\frac1k$ on the error certifiable through the conversion (\cref{prop:ceiling}) --- and states the residual kernel after the two broad band questions are sharpened: a smaller plain-CA interval (\cref{prob:ca}) and the sparse mutual obstruction (\cref{prob:mutual}). Remarks \ref{rem:instantiations}--\ref{rem:small-n} complete the parameter box: characteristic-two additive smooth domains and odd $3$-smooth orders satisfy the same baseline bounds, small $n$ down to $2^{12}$ retains a nonvacuous cap of gap $3/n$, and rates outside the four challenge values are covered by the same finite criterion.
+Every ingredient except the single import in (3) is proved here from first principles: a graded locator-prefix pigeonhole (\cref{lem:floor}), a deep-point list-to-correlated-agreement conversion (\cref{thm:conversion}), an ordinary locator-prefix specialization that resolves the top of the plain-CA band (\cref{cor:ordinary-top}), a deep-regime theorem showing MCA \emph{holds} with error $(\lfloor\delta n\rfloor+1)/q$ below one third of the minimum distance for every linear code (\cref{thm:deep}), and a theorem showing that below one half of the distance mutual and plain correlated agreement coincide up to an explicit tangent term (\cref{thm:half}). No value-set counting, exponential-sum estimate, or equidistribution input is used. The one import, \cite[Thm.~4.1]{BCIKS20}, is a published theorem, so clause (3) stands on the literature as stated; we track it separately only to delimit the self-contained core. \Cref{sec:barriers} then proves two barriers --- an entropy envelope past which no prefix floor can certify failure (\cref{prop:envelope-barrier}), and a ceiling of $\frac1k$ on the error certifiable through the conversion (\cref{prop:ceiling}) --- and states the residual kernel after the two broad band questions are sharpened: a smaller plain-CA interval (\cref{prob:ca}) and the residual shortening or pair-list obstruction (\cref{prob:mutual}). Remarks \ref{rem:instantiations}--\ref{rem:small-n} complete the parameter box: characteristic-two additive smooth domains and odd $3$-smooth orders satisfy the same baseline bounds, small $n$ down to $2^{12}$ retains a nonvacuous cap of gap $3/n$, and rates outside the four challenge values are covered by the same finite criterion.
 
-The upper bounds sharpen, and the composition follows, a line of work on capacity-edge obstructions: the conditional universal cap of \cite{Cho26b} (gap $2^{-11}$ under $|\F|\ge2n$), the locator framework of \cite{Cho26a}, and the conversion perspective of \cite{CS25}; the strongest known positive results for plain correlated agreement are \cite{BCIKS20,BCHKS25}, reaching the Johnson radius. A companion manuscript \cite{Cho26b} develops the deployed-parameter refinements (subfield-pigeonhole floors widening the unsafe frontier to gap $\approx2^{-4.96}$ at $n=2^{21}$, circle and genus-one rows, explicit witnesses) and the structured form of the remaining problem.  To keep this note compact, we record the following companion certificate refinements rather than reproducing the long scanner and transport sections.
+The upper bounds sharpen, and the composition follows, a line of work on capacity-edge obstructions: the conditional universal cap of \cite{Cho26b} (gap $2^{-11}$ under $|\F|\ge2n$), the locator framework of \cite{Cho26a}, and the conversion perspective of \cite{CS25}; the strongest known positive results for plain correlated agreement are \cite{BCIKS20,BCHKS25}, reaching the Johnson radius. A companion manuscript \cite{Cho26b} develops the deployed-parameter refinements (subfield-pigeonhole floors widening the unsafe frontier to gap $\approx2^{-4.96}$ at $n=2^{21}$, circle and genus-one rows, explicit witnesses) and the structured form of the remaining problem.  To keep this note compact, we use the following cap-paper package as a cited certificate theorem rather than reproducing its long scanner and transport sections.
 
-\begin{proposition}[companion certificate refinements for threshold determination]\label{prop:companion-certificate-package}
-Fix a target $\varepsilon^*\in(0,1)$. The following consequences of the companion paper \cite{Cho26b} may be combined with \cref{thm:main}.
+\begin{theorem}[cap-paper refinements for threshold determination]\label{thm:cap-paper-package}
+Fix a target $\varepsilon^*\in(0,1)$. The following consequences of the cap paper \cite{Cho26b} may be combined with \cref{thm:main}.
 \begin{enumerate}
 \item \textup{(Self-contained half-Johnson safe edge.)} Let $C=\RS[\F,D,k]$, let $r\ge0$, and put
 \[
-        J_2(r):=
+        L_2(r):=
         \frac{n\,(n-2r-k+1)}
              {(n-2r)^2-(k-1)n}.
 \]
 If $n-2r>0$, $(n-2r)^2>(k-1)n$, and
 \[
-        1+(r+1)J_2(r)\le \varepsilon^* q,
+        1+(r+1)L_2(r)\le \varepsilon^* q,
 \]
 then $\delta^*_C(\varepsilon^*)\ge r/n$.  Asymptotically this gives an import-free safe edge at $\delta\approx(1-\sqrt\rho)/2$, so the self-contained lower edge in \cref{thm:main} may be replaced by
 \[
@@ -162,18 +160,18 @@ The optimized unsafe handle behind the KoalaBear upper edge is
         =
         \frac{15331}{32768}.
 \]
-Here $\Delta$ is the checked surplus in the companion certificate.
-The same certificate framework applies to map-smooth, circle, and genus-one/rational-smooth rows after the transports proved in \cite{Cho26b}.
+Here $\Delta$ is the checked surplus in the cap-paper certificate.
+The same certificate grammar applies to map-smooth, circle, and genus-one/rational-smooth rows after the transports proved in \cite{Cho26b}.
 \item \textup{(Failure profile.)} Let $T=\frac1k(1-\frac nq)$ and suppose a list floor gives $L\ge1+\kappa qT$ at an integer-admissible radius.  Then
 \[
         \eca(C,\delta)\ge\frac{\kappa}{\kappa+1}T,
 \]
 and hence MCA failure follows on the same monotone interval.  This does not move the right edge of $\delta^*$, but it improves the failure margin; at the KoalaBear first staircase step one has $\kappa\ge2^{54}$.
 \end{enumerate}
-\end{proposition}
+\end{theorem}
 
-\begin{proof}[Justification]
-Clause \textup{(1)} is the elementary half-Johnson CA theorem of \cite{Cho26b}: two bad slopes recover a pair-list at agreement $n-2r$, the pair-interleaved Johnson bound gives $J_2(r)$, and the pincer from CA to MCA transfers the result below half the distance. Clause \textup{(2)} is the finite scanner/certificate closure of \cite{Cho26b}: the function $B_{\rm mca}(a)$ is exactly the retained bad-slope numerator at agreement $a$, unsafe handles are prefix or rational floors composed with the deep-point conversion, and safe handles are the deep, half-Johnson, or imported half-distance certificates. The KoalaBear interval and handle are the exact integer certificates printed there. Clause \textup{(3)} is the optimized form of the same deep-point conversion: rearranging its dichotomy with $\eta=\eca/T$ gives the factor $\kappa/(\kappa+1)$.
+\begin{proof}[Proof sketch]
+Clause \textup{(1)} is the elementary half-Johnson CA theorem of \cite{Cho26b}: two bad slopes recover a pair-list at agreement $n-2r$, the pair-interleaved Johnson bound gives $L_2(r)$, and the pincer from CA to MCA transfers the result below half the distance. Clause \textup{(2)} is the finite scanner/certificate closure of \cite{Cho26b}: the function $B_{\rm mca}(a)$ is exactly the retained bad-slope numerator at agreement $a$, unsafe handles are prefix or rational floors composed with the deep-point conversion, and safe handles are the deep, half-Johnson, or imported half-distance certificates. The KoalaBear interval and handle are the exact integer certificates printed there. Clause \textup{(3)} is the optimized form of the same deep-point conversion: rearranging its dichotomy with $\eta=\eca/T$ gives the factor $\kappa/(\kappa+1)$.
 \end{proof}
 
 \begin{remark}[a second row-certificate example]\label{rem:circle-certificate}
@@ -190,24 +188,18 @@ For the Mersenne-$31$ circle line-round row at target $2^{-100}$, \cite{Cho26b} 
 \]
 \end{remark}
 
-The present paper is therefore the minimal self-contained core plus the residual reductions needed to state the current picture; \cref{prop:companion-certificate-package} records the compact row-determination upgrades that are better left as citations to the companion paper.
+The present paper is therefore the minimal self-contained core plus the residual reductions needed to state the current picture; \cref{thm:cap-paper-package} records the compact row-determination upgrades that are better left as citations to the cap paper.
 
 \section{Definitions}\label{sec:defs}
 
-Throughout, $\F$ is a finite field, $q=|\F|$, $D\subseteq\F$ has $|D|=n$, and $C=\RS[\F,D,k]:=\{p|_D:p\in\F[X],\ \deg p<k\}$ with $1\le k<n$, and write $\rho:=k/n$, so $C$ is linear of dimension $k$ and minimum Hamming weight $n-k+1$. For $u,v\in\F^D$, $\dist(u,v)$ is the relative Hamming distance, and for a set $C'\subseteq\F^D$, $\dist(u,C'):=\min_{c\in C'}\dist(u,c)$ and $\Lst(C',\delta,u):=\{c\in C':\dist(u,c)\le\delta\}$. For a pair $(f_1,f_2)\in\F^D\times\F^D$ the column distance to $C^{\equiv2}:=C\times C$ is $\dist_2\bigl((f_1,f_2),C^{\equiv2}\bigr):=\min_{c_1,c_2\in C}\frac1n\#\{j:(f_1(j),f_2(j))\ne(c_1(j),c_2(j))\}$. All slopes are finite: lines are $\gamma\mapsto f_1+\gamma f_2$, $\gamma\in\F$.
+Throughout, $\F$ is a finite field, $q=|\F|$, $D\subseteq\F$ has $|D|=n$, and $C=\RS[\F,D,k]:=\{p|_D:p\in\F[X],\ \deg p<k\}$ with $1\le k<n$, so $C$ is linear of dimension $k$ and minimum Hamming weight $n-k+1$. For $u,v\in\F^D$, $\dist(u,v)$ is the relative Hamming distance, and for a set $C'\subseteq\F^D$, $\dist(u,C'):=\min_{c\in C'}\dist(u,c)$ and $\Lst(C',\delta,u):=\{c\in C':\dist(u,c)\le\delta\}$. For a pair $(f_1,f_2)\in\F^D\times\F^D$ the column distance to $C^{\equiv2}:=C\times C$ is $\dist_2\bigl((f_1,f_2),C^{\equiv2}\bigr):=\min_{c_1,c_2\in C}\frac1n\#\{j:(f_1(j),f_2(j))\ne(c_1(j),c_2(j))\}$. All slopes are finite: lines are $\gamma\mapsto f_1+\gamma f_2$, $\gamma\in\F$.
 
-Fix $\delta\in(0,1)$ and write $r:=\lfloor\delta n\rfloor$ when an integer radius is needed. A slope $\gamma$ is \emph{$\delta$-CA-bad} for the pair $(f_1,f_2)$ if the point $f_1+\gamma f_2$ is $\delta$-close to $C$ while the pair is $\delta$-far in columns, $\dist_2\bigl((f_1,f_2),C^{\equiv2}\bigr)>\delta$. A \emph{proximity witness} for $\gamma$ is a pair $(c,S)$ with $c\in C$, $S\subseteq D$, $|S|\ge(1-\delta)n$, and $(f_1+\gamma f_2)|_S=c|_S$; the witness \emph{extends mutually} if some $(c_1,c_2)\in C^{\equiv2}$ has $f_i|_S=c_i|_S$ for $i=1,2$, and \emph{fails} otherwise. Following \cite[Defs.~4.1, 4.3]{ABF26}, a slope $\gamma$ is \emph{$\delta$-MCA-bad} for $(f_1,f_2)$ if some proximity witness for $\gamma$ fails. The two errors are
+Fix $\delta\in(0,1)$. A slope $\gamma$ is \emph{$\delta$-CA-bad} for the pair $(f_1,f_2)$ if the point $f_1+\gamma f_2$ is $\delta$-close to $C$ while the pair is $\delta$-far in columns, $\dist_2\bigl((f_1,f_2),C^{\equiv2}\bigr)>\delta$. Following \cite[Defs.~4.1, 4.3]{ABF26}, a slope $\gamma$ is \emph{$\delta$-MCA-bad} for $(f_1,f_2)$ if there exist $c\in C$ and $S\subseteq D$ with $|S|\ge(1-\delta)n$ and $(f_1+\gamma f_2)|_S=c|_S$, such that \emph{no} pair $(c_1,c_2)\in C^{\equiv2}$ has $f_1|_S=c_1|_S$ and $f_2|_S=c_2|_S$; that is, some witness of the point's proximity fails to extend mutually to the pair. The two errors are
 \[
 \eca(C,\delta):=\max_{(f_1,f_2)}\tfrac1q\,\#\{\gamma\ \text{$\delta$-CA-bad}\},
 \qquad
 \emca(C,\delta):=\max_{(f_1,f_2)}\tfrac1q\,\#\{\gamma\ \text{$\delta$-MCA-bad}\}.
 \]
-For the sparse mutual layer define
-\[
-\sigma_C(\delta):=\max\bigl\{\#\{\delta\text{-MCA-bad }\gamma\text{ for }(\epsilon_1,\epsilon_2)\}:
-|\supp\epsilon_1\cup\supp\epsilon_2|\le r\bigr\}.
-\]
-Sparse pairs are $\delta$-close in columns, since they are explained by $(0,0)$ outside at most $r$ coordinates, so $\sigma_C$ counts a purely mutual layer.
 
 \begin{definition}\label{def:dstar}
 For a target $\varepsilon^*\in(0,1)$, the grand MCA threshold is
@@ -627,159 +619,6 @@ $|B|\le1+(r+1)|\mathcal L_{2r}^{(2)}(f)|$, and the stated bound follows after
 maximizing over $f$ and dividing by $q$.
 \end{proof}
 
-
-\section{Sparse reductions for the residual band}\label{sec:sparse-band}
-
-The reductions above identify the residual mutual obstruction through shortenings and doubled-radius pair lists.  We now integrate the sharper sparse form: the mutual-only layer is not merely bounded by sparse data; it is exactly the sparse layer.  This is useful for threshold determination because it separates the remaining task into a plain-CA problem and a budget-restricted sparse mutual problem.
-
-\subsection{Exact sparsification of the mutual layer}
-
-\begin{lemma}[one slope per witness set]\label{lem:line}
-Let $C\subseteq\F^D$ be linear, let $(g_1,g_2)$ be a pair, and let $S\subseteq D$ be nonempty.
-\begin{enumerate}
-\item If $g_1|_S\in C|_S$ and $g_2|_S\in C|_S$, no slope has a failing witness supported on $S$.
-\item If $g_2|_S\in C|_S$ and $g_1|_S\notin C|_S$, then $(g_1+\gamma g_2)|_S\notin C|_S$ for every $\gamma$, so no slope has any witness supported on $S$.
-\item If $g_2|_S\notin C|_S$, then $(g_1+\gamma g_2)|_S\in C|_S$ for at most one $\gamma$; if such a slope exists, every witness of the form $(c,S)$ for it fails.
-\end{enumerate}
-In particular, each set $S$ carries a failing witness for at most one slope; and on any proximity-witness set, $g_1|_S\in C|_S$ if and only if $g_2|_S\in C|_S$, so a witness fails exactly when $g_2|_S\notin C|_S$.
-\end{lemma}
-
-\begin{proof}
-$C|_S$ is a linear subspace of $\F^S$, and $(c,S)$ being a witness means exactly $(g_1+\gamma g_2)|_S\in C|_S$.  The first clause is the definition of mutual extension.  For the second, if $(g_1+\gamma g_2)|_S\in C|_S$ then $g_1|_S=(g_1+\gamma g_2)|_S-\gamma g_2|_S\in C|_S$, a contradiction.  For the third, if two distinct slopes $\gamma\ne\gamma'$ both had $(g_1+\gamma g_2)|_S,(g_1+\gamma' g_2)|_S\in C|_S$, subtracting would give $g_2|_S\in C|_S$; and mutual extension on $S$ requires $g_2|_S\in C|_S$, so the witness fails.  The final equivalence follows because on a witness set $(g_1+\gamma g_2)|_S\in C|_S$, so each of $g_1|_S,g_2|_S$ lies in $C|_S$ exactly when the other does.
-\end{proof}
-
-\begin{theorem}[sparsification of the mutual layer]\label{thm:sparsify}
-For every linear code $C\subseteq\F^D$ and every $\delta\in(0,1)$,
-\[
-        \emca(C,\delta)=\max\left(\eca(C,\delta),\frac{\sigma_C(\delta)}q\right).
-\]
-\end{theorem}
-
-\begin{proof}
-The inequality $\ge$ follows from \cref{lem:chain} and from the fact that sparse pairs are among all pairs.  Conversely fix a pair $(f_1,f_2)$.  If $\dist_2((f_1,f_2),C^{\equiv2})>\delta$, then no set of at least $(1-\delta)n$ coordinates carries a pair explanation, so every proximity witness fails; hence the MCA-bad slopes are exactly the $\delta$-close slopes, which for a far pair are exactly the CA-bad slopes.  This contributes at most $q\eca(C,\delta)$ slopes.
-
-If instead $\dist_2((f_1,f_2),C^{\equiv2})\le\delta$, choose $(p_1,p_2)\in C^{\equiv2}$ attaining the column distance, with column error set $E$ of size at most $r$, and put $\epsilon_i:=f_i-p_i$.  Then $\supp\epsilon_1\cup\supp\epsilon_2\subseteq E$.  Translation by $(p_1,p_2)$ is a bijection between witnesses of the two pairs at each slope, via $(c,S)\mapsto(c-p_1-\gamma p_2,S)$, and preserves failure because translation by codewords preserves membership of each restriction in $C|_S$.  Hence the MCA-bad slope set of $(f_1,f_2)$ equals that of the sparse pair $(\epsilon_1,\epsilon_2)$, whose size is at most $\sigma_C(\delta)$.
-\end{proof}
-
-\begin{remark}\label{rem:sparsify-recover}
-Below half the minimum distance, \cref{thm:sparse-threshold} gives $\sigma_C(\delta)\le r$; thus \cref{thm:sparsify} recovers \cref{thm:half} as an equality statement in which the tangent term is precisely the sub-half-distance sparse layer.  Above half the distance, the phrase ``the mutual layer breaks down'' should be replaced by the exact statement ``the mutual layer equals the sparse layer.''
-\end{remark}
-
-\subsection{Support thresholds, normal form, and rigidity}
-
-Fix a sparse pair $(\epsilon_1,\epsilon_2)$ with support union $E'$, put $e:=|E'|\le r$, and write $v_\gamma:=\epsilon_1+\gamma\epsilon_2$.  Call $j\in E'$ \emph{active} if $\epsilon_2(j)\ne0$, and let $A$ be the number of active coordinates.  Call $\gamma$ \emph{tangent} if $v_\gamma(j)=0$ for some $j\in E'$; there are at most $e$ tangent slopes.  If $\epsilon_2=0$, there are no MCA-bad slopes, so in the sequel assume $A\ge1$.
-
-\begin{theorem}[support threshold]\label{thm:sparse-threshold}
-Let $C$ be linear with minimum weight $w_{\min}$.  If $e\le w_{\min}-1-r$, then every $\delta$-MCA-bad slope of $(\epsilon_1,\epsilon_2)$ is tangent.  In particular, sparse mass beyond the tangent count requires $e\ge w_{\min}-r$.
-\end{theorem}
-
-\begin{proof}
-Let $\gamma$ be bad with failing witness $(z,S)$, $z\in C$, $v_\gamma|_S=z|_S$, $|S|\ge n-r$.  Since $v_\gamma$ vanishes off $E'$, the codeword $z$ vanishes on $S\setminus E'$, a set of size at least $n-r-e\ge n-w_{\min}+1$; hence $\wt(z)\le w_{\min}-1$ and $z=0$.  Then $v_\gamma|_S=0$.  If $\gamma$ were not tangent, $v_\gamma$ would be nonzero at every point of $E'$, forcing $S\cap E'=\emptyset$ and $\epsilon_2|_S=0\in C|_S$; by \cref{lem:line} the witness would extend, a contradiction.
-\end{proof}
-
-For Reed--Solomon codes set $m:=n-k$, so $w_{\min}=m+1$, and assume $r\le m-1$; this is the sub-capacity band.  Define the ambiguity family
-\[
-        \mathcal Z:=\{z\in C:\ \wt(z|_{D\setminus E'})\le r\},
-\]
-which contains every possible failing-witness codeword, since off $E'$ the mismatches of $v_\gamma$ against $z$ are exactly the support of $z$ there.
-
-\begin{theorem}[pinning and normal form]\label{thm:pinning}
-Let $C=\RS[\F,D,k]$, and let $\gamma$ be a $\delta$-MCA-bad slope of $(\epsilon_1,\epsilon_2)$.
-\begin{enumerate}
-\item There exist $z\in\mathcal Z$ and an active $j\in E'$ with $v_\gamma(j)=z(j)$, so that
-\[
-        \gamma=\frac{z(j)-\epsilon_1(j)}{\epsilon_2(j)}.
-\]
-The values pinned by $z=0$ are exactly the tangent slopes.  For fixed $z$, at most $A\le e$ slopes arise this way.
-\item Every $z\in\mathcal Z\setminus\{0\}$ has the normal form
-\[
-        z=h\prod_{x\in Z}(X-x)
-\]
-with $Z\subseteq D\setminus E'$, $|Z|\ge n-e-r$, and $\deg h\le e+r-m-1$.  In particular $\mathcal Z=\{0\}$ unless $e\ge m+1-r$, re-proving \cref{thm:sparse-threshold} for Reed--Solomon codes.
-\end{enumerate}
-\end{theorem}
-
-\begin{proof}
-For (2), a nonzero $z\in\mathcal Z$ vanishes on at least $n-e-r$ points of $D\setminus E'$; collect them into $Z$ and divide.  Then $h:=z/\prod_{x\in Z}(X-x)$ has degree at most $k-1-|Z|\le e+r-m-1$, which is negative when $e\le m-r$.
-
-For (1), let $(z,S)$ be a failing witness for $\gamma$; as just noted, $z\in\mathcal Z$.  Failure is inherited by supersets of $S$ inside the agreement locus, so take $S$ maximal: $S=D\setminus\supp(v_\gamma-z)$.  Suppose no active coordinate is matched.  Then $\supp(v_\gamma-z)$ consists of all active coordinates, those inactive $j\in E'$ with $\epsilon_1(j)\ne z(j)$, and $\supp(z)\setminus E'$, all independent of $\gamma$.  On $S$, every point of $S\cap E'$ is inactive and matched, so $\epsilon_2|_S=0\in C|_S$ and $\epsilon_1|_S=z|_S\in C|_S$; off $E'$ both $\epsilon_1$ and, by maximality, $z$ vanish on $S$.  By \cref{lem:line} the witness extends, a contradiction.  Thus some active coordinate is matched, giving the pinning formula.
-\end{proof}
-
-\begin{theorem}[match rigidity]\label{thm:rigidity}
-In the setting of \cref{thm:pinning}, let $\gamma$ be a non-tangent bad slope with maximal failing witness $(z,S)$, $z\ne0$, let $t\ge1$ be its number of matched active coordinates, and let $u$ be the number of unmatched inactive coordinates of $E'$.  Then the closeness budget forces
-\[
-        (A-t)+u+\wt\bigl(z|_{D\setminus E'}\bigr)\le r,
-        \qquad\text{hence}\qquad
-        t\ge A-e+(m+1-r)+u\ge A-e+m+1-r .
-\]
-In particular, when every support coordinate is active ($A=e$), every non-tangent bad slope matches its witness at no fewer than $m+1-r$ coordinates, each match imposing one interpolation condition on $z$ consistent with the single pinned value of $\gamma$.
-\end{theorem}
-
-\begin{proof}
-The disagreement set of $v_\gamma$ against $z$ has size at most $r$ and decomposes as the $A-t$ unmatched active coordinates, the $u$ unmatched inactive coordinates, and the off-$E'$ support of $z$; this is the budget identity.  For the consequence, the normal form bounds the zero count: $z\ne0$ vanishes on at least $n-e-\wt(z|_{D\setminus E'})\ge n-e-r+(A-t)+u$ points off $E'$, so $k-1\ge n-e-r+(A-t)+u$, i.e.\ $(A-t)+u\le e+r-m-1$.
-\end{proof}
-
-\begin{remark}[the sparse value-set wall]\label{rem:valuewall}
-One might hope to bound $\sigma_C$ by the value sets $\{z(j):z\in\mathcal Z\}$ through the pinning formula.  This is vacuous once $e\ge m+1-r$: for any admissible zero set $Z$, the factor $h$ has nonnegative degree and $z(j)=h(j)\prod_{x\in Z}(j-x)$ ranges over all of $\F$.  The genuine constraint is the coupling in \cref{thm:rigidity}: the same budget $r$ pays for the off-support weight of $z$, the unmatched coordinates, and the $t$-fold interpolation consistency of $z$ with a single slope.  Bounding the number of slopes admitted by this coupled system is the sparse, budget-restricted form of the value-set frontier.
-\end{remark}
-
-\subsection{A rider bound for the plain-CA side}
-
-\begin{theorem}[rider bound below radius one half]\label{thm:rider}
-Let $C\subseteq\F^D$ be linear, let $\delta\in(0,\tfrac12)$, put $r=\lfloor\delta n\rfloor$, and let $(f_1,f_2)$ satisfy $\dist_2((f_1,f_2),C^{\equiv2})>\delta$.  Let
-\[
-        \mathcal L:=\{(P_1,P_2)\in C^{\equiv2}:\ \#\{j:(f_1(j),f_2(j))=(P_1(j),P_2(j))\}\ge n-2r\}.
-\]
-Then the number of $\delta$-CA-bad slopes is at most $1+(r+1)|\mathcal L|$.  Consequently
-\[
-        q\,\eca(C,\delta)\le1+(r+1)L_2(n-2r),
-\]
-where $L_2(a)$ denotes the largest interleaved pair-list size of $C$ at column agreement $a$.
-\end{theorem}
-
-\begin{proof}
-Let $B$ be the bad set.  If $|B|\le1$ there is nothing to prove.  Fix $\gamma_1\in B$ with witness codeword $c_{\gamma_1}$ and agreement set $S_{\gamma_1}$, $|S_{\gamma_1}|\ge n-r$.  For each $\gamma\in B\setminus\{\gamma_1\}$, with witness $(c_\gamma,S_\gamma)$, the two equations on $S_{\gamma_1}\cap S_\gamma$, of size at least $n-2r$, solve to
-\[
-        f_2=P_2:=\frac{c_{\gamma_1}-c_\gamma}{\gamma_1-\gamma},
-        \qquad
-        f_1=P_1:=c_{\gamma_1}-\gamma_1P_2,
-\]
-with $(P_1,P_2)\in C^{\equiv2}$; thus every non-anchor slope rides some member of $\mathcal L$.
-
-Fix one member $P=(P_1,P_2)$ and let $E$ be its column disagreement set against $(f_1,f_2)$.  Since the pair is $\delta$-far, $|E|\ge r+1$.  A rider $\gamma$ agrees with $P_1+\gamma P_2$ outside at most $r$ coordinates, so it satisfies $\eta_1(j)+\gamma\eta_2(j)=0$, where $(\eta_1,\eta_2):=(f_1-P_1,f_2-P_2)$ and $(\eta_1(j),\eta_2(j))\ne(0,0)$, at no fewer than $|E|-r$ coordinates $j\in E$; each coordinate of $E$ admits at most one such slope.  Double counting gives $\#\{\text{riders on }P\}\cdot(|E|-r)\le |E|$, so each member carries at most $|E|/(|E|-r)\le r+1$ riders.
-\end{proof}
-
-\begin{corollary}[doubly-sparse reduction of the sub-half CA band]\label{cor:doubly}
-In the setting of \cref{thm:rider}, every member of $\mathcal L$ certifies $\dist(f_i,C)\le2r/n$ for both $i$.  Hence:
-\begin{enumerate}
-\item a $\delta$-far pair one of whose components has $\dist(f_i,C)>2\delta$ has at most one $\delta$-CA-bad slope;
-\item if $q\eca(C,\delta)\ge2$, the maximum is attained on pairs of the form $(c_1+e_1,c_2+e_2)$ with $c_i\in C$ and $\wt(e_i)\le2r$; since the CA-bad set is invariant under translation by $C^{\equiv2}$, plain correlated agreement in this range is, up to a single slope, a problem about $\delta$-far pairs both of whose components are $2r$-sparse.
-\end{enumerate}
-\end{corollary}
-
-\begin{proof}
-A member agrees with $(f_1,f_2)$ on at least $n-2r$ columns, so componentwise $f_i$ is within $2r$ of $P_i\in C$.  If some component is $2\delta$-far, then $\mathcal L=\emptyset$ and \cref{thm:rider} gives at most one bad slope.  For translation invariance, replacing $(f_1,f_2)$ by $(f_1-c_1,f_2-c_2)$ shifts $u_\gamma$ by the codeword $c_1+\gamma c_2$, preserving distances to $C$ and preserving column distance to $C^{\equiv2}$; hence the bad set is unchanged and the maximizing far pair may be normalized to sparse components.
-\end{proof}
-
-\begin{remark}\label{rem:rider-context}
-When $n-2r>\sqrt{(k-1)n}$, the pair-list $L_2(n-2r)$ is polynomially bounded and \cref{thm:rider} recovers the self-contained half-Johnson CA bound cited in \cref{prop:companion-certificate-package}.  Past the Johnson radius, it converts the sub-half-radius part of the plain-CA band into an interpolation-deficient interleaved list problem for doubly sparse far pairs.  The hypothesis $\delta<1/2$ is essential in this statement; for challenge rates below $1/2$, the unresolved post-Johnson plain-CA band lies at radii at least $1/2$, so the older residual formulations of \cref{thm:p2-residual-reduction,thm:mca-excess-pair-list} must still be kept for that part.
-\end{remark}
-
-\subsection{Conditional transfer}
-
-\begin{theorem}[conditional transfer to the Johnson radius]\label{thm:transfer}
-Let $C=\RS[\F,D,k]$, let $\rho=k/n$, and let $\delta_0\le1-\sqrt\rho-\eta$ for some $\eta>0$.  If $\sigma_C(\delta)\le P(n)$ for all $\delta\le\delta_0$, then, importing the Johnson-regime proximity gap of \textup{\cite{BCIKS20}}, namely $\eca(C,\delta)\le\mathrm{poly}_\eta(n)/q$ for $\delta\le1-\sqrt\rho-\eta$, we get
-\[
-        \emca(C,\delta)\le\frac{\max(\mathrm{poly}_\eta(n),P(n))}{q}
-        \qquad(\delta\le\delta_0).
-\]
-Thus the MCA safe frontier moves from one half of the minimum distance to the Johnson radius whenever the sparse mutual layer is polynomially bounded there.
-\end{theorem}
-
-\begin{proof}
-Immediate from \cref{thm:sparsify} and the quoted CA input.
-\end{proof}
-
 \section{Barriers and what remains}\label{sec:barriers}
 
 The pincer above is not limited by lazy constants.  Each mechanism stops for a
@@ -837,39 +676,57 @@ $\max(0,k-n+2r)=\max(0,2r-(n-k))$.  \Cref{prop:p2-half-sharp} shows that this is
 a real MCA obstruction, not merely a proof artifact.
 \end{remark}
 
-The remaining tasks now have a narrower and more concrete form.  The unsafe side is settled by prefix-floor certificates; the safe side is limited by two separate sparse problems.
+The remaining tasks now have a narrower and more concrete form.
 
-\begin{problem}[sparse mutual layer]\label{prob:mutual}\label{prob:sparse-mutual}
-For $C=\RS[\F,D,k]$ in the parameter box of \cref{thm:main}, bound $\sigma_C(\delta)$ at target scale for
-\[
-        \frac{1-\rho}{2}<\delta<1-\rho-\frac{s_\rho}{n}.
-\]
-Equivalently, bound the number of slopes admitted by the budget-coupled system of \cref{thm:pinning,thm:rigidity}: witnesses of the form
-\[
-        z=h\prod_{x\in Z}(X-x),\qquad \deg h\le e+r-(n-k)-1,
-\]
-with at least $A-e+(n-k)+1-r$ active interpolation matches consistent with a single slope and with total closeness budget $r$.  A polynomial bound for $\sigma_C(\delta)$ up to $1-\sqrt\rho-\eta$, combined with \cite{BCIKS20}, moves the MCA safe frontier to the Johnson radius by \cref{thm:transfer}; beyond the Johnson radius it must be combined with a plain-CA input such as \cref{prob:ca}.
-\end{problem}
-
-\begin{problem}[plain CA via deficient pair lists for doubly sparse far pairs]\label{prob:ca}\label{prob:deficient}
-Determine $\eca(C,\delta)$ in the residual plain-CA interval
+\begin{problem}[middle plain correlated-agreement band]\label{prob:ca}
+Let $C=\RS[\F,D,k]$ be in the parameter box of \cref{thm:main} with
+$q\ge2^{128}n$. Determine $\eca(C,\delta)$ in the residual interval
 \[
         1-\sqrt\rho<\delta<1-\rho-\frac{s_\rho}{n}.
 \]
-In the sub-half-radius portion of this interval, equivalently by \cref{thm:rider,cor:doubly}, bound $L_2(n-2\lfloor\delta n\rfloor)$ for $\delta$-far pairs whose two components are $2\lfloor\delta n\rfloor$-sparse up to codewords.  This covers the whole rate-$1/2$ residual CA band, but not the post-Johnson portions of the lower-rate challenge rows, which lie at radii $\ge1/2$ and remain governed by the original plain-CA/list-size problem.  The original question below the coarse cap edge $1-\rho-g_\rho$ is already negative on its upper slice by \cref{cor:old-ca-band-not-safe}, positive for plain CA up to the Johnson radius by \cite{BCIKS20,BCHKS25}, and open only in the displayed middle range.
+Equivalently, in the self-contained core without importing the current
+Johnson-radius CA theorems, replace the left endpoint by the largest
+self-contained safe certificate supplied by the deep regime and the
+half-Johnson handle of \cref{thm:cap-paper-package}.  The original question
+below the coarse cap edge $1-\rho-g_\rho$ is already negative on its upper slice
+by \cref{cor:old-ca-band-not-safe}, positive for plain CA up to the Johnson
+radius by \cite{BCIKS20,BCHKS25}, and open only in the displayed middle range.
 \end{problem}
 
-\begin{problem}[legacy residual shortening and pair-list images]\label{prob:legacy-mutual}
-For $r=\lfloor\delta n\rfloor$ in the same middle interval, the older formulation is to bound the residual term $R_C(r)$ of \cref{thm:p2-residual-reduction}, or equivalently the doubled-radius pair-list quantity $L_{2r}^{(2)}(C)$ of \cref{thm:mca-excess-pair-list}.  A target-level bound
+\begin{problem}[residual shortening and pair-list images]\label{prob:mutual}
+For $r=\lfloor\delta n\rfloor$ in the same middle interval, bound the residual
+term $R_C(r)$ of \cref{thm:p2-residual-reduction}, or equivalently the
+doubled-radius pair-list quantity $L_{2r}^{(2)}(C)$ of
+\cref{thm:mca-excess-pair-list}.  A target-level bound
 \[
         r+R_C(r)\le2^{-128}q
 \]
-together with a solution of \cref{prob:ca} would close the MCA threshold in the middle band.  The sparse equality \cref{thm:sparsify} refines this legacy formulation: it says that the true mutual residue is exactly $\sigma_C(\delta)$, and \cref{thm:pinning,thm:rigidity} identify the sparse budget-restricted value-set system that must be counted.
+together with a solution of \cref{prob:ca} would close the MCA threshold in the
+middle band.  A polynomial bound $L_{2r}^{(2)}(C)\le n^A$ gives the same
+conclusion for fields satisfying $q\ge2^{128}n^{A+1}$ whenever plain CA is safe.
+In the companion framework \cite{Cho26b}, periodic witnesses are counted by
+quotient and extension ledgers; what remains is the aperiodic Hankel/residue-line
+packing problem.
 \end{problem}
 
-For deployed subfield rows the residual search must also separate base-valued and genuinely extension-valued line witnesses.  In the KoalaBear sextic row, $D\subseteq\B$ but the line field is the ambient extension $\F/\B$; the confinement lemma of \cite{Cho26b} shows that $\B$-valued line words contribute bad-slope density at most $|\B|/|\F|<2^{-154}$, far below the target $2^{-128}$.  Thus any target-level deployed obstruction in that row must use genuinely $\F$-valued line data.
+For deployed subfield rows the residual search must also separate base-valued
+and genuinely extension-valued line witnesses.  In the KoalaBear sextic row,
+$D\subseteq\B$ but the line field is the ambient extension $\F/\B$; the
+confinement lemma of \cite{Cho26b} shows that $\B$-valued line words contribute
+bad-slope density at most $|\B|/|\F|<2^{-154}$, far below the target
+$2^{-128}$.  Thus any target-level deployed obstruction in that row must use
+genuinely $\F$-valued line data.
 
-Thus the current complete picture is this.  Small fields are degenerate.  Large fields are safe to one third of the distance by a self-contained theorem, often safe farther by the self-contained half-Johnson certificate of \cref{prop:companion-certificate-package}, and safe to one half of the distance with the single BCIKS import.  They are unsafe, already for plain correlated agreement, from $1-\rho-s_\rho/n$ to capacity; over deployed subfield rows, optimized companion floors push this unsafe frontier much farther left and print finite staircase certificates.  What remains is not the original broad pair of problems, but the middle plain-CA interval of \cref{prob:ca} and the sparse mutual kernel of \cref{prob:mutual}, with \cref{prob:legacy-mutual} recording the older shortening/pair-list formulation for comparison.
+Thus the current complete picture is this.  Small fields are degenerate.  Large
+fields are safe to one third of the distance by a self-contained theorem, often
+safe farther by the self-contained half-Johnson certificate of
+\cref{thm:cap-paper-package}, and safe to one half of the distance with the
+single BCIKS import.  They are unsafe, already for plain correlated agreement,
+from $1-\rho-s_\rho/n$ to capacity; over deployed subfield rows, optimized cap-paper
+floors push this unsafe frontier much farther left and print finite staircase
+certificates.  What remains is not the original broad pair of problems, but the
+middle CA interval of \cref{prob:ca} and the residual shortening or pair-list
+kernel of \cref{prob:mutual}.
 
 \medskip
 \begin{thebibliography}{BCIKS20}
