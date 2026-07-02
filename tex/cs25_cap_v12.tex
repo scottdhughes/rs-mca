@@ -5384,9 +5384,17 @@ distinct CA-bad slopes at radius $\delta=\frac12-2^{-8}$, namely among the expli
 \begin{proof}
 Each $P_M$ agrees with $u$ on at least $a=k+2^{13}$ points, so, as in the proof of \cref{thm:A}, for every $\alpha\in\Omega$ and every $M$ the slope $P_M(\alpha)$ carries the point $f_\alpha+P_M(\alpha)g_\alpha$ to within radius $1-a/n=\frac12-2^{-8}$ of $C$, while the pair is farther than every $\delta<1-k/n=\frac12$ from $C^{\equiv2}$ by the $(X-\alpha)G+1$ argument there; so every distinct value $P_M(\alpha)$ is a CA-bad slope at every integer-admissible $\delta\in[\frac12-2^{-8},\frac12)$, hence \textup(as failing CA is failing MCA, \cref{fact:chain}\textup) an MCA-bad slope throughout that interval. It remains to count distinct values for many $\alpha$ at once. Distinct sets $M$ give distinct polynomials $P_M$ \textup(\cref{thm:explicit-head-floor}\textup), and $P_M-P_{M'}$ is nonzero of degree at most $k$, so the total number of colliding pairs over all $\alpha\in\Omega$ is at most $k\binom{L_0}2$. Let $x^*:=\lceil2k\binom{L_0}2/(q-n)\rceil$; by Markov, fewer than $(q-n)/2$ poles have collision count at least $x^*$, so at least half have collision count at most $x^*-1$. For such $\alpha$, Cauchy--Schwarz as in \cref{thm:A} gives
 \[
-M(\alpha)\ \ge\ \frac{L_0^2}{L_0+2(x^*-1)}\ \ge\ \frac{L_0}{1+2k(L_0-1)/(q-n)}\ \ge\ \Bigl\lceil\frac{q-n}{3k}\Bigr\rceil,
+M(\alpha)\ \ge\ \frac{L_0^2}{L_0+2(x^*-1)}\ \ge\ \frac{L_0}{1+2k(L_0-1)/(q-n)}\ >\ \Bigl\lceil\frac{q-n}{3k}\Bigr\rceil-1,
 \]
-the last step verified exactly in integer arithmetic at both rows; and $\lceil(q-n)/3k\rceil/q>2^{-21.6}$, likewise exactly. The subfield count is $|\Omega\cap\B|\le|\B|=p$; for $\alpha\notin\B$ the word $g_\alpha$ is not $\B$-valued \textup(its value at any $x\in D\subseteq\B$ lies in $\B$ only if $x-\alpha\in\B$\textup), and no common scalar repairs this while keeping $f_\alpha$ a $\B$-multiple, so the pair falls outside the inert class of \cref{lem:confine}, as \cref{cor:Fvalued} requires of any pair with this density.
+so, since $M(\alpha)$ is an integer,
+$M(\alpha)\ge\lceil(q-n)/(3k)\rceil$. The last comparison and
+$\lceil(q-n)/3k\rceil/q>2^{-21.6}$ are verified exactly in integer arithmetic
+at both rows. The subfield count is $|\Omega\cap\B|\le|\B|=p$; for
+$\alpha\notin\B$ the word $g_\alpha$ is not $\B$-valued \textup(its value at any
+$x\in D\subseteq\B$ lies in $\B$ only if $x-\alpha\in\B$\textup), and no common
+scalar repairs this while keeping $f_\alpha$ a $\B$-multiple, so the pair falls
+outside the inert class of \cref{lem:confine}, as \cref{cor:Fvalued} requires
+of any pair with this density.
 \end{proof}
 
 \begin{remark}[what remains of Open Problem~\ref{prob:explicit}]\label{rem:explicit-scope}

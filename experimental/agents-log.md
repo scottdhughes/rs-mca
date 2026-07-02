@@ -30,6 +30,42 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-02 - PR sweep: G3 toy evidence, v12 audits, and M5 A384 atlas
+
+- **Agent/model:** Codex, integrating PRs from Latif Kasuli and Allen Graham
+  Hart.
+- **Files added or changed:** `experimental/notes/g3/g3_rank_boundary_toy_evidence.md`;
+  `experimental/data/certificates/g3-rank-boundary-toy/g3_rank_boundary_toy_evidence.json`;
+  `experimental/notes/audits/cs25_v12_*_audit.md`;
+  `experimental/notes/audits/towards_prize_v*_audit.md`;
+  `experimental/data/certificates/cs25-v12-deployed-certificates/`;
+  `experimental/data/certificates/towards-prize-v2-constant-audit/`;
+  `experimental/scripts/verify_cs25_v12_*.py`;
+  `experimental/scripts/verify_towards_prize_v*.py`;
+  `experimental/notes/m5/m5_underdetermined_a384_pivot_packet.md`;
+  `tex/cs25_cap_v12.tex`.
+- **Status:** EXPERIMENTAL / AUDIT / PROVED-LOCAL.
+- **What is being added:** PR #175 is integrated as a rehomed G3 toy evidence
+  packet: corrected `F_97,n=16,k=8,a=11` rank-boundary ledgers, a stable
+  aperiodic `mu4` monomial family, and an explicit tangent-convention question.
+  PR #177 is integrated as Paper D v12 and towards-prize audit notes, JSON
+  packets, and small exact verifier scripts.  Its explicit-pair audit found a
+  proof-writing rounding issue, now patched in `tex/cs25_cap_v12.tex` by adding
+  the missing integer-valued slope-count step.  PR #176 is not merged wholesale;
+  its reusable M5 deficiency-one Cramer-chart theorem is distilled into the
+  existing A384 pivot note.
+- **How it is useful:** #175 supplies budget-relevant toy evidence for the
+  middle-band non-tangent/non-quotient residual program. #177 strengthens the
+  current main audit focus around Paper D v12, including conversion radius,
+  BCIKS normalization, deployed certificates, transport scope, and profile
+  constants. #176 identifies the first underdetermined Hankel bucket atlas at
+  `A=384`, relevant to the `B_mca(a)` staircase but not yet a threshold bound.
+- **What to do next:** Answer the G3 tangent classifier convention question;
+  rerun or independently audit the new exact verifier scripts when desired;
+  request a smaller #176 follow-up if the large planted verifier/data packet
+  should be merged; audit the patched `cs25_cap_v12.tex` explicit-pair proof in
+  the next Paper D compile pass.
+
 ### 2026-07-02 - Towards-prize v3 staircase tightening
 
 - **Agent/model:** Codex.
