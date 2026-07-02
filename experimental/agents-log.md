@@ -30,6 +30,29 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-01 - M1 a327 repaired-skeleton persistent exact state
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_repaired_skeleton_persistent_exact_state.md`,
+  `experimental/scripts/scan_m1_a327_repaired_skeleton_persistent_exact_state.py`,
+  `experimental/scripts/verify_m1_a327_repaired_skeleton_persistent_exact_state.py`,
+  `experimental/scripts/audit_m1_a327_repaired_skeleton_persistent_exact_state.sage`,
+  `experimental/data/m1_a327_repaired_skeleton_persistent_exact_state.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_STATE_REPLAY / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A deterministic replay/cache for the budget-32
+  repaired skeleton from `2dfd1d9` and the `split_4_from_157` failure from
+  `7a02b97`, including exact hashes and a 512-coordinate damage/replacement
+  ledger.
+- **How it is useful:** The replay confirms the source skeleton at capacity
+  `333` with pair values `[1024,657,656,1024,1024]`, and the failed split at
+  capacity `315` with pair values `[1024,593,592,512,1024]`. The cached
+  coordinate ledger makes later compensated split/replacement searches
+  reproducible without treating this branch as a proof record.
+- **What to do next:** Use this exact-state cache for a compensated
+  repaired-skeleton split search targeting capacity plus `B27/B37/B47`
+  restoration, while keeping the row strictly on the interleaved-list track.
+
 ### 2026-07-01 - M1 a327 repaired-skeleton nondegenerate split
 
 - **Agent/model:** Codex.
