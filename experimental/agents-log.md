@@ -30,6 +30,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-02 - M1 a327 RS-feasible hypergraph tree-rank feedback
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_rs_feasible_hypergraph_tree_rank_feedback.md`,
+  `experimental/scripts/scan_m1_a327_rs_feasible_hypergraph_tree_rank_feedback.py`,
+  `experimental/scripts/verify_m1_a327_rs_feasible_hypergraph_tree_rank_feedback.py`,
+  `experimental/scripts/audit_m1_a327_rs_feasible_hypergraph_tree_rank_feedback.sage`,
+  `experimental/data/m1_a327_rs_feasible_hypergraph_tree_rank_feedback.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / RANK_FEEDBACK_EXACT_NULLITY_ZERO /
+  PARTIAL / EXPERIMENTAL.
+- **What is being added:** A rank-feedback selected-class hypergraph scan that
+  keeps supports exactly `327`, enforces the RS pair cap, and screens
+  tree-divisibility matrices with a finite-field proxy before Sage exact audit.
+- **How it is useful:** Tests whether changing the selected-class incidence
+  design can produce positive tree-divisibility nullity. The first batch tested
+  12 RS-feasible assignments, found zero proxy-positive candidates, and exact
+  audited the best proxy case as rank `424`, nullity `0` over `GF(17^32)`.
+- **What to do next:** Broaden the feedback model beyond reweighting class
+  counts and tree edges; the current data suggests the cycle-rank obstruction
+  requires altering the incidence structure more substantially.
+
 ### 2026-07-02 - M1 a327 selected-class tree-divisibility lift
 
 - **Agent/model:** Codex.
