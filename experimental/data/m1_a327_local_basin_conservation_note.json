@@ -1,0 +1,69 @@
+{
+  "track": "INTERLEAVED_LIST",
+  "row": "RS[F_17^32,H,256]",
+  "denominator": "17^32",
+  "agreement_target": 327,
+  "source_commits": {
+    "persistent_state": "30d0cdb",
+    "sage_native_cache": "c181b13",
+    "v2_runner": "c491cdb",
+    "priority_batch": "d913a87",
+    "full_grid": "62c15cc"
+  },
+  "baseline_repaired_skeleton": {
+    "capacity": 333,
+    "pair_B_values": [1024, 657, 656, 1024, 1024],
+    "pair_hall_bound": 328,
+    "six_class_dominance": 0,
+    "collapse_pattern": [[1, 4, 5, 7], [6], [3], [2]]
+  },
+  "failed_split_damage": {
+    "split_family": "split_4_from_157",
+    "capacity_loss": 18,
+    "B27_loss": 64,
+    "B37_loss": 64,
+    "B47_loss": 512,
+    "B57_loss": 0
+  },
+  "full_v2_grid": {
+    "systems_tested": 45,
+    "timeouts": 0,
+    "exact_vectors_constructed": 30,
+    "inconsistent_systems": 15,
+    "capacity_preserving_vectors": 0,
+    "pair_guard_preserving_vectors": 0,
+    "partial_split_vectors": 30,
+    "nondegenerate_vectors": 3,
+    "failure_mode_counts": {
+      "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED": 30,
+      "COMP_REPAIRED_SPLIT_INCONSISTENT": 15
+    },
+    "best_capacity": 174,
+    "best_pair_B_values": [583, 657, 656, 524, 524],
+    "best_collapse_pattern": [[4, 5], [7], [6], [3], [2], [1]],
+    "best_failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED"
+  },
+  "local_route_cut": {
+    "tested_basin": "repaired_skeleton_compensated_split_v2",
+    "claim": "No tested split/replacement schedule in the 45-system v2 grid simultaneously preserved capacity, pair guards, and reduced residual collapse.",
+    "required_guards": {
+      "capacity": 327,
+      "B27": 654,
+      "B37": 654,
+      "B47": 654,
+      "B57": 654
+    },
+    "not_global": true
+  },
+  "proof_status": "AUDIT / ROUTE_CUT_LOCAL_BASIN / EXPERIMENTAL",
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C",
+    "global obstruction outside the tested basin"
+  ]
+}

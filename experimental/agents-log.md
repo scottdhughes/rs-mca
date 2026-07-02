@@ -30,6 +30,25 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-02 - M1 a327 local basin conservation note
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_local_basin_conservation_note.md`,
+  `experimental/data/m1_a327_local_basin_conservation_note.json`,
+  `experimental/scripts/verify_m1_a327_local_basin_conservation_note.py`,
+  `experimental/agents-log.md`.
+- **Status:** AUDIT / ROUTE_CUT_LOCAL_BASIN / EXPERIMENTAL.
+- **What is being added:** A narrow audit note for the full compensated
+  repaired-skeleton split v2 grid. The 45 tested systems produced 30 exact
+  vectors and 15 inconsistent systems, with zero capacity-preserving or
+  pair-guard-preserving vectors.
+- **How it is useful:** Banks the repaired-skeleton split/replacement basin as
+  a local route cut while explicitly avoiding any global `a=327`, MCA,
+  protocol, or `Lambda_mu(C,327) <= 6` claim.
+- **What to do next:** Move upstream to a B47-robust repaired-skeleton search
+  or another nonlocal target-system redesign rather than rerunning the same
+  compensated split v2 family.
+
 ### 2026-07-01 - M1 a327 compensated repaired-skeleton split v2 batched runner
 
 - **Agent/model:** Codex.
