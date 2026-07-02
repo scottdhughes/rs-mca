@@ -13,7 +13,7 @@ The repo is meant for people and AI agents who want to help turn that corrected 
 
 ## Repository contents
 
-The core repo consists of four papers and two guide files. .tex versions are in tex folder, .pdf are in the root folder and Python scripts for heuristics are in scripts folder.
+The core repo consists of four main papers, one prize-facing theorem note, and two guide files. .tex versions are in tex folder, .pdf are in the root folder and Python scripts for heuristics are in scripts folder.
 
 | File | Short name | Role |
 |---|---|---|
@@ -21,6 +21,7 @@ The core repo consists of four papers and two guide files. .tex versions are in 
 | `slackMCA_v4.tex` | **Paper B: slack / quotient / entropy theory** | Main theory paper. Builds the corrected reserve framework and now promotes the solved high-agreement line/list/curve boundary layer into the main theory. |
 | `cs25_cap_v12.tex` | **Paper D: two-sided cap, safe-side pincer, and certificate grammar** | This is now the main Paper D draft. It keeps the self-contained cap route and adds the safe-side pincer, map/rational smooth extensions, circle/genus-one transports, explicit witness machinery, optimized failure profile, and certificate grammar v2. |
 | `snarks_v5.tex` | **Paper C: SNARK ledger** | Turns the corrected theory into a protocol-facing certificate and adds a theorem-backed high-agreement ledger compiler for line/list/curve coding numerators. |
+| `towards-prize.tex` | **Towards Prize: sparse threshold note** | Compact prize-facing note. It packages the `delta^*` staircase viewpoint, deployed KoalaBear pincer, and the new sparse residual reduction `emca = max(eca, sigma_C/q)` into the current execution target. |
 | `README.md` | Repo overview | Explains what the papers do, how they depend on each other, and what the project is trying to prove. |
 | `AGENTS.md` | Research-agent guide | Gives AI agents and new contributors a prioritized list of proof targets, toy cases, scripts, and “do not confuse these” rules. |
 
@@ -77,7 +78,7 @@ The ledgers that must be separated are:
 
 ## Current paper versions and leaderboard impact
 
-The current public paper set is **A v3, B v4, D v12, C v5**.
+The current public paper set is **A v3, B v4, D v12, C v5**, plus the compact **towards-prize** threshold note.
 The version changes matter for the website and scanner as follows:
 
 - **Paper B v4** promotes the high-agreement tangent/list/curve boundary layer
@@ -93,6 +94,11 @@ The version changes matter for the website and scanner as follows:
   protocol-facing line/list/curve numerator accounting. It changes certificate
   packaging and denominator checks, not the mathematical value of the MCA cap
   rows.
+- **`towards-prize.tex`** is the current prize-facing theorem note and roadmap.
+  It does not add a new leaderboard row by itself. Its role is to state the
+  `delta^*` staircase problem compactly, record the deployed KoalaBear pincer,
+  and reduce the remaining MCA task to the sparse residual layer plus CA/list
+  certificates.
 
 ## How the papers fit together
 

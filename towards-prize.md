@@ -15,6 +15,26 @@ The goal is not to collect more impressive-looking lower bounds.  The goal is
 to determine thresholds.  For a row \(C\), that means proving adjacent
 safe/unsafe agreement levels for the exact MCA/list object used by the prize.
 
+The compact theorem note is now:
+
+```text
+tex/towards-prize.tex
+towards-prize.pdf
+```
+
+It is the prize-facing companion to Paper D v12.  Compared with the earlier
+roadmap drafts, the active note keeps the integer-staircase and deployed
+KoalaBear pincer, then adds the sparse residual layer:
+
+```text
+emca(C,delta) = max(eca(C,delta), sigma_C(delta)/q)
+```
+
+under its stated conventions.  This changes the execution target.  The next
+threshold proof should either audit that sparse reduction or produce the
+corresponding CA/list certificates and sparse-residual bounds.  It is not a new
+leaderboard record by itself.
+
 ## 1. The Prize-Shaped Object
 
 For

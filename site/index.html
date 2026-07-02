@@ -1034,7 +1034,7 @@
       <div class="shell">
         <div class="section-title">
           <h2>Papers</h2>
-          <p>The main references behind the frontier. Paper A explains the obstruction, Paper B rebuilds the reserve theory, Paper C tracks protocol ledgers, and Paper D gives the universal field-size cap.</p>
+          <p>The main references behind the frontier. Paper A explains the obstruction, Paper B rebuilds the reserve theory, Paper C tracks protocol ledgers, Paper D gives the universal field-size cap, and the towards-prize note packages the current threshold plan.</p>
         </div>
         <div class="paper-grid" id="papersGrid">
           <article class="program-card paper-card">
@@ -1079,6 +1079,17 @@
               <a href="https://github.com/przchojecki/rs-mca/blob/main/cs25_cap_v12.pdf" target="_blank" rel="noopener">PDF on GitHub</a>
               <a href="https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v12.tex" target="_blank" rel="noopener">TeX on GitHub</a>
               <a href="papers/cs25_cap_v12.pdf" target="_blank" rel="noopener">Local mirror</a>
+            </div>
+          </article>
+          <article class="program-card paper-card">
+            <div class="paper-letter">T</div>
+            <span class="stack-label">Towards Prize</span>
+            <h3>Towards Prize: Sparse Threshold Note</h3>
+            <p>Compact prize-facing theorem note: delta-star staircase, deployed KoalaBear pincer, and sparse residual reduction for the remaining MCA threshold task.</p>
+            <div class="paper-link-strip">
+              <a href="https://github.com/przchojecki/rs-mca/blob/main/towards-prize.pdf" target="_blank" rel="noopener">PDF on GitHub</a>
+              <a href="https://github.com/przchojecki/rs-mca/blob/main/tex/towards-prize.tex" target="_blank" rel="noopener">TeX on GitHub</a>
+              <a href="papers/towards-prize.pdf" target="_blank" rel="noopener">Local mirror</a>
             </div>
           </article>
         </div>
@@ -1554,6 +1565,15 @@
     const fallbackUpdatesRaw = [
     {
         "date": "2026-07-02",
+        "status": "theorem note / sparse threshold plan",
+        "author": "Przemek Chojecki / Codex audit",
+        "title": "Towards-prize note adds the sparse residual threshold layer",
+        "summary": "The compact towards-prize note is now promoted as the prize-facing companion to Paper D v12. It keeps the integer delta-star staircase and deployed KoalaBear pincer, then adds the sparse residual reduction emca = max(eca, sigma_C/q) under its stated conventions.",
+        "impact": "This is not a new numerical leaderboard record. It sharpens the route to threshold determination: audit the sparse reduction, then produce CA/list certificates or sparse-residual bounds for the remaining band.",
+        "href": "https://github.com/przchojecki/rs-mca/blob/main/tex/towards-prize.tex"
+    },
+    {
+        "date": "2026-07-02",
         "status": "paper promotion / v12 audit focus",
         "author": "Przemek Chojecki / Codex audit",
         "title": "Paper D v12 is now the main cap paper",
@@ -1954,6 +1974,17 @@
         "githubPdf": "https://github.com/przchojecki/rs-mca/blob/main/cs25_cap_v12.pdf",
         "tex": "https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v12.tex",
         "summary": "Current main Paper D draft: self-contained cap route, safe-side pincer, map/rational smooth extensions, explicit witnesses, optimized profile, and certificate grammar v2."
+    },
+    {
+        "id": "towards-prize",
+        "letter": "T",
+        "stackLabel": "Towards Prize",
+        "title": "Towards Prize: Sparse Threshold Note",
+        "file": "towards-prize.pdf",
+        "pdf": "papers/towards-prize.pdf",
+        "githubPdf": "https://github.com/przchojecki/rs-mca/blob/main/towards-prize.pdf",
+        "tex": "https://github.com/przchojecki/rs-mca/blob/main/tex/towards-prize.tex",
+        "summary": "Compact prize-facing theorem note: delta-star staircase, deployed KoalaBear pincer, and sparse residual reduction for the remaining MCA threshold task."
     }
 ];
     const fallbackBenchmarksRaw = [
@@ -3853,7 +3884,7 @@
       grid.innerHTML = papersRaw.map(paper => `
         <article class="program-card paper-card">
           <div class="paper-letter">${escapeHtml(paper.letter)}</div>
-          <span class="stack-label">Paper ${escapeHtml(paper.letter)}</span>
+          <span class="stack-label">${escapeHtml(paper.stackLabel || `Paper ${paper.letter}`)}</span>
           <h3>${escapeHtml(paper.title)}</h3>
           <p>${escapeHtml(paper.summary)}</p>
           <div class="paper-link-strip">

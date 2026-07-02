@@ -30,6 +30,26 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-02 - Towards-prize sparse note documentation pass
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `readme.md`; `towards-prize.md`;
+  `site/data/papers.json`; `site/data/updates.json`; `site/index.html`;
+  `site/papers/towards-prize.pdf`; `experimental/agents-log.md`.
+- **Status:** AUDIT / DOCUMENTATION / SITE-REFERENCE.
+- **What is being added:** The promoted `tex/towards-prize.tex` note is now
+  referenced as the active compact prize-facing theorem note.  The README,
+  roadmap, public site paper list, and update feed now describe the sparse
+  residual layer and `delta^*` staircase role.
+- **How it is useful:** This makes the current execution target visible
+  without promoting the sparse note to a new numerical leaderboard record.  It
+  records that the note is roadmap/theorem packaging: the remaining work is to
+  audit the sparse reduction and produce CA/list or sparse-residual
+  certificates.
+- **What to do next:** Audit `emca=max(eca,sigma_C/q)`, endpoint conventions,
+  and the rider-bound constants against Paper D v12 before using the sparse
+  note as a proof authority.
+
 ### 2026-07-02 - Towards-prize best promotion with sparse residual layer
 
 - **Agent/model:** Codex, reviewing maintainer-added
