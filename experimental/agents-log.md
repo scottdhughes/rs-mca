@@ -30,6 +30,27 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-02 - M1 a327 value-class hypergraph pre-solver
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_valueclass_hypergraph_pre_solver.md`,
+  `experimental/scripts/scan_m1_a327_valueclass_hypergraph_pre_solver.py`,
+  `experimental/scripts/verify_m1_a327_valueclass_hypergraph_pre_solver.py`,
+  `experimental/data/m1_a327_valueclass_hypergraph_pre_solver.json`,
+  `experimental/agents-log.md`.
+- **Status:** HYPERGRAPH_SEARCH / CANDIDATE / EXPERIMENTAL.
+- **What is being added:** A discrete value-class hypergraph pre-solver for the
+  M1 `a=327` lane. It chooses partition-count hypergraphs over 512 coordinates
+  and optimizes Hall/pair/capacity guards under split probes before any exact
+  `GF(17^32)` lift is attempted.
+- **How it is useful:** Moves beyond exact local patching of the fragile
+  `[1,4,5,7]` basin by asking whether a split-resilient Hall-feasible value
+  geometry exists at all.
+- **What to do next:** Convert the best split-resilient partition-count
+  skeletons into exact equality-row lifting targets over `GF(17^32)`. Treat the
+  current result as a discrete candidate only, not as an exact witness or public
+  row.
+
 ### 2026-07-02 - M1 a327 upstream B47 robust exact scanner full grid
 
 - **Agent/model:** Codex.

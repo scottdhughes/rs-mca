@@ -1,0 +1,2805 @@
+{
+  "agreement_target": 327,
+  "denominator": "17^32",
+  "hypergraph_search": {
+    "best_collapse_proxy": {
+      "fragile_1457_count": 0,
+      "six_class_basin_count": 0
+    },
+    "best_failure_mode": "HYPERGRAPH_SPLIT_RESILIENT",
+    "best_guard_vector": {
+      "B17": 843,
+      "B27": 1024,
+      "B37": 1024,
+      "B47": 1024,
+      "B57": 693,
+      "capacity": 365
+    },
+    "best_probe_guard_vector": {
+      "B17": 843,
+      "B27": 1024,
+      "B37": 1024,
+      "B47": 1024,
+      "B57": 693,
+      "capacity": 365
+    },
+    "best_robustness_score": 38,
+    "coordinate_count": 512,
+    "failure_mode_counts": {
+      "HYPERGRAPH_CAPACITY_NOT_ROBUST": 1,
+      "HYPERGRAPH_SPLIT_RESILIENT": 7
+    },
+    "feasible_hypergraphs": 8,
+    "fiber_count": 16,
+    "profile_count": 8,
+    "profiles": [
+      {
+        "allowed_partition_count": 419,
+        "best_probe": {
+          "capacity_total": 2048,
+          "capacity_upper_bound": 292,
+          "fragile_1457_count": 0,
+          "guard_margins": {
+            "B17": -34,
+            "B27": 262,
+            "B37": 370,
+            "B47": -34,
+            "B57": 262,
+            "capacity": -35
+          },
+          "guard_vector": {
+            "B17": 620,
+            "B27": 916,
+            "B37": 1024,
+            "B47": 620,
+            "B57": 916,
+            "capacity": 292
+          },
+          "pair_B_values": [
+            620,
+            916,
+            1024,
+            620,
+            916
+          ],
+          "pair_same_counts": [
+            108,
+            404,
+            512,
+            108,
+            404
+          ],
+          "robustness_score": -35,
+          "six_class_basin_count": 0,
+          "split_family": "split_4_from_157"
+        },
+        "best_robustness_score": -35,
+        "coordinate_count": 512,
+        "description": "Only 2+2+1+1+1, 3+2+1+1, 3+3+1, and 4+1+1+1 patterns.",
+        "failure_mode": "HYPERGRAPH_CAPACITY_NOT_ROBUST",
+        "fiber_count": 16,
+        "fiber_size": 32,
+        "max_min_margin": -34.428571428571445,
+        "objective_value": 34430.619428571445,
+        "partition_count_hash": "417a41a6a3dfbc419012ec933614a91f44457ba52cf8b892ea1b06bad92d9399",
+        "pre_split": {
+          "capacity_total": 2048,
+          "capacity_upper_bound": 292,
+          "fragile_1457_count": 0,
+          "guard_margins": {
+            "B17": -34,
+            "B27": 262,
+            "B37": 370,
+            "B47": -34,
+            "B57": 262,
+            "capacity": -35
+          },
+          "guard_vector": {
+            "B17": 620,
+            "B27": 916,
+            "B37": 1024,
+            "B47": 620,
+            "B57": 916,
+            "capacity": 292
+          },
+          "pair_B_values": [
+            620,
+            916,
+            1024,
+            620,
+            916
+          ],
+          "pair_same_counts": [
+            108,
+            404,
+            512,
+            108,
+            404
+          ],
+          "robustness_score": -35,
+          "six_class_basin_count": 0
+        },
+        "profile_id": "user_low_collapse_patterns",
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": "OPTIMAL_OR_FEASIBLE",
+        "split_probes": {
+          "split_14_vs_57": {
+            "capacity_total": 2048,
+            "capacity_upper_bound": 292,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": -34,
+              "B27": 262,
+              "B37": 370,
+              "B47": -34,
+              "B57": 262,
+              "capacity": -35
+            },
+            "guard_vector": {
+              "B17": 620,
+              "B27": 916,
+              "B37": 1024,
+              "B47": 620,
+              "B57": 916,
+              "capacity": 292
+            },
+            "pair_B_values": [
+              620,
+              916,
+              1024,
+              620,
+              916
+            ],
+            "pair_same_counts": [
+              108,
+              404,
+              512,
+              108,
+              404
+            ],
+            "robustness_score": -35,
+            "six_class_basin_count": 0
+          },
+          "split_15_vs_47": {
+            "capacity_total": 2048,
+            "capacity_upper_bound": 292,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": -34,
+              "B27": 262,
+              "B37": 370,
+              "B47": -34,
+              "B57": 262,
+              "capacity": -35
+            },
+            "guard_vector": {
+              "B17": 620,
+              "B27": 916,
+              "B37": 1024,
+              "B47": 620,
+              "B57": 916,
+              "capacity": 292
+            },
+            "pair_B_values": [
+              620,
+              916,
+              1024,
+              620,
+              916
+            ],
+            "pair_same_counts": [
+              108,
+              404,
+              512,
+              108,
+              404
+            ],
+            "robustness_score": -35,
+            "six_class_basin_count": 0
+          },
+          "split_17_vs_45": {
+            "capacity_total": 2048,
+            "capacity_upper_bound": 292,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": -34,
+              "B27": 262,
+              "B37": 370,
+              "B47": -34,
+              "B57": 262,
+              "capacity": -35
+            },
+            "guard_vector": {
+              "B17": 620,
+              "B27": 916,
+              "B37": 1024,
+              "B47": 620,
+              "B57": 916,
+              "capacity": 292
+            },
+            "pair_B_values": [
+              620,
+              916,
+              1024,
+              620,
+              916
+            ],
+            "pair_same_counts": [
+              108,
+              404,
+              512,
+              108,
+              404
+            ],
+            "robustness_score": -35,
+            "six_class_basin_count": 0
+          },
+          "split_1_from_457": {
+            "capacity_total": 2048,
+            "capacity_upper_bound": 292,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": -34,
+              "B27": 262,
+              "B37": 370,
+              "B47": -34,
+              "B57": 262,
+              "capacity": -35
+            },
+            "guard_vector": {
+              "B17": 620,
+              "B27": 916,
+              "B37": 1024,
+              "B47": 620,
+              "B57": 916,
+              "capacity": 292
+            },
+            "pair_B_values": [
+              620,
+              916,
+              1024,
+              620,
+              916
+            ],
+            "pair_same_counts": [
+              108,
+              404,
+              512,
+              108,
+              404
+            ],
+            "robustness_score": -35,
+            "six_class_basin_count": 0
+          },
+          "split_4_from_157": {
+            "capacity_total": 2048,
+            "capacity_upper_bound": 292,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": -34,
+              "B27": 262,
+              "B37": 370,
+              "B47": -34,
+              "B57": 262,
+              "capacity": -35
+            },
+            "guard_vector": {
+              "B17": 620,
+              "B27": 916,
+              "B37": 1024,
+              "B47": 620,
+              "B57": 916,
+              "capacity": 292
+            },
+            "pair_B_values": [
+              620,
+              916,
+              1024,
+              620,
+              916
+            ],
+            "pair_same_counts": [
+              108,
+              404,
+              512,
+              108,
+              404
+            ],
+            "robustness_score": -35,
+            "six_class_basin_count": 0
+          }
+        },
+        "split_resilient": false,
+        "top_partition_counts": [
+          {
+            "blocks": [
+              [
+                2,
+                3,
+                5,
+                7
+              ],
+              [
+                1
+              ],
+              [
+                4
+              ],
+              [
+                6
+              ]
+            ],
+            "count": 404,
+            "fragile_1457": false,
+            "max_block_size": 4,
+            "pair_same": {
+              "B17": 0,
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 1
+            },
+            "signature": [
+              4,
+              1,
+              1,
+              1
+            ],
+            "six_class_basin": false
+          },
+          {
+            "blocks": [
+              [
+                1,
+                3,
+                4,
+                7
+              ],
+              [
+                2
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ]
+            ],
+            "count": 108,
+            "fragile_1457": false,
+            "max_block_size": 4,
+            "pair_same": {
+              "B17": 1,
+              "B27": 0,
+              "B37": 1,
+              "B47": 1,
+              "B57": 0
+            },
+            "signature": [
+              4,
+              1,
+              1,
+              1
+            ],
+            "six_class_basin": false
+          }
+        ]
+      },
+      {
+        "allowed_partition_count": 858,
+        "best_probe": {
+          "capacity_total": 2560,
+          "capacity_upper_bound": 365,
+          "fragile_1457_count": 0,
+          "guard_margins": {
+            "B17": 189,
+            "B27": 370,
+            "B37": 370,
+            "B47": 370,
+            "B57": 39,
+            "capacity": 38
+          },
+          "guard_vector": {
+            "B17": 843,
+            "B27": 1024,
+            "B37": 1024,
+            "B47": 1024,
+            "B57": 693,
+            "capacity": 365
+          },
+          "pair_B_values": [
+            843,
+            1024,
+            1024,
+            1024,
+            693
+          ],
+          "pair_same_counts": [
+            331,
+            512,
+            512,
+            512,
+            181
+          ],
+          "robustness_score": 38,
+          "six_class_basin_count": 0,
+          "split_family": "split_4_from_157"
+        },
+        "best_robustness_score": 38,
+        "coordinate_count": 512,
+        "description": "All partitions with max block <=5 and no block containing {1,4,5,7}.",
+        "failure_mode": "HYPERGRAPH_SPLIT_RESILIENT",
+        "fiber_count": 16,
+        "fiber_size": 32,
+        "max_min_margin": 38.71428571428572,
+        "objective_value": -38711.72571428573,
+        "partition_count_hash": "63dde975f2148cbc507780378f927211e84fcdc7f944eeabcebc16610a3c97bc",
+        "pre_split": {
+          "capacity_total": 2560,
+          "capacity_upper_bound": 365,
+          "fragile_1457_count": 0,
+          "guard_margins": {
+            "B17": 189,
+            "B27": 370,
+            "B37": 370,
+            "B47": 370,
+            "B57": 39,
+            "capacity": 38
+          },
+          "guard_vector": {
+            "B17": 843,
+            "B27": 1024,
+            "B37": 1024,
+            "B47": 1024,
+            "B57": 693,
+            "capacity": 365
+          },
+          "pair_B_values": [
+            843,
+            1024,
+            1024,
+            1024,
+            693
+          ],
+          "pair_same_counts": [
+            331,
+            512,
+            512,
+            512,
+            181
+          ],
+          "robustness_score": 38,
+          "six_class_basin_count": 0
+        },
+        "profile_id": "no_fragile_max5",
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": "OPTIMAL_OR_FEASIBLE",
+        "split_probes": {
+          "split_14_vs_57": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 370,
+              "B57": 39,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 1024,
+              "B57": 693,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              1024,
+              693
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              512,
+              181
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_15_vs_47": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 370,
+              "B57": 39,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 1024,
+              "B57": 693,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              1024,
+              693
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              512,
+              181
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_17_vs_45": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 370,
+              "B57": 39,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 1024,
+              "B57": 693,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              1024,
+              693
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              512,
+              181
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_1_from_457": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 370,
+              "B57": 39,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 1024,
+              "B57": 693,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              1024,
+              693
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              512,
+              181
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_4_from_157": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 370,
+              "B57": 39,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 1024,
+              "B57": 693,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              1024,
+              693
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              512,
+              181
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          }
+        },
+        "split_resilient": true,
+        "top_partition_counts": [
+          {
+            "blocks": [
+              [
+                1,
+                2,
+                3,
+                4,
+                7
+              ],
+              [
+                5,
+                6
+              ]
+            ],
+            "count": 331,
+            "fragile_1457": false,
+            "max_block_size": 5,
+            "pair_same": {
+              "B17": 1,
+              "B27": 1,
+              "B37": 1,
+              "B47": 1,
+              "B57": 0
+            },
+            "signature": [
+              5,
+              2
+            ],
+            "six_class_basin": false
+          },
+          {
+            "blocks": [
+              [
+                2,
+                3,
+                4,
+                5,
+                7
+              ],
+              [
+                1,
+                6
+              ]
+            ],
+            "count": 181,
+            "fragile_1457": false,
+            "max_block_size": 5,
+            "pair_same": {
+              "B17": 0,
+              "B27": 1,
+              "B37": 1,
+              "B47": 1,
+              "B57": 1
+            },
+            "signature": [
+              5,
+              2
+            ],
+            "six_class_basin": false
+          }
+        ]
+      },
+      {
+        "allowed_partition_count": 869,
+        "best_probe": {
+          "capacity_total": 2560,
+          "capacity_upper_bound": 365,
+          "fragile_1457_count": 0,
+          "guard_margins": {
+            "B17": 189,
+            "B27": 370,
+            "B37": 370,
+            "B47": 39,
+            "B57": 370,
+            "capacity": 38
+          },
+          "guard_vector": {
+            "B17": 843,
+            "B27": 1024,
+            "B37": 1024,
+            "B47": 693,
+            "B57": 1024,
+            "capacity": 365
+          },
+          "pair_B_values": [
+            843,
+            1024,
+            1024,
+            693,
+            1024
+          ],
+          "pair_same_counts": [
+            331,
+            512,
+            512,
+            181,
+            512
+          ],
+          "robustness_score": 38,
+          "six_class_basin_count": 0,
+          "split_family": "split_4_from_157"
+        },
+        "best_robustness_score": 38,
+        "coordinate_count": 512,
+        "description": "All max-5 partitions with at most 16 fragile {1,4,5,7} coordinates.",
+        "failure_mode": "HYPERGRAPH_SPLIT_RESILIENT",
+        "fiber_count": 16,
+        "fiber_size": 32,
+        "max_min_margin": 38.71428571428581,
+        "objective_value": -38711.72571428581,
+        "partition_count_hash": "9f66ab296f03ff8c213a38fc10b8b4cc6a884fe3b1c550769d3bc2e5c7ecfd85",
+        "pre_split": {
+          "capacity_total": 2560,
+          "capacity_upper_bound": 365,
+          "fragile_1457_count": 0,
+          "guard_margins": {
+            "B17": 189,
+            "B27": 370,
+            "B37": 370,
+            "B47": 39,
+            "B57": 370,
+            "capacity": 38
+          },
+          "guard_vector": {
+            "B17": 843,
+            "B27": 1024,
+            "B37": 1024,
+            "B47": 693,
+            "B57": 1024,
+            "capacity": 365
+          },
+          "pair_B_values": [
+            843,
+            1024,
+            1024,
+            693,
+            1024
+          ],
+          "pair_same_counts": [
+            331,
+            512,
+            512,
+            181,
+            512
+          ],
+          "robustness_score": 38,
+          "six_class_basin_count": 0
+        },
+        "profile_id": "fragile_cap_16_max5",
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": "OPTIMAL_OR_FEASIBLE",
+        "split_probes": {
+          "split_14_vs_57": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 39,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 693,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              693,
+              1024
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              181,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_15_vs_47": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 39,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 693,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              693,
+              1024
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              181,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_17_vs_45": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 39,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 693,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              693,
+              1024
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              181,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_1_from_457": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 39,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 693,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              693,
+              1024
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              181,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_4_from_157": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 39,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 693,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              693,
+              1024
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              181,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          }
+        },
+        "split_resilient": true,
+        "top_partition_counts": [
+          {
+            "blocks": [
+              [
+                1,
+                2,
+                3,
+                5,
+                7
+              ],
+              [
+                4,
+                6
+              ]
+            ],
+            "count": 331,
+            "fragile_1457": false,
+            "max_block_size": 5,
+            "pair_same": {
+              "B17": 1,
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 1
+            },
+            "signature": [
+              5,
+              2
+            ],
+            "six_class_basin": false
+          },
+          {
+            "blocks": [
+              [
+                2,
+                3,
+                4,
+                5,
+                7
+              ],
+              [
+                1,
+                6
+              ]
+            ],
+            "count": 181,
+            "fragile_1457": false,
+            "max_block_size": 5,
+            "pair_same": {
+              "B17": 0,
+              "B27": 1,
+              "B37": 1,
+              "B47": 1,
+              "B57": 1
+            },
+            "signature": [
+              5,
+              2
+            ],
+            "six_class_basin": false
+          }
+        ]
+      },
+      {
+        "allowed_partition_count": 869,
+        "best_probe": {
+          "capacity_total": 2560,
+          "capacity_upper_bound": 365,
+          "fragile_1457_count": 0,
+          "guard_margins": {
+            "B17": 189,
+            "B27": 370,
+            "B37": 370,
+            "B47": 39,
+            "B57": 370,
+            "capacity": 38
+          },
+          "guard_vector": {
+            "B17": 843,
+            "B27": 1024,
+            "B37": 1024,
+            "B47": 693,
+            "B57": 1024,
+            "capacity": 365
+          },
+          "pair_B_values": [
+            843,
+            1024,
+            1024,
+            693,
+            1024
+          ],
+          "pair_same_counts": [
+            331,
+            512,
+            512,
+            181,
+            512
+          ],
+          "robustness_score": 38,
+          "six_class_basin_count": 0,
+          "split_family": "split_4_from_157"
+        },
+        "best_robustness_score": 38,
+        "coordinate_count": 512,
+        "description": "All max-5 partitions with at most 32 fragile {1,4,5,7} coordinates.",
+        "failure_mode": "HYPERGRAPH_SPLIT_RESILIENT",
+        "fiber_count": 16,
+        "fiber_size": 32,
+        "max_min_margin": 38.71428571428581,
+        "objective_value": -38711.72571428581,
+        "partition_count_hash": "9f66ab296f03ff8c213a38fc10b8b4cc6a884fe3b1c550769d3bc2e5c7ecfd85",
+        "pre_split": {
+          "capacity_total": 2560,
+          "capacity_upper_bound": 365,
+          "fragile_1457_count": 0,
+          "guard_margins": {
+            "B17": 189,
+            "B27": 370,
+            "B37": 370,
+            "B47": 39,
+            "B57": 370,
+            "capacity": 38
+          },
+          "guard_vector": {
+            "B17": 843,
+            "B27": 1024,
+            "B37": 1024,
+            "B47": 693,
+            "B57": 1024,
+            "capacity": 365
+          },
+          "pair_B_values": [
+            843,
+            1024,
+            1024,
+            693,
+            1024
+          ],
+          "pair_same_counts": [
+            331,
+            512,
+            512,
+            181,
+            512
+          ],
+          "robustness_score": 38,
+          "six_class_basin_count": 0
+        },
+        "profile_id": "fragile_cap_32_max5",
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": "OPTIMAL_OR_FEASIBLE",
+        "split_probes": {
+          "split_14_vs_57": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 39,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 693,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              693,
+              1024
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              181,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_15_vs_47": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 39,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 693,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              693,
+              1024
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              181,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_17_vs_45": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 39,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 693,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              693,
+              1024
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              181,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_1_from_457": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 39,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 693,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              693,
+              1024
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              181,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_4_from_157": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 39,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 693,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              693,
+              1024
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              181,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          }
+        },
+        "split_resilient": true,
+        "top_partition_counts": [
+          {
+            "blocks": [
+              [
+                1,
+                2,
+                3,
+                5,
+                7
+              ],
+              [
+                4,
+                6
+              ]
+            ],
+            "count": 331,
+            "fragile_1457": false,
+            "max_block_size": 5,
+            "pair_same": {
+              "B17": 1,
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 1
+            },
+            "signature": [
+              5,
+              2
+            ],
+            "six_class_basin": false
+          },
+          {
+            "blocks": [
+              [
+                2,
+                3,
+                4,
+                5,
+                7
+              ],
+              [
+                1,
+                6
+              ]
+            ],
+            "count": 181,
+            "fragile_1457": false,
+            "max_block_size": 5,
+            "pair_same": {
+              "B17": 0,
+              "B27": 1,
+              "B37": 1,
+              "B47": 1,
+              "B57": 1
+            },
+            "signature": [
+              5,
+              2
+            ],
+            "six_class_basin": false
+          }
+        ]
+      },
+      {
+        "allowed_partition_count": 869,
+        "best_probe": {
+          "capacity_total": 2560,
+          "capacity_upper_bound": 365,
+          "fragile_1457_count": 0,
+          "guard_margins": {
+            "B17": 189,
+            "B27": 370,
+            "B37": 370,
+            "B47": 39,
+            "B57": 370,
+            "capacity": 38
+          },
+          "guard_vector": {
+            "B17": 843,
+            "B27": 1024,
+            "B37": 1024,
+            "B47": 693,
+            "B57": 1024,
+            "capacity": 365
+          },
+          "pair_B_values": [
+            843,
+            1024,
+            1024,
+            693,
+            1024
+          ],
+          "pair_same_counts": [
+            331,
+            512,
+            512,
+            181,
+            512
+          ],
+          "robustness_score": 38,
+          "six_class_basin_count": 0,
+          "split_family": "split_4_from_157"
+        },
+        "best_robustness_score": 38,
+        "coordinate_count": 512,
+        "description": "All max-5 partitions with at most 64 fragile {1,4,5,7} coordinates.",
+        "failure_mode": "HYPERGRAPH_SPLIT_RESILIENT",
+        "fiber_count": 16,
+        "fiber_size": 32,
+        "max_min_margin": 38.71428571428581,
+        "objective_value": -38711.72571428581,
+        "partition_count_hash": "9f66ab296f03ff8c213a38fc10b8b4cc6a884fe3b1c550769d3bc2e5c7ecfd85",
+        "pre_split": {
+          "capacity_total": 2560,
+          "capacity_upper_bound": 365,
+          "fragile_1457_count": 0,
+          "guard_margins": {
+            "B17": 189,
+            "B27": 370,
+            "B37": 370,
+            "B47": 39,
+            "B57": 370,
+            "capacity": 38
+          },
+          "guard_vector": {
+            "B17": 843,
+            "B27": 1024,
+            "B37": 1024,
+            "B47": 693,
+            "B57": 1024,
+            "capacity": 365
+          },
+          "pair_B_values": [
+            843,
+            1024,
+            1024,
+            693,
+            1024
+          ],
+          "pair_same_counts": [
+            331,
+            512,
+            512,
+            181,
+            512
+          ],
+          "robustness_score": 38,
+          "six_class_basin_count": 0
+        },
+        "profile_id": "fragile_cap_64_max5",
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": "OPTIMAL_OR_FEASIBLE",
+        "split_probes": {
+          "split_14_vs_57": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 39,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 693,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              693,
+              1024
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              181,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_15_vs_47": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 39,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 693,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              693,
+              1024
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              181,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_17_vs_45": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 39,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 693,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              693,
+              1024
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              181,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_1_from_457": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 39,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 693,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              693,
+              1024
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              181,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_4_from_157": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 39,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 693,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              693,
+              1024
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              181,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          }
+        },
+        "split_resilient": true,
+        "top_partition_counts": [
+          {
+            "blocks": [
+              [
+                1,
+                2,
+                3,
+                5,
+                7
+              ],
+              [
+                4,
+                6
+              ]
+            ],
+            "count": 331,
+            "fragile_1457": false,
+            "max_block_size": 5,
+            "pair_same": {
+              "B17": 1,
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 1
+            },
+            "signature": [
+              5,
+              2
+            ],
+            "six_class_basin": false
+          },
+          {
+            "blocks": [
+              [
+                2,
+                3,
+                4,
+                5,
+                7
+              ],
+              [
+                1,
+                6
+              ]
+            ],
+            "count": 181,
+            "fragile_1457": false,
+            "max_block_size": 5,
+            "pair_same": {
+              "B17": 0,
+              "B27": 1,
+              "B37": 1,
+              "B47": 1,
+              "B57": 1
+            },
+            "signature": [
+              5,
+              2
+            ],
+            "six_class_basin": false
+          }
+        ]
+      },
+      {
+        "allowed_partition_count": 869,
+        "best_probe": {
+          "capacity_total": 2560,
+          "capacity_upper_bound": 365,
+          "fragile_1457_count": 0,
+          "guard_margins": {
+            "B17": 39,
+            "B27": 370,
+            "B37": 370,
+            "B47": 189,
+            "B57": 370,
+            "capacity": 38
+          },
+          "guard_vector": {
+            "B17": 693,
+            "B27": 1024,
+            "B37": 1024,
+            "B47": 843,
+            "B57": 1024,
+            "capacity": 365
+          },
+          "pair_B_values": [
+            693,
+            1024,
+            1024,
+            843,
+            1024
+          ],
+          "pair_same_counts": [
+            181,
+            512,
+            512,
+            331,
+            512
+          ],
+          "robustness_score": 38,
+          "six_class_basin_count": 0,
+          "split_family": "split_4_from_157"
+        },
+        "best_robustness_score": 38,
+        "coordinate_count": 512,
+        "description": "All partitions with max block <=5 and no explicit fragile cap.",
+        "failure_mode": "HYPERGRAPH_SPLIT_RESILIENT",
+        "fiber_count": 16,
+        "fiber_size": 32,
+        "max_min_margin": 38.71428571428572,
+        "objective_value": -38711.72571428573,
+        "partition_count_hash": "8c4453cb629f4369d4a2893ca45fabefa6976f37848911dc7524c91b39752921",
+        "pre_split": {
+          "capacity_total": 2560,
+          "capacity_upper_bound": 365,
+          "fragile_1457_count": 0,
+          "guard_margins": {
+            "B17": 39,
+            "B27": 370,
+            "B37": 370,
+            "B47": 189,
+            "B57": 370,
+            "capacity": 38
+          },
+          "guard_vector": {
+            "B17": 693,
+            "B27": 1024,
+            "B37": 1024,
+            "B47": 843,
+            "B57": 1024,
+            "capacity": 365
+          },
+          "pair_B_values": [
+            693,
+            1024,
+            1024,
+            843,
+            1024
+          ],
+          "pair_same_counts": [
+            181,
+            512,
+            512,
+            331,
+            512
+          ],
+          "robustness_score": 38,
+          "six_class_basin_count": 0
+        },
+        "profile_id": "all_max5_no_six",
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": "OPTIMAL_OR_FEASIBLE",
+        "split_probes": {
+          "split_14_vs_57": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 39,
+              "B27": 370,
+              "B37": 370,
+              "B47": 189,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 693,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 843,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              693,
+              1024,
+              1024,
+              843,
+              1024
+            ],
+            "pair_same_counts": [
+              181,
+              512,
+              512,
+              331,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_15_vs_47": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 39,
+              "B27": 370,
+              "B37": 370,
+              "B47": 189,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 693,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 843,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              693,
+              1024,
+              1024,
+              843,
+              1024
+            ],
+            "pair_same_counts": [
+              181,
+              512,
+              512,
+              331,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_17_vs_45": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 39,
+              "B27": 370,
+              "B37": 370,
+              "B47": 189,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 693,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 843,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              693,
+              1024,
+              1024,
+              843,
+              1024
+            ],
+            "pair_same_counts": [
+              181,
+              512,
+              512,
+              331,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_1_from_457": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 39,
+              "B27": 370,
+              "B37": 370,
+              "B47": 189,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 693,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 843,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              693,
+              1024,
+              1024,
+              843,
+              1024
+            ],
+            "pair_same_counts": [
+              181,
+              512,
+              512,
+              331,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_4_from_157": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 39,
+              "B27": 370,
+              "B37": 370,
+              "B47": 189,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 693,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 843,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              693,
+              1024,
+              1024,
+              843,
+              1024
+            ],
+            "pair_same_counts": [
+              181,
+              512,
+              512,
+              331,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          }
+        },
+        "split_resilient": true,
+        "top_partition_counts": [
+          {
+            "blocks": [
+              [
+                2,
+                3,
+                4,
+                5,
+                7
+              ],
+              [
+                1,
+                6
+              ]
+            ],
+            "count": 331,
+            "fragile_1457": false,
+            "max_block_size": 5,
+            "pair_same": {
+              "B17": 0,
+              "B27": 1,
+              "B37": 1,
+              "B47": 1,
+              "B57": 1
+            },
+            "signature": [
+              5,
+              2
+            ],
+            "six_class_basin": false
+          },
+          {
+            "blocks": [
+              [
+                1,
+                2,
+                3,
+                5,
+                7
+              ],
+              [
+                4,
+                6
+              ]
+            ],
+            "count": 181,
+            "fragile_1457": false,
+            "max_block_size": 5,
+            "pair_same": {
+              "B17": 1,
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 1
+            },
+            "signature": [
+              5,
+              2
+            ],
+            "six_class_basin": false
+          }
+        ]
+      },
+      {
+        "allowed_partition_count": 546,
+        "best_probe": {
+          "capacity_total": 2560,
+          "capacity_upper_bound": 365,
+          "fragile_1457_count": 0,
+          "guard_margins": {
+            "B17": 189,
+            "B27": 370,
+            "B37": 370,
+            "B47": 39,
+            "B57": 370,
+            "capacity": 38
+          },
+          "guard_vector": {
+            "B17": 843,
+            "B27": 1024,
+            "B37": 1024,
+            "B47": 693,
+            "B57": 1024,
+            "capacity": 365
+          },
+          "pair_B_values": [
+            843,
+            1024,
+            1024,
+            693,
+            1024
+          ],
+          "pair_same_counts": [
+            331,
+            512,
+            512,
+            181,
+            512
+          ],
+          "robustness_score": 38,
+          "six_class_basin_count": 0,
+          "split_family": "split_4_from_157"
+        },
+        "best_robustness_score": 38,
+        "coordinate_count": 512,
+        "description": "Max-5 partitions excluding block size signatures below 3+2+1+1.",
+        "failure_mode": "HYPERGRAPH_SPLIT_RESILIENT",
+        "fiber_count": 16,
+        "fiber_size": 32,
+        "max_min_margin": 38.71428571428572,
+        "objective_value": -38711.72571428573,
+        "partition_count_hash": "b943a778c833fe0d2fd64b54dbb45613a8e08489c31918f2b59df57dcd89a9a7",
+        "pre_split": {
+          "capacity_total": 2560,
+          "capacity_upper_bound": 365,
+          "fragile_1457_count": 0,
+          "guard_margins": {
+            "B17": 189,
+            "B27": 370,
+            "B37": 370,
+            "B47": 39,
+            "B57": 370,
+            "capacity": 38
+          },
+          "guard_vector": {
+            "B17": 843,
+            "B27": 1024,
+            "B37": 1024,
+            "B47": 693,
+            "B57": 1024,
+            "capacity": 365
+          },
+          "pair_B_values": [
+            843,
+            1024,
+            1024,
+            693,
+            1024
+          ],
+          "pair_same_counts": [
+            331,
+            512,
+            512,
+            181,
+            512
+          ],
+          "robustness_score": 38,
+          "six_class_basin_count": 0
+        },
+        "profile_id": "size5_plus_balanced_splits",
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": "OPTIMAL_OR_FEASIBLE",
+        "split_probes": {
+          "split_14_vs_57": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 39,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 693,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              693,
+              1024
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              181,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_15_vs_47": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 39,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 693,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              693,
+              1024
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              181,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_17_vs_45": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 39,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 693,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              693,
+              1024
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              181,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_1_from_457": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 39,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 693,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              693,
+              1024
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              181,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_4_from_157": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 189,
+              "B27": 370,
+              "B37": 370,
+              "B47": 39,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 843,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 693,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              843,
+              1024,
+              1024,
+              693,
+              1024
+            ],
+            "pair_same_counts": [
+              331,
+              512,
+              512,
+              181,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          }
+        },
+        "split_resilient": true,
+        "top_partition_counts": [
+          {
+            "blocks": [
+              [
+                1,
+                2,
+                3,
+                5,
+                7
+              ],
+              [
+                4
+              ],
+              [
+                6
+              ]
+            ],
+            "count": 331,
+            "fragile_1457": false,
+            "max_block_size": 5,
+            "pair_same": {
+              "B17": 1,
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 1
+            },
+            "signature": [
+              5,
+              1,
+              1
+            ],
+            "six_class_basin": false
+          },
+          {
+            "blocks": [
+              [
+                2,
+                3,
+                4,
+                5,
+                7
+              ],
+              [
+                1
+              ],
+              [
+                6
+              ]
+            ],
+            "count": 181,
+            "fragile_1457": false,
+            "max_block_size": 5,
+            "pair_same": {
+              "B17": 0,
+              "B27": 1,
+              "B37": 1,
+              "B47": 1,
+              "B57": 1
+            },
+            "signature": [
+              5,
+              1,
+              1
+            ],
+            "six_class_basin": false
+          }
+        ]
+      },
+      {
+        "allowed_partition_count": 546,
+        "best_probe": {
+          "capacity_total": 2560,
+          "capacity_upper_bound": 365,
+          "fragile_1457_count": 0,
+          "guard_margins": {
+            "B17": 39,
+            "B27": 370,
+            "B37": 370,
+            "B47": 189,
+            "B57": 370,
+            "capacity": 38
+          },
+          "guard_vector": {
+            "B17": 693,
+            "B27": 1024,
+            "B37": 1024,
+            "B47": 843,
+            "B57": 1024,
+            "capacity": 365
+          },
+          "pair_B_values": [
+            693,
+            1024,
+            1024,
+            843,
+            1024
+          ],
+          "pair_same_counts": [
+            181,
+            512,
+            512,
+            331,
+            512
+          ],
+          "robustness_score": 38,
+          "six_class_basin_count": 0,
+          "split_family": "split_4_from_157"
+        },
+        "best_robustness_score": 38,
+        "coordinate_count": 512,
+        "description": "Emphasize 2+2 and 3+2 residual block signatures plus size-5 capacity buffers.",
+        "failure_mode": "HYPERGRAPH_SPLIT_RESILIENT",
+        "fiber_count": 16,
+        "fiber_size": 32,
+        "max_min_margin": 38.71428571428578,
+        "objective_value": -38711.725714285785,
+        "partition_count_hash": "ffee60a7e84a2969572b71d5efc2944b604d2ec5717f8029c9b940fc1ce1bf2c",
+        "pre_split": {
+          "capacity_total": 2560,
+          "capacity_upper_bound": 365,
+          "fragile_1457_count": 0,
+          "guard_margins": {
+            "B17": 39,
+            "B27": 370,
+            "B37": 370,
+            "B47": 189,
+            "B57": 370,
+            "capacity": 38
+          },
+          "guard_vector": {
+            "B17": 693,
+            "B27": 1024,
+            "B37": 1024,
+            "B47": 843,
+            "B57": 1024,
+            "capacity": 365
+          },
+          "pair_B_values": [
+            693,
+            1024,
+            1024,
+            843,
+            1024
+          ],
+          "pair_same_counts": [
+            181,
+            512,
+            512,
+            331,
+            512
+          ],
+          "robustness_score": 38,
+          "six_class_basin_count": 0
+        },
+        "profile_id": "pairblock_split_resilience",
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": "OPTIMAL_OR_FEASIBLE",
+        "split_probes": {
+          "split_14_vs_57": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 39,
+              "B27": 370,
+              "B37": 370,
+              "B47": 189,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 693,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 843,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              693,
+              1024,
+              1024,
+              843,
+              1024
+            ],
+            "pair_same_counts": [
+              181,
+              512,
+              512,
+              331,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_15_vs_47": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 39,
+              "B27": 370,
+              "B37": 370,
+              "B47": 189,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 693,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 843,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              693,
+              1024,
+              1024,
+              843,
+              1024
+            ],
+            "pair_same_counts": [
+              181,
+              512,
+              512,
+              331,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_17_vs_45": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 39,
+              "B27": 370,
+              "B37": 370,
+              "B47": 189,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 693,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 843,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              693,
+              1024,
+              1024,
+              843,
+              1024
+            ],
+            "pair_same_counts": [
+              181,
+              512,
+              512,
+              331,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_1_from_457": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 39,
+              "B27": 370,
+              "B37": 370,
+              "B47": 189,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 693,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 843,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              693,
+              1024,
+              1024,
+              843,
+              1024
+            ],
+            "pair_same_counts": [
+              181,
+              512,
+              512,
+              331,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          },
+          "split_4_from_157": {
+            "capacity_total": 2560,
+            "capacity_upper_bound": 365,
+            "fragile_1457_count": 0,
+            "guard_margins": {
+              "B17": 39,
+              "B27": 370,
+              "B37": 370,
+              "B47": 189,
+              "B57": 370,
+              "capacity": 38
+            },
+            "guard_vector": {
+              "B17": 693,
+              "B27": 1024,
+              "B37": 1024,
+              "B47": 843,
+              "B57": 1024,
+              "capacity": 365
+            },
+            "pair_B_values": [
+              693,
+              1024,
+              1024,
+              843,
+              1024
+            ],
+            "pair_same_counts": [
+              181,
+              512,
+              512,
+              331,
+              512
+            ],
+            "robustness_score": 38,
+            "six_class_basin_count": 0
+          }
+        },
+        "split_resilient": true,
+        "top_partition_counts": [
+          {
+            "blocks": [
+              [
+                2,
+                3,
+                4,
+                5,
+                7
+              ],
+              [
+                1
+              ],
+              [
+                6
+              ]
+            ],
+            "count": 331,
+            "fragile_1457": false,
+            "max_block_size": 5,
+            "pair_same": {
+              "B17": 0,
+              "B27": 1,
+              "B37": 1,
+              "B47": 1,
+              "B57": 1
+            },
+            "signature": [
+              5,
+              1,
+              1
+            ],
+            "six_class_basin": false
+          },
+          {
+            "blocks": [
+              [
+                1,
+                2,
+                3,
+                5,
+                7
+              ],
+              [
+                4
+              ],
+              [
+                6
+              ]
+            ],
+            "count": 181,
+            "fragile_1457": false,
+            "max_block_size": 5,
+            "pair_same": {
+              "B17": 1,
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 1
+            },
+            "signature": [
+              5,
+              1,
+              1
+            ],
+            "six_class_basin": false
+          }
+        ]
+      }
+    ],
+    "split_resilient_hypergraphs": 7,
+    "systems_tested": 8
+  },
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C",
+    "exact GF(17^32) lift"
+  ],
+  "proof_status": "HYPERGRAPH_SEARCH / CANDIDATE / EXPERIMENTAL",
+  "row": "RS[F_17^32,H,256]",
+  "source_commit": "56fd7a9",
+  "track": "INTERLEAVED_LIST",
+  "upstream_exact_scanner": {
+    "best_failure_mode": "UPSTREAM_CAPACITY_NOT_ROBUST",
+    "best_robustness_score": -92,
+    "exact_vectors_constructed": 11,
+    "split_resilient_skeletons": 0,
+    "systems_tested": 24
+  }
+}
