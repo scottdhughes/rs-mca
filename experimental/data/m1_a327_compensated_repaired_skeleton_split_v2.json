@@ -1,0 +1,2792 @@
+{
+  "agreement_target": 327,
+  "baseline": {
+    "capacity": 333,
+    "collapse_pattern": [
+      [
+        1,
+        4,
+        5,
+        7
+      ],
+      [
+        6
+      ],
+      [
+        3
+      ],
+      [
+        2
+      ]
+    ],
+    "pair_B_values": [
+      1024,
+      657,
+      656,
+      1024,
+      1024
+    ]
+  },
+  "cache": {
+    "append_status": "CACHE_SMALL_APPEND_PASS",
+    "cache_artifact": "experimental/data/cache/m1_a327_repaired_skeleton_budget32_prepared_state.sobj",
+    "cache_hash": "f77410189226820cf8e8a2830f3a48523a92e485347702754c854fa8955addb4",
+    "cache_type": "SAGE_NATIVE"
+  },
+  "compensated_grid": {
+    "best_agreement_vector": null,
+    "best_capacity": 180,
+    "best_collapse_pattern": [
+      [
+        1,
+        5
+      ],
+      [
+        7
+      ],
+      [
+        6
+      ],
+      [
+        4
+      ],
+      [
+        3
+      ],
+      [
+        2
+      ]
+    ],
+    "best_exact_max_min": null,
+    "best_failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+    "best_pair_B_values": [
+      577,
+      657,
+      656,
+      515,
+      577
+    ],
+    "cache_mode": "SAGE_NATIVE_RESIDUAL_APPEND",
+    "capacity_preserving_vectors": 0,
+    "exact_vectors_constructed": 1,
+    "failure_mode_counts": {
+      "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED": 1
+    },
+    "nondegenerate_vectors": 0,
+    "pair_guard_preserving_vectors": 0,
+    "partial_split_vectors": 1,
+    "replacement_bundle_sizes": [
+      8,
+      16,
+      32
+    ],
+    "results": [
+      {
+        "best": {
+          "appended_rows": 14,
+          "base_system": "postsplit_microrepair_stage2_triple_237_budget32",
+          "capacity_preserving": false,
+          "capacity_total": 1261,
+          "capacity_upper_bound": 180,
+          "chosen_masks_hash": null,
+          "d2_split": true,
+          "degenerate_classes": [
+            [
+              1,
+              5
+            ],
+            [
+              7
+            ],
+            [
+              6
+            ],
+            [
+              4
+            ],
+            [
+              3
+            ],
+            [
+              2
+            ]
+          ],
+          "direction_cache_size": 0,
+          "distinct_codewords": false,
+          "elapsed_seconds": 50.355,
+          "exact_agreement_vector": null,
+          "exact_max_min": null,
+          "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+          "free_columns_considered": 256,
+          "free_columns_used": 6,
+          "largest_class_histogram": {
+            "2": 328,
+            "3": 158,
+            "4": 1,
+            "5": 23,
+            "6": 2
+          },
+          "min_pair_B": 515,
+          "nondegenerate": false,
+          "old_three_subset_B_values": [
+            681,
+            659,
+            681
+          ],
+          "old_three_subset_min_hall_bound": 219,
+          "pair_B_values": [
+            577,
+            657,
+            656,
+            515,
+            577
+          ],
+          "pair_deficit_to_654": [
+            77,
+            -3,
+            -2,
+            139,
+            77
+          ],
+          "pair_guard_preserving": false,
+          "pair_hall_bound": 257,
+          "partial_split": true,
+          "phase": "compensated_repaired_skeleton_split_v2",
+          "replacement_bundle_size": 8,
+          "replacement_specs_count": 13,
+          "replacement_specs_preview": [
+            {
+              "delta": {
+                "before_after": {
+                  "B27": [
+                    2,
+                    1
+                  ],
+                  "B37": [
+                    2,
+                    1
+                  ],
+                  "B47": [
+                    2,
+                    1
+                  ],
+                  "B57": [
+                    2,
+                    2
+                  ],
+                  "capacity": [
+                    6,
+                    4
+                  ]
+                },
+                "coordinate": 144,
+                "predicted_delta": {
+                  "B27": 1,
+                  "B37": 1,
+                  "B47": 0,
+                  "B57": 0,
+                  "capacity": 0
+                },
+                "quotient_fiber": 0,
+                "replacement_class": [
+                  2,
+                  3,
+                  7
+                ],
+                "replacement_priority_score": 68,
+                "selector_score": 46,
+                "split_damage_score": 52
+              },
+              "gamma": 0,
+              "kind": "capacity_first",
+              "left": 2,
+              "position": 144,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "right": 7
+            },
+            {
+              "delta": {
+                "before_after": {
+                  "B27": [
+                    2,
+                    1
+                  ],
+                  "B37": [
+                    2,
+                    1
+                  ],
+                  "B47": [
+                    2,
+                    1
+                  ],
+                  "B57": [
+                    2,
+                    2
+                  ],
+                  "capacity": [
+                    6,
+                    4
+                  ]
+                },
+                "coordinate": 144,
+                "predicted_delta": {
+                  "B27": 1,
+                  "B37": 1,
+                  "B47": 0,
+                  "B57": 0,
+                  "capacity": 0
+                },
+                "quotient_fiber": 0,
+                "replacement_class": [
+                  2,
+                  3,
+                  7
+                ],
+                "replacement_priority_score": 68,
+                "selector_score": 46,
+                "split_damage_score": 52
+              },
+              "gamma": 0,
+              "kind": "capacity_first",
+              "left": 3,
+              "position": 144,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "right": 7
+            },
+            {
+              "delta": {
+                "before_after": {
+                  "B27": [
+                    2,
+                    1
+                  ],
+                  "B37": [
+                    2,
+                    1
+                  ],
+                  "B47": [
+                    2,
+                    1
+                  ],
+                  "B57": [
+                    2,
+                    2
+                  ],
+                  "capacity": [
+                    6,
+                    4
+                  ]
+                },
+                "coordinate": 160,
+                "predicted_delta": {
+                  "B27": 1,
+                  "B37": 1,
+                  "B47": 0,
+                  "B57": 0,
+                  "capacity": 0
+                },
+                "quotient_fiber": 0,
+                "replacement_class": [
+                  2,
+                  3,
+                  7
+                ],
+                "replacement_priority_score": 68,
+                "selector_score": 46,
+                "split_damage_score": 52
+              },
+              "gamma": 0,
+              "kind": "capacity_first",
+              "left": 2,
+              "position": 160,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "right": 7
+            },
+            {
+              "delta": {
+                "before_after": {
+                  "B27": [
+                    2,
+                    1
+                  ],
+                  "B37": [
+                    2,
+                    1
+                  ],
+                  "B47": [
+                    2,
+                    1
+                  ],
+                  "B57": [
+                    2,
+                    2
+                  ],
+                  "capacity": [
+                    6,
+                    4
+                  ]
+                },
+                "coordinate": 160,
+                "predicted_delta": {
+                  "B27": 1,
+                  "B37": 1,
+                  "B47": 0,
+                  "B57": 0,
+                  "capacity": 0
+                },
+                "quotient_fiber": 0,
+                "replacement_class": [
+                  2,
+                  3,
+                  7
+                ],
+                "replacement_priority_score": 68,
+                "selector_score": 46,
+                "split_damage_score": 52
+              },
+              "gamma": 0,
+              "kind": "capacity_first",
+              "left": 3,
+              "position": 160,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "right": 7
+            },
+            {
+              "delta": {
+                "before_after": {
+                  "B27": [
+                    2,
+                    1
+                  ],
+                  "B37": [
+                    2,
+                    1
+                  ],
+                  "B47": [
+                    2,
+                    1
+                  ],
+                  "B57": [
+                    2,
+                    2
+                  ],
+                  "capacity": [
+                    6,
+                    4
+                  ]
+                },
+                "coordinate": 176,
+                "predicted_delta": {
+                  "B27": 1,
+                  "B37": 1,
+                  "B47": 0,
+                  "B57": 0,
+                  "capacity": 0
+                },
+                "quotient_fiber": 0,
+                "replacement_class": [
+                  2,
+                  3,
+                  7
+                ],
+                "replacement_priority_score": 68,
+                "selector_score": 46,
+                "split_damage_score": 52
+              },
+              "gamma": 0,
+              "kind": "capacity_first",
+              "left": 2,
+              "position": 176,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "right": 7
+            },
+            {
+              "delta": {
+                "before_after": {
+                  "B27": [
+                    2,
+                    1
+                  ],
+                  "B37": [
+                    2,
+                    1
+                  ],
+                  "B47": [
+                    2,
+                    1
+                  ],
+                  "B57": [
+                    2,
+                    2
+                  ],
+                  "capacity": [
+                    6,
+                    4
+                  ]
+                },
+                "coordinate": 176,
+                "predicted_delta": {
+                  "B27": 1,
+                  "B37": 1,
+                  "B47": 0,
+                  "B57": 0,
+                  "capacity": 0
+                },
+                "quotient_fiber": 0,
+                "replacement_class": [
+                  2,
+                  3,
+                  7
+                ],
+                "replacement_priority_score": 68,
+                "selector_score": 46,
+                "split_damage_score": 52
+              },
+              "gamma": 0,
+              "kind": "capacity_first",
+              "left": 3,
+              "position": 176,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "right": 7
+            },
+            {
+              "delta": {
+                "before_after": {
+                  "B27": [
+                    2,
+                    1
+                  ],
+                  "B37": [
+                    2,
+                    1
+                  ],
+                  "B47": [
+                    2,
+                    1
+                  ],
+                  "B57": [
+                    2,
+                    2
+                  ],
+                  "capacity": [
+                    6,
+                    4
+                  ]
+                },
+                "coordinate": 144,
+                "predicted_delta": {
+                  "B27": 1,
+                  "B37": 0,
+                  "B47": 1,
+                  "B57": 0,
+                  "capacity": 0
+                },
+                "quotient_fiber": 0,
+                "replacement_class": [
+                  2,
+                  4,
+                  7
+                ],
+                "replacement_priority_score": 68,
+                "selector_score": 46,
+                "split_damage_score": 52
+              },
+              "gamma": 0,
+              "kind": "capacity_first",
+              "left": 4,
+              "position": 144,
+              "replacement_class": [
+                2,
+                4,
+                7
+              ],
+              "right": 7
+            },
+            {
+              "delta": {
+                "before_after": {
+                  "B27": [
+                    2,
+                    1
+                  ],
+                  "B37": [
+                    2,
+                    1
+                  ],
+                  "B47": [
+                    2,
+                    1
+                  ],
+                  "B57": [
+                    2,
+                    2
+                  ],
+                  "capacity": [
+                    6,
+                    4
+                  ]
+                },
+                "coordinate": 160,
+                "predicted_delta": {
+                  "B27": 1,
+                  "B37": 0,
+                  "B47": 1,
+                  "B57": 0,
+                  "capacity": 0
+                },
+                "quotient_fiber": 0,
+                "replacement_class": [
+                  2,
+                  4,
+                  7
+                ],
+                "replacement_priority_score": 68,
+                "selector_score": 46,
+                "split_damage_score": 52
+              },
+              "gamma": 0,
+              "kind": "capacity_first",
+              "left": 4,
+              "position": 160,
+              "replacement_class": [
+                2,
+                4,
+                7
+              ],
+              "right": 7
+            },
+            {
+              "delta": {
+                "before_after": {
+                  "B27": [
+                    2,
+                    1
+                  ],
+                  "B37": [
+                    2,
+                    1
+                  ],
+                  "B47": [
+                    2,
+                    1
+                  ],
+                  "B57": [
+                    2,
+                    2
+                  ],
+                  "capacity": [
+                    6,
+                    4
+                  ]
+                },
+                "coordinate": 176,
+                "predicted_delta": {
+                  "B27": 1,
+                  "B37": 0,
+                  "B47": 1,
+                  "B57": 0,
+                  "capacity": 0
+                },
+                "quotient_fiber": 0,
+                "replacement_class": [
+                  2,
+                  4,
+                  7
+                ],
+                "replacement_priority_score": 68,
+                "selector_score": 46,
+                "split_damage_score": 52
+              },
+              "gamma": 0,
+              "kind": "capacity_first",
+              "left": 4,
+              "position": 176,
+              "replacement_class": [
+                2,
+                4,
+                7
+              ],
+              "right": 7
+            },
+            {
+              "delta": {
+                "before_after": {
+                  "B27": [
+                    2,
+                    1
+                  ],
+                  "B37": [
+                    2,
+                    1
+                  ],
+                  "B47": [
+                    2,
+                    1
+                  ],
+                  "B57": [
+                    2,
+                    2
+                  ],
+                  "capacity": [
+                    6,
+                    4
+                  ]
+                },
+                "coordinate": 144,
+                "predicted_delta": {
+                  "B27": 0,
+                  "B37": 0,
+                  "B47": 1,
+                  "B57": 0,
+                  "capacity": 0
+                },
+                "quotient_fiber": 0,
+                "replacement_class": [
+                  1,
+                  4,
+                  5,
+                  7
+                ],
+                "replacement_priority_score": 68,
+                "selector_score": 46,
+                "split_damage_score": 52
+              },
+              "gamma": 0,
+              "kind": "capacity_first",
+              "left": 1,
+              "position": 144,
+              "replacement_class": [
+                1,
+                4,
+                5,
+                7
+              ],
+              "right": 7
+            },
+            {
+              "delta": {
+                "before_after": {
+                  "B27": [
+                    2,
+                    1
+                  ],
+                  "B37": [
+                    2,
+                    1
+                  ],
+                  "B47": [
+                    2,
+                    1
+                  ],
+                  "B57": [
+                    2,
+                    2
+                  ],
+                  "capacity": [
+                    6,
+                    4
+                  ]
+                },
+                "coordinate": 144,
+                "predicted_delta": {
+                  "B27": 0,
+                  "B37": 0,
+                  "B47": 1,
+                  "B57": 0,
+                  "capacity": 0
+                },
+                "quotient_fiber": 0,
+                "replacement_class": [
+                  1,
+                  4,
+                  5,
+                  7
+                ],
+                "replacement_priority_score": 68,
+                "selector_score": 46,
+                "split_damage_score": 52
+              },
+              "gamma": 0,
+              "kind": "capacity_first",
+              "left": 5,
+              "position": 144,
+              "replacement_class": [
+                1,
+                4,
+                5,
+                7
+              ],
+              "right": 7
+            },
+            {
+              "delta": {
+                "before_after": {
+                  "B27": [
+                    2,
+                    1
+                  ],
+                  "B37": [
+                    2,
+                    1
+                  ],
+                  "B47": [
+                    2,
+                    1
+                  ],
+                  "B57": [
+                    2,
+                    2
+                  ],
+                  "capacity": [
+                    6,
+                    4
+                  ]
+                },
+                "coordinate": 160,
+                "predicted_delta": {
+                  "B27": 0,
+                  "B37": 0,
+                  "B47": 1,
+                  "B57": 0,
+                  "capacity": 0
+                },
+                "quotient_fiber": 0,
+                "replacement_class": [
+                  1,
+                  4,
+                  5,
+                  7
+                ],
+                "replacement_priority_score": 68,
+                "selector_score": 46,
+                "split_damage_score": 52
+              },
+              "gamma": 0,
+              "kind": "capacity_first",
+              "left": 1,
+              "position": 160,
+              "replacement_class": [
+                1,
+                4,
+                5,
+                7
+              ],
+              "right": 7
+            },
+            {
+              "delta": {
+                "before_after": {
+                  "B27": [
+                    2,
+                    1
+                  ],
+                  "B37": [
+                    2,
+                    1
+                  ],
+                  "B47": [
+                    2,
+                    1
+                  ],
+                  "B57": [
+                    2,
+                    2
+                  ],
+                  "capacity": [
+                    6,
+                    4
+                  ]
+                },
+                "coordinate": 160,
+                "predicted_delta": {
+                  "B27": 0,
+                  "B37": 0,
+                  "B47": 1,
+                  "B57": 0,
+                  "capacity": 0
+                },
+                "quotient_fiber": 0,
+                "replacement_class": [
+                  1,
+                  4,
+                  5,
+                  7
+                ],
+                "replacement_priority_score": 68,
+                "selector_score": 46,
+                "split_damage_score": 52
+              },
+              "gamma": 0,
+              "kind": "capacity_first",
+              "left": 5,
+              "position": 160,
+              "replacement_class": [
+                1,
+                4,
+                5,
+                7
+              ],
+              "right": 7
+            }
+          ],
+          "selected_replacements_count": 8,
+          "selected_replacements_preview": [
+            {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 144,
+              "predicted_delta": {
+                "B27": 1,
+                "B37": 1,
+                "B47": 0,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 0,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 46,
+              "split_damage_score": 52
+            },
+            {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 160,
+              "predicted_delta": {
+                "B27": 1,
+                "B37": 1,
+                "B47": 0,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 0,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 46,
+              "split_damage_score": 52
+            },
+            {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 176,
+              "predicted_delta": {
+                "B27": 1,
+                "B37": 1,
+                "B47": 0,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 0,
+              "replacement_class": [
+                2,
+                3,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 46,
+              "split_damage_score": 52
+            },
+            {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 144,
+              "predicted_delta": {
+                "B27": 1,
+                "B37": 0,
+                "B47": 1,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 0,
+              "replacement_class": [
+                2,
+                4,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 46,
+              "split_damage_score": 52
+            },
+            {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 160,
+              "predicted_delta": {
+                "B27": 1,
+                "B37": 0,
+                "B47": 1,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 0,
+              "replacement_class": [
+                2,
+                4,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 46,
+              "split_damage_score": 52
+            },
+            {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 176,
+              "predicted_delta": {
+                "B27": 1,
+                "B37": 0,
+                "B47": 1,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 0,
+              "replacement_class": [
+                2,
+                4,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 46,
+              "split_damage_score": 52
+            },
+            {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 144,
+              "predicted_delta": {
+                "B27": 0,
+                "B37": 0,
+                "B47": 1,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 0,
+              "replacement_class": [
+                1,
+                4,
+                5,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 46,
+              "split_damage_score": 52
+            },
+            {
+              "before_after": {
+                "B27": [
+                  2,
+                  1
+                ],
+                "B37": [
+                  2,
+                  1
+                ],
+                "B47": [
+                  2,
+                  1
+                ],
+                "B57": [
+                  2,
+                  2
+                ],
+                "capacity": [
+                  6,
+                  4
+                ]
+              },
+              "coordinate": 160,
+              "predicted_delta": {
+                "B27": 0,
+                "B37": 0,
+                "B47": 1,
+                "B57": 0,
+                "capacity": 0
+              },
+              "quotient_fiber": 0,
+              "replacement_class": [
+                1,
+                4,
+                5,
+                7
+              ],
+              "replacement_priority_score": 68,
+              "selector_score": 46,
+              "split_damage_score": 52
+            }
+          ],
+          "selected_split_rows": [
+            {
+              "collapse_reduction_benefit": 1,
+              "coordinate": 16,
+              "predicted_B27_damage": 0,
+              "predicted_B27_gain": 0,
+              "predicted_B37_damage": 0,
+              "predicted_B37_gain": 0,
+              "predicted_B57_damage": 0,
+              "predicted_capacity_damage": 1,
+              "quotient_fiber": 0,
+              "split_family": "split_4_from_157",
+              "split_safe_score": 4
+            }
+          ],
+          "selector": "capacity_first",
+          "six_class_dominance": 0,
+          "solve_status": "CACHE_APPEND_SOLVED",
+          "split_family": "split_4_from_157",
+          "split_specs": [
+            {
+              "gamma": 1,
+              "kind": "split_4_from_157",
+              "left": 4,
+              "position": 16,
+              "right": 1
+            }
+          ]
+        },
+        "elapsed_seconds": 50.355,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "replacement_bundle_size": 8,
+        "replacement_specs_count": 13,
+        "selected_replacements_count": 8,
+        "selected_replacements_preview": [
+          {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 144,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 0,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 46,
+            "split_damage_score": 52
+          },
+          {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 160,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 0,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 46,
+            "split_damage_score": 52
+          },
+          {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 176,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 1,
+              "B47": 0,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 0,
+            "replacement_class": [
+              2,
+              3,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 46,
+            "split_damage_score": 52
+          },
+          {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 144,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 0,
+              "B47": 1,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 0,
+            "replacement_class": [
+              2,
+              4,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 46,
+            "split_damage_score": 52
+          },
+          {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 160,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 0,
+              "B47": 1,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 0,
+            "replacement_class": [
+              2,
+              4,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 46,
+            "split_damage_score": 52
+          },
+          {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 176,
+            "predicted_delta": {
+              "B27": 1,
+              "B37": 0,
+              "B47": 1,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 0,
+            "replacement_class": [
+              2,
+              4,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 46,
+            "split_damage_score": 52
+          },
+          {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 144,
+            "predicted_delta": {
+              "B27": 0,
+              "B37": 0,
+              "B47": 1,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 0,
+            "replacement_class": [
+              1,
+              4,
+              5,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 46,
+            "split_damage_score": 52
+          },
+          {
+            "before_after": {
+              "B27": [
+                2,
+                1
+              ],
+              "B37": [
+                2,
+                1
+              ],
+              "B47": [
+                2,
+                1
+              ],
+              "B57": [
+                2,
+                2
+              ],
+              "capacity": [
+                6,
+                4
+              ]
+            },
+            "coordinate": 160,
+            "predicted_delta": {
+              "B27": 0,
+              "B37": 0,
+              "B47": 1,
+              "B57": 0,
+              "capacity": 0
+            },
+            "quotient_fiber": 0,
+            "replacement_class": [
+              1,
+              4,
+              5,
+              7
+            ],
+            "replacement_priority_score": 68,
+            "selector_score": 46,
+            "split_damage_score": 52
+          }
+        ],
+        "selected_split_rows": [
+          {
+            "collapse_reduction_benefit": 1,
+            "coordinate": 16,
+            "predicted_B27_damage": 0,
+            "predicted_B27_gain": 0,
+            "predicted_B37_damage": 0,
+            "predicted_B37_gain": 0,
+            "predicted_B57_damage": 0,
+            "predicted_capacity_damage": 1,
+            "quotient_fiber": 0,
+            "split_family": "split_4_from_157",
+            "split_safe_score": 4
+          }
+        ],
+        "selector": "capacity_first",
+        "split_family": "split_4_from_157",
+        "split_specs": [
+          {
+            "gamma": 1,
+            "kind": "split_4_from_157",
+            "left": 4,
+            "position": 16,
+            "right": 1
+          }
+        ],
+        "vector_results": [
+          {
+            "appended_rows": 14,
+            "base_system": "postsplit_microrepair_stage2_triple_237_budget32",
+            "capacity_preserving": false,
+            "capacity_total": 1261,
+            "capacity_upper_bound": 180,
+            "chosen_masks_hash": null,
+            "d2_split": true,
+            "degenerate_classes": [
+              [
+                1,
+                5
+              ],
+              [
+                7
+              ],
+              [
+                6
+              ],
+              [
+                4
+              ],
+              [
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "direction_cache_size": 0,
+            "distinct_codewords": false,
+            "elapsed_seconds": 50.355,
+            "exact_agreement_vector": null,
+            "exact_max_min": null,
+            "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+            "free_columns_considered": 256,
+            "free_columns_used": 6,
+            "largest_class_histogram": {
+              "2": 328,
+              "3": 158,
+              "4": 1,
+              "5": 23,
+              "6": 2
+            },
+            "min_pair_B": 515,
+            "nondegenerate": false,
+            "old_three_subset_B_values": [
+              681,
+              659,
+              681
+            ],
+            "old_three_subset_min_hall_bound": 219,
+            "pair_B_values": [
+              577,
+              657,
+              656,
+              515,
+              577
+            ],
+            "pair_deficit_to_654": [
+              77,
+              -3,
+              -2,
+              139,
+              77
+            ],
+            "pair_guard_preserving": false,
+            "pair_hall_bound": 257,
+            "partial_split": true,
+            "phase": "compensated_repaired_skeleton_split_v2",
+            "replacement_bundle_size": 8,
+            "replacement_specs_count": 13,
+            "replacement_specs_preview": [
+              {
+                "delta": {
+                  "before_after": {
+                    "B27": [
+                      2,
+                      1
+                    ],
+                    "B37": [
+                      2,
+                      1
+                    ],
+                    "B47": [
+                      2,
+                      1
+                    ],
+                    "B57": [
+                      2,
+                      2
+                    ],
+                    "capacity": [
+                      6,
+                      4
+                    ]
+                  },
+                  "coordinate": 144,
+                  "predicted_delta": {
+                    "B27": 1,
+                    "B37": 1,
+                    "B47": 0,
+                    "B57": 0,
+                    "capacity": 0
+                  },
+                  "quotient_fiber": 0,
+                  "replacement_class": [
+                    2,
+                    3,
+                    7
+                  ],
+                  "replacement_priority_score": 68,
+                  "selector_score": 46,
+                  "split_damage_score": 52
+                },
+                "gamma": 0,
+                "kind": "capacity_first",
+                "left": 2,
+                "position": 144,
+                "replacement_class": [
+                  2,
+                  3,
+                  7
+                ],
+                "right": 7
+              },
+              {
+                "delta": {
+                  "before_after": {
+                    "B27": [
+                      2,
+                      1
+                    ],
+                    "B37": [
+                      2,
+                      1
+                    ],
+                    "B47": [
+                      2,
+                      1
+                    ],
+                    "B57": [
+                      2,
+                      2
+                    ],
+                    "capacity": [
+                      6,
+                      4
+                    ]
+                  },
+                  "coordinate": 144,
+                  "predicted_delta": {
+                    "B27": 1,
+                    "B37": 1,
+                    "B47": 0,
+                    "B57": 0,
+                    "capacity": 0
+                  },
+                  "quotient_fiber": 0,
+                  "replacement_class": [
+                    2,
+                    3,
+                    7
+                  ],
+                  "replacement_priority_score": 68,
+                  "selector_score": 46,
+                  "split_damage_score": 52
+                },
+                "gamma": 0,
+                "kind": "capacity_first",
+                "left": 3,
+                "position": 144,
+                "replacement_class": [
+                  2,
+                  3,
+                  7
+                ],
+                "right": 7
+              },
+              {
+                "delta": {
+                  "before_after": {
+                    "B27": [
+                      2,
+                      1
+                    ],
+                    "B37": [
+                      2,
+                      1
+                    ],
+                    "B47": [
+                      2,
+                      1
+                    ],
+                    "B57": [
+                      2,
+                      2
+                    ],
+                    "capacity": [
+                      6,
+                      4
+                    ]
+                  },
+                  "coordinate": 160,
+                  "predicted_delta": {
+                    "B27": 1,
+                    "B37": 1,
+                    "B47": 0,
+                    "B57": 0,
+                    "capacity": 0
+                  },
+                  "quotient_fiber": 0,
+                  "replacement_class": [
+                    2,
+                    3,
+                    7
+                  ],
+                  "replacement_priority_score": 68,
+                  "selector_score": 46,
+                  "split_damage_score": 52
+                },
+                "gamma": 0,
+                "kind": "capacity_first",
+                "left": 2,
+                "position": 160,
+                "replacement_class": [
+                  2,
+                  3,
+                  7
+                ],
+                "right": 7
+              },
+              {
+                "delta": {
+                  "before_after": {
+                    "B27": [
+                      2,
+                      1
+                    ],
+                    "B37": [
+                      2,
+                      1
+                    ],
+                    "B47": [
+                      2,
+                      1
+                    ],
+                    "B57": [
+                      2,
+                      2
+                    ],
+                    "capacity": [
+                      6,
+                      4
+                    ]
+                  },
+                  "coordinate": 160,
+                  "predicted_delta": {
+                    "B27": 1,
+                    "B37": 1,
+                    "B47": 0,
+                    "B57": 0,
+                    "capacity": 0
+                  },
+                  "quotient_fiber": 0,
+                  "replacement_class": [
+                    2,
+                    3,
+                    7
+                  ],
+                  "replacement_priority_score": 68,
+                  "selector_score": 46,
+                  "split_damage_score": 52
+                },
+                "gamma": 0,
+                "kind": "capacity_first",
+                "left": 3,
+                "position": 160,
+                "replacement_class": [
+                  2,
+                  3,
+                  7
+                ],
+                "right": 7
+              },
+              {
+                "delta": {
+                  "before_after": {
+                    "B27": [
+                      2,
+                      1
+                    ],
+                    "B37": [
+                      2,
+                      1
+                    ],
+                    "B47": [
+                      2,
+                      1
+                    ],
+                    "B57": [
+                      2,
+                      2
+                    ],
+                    "capacity": [
+                      6,
+                      4
+                    ]
+                  },
+                  "coordinate": 176,
+                  "predicted_delta": {
+                    "B27": 1,
+                    "B37": 1,
+                    "B47": 0,
+                    "B57": 0,
+                    "capacity": 0
+                  },
+                  "quotient_fiber": 0,
+                  "replacement_class": [
+                    2,
+                    3,
+                    7
+                  ],
+                  "replacement_priority_score": 68,
+                  "selector_score": 46,
+                  "split_damage_score": 52
+                },
+                "gamma": 0,
+                "kind": "capacity_first",
+                "left": 2,
+                "position": 176,
+                "replacement_class": [
+                  2,
+                  3,
+                  7
+                ],
+                "right": 7
+              },
+              {
+                "delta": {
+                  "before_after": {
+                    "B27": [
+                      2,
+                      1
+                    ],
+                    "B37": [
+                      2,
+                      1
+                    ],
+                    "B47": [
+                      2,
+                      1
+                    ],
+                    "B57": [
+                      2,
+                      2
+                    ],
+                    "capacity": [
+                      6,
+                      4
+                    ]
+                  },
+                  "coordinate": 176,
+                  "predicted_delta": {
+                    "B27": 1,
+                    "B37": 1,
+                    "B47": 0,
+                    "B57": 0,
+                    "capacity": 0
+                  },
+                  "quotient_fiber": 0,
+                  "replacement_class": [
+                    2,
+                    3,
+                    7
+                  ],
+                  "replacement_priority_score": 68,
+                  "selector_score": 46,
+                  "split_damage_score": 52
+                },
+                "gamma": 0,
+                "kind": "capacity_first",
+                "left": 3,
+                "position": 176,
+                "replacement_class": [
+                  2,
+                  3,
+                  7
+                ],
+                "right": 7
+              },
+              {
+                "delta": {
+                  "before_after": {
+                    "B27": [
+                      2,
+                      1
+                    ],
+                    "B37": [
+                      2,
+                      1
+                    ],
+                    "B47": [
+                      2,
+                      1
+                    ],
+                    "B57": [
+                      2,
+                      2
+                    ],
+                    "capacity": [
+                      6,
+                      4
+                    ]
+                  },
+                  "coordinate": 144,
+                  "predicted_delta": {
+                    "B27": 1,
+                    "B37": 0,
+                    "B47": 1,
+                    "B57": 0,
+                    "capacity": 0
+                  },
+                  "quotient_fiber": 0,
+                  "replacement_class": [
+                    2,
+                    4,
+                    7
+                  ],
+                  "replacement_priority_score": 68,
+                  "selector_score": 46,
+                  "split_damage_score": 52
+                },
+                "gamma": 0,
+                "kind": "capacity_first",
+                "left": 4,
+                "position": 144,
+                "replacement_class": [
+                  2,
+                  4,
+                  7
+                ],
+                "right": 7
+              },
+              {
+                "delta": {
+                  "before_after": {
+                    "B27": [
+                      2,
+                      1
+                    ],
+                    "B37": [
+                      2,
+                      1
+                    ],
+                    "B47": [
+                      2,
+                      1
+                    ],
+                    "B57": [
+                      2,
+                      2
+                    ],
+                    "capacity": [
+                      6,
+                      4
+                    ]
+                  },
+                  "coordinate": 160,
+                  "predicted_delta": {
+                    "B27": 1,
+                    "B37": 0,
+                    "B47": 1,
+                    "B57": 0,
+                    "capacity": 0
+                  },
+                  "quotient_fiber": 0,
+                  "replacement_class": [
+                    2,
+                    4,
+                    7
+                  ],
+                  "replacement_priority_score": 68,
+                  "selector_score": 46,
+                  "split_damage_score": 52
+                },
+                "gamma": 0,
+                "kind": "capacity_first",
+                "left": 4,
+                "position": 160,
+                "replacement_class": [
+                  2,
+                  4,
+                  7
+                ],
+                "right": 7
+              },
+              {
+                "delta": {
+                  "before_after": {
+                    "B27": [
+                      2,
+                      1
+                    ],
+                    "B37": [
+                      2,
+                      1
+                    ],
+                    "B47": [
+                      2,
+                      1
+                    ],
+                    "B57": [
+                      2,
+                      2
+                    ],
+                    "capacity": [
+                      6,
+                      4
+                    ]
+                  },
+                  "coordinate": 176,
+                  "predicted_delta": {
+                    "B27": 1,
+                    "B37": 0,
+                    "B47": 1,
+                    "B57": 0,
+                    "capacity": 0
+                  },
+                  "quotient_fiber": 0,
+                  "replacement_class": [
+                    2,
+                    4,
+                    7
+                  ],
+                  "replacement_priority_score": 68,
+                  "selector_score": 46,
+                  "split_damage_score": 52
+                },
+                "gamma": 0,
+                "kind": "capacity_first",
+                "left": 4,
+                "position": 176,
+                "replacement_class": [
+                  2,
+                  4,
+                  7
+                ],
+                "right": 7
+              },
+              {
+                "delta": {
+                  "before_after": {
+                    "B27": [
+                      2,
+                      1
+                    ],
+                    "B37": [
+                      2,
+                      1
+                    ],
+                    "B47": [
+                      2,
+                      1
+                    ],
+                    "B57": [
+                      2,
+                      2
+                    ],
+                    "capacity": [
+                      6,
+                      4
+                    ]
+                  },
+                  "coordinate": 144,
+                  "predicted_delta": {
+                    "B27": 0,
+                    "B37": 0,
+                    "B47": 1,
+                    "B57": 0,
+                    "capacity": 0
+                  },
+                  "quotient_fiber": 0,
+                  "replacement_class": [
+                    1,
+                    4,
+                    5,
+                    7
+                  ],
+                  "replacement_priority_score": 68,
+                  "selector_score": 46,
+                  "split_damage_score": 52
+                },
+                "gamma": 0,
+                "kind": "capacity_first",
+                "left": 1,
+                "position": 144,
+                "replacement_class": [
+                  1,
+                  4,
+                  5,
+                  7
+                ],
+                "right": 7
+              },
+              {
+                "delta": {
+                  "before_after": {
+                    "B27": [
+                      2,
+                      1
+                    ],
+                    "B37": [
+                      2,
+                      1
+                    ],
+                    "B47": [
+                      2,
+                      1
+                    ],
+                    "B57": [
+                      2,
+                      2
+                    ],
+                    "capacity": [
+                      6,
+                      4
+                    ]
+                  },
+                  "coordinate": 144,
+                  "predicted_delta": {
+                    "B27": 0,
+                    "B37": 0,
+                    "B47": 1,
+                    "B57": 0,
+                    "capacity": 0
+                  },
+                  "quotient_fiber": 0,
+                  "replacement_class": [
+                    1,
+                    4,
+                    5,
+                    7
+                  ],
+                  "replacement_priority_score": 68,
+                  "selector_score": 46,
+                  "split_damage_score": 52
+                },
+                "gamma": 0,
+                "kind": "capacity_first",
+                "left": 5,
+                "position": 144,
+                "replacement_class": [
+                  1,
+                  4,
+                  5,
+                  7
+                ],
+                "right": 7
+              },
+              {
+                "delta": {
+                  "before_after": {
+                    "B27": [
+                      2,
+                      1
+                    ],
+                    "B37": [
+                      2,
+                      1
+                    ],
+                    "B47": [
+                      2,
+                      1
+                    ],
+                    "B57": [
+                      2,
+                      2
+                    ],
+                    "capacity": [
+                      6,
+                      4
+                    ]
+                  },
+                  "coordinate": 160,
+                  "predicted_delta": {
+                    "B27": 0,
+                    "B37": 0,
+                    "B47": 1,
+                    "B57": 0,
+                    "capacity": 0
+                  },
+                  "quotient_fiber": 0,
+                  "replacement_class": [
+                    1,
+                    4,
+                    5,
+                    7
+                  ],
+                  "replacement_priority_score": 68,
+                  "selector_score": 46,
+                  "split_damage_score": 52
+                },
+                "gamma": 0,
+                "kind": "capacity_first",
+                "left": 1,
+                "position": 160,
+                "replacement_class": [
+                  1,
+                  4,
+                  5,
+                  7
+                ],
+                "right": 7
+              },
+              {
+                "delta": {
+                  "before_after": {
+                    "B27": [
+                      2,
+                      1
+                    ],
+                    "B37": [
+                      2,
+                      1
+                    ],
+                    "B47": [
+                      2,
+                      1
+                    ],
+                    "B57": [
+                      2,
+                      2
+                    ],
+                    "capacity": [
+                      6,
+                      4
+                    ]
+                  },
+                  "coordinate": 160,
+                  "predicted_delta": {
+                    "B27": 0,
+                    "B37": 0,
+                    "B47": 1,
+                    "B57": 0,
+                    "capacity": 0
+                  },
+                  "quotient_fiber": 0,
+                  "replacement_class": [
+                    1,
+                    4,
+                    5,
+                    7
+                  ],
+                  "replacement_priority_score": 68,
+                  "selector_score": 46,
+                  "split_damage_score": 52
+                },
+                "gamma": 0,
+                "kind": "capacity_first",
+                "left": 5,
+                "position": 160,
+                "replacement_class": [
+                  1,
+                  4,
+                  5,
+                  7
+                ],
+                "right": 7
+              }
+            ],
+            "selected_replacements_count": 8,
+            "selected_replacements_preview": [
+              {
+                "before_after": {
+                  "B27": [
+                    2,
+                    1
+                  ],
+                  "B37": [
+                    2,
+                    1
+                  ],
+                  "B47": [
+                    2,
+                    1
+                  ],
+                  "B57": [
+                    2,
+                    2
+                  ],
+                  "capacity": [
+                    6,
+                    4
+                  ]
+                },
+                "coordinate": 144,
+                "predicted_delta": {
+                  "B27": 1,
+                  "B37": 1,
+                  "B47": 0,
+                  "B57": 0,
+                  "capacity": 0
+                },
+                "quotient_fiber": 0,
+                "replacement_class": [
+                  2,
+                  3,
+                  7
+                ],
+                "replacement_priority_score": 68,
+                "selector_score": 46,
+                "split_damage_score": 52
+              },
+              {
+                "before_after": {
+                  "B27": [
+                    2,
+                    1
+                  ],
+                  "B37": [
+                    2,
+                    1
+                  ],
+                  "B47": [
+                    2,
+                    1
+                  ],
+                  "B57": [
+                    2,
+                    2
+                  ],
+                  "capacity": [
+                    6,
+                    4
+                  ]
+                },
+                "coordinate": 160,
+                "predicted_delta": {
+                  "B27": 1,
+                  "B37": 1,
+                  "B47": 0,
+                  "B57": 0,
+                  "capacity": 0
+                },
+                "quotient_fiber": 0,
+                "replacement_class": [
+                  2,
+                  3,
+                  7
+                ],
+                "replacement_priority_score": 68,
+                "selector_score": 46,
+                "split_damage_score": 52
+              },
+              {
+                "before_after": {
+                  "B27": [
+                    2,
+                    1
+                  ],
+                  "B37": [
+                    2,
+                    1
+                  ],
+                  "B47": [
+                    2,
+                    1
+                  ],
+                  "B57": [
+                    2,
+                    2
+                  ],
+                  "capacity": [
+                    6,
+                    4
+                  ]
+                },
+                "coordinate": 176,
+                "predicted_delta": {
+                  "B27": 1,
+                  "B37": 1,
+                  "B47": 0,
+                  "B57": 0,
+                  "capacity": 0
+                },
+                "quotient_fiber": 0,
+                "replacement_class": [
+                  2,
+                  3,
+                  7
+                ],
+                "replacement_priority_score": 68,
+                "selector_score": 46,
+                "split_damage_score": 52
+              },
+              {
+                "before_after": {
+                  "B27": [
+                    2,
+                    1
+                  ],
+                  "B37": [
+                    2,
+                    1
+                  ],
+                  "B47": [
+                    2,
+                    1
+                  ],
+                  "B57": [
+                    2,
+                    2
+                  ],
+                  "capacity": [
+                    6,
+                    4
+                  ]
+                },
+                "coordinate": 144,
+                "predicted_delta": {
+                  "B27": 1,
+                  "B37": 0,
+                  "B47": 1,
+                  "B57": 0,
+                  "capacity": 0
+                },
+                "quotient_fiber": 0,
+                "replacement_class": [
+                  2,
+                  4,
+                  7
+                ],
+                "replacement_priority_score": 68,
+                "selector_score": 46,
+                "split_damage_score": 52
+              },
+              {
+                "before_after": {
+                  "B27": [
+                    2,
+                    1
+                  ],
+                  "B37": [
+                    2,
+                    1
+                  ],
+                  "B47": [
+                    2,
+                    1
+                  ],
+                  "B57": [
+                    2,
+                    2
+                  ],
+                  "capacity": [
+                    6,
+                    4
+                  ]
+                },
+                "coordinate": 160,
+                "predicted_delta": {
+                  "B27": 1,
+                  "B37": 0,
+                  "B47": 1,
+                  "B57": 0,
+                  "capacity": 0
+                },
+                "quotient_fiber": 0,
+                "replacement_class": [
+                  2,
+                  4,
+                  7
+                ],
+                "replacement_priority_score": 68,
+                "selector_score": 46,
+                "split_damage_score": 52
+              },
+              {
+                "before_after": {
+                  "B27": [
+                    2,
+                    1
+                  ],
+                  "B37": [
+                    2,
+                    1
+                  ],
+                  "B47": [
+                    2,
+                    1
+                  ],
+                  "B57": [
+                    2,
+                    2
+                  ],
+                  "capacity": [
+                    6,
+                    4
+                  ]
+                },
+                "coordinate": 176,
+                "predicted_delta": {
+                  "B27": 1,
+                  "B37": 0,
+                  "B47": 1,
+                  "B57": 0,
+                  "capacity": 0
+                },
+                "quotient_fiber": 0,
+                "replacement_class": [
+                  2,
+                  4,
+                  7
+                ],
+                "replacement_priority_score": 68,
+                "selector_score": 46,
+                "split_damage_score": 52
+              },
+              {
+                "before_after": {
+                  "B27": [
+                    2,
+                    1
+                  ],
+                  "B37": [
+                    2,
+                    1
+                  ],
+                  "B47": [
+                    2,
+                    1
+                  ],
+                  "B57": [
+                    2,
+                    2
+                  ],
+                  "capacity": [
+                    6,
+                    4
+                  ]
+                },
+                "coordinate": 144,
+                "predicted_delta": {
+                  "B27": 0,
+                  "B37": 0,
+                  "B47": 1,
+                  "B57": 0,
+                  "capacity": 0
+                },
+                "quotient_fiber": 0,
+                "replacement_class": [
+                  1,
+                  4,
+                  5,
+                  7
+                ],
+                "replacement_priority_score": 68,
+                "selector_score": 46,
+                "split_damage_score": 52
+              },
+              {
+                "before_after": {
+                  "B27": [
+                    2,
+                    1
+                  ],
+                  "B37": [
+                    2,
+                    1
+                  ],
+                  "B47": [
+                    2,
+                    1
+                  ],
+                  "B57": [
+                    2,
+                    2
+                  ],
+                  "capacity": [
+                    6,
+                    4
+                  ]
+                },
+                "coordinate": 160,
+                "predicted_delta": {
+                  "B27": 0,
+                  "B37": 0,
+                  "B47": 1,
+                  "B57": 0,
+                  "capacity": 0
+                },
+                "quotient_fiber": 0,
+                "replacement_class": [
+                  1,
+                  4,
+                  5,
+                  7
+                ],
+                "replacement_priority_score": 68,
+                "selector_score": 46,
+                "split_damage_score": 52
+              }
+            ],
+            "selected_split_rows": [
+              {
+                "collapse_reduction_benefit": 1,
+                "coordinate": 16,
+                "predicted_B27_damage": 0,
+                "predicted_B27_gain": 0,
+                "predicted_B37_damage": 0,
+                "predicted_B37_gain": 0,
+                "predicted_B57_damage": 0,
+                "predicted_capacity_damage": 1,
+                "quotient_fiber": 0,
+                "split_family": "split_4_from_157",
+                "split_safe_score": 4
+              }
+            ],
+            "selector": "capacity_first",
+            "six_class_dominance": 0,
+            "solve_status": "CACHE_APPEND_SOLVED",
+            "split_family": "split_4_from_157",
+            "split_specs": [
+              {
+                "gamma": 1,
+                "kind": "split_4_from_157",
+                "left": 4,
+                "position": 16,
+                "right": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "selectors": [
+      "capacity_first",
+      "B27_B37_first",
+      "B47_first",
+      "balanced_repair",
+      "quotient_fiber_local"
+    ],
+    "split_families": [
+      "split_4_from_157",
+      "split_14_vs_57",
+      "split_1_from_457"
+    ],
+    "split_ledger": {
+      "B27_critical_count": 145,
+      "B37_critical_count": 144,
+      "B57_critical_count": 512,
+      "capacity_critical_count": 512,
+      "coordinates": 512,
+      "split_safe_count": 732
+    },
+    "systems_planned": 45,
+    "systems_tested": 1,
+    "timeouts": 0
+  },
+  "construction_mode": "compensated_repaired_skeleton_split_v2",
+  "denominator": "17^32",
+  "failed_split": {
+    "capacity": 315,
+    "collapse_pattern": [
+      [
+        1,
+        5,
+        6,
+        7
+      ],
+      [
+        4
+      ],
+      [
+        3
+      ],
+      [
+        2
+      ]
+    ],
+    "damage": {
+      "B27": -64,
+      "B37": -64,
+      "B47": -512,
+      "B57": 0,
+      "capacity": -18
+    },
+    "pair_B_values": [
+      1024,
+      593,
+      592,
+      512,
+      1024
+    ],
+    "split_family": "split_4_from_157"
+  },
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C"
+  ],
+  "proof_status": "PARTIAL",
+  "row": "RS[F_17^32,H,256]",
+  "source_commit": "c181b13",
+  "track": "INTERLEAVED_LIST"
+}

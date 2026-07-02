@@ -30,6 +30,29 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-01 - M1 a327 compensated repaired-skeleton split v2
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_compensated_repaired_skeleton_split_v2.md`,
+  `experimental/scripts/scan_m1_a327_compensated_repaired_skeleton_split_v2.py`,
+  `experimental/scripts/verify_m1_a327_compensated_repaired_skeleton_split_v2.py`,
+  `experimental/scripts/audit_m1_a327_compensated_repaired_skeleton_split_v2.sage`,
+  `experimental/data/m1_a327_compensated_repaired_skeleton_split_v2.json`,
+  `experimental/agents-log.md`.
+- **Status:** PROOF_RECORD | CANDIDATE | EXACT_EXTRACTION_NO_A327 | PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A cached exact rerun scaffold for the compensated
+  repaired-skeleton split grid, using the Sage-native budget-32 skeleton cache
+  from `c181b13` instead of rebuilding the `GF(17^32)` repaired context in the
+  hot path. The current ledger is partial: 1 of 45 planned cases has completed
+  with one exact vector and failure `COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED`.
+- **How it is useful:** Tests whether replacement rows can compensate the
+  known split damage to capacity, `B({2,7})`, `B({3,7})`, and especially
+  `B({4,7})`, while preserving the interleaved-list track discipline.
+- **What to do next:** Continue or optimize the resumable Sage audit. If the
+  full cached grid produces no exact candidate, decide whether the basin earns
+  a local conservation note.
+
 ### 2026-07-01 - M1 a327 repaired-skeleton Sage-native cache
 
 - **Agent/model:** Codex.
