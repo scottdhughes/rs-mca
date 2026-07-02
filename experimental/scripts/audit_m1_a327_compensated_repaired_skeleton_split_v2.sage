@@ -27,6 +27,16 @@ PERSISTENT_DATA_PATH = Path("experimental/data/m1_a327_repaired_skeleton_persist
 SPLIT_FAMILIES = ["split_4_from_157", "split_14_vs_57", "split_1_from_457"]
 REPLACEMENT_BUNDLE_SIZES = [8, 16, 32]
 SELECTORS = ["capacity_first", "B27_B37_first", "B47_first", "balanced_repair", "quotient_fiber_local"]
+PRIORITY_CASE_KEYS = [
+    ("split_4_from_157", 32, "B47_first"),
+    ("split_4_from_157", 32, "balanced_repair"),
+    ("split_4_from_157", 32, "quotient_fiber_local"),
+    ("split_4_from_157", 16, "B47_first"),
+    ("split_4_from_157", 16, "balanced_repair"),
+    ("split_14_vs_57", 32, "B47_first"),
+    ("split_14_vs_57", 32, "balanced_repair"),
+    ("split_1_from_457", 32, "B47_first"),
+]
 REPLACEMENT_CLASSES = {
     "capacity_first": [[1, 4, 5, 7], [4, 5, 7], [1, 4, 7], [2, 3, 7], [2, 4, 7], [3, 4, 7], [4, 7]],
     "B27_B37_first": [[2, 3, 7], [2, 7], [3, 7], [2, 4, 7], [3, 4, 7], [1, 4, 5, 7]],
@@ -316,7 +326,7 @@ def vector_sort_key(row):
     )
 
 
-def cases():
+def base_cases():
     return [
         {
             "split_family": split_family,
@@ -327,6 +337,44 @@ def cases():
         for bundle_size in REPLACEMENT_BUNDLE_SIZES
         for selector in SELECTORS
     ]
+
+
+def cases():
+    keyed = {
+        (case["split_family"], case["replacement_bundle_size"], case["selector"]): case
+        for case in base_cases()
+    }
+    ordered = []
+    seen = set()
+    for key in PRIORITY_CASE_KEYS:
+        if key in keyed:
+            ordered.append(dict(keyed[key]))
+            seen.add(key)
+    for case in base_cases():
+        key = (case["split_family"], case["replacement_bundle_size"], case["selector"])
+        if key not in seen:
+            ordered.append(dict(case))
+            seen.add(key)
+    for idx, case in enumerate(ordered):
+        case["case_index"] = int(idx)
+    return ordered
+
+
+def selected_cases_from_args(case_index=None, case_range=None, limit=None):
+    selected = cases()
+    if case_index is not None:
+        idx = int(case_index)
+        if idx < 0 or idx >= len(selected):
+            raise ValueError("case index out of range: %s" % idx)
+        return [selected[idx]]
+    if case_range:
+        left, right = case_range.split(":", 1)
+        start = int(left) if left else 0
+        stop = int(right) if right else len(selected)
+        selected = selected[start:stop]
+    if limit is not None:
+        selected = selected[: int(limit)]
+    return selected
 
 
 def case_record(case, artifact, scalable, residual, repaired, comp_v1, persistent, split_ledger, powers):
@@ -437,7 +485,7 @@ def write_progress(scan, results, split_ledger, path):
     path.write_text(json.dumps(record, indent=2, sort_keys=True) + "\n")
 
 
-def audit_record(limit=None, progress_path=None):
+def audit_record(limit=None, progress_path=None, case_index=None, case_range=None):
     scan = load_python_module(SCAN_PATH, "compensated_repaired_skeleton_split_v2_scan")
     native = load_source_module(NATIVE_CACHE_AUDIT_PATH, "sage_native_cache_helpers_v2")
     repaired = load_source_module(REPAIRED_AUDIT_PATH, "repaired_skeleton_split_helpers_v2")
@@ -455,9 +503,7 @@ def audit_record(limit=None, progress_path=None):
     powers = residual.precompute_powers(F, H)
     split_ledger = split_ledger_from_artifact(artifact, repaired, residual, F, powers)
 
-    selected_cases = cases()
-    if limit is not None:
-        selected_cases = selected_cases[: int(limit)]
+    selected_cases = selected_cases_from_args(case_index=case_index, case_range=case_range, limit=limit)
     results = []
     for case in selected_cases:
         results.append(case_record(case, artifact, scalable, residual, repaired, comp_v1, persistent, split_ledger, powers))
@@ -471,8 +517,14 @@ def main():
     parser.add_argument("--json", action="store_true")
     parser.add_argument("--write-json", action="store_true")
     parser.add_argument("--limit", type=int)
+    parser.add_argument("--case-index", type=int)
+    parser.add_argument("--case-range")
+    parser.add_argument("--list-cases", action="store_true")
     parser.add_argument("--single-case")
     args = parser.parse_args()
+    if args.list_cases:
+        print(json.dumps(jsonable({"cases": cases(), "systems_planned": len(cases())}), indent=2, sort_keys=True))
+        return
     if args.single_case:
         native = load_source_module(NATIVE_CACHE_AUDIT_PATH, "sage_native_cache_helpers_v2_single")
         repaired = load_source_module(REPAIRED_AUDIT_PATH, "repaired_skeleton_split_helpers_v2_single")
@@ -491,7 +543,7 @@ def main():
         print(json.dumps(jsonable(case_record(json.loads(args.single_case), artifact, scalable, residual, repaired, comp_v1, persistent, split_ledger, powers)), sort_keys=True))
         return
     progress_path = DATA_PATH if args.write_json else None
-    record = audit_record(limit=args.limit, progress_path=progress_path)
+    record = audit_record(limit=args.limit, progress_path=progress_path, case_index=args.case_index, case_range=args.case_range)
     if args.write_json:
         DATA_PATH.parent.mkdir(parents=True, exist_ok=True)
         DATA_PATH.write_text(json.dumps(record, indent=2, sort_keys=True) + "\n")

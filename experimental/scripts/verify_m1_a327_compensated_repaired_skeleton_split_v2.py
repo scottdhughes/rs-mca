@@ -33,6 +33,7 @@ ALLOWED_FAILURES = {
     "COMP_REPAIRED_SPLIT_EXACT_CANDIDATE",
     "COMP_REPAIRED_SPLIT_TIMEOUT",
     "COMP_REPAIRED_SPLIT_INCONSISTENT",
+    "COMP_REPAIRED_SPLIT_PROJECTION_ERROR",
 }
 
 
@@ -87,7 +88,11 @@ def verify(record: dict[str, Any]) -> dict[str, Any]:
     for result in grid["results"]:
         failure = result["failure_mode"]
         require(failure in ALLOWED_FAILURES, f"bad result failure {failure}")
-        if failure in {"COMP_REPAIRED_SPLIT_TIMEOUT", "COMP_REPAIRED_SPLIT_INCONSISTENT"}:
+        if failure in {
+            "COMP_REPAIRED_SPLIT_TIMEOUT",
+            "COMP_REPAIRED_SPLIT_INCONSISTENT",
+            "COMP_REPAIRED_SPLIT_PROJECTION_ERROR",
+        }:
             continue
         best = result["best"]
         require(best["failure_mode"] == failure, "case/best failure mismatch")

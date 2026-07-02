@@ -30,6 +30,27 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-01 - M1 a327 compensated repaired-skeleton split v2 batched runner
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_compensated_repaired_skeleton_split_v2_batched.md`,
+  `experimental/scripts/run_m1_a327_compensated_repaired_skeleton_split_v2_batch.py`,
+  `experimental/scripts/merge_m1_a327_compensated_repaired_skeleton_split_v2_results.py`,
+  `experimental/scripts/audit_m1_a327_compensated_repaired_skeleton_split_v2.sage`,
+  `experimental/scripts/verify_m1_a327_compensated_repaired_skeleton_split_v2.py`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_INFRASTRUCTURE / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A one-case-per-process batch runner and merge layer
+  for the cached v2 compensated split grid, plus Sage `--case-index`,
+  `--case-range`, and `--list-cases` support. Cases are ordered to test B47
+  repair first.
+- **How it is useful:** Avoids losing progress to a single slow `GF(17^32)`
+  residual solve and makes the 45-system v2 grid resumable under external
+  per-case timeouts.
+- **What to do next:** Run prioritized batches, merge the per-case ledgers,
+  verify the aggregate JSON, and only then decide whether the repaired-skeleton
+  basin has a local conservation obstruction.
+
 ### 2026-07-01 - M1 a327 compensated repaired-skeleton split v2
 
 - **Agent/model:** Codex.
