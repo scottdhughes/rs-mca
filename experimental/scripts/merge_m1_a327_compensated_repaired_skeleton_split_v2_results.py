@@ -97,10 +97,10 @@ def vector_sort_key(row: dict[str, Any]) -> tuple[Any, ...]:
         row.get("pair_guard_preserving") is True,
         row.get("capacity_upper_bound", -1) >= 327,
         row.get("partial_split") is True,
-        row.get("distinct_codewords") is True,
         exact_max,
         min(pair_values[1], pair_values[2], pair_values[3], pair_values[4]),
         row.get("capacity_upper_bound", -1),
+        row.get("distinct_codewords") is True,
         -row.get("six_class_dominance", 10**9),
     )
 
@@ -118,7 +118,8 @@ def build_grid(results: list[dict[str, Any]]) -> dict[str, Any]:
         "pair_guard_preserving_vectors": sum(1 for row in vectors if row.get("pair_guard_preserving") is True),
         "partial_split_vectors": sum(1 for row in vectors if row.get("partial_split") is True),
         "nondegenerate_vectors": sum(1 for row in vectors if row.get("distinct_codewords") is True),
-        "failure_mode_counts": failure_counts(vectors or results),
+        "failure_mode_counts": failure_counts(results),
+        "vector_failure_mode_counts": failure_counts(vectors) if vectors else {},
         "cache_mode": "SAGE_NATIVE_RESIDUAL_APPEND_BATCHED",
         "best_capacity": None if best is None else best.get("capacity_upper_bound"),
         "best_pair_B_values": None if best is None else best.get("pair_B_values"),

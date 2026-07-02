@@ -318,10 +318,10 @@ def vector_sort_key(row):
         row.get("pair_guard_preserving") is True,
         row.get("capacity_upper_bound", -1) >= TARGET_AGREEMENT,
         row.get("partial_split") is True,
-        row.get("distinct_codewords") is True,
         exact_max,
         min(pair_values[1], pair_values[2], pair_values[3], pair_values[4]),
         row.get("capacity_upper_bound", -1),
+        row.get("distinct_codewords") is True,
         -row.get("six_class_dominance", 10**9),
     )
 
@@ -456,7 +456,8 @@ def grid_from_results(results, split_ledger):
         "pair_guard_preserving_vectors": sum(1 for row in vectors if row.get("pair_guard_preserving") is True),
         "partial_split_vectors": sum(1 for row in vectors if row.get("partial_split") is True),
         "nondegenerate_vectors": sum(1 for row in vectors if row.get("distinct_codewords") is True),
-        "failure_mode_counts": failure_counts(vectors or results),
+        "failure_mode_counts": failure_counts(results),
+        "vector_failure_mode_counts": failure_counts(vectors) if vectors else {},
         "split_families": SPLIT_FAMILIES,
         "replacement_bundle_sizes": REPLACEMENT_BUNDLE_SIZES,
         "selectors": SELECTORS,

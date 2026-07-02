@@ -84,6 +84,36 @@ split_1_from_457 + B47_first + bundle 32
 
 The remaining cases then sweep the full 45-system grid.
 
+## Priority Batch Result
+
+The first priority batch `--cases 0:8 --timeout-seconds 1800` completed with
+no timeouts:
+
+```text
+systems tested              = 8 / 45
+timeouts                    = 0
+exact vectors constructed   = 6
+capacity-preserving vectors = 0
+pair-guard-preserving       = 0
+partial-split vectors       = 6
+nondegenerate vectors       = 1
+best failure                = COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED
+best capacity               = 182
+best pair values            = [581,657,656,521,581]
+best collapse pattern       = [[1,5],[7],[6],[4],[3],[2]]
+```
+
+Case failures:
+
+```text
+COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED = 6
+COMP_REPAIRED_SPLIT_INCONSISTENT          = 2
+```
+
+This is a useful local negative for the B47-priority front of the queue, but
+not a mathematical route cut. The remaining 37 cases must run before any local
+conservation note is justified.
+
 ## Non-claims
 
 - No `a=327` interleaved-list certificate.

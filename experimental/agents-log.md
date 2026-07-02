@@ -51,6 +51,27 @@ Keep entries concise and link to the relevant files.
   verify the aggregate JSON, and only then decide whether the repaired-skeleton
   basin has a local conservation obstruction.
 
+### 2026-07-01 - M1 a327 compensated split v2 priority batch
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/data/m1_a327_compensated_repaired_skeleton_split_v2.json`,
+  `experimental/data/m1_a327_compensated_repaired_skeleton_split_v2_cases/case_0000.json`
+  through `case_0007.json`,
+  `experimental/notes/m1/m1_a327_compensated_repaired_skeleton_split_v2_batched.md`,
+  `experimental/scripts/audit_m1_a327_compensated_repaired_skeleton_split_v2.sage`,
+  `experimental/scripts/merge_m1_a327_compensated_repaired_skeleton_split_v2_results.py`,
+  `experimental/agents-log.md`.
+- **Status:** PARTIAL / EXACT_EXTRACTION_NO_A327-FRONT / EXPERIMENTAL.
+- **What is being added:** Results for the first eight B47-priority
+  compensated split cases. The batch completed with no timeouts, 6 exact
+  vectors, 2 inconsistent cases, and no capacity-preserving or
+  pair-guard-preserving vector.
+- **How it is useful:** Confirms that the prioritized B47 repair front does not
+  restore the repaired-skeleton capacity guard in the tested cases, while the
+  full 45-case grid remains incomplete.
+- **What to do next:** Run cases `8:45` before writing any local conservation
+  note.
+
 ### 2026-07-01 - M1 a327 compensated repaired-skeleton split v2
 
 - **Agent/model:** Codex.
