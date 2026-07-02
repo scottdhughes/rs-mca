@@ -1,0 +1,61 @@
+{
+  "agreement_target": 327,
+  "denominator": "17^32",
+  "exact_scanner": {
+    "best_collapse_pattern": null,
+    "best_exact_max_min": null,
+    "best_failure_mode": "UPSTREAM_EXACT_SCANNER_PENDING",
+    "best_pre_split_capacity": null,
+    "best_pre_split_pair_B_values": null,
+    "best_probe_split_capacity": null,
+    "best_probe_split_pair_B_values": null,
+    "best_robustness_score": null,
+    "budgets": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "candidate_families": [
+      "alt_14_57",
+      "alt_15_47",
+      "alt_17_45",
+      "alt_145_7",
+      "b47_guard",
+      "triple_237_b47_guard"
+    ],
+    "exact_vectors_constructed": 0,
+    "failure_mode_counts": {},
+    "results": [],
+    "split_probe_families": [
+      "split_4_from_157",
+      "split_14_vs_57",
+      "split_1_from_457"
+    ],
+    "split_probe_vectors": 0,
+    "split_resilient_skeletons": 0,
+    "systems_planned": 24,
+    "systems_tested": 0,
+    "timeouts": 0
+  },
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C",
+    "global obstruction outside the tested basin"
+  ],
+  "proof_status": "PARTIAL",
+  "row": "RS[F_17^32,H,256]",
+  "source_commit": "0500d07",
+  "track": "INTERLEAVED_LIST",
+  "upstream_b47_ledger": {
+    "best_failure_mode": "UPSTREAM_B47_NOT_ROBUST",
+    "source_skeletons_analyzed": 6,
+    "split_probe_vectors": 30,
+    "split_resilient_skeletons": 0
+  }
+}

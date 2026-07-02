@@ -30,6 +30,30 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-02 - M1 a327 upstream B47 robust exact scanner
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_upstream_b47_robust_exact_scanner.md`,
+  `experimental/scripts/scan_m1_a327_upstream_b47_robust_exact_scanner.py`,
+  `experimental/scripts/verify_m1_a327_upstream_b47_robust_exact_scanner.py`,
+  `experimental/scripts/audit_m1_a327_upstream_b47_robust_exact_scanner.sage`,
+  `experimental/scripts/run_m1_a327_upstream_b47_robust_exact_scanner_batch.py`,
+  `experimental/scripts/merge_m1_a327_upstream_b47_robust_exact_scanner_results.py`,
+  `experimental/data/m1_a327_upstream_b47_robust_exact_scanner.json`,
+  `experimental/agents-log.md`.
+- **Status:** PROOF_RECORD / CANDIDATE / EXACT_EXTRACTION_NO_A327 / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A bounded exact-field scanner scaffold for upstream
+  B47-robust repaired skeletons, with one-case-at-a-time Sage batching so slow
+  GF(17^32) residual solves are recorded as execution facts rather than
+  blocking the scan.
+- **How it is useful:** Converts the 0500d07 handoff ledger into an exact
+  construction lane that tests split resilience before treating a skeleton as
+  progress, while preserving the interleaved-list/non-MCA discipline.
+- **What to do next:** Run the batched exact scanner across the 24 planned
+  systems, merge the case ledgers, and only then interpret whether this
+  upstream B47 basin is constructive or another local route cut.
+
 ### 2026-07-02 - M1 a327 upstream B47 robust skeleton search
 
 - **Agent/model:** Codex.
