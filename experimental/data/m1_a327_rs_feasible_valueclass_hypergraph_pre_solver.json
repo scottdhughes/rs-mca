@@ -1,0 +1,3963 @@
+{
+  "agreement_target": 327,
+  "denominator": "17^32",
+  "legacy_e4e966a_pair_cap_audit": {
+    "candidate_profile_id": "no_fragile_max5",
+    "failure_mode": "RS_HYPERGRAPH_PAIR_CAP_FAIL",
+    "max_pair_count": 512,
+    "max_pair_label": "P23",
+    "pair_cap": 255,
+    "pair_counts": {
+      "P12": 331,
+      "P13": 331,
+      "P14": 331,
+      "P15": 0,
+      "P16": 181,
+      "P17": 331,
+      "P23": 512,
+      "P24": 512,
+      "P25": 181,
+      "P26": 0,
+      "P27": 512,
+      "P34": 512,
+      "P35": 181,
+      "P36": 0,
+      "P37": 512,
+      "P45": 181,
+      "P46": 0,
+      "P47": 512,
+      "P56": 331,
+      "P57": 181,
+      "P67": 0
+    },
+    "partition_count_hash": "63dde975f2148cbc507780378f927211e84fcdc7f944eeabcebc16610a3c97bc",
+    "rs_pair_cap_pass": false,
+    "source_commit": "e4e966a",
+    "violating_pairs": {
+      "P12": 331,
+      "P13": 331,
+      "P14": 331,
+      "P17": 331,
+      "P23": 512,
+      "P24": 512,
+      "P27": 512,
+      "P34": 512,
+      "P37": 512,
+      "P47": 512,
+      "P56": 331
+    }
+  },
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C",
+    "exact GF(17^32) lift"
+  ],
+  "proof_status": "RS_HYPERGRAPH_SEARCH / CANDIDATE / EXPERIMENTAL",
+  "row": "RS[F_17^32,H,256]",
+  "rs_feasibility": {
+    "coordinate_count": 512,
+    "fiber_count": 16,
+    "pair7_lower": 142,
+    "pair_cap": 255,
+    "preferred_pair_cap": 220,
+    "selected_class_sizes_tested": [
+      3,
+      4,
+      5
+    ],
+    "support_target": 327
+  },
+  "search_result": {
+    "best_failure_mode": "RS_HYPERGRAPH_FEASIBLE",
+    "best_max_pair_count": 231,
+    "best_pair7_counts": {
+      "B17": 231,
+      "B27": 231,
+      "B37": 231,
+      "B47": 193,
+      "B57": 231
+    },
+    "best_pair_B_values": [
+      743,
+      743,
+      743,
+      705,
+      743
+    ],
+    "best_pair_counts": {
+      "P12": 231,
+      "P13": 231,
+      "P14": 190,
+      "P15": 196,
+      "P16": 231,
+      "P17": 231,
+      "P23": 231,
+      "P24": 231,
+      "P25": 231,
+      "P26": 205,
+      "P27": 231,
+      "P34": 228,
+      "P35": 231,
+      "P36": 231,
+      "P37": 231,
+      "P45": 231,
+      "P46": 231,
+      "P47": 193,
+      "P56": 231,
+      "P57": 231,
+      "P67": 231
+    },
+    "best_robustness_score": 24,
+    "best_supports": [
+      351,
+      351,
+      351,
+      351,
+      351,
+      351,
+      351
+    ],
+    "failure_mode_counts": {
+      "RS_HYPERGRAPH_FEASIBLE": 5
+    },
+    "profiles": [
+      {
+        "allowed_selected_class_count": 56,
+        "best_robustness_score": 24,
+        "coordinate_count": 512,
+        "description": "Selected classes of size 4 or 5, hard RS pair cap 255.",
+        "failure_mode": "RS_HYPERGRAPH_FEASIBLE",
+        "fiber_count": 16,
+        "fiber_size": 32,
+        "max_min_margin": 24.0,
+        "objective_value": -23997.543,
+        "pair_cap": 255,
+        "pre_split": {
+          "fragile_1457_selected_count": 0,
+          "max_pair_count": 231,
+          "max_pair_label": "P12",
+          "pair7_counts": {
+            "B17": 231,
+            "B27": 231,
+            "B37": 231,
+            "B47": 193,
+            "B57": 231
+          },
+          "pair7_margins": {
+            "B17": 89,
+            "B27": 89,
+            "B37": 89,
+            "B47": 51,
+            "B57": 89
+          },
+          "pair_B_values": [
+            743,
+            743,
+            743,
+            705,
+            743
+          ],
+          "pair_cap": 255,
+          "pair_cap_margins": {
+            "P12": 24,
+            "P13": 24,
+            "P14": 65,
+            "P15": 59,
+            "P16": 24,
+            "P17": 24,
+            "P23": 24,
+            "P24": 24,
+            "P25": 24,
+            "P26": 50,
+            "P27": 24,
+            "P34": 27,
+            "P35": 24,
+            "P36": 24,
+            "P37": 24,
+            "P45": 24,
+            "P46": 24,
+            "P47": 62,
+            "P56": 24,
+            "P57": 24,
+            "P67": 24
+          },
+          "pair_counts": {
+            "P12": 231,
+            "P13": 231,
+            "P14": 190,
+            "P15": 196,
+            "P16": 231,
+            "P17": 231,
+            "P23": 231,
+            "P24": 231,
+            "P25": 231,
+            "P26": 205,
+            "P27": 231,
+            "P34": 228,
+            "P35": 231,
+            "P36": 231,
+            "P37": 231,
+            "P45": 231,
+            "P46": 231,
+            "P47": 193,
+            "P56": 231,
+            "P57": 231,
+            "P67": 231
+          },
+          "robustness_score": 24,
+          "rs_pair_cap_pass": true,
+          "selected_class_size_counts": {
+            "4": 103,
+            "5": 409
+          },
+          "support_counts": [
+            351,
+            351,
+            351,
+            351,
+            351,
+            351,
+            351
+          ],
+          "support_margins": [
+            24,
+            24,
+            24,
+            24,
+            24,
+            24,
+            24
+          ]
+        },
+        "profile_id": "selected_4_5_paircap255",
+        "rs_feasible": true,
+        "selected_class_sizes": [
+          4,
+          5
+        ],
+        "selected_count_hash": "baa910ede26cb1d5f0851cf035062f3310b965bc5f0964709ee736a2c1fa775b",
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": "OPTIMAL_OR_FEASIBLE",
+        "split_probes": {
+          "split_14_vs_57": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 231,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 231,
+              "B27": 231,
+              "B37": 231,
+              "B47": 193,
+              "B57": 231
+            },
+            "pair7_margins": {
+              "B17": 89,
+              "B27": 89,
+              "B37": 89,
+              "B47": 51,
+              "B57": 89
+            },
+            "pair_B_values": [
+              743,
+              743,
+              743,
+              705,
+              743
+            ],
+            "pair_cap": 255,
+            "pair_cap_margins": {
+              "P12": 24,
+              "P13": 24,
+              "P14": 65,
+              "P15": 59,
+              "P16": 24,
+              "P17": 24,
+              "P23": 24,
+              "P24": 24,
+              "P25": 24,
+              "P26": 50,
+              "P27": 24,
+              "P34": 27,
+              "P35": 24,
+              "P36": 24,
+              "P37": 24,
+              "P45": 24,
+              "P46": 24,
+              "P47": 62,
+              "P56": 24,
+              "P57": 24,
+              "P67": 24
+            },
+            "pair_counts": {
+              "P12": 231,
+              "P13": 231,
+              "P14": 190,
+              "P15": 196,
+              "P16": 231,
+              "P17": 231,
+              "P23": 231,
+              "P24": 231,
+              "P25": 231,
+              "P26": 205,
+              "P27": 231,
+              "P34": 228,
+              "P35": 231,
+              "P36": 231,
+              "P37": 231,
+              "P45": 231,
+              "P46": 231,
+              "P47": 193,
+              "P56": 231,
+              "P57": 231,
+              "P67": 231
+            },
+            "robustness_score": 24,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "4": 103,
+              "5": 409
+            },
+            "support_counts": [
+              351,
+              351,
+              351,
+              351,
+              351,
+              351,
+              351
+            ],
+            "support_margins": [
+              24,
+              24,
+              24,
+              24,
+              24,
+              24,
+              24
+            ]
+          },
+          "split_15_vs_47": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 231,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 231,
+              "B27": 231,
+              "B37": 231,
+              "B47": 193,
+              "B57": 231
+            },
+            "pair7_margins": {
+              "B17": 89,
+              "B27": 89,
+              "B37": 89,
+              "B47": 51,
+              "B57": 89
+            },
+            "pair_B_values": [
+              743,
+              743,
+              743,
+              705,
+              743
+            ],
+            "pair_cap": 255,
+            "pair_cap_margins": {
+              "P12": 24,
+              "P13": 24,
+              "P14": 65,
+              "P15": 59,
+              "P16": 24,
+              "P17": 24,
+              "P23": 24,
+              "P24": 24,
+              "P25": 24,
+              "P26": 50,
+              "P27": 24,
+              "P34": 27,
+              "P35": 24,
+              "P36": 24,
+              "P37": 24,
+              "P45": 24,
+              "P46": 24,
+              "P47": 62,
+              "P56": 24,
+              "P57": 24,
+              "P67": 24
+            },
+            "pair_counts": {
+              "P12": 231,
+              "P13": 231,
+              "P14": 190,
+              "P15": 196,
+              "P16": 231,
+              "P17": 231,
+              "P23": 231,
+              "P24": 231,
+              "P25": 231,
+              "P26": 205,
+              "P27": 231,
+              "P34": 228,
+              "P35": 231,
+              "P36": 231,
+              "P37": 231,
+              "P45": 231,
+              "P46": 231,
+              "P47": 193,
+              "P56": 231,
+              "P57": 231,
+              "P67": 231
+            },
+            "robustness_score": 24,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "4": 103,
+              "5": 409
+            },
+            "support_counts": [
+              351,
+              351,
+              351,
+              351,
+              351,
+              351,
+              351
+            ],
+            "support_margins": [
+              24,
+              24,
+              24,
+              24,
+              24,
+              24,
+              24
+            ]
+          },
+          "split_17_vs_45": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 231,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 231,
+              "B27": 231,
+              "B37": 231,
+              "B47": 193,
+              "B57": 231
+            },
+            "pair7_margins": {
+              "B17": 89,
+              "B27": 89,
+              "B37": 89,
+              "B47": 51,
+              "B57": 89
+            },
+            "pair_B_values": [
+              743,
+              743,
+              743,
+              705,
+              743
+            ],
+            "pair_cap": 255,
+            "pair_cap_margins": {
+              "P12": 24,
+              "P13": 24,
+              "P14": 65,
+              "P15": 59,
+              "P16": 24,
+              "P17": 24,
+              "P23": 24,
+              "P24": 24,
+              "P25": 24,
+              "P26": 50,
+              "P27": 24,
+              "P34": 27,
+              "P35": 24,
+              "P36": 24,
+              "P37": 24,
+              "P45": 24,
+              "P46": 24,
+              "P47": 62,
+              "P56": 24,
+              "P57": 24,
+              "P67": 24
+            },
+            "pair_counts": {
+              "P12": 231,
+              "P13": 231,
+              "P14": 190,
+              "P15": 196,
+              "P16": 231,
+              "P17": 231,
+              "P23": 231,
+              "P24": 231,
+              "P25": 231,
+              "P26": 205,
+              "P27": 231,
+              "P34": 228,
+              "P35": 231,
+              "P36": 231,
+              "P37": 231,
+              "P45": 231,
+              "P46": 231,
+              "P47": 193,
+              "P56": 231,
+              "P57": 231,
+              "P67": 231
+            },
+            "robustness_score": 24,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "4": 103,
+              "5": 409
+            },
+            "support_counts": [
+              351,
+              351,
+              351,
+              351,
+              351,
+              351,
+              351
+            ],
+            "support_margins": [
+              24,
+              24,
+              24,
+              24,
+              24,
+              24,
+              24
+            ]
+          },
+          "split_1_from_457": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 231,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 231,
+              "B27": 231,
+              "B37": 231,
+              "B47": 193,
+              "B57": 231
+            },
+            "pair7_margins": {
+              "B17": 89,
+              "B27": 89,
+              "B37": 89,
+              "B47": 51,
+              "B57": 89
+            },
+            "pair_B_values": [
+              743,
+              743,
+              743,
+              705,
+              743
+            ],
+            "pair_cap": 255,
+            "pair_cap_margins": {
+              "P12": 24,
+              "P13": 24,
+              "P14": 65,
+              "P15": 59,
+              "P16": 24,
+              "P17": 24,
+              "P23": 24,
+              "P24": 24,
+              "P25": 24,
+              "P26": 50,
+              "P27": 24,
+              "P34": 27,
+              "P35": 24,
+              "P36": 24,
+              "P37": 24,
+              "P45": 24,
+              "P46": 24,
+              "P47": 62,
+              "P56": 24,
+              "P57": 24,
+              "P67": 24
+            },
+            "pair_counts": {
+              "P12": 231,
+              "P13": 231,
+              "P14": 190,
+              "P15": 196,
+              "P16": 231,
+              "P17": 231,
+              "P23": 231,
+              "P24": 231,
+              "P25": 231,
+              "P26": 205,
+              "P27": 231,
+              "P34": 228,
+              "P35": 231,
+              "P36": 231,
+              "P37": 231,
+              "P45": 231,
+              "P46": 231,
+              "P47": 193,
+              "P56": 231,
+              "P57": 231,
+              "P67": 231
+            },
+            "robustness_score": 24,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "4": 103,
+              "5": 409
+            },
+            "support_counts": [
+              351,
+              351,
+              351,
+              351,
+              351,
+              351,
+              351
+            ],
+            "support_margins": [
+              24,
+              24,
+              24,
+              24,
+              24,
+              24,
+              24
+            ]
+          },
+          "split_4_from_157": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 231,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 231,
+              "B27": 231,
+              "B37": 231,
+              "B47": 193,
+              "B57": 231
+            },
+            "pair7_margins": {
+              "B17": 89,
+              "B27": 89,
+              "B37": 89,
+              "B47": 51,
+              "B57": 89
+            },
+            "pair_B_values": [
+              743,
+              743,
+              743,
+              705,
+              743
+            ],
+            "pair_cap": 255,
+            "pair_cap_margins": {
+              "P12": 24,
+              "P13": 24,
+              "P14": 65,
+              "P15": 59,
+              "P16": 24,
+              "P17": 24,
+              "P23": 24,
+              "P24": 24,
+              "P25": 24,
+              "P26": 50,
+              "P27": 24,
+              "P34": 27,
+              "P35": 24,
+              "P36": 24,
+              "P37": 24,
+              "P45": 24,
+              "P46": 24,
+              "P47": 62,
+              "P56": 24,
+              "P57": 24,
+              "P67": 24
+            },
+            "pair_counts": {
+              "P12": 231,
+              "P13": 231,
+              "P14": 190,
+              "P15": 196,
+              "P16": 231,
+              "P17": 231,
+              "P23": 231,
+              "P24": 231,
+              "P25": 231,
+              "P26": 205,
+              "P27": 231,
+              "P34": 228,
+              "P35": 231,
+              "P36": 231,
+              "P37": 231,
+              "P45": 231,
+              "P46": 231,
+              "P47": 193,
+              "P56": 231,
+              "P57": 231,
+              "P67": 231
+            },
+            "robustness_score": 24,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "4": 103,
+              "5": 409
+            },
+            "support_counts": [
+              351,
+              351,
+              351,
+              351,
+              351,
+              351,
+              351
+            ],
+            "support_margins": [
+              24,
+              24,
+              24,
+              24,
+              24,
+              24,
+              24
+            ]
+          }
+        },
+        "split_resilient": true,
+        "top_selected_class_counts": [
+          {
+            "contains_7": false,
+            "contains_fragile_1457": false,
+            "count": 41,
+            "members": [
+              1,
+              2,
+              3,
+              4,
+              6
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 41,
+            "members": [
+              1,
+              2,
+              3,
+              5,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 41,
+            "members": [
+              1,
+              2,
+              3,
+              6,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": false,
+            "contains_fragile_1457": false,
+            "count": 38,
+            "members": [
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 38,
+            "members": [
+              2,
+              3,
+              4,
+              5,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 38,
+            "members": [
+              1,
+              2,
+              5,
+              6,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 38,
+            "members": [
+              1,
+              3,
+              5,
+              6,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 35,
+            "members": [
+              2,
+              4,
+              5,
+              6,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 35,
+            "members": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": false,
+            "contains_fragile_1457": false,
+            "count": 32,
+            "members": [
+              1,
+              2,
+              4,
+              5
+            ],
+            "size": 4
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 32,
+            "members": [
+              1,
+              4,
+              6,
+              7
+            ],
+            "size": 4
+          },
+          {
+            "contains_7": false,
+            "contains_fragile_1457": false,
+            "count": 29,
+            "members": [
+              1,
+              3,
+              4,
+              5,
+              6
+            ],
+            "size": 5
+          }
+        ]
+      },
+      {
+        "allowed_selected_class_count": 56,
+        "best_robustness_score": 11,
+        "coordinate_count": 512,
+        "description": "Selected classes of size 4 or 5, preferred pair cap 220 made hard.",
+        "failure_mode": "RS_HYPERGRAPH_FEASIBLE",
+        "fiber_count": 16,
+        "fiber_size": 32,
+        "max_min_margin": 11.0,
+        "objective_value": -10997.634,
+        "pair_cap": 220,
+        "pre_split": {
+          "fragile_1457_selected_count": 0,
+          "max_pair_count": 209,
+          "max_pair_label": "P12",
+          "pair7_counts": {
+            "B17": 209,
+            "B27": 209,
+            "B37": 209,
+            "B47": 174,
+            "B57": 207
+          },
+          "pair7_margins": {
+            "B17": 67,
+            "B27": 67,
+            "B37": 67,
+            "B47": 32,
+            "B57": 65
+          },
+          "pair_B_values": [
+            721,
+            721,
+            721,
+            686,
+            719
+          ],
+          "pair_cap": 220,
+          "pair_cap_margins": {
+            "P12": 11,
+            "P13": 13,
+            "P14": 11,
+            "P15": 11,
+            "P16": 11,
+            "P17": 11,
+            "P23": 13,
+            "P24": 11,
+            "P25": 15,
+            "P26": 11,
+            "P27": 11,
+            "P34": 11,
+            "P35": 11,
+            "P36": 11,
+            "P37": 11,
+            "P45": 11,
+            "P46": 11,
+            "P47": 46,
+            "P56": 11,
+            "P57": 13,
+            "P67": 11
+          },
+          "pair_counts": {
+            "P12": 209,
+            "P13": 207,
+            "P14": 209,
+            "P15": 209,
+            "P16": 209,
+            "P17": 209,
+            "P23": 207,
+            "P24": 209,
+            "P25": 205,
+            "P26": 209,
+            "P27": 209,
+            "P34": 209,
+            "P35": 209,
+            "P36": 209,
+            "P37": 209,
+            "P45": 209,
+            "P46": 209,
+            "P47": 174,
+            "P56": 209,
+            "P57": 207,
+            "P67": 209
+          },
+          "robustness_score": 11,
+          "rs_pair_cap_pass": true,
+          "selected_class_size_counts": {
+            "4": 194,
+            "5": 318
+          },
+          "support_counts": [
+            338,
+            338,
+            338,
+            338,
+            338,
+            338,
+            338
+          ],
+          "support_margins": [
+            11,
+            11,
+            11,
+            11,
+            11,
+            11,
+            11
+          ]
+        },
+        "profile_id": "selected_4_5_paircap220",
+        "rs_feasible": true,
+        "selected_class_sizes": [
+          4,
+          5
+        ],
+        "selected_count_hash": "01978157b1a54e0af9b0e1149e6078c83e72a38c66075048fc95a810e04eb646",
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": "OPTIMAL_OR_FEASIBLE",
+        "split_probes": {
+          "split_14_vs_57": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 209,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 209,
+              "B27": 209,
+              "B37": 209,
+              "B47": 174,
+              "B57": 207
+            },
+            "pair7_margins": {
+              "B17": 67,
+              "B27": 67,
+              "B37": 67,
+              "B47": 32,
+              "B57": 65
+            },
+            "pair_B_values": [
+              721,
+              721,
+              721,
+              686,
+              719
+            ],
+            "pair_cap": 220,
+            "pair_cap_margins": {
+              "P12": 11,
+              "P13": 13,
+              "P14": 11,
+              "P15": 11,
+              "P16": 11,
+              "P17": 11,
+              "P23": 13,
+              "P24": 11,
+              "P25": 15,
+              "P26": 11,
+              "P27": 11,
+              "P34": 11,
+              "P35": 11,
+              "P36": 11,
+              "P37": 11,
+              "P45": 11,
+              "P46": 11,
+              "P47": 46,
+              "P56": 11,
+              "P57": 13,
+              "P67": 11
+            },
+            "pair_counts": {
+              "P12": 209,
+              "P13": 207,
+              "P14": 209,
+              "P15": 209,
+              "P16": 209,
+              "P17": 209,
+              "P23": 207,
+              "P24": 209,
+              "P25": 205,
+              "P26": 209,
+              "P27": 209,
+              "P34": 209,
+              "P35": 209,
+              "P36": 209,
+              "P37": 209,
+              "P45": 209,
+              "P46": 209,
+              "P47": 174,
+              "P56": 209,
+              "P57": 207,
+              "P67": 209
+            },
+            "robustness_score": 11,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "4": 194,
+              "5": 318
+            },
+            "support_counts": [
+              338,
+              338,
+              338,
+              338,
+              338,
+              338,
+              338
+            ],
+            "support_margins": [
+              11,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11
+            ]
+          },
+          "split_15_vs_47": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 209,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 209,
+              "B27": 209,
+              "B37": 209,
+              "B47": 174,
+              "B57": 207
+            },
+            "pair7_margins": {
+              "B17": 67,
+              "B27": 67,
+              "B37": 67,
+              "B47": 32,
+              "B57": 65
+            },
+            "pair_B_values": [
+              721,
+              721,
+              721,
+              686,
+              719
+            ],
+            "pair_cap": 220,
+            "pair_cap_margins": {
+              "P12": 11,
+              "P13": 13,
+              "P14": 11,
+              "P15": 11,
+              "P16": 11,
+              "P17": 11,
+              "P23": 13,
+              "P24": 11,
+              "P25": 15,
+              "P26": 11,
+              "P27": 11,
+              "P34": 11,
+              "P35": 11,
+              "P36": 11,
+              "P37": 11,
+              "P45": 11,
+              "P46": 11,
+              "P47": 46,
+              "P56": 11,
+              "P57": 13,
+              "P67": 11
+            },
+            "pair_counts": {
+              "P12": 209,
+              "P13": 207,
+              "P14": 209,
+              "P15": 209,
+              "P16": 209,
+              "P17": 209,
+              "P23": 207,
+              "P24": 209,
+              "P25": 205,
+              "P26": 209,
+              "P27": 209,
+              "P34": 209,
+              "P35": 209,
+              "P36": 209,
+              "P37": 209,
+              "P45": 209,
+              "P46": 209,
+              "P47": 174,
+              "P56": 209,
+              "P57": 207,
+              "P67": 209
+            },
+            "robustness_score": 11,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "4": 194,
+              "5": 318
+            },
+            "support_counts": [
+              338,
+              338,
+              338,
+              338,
+              338,
+              338,
+              338
+            ],
+            "support_margins": [
+              11,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11
+            ]
+          },
+          "split_17_vs_45": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 209,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 209,
+              "B27": 209,
+              "B37": 209,
+              "B47": 174,
+              "B57": 207
+            },
+            "pair7_margins": {
+              "B17": 67,
+              "B27": 67,
+              "B37": 67,
+              "B47": 32,
+              "B57": 65
+            },
+            "pair_B_values": [
+              721,
+              721,
+              721,
+              686,
+              719
+            ],
+            "pair_cap": 220,
+            "pair_cap_margins": {
+              "P12": 11,
+              "P13": 13,
+              "P14": 11,
+              "P15": 11,
+              "P16": 11,
+              "P17": 11,
+              "P23": 13,
+              "P24": 11,
+              "P25": 15,
+              "P26": 11,
+              "P27": 11,
+              "P34": 11,
+              "P35": 11,
+              "P36": 11,
+              "P37": 11,
+              "P45": 11,
+              "P46": 11,
+              "P47": 46,
+              "P56": 11,
+              "P57": 13,
+              "P67": 11
+            },
+            "pair_counts": {
+              "P12": 209,
+              "P13": 207,
+              "P14": 209,
+              "P15": 209,
+              "P16": 209,
+              "P17": 209,
+              "P23": 207,
+              "P24": 209,
+              "P25": 205,
+              "P26": 209,
+              "P27": 209,
+              "P34": 209,
+              "P35": 209,
+              "P36": 209,
+              "P37": 209,
+              "P45": 209,
+              "P46": 209,
+              "P47": 174,
+              "P56": 209,
+              "P57": 207,
+              "P67": 209
+            },
+            "robustness_score": 11,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "4": 194,
+              "5": 318
+            },
+            "support_counts": [
+              338,
+              338,
+              338,
+              338,
+              338,
+              338,
+              338
+            ],
+            "support_margins": [
+              11,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11
+            ]
+          },
+          "split_1_from_457": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 209,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 209,
+              "B27": 209,
+              "B37": 209,
+              "B47": 174,
+              "B57": 207
+            },
+            "pair7_margins": {
+              "B17": 67,
+              "B27": 67,
+              "B37": 67,
+              "B47": 32,
+              "B57": 65
+            },
+            "pair_B_values": [
+              721,
+              721,
+              721,
+              686,
+              719
+            ],
+            "pair_cap": 220,
+            "pair_cap_margins": {
+              "P12": 11,
+              "P13": 13,
+              "P14": 11,
+              "P15": 11,
+              "P16": 11,
+              "P17": 11,
+              "P23": 13,
+              "P24": 11,
+              "P25": 15,
+              "P26": 11,
+              "P27": 11,
+              "P34": 11,
+              "P35": 11,
+              "P36": 11,
+              "P37": 11,
+              "P45": 11,
+              "P46": 11,
+              "P47": 46,
+              "P56": 11,
+              "P57": 13,
+              "P67": 11
+            },
+            "pair_counts": {
+              "P12": 209,
+              "P13": 207,
+              "P14": 209,
+              "P15": 209,
+              "P16": 209,
+              "P17": 209,
+              "P23": 207,
+              "P24": 209,
+              "P25": 205,
+              "P26": 209,
+              "P27": 209,
+              "P34": 209,
+              "P35": 209,
+              "P36": 209,
+              "P37": 209,
+              "P45": 209,
+              "P46": 209,
+              "P47": 174,
+              "P56": 209,
+              "P57": 207,
+              "P67": 209
+            },
+            "robustness_score": 11,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "4": 194,
+              "5": 318
+            },
+            "support_counts": [
+              338,
+              338,
+              338,
+              338,
+              338,
+              338,
+              338
+            ],
+            "support_margins": [
+              11,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11
+            ]
+          },
+          "split_4_from_157": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 209,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 209,
+              "B27": 209,
+              "B37": 209,
+              "B47": 174,
+              "B57": 207
+            },
+            "pair7_margins": {
+              "B17": 67,
+              "B27": 67,
+              "B37": 67,
+              "B47": 32,
+              "B57": 65
+            },
+            "pair_B_values": [
+              721,
+              721,
+              721,
+              686,
+              719
+            ],
+            "pair_cap": 220,
+            "pair_cap_margins": {
+              "P12": 11,
+              "P13": 13,
+              "P14": 11,
+              "P15": 11,
+              "P16": 11,
+              "P17": 11,
+              "P23": 13,
+              "P24": 11,
+              "P25": 15,
+              "P26": 11,
+              "P27": 11,
+              "P34": 11,
+              "P35": 11,
+              "P36": 11,
+              "P37": 11,
+              "P45": 11,
+              "P46": 11,
+              "P47": 46,
+              "P56": 11,
+              "P57": 13,
+              "P67": 11
+            },
+            "pair_counts": {
+              "P12": 209,
+              "P13": 207,
+              "P14": 209,
+              "P15": 209,
+              "P16": 209,
+              "P17": 209,
+              "P23": 207,
+              "P24": 209,
+              "P25": 205,
+              "P26": 209,
+              "P27": 209,
+              "P34": 209,
+              "P35": 209,
+              "P36": 209,
+              "P37": 209,
+              "P45": 209,
+              "P46": 209,
+              "P47": 174,
+              "P56": 209,
+              "P57": 207,
+              "P67": 209
+            },
+            "robustness_score": 11,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "4": 194,
+              "5": 318
+            },
+            "support_counts": [
+              338,
+              338,
+              338,
+              338,
+              338,
+              338,
+              338
+            ],
+            "support_margins": [
+              11,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11
+            ]
+          }
+        },
+        "split_resilient": true,
+        "top_selected_class_counts": [
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 45,
+            "members": [
+              1,
+              2,
+              3,
+              4,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 45,
+            "members": [
+              1,
+              3,
+              5,
+              6,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": false,
+            "contains_fragile_1457": false,
+            "count": 41,
+            "members": [
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": false,
+            "contains_fragile_1457": false,
+            "count": 39,
+            "members": [
+              1,
+              2,
+              4,
+              5
+            ],
+            "size": 4
+          },
+          {
+            "contains_7": false,
+            "contains_fragile_1457": false,
+            "count": 39,
+            "members": [
+              1,
+              3,
+              4,
+              5,
+              6
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 39,
+            "members": [
+              3,
+              4,
+              5,
+              7
+            ],
+            "size": 4
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 39,
+            "members": [
+              2,
+              3,
+              6,
+              7
+            ],
+            "size": 4
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 39,
+            "members": [
+              1,
+              4,
+              6,
+              7
+            ],
+            "size": 4
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 39,
+            "members": [
+              2,
+              4,
+              5,
+              6,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 35,
+            "members": [
+              1,
+              2,
+              5,
+              6,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": false,
+            "contains_fragile_1457": false,
+            "count": 33,
+            "members": [
+              1,
+              2,
+              3,
+              4,
+              6
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 33,
+            "members": [
+              1,
+              2,
+              3,
+              5,
+              7
+            ],
+            "size": 5
+          }
+        ]
+      },
+      {
+        "allowed_selected_class_count": 56,
+        "best_robustness_score": 3,
+        "coordinate_count": 512,
+        "description": "Selected classes of size 4 or 5, tighter pair cap 200.",
+        "failure_mode": "RS_HYPERGRAPH_FEASIBLE",
+        "fiber_count": 16,
+        "fiber_size": 32,
+        "max_min_margin": 3.0,
+        "objective_value": -2997.69,
+        "pair_cap": 200,
+        "pre_split": {
+          "fragile_1457_selected_count": 0,
+          "max_pair_count": 197,
+          "max_pair_label": "P12",
+          "pair7_counts": {
+            "B17": 197,
+            "B27": 197,
+            "B37": 194,
+            "B47": 197,
+            "B57": 197
+          },
+          "pair7_margins": {
+            "B17": 55,
+            "B27": 55,
+            "B37": 52,
+            "B47": 55,
+            "B57": 55
+          },
+          "pair_B_values": [
+            709,
+            709,
+            706,
+            709,
+            709
+          ],
+          "pair_cap": 200,
+          "pair_cap_margins": {
+            "P12": 3,
+            "P13": 3,
+            "P14": 3,
+            "P15": 3,
+            "P16": 3,
+            "P17": 3,
+            "P23": 3,
+            "P24": 3,
+            "P25": 3,
+            "P26": 3,
+            "P27": 3,
+            "P34": 3,
+            "P35": 3,
+            "P36": 3,
+            "P37": 6,
+            "P45": 3,
+            "P46": 3,
+            "P47": 3,
+            "P56": 17,
+            "P57": 3,
+            "P67": 3
+          },
+          "pair_counts": {
+            "P12": 197,
+            "P13": 197,
+            "P14": 197,
+            "P15": 197,
+            "P16": 197,
+            "P17": 197,
+            "P23": 197,
+            "P24": 197,
+            "P25": 197,
+            "P26": 197,
+            "P27": 197,
+            "P34": 197,
+            "P35": 197,
+            "P36": 197,
+            "P37": 194,
+            "P45": 197,
+            "P46": 197,
+            "P47": 197,
+            "P56": 183,
+            "P57": 197,
+            "P67": 197
+          },
+          "robustness_score": 3,
+          "rs_pair_cap_pass": true,
+          "selected_class_size_counts": {
+            "4": 250,
+            "5": 262
+          },
+          "support_counts": [
+            330,
+            330,
+            330,
+            330,
+            330,
+            330,
+            330
+          ],
+          "support_margins": [
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ]
+        },
+        "profile_id": "selected_4_5_paircap200",
+        "rs_feasible": true,
+        "selected_class_sizes": [
+          4,
+          5
+        ],
+        "selected_count_hash": "0bef5022c8c8e4f5930ecd05c3aa7ffaf05d3a2c02cfb7344fcaf93952f638ec",
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": "OPTIMAL_OR_FEASIBLE",
+        "split_probes": {
+          "split_14_vs_57": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 197,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 197,
+              "B27": 197,
+              "B37": 194,
+              "B47": 197,
+              "B57": 197
+            },
+            "pair7_margins": {
+              "B17": 55,
+              "B27": 55,
+              "B37": 52,
+              "B47": 55,
+              "B57": 55
+            },
+            "pair_B_values": [
+              709,
+              709,
+              706,
+              709,
+              709
+            ],
+            "pair_cap": 200,
+            "pair_cap_margins": {
+              "P12": 3,
+              "P13": 3,
+              "P14": 3,
+              "P15": 3,
+              "P16": 3,
+              "P17": 3,
+              "P23": 3,
+              "P24": 3,
+              "P25": 3,
+              "P26": 3,
+              "P27": 3,
+              "P34": 3,
+              "P35": 3,
+              "P36": 3,
+              "P37": 6,
+              "P45": 3,
+              "P46": 3,
+              "P47": 3,
+              "P56": 17,
+              "P57": 3,
+              "P67": 3
+            },
+            "pair_counts": {
+              "P12": 197,
+              "P13": 197,
+              "P14": 197,
+              "P15": 197,
+              "P16": 197,
+              "P17": 197,
+              "P23": 197,
+              "P24": 197,
+              "P25": 197,
+              "P26": 197,
+              "P27": 197,
+              "P34": 197,
+              "P35": 197,
+              "P36": 197,
+              "P37": 194,
+              "P45": 197,
+              "P46": 197,
+              "P47": 197,
+              "P56": 183,
+              "P57": 197,
+              "P67": 197
+            },
+            "robustness_score": 3,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "4": 250,
+              "5": 262
+            },
+            "support_counts": [
+              330,
+              330,
+              330,
+              330,
+              330,
+              330,
+              330
+            ],
+            "support_margins": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ]
+          },
+          "split_15_vs_47": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 197,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 197,
+              "B27": 197,
+              "B37": 194,
+              "B47": 197,
+              "B57": 197
+            },
+            "pair7_margins": {
+              "B17": 55,
+              "B27": 55,
+              "B37": 52,
+              "B47": 55,
+              "B57": 55
+            },
+            "pair_B_values": [
+              709,
+              709,
+              706,
+              709,
+              709
+            ],
+            "pair_cap": 200,
+            "pair_cap_margins": {
+              "P12": 3,
+              "P13": 3,
+              "P14": 3,
+              "P15": 3,
+              "P16": 3,
+              "P17": 3,
+              "P23": 3,
+              "P24": 3,
+              "P25": 3,
+              "P26": 3,
+              "P27": 3,
+              "P34": 3,
+              "P35": 3,
+              "P36": 3,
+              "P37": 6,
+              "P45": 3,
+              "P46": 3,
+              "P47": 3,
+              "P56": 17,
+              "P57": 3,
+              "P67": 3
+            },
+            "pair_counts": {
+              "P12": 197,
+              "P13": 197,
+              "P14": 197,
+              "P15": 197,
+              "P16": 197,
+              "P17": 197,
+              "P23": 197,
+              "P24": 197,
+              "P25": 197,
+              "P26": 197,
+              "P27": 197,
+              "P34": 197,
+              "P35": 197,
+              "P36": 197,
+              "P37": 194,
+              "P45": 197,
+              "P46": 197,
+              "P47": 197,
+              "P56": 183,
+              "P57": 197,
+              "P67": 197
+            },
+            "robustness_score": 3,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "4": 250,
+              "5": 262
+            },
+            "support_counts": [
+              330,
+              330,
+              330,
+              330,
+              330,
+              330,
+              330
+            ],
+            "support_margins": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ]
+          },
+          "split_17_vs_45": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 197,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 197,
+              "B27": 197,
+              "B37": 194,
+              "B47": 197,
+              "B57": 197
+            },
+            "pair7_margins": {
+              "B17": 55,
+              "B27": 55,
+              "B37": 52,
+              "B47": 55,
+              "B57": 55
+            },
+            "pair_B_values": [
+              709,
+              709,
+              706,
+              709,
+              709
+            ],
+            "pair_cap": 200,
+            "pair_cap_margins": {
+              "P12": 3,
+              "P13": 3,
+              "P14": 3,
+              "P15": 3,
+              "P16": 3,
+              "P17": 3,
+              "P23": 3,
+              "P24": 3,
+              "P25": 3,
+              "P26": 3,
+              "P27": 3,
+              "P34": 3,
+              "P35": 3,
+              "P36": 3,
+              "P37": 6,
+              "P45": 3,
+              "P46": 3,
+              "P47": 3,
+              "P56": 17,
+              "P57": 3,
+              "P67": 3
+            },
+            "pair_counts": {
+              "P12": 197,
+              "P13": 197,
+              "P14": 197,
+              "P15": 197,
+              "P16": 197,
+              "P17": 197,
+              "P23": 197,
+              "P24": 197,
+              "P25": 197,
+              "P26": 197,
+              "P27": 197,
+              "P34": 197,
+              "P35": 197,
+              "P36": 197,
+              "P37": 194,
+              "P45": 197,
+              "P46": 197,
+              "P47": 197,
+              "P56": 183,
+              "P57": 197,
+              "P67": 197
+            },
+            "robustness_score": 3,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "4": 250,
+              "5": 262
+            },
+            "support_counts": [
+              330,
+              330,
+              330,
+              330,
+              330,
+              330,
+              330
+            ],
+            "support_margins": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ]
+          },
+          "split_1_from_457": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 197,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 197,
+              "B27": 197,
+              "B37": 194,
+              "B47": 197,
+              "B57": 197
+            },
+            "pair7_margins": {
+              "B17": 55,
+              "B27": 55,
+              "B37": 52,
+              "B47": 55,
+              "B57": 55
+            },
+            "pair_B_values": [
+              709,
+              709,
+              706,
+              709,
+              709
+            ],
+            "pair_cap": 200,
+            "pair_cap_margins": {
+              "P12": 3,
+              "P13": 3,
+              "P14": 3,
+              "P15": 3,
+              "P16": 3,
+              "P17": 3,
+              "P23": 3,
+              "P24": 3,
+              "P25": 3,
+              "P26": 3,
+              "P27": 3,
+              "P34": 3,
+              "P35": 3,
+              "P36": 3,
+              "P37": 6,
+              "P45": 3,
+              "P46": 3,
+              "P47": 3,
+              "P56": 17,
+              "P57": 3,
+              "P67": 3
+            },
+            "pair_counts": {
+              "P12": 197,
+              "P13": 197,
+              "P14": 197,
+              "P15": 197,
+              "P16": 197,
+              "P17": 197,
+              "P23": 197,
+              "P24": 197,
+              "P25": 197,
+              "P26": 197,
+              "P27": 197,
+              "P34": 197,
+              "P35": 197,
+              "P36": 197,
+              "P37": 194,
+              "P45": 197,
+              "P46": 197,
+              "P47": 197,
+              "P56": 183,
+              "P57": 197,
+              "P67": 197
+            },
+            "robustness_score": 3,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "4": 250,
+              "5": 262
+            },
+            "support_counts": [
+              330,
+              330,
+              330,
+              330,
+              330,
+              330,
+              330
+            ],
+            "support_margins": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ]
+          },
+          "split_4_from_157": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 197,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 197,
+              "B27": 197,
+              "B37": 194,
+              "B47": 197,
+              "B57": 197
+            },
+            "pair7_margins": {
+              "B17": 55,
+              "B27": 55,
+              "B37": 52,
+              "B47": 55,
+              "B57": 55
+            },
+            "pair_B_values": [
+              709,
+              709,
+              706,
+              709,
+              709
+            ],
+            "pair_cap": 200,
+            "pair_cap_margins": {
+              "P12": 3,
+              "P13": 3,
+              "P14": 3,
+              "P15": 3,
+              "P16": 3,
+              "P17": 3,
+              "P23": 3,
+              "P24": 3,
+              "P25": 3,
+              "P26": 3,
+              "P27": 3,
+              "P34": 3,
+              "P35": 3,
+              "P36": 3,
+              "P37": 6,
+              "P45": 3,
+              "P46": 3,
+              "P47": 3,
+              "P56": 17,
+              "P57": 3,
+              "P67": 3
+            },
+            "pair_counts": {
+              "P12": 197,
+              "P13": 197,
+              "P14": 197,
+              "P15": 197,
+              "P16": 197,
+              "P17": 197,
+              "P23": 197,
+              "P24": 197,
+              "P25": 197,
+              "P26": 197,
+              "P27": 197,
+              "P34": 197,
+              "P35": 197,
+              "P36": 197,
+              "P37": 194,
+              "P45": 197,
+              "P46": 197,
+              "P47": 197,
+              "P56": 183,
+              "P57": 197,
+              "P67": 197
+            },
+            "robustness_score": 3,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "4": 250,
+              "5": 262
+            },
+            "support_counts": [
+              330,
+              330,
+              330,
+              330,
+              330,
+              330,
+              330
+            ],
+            "support_margins": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        "split_resilient": true,
+        "top_selected_class_counts": [
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 49,
+            "members": [
+              1,
+              3,
+              5,
+              6,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": false,
+            "contains_fragile_1457": false,
+            "count": 37,
+            "members": [
+              1,
+              3,
+              4,
+              5
+            ],
+            "size": 4
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 35,
+            "members": [
+              1,
+              2,
+              3,
+              4,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 33,
+            "members": [
+              1,
+              2,
+              5,
+              7
+            ],
+            "size": 4
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 33,
+            "members": [
+              2,
+              3,
+              4,
+              5,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": false,
+            "contains_fragile_1457": false,
+            "count": 27,
+            "members": [
+              1,
+              2,
+              4,
+              5,
+              6
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 26,
+            "members": [
+              2,
+              3,
+              6,
+              7
+            ],
+            "size": 4
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 26,
+            "members": [
+              1,
+              4,
+              6,
+              7
+            ],
+            "size": 4
+          },
+          {
+            "contains_7": false,
+            "contains_fragile_1457": false,
+            "count": 23,
+            "members": [
+              2,
+              3,
+              5,
+              6
+            ],
+            "size": 4
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 23,
+            "members": [
+              4,
+              5,
+              6,
+              7
+            ],
+            "size": 4
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 22,
+            "members": [
+              2,
+              4,
+              5,
+              6,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": false,
+            "contains_fragile_1457": false,
+            "count": 20,
+            "members": [
+              1,
+              2,
+              3,
+              4,
+              6
+            ],
+            "size": 5
+          }
+        ]
+      },
+      {
+        "allowed_selected_class_count": 91,
+        "best_robustness_score": 11,
+        "coordinate_count": 512,
+        "description": "Selected classes of size 3, 4, or 5, preferred pair cap 220.",
+        "failure_mode": "RS_HYPERGRAPH_FEASIBLE",
+        "fiber_count": 16,
+        "fiber_size": 32,
+        "max_min_margin": 11.0,
+        "objective_value": -10997.634,
+        "pair_cap": 220,
+        "pre_split": {
+          "fragile_1457_selected_count": 0,
+          "max_pair_count": 209,
+          "max_pair_label": "P12",
+          "pair7_counts": {
+            "B17": 209,
+            "B27": 209,
+            "B37": 209,
+            "B47": 209,
+            "B57": 209
+          },
+          "pair7_margins": {
+            "B17": 67,
+            "B27": 67,
+            "B37": 67,
+            "B47": 67,
+            "B57": 67
+          },
+          "pair_B_values": [
+            721,
+            721,
+            721,
+            721,
+            721
+          ],
+          "pair_cap": 220,
+          "pair_cap_margins": {
+            "P12": 11,
+            "P13": 11,
+            "P14": 46,
+            "P15": 17,
+            "P16": 11,
+            "P17": 11,
+            "P23": 11,
+            "P24": 11,
+            "P25": 11,
+            "P26": 11,
+            "P27": 11,
+            "P34": 11,
+            "P35": 11,
+            "P36": 11,
+            "P37": 11,
+            "P45": 11,
+            "P46": 11,
+            "P47": 11,
+            "P56": 11,
+            "P57": 11,
+            "P67": 11
+          },
+          "pair_counts": {
+            "P12": 209,
+            "P13": 209,
+            "P14": 174,
+            "P15": 203,
+            "P16": 209,
+            "P17": 209,
+            "P23": 209,
+            "P24": 209,
+            "P25": 209,
+            "P26": 209,
+            "P27": 209,
+            "P34": 209,
+            "P35": 209,
+            "P36": 209,
+            "P37": 209,
+            "P45": 209,
+            "P46": 209,
+            "P47": 209,
+            "P56": 209,
+            "P57": 209,
+            "P67": 209
+          },
+          "robustness_score": 11,
+          "rs_pair_cap_pass": true,
+          "selected_class_size_counts": {
+            "3": 4,
+            "4": 186,
+            "5": 322
+          },
+          "support_counts": [
+            338,
+            338,
+            338,
+            338,
+            338,
+            338,
+            338
+          ],
+          "support_margins": [
+            11,
+            11,
+            11,
+            11,
+            11,
+            11,
+            11
+          ]
+        },
+        "profile_id": "selected_3_4_5_paircap220",
+        "rs_feasible": true,
+        "selected_class_sizes": [
+          3,
+          4,
+          5
+        ],
+        "selected_count_hash": "e567b36a6bacb76cdd57c093bb623e8d49890fd101039f858ceb3cf54ad37230",
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": "OPTIMAL_OR_FEASIBLE",
+        "split_probes": {
+          "split_14_vs_57": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 209,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 209,
+              "B27": 209,
+              "B37": 209,
+              "B47": 209,
+              "B57": 209
+            },
+            "pair7_margins": {
+              "B17": 67,
+              "B27": 67,
+              "B37": 67,
+              "B47": 67,
+              "B57": 67
+            },
+            "pair_B_values": [
+              721,
+              721,
+              721,
+              721,
+              721
+            ],
+            "pair_cap": 220,
+            "pair_cap_margins": {
+              "P12": 11,
+              "P13": 11,
+              "P14": 46,
+              "P15": 17,
+              "P16": 11,
+              "P17": 11,
+              "P23": 11,
+              "P24": 11,
+              "P25": 11,
+              "P26": 11,
+              "P27": 11,
+              "P34": 11,
+              "P35": 11,
+              "P36": 11,
+              "P37": 11,
+              "P45": 11,
+              "P46": 11,
+              "P47": 11,
+              "P56": 11,
+              "P57": 11,
+              "P67": 11
+            },
+            "pair_counts": {
+              "P12": 209,
+              "P13": 209,
+              "P14": 174,
+              "P15": 203,
+              "P16": 209,
+              "P17": 209,
+              "P23": 209,
+              "P24": 209,
+              "P25": 209,
+              "P26": 209,
+              "P27": 209,
+              "P34": 209,
+              "P35": 209,
+              "P36": 209,
+              "P37": 209,
+              "P45": 209,
+              "P46": 209,
+              "P47": 209,
+              "P56": 209,
+              "P57": 209,
+              "P67": 209
+            },
+            "robustness_score": 11,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "3": 4,
+              "4": 186,
+              "5": 322
+            },
+            "support_counts": [
+              338,
+              338,
+              338,
+              338,
+              338,
+              338,
+              338
+            ],
+            "support_margins": [
+              11,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11
+            ]
+          },
+          "split_15_vs_47": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 209,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 209,
+              "B27": 209,
+              "B37": 209,
+              "B47": 209,
+              "B57": 209
+            },
+            "pair7_margins": {
+              "B17": 67,
+              "B27": 67,
+              "B37": 67,
+              "B47": 67,
+              "B57": 67
+            },
+            "pair_B_values": [
+              721,
+              721,
+              721,
+              721,
+              721
+            ],
+            "pair_cap": 220,
+            "pair_cap_margins": {
+              "P12": 11,
+              "P13": 11,
+              "P14": 46,
+              "P15": 17,
+              "P16": 11,
+              "P17": 11,
+              "P23": 11,
+              "P24": 11,
+              "P25": 11,
+              "P26": 11,
+              "P27": 11,
+              "P34": 11,
+              "P35": 11,
+              "P36": 11,
+              "P37": 11,
+              "P45": 11,
+              "P46": 11,
+              "P47": 11,
+              "P56": 11,
+              "P57": 11,
+              "P67": 11
+            },
+            "pair_counts": {
+              "P12": 209,
+              "P13": 209,
+              "P14": 174,
+              "P15": 203,
+              "P16": 209,
+              "P17": 209,
+              "P23": 209,
+              "P24": 209,
+              "P25": 209,
+              "P26": 209,
+              "P27": 209,
+              "P34": 209,
+              "P35": 209,
+              "P36": 209,
+              "P37": 209,
+              "P45": 209,
+              "P46": 209,
+              "P47": 209,
+              "P56": 209,
+              "P57": 209,
+              "P67": 209
+            },
+            "robustness_score": 11,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "3": 4,
+              "4": 186,
+              "5": 322
+            },
+            "support_counts": [
+              338,
+              338,
+              338,
+              338,
+              338,
+              338,
+              338
+            ],
+            "support_margins": [
+              11,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11
+            ]
+          },
+          "split_17_vs_45": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 209,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 209,
+              "B27": 209,
+              "B37": 209,
+              "B47": 209,
+              "B57": 209
+            },
+            "pair7_margins": {
+              "B17": 67,
+              "B27": 67,
+              "B37": 67,
+              "B47": 67,
+              "B57": 67
+            },
+            "pair_B_values": [
+              721,
+              721,
+              721,
+              721,
+              721
+            ],
+            "pair_cap": 220,
+            "pair_cap_margins": {
+              "P12": 11,
+              "P13": 11,
+              "P14": 46,
+              "P15": 17,
+              "P16": 11,
+              "P17": 11,
+              "P23": 11,
+              "P24": 11,
+              "P25": 11,
+              "P26": 11,
+              "P27": 11,
+              "P34": 11,
+              "P35": 11,
+              "P36": 11,
+              "P37": 11,
+              "P45": 11,
+              "P46": 11,
+              "P47": 11,
+              "P56": 11,
+              "P57": 11,
+              "P67": 11
+            },
+            "pair_counts": {
+              "P12": 209,
+              "P13": 209,
+              "P14": 174,
+              "P15": 203,
+              "P16": 209,
+              "P17": 209,
+              "P23": 209,
+              "P24": 209,
+              "P25": 209,
+              "P26": 209,
+              "P27": 209,
+              "P34": 209,
+              "P35": 209,
+              "P36": 209,
+              "P37": 209,
+              "P45": 209,
+              "P46": 209,
+              "P47": 209,
+              "P56": 209,
+              "P57": 209,
+              "P67": 209
+            },
+            "robustness_score": 11,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "3": 4,
+              "4": 186,
+              "5": 322
+            },
+            "support_counts": [
+              338,
+              338,
+              338,
+              338,
+              338,
+              338,
+              338
+            ],
+            "support_margins": [
+              11,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11
+            ]
+          },
+          "split_1_from_457": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 209,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 209,
+              "B27": 209,
+              "B37": 209,
+              "B47": 209,
+              "B57": 209
+            },
+            "pair7_margins": {
+              "B17": 67,
+              "B27": 67,
+              "B37": 67,
+              "B47": 67,
+              "B57": 67
+            },
+            "pair_B_values": [
+              721,
+              721,
+              721,
+              721,
+              721
+            ],
+            "pair_cap": 220,
+            "pair_cap_margins": {
+              "P12": 11,
+              "P13": 11,
+              "P14": 46,
+              "P15": 17,
+              "P16": 11,
+              "P17": 11,
+              "P23": 11,
+              "P24": 11,
+              "P25": 11,
+              "P26": 11,
+              "P27": 11,
+              "P34": 11,
+              "P35": 11,
+              "P36": 11,
+              "P37": 11,
+              "P45": 11,
+              "P46": 11,
+              "P47": 11,
+              "P56": 11,
+              "P57": 11,
+              "P67": 11
+            },
+            "pair_counts": {
+              "P12": 209,
+              "P13": 209,
+              "P14": 174,
+              "P15": 203,
+              "P16": 209,
+              "P17": 209,
+              "P23": 209,
+              "P24": 209,
+              "P25": 209,
+              "P26": 209,
+              "P27": 209,
+              "P34": 209,
+              "P35": 209,
+              "P36": 209,
+              "P37": 209,
+              "P45": 209,
+              "P46": 209,
+              "P47": 209,
+              "P56": 209,
+              "P57": 209,
+              "P67": 209
+            },
+            "robustness_score": 11,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "3": 4,
+              "4": 186,
+              "5": 322
+            },
+            "support_counts": [
+              338,
+              338,
+              338,
+              338,
+              338,
+              338,
+              338
+            ],
+            "support_margins": [
+              11,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11
+            ]
+          },
+          "split_4_from_157": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 209,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 209,
+              "B27": 209,
+              "B37": 209,
+              "B47": 209,
+              "B57": 209
+            },
+            "pair7_margins": {
+              "B17": 67,
+              "B27": 67,
+              "B37": 67,
+              "B47": 67,
+              "B57": 67
+            },
+            "pair_B_values": [
+              721,
+              721,
+              721,
+              721,
+              721
+            ],
+            "pair_cap": 220,
+            "pair_cap_margins": {
+              "P12": 11,
+              "P13": 11,
+              "P14": 46,
+              "P15": 17,
+              "P16": 11,
+              "P17": 11,
+              "P23": 11,
+              "P24": 11,
+              "P25": 11,
+              "P26": 11,
+              "P27": 11,
+              "P34": 11,
+              "P35": 11,
+              "P36": 11,
+              "P37": 11,
+              "P45": 11,
+              "P46": 11,
+              "P47": 11,
+              "P56": 11,
+              "P57": 11,
+              "P67": 11
+            },
+            "pair_counts": {
+              "P12": 209,
+              "P13": 209,
+              "P14": 174,
+              "P15": 203,
+              "P16": 209,
+              "P17": 209,
+              "P23": 209,
+              "P24": 209,
+              "P25": 209,
+              "P26": 209,
+              "P27": 209,
+              "P34": 209,
+              "P35": 209,
+              "P36": 209,
+              "P37": 209,
+              "P45": 209,
+              "P46": 209,
+              "P47": 209,
+              "P56": 209,
+              "P57": 209,
+              "P67": 209
+            },
+            "robustness_score": 11,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "3": 4,
+              "4": 186,
+              "5": 322
+            },
+            "support_counts": [
+              338,
+              338,
+              338,
+              338,
+              338,
+              338,
+              338
+            ],
+            "support_margins": [
+              11,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11
+            ]
+          }
+        },
+        "split_resilient": true,
+        "top_selected_class_counts": [
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 45,
+            "members": [
+              1,
+              2,
+              3,
+              6,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 45,
+            "members": [
+              2,
+              4,
+              5,
+              6,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 41,
+            "members": [
+              1,
+              5,
+              6,
+              7
+            ],
+            "size": 4
+          },
+          {
+            "contains_7": false,
+            "contains_fragile_1457": false,
+            "count": 39,
+            "members": [
+              2,
+              3,
+              4,
+              6
+            ],
+            "size": 4
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 39,
+            "members": [
+              1,
+              3,
+              4,
+              7
+            ],
+            "size": 4
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 39,
+            "members": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": false,
+            "contains_fragile_1457": false,
+            "count": 37,
+            "members": [
+              1,
+              2,
+              3,
+              5,
+              6
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": false,
+            "contains_fragile_1457": false,
+            "count": 37,
+            "members": [
+              1,
+              3,
+              4,
+              5,
+              6
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 37,
+            "members": [
+              2,
+              3,
+              4,
+              5,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": false,
+            "contains_fragile_1457": false,
+            "count": 35,
+            "members": [
+              1,
+              2,
+              4,
+              5
+            ],
+            "size": 4
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 35,
+            "members": [
+              1,
+              2,
+              3,
+              5,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 33,
+            "members": [
+              1,
+              2,
+              4,
+              6,
+              7
+            ],
+            "size": 5
+          }
+        ]
+      },
+      {
+        "allowed_selected_class_count": 91,
+        "best_robustness_score": 3,
+        "coordinate_count": 512,
+        "description": "Selected classes of size 3, 4, or 5, tighter pair cap 200.",
+        "failure_mode": "RS_HYPERGRAPH_FEASIBLE",
+        "fiber_count": 16,
+        "fiber_size": 32,
+        "max_min_margin": 3.0,
+        "objective_value": -2997.69,
+        "pair_cap": 200,
+        "pre_split": {
+          "fragile_1457_selected_count": 0,
+          "max_pair_count": 197,
+          "max_pair_label": "P12",
+          "pair7_counts": {
+            "B17": 197,
+            "B27": 197,
+            "B37": 197,
+            "B47": 197,
+            "B57": 197
+          },
+          "pair7_margins": {
+            "B17": 55,
+            "B27": 55,
+            "B37": 55,
+            "B47": 55,
+            "B57": 55
+          },
+          "pair_B_values": [
+            709,
+            709,
+            709,
+            709,
+            709
+          ],
+          "pair_cap": 200,
+          "pair_cap_margins": {
+            "P12": 3,
+            "P13": 3,
+            "P14": 4,
+            "P15": 3,
+            "P16": 3,
+            "P17": 3,
+            "P23": 3,
+            "P24": 3,
+            "P25": 3,
+            "P26": 3,
+            "P27": 3,
+            "P34": 3,
+            "P35": 3,
+            "P36": 3,
+            "P37": 3,
+            "P45": 3,
+            "P46": 3,
+            "P47": 3,
+            "P56": 3,
+            "P57": 3,
+            "P67": 3
+          },
+          "pair_counts": {
+            "P12": 197,
+            "P13": 197,
+            "P14": 196,
+            "P15": 197,
+            "P16": 197,
+            "P17": 197,
+            "P23": 197,
+            "P24": 197,
+            "P25": 197,
+            "P26": 197,
+            "P27": 197,
+            "P34": 197,
+            "P35": 197,
+            "P36": 197,
+            "P37": 197,
+            "P45": 197,
+            "P46": 197,
+            "P47": 197,
+            "P56": 197,
+            "P57": 197,
+            "P67": 197
+          },
+          "robustness_score": 3,
+          "rs_pair_cap_pass": true,
+          "selected_class_size_counts": {
+            "3": 16,
+            "4": 218,
+            "5": 278
+          },
+          "support_counts": [
+            330,
+            330,
+            330,
+            330,
+            330,
+            330,
+            330
+          ],
+          "support_margins": [
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ]
+        },
+        "profile_id": "selected_3_4_5_paircap200",
+        "rs_feasible": true,
+        "selected_class_sizes": [
+          3,
+          4,
+          5
+        ],
+        "selected_count_hash": "6565a3bea26a6f9cd0635d34e8db7cbf782a7ea151a0e4bc275dc9f85d2dabdc",
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": "OPTIMAL_OR_FEASIBLE",
+        "split_probes": {
+          "split_14_vs_57": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 197,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 197,
+              "B27": 197,
+              "B37": 197,
+              "B47": 197,
+              "B57": 197
+            },
+            "pair7_margins": {
+              "B17": 55,
+              "B27": 55,
+              "B37": 55,
+              "B47": 55,
+              "B57": 55
+            },
+            "pair_B_values": [
+              709,
+              709,
+              709,
+              709,
+              709
+            ],
+            "pair_cap": 200,
+            "pair_cap_margins": {
+              "P12": 3,
+              "P13": 3,
+              "P14": 4,
+              "P15": 3,
+              "P16": 3,
+              "P17": 3,
+              "P23": 3,
+              "P24": 3,
+              "P25": 3,
+              "P26": 3,
+              "P27": 3,
+              "P34": 3,
+              "P35": 3,
+              "P36": 3,
+              "P37": 3,
+              "P45": 3,
+              "P46": 3,
+              "P47": 3,
+              "P56": 3,
+              "P57": 3,
+              "P67": 3
+            },
+            "pair_counts": {
+              "P12": 197,
+              "P13": 197,
+              "P14": 196,
+              "P15": 197,
+              "P16": 197,
+              "P17": 197,
+              "P23": 197,
+              "P24": 197,
+              "P25": 197,
+              "P26": 197,
+              "P27": 197,
+              "P34": 197,
+              "P35": 197,
+              "P36": 197,
+              "P37": 197,
+              "P45": 197,
+              "P46": 197,
+              "P47": 197,
+              "P56": 197,
+              "P57": 197,
+              "P67": 197
+            },
+            "robustness_score": 3,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "3": 16,
+              "4": 218,
+              "5": 278
+            },
+            "support_counts": [
+              330,
+              330,
+              330,
+              330,
+              330,
+              330,
+              330
+            ],
+            "support_margins": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ]
+          },
+          "split_15_vs_47": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 197,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 197,
+              "B27": 197,
+              "B37": 197,
+              "B47": 197,
+              "B57": 197
+            },
+            "pair7_margins": {
+              "B17": 55,
+              "B27": 55,
+              "B37": 55,
+              "B47": 55,
+              "B57": 55
+            },
+            "pair_B_values": [
+              709,
+              709,
+              709,
+              709,
+              709
+            ],
+            "pair_cap": 200,
+            "pair_cap_margins": {
+              "P12": 3,
+              "P13": 3,
+              "P14": 4,
+              "P15": 3,
+              "P16": 3,
+              "P17": 3,
+              "P23": 3,
+              "P24": 3,
+              "P25": 3,
+              "P26": 3,
+              "P27": 3,
+              "P34": 3,
+              "P35": 3,
+              "P36": 3,
+              "P37": 3,
+              "P45": 3,
+              "P46": 3,
+              "P47": 3,
+              "P56": 3,
+              "P57": 3,
+              "P67": 3
+            },
+            "pair_counts": {
+              "P12": 197,
+              "P13": 197,
+              "P14": 196,
+              "P15": 197,
+              "P16": 197,
+              "P17": 197,
+              "P23": 197,
+              "P24": 197,
+              "P25": 197,
+              "P26": 197,
+              "P27": 197,
+              "P34": 197,
+              "P35": 197,
+              "P36": 197,
+              "P37": 197,
+              "P45": 197,
+              "P46": 197,
+              "P47": 197,
+              "P56": 197,
+              "P57": 197,
+              "P67": 197
+            },
+            "robustness_score": 3,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "3": 16,
+              "4": 218,
+              "5": 278
+            },
+            "support_counts": [
+              330,
+              330,
+              330,
+              330,
+              330,
+              330,
+              330
+            ],
+            "support_margins": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ]
+          },
+          "split_17_vs_45": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 197,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 197,
+              "B27": 197,
+              "B37": 197,
+              "B47": 197,
+              "B57": 197
+            },
+            "pair7_margins": {
+              "B17": 55,
+              "B27": 55,
+              "B37": 55,
+              "B47": 55,
+              "B57": 55
+            },
+            "pair_B_values": [
+              709,
+              709,
+              709,
+              709,
+              709
+            ],
+            "pair_cap": 200,
+            "pair_cap_margins": {
+              "P12": 3,
+              "P13": 3,
+              "P14": 4,
+              "P15": 3,
+              "P16": 3,
+              "P17": 3,
+              "P23": 3,
+              "P24": 3,
+              "P25": 3,
+              "P26": 3,
+              "P27": 3,
+              "P34": 3,
+              "P35": 3,
+              "P36": 3,
+              "P37": 3,
+              "P45": 3,
+              "P46": 3,
+              "P47": 3,
+              "P56": 3,
+              "P57": 3,
+              "P67": 3
+            },
+            "pair_counts": {
+              "P12": 197,
+              "P13": 197,
+              "P14": 196,
+              "P15": 197,
+              "P16": 197,
+              "P17": 197,
+              "P23": 197,
+              "P24": 197,
+              "P25": 197,
+              "P26": 197,
+              "P27": 197,
+              "P34": 197,
+              "P35": 197,
+              "P36": 197,
+              "P37": 197,
+              "P45": 197,
+              "P46": 197,
+              "P47": 197,
+              "P56": 197,
+              "P57": 197,
+              "P67": 197
+            },
+            "robustness_score": 3,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "3": 16,
+              "4": 218,
+              "5": 278
+            },
+            "support_counts": [
+              330,
+              330,
+              330,
+              330,
+              330,
+              330,
+              330
+            ],
+            "support_margins": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ]
+          },
+          "split_1_from_457": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 197,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 197,
+              "B27": 197,
+              "B37": 197,
+              "B47": 197,
+              "B57": 197
+            },
+            "pair7_margins": {
+              "B17": 55,
+              "B27": 55,
+              "B37": 55,
+              "B47": 55,
+              "B57": 55
+            },
+            "pair_B_values": [
+              709,
+              709,
+              709,
+              709,
+              709
+            ],
+            "pair_cap": 200,
+            "pair_cap_margins": {
+              "P12": 3,
+              "P13": 3,
+              "P14": 4,
+              "P15": 3,
+              "P16": 3,
+              "P17": 3,
+              "P23": 3,
+              "P24": 3,
+              "P25": 3,
+              "P26": 3,
+              "P27": 3,
+              "P34": 3,
+              "P35": 3,
+              "P36": 3,
+              "P37": 3,
+              "P45": 3,
+              "P46": 3,
+              "P47": 3,
+              "P56": 3,
+              "P57": 3,
+              "P67": 3
+            },
+            "pair_counts": {
+              "P12": 197,
+              "P13": 197,
+              "P14": 196,
+              "P15": 197,
+              "P16": 197,
+              "P17": 197,
+              "P23": 197,
+              "P24": 197,
+              "P25": 197,
+              "P26": 197,
+              "P27": 197,
+              "P34": 197,
+              "P35": 197,
+              "P36": 197,
+              "P37": 197,
+              "P45": 197,
+              "P46": 197,
+              "P47": 197,
+              "P56": 197,
+              "P57": 197,
+              "P67": 197
+            },
+            "robustness_score": 3,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "3": 16,
+              "4": 218,
+              "5": 278
+            },
+            "support_counts": [
+              330,
+              330,
+              330,
+              330,
+              330,
+              330,
+              330
+            ],
+            "support_margins": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ]
+          },
+          "split_4_from_157": {
+            "fragile_1457_selected_count": 0,
+            "max_pair_count": 197,
+            "max_pair_label": "P12",
+            "pair7_counts": {
+              "B17": 197,
+              "B27": 197,
+              "B37": 197,
+              "B47": 197,
+              "B57": 197
+            },
+            "pair7_margins": {
+              "B17": 55,
+              "B27": 55,
+              "B37": 55,
+              "B47": 55,
+              "B57": 55
+            },
+            "pair_B_values": [
+              709,
+              709,
+              709,
+              709,
+              709
+            ],
+            "pair_cap": 200,
+            "pair_cap_margins": {
+              "P12": 3,
+              "P13": 3,
+              "P14": 4,
+              "P15": 3,
+              "P16": 3,
+              "P17": 3,
+              "P23": 3,
+              "P24": 3,
+              "P25": 3,
+              "P26": 3,
+              "P27": 3,
+              "P34": 3,
+              "P35": 3,
+              "P36": 3,
+              "P37": 3,
+              "P45": 3,
+              "P46": 3,
+              "P47": 3,
+              "P56": 3,
+              "P57": 3,
+              "P67": 3
+            },
+            "pair_counts": {
+              "P12": 197,
+              "P13": 197,
+              "P14": 196,
+              "P15": 197,
+              "P16": 197,
+              "P17": 197,
+              "P23": 197,
+              "P24": 197,
+              "P25": 197,
+              "P26": 197,
+              "P27": 197,
+              "P34": 197,
+              "P35": 197,
+              "P36": 197,
+              "P37": 197,
+              "P45": 197,
+              "P46": 197,
+              "P47": 197,
+              "P56": 197,
+              "P57": 197,
+              "P67": 197
+            },
+            "robustness_score": 3,
+            "rs_pair_cap_pass": true,
+            "selected_class_size_counts": {
+              "3": 16,
+              "4": 218,
+              "5": 278
+            },
+            "support_counts": [
+              330,
+              330,
+              330,
+              330,
+              330,
+              330,
+              330
+            ],
+            "support_margins": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        "split_resilient": true,
+        "top_selected_class_counts": [
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 49,
+            "members": [
+              2,
+              4,
+              5,
+              6,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 40,
+            "members": [
+              1,
+              5,
+              6,
+              7
+            ],
+            "size": 4
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 38,
+            "members": [
+              1,
+              2,
+              3,
+              5,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": false,
+            "contains_fragile_1457": false,
+            "count": 33,
+            "members": [
+              1,
+              3,
+              4,
+              5,
+              6
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 33,
+            "members": [
+              1,
+              3,
+              4,
+              6,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": false,
+            "contains_fragile_1457": false,
+            "count": 27,
+            "members": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": false,
+            "contains_fragile_1457": false,
+            "count": 24,
+            "members": [
+              2,
+              3,
+              4,
+              6
+            ],
+            "size": 4
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 24,
+            "members": [
+              3,
+              4,
+              5,
+              7
+            ],
+            "size": 4
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 22,
+            "members": [
+              1,
+              2,
+              4,
+              7
+            ],
+            "size": 4
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 21,
+            "members": [
+              1,
+              2,
+              3,
+              6,
+              7
+            ],
+            "size": 5
+          },
+          {
+            "contains_7": false,
+            "contains_fragile_1457": false,
+            "count": 18,
+            "members": [
+              2,
+              3,
+              5,
+              6
+            ],
+            "size": 4
+          },
+          {
+            "contains_7": true,
+            "contains_fragile_1457": false,
+            "count": 18,
+            "members": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "size": 5
+          }
+        ]
+      }
+    ],
+    "rs_feasible_hypergraphs": 5,
+    "split_resilient_hypergraphs": 5,
+    "systems_tested": 5
+  },
+  "source_commit": "e4e966a",
+  "source_hypergraph_candidate": {
+    "best_failure_mode": "HYPERGRAPH_SPLIT_RESILIENT",
+    "best_guard_vector": {
+      "B17": 843,
+      "B27": 1024,
+      "B37": 1024,
+      "B47": 1024,
+      "B57": 693,
+      "capacity": 365
+    },
+    "best_robustness_score": 38,
+    "split_resilient_hypergraphs": 7,
+    "systems_tested": 8
+  },
+  "track": "INTERLEAVED_LIST"
+}

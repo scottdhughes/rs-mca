@@ -30,6 +30,26 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-02 - M1 a327 RS-feasible value-class hypergraph pre-solver
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_rs_feasible_valueclass_hypergraph_pre_solver.md`,
+  `experimental/scripts/scan_m1_a327_rs_feasible_valueclass_hypergraph_pre_solver.py`,
+  `experimental/scripts/verify_m1_a327_rs_feasible_valueclass_hypergraph_pre_solver.py`,
+  `experimental/data/m1_a327_rs_feasible_valueclass_hypergraph_pre_solver.json`,
+  `experimental/agents-log.md`.
+- **Status:** RS_HYPERGRAPH_SEARCH / CANDIDATE / EXPERIMENTAL.
+- **What is being added:** A corrected selected-class hypergraph pre-solver
+  that enforces the Reed-Solomon pairwise co-occurrence cap
+  `pair_ij <= 255` before exact lifting.
+- **How it is useful:** Rejects the best `e4e966a` full-partition hypergraph as
+  non-liftable, then searches directly for selected received classes satisfying
+  support, pair-7, pair-cap, and split-robustness constraints.
+- **What to do next:** Lift the best selected-class candidate with explicit
+  received-word variables `r_h`. The best first-pass target has supports
+  `[351,351,351,351,351,351,351]`, max pair count `231`, and pair-7 counts
+  `[231,231,231,193,231]`.
+
 ### 2026-07-02 - M1 a327 value-class hypergraph pre-solver
 
 - **Agent/model:** Codex.
