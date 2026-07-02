@@ -30,6 +30,31 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-01 - M1 a327 compensated repaired-skeleton split
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_compensated_repaired_skeleton_split.md`,
+  `experimental/scripts/scan_m1_a327_compensated_repaired_skeleton_split.py`,
+  `experimental/scripts/verify_m1_a327_compensated_repaired_skeleton_split.py`,
+  `experimental/scripts/audit_m1_a327_compensated_repaired_skeleton_split.sage`,
+  `experimental/data/m1_a327_compensated_repaired_skeleton_split.json`,
+  `experimental/agents-log.md`.
+- **Status:** PARTIAL / EXACT_SETUP_TIMEOUT / EXPERIMENTAL.
+- **What is being added:** A damage-aware compensated split selector for the
+  budget-32 repaired skeleton, using the `30d0cdb` persistent coordinate
+  ledger to plan split/replacement bundles that target capacity plus
+  `B({2,7})`, `B({3,7})`, and `B({4,7})` repair.
+- **How it is useful:** The branch makes the failed split damage explicit:
+  capacity drops `333 -> 315`, `B({2,7})/B({3,7})` drop `657/656 -> 593/592`,
+  and `B({4,7})` drops `1024 -> 512`. A first exact attempt remained inside
+  `GF(17^32)` skeleton reconstruction before constructing any compensated
+  vector, showing that the current exact-state cache is not yet strong enough
+  for the intended 45-system compensated grid.
+- **What to do next:** Persist a stronger Sage-native prepared state for the
+  budget-32 skeleton, such as reusable rows/pivots/free columns or a
+  matrix/vector cache, then rerun the same compensated split grid. Do not treat
+  this as evidence that compensated split/replacement fails mathematically.
+
 ### 2026-07-01 - M1 a327 repaired-skeleton persistent exact state
 
 - **Agent/model:** Codex.
