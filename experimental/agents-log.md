@@ -30,6 +30,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-02 - M1 a327 upstream B47 robust skeleton search
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_upstream_b47_robust_skeleton_search.md`,
+  `experimental/scripts/scan_m1_a327_upstream_b47_robust_skeleton_search.py`,
+  `experimental/scripts/verify_m1_a327_upstream_b47_robust_skeleton_search.py`,
+  `experimental/scripts/audit_m1_a327_upstream_b47_robust_skeleton_search.sage`,
+  `experimental/data/m1_a327_upstream_b47_robust_skeleton_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** PARTIAL / EXPERIMENTAL.
+- **What is being added:** An upstream B47-robust skeleton ledger seeded from
+  the banked local basin route cut and existing exact lineage data. The ledger
+  records candidate skeletons, split-probe outcomes, and split-aware guard
+  margins without claiming a new exact construction.
+- **How it is useful:** Moves the a=327 search away from the exhausted
+  `[1,4,5,7]` compensated split basin and sets the objective for a new
+  exact scanner: find repaired skeletons whose B47 and capacity guards survive
+  split probes.
+- **What to do next:** Implement the exact upstream scanner over
+  B47-robust buffer and alternate residual-collapse families, then run bounded
+  split probes before attempting exact nondegenerate extraction.
+
 ### 2026-07-02 - M1 a327 local basin conservation note
 
 - **Agent/model:** Codex.

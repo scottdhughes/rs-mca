@@ -1,0 +1,1725 @@
+{
+  "agreement_target": 327,
+  "denominator": "17^32",
+  "local_basin_conservation": {
+    "best_capacity": 174,
+    "best_pair_B_values": [
+      583,
+      657,
+      656,
+      524,
+      524
+    ],
+    "capacity_preserving_vectors": 0,
+    "exact_vectors_constructed": 30,
+    "pair_guard_preserving_vectors": 0,
+    "status": "ROUTE_CUT_LOCAL_BASIN",
+    "systems_tested": 45
+  },
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C",
+    "global obstruction outside the tested basin"
+  ],
+  "proof_status": "PARTIAL",
+  "row": "RS[F_17^32,H,256]",
+  "source_commit": "f2c7823",
+  "track": "INTERLEAVED_LIST",
+  "upstream_b47_search": {
+    "best_failure_mode": "UPSTREAM_B47_NOT_ROBUST",
+    "best_pre_split_capacity": 333,
+    "best_pre_split_collapse_pattern": [
+      [
+        1,
+        4,
+        5,
+        7
+      ],
+      [
+        6
+      ],
+      [
+        3
+      ],
+      [
+        2
+      ]
+    ],
+    "best_pre_split_pair_B_values": [
+      1024,
+      657,
+      656,
+      1024,
+      1024
+    ],
+    "best_pre_split_robustness_score": 2,
+    "best_probe_robustness_score": -135,
+    "best_probe_split_capacity": 261,
+    "best_probe_split_collapse_pattern": [
+      [
+        1,
+        5,
+        7
+      ],
+      [
+        6
+      ],
+      [
+        4
+      ],
+      [
+        3
+      ],
+      [
+        2
+      ]
+    ],
+    "best_probe_split_pair_B_values": [
+      1024,
+      657,
+      656,
+      519,
+      1024
+    ],
+    "candidate_row_families": [
+      "quotient_fiber_buffer",
+      "B47_robust_buffer",
+      "split_resilient_pairclass",
+      "balanced_residual_collapse",
+      "triple_237_with_B47_guard",
+      "alternate_collapse_selector"
+    ],
+    "candidate_skeletons": [
+      {
+        "capacity": 333,
+        "collapse_pattern": [
+          [
+            1,
+            4,
+            5,
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "contains_fragile_1457_class": true,
+        "failure_mode": "ROUTE_CUT_LOCAL_BASIN",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": 370,
+          "B57": 370,
+          "capacity": 6
+        },
+        "name": "route_cut_budget32_repaired_skeleton",
+        "pair_B_values": [
+          1024,
+          657,
+          656,
+          1024,
+          1024
+        ],
+        "robustness_score_before_split": 2,
+        "source": "m1_a327_local_basin_conservation_note"
+      },
+      {
+        "capacity": 329,
+        "collapse_pattern": [
+          [
+            1,
+            4,
+            5,
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "contains_fragile_1457_class": true,
+        "failure_mode": "RESERVE_NOT_CREATED",
+        "guard_margins": {
+          "B27": -13,
+          "B37": -14,
+          "B47": 370,
+          "B57": 370,
+          "capacity": 2
+        },
+        "name": "reserve_pairclass_codesign_best_postsplit",
+        "pair_B_values": [
+          1024,
+          641,
+          640,
+          1024,
+          1024
+        ],
+        "robustness_score_before_split": -14,
+        "source": "m1_a327_reserve_pairclass_codesign_before_split"
+      },
+      {
+        "capacity": 331,
+        "collapse_pattern": [
+          [
+            1,
+            4,
+            5,
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "contains_fragile_1457_class": true,
+        "failure_mode": "MICROREPAIR_STAGE2_PAIRCLASS_NOT_REPAIRED",
+        "guard_margins": {
+          "B27": -7,
+          "B37": -8,
+          "B47": 370,
+          "B57": 370,
+          "capacity": 4
+        },
+        "name": "microrepair_stage2_result_00",
+        "pair_B_values": [
+          1024,
+          647,
+          646,
+          1024,
+          1024
+        ],
+        "robustness_score_before_split": -8,
+        "source": "m1_a327_postsplit_pair27_37_microrepair_stage2"
+      },
+      {
+        "capacity": 331,
+        "collapse_pattern": [
+          [
+            1,
+            4,
+            5,
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "contains_fragile_1457_class": true,
+        "failure_mode": "MICROREPAIR_STAGE2_PAIRCLASS_NOT_REPAIRED",
+        "guard_margins": {
+          "B27": -5,
+          "B37": -6,
+          "B47": 370,
+          "B57": 370,
+          "capacity": 4
+        },
+        "name": "microrepair_stage2_result_01",
+        "pair_B_values": [
+          1024,
+          649,
+          648,
+          1024,
+          1024
+        ],
+        "robustness_score_before_split": -6,
+        "source": "m1_a327_postsplit_pair27_37_microrepair_stage2"
+      },
+      {
+        "capacity": 332,
+        "collapse_pattern": [
+          [
+            1,
+            4,
+            5,
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "contains_fragile_1457_class": true,
+        "failure_mode": "MICROREPAIR_STAGE2_PAIRCLASS_NOT_REPAIRED",
+        "guard_margins": {
+          "B27": -1,
+          "B37": -2,
+          "B47": 370,
+          "B57": 370,
+          "capacity": 5
+        },
+        "name": "microrepair_stage2_result_02",
+        "pair_B_values": [
+          1024,
+          653,
+          652,
+          1024,
+          1024
+        ],
+        "robustness_score_before_split": -2,
+        "source": "m1_a327_postsplit_pair27_37_microrepair_stage2"
+      },
+      {
+        "capacity": 333,
+        "collapse_pattern": [
+          [
+            1,
+            4,
+            5,
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "contains_fragile_1457_class": true,
+        "failure_mode": "MICROREPAIR_STAGE2_LOW_RESCHEDULE",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": 370,
+          "B57": 370,
+          "capacity": 6
+        },
+        "name": "microrepair_stage2_result_03",
+        "pair_B_values": [
+          1024,
+          657,
+          656,
+          1024,
+          1024
+        ],
+        "robustness_score_before_split": 2,
+        "source": "m1_a327_postsplit_pair27_37_microrepair_stage2"
+      }
+    ],
+    "candidate_split_families": [
+      "split_4_from_157",
+      "split_14_vs_57",
+      "split_1_from_457",
+      "split_15_vs_47",
+      "split_17_vs_45"
+    ],
+    "exact_vectors_constructed": 0,
+    "fragile_1457_candidate_skeletons": 6,
+    "source_skeletons_analyzed": 6,
+    "split_probe_results": [
+      {
+        "capacity": 182,
+        "case_index": 0,
+        "collapse_pattern": [
+          [
+            1,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            4
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -133,
+          "B57": -73,
+          "capacity": -145
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          581,
+          657,
+          656,
+          521,
+          581
+        ],
+        "replacement_bundle_size": 32,
+        "robustness_score_after_split": -145,
+        "selector": "B47_first",
+        "split_family": "split_4_from_157"
+      },
+      {
+        "capacity": 261,
+        "case_index": 1,
+        "collapse_pattern": [
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            6
+          ],
+          [
+            4
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -135,
+          "B57": 370,
+          "capacity": -66
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          1024,
+          657,
+          656,
+          519,
+          1024
+        ],
+        "replacement_bundle_size": 32,
+        "robustness_score_after_split": -135,
+        "selector": "balanced_repair",
+        "split_family": "split_4_from_157"
+      },
+      {
+        "capacity": 182,
+        "case_index": 2,
+        "collapse_pattern": [
+          [
+            1,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            4
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 15,
+          "B37": 15,
+          "B47": -137,
+          "B57": -75,
+          "capacity": -145
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          579,
+          669,
+          669,
+          517,
+          579
+        ],
+        "replacement_bundle_size": 32,
+        "robustness_score_after_split": -145,
+        "selector": "quotient_fiber_local",
+        "split_family": "split_4_from_157"
+      },
+      {
+        "capacity": 180,
+        "case_index": 3,
+        "collapse_pattern": [
+          [
+            1,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            4
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -137,
+          "B57": -76,
+          "capacity": -147
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          578,
+          657,
+          656,
+          517,
+          578
+        ],
+        "replacement_bundle_size": 16,
+        "robustness_score_after_split": -147,
+        "selector": "B47_first",
+        "split_family": "split_4_from_157"
+      },
+      {
+        "capacity": 261,
+        "case_index": 4,
+        "collapse_pattern": [
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            6
+          ],
+          [
+            4
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -139,
+          "B57": 370,
+          "capacity": -66
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          1024,
+          657,
+          656,
+          515,
+          1024
+        ],
+        "replacement_bundle_size": 16,
+        "robustness_score_after_split": -139,
+        "selector": "balanced_repair",
+        "split_family": "split_4_from_157"
+      },
+      {
+        "capacity": 127,
+        "case_index": 7,
+        "collapse_pattern": [
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            5
+          ],
+          [
+            4
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ],
+          [
+            1
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -132,
+          "B57": -134,
+          "capacity": -200
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          581,
+          657,
+          656,
+          522,
+          520
+        ],
+        "replacement_bundle_size": 32,
+        "robustness_score_after_split": -200,
+        "selector": "B47_first",
+        "split_family": "split_1_from_457"
+      },
+      {
+        "capacity": 180,
+        "case_index": 8,
+        "collapse_pattern": [
+          [
+            1,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            4
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -139,
+          "B57": -77,
+          "capacity": -147
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          577,
+          657,
+          656,
+          515,
+          577
+        ],
+        "replacement_bundle_size": 8,
+        "robustness_score_after_split": -147,
+        "selector": "capacity_first",
+        "split_family": "split_4_from_157"
+      },
+      {
+        "capacity": 260,
+        "case_index": 9,
+        "collapse_pattern": [
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            6
+          ],
+          [
+            4
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -142,
+          "B57": 370,
+          "capacity": -67
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          1024,
+          657,
+          656,
+          512,
+          1024
+        ],
+        "replacement_bundle_size": 8,
+        "robustness_score_after_split": -142,
+        "selector": "B27_B37_first",
+        "split_family": "split_4_from_157"
+      },
+      {
+        "capacity": 179,
+        "case_index": 10,
+        "collapse_pattern": [
+          [
+            1,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            4
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -139,
+          "B57": -78,
+          "capacity": -148
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          576,
+          657,
+          656,
+          515,
+          576
+        ],
+        "replacement_bundle_size": 8,
+        "robustness_score_after_split": -148,
+        "selector": "B47_first",
+        "split_family": "split_4_from_157"
+      },
+      {
+        "capacity": 179,
+        "case_index": 11,
+        "collapse_pattern": [
+          [
+            1,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            4
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -141,
+          "B57": -79,
+          "capacity": -148
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          575,
+          657,
+          656,
+          513,
+          575
+        ],
+        "replacement_bundle_size": 8,
+        "robustness_score_after_split": -148,
+        "selector": "balanced_repair",
+        "split_family": "split_4_from_157"
+      },
+      {
+        "capacity": 179,
+        "case_index": 12,
+        "collapse_pattern": [
+          [
+            1,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            4
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -139,
+          "B57": -78,
+          "capacity": -148
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          576,
+          657,
+          656,
+          515,
+          576
+        ],
+        "replacement_bundle_size": 8,
+        "robustness_score_after_split": -148,
+        "selector": "quotient_fiber_local",
+        "split_family": "split_4_from_157"
+      },
+      {
+        "capacity": 180,
+        "case_index": 13,
+        "collapse_pattern": [
+          [
+            1,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            4
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -136,
+          "B57": -76,
+          "capacity": -147
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          578,
+          657,
+          656,
+          518,
+          578
+        ],
+        "replacement_bundle_size": 16,
+        "robustness_score_after_split": -147,
+        "selector": "capacity_first",
+        "split_family": "split_4_from_157"
+      },
+      {
+        "capacity": 260,
+        "case_index": 14,
+        "collapse_pattern": [
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            6
+          ],
+          [
+            4
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -142,
+          "B57": 370,
+          "capacity": -67
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          1024,
+          657,
+          656,
+          512,
+          1024
+        ],
+        "replacement_bundle_size": 16,
+        "robustness_score_after_split": -142,
+        "selector": "B27_B37_first",
+        "split_family": "split_4_from_157"
+      },
+      {
+        "capacity": 180,
+        "case_index": 15,
+        "collapse_pattern": [
+          [
+            1,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            4
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 3,
+          "B47": -137,
+          "B57": -76,
+          "capacity": -147
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          578,
+          657,
+          657,
+          517,
+          578
+        ],
+        "replacement_bundle_size": 16,
+        "robustness_score_after_split": -147,
+        "selector": "quotient_fiber_local",
+        "split_family": "split_4_from_157"
+      },
+      {
+        "capacity": 183,
+        "case_index": 16,
+        "collapse_pattern": [
+          [
+            1,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            4
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -131,
+          "B57": -71,
+          "capacity": -144
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          583,
+          657,
+          656,
+          523,
+          583
+        ],
+        "replacement_bundle_size": 32,
+        "robustness_score_after_split": -144,
+        "selector": "capacity_first",
+        "split_family": "split_4_from_157"
+      },
+      {
+        "capacity": 260,
+        "case_index": 17,
+        "collapse_pattern": [
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            6
+          ],
+          [
+            4
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -142,
+          "B57": 370,
+          "capacity": -67
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          1024,
+          657,
+          656,
+          512,
+          1024
+        ],
+        "replacement_bundle_size": 32,
+        "robustness_score_after_split": -142,
+        "selector": "B27_B37_first",
+        "split_family": "split_4_from_157"
+      },
+      {
+        "capacity": 171,
+        "case_index": 31,
+        "collapse_pattern": [
+          [
+            4,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ],
+          [
+            1
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -138,
+          "B57": -138,
+          "capacity": -156
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          577,
+          657,
+          656,
+          516,
+          516
+        ],
+        "replacement_bundle_size": 8,
+        "robustness_score_after_split": -156,
+        "selector": "capacity_first",
+        "split_family": "split_1_from_457"
+      },
+      {
+        "capacity": 170,
+        "case_index": 32,
+        "collapse_pattern": [
+          [
+            4,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ],
+          [
+            1
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -141,
+          "B57": -141,
+          "capacity": -157
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          575,
+          657,
+          656,
+          513,
+          513
+        ],
+        "replacement_bundle_size": 8,
+        "robustness_score_after_split": -157,
+        "selector": "B27_B37_first",
+        "split_family": "split_1_from_457"
+      },
+      {
+        "capacity": 171,
+        "case_index": 33,
+        "collapse_pattern": [
+          [
+            4,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ],
+          [
+            1
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -138,
+          "B57": -138,
+          "capacity": -156
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          576,
+          657,
+          656,
+          516,
+          516
+        ],
+        "replacement_bundle_size": 8,
+        "robustness_score_after_split": -156,
+        "selector": "B47_first",
+        "split_family": "split_1_from_457"
+      },
+      {
+        "capacity": 170,
+        "case_index": 34,
+        "collapse_pattern": [
+          [
+            4,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ],
+          [
+            1
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -140,
+          "B57": -140,
+          "capacity": -157
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          575,
+          657,
+          656,
+          514,
+          514
+        ],
+        "replacement_bundle_size": 8,
+        "robustness_score_after_split": -157,
+        "selector": "balanced_repair",
+        "split_family": "split_1_from_457"
+      },
+      {
+        "capacity": 171,
+        "case_index": 35,
+        "collapse_pattern": [
+          [
+            4,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ],
+          [
+            1
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -138,
+          "B57": -138,
+          "capacity": -156
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          576,
+          657,
+          656,
+          516,
+          516
+        ],
+        "replacement_bundle_size": 8,
+        "robustness_score_after_split": -156,
+        "selector": "quotient_fiber_local",
+        "split_family": "split_1_from_457"
+      },
+      {
+        "capacity": 125,
+        "case_index": 36,
+        "collapse_pattern": [
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            5
+          ],
+          [
+            4
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ],
+          [
+            1
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -135,
+          "B57": -138,
+          "capacity": -202
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          578,
+          657,
+          656,
+          519,
+          516
+        ],
+        "replacement_bundle_size": 16,
+        "robustness_score_after_split": -202,
+        "selector": "capacity_first",
+        "split_family": "split_1_from_457"
+      },
+      {
+        "capacity": 170,
+        "case_index": 37,
+        "collapse_pattern": [
+          [
+            4,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ],
+          [
+            1
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -141,
+          "B57": -141,
+          "capacity": -157
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          575,
+          657,
+          656,
+          513,
+          513
+        ],
+        "replacement_bundle_size": 16,
+        "robustness_score_after_split": -157,
+        "selector": "B27_B37_first",
+        "split_family": "split_1_from_457"
+      },
+      {
+        "capacity": 172,
+        "case_index": 38,
+        "collapse_pattern": [
+          [
+            4,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ],
+          [
+            1
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -136,
+          "B57": -136,
+          "capacity": -155
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          578,
+          657,
+          656,
+          518,
+          518
+        ],
+        "replacement_bundle_size": 16,
+        "robustness_score_after_split": -155,
+        "selector": "B47_first",
+        "split_family": "split_1_from_457"
+      },
+      {
+        "capacity": 171,
+        "case_index": 39,
+        "collapse_pattern": [
+          [
+            4,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ],
+          [
+            1
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -138,
+          "B57": -138,
+          "capacity": -156
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          578,
+          657,
+          656,
+          516,
+          516
+        ],
+        "replacement_bundle_size": 16,
+        "robustness_score_after_split": -156,
+        "selector": "balanced_repair",
+        "split_family": "split_1_from_457"
+      },
+      {
+        "capacity": 125,
+        "case_index": 40,
+        "collapse_pattern": [
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            5
+          ],
+          [
+            4
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ],
+          [
+            1
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 3,
+          "B47": -136,
+          "B57": -138,
+          "capacity": -202
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          578,
+          657,
+          657,
+          518,
+          516
+        ],
+        "replacement_bundle_size": 16,
+        "robustness_score_after_split": -202,
+        "selector": "quotient_fiber_local",
+        "split_family": "split_1_from_457"
+      },
+      {
+        "capacity": 174,
+        "case_index": 41,
+        "collapse_pattern": [
+          [
+            4,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ],
+          [
+            1
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -130,
+          "B57": -130,
+          "capacity": -153
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          583,
+          657,
+          656,
+          524,
+          524
+        ],
+        "replacement_bundle_size": 32,
+        "robustness_score_after_split": -153,
+        "selector": "capacity_first",
+        "split_family": "split_1_from_457"
+      },
+      {
+        "capacity": 170,
+        "case_index": 42,
+        "collapse_pattern": [
+          [
+            4,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ],
+          [
+            1
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -141,
+          "B57": -141,
+          "capacity": -157
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          575,
+          657,
+          656,
+          513,
+          513
+        ],
+        "replacement_bundle_size": 32,
+        "robustness_score_after_split": -157,
+        "selector": "B27_B37_first",
+        "split_family": "split_1_from_457"
+      },
+      {
+        "capacity": 173,
+        "case_index": 43,
+        "collapse_pattern": [
+          [
+            4,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ],
+          [
+            1
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 3,
+          "B37": 2,
+          "B47": -134,
+          "B57": -134,
+          "capacity": -154
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          581,
+          657,
+          656,
+          520,
+          520
+        ],
+        "replacement_bundle_size": 32,
+        "robustness_score_after_split": -154,
+        "selector": "balanced_repair",
+        "split_family": "split_1_from_457"
+      },
+      {
+        "capacity": 174,
+        "case_index": 44,
+        "collapse_pattern": [
+          [
+            4,
+            5
+          ],
+          [
+            7
+          ],
+          [
+            6
+          ],
+          [
+            3
+          ],
+          [
+            2
+          ],
+          [
+            1
+          ]
+        ],
+        "contains_fragile_1457_class": false,
+        "failure_mode": "COMP_REPAIRED_SPLIT_CAPACITY_NOT_RESTORED",
+        "guard_margins": {
+          "B27": 15,
+          "B37": 15,
+          "B47": -136,
+          "B57": -136,
+          "capacity": -153
+        },
+        "guard_preserving": false,
+        "pair_B_values": [
+          579,
+          669,
+          669,
+          518,
+          518
+        ],
+        "replacement_bundle_size": 32,
+        "robustness_score_after_split": -153,
+        "selector": "quotient_fiber_local",
+        "split_family": "split_1_from_457"
+      }
+    ],
+    "split_probe_vectors": 30,
+    "split_resilient_skeletons": 0,
+    "systems_tested": 0
+  }
+}
