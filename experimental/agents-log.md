@@ -30,6 +30,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-02 - M1 a327 selected-class quotient nullspace lift
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_selected_class_quotient_nullspace_lift.md`,
+  `experimental/scripts/scan_m1_a327_selected_class_quotient_nullspace_lift.py`,
+  `experimental/scripts/verify_m1_a327_selected_class_quotient_nullspace_lift.py`,
+  `experimental/scripts/audit_m1_a327_selected_class_quotient_nullspace_lift.sage`,
+  `experimental/data/m1_a327_selected_class_quotient_nullspace_lift.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / PREFIX_RANK_AUDIT / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A quotient-difference formulation of the thin
+  selected-class target from `9fcdb02`, using variables
+  `D_2,...,D_7` and a `1777 x 1536` exact matrix over `GF(17^32)`.
+- **How it is useful:** Removes the auxiliary received-word variables and
+  isolates the actual non-diagonal lift question. Prefix ranks for row limits
+  `128`, `256`, and `512` are full row rank; the full quotient nullspace and
+  pair-projection test remain pending.
+- **What to do next:** Build an optimized full solve or prepared matrix cache
+  for the quotient system, then compute nullity, test all 21 pair projections,
+  and construct an explicit seven-distinct vector if the projection criterion
+  clears.
+
 ### 2026-07-02 - M1 a327 selected-class thin exact lift
 
 - **Agent/model:** Codex.
