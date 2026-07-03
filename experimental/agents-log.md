@@ -2938,3 +2938,26 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Run a single-case proxy quotient rank for the best target
   with a timeout, then, only if proxy-positive, attempt actual template-vector
   realization.
+### 2026-07-03 - M1 a327 prescribed Z_lambda-stable proxy audit
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_prescribed_zlambda_stable_proxy_audit.md`,
+  `experimental/scripts/audit_m1_a327_prescribed_zlambda_stable_proxy.py`,
+  `experimental/scripts/verify_m1_a327_prescribed_zlambda_stable_proxy_audit.py`,
+  `experimental/data/m1_a327_prescribed_zlambda_stable_proxy_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PZREL_PROXY_FULL_RANK / PARTIAL / EXPERIMENTAL.
+- **Realization status:** SYNTHETIC_FUNCTIONAL_PROXY_TARGET.
+- **What is being added:** A single-case proxy quotient audit for the best
+  prescribed stable-relation target from `70b744e`.
+- **Result:** The target retained basis-zero union size 85, stable common
+  multiplier dimension 171, coefficient rank/nullity `5 / 1`, and zero forced
+  pair equalities. The GF(12289) proxy quotient matrix had shape `1691 x 1450`
+  and rank/nullity `1450 / 0`.
+- **How it is useful:** Shows that coefficient-level stable relations and
+  pair-projection clearance are still not enough; the `Z_lambda` expanded proxy
+  quotient relation itself must be engineered.
+- **What to do next:** Build a proxy-kernel-prescribed generator that targets
+  nullity in the expanded quotient matrix directly, while preserving stable
+  basis union and pair-projection nondegeneracy.
