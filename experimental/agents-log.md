@@ -2654,3 +2654,26 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Bias the next generator directly toward quotient nullity
   and dependent nonbasis constraints before running any exact `GF(17^32)` Sage
   audit.
+### 2026-07-03 - M1 a327 random-matroid rank-feedback v3
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_random_matroid_rank_feedback_v3.md`,
+  `experimental/scripts/scan_m1_a327_random_matroid_rank_feedback_v3.py`,
+  `experimental/scripts/verify_m1_a327_random_matroid_rank_feedback_v3.py`,
+  `experimental/data/m1_a327_random_matroid_rank_feedback_v3.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / RANK_FEEDBACK_PROXY_FULL_RANK / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A broader proxy-only rank-feedback sweep around the
+  random-matroid template family, with hard structural filters and multiple
+  basis profiles per proxy-ranked candidate.
+- **Result:** Tested 24 templates and 96 systems. 84 systems passed structural
+  filters, 8 candidates and 16 basis profiles were proxy-ranked over
+  `GF(12289)`, and 0 proxy-positive candidates were found. The best candidate,
+  `random_matroid_v3_seed_017_m6`, has functional span rank 6, no annihilator,
+  pair7 counts `[233,233,233,233,233]`, and proxy rank/nullity `1348 / 0`.
+- **How it is useful:** Confirms that the random-matroid neighborhood has many
+  structurally valid systems, but the tested quotient matrices remain full rank.
+- **What to do next:** Either build a proxy-nullity-aware generator that
+  engineers dependent nonbasis constraints, or bank a rank-rigidity audit for
+  the tested random-matroid template family.
