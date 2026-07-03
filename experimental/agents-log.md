@@ -2677,3 +2677,23 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Either build a proxy-nullity-aware generator that
   engineers dependent nonbasis constraints, or bank a rank-rigidity audit for
   the tested random-matroid template family.
+### 2026-07-03 - M1 a327 random-matroid rank-rigidity audit
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_random_matroid_rank_rigidity_audit.md`,
+  `experimental/scripts/scan_m1_a327_random_matroid_rank_rigidity_audit.py`,
+  `experimental/scripts/verify_m1_a327_random_matroid_rank_rigidity_audit.py`,
+  `experimental/data/m1_a327_random_matroid_rank_rigidity_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** AUDIT / RANK_RIGIDITY_PROXY_FRONT / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A finite audit of the 16 proxy basis profiles tested
+  in the v3 random-matroid rank-feedback branch.
+- **Result:** All 16 audited proxy basis profiles are full column rank over
+  `GF(12289)`, with 0 proxy-positive profiles and uniform row surplus 241.
+- **How it is useful:** Clarifies that the tested proxy front is failing at the
+  quotient-rank layer, not at support, pair-guard, forced-identity, or span-rank
+  filters.
+- **What to do next:** Move to a dependency-engineered generator, or formulate
+  the repeated full-rank phenomenon as a module/syzygy/determinantal proxy where
+  Macaulay2, Singular, or `msolve` can add leverage.
