@@ -2632,3 +2632,25 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Do not run a longer blind Sage rank first; try further
   functional quotient reduction, alternative basis profiles, or an
   evaluation/Fourier-basis sparse exact route.
+### 2026-07-03 - M1 a327 random-matroid rank-feedback v2
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_random_matroid_rank_feedback_v2.md`,
+  `experimental/scripts/scan_m1_a327_random_matroid_rank_feedback_v2.py`,
+  `experimental/scripts/verify_m1_a327_random_matroid_rank_feedback_v2.py`,
+  `experimental/data/m1_a327_random_matroid_rank_feedback_v2.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / RANK_FEEDBACK_PROXY_FULL_RANK / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A bounded proxy-rank feedback search around the
+  `random_matroid_seeded_0_m6` functional-lift target from `3d6bfd4`.
+- **Result:** Tested 7 templates and 14 systems, proxy-ranked 6 systems over
+  `GF(12289)`, and found 0 proxy-positive candidates. The best candidate,
+  `random_matroid_feedback_seed_1_m6`, repairs the functional span to rank 6
+  with no annihilator but has quotient proxy rank/nullity `1086 / 0`.
+- **How it is useful:** Separates the span-rank repair problem from the quotient
+  nullity problem. Nearby random-matroid mutations can fix the rank-5 span, but
+  the tested proxy quotients remain full rank.
+- **What to do next:** Bias the next generator directly toward quotient nullity
+  and dependent nonbasis constraints before running any exact `GF(17^32)` Sage
+  audit.
