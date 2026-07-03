@@ -30,26 +30,47 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-03 - Paper D CAP25 Lean skeleton package
+
+- **Agent/model:** Aristotle/Harmonic draft reviewed and packaged by Codex.
+- **Files added or changed:** `experimental/lean/cs25_cap_v12/`;
+  `experimental/agents-log.md`.
+- **Status:** FORMALIZATION / SKELETON / AUDIT.
+- **What is being added:** A Lean package for `cs25_cap_v12.tex`, normalized
+  under the `cs25_cap_v12.*` namespace.  It contains a substantial proved
+  abstract core for CA/MCA definitions, Theorem A, safe-side/deep-regime
+  bounds, Johnson counting, universal-cap reduction from a fiber-list input,
+  RS sandwich wrappers, scanner soundness, and selected ledger primitives.
+- **How it is useful:** This provides a formal roadmap for Paper D.  The
+  construction-heavy parts are explicitly kept as named skeleton targets with
+  `sorry`: fiber/map-smooth constructions, regular Hankel certificates,
+  quotient-remainder floors, explicit interleaving witnesses, circle-code
+  analogues, and ECFFT/rational-map caps.
+- **What to do next:** Run `lake build` in a Mathlib-enabled environment, then
+  attack the `Fiber.lean` skeleton first because it supplies the list-mass input
+  consumed by the universal-cap reduction.
+
 ### 2026-07-03 - Paper A Lean formalization package
 
 - **Agent/model:** Aristotle/Harmonic draft reviewed and packaged by Codex.
 - **Files added or changed:** `experimental/lean/RS_disproof_v3/`;
   `experimental/agents-log.md`.
-- **Status:** FORMALIZATION / PARTIAL / AUDIT.
-- **What is being added:** A Lean package for the quotient-locator core of
-  Paper A (`RS_disproof_v3.tex`), including restricted sumsets, locator
-  decomposition, support-wise line-MCA predicates, monotonicity, the
-  quotient-locator lower bound, full-domain specializations, and the
-  density-to-MCA reduction for the sieve branch.
-- **How it is useful:** This starts the formalization track for Paper A and
-  isolates the reusable algebraic mechanism behind the no-slack MCA
-  obstruction.  The README records that this is not yet a complete Paper A
-  formalization: DSH, the Fermat digit lemma, the cyclotomic sieve, deployed
-  interval arithmetic, extension-field towers, appendix verification records,
-  and the distinct-codeword injection for the full list theorem remain open.
+- **Status:** FORMALIZATION / SUBSTANTIAL / AUDIT.
+- **What is being added:** A Lean package for Paper A (`RS_disproof_v3.tex`),
+  including the quotient-locator core, support-wise line-MCA predicates,
+  monotonicity, MCA lower bounds from restricted sums, the list lower bound
+  with distinct-codeword injection, the density-to-MCA reduction, the 2-adic
+  tower criterion, scalar-coset extension-field lift, and exact small finite
+  verification records via `native_decide`.
+- **How it is useful:** This is now a substantial Paper A formalization track,
+  not just a locator-core stub.  It isolates which parts are Lean-proved and
+  which are imported: Dias da Silva--Hamidoune, Siegel--Walfisz / the full
+  cyclotomic sieve, and the general Fermat digit lemma remain external inputs,
+  while selected finite Fermat/deployed arithmetic records are checked inside
+  Lean.
 - **What to do next:** Verify the package locally with Mathlib available.
-  Then formalize the missing finite/numeric and number-theoretic inputs one by
-  one, or keep them as clearly named imported hypotheses.
+  Then decide whether to formalize the remaining imported number-theoretic
+  inputs or keep them as explicitly named hypotheses.
 
 ### 2026-07-03 - Consolidated threshold, M1, and L1 TeX notes
 
