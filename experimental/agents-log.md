@@ -2890,3 +2890,27 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Build the stability relation first: prescribe a
   basis-zero union of size at most 255, impose a coefficient right kernel and
   nonzero pair projections there, then fit selected-class supports around it.
+### 2026-07-03 - M1 a327 Z_lambda stable-basis relation search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_zlambda_stable_basis_relation_search.md`,
+  `experimental/scripts/scan_m1_a327_zlambda_stable_basis_relation_search.py`,
+  `experimental/scripts/verify_m1_a327_zlambda_stable_basis_relation_search.py`,
+  `experimental/data/m1_a327_zlambda_stable_basis_relation_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / ZREL_STABLE_COEFFICIENT_FULL_RANK / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A relation-first stable-basis search that only tests
+  basis profiles with `Z_lambda` zero-set union at most 255 before asking for a
+  coefficient right kernel.
+- **Result:** The 36-template actual-template family has 23,663,322 stable
+  basis combinations across 216 systems. The bounded stable front tested 12,312
+  independent stable basis profiles and found zero coefficient-kernel profiles,
+  zero pair-projection-clear profiles, and zero proxy candidates.
+- **How it is useful:** Separates the obstruction from merely choosing too many
+  large-union bases: stable bases exist, but this actual-template family does
+  not place the nonbasis coordinate rows into a right-kernel hyperplane on
+  those stable bases.
+- **What to do next:** Prescribe the stable right-kernel relation itself first,
+  then generate nonbasis functionals and selected-class support schedules around
+  that relation.
