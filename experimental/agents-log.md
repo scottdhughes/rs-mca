@@ -2541,3 +2541,27 @@ Keep entries concise and link to the relevant files.
   exact linear algebra backend for the square solve. If a vector is
   constructed, check all 1777 raw rows, seven-codeword distinctness, and the
   agreement vector directly on `H`.
+### 2026-07-03 - M1 a327 low-rank functional-divisibility lift
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_lowrank_template_functional_divisibility_lift.md`,
+  `experimental/scripts/scan_m1_a327_lowrank_template_functional_divisibility_lift.py`,
+  `experimental/scripts/verify_m1_a327_lowrank_template_functional_divisibility_lift.py`,
+  `experimental/scripts/audit_m1_a327_lowrank_template_functional_divisibility_lift.sage`,
+  `experimental/data/m1_a327_lowrank_template_functional_divisibility_lift.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / FUNC_DIV_METADATA / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A functional-divisibility compression of the
+  `mixed_rank6` selected-class system. It groups compressed low-rank rows by
+  projective functional and replaces pointwise rows by polynomial divisibility
+  constraints.
+- **Current ledger:** 15 functional classes, 2 forced functional identities,
+  2327 quotient variables, estimated functional-divisibility matrix shape
+  `3840 x 3863`, and formal full-space nullity lower bound 23.
+- **How it is useful:** Shows the row structure is highly repeated and gives a
+  proof-oriented formulation for extracting useful `A` components rather than
+  treating the `1533 x 1536` coefficient matrix as dense.
+- **What to do next:** Extract a nondegenerate `A` component from the
+  functional-divisibility system and certify it against all 1777 raw selected
+  rows before checking distinctness and agreement.
