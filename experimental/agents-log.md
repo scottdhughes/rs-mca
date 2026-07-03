@@ -2914,3 +2914,27 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Prescribe the stable right-kernel relation itself first,
   then generate nonbasis functionals and selected-class support schedules around
   that relation.
+### 2026-07-03 - M1 a327 prescribed Z_lambda-stable relation generator
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_prescribed_zlambda_stable_relation_generator.md`,
+  `experimental/scripts/scan_m1_a327_prescribed_zlambda_stable_relation_generator.py`,
+  `experimental/scripts/verify_m1_a327_prescribed_zlambda_stable_relation_generator.py`,
+  `experimental/data/m1_a327_prescribed_zlambda_stable_relation_generator.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / PZREL_PROXY_PENDING / PARTIAL / EXPERIMENTAL.
+- **Realization status:** SYNTHETIC_FUNCTIONAL_PROXY_TARGET.
+- **What is being added:** A prescribed stable-relation generator that imposes
+  a right-kernel relation on stable bases before proxy rank and filters out
+  forced pair projections.
+- **Result:** Tested 216 systems and 14,310 engineered profiles. Found 1,770
+  pair-projection-clear synthetic targets. The best has basis-zero union size
+  85, stable common multiplier dimension 171, coefficient rank/nullity `5 / 1`,
+  and no forced pair equalities.
+- **How it is useful:** Produces the first stable-relation target satisfying
+  the intended right-kernel and pair-projection gates, but only at the synthetic
+  functional level.
+- **What to do next:** Run a single-case proxy quotient rank for the best target
+  with a timeout, then, only if proxy-positive, attempt actual template-vector
+  realization.
