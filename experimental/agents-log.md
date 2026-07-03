@@ -2588,3 +2588,23 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Repair the low-rank template search objective so
   candidates are filtered by forced-identity saturation and pair projections
   before any exact `GF(17^32)` lifting.
+### 2026-07-03 - M1 a327 low-rank template forced-identity repair
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_lowrank_template_forced_identity_repair.md`,
+  `experimental/scripts/scan_m1_a327_lowrank_template_forced_identity_repair.py`,
+  `experimental/scripts/verify_m1_a327_lowrank_template_forced_identity_repair.py`,
+  `experimental/scripts/audit_m1_a327_lowrank_template_forced_identity_repair.sage`,
+  `experimental/data/m1_a327_lowrank_template_forced_identity_repair.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / LOWRANK_REPAIR_SATURATION_PASS / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A forced-identity saturation filter for low-rank
+  template candidates before exact lifting.
+- **Result:** Tested 10 existing low-rank systems; 8 were proxy-positive and 2
+  survived saturation. The survivor family is `random_matroid_seeded_0_m6`,
+  with reduced template dimension 6 and no forced pair equality.
+- **How it is useful:** Turns the `mixed_rank6` obstruction into a reusable
+  template-search filter and identifies the next exact-lift target.
+- **What to do next:** Run functional-divisibility / exact-lift extraction on
+  the `random_matroid_seeded_0_m6` survivor, not on `mixed_rank6`.
