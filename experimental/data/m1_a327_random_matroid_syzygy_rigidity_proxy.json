@@ -1,0 +1,81 @@
+{
+  "agreement_target": 327,
+  "denominator": "17^32",
+  "dependency_engineered": {
+    "best_failure_mode": "DEPENDENCY_PROXY_FULL_RANK",
+    "best_proxy_nullity": 0,
+    "best_proxy_rank": 1385,
+    "best_template_id": "random_matroid_v3_seed_007_m6",
+    "proxy_basis_profiles_tested": 24,
+    "proxy_candidates_tested": 8,
+    "proxy_positive_candidates": 0,
+    "systems_tested": 108
+  },
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C",
+    "global rank rigidity outside the tested proxy front"
+  ],
+  "proof_status": "AUDIT / SYZYGY_RIGIDITY_PROXY / PARTIAL / EXPERIMENTAL",
+  "row": "RS[F_17^32,H,256]",
+  "source_commit": "c3bb743",
+  "syzygy_proxy": {
+    "assignment_strategy": "signature_fiber_blocks",
+    "basis_class_indices": [
+      31,
+      38,
+      36,
+      25,
+      0,
+      34
+    ],
+    "basis_id": "deterministic_random_basis_10",
+    "basis_size": 6,
+    "best_failure_mode": "SYZYGY_PROXY_COEFFICIENT_FULL_RANK_QUOTIENT_FULL_RANK",
+    "coefficient_matrix_shape": [
+      41,
+      6
+    ],
+    "coefficient_rank_python": 6,
+    "functional_classes": 47,
+    "left_syzygy_dimension_python": 35,
+    "m2_result": {
+      "command": [
+        "M2",
+        "--script",
+        "experimental/scripts/m2_m1_a327_random_matroid_syzygy_rigidity_proxy.m2"
+      ],
+      "parsed": {
+        "M2_COEFF_COLS": 6,
+        "M2_COEFF_RANK": 6,
+        "M2_COEFF_ROWS": 41,
+        "M2_EXPECTED_RANK": 6,
+        "M2_LEFT_SYZYGY_GENS": 35,
+        "M2_LEFT_SYZYGY_RANK": 35,
+        "M2_RIGHT_KERNEL_GENS": 0
+      },
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "M2_COEFF_ROWS=41\nM2_COEFF_COLS=6\nM2_COEFF_RANK=6\nM2_RIGHT_KERNEL_GENS=0\nM2_LEFT_SYZYGY_GENS=35\nM2_LEFT_SYZYGY_RANK=35\nM2_EXPECTED_RANK=6\n"
+    },
+    "m2_script": "experimental/scripts/m2_m1_a327_random_matroid_syzygy_rigidity_proxy.m2",
+    "nonbasis_constraints": 41,
+    "proxy_field": "GF(12289)",
+    "quotient_matrix_shape": [
+      1626,
+      1385
+    ],
+    "quotient_proxy_nullity": 0,
+    "quotient_proxy_rank": 1385,
+    "right_kernel_nullity_python": 0,
+    "template_id": "random_matroid_v3_seed_007_m6",
+    "tool": "Macaulay2",
+    "tool_version": "1.26.06"
+  },
+  "track": "INTERLEAVED_LIST"
+}

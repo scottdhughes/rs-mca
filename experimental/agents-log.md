@@ -2719,3 +2719,24 @@ Keep entries concise and link to the relevant files.
   tested nonbasis quotient rows remain independent over the proxy field.
 - **What to do next:** Either engineer dependencies directly in quotient-row
   coordinates, or move to the Macaulay2/Singular module-syzygy proxy branch.
+### 2026-07-03 - M1 a327 random-matroid syzygy-rigidity proxy
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_random_matroid_syzygy_rigidity_proxy.md`,
+  `experimental/scripts/scan_m1_a327_random_matroid_syzygy_rigidity_proxy.py`,
+  `experimental/scripts/verify_m1_a327_random_matroid_syzygy_rigidity_proxy.py`,
+  `experimental/scripts/m2_m1_a327_random_matroid_syzygy_rigidity_proxy.m2`,
+  `experimental/data/m1_a327_random_matroid_syzygy_rigidity_proxy.json`,
+  `experimental/agents-log.md`.
+- **Status:** AUDIT / SYZYGY_RIGIDITY_PROXY / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A Macaulay2 module/syzygy proxy for the best
+  dependency-engineered profile.
+- **Result:** The extracted nonbasis coefficient matrix is `41 x 6` over
+  `GF(12289)`. Macaulay2 reports rank 6, right-kernel generators 0, and
+  left-syzygy rank 35. The associated full quotient remains `1626 x 1385` with
+  proxy rank/nullity `1385 / 0`.
+- **How it is useful:** Shows that the current dependencies are row-side
+  syzygies, not right-kernel relations capable of producing quotient nullity.
+- **What to do next:** Engineer right-kernel relations directly in the nonbasis
+  coefficient presentation before expanding polynomial evaluation factors.
