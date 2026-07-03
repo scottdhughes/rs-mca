@@ -33,7 +33,10 @@ Keep entries concise and link to the relevant files.
 ### 2026-07-03 - PR batch: DAG, threshold compilers, and A425/A426 finite gate
 
 - **Agent/model:** Codex integrating PRs from AllenGrahamHart, Vadim Avdeev,
-  DannyExperiments/Gia, and Lean certification contributors.
+  DannyExperiments/Gia, and Lean certification contributors.  AllenGrahamHart
+  authored the majority of the batch; see
+  `experimental/notes/roadmaps/pr_batch_2026_07_03_attribution.md` for the
+  per-PR attribution ledger.
 - **Files added or changed:** `experimental/data/prize-dag/`;
   `experimental/notes/roadmaps/`; `experimental/notes/thresholds/`;
   `experimental/notes/certificate_scanner/`;
@@ -50,7 +53,7 @@ Keep entries concise and link to the relevant files.
   finite-slope support-wise MCA gate: PR #204 gives the two-core upper bound
   `LD_sw(RS[F,D,256],426)=87`, PR #208 gives the direct A=425 unsafe witness,
   and the prime `p=22275*2^120+1` satisfies `87*2^128 < p < 88*2^128`.
-  The batch also adds the prize DAG maintenance packet, quotient-census and
+  The batch also adds Allen's prize DAG maintenance packet, quotient-census and
   dodge-selection compilers, CAP25 sparse-sigma audits, Lean tier-one
   certification map updates, and many M1/L1/F1/M5 evidence/proof-program notes.
 - **How it is useful:** The A425/A426 row is a new exact finite-slope

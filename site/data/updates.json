@@ -2,10 +2,10 @@
   {
     "date": "2026-07-03",
     "status": "exact finite-slope gate / PR batch",
-    "author": "Vadim Avdeev, AllenGrahamHart, DannyExperiments / Codex audit",
+    "author": "AllenGrahamHart (majority), Vadim Avdeev, DannyExperiments/Gia / Codex audit",
     "title": "A425/A426 prime-field adjacent threshold row added",
     "summary": "PR #204 adds a two-core upper bound proving LD_sw(RS[F,D,256],426)=87 for every 512-point domain, and PR #208 records the direct A=425 unsafe witness. For p=22275*2^120+1, p is 1 mod 512 and 87*2^128 < p < 88*2^128, giving an adjacent finite-slope support-wise MCA gate for the smooth prime-field row.",
-    "impact": "This is a new exact finite-slope threshold row on the public frontier. It does not claim ordinary list decoding, protocol soundness, or anything about the F_17^32 denominator row. The same integration also adds the DAG maintenance, quotient-census, CAP25 sparse-sigma audit, Lean certification-map, and M1/L1/F1/M5 proof-program packets as experimental material.",
+    "impact": "This is a new exact finite-slope threshold row on the public frontier. It does not claim ordinary list decoding, protocol soundness, or anything about the F_17^32 denominator row. Allen authored most of the surrounding batch: DAG maintenance, quotient-census and compiler infrastructure, Conjecture F/M1/L1/F1/M5 proof-program packets, Lean certification-map updates, and the A425 unsafe fallback. The CAP25 sparse-sigma audit is from DannyExperiments/Gia.",
     "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/a426_two_core_exact_threshold_v26.md"
   },
   {
