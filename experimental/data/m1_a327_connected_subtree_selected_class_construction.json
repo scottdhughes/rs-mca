@@ -1,0 +1,187 @@
+{
+  "agreement_target": 327,
+  "connected_subtree_design": {
+    "all_designs": [
+      {
+        "connected_subtree_count": 28,
+        "failure_mode": "CONNECTED_SUBTREE_COUNT_INFEASIBLE",
+        "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "solver_status": "INFEASIBLE_OR_LIMIT",
+        "tree_edges": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            6
+          ]
+        ],
+        "tree_id": "path_1237456"
+      },
+      {
+        "connected_subtree_count": 28,
+        "failure_mode": "CONNECTED_SUBTREE_COUNT_INFEASIBLE",
+        "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "solver_status": "INFEASIBLE_OR_LIMIT",
+        "tree_edges": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            6,
+            5
+          ]
+        ],
+        "tree_id": "path_1234765"
+      },
+      {
+        "connected_subtree_count": 40,
+        "failure_mode": "CONNECTED_SUBTREE_COUNT_INFEASIBLE",
+        "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "solver_status": "INFEASIBLE_OR_LIMIT",
+        "tree_edges": [
+          [
+            7,
+            2
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            4,
+            6
+          ]
+        ],
+        "tree_id": "balanced_T"
+      },
+      {
+        "connected_subtree_count": 28,
+        "failure_mode": "CONNECTED_SUBTREE_COUNT_INFEASIBLE",
+        "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "solver_status": "INFEASIBLE_OR_LIMIT",
+        "tree_edges": [
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            7,
+            5
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            3,
+            6
+          ]
+        ],
+        "tree_id": "two_pair_spine"
+      }
+    ],
+    "best_failure_mode": "CONNECTED_SUBTREE_GLOBAL_COUNT_OBSTRUCTION",
+    "connected_class_counts": null,
+    "coordinate_classes": null,
+    "coordinate_classes_hash": null,
+    "counting_obstruction": {
+      "edge_incidence_deficit": 247,
+      "obstruction_applies_to_any_7_node_tree": true,
+      "reason": "For connected selected classes on a tree, sum_e edge_count_e = sum_h(|C_h|-1).",
+      "support_selected_incidence_lower": 2289,
+      "tree_edge_incidence_lower": 1777,
+      "tree_edge_incidence_upper_from_pair_cap": 1530
+    },
+    "edge_counts": null,
+    "feasible_designs": 0,
+    "max_pair_count": null,
+    "pair7_counts": null,
+    "pair_count_matrix": null,
+    "quotient_fiber_histogram": null,
+    "support_vector": null,
+    "tree_edges": null,
+    "tree_id": null,
+    "trees_tested": 4
+  },
+  "denominator": "17^32",
+  "exact_construction": {
+    "agreement_vector": null,
+    "audit_run": true,
+    "best_failure_mode": "CONNECTED_SUBTREE_GLOBAL_COUNT_OBSTRUCTION",
+    "codeword_hashes": null,
+    "degree_bound_ok": false,
+    "edge_polynomial_degrees": null,
+    "edge_zero_set_sizes": null,
+    "received_word_hash": null,
+    "scalars": null,
+    "seven_distinct": false
+  },
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C"
+  ],
+  "proof_status": "CONSTRUCTION_FAIL / CONNECTED_SUBTREE_GLOBAL_COUNT_OBSTRUCTION / PARTIAL / EXPERIMENTAL",
+  "row": "RS[F_17^32,H,256]",
+  "source_commit": "a3be7b6",
+  "track": "INTERLEAVED_LIST"
+}

@@ -30,6 +30,29 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-02 - M1 a327 connected-subtree selected-class construction
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_a327_connected_subtree_selected_class_construction.md`,
+  `experimental/scripts/scan_m1_a327_connected_subtree_selected_class_construction.py`,
+  `experimental/scripts/verify_m1_a327_connected_subtree_selected_class_construction.py`,
+  `experimental/scripts/audit_m1_a327_connected_subtree_selected_class_construction.sage`,
+  `experimental/data/m1_a327_connected_subtree_selected_class_construction.json`,
+  `experimental/agents-log.md`.
+- **Status:** CONSTRUCTION_FAIL / CONNECTED_SUBTREE_GLOBAL_COUNT_OBSTRUCTION /
+  PARTIAL / EXPERIMENTAL.
+- **What is being added:** A connected-subtree selected-class construction
+  audit. The proposed cycle-free construction is blocked by a tree-edge
+  incidence count: support `327` for seven witnesses forces at least `1777`
+  tree-edge incidences, while six tree edges under the RS pair cap allow at
+  most `1530`.
+- **How it is useful:** Rules out this attractive construction principle before
+  spending time on exact lifting, and explains why singleton classes alone do
+  not rescue the tree-connected model.
+- **What to do next:** Move to a broader low-cycle or bounded-cycle incidence
+  model with more than six equality carriers, while retaining enough structure
+  to keep tree-rank/cycle-rank constraints controllable.
+
 ### 2026-07-02 - M1 a327 RS-feasible hypergraph tree-rank feedback
 
 - **Agent/model:** Codex.
