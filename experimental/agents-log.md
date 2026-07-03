@@ -2841,3 +2841,27 @@ Keep entries concise and link to the relevant files.
   right-kernel relations stable under basis vanishing-factor multiplication, or
   formalize this as the next rank-rigidity obstruction for the tested
   one-outside rank-5 hyperplane family.
+### 2026-07-03 - M1 a327 Z_lambda expansion-stability audit
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_zlambda_expansion_stability_audit.md`,
+  `experimental/scripts/scan_m1_a327_zlambda_expansion_stability_audit.py`,
+  `experimental/scripts/verify_m1_a327_zlambda_expansion_stability_audit.py`,
+  `experimental/data/m1_a327_zlambda_expansion_stability_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / ZEXP_EXPANSION_UNSTABLE / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A stability audit for the actual-template
+  coefficient right kernels found in `b3d6a79`, testing whether they survive
+  the `Z_lambda` basis vanishing-factor expansion.
+- **Result:** Audited 30 right-kernel profiles. All 30 have coefficient
+  kernels over GF(17), and 6 also have coefficient kernels over GF(12289), but
+  zero profiles are stable lift targets. The best profile has coefficient
+  rank/nullity `5 / 1`, basis-zero union size 327, stable common multiplier
+  dimension 0, and 15 forced pair equalities.
+- **How it is useful:** Confirms that the obstruction has moved from
+  coefficient right-kernel existence to `Z_lambda` expansion stability and pair
+  projection nondegeneracy.
+- **What to do next:** Generate actual-template candidates whose right-kernel
+  relations have basis-zero union size at most 255 and no forced pair
+  projections before running proxy quotient rank.
