@@ -2740,3 +2740,28 @@ Keep entries concise and link to the relevant files.
   syzygies, not right-kernel relations capable of producing quotient nullity.
 - **What to do next:** Engineer right-kernel relations directly in the nonbasis
   coefficient presentation before expanding polynomial evaluation factors.
+### 2026-07-03 - M1 a327 right-kernel-engineered rank feedback
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_right_kernel_engineered_rank_feedback.md`,
+  `experimental/scripts/scan_m1_a327_right_kernel_engineered_rank_feedback.py`,
+  `experimental/scripts/verify_m1_a327_right_kernel_engineered_rank_feedback.py`,
+  `experimental/data/m1_a327_right_kernel_engineered_rank_feedback.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / RIGHT_KERNEL_COEFFICIENT_FULL_RANK / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A Python finite-field screen that tries to choose
+  basis profiles whose nonbasis coefficient presentation has a right kernel
+  before quotient evaluation factors are expanded.
+- **Result:** Tested 18 templates and 108 systems. 96 candidates passed the
+  structural filters, 3,276 coefficient profiles were checked, and 0
+  right-kernel-positive profiles were found. The best candidate is
+  `random_matroid_v3_seed_010_m6` with `signature_fiber_blocks`,
+  support `[327,327,327,327,327,327,327]`, pair7 counts
+  `[233,233,233,233,233]`, max pair count 233, and 45 functional classes.
+- **How it is useful:** Moves the obstruction earlier than quotient proxy rank:
+  the tested generator still cannot create a nontrivial right-kernel relation
+  in the nonbasis coefficient matrix.
+- **What to do next:** Build the coefficient relation first by prescribing a
+  right-kernel vector or low-rank coefficient subspace, then fit selected-class
+  supports around that relation.
