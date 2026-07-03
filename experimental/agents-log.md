@@ -2608,3 +2608,27 @@ Keep entries concise and link to the relevant files.
   template-search filter and identifies the next exact-lift target.
 - **What to do next:** Run functional-divisibility / exact-lift extraction on
   the `random_matroid_seeded_0_m6` survivor, not on `mixed_rank6`.
+### 2026-07-03 - M1 a327 random-matroid functional lift
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_random_matroid_functional_lift.md`,
+  `experimental/scripts/scan_m1_a327_random_matroid_functional_lift.py`,
+  `experimental/scripts/verify_m1_a327_random_matroid_functional_lift.py`,
+  `experimental/scripts/audit_m1_a327_random_matroid_functional_lift.sage`,
+  `experimental/data/m1_a327_random_matroid_functional_lift.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / RANDOM_MATROID_FUNC_LIFT_EXACT_TIMEOUT_PROXY_FULL_RANK / PARTIAL / EXPERIMENTAL.
+- **What is being added:** Functional-divisibility lift target for the
+  `random_matroid_seeded_0_m6` survivor from `68a0780`.
+- **Result:** Reconstructed the survivor, found 35 functional classes with no
+  forced functional identities, functional span rank 5, and a best
+  `max_support_basis` quotient matrix of shape `1211 x 714`. Proxy rank over
+  `GF(12289)` is full, `714 / 0`. An exact Sage rank attempt over `GF(17^32)`
+  was interrupted after stalling in echelonization.
+- **How it is useful:** Moves the exact target away from `mixed_rank6`, exposes
+  the rank-5 functional-span structure, and gives a concrete smaller exact
+  matrix for the next infrastructure or rank-feedback move.
+- **What to do next:** Do not run a longer blind Sage rank first; try further
+  functional quotient reduction, alternative basis profiles, or an
+  evaluation/Fourier-basis sparse exact route.
