@@ -2424,3 +2424,27 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Run verifiers and audits on the integrated material,
   review mathematical notes before promotion, and close the original PRs as
   manually integrated once the integration commit is pushed.
+### 2026-07-03 - M1 a327 bounded-cycle carrier hypergraph search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_bounded_cycle_carrier_hypergraph_search.md`,
+  `experimental/scripts/scan_m1_a327_bounded_cycle_carrier_hypergraph_search.py`,
+  `experimental/scripts/verify_m1_a327_bounded_cycle_carrier_hypergraph_search.py`,
+  `experimental/scripts/audit_m1_a327_bounded_cycle_carrier_hypergraph_search.sage`,
+  `experimental/data/m1_a327_bounded_cycle_carrier_hypergraph_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** CONSTRUCTION_FAIL / BOUNDED_CYCLE_COUNT_INFEASIBLE / PARTIAL /
+  EXPERIMENTAL for the first-pass graph set.
+- **What is being added:** A bounded-cycle carrier graph search that replaces
+  the impossible six-edge connected-subtree tree route with 7-9 edge carrier
+  graphs. The scanner enforces support, pair-cap, pair-7 guard, and edge-load
+  constraints; the Sage audit tests the compressed edge-divisibility lift with
+  cycle constraints over `GF(17^32)`.
+- **How it is useful:** Turns the connected-subtree incidence obstruction into
+  a next-level construction/audit route with enough carrier capacity while
+  retaining a small exact lift.
+- **What to do next:** Widen the carrier-graph generator or relax the bounded
+  carrier model before returning to exact edge-divisibility lifting. Keep the
+  result strictly on the INTERLEAVED_LIST track unless a Sage proof record is
+  produced.
