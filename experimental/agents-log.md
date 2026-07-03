@@ -2565,3 +2565,26 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Extract a nondegenerate `A` component from the
   functional-divisibility system and certify it against all 1777 raw selected
   rows before checking distinctness and agreement.
+### 2026-07-03 - M1 a327 low-rank functional-basis extraction
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_lowrank_functional_basis_extraction.md`,
+  `experimental/scripts/scan_m1_a327_lowrank_functional_basis_extraction.py`,
+  `experimental/scripts/verify_m1_a327_lowrank_functional_basis_extraction.py`,
+  `experimental/scripts/audit_m1_a327_lowrank_functional_basis_extraction.sage`,
+  `experimental/data/m1_a327_lowrank_functional_basis_extraction.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / FUNC_BASIS_PAIR_FORCED_BY_FORCED_IDENTITIES / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A forced-identity saturation and functional-basis
+  extraction audit for the `mixed_rank6` functional-divisibility candidate.
+- **Result:** Saturation raises the forced functional rank to 5, reduces the
+  template space to dimension 1, leaves 0 projected functional classes, and
+  forces all 21 witness pairs equal.
+- **How it is useful:** Converts the previous formal full-space nullity into a
+  precise local obstruction: the nullity is not useful for a seven-distinct
+  witness because the saturated forced identities annihilate all witness
+  template differences.
+- **What to do next:** Repair the low-rank template search objective so
+  candidates are filtered by forced-identity saturation and pair projections
+  before any exact `GF(17^32)` lifting.
