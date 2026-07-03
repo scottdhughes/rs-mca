@@ -2790,3 +2790,28 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Realize the prescribed basis-coordinate rows by actual
   template vectors and selected classes. Until that realization exists, this is
   a synthetic functional proxy target, not a Sage exact-lift candidate.
+### 2026-07-03 - M1 a327 prescribed-kernel template realization
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_prescribed_kernel_template_realization.md`,
+  `experimental/scripts/scan_m1_a327_prescribed_kernel_template_realization.py`,
+  `experimental/scripts/verify_m1_a327_prescribed_kernel_template_realization.py`,
+  `experimental/data/m1_a327_prescribed_kernel_template_realization.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / TEMPLATE_REALIZATION_ROWSPACE_FAIL / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A `GF(17)` linear realization audit asking whether
+  the prescribed right-kernel functional rowspaces can come from actual seven
+  template vectors.
+- **Result:** The realization matrix is `4193 x 42` with rank/nullity `35 / 7`.
+  The diagonal translation space has rank 6 and lies in the kernel, leaving one
+  non-diagonal direction. That direction does not realize the prescribed
+  rowspaces: 263 samples, 0 rowspace-valid samples, best realized functional
+  span rank 5, and 90 coordinate rowspace failures in the representative.
+- **How it is useful:** Separates the new obstruction from proxy quotient rank:
+  prescribed coefficient right kernels can create proxy nullity, but this
+  projected target is not realizable by actual template-vector affine
+  difference spaces.
+- **What to do next:** Search template vectors and right-kernel relations
+  jointly, with rowspace-realization constraints inside the generator rather
+  than projecting existing functional rows after the fact.
