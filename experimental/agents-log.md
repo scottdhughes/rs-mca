@@ -2765,3 +2765,28 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Build the coefficient relation first by prescribing a
   right-kernel vector or low-rank coefficient subspace, then fit selected-class
   supports around that relation.
+### 2026-07-03 - M1 a327 prescribed right-kernel selected-class search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_prescribed_right_kernel_selected_class_search.md`,
+  `experimental/scripts/scan_m1_a327_prescribed_right_kernel_selected_class_search.py`,
+  `experimental/scripts/verify_m1_a327_prescribed_right_kernel_selected_class_search.py`,
+  `experimental/scripts/m2_m1_a327_prescribed_right_kernel_selected_class_search.m2`,
+  `experimental/data/m1_a327_prescribed_right_kernel_selected_class_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / PRESCRIBED_KERNEL_PROXY_NULLITY_POSITIVE / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A prescribed-kernel functional proxy that preserves
+  structurally valid selected-class support ledgers while forcing nonbasis
+  coefficient rows into a chosen right-kernel hyperplane.
+- **Result:** Tested 18 templates and 108 systems. 96 candidates passed
+  structural filters, 6,912 engineered profiles were formed, 96 candidates had
+  right-kernel-positive engineered profiles, and 12/12 proxy-ranked candidates
+  were proxy-positive. The best target has coefficient rank/right-kernel nullity
+  `5 / 1`, Macaulay2 right-kernel generators 1, and proxy quotient
+  rank/nullity `687 / 166`.
+- **How it is useful:** Shows that a prescribed coefficient right-kernel can
+  survive quotient expansion at the proxy level.
+- **What to do next:** Realize the prescribed basis-coordinate rows by actual
+  template vectors and selected classes. Until that realization exists, this is
+  a synthetic functional proxy target, not a Sage exact-lift candidate.
