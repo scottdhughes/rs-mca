@@ -2865,3 +2865,28 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Generate actual-template candidates whose right-kernel
   relations have basis-zero union size at most 255 and no forced pair
   projections before running proxy quotient rank.
+### 2026-07-03 - M1 a327 Z_lambda-stable right-kernel generator
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_zlambda_stable_right_kernel_generator.md`,
+  `experimental/scripts/scan_m1_a327_zlambda_stable_right_kernel_generator.py`,
+  `experimental/scripts/verify_m1_a327_zlambda_stable_right_kernel_generator.py`,
+  `experimental/data/m1_a327_zlambda_stable_right_kernel_generator.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / ZSTABLE_BASIS_UNION_TOO_LARGE / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A stability-aware actual-template generator that
+  ranks basis choices by `Z_lambda` zero-set union before attempting proxy
+  quotient rank.
+- **Result:** Tested 216 systems and 13,440 low-union basis profiles. 30
+  profiles had coefficient right kernels, but zero had stable basis-zero union
+  and zero had pair-projection-clear lift targets. The best profile remains the
+  `single_outside_w7_v1` pattern with coefficient rank/nullity `5 / 1`, union
+  size 327, stable common multiplier dimension 0, and 15 forced pair
+  equalities.
+- **How it is useful:** Shows that in the current actual-template family, the
+  low-union basis front is coefficient-full-rank; right kernels only appear
+  after the zero-set union is already too large for stable multiplication.
+- **What to do next:** Build the stability relation first: prescribe a
+  basis-zero union of size at most 255, impose a coefficient right kernel and
+  nonzero pair projections there, then fit selected-class supports around it.
