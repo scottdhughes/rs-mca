@@ -2697,3 +2697,25 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Move to a dependency-engineered generator, or formulate
   the repeated full-rank phenomenon as a module/syzygy/determinantal proxy where
   Macaulay2, Singular, or `msolve` can add leverage.
+### 2026-07-03 - M1 a327 dependency-engineered rank feedback
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_dependency_engineered_rank_feedback.md`,
+  `experimental/scripts/scan_m1_a327_dependency_engineered_rank_feedback.py`,
+  `experimental/scripts/verify_m1_a327_dependency_engineered_rank_feedback.py`,
+  `experimental/data/m1_a327_dependency_engineered_rank_feedback.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / DEPENDENCY_PROXY_FULL_RANK / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A Python/NumPy proxy search that engineers coordinate
+  assignments to create duplicate and nested functional support sets before
+  quotient-rank testing.
+- **Result:** Tested 18 templates and 108 systems. 96 systems passed structural
+  filters, 8 candidates and 24 basis profiles were proxy-ranked over
+  `GF(12289)`, and 0 proxy-positive candidates were found. The best candidate,
+  `random_matroid_v3_seed_007_m6`, has duplicate support groups 14, duplicate
+  support pairs 51, nested support pairs 66, and proxy rank/nullity `1385 / 0`.
+- **How it is useful:** Shows support-set dependency can be engineered, but the
+  tested nonbasis quotient rows remain independent over the proxy field.
+- **What to do next:** Either engineer dependencies directly in quotient-row
+  coordinates, or move to the Macaulay2/Singular module-syzygy proxy branch.
