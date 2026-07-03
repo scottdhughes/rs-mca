@@ -2517,3 +2517,27 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Build a faster exact-rank path for the compressed
   `1533 x 1536` low-rank matrix; if nullity is positive, continue to
   pair-projection and deterministic kernel sampling.
+### 2026-07-03 - M1 a327 low-rank template kernel extraction
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_lowrank_template_kernel_extraction.md`,
+  `experimental/scripts/scan_m1_a327_lowrank_template_kernel_extraction.py`,
+  `experimental/scripts/verify_m1_a327_lowrank_template_kernel_extraction.py`,
+  `experimental/scripts/audit_m1_a327_lowrank_template_kernel_extraction.sage`,
+  `experimental/data/m1_a327_lowrank_template_kernel_extraction.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / LOWRANK_KERNEL_SQUARE_SOLVE_TIMEOUT / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A kernel-extraction packet for the `mixed_rank6`
+  low-rank selected-class candidate. It tries square free-column solves and an
+  evaluation-basis sparse formulation rather than first computing dense exact
+  rank over `GF(17^32)`.
+- **How it is useful:** Converts the next proof gate from monolithic rank to
+  explicit kernel-vector construction plus raw selected-class certification.
+- **What happened:** The metadata pass confirmed the compressed coefficient
+  matrix shape `1533 x 1536`. A bounded square free-column solve reached
+  `solve_right` and was interrupted in the submatrix rank/echelonization step.
+- **What to do next:** Try the evaluation-basis sparse solve or an external
+  exact linear algebra backend for the square solve. If a vector is
+  constructed, check all 1777 raw rows, seven-codeword distinctness, and the
+  agreement vector directly on `H`.
