@@ -2470,3 +2470,27 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Engineer stronger dependency structure before returning
   to exact lifting; only run `GF(17^32)` when a proxy rank-defect candidate
   appears. Keep the packet strictly INTERLEAVED_LIST.
+### 2026-07-03 - M1 a327 low-rank template selected-class search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_lowrank_template_selected_class_search.md`,
+  `experimental/scripts/scan_m1_a327_lowrank_template_selected_class_search.py`,
+  `experimental/scripts/verify_m1_a327_lowrank_template_selected_class_search.py`,
+  `experimental/scripts/audit_m1_a327_lowrank_template_selected_class_search.sage`,
+  `experimental/data/m1_a327_lowrank_template_selected_class_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / LOWRANK_TEMPLATE_PROXY_POSITIVE / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A selected-class construction branch that replaces
+  generic witness differences by low-rank coefficient templates
+  `P_i=v_i dot A`. The scanner minimizes affine-rank equation cost per
+  selected class, and the Sage audit ranks proxy matrices before exact
+  `GF(17^32)` lifting.
+- **How it is useful:** Directly engineers rank defect into the codeword
+  parameterization rather than hoping generic selected-class matrices lose
+  rank. The first proxy audit found `8` proxy-positive candidates; the best
+  `mixed_rank6` candidate has proxy rank/nullity `1280/256`.
+- **What to do next:** If the proxy audit finds positive nullity, bank that
+  result first; run exact `GF(17^32)` rank as an explicit follow-on with a
+  timeout/batching plan.
