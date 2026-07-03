@@ -2815,3 +2815,29 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Search template vectors and right-kernel relations
   jointly, with rowspace-realization constraints inside the generator rather
   than projecting existing functional rows after the fact.
+### 2026-07-03 - M1 a327 joint template right-kernel search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_joint_template_right_kernel_search.md`,
+  `experimental/scripts/scan_m1_a327_joint_template_right_kernel_search.py`,
+  `experimental/scripts/verify_m1_a327_joint_template_right_kernel_search.py`,
+  `experimental/scripts/m2_m1_a327_joint_template_right_kernel_search.m2`,
+  `experimental/data/m1_a327_joint_template_right_kernel_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / JOINT_TEMPLATE_PROXY_FULL_RANK / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A joint actual-template/right-kernel proxy search
+  using rank-5 hyperplane templates with controlled outside directions.
+- **Result:** Tested 36 templates and 216 systems. 210 candidates passed
+  structural filters, 6 actual-template candidates had coefficient right
+  kernels, and 6 candidates were proxy-ranked. All proxy quotient matrices were
+  full rank. The best candidate has coefficient rank/right-kernel nullity
+  `5 / 1`, Macaulay2 right-kernel generators 1, and proxy quotient
+  rank/nullity `277 / 0`.
+- **How it is useful:** Reaches the original objective's fallback case with
+  actual template vectors: the coefficient right kernel exists, but
+  polynomial evaluation / vanishing-factor expansion destroys it.
+- **What to do next:** Model the `Z_lambda` expansion directly and search for
+  right-kernel relations stable under basis vanishing-factor multiplication, or
+  formalize this as the next rank-rigidity obstruction for the tested
+  one-outside rank-5 hyperplane family.
