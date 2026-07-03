@@ -2494,3 +2494,26 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** If the proxy audit finds positive nullity, bank that
   result first; run exact `GF(17^32)` rank as an explicit follow-on with a
   timeout/batching plan.
+### 2026-07-03 - M1 a327 low-rank template exact audit
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_lowrank_template_exact_audit.md`,
+  `experimental/scripts/scan_m1_a327_lowrank_template_exact_audit.py`,
+  `experimental/scripts/verify_m1_a327_lowrank_template_exact_audit.py`,
+  `experimental/scripts/audit_m1_a327_lowrank_template_exact_audit.sage`,
+  `experimental/data/m1_a327_lowrank_template_exact_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / LOWRANK_EXACT_TIMEOUT / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A focused exact-audit packet for the best
+  `mixed_rank6` proxy-positive low-rank template candidate from `e56f3ad`.
+  The scanner extracts the coordinate ledger, row specs, and template vectors;
+  the Sage audit builds the compressed low-rank exact matrix and computes exact
+  `GF(17^32)` rank/nullity if the dense rank step completes.
+- **How it is useful:** Separates the exact-field bottleneck from the broader
+  low-rank template search and makes the next proof/no-proof gate explicit.
+- **What happened:** A bounded Sage rank-only run reached the dense
+  `matrix.rank()` step and was interrupted before rank returned.
+- **What to do next:** Build a faster exact-rank path for the compressed
+  `1533 x 1536` low-rank matrix; if nullity is positive, continue to
+  pair-projection and deterministic kernel sampling.
