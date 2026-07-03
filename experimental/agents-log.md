@@ -2448,3 +2448,25 @@ Keep entries concise and link to the relevant files.
   carrier model before returning to exact edge-divisibility lifting. Keep the
   result strictly on the INTERLEAVED_LIST track unless a Sage proof record is
   produced.
+### 2026-07-03 - M1 a327 selected-class rank-defect search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_selected_class_rank_defect_search.md`,
+  `experimental/scripts/scan_m1_a327_selected_class_rank_defect_search.py`,
+  `experimental/scripts/verify_m1_a327_selected_class_rank_defect_search.py`,
+  `experimental/scripts/audit_m1_a327_selected_class_rank_defect_search.sage`,
+  `experimental/data/m1_a327_selected_class_rank_defect_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / RANK_DEFECT_PROXY_FULL_RANK /
+  PARTIAL / EXPERIMENTAL for the first-pass proxy scan.
+- **What is being added:** A selected-class quotient-rank search that treats
+  positive nullity of the `1777 x 1536` quotient matrix as the primary design
+  target. The Python scanner emits candidate selected-class designs; the Sage
+  audit ranks them over a proxy field with a 512-subgroup and is gated to exact
+  `GF(17^32)` only for proxy-positive designs.
+- **How it is useful:** Converts the latest obstruction into a constructive
+  rank-defect objective instead of another carrier-graph patch.
+- **What to do next:** Engineer stronger dependency structure before returning
+  to exact lifting; only run `GF(17^32)` when a proxy rank-defect candidate
+  appears. Keep the packet strictly INTERLEAVED_LIST.
