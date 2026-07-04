@@ -3534,3 +3534,33 @@ Keep entries concise and link to the relevant files.
   Force coverage across witness indices, coordinate indices, shear-pair
   mutations, basis class sets, and assignment strategies. Use a cheap
   prefix/proxy chamber score before spending full projective scans.
+### 2026-07-04 - M1 a327 pair-clear diverse chamber front
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_pairclear_diverse_chamber_front.md`,
+  `experimental/scripts/scan_m1_a327_pairclear_diverse_chamber_front.py`,
+  `experimental/scripts/verify_m1_a327_pairclear_diverse_chamber_front.py`,
+  `experimental/data/m1_a327_pairclear_diverse_chamber_front.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / DCHAMBER_DIRECT_SUPPORT_REDUCED / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A diversity-forced chamber search with a cheap
+  sampled projective screen followed by four full projective scans. It covers
+  96 mutations, 288 candidate systems, 279 structural-pass candidates, 24
+  selected diverse candidates, and 48 sampled basis profiles.
+- **Result:** The sampled screen found 13 direct support-reduced profiles and
+  19 rank-slack profiles. The four full scans confirmed direct support
+  reduction in all four profiles. The best profile is `ninerow_w2_c0_d1` with
+  basis `basisaware_0_1_2_3_4_6`; it has a pair-clear direction
+  `[1,16,0,14,14,11]` with 8 zero rows and only 5 active rows:
+  active row classes `[5,9,11,13,14]`. This breaks the previous nine-row
+  support wall at the GF(17) chamber level.
+- **How it is useful:** Produces the first substantially better pair-clear
+  support chamber in this sequence. The next target is now a small five-active
+  row module audit rather than continued broad chamber search.
+- **What to do next:** Start
+  `m1-a327-pairclear-diverse-five-row-module-audit`. Export the
+  `w2_c0_d1` coefficient matrix, verify the eight-row inactive chamber and
+  five active rows with Python plus Macaulay2/Singular, and only return to Sage
+  after a genuine pair-clear coefficient kernel or exact-lift proxy appears.
