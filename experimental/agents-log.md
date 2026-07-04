@@ -3317,3 +3317,27 @@ Keep entries concise and link to the relevant files.
   vector pair-projection repair: mutate or algebraically constrain the actual
   template vectors while preserving support/pair guards, functional span rank
   6, and no forced identities.
+### 2026-07-04 - M1 a327 template-vector pair-projection repair
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_template_vector_pairprojection_repair.md`,
+  `experimental/scripts/scan_m1_a327_template_vector_pairprojection_repair.py`,
+  `experimental/scripts/verify_m1_a327_template_vector_pairprojection_repair.py`,
+  `experimental/data/m1_a327_template_vector_pairprojection_repair.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / TVPAIR_SLOT_PAIR_CLEAR_BROKEN / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A bounded actual-template vector mutation scan around
+  `pairclear_slot5_pair7_guarded`, followed by selected-class MILP,
+  structural screening, and basis-aware slot scoring.
+- **Result:** Tested 24 template mutations, built 72 candidate systems, and
+  analyzed 24 structural-pass candidates over 22,242 basis profiles and
+  133,452 slot profiles. No pair-clear slot was found. The best mutation
+  `w1_c0_d16` reduces the forced-pair front from five pairs to one pair:
+  `P23`; the slot still has 12 nonzero coefficient rows and full rank.
+- **How it is useful:** Confirms template-vector mutation is a stronger lever
+  than basis reordering alone. The obstruction is now sharply concentrated in
+  one pair projection plus the slot-kernel equations.
+- **What to do next:** Start `m1-a327-p23-slot-kernel-codesign`, targeting both
+  `P23` and the 12 nonzero slot rows together. Do not run Sage until a
+  pair-clear slot or slot-kernel proxy target exists.
