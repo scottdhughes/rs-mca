@@ -3341,3 +3341,28 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Start `m1-a327-p23-slot-kernel-codesign`, targeting both
   `P23` and the 12 nonzero slot rows together. Do not run Sage until a
   pair-clear slot or slot-kernel proxy target exists.
+### 2026-07-04 - M1 a327 P23 slot-kernel codesign
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_p23_slot_kernel_codesign.md`,
+  `experimental/scripts/scan_m1_a327_p23_slot_kernel_codesign.py`,
+  `experimental/scripts/verify_m1_a327_p23_slot_kernel_codesign.py`,
+  `experimental/data/m1_a327_p23_slot_kernel_codesign.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / P23SLOT_PAIR_CLEAR_SLOT / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A focused second-order mutation scan around
+  `w1_c0_d16`, targeting the remaining forced pair `P23` and the slot-kernel
+  obstruction together.
+- **Result:** Tested 36 mutations, built 108 candidate systems, and analyzed
+  24 structural-pass candidates over 13,278 basis profiles and 79,668 slot
+  profiles. Found 54 pair-clear slot profiles and zero pair-clear slot-kernel
+  profiles. The best mutation `w2_c1_d1` clears all pair projections, but the
+  coefficient slot still has 14 nonzero rows and full rank.
+- **How it is useful:** Moves the active obstruction from pair projection to
+  coefficient support. The current local target is now pair-clear but not
+  slot-kernel.
+- **What to do next:** Start `m1-a327-pairclear-slot-kernel-row-reduction`.
+  Preserve pair-clear slots while reducing slot nonzero rows or creating
+  coefficient nullity. Use Macaulay2/Singular only if the row-reduction problem
+  becomes a small module/syzygy computation.
