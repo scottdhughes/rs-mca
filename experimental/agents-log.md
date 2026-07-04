@@ -3564,3 +3564,31 @@ Keep entries concise and link to the relevant files.
   `w2_c0_d1` coefficient matrix, verify the eight-row inactive chamber and
   five active rows with Python plus Macaulay2/Singular, and only return to Sage
   after a genuine pair-clear coefficient kernel or exact-lift proxy appears.
+### 2026-07-04 - M1 a327 pair-clear diverse five-row module audit
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_pairclear_diverse_five_row_module_audit.md`,
+  `experimental/scripts/scan_m1_a327_pairclear_diverse_five_row_module_audit.py`,
+  `experimental/scripts/verify_m1_a327_pairclear_diverse_five_row_module_audit.py`,
+  `experimental/scripts/m2_m1_a327_pairclear_diverse_five_row_module_audit.m2`,
+  `experimental/data/m1_a327_pairclear_diverse_five_row_module_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** AUDIT / DIVERSE_FIVEROW_MODULE_SUPPORT_REDUCED / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A Python + Macaulay2 audit of the best
+  support-reduced `w2_c0_d1` chamber from `e7dada7`.
+- **Result:** The target direction `[1,16,0,14,14,11]` is pair-clear and spans
+  the inactive kernel for eight zero row classes `[7,8,10,12,15,16,17,18]`.
+  The inactive matrix has rank 5 and nullity 1; the active matrix has five
+  rows `[5,9,11,13,14]` and rank 5. Adding any one of the five active rows
+  gives full rank 6, and all ten two-active-row extensions are full rank.
+  Macaulay2 confirms the full/inactive/active/rank-slack ranks. The adjacent
+  rank-slack chamber has rank 4 and nullity 2.
+- **How it is useful:** Certifies the five-active-row support improvement and
+  identifies the next useful search space: the adjacent 2D rank-slack kernel,
+  not the final 1D five-row chamber.
+- **What to do next:** Start
+  `m1-a327-pairclear-diverse-rankslack-kernel-repair`. Search projective
+  combinations inside the rank-slack kernel for pair-clear directions that kill
+  additional active rows or produce a coefficient kernel.
