@@ -4698,3 +4698,29 @@ Keep entries concise and link to the relevant files.
   of accepting the first feasible schedules. The target is a feasible order-16
   or order-32 block-count schedule whose quotient interpolation matrix has
   positive nullity.
+### 2026-07-04 - M1 a327 multiscale rank-feedback quotient search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_multiscale_rank_feedback_quotient_search.md`,
+  `experimental/scripts/scan_m1_a327_multiscale_rank_feedback_quotient_search.py`,
+  `experimental/scripts/verify_m1_a327_multiscale_rank_feedback_quotient_search.py`,
+  `experimental/data/m1_a327_multiscale_rank_feedback_quotient_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  RANK_FEEDBACK_FULL_RANK_FRONT / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A no-good rank-feedback loop for quotient orders
+  `16` and `32`. The scanner repeatedly solves the fully guarded block-count
+  model, audits the quotient interpolation matrix, then forbids the same active
+  partition pattern and asks CP-SAT for a different schedule.
+- **Result:** Both structural row-count-defect screens are infeasible. Four
+  order-16 schedules and four order-32 schedules were audited; all were full
+  rank with nullity `0`. Order 16 ranks/nullities were `48/0`; order 32
+  ranks/nullities were `96/0`.
+- **How it is useful:** This confirms that the first multiscale full-rank
+  result was not just a single unlucky feasible schedule. The tested
+  rank-feedback front remains algebraically generic.
+- **What to do next:** Stop relying on generic block-count schedules. The next
+  constructive route should add algebraic dependence directly to the schedule
+  generator, for example quotient-fiber symmetry, repeated row families, or a
+  prescribed primal kernel rather than post-hoc no-good enumeration.
