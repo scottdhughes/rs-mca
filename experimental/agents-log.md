@@ -3647,3 +3647,30 @@ Keep entries concise and link to the relevant files.
   `w3_c3_d1` profile and test whether row class `17` can be added to the
   seven-zero rank-slack chamber while preserving pair-clear and inactive rank
   at most four.
+### 2026-07-04 - M1 a327 pair-clear rank-slack seven-to-eight repair
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_pairclear_rankslack_seven_to_eight_repair.md`,
+  `experimental/scripts/scan_m1_a327_pairclear_rankslack_seven_to_eight_repair.py`,
+  `experimental/scripts/verify_m1_a327_pairclear_rankslack_seven_to_eight_repair.py`,
+  `experimental/data/m1_a327_pairclear_rankslack_seven_to_eight_repair.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / SEVEN_TO_EIGHT_SUPPORT_ONLY / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A focused full projective enumeration of the best
+  `w3_c3_d1` target profile, followed by all one-row extension attempts from
+  every rank-slack chamber. This directly tests whether the seven-zero
+  inactive-rank-4 chamber can become an eight-zero inactive-rank-4 chamber.
+- **Result:** The target row-class `17` extension is pair-clear and gives the
+  known eight-zero support-reduced chamber, but it raises inactive rank from 4
+  to 5. Across 194 extension attempts, there are 40 pair-clear extensions and
+  one support-reduced pair-clear extension, but zero rank-preserving pair-clear
+  extensions and zero deep rank-slack extensions.
+- **How it is useful:** Narrows the obstruction to row-17 dependence: row class
+  `17` must be made dependent on the seven-zero inactive span without breaking
+  the 21 pair projections.
+- **What to do next:** Start
+  `m1-a327-pairclear-row17-dependence-codesign`. Modify the local row geometry
+  so row class `17` lies in the inactive span of zero classes
+  `[6,7,8,14,18,19,20]` while pair-clear remains nonempty.
