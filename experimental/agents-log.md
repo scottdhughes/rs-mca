@@ -3366,3 +3366,31 @@ Keep entries concise and link to the relevant files.
   Preserve pair-clear slots while reducing slot nonzero rows or creating
   coefficient nullity. Use Macaulay2/Singular only if the row-reduction problem
   becomes a small module/syzygy computation.
+### 2026-07-04 - M1 a327 pair-clear slot-kernel row reduction
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_pairclear_slot_kernel_row_reduction.md`,
+  `experimental/scripts/scan_m1_a327_pairclear_slot_kernel_row_reduction.py`,
+  `experimental/scripts/verify_m1_a327_pairclear_slot_kernel_row_reduction.py`,
+  `experimental/data/m1_a327_pairclear_slot_kernel_row_reduction.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / PCSLOT_PAIR_CLEAR_SLOT_REDUCE_ROWS / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A bounded mutation and basis-aware row-reduction
+  pass around the `984fc16` pair-clear template `w2_c1_d1`, preserving
+  pair-clear slots while trying to reduce coefficient support or create
+  coefficient nullity.
+- **Result:** Tested 48 mutations, built 144 candidate systems, and analyzed
+  48 structural-pass candidates over 44,463 basis profiles and 266,778 slot
+  profiles. Found 684 pair-clear slot profiles and zero pair-clear slot-kernel
+  profiles. The best mutation `w1_c3_d1` keeps all pair projections clear and
+  reduces the active slot support from 14 nonzero rows to 11; the coefficient
+  matrix remains full rank with nullity 0.
+- **How it is useful:** Preserves the pair-clear breakthrough from `984fc16`
+  while moving the coefficient-support obstruction in the right direction. The
+  active blocker is now an eleven-row full-rank slot system, not pair
+  projection.
+- **What to do next:** Continue with a stage-2 row-reduction or syzygy branch
+  targeting `slot_nonzero_rows <= 10` or `coefficient_nullity > 0`. Use Python
+  for deterministic mutation scoring first; use Macaulay2/Singular only if the
+  remaining slot rows become a small module/syzygy problem.
