@@ -3592,3 +3592,28 @@ Keep entries concise and link to the relevant files.
   `m1-a327-pairclear-diverse-rankslack-kernel-repair`. Search projective
   combinations inside the rank-slack kernel for pair-clear directions that kill
   additional active rows or produce a coefficient kernel.
+### 2026-07-04 - M1 a327 pair-clear diverse rank-slack kernel repair
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_pairclear_diverse_rankslack_kernel_repair.md`,
+  `experimental/scripts/scan_m1_a327_pairclear_diverse_rankslack_kernel_repair.py`,
+  `experimental/scripts/verify_m1_a327_pairclear_diverse_rankslack_kernel_repair.py`,
+  `experimental/data/m1_a327_pairclear_diverse_rankslack_kernel_repair.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / RANKSLACK_KERNEL_EIGHT_ROW_STABLE / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A complete 18-direction projective enumeration of
+  the 2D rank-slack kernel adjacent to the `w2_c0_d1` five-row chamber.
+- **Result:** The kernel has 10 pair-clear directions, exactly one
+  support-reduced pair-clear direction, zero pair-clear directions with nine or
+  more zero rows, and zero coefficient-kernel directions. The best pair-clear
+  direction is projectively `[1,16,0,14,14,11]`, with eight zero rows and five
+  active rows. The raw basis direction `[0,0,1,1,0,0]` has ten zero rows but
+  eleven forced pairs.
+- **How it is useful:** Certifies that the immediate 2D rank-slack kernel does
+  not push past the eight-zero/five-active chamber. The next search needs a
+  deeper rank-slack front, not more combinations inside this same kernel.
+- **What to do next:** Start `m1-a327-pairclear-deeper-rankslack-front`.
+  Prioritize profiles with at least eight zero rows and inactive rank at most
+  four, or kernel nullity at least three, before spending full projective scans.
