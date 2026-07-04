@@ -4594,3 +4594,28 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Make the partition design itself the CP-SAT object and
   check degree-3 interpolation afterward, instead of sampling quotient
   polynomials first.
+### 2026-07-04 - M1 a327 order-8 partition-first interpolation search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_order8_partition_first_interpolation_search.md`,
+  `experimental/scripts/scan_m1_a327_order8_partition_first_interpolation_search.py`,
+  `experimental/scripts/verify_m1_a327_order8_partition_first_interpolation_search.py`,
+  `experimental/data/m1_a327_order8_partition_first_interpolation_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  PARTITION_FIRST_INTERPOLATION_NO_CANDIDATE / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A partition-first order-8 quotient scanner. CP-SAT
+  chooses equality partitions and selected-block counts first, then the scanner
+  checks the resulting degree-3 interpolation system over `GF(17)`.
+- **Result:** With local partition cost capped at `4`, the direct
+  rank-defect target `equation_count <= 23` is infeasible. The broader
+  support-feasibility and min-equation fallback models both remained `UNKNOWN`
+  within the 60-second-per-model run, so no interpolation audit ran.
+- **How it is useful:** Separates a proved local rank-defect infeasibility
+  from unresolved broader partition-first feasibility. It also establishes the
+  exact artifact shape for checking interpolation once CP-SAT returns a
+  schedule.
+- **What to do next:** Add constructive seeds or a narrower partition grammar
+  for support feasibility rather than increasing the full partition-first model
+  blindly.

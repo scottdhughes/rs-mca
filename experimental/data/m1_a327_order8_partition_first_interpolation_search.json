@@ -1,0 +1,102 @@
+{
+  "agreement_target": 327,
+  "candidate": {
+    "agreement_vector": null,
+    "codeword_hashes": null,
+    "constructed": false,
+    "received_word_hash": null,
+    "seven_distinct": false
+  },
+  "denominator": "17^32",
+  "interpolation_audit": {
+    "attempted": false,
+    "best_failure_mode": "PARTITION_FIRST_NO_SCHEDULE",
+    "candidate_constructed": false,
+    "forced_equal_pairs": [],
+    "nullity": null,
+    "rank": null
+  },
+  "mca_counted": false,
+  "models": [
+    {
+      "best_failure_mode": "PARTITION_FIRST_STRUCTURAL_DEFECT_INFEASIBLE",
+      "cp_sat_status": "INFEASIBLE",
+      "equation_count": null,
+      "feasible": false,
+      "max_ambient_pair_buckets": null,
+      "max_partition_cost": 4,
+      "mode": "structural_defect_target",
+      "ortools_version": "9.15.6755",
+      "pair7_counts": null,
+      "partition_count": 813,
+      "selected_block_counts": null,
+      "selected_partitions": null,
+      "support_vector": null
+    },
+    {
+      "best_failure_mode": "PARTITION_FIRST_CP_UNRESOLVED",
+      "cp_sat_status": "UNKNOWN",
+      "equation_count": null,
+      "feasible": false,
+      "max_ambient_pair_buckets": null,
+      "max_partition_cost": 4,
+      "mode": "support_feasibility",
+      "ortools_version": "9.15.6755",
+      "pair7_counts": null,
+      "partition_count": 813,
+      "selected_block_counts": null,
+      "selected_partitions": null,
+      "support_vector": null
+    },
+    {
+      "best_failure_mode": "PARTITION_FIRST_CP_UNRESOLVED",
+      "cp_sat_status": "UNKNOWN",
+      "equation_count": null,
+      "feasible": false,
+      "max_ambient_pair_buckets": null,
+      "max_partition_cost": 4,
+      "mode": "min_equation_fallback",
+      "ortools_version": "9.15.6755",
+      "pair7_counts": null,
+      "partition_count": 813,
+      "selected_block_counts": null,
+      "selected_partitions": null,
+      "support_vector": null
+    }
+  ],
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C",
+    "Sage GF(17^32) exact lift",
+    "MCA/protocol consequence from this list-track partition-first quotient construction",
+    "global obstruction outside the tested order-8 partition-first interpolation search"
+  ],
+  "partition_first_search": {
+    "best_failure_mode": "PARTITION_FIRST_NO_SCHEDULE",
+    "candidate_constructed": false,
+    "chosen_equation_count": null,
+    "chosen_mode": "min_equation_fallback",
+    "fallback_feasible": false,
+    "interpolation_nullity": null,
+    "interpolation_rank": null,
+    "max_partition_cost": 4,
+    "structural_defect_target_feasible": false,
+    "support_feasibility_feasible": false,
+    "time_limit_seconds": 60.0,
+    "variable_count": 24
+  },
+  "previous_order8_degree3_codesign": {
+    "candidates_tested": 3008,
+    "failure_mode": "ORDER8_PARTITION_ALLOCATION_INFEASIBLE",
+    "feasible_allocations": 0,
+    "proof_status": "EXACT_EXTRACTION_NO_A327 / ORDER8_DEGREE3_NO_ALLOCATION / PARTIAL / EXPERIMENTAL"
+  },
+  "proof_status": "EXACT_EXTRACTION_NO_A327 / PARTITION_FIRST_INTERPOLATION_NO_CANDIDATE / PARTIAL / EXPERIMENTAL",
+  "row": "RS[F_17^32,H,256]",
+  "source_commit": "bcb9ac5",
+  "track": "INTERLEAVED_LIST"
+}
