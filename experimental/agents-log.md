@@ -3674,3 +3674,30 @@ Keep entries concise and link to the relevant files.
   `m1-a327-pairclear-row17-dependence-codesign`. Modify the local row geometry
   so row class `17` lies in the inactive span of zero classes
   `[6,7,8,14,18,19,20]` while pair-clear remains nonempty.
+### 2026-07-04 - M1 a327 pair-clear row17 dependence codesign
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_pairclear_row17_dependence_codesign.md`,
+  `experimental/scripts/scan_m1_a327_pairclear_row17_dependence_codesign.py`,
+  `experimental/scripts/verify_m1_a327_pairclear_row17_dependence_codesign.py`,
+  `experimental/data/m1_a327_pairclear_row17_dependence_codesign.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / ROW17_DEPENDENCE_SUPPORT_ONLY / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A targeted GF(17) row-space screen over 240
+  mutations and 1,398 basis profiles. For each profile, it tests whether row
+  class `17` is dependent on the inactive span of row classes
+  `[6,7,8,14,18,19,20]` while preserving a pair-clear direction.
+- **Result:** The scan found 12 base rank-slack/pair-clear profiles and 14
+  extended pair-clear profiles, but zero extended rank-slack pair-clear
+  profiles. The best support-only profile is `ninerow_w3_c3_d1` with basis
+  `basisaware_0_1_2_3_4_10`; the base span has rank 4/nullity 2, but adding
+  row class `17` raises rank to 5/nullity 1.
+- **How it is useful:** Confirms that current mutations can preserve pair-clear
+  after adding row17, but do not make row17 dependent on the rank-4 inactive
+  span. The obstruction is now explicitly a row-span dependence condition.
+- **What to do next:** Start
+  `m1-a327-pairclear-rowspan-dependence-mutation`. Search mutations that force
+  row classes `[6,7,8,14,17,18,19,20]` to have rank at most 4 while preserving
+  a nonzero pair-clear kernel.
