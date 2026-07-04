@@ -4753,3 +4753,29 @@ Keep entries concise and link to the relevant files.
   `mu_8`-orbit-invariant construction: use the order-8 subgroup action to
   reduce exact rank screens to small structured blocks and audit candidates
   over GF(17^32).
+### 2026-07-04 - M1 a327 mu8 orbit-invariant construction
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_mu8_orbit_invariant_construction.md`,
+  `experimental/scripts/audit_m1_a327_mu8_orbit_invariant_construction.sage`,
+  `experimental/scripts/verify_m1_a327_mu8_orbit_invariant_construction.py`,
+  `experimental/data/m1_a327_mu8_orbit_invariant_construction.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / MU8_ORBIT_NULLITY_ZERO_FRONT /
+  PARTIAL / EXPERIMENTAL.
+- **What is being added:** A first exact Sage screen for the `mu_8`
+  orbit-invariant construction. The audit writes
+  `P(X)=sum_{t=1}^7 X^t g_t(X^8)` with `deg g_t<32`, omitting the invariant
+  `g_0` component, and tests period-8 selected-position schedules that give
+  support `328` per orbit codeword.
+- **Result:** `29` deterministic schedules were tested; `9` passed support and
+  ambient pair-autocorrelation guards. Every guard-passing schedule produced a
+  `264 x 224` exact matrix over `GF(17^32)` with rank/nullity `224/0`.
+- **How it is useful:** This confirms the `mu_8` route is computationally
+  affordable in exact arithmetic, even though the first Sidon-complement front
+  is full rank.
+- **What to do next:** Keep the `mu_8` route live, but widen it with rank
+  feedback: implement the symmetry block decomposition or a richer period-8
+  pattern generator so exact `GF(17^32)` rank can be used inside the schedule
+  search rather than only on hand-seeded schedules.
