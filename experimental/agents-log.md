@@ -3425,3 +3425,30 @@ Keep entries concise and link to the relevant files.
   directly, aiming for `direction_nonzero_rows <= 8` or an actual direction
   kernel. If the nine-row system stabilizes, use Macaulay2/Singular for a small
   module/syzygy check before any Sage exact lift.
+### 2026-07-04 - M1 a327 pair-clear direction nine-row repair
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_pairclear_direction_nine_row_repair.md`,
+  `experimental/scripts/scan_m1_a327_pairclear_direction_nine_row_repair.py`,
+  `experimental/scripts/verify_m1_a327_pairclear_direction_nine_row_repair.py`,
+  `experimental/data/m1_a327_pairclear_direction_nine_row_repair.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / NINEROW_FIXED_DIRECTION_STABLE / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A targeted repair pass for the pinned nine-row
+  pair-clear direction from `402d88c`: basis `[1,4,7,8,9,10]`, direction
+  `[0,5,0,0,0,1]`, active row classes `[0,2,3,5,6,11,12,14,15]`.
+- **Result:** Tested 72 mutations, built 216 candidate systems, and analyzed
+  36 structural-pass candidates. The target basis appeared in 27 analyzed
+  profiles. Across 71,307 local anchored directions, 2,883 were pair-clear, but
+  zero reduced the row support below nine and zero were direction kernels. The
+  best row remains the base mutation with fixed direction `[0,5,0,0,0,1]`,
+  forced-pair count 0, and nine active rows.
+- **How it is useful:** Converts the previous "try to reduce nine rows" target
+  into a tested stability checkpoint for this bounded local front. The active
+  obstruction is now a pinned nine-row pair-clear direction system rather than
+  a basis/unit-slot artifact.
+- **What to do next:** Stop widening local mutation first. Export the pinned
+  nine-row system over `GF(17)` and use Macaulay2 or Singular only if it becomes
+  a small module/syzygy or rank-minor problem. Sage should still wait until a
+  pair-clear direction-kernel proxy target exists.
