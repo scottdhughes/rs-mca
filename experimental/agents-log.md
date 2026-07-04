@@ -3272,3 +3272,23 @@ Keep entries concise and link to the relevant files.
   collapse obstruction improved substantially, but still did not clear.
 - **What to do next:** Target the four remaining forced pairs directly in a
   forced-pair repair branch.
+### 2026-07-04 - M1 a327 basis-aware forced-pair repair
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_basis_aware_forced_pair_repair.md`,
+  `experimental/scripts/scan_m1_a327_basis_aware_forced_pair_repair.py`,
+  `experimental/scripts/verify_m1_a327_basis_aware_forced_pair_repair.py`,
+  `experimental/data/m1_a327_basis_aware_forced_pair_repair.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / BAFPAIR_PARTIAL_FORCED_PAIR_REPAIR / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A widened basis-aware repair front targeting the
+  four forced pairs from `37d9718`: `P12`, `P17`, `P27`, and `P46`.
+- **Result:** Tested 12 systems, 16,437 basis profiles, and 98,622 slot
+  profiles. Repaired `P17` and `P27`, left `P12` and `P46`, introduced `P57`,
+  and reduced the best forced-pair count from 4 to 3. No pair-clear slot or
+  pair-clear slot-kernel profile was found.
+- **How it is useful:** Confirms the pair projection obstruction is movable
+  under basis choice; the remaining obstruction is now `P12`, `P46`, `P57`.
+- **What to do next:** Target those three remaining projection zeros directly
+  with basis construction or template variation.
