@@ -3012,3 +3012,29 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Build a realization-aware proxy-slot generator that
   keeps actual template-vector rowspaces inside the search, instead of
   engineering the proxy functional rows first and realizing them afterward.
+### 2026-07-03 - M1 a327 realization-aware proxy-slot generator
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_realization_aware_proxy_slot_generator.md`,
+  `experimental/scripts/scan_m1_a327_realization_aware_proxy_slot_generator.py`,
+  `experimental/scripts/verify_m1_a327_realization_aware_proxy_slot_generator.py`,
+  `experimental/data/m1_a327_realization_aware_proxy_slot_generator.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / RAWARE_SLOT_NOT_KERNEL / PARTIAL / EXPERIMENTAL.
+- **What is being added:** An actual-template-only proxy-slot scan that accepts
+  a slot kernel only if it is already present in realized template-vector
+  rowspaces, with no synthetic rowspace edits.
+- **Result:** Tested 216 systems, 12,312 stable basis profiles, and 73,872 slot
+  profiles. Found zero actual zero-slot profiles and zero pair-projection-clear
+  actual slots. The closest profile is `single_outside_w7_v3` /
+  `signature_fiber_blocks`, basis `slot_union_142_5_7_9_11_13_17`, with only 2
+  nonzero rows in the candidate slot, but coefficient rank/nullity `6 / 0` and
+  15 forced pair equalities.
+- **How it is useful:** Confirms that the proxy-slot kernel mechanism is not
+  already present in the bounded actual-template stable-basis front. The next
+  useful target is a near-miss repair that kills the two residual slot
+  coefficients while preserving pair projections.
+- **What to do next:** Start a focused near-miss repair branch around
+  `single_outside_w7_v3` / `slot_union_142_5_7_9_11_13_17`, rather than
+  broadening random mutation immediately.
