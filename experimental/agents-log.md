@@ -3394,3 +3394,34 @@ Keep entries concise and link to the relevant files.
   targeting `slot_nonzero_rows <= 10` or `coefficient_nullity > 0`. Use Python
   for deterministic mutation scoring first; use Macaulay2/Singular only if the
   remaining slot rows become a small module/syzygy problem.
+### 2026-07-04 - M1 a327 pair-clear slot row syzygy
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_pairclear_slot_row_syzygy.md`,
+  `experimental/scripts/scan_m1_a327_pairclear_slot_row_syzygy.py`,
+  `experimental/scripts/verify_m1_a327_pairclear_slot_row_syzygy.py`,
+  `experimental/data/m1_a327_pairclear_slot_row_syzygy.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / PCSYZ_DIRECTION_REDUCE_ROWS / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A projective-direction row-syzygy pass around the
+  `8ae0631` pair-clear row-reduction front. Instead of testing only coordinate
+  unit slots, it searches anchored directions `e_slot + a e_j` over `GF(17)`
+  and scores the active support of `M v` while preserving pair-clear
+  projections.
+- **Result:** Tested 48 mutations, built 144 candidate systems, and analyzed
+  24 structural-pass candidates. Across 25,854 basis profiles, 155,124 slot
+  profiles, and 3,888 anchored direction vectors, every tested direction
+  profile kept pair projections clear, and 48 profiles reduced row support. The
+  best direction is `[0,5,0,0,0,1]` on `basisaware_1_4_7_8_9_10`; it preserves
+  forced-pair count 0 and reduces active support from 11 rows to 9 rows. No
+  direction kernel was found.
+- **How it is useful:** Shows the active obstruction is not tied to a coordinate
+  unit slot. A two-term projective direction preserves pair-clear behavior while
+  cutting the remaining support to nine row classes:
+  `[0,2,3,5,6,11,12,14,15]`.
+- **What to do next:** Start `m1-a327-pairclear-direction-nine-row-repair`.
+  Preserve direction `[0,5,0,0,0,1]` and target the nine active row classes
+  directly, aiming for `direction_nonzero_rows <= 8` or an actual direction
+  kernel. If the nine-row system stabilizes, use Macaulay2/Singular for a small
+  module/syzygy check before any Sage exact lift.
