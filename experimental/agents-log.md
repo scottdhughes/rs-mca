@@ -3750,3 +3750,28 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Start `m1-a327-pairclear-p45-p46-p56-codesign`. Keep
   the extended rank-4/nullity-2 target, preserve `P57/P67` clearance, and
   repair `P45`, `P46`, and `P56`.
+### 2026-07-04 - M1 a327 pair-clear P45/P46/P56 codesign
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_pairclear_p45_p46_p56_codesign.md`,
+  `experimental/scripts/scan_m1_a327_pairclear_p45_p46_p56_codesign.py`,
+  `experimental/scripts/verify_m1_a327_pairclear_p45_p46_p56_codesign.py`,
+  `experimental/data/m1_a327_pairclear_p45_p46_p56_codesign.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / P456_FORCED_PROJECTIONS_REMAIN /
+  PARTIAL / EXPERIMENTAL.
+- **What is being added:** A target-specific rank-slack kernel search over all
+  646 mutation specs and three assignment seed offsets, prioritizing clearance
+  of `P45`, `P46`, and `P56`, then preserving `P57/P67`.
+- **Result:** No candidate clears all target projections. The best profile,
+  `ninerow_W57_c13_pm1` with basis `targetaware_0_1_2_3_4_10`, keeps the
+  extended target at rank 4/nullity 2. Its best direction `[0,0,0,1,0,2]`
+  clears `P45` and `P56`, but still forces `P46`; it also loses `P67` and
+  forces `P14`, `P16`, `P17`, and `P47`.
+- **How it is useful:** Reduces the target failure from three target pairs to
+  one target pair (`P46`), but shows the repair trades off against `P67` and
+  new witness-1/4 projections.
+- **What to do next:** Start `m1-a327-pairclear-p46-p67-tradeoff-repair`.
+  Keep `P45/P56` clear, repair `P46`, restore `P67`, and avoid introducing
+  `P14/P16/P17/P47`.
