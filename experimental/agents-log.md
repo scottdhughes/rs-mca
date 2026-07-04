@@ -3038,3 +3038,29 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Start a focused near-miss repair branch around
   `single_outside_w7_v3` / `slot_union_142_5_7_9_11_13_17`, rather than
   broadening random mutation immediately.
+### 2026-07-03 - M1 a327 realized-slot near-miss repair
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_realized_slot_nearmiss_repair.md`,
+  `experimental/scripts/scan_m1_a327_realized_slot_nearmiss_repair.py`,
+  `experimental/scripts/verify_m1_a327_realized_slot_nearmiss_repair.py`,
+  `experimental/data/m1_a327_realized_slot_nearmiss_repair.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / NREPAIR_SLOT_NOT_KERNEL / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A focused actual-template repair scan around the
+  `single_outside_w7_v3` near miss. It preserves the selected-count ledger and
+  tests witness-7 single-coordinate mutations plus a second-order refinement
+  around the best one-coordinate mutation.
+- **Result:** Tested 177 mutation profiles, 1062 systems, and 184,428 stable
+  slot profiles. Found zero actual zero-slot profiles. The best mutation is
+  `w7_c1_v9`; it keeps support `[327,...,327]`, pair7 counts `[253,...,253]`,
+  functional span rank 6, and no forced identities, but still has 2 nonzero
+  slot rows. It improves the forced-pair count from 15 to 10.
+- **How it is useful:** Confirms that small witness-7 coordinate mutations do
+  not produce a realized proxy-slot kernel, but the best mutation gives a
+  sharper residual-equation target.
+- **What to do next:** Derive the two residual slot coefficients as explicit
+  equations in template-vector perturbation variables and solve that small
+  repair problem directly, using Python first and Macaulay2/Singular only if
+  the equations become a module/elimination problem.
