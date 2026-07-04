@@ -3157,3 +3157,26 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Move to a determinantal/rank-defect template ansatz:
   prescribe a rank-5 relation among nonbasis coefficient rows first, then solve
   for template vectors or selected masks that realize it.
+### 2026-07-03 - M1 a327 rank-defect template ansatz
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_rankdefect_template_ansatz.md`,
+  `experimental/scripts/scan_m1_a327_rankdefect_template_ansatz.py`,
+  `experimental/scripts/verify_m1_a327_rankdefect_template_ansatz.py`,
+  `experimental/data/m1_a327_rankdefect_template_ansatz.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / RANKDEFECT_COEFFICIENT_FULL_RANK / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A new template generator built from rank-5
+  hyperplanes plus one outside witness direction, followed by the same
+  support/pair, obstruction-basis, and coefficient-kernel gates.
+- **Result:** Generated 64 templates and tested 384 systems. All systems are
+  structural-pass. 84 contain the target obstruction functional. The scan
+  checks 7,498,470 forced basis combinations and 4,260 valid forced stable-basis
+  profiles, with zero coefficient-kernel profiles.
+- **How it is useful:** Shows that the first explicit rank-defect-oriented
+  template ansatz still does not create coefficient rank defect under forced
+  obstruction-basis inclusion.
+- **What to do next:** Prescribe repeated nonbasis coordinate rows or an
+  explicit right-kernel vector for the coefficient matrix, then solve backward
+  for template vectors or selected masks.
