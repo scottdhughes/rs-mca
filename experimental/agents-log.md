@@ -3617,3 +3617,33 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Start `m1-a327-pairclear-deeper-rankslack-front`.
   Prioritize profiles with at least eight zero rows and inactive rank at most
   four, or kernel nullity at least three, before spending full projective scans.
+### 2026-07-04 - M1 a327 pair-clear deeper rank-slack front
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_pairclear_deeper_rankslack_front.md`,
+  `experimental/scripts/scan_m1_a327_pairclear_deeper_rankslack_front.py`,
+  `experimental/scripts/verify_m1_a327_pairclear_deeper_rankslack_front.py`,
+  `experimental/data/m1_a327_pairclear_deeper_rankslack_front.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / DEEP_RANKSLACK_SUPPORT_REDUCED_ONLY / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A broader pair-clear chamber search targeting
+  profiles with at least eight zero rows and inactive rank at most four. The
+  scanner covers 160 mutations, 480 candidate systems, 459 structural-pass
+  candidates, 36 selected diverse candidates, and 108 sampled profiles before
+  four full projective scans.
+- **Result:** The deeper target was not found: sampled and full deep
+  rank-slack profiles are both zero. All four full scans still confirmed
+  support-reduced chambers. The best full profile is `ninerow_w3_c3_d1` with
+  basis `basisaware_0_1_2_3_5_10`; its best eight-zero chamber has inactive
+  rank 5 and seven active rows, while its best rank-slack chamber has inactive
+  rank 4/nullity 2 but only seven zero rows.
+- **How it is useful:** Confirms the obstruction has narrowed to coupling the
+  eighth zero row with rank slack: the current front can get either eight zero
+  rows or inactive rank 4, but not both in the same pair-clear chamber.
+- **What to do next:** Start
+  `m1-a327-pairclear-rankslack-seven-to-eight-repair`. Focus on the best
+  `w3_c3_d1` profile and test whether row class `17` can be added to the
+  seven-zero rank-slack chamber while preserving pair-clear and inactive rank
+  at most four.
