@@ -4190,3 +4190,31 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Start from the high-q-budget ledger-codesign front and
   search for repeated basis-coordinate rows, repeated support-coordinate rows,
   nested supports, or other dependency-positive profiles before proxy rank.
+### 2026-07-04 - M1 a327 ledger-codesign row-dependency search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_ledger_codesign_rowdependency_search.md`,
+  `experimental/scripts/scan_m1_a327_ledger_codesign_rowdependency_search.py`,
+  `experimental/scripts/verify_m1_a327_ledger_codesign_rowdependency_search.py`,
+  `experimental/data/m1_a327_ledger_codesign_rowdependency_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / ROWDEP_PROXY_FULL_RANK / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A row-dependency scoring layer on top of the
+  high-q ledger-codesign front. It scores repeated basis-coordinate rows,
+  repeated support rows, repeated support-coordinate rows, nested supports, and
+  support overlap before proxy rank.
+- **Result:** The run rebuilt 240 structural-pass systems, constructed 160
+  basis profiles, found 160 dependency-positive profiles and 18 that also met
+  the `q_variable_count >= 350` floor, then proxy-ranked 12. It found zero
+  proxy-positive profiles. The best dependency profile had `q_variable_count =
+  802`, dependency score `1954`, four nested-support pairs, and support-overlap
+  total `1025`. The best proxy-ranked profile was still full rank: matrix
+  `1012 x 771`, proxy rank/nullity `771/0`.
+- **How it is useful:** Narrows the obstruction. Broad overlap/nested-support
+  dependence is present but insufficient; the best profiles still have no exact
+  repeated coordinate/support/support-coordinate row collisions.
+- **What to do next:** Search for exact row collisions in the ledger-codesign
+  front, while preserving q-budget, pair guards, span rank, and no forced
+  identities.
