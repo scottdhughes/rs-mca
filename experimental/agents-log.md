@@ -4052,3 +4052,30 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Add dependency-aware pre-rank features, especially
   repeated nonbasis support sets and repeated basis-coordinate patterns, before
   the full proxy-rank screen.
+### 2026-07-04 - M1 a327 cycleguard dependency-aware pre-chamber screen
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_cycleguard_dependency_aware_prechamber_screen.md`,
+  `experimental/scripts/scan_m1_a327_cycleguard_dependency_aware_prechamber_screen.py`,
+  `experimental/scripts/verify_m1_a327_cycleguard_dependency_aware_prechamber_screen.py`,
+  `experimental/data/m1_a327_cycleguard_dependency_aware_prechamber_screen.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / CYCLEG_DEP_PRECHAMBER_PROXY_FULL_RANK /
+  PARTIAL / EXPERIMENTAL.
+- **What is being added:** A dependency-aware pre-chamber screen that scores
+  basis profiles by repeated support hashes, repeated projective
+  basis-coordinate rows, and repeated support-coordinate pairs before proxy
+  rank.
+- **Result:** The screen collected 96 basis profiles and proxy-ranked 8
+  dependency-aware targets over `GF(12289)`. It found zero proxy-positive
+  profiles. The best profile was `ninerow_P12_shear_c0_d1` with basis
+  `basisaware_0_1_2_3_4_5`, dependency score `39`, matrix shape `697 x 456`,
+  and proxy rank/nullity `456/0`.
+- **How it is useful:** Shows that passive dependency-aware selection changes
+  the front but still produces full-rank systems; repeated support signals
+  alone do not create the needed basis-quotient nullity.
+- **What to do next:** Move from dependency-aware screening to a
+  dependency-forced generator that deliberately creates repeated
+  support-coordinate row classes or other algebraic row dependencies before
+  proxy ranking.
