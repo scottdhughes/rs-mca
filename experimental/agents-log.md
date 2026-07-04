@@ -4297,3 +4297,31 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Move to collision-budget right-kernel codesign: prescribe
   a kernel direction/subspace and choose basis profiles whose nonbasis rows
   annihilate it.
+### 2026-07-04 - M1 a327 collision-budget right-kernel codesign
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_collision_budget_rightkernel_codesign.md`,
+  `experimental/scripts/scan_m1_a327_collision_budget_rightkernel_codesign.py`,
+  `experimental/scripts/verify_m1_a327_collision_budget_rightkernel_codesign.py`,
+  `experimental/data/m1_a327_collision_budget_rightkernel_codesign.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / RKERNEL_PROXY_FULL_RANK / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A right-kernel codesign screen on the committed
+  collision-budget front. It computes coefficient-level nonbasis row kernels
+  over `GF(17)` and proxy-ranks the strongest collision-budget profiles with a
+  coefficient right kernel.
+- **Result:** The run reconstructed the 240 committed collision-budget
+  profiles. Of these, 192 had coefficient kernel nullity one, but the top 12
+  right-kernel collision-budget profiles remained proxy full rank over
+  `GF(12289)`. The best profile had `q_variable_count = 666`, coefficient
+  rank/nullity `5/1`, kernel `[1,1,1,16,16,16]`, and proxy rank/nullity
+  `666/0`. OR-Tools 9.15.6755 was verified available in the local
+  `rs-mca-ortools` venv for the next CP-SAT layer.
+- **How it is useful:** Separates shallow coefficient-kernel success from
+  actual proxy right-kernel success. Coefficient kernels are common in this
+  front but do not survive the support-polynomial/evaluation expansion.
+- **What to do next:** Move to a primal structured-kernel route, beginning with
+  quotient-subgroup RS kernels and OR-Tools CP-SAT fiber allocation before any
+  Sage exact audit.
