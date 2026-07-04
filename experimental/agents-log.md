@@ -2961,3 +2961,30 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Build a proxy-kernel-prescribed generator that targets
   nullity in the expanded quotient matrix directly, while preserving stable
   basis union and pair-projection nondegeneracy.
+### 2026-07-03 - M1 a327 proxy-slot kernel generator
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_proxy_slot_kernel_generator.md`,
+  `experimental/scripts/scan_m1_a327_proxy_slot_kernel_generator.py`,
+  `experimental/scripts/verify_m1_a327_proxy_slot_kernel_generator.py`,
+  `experimental/data/m1_a327_proxy_slot_kernel_generator.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / PSLOT_PROXY_KERNEL_TARGET / PARTIAL / EXPERIMENTAL.
+- **Realization status:** SYNTHETIC_FUNCTIONAL_PROXY_TARGET.
+- **What is being added:** A proxy-slot kernel generator that engineers a
+  single stable basis coordinate to vanish across all nonbasis rows, making one
+  `Q` block a guaranteed kernel block of the expanded proxy quotient matrix.
+- **Result:** Tested 216 systems, 12,312 stable basis profiles, and 73,872 slot
+  profiles. Found 42 pair-projection-clear proxy-slot kernel targets. The best
+  target has stable basis-zero union size 10, coefficient rank/nullity `5 / 1`,
+  no forced pair equalities, and a guaranteed proxy nullity lower bound of 253.
+  Direct GF(12289) proxy audit gives matrix shape `1761 x 1520` and
+  rank/nullity `1267 / 253`.
+- **How it is useful:** This is the first expanded-proxy-positive target after
+  the `Z_lambda` full-rank obstruction. It proves the next obstruction is no
+  longer proxy nullity in the synthetic functional model, but realization of
+  the prescribed functional coefficients as an exact template/lift.
+- **What to do next:** Attempt actual template-vector realization for the
+  `sheared_outside_seed_001` slot-kernel target, then run Sage GF(17^32) only
+  after that realization gate is cleared.
