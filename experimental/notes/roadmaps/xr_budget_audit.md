@@ -2,7 +2,7 @@
 
 - **Status:** AUDIT — every number re-derived deterministically by
   `experimental/scripts/verify_xr_budget_audit.py` (stdlib python3, exact big
-  integers, no randomness; current run **50 PASS, 0 FAIL, exit 0**).
+  integers, no randomness; current run **49 PASS, 0 FAIL, exit 0**).
 - **DAG:** `xr_target_budget_audit` (feeds `xr_clean_residual_any_gate`).
 - **Parents:** `proof_sketch/s2_paid_ledger.md` (B_tan/B_quot ledger, sect. 1/3/5),
   `qa3_e14_fm_margin_tables.md` (B*, A*, A_zero, GM conventions),
@@ -10,20 +10,6 @@
   (`git show fork/codex/q3r3-clean-rate-corridor:experimental/data/certificates/
   clean-rate-corridor-pipeline/clean_rate_corridor_pipeline_skeleton.json`,
   commit d642a419).
-
-## 0. Critical-path role
-
-This audit fixes the integer allowance used by the conditional prize proof
-path.  At the clean-rate decision rows, the paid quotient and tangent ledgers
-do not force post-strip emptiness: the remaining allowance is enormous at Row C
-and still about `29 n^3` at the prize rows.  The follow-up compiler
-`xr_clean_poly_forcing_reduction.md` therefore consumes a polynomial residual
-cap instead of an emptiness statement.
-
-This audit is not an algebraic proof of that cap.  Its role is to make the
-conditional target exact: after the paid ledgers, any verified
-`R_post(u,v; A) <= 16 n^3` theorem is arithmetically strong enough for the
-clean-rate prize rows.
 
 ## 1. Question and conventions
 
@@ -152,4 +138,4 @@ deciding scales + upward-closure of the unsafe chain, last realizable unsafe
 points, strict and floor-rounded B_quot at A and A+1, the s ranges, the
 pinned-row calibration (s = 0, s(508) = 1), ZM(A) < 0 and `A >= A*+2` E14
 reconciliations, and the #213 dyadic-crossing match. Prints the table and
-PASS per claim. Current run: **50 PASS, 0 FAIL, exit 0.**
+PASS per claim. Current run: **49 PASS, 0 FAIL, exit 0.**

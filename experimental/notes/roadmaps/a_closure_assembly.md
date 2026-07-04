@@ -14,15 +14,6 @@
   `experimental/notes/roadmaps/a3_good_reduction_lemma.md` (the new
   lemma; notation used freely here).
 
-## Critical-path role
-
-This assembly is the conditional consumer of A3 in the prize spine.  Once
-the per-`(n,h)` A3 certificates and row `gcd(p,D(n,h))` tests are supplied,
-the post-strip primitive small-`h` lane contributes zero at the official
-clean rows, while bad-prime exceptions have an explicit `n^3` fallback
-budget.  This is the bridge cited by the low-`h` MITM and descent-injection
-packets.
-
 ## 1. Banked inputs
 
 1. **x81 + x83** (PROVED, verifier-green): minimal h-trades in mu_n
@@ -221,7 +212,7 @@ Run:
 python3 experimental/scripts/verify_a3_good_reduction.py
 ```
 
-Current upstream replay: **15 PASS, 0 FAIL**, including (S4) the end-to-end
+Current replay: **14 PASS, 0 FAIL**, including (S4) the end-to-end
 A3 biconditional at (16,3) over all rows q = p <= 700 and the
 extension rows q = p^2 in {49, 529} (exceptional set found:
 {7, 17, 97}, matching brute-force trades exactly), (S5) the orbit

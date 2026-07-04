@@ -7,15 +7,6 @@
 - **Certificate:**
   `experimental/data/certificates/x24-char0-dyadic-descent/x24_char0_dyadic_descent.json`.
 
-## Critical-path role
-
-X24 is the characteristic-zero classification consumed by the A3
-good-reduction bridge.  A3 identifies clean finite-row primitive
-square-shift candidates with characteristic-zero candidates; X24 then says
-those characteristic-zero candidates are only full dyadic fibers, hence paid
-coset-union classes.  This is the step that turns clean A3 cells into zero
-post-strip primitive residue in the conditional prize path.
-
 ## Statement
 
 Let `n=2^s` and `H=mu_n(C)`.  Let `P,Q` be disjoint h-subsets of `H`

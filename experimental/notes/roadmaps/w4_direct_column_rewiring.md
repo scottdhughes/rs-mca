@@ -10,15 +10,6 @@
 - **Certificate:**
   `experimental/data/certificates/w4-direct-column-rewiring/w4_direct_column_rewiring.json`.
 
-## Critical-path role
-
-W4 is the compiler-side bridge that lets the conditional prize path target a
-row-wise `n^3` primitive split-pair residue directly.  It prevents the U1/B
-consumers from demanding a stronger anchored `n^2` local theorem before the
-budget compiler sees the count.  The packet does not prove the terminal
-residue estimate; it proves that once such a post-strip row-wise estimate is
-available, the existing clean-rate budget has room for it.
-
 ## Statement
 
 Assume the terminal primitive PTE residue is supplied in the compiler's

@@ -21,20 +21,6 @@
   slack composition (pair-ledger input).
 - **Verifier:** `python3 experimental/scripts/verify_qx13_pair_rank_ledger.py`
   (standalone python3, stdlib only, deterministic; exit 0 iff green).
-- **Certificate:**
-  `experimental/data/certificates/qx13-pair-rank-ledger/qx13_pair_rank_ledger.json`.
-
-## Critical-path role
-
-This is a foundation packet for the conditional prize proof spine.  It supplies
-the exact averaged pair-correlation exponent used by the XR coverage ledger:
-same-slope and distinct-slope pair events pay `c(s,t)=min(s,t-1)` in the
-moment calculation.  That is the q-power input used before the proof stack
-passes to fixed-pair/globalness statements.
-
-The packet is intentionally moment-level.  It does not by itself prove the
-post-strip worst-case polynomial residual bound; QX.11 and the later
-small-core/active-core packets provide the deterministic conversion layers.
 
 ## 0. Pinned notation
 
@@ -374,9 +360,7 @@ coset sanity:    the model inherits the m2 note's direction-coset
 ## 8. Verifier
 
 `experimental/scripts/verify_qx13_pair_rank_ledger.py` — standalone
-python3, stdlib only, deterministic, exit 0 iff green.  It pins and replays
-`experimental/data/certificates/qx13-pair-rank-ledger/qx13_pair_rank_ledger.json`.
-Check groups:
+python3, stdlib only, deterministic, exit 0 iff green. Check groups:
 
 ```text
 [0] field axiom tables for F_5, F_7, F_11, GF(4), GF(8), GF(9) (full
@@ -404,10 +388,4 @@ Check groups:
     exact equality and all other cases checked strict;
 [4] the base case c(1,2) = 1 with the exact flagship pair probability
     against 2 q^-2.
-```
-
-To refresh the pinned certificate:
-
-```bash
-python3 experimental/scripts/verify_qx13_pair_rank_ledger.py --write-certificate
 ```

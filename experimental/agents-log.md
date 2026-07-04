@@ -30,6 +30,40 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-04 - Allowed DAG and roadmap overwrite pass
+
+- **Agent/model:** Codex integrating the explicitly allowed overwrite subset
+  from AllenGrahamHart's DAG-maintenance PR and LegaSage/Ken's replay PR.
+- **Files added or changed:** `experimental/data/prize-dag/prize_dag.json`;
+  `experimental/notes/roadmaps/a_closure_assembly.md`;
+  `experimental/notes/roadmaps/qx13_pair_rank_ledger.md`;
+  `experimental/notes/roadmaps/w4_direct_column_rewiring.md`;
+  `experimental/notes/roadmaps/x12_h3_parametrization.md`;
+  `experimental/notes/roadmaps/x24_char0_dyadic_descent.md`;
+  `experimental/notes/roadmaps/x32_h4_terminal_dichotomy.md`;
+  `experimental/notes/roadmaps/x81_minimal_trade_square_shift.md`;
+  `experimental/notes/roadmaps/x82_square_shift_certifier_keys.md`;
+  `experimental/notes/roadmaps/x83_uniform_square_shift_obstruction_gate.md`;
+  `experimental/notes/roadmaps/xr_budget_audit.md`;
+  `experimental/notes/roadmaps/xr_syzygy_flat_transport.md`;
+  `experimental/notes/roadmaps/xr_triangle_eliminant_form.md`;
+  `experimental/scripts/locator/locator_fiber_local_packet/run_locator_fiber_local_packet.py`.
+- **Status:** EXPERIMENTAL / AUDIT / ROADMAP, as tagged in the individual
+  files.
+- **What is being added:** This pass accepts the central DAG rewrite and the
+  existing roadmap-note rewrites that were intentionally skipped in the prior
+  additive-only sweep.  It also accepts the small locator packet runner path
+  fix from the replay tooling PR.
+- **How it is useful:** The prize-DAG and roadmap notes now reflect the
+  contributor-maintained dependency graph for the XR, square-shift, quotient,
+  and closure-assembly proof programs.  The runner fix keeps the local packet
+  path aligned with the current script layout without running the heavy replay.
+- **What to do next:** Treat the DAG as experimental coordination metadata:
+  reconcile it against `towards-prize.tex`, CAP25 v12/v13 notes, and the site
+  before using it as a proof-status authority.  If any roadmap note is promoted
+  into a paper, restate the claim in TeX and cite the exact certificate or
+  theorem dependency.
+
 ### 2026-07-04 - Additive experimental evidence sweep
 
 - **Agent/model:** Codex integrating additive PR material from AllenGrahamHart
