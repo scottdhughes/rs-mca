@@ -1,0 +1,6321 @@
+{
+  "agreement_target": 327,
+  "best_profile": {
+    "assignment_seed": 162526,
+    "assignment_strategy": "fiber_round_robin",
+    "base_nullity": 2,
+    "base_rank": 4,
+    "base_tradeoff_direction": {
+      "direction": [
+        0,
+        1,
+        1,
+        2,
+        0,
+        0
+      ],
+      "direction_weight": 3,
+      "forced_pair_count": 3,
+      "forced_pairs": [
+        "P56",
+        "P57",
+        "P67"
+      ],
+      "other_forced_pairs": [
+        "P57"
+      ],
+      "pair_values": [
+        16,
+        15,
+        2,
+        1,
+        1,
+        1,
+        16,
+        3,
+        2,
+        2,
+        2,
+        4,
+        3,
+        3,
+        3,
+        16,
+        16,
+        16,
+        0,
+        0,
+        0
+      ],
+      "preserve_forced_count": 1,
+      "preserve_pairs_cleared": [
+        "P45"
+      ],
+      "repair_forced_count": 1,
+      "repair_pairs_cleared": [
+        "P46"
+      ],
+      "spillover_forced_count": 0,
+      "spillover_pairs_cleared": [
+        "P14",
+        "P16",
+        "P17",
+        "P47"
+      ]
+    },
+    "basis_class_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      13
+    ],
+    "basis_id": "targetaware_0_1_2_3_4_13",
+    "basis_support_sizes": [
+      142,
+      142,
+      142,
+      142,
+      105,
+      68
+    ],
+    "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+    "coefficient_matrix_shape": [
+      20,
+      6
+    ],
+    "extended_nullity": 2,
+    "extended_rank": 4,
+    "extended_rank_slack": true,
+    "extended_tradeoff_direction": {
+      "direction": [
+        0,
+        1,
+        1,
+        2,
+        0,
+        0
+      ],
+      "direction_weight": 3,
+      "forced_pair_count": 3,
+      "forced_pairs": [
+        "P56",
+        "P57",
+        "P67"
+      ],
+      "other_forced_pairs": [
+        "P57"
+      ],
+      "pair_values": [
+        16,
+        15,
+        2,
+        1,
+        1,
+        1,
+        16,
+        3,
+        2,
+        2,
+        2,
+        4,
+        3,
+        3,
+        3,
+        16,
+        16,
+        16,
+        0,
+        0,
+        0
+      ],
+      "preserve_forced_count": 1,
+      "preserve_pairs_cleared": [
+        "P45"
+      ],
+      "repair_forced_count": 1,
+      "repair_pairs_cleared": [
+        "P46"
+      ],
+      "spillover_forced_count": 0,
+      "spillover_pairs_cleared": [
+        "P14",
+        "P16",
+        "P17",
+        "P47"
+      ]
+    },
+    "mutation_id": "P14_shear_c1_d1",
+    "seed_offset": 0,
+    "target_rows_present": true,
+    "template_id": "ninerow_P14_shear_c1_d1"
+  },
+  "candidate": {
+    "agreement_vector": null,
+    "codeword_hashes": null,
+    "constructed": false,
+    "received_word_hash": null,
+    "seven_distinct": false
+  },
+  "denominator": "17^32",
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C",
+    "Sage GF(17^32) exact lift",
+    "MCA/protocol consequence from this list-track proxy",
+    "global obstruction outside the tested P46/P67 tradeoff front"
+  ],
+  "p46_p67_tradeoff_repair": {
+    "basis_profiles_tested": 6850,
+    "best_assignment_strategy": "fiber_round_robin",
+    "best_basis_id": "targetaware_0_1_2_3_4_13",
+    "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+    "best_mutation_id": "P14_shear_c1_d1",
+    "best_template_id": "ninerow_P14_shear_c1_d1",
+    "candidate_systems_constructed": 5814,
+    "clean_tradeoff_repaired_profiles": 0,
+    "exact_pairclear_profiles": 0,
+    "extended_rank_slack_profiles": 320,
+    "forced_pair_pattern_counts": {
+      "P14,P15,P16,P45,P46,P56": 10,
+      "P14,P16,P17,P46,P47,P67": 10,
+      "P24,P56,P57,P67": 90,
+      "P45,P46,P47,P56,P57,P67": 20,
+      "P45,P46,P56": 10,
+      "P56,P57,P67": 180
+    },
+    "max_basis_profiles": 10,
+    "max_candidates": 520,
+    "max_diverse_candidates": 180,
+    "max_mutations": 646,
+    "milp_profiles_constructed": 646,
+    "mutations_generated": 646,
+    "near_repair_profiles": 0,
+    "preserve_clear_pairs": [
+      "P45",
+      "P56"
+    ],
+    "preserve_forced_count_histogram": {
+      "0": 10,
+      "1": 270,
+      "2": 40
+    },
+    "profile_failure_counts": {
+      "P46P67_BASE_NOT_RANKSLACK": 4650,
+      "P46P67_FORCED_PROJECTIONS_REMAIN": 320,
+      "P46P67_SUPPORT_ONLY": 40,
+      "P46P67_TARGET_ROWS_MISSING": 1840
+    },
+    "random_bases": 128,
+    "repair_forced_count_histogram": {
+      "1": 290,
+      "2": 30
+    },
+    "repair_pairs": [
+      "P46",
+      "P67"
+    ],
+    "screen_counts": {
+      "TCHAMBER_FORCED_IDENTITY": 144,
+      "TCHAMBER_LOW_FUNCTIONAL_SPAN": 342,
+      "TCHAMBER_STRUCTURAL_PASS": 5328
+    },
+    "seed_offsets": 3,
+    "selected_candidates": 685,
+    "spillover_avoid_pairs": [
+      "P14",
+      "P16",
+      "P17",
+      "P47"
+    ],
+    "spillover_forced_count_histogram": {
+      "0": 280,
+      "1": 20,
+      "2": 10,
+      "4": 10
+    },
+    "structural_pass_candidates": 5328,
+    "target_rows_present_profiles": 5010,
+    "top_classes": 26,
+    "total_forced_count_histogram": {
+      "3": 190,
+      "4": 90,
+      "6": 40
+    },
+    "tradeoff_repaired_profiles": 0
+  },
+  "previous_p45_p46_p56_codesign": {
+    "basis_profiles_tested": 6850,
+    "best_failure_mode": "P456_FORCED_PROJECTIONS_REMAIN",
+    "best_forced_pairs": [
+      "P14",
+      "P16",
+      "P17",
+      "P46",
+      "P47",
+      "P67"
+    ],
+    "best_preserve_pairs_cleared": [
+      "P57"
+    ],
+    "best_target_pairs_cleared": [
+      "P45",
+      "P56"
+    ],
+    "commit": "c900d81",
+    "extended_rank_slack_profiles": 320,
+    "proof_status": "EXACT_EXTRACTION_NO_A327 / P456_FORCED_PROJECTIONS_REMAIN / PARTIAL / EXPERIMENTAL"
+  },
+  "profile_summaries": [
+    {
+      "assignment_seed": 162526,
+      "assignment_strategy": "fiber_round_robin",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 0,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 163535,
+      "assignment_strategy": "fiber_round_robin",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 1,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 164544,
+      "assignment_strategy": "fiber_round_robin",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 2,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 162525,
+      "assignment_strategy": "pair7_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 0,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 163534,
+      "assignment_strategy": "pair7_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 1,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 164543,
+      "assignment_strategy": "pair7_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 2,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 162527,
+      "assignment_strategy": "residue_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 0,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 163536,
+      "assignment_strategy": "residue_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 1,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 164545,
+      "assignment_strategy": "residue_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 2,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 162526,
+      "assignment_strategy": "fiber_round_robin",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        24
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_24",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        31
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 0,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 163535,
+      "assignment_strategy": "fiber_round_robin",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        24
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_24",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        31
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 1,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 164544,
+      "assignment_strategy": "fiber_round_robin",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        24
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_24",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        31
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 2,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 162525,
+      "assignment_strategy": "pair7_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        24
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_24",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        31
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 0,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 163534,
+      "assignment_strategy": "pair7_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        24
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_24",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        31
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 1,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 164543,
+      "assignment_strategy": "pair7_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        24
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_24",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        31
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 2,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 162527,
+      "assignment_strategy": "residue_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        24
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_24",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        31
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 0,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 163536,
+      "assignment_strategy": "residue_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        24
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_24",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        31
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 1,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 164545,
+      "assignment_strategy": "residue_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        24
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_24",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        31
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 2,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 162526,
+      "assignment_strategy": "fiber_round_robin",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_5_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        74,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 0,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 163535,
+      "assignment_strategy": "fiber_round_robin",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_5_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        74,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 1,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 164544,
+      "assignment_strategy": "fiber_round_robin",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_5_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        74,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 2,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 162525,
+      "assignment_strategy": "pair7_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_5_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        74,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 0,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 163534,
+      "assignment_strategy": "pair7_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_5_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        74,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 1,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 164543,
+      "assignment_strategy": "pair7_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_5_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        74,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 2,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 162527,
+      "assignment_strategy": "residue_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_5_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        74,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 0,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 163536,
+      "assignment_strategy": "residue_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_5_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        74,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 1,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 164545,
+      "assignment_strategy": "residue_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_5_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        74,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          16,
+          15,
+          2,
+          1,
+          1,
+          1,
+          16,
+          3,
+          2,
+          2,
+          2,
+          4,
+          3,
+          3,
+          3,
+          16,
+          16,
+          16,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d1",
+      "seed_offset": 2,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d1"
+    },
+    {
+      "assignment_seed": 162623,
+      "assignment_strategy": "fiber_round_robin",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d16",
+      "seed_offset": 0,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d16"
+    },
+    {
+      "assignment_seed": 163632,
+      "assignment_strategy": "fiber_round_robin",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d16",
+      "seed_offset": 1,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d16"
+    },
+    {
+      "assignment_seed": 164641,
+      "assignment_strategy": "fiber_round_robin",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d16",
+      "seed_offset": 2,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d16"
+    },
+    {
+      "assignment_seed": 162622,
+      "assignment_strategy": "pair7_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d16",
+      "seed_offset": 0,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d16"
+    },
+    {
+      "assignment_seed": 163631,
+      "assignment_strategy": "pair7_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d16",
+      "seed_offset": 1,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d16"
+    },
+    {
+      "assignment_seed": 164640,
+      "assignment_strategy": "pair7_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d16",
+      "seed_offset": 2,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d16"
+    },
+    {
+      "assignment_seed": 162624,
+      "assignment_strategy": "residue_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d16",
+      "seed_offset": 0,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d16"
+    },
+    {
+      "assignment_seed": 163633,
+      "assignment_strategy": "residue_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d16",
+      "seed_offset": 1,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d16"
+    },
+    {
+      "assignment_seed": 164642,
+      "assignment_strategy": "residue_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        13
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_13",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        68
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d16",
+      "seed_offset": 2,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d16"
+    },
+    {
+      "assignment_seed": 162623,
+      "assignment_strategy": "fiber_round_robin",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        24
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_24",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        31
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d16",
+      "seed_offset": 0,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d16"
+    },
+    {
+      "assignment_seed": 163632,
+      "assignment_strategy": "fiber_round_robin",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        24
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_24",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        31
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d16",
+      "seed_offset": 1,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d16"
+    },
+    {
+      "assignment_seed": 164641,
+      "assignment_strategy": "fiber_round_robin",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        24
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_24",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        31
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d16",
+      "seed_offset": 2,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d16"
+    },
+    {
+      "assignment_seed": 162622,
+      "assignment_strategy": "pair7_block",
+      "base_nullity": 2,
+      "base_rank": 4,
+      "base_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "basis_class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        24
+      ],
+      "basis_id": "targetaware_0_1_2_3_4_24",
+      "basis_support_sizes": [
+        142,
+        142,
+        142,
+        142,
+        105,
+        31
+      ],
+      "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN",
+      "coefficient_matrix_shape": [
+        20,
+        6
+      ],
+      "extended_nullity": 2,
+      "extended_rank": 4,
+      "extended_rank_slack": true,
+      "extended_tradeoff_direction": {
+        "direction": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        "direction_weight": 3,
+        "forced_pair_count": 3,
+        "forced_pairs": [
+          "P56",
+          "P57",
+          "P67"
+        ],
+        "other_forced_pairs": [
+          "P57"
+        ],
+        "pair_values": [
+          14,
+          13,
+          15,
+          16,
+          16,
+          16,
+          16,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "preserve_forced_count": 1,
+        "preserve_pairs_cleared": [
+          "P45"
+        ],
+        "repair_forced_count": 1,
+        "repair_pairs_cleared": [
+          "P46"
+        ],
+        "spillover_forced_count": 0,
+        "spillover_pairs_cleared": [
+          "P14",
+          "P16",
+          "P17",
+          "P47"
+        ]
+      },
+      "mutation_id": "P14_shear_c1_d16",
+      "seed_offset": 0,
+      "target_rows_present": true,
+      "template_id": "ninerow_P14_shear_c1_d16"
+    }
+  ],
+  "proof_status": "EXACT_EXTRACTION_NO_A327 / P46P67_FORCED_PROJECTIONS_REMAIN / PARTIAL / EXPERIMENTAL",
+  "row": "RS[F_17^32,H,256]",
+  "source_commit": "c900d81",
+  "track": "INTERLEAVED_LIST"
+}

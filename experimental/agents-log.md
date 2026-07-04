@@ -3775,3 +3775,29 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Start `m1-a327-pairclear-p46-p67-tradeoff-repair`.
   Keep `P45/P56` clear, repair `P46`, restore `P67`, and avoid introducing
   `P14/P16/P17/P47`.
+### 2026-07-04 - M1 a327 pair-clear P46/P67 tradeoff repair
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_pairclear_p46_p67_tradeoff_repair.md`,
+  `experimental/scripts/scan_m1_a327_pairclear_p46_p67_tradeoff_repair.py`,
+  `experimental/scripts/verify_m1_a327_pairclear_p46_p67_tradeoff_repair.py`,
+  `experimental/data/m1_a327_pairclear_p46_p67_tradeoff_repair.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  P46P67_FORCED_PROJECTIONS_REMAIN / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A tradeoff-specific rank-slack kernel search over
+  all 646 mutation specs and three assignment seed offsets, prioritizing repair
+  of `P46/P67`, preserving `P45/P56`, and suppressing `P14/P16/P17/P47`
+  spillover.
+- **Result:** No candidate repairs both `P46` and `P67` while preserving the
+  `P45/P56` clearances. The best profile, `ninerow_P14_shear_c1_d1` with basis
+  `targetaware_0_1_2_3_4_13`, keeps the extended target at rank 4/nullity 2.
+  Its best direction `[0,1,1,2,0,0]` clears `P46` and avoids the witness-1/4
+  spillover, but forces `P56`, `P57`, and `P67`.
+- **How it is useful:** Shows the P456 repair and tail-pair repair form a
+  two-front cycle inside the tested rank-slack row-span family: suppressing
+  witness-1/4 spillover returns to the `P56/P57/P67` tail obstruction.
+- **What to do next:** Bank the cyclic tail/mixed obstruction, or add a new
+  degree of freedom before continuing constructive search. A pure reranking of
+  the same nullity-2 kernels is unlikely to move the front.
