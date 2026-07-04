@@ -4488,3 +4488,55 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** If proxy nullity appears, run pair-projection tests and
   then Sage exact audit; otherwise move to structural-rank-aware schedule
   synthesis rather than simple objective or labelling variation.
+### 2026-07-04 - M1 a327 quotient-subgroup structural-rank features
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_quotient_subgroup_structural_rank_features.md`,
+  `experimental/scripts/scan_m1_a327_quotient_subgroup_structural_rank_features.py`,
+  `experimental/scripts/verify_m1_a327_quotient_subgroup_structural_rank_features.py`,
+  `experimental/data/m1_a327_quotient_subgroup_structural_rank_features.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  STRUCTURAL_RANK_FULL_COLUMN_MATCHING / PARTIAL / EXPERIMENTAL.
+- **What is being added:** Structural-rank diagnostics for the feasible
+  long-front quotient schedules. The scan computes row-support diversity,
+  residue histograms, and bipartite row-variable matching size for labelled
+  `s=8`, `s=16`, and `s=32` schedules before finite-field rank.
+- **Result:** The bounded structural-rank diagnostic run tested the feasible
+  `s=8`, `s=16`, and `s=32` long-front schedules and found zero
+  structural-positive screens. The best case is `s=32`, grouped baseline, with
+  equation count `59`, variable count `48`, and structural rank/nullity upper
+  bound `48/0`.
+- **How it is useful:** Distinguishes schedules that are full rank for generic
+  support-pattern reasons from schedules that might have structural nullity.
+- **What to do next:** Use any structural-rank-defect target as the next proxy
+  rank/audit candidate. If all tested schedules have full-column matching,
+  build a CP-SAT v2 objective that penalizes full structural matching directly.
+### 2026-07-04 - M1 a327 quotient-subgroup rank-aware v2 structural defect
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_quotient_subgroup_rankaware_v2_structural_defect.md`,
+  `experimental/scripts/scan_m1_a327_quotient_subgroup_rankaware_v2_structural_defect.py`,
+  `experimental/scripts/verify_m1_a327_quotient_subgroup_rankaware_v2_structural_defect.py`,
+  `experimental/data/m1_a327_quotient_subgroup_rankaware_v2_structural_defect.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  RANKAWARE_V2_NO_STRUCTURAL_DEFECT / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A rank-aware CP-SAT v2 screen for `s=8`, `s=16`,
+  and `s=32`. It first asks directly for `equation_count < variable_count`,
+  which would force structural rank defect, then falls back to minimizing
+  equation count under the standard support and pair guards.
+- **Result:** The 90-second-per-model bounded run tested six models. The
+  direct structural-defect target `equation_count < variable_count` was
+  infeasible for `s=8`, `s=16`, and `s=32`. The fallback model found one
+  feasible `s=8` schedule with equation count `224`, variable count `192`, and
+  proxy rank/nullity `192/0`; `s=16` and `s=32` fallbacks remained unresolved
+  in this bounded run.
+- **How it is useful:** Converts the structural-rank diagnosis into a CP-SAT
+  target instead of another post-hoc proxy rank scan.
+- **What to do next:** If the structural-defect target is feasible, run proxy
+  rank and pair-projection tests. If not, record the best equation gap and move
+  to a richer structural objective such as forced row-template overlap or
+  quotient-residue symmetry.
