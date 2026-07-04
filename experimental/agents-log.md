@@ -4028,3 +4028,27 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Push rank-defect scoring earlier, before accepting basis
   profiles and sampling chamber directions. Do not send these full-rank
   chambers to Sage.
+### 2026-07-04 - M1 a327 cycleguard pre-chamber rank-defect screen
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_cycleguard_prechamber_rankdefect_screen.md`,
+  `experimental/scripts/scan_m1_a327_cycleguard_prechamber_rankdefect_screen.py`,
+  `experimental/scripts/verify_m1_a327_cycleguard_prechamber_rankdefect_screen.py`,
+  `experimental/data/m1_a327_cycleguard_prechamber_rankdefect_screen.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / CYCLEG_PRECHAMBER_PROXY_FULL_RANK /
+  PARTIAL / EXPERIMENTAL.
+- **What is being added:** A pre-chamber screen that ranks basis profiles by
+  cheap basis-quotient shape and computes proxy rank before any chamber
+  direction sampling.
+- **Result:** The screen collected 96 basis profiles and proxy-ranked the 8 best
+  cheap-shape targets. It found zero proxy-positive profiles. The best profile
+  was `ninerow_P12_shear_c0_d16` with basis `basisaware_0_1_2_3_4_5`; its
+  matrix has shape `586 x 345` and proxy rank/nullity `345/0`.
+- **How it is useful:** Confirms that earlier shape screening can shrink the
+  quotient matrix substantially, but shape minimization alone still produces
+  full-rank systems.
+- **What to do next:** Add dependency-aware pre-rank features, especially
+  repeated nonbasis support sets and repeated basis-coordinate patterns, before
+  the full proxy-rank screen.
