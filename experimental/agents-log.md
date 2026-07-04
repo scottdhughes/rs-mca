@@ -3701,3 +3701,29 @@ Keep entries concise and link to the relevant files.
   `m1-a327-pairclear-rowspan-dependence-mutation`. Search mutations that force
   row classes `[6,7,8,14,17,18,19,20]` to have rank at most 4 while preserving
   a nonzero pair-clear kernel.
+### 2026-07-04 - M1 a327 pair-clear row-span dependence mutation
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_pairclear_rowspan_dependence_mutation.md`,
+  `experimental/scripts/scan_m1_a327_pairclear_rowspan_dependence_mutation.py`,
+  `experimental/scripts/verify_m1_a327_pairclear_rowspan_dependence_mutation.py`,
+  `experimental/data/m1_a327_pairclear_rowspan_dependence_mutation.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  ROWSPAN_RANK_DEPENDENT_PAIRCLEAR_FAIL / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A target-aware basis/mutation search that keeps row
+  classes `[6,7,8,14,17,18,19,20]` out of the basis and directly tests their
+  GF(17) row rank and pair-clear nullspace.
+- **Result:** The search tested 2,856 basis profiles and found 112 profiles
+  where the full eight-row target has rank at most 4. None has a pair-clear
+  direction. The best profile is `ninerow_P14_shear_c1_d1` with basis
+  `targetaware_0_1_2_3_4_11`; its extended target has rank 4/nullity 2, but
+  the best nullspace direction `[0,1,1,2,0,1]` forces `P56`, `P57`, and `P67`.
+- **How it is useful:** Separates the obstruction cleanly: row-span dependence
+  is achievable, but the rank-dependent kernel breaks the tail pair
+  projections.
+- **What to do next:** Start
+  `m1-a327-pairclear-tailpair-projection-repair`. Keep the extended
+  rank-4/nullity-2 target and repair the forced tail pairs `P56`, `P57`, and
+  `P67`.
