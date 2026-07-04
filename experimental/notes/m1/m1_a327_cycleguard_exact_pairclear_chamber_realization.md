@@ -2,7 +2,7 @@
 
 Status:
 
-CANDIDATE / CYCLEG_REALIZATION_STABLE_WINDOW / PARTIAL / EXPERIMENTAL
+CANDIDATE / CYCLEG_REALIZATION_BASIS_QUOTIENT_TARGET / PARTIAL / EXPERIMENTAL
 
 This packet follows `0fc5a00` and remains strictly INTERLEAVED_LIST work:
 denominator `17^32`, `mca_counted=false`. It is not an MCA row, not protocol
@@ -75,16 +75,29 @@ inactive rank = 4
 inactive kernel nullity = 2
 ```
 
-The zero-class support union is:
+The zero-row support union is:
 
 ```text
 zero class union size = 253
-stable window dimension = 3
+zero-row window dimension = 3
 ```
 
 This is the key improvement over the previous local pair-clear repair basin:
-the chamber clears all pair projections, preserves rank slack, and leaves a
-small positive degree window for a common zero set.
+the chamber clears all pair projections and preserves rank slack.
+
+Important correction: this `253`-point window is the zero-row window, not a
+valid scalar common-multiplier window for the whole selected-class system. A
+scalar common multiplier must vanish on every active row class and every basis
+class with nonzero direction coordinate. For this chamber that required union
+has size:
+
+```text
+scalar required vanishing union size = 512
+scalar stable window dimension = 0
+```
+
+So the next exact route is the full basis-quotient functional-divisibility
+audit, not a scalar stable-window shortcut.
 
 ## Rank-Slack Subspace
 
@@ -118,8 +131,8 @@ positive zero-union window
 ```
 
 The next branch should turn this chamber into an exact lift target. The first
-step should be a Sage audit of the chamber-induced divisibility/stable-window
-system, not another broad mutation scan.
+step should be a Sage audit of the chamber-induced basis-quotient
+functional-divisibility system, not another broad mutation scan.
 
 ## Non-claims
 
@@ -143,7 +156,7 @@ Create:
 m1-a327-cycleguard-stable-window-exact-audit
 ```
 
-The audit should use the reconstructed chamber, its zero classes, and the
-3-dimensional stable window to build an exact `GF(17^32)` lift target. Only if
-Sage verifies seven distinct degree-<256 codewords and one received word on `H`
-with agreement at least 327 for all seven should this become a proof-record PR.
+The audit should use the reconstructed chamber as a basis-quotient
+functional-divisibility target. Only if Sage verifies seven distinct degree-<256
+codewords and one received word on `H` with agreement at least 327 for all seven
+should this become a proof-record PR.

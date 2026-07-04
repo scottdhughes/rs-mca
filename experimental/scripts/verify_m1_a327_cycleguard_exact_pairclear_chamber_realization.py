@@ -51,7 +51,7 @@ def verify() -> dict[str, Any]:
     require(record["mca_counted"] is False, "MCA counted unexpectedly")
     require(REQUIRED_NONCLAIMS.issubset(set(record["not_claimed"])), "missing nonclaims")
     require(
-        record["proof_status"] == "CANDIDATE / CYCLEG_REALIZATION_STABLE_WINDOW / PARTIAL / EXPERIMENTAL",
+        record["proof_status"] == "CANDIDATE / CYCLEG_REALIZATION_BASIS_QUOTIENT_TARGET / PARTIAL / EXPERIMENTAL",
         "wrong proof status",
     )
 
@@ -93,11 +93,13 @@ def verify() -> dict[str, Any]:
     require(realization["row_classes"] == [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24], "wrong row classes")
     require(realization["forced_pairs"] == [], "forced pairs remain")
     require(realization["zero_class_union_size"] == 253, "wrong zero union")
-    require(realization["stable_window_dimension"] == 3, "wrong stable window")
+    require(realization["zero_row_window_dimension"] == 3, "wrong zero-row window")
+    require(realization["scalar_required_vanishing_union_size"] == 512, "wrong scalar required union")
+    require(realization["scalar_stable_window_dimension"] == 0, "wrong scalar stable window")
     require(realization["active_class_union_size"] == 364, "wrong active union")
     require(realization["inactive_rank"] == 4, "wrong inactive rank")
     require(realization["inactive_kernel_nullity"] == 2, "wrong inactive nullity")
-    require(realization["best_failure_mode"] == "CYCLEG_REALIZATION_STABLE_WINDOW", "wrong failure")
+    require(realization["best_failure_mode"] == "CYCLEG_REALIZATION_BASIS_QUOTIENT_TARGET", "wrong failure")
 
     chamber = realization["best_chamber"]
     require(chamber["direction"] == [1, 4, 0, 0, 10, 0], "wrong direction")
@@ -121,17 +123,20 @@ def verify() -> dict[str, Any]:
     require(all(row["forced_identity"] is False for row in zero_ledger), "zero ledger forced identity")
 
     for phrase in [
-        "CANDIDATE / CYCLEG_REALIZATION_STABLE_WINDOW",
+        "CANDIDATE / CYCLEG_REALIZATION_BASIS_QUOTIENT_TARGET",
         "zero class union size = 253",
-        "stable window dimension = 3",
+        "zero-row window dimension = 3",
+        "scalar required vanishing union size = 512",
+        "scalar stable window dimension = 0",
         "pair-clear directions = 11",
         "not an MCA row",
     ]:
         require(phrase in note_text, f"note missing phrase: {phrase}")
 
     for phrase in [
-        "CYCLEG_REALIZATION_STABLE_WINDOW",
+        "CYCLEG_REALIZATION_BASIS_QUOTIENT_TARGET",
         "zero_class_union_size",
+        "scalar_required_vanishing_union_size",
         "rank_slack_subspace",
         "global obstruction outside the tested cycle-guarded chamber",
     ]:
@@ -145,7 +150,9 @@ def verify() -> dict[str, Any]:
         "direction": chamber["direction"],
         "forced_pairs": realization["forced_pairs"],
         "zero_class_union_size": realization["zero_class_union_size"],
-        "stable_window_dimension": realization["stable_window_dimension"],
+        "zero_row_window_dimension": realization["zero_row_window_dimension"],
+        "scalar_required_vanishing_union_size": realization["scalar_required_vanishing_union_size"],
+        "scalar_stable_window_dimension": realization["scalar_stable_window_dimension"],
         "pairclear_directions": slack["pairclear_directions"],
         "best_failure_mode": realization["best_failure_mode"],
     }

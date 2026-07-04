@@ -168,14 +168,19 @@ def chamber_realization_status(row: dict[str, Any]) -> tuple[str, str]:
             "EXACT_EXTRACTION_NO_A327 / CYCLEG_REALIZATION_NO_RANKSLACK / PARTIAL / EXPERIMENTAL",
             "CYCLEG_REALIZATION_NO_RANKSLACK",
         )
-    if row["zero_class_union_size"] >= K:
+    if row["scalar_required_vanishing_union_size"] < K:
         return (
-            "CANDIDATE / CYCLEG_REALIZATION_NO_STABLE_WINDOW / PARTIAL / EXPERIMENTAL",
-            "CYCLEG_REALIZATION_NO_STABLE_WINDOW",
+            "CANDIDATE / CYCLEG_REALIZATION_SCALAR_STABLE_WINDOW / PARTIAL / EXPERIMENTAL",
+            "CYCLEG_REALIZATION_SCALAR_STABLE_WINDOW",
+        )
+    if row["zero_class_union_size"] < K:
+        return (
+            "CANDIDATE / CYCLEG_REALIZATION_BASIS_QUOTIENT_TARGET / PARTIAL / EXPERIMENTAL",
+            "CYCLEG_REALIZATION_BASIS_QUOTIENT_TARGET",
         )
     return (
-        "CANDIDATE / CYCLEG_REALIZATION_STABLE_WINDOW / PARTIAL / EXPERIMENTAL",
-        "CYCLEG_REALIZATION_STABLE_WINDOW",
+        "EXACT_EXTRACTION_NO_A327 / CYCLEG_REALIZATION_NO_WINDOW / PARTIAL / EXPERIMENTAL",
+        "CYCLEG_REALIZATION_NO_WINDOW",
     )
 
 
@@ -204,12 +209,21 @@ def build_record() -> dict[str, Any]:
 
     zero_classes = [row_classes[idx] for idx in zero_indices]
     active_classes = [row_classes[idx] for idx in range(len(row_classes)) if idx not in set(zero_indices)]
+    nonzero_basis_classes = [
+        int(class_index)
+        for class_index, scalar in zip(profile["basis_class_indices"], direction, strict=True)
+        if int(scalar) % P
+    ]
+    scalar_required_classes = sorted(set(active_classes + nonzero_basis_classes))
     zero_positions: set[int] = set()
     active_positions: set[int] = set()
+    scalar_required_positions: set[int] = set()
     for class_index in zero_classes:
         zero_positions |= positions[int(class_index)]
     for class_index in active_classes:
         active_positions |= positions[int(class_index)]
+    for class_index in scalar_required_classes:
+        scalar_required_positions |= positions[int(class_index)]
 
     inactive_rows = [matrix[idx] for idx in zero_indices]
     inactive_rank = chamber.rank_rows(inactive_rows)
@@ -247,11 +261,17 @@ def build_record() -> dict[str, Any]:
         "forced_pairs": forced_pairs,
         "zero_class_ledger": class_ledger(zero_classes, classes_by_index),
         "active_class_ledger": class_ledger(active_classes, classes_by_index),
+        "nonzero_basis_class_ledger": class_ledger(nonzero_basis_classes, classes_by_index),
+        "scalar_required_class_ledger": class_ledger(scalar_required_classes, classes_by_index),
         "zero_class_union_size": len(zero_positions),
         "zero_class_union_hash": hash_payload(sorted(zero_positions)),
         "zero_class_fiber_histogram": quotient_fiber_histogram(zero_positions),
-        "stable_window_dimension": max(0, K - len(zero_positions)),
+        "zero_row_window_dimension": max(0, K - len(zero_positions)),
         "active_class_union_size": len(active_positions),
+        "scalar_required_vanishing_union_size": len(scalar_required_positions),
+        "scalar_required_vanishing_union_hash": hash_payload(sorted(scalar_required_positions)),
+        "scalar_required_fiber_histogram": quotient_fiber_histogram(scalar_required_positions),
+        "scalar_stable_window_dimension": max(0, K - len(scalar_required_positions)),
         "inactive_rank": inactive_rank,
         "inactive_kernel_nullity": TEMPLATE_DIM - inactive_rank,
         "rank_slack_subspace": slack,
@@ -333,7 +353,9 @@ def main() -> None:
                     "inactive_rank": realization["inactive_rank"],
                     "inactive_kernel_nullity": realization["inactive_kernel_nullity"],
                     "zero_class_union_size": realization["zero_class_union_size"],
-                    "stable_window_dimension": realization["stable_window_dimension"],
+                    "zero_row_window_dimension": realization["zero_row_window_dimension"],
+                    "scalar_required_vanishing_union_size": realization["scalar_required_vanishing_union_size"],
+                    "scalar_stable_window_dimension": realization["scalar_stable_window_dimension"],
                     "slack_pairclear_directions": realization["rank_slack_subspace"]["pairclear_directions"],
                     "best_failure_mode": realization["best_failure_mode"],
                 },

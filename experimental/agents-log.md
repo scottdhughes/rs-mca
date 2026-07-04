@@ -3936,20 +3936,22 @@ Keep entries concise and link to the relevant files.
   `experimental/scripts/verify_m1_a327_cycleguard_exact_pairclear_chamber_realization.py`,
   `experimental/data/m1_a327_cycleguard_exact_pairclear_chamber_realization.json`,
   `experimental/agents-log.md`.
-- **Status:** CANDIDATE / CYCLEG_REALIZATION_STABLE_WINDOW / PARTIAL /
-  EXPERIMENTAL.
+- **Status:** CANDIDATE / CYCLEG_REALIZATION_BASIS_QUOTIENT_TARGET / PARTIAL
+  / EXPERIMENTAL.
 - **What is being added:** A deterministic reconstruction/audit of the best
   exact pair-clear rank-slack chamber from `0fc5a00`.
 - **Result:** The target reconstructs from `ninerow_P57_shear_c1_d1`,
   `fiber_round_robin`, seed `179986`, and basis `basisaware_0_1_2_3_4_5`.
   Direction `[1,4,0,0,10,0]` clears all pair projections, has zero classes
   `[7,8,9,13,17,19,21,23]`, inactive rank/nullity `4/2`, and zero-class union
-  size `253`, leaving stable-window dimension `3`. The rank-slack subspace has
-  11 pair-clear directions among 18 projective directions.
+  size `253`, leaving a zero-row window of dimension `3`. The scalar common
+  multiplier required union is `512`, so the scalar stable-window dimension is
+  `0`. The rank-slack subspace has 11 pair-clear directions among 18 projective
+  directions.
 - **How it is useful:** Converts the cycle-guarded front signal into a cheap,
-  reproducible chamber target with pair-clear, rank slack, and a positive
-  zero-union window all present.
-- **What to do next:** Build a Sage exact audit for the chamber-induced stable
-  window. Do not treat this as an `a=327` certificate until GF(17^32), H order
-  512, seven distinct codewords, and one received word with agreement >=327 are
-  verified.
+  reproducible chamber target with pair-clear and rank slack present, and
+  separates the zero-row window from the actual scalar common-multiplier gate.
+- **What to do next:** Build a Sage exact audit for the chamber-induced
+  basis-quotient functional-divisibility system. Do not treat this as an
+  `a=327` certificate until GF(17^32), H order 512, seven distinct codewords,
+  and one received word with agreement >=327 are verified.
