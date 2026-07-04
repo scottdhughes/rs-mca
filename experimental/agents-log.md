@@ -3205,3 +3205,27 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Prescribe the nonbasis kernel relation directly,
   including pair-projection clearance, then solve backward for selected masks
   or template vectors that realize it.
+### 2026-07-03 - M1 a327 prescribed nonbasis kernel generator
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_prescribed_nonbasis_kernel_generator.md`,
+  `experimental/scripts/scan_m1_a327_prescribed_nonbasis_kernel_generator.py`,
+  `experimental/scripts/verify_m1_a327_prescribed_nonbasis_kernel_generator.py`,
+  `experimental/data/m1_a327_prescribed_nonbasis_kernel_generator.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PNK_NEAR_KERNEL_FORCED_PAIR / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A bounded pair-clear prescribed-kernel scan over the
+  retained best-profile front from `46b73ec`. For each profile, it searches
+  deletion-bounded coefficient nullspaces and requires all 21 pair projections
+  to be nonzero.
+- **Result:** Tested 384 systems and 84 retained forced-basis profiles from
+  70 previous-front profile keys. Found zero actual pair-clear kernels and zero
+  near pair-clear kernels. The best remains a two-row near-kernel with vector
+  `[0,0,1,1,1,0]`, but it still forces ten pair equalities.
+- **How it is useful:** Separates the coefficient-kernel obstruction from the
+  pair-projection obstruction: bounded near-kernels exist, but none in the
+  retained front escape pair collapse.
+- **What to do next:** Move to backward synthesis: generate selected masks and
+  template vectors while enforcing a prescribed pair-clear kernel from the
+  start, rather than searching existing rowspaces after the fact.
