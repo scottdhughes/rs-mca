@@ -4540,3 +4540,30 @@ Keep entries concise and link to the relevant files.
   rank and pair-projection tests. If not, record the best equation gap and move
   to a richer structural objective such as forced row-template overlap or
   quotient-residue symmetry.
+### 2026-07-04 - M1 a327 quotient-subgroup primal-kernel codesign
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_quotient_subgroup_primal_kernel_codesign.md`,
+  `experimental/scripts/scan_m1_a327_quotient_subgroup_primal_kernel_codesign.py`,
+  `experimental/scripts/verify_m1_a327_quotient_subgroup_primal_kernel_codesign.py`,
+  `experimental/data/m1_a327_quotient_subgroup_primal_kernel_codesign.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  PRIMAL_KERNEL_CODESIGN_NO_ALLOCATION / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A dependency-engineered quotient-subgroup
+  primal-kernel scanner. Instead of mutating support schedules and hoping for
+  nullity, it starts with explicit order-8 locator-cubic codeword differences
+  `g_i(X)=c_i prod(X^64-r)` over characteristic 17, then asks CP-SAT only for
+  selected-block allocation.
+- **Result:** The conservative zero/singleton root-bucket model was
+  infeasible. A bounded run over 500 concrete three-root locator-cubic
+  instantiations found zero selected-block allocations meeting support 327,
+  pair caps, and pair-to-7 guards. The best failure label is
+  `PRIMAL_KERNEL_SELECTED_ALLOCATION_INFEASIBLE`.
+- **How it is useful:** This records the first dependency-engineered
+  primal-kernel family and shows that the minimal three-root locator family is
+  too rigid before Sage exact lifting.
+- **What to do next:** Keep the primal-kernel direction, but move to richer
+  degree-3 quotient codewords or partition-first bucket designs with degree-3
+  interpolation constraints rather than repeating support-schedule mutation.
