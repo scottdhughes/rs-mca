@@ -1,0 +1,92 @@
+{
+  "track": "INTERLEAVED_LIST",
+  "row": "RS[F_17^32,H,256]",
+  "denominator": "17^32",
+  "agreement_target": 327,
+  "source_commit": "75dc8b8",
+  "source_commits": {
+    "tailpair_projection_repair": "e48c576",
+    "p45_p46_p56_codesign": "c900d81",
+    "p46_p67_tradeoff_repair": "75dc8b8"
+  },
+  "cycle_scope": {
+    "family": "tested GF(17) rank-slack row-span kernels",
+    "extended_zero_classes": [6, 7, 8, 14, 17, 18, 19, 20],
+    "extended_rank_guard": "<=4",
+    "kernel_dimension": 2,
+    "not_global": true
+  },
+  "tailpair_projection_repair": {
+    "data_path": "experimental/data/m1_a327_pairclear_tailpair_projection_repair.json",
+    "basis_profiles_tested": 2856,
+    "target_rows_present_profiles": 2024,
+    "extended_rank_slack_profiles": 112,
+    "tail_candidates": 112,
+    "deep_rank_slack_repair_profiles": 0,
+    "best_template_id": "ninerow_P17_shear_c1_d1",
+    "best_basis_id": "targetaware_0_1_2_3_4_13",
+    "best_direction": [0, 0, 1, 1, 2, 0],
+    "best_forced_pairs": ["P45", "P46", "P56"],
+    "best_failure_mode": "TAILPAIR_FORCED_PROJECTIONS_REMAIN"
+  },
+  "p45_p46_p56_codesign": {
+    "data_path": "experimental/data/m1_a327_pairclear_p45_p46_p56_codesign.json",
+    "basis_profiles_tested": 6850,
+    "target_rows_present_profiles": 5010,
+    "extended_rank_slack_profiles": 320,
+    "exact_pairclear_profiles": 0,
+    "target_repaired_profiles": 0,
+    "near_repair_profiles": 0,
+    "best_template_id": "ninerow_W57_c13_pm1",
+    "best_basis_id": "targetaware_0_1_2_3_4_10",
+    "best_direction": [0, 0, 0, 1, 0, 2],
+    "best_forced_pairs": ["P14", "P16", "P17", "P46", "P47", "P67"],
+    "best_target_pairs_cleared": ["P45", "P56"],
+    "best_preserve_pairs_cleared": ["P57"],
+    "best_failure_mode": "P456_FORCED_PROJECTIONS_REMAIN"
+  },
+  "p46_p67_tradeoff_repair": {
+    "data_path": "experimental/data/m1_a327_pairclear_p46_p67_tradeoff_repair.json",
+    "basis_profiles_tested": 6850,
+    "target_rows_present_profiles": 5010,
+    "extended_rank_slack_profiles": 320,
+    "exact_pairclear_profiles": 0,
+    "tradeoff_repaired_profiles": 0,
+    "clean_tradeoff_repaired_profiles": 0,
+    "near_repair_profiles": 0,
+    "best_template_id": "ninerow_P14_shear_c1_d1",
+    "best_basis_id": "targetaware_0_1_2_3_4_13",
+    "best_direction": [0, 1, 1, 2, 0, 0],
+    "best_forced_pairs": ["P56", "P57", "P67"],
+    "best_repair_pairs_cleared": ["P46"],
+    "best_preserve_pairs_cleared": ["P45"],
+    "best_spillover_pairs_cleared": ["P14", "P16", "P17", "P47"],
+    "best_failure_mode": "P46P67_FORCED_PROJECTIONS_REMAIN"
+  },
+  "cycle_diagnosis": {
+    "tail_front": ["P56", "P57", "P67"],
+    "mixed_front": ["P14", "P16", "P17", "P46", "P47", "P67"],
+    "p456_front": ["P45", "P46", "P56"],
+    "observed_cycle": [
+      ["P56", "P57", "P67"],
+      ["P45", "P46", "P56"],
+      ["P14", "P16", "P17", "P46", "P47", "P67"],
+      ["P56", "P57", "P67"]
+    ],
+    "route_cut": "No tested nullity-2 rank-slack kernel direction co-designs the tail and mixed fronts.",
+    "recommended_next": "Do not rerank the same nullity-2 kernels; add a new degree of freedom or leave this local front banked."
+  },
+  "proof_status": "AUDIT / ROUTE_CUT_LOCAL_PAIRCLEAR_FRONT / EXPERIMENTAL",
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C",
+    "Sage GF(17^32) exact lift",
+    "MCA/protocol consequence from this list-track proxy",
+    "global obstruction outside the tested rank-slack pair-clear front"
+  ]
+}

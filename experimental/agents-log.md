@@ -3801,3 +3801,25 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Bank the cyclic tail/mixed obstruction, or add a new
   degree of freedom before continuing constructive search. A pure reranking of
   the same nullity-2 kernels is unlikely to move the front.
+### 2026-07-04 - M1 a327 pair-clear cyclic tail/mixed obstruction
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_pairclear_cyclic_tail_mixed_obstruction.md`,
+  `experimental/scripts/verify_m1_a327_pairclear_cyclic_tail_mixed_obstruction.py`,
+  `experimental/data/m1_a327_pairclear_cyclic_tail_mixed_obstruction.json`,
+  `experimental/agents-log.md`.
+- **Status:** AUDIT / ROUTE_CUT_LOCAL_PAIRCLEAR_FRONT / EXPERIMENTAL.
+- **What is being added:** A narrow synthesis audit tying together the
+  tail-pair projection repair, P45/P46/P56 codesign, and P46/P67 tradeoff
+  repair ledgers.
+- **Result:** The three ledgers show a local cycle in the tested GF(17)
+  rank-slack row-span kernel family:
+  `[P56,P57,P67] -> [P45,P46,P56] ->
+  [P14,P16,P17,P46,P47,P67] -> [P56,P57,P67]`.
+- **How it is useful:** Banks the local front as a route cut for pure
+  nullity-2 kernel reranking. Future constructive work should add a genuinely
+  new degree of freedom rather than reranking the same rank-slack family.
+- **What to do next:** Either add a controlled support class before the
+  extended rank target, change the basis-selection model, or return to the
+  higher-level template/hypergraph line with this pair-clear feedback.
