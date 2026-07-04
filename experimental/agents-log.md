@@ -3229,3 +3229,25 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Move to backward synthesis: generate selected masks and
   template vectors while enforcing a prescribed pair-clear kernel from the
   start, rather than searching existing rowspaces after the fact.
+### 2026-07-04 - M1 a327 pair-clear kernel backward synthesis
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_pairclear_kernel_backward_synthesis.md`,
+  `experimental/scripts/scan_m1_a327_pairclear_kernel_backward_synthesis.py`,
+  `experimental/scripts/verify_m1_a327_pairclear_kernel_backward_synthesis.py`,
+  `experimental/data/m1_a327_pairclear_kernel_backward_synthesis.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PKBS_SLOT_NOT_KERNEL / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A first backward-synthesis scan using actual
+  template specs whose raw slot separates all seven witnesses, followed by
+  stable-basis slot-kernel checks.
+- **Result:** Tested 4 template specs, 12 assigned systems, 123 stable-basis
+  profiles, and 738 coefficient slots. Found zero actual zero-slot profiles and
+  zero pair-projection-clear actual slots. The best row has 3 nonzero slot rows
+  but still forces 11 pair equalities.
+- **How it is useful:** Shows raw template-coordinate pair separation is not
+  enough; pair clearance must be enforced in stable-basis coordinates.
+- **What to do next:** Move to basis-aware backward synthesis where template
+  vectors, selected classes, stable basis functionals, and the coefficient
+  kernel vector are co-designed.
