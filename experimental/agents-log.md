@@ -3064,3 +3064,29 @@ Keep entries concise and link to the relevant files.
   equations in template-vector perturbation variables and solve that small
   repair problem directly, using Python first and Macaulay2/Singular only if
   the equations become a module/elimination problem.
+### 2026-07-03 - M1 a327 residual-slot equation repair
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_residual_slot_equation_repair.md`,
+  `experimental/scripts/scan_m1_a327_residual_slot_equation_repair.py`,
+  `experimental/scripts/verify_m1_a327_residual_slot_equation_repair.py`,
+  `experimental/data/m1_a327_residual_slot_equation_repair.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / RESIDUAL_SLOT_INVARIANT_NONZERO / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A focused residual-equation audit for the best
+  `nearmiss_w7_c1_v9` actual-template profile, plus an exhaustive stable-basis
+  check for that same actual template.
+- **Result:** The two residual rows are classes 1 and 5, with slot coefficient
+  `1` in the target slot. In the local parameter model
+  `[e3+u,e2+u,e1+u,e4-e5,e3-e5,e6]`, both residual slot coefficients remain
+  `[1]` for all 272 nonsingular `(U,V)` values over GF(17). The exhaustive
+  stable-basis audit constructs 122 stable profiles and tests 732 slot
+  profiles; zero actual zero-slot profiles are found.
+- **How it is useful:** Turns the two residual coefficients into an explicit
+  local obstruction: the fixed-basis residual equations reduce to `1=0`, and
+  the current actual template has no alternative stable zero-slot profile.
+- **What to do next:** Move above local witness-7 perturbation. Alter the
+  selected-count ledger or template family so the obstruction functional
+  `[0,0,0,1,0,0]` is included in a stable basis or no longer projects
+  invariantly onto the candidate slot.

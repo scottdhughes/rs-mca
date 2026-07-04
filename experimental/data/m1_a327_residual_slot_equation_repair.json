@@ -1,0 +1,189 @@
+{
+  "agreement_target": 327,
+  "candidate": {
+    "agreement_vector": null,
+    "codeword_hashes": null,
+    "constructed": false,
+    "received_word_hash": null,
+    "seven_distinct": false
+  },
+  "denominator": "17^32",
+  "exhaustive_stable_profile_audit": {
+    "actual_zero_slot_profiles": 0,
+    "best_basis_id": "slot_union_142_6_8_10_12_15_16",
+    "best_basis_zero_union_size": 142,
+    "best_forced_pair_count": 10,
+    "best_slot": 3,
+    "best_slot_nonzero_rows": 2,
+    "pair_projection_clear_actual_slots": 0,
+    "slot_profiles_tested": 732,
+    "stable_basis_combinations": 326,
+    "stable_basis_profiles_constructed": 122
+  },
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C",
+    "Sage GF(17^32) exact lift",
+    "success or failure outside this residual slot profile"
+  ],
+  "previous_nearmiss_repair": {
+    "best_assignment_strategy": "signature_fiber_blocks",
+    "best_basis_id": "slot_union_142_6_8_10_12_15_16",
+    "best_failure_mode": "NREPAIR_SLOT_NOT_KERNEL",
+    "best_forced_pair_count": 10,
+    "best_mutation_id": "w7_c1_v9",
+    "best_slot": 3,
+    "best_slot_nonzero_rows": 2,
+    "best_template_id": "nearmiss_w7_c1_v9",
+    "commit": "fae2021"
+  },
+  "proof_status": "EXACT_EXTRACTION_NO_A327 / RESIDUAL_SLOT_INVARIANT_NONZERO / PARTIAL / EXPERIMENTAL",
+  "residual_slot_equations": {
+    "assignment_strategy": "signature_fiber_blocks",
+    "basis_class_indices": [
+      6,
+      8,
+      10,
+      12,
+      15,
+      16
+    ],
+    "basis_functionals": [
+      [
+        0,
+        0,
+        1,
+        0,
+        4,
+        8
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        4,
+        8
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        4,
+        8
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        16,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        16,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "basis_id": "slot_union_142_6_8_10_12_15_16",
+    "basis_support_sizes": [
+      74,
+      74,
+      74,
+      37,
+      37,
+      31
+    ],
+    "best_failure_mode": "RESIDUAL_SLOT_INVARIANT_NONZERO",
+    "coefficient_matrix_shape": [
+      11,
+      6
+    ],
+    "mutation_id": "w7_c1_v9",
+    "residual_row_count": 2,
+    "residual_rows": [
+      {
+        "basis_coordinates": [
+          7,
+          0,
+          0,
+          1,
+          10,
+          12
+        ],
+        "class_index": 1,
+        "functional": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "positions_hash": "e85062f8332041304e2d166e662fad308ed39d28e7391d2b708d7291e8a0efb7",
+        "slot_coefficient": 1,
+        "support_size": 216
+      },
+      {
+        "basis_coordinates": [
+          1,
+          0,
+          0,
+          1,
+          16,
+          0
+        ],
+        "class_index": 5,
+        "functional": [
+          0,
+          0,
+          0,
+          1,
+          4,
+          8
+        ],
+        "positions_hash": "cb27841105ff7b12b2c7a008241f84df2d9b27e055586e8b6465ab2ec108a381",
+        "slot_coefficient": 1,
+        "support_size": 148
+      }
+    ],
+    "slot": 3,
+    "symbolic_u_audit": {
+      "class1_slot_values": [
+        1
+      ],
+      "class5_slot_values": [
+        1
+      ],
+      "coordinate_solve_failures": 0,
+      "field": "GF(17)",
+      "local_equation_status": "RESIDUAL_SLOT_INVARIANT_NONZERO",
+      "parameter_model": "basis_rows=[e3+u,e2+u,e1+u,e4-e5,e3-e5,e6]",
+      "singular_parameter_pairs": 17,
+      "valid_parameter_pairs": 272,
+      "zero_slot_solution_count": 0
+    },
+    "template_id": "nearmiss_w7_c1_v9"
+  },
+  "row": "RS[F_17^32,H,256]",
+  "source_commit": "fae2021",
+  "track": "INTERLEAVED_LIST"
+}
