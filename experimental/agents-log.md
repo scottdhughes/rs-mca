@@ -3506,3 +3506,31 @@ Keep entries concise and link to the relevant files.
   template/basis/assignment enough to change the `14 x 6` coefficient
   arrangement, and score each structural-pass candidate by direct support
   reduction or rank-slack chambers before any Sage exact lift.
+### 2026-07-04 - M1 a327 pair-clear template chamber mutation search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_pairclear_template_chamber_mutation_search.md`,
+  `experimental/scripts/scan_m1_a327_pairclear_template_chamber_mutation_search.py`,
+  `experimental/scripts/verify_m1_a327_pairclear_template_chamber_mutation_search.py`,
+  `experimental/data/m1_a327_pairclear_template_chamber_mutation_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / TCHAMBER_NINE_ROW_STABLE_FRONT / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A bounded, mutation-diverse chamber scorer. It
+  generates 24 template mutations, builds 72 structural-pass candidate systems,
+  selects diverse mutations, and fully scans four basis profiles over all
+  projective GF(17)^6 directions.
+- **Result:** Scored four full projective fronts, totaling 6,034,392 directions
+  and 1,441,440 pair-clear directions. The base profile remains the only
+  nine-row-or-better profile. The three scored witness-1 coordinate mutations
+  produce pair-clear directions but only lower-support chambers. Across the
+  scored front there are zero direct support-reduced profiles, zero rank-slack
+  profiles, and zero support-reduced extension profiles.
+- **How it is useful:** Shows that the first diversified mutation front does
+  not improve the base nine-row chamber. The selector now needs broader
+  mutation diversity rather than repeatedly scoring the same base arrangement.
+- **What to do next:** Start `m1-a327-pairclear-diverse-chamber-front`.
+  Force coverage across witness indices, coordinate indices, shear-pair
+  mutations, basis class sets, and assignment strategies. Use a cheap
+  prefix/proxy chamber score before spending full projective scans.
