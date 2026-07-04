@@ -4567,3 +4567,30 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Keep the primal-kernel direction, but move to richer
   degree-3 quotient codewords or partition-first bucket designs with degree-3
   interpolation constraints rather than repeating support-schedule mutation.
+### 2026-07-04 - M1 a327 order-8 degree-3 partition codesign
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_order8_degree3_partition_codesign.md`,
+  `experimental/scripts/scan_m1_a327_order8_degree3_partition_codesign.py`,
+  `experimental/scripts/verify_m1_a327_order8_degree3_partition_codesign.py`,
+  `experimental/data/m1_a327_order8_degree3_partition_codesign.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  ORDER8_DEGREE3_NO_ALLOCATION / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A wider order-8 primal-kernel scanner. Witnesses
+  `1..5` use nonzero degree-3 quotient words with exactly three zeros to target
+  the pair-to-7 guard, witness `6` is allowed to be any nonzero degree-3
+  quotient word, and CP-SAT allocates selected blocks on the resulting actual
+  quotient value partitions.
+- **Result:** The bounded run tested 3008 candidates and found zero feasible
+  selected-block allocations. The best sampled candidate has seven distinct
+  quotient codewords and max ambient pair equality `192` on `H`, but still
+  fails selected-block allocation with
+  `ORDER8_PARTITION_ALLOCATION_INFEASIBLE`.
+- **How it is useful:** Confirms that simply widening witness 6 to an arbitrary
+  degree-3 quotient word is not enough; the allocation obstruction is now
+  visible on admissible order-8 quotient partitions.
+- **What to do next:** Make the partition design itself the CP-SAT object and
+  check degree-3 interpolation afterward, instead of sampling quotient
+  polynomials first.
