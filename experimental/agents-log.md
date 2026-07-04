@@ -4619,3 +4619,29 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Add constructive seeds or a narrower partition grammar
   for support feasibility rather than increasing the full partition-first model
   blindly.
+### 2026-07-04 - M1 a327 order-8 narrow partition grammar search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_order8_narrow_partition_grammar_search.md`,
+  `experimental/scripts/scan_m1_a327_order8_narrow_partition_grammar_search.py`,
+  `experimental/scripts/verify_m1_a327_order8_narrow_partition_grammar_search.py`,
+  `experimental/data/m1_a327_order8_narrow_partition_grammar_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  NARROW_GRAMMAR_NO_SUPPORT_SCHEDULE / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A constructive seeded partition grammar for the
+  order-8 quotient route. The scanner fixes three pair-to-7 zero buckets for
+  each guarded witness, then lets CP-SAT choose bounded-cost residual
+  partitions and selected-block counts before reusing the degree-3
+  interpolation audit.
+- **Result:** A bounded run over 512 root patterns with the `bounded5`
+  residual grammar resolved all 512 CP-SAT models as infeasible. No support
+  schedule was produced, so no interpolation audit ran.
+- **How it is useful:** This confirms the previous broad support model was not
+  merely missing an easy seeded zero-block schedule. The tested narrow grammar
+  is too rigid even before interpolation.
+- **What to do next:** Move from zero-block seeded partitions to a quotient
+  partition grammar whose support incidence is constructive at the block-count
+  level, or reintroduce quotient polynomial structure before allocation rather
+  than forcing pair-to-7 roots as the primary seed.
