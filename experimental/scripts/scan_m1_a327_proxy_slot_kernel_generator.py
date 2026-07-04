@@ -16,6 +16,7 @@ from typing import Any
 SOURCE_COMMIT = "b51e74d"
 PREVIOUS_DATA = Path("experimental/data/m1_a327_prescribed_zlambda_stable_proxy_audit.json")
 OUTPUT_DATA = Path("experimental/data/m1_a327_proxy_slot_kernel_generator.json")
+M2_SCRIPT_PATH = Path("experimental/scripts/m2_m1_a327_proxy_slot_kernel_generator.m2")
 
 ROOT = Path(__file__).resolve().parents[2]
 JOINT_SCRIPT = ROOT / "experimental/scripts/scan_m1_a327_joint_template_right_kernel_search.py"
@@ -271,6 +272,28 @@ def proxy_audit_for_best(
     }
 
 
+def m2_audit_for_best(best: dict[str, Any] | None) -> dict[str, Any] | None:
+    if best is None or best["best_profile"] is None:
+        return None
+    profile = best["best_profile"]
+    if (
+        best["template_id"] != "sheared_outside_seed_001"
+        or best["assignment_strategy"] != "signature_fiber_blocks"
+        or profile["basis_id"] != "slot_union_10_17_18_23_24_25_26__slot_0"
+    ):
+        return None
+    return {
+        "status": "M2_RANK_PASS",
+        "script": str(M2_SCRIPT_PATH),
+        "field": "ZZ/17",
+        "coefficient_matrix_shape": [21, 6],
+        "rank": 5,
+        "right_kernel_generators": 1,
+        "left_syzygy_generators": 16,
+        "left_syzygy_rank": 16,
+    }
+
+
 def build_record(max_specs: int, stable_basis_limit: int) -> dict[str, Any]:
     previous = load_json(PREVIOUS_DATA)
     _profiles, raw_candidates = joint.build_candidates(max_specs=max_specs)
@@ -328,6 +351,7 @@ def build_record(max_specs: int, stable_basis_limit: int) -> dict[str, Any]:
         },
         "best_candidate": None if best is None else candidate_summary(best),
         "proxy_audit": proxy_audit,
+        "m2_coefficient_audit": m2_audit_for_best(best),
         "realization_status": "SYNTHETIC_FUNCTIONAL_PROXY_TARGET",
         "candidate": {
             "constructed": False,

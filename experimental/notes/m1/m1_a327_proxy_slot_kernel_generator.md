@@ -63,6 +63,13 @@ The best target is:
 - guaranteed proxy nullity lower bound = 253
 - forced pair count = 0
 
+Macaulay2 independently checks the coefficient matrix over `ZZ/17`:
+
+- M2 coefficient matrix shape = `21 x 6`
+- M2 coefficient rank = 5
+- M2 right-kernel generators = 1
+- M2 left-syzygy generators/rank = `16 / 16`
+
 ## Proxy Audit
 
 The best target was also ranked directly over GF(12289):

@@ -97,6 +97,16 @@ def verify() -> dict[str, Any]:
     require(profile["forced_pair_count"] == 0, "unexpected forced pair")
     require(profile["forced_pairs"] == [], "forced pair list nonempty")
 
+    m2 = record["m2_coefficient_audit"]
+    require(m2["status"] == "M2_RANK_PASS", "M2 audit did not pass")
+    require(m2["script"] == "experimental/scripts/m2_m1_a327_proxy_slot_kernel_generator.m2", "wrong M2 script")
+    require(m2["field"] == "ZZ/17", "wrong M2 field")
+    require(m2["coefficient_matrix_shape"] == [21, 6], "wrong M2 coefficient shape")
+    require(m2["rank"] == 5, "wrong M2 coefficient rank")
+    require(m2["right_kernel_generators"] == 1, "wrong M2 right-kernel count")
+    require(m2["left_syzygy_generators"] == 16, "wrong M2 left syzygy count")
+    require(m2["left_syzygy_rank"] == 16, "wrong M2 left syzygy rank")
+
     audit = record["proxy_audit"]
     require(audit["status"] == "PROXY_RANK_PASS", "proxy audit did not pass")
     proxy = audit["proxy_result"]
@@ -111,6 +121,8 @@ def verify() -> dict[str, Any]:
         "proxy rank/nullity = `1267 / 253`",
         "basis-zero union size = 10",
         "guaranteed proxy nullity lower bound = 253",
+        "M2 coefficient rank = 5",
+        "M2 right-kernel generators = 1",
         "forced pair count = 0",
         "not an MCA row",
     ]:

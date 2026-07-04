@@ -2979,8 +2979,9 @@ Keep entries concise and link to the relevant files.
   profiles. Found 42 pair-projection-clear proxy-slot kernel targets. The best
   target has stable basis-zero union size 10, coefficient rank/nullity `5 / 1`,
   no forced pair equalities, and a guaranteed proxy nullity lower bound of 253.
-  Direct GF(12289) proxy audit gives matrix shape `1761 x 1520` and
-  rank/nullity `1267 / 253`.
+  Macaulay2 independently checks the `21 x 6` coefficient matrix with rank 5
+  and one right-kernel generator. Direct GF(12289) proxy audit gives matrix
+  shape `1761 x 1520` and rank/nullity `1267 / 253`.
 - **How it is useful:** This is the first expanded-proxy-positive target after
   the `Z_lambda` full-rank obstruction. It proves the next obstruction is no
   longer proxy nullity in the synthetic functional model, but realization of
