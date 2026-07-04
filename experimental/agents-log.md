@@ -3727,3 +3727,26 @@ Keep entries concise and link to the relevant files.
   `m1-a327-pairclear-tailpair-projection-repair`. Keep the extended
   rank-4/nullity-2 target and repair the forced tail pairs `P56`, `P57`, and
   `P67`.
+### 2026-07-04 - M1 a327 pair-clear tail-pair projection repair
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_pairclear_tailpair_projection_repair.md`,
+  `experimental/scripts/scan_m1_a327_pairclear_tailpair_projection_repair.py`,
+  `experimental/scripts/verify_m1_a327_pairclear_tailpair_projection_repair.py`,
+  `experimental/data/m1_a327_pairclear_tailpair_projection_repair.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  TAILPAIR_FORCED_PROJECTIONS_REMAIN / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A reranking pass over the target-aware row-span
+  search, prioritizing extended rank-slack kernels by total forced pair count
+  and forced tail pairs among `P56`, `P57`, and `P67`.
+- **Result:** No rank-slack candidate is pair-clear. The best profile,
+  `ninerow_P17_shear_c1_d1` with basis `targetaware_0_1_2_3_4_13`, keeps the
+  extended target at rank 4/nullity 2. Its best nullspace direction
+  `[0,0,1,1,2,0]` clears `P57` and `P67`, but forces `P45`, `P46`, and `P56`.
+- **How it is useful:** Moves the obstruction from the full tail triple
+  `P56/P57/P67` to a mixed `P45/P46/P56` projection failure.
+- **What to do next:** Start `m1-a327-pairclear-p45-p46-p56-codesign`. Keep
+  the extended rank-4/nullity-2 target, preserve `P57/P67` clearance, and
+  repair `P45`, `P46`, and `P56`.
