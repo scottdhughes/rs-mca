@@ -3901,3 +3901,29 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Leave this local rank-slack basin and return to
   higher-level template/hypergraph search with the cyclic pair-clear front as a
   generation-time hard guard.
+### 2026-07-04 - M1 a327 cycle-guarded template front search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_cycle_guarded_template_front_search.md`,
+  `experimental/scripts/scan_m1_a327_cycle_guarded_template_front_search.py`,
+  `experimental/scripts/verify_m1_a327_cycle_guarded_template_front_search.py`,
+  `experimental/data/m1_a327_cycle_guarded_template_front_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / CYCLEG_TEMPLATE_EXACT_PAIRCLEAR_RANKSLACK /
+  PARTIAL / EXPERIMENTAL.
+- **What is being added:** A higher-level template-front scan that treats the
+  cyclic forced-pair set `[P14,P16,P17,P45,P46,P47,P56,P57,P67]` as a
+  generation-time hard guard instead of a post-hoc repair target.
+- **Result:** The bounded scan tested 876 basis profiles from 219 selected
+  candidates. It found 453 cycle-clear profiles, 291 exact pair-clear profiles,
+  203 cycle-clear rank-slack profiles, and 80 exact pair-clear rank-slack
+  profiles. The best profile is `ninerow_P57_shear_c1_d1` with basis
+  `basisaware_0_1_2_3_4_5`; direction `[1,4,0,0,10,0]` clears all sampled pair
+  projections with eight inactive rows of rank four.
+- **How it is useful:** Shows that the cyclic pair-clear obstruction can be
+  avoided at template generation time while retaining rank slack, which the old
+  local pair-clear repair scans could not do.
+- **What to do next:** Reconstruct the best exact-pair-clear chamber in a
+  focused realization/lift branch. Do not return to broad local rank-slack
+  repair unless a new invariant appears.
