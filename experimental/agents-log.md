@@ -4645,3 +4645,29 @@ Keep entries concise and link to the relevant files.
   partition grammar whose support incidence is constructive at the block-count
   level, or reintroduce quotient polynomial structure before allocation rather
   than forcing pair-to-7 roots as the primary seed.
+### 2026-07-04 - M1 a327 order-8 block-count partition grammar search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_order8_block_count_partition_grammar_search.md`,
+  `experimental/scripts/scan_m1_a327_order8_block_count_partition_grammar_search.py`,
+  `experimental/scripts/verify_m1_a327_order8_block_count_partition_grammar_search.py`,
+  `experimental/data/m1_a327_order8_block_count_partition_grammar_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  BLOCK_COUNT_AMBIENT_INFEASIBLE / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A block-count-level quotient partition grammar for
+  the order-8 route. Instead of forcing pair-to-7 roots first, CP-SAT chooses
+  positive selected blocks and counts directly in each quotient bucket, then
+  infers the minimal partition and would run the degree-3 interpolation audit
+  if the full guard model became feasible.
+- **Result:** The support-only, pair-to-7, and selected-pair-cap models are
+  feasible. The fully constrained model with ambient pair bucket count `<=3`
+  is infeasible over all nonempty selected blocks of sizes `1..7`. No
+  interpolation audit ran.
+- **How it is useful:** This isolates the order-8 quotient obstruction at the
+  ambient pair-bucket cap rather than support incidence or selected pair mass.
+- **What to do next:** Move off order-8 bucket schedules unless we have a
+  mechanism that bypasses the ambient pair-bucket cap; the next constructive
+  path should test a different quotient length/fiber size or an exact
+  non-quotient selected-class design.
