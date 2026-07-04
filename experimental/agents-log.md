@@ -3981,3 +3981,25 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Do not patch this chamber locally. Return upstream to
   generate a new cycle-guarded pair-clear chamber with positive exact
   basis-quotient nullity, or add rank-defect feedback before chamber selection.
+### 2026-07-04 - M1 a327 cycleguard rank-defect feedback search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_cycleguard_rankdefect_feedback_search.md`,
+  `experimental/scripts/scan_m1_a327_cycleguard_rankdefect_feedback_search.py`,
+  `experimental/scripts/verify_m1_a327_cycleguard_rankdefect_feedback_search.py`,
+  `experimental/data/m1_a327_cycleguard_rankdefect_feedback_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / CYCLEG_RANKDEFECT_PROXY_FULL_RANK /
+  PARTIAL / EXPERIMENTAL.
+- **What is being added:** A proxy rank-defect feedback scan over the banked
+  cycle-guarded exact pair-clear rank-slack summaries from `0fc5a00`.
+- **Result:** The scan reconstructed and proxy-ranked 40 banked summaries over
+  `GF(12289)`. It found zero proxy-positive profiles. The best profile was
+  `ninerow_P24_shear_c0_d1` with basis `basisaware_0_1_2_3_4_7`; its
+  basis-quotient matrix has shape `777 x 536` and proxy rank/nullity `536/0`.
+- **How it is useful:** Confirms that the already banked top cycle-guarded
+  summaries are still generic full-rank from the basis-quotient perspective.
+- **What to do next:** Move rank-defect feedback into chamber generation rather
+  than post-ranking only the banked summaries. Only proxy-positive chambers
+  should go to Sage exact `GF(17^32)` audit.
