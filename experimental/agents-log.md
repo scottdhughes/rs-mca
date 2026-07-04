@@ -3090,3 +3090,25 @@ Keep entries concise and link to the relevant files.
   selected-count ledger or template family so the obstruction functional
   `[0,0,0,1,0,0]` is included in a stable basis or no longer projects
   invariantly onto the candidate slot.
+### 2026-07-03 - M1 a327 realization-aware ledger perturbation
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_realization_aware_ledger_perturbation.md`,
+  `experimental/scripts/scan_m1_a327_realization_aware_ledger_perturbation.py`,
+  `experimental/scripts/verify_m1_a327_realization_aware_ledger_perturbation.py`,
+  `experimental/data/m1_a327_realization_aware_ledger_perturbation.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / LEDGERPERT_SLOT_NOT_KERNEL / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A bounded selected-count ledger perturbation scan
+  around the actual `nearmiss_w7_c1_v9` template, walking the exact
+  coordinate/support-count kernel while preserving pair caps and pair-7 guards.
+- **Result:** Tested 96 feasible ledgers, 576 actual-template systems, and
+  127,800 slot profiles. Found zero actual zero-slot profiles and zero
+  pair-projection-clear slots. The best result remains the unperturbed base
+  ledger with 2 nonzero slot rows and 10 forced pairs.
+- **How it is useful:** Shows that same-mask support-preserving ledger motion
+  does not remove the residual slot obstruction in this bounded front.
+- **What to do next:** Force the obstruction functional `[0,0,0,1,0,0]` into
+  the stable basis, or allow new selected masks/template families rather than
+  continuing same-mask count-kernel perturbations.
