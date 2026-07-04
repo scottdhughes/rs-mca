@@ -4272,3 +4272,28 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Add a second rank-defect mechanism on top of the
   collision-budget gate, likely a small row-block syzygy search before proxy
   rank.
+### 2026-07-04 - M1 a327 collision-budget syzygy search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_collision_budget_syzygy_search.md`,
+  `experimental/scripts/scan_m1_a327_collision_budget_syzygy_search.py`,
+  `experimental/scripts/verify_m1_a327_collision_budget_syzygy_search.py`,
+  `experimental/data/m1_a327_collision_budget_syzygy_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  SYZYGY_NO_SMALL_ROW_BLOCK_DEPENDENCY / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A row-block syzygy screen over the collision-budget
+  front. It rebuilds the proxy matrices for all 240 collision-budget profiles
+  and scores zero rows, projective duplicate rows, and low-rank row blocks by
+  coordinate, support-coordinate, and support hash.
+- **Result:** All 240 collision-budget profiles were scored. The scan found
+  zero syzygy-positive profiles, zero projective duplicate pairs, and no
+  low-rank local row blocks in the tested categories. No proxy rank was run
+  because no profile cleared the syzygy-positive gate.
+- **How it is useful:** Shows that the collision-budget gate is not enough and
+  that accidental local row-block dependencies are absent in this front. The
+  next rank-defect mechanism must be designed globally.
+- **What to do next:** Move to collision-budget right-kernel codesign: prescribe
+  a kernel direction/subspace and choose basis profiles whose nonbasis rows
+  annihilate it.
