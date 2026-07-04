@@ -4132,3 +4132,33 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Stop local template perturbation. Prescribe the desired
   functional-class/support pattern first, then solve the template-vector
   realization problem over `GF(17)` or a proxy field before any Sage exact audit.
+### 2026-07-04 - M1 a327 prescribed functional-collision realization
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_prescribed_functional_collision_realization.md`,
+  `experimental/scripts/scan_m1_a327_prescribed_functional_collision_realization.py`,
+  `experimental/scripts/verify_m1_a327_prescribed_functional_collision_realization.py`,
+  `experimental/data/m1_a327_prescribed_functional_collision_realization.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / PFCOLL_REALIZATION_PROXY_FULL_RANK /
+  PARTIAL / EXPERIMENTAL.
+- **What is being added:** A prescribed functional-collision realization scan
+  that keeps the cycle-guarded selected-class ledger fixed and synthesizes
+  actual `GF(17)` template vectors realizing compressed functional-class
+  patterns before proxy rank.
+- **Result:** The scan tested 180 actual template-vector systems, found 72
+  structural-pass realized templates, constructed 48 basis profiles, and
+  proxy-ranked 8. It found zero proxy-positive profiles. The best realized
+  template was `pfcoll_0000_basis_simple`, with support `[327,...,327]`, pair7
+  counts `[253,253,253,253,253]`, `11` functional classes, no forced
+  functional identities, span rank `6`, and no equal template pairs. Its best
+  proxy matrix was `370 x 129` with rank/nullity `129/0`.
+- **How it is useful:** Confirms that actual template vectors can realize the
+  compressed functional-class pattern, so the target is no longer merely
+  synthetic. The remaining obstruction is quotient-variable collapse/full rank:
+  the best realized pattern leaves only 129 quotient variables and no proxy
+  nullity.
+- **What to do next:** Codesign the selected-class ledger and template geometry
+  together, with an explicit lower bound on quotient-variable budget, instead
+  of keeping the current fixed ledger.
