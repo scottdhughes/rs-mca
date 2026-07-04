@@ -4079,3 +4079,30 @@ Keep entries concise and link to the relevant files.
   dependency-forced generator that deliberately creates repeated
   support-coordinate row classes or other algebraic row dependencies before
   proxy ranking.
+### 2026-07-04 - M1 a327 cycleguard dependency-forced profile generator
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_cycleguard_dependency_forced_profile_generator.md`,
+  `experimental/scripts/scan_m1_a327_cycleguard_dependency_forced_profile_generator.py`,
+  `experimental/scripts/verify_m1_a327_cycleguard_dependency_forced_profile_generator.py`,
+  `experimental/data/m1_a327_cycleguard_dependency_forced_profile_generator.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / CYCLEG_DEP_FORCED_PROXY_FULL_RANK /
+  PARTIAL / EXPERIMENTAL.
+- **What is being added:** A dependency-forced profile generator that constructs
+  basis profiles by keeping duplicated support/functionality groups in the
+  nonbasis set before proxy-ranking the strongest profiles.
+- **Result:** The scan constructed 96 forced profiles and proxy-ranked 8. It
+  found zero proxy-positive profiles. The only collision groups available in
+  the tested front were support groups: `support-coordinate collision profiles =
+  0`, `coordinate collision profiles = 0`. The best forced profile was
+  `ninerow_P12_shear_c1_d15` with basis
+  `depforced_support_0_0_1_2_3_4_5`, matrix shape `919 x 678`, and proxy
+  rank/nullity `678/0`.
+- **How it is useful:** Shows that basis selection can force support-only
+  duplicates but the current front lacks duplicate projective functional rows;
+  support-only repeats still full-rank.
+- **What to do next:** Move upstream to template/functionality synthesis that
+  deliberately creates projective functional or support-coordinate collisions
+  while preserving support and pair guards.
