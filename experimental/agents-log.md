@@ -3823,3 +3823,30 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Either add a controlled support class before the
   extended rank target, change the basis-selection model, or return to the
   higher-level template/hypergraph line with this pair-clear feedback.
+### 2026-07-04 - M1 a327 pair-clear target-basis exchange search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_pairclear_target_basis_exchange_search.md`,
+  `experimental/scripts/scan_m1_a327_pairclear_target_basis_exchange_search.py`,
+  `experimental/scripts/verify_m1_a327_pairclear_target_basis_exchange_search.py`,
+  `experimental/data/m1_a327_pairclear_target_basis_exchange_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  TARGETBASIS_FORCED_PROJECTIONS_REMAIN / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A basis-model change allowing one target zero class
+  into the coefficient basis and imposing that zero condition as a unit
+  coordinate row.
+- **Result:** The scan tested 10,960 basis profiles and found 512 extended
+  rank-slack profiles, up from the previous 320. However, no pair-clear or
+  cycle-pressure-reduced profile appeared. The best profile,
+  `ninerow_P17_shear_c1_d1` with basis `targetbasis_6_0_1_2_4_5_6`, has target
+  basis class 6 and extended rank 4/nullity 2. Its best direction
+  `[0,0,1,2,0,0]` still forces `[P45,P46,P56]`.
+- **How it is useful:** Confirms that the one-target basis exchange expands
+  the rank-slack front but does not break the cyclic tail/P456/mixed
+  obstruction.
+- **What to do next:** Do not simply widen this exact one-target exchange.
+  Either test a bounded two-target exchange, add support-class augmentation
+  before basis selection, or return to the higher-level template/hypergraph
+  line with the cyclic pair-clear feedback as a hard guard.
