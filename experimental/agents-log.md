@@ -3180,3 +3180,28 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Prescribe repeated nonbasis coordinate rows or an
   explicit right-kernel vector for the coefficient matrix, then solve backward
   for template vectors or selected masks.
+### 2026-07-03 - M1 a327 nonbasis row dependency ansatz
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_nonbasis_row_dependency_ansatz.md`,
+  `experimental/scripts/scan_m1_a327_nonbasis_row_dependency_ansatz.py`,
+  `experimental/scripts/verify_m1_a327_nonbasis_row_dependency_ansatz.py`,
+  `experimental/data/m1_a327_nonbasis_row_dependency_ansatz.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / NBDEP_NEAR_KERNEL_ONLY / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A bounded exact row-deletion diagnostic over the
+  realized rank-defect template rowspaces. For every forced stable-basis
+  profile, the scan searches up to three deleted nonbasis coefficient rows for
+  a right-kernel vector.
+- **Result:** Tested 384 systems and 4,260 forced stable-basis profiles. Found
+  zero actual coefficient-kernel profiles, 252 near-kernel profiles within the
+  three-row deletion bound, and zero pair-projection-clear actual kernels. The
+  best near-kernel removes two rows, gives kernel vector `[0,0,1,1,1,0]`, and
+  still forces ten pair equalities.
+- **How it is useful:** Refines the full-rank obstruction into a bounded
+  near-kernel ledger: the current realized rowspaces are close enough to expose
+  residual row classes, but not close enough to yield a usable exact kernel.
+- **What to do next:** Prescribe the nonbasis kernel relation directly,
+  including pair-projection clearance, then solve backward for selected masks
+  or template vectors that realize it.
