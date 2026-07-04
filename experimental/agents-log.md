@@ -3479,3 +3479,30 @@ Keep entries concise and link to the relevant files.
   rather than trying to remove an active row while preserving the same five
   inactive zeros. Target inactive rank at most 4 or inactive kernel dimension at
   least 2 before returning to Sage.
+### 2026-07-04 - M1 a327 pair-clear direction support chamber search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_pairclear_direction_support_chamber_search.md`,
+  `experimental/scripts/scan_m1_a327_pairclear_direction_support_chamber_search.py`,
+  `experimental/scripts/verify_m1_a327_pairclear_direction_support_chamber_search.py`,
+  `experimental/data/m1_a327_pairclear_direction_support_chamber_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / CHAMBER_NINE_ROW_STABLE / PARTIAL / EXPERIMENTAL.
+- **What is being added:** An exhaustive projective direction scan over the
+  current base `14 x 6` GF(17) pair-clear module from `a9acb86`, plus a
+  one-row extension probe for lower-rank chambers.
+- **Result:** Tested all 1,508,598 projective GF(17)^6 directions. Found
+  360,360 pair-clear directions and 51 distinct pair-clear support chambers.
+  The only pair-clear chamber with five or more zero rows is the previously
+  banked pinned chamber `[13,16,17,18,19]`, with inactive rank 5 and inactive
+  kernel nullity 1. There are zero direct support-reduced chambers, zero
+  rank-slack chambers, and zero support-reduced one-row extensions.
+- **How it is useful:** Closes the full base projective direction front, not
+  only the pinned inactive chamber. The obstruction is now tied to the current
+  base coefficient arrangement rather than to a missed direction inside it.
+- **What to do next:** Move upstream to
+  `m1-a327-pairclear-template-chamber-mutation-search`: vary the
+  template/basis/assignment enough to change the `14 x 6` coefficient
+  arrangement, and score each structural-pass candidate by direct support
+  reduction or rank-slack chambers before any Sage exact lift.
