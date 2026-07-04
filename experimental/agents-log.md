@@ -3112,3 +3112,24 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Force the obstruction functional `[0,0,0,1,0,0]` into
   the stable basis, or allow new selected masks/template families rather than
   continuing same-mask count-kernel perturbations.
+### 2026-07-03 - M1 a327 obstruction-functional basis forcing
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_obstruction_functional_basis_forcing.md`,
+  `experimental/scripts/scan_m1_a327_obstruction_functional_basis_forcing.py`,
+  `experimental/scripts/verify_m1_a327_obstruction_functional_basis_forcing.py`,
+  `experimental/data/m1_a327_obstruction_functional_basis_forcing.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / BASISFORCE_COEFFICIENT_FULL_RANK / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A forced-basis audit for actual-template profiles,
+  requiring the obstruction functional `[0,0,0,1,0,0]` and optionally the
+  secondary residual `[0,0,0,1,4,8]` to appear in the stable basis.
+- **Result:** Tested 576 systems, 4608 forced stable-basis combinations, and
+  576 valid forced stable-basis profiles. Every valid forced profile has full
+  coefficient rank; zero coefficient-kernel profiles and zero pair-clear
+  profiles are found.
+- **How it is useful:** Shows that the direct fix for the residual slot
+  obstruction kills the actual right kernel in this bounded front.
+- **What to do next:** Co-design basis inclusion and coefficient rank defect
+  from the start, rather than perturbing the same ledger after the fact.
