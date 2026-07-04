@@ -4440,3 +4440,51 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Increase generator budget with structural-rank features,
   revisit unresolved `s=8/16/32` CP-SAT screens, or seed quotient-pattern
   realization from the public `a=326` hybrid quotient packet.
+### 2026-07-04 - M1 a327 quotient-subgroup long CP-SAT front
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_quotient_subgroup_long_cpsat_front.md`,
+  `experimental/scripts/scan_m1_a327_quotient_subgroup_long_cpsat_front.py`,
+  `experimental/scripts/verify_m1_a327_quotient_subgroup_long_cpsat_front.py`,
+  `experimental/data/m1_a327_quotient_subgroup_long_cpsat_front.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / LONG_CPSAT_QUOTIENT_CP_FEASIBLE / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A dedicated long-front CP-SAT runner for the
+  previously unresolved quotient-subgroup values `s=8`, `s=16`, and `s=32`.
+  It reuses the quotient-subgroup count model without overwriting the earlier
+  `s=4` realization/rank-feedback ledgers.
+- **Result:** A 90-second-per-screen bounded run found count-feasible schedules
+  for all three larger fiber sizes `s=8`, `s=16`, and `s=32`. The best screen
+  is `s=8`, with pair-to-7 counts `[248,248,248,248,248]`, max pair equality
+  on `H` equal to `248`, and active partition count `30`.
+- **How it is useful:** Separates the question of whether larger fiber sizes
+  have feasible count schedules from the already tested `s=4` realization
+  obstruction.
+- **What to do next:** Feed the feasible `s=8` schedule into labelled quotient
+  realization and proxy-rank screening. Only if proxy nullity appears should a
+  Sage `GF(17^32)` exact lift be attempted.
+### 2026-07-04 - M1 a327 quotient-subgroup long-front realization
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_quotient_subgroup_long_front_realization.md`,
+  `experimental/scripts/scan_m1_a327_quotient_subgroup_long_front_realization.py`,
+  `experimental/scripts/verify_m1_a327_quotient_subgroup_long_front_realization.py`,
+  `experimental/data/m1_a327_quotient_subgroup_long_front_realization.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  LONG_FRONT_REALIZATION_PROXY_FULL_RANK / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A generic quotient realization/proxy screen for the
+  feasible long-front schedules at `s=8`, `s=16`, and `s=32`. It expands each
+  count schedule to labelled quotient coordinates and ranks grouped,
+  round-robin, residue-spread, and random labellings over `GF(193)`.
+- **Result:** The bounded proxy-realization run screened all three feasible
+  long-front schedules and found zero proxy-positive cases. The best screen was
+  `s=32`, with proxy matrix `[59,48]` over `GF(193)` and rank/nullity `48/0`.
+- **How it is useful:** Determines whether any larger-fiber count schedule
+  already carries quotient nullity before spending Sage exact-lift time.
+- **What to do next:** If proxy nullity appears, run pair-projection tests and
+  then Sage exact audit; otherwise move to structural-rank-aware schedule
+  synthesis rather than simple objective or labelling variation.
