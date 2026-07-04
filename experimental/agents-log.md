@@ -3292,3 +3292,28 @@ Keep entries concise and link to the relevant files.
   under basis choice; the remaining obstruction is now `P12`, `P46`, `P57`.
 - **What to do next:** Target those three remaining projection zeros directly
   with basis construction or template variation.
+### 2026-07-04 - M1 a327 basis-aware three-pair projection repair
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_basis_aware_three_pair_projection_repair.md`,
+  `experimental/scripts/scan_m1_a327_basis_aware_three_pair_projection_repair.py`,
+  `experimental/scripts/verify_m1_a327_basis_aware_three_pair_projection_repair.py`,
+  `experimental/data/m1_a327_basis_aware_three_pair_projection_repair.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / BATHREE_TARGET_CLEAR_NEW_FORCED / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A target-scored basis-aware scan for the three
+  remaining projection zeros from `0aa9daa`: `P12`, `P46`, and `P57`.
+- **Result:** Tested 12 systems, 16,437 basis profiles, and 98,622 slot
+  profiles. Found 7,440 target-clear slot profiles but zero pair-clear slot
+  profiles and zero target-clear slot-kernel profiles. The best target-clear
+  slot repairs `P12`, `P46`, and `P57`, but introduces `P15`, `P23`, `P26`,
+  `P36`, and `P47`; the coefficient matrix remains full rank with 11 nonzero
+  slot rows.
+- **How it is useful:** Shows the named three-pair obstruction is movable, but
+  current stable-basis reordering trades it into a different forced-pair set
+  rather than producing a pair-clear slot.
+- **What to do next:** Stop reordering the same basis front. Move to template
+  vector pair-projection repair: mutate or algebraically constrain the actual
+  template vectors while preserving support/pair guards, functional span rank
+  6, and no forced identities.
