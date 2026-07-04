@@ -1,0 +1,325 @@
+{
+  "agreement_target": 327,
+  "denominator": "17^32",
+  "macaulay2": {
+    "result": {
+      "command": [
+        "M2",
+        "--script",
+        "experimental/scripts/m2_m1_a327_pairclear_nine_row_module_syzygy.m2"
+      ],
+      "parsed": {
+        "M2_ACTIVE_COLS": 6,
+        "M2_ACTIVE_LEFT_SYZYGY_GENS": 3,
+        "M2_ACTIVE_LEFT_SYZYGY_RANK": 3,
+        "M2_ACTIVE_RANK": 6,
+        "M2_ACTIVE_RIGHT_KERNEL_GENS": 0,
+        "M2_ACTIVE_ROWS": 9,
+        "M2_EXT0_RANK": 6,
+        "M2_EXT1_RANK": 6,
+        "M2_EXT2_RANK": 6,
+        "M2_EXT3_RANK": 6,
+        "M2_EXT4_RANK": 6,
+        "M2_EXT5_RANK": 6,
+        "M2_EXT6_RANK": 6,
+        "M2_EXT7_RANK": 6,
+        "M2_EXT8_RANK": 6,
+        "M2_FULL_COLS": 6,
+        "M2_FULL_LEFT_SYZYGY_GENS": 8,
+        "M2_FULL_LEFT_SYZYGY_RANK": 8,
+        "M2_FULL_RANK": 6,
+        "M2_FULL_RIGHT_KERNEL_GENS": 0,
+        "M2_FULL_ROWS": 14,
+        "M2_INACTIVE_COLS": 6,
+        "M2_INACTIVE_LEFT_SYZYGY_GENS": 0,
+        "M2_INACTIVE_LEFT_SYZYGY_RANK": 0,
+        "M2_INACTIVE_RANK": 5,
+        "M2_INACTIVE_RIGHT_KERNEL_GENS": 1,
+        "M2_INACTIVE_ROWS": 5
+      },
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "M2_FULL_ROWS=14\nM2_FULL_COLS=6\nM2_FULL_RANK=6\nM2_FULL_RIGHT_KERNEL_GENS=0\nM2_FULL_LEFT_SYZYGY_GENS=8\nM2_FULL_LEFT_SYZYGY_RANK=8\nM2_ACTIVE_ROWS=9\nM2_ACTIVE_COLS=6\nM2_ACTIVE_RANK=6\nM2_ACTIVE_RIGHT_KERNEL_GENS=0\nM2_ACTIVE_LEFT_SYZYGY_GENS=3\nM2_ACTIVE_LEFT_SYZYGY_RANK=3\nM2_INACTIVE_ROWS=5\nM2_INACTIVE_COLS=6\nM2_INACTIVE_RANK=5\nM2_INACTIVE_RIGHT_KERNEL_GENS=1\nM2_INACTIVE_LEFT_SYZYGY_GENS=0\nM2_INACTIVE_LEFT_SYZYGY_RANK=0\nM2_EXT0_RANK=6\nM2_EXT1_RANK=6\nM2_EXT2_RANK=6\nM2_EXT3_RANK=6\nM2_EXT4_RANK=6\nM2_EXT5_RANK=6\nM2_EXT6_RANK=6\nM2_EXT7_RANK=6\nM2_EXT8_RANK=6\n"
+    },
+    "script_path": "experimental/scripts/m2_m1_a327_pairclear_nine_row_module_syzygy.m2"
+  },
+  "mca_counted": false,
+  "module_syzygy": {
+    "active_matrix": {
+      "left_syzygy_dimension": 3,
+      "name": "ACTIVE",
+      "rank": 6,
+      "right_kernel_basis": [],
+      "right_kernel_nullity": 0,
+      "shape": [
+        9,
+        6
+      ]
+    },
+    "best_failure_mode": "NINEROW_MODULE_SINGLETON_EXTENSIONS_FULL_RANK",
+    "field": "GF(17)",
+    "full_matrix": {
+      "left_syzygy_dimension": 8,
+      "name": "FULL",
+      "rank": 6,
+      "right_kernel_basis": [],
+      "right_kernel_nullity": 0,
+      "shape": [
+        14,
+        6
+      ]
+    },
+    "inactive_kernel_projective_basis": [
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        7
+      ]
+    ],
+    "inactive_matrix": {
+      "left_syzygy_dimension": 0,
+      "name": "INACTIVE",
+      "rank": 5,
+      "right_kernel_basis": [
+        [
+          0,
+          5,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "right_kernel_nullity": 1,
+      "shape": [
+        5,
+        6
+      ]
+    },
+    "pinned_direction_spans_inactive_kernel": true,
+    "singleton_extensions": [
+      {
+        "active_row_class": 0,
+        "active_row_index": 0,
+        "full_rank": true,
+        "rank_inactive_plus_row": 6,
+        "right_kernel_nullity": 0
+      },
+      {
+        "active_row_class": 2,
+        "active_row_index": 1,
+        "full_rank": true,
+        "rank_inactive_plus_row": 6,
+        "right_kernel_nullity": 0
+      },
+      {
+        "active_row_class": 3,
+        "active_row_index": 2,
+        "full_rank": true,
+        "rank_inactive_plus_row": 6,
+        "right_kernel_nullity": 0
+      },
+      {
+        "active_row_class": 5,
+        "active_row_index": 3,
+        "full_rank": true,
+        "rank_inactive_plus_row": 6,
+        "right_kernel_nullity": 0
+      },
+      {
+        "active_row_class": 6,
+        "active_row_index": 4,
+        "full_rank": true,
+        "rank_inactive_plus_row": 6,
+        "right_kernel_nullity": 0
+      },
+      {
+        "active_row_class": 11,
+        "active_row_index": 5,
+        "full_rank": true,
+        "rank_inactive_plus_row": 6,
+        "right_kernel_nullity": 0
+      },
+      {
+        "active_row_class": 12,
+        "active_row_index": 6,
+        "full_rank": true,
+        "rank_inactive_plus_row": 6,
+        "right_kernel_nullity": 0
+      },
+      {
+        "active_row_class": 14,
+        "active_row_index": 8,
+        "full_rank": true,
+        "rank_inactive_plus_row": 6,
+        "right_kernel_nullity": 0
+      },
+      {
+        "active_row_class": 15,
+        "active_row_index": 9,
+        "full_rank": true,
+        "rank_inactive_plus_row": 6,
+        "right_kernel_nullity": 0
+      }
+    ],
+    "singleton_extensions_tested": 9,
+    "singleton_full_rank_count": 9
+  },
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C",
+    "Sage GF(17^32) exact lift",
+    "MCA/protocol consequence from this list-track proxy",
+    "global obstruction outside the pinned nine-row module front"
+  ],
+  "previous_nine_row_repair": {
+    "best_failure_mode": "NINEROW_FIXED_DIRECTION_STABLE",
+    "best_fixed_direction_forced_pair_count": 0,
+    "best_fixed_direction_nonzero_rows": 9,
+    "best_mutation_id": "base_w1_c3_d1",
+    "commit": "66742fe",
+    "pair_clear_direction_kernels": 0,
+    "proof_status": "CANDIDATE / NINEROW_FIXED_DIRECTION_STABLE / PARTIAL / EXPERIMENTAL",
+    "row_reduced_directions": 0
+  },
+  "proof_status": "AUDIT / NINEROW_MODULE_SYZYGY_STABLE / PARTIAL / EXPERIMENTAL",
+  "row": "RS[F_17^32,H,256]",
+  "source_commit": "66742fe",
+  "target_system": {
+    "active_row_classes": [
+      0,
+      2,
+      3,
+      5,
+      6,
+      11,
+      12,
+      14,
+      15
+    ],
+    "active_row_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      9
+    ],
+    "assignment_strategy": "fiber_round_robin",
+    "basis_class_indices": [
+      1,
+      4,
+      7,
+      8,
+      9,
+      10
+    ],
+    "basis_id": "basisaware_1_4_7_8_9_10",
+    "basis_support_sizes": [
+      179,
+      142,
+      105,
+      105,
+      74,
+      74
+    ],
+    "forced_pairs": [],
+    "full_row_classes": [
+      0,
+      2,
+      3,
+      5,
+      6,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "inactive_row_classes": [
+      13,
+      16,
+      17,
+      18,
+      19
+    ],
+    "inactive_row_indices": [
+      7,
+      10,
+      11,
+      12,
+      13
+    ],
+    "pair_projection_scalars": {
+      "P12": 9,
+      "P13": 1,
+      "P14": 10,
+      "P15": 2,
+      "P16": 11,
+      "P17": 3,
+      "P23": 9,
+      "P24": 1,
+      "P25": 10,
+      "P26": 2,
+      "P27": 11,
+      "P34": 9,
+      "P35": 1,
+      "P36": 10,
+      "P37": 2,
+      "P45": 9,
+      "P46": 1,
+      "P47": 10,
+      "P56": 9,
+      "P57": 1,
+      "P67": 9
+    },
+    "pinned_direction": [
+      0,
+      5,
+      0,
+      0,
+      0,
+      1
+    ],
+    "pinned_direction_projective": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      7
+    ],
+    "row_values": [
+      8,
+      10,
+      14,
+      8,
+      3,
+      9,
+      2,
+      0,
+      15,
+      9,
+      0,
+      0,
+      0,
+      0
+    ],
+    "template_id": "ninerow_base_w1_c3_d1"
+  },
+  "track": "INTERLEAVED_LIST"
+}
