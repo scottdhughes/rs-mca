@@ -3251,3 +3251,24 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Move to basis-aware backward synthesis where template
   vectors, selected classes, stable basis functionals, and the coefficient
   kernel vector are co-designed.
+### 2026-07-04 - M1 a327 basis-aware pair-clear kernel synthesis
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_basis_aware_pairclear_kernel_synthesis.md`,
+  `experimental/scripts/scan_m1_a327_basis_aware_pairclear_kernel_synthesis.py`,
+  `experimental/scripts/verify_m1_a327_basis_aware_pairclear_kernel_synthesis.py`,
+  `experimental/data/m1_a327_basis_aware_pairclear_kernel_synthesis.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / BAPK_SLOT_PAIR_CLEAR_BROKEN / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A basis-aware scan that enumerates high-support and
+  seeded stable-basis candidates, then scores every coefficient slot by pair
+  projection and nonbasis support.
+- **Result:** Tested 12 systems, 2,976 basis profiles, and 17,856 slot
+  profiles. Found zero pair-clear slot profiles and zero pair-clear slot-kernel
+  profiles. The best forced-pair count improved from 11 to 4, with remaining
+  forced pairs `P12`, `P17`, `P27`, and `P46`.
+- **How it is useful:** Confirms basis choice is the right lever: the pair
+  collapse obstruction improved substantially, but still did not clear.
+- **What to do next:** Target the four remaining forced pairs directly in a
+  forced-pair repair branch.
