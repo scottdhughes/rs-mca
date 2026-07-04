@@ -4003,3 +4003,28 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Move rank-defect feedback into chamber generation rather
   than post-ranking only the banked summaries. Only proxy-positive chambers
   should go to Sage exact `GF(17^32)` audit.
+### 2026-07-04 - M1 a327 cycleguard rank-defect generation search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_cycleguard_rankdefect_generation_search.md`,
+  `experimental/scripts/scan_m1_a327_cycleguard_rankdefect_generation_search.py`,
+  `experimental/scripts/verify_m1_a327_cycleguard_rankdefect_generation_search.py`,
+  `experimental/data/m1_a327_cycleguard_rankdefect_generation_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / CYCLEG_RANKGEN_PROXY_FULL_RANK /
+  PARTIAL / EXPERIMENTAL.
+- **What is being added:** A bounded generation-time rank-defect feedback pass
+  that computes basis-quotient proxy rank as exact pair-clear rank-slack
+  chambers are found.
+- **Result:** The scan scored 636 basis profiles to find 8 exact pair-clear
+  rank-slack chambers. All 8 were proxy full-rank over `GF(12289)`. The best
+  live-ranked profile was `ninerow_P12_shear_c2_d1` with basis
+  `basisaware_0_1_2_6_7_8`; its basis-quotient matrix has shape `919 x 678`
+  and proxy rank/nullity `678/0`.
+- **How it is useful:** Confirms that moving proxy rank into the generation loop
+  is feasible, but simple pair-clear/rank-slack generation still produces
+  generic full-rank basis-quotient systems.
+- **What to do next:** Push rank-defect scoring earlier, before accepting basis
+  profiles and sampling chamber directions. Do not send these full-rank
+  chambers to Sage.
