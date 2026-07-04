@@ -4779,3 +4779,33 @@ Keep entries concise and link to the relevant files.
   feedback: implement the symmetry block decomposition or a richer period-8
   pattern generator so exact `GF(17^32)` rank can be used inside the schedule
   search rather than only on hand-seeded schedules.
+### 2026-07-04 - M1 a327 mu8 block rank-feedback
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_mu8_block_rank_feedback.md`,
+  `experimental/scripts/audit_m1_a327_mu8_block_decomposition.sage`,
+  `experimental/scripts/scan_m1_a327_mu8_block_rank_feedback.py`,
+  `experimental/scripts/verify_m1_a327_mu8_block_rank_feedback.py`,
+  `experimental/data/m1_a327_mu8_block_decomposition_audit.json`,
+  `experimental/data/m1_a327_mu8_block_rank_feedback_scan.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / MU8_RANK_FEEDBACK_EXACT_RANK_PENDING / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A canonical `mu_8` matrix audit and a deterministic
+  rank-feedback mutation queue. The audit reconstructs the `264 x 224`
+  matrices from the formula
+  `(zeta^(i*r)-zeta^(a*r))*(alpha_b*zeta^t)^r*y^ell`, checks whether the
+  proposed `Q_r -> zeta^r Q_r` equivariance is actually certified, and records
+  quotient functional-class metadata.
+- **Result:** The canonical reconstruction matches the `dd07a87` full-rank
+  front for all `9` guard-passing schedules. No schedule certified the checked
+  row action, so no Fourier block split was used. The mutation scanner produced
+  `1,737` guard-passing schedule mutations and selected `64` for exact
+  follow-up; exact rank on those mutations is still pending.
+- **How it is useful:** This turns the `mu_8` path from hand-seeded schedules
+  into a rank-feedback queue while preserving the rule that block ranks are
+  only used after an exact equivariance certificate.
+- **What to do next:** Run exact GF(17^32) ranks on the selected `64`
+  mutations in batches, then classify any positive nullity as pair-visible,
+  pair-forced, or common-kernel-only before attempting witness extraction.
