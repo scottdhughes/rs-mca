@@ -4162,3 +4162,31 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Codesign the selected-class ledger and template geometry
   together, with an explicit lower bound on quotient-variable budget, instead
   of keeping the current fixed ledger.
+### 2026-07-04 - M1 a327 prescribed functional-collision ledger-codesign
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_prescribed_functional_collision_ledger_codesign.md`,
+  `experimental/scripts/scan_m1_a327_prescribed_functional_collision_ledger_codesign.py`,
+  `experimental/scripts/verify_m1_a327_prescribed_functional_collision_ledger_codesign.py`,
+  `experimental/data/m1_a327_prescribed_functional_collision_ledger_codesign.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / LCODESIGN_PROXY_FULL_RANK / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A selected-class ledger/template codesign scan that
+  varies the mask ledger and actual `GF(17)` template vectors together, while
+  enforcing support, pair guards, span rank, no forced identities, and a
+  quotient-variable floor before proxy rank.
+- **Result:** The scan tested 96 template specs and 192 ledger/template
+  systems. All 192 systems were structural-pass, 96 basis profiles were
+  constructed, 12 profiles cleared the `q_variable_count >= 350` floor, and 10
+  profiles were proxy-ranked. It found zero proxy-positive profiles. The best
+  profile had `q_variable_count = 771`, matrix shape `1012 x 771`, and proxy
+  rank/nullity `771/0`.
+- **How it is useful:** Fixes the immediate quotient-budget collapse from the
+  fixed-ledger branch (`129 -> 771`) while showing that the high-q-budget
+  nonbasis constraints are still full-rank and need explicit row-dependency
+  engineering.
+- **What to do next:** Start from the high-q-budget ledger-codesign front and
+  search for repeated basis-coordinate rows, repeated support-coordinate rows,
+  nested supports, or other dependency-positive profiles before proxy rank.
