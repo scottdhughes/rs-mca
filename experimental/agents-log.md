@@ -4355,3 +4355,88 @@ Keep entries concise and link to the relevant files.
   partition counts to labelled quotient coordinates, solve the degree-`<=63`
   quotient polynomial realization problem, then lift via `f_i(X)=P_i(X^4)` only
   if proxy realization succeeds.
+### 2026-07-04 - M1 a327 quotient-subgroup realization search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_quotient_subgroup_realization_search.md`,
+  `experimental/scripts/scan_m1_a327_quotient_subgroup_realization_search.py`,
+  `experimental/scripts/verify_m1_a327_quotient_subgroup_realization_search.py`,
+  `experimental/scripts/audit_m1_a327_quotient_subgroup_realization_search.sage`,
+  `experimental/data/m1_a327_quotient_subgroup_realization_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  QUOTIENT_REALIZATION_PROXY_FULL_RANK / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A first realization layer for the feasible `s=4`
+  quotient-subgroup count schedule from `7e21f1d`. It expands the aggregate
+  active-partition counts into 128 labelled quotient coordinates, recomputes
+  support and pair guards independently, and builds the quotient-polynomial
+  equality matrix for `P_i(Y)` with `deg(P_i) <= 63`.
+- **Result:** The deterministic labelled schedule preserves support
+  `[327,327,327,327,327,327,327]`, pair-to-7 counts
+  `[252,252,252,252,252]`, and max pair equality on `H` equal to `252`.
+  The first proxy realization over `GF(257)` has matrix shape `[495,384]`
+  and rank/nullity `384/0`, so no exact quotient-polynomial candidate is
+  constructed in this packet.
+- **How it is useful:** Converts the previous CP-SAT count schedule into a
+  verifier-friendly labelled schedule and identifies the next obstruction as
+  quotient-coordinate labelling/rank feedback, not support or pair budgeting.
+- **What to do next:** Mutate or optimize the labelled quotient-coordinate
+  assignment with proxy-rank feedback until a labelled schedule has positive
+  quotient nullity and no forced pair equality; only then run the Sage
+  `GF(17^32)` lift.
+### 2026-07-04 - M1 a327 quotient-subgroup label rank feedback
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_quotient_subgroup_label_rank_feedback.md`,
+  `experimental/scripts/scan_m1_a327_quotient_subgroup_label_rank_feedback.py`,
+  `experimental/scripts/verify_m1_a327_quotient_subgroup_label_rank_feedback.py`,
+  `experimental/data/m1_a327_quotient_subgroup_label_rank_feedback.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  QUOTIENT_LABEL_RANK_PROXY_FULL_RANK / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A proxy rank-feedback layer that keeps the aggregate
+  `s=4` support-feasible schedule fixed while mutating the assignment of its 22
+  active partition types to the 128 quotient subgroup points. It tests grouped,
+  round-robin, residue-spread, and deterministic random labelled schedules over
+  `GF(257)`.
+- **Result:** The bounded rank-feedback scan tested 72 quotient labellings and
+  found zero proxy-positive schedules. The best tested labelling remains proxy
+  full rank with matrix `[495,384]` and rank/nullity `384/0`.
+- **How it is useful:** Shows that post-hoc labelling mutation of the current
+  aggregate count schedule is not enough in the tested sample. The next
+  constructive step should put rank feedback into the schedule generator rather
+  than only permuting labels after CP-SAT.
+- **What to do next:** Build a rank-aware quotient schedule generator: use
+  proxy-rank or structural-rank features while selecting partition counts and
+  quotient labels, or revisit the unresolved `s=8/16/32` screens with longer
+  CP-SAT budgets and rank-aware objectives.
+### 2026-07-04 - M1 a327 quotient-subgroup rank-aware schedule generator
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_quotient_subgroup_rank_aware_schedule_generator.md`,
+  `experimental/scripts/scan_m1_a327_quotient_subgroup_rank_aware_schedule_generator.py`,
+  `experimental/scripts/verify_m1_a327_quotient_subgroup_rank_aware_schedule_generator.py`,
+  `experimental/data/m1_a327_quotient_subgroup_rank_aware_schedule_generator.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / RANK_AWARE_PROXY_FULL_RANK /
+  PARTIAL / EXPERIMENTAL.
+- **What is being added:** A rank-aware schedule generator for the `s=4`
+  quotient-subgroup model. Instead of only permuting labels for one aggregate
+  count schedule, it generates alternative CP-SAT schedules under
+  `pair7_slack`, `min_equation_count`, `min_pair_equal`, and
+  `min_active_equation` objectives, then proxy-ranks labelled assignments over
+  `GF(257)`.
+- **Result:** The bounded generator tested four objectives. One objective
+  (`pair7_slack`) produced a CP-feasible schedule in the allotted time, with
+  equation count `515` and active partition count `39`; its best labelled
+  proxy matrix was `[515,384]` with rank/nullity `384/0`. No proxy-positive
+  quotient schedule was found.
+- **How it is useful:** Moves rank feedback into schedule generation and
+  confirms that the immediate objective variations around the `s=4` count model
+  still do not create quotient nullity.
+- **What to do next:** Increase generator budget with structural-rank features,
+  revisit unresolved `s=8/16/32` CP-SAT screens, or seed quotient-pattern
+  realization from the public `a=326` hybrid quotient packet.
