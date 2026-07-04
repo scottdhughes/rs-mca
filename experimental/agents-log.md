@@ -3133,3 +3133,27 @@ Keep entries concise and link to the relevant files.
   obstruction kills the actual right kernel in this bounded front.
 - **What to do next:** Co-design basis inclusion and coefficient rank defect
   from the start, rather than perturbing the same ledger after the fact.
+### 2026-07-03 - M1 a327 basis/kernel co-design
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_basis_kernel_codesign.md`,
+  `experimental/scripts/scan_m1_a327_basis_kernel_codesign.py`,
+  `experimental/scripts/verify_m1_a327_basis_kernel_codesign.py`,
+  `experimental/data/m1_a327_basis_kernel_codesign.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / CODESIGN_COEFFICIENT_FULL_RANK / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A broader actual-template co-design scan across the
+  existing 36-template candidate generator, forcing obstruction-functional
+  basis inclusion during basis selection and requiring coefficient rank defect
+  before pair/proxy checks.
+- **Result:** Tested 216 systems. Among 210 structural-pass candidates, 144
+  contain a target obstruction functional. The scan checked 257,298 forced
+  basis combinations and 4,530 valid forced stable-basis profiles. It found
+  zero coefficient-kernel profiles.
+- **How it is useful:** Shows the existing actual-template generator does not
+  co-design obstruction-functional basis inclusion with right-kernel rank
+  defect; the failure is broader than the local same-mask front.
+- **What to do next:** Move to a determinantal/rank-defect template ansatz:
+  prescribe a rank-5 relation among nonbasis coefficient rows first, then solve
+  for template vectors or selected masks that realize it.
