@@ -4106,3 +4106,29 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Move upstream to template/functionality synthesis that
   deliberately creates projective functional or support-coordinate collisions
   while preserving support and pair guards.
+### 2026-07-04 - M1 a327 cycleguard functional-collision template synthesis
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_cycleguard_functional_collision_template_synthesis.md`,
+  `experimental/scripts/scan_m1_a327_cycleguard_functional_collision_template_synthesis.py`,
+  `experimental/scripts/verify_m1_a327_cycleguard_functional_collision_template_synthesis.py`,
+  `experimental/data/m1_a327_cycleguard_functional_collision_template_synthesis.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / FCOLL_TEMPLATE_PROXY_FULL_RANK /
+  PARTIAL / EXPERIMENTAL.
+- **What is being added:** A bounded template-vector mutation scan that keeps
+  selected-class masks fixed and tests whether nearby template perturbations can
+  create useful compressed functional-class structure before proxy rank.
+- **Result:** The scan tested 96 mutations, found 88 structural-pass mutations,
+  constructed 32 basis profiles, and proxy-ranked 8. It found zero
+  proxy-positive profiles. The best mutation had `1777` raw functional rows,
+  `18` compressed functional classes, no forced functional identities, span
+  rank `6`, and no equal template pairs. Its best proxy matrix was `1092 x 851`
+  with rank/nullity `851/0`.
+- **How it is useful:** Shows that local single-entry template-vector
+  perturbations preserve the guards but still produce generic full-rank
+  basis-quotient systems.
+- **What to do next:** Stop local template perturbation. Prescribe the desired
+  functional-class/support pattern first, then solve the template-vector
+  realization problem over `GF(17)` or a proxy field before any Sage exact audit.
