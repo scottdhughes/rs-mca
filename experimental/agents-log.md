@@ -3876,3 +3876,28 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Leave this rank-slack basis-exchange basin. Return to
   higher-level template/hypergraph search with the pair-clear cycle as a guard,
   or add support-class augmentation before basis selection.
+### 2026-07-04 - M1 a327 pair-clear support augmentation search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_pairclear_support_augmentation_search.md`,
+  `experimental/scripts/scan_m1_a327_pairclear_support_augmentation_search.py`,
+  `experimental/scripts/verify_m1_a327_pairclear_support_augmentation_search.py`,
+  `experimental/data/m1_a327_pairclear_support_augmentation_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  SUPPORTAUG_FORCED_PROJECTIONS_REMAIN / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A target-level change adding one non-target support
+  class to the extended zero target before basis selection.
+- **Result:** The scan tested 10,852 basis profiles and found 152 extended
+  rank-slack profiles. It found zero exact pair-clear and zero
+  cycle-pressure-reduced profiles. The best profile,
+  `ninerow_P17_shear_c1_d1` with basis `supportaug_0_1_2_3_4_5_13`, augments
+  by support class 0 and keeps extended rank 4/nullity 2. Its best direction
+  `[0,1,1,2,0,0]` still forces `[P45,P46,P56]`.
+- **How it is useful:** Confirms that adding a high-support zero class before
+  basis selection narrows the rank-slack front but still does not break the
+  cyclic pair-clear obstruction.
+- **What to do next:** Leave this local rank-slack basin and return to
+  higher-level template/hypergraph search with the cyclic pair-clear front as a
+  generation-time hard guard.
