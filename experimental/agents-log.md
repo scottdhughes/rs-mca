@@ -2989,3 +2989,26 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Attempt actual template-vector realization for the
   `sheared_outside_seed_001` slot-kernel target, then run Sage GF(17^32) only
   after that realization gate is cleared.
+### 2026-07-03 - M1 a327 proxy-slot template realization
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_proxy_slot_template_realization.md`,
+  `experimental/scripts/scan_m1_a327_proxy_slot_template_realization.py`,
+  `experimental/scripts/verify_m1_a327_proxy_slot_template_realization.py`,
+  `experimental/data/m1_a327_proxy_slot_template_realization.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / TEMPLATE_REALIZATION_ROWSPACE_FAIL / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A GF(17) template-vector realization audit for the
+  `sheared_outside_seed_001` proxy-slot functional target from `ce5589c`.
+- **Result:** The realization matrix has shape `4191 x 42`, rank/nullity
+  `35 / 7`, diagonal rank 6, and one non-diagonal direction modulo diagonal
+  translation. A 519-sample kernel sweep found zero rowspace-valid samples. The
+  best distinct sample has realized functional span rank 5 and fails the
+  prescribed rowspace at 3 coordinates.
+- **How it is useful:** The synthetic proxy-slot target remains genuinely
+  proxy-positive, but this named target is not directly realized by actual
+  low-rank template vectors in the tested coordinate ledger.
+- **What to do next:** Build a realization-aware proxy-slot generator that
+  keeps actual template-vector rowspaces inside the search, instead of
+  engineering the proxy functional rows first and realizing them afterward.
