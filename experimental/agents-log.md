@@ -4218,3 +4218,31 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Search for exact row collisions in the ledger-codesign
   front, while preserving q-budget, pair guards, span rank, and no forced
   identities.
+### 2026-07-04 - M1 a327 ledger-codesign exact row-collision search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_ledger_codesign_exact_rowcollision_search.md`,
+  `experimental/scripts/scan_m1_a327_ledger_codesign_exact_rowcollision_search.py`,
+  `experimental/scripts/verify_m1_a327_ledger_codesign_exact_rowcollision_search.py`,
+  `experimental/data/m1_a327_ledger_codesign_exact_rowcollision_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / EXACT_ROWCOLLISION_Q_BUDGET_FAIL /
+  PARTIAL / EXPERIMENTAL.
+- **What is being added:** An exact row-collision search on the high-q
+  ledger-codesign front. It tests natural basis profiles and forced profiles
+  that keep candidate-level collision groups out of the basis so they land in
+  the nonbasis constraints.
+- **Result:** The run rebuilt 360 structural-pass systems, scanned 60
+  candidates, constructed 540 basis profiles, and found 438 exact-collision
+  profiles. However, zero exact-collision profiles cleared the
+  `q_variable_count >= 350` floor, so no proxy rank was run. The best
+  exact-collision profile had `q_variable_count = 271`, matrix `512 x 271`, one
+  repeated-support pair, and no repeated coordinate or support-coordinate
+  pairs.
+- **How it is useful:** Shows a direct collision/q-budget tradeoff in the
+  tested front: broad overlap keeps q-budget but is proxy-full-rank, while
+  exact support collision exists only after q-budget collapses below the floor.
+- **What to do next:** Codesign support collisions and quotient budget inside
+  the selected-count/assignment objective instead of trying to force collisions
+  after the ledger has already been built.
