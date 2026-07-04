@@ -4325,3 +4325,33 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Move to a primal structured-kernel route, beginning with
   quotient-subgroup RS kernels and OR-Tools CP-SAT fiber allocation before any
   Sage exact audit.
+### 2026-07-04 - M1 a327 quotient-subgroup primal-kernel search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_quotient_subgroup_primal_kernel_search.md`,
+  `experimental/scripts/scan_m1_a327_quotient_subgroup_primal_kernel_search.py`,
+  `experimental/scripts/verify_m1_a327_quotient_subgroup_primal_kernel_search.py`,
+  `experimental/data/m1_a327_quotient_subgroup_primal_kernel_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** CANDIDATE / QUOTIENT_CP_FEASIBLE_REALIZATION_PENDING / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A native quotient-subgroup right-kernel screen using
+  OR-Tools CP-SAT. For `g_i(X)=P_i(X^s)` with `s in {32,16,8,4}`, it tests
+  whether quotient-fiber selected-class schedules can hit exact support `327`
+  for all seven witnesses while respecting RS pair caps and pair-to-7 guards.
+- **Result:** The bounded CP-SAT screen found a feasible count schedule for
+  `s=4` with quotient length `128`, degree bound `63`, support vector
+  `[327,327,327,327,327,327,327]`, pair-to-7 counts
+  `[252,252,252,252,252]`, and maximum pair equality on `H` equal to `252`.
+  The `s=32`, `s=16`, and `s=8` screens were unresolved under the bounded
+  time limit, not proved infeasible.
+- **How it is useful:** Moves past shallow coefficient right kernels into a
+  native RS-shaped kernel family. The support/pair budget is feasible at the
+  quotient-count layer; the remaining question is exact realization by quotient
+  polynomials.
+- **What to do next:** Start
+  `m1-a327-quotient-subgroup-realization-search`: expand the feasible `s=4`
+  partition counts to labelled quotient coordinates, solve the degree-`<=63`
+  quotient polynomial realization problem, then lift via `f_i(X)=P_i(X^4)` only
+  if proxy realization succeeds.
