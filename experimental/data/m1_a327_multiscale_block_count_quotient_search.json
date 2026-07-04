@@ -1,0 +1,6507 @@
+{
+  "agreement_target": 327,
+  "candidate": {
+    "codeword_hashes": null,
+    "constructed": false,
+    "orders": [],
+    "received_word_hash": null
+  },
+  "denominator": "17^32",
+  "mca_counted": false,
+  "multiscale_search": {
+    "best_failure_mode": "MULTISCALE_INTERPOLATION_NO_CANDIDATE",
+    "block_sizes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "candidate_orders": [],
+    "models_tested": 8,
+    "orders_tested": [
+      16,
+      32
+    ],
+    "time_limit_seconds_per_model": 30.0
+  },
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C",
+    "Sage GF(17^32) exact lift",
+    "MCA/protocol consequence from this list-track multiscale quotient search",
+    "global obstruction outside the tested quotient block-count models"
+  ],
+  "previous_order8_block_count": {
+    "ambient_pair_cap_feasible": false,
+    "best_failure_mode": "BLOCK_COUNT_AMBIENT_INFEASIBLE",
+    "pair7_guard_feasible": true,
+    "pair_cap_feasible": true,
+    "proof_status": "EXACT_EXTRACTION_NO_A327 / BLOCK_COUNT_AMBIENT_INFEASIBLE / PARTIAL / EXPERIMENTAL",
+    "support_only_feasible": true
+  },
+  "proof_status": "EXACT_EXTRACTION_NO_A327 / MULTISCALE_INTERPOLATION_NO_CANDIDATE / PARTIAL / EXPERIMENTAL",
+  "results": [
+    {
+      "bucket_size": 32,
+      "degree_bound": 7,
+      "field": "GF(17)",
+      "interpolation_audit": {
+        "attempted": true,
+        "basis_dimension": 0,
+        "best_failure_mode": "MULTISCALE_INTERPOLATION_NULLITY_ZERO",
+        "candidate_coefficients": null,
+        "candidate_constructed": false,
+        "degree_bound": 7,
+        "field": "GF(17)",
+        "forced_equal_pairs": [],
+        "matrix_shape": [
+          58,
+          48
+        ],
+        "nullity": 0,
+        "projection_rank_by_pair": {},
+        "quotient_order": 16,
+        "rank": 48
+      },
+      "models": [
+        {
+          "ambient_pair_bucket_counts": {
+            "12": 9,
+            "13": 9,
+            "14": 9,
+            "15": 9,
+            "16": 9,
+            "17": 9,
+            "23": 9,
+            "24": 9,
+            "25": 9,
+            "26": 9,
+            "27": 9,
+            "34": 10,
+            "35": 9,
+            "36": 9,
+            "37": 9,
+            "45": 9,
+            "46": 9,
+            "47": 9,
+            "56": 9,
+            "57": 9,
+            "67": 10
+          },
+          "best_failure_mode": "MULTISCALE_SCHEDULE_FEASIBLE",
+          "block_count": 127,
+          "block_sizes": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "bucket_size": 32,
+          "cp_sat_status": "OPTIMAL",
+          "degree_bound": 7,
+          "equation_count": 56,
+          "feasible": true,
+          "max_ambient_pair_buckets": 10,
+          "max_selected_pair_count": 320,
+          "mode": "support_only",
+          "ortools_version": "9.15.6755",
+          "pair7_counts": [
+            288,
+            288,
+            288,
+            288,
+            288
+          ],
+          "quotient_order": 16,
+          "selected_block_counts": [
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  5
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  5
+                ],
+                "count": 7
+              },
+              {
+                "block": [
+                  6
+                ],
+                "count": 7
+              },
+              {
+                "block": [
+                  7
+                ],
+                "count": 1
+              },
+              {
+                "block": [
+                  3,
+                  4
+                ],
+                "count": 17
+              }
+            ],
+            [
+              {
+                "block": [
+                  3
+                ],
+                "count": 22
+              },
+              {
+                "block": [
+                  4
+                ],
+                "count": 10
+              }
+            ],
+            [
+              {
+                "block": [
+                  2
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1
+                ],
+                "count": 7
+              },
+              {
+                "block": [
+                  2
+                ],
+                "count": 7
+              },
+              {
+                "block": [
+                  4
+                ],
+                "count": 12
+              },
+              {
+                "block": [
+                  7
+                ],
+                "count": 6
+              }
+            ]
+          ],
+          "selected_pair_counts": {
+            "12": 288,
+            "13": 288,
+            "14": 288,
+            "15": 288,
+            "16": 288,
+            "17": 288,
+            "23": 288,
+            "24": 288,
+            "25": 288,
+            "26": 288,
+            "27": 288,
+            "34": 305,
+            "35": 288,
+            "36": 288,
+            "37": 288,
+            "45": 288,
+            "46": 288,
+            "47": 288,
+            "56": 288,
+            "57": 288,
+            "67": 320
+          },
+          "selected_partitions": [
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ]
+          ],
+          "support_vector": [
+            327,
+            327,
+            327,
+            327,
+            327,
+            327,
+            327
+          ],
+          "time_limit_seconds": 30.0
+        },
+        {
+          "ambient_pair_bucket_counts": {
+            "12": 8,
+            "13": 8,
+            "14": 8,
+            "15": 8,
+            "16": 7,
+            "17": 8,
+            "23": 8,
+            "24": 8,
+            "25": 7,
+            "26": 8,
+            "27": 8,
+            "34": 8,
+            "35": 7,
+            "36": 7,
+            "37": 8,
+            "45": 8,
+            "46": 8,
+            "47": 8,
+            "56": 6,
+            "57": 8,
+            "67": 7
+          },
+          "best_failure_mode": "MULTISCALE_SCHEDULE_FEASIBLE",
+          "block_count": 127,
+          "block_sizes": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "bucket_size": 32,
+          "cp_sat_status": "OPTIMAL",
+          "degree_bound": 7,
+          "equation_count": 56,
+          "feasible": true,
+          "max_ambient_pair_buckets": 8,
+          "max_selected_pair_count": 256,
+          "mode": "pair7_guard",
+          "ortools_version": "9.15.6755",
+          "pair7_counts": [
+            256,
+            256,
+            256,
+            256,
+            256
+          ],
+          "quotient_order": 16,
+          "selected_block_counts": [
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  5,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  3,
+                  4,
+                  5,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1
+                ],
+                "count": 12
+              },
+              {
+                "block": [
+                  4
+                ],
+                "count": 1
+              },
+              {
+                "block": [
+                  5
+                ],
+                "count": 12
+              },
+              {
+                "block": [
+                  7
+                ],
+                "count": 7
+              }
+            ],
+            [
+              {
+                "block": [
+                  2
+                ],
+                "count": 2
+              },
+              {
+                "block": [
+                  3
+                ],
+                "count": 7
+              },
+              {
+                "block": [
+                  4
+                ],
+                "count": 11
+              },
+              {
+                "block": [
+                  6
+                ],
+                "count": 12
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  6
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  2
+                ],
+                "count": 5
+              },
+              {
+                "block": [
+                  1,
+                  4,
+                  5,
+                  6
+                ],
+                "count": 27
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  5,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  3,
+                  6
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ]
+          ],
+          "selected_pair_counts": {
+            "12": 256,
+            "13": 256,
+            "14": 251,
+            "15": 251,
+            "16": 219,
+            "17": 256,
+            "23": 256,
+            "24": 256,
+            "25": 224,
+            "26": 256,
+            "27": 256,
+            "34": 256,
+            "35": 224,
+            "36": 224,
+            "37": 256,
+            "45": 251,
+            "46": 251,
+            "47": 256,
+            "56": 187,
+            "57": 256,
+            "67": 224
+          },
+          "selected_partitions": [
+            [
+              [
+                1,
+                2,
+                3,
+                5,
+                7
+              ],
+              [
+                4
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3,
+                4,
+                5,
+                7
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                3
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                6
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                4,
+                5,
+                6
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                5,
+                7
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3,
+                6
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                6,
+                7
+              ],
+              [
+                5
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                6,
+                7
+              ],
+              [
+                5
+              ]
+            ]
+          ],
+          "support_vector": [
+            327,
+            327,
+            327,
+            327,
+            327,
+            327,
+            327
+          ],
+          "time_limit_seconds": 30.0
+        },
+        {
+          "ambient_pair_bucket_counts": {
+            "12": 7,
+            "13": 6,
+            "14": 7,
+            "15": 7,
+            "16": 7,
+            "17": 7,
+            "23": 7,
+            "24": 7,
+            "25": 6,
+            "26": 7,
+            "27": 7,
+            "34": 7,
+            "35": 7,
+            "36": 6,
+            "37": 7,
+            "45": 6,
+            "46": 6,
+            "47": 7,
+            "56": 8,
+            "57": 8,
+            "67": 7
+          },
+          "best_failure_mode": "MULTISCALE_SCHEDULE_FEASIBLE",
+          "block_count": 127,
+          "block_sizes": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "bucket_size": 32,
+          "cp_sat_status": "FEASIBLE",
+          "degree_bound": 7,
+          "equation_count": 56,
+          "feasible": true,
+          "max_ambient_pair_buckets": 8,
+          "max_selected_pair_count": 252,
+          "mode": "pair_cap",
+          "ortools_version": "9.15.6755",
+          "pair7_counts": [
+            221,
+            221,
+            223,
+            224,
+            252
+          ],
+          "quotient_order": 16,
+          "selected_block_counts": [
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  5,
+                  6
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  4
+                ],
+                "count": 1
+              },
+              {
+                "block": [
+                  3,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 31
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  3,
+                  4,
+                  6
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1
+                ],
+                "count": 10
+              },
+              {
+                "block": [
+                  4
+                ],
+                "count": 6
+              },
+              {
+                "block": [
+                  6
+                ],
+                "count": 6
+              },
+              {
+                "block": [
+                  7
+                ],
+                "count": 10
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  3
+                ],
+                "count": 3
+              },
+              {
+                "block": [
+                  1,
+                  2,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 29
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  3,
+                  4,
+                  5
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  4,
+                  6
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  2
+                ],
+                "count": 10
+              },
+              {
+                "block": [
+                  3
+                ],
+                "count": 5
+              },
+              {
+                "block": [
+                  5
+                ],
+                "count": 11
+              },
+              {
+                "block": [
+                  6
+                ],
+                "count": 5
+              },
+              {
+                "block": [
+                  7
+                ],
+                "count": 1
+              }
+            ]
+          ],
+          "selected_pair_counts": {
+            "12": 221,
+            "13": 192,
+            "14": 224,
+            "15": 221,
+            "16": 221,
+            "17": 221,
+            "23": 224,
+            "24": 224,
+            "25": 189,
+            "26": 221,
+            "27": 221,
+            "34": 224,
+            "35": 223,
+            "36": 191,
+            "37": 223,
+            "45": 192,
+            "46": 192,
+            "47": 224,
+            "56": 252,
+            "57": 252,
+            "67": 220
+          },
+          "selected_partitions": [
+            [
+              [
+                1,
+                2,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                3
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                5,
+                6
+              ],
+              [
+                4
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                2
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3,
+                5,
+                6,
+                7
+              ],
+              [
+                4
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                3,
+                4,
+                6
+              ],
+              [
+                5
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                7
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                5,
+                6,
+                7
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                7
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                3,
+                4,
+                5
+              ],
+              [
+                2
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                4,
+                6
+              ],
+              [
+                3
+              ],
+              [
+                5
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                3,
+                4,
+                5,
+                7
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                5,
+                6,
+                7
+              ],
+              [
+                4
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ]
+          ],
+          "support_vector": [
+            327,
+            327,
+            327,
+            327,
+            327,
+            327,
+            327
+          ],
+          "time_limit_seconds": 30.0
+        },
+        {
+          "ambient_pair_bucket_counts": {
+            "12": 7,
+            "13": 7,
+            "14": 6,
+            "15": 6,
+            "16": 7,
+            "17": 7,
+            "23": 7,
+            "24": 5,
+            "25": 7,
+            "26": 7,
+            "27": 7,
+            "34": 7,
+            "35": 7,
+            "36": 7,
+            "37": 7,
+            "45": 7,
+            "46": 7,
+            "47": 7,
+            "56": 7,
+            "57": 7,
+            "67": 7
+          },
+          "best_failure_mode": "MULTISCALE_SCHEDULE_FEASIBLE",
+          "block_count": 127,
+          "block_sizes": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "bucket_size": 32,
+          "cp_sat_status": "FEASIBLE",
+          "degree_bound": 7,
+          "equation_count": 58,
+          "feasible": true,
+          "max_ambient_pair_buckets": 7,
+          "max_selected_pair_count": 224,
+          "mode": "ambient_pair_cap",
+          "ortools_version": "9.15.6755",
+          "pair7_counts": [
+            224,
+            224,
+            224,
+            224,
+            224
+          ],
+          "quotient_order": 16,
+          "selected_block_counts": [
+            [
+              {
+                "block": [
+                  4,
+                  6
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  5,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  4,
+                  5,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  7
+                ],
+                "count": 1
+              },
+              {
+                "block": [
+                  1,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "count": 31
+              }
+            ],
+            [
+              {
+                "block": [
+                  5
+                ],
+                "count": 10
+              },
+              {
+                "block": [
+                  7
+                ],
+                "count": 5
+              },
+              {
+                "block": [
+                  3,
+                  4
+                ],
+                "count": 8
+              },
+              {
+                "block": [
+                  1,
+                  2,
+                  6
+                ],
+                "count": 9
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  3
+                ],
+                "count": 1
+              },
+              {
+                "block": [
+                  1,
+                  2,
+                  5,
+                  6
+                ],
+                "count": 31
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  4,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  6,
+                  7
+                ],
+                "count": 32
+              }
+            ],
+            [
+              {
+                "block": [
+                  7
+                ],
+                "count": 1
+              },
+              {
+                "block": [
+                  2,
+                  3,
+                  5
+                ],
+                "count": 31
+              }
+            ]
+          ],
+          "selected_pair_counts": {
+            "12": 200,
+            "13": 223,
+            "14": 191,
+            "15": 190,
+            "16": 199,
+            "17": 224,
+            "23": 223,
+            "24": 160,
+            "25": 222,
+            "26": 200,
+            "27": 224,
+            "34": 199,
+            "35": 222,
+            "36": 223,
+            "37": 224,
+            "45": 223,
+            "46": 223,
+            "47": 224,
+            "56": 222,
+            "57": 224,
+            "67": 224
+          },
+          "selected_partitions": [
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                5
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                5,
+                7
+              ],
+              [
+                4
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                4,
+                5,
+                7
+              ],
+              [
+                3
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                3,
+                4,
+                5,
+                6
+              ],
+              [
+                2
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                6
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                5
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                6,
+                7
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                5,
+                6
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                2
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                4,
+                7
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                3
+              ]
+            ],
+            [
+              [
+                1,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                2
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                6,
+                7
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                3,
+                5
+              ],
+              [
+                4
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ]
+          ],
+          "support_vector": [
+            327,
+            327,
+            327,
+            327,
+            327,
+            327,
+            327
+          ],
+          "time_limit_seconds": 30.0
+        }
+      ],
+      "quotient_order": 16,
+      "summary": {
+        "ambient_pair_cap_feasible": true,
+        "best_failure_mode": "MULTISCALE_INTERPOLATION_NULLITY_ZERO",
+        "candidate_constructed": false,
+        "interpolation_audit_attempted": true,
+        "interpolation_nullity": 0,
+        "interpolation_rank": 48,
+        "pair7_guard_feasible": true,
+        "pair_cap_feasible": true,
+        "support_only_feasible": true
+      }
+    },
+    {
+      "bucket_size": 16,
+      "degree_bound": 15,
+      "field": "GF(17^2)",
+      "interpolation_audit": {
+        "attempted": true,
+        "basis_dimension": 0,
+        "best_failure_mode": "MULTISCALE_INTERPOLATION_NULLITY_ZERO",
+        "candidate_coefficients": null,
+        "candidate_constructed": false,
+        "degree_bound": 15,
+        "field": "GF(17^2)",
+        "forced_equal_pairs": [],
+        "matrix_shape": [
+          114,
+          96
+        ],
+        "nullity": 0,
+        "projection_rank_by_pair": {},
+        "quotient_order": 32,
+        "rank": 96
+      },
+      "models": [
+        {
+          "ambient_pair_bucket_counts": {
+            "12": 19,
+            "13": 18,
+            "14": 18,
+            "15": 18,
+            "16": 18,
+            "17": 18,
+            "23": 18,
+            "24": 18,
+            "25": 18,
+            "26": 18,
+            "27": 17,
+            "34": 19,
+            "35": 18,
+            "36": 17,
+            "37": 18,
+            "45": 18,
+            "46": 17,
+            "47": 18,
+            "56": 17,
+            "57": 17,
+            "67": 18
+          },
+          "best_failure_mode": "MULTISCALE_SCHEDULE_FEASIBLE",
+          "block_count": 127,
+          "block_sizes": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "bucket_size": 16,
+          "cp_sat_status": "OPTIMAL",
+          "degree_bound": 15,
+          "equation_count": 112,
+          "feasible": true,
+          "max_ambient_pair_buckets": 19,
+          "max_selected_pair_count": 301,
+          "mode": "support_only",
+          "ortools_version": "9.15.6755",
+          "pair7_counts": [
+            288,
+            272,
+            282,
+            282,
+            272
+          ],
+          "quotient_order": 32,
+          "selected_block_counts": [
+            [
+              {
+                "block": [
+                  5
+                ],
+                "count": 6
+              },
+              {
+                "block": [
+                  7
+                ],
+                "count": 10
+              }
+            ],
+            [
+              {
+                "block": [
+                  3
+                ],
+                "count": 3
+              },
+              {
+                "block": [
+                  1,
+                  2
+                ],
+                "count": 13
+              }
+            ],
+            [
+              {
+                "block": [
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  3
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  5
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1
+                ],
+                "count": 1
+              },
+              {
+                "block": [
+                  3
+                ],
+                "count": 4
+              },
+              {
+                "block": [
+                  5
+                ],
+                "count": 11
+              }
+            ],
+            [
+              {
+                "block": [
+                  2
+                ],
+                "count": 10
+              },
+              {
+                "block": [
+                  3
+                ],
+                "count": 6
+              }
+            ],
+            [
+              {
+                "block": [
+                  5
+                ],
+                "count": 6
+              },
+              {
+                "block": [
+                  3,
+                  4,
+                  7
+                ],
+                "count": 10
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  6
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1
+                ],
+                "count": 2
+              },
+              {
+                "block": [
+                  6
+                ],
+                "count": 14
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  4
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1
+                ],
+                "count": 7
+              },
+              {
+                "block": [
+                  6
+                ],
+                "count": 9
+              }
+            ],
+            [
+              {
+                "block": [
+                  4
+                ],
+                "count": 13
+              },
+              {
+                "block": [
+                  7
+                ],
+                "count": 3
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ]
+          ],
+          "selected_pair_counts": {
+            "12": 301,
+            "13": 288,
+            "14": 288,
+            "15": 288,
+            "16": 288,
+            "17": 288,
+            "23": 288,
+            "24": 288,
+            "25": 288,
+            "26": 288,
+            "27": 272,
+            "34": 298,
+            "35": 288,
+            "36": 272,
+            "37": 282,
+            "45": 288,
+            "46": 272,
+            "47": 282,
+            "56": 272,
+            "57": 272,
+            "67": 288
+          },
+          "selected_partitions": [
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3,
+                4,
+                7
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                6
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                6,
+                7
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ]
+          ],
+          "support_vector": [
+            327,
+            327,
+            327,
+            327,
+            327,
+            327,
+            327
+          ],
+          "time_limit_seconds": 30.0
+        },
+        {
+          "ambient_pair_bucket_counts": {
+            "12": 18,
+            "13": 16,
+            "14": 17,
+            "15": 16,
+            "16": 17,
+            "17": 17,
+            "23": 17,
+            "24": 17,
+            "25": 16,
+            "26": 17,
+            "27": 17,
+            "34": 16,
+            "35": 16,
+            "36": 17,
+            "37": 17,
+            "45": 17,
+            "46": 17,
+            "47": 17,
+            "56": 16,
+            "57": 18,
+            "67": 17
+          },
+          "best_failure_mode": "MULTISCALE_SCHEDULE_FEASIBLE",
+          "block_count": 127,
+          "block_sizes": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "bucket_size": 16,
+          "cp_sat_status": "FEASIBLE",
+          "degree_bound": 15,
+          "equation_count": 112,
+          "feasible": true,
+          "max_ambient_pair_buckets": 18,
+          "max_selected_pair_count": 283,
+          "mode": "pair7_guard",
+          "ortools_version": "9.15.6755",
+          "pair7_counts": [
+            272,
+            272,
+            272,
+            272,
+            283
+          ],
+          "quotient_order": 32,
+          "selected_block_counts": [
+            [
+              {
+                "block": [
+                  1,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  4,
+                  5,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  6
+                ],
+                "count": 5
+              },
+              {
+                "block": [
+                  1,
+                  2,
+                  4
+                ],
+                "count": 11
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  3
+                ],
+                "count": 5
+              },
+              {
+                "block": [
+                  5,
+                  7
+                ],
+                "count": 11
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  3
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1
+                ],
+                "count": 2
+              },
+              {
+                "block": [
+                  5
+                ],
+                "count": 14
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  6
+                ],
+                "count": 4
+              },
+              {
+                "block": [
+                  7
+                ],
+                "count": 12
+              }
+            ],
+            [
+              {
+                "block": [
+                  2
+                ],
+                "count": 4
+              },
+              {
+                "block": [
+                  4
+                ],
+                "count": 12
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  4,
+                  6
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1
+                ],
+                "count": 8
+              },
+              {
+                "block": [
+                  2
+                ],
+                "count": 8
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  3,
+                  4,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1
+                ],
+                "count": 2
+              },
+              {
+                "block": [
+                  6
+                ],
+                "count": 14
+              }
+            ],
+            [
+              {
+                "block": [
+                  3
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  3
+                ],
+                "count": 2
+              },
+              {
+                "block": [
+                  5
+                ],
+                "count": 14
+              }
+            ]
+          ],
+          "selected_pair_counts": {
+            "12": 283,
+            "13": 256,
+            "14": 267,
+            "15": 256,
+            "16": 272,
+            "17": 272,
+            "23": 272,
+            "24": 267,
+            "25": 256,
+            "26": 272,
+            "27": 272,
+            "34": 256,
+            "35": 256,
+            "36": 272,
+            "37": 272,
+            "45": 272,
+            "46": 272,
+            "47": 272,
+            "56": 256,
+            "57": 283,
+            "67": 272
+          },
+          "selected_partitions": [
+            [
+              [
+                1,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                2
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4,
+                5,
+                7
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                4
+              ],
+              [
+                3
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5,
+                7
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                3
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                6,
+                7
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                7
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                4,
+                6
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                5
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                3,
+                4,
+                6,
+                7
+              ],
+              [
+                5
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                5,
+                6,
+                7
+              ],
+              [
+                4
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ]
+          ],
+          "support_vector": [
+            327,
+            327,
+            327,
+            327,
+            327,
+            327,
+            327
+          ],
+          "time_limit_seconds": 30.0
+        },
+        {
+          "ambient_pair_bucket_counts": {
+            "12": 10,
+            "13": 13,
+            "14": 14,
+            "15": 13,
+            "16": 14,
+            "17": 14,
+            "23": 13,
+            "24": 11,
+            "25": 14,
+            "26": 14,
+            "27": 14,
+            "34": 13,
+            "35": 14,
+            "36": 14,
+            "37": 14,
+            "45": 14,
+            "46": 14,
+            "47": 14,
+            "56": 13,
+            "57": 14,
+            "67": 12
+          },
+          "best_failure_mode": "MULTISCALE_SCHEDULE_FEASIBLE",
+          "block_count": 127,
+          "block_sizes": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "bucket_size": 16,
+          "cp_sat_status": "FEASIBLE",
+          "degree_bound": 15,
+          "equation_count": 114,
+          "feasible": true,
+          "max_ambient_pair_buckets": 14,
+          "max_selected_pair_count": 224,
+          "mode": "pair_cap",
+          "ortools_version": "9.15.6755",
+          "pair7_counts": [
+            219,
+            220,
+            224,
+            224,
+            220
+          ],
+          "quotient_order": 32,
+          "selected_block_counts": [
+            [
+              {
+                "block": [
+                  1,
+                  4,
+                  5,
+                  6
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  4,
+                  5,
+                  6
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  4,
+                  5,
+                  6
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  7
+                ],
+                "count": 11
+              },
+              {
+                "block": [
+                  3,
+                  4,
+                  6
+                ],
+                "count": 5
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  3,
+                  4,
+                  5,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1
+                ],
+                "count": 1
+              },
+              {
+                "block": [
+                  2,
+                  3,
+                  5
+                ],
+                "count": 15
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  4,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  3
+                ],
+                "count": 1
+              },
+              {
+                "block": [
+                  1,
+                  4,
+                  6
+                ],
+                "count": 15
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  3,
+                  4,
+                  5,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  3,
+                  5,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  3,
+                  4,
+                  5,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  3,
+                  5,
+                  6
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  4
+                ],
+                "count": 1
+              },
+              {
+                "block": [
+                  6
+                ],
+                "count": 3
+              },
+              {
+                "block": [
+                  2,
+                  5,
+                  7
+                ],
+                "count": 12
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  3,
+                  4,
+                  5,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  3,
+                  6
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  3,
+                  6
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  4,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  3,
+                  4,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  3
+                ],
+                "count": 2
+              },
+              {
+                "block": [
+                  4
+                ],
+                "count": 2
+              },
+              {
+                "block": [
+                  1,
+                  2,
+                  5
+                ],
+                "count": 12
+              }
+            ]
+          ],
+          "selected_pair_counts": {
+            "12": 156,
+            "13": 208,
+            "14": 223,
+            "15": 204,
+            "16": 223,
+            "17": 219,
+            "23": 207,
+            "24": 176,
+            "25": 215,
+            "26": 224,
+            "27": 220,
+            "34": 197,
+            "35": 223,
+            "36": 213,
+            "37": 224,
+            "45": 224,
+            "46": 212,
+            "47": 224,
+            "56": 208,
+            "57": 220,
+            "67": 192
+          },
+          "selected_partitions": [
+            [
+              [
+                1,
+                4,
+                5,
+                6
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                3
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                4,
+                5,
+                6
+              ],
+              [
+                3
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                4,
+                5,
+                6
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                7
+              ],
+              [
+                2
+              ],
+              [
+                3,
+                4,
+                6
+              ],
+              [
+                5
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                5,
+                6,
+                7
+              ],
+              [
+                4
+              ]
+            ],
+            [
+              [
+                1,
+                3,
+                4,
+                5,
+                7
+              ],
+              [
+                2
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                3,
+                5
+              ],
+              [
+                4
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                4,
+                7
+              ],
+              [
+                3
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                4,
+                6
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                5
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                6,
+                7
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ]
+            ],
+            [
+              [
+                1,
+                3,
+                4,
+                5,
+                7
+              ],
+              [
+                2
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                3,
+                5,
+                7
+              ],
+              [
+                4
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                3,
+                4,
+                5,
+                7
+              ],
+              [
+                2
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                5,
+                6,
+                7
+              ],
+              [
+                4
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                3,
+                5,
+                6
+              ],
+              [
+                4
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                5,
+                7
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                6,
+                7
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ]
+            ],
+            [
+              [
+                1,
+                3,
+                4,
+                5,
+                7
+              ],
+              [
+                2
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                3,
+                6
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                2
+              ]
+            ],
+            [
+              [
+                1,
+                3,
+                6
+              ],
+              [
+                2
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                4,
+                7
+              ],
+              [
+                3
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                6,
+                7
+              ],
+              [
+                5
+              ]
+            ],
+            [
+              [
+                1,
+                3,
+                4,
+                6,
+                7
+              ],
+              [
+                2
+              ],
+              [
+                5
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                3
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                5
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ]
+          ],
+          "support_vector": [
+            327,
+            327,
+            327,
+            327,
+            327,
+            327,
+            327
+          ],
+          "time_limit_seconds": 30.0
+        },
+        {
+          "ambient_pair_bucket_counts": {
+            "12": 13,
+            "13": 14,
+            "14": 14,
+            "15": 13,
+            "16": 14,
+            "17": 14,
+            "23": 13,
+            "24": 14,
+            "25": 14,
+            "26": 13,
+            "27": 14,
+            "34": 14,
+            "35": 12,
+            "36": 13,
+            "37": 14,
+            "45": 14,
+            "46": 14,
+            "47": 14,
+            "56": 11,
+            "57": 14,
+            "67": 14
+          },
+          "best_failure_mode": "MULTISCALE_SCHEDULE_FEASIBLE",
+          "block_count": 127,
+          "block_sizes": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "bucket_size": 16,
+          "cp_sat_status": "FEASIBLE",
+          "degree_bound": 15,
+          "equation_count": 114,
+          "feasible": true,
+          "max_ambient_pair_buckets": 14,
+          "max_selected_pair_count": 221,
+          "mode": "ambient_pair_cap",
+          "ortools_version": "9.15.6755",
+          "pair7_counts": [
+            220,
+            221,
+            219,
+            219,
+            219
+          ],
+          "quotient_order": 32,
+          "selected_block_counts": [
+            [
+              {
+                "block": [
+                  1,
+                  3,
+                  4,
+                  6
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  4,
+                  5,
+                  6
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  3,
+                  4,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  3
+                ],
+                "count": 1
+              },
+              {
+                "block": [
+                  1,
+                  2,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 15
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  3,
+                  4,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  2
+                ],
+                "count": 2
+              },
+              {
+                "block": [
+                  3,
+                  4,
+                  6,
+                  7
+                ],
+                "count": 14
+              }
+            ],
+            [
+              {
+                "block": [
+                  1
+                ],
+                "count": 2
+              },
+              {
+                "block": [
+                  2,
+                  3,
+                  4,
+                  7
+                ],
+                "count": 14
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  2
+                ],
+                "count": 1
+              },
+              {
+                "block": [
+                  3,
+                  5,
+                  7
+                ],
+                "count": 15
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  3,
+                  5
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  2
+                ],
+                "count": 4
+              },
+              {
+                "block": [
+                  1,
+                  4,
+                  5
+                ],
+                "count": 12
+              }
+            ],
+            [
+              {
+                "block": [
+                  2
+                ],
+                "count": 3
+              },
+              {
+                "block": [
+                  1,
+                  5,
+                  7
+                ],
+                "count": 13
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  3,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  6
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  2,
+                  3,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  2
+                ],
+                "count": 1
+              },
+              {
+                "block": [
+                  4
+                ],
+                "count": 1
+              },
+              {
+                "block": [
+                  5
+                ],
+                "count": 3
+              },
+              {
+                "block": [
+                  1,
+                  3,
+                  6
+                ],
+                "count": 11
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  3,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  5,
+                  6
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  6
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  2
+                ],
+                "count": 1
+              },
+              {
+                "block": [
+                  4,
+                  5,
+                  6
+                ],
+                "count": 15
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ],
+            [
+              {
+                "block": [
+                  1
+                ],
+                "count": 2
+              },
+              {
+                "block": [
+                  2,
+                  5
+                ],
+                "count": 14
+              }
+            ],
+            [
+              {
+                "block": [
+                  1,
+                  2,
+                  6,
+                  7
+                ],
+                "count": 16
+              }
+            ]
+          ],
+          "selected_pair_counts": {
+            "12": 207,
+            "13": 219,
+            "14": 219,
+            "15": 200,
+            "16": 218,
+            "17": 220,
+            "23": 206,
+            "24": 221,
+            "25": 221,
+            "26": 207,
+            "27": 221,
+            "34": 220,
+            "35": 191,
+            "36": 201,
+            "37": 219,
+            "45": 218,
+            "46": 220,
+            "47": 219,
+            "56": 174,
+            "57": 219,
+            "67": 221
+          },
+          "selected_partitions": [
+            [
+              [
+                1,
+                3,
+                4,
+                6
+              ],
+              [
+                2
+              ],
+              [
+                5
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                4,
+                5,
+                6
+              ],
+              [
+                3
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                7
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                3,
+                4,
+                6,
+                7
+              ],
+              [
+                5
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                7
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                3
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                7
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                3,
+                4,
+                6,
+                7
+              ],
+              [
+                2
+              ],
+              [
+                5
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                3,
+                4,
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3,
+                4,
+                6,
+                7
+              ],
+              [
+                5
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                3,
+                4,
+                7
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                5,
+                7
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                3
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3,
+                5,
+                7
+              ],
+              [
+                4
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                3,
+                5
+              ],
+              [
+                2
+              ],
+              [
+                4
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                4,
+                5
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                5,
+                7
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                6
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                3,
+                5,
+                6,
+                7
+              ],
+              [
+                4
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                6
+              ],
+              [
+                5
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                3,
+                5,
+                6,
+                7
+              ],
+              [
+                4
+              ]
+            ],
+            [
+              [
+                1,
+                3,
+                6
+              ],
+              [
+                2
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                3,
+                6,
+                7
+              ],
+              [
+                2
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ]
+            ],
+            [
+              [
+                1,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                2
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                5,
+                6
+              ],
+              [
+                4
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4,
+                5,
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                4,
+                6
+              ],
+              [
+                5
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                3
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4,
+                5,
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                6,
+                7
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ]
+            ],
+            [
+              [
+                1
+              ],
+              [
+                2,
+                5
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                6,
+                7
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ]
+            ]
+          ],
+          "support_vector": [
+            327,
+            327,
+            327,
+            327,
+            327,
+            327,
+            327
+          ],
+          "time_limit_seconds": 30.0
+        }
+      ],
+      "quotient_order": 32,
+      "summary": {
+        "ambient_pair_cap_feasible": true,
+        "best_failure_mode": "MULTISCALE_INTERPOLATION_NULLITY_ZERO",
+        "candidate_constructed": false,
+        "interpolation_audit_attempted": true,
+        "interpolation_nullity": 0,
+        "interpolation_rank": 96,
+        "pair7_guard_feasible": true,
+        "pair_cap_feasible": true,
+        "support_only_feasible": true
+      }
+    }
+  ],
+  "row": "RS[F_17^32,H,256]",
+  "source_commit": "f5dcd61",
+  "track": "INTERLEAVED_LIST"
+}

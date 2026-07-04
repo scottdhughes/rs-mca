@@ -4671,3 +4671,30 @@ Keep entries concise and link to the relevant files.
   mechanism that bypasses the ambient pair-bucket cap; the next constructive
   path should test a different quotient length/fiber size or an exact
   non-quotient selected-class design.
+### 2026-07-04 - M1 a327 multiscale block-count quotient search
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_multiscale_block_count_quotient_search.md`,
+  `experimental/scripts/scan_m1_a327_multiscale_block_count_quotient_search.py`,
+  `experimental/scripts/verify_m1_a327_multiscale_block_count_quotient_search.py`,
+  `experimental/data/m1_a327_multiscale_block_count_quotient_search.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  MULTISCALE_INTERPOLATION_NO_CANDIDATE / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A multiscale block-count quotient scanner for
+  quotient orders `16` and `32`. It uses the same support-first CP-SAT model as
+  the order-8 branch, but applies the correct quotient degree bounds and exact
+  quotient interpolation over `GF(17)` and `GF(17^2)`.
+- **Result:** For order `16`, the fully constrained block-count schedule is
+  feasible, but the quotient interpolation matrix is full rank:
+  `58 x 48`, rank/nullity `48/0`. For order `32`, the fully constrained
+  schedule is also feasible, but the quotient interpolation matrix is full
+  rank: `114 x 96`, rank/nullity `96/0`.
+- **How it is useful:** Moving off order 8 removes the ambient pair-bucket
+  infeasibility. The obstruction has moved to algebraic rank at the quotient
+  interpolation layer.
+- **What to do next:** Add rank feedback to the block-count generator instead
+  of accepting the first feasible schedules. The target is a feasible order-16
+  or order-32 block-count schedule whose quotient interpolation matrix has
+  positive nullity.
