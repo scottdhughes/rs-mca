@@ -4724,3 +4724,32 @@ Keep entries concise and link to the relevant files.
   constructive route should add algebraic dependence directly to the schedule
   generator, for example quotient-fiber symmetry, repeated row families, or a
   prescribed primal kernel rather than post-hoc no-good enumeration.
+### 2026-07-04 - M1 a327 low-rank common-kernel degeneracy probe
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_lowrank_common_kernel_degeneracy_probe.md`,
+  `experimental/scripts/scan_m1_a327_lowrank_common_kernel_degeneracy_probe.py`,
+  `experimental/scripts/verify_m1_a327_lowrank_common_kernel_degeneracy_probe.py`,
+  `experimental/data/m1_a327_lowrank_common_kernel_degeneracy_probe.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  LOWRANK_TEMPLATE_COMMON_KERNEL_DEGENERACY / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A targeted probe for the two low-rank proxy-positive
+  templates, `mixed_rank6` and `random_matroid_seeded_0_m6`. It computes the
+  span of all selected-class witness-difference functionals, the common
+  annihilator, co-occurrence connectivity, and whether the observed proxy
+  `1280/256` rank/nullity is exactly the common-kernel artifact
+  `5*256 / 1*256`.
+- **Result:** Both tested templates have functional span rank `5`, common
+  kernel dimension `1`, connected witness co-occurrence graphs, exact proxy
+  artifact arithmetic `1280/256`, and all `21` witness pairs forced equal on
+  the common-kernel direction.
+- **How it is useful:** This retires the strongest low-rank proxy signal as a
+  degeneracy artifact before spending exact GF(17^32) time on functional-basis
+  quotient extraction.
+- **What to do next:** Move to a construction that engineers nondegenerate
+  algebraic dependence directly. The best proposed direction is the
+  `mu_8`-orbit-invariant construction: use the order-8 subgroup action to
+  reduce exact rank screens to small structured blocks and audit candidates
+  over GF(17^32).
