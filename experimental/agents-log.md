@@ -4246,3 +4246,29 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Codesign support collisions and quotient budget inside
   the selected-count/assignment objective instead of trying to force collisions
   after the ledger has already been built.
+### 2026-07-04 - M1 a327 ledger-codesign collision-budget codesign
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_ledger_codesign_collision_budget_codesign.md`,
+  `experimental/scripts/scan_m1_a327_ledger_codesign_collision_budget_codesign.py`,
+  `experimental/scripts/verify_m1_a327_ledger_codesign_collision_budget_codesign.py`,
+  `experimental/data/m1_a327_ledger_codesign_collision_budget_codesign.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / CBUDGET_PROXY_FULL_RANK / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A collision-budget basis-selection/codesign layer
+  that forces support-collision groups into the nonbasis rows while preferring
+  low-support basis classes to preserve quotient-variable budget.
+- **Result:** The run rebuilt 360 structural-pass systems, scanned 60
+  candidates, and constructed 240 collision-budget profiles. All 240 had exact
+  collisions and cleared the `q_variable_count >= 350` floor. The best profile
+  had `q_variable_count = 851`, one repeated-support pair, matrix `1092 x 851`,
+  and proxy rank/nullity `851/0`.
+- **How it is useful:** Fixes the immediate collision/q-budget incompatibility
+  from the exact row-collision branch (`q=271 -> q=851`). The remaining
+  obstruction is algebraic proxy full rank, not absence of collision-budget
+  profiles.
+- **What to do next:** Add a second rank-defect mechanism on top of the
+  collision-budget gate, likely a small row-block syzygy search before proxy
+  rank.
