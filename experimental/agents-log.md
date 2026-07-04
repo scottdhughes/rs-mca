@@ -3955,3 +3955,29 @@ Keep entries concise and link to the relevant files.
   basis-quotient functional-divisibility system. Do not treat this as an
   `a=327` certificate until GF(17^32), H order 512, seven distinct codewords,
   and one received word with agreement >=327 are verified.
+### 2026-07-04 - M1 a327 cycleguard stable-window exact audit
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_cycleguard_stable_window_exact_audit.md`,
+  `experimental/scripts/scan_m1_a327_cycleguard_stable_window_exact_audit.py`,
+  `experimental/scripts/audit_m1_a327_cycleguard_stable_window_exact_audit.sage`,
+  `experimental/scripts/verify_m1_a327_cycleguard_stable_window_exact_audit.py`,
+  `experimental/data/m1_a327_cycleguard_stable_window_exact_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 / CYCLEG_EXACT_NULLITY_ZERO / PARTIAL
+  / EXPERIMENTAL.
+- **What is being added:** A Sage-ready exact `GF(17^32)` basis-quotient audit
+  for the corrected cycle-guarded pair-clear chamber.
+- **Result:** The prep ledger reconstructs `ninerow_P57_shear_c1_d1` with basis
+  `basisaware_0_1_2_3_4_5`, direction `[1,4,0,0,10,0]`, no forced pairs, and
+  the corrected scalar gate (`scalar required vanishing union = 512`, scalar
+  stable-window dimension `0`). The exact Sage audit over `GF(17^32)` built the
+  basis-quotient matrix with shape `993 x 752` and returned rank/nullity
+  `752/0`.
+- **How it is useful:** Banks a local exact obstruction for the best
+  cycle-guarded pair-clear chamber: the basis-quotient functional-divisibility
+  system has no nonzero kernel over `GF(17^32)`.
+- **What to do next:** Do not patch this chamber locally. Return upstream to
+  generate a new cycle-guarded pair-clear chamber with positive exact
+  basis-quotient nullity, or add rank-defect feedback before chamber selection.
