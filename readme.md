@@ -132,6 +132,12 @@ The version changes matter for the website and scanner as follows:
   role is to state the `delta^*` staircase problem compactly, record the
   deployed KoalaBear pincer, and reduce the remaining MCA task to the sparse
   residual layer plus CA/list certificates.
+- **`experimental/rs_mca_proximity_prize_status.md`** is an experimental
+  committee-facing status memo for the v12/v13/v14 picture. It summarizes the
+  entropy-subfield-envelope thesis, the current exact unsafe certificates, and
+  the remaining `(Q)`/split-pencil conjectural safe side. Do not cite it as
+  paper authority until the relevant claims are promoted into Paper D or
+  `towards-prize`.
 - **`experimental/lean/towards_prize/`** is the Mathlib-based Lean track for
   the compact threshold note. Its entry point is `TowardsPrize.lean`; it should
   be reviewed and mapped theorem-by-theorem before any towards-prize claim is

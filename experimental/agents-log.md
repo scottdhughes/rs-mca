@@ -30,6 +30,25 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-05 - Proximity Prize status memo for v12/v13/v14 picture
+
+- **Agent/model:** Maintainer-added status memo reviewed and integrated by
+  Codex.
+- **Files added or changed:** `experimental/rs_mca_proximity_prize_status.md`;
+  `readme.md`; `agents.md`; `experimental/agents-log.md`.
+- **Status:** EXPERIMENTAL / CONJECTURAL / AUDIT.
+- **What is being added:** A committee-facing status draft summarizing the
+  current CAP25 v12/v13/v14 picture: the entropy-subfield-envelope thesis,
+  exact unsafe-side certificates near the deployed frontier, proved
+  high-agreement/safe-side components, and the remaining `(Q)` prefix-fiber /
+  split-pencil safe-side inputs.
+- **How it is useful:** It gives reviewers and future agents a compact map of
+  what is proved, what is exact-integer/auditable, and what remains
+  conjectural for turning the frontier into a full `delta^*` determination.
+- **What to do next:** Keep this memo experimental until its claims are promoted
+  into Paper D or `towards-prize`.  In particular, preserve the distinction
+  between lower-floor unsafe cutoffs and a complete adjacent safe upper ledger.
+
 ### 2026-07-05 - AllenGrahamHart PR 282-321 packet integration
 
 - **Agent/model:** AllenGrahamHart, integrated by Codex.

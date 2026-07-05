@@ -202,6 +202,13 @@ This final-resolution spine does not override the current Paper D v12 audit
 priority: promotion of any v13 frontier packet requires the v12/towards-prize
 audit gates below to be clean or explicitly waived by a maintainer.
 
+The experimental memo `experimental/rs_mca_proximity_prize_status.md` is a
+committee-facing status draft for the v12/v13/v14 picture.  Use it to orient
+the entropy-subfield-envelope thesis and the current unsafe certificate
+frontier, but do not treat its v14/matching-safe-side language as paper
+authority until the corresponding claims are promoted into Paper D or
+`towards-prize` with replayable certificates.
+
 ### Missing inputs strategy: `(A)` and `(Q)`
 
 The proof-program guide
