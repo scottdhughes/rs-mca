@@ -30,6 +30,61 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-05 - PR 271-280 conditional imports, toy staircases, sparse witness, and Lean anchor
+
+- **Agent/model:** Codex integrating PR material from Vadim Avdeev
+  (`#271`), latifkasuli / Claude Fable 5 (`#272`, `#273`, `#275`),
+  DannyExperiments (`#274`), and LegaSage / Ken Webster (`#276`-`#280`).
+- **Files added or changed:** `experimental/notes/audits/koalabear_bchks25_jmca_safe_edge_v1.md`;
+  `experimental/notes/audits/koalabear_bchks25_jmca_param_squeeze_v2.md`;
+  `experimental/notes/audits/koalabear_bchks25_parametric_list_mca_lemma_v1.md`;
+  `experimental/notes/audits/audit_bchks25_thm46_conditional_johnson_import.md`;
+  `experimental/notes/audits/audit_corridor_unconditional_safe_edges.md`;
+  `experimental/notes/audits/audit_mca_ca_sparse_layer_gap_structure.md`;
+  `experimental/notes/audits/paid_residual_ledger_source_drift.md`;
+  `experimental/notes/thresholds/cap25_v13_seven_slope_ccl_tdd_split.md`;
+  `experimental/notes/thresholds/m4_affine_eca_emca_staircase_q11.md`;
+  `experimental/notes/m1/deployed_row_sparse_witness_f17_32.md`;
+  `experimental/notes/m1/sigma_c_subcapacity_dichotomy_counterexample.md`;
+  `experimental/data/certificates/koalabear-bchks25-jmca-*`;
+  `experimental/data/certificates/corridor-unconditional-safe-edges/`;
+  `experimental/data/certificates/mca-ca-sparse-layer-census/`;
+  `experimental/data/certificates/deployed-sparse-witness-f17-32/`;
+  `experimental/data/certificates/exact-worstcase-eca-emca-staircase/exact_worstcase_eca_emca_staircase_m4_q11_rows.json`;
+  `experimental/data/certificates/sigma-c-sparse-census/`;
+  `experimental/scripts/certify_koalabear_bchks25_jmca_bounds_v1.py`;
+  `experimental/scripts/verify_corridor_unconditional_safe_edges.py`;
+  `experimental/scripts/verify_deployed_sparse_witness_f17_32.py`;
+  `experimental/scripts/verify_exact_worstcase_eca_emca_affine_quotient.py`;
+  `experimental/scripts/verify_f17_32_m3_low_rank2_12_*`;
+  `experimental/lean/rs_mca_formalization/RsMca/EmcaStaircaseLedger.lean`;
+  `experimental/lean/rs_mca_formalization/RsMca.lean`;
+  `experimental/lean/rs_mca_formalization/README.md`;
+  `experimental/lean/rs_mca_formalization/CERTIFICATION_MAP.md`;
+  `site/data/updates.json`; `experimental/agents-log.md`.
+- **Status:** CONDITIONAL / AUDIT / EXPERIMENTAL / PROVED-LOCAL, as tagged in
+  the individual notes.  The BCHKS25 linear-in-`n` safe edge remains
+  conditional; toy censuses and sparse witnesses are not leaderboard theorem
+  rows.
+- **What is being added:** The batch packages a conditional BCHKS25/Hab25
+  KoalaBear JMCA safe-edge audit, unconditional below-band corridor safe-edge
+  imports for clean-rate rows, MCA-vs-CA sparse-layer toy structure, a
+  seven-slope CCL/TDD branch split, low-rank ledger replay repairs, a `k=1`
+  sparse-census counterexample family, an exact `F_11,n=10,k=6` affine-shear
+  eca/emca staircase, a deployed-shaped `F_17^32` sparse moving-zero witness,
+  and a stdlib-only Lean finite anchor for the `(7,6,3)` EMCA staircase.
+- **How it is useful:** The imported safe-edge material narrows what would be
+  possible under audited external Johnson-regime MCA bounds while keeping
+  proof status explicit.  The toy/sparse packets refine the sparse mutual
+  layer and identify counterexample floors without changing the deployed
+  threshold.  The Lean and replay-repair packets strengthen certificate
+  hygiene for future adjacent-staircase work.
+- **What to do next:** Re-audit external BCHKS25/Hab25/GKL24 sources before
+  any Paper D promotion; do not add conditional safe edges as proved board rows.
+  Run the heavier verifiers only on a dedicated machine.  Use the sparse and
+  toy packets to guide the exact adjacent upper-ledger search, not as protocol
+  claims.
+
 ### 2026-07-04 - CAP25 v13 identity-prefix frontier merge
 
 - **Agent/model:** Codex reviewing and integrating a user-added experimental
