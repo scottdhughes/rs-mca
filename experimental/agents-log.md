@@ -4936,3 +4936,37 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Run adaptive ratio column generation or a larger width
   ladder, because the support gap is now `14` per weakest label and `96`
   incidences overall.
+### 2026-07-04 - M1 a327 mu8 rank2 adaptive ratio columns
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_mu8_rank2_adaptive_ratio_columns.md`,
+  `experimental/scripts/scan_m1_a327_mu8_rank2_adaptive_ratio_columns.py`,
+  `experimental/scripts/audit_m1_a327_mu8_rank2_adaptive_exact.sage`,
+  `experimental/scripts/verify_m1_a327_mu8_rank2_adaptive_ratio_columns.py`,
+  `experimental/data/m1_a327_mu8_rank2_adaptive_ratio_columns.json`,
+  `experimental/data/m1_a327_mu8_rank2_adaptive_schedule_candidates.json`,
+  `experimental/data/m1_a327_mu8_rank2_adaptive_near_front_exact.json`,
+  `experimental/data/m1_a327_mu8_rank2_adaptive_exact_interpolation.json`,
+  `experimental/data/m1_a327_mu8_rank2_adaptive_witness_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  MU8_RANK2_ADAPTIVE_WIDTH_IMPROVES_SUPPORT / PARTIAL / EXPERIMENTAL.
+- **What is being added:** Adaptive ratio-column generation for rank-2
+  `mu_8` schedules. The scanner scores omitted ratio options against current
+  label deficits, pair-cap slack, row cost, and repeated ratio-line support
+  below the degree-32 threshold. It stores near-front candidates separately
+  from actual support/pair-passing candidates.
+- **Result:** The adaptive front solved `64` carrier planes and improved best
+  min support to `314` with total selected incidence `2202`. It stored one
+  near-front candidate and found no support/pair-passing schedule. The exact
+  `GF(17^32)` near-front diagnostic tested one `92 x 64` interpolation system
+  and found rank/nullity `64 / 0`.
+- **How it is useful:** This narrows the remaining rank-2 scheduler gap to
+  `13` support on the weakest label and `87` total selected incidences, while
+  showing the nearest stored front is exact full rank rather than an immediate
+  algebraic lift candidate.
+- **What to do next:** Make the adaptive loop solver-aware and synthesis-aware:
+  cache exact menus per candidate plane, reuse incumbent schedules as CP-SAT
+  hints, and synthesize carrier planes around the labels still short in the
+  `314/2202` front.
