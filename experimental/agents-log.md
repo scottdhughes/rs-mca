@@ -4839,3 +4839,38 @@ Keep entries concise and link to the relevant files.
   for repeated quotient functional classes below support threshold `32`,
   high-coverage allowed carrier directions, and structural rank deficiency
   before exact rank, rather than only support/autocorrelation feasibility.
+### 2026-07-04 - M1 a327 mu8 rank2 carrier generator
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_mu8_rank_one_carrier_obstruction.md`,
+  `experimental/notes/m1/m1_a327_mu8_rank2_carrier_generator.md`,
+  `experimental/scripts/audit_m1_a327_mu8_rank_one_carrier_obstruction.py`,
+  `experimental/scripts/scan_m1_a327_mu8_rank2_carrier_generator.py`,
+  `experimental/scripts/audit_m1_a327_mu8_rank2_carrier_exact.sage`,
+  `experimental/scripts/verify_m1_a327_mu8_rank2_carrier_generator.py`,
+  `experimental/data/m1_a327_mu8_rank_one_carrier_obstruction.json`,
+  `experimental/data/m1_a327_mu8_rank2_carrier_menu_scan.json`,
+  `experimental/data/m1_a327_mu8_rank2_carrier_schedule_candidates.json`,
+  `experimental/data/m1_a327_mu8_rank2_carrier_exact_interpolation.json`,
+  `experimental/data/m1_a327_mu8_rank2_exact_witness_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  MU8_RANK2_CARRIER_NO_GUARD_PASS / PARTIAL / EXPERIMENTAL.
+- **What is being added:** A theorem-level incidence obstruction for
+  pair-visible rank-one `mu_8` carriers, plus a first rank-2 carrier
+  rational-interpolation generator. The rank-2 generator builds deterministic
+  carrier planes, exact `GF(17^32)` local ratio menus, support/pair-cap schedule
+  attempts, and a `64`-variable interpolation audit for guard-passing schedules.
+- **Result:** Rank-one carriers have selected-incidence ceiling `2147`, below
+  the required `2289`. The first rank-2 carrier front generated and exact-menu
+  audited `64` pair-visible planes, but none produced a support/pair-cap
+  guard-passing schedule; best min support was `286`, best selected incidence
+  total was `2032`, and no interpolation systems were tested.
+- **How it is useful:** This retires rank-one `mu_8` carriers as a construction
+  target and establishes the first rank-2 generator as too weak at the
+  combinatorial schedule layer, before exact interpolation.
+- **What to do next:** Keep the rank-2 carrier route live, but replace the
+  greedy largest-block selector with a constructive partition grammar or
+  CP-SAT-style scheduler that designs support incidence first while preserving
+  pair caps and rational-interpolation slack.
