@@ -4809,3 +4809,33 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Run exact GF(17^32) ranks on the selected `64`
   mutations in batches, then classify any positive nullity as pair-visible,
   pair-forced, or common-kernel-only before attempting witness extraction.
+### 2026-07-04 - M1 a327 mu8 exact rank batch
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_mu8_exact_rank_batch.md`,
+  `experimental/scripts/audit_m1_a327_mu8_exact_rank_batch.sage`,
+  `experimental/scripts/probe_m1_a327_mu8_rank_one_carriers.sage`,
+  `experimental/scripts/verify_m1_a327_mu8_exact_rank_batch.py`,
+  `experimental/data/m1_a327_mu8_exact_rank_batch_64.json`,
+  `experimental/data/m1_a327_mu8_kernel_classification.json`,
+  `experimental/data/m1_a327_mu8_exact_witness_audit.json`,
+  `experimental/data/m1_a327_mu8_rank_one_carrier_probe.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  MU8_SELECTED_MUTATION_FULL_COLUMN_RANK / PARTIAL / EXPERIMENTAL.
+- **What is being added:** Exact GF(17^32) rank classification for the `64`
+  selected `mu_8` rank-feedback mutations, plus a rank-one carrier probe that
+  searches for a pair-visible direction with coverage at least `33` among the
+  `64` quotient points.
+- **Result:** All `64` selected mutations are full column rank:
+  `264 x 224`, rank/nullity `224/0`. No positive-nullity kernels were available
+  for pair classification. The rank-one carrier probe found no pair-visible
+  carrier; the best pair-visible carrier coverage was only `1`.
+- **How it is useful:** This banks a narrow exact route cut for the selected
+  mutation front and rules out the simplest explicit rank-one carrier
+  construction on those schedules.
+- **What to do next:** Change the `mu_8` generator objective itself: optimize
+  for repeated quotient functional classes below support threshold `32`,
+  high-coverage allowed carrier directions, and structural rank deficiency
+  before exact rank, rather than only support/autocorrelation feasibility.
