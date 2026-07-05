@@ -4905,3 +4905,34 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Either expand the rank-2 local grammar beyond the
   bounded ratio menu or design carrier planes directly for balanced support
   before running exact interpolation.
+### 2026-07-04 - M1 a327 mu8 rank2 full-menu ablation
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_mu8_rank2_fullmenu_carrier_synthesis.md`,
+  `experimental/scripts/scan_m1_a327_mu8_rank2_fullmenu_ablation.py`,
+  `experimental/scripts/synthesize_m1_a327_mu8_rank2_carrier_planes.py`,
+  `experimental/scripts/audit_m1_a327_mu8_rank2_fullmenu_exact.sage`,
+  `experimental/scripts/verify_m1_a327_mu8_rank2_fullmenu_ablation.py`,
+  `experimental/data/m1_a327_mu8_rank2_width_ablation.json`,
+  `experimental/data/m1_a327_mu8_rank2_fullmenu_schedule_candidates.json`,
+  `experimental/data/m1_a327_mu8_rank2_synthesized_carrier_planes.json`,
+  `experimental/data/m1_a327_mu8_rank2_fullmenu_exact_interpolation.json`,
+  `experimental/data/m1_a327_mu8_rank2_fullmenu_witness_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  MU8_RANK2_CARRIER_FULL_MENU_SUPPORT_PAIR_INFEASIBLE / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A rank-2 width-ablation scheduler with the hard
+  interpolation row-cost gate removed, plus a first deterministic balanced
+  carrier-plane synthesis ledger.
+- **Result:** Widths `4` and `8` without the hard row-slack gate solved `64`
+  planes and improved best min support from `291` to `313`, with best total
+  incidence `2193`. Pair caps were tight at `255`; no support/pair-passing
+  schedule was found and no exact interpolation system was tested. The
+  synthesis ledger emitted `83` pair-visible seed planes.
+- **How it is useful:** This shows hard row slack was materially suppressing
+  incidence, but the bounded width-4 menu still cannot hit `327`/`2289`.
+- **What to do next:** Run adaptive ratio column generation or a larger width
+  ladder, because the support gap is now `14` per weakest label and `96`
+  incidences overall.
