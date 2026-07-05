@@ -35,12 +35,15 @@ conjectured first safe agreement = 1116044.
 ```
 
 Do not mix these statuses: v12 is the current paper authority; v13 is the
-current experimental final-resolution spine.  The remaining task is to close the
-open band below the active edge by adjacent staircase certificates:
+current experimental final-resolution spine.  In paper-authority mode, close
+the band below the v12 edge; in v13 experimental mode, close the adjacent band
+below the identity-scale candidate edge by adjacent staircase certificates:
 
 ```text
-B_mca(a0)   > 2^-128 q_line,
-B_mca(a0+1) <= 2^-128 q_line.
+B* = floor(2^-128 q_line)
+
+B_mca(a0)   > B*
+B_mca(a0+1) <= B*
 ```
 
 Agents should prefer work that shrinks this interval for `delta*_C(2^-128)` over
@@ -137,7 +140,7 @@ Every final-resolution packet must print:
 row:                   (F, D, k, n, rho)
 denominators:          q_gen, q_line, q_chal, q_list
 target:                epsilon*, B* = floor(epsilon* Q)
-agreement interval:    I = [a_min, a_max] cap Z
+agreement interval:    I = [a_min, a_max] intersect Z
 unsafe certificates:   L(a) > B*
 safe certificates:     U(a) <= B*
 paid cells:            tangent, quotient, extension, sparse/M1, L1/list
@@ -194,6 +197,10 @@ Highest-value contributions are:
 
 A negative result is still a resolution if it identifies the new obstruction
 floor and updates the certificate logic.
+
+This final-resolution spine does not override the current Paper D v12 audit
+priority: promotion of any v13 frontier packet requires the v12/towards-prize
+audit gates below to be clean or explicitly waived by a maintainer.
 
 ## Current priority: audit Paper D v12 and `towards-prize.tex`
 
