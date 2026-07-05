@@ -4874,3 +4874,34 @@ Keep entries concise and link to the relevant files.
   greedy largest-block selector with a constructive partition grammar or
   CP-SAT-style scheduler that designs support incidence first while preserving
   pair caps and rational-interpolation slack.
+### 2026-07-04 - M1 a327 mu8 rank2 CP-SAT partition scheduler
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_mu8_rank2_cpsat_partition_scheduler.md`,
+  `experimental/scripts/scan_m1_a327_mu8_rank2_cpsat_partition_scheduler.py`,
+  `experimental/scripts/audit_m1_a327_mu8_rank2_cpsat_exact.sage`,
+  `experimental/scripts/verify_m1_a327_mu8_rank2_cpsat_partition_scheduler.py`,
+  `experimental/data/m1_a327_mu8_rank2_cpsat_menu.json`,
+  `experimental/data/m1_a327_mu8_rank2_cpsat_schedule_candidates.json`,
+  `experimental/data/m1_a327_mu8_rank2_cpsat_exact_interpolation.json`,
+  `experimental/data/m1_a327_mu8_rank2_cpsat_witness_audit.json`,
+  `experimental/agents-log.md`.
+- **Status:** EXACT_EXTRACTION_NO_A327 /
+  MU8_RANK2_CARRIER_PLANE_SUPPORT_PAIR_SLACK_INFEASIBLE / PARTIAL /
+  EXPERIMENTAL.
+- **What is being added:** A CP-SAT scheduler over exact `GF(17^32)` rank-2
+  local menus. Sage builds ZERO/FREE/RATIO equality options; OR-Tools chooses
+  quotient options and selected equality blocks subject to support, pair caps,
+  and interpolation-row slack.
+- **Result:** The scheduler solved `64` carrier planes with ratio menu width
+  `4` and interpolation row cap `63`. No guard-passing schedule was found.
+  Best min support improved to `291`, with best selected incidence total
+  `2041`, still below the required `327` and `2289`. No exact interpolation
+  system was tested.
+- **How it is useful:** This cuts the bounded CP-SAT partition front and shows
+  the obstruction is still at the support-scheduler layer for this carrier
+  library/menu width, not at the `64`-variable interpolation rank layer.
+- **What to do next:** Either expand the rank-2 local grammar beyond the
+  bounded ratio menu or design carrier planes directly for balanced support
+  before running exact interpolation.
