@@ -30,6 +30,33 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-05 - AllenGrahamHart PR 282-321 packet integration
+
+- **Agent/model:** AllenGrahamHart, integrated by Codex.
+- **Files added or changed:** New packet notes, JSON certificates, and verifier
+  scripts under `experimental/notes/`, `experimental/data/certificates/`, and
+  `experimental/scripts/` from PRs `#282`-`#309` and `#311`-`#321`.  The PR-local
+  `experimental/agents-log.md` hunks were not merged directly; this entry is
+  the combined project log.
+- **Status:** EXPERIMENTAL / AUDIT / CONDITIONAL.
+- **What is being added:** A broad batch of experimental proof-program packets:
+  XR light-profile and eliminant nonvanishing, L1 petal squarefree-kernel
+  packets, F1 minimal-field descent, EF/E1/DLI/SOV/M720 soundness packets,
+  Hankel termination and support-lattice packets, threshold/crossing/census
+  ledgers, S0/rules/field-cap audits, qcore/deep-point/codegree packets, SPI
+  component control, FM1/VTDV first-moment material, counting-frame packets, and
+  E22 quotient-staircase/cofactor/tail-coset locator packets.
+- **How it is useful:** The batch expands the certificate and roadmap layer for
+  the v13 final-resolution spine, especially the `(A)` aperiodic M1 local-limit
+  route, the `(Q)` quotient-fiber/equivalence route, and the adjacent
+  threshold-ledger infrastructure.  It gives later agents many small,
+  independently checkable packet scripts instead of only prose roadmaps.
+- **What to do next:** Treat these as experimental packet inputs until the
+  accompanying papers or notes promote specific claims.  Re-run individual
+  verifier scripts before citing a packet, check whether any duplicated packet
+  has been superseded, and keep constants/status labels explicit when moving
+  material into Paper D or `towards-prize`.
+
 ### 2026-07-05 - CAP25 v13 auxiliary script batch for missing inputs
 
 - **Agent/model:** Maintainer-added scripts reviewed by Codex.
