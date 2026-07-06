@@ -1,0 +1,166 @@
+{
+  "agreement_target": 327,
+  "core_dependency_anchor_file": {
+    "anchor_targets": 128,
+    "path": "experimental/data/m1_a327_mu8_rank3_core_dependency_anchor_file.json",
+    "replacement_rows": 72,
+    "sha256": "952b9b74ef0b55e9c2f99295a2cfe7f0f44c92a0f248e06d7713c3d2cb657abb",
+    "source_option_histogram": {
+      "POINT_007": 60,
+      "POINT_009": 53,
+      "POINT_016": 15
+    },
+    "support_pair_replacements": 72
+  },
+  "denominator": "17^32",
+  "exact_smoke": {
+    "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+    "best_nullity": 0,
+    "field": "GF(17^32)",
+    "pair_visible_systems": 0,
+    "positive_nullity_systems": 0,
+    "proof_status": "EXACT_EXTRACTION_NO_A327 / MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK / PARTIAL / EXPERIMENTAL",
+    "systems_tested": 1
+  },
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C"
+  ],
+  "proof_status": "EXACT_EXTRACTION_NO_A327 / MU8_RANK3_CORE_DEPENDENCY_PRESSURE_SWEEP_FULL_RANK / PARTIAL / EXPERIMENTAL",
+  "row": "RS[F_17^32,H,256]",
+  "row_pressure_smoke": {
+    "best_failure_mode": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK",
+    "best_greedy_core_row_count": 96,
+    "best_nullity": 0,
+    "positive_nullity_systems": 0,
+    "proof_status": "EXACT_EXTRACTION_NO_A327 / MU8_RANK3_ROW_DEPENDENCY_FULL_RANK / PARTIAL / EXPERIMENTAL",
+    "systems_tested": 1
+  },
+  "smoke_commands": {
+    "exact": "sage experimental/scripts/audit_m1_a327_mu8_rank3_projective_exact.sage --menu /private/tmp/m1_a327_mu8_rank3_core_dependency_synthesized_menu_smoke.json --schedule /private/tmp/m1_a327_mu8_rank3_core_dependency_support_first_smoke.json --exact-output /private/tmp/m1_a327_mu8_rank3_core_dependency_exact_smoke.json --witness-output /private/tmp/m1_a327_mu8_rank3_core_dependency_witness_smoke.json --write-json --json --candidate-limit 4",
+    "row_pressure": "sage experimental/scripts/audit_m1_a327_mu8_rank3_row_dependency_pressure.sage --menu /private/tmp/m1_a327_mu8_rank3_core_dependency_synthesized_menu_smoke.json --schedule /private/tmp/m1_a327_mu8_rank3_core_dependency_support_first_smoke.json --output /private/tmp/m1_a327_mu8_rank3_core_dependency_row_pressure_smoke.json --candidate-limit 1 --greedy-core --pivot-core --source-commit 1f6a4f5 --write-json --json",
+    "schedule": "/Users/scott/.venvs/rs-mca-ortools/bin/python experimental/scripts/scan_m1_a327_mu8_rank3_singleton_blocked_support_first_schedule.py --input /private/tmp/m1_a327_mu8_rank3_core_dependency_synthesized_menu_smoke.json --output /private/tmp/m1_a327_mu8_rank3_core_dependency_support_first_smoke.json --write --json --subspace-limit 2 --max-time 12 --workers 8 --store-choices --store-limit 12",
+    "synthesize": "sage experimental/scripts/synthesize_m1_a327_mu8_rank3_block_key_carriers.sage --anchor-file experimental/data/m1_a327_mu8_rank3_core_dependency_anchor_file.json --source-menu experimental/data/m1_a327_mu8_rank3_singleton_blocked_dependency_synthesized_menu_sample64.json --output /private/tmp/m1_a327_mu8_rank3_core_dependency_synthesized_menu_smoke.json --write-json --json --fixed-limit 8 --bundle-size 2 --anchor-counts 1,2 --carrier-limit 2 --carrier-sample-limit 32 --fast-carrier-selection"
+  },
+  "source_commit": "1f6a4f5",
+  "strict_balanced_smoke": {
+    "exact": {
+      "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+      "best_nullity": 0,
+      "field": "GF(17^32)",
+      "pair_visible_systems": 0,
+      "positive_nullity_systems": 0,
+      "proof_status": "EXACT_EXTRACTION_NO_A327 / MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK / PARTIAL / EXPERIMENTAL",
+      "systems_tested": 1
+    },
+    "row_pressure": {
+      "best_failure_mode": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK",
+      "best_greedy_core_row_count": 96,
+      "best_nullity": 0,
+      "first_system_matrix_shape": [
+        155,
+        96
+      ],
+      "first_system_nullity": 0,
+      "first_system_rank": 96,
+      "greedy_core_group_histograms": {
+        "fixed_point_support_histogram": {},
+        "kind_counts": {
+          "POINT": 36,
+          "ZERO": 8
+        },
+        "max_fixed_point_support": 0,
+        "max_projective_key_support": 1,
+        "projective_key_support_histogram": {
+          "1": 36
+        }
+      },
+      "positive_nullity_systems": 0,
+      "proof_status": "EXACT_EXTRACTION_NO_A327 / MU8_RANK3_ROW_DEPENDENCY_FULL_RANK / PARTIAL / EXPERIMENTAL",
+      "rank_drop_histogram": {
+        "0": 64
+      },
+      "systems_tested": 1
+    },
+    "support_schedule": {
+      "best_failure_mode": "MU8_RANK3_SINGLETON_BLOCKED_SUPPORT_PAIR_PASS",
+      "best_support_pair_max_projective_key_support": 1,
+      "best_support_pair_min_support": 327,
+      "best_support_pair_pair_count_max": 253,
+      "best_support_pair_total_incidence": 2289,
+      "near_front_candidates": 1,
+      "proof_status": "CANDIDATE / MU8_RANK3_SINGLETON_BLOCKED_SUPPORT_PAIR_PASS / PARTIAL / EXPERIMENTAL",
+      "schedule_path_local_untracked": "/private/tmp/m1_a327_mu8_rank3_core_dependency_strict_balanced_schedule.json",
+      "solved_stage_rows": 5,
+      "subspaces_solved": 2,
+      "support_pair_candidates": 1
+    },
+    "synthesis": {
+      "anchor_counts": [
+        2,
+        3
+      ],
+      "best_failure_mode": "MU8_RANK3_BLOCK_KEY_SYNTHESIZED_MENU_READY",
+      "bundle_size": 2,
+      "carrier_limit": 2,
+      "carrier_sample_limit": 64,
+      "carriers_emitted": 2,
+      "fast_carrier_selection": false,
+      "full_menu_path_local_untracked": "/private/tmp/m1_a327_mu8_rank3_core_dependency_strict_balanced_menu.json",
+      "full_menu_size_bytes": 22219492,
+      "proof_status": "CANDIDATE / MU8_RANK3_BLOCK_KEY_SYNTHESIZED_MENU_READY / PARTIAL / EXPERIMENTAL",
+      "strategy": "linear_carrier_constraints_from_generic_or_cap_frontier_anchor_targets"
+    },
+    "witness": {
+      "constructed": false,
+      "proof_status": "EXACT_EXTRACTION_NO_A327 / NO_EXACT_WITNESS_CONSTRUCTED / PARTIAL / EXPERIMENTAL",
+      "status": "NO_EXACT_WITNESS_CONSTRUCTED"
+    }
+  },
+  "strict_balanced_smoke_commands": {
+    "exact": "sage experimental/scripts/audit_m1_a327_mu8_rank3_projective_exact.sage --menu /private/tmp/m1_a327_mu8_rank3_core_dependency_strict_balanced_menu.json --schedule /private/tmp/m1_a327_mu8_rank3_core_dependency_strict_balanced_schedule.json --exact-output /private/tmp/m1_a327_mu8_rank3_core_dependency_strict_balanced_exact.json --witness-output /private/tmp/m1_a327_mu8_rank3_core_dependency_strict_balanced_witness.json --write-json --json --candidate-limit 4",
+    "row_pressure": "sage experimental/scripts/audit_m1_a327_mu8_rank3_row_dependency_pressure.sage --menu /private/tmp/m1_a327_mu8_rank3_core_dependency_strict_balanced_menu.json --schedule /private/tmp/m1_a327_mu8_rank3_core_dependency_strict_balanced_schedule.json --output /private/tmp/m1_a327_mu8_rank3_core_dependency_strict_balanced_row_pressure.json --candidate-limit 1 --greedy-core --pivot-core --source-commit 6c4d13d --write-json --json",
+    "schedule": "/Users/scott/.venvs/rs-mca-ortools/bin/python experimental/scripts/scan_m1_a327_mu8_rank3_singleton_blocked_support_first_schedule.py --input /private/tmp/m1_a327_mu8_rank3_core_dependency_strict_balanced_menu.json --output /private/tmp/m1_a327_mu8_rank3_core_dependency_strict_balanced_schedule.json --write --json --subspace-limit 2 --max-time 12 --workers 8 --store-choices --store-limit 12",
+    "synthesize": "sage experimental/scripts/synthesize_m1_a327_mu8_rank3_block_key_carriers.sage --anchor-file experimental/data/m1_a327_mu8_rank3_core_dependency_anchor_file.json --source-menu experimental/data/m1_a327_mu8_rank3_singleton_blocked_dependency_synthesized_menu_sample64.json --output /private/tmp/m1_a327_mu8_rank3_core_dependency_strict_balanced_menu.json --write-json --json --fixed-limit 10 --bundle-size 2 --anchor-counts 2,3 --carrier-limit 2 --carrier-sample-limit 64"
+  },
+  "support_schedule_smoke": {
+    "best_failure_mode": "MU8_RANK3_SINGLETON_BLOCKED_SUPPORT_PAIR_PASS",
+    "best_support_pair_max_projective_key_support": 1,
+    "best_support_pair_min_support": 327,
+    "best_support_pair_pair_count_max": 253,
+    "best_support_pair_total_incidence": 2289,
+    "near_front_candidates": 1,
+    "proof_status": "CANDIDATE / MU8_RANK3_SINGLETON_BLOCKED_SUPPORT_PAIR_PASS / PARTIAL / EXPERIMENTAL",
+    "schedule_path_local_untracked": "/private/tmp/m1_a327_mu8_rank3_core_dependency_support_first_smoke.json",
+    "solved_stage_rows": 5,
+    "subspaces_solved": 2,
+    "support_pair_candidates": 1
+  },
+  "synthesis_smoke": {
+    "anchor_counts": [
+      1,
+      2
+    ],
+    "best_failure_mode": "MU8_RANK3_BLOCK_KEY_SYNTHESIZED_MENU_READY",
+    "bundle_size": 2,
+    "carrier_limit": 2,
+    "carrier_sample_limit": 32,
+    "carriers_emitted": 2,
+    "fast_carrier_selection": true,
+    "full_menu_path_local_untracked": "/private/tmp/m1_a327_mu8_rank3_core_dependency_synthesized_menu_smoke.json",
+    "full_menu_size_bytes": 22211443,
+    "proof_status": "CANDIDATE / MU8_RANK3_BLOCK_KEY_SYNTHESIZED_MENU_READY / PARTIAL / EXPERIMENTAL",
+    "strategy": "linear_carrier_constraints_from_generic_or_cap_frontier_anchor_targets"
+  },
+  "track": "INTERLEAVED_LIST",
+  "witness_smoke": {
+    "constructed": false,
+    "proof_status": "EXACT_EXTRACTION_NO_A327 / NO_EXACT_WITNESS_CONSTRUCTED / PARTIAL / EXPERIMENTAL",
+    "status": "NO_EXACT_WITNESS_CONSTRUCTED"
+  }
+}

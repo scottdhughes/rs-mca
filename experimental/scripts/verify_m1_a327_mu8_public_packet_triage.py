@@ -59,6 +59,31 @@ def check_evidence_hashes(record: dict[str, Any]) -> None:
         require(sha256_file(path) == expected, f"hash mismatch for {path}")
 
 
+def check_evidence_tracking(record: dict[str, Any]) -> dict[str, int]:
+    tracking = record["evidence_tracking"]
+    hashes = record["evidence_hashes_sha256"]
+    tracked = tracking["tracked_files"]
+    untracked = tracking["untracked_files"]
+    missing = tracking["missing_files"]
+
+    require(tracking["evidence_files_hashed"] == len(hashes), "evidence hash count mismatch")
+    require(tracking["tracked_count"] == len(tracked), "tracked evidence count mismatch")
+    require(tracking["untracked_count"] == len(untracked), "untracked evidence count mismatch")
+    require(tracking["missing_count"] == len(missing), "missing evidence count mismatch")
+    require(tracking["tracked_count"] + tracking["untracked_count"] == len(hashes), "tracked/untracked split mismatch")
+    require(tracking["missing_count"] == 0, "triage references missing evidence")
+    require(set(tracked).isdisjoint(set(untracked)), "tracked and untracked evidence overlap")
+    require(set(tracked).union(set(untracked)) == set(hashes), "tracking paths do not match hashed evidence")
+    require(tracking["untracked_count"] == 0, "triage still depends on untracked evidence")
+    require(tracking["tracked_count"] == len(hashes), "not all hashed evidence is tracked")
+    require(tracking["self_contained_for_public_pr"] is True, "public PR self-contained flag should be true")
+    return {
+        "tracked_count": tracking["tracked_count"],
+        "untracked_count": tracking["untracked_count"],
+        "missing_count": tracking["missing_count"],
+    }
+
+
 def check_rank_one(record: dict[str, Any]) -> dict[str, Any]:
     rank_one = record["rank_one_mu8"]["obstruction"]
     require(rank_one["status"] == "MU8_RANK_ONE_CARRIER_INCIDENCE_OBSTRUCTION", "wrong rank-one status")
@@ -156,6 +181,61 @@ def check_rank3(record: dict[str, Any]) -> dict[str, Any]:
     require(non_singleton["depmin4_best_min_support"] == 311, "rank-3 depmin4 boundary changed")
     require(non_singleton["depmin4_best_total_incidence"] == 2182, "rank-3 depmin4 total changed")
     require(non_singleton["depmin4_selected_incidence_gap"] == 107, "rank-3 depmin4 gap changed")
+
+    blocked = rank3["singleton_blocked_current"]
+    support_first = blocked["support_first"]
+    require(support_first["present"] is True, "rank-3 singleton-blocked support-first missing")
+    require(support_first["header_ok"] is True, "rank-3 singleton-blocked support-first header failed")
+    require(support_first["support_pair_candidates"] >= 1, "rank-3 singleton-blocked should pass support/pair")
+    require(support_first["best_support_pair_min_support"] >= TARGET, "rank-3 singleton-blocked support below target")
+    require(support_first["best_support_pair_total_incidence"] >= REQUIRED_TOTAL, "rank-3 singleton-blocked total below target")
+    require(support_first["best_support_pair_pair_count_max"] <= 255, "rank-3 singleton-blocked pair cap failed")
+
+    blocked_exact = blocked["exact"]
+    require(blocked_exact["present"] is True, "rank-3 singleton-blocked exact missing")
+    require(blocked_exact["header_ok"] is True, "rank-3 singleton-blocked exact header failed")
+    require(blocked_exact["systems_tested"] == 1, "rank-3 singleton-blocked exact systems changed")
+    require(blocked_exact["best_nullity"] == 0, "rank-3 singleton-blocked exact nullity changed")
+    require(blocked_exact["positive_nullity_systems"] == 0, "rank-3 singleton-blocked positive nullity")
+
+    blocked_pressure = blocked["row_pressure"]
+    require(blocked_pressure["present"] is True, "rank-3 singleton-blocked row pressure missing")
+    require(blocked_pressure["header_ok"] is True, "rank-3 singleton-blocked row pressure header failed")
+    require(blocked_pressure["systems_tested"] == 1, "rank-3 singleton-blocked row pressure systems changed")
+    require(blocked_pressure["best_nullity"] == 0, "rank-3 singleton-blocked pressure nullity changed")
+    require(blocked_pressure["positive_nullity_systems"] == 0, "rank-3 singleton-blocked pressure positive nullity")
+    require(blocked_pressure["first_system_matrix_shape"] == [155, 96], "rank-3 singleton-blocked pressure shape changed")
+    require(blocked_pressure["first_system_rank"] == 96, "rank-3 singleton-blocked pressure rank changed")
+    require(blocked_pressure["first_system_nullity"] == 0, "rank-3 singleton-blocked pressure nullity mismatch")
+    require(blocked_pressure["rank_drop_histogram"] == {"0": 64}, "rank-3 singleton-blocked rank-drop histogram changed")
+    require(blocked_pressure["greedy_core_row_count"] == 96, "rank-3 singleton-blocked greedy core rows changed")
+    require(blocked_pressure["greedy_core_rank"] == 96, "rank-3 singleton-blocked greedy core rank changed")
+
+    repeat = blocked["repeat_pressure"]
+    require(repeat["present"] is True, "rank-3 singleton-blocked repeat pressure missing")
+    require(repeat["header_ok"] is True, "rank-3 singleton-blocked repeat pressure header failed")
+    require(repeat["support_pair_candidates"] == 0, "rank-3 singleton-blocked repeat pressure unexpectedly passed")
+    require(repeat["near_front_candidates"] == 0, "rank-3 singleton-blocked repeat pressure unexpectedly near-front")
+    require(repeat["min_projective_key_count"] == 2, "rank-3 singleton-blocked repeat min key count changed")
+    require(repeat["best_paircap_min_support"] == 296, "rank-3 singleton-blocked repeat paircap support changed")
+    require(repeat["best_paircap_total_incidence"] == 2072, "rank-3 singleton-blocked repeat paircap total changed")
+    require(repeat["best_paircap_pair_count_max"] == 255, "rank-3 singleton-blocked repeat paircap max changed")
+
+    core_smoke = rank3["core_dependency_smoke"]
+    require(core_smoke["present"] is True, "rank-3 core-dependency smoke missing")
+    require(core_smoke["header_ok"] is True, "rank-3 core-dependency smoke header failed")
+    require(core_smoke["anchor_targets"] == 128, "rank-3 core-dependency anchor count changed")
+    require(core_smoke["replacement_rows"] == 72, "rank-3 core-dependency replacement rows changed")
+    require(core_smoke["support_pair_replacements"] == 72, "rank-3 core-dependency support/pair replacements changed")
+    require(core_smoke["carriers_emitted"] == 2, "rank-3 core-dependency carrier count changed")
+    require(core_smoke["support_pair_candidates"] == 1, "rank-3 core-dependency support/pair count changed")
+    require(core_smoke["best_support_pair_min_support"] >= TARGET, "rank-3 core-dependency support below target")
+    require(core_smoke["best_support_pair_total_incidence"] >= REQUIRED_TOTAL, "rank-3 core-dependency total below target")
+    require(core_smoke["best_support_pair_pair_count_max"] <= 255, "rank-3 core-dependency pair cap failed")
+    require(core_smoke["exact_best_nullity"] == 0, "rank-3 core-dependency exact nullity changed")
+    require(core_smoke["exact_positive_nullity_systems"] == 0, "rank-3 core-dependency positive nullity")
+    require(core_smoke["row_pressure_best_nullity"] == 0, "rank-3 core-dependency row pressure nullity changed")
+    require(core_smoke["witness_constructed"] is False, "rank-3 core-dependency unexpectedly constructed witness")
     return {
         "exact_systems_tested": exact["systems_tested_total"],
         "row_pressure_systems_tested": pressure["systems_tested_total"],
@@ -166,6 +246,16 @@ def check_rank3(record: dict[str, Any]) -> dict[str, Any]:
             non_singleton["depmin3_best_min_support"],
             non_singleton["depmin3_best_total_incidence"],
         ],
+        "singleton_blocked_support_pair_candidates": support_first["support_pair_candidates"],
+        "singleton_blocked_repeat_paircap_front": [
+            repeat["best_paircap_min_support"],
+            repeat["best_paircap_total_incidence"],
+        ],
+        "core_dependency_smoke": [
+            core_smoke["carriers_emitted"],
+            core_smoke["support_pair_candidates"],
+            core_smoke["exact_best_nullity"],
+        ],
     }
 
 
@@ -173,11 +263,12 @@ def verify(path: Path) -> dict[str, Any]:
     record = load_json(path)
     check_header(record)
     check_evidence_hashes(record)
+    evidence_tracking = check_evidence_tracking(record)
 
     public = record["public_packet_triage"]
     require(public["board_ready"] is False, "packet should not be board-ready")
     require(public["exact_a327_witness"] is False, "packet unexpectedly claims exact witness")
-    require(public["recommended_public_action"] == "do_not_open_board_pr_yet", "wrong public action")
+    require(public["recommended_public_action"] == "open_narrow_route_cut_pr_if_desired", "wrong public action")
     require(public["route_cut_candidate"] is True, "route-cut candidate not recorded")
 
     witness = record["witness_sweep"]
@@ -191,6 +282,7 @@ def verify(path: Path) -> dict[str, Any]:
         "rank_one": check_rank_one(record),
         "rank2": check_rank2(record),
         "rank3": check_rank3(record),
+        "evidence_tracking": evidence_tracking,
         "witness_ledgers_scanned": witness["witness_ledgers_scanned"],
         "proof_status": record["proof_status"],
         "public_action": public["recommended_public_action"],

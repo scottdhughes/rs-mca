@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import subprocess
 from pathlib import Path
 from typing import Any
 
@@ -45,6 +46,21 @@ RANK3_SINGLETON22_PRESSURE_PATH = Path(
 RANK3_NON_SINGLETON_SYNTH_SUMMARY_PATH = Path(
     "experimental/data/m1_a327_mu8_rank3_non_singleton_synthesized_dependency_summary.json"
 )
+RANK3_SINGLETON_BLOCKED_SUPPORT_PATH = Path(
+    "experimental/data/m1_a327_mu8_rank3_singleton_blocked_support_first_schedule.json"
+)
+RANK3_SINGLETON_BLOCKED_EXACT_PATH = Path(
+    "experimental/data/m1_a327_mu8_rank3_singleton_blocked_support_first_exact_interpolation.json"
+)
+RANK3_SINGLETON_BLOCKED_PRESSURE_PATH = Path(
+    "experimental/data/m1_a327_mu8_rank3_singleton_blocked_support_first_row_dependency_pressure.json"
+)
+RANK3_SINGLETON_BLOCKED_REPEAT_PATH = Path(
+    "experimental/data/m1_a327_mu8_rank3_singleton_blocked_repeat_pressure_schedule.json"
+)
+RANK3_CORE_DEPENDENCY_SUMMARY_PATH = Path(
+    "experimental/data/m1_a327_mu8_rank3_core_dependency_synthesis_summary.json"
+)
 
 REQUIRED_NONCLAIMS = [
     "MCA N_bad",
@@ -71,6 +87,19 @@ def sha256_file(path: Path) -> str | None:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+def git_tracked_files() -> set[str]:
+    try:
+        result = subprocess.run(
+            ["git", "ls-files"],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+    except Exception:
+        return set()
+    return set(result.stdout.splitlines())
 
 
 def base_record(source_commit: str = "local-uncommitted") -> dict[str, Any]:
@@ -432,6 +461,124 @@ def compact_rank3_non_singleton_synthesized() -> dict[str, Any]:
     }
 
 
+def compact_support_first_schedule(path: Path) -> dict[str, Any]:
+    record = load_json(path)
+    if not record:
+        return {"path": str(path), "present": False}
+    meta = record.get("rank3_singleton_blocked_support_first", {})
+    paircap_rows = [
+        row
+        for row in record.get("candidates", [])
+        if row.get("stage") == "paircap_front" and row.get("support_vector")
+    ]
+    best_paircap = max(
+        paircap_rows,
+        key=lambda row: (
+            int(row.get("min_support", -1)),
+            int(row.get("selected_incidence_total", -1)),
+            -int(row.get("pair_count_max", 999)),
+        ),
+        default={},
+    )
+    return {
+        "path": str(path),
+        "present": True,
+        "header_ok": header_ok(record),
+        "proof_status": record.get("proof_status"),
+        "best_failure_mode": meta.get("best_failure_mode"),
+        "subspaces_solved": meta.get("subspaces_solved"),
+        "solved_stage_rows": meta.get("solved_stage_rows"),
+        "support_pair_candidates": meta.get("support_pair_candidates"),
+        "near_front_candidates": meta.get("near_front_candidates"),
+        "best_min_support": meta.get("best_min_support"),
+        "best_total_incidence": meta.get("best_total_incidence"),
+        "best_pair_count_max": meta.get("best_pair_count_max"),
+        "best_support_pair_min_support": meta.get("best_support_pair_min_support"),
+        "best_support_pair_total_incidence": meta.get("best_support_pair_total_incidence"),
+        "best_support_pair_pair_count_max": meta.get("best_support_pair_pair_count_max"),
+        "best_support_pair_max_projective_key_support": meta.get("best_support_pair_max_projective_key_support"),
+        "min_projective_key_count": meta.get("min_projective_key_count"),
+        "repeat_weight": meta.get("repeat_weight"),
+        "best_paircap_min_support": best_paircap.get("min_support"),
+        "best_paircap_total_incidence": best_paircap.get("selected_incidence_total"),
+        "best_paircap_pair_count_max": best_paircap.get("pair_count_max"),
+        "best_paircap_projective_key_support": best_paircap.get("max_selected_projective_key_support"),
+    }
+
+
+def compact_singleton_blocked_pressure(path: Path) -> dict[str, Any]:
+    record = load_json(path)
+    if not record:
+        return {"path": str(path), "present": False}
+    meta = record.get("row_dependency_pressure", {})
+    systems = record.get("systems", [])
+    first = systems[0] if systems else {}
+    zero_last = None
+    for core in first.get("pivot_cores", []):
+        if core.get("mode") == "zero_last":
+            zero_last = core
+            break
+    greedy = first.get("greedy_core", {})
+    return {
+        "path": str(path),
+        "present": True,
+        "header_ok": header_ok(record),
+        "best_failure_mode": meta.get("best_failure_mode"),
+        "systems_tested": meta.get("systems_tested"),
+        "best_nullity": meta.get("best_nullity"),
+        "positive_nullity_systems": meta.get("positive_nullity_systems"),
+        "first_system_status": first.get("status"),
+        "first_system_matrix_shape": first.get("matrix_shape"),
+        "first_system_rank": first.get("rank"),
+        "first_system_nullity": first.get("nullity"),
+        "rank_drop_histogram": first.get("rank_drop_histogram"),
+        "greedy_core_row_count": greedy.get("greedy_core_row_count"),
+        "greedy_core_rank": greedy.get("greedy_core_rank"),
+        "greedy_removed_group_count": greedy.get("greedy_removed_group_count"),
+        "greedy_core_group_histograms": greedy.get("greedy_core_group_histograms"),
+        "zero_last_core": None
+        if zero_last is None
+        else {
+            "core_row_count": zero_last.get("core_row_count"),
+            "core_rank": zero_last.get("core_rank"),
+            "core_group_histograms": zero_last.get("core_group_histograms"),
+        },
+    }
+
+
+def compact_rank3_singleton_blocked_current() -> dict[str, Any]:
+    return {
+        "support_first": compact_support_first_schedule(RANK3_SINGLETON_BLOCKED_SUPPORT_PATH),
+        "exact": compact_exact(RANK3_SINGLETON_BLOCKED_EXACT_PATH),
+        "row_pressure": compact_singleton_blocked_pressure(RANK3_SINGLETON_BLOCKED_PRESSURE_PATH),
+        "repeat_pressure": compact_support_first_schedule(RANK3_SINGLETON_BLOCKED_REPEAT_PATH),
+    }
+
+
+def compact_rank3_core_dependency_smoke() -> dict[str, Any]:
+    record = load_json(RANK3_CORE_DEPENDENCY_SUMMARY_PATH)
+    if not record:
+        return {"path": str(RANK3_CORE_DEPENDENCY_SUMMARY_PATH), "present": False}
+    return {
+        "path": str(RANK3_CORE_DEPENDENCY_SUMMARY_PATH),
+        "present": True,
+        "header_ok": header_ok(record),
+        "proof_status": record.get("proof_status"),
+        "anchor_targets": record.get("core_dependency_anchor_file", {}).get("anchor_targets"),
+        "replacement_rows": record.get("core_dependency_anchor_file", {}).get("replacement_rows"),
+        "support_pair_replacements": record.get("core_dependency_anchor_file", {}).get("support_pair_replacements"),
+        "carriers_emitted": record.get("synthesis_smoke", {}).get("carriers_emitted"),
+        "support_pair_candidates": record.get("support_schedule_smoke", {}).get("support_pair_candidates"),
+        "best_support_pair_min_support": record.get("support_schedule_smoke", {}).get("best_support_pair_min_support"),
+        "best_support_pair_total_incidence": record.get("support_schedule_smoke", {}).get("best_support_pair_total_incidence"),
+        "best_support_pair_pair_count_max": record.get("support_schedule_smoke", {}).get("best_support_pair_pair_count_max"),
+        "exact_best_nullity": record.get("exact_smoke", {}).get("best_nullity"),
+        "exact_positive_nullity_systems": record.get("exact_smoke", {}).get("positive_nullity_systems"),
+        "row_pressure_best_nullity": record.get("row_pressure_smoke", {}).get("best_nullity"),
+        "witness_constructed": record.get("witness_smoke", {}).get("constructed"),
+    }
+
+
 def build_triage() -> dict[str, Any]:
     rank_one = load_json(RANK_ONE_PATH)
     rank_one_obstruction = None
@@ -463,6 +610,8 @@ def build_triage() -> dict[str, Any]:
         "singleton_boundary": rank3_singleton,
         "singleton22_exact_and_pressure": compact_rank3_pressure(),
         "non_singleton_synthesized_dependency": compact_rank3_non_singleton_synthesized(),
+        "singleton_blocked_current": compact_rank3_singleton_blocked_current(),
+        "core_dependency_smoke": compact_rank3_core_dependency_smoke(),
         "exact_sweep": rank3_exact_sweep,
         "row_pressure_sweep": rank3_pressure_sweep,
     }
@@ -480,9 +629,30 @@ def build_triage() -> dict[str, Any]:
         RANK3_SINGLETON22_EXACT_PATH,
         RANK3_SINGLETON22_PRESSURE_PATH,
         RANK3_NON_SINGLETON_SYNTH_SUMMARY_PATH,
+        RANK3_SINGLETON_BLOCKED_SUPPORT_PATH,
+        RANK3_SINGLETON_BLOCKED_EXACT_PATH,
+        RANK3_SINGLETON_BLOCKED_PRESSURE_PATH,
+        RANK3_SINGLETON_BLOCKED_REPEAT_PATH,
+        RANK3_CORE_DEPENDENCY_SUMMARY_PATH,
     ]
-    evidence_files.extend(sorted(Path("experimental/data").glob("m1_a327_mu8_*witness_audit.json")))
     file_hashes = {str(path): sha256_file(path) for path in evidence_files if path.exists()}
+    tracked_files = git_tracked_files()
+    existing_evidence = [str(path) for path in evidence_files if path.exists()]
+    missing_evidence = [str(path) for path in evidence_files if not path.exists()]
+    tracked_evidence = sorted(path for path in existing_evidence if path in tracked_files)
+    untracked_evidence = sorted(path for path in existing_evidence if path not in tracked_files)
+    evidence_tracking = {
+        "evidence_files_expected": len(evidence_files),
+        "evidence_files_hashed": len(file_hashes),
+        "tracked_count": len(tracked_evidence),
+        "untracked_count": len(untracked_evidence),
+        "missing_count": len(missing_evidence),
+        "tracked_files": tracked_evidence,
+        "untracked_files": untracked_evidence,
+        "missing_files": missing_evidence,
+        "self_contained_for_public_pr": not untracked_evidence and not missing_evidence,
+    }
+    self_contained = evidence_tracking["self_contained_for_public_pr"]
 
     board_ready = False
     exact_witness = witness_sweep["exact_a327_witness_passes"] > 0
@@ -496,14 +666,32 @@ def build_triage() -> dict[str, Any]:
                 "board_ready": board_ready,
                 "exact_a327_witness": exact_witness,
                 "route_cut_candidate": route_cut_candidate,
-                "recommended_public_action": "do_not_open_board_pr_yet",
+                "recommended_public_action": (
+                    "open_narrow_route_cut_pr_if_desired"
+                    if self_contained and route_cut_candidate and not exact_witness
+                    else "do_not_open_board_pr_yet"
+                ),
                 "reason": (
                     "No exact a=327 witness exists.  The current useful output is a compact "
                     "route-cut/triage packet: rank-one mu8 carriers are structurally cut, "
                     "rank-2 menus remain support-infeasible across the scanned adaptive ledgers, "
                     "and the current rank-3 exact/row-pressure sweep is consistently full rank; "
                     "the newer non-singleton synthesized rank-3 menu is also full-rank at the "
-                    "support/pair gate and loses support when dependency-row pressure is raised."
+                    "support/pair gate and loses support when dependency-row pressure is raised. "
+                    "The latest singleton-blocked rank-3 sample likewise passes support/pair only "
+                    "in a generic exact-full-rank schedule, while hard reuse of the available "
+                    "repeated projective keys loses the support front.  A new core-dependency "
+                    "anchor smoke can synthesize carriers and pass support/pair, but its exact "
+                    "audit is also full-rank.  The evidence-tracking audit "
+                    + (
+                        "shows this packet is self-contained as a narrow route-cut PR candidate; "
+                        "it is still not board-ready because no exact witness or global theorem is claimed."
+                        if self_contained
+                        else (
+                            "also shows this packet is not self-contained for a public PR as-is: "
+                            f"{len(untracked_evidence)} hashed evidence files are local untracked ledgers."
+                        )
+                    )
                 ),
             },
             "witness_sweep": witness_sweep,
@@ -534,6 +722,7 @@ def build_triage() -> dict[str, Any]:
                 "not_primary_now": ["PARI/GP", "Wolfram", "msolve"],
             },
             "evidence_hashes_sha256": file_hashes,
+            "evidence_tracking": evidence_tracking,
         }
     )
     return record
