@@ -30,3 +30,15 @@ it does not cut the dimension. A valid rigidity the arbitrary configs lack, but 
 For L1 a FINITE `r* ~ 8-16` suffices (route-A CAS finding), so the cohomological higher-moment method
 (Hast-Matei singular-variety moments at fixed p via Quantitative Sheaf Theory, Sawin-Forey-Fresan-Kowalski)
 could CLOSE L1 via `Gamma_r` -- a second, geometric route distinct from `dim Syz <= K`.
+
+## A2 update — staircase pivot structure (`l1_syz_staircase.sage`)
+
+Greedy pivots with **largest-fiber-first** ordering: `#pivots = E_3`, `#free = K` at all 3 saturators;
+the K dependencies concentrate in the **smallest** fibers (the μ=3 fibers go entirely free; the largest
+fibers are all pivots). Second fact: at the saturators `dim(ΣV_k) = E_3 = ℓ−2`, i.e. the `h_k X^d`
+**span the whole `ker L = ker⟨·, rev Γ⟩`**. So the crux `dim(ΣV_k) ≥ E_3` is: *the largest-fiber-first
+greedy selection produces `E_3` independent `h_k X^d`* — realizability-dependent (arbitrary configs give
+rank `< E_3`). Mechanism (why the small fibers add only `K` dependencies) still not crisp; the clean
+Aristotle sub-lemma is not yet isolated. Leads to try next: the dual functional space
+`{m : ⟨h_k X^d, m⟩ = 0 ∀k,d}` (Prony/reciprocal condition; `L=rev Γ` is one such `m`) and whether
+realizability caps its dimension at `ℓ−1−E_3`.
