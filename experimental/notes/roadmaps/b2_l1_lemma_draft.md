@@ -46,14 +46,32 @@ scale — consistent with L1 being a **rank** statement, not a moment/energy inv
 
 ## Draft lemma statements
 
-### (a) b2 — CRUDE, citeable (BGK/HBK in regime)
-> **Lemma b2 (crude giant-extras bound).** Let `q` be a prime power, `n | q−1` with `n = 2^s` and
-> `n ≥ q^{γ}` for a fixed `γ>0` (deployed: `n=2^41`, `q≤2^256`, `γ≈0.16`). For `f_c = Σ_{r≤t} c_r X^r`
-> over `μ_n`, the single-sum bound `|Σ_{x∈μ_n} e_q(a f_c(x))| ≪ n·q^{−ν(γ)}` (BGK/Heath-Brown–Konyagin)
-> inflates by Hölder to `M_r ≪ n^{r}·q^{−rν}`, whence the count of non-coset-union t-null blocks of fixed
-> giant degree `b` is `≤ n^3` for all deployed rows (the 123-bit cushion absorbs the `q^{−ν}` slack).
-- **Label: CITEABLE** (standard BGK application). Risk: making `ν(γ)` explicit enough that the finite
-  deployed margins are met (CAP25's finite-certificate caveat) — check constants, do not rely on `o(1)`.
+### (a) b2 — CRUDE; reduces to an L¹-average character-sum bound (VERIFIED reduction, 2026-07-06)
+
+The reduction is now pinned and numerically verified (`../scripts/b2_bound_mechanism.py`, **Codex-green**):
+
+> **Reduction (verified).** For fixed giant `b` with `b ∤ M0` (so every t-null block of size `b` is an
+> extra), the exact Fourier identity `extras_b = N_{t,b} = q^{−t} Σ_{c∈𝔽_q^t} S_b(c)`,
+> `S_b(c) = [z^b] Π_{x∈μ_n}(1 + z·e_q(f_c(x)))`, gives by the triangle inequality
+>   `extras_b ≤ q^{−t} Σ_c |S_b(c)| = C(n,b)/q^t` (first moment) `+ q^{−t} Σ_{c≠0}|S_b(c)|`.
+> At (n,t,q)=(32,4,97): first moment ~4–6, the c≠0 L¹ average ~1810–2051, actual extras 32 — all
+> `≪ n^3 = 32768`; the per-character max `|S_b(c)| ~1.4–1.8·10^6 ≫ n^3`. **Only the AVERAGE works, via the
+> triangle inequality — no cancellation, no per-character bound.**
+
+> **Lemma b2 (crude giant-extras bound) — target.** `extras_b ≤ n^3` for all deployed rows, reduced to the
+> single analytic claim `q^{−t} Σ_{c≠0}|S_b(c)| ≤ n^3` — the L¹-Fourier mass of the size-b indicator against
+> the power-sum characters.
+
+- **Status:** the REDUCTION is verified (clean, no cancellation needed). The remaining crux is the
+  **L¹-average bound** `mean_c|S_b(c)| ≤ n^3`. This is **NOT literally "cite BGK"** — BGK/HBK bound a
+  *single linear* subgroup sum, whereas here the object is the elementary-symmetric `S_b` of the values
+  `e_q(f_c(x))` of a *degree-t polynomial* `f_c`, averaged over `c` — a Bourgain–Chang-flavored *average*
+  bound. The 123-bit cushion means a *very lossy* average bound suffices (`2^100`-lossy OK), which keeps
+  b2 the tractable lane; but the deliverable is a genuine average-character-sum lemma, not a citation.
+- **Two open pieces:** (i) prove/cite `mean_c|S_b(c)| ≤ n^3` — route: bound `S_b(c)` via Newton in the
+  polynomial-subgroup power sums `p_r(c)=Σ_{x∈μ_n} e_q(r·f_c(x))` (Bourgain–Chang *on average over c*,
+  not per-c, since per-c is useless), or a direct second-moment/energy bound absorbing the cushion;
+  (ii) verify the arithmetic at the actual deployed `(n,b,t,q)` — CAP25's finite-certificate check.
 
 ### (b) L1 — SHARP, open; RANK statement, not a moment inequality
 > **Lemma L1 (max-fiber ceiling).** Let `Γ ∈ 𝔽_p[X]`, `Γ(0)=0`, `deg Γ ≤ ℓ−1`, `ℓ` an odd prime with
