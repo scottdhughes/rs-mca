@@ -77,6 +77,14 @@ proved by **character sums + finite geometry** — the method for `E_3 <= ell-2`
 - `[FIND]` Blokhuis (1994) / Sziklai, van Lint–MacWilliams conjecture; Asgarli–Yip — the difference-set
   subfield-rigidity lineage (refs in Xiong–Yip).
 
+## D. High-moment / character-sum toolkit for Route A (E_3 via the Gamma_r hierarchy)
+
+Bound the r-fold coincidence count M_r past the sqrt(p) barrier via the *index/cyclotomic* structure.
+- `[LOCAL]` **Wan, Index bounds for character sums of polynomials** -- `high-moment-charsum/Wan-...pdf`. Improves Weil for small-index (cyclotomic) polynomials. First tool for M_r.
+- `[LOCAL]` **Kowalski, Exponential sums over small subgroups, revisited (BGK)** -- `high-moment-charsum/Kowalski-...pdf`. Additive-combinatorics bounds over mu_ell; the inverse-theorem route.
+- `[LOCAL]` **Cesarano-Matera, value sets of polynomials I + probabilistic** -- `high-moment-charsum/Cesarano-Matera-...pdf`. Cyclotomic-mapping value-set moment framework.
+- `[LOCAL]` **Equidistribution of exponential sums indexed by a subgroup** -- `high-moment-charsum/equidistribution-...pdf`.
+
 ## B. Proximity gaps / correlated agreement — near-capacity failure (POSITIONING / NOVELTY)
 
 - `[LOCAL]` **ABF, "Open Problems in List Decoding and Correlated Agreement" (eprint 2026/680)** —
