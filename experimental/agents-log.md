@@ -30,6 +30,36 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-06 - Threshold and F1 audit PR integration
+
+- **Agent/model:** DannyExperiments via PRs #352 and #354; Latif Kasuli via
+  draft PR #353; Codex for review and integration.
+- **Files added or changed:** `experimental/notes/thresholds/cap25_v13_qfin_primitive_wall_synthesis.md`;
+  `experimental/notes/thresholds/cap25_v13_near_rational_support_mismatch_audit.md`;
+  `experimental/notes/frontier-adjacent/f1_effective_slack_translation_v1.md`;
+  `experimental/notes/frontier-adjacent/f1_simple_pole_tge2_obstruction_v1.md`;
+  `experimental/data/certificates/frontier-adjacent/f1_effective_slack_translation_v1.json`;
+  `experimental/data/certificates/frontier-adjacent/f1_simple_pole_tge2_obstruction_v1.json`;
+  `experimental/scripts/verify_f1_effective_slack_translation.py`;
+  `experimental/scripts/verify_f1_simple_pole_tge2_obstruction.py`;
+  `experimental/agents-log.md`.
+- **Status:** AUDIT / EXPERIMENTAL / PROVED-FOR-NAMED-PENCIL.
+- **What is being added:** Two CAP25 v13 threshold notes and two F1
+  frontier-adjacent packets.  The threshold notes isolate the live KB-MCA
+  Q-fin primitive max-orbit wall and repair a near-rational support-mismatch
+  overclaim.  The F1 packets translate deployed adjacent rows to the toy
+  slack variable `t=a-k` and prove that the named simple-pole pencil has no
+  `t>=2` bad slopes by a degree/root-count obstruction.
+- **How it is useful:** Narrows the safe-side proof obligations without
+  promoting them to solved results: the current KB-MCA adjacent row remains
+  open, the near-rational branch needs an explicit support-wise first-match
+  payment, and the F1 `t=1` toy growth branch should not be read as deployed
+  adjacent-row evidence.
+- **What to do next:** Audit constants against the v13 raw moved-frontier
+  checker, repair the near-rational inference in the raw/compact manuscripts,
+  and search for genuinely extension-valued `t>=2` pencils not killed by the
+  simple-pole obstruction.
+
 ### 2026-07-06 - CAP25 v13 raw compact Lean integration
 
 - **Agent/model:** Codex.
