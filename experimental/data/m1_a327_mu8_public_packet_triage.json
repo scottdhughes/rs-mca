@@ -1,0 +1,960 @@
+{
+  "agreement_target": 327,
+  "denominator": "17^32",
+  "evidence_hashes_sha256": {
+    "experimental/data/m1_a327_mu8_rank2_adaptive_ratio_columns.json": "1a3fdd0af70ec936c06cb73ec09ab4b4208bd7409bc70bea0c4cbdad239e975f",
+    "experimental/data/m1_a327_mu8_rank2_current_menu_ceiling.json": "21d0c16601156fc31116e7194238a05fa2fd64ac54f76e286ffac9e92b41d48e",
+    "experimental/data/m1_a327_mu8_rank2_feedback2_adaptive_ratio_columns.json": "953f24ec845370b769156e03e281e1370bb25588a142e40b3aa0c9f7419a34d4",
+    "experimental/data/m1_a327_mu8_rank2_feedback_adaptive_ratio_columns.json": "d5946e648073a9c7d4669805dd7492dacdd628d3747f0af78c78f603a8eb4e50",
+    "experimental/data/m1_a327_mu8_rank2_feedback_exact_interpolation.json": "ff3bd9c7af28a8f75f6aa0ff0a8ec7d26e26f0a8e36f97ce7fcdf2da4481ce71",
+    "experimental/data/m1_a327_mu8_rank2_frontier_mining.json": "930cbfc552daa0278d4e6b4744091c48edc65355ae520db8de39bf2a18beff36",
+    "experimental/data/m1_a327_mu8_rank2_width16_near_front_exact.json": "78d0a7bc5478022fe18c670045cedc179e6975e69345b1568f7423ae6649bbc4",
+    "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_repfixed6_singleton5.json": "1207d28ab0438f884f69d6ed0305a590c1491baad55d1dfd32fbd6235b657b4a",
+    "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton12.json": "8c9b53a78e630859b470c44dfbe4992719550b3cadfdeb675262738bedc8195c",
+    "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton18.json": "0c5effb7dc3b15a5981695e2cfe930e5e50c5c3f5cc54c921f80d7912f86628f",
+    "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton20.json": "70ee3fa6aca9b53f1fcff93b3777d68bd9469389ceb76c815abe8e3bc58e9e7e",
+    "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton21.json": "4227efa6c3e9262534177767c60731751008f1f7420938d3c542704d4f2580a5",
+    "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton22.json": "599ef87dd9cd6c1e842843d4f6425488e128662f2f5aac38847a34a1ec25a902",
+    "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton22_exact_interpolation.json": "15b27f6c1cf8f072e0ac0ad580db43ce873f0998ee1b16699268ea86e2a89fa1",
+    "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton22_row_dependency_pressure.json": "36a5370668bd9890bc1c623e4f46f6575b7ebb04c1da7a051ba7b1ba59e6f5a0",
+    "experimental/data/m1_a327_mu8_rank_one_carrier_obstruction.json": "f5f08b70921be696de10eb9c75687af4e2d5d4880d779e450228df399d3f8c2d"
+  },
+  "mca_counted": false,
+  "next_best_attack": {
+    "avoid": [
+      "more mutation of the same fixed rank-3 menu",
+      "board update without exact witness or theorem-style route cut"
+    ],
+    "options": [
+      "rank-2 feedback carrier synthesis with better balanced carrier planes",
+      "rank-3 menus whose dependency rows cannot be bypassed by singleton fixed groups",
+      "module/syzygy abstraction of the repeated full-rank singleton pivot pattern"
+    ],
+    "primary": "new_dependency_family"
+  },
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C"
+  ],
+  "proof_status": "PARTIAL / EXPERIMENTAL",
+  "public_packet_triage": {
+    "board_ready": false,
+    "exact_a327_witness": false,
+    "reason": "No exact a=327 witness exists.  The current useful output is a compact route-cut/triage packet: rank-one mu8 carriers are structurally cut, rank-2 menus remain support-infeasible across the scanned adaptive ledgers, and the current rank-3 exact/row-pressure sweep is consistently full rank.",
+    "recommended_public_action": "do_not_open_board_pr_yet",
+    "route_cut_candidate": true
+  },
+  "rank2_mu8": {
+    "adaptive": {
+      "best_failure_mode": "MU8_RANK2_ADAPTIVE_WIDTH_IMPROVES_SUPPORT",
+      "best_min_support": 314,
+      "best_total_incidence": 2202,
+      "header_ok": true,
+      "max_width": 32,
+      "near_front_candidates": 1,
+      "path": "experimental/data/m1_a327_mu8_rank2_adaptive_ratio_columns.json",
+      "planes_solved": 64,
+      "present": true,
+      "rounds_requested": 0,
+      "selected_incidence_gap": 87,
+      "support_gap": 13,
+      "support_pair_candidates": 0
+    },
+    "adaptive_sweep": {
+      "adaptive_ledgers_scanned": 50,
+      "best": {
+        "best_failure_mode": "MU8_RANK2_ADAPTIVE_WIDTH_IMPROVES_SUPPORT",
+        "best_min_support": 317,
+        "best_total_incidence": 2224,
+        "header_ok": true,
+        "max_width": 16,
+        "near_front_candidates": 1,
+        "path": "experimental/data/m1_a327_mu8_rank2_direct_longtime_adaptive_ratio_columns.json",
+        "planes_solved": 1,
+        "present": true,
+        "rounds_requested": 6,
+        "selected_incidence_gap": 65,
+        "support_gap": 10,
+        "support_pair_candidates": 0
+      },
+      "near_front_ledgers": 13,
+      "support_pair_passing_ledgers": 0,
+      "top_fronts": [
+        {
+          "best_failure_mode": "MU8_RANK2_ADAPTIVE_WIDTH_IMPROVES_SUPPORT",
+          "best_min_support": 317,
+          "best_total_incidence": 2224,
+          "header_ok": true,
+          "max_width": 16,
+          "near_front_candidates": 1,
+          "path": "experimental/data/m1_a327_mu8_rank2_direct_longtime_adaptive_ratio_columns.json",
+          "planes_solved": 1,
+          "present": true,
+          "rounds_requested": 6,
+          "selected_incidence_gap": 65,
+          "support_gap": 10,
+          "support_pair_candidates": 0
+        },
+        {
+          "best_failure_mode": "MU8_RANK2_ADAPTIVE_WIDTH_IMPROVES_SUPPORT",
+          "best_min_support": 317,
+          "best_total_incidence": 2224,
+          "header_ok": true,
+          "max_width": 8,
+          "near_front_candidates": 20,
+          "path": "experimental/data/m1_a327_mu8_rank2_nogood_adaptive_ratio_columns.json",
+          "planes_solved": 8,
+          "present": true,
+          "rounds_requested": 1,
+          "selected_incidence_gap": 65,
+          "support_gap": 10,
+          "support_pair_candidates": 0
+        },
+        {
+          "best_failure_mode": "MU8_RANK2_ADAPTIVE_WIDTH_IMPROVES_SUPPORT",
+          "best_min_support": 317,
+          "best_total_incidence": 2224,
+          "header_ok": true,
+          "max_width": 32,
+          "near_front_candidates": 1,
+          "path": "experimental/data/m1_a327_mu8_rank2_ratio_repeat_nogood_adaptive_ratio_columns.json",
+          "planes_solved": 1,
+          "present": true,
+          "rounds_requested": 6,
+          "selected_incidence_gap": 65,
+          "support_gap": 10,
+          "support_pair_candidates": 0
+        },
+        {
+          "best_failure_mode": "MU8_RANK2_ADAPTIVE_WIDTH_IMPROVES_SUPPORT",
+          "best_min_support": 317,
+          "best_total_incidence": 2224,
+          "header_ok": true,
+          "max_width": 32,
+          "near_front_candidates": 1,
+          "path": "experimental/data/m1_a327_mu8_rank2_ratio_repeat_plane0_adaptive_ratio_columns.json",
+          "planes_solved": 1,
+          "present": true,
+          "rounds_requested": 6,
+          "selected_incidence_gap": 65,
+          "support_gap": 10,
+          "support_pair_candidates": 0
+        },
+        {
+          "best_failure_mode": "MU8_RANK2_ADAPTIVE_WIDTH_IMPROVES_SUPPORT",
+          "best_min_support": 317,
+          "best_total_incidence": 2224,
+          "header_ok": true,
+          "max_width": 8,
+          "near_front_candidates": 11,
+          "path": "experimental/data/m1_a327_mu8_rank2_scored_long_adaptive_ratio_columns.json",
+          "planes_solved": 8,
+          "present": true,
+          "rounds_requested": 1,
+          "selected_incidence_gap": 65,
+          "support_gap": 10,
+          "support_pair_candidates": 0
+        },
+        {
+          "best_failure_mode": "MU8_RANK2_ADAPTIVE_WIDTH_IMPROVES_SUPPORT",
+          "best_min_support": 317,
+          "best_total_incidence": 2224,
+          "header_ok": true,
+          "max_width": 16,
+          "near_front_candidates": 8,
+          "path": "experimental/data/m1_a327_mu8_rank2_width16_adaptive_ratio_columns.json",
+          "planes_solved": 8,
+          "present": true,
+          "rounds_requested": 2,
+          "selected_incidence_gap": 65,
+          "support_gap": 10,
+          "support_pair_candidates": 0
+        },
+        {
+          "best_failure_mode": "MU8_RANK2_ADAPTIVE_WIDTH_IMPROVES_SUPPORT",
+          "best_min_support": 316,
+          "best_total_incidence": 2224,
+          "header_ok": true,
+          "max_width": 8,
+          "near_front_candidates": 4,
+          "path": "experimental/data/m1_a327_mu8_rank2_feedback_adaptive_ratio_columns.json",
+          "planes_solved": 8,
+          "present": true,
+          "rounds_requested": 1,
+          "selected_incidence_gap": 65,
+          "support_gap": 11,
+          "support_pair_candidates": 0
+        },
+        {
+          "best_failure_mode": "MU8_RANK2_ADAPTIVE_WIDTH_IMPROVES_SUPPORT",
+          "best_min_support": 316,
+          "best_total_incidence": 2219,
+          "header_ok": true,
+          "max_width": 8,
+          "near_front_candidates": 2,
+          "path": "experimental/data/m1_a327_mu8_rank2_feedback2_adaptive_ratio_columns.json",
+          "planes_solved": 8,
+          "present": true,
+          "rounds_requested": 1,
+          "selected_incidence_gap": 70,
+          "support_gap": 11,
+          "support_pair_candidates": 0
+        }
+      ]
+    },
+    "exact_sweep": {
+      "all_tested_systems_full_rank": true,
+      "exact_ledgers_scanned": 17,
+      "max_best_nullity": 0,
+      "pair_visible_systems_total": 0,
+      "positive_nullity_systems_total": 0,
+      "systems_tested_total": 39,
+      "top_by_systems_tested": [
+        {
+          "best_failure_mode": "MU8_RANK2_ADAPTIVE_NEAR_FRONT_DIAGNOSTIC",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank2_incumbent_neighborhood_near_front_exact.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 8
+        },
+        {
+          "best_failure_mode": "MU8_RANK2_ADAPTIVE_NEAR_FRONT_DIAGNOSTIC",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank2_nogood_near_front_exact.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 8
+        },
+        {
+          "best_failure_mode": "MU8_RANK2_ADAPTIVE_NEAR_FRONT_DIAGNOSTIC",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank2_scored_long_near_front_exact.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 8
+        },
+        {
+          "best_failure_mode": "MU8_RANK2_ADAPTIVE_NEAR_FRONT_DIAGNOSTIC",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank2_width16_near_front_exact.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 8
+        },
+        {
+          "best_failure_mode": "MU8_RANK2_ADAPTIVE_NEAR_FRONT_DIAGNOSTIC",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank2_feedback_near_front_exact.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 4
+        },
+        {
+          "best_failure_mode": "MU8_RANK2_ADAPTIVE_NEAR_FRONT_DIAGNOSTIC",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank2_feedback2_near_front_exact.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 2
+        },
+        {
+          "best_failure_mode": "MU8_RANK2_ADAPTIVE_NEAR_FRONT_DIAGNOSTIC",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank2_adaptive_near_front_exact.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 1
+        },
+        {
+          "best_failure_mode": "MU8_RANK2_ADAPTIVE_NO_SUPPORT_PAIR_CANDIDATE",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank2_adaptive_exact_interpolation.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 0
+        },
+        {
+          "best_failure_mode": "MU8_RANK2_CARRIER_NO_EXACT_CANDIDATE",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank2_carrier_exact_interpolation.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 0
+        },
+        {
+          "best_failure_mode": "MU8_RANK2_CARRIER_NO_EXACT_CANDIDATE",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank2_cpsat_exact_interpolation.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 0
+        },
+        {
+          "best_failure_mode": "MU8_RANK2_ADAPTIVE_NO_SUPPORT_PAIR_CANDIDATE",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank2_feedback2_exact_interpolation.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 0
+        },
+        {
+          "best_failure_mode": "MU8_RANK2_ADAPTIVE_NO_SUPPORT_PAIR_CANDIDATE",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank2_feedback_exact_interpolation.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 0
+        }
+      ]
+    },
+    "feedback": {
+      "best_failure_mode": "MU8_RANK2_ADAPTIVE_WIDTH_IMPROVES_SUPPORT",
+      "best_min_support": 316,
+      "best_total_incidence": 2224,
+      "header_ok": true,
+      "max_width": 8,
+      "near_front_candidates": 4,
+      "path": "experimental/data/m1_a327_mu8_rank2_feedback_adaptive_ratio_columns.json",
+      "planes_solved": 8,
+      "present": true,
+      "rounds_requested": 1,
+      "selected_incidence_gap": 65,
+      "support_gap": 11,
+      "support_pair_candidates": 0
+    },
+    "feedback2": {
+      "best_failure_mode": "MU8_RANK2_ADAPTIVE_WIDTH_IMPROVES_SUPPORT",
+      "best_min_support": 316,
+      "best_total_incidence": 2219,
+      "header_ok": true,
+      "max_width": 8,
+      "near_front_candidates": 2,
+      "path": "experimental/data/m1_a327_mu8_rank2_feedback2_adaptive_ratio_columns.json",
+      "planes_solved": 8,
+      "present": true,
+      "rounds_requested": 1,
+      "selected_incidence_gap": 70,
+      "support_gap": 11,
+      "support_pair_candidates": 0
+    },
+    "feedback_exact": {
+      "best_failure_mode": "MU8_RANK2_ADAPTIVE_NO_SUPPORT_PAIR_CANDIDATE",
+      "best_nullity": 0,
+      "header_ok": true,
+      "pair_visible_systems": 0,
+      "path": "experimental/data/m1_a327_mu8_rank2_feedback_exact_interpolation.json",
+      "positive_nullity_systems": 0,
+      "present": true,
+      "systems_tested": 0
+    },
+    "frontier": {
+      "ceiling_path": "experimental/data/m1_a327_mu8_rank2_current_menu_ceiling.json",
+      "ceiling_present": true,
+      "current_menu_ceiling": {
+        "best_failure_mode": "MU8_RANK2_CURRENT_MENU_NO_GUARD_PASS",
+        "best_min_support": 317,
+        "best_total_incidence": 2224,
+        "max_selected_ratio_line_support": 31,
+        "menu_ratio_limit": 32,
+        "planes_tested": 8,
+        "selected_incidence_gap": 65,
+        "support_gap": 10,
+        "support_pair_candidates": 0
+      },
+      "frontier": {
+        "best_single_repair_min_support": 316,
+        "best_single_repair_pair_cap_pass": true,
+        "best_single_repair_total_incidence": 2224,
+        "candidate_id": "feedback_rank2_plane_0000_adaptive_r00_w08",
+        "label_deficits": [
+          9,
+          10,
+          9,
+          9,
+          9,
+          10,
+          9
+        ],
+        "max_ratio_line_support": 1,
+        "pair_count_max": 254,
+        "plane_id": "feedback_rank2_plane_0000",
+        "ratio_line_support_histogram": {
+          "1": 34
+        },
+        "row_cost": 94,
+        "selected_block_size_histogram": {
+          "2": 272,
+          "7": 240
+        },
+        "selected_incidence_gap": 65,
+        "selected_incidence_total": 2224,
+        "support_vector": [
+          318,
+          317,
+          318,
+          318,
+          318,
+          317,
+          318
+        ]
+      },
+      "frontier_path": "experimental/data/m1_a327_mu8_rank2_frontier_mining.json",
+      "frontier_present": true
+    },
+    "width16_near_exact": {
+      "best_failure_mode": "MU8_RANK2_ADAPTIVE_NEAR_FRONT_DIAGNOSTIC",
+      "best_nullity": 0,
+      "header_ok": true,
+      "pair_visible_systems": null,
+      "path": "experimental/data/m1_a327_mu8_rank2_width16_near_front_exact.json",
+      "positive_nullity_systems": 0,
+      "present": true,
+      "systems_tested": 8
+    }
+  },
+  "rank3_mu8": {
+    "exact_sweep": {
+      "all_tested_systems_full_rank": true,
+      "exact_ledgers_scanned": 50,
+      "max_best_nullity": 0,
+      "pair_visible_systems_total": 0,
+      "positive_nullity_systems_total": 0,
+      "systems_tested_total": 167,
+      "top_by_systems_tested": [
+        {
+          "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank3_block_aware_multi_repair_dependency_exact_interpolation.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 12
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank3_block_aware_multi_repair_exact_interpolation.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 12
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank3_mined_projective_dependency_exact_interpolation.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 12
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank3_mined_projective_multi_repair_exact_interpolation.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 12
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank3_block_key_exact_interpolation.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 6
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank3_block_key_mid_exact_interpolation.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 5
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_augmented_corepenalty50k_exact_interpolation.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 4
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_corepenalty50k_exact_interpolation.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 4
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_exact_interpolation.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 4
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multicorepenalty50k_exact_interpolation.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 4
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_exact_interpolation.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 4
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_newcoreavoid34_exact_interpolation.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 4
+        }
+      ]
+    },
+    "row_pressure_sweep": {
+      "all_tested_cores_full_rank": true,
+      "positive_nullity_systems_total": 0,
+      "pressure_ledgers_scanned": 28,
+      "systems_tested_total": 76,
+      "top_by_systems_tested": [
+        {
+          "best_failure_mode": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_corepenalty50k_row_dependency_pressure.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 4
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multicorepenalty50k_row_dependency_pressure.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 4
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_newcoreavoid34_row_dependency_pressure.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 4
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_row_dependency_pressure.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 4
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep86_row_dependency_pressure.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 4
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep88_row_dependency_pressure.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 4
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep95_row_dependency_pressure.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 4
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_row_dependency_pressure.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 4
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_zero82_row_dependency_pressure.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 4
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_row_dependency_pressure.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 4
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "path": "experimental/data/m1_a327_mu8_rank3_block_key_balanced_row_dependency_pressure.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 4
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "path": "experimental/data/m1_a327_mu8_rank3_generic_replacement_bundle2_sample20_row_dependency_pressure.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 4
+        }
+      ]
+    },
+    "singleton22_exact_and_pressure": {
+      "exact": {
+        "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+        "best_nullity": 0,
+        "first_system": {
+          "candidate_id": "rank3_blockkey_001_bundle_0001",
+          "carrier_id": "blockkey_001",
+          "forced_equal_pairs": [],
+          "kernel_status": null,
+          "matrix_shape": [
+            156,
+            96
+          ],
+          "min_support": 327,
+          "nullity": 0,
+          "pair_count_max": 255,
+          "plane_id": "rank3_blockkey_001",
+          "rank": 96,
+          "row_cost": 156,
+          "row_metadata_hash": "cc1ce702a24b82124fb28a4750b9d4aed45f398042a426c74c79ed1653413246",
+          "selected_incidence_total": 2289,
+          "status": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK"
+        },
+        "header_ok": true,
+        "pair_visible_systems": 0,
+        "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton22_exact_interpolation.json",
+        "positive_nullity_systems": 0,
+        "present": true,
+        "systems_tested": 3
+      },
+      "pressure_path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton22_row_dependency_pressure.json",
+      "pressure_present": true,
+      "row_dependency_pressure": {
+        "best_failure_mode": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK",
+        "best_nullity": 0,
+        "dependency_last_core": {
+          "core_group_histograms": {
+            "fixed_point_support_histogram": {
+              "1": 6
+            },
+            "kind_counts": {
+              "POINT": 6,
+              "ZERO": 28
+            },
+            "max_fixed_point_support": 1,
+            "max_projective_key_support": 1,
+            "projective_key_support_histogram": {
+              "1": 6
+            }
+          },
+          "core_rank": 96,
+          "core_row_count": 96,
+          "dependency_groups_in_core": 6,
+          "dependency_rows_in_core": 12
+        },
+        "first_system_nullity": 0,
+        "first_system_rank": 96,
+        "first_system_status": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK_REDUNDANT",
+        "header_ok": true,
+        "selected_group_histograms": {
+          "fixed_point_support_histogram": {
+            "1": 22,
+            "2": 7
+          },
+          "kind_counts": {
+            "POINT": 36,
+            "ZERO": 28
+          },
+          "max_fixed_point_support": 2,
+          "max_projective_key_support": 2,
+          "projective_key_support_histogram": {
+            "1": 22,
+            "2": 7
+          }
+        },
+        "systems_tested": 3
+      }
+    },
+    "singleton_boundary": {
+      "12": {
+        "best_failure_mode": "MU8_RANK3_BALANCED_KEY_BUNDLE_NO_GUARD_PASS",
+        "best_min_support": 312,
+        "best_pair_count_max": 253,
+        "best_repeated_fixed_group_count": 12,
+        "best_singleton_fixed_group_count": 12,
+        "best_total_incidence": 2244,
+        "candidate_min_support": 312,
+        "candidate_pair_count_max": 253,
+        "candidate_selected_fixed_point_histogram": {
+          "1": 12,
+          "2": 12
+        },
+        "candidate_support_vector": [
+          327,
+          327,
+          312,
+          312,
+          312,
+          327,
+          327
+        ],
+        "candidate_total_incidence": 2244,
+        "cap": 12,
+        "header_ok": true,
+        "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton12.json",
+        "present": true,
+        "selected_incidence_gap": 45,
+        "support_gap": 15,
+        "support_pair_candidates": 0
+      },
+      "18": {
+        "best_failure_mode": "MU8_RANK3_BALANCED_KEY_BUNDLE_NO_GUARD_PASS",
+        "best_min_support": 323,
+        "best_pair_count_max": 254,
+        "best_repeated_fixed_group_count": 9,
+        "best_singleton_fixed_group_count": 18,
+        "best_total_incidence": 2279,
+        "candidate_min_support": 323,
+        "candidate_pair_count_max": 254,
+        "candidate_selected_fixed_point_histogram": {
+          "1": 18,
+          "2": 9
+        },
+        "candidate_support_vector": [
+          329,
+          327,
+          323,
+          323,
+          323,
+          327,
+          327
+        ],
+        "candidate_total_incidence": 2279,
+        "cap": 18,
+        "header_ok": true,
+        "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton18.json",
+        "present": true,
+        "selected_incidence_gap": 10,
+        "support_gap": 4,
+        "support_pair_candidates": 0
+      },
+      "20": {
+        "best_failure_mode": "MU8_RANK3_BALANCED_KEY_BUNDLE_NO_GUARD_PASS",
+        "best_min_support": 324,
+        "best_pair_count_max": 254,
+        "best_repeated_fixed_group_count": 8,
+        "best_singleton_fixed_group_count": 20,
+        "best_total_incidence": 2282,
+        "candidate_min_support": 324,
+        "candidate_pair_count_max": 254,
+        "candidate_selected_fixed_point_histogram": {
+          "1": 20,
+          "2": 8
+        },
+        "candidate_support_vector": [
+          327,
+          327,
+          324,
+          324,
+          324,
+          329,
+          327
+        ],
+        "candidate_total_incidence": 2282,
+        "cap": 20,
+        "header_ok": true,
+        "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton20.json",
+        "present": true,
+        "selected_incidence_gap": 7,
+        "support_gap": 3,
+        "support_pair_candidates": 0
+      },
+      "21": {
+        "best_failure_mode": "MU8_RANK3_BALANCED_KEY_BUNDLE_NO_GUARD_PASS",
+        "best_min_support": 325,
+        "best_pair_count_max": 255,
+        "best_repeated_fixed_group_count": 8,
+        "best_singleton_fixed_group_count": 20,
+        "best_total_incidence": 2283,
+        "candidate_min_support": 325,
+        "candidate_pair_count_max": 255,
+        "candidate_selected_fixed_point_histogram": {
+          "1": 20,
+          "2": 8
+        },
+        "candidate_support_vector": [
+          327,
+          327,
+          325,
+          325,
+          325,
+          327,
+          327
+        ],
+        "candidate_total_incidence": 2283,
+        "cap": 21,
+        "header_ok": true,
+        "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton21.json",
+        "present": true,
+        "selected_incidence_gap": 6,
+        "support_gap": 2,
+        "support_pair_candidates": 0
+      },
+      "22": {
+        "best_failure_mode": "MU8_RANK3_BALANCED_KEY_BUNDLE_SUPPORT_PAIR_PASS",
+        "best_min_support": 327,
+        "best_pair_count_max": 255,
+        "best_repeated_fixed_group_count": 7,
+        "best_singleton_fixed_group_count": 22,
+        "best_total_incidence": 2289,
+        "candidate_min_support": 327,
+        "candidate_pair_count_max": 255,
+        "candidate_selected_fixed_point_histogram": {
+          "1": 22,
+          "2": 7
+        },
+        "candidate_support_vector": [
+          327,
+          327,
+          327,
+          327,
+          327,
+          327,
+          327
+        ],
+        "candidate_total_incidence": 2289,
+        "cap": 22,
+        "header_ok": true,
+        "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton22.json",
+        "present": true,
+        "selected_incidence_gap": 0,
+        "support_gap": 0,
+        "support_pair_candidates": 3
+      },
+      "5": {
+        "best_failure_mode": "MU8_RANK3_BALANCED_KEY_BUNDLE_NO_GUARD_PASS",
+        "best_min_support": 308,
+        "best_pair_count_max": 252,
+        "best_repeated_fixed_group_count": 16,
+        "best_singleton_fixed_group_count": 4,
+        "best_total_incidence": 2234,
+        "candidate_min_support": 308,
+        "candidate_pair_count_max": 252,
+        "candidate_selected_fixed_point_histogram": {
+          "1": 4,
+          "2": 16
+        },
+        "candidate_support_vector": [
+          327,
+          328,
+          308,
+          308,
+          308,
+          328,
+          327
+        ],
+        "candidate_total_incidence": 2234,
+        "cap": 5,
+        "header_ok": true,
+        "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_repfixed6_singleton5.json",
+        "present": true,
+        "selected_incidence_gap": 55,
+        "support_gap": 19,
+        "support_pair_candidates": 0
+      }
+    }
+  },
+  "rank_one_mu8": {
+    "header_ok": true,
+    "obstruction": {
+      "ansatz": "q(Y)=u*f(Y), deg(f)<32",
+      "common_zero_coordinates_max": 248,
+      "contradiction": true,
+      "outside_pair_equalities_max": 147,
+      "pair_visible_required": true,
+      "quotient_roots_max": 31,
+      "required_selected_incidences": 2289,
+      "selected_incidence_ceiling": 2147,
+      "status": "MU8_RANK_ONE_CARRIER_INCIDENCE_OBSTRUCTION",
+      "strict_gap": 142
+    },
+    "path": "experimental/data/m1_a327_mu8_rank_one_carrier_obstruction.json"
+  },
+  "row": "RS[F_17^32,H,256]",
+  "source_commit": "local-uncommitted",
+  "tooling": {
+    "exact_authority": "Sage GF(17^32)",
+    "module_syzygy_if_packaging_obstruction": [
+      "Macaulay2",
+      "Singular"
+    ],
+    "not_primary_now": [
+      "PARI/GP",
+      "Wolfram",
+      "msolve"
+    ],
+    "reproducibility": "Python JSON verifiers",
+    "support_pair_scheduler": "OR-Tools CP-SAT"
+  },
+  "track": "INTERLEAVED_LIST",
+  "witness_sweep": {
+    "exact_a327_witness_passes": 0,
+    "pass_paths": [],
+    "witness_ledgers_scanned": 62
+  }
+}

@@ -1944,3 +1944,29 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Run verifiers and audits on the integrated material,
   review mathematical notes before promotion, and close the original PRs as
   manually integrated once the integration commit is pushed.
+
+
+### 2026-07-06 - M1 a327 mu8 public-packet triage
+
+- **Agent/model:** Codex GPT-5.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_a327_mu8_public_packet_triage.md`,
+  `experimental/scripts/mine_m1_a327_mu8_public_packet_triage.py`,
+  `experimental/scripts/verify_m1_a327_mu8_public_packet_triage.py`,
+  `experimental/data/m1_a327_mu8_public_packet_triage.json`, and the primary
+  compact evidence ledgers referenced by that triage JSON.
+- **Status:** PARTIAL / EXPERIMENTAL / NOT_BOARD_READY.
+- **What is being added:** A compact, verifier-backed triage packet for the
+  local M1 `a=327` `mu_8` interleaved-list search. It records that no exact
+  `a=327` witness has been found, rank-one `mu_8` carriers are cut by a
+  selected-incidence bound, current rank-2 menus remain support-infeasible,
+  and the current rank-3 exact/row-pressure sweeps are full rank.
+- **How it is useful:** This is a route-cut and search-triage artifact, not a
+  board update and not MCA/protocol evidence. It gives future agents a compact
+  reproducible checkpoint rather than another loose scan trail.
+- **Verification:** Run
+  `python3 experimental/scripts/verify_m1_a327_mu8_public_packet_triage.py --json`.
+- **What to do next:** Continue with a new dependency family: either rank-2
+  carrier synthesis with better balanced planes, rank-3 menus where dependency
+  rows cannot be bypassed by singleton fixed groups, or a module/syzygy
+  obstruction package using Macaulay2/Singular.
