@@ -69,11 +69,32 @@ Candidate attacks, ranked:
    `l1_coset_chart_residue_bridge_v1.md`; show `K+1` dependencies force an affine relation
    among the `(w_k, c_k)`, contradicting affine-independence.
 
+## Subspace-form proof target validated (note §3 second-pass (i))
+
+`experimental/scripts/subspace_form_e3.sage` — tests `dim(V_1+…+V_K) >= E_3`,
+`V_k = h_k·F_p[X]_{<=mu_k-2}`, `h_k = (X^ell-w_k)/g_k` the co-fiber locator, at the
+saturators. Result: the target **holds and is tight** (`= E_3`) at every saturator:
+
+| config | E_3 | dim(sum V_k) | sum dim V_k (=P-K) |
+|---|---|---|---|
+| ell=11 p=331 | 9 | 9 (= E_3, tight) | 13 |
+| ell=13 p=313 | 11 | 11 (= E_3, tight) | 18 |
+| ell=17 p=103 | 15 | 15 (= E_3, tight) | 21 |
+| ell=17 p=409 (E_3=ell-3) | 14 | 15 (= ell-2) | 20 |
+
+**Lead (needs a universal check).** `dim(sum V_k) = ell-2` at BOTH the saturator and the one
+non-saturator tested. If `dim(sum V_k) <= ell-2` is UNIVERSAL (a codim->=1 structure on the
+co-fiber-multiple span) and `dim(sum V_k) >= E_3` is the independence side, then
+`E_3 <= dim(sum V_k) <= ell-2` proves the KEY LEMMA as two separable steps. One data point
+only — next verification step is a universal `dim(sum V_k) <= ell-2` sweep over random mixed
+Gamma at ell = 7, 11, 13, 17.
+
 ## Reproducibility
 
 ```bash
 sage experimental/scripts/verify_l1_e3_ceiling_independent.sage
 sage experimental/scripts/extremal_structure_e3.sage
+sage experimental/scripts/subspace_form_e3.sage
 ```
 
 ## Honest scope / limits
