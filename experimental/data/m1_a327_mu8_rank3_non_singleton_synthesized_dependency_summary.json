@@ -1,0 +1,218 @@
+{
+  "agreement_target": 327,
+  "anchor_plan": {
+    "anchor_option_histogram": {
+      "AUG_FIXED_000": 6,
+      "AUG_FIXED_077": 6,
+      "AUG_FIXED_089": 7,
+      "POINT_001": 6,
+      "POINT_003": 4,
+      "POINT_007": 6
+    },
+    "anchor_size_histogram": {
+      "2": 28,
+      "3": 7
+    },
+    "anchor_targets": 35,
+    "best_failure_mode": "MU8_RANK3_NON_SINGLETON_ANCHORS_READY",
+    "header_ok": true
+  },
+  "denominator": "17^32",
+  "depmin2_exact_audit": {
+    "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+    "best_nullity": 0,
+    "field": "GF(17^32)",
+    "header_ok": true,
+    "pair_visible_systems": 0,
+    "positive_nullity_systems": 0,
+    "systems": [
+      {
+        "candidate_id": "rank3_blockkey_000_bundle_0000",
+        "matrix_shape": [
+          154,
+          96
+        ],
+        "min_support": 328,
+        "nullity": 0,
+        "pair_count_max": 254,
+        "rank": 96,
+        "selected_incidence_total": 2300
+      }
+    ],
+    "systems_tested": 1
+  },
+  "depmin2_schedule": {
+    "best_dependency_row_cost": 2,
+    "best_failure_mode": "MU8_RANK3_BALANCED_KEY_BUNDLE_SUPPORT_PAIR_PASS",
+    "best_generic_row_cost": 152,
+    "best_min_support": 328,
+    "best_pair_count_max": 254,
+    "best_selected_incidence_gap": -11,
+    "best_total_incidence": 2300,
+    "best_zero_row_cost": 84,
+    "header_ok": true,
+    "subspaces_solved": 6,
+    "support_pair_candidate_ids": [
+      "rank3_blockkey_000_bundle_0000"
+    ],
+    "support_pair_candidates": 1
+  },
+  "depmin2_witness_audit": {
+    "constructed": false,
+    "header_ok": true,
+    "proof_status": "EXACT_EXTRACTION_NO_A327 / NO_EXACT_WITNESS_CONSTRUCTED / PARTIAL / EXPERIMENTAL",
+    "status": "NO_EXACT_WITNESS_CONSTRUCTED"
+  },
+  "depmin3_schedule": {
+    "best_dependency_row_cost": 4,
+    "best_failure_mode": "MU8_RANK3_BALANCED_KEY_BUNDLE_NO_GUARD_PASS",
+    "best_generic_row_cost": 153,
+    "best_min_support": 323,
+    "best_pair_count_max": 255,
+    "best_selected_incidence_gap": 23,
+    "best_total_incidence": 2266,
+    "best_zero_row_cost": 87,
+    "header_ok": true,
+    "subspaces_solved": 6,
+    "support_pair_candidate_ids": [],
+    "support_pair_candidates": 0
+  },
+  "depmin4_schedule": {
+    "best_dependency_row_cost": 4,
+    "best_failure_mode": "MU8_RANK3_BALANCED_KEY_BUNDLE_NO_GUARD_PASS",
+    "best_generic_row_cost": 136,
+    "best_min_support": 311,
+    "best_pair_count_max": 255,
+    "best_selected_incidence_gap": 107,
+    "best_total_incidence": 2182,
+    "best_zero_row_cost": 90,
+    "header_ok": true,
+    "subspaces_solved": 6,
+    "support_pair_candidate_ids": [],
+    "support_pair_candidates": 0
+  },
+  "diagnosis": {
+    "depmin2_exact_full_rank": true,
+    "depmin2_support_pair_passed": true,
+    "depmin3_support_pair_boundary": true,
+    "depmin4_support_pair_infeasible": true,
+    "exact_full_rank": true,
+    "no_exact_witness": true,
+    "non_singleton_anchors_ready": true,
+    "support_pair_passed": true,
+    "synthesized_carriers_emitted": true
+  },
+  "exact_audit": {
+    "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+    "best_nullity": 0,
+    "field": "GF(17^32)",
+    "header_ok": true,
+    "pair_visible_systems": 0,
+    "positive_nullity_systems": 0,
+    "systems": [
+      {
+        "candidate_id": "rank3_blockkey_004_bundle_0000",
+        "matrix_shape": [
+          156,
+          96
+        ],
+        "min_support": 330,
+        "nullity": 0,
+        "pair_count_max": 255,
+        "rank": 96,
+        "selected_incidence_total": 2315
+      },
+      {
+        "candidate_id": "rank3_blockkey_000_bundle_0000",
+        "matrix_shape": [
+          156,
+          96
+        ],
+        "min_support": 328,
+        "nullity": 0,
+        "pair_count_max": 255,
+        "rank": 96,
+        "selected_incidence_total": 2300
+      }
+    ],
+    "systems_tested": 2
+  },
+  "input_hashes_sha256": {
+    "anchors": "37303f8e106bce5e60a48886c0b7e71b04371707793da599dc64258fff83661c",
+    "depmin2_exact": "2e576eb4ff273a148c18a83c4307593ba56a98455698b62574fa001e5680d078",
+    "depmin2_schedule": "466078acc09cb61c032c37c5c1b1645f3b80015d37b19c3d7b8be9c54f7e455a",
+    "depmin2_witness": "d109d14b1fb67608b9faacb5d40d85c9fe1259967b5d9faa07b45a98c0884037",
+    "depmin3_schedule": "af8f25683c36f2c79bfcbb26b3ae206a251522b2cd2abc8bc5387dc7d16826e4",
+    "depmin4_schedule": "e502895a08a9b4b1edd8a76dd937cb3121bae979286940d8038cb56e0e7fff50",
+    "exact": "8e760009f32ccad14bc0578a67e81d9455a2976fb5fdbbdb7b02c102e466eba2",
+    "schedule": "291df7ada54cf069edd8c8cc2e583c8ffdd6607edf178f1224f9b1ad24dda3fd",
+    "synthesized_menu": "13e41f1c5672766ff29178003e62499f484eb90f2457a7a6fc37a3cf4c37c330",
+    "witness": "d109d14b1fb67608b9faacb5d40d85c9fe1259967b5d9faa07b45a98c0884037"
+  },
+  "inputs": {
+    "anchors": "experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_anchor_file.json",
+    "depmin2_exact": "experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_depmin2_exact_interpolation.json",
+    "depmin2_schedule": "experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_depmin2_schedule.json",
+    "depmin2_witness": "experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_depmin2_witness_audit.json",
+    "depmin3_schedule": "experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_depmin3_schedule.json",
+    "depmin4_schedule": "experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_depmin4_schedule.json",
+    "exact": "experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_exact_interpolation.json",
+    "schedule": "experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_schedule.json",
+    "synthesized_menu": "experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_menu.json",
+    "witness": "experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_witness_audit.json"
+  },
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C"
+  ],
+  "proof_status": "EXACT_EXTRACTION_NO_A327 / MU8_RANK3_DEP_ROW_BOUNDARY_FULL_RANK / PARTIAL / EXPERIMENTAL",
+  "regeneration_commands": {
+    "anchor_file": "python3 experimental/scripts/plan_m1_a327_mu8_rank3_non_singleton_anchor_file.py --write-json --json",
+    "depmin2_exact": "sage experimental/scripts/audit_m1_a327_mu8_rank3_projective_exact.sage --write-json --json --menu experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_menu.json --schedule experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_depmin2_schedule.json --exact-output experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_depmin2_exact_interpolation.json --witness-output experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_depmin2_witness_audit.json --candidate-limit 1",
+    "depmin2_schedule": "python3 experimental/scripts/scan_m1_a327_mu8_rank3_balanced_key_bundle.py --input experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_menu.json --output experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_depmin2_schedule.json --write --json --subspace-limit 6 --bundle-size 2 --seed-keys 24 --bundle-limit 16 --max-options-per-q 32 --min-dependency-row-cost 2 --max-time 20 --workers 8 --store-choices --store-limit 12",
+    "depmin3_schedule": "python3 experimental/scripts/scan_m1_a327_mu8_rank3_balanced_key_bundle.py --input experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_menu.json --output experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_depmin3_schedule.json --write --json --subspace-limit 6 --bundle-size 2 --seed-keys 24 --bundle-limit 16 --max-options-per-q 32 --min-dependency-row-cost 3 --max-time 25 --workers 8 --store-choices --store-limit 12",
+    "depmin4_schedule": "python3 experimental/scripts/scan_m1_a327_mu8_rank3_balanced_key_bundle.py --input experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_menu.json --output experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_depmin4_schedule.json --write --json --subspace-limit 6 --bundle-size 2 --seed-keys 24 --bundle-limit 16 --max-options-per-q 32 --min-dependency-row-cost 4 --max-time 25 --workers 8 --store-choices --store-limit 12",
+    "exact": "sage experimental/scripts/audit_m1_a327_mu8_rank3_projective_exact.sage --write-json --json --menu experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_menu.json --schedule experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_schedule.json --exact-output experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_exact_interpolation.json --witness-output experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_witness_audit.json --candidate-limit 2",
+    "schedule": "python3 experimental/scripts/scan_m1_a327_mu8_rank3_balanced_key_bundle.py --input experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_menu.json --output experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_schedule.json --write --json --subspace-limit 6 --bundle-size 2 --seed-keys 24 --bundle-limit 16 --max-options-per-q 32 --max-time 20 --workers 8 --store-choices --store-limit 12",
+    "synthesized_menu": "sage experimental/scripts/synthesize_m1_a327_mu8_rank3_block_key_carriers.sage --write-json --json --anchor-file experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_anchor_file.json --source-menu experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_augmented_menu.json --output experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_synthesized_menu.json --fixed-limit 6 --bundle-size 1 --anchor-counts 2,3,4 --carrier-limit 8 --carrier-sample-limit 12 --max-points-per-q 24 --max-lines-per-q 72"
+  },
+  "row": "RS[F_17^32,H,256]",
+  "schedule": {
+    "best_dependency_row_cost": 0,
+    "best_failure_mode": "MU8_RANK3_BALANCED_KEY_BUNDLE_SUPPORT_PAIR_PASS",
+    "best_generic_row_cost": 156,
+    "best_min_support": 330,
+    "best_pair_count_max": 255,
+    "best_selected_incidence_gap": -26,
+    "best_total_incidence": 2315,
+    "best_zero_row_cost": 84,
+    "header_ok": true,
+    "subspaces_solved": 6,
+    "support_pair_candidate_ids": [
+      "rank3_blockkey_004_bundle_0000",
+      "rank3_blockkey_000_bundle_0000"
+    ],
+    "support_pair_candidates": 2
+  },
+  "source_commit": "508bd62",
+  "synthesized_menu": {
+    "best_failure_mode": "MU8_RANK3_BLOCK_KEY_SYNTHESIZED_MENU_READY",
+    "carriers_emitted": 6,
+    "header_ok": true,
+    "not_committed_due_size_note": "menu is large; this summary records hash and regeneration command",
+    "present": true,
+    "synthesis_attempts": 9
+  },
+  "track": "INTERLEAVED_LIST",
+  "witness_audit": {
+    "constructed": false,
+    "header_ok": true,
+    "proof_status": "EXACT_EXTRACTION_NO_A327 / NO_EXACT_WITNESS_CONSTRUCTED / PARTIAL / EXPERIMENTAL",
+    "status": "NO_EXACT_WITNESS_CONSTRUCTED"
+  }
+}

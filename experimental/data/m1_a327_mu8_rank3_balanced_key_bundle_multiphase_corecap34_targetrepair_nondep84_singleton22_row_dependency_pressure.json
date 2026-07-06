@@ -1,0 +1,963 @@
+{
+  "agreement_target": 327,
+  "denominator": "17^32",
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C"
+  ],
+  "proof_status": "EXACT_EXTRACTION_NO_A327 / MU8_RANK3_ROW_DEPENDENCY_FULL_RANK / PARTIAL / EXPERIMENTAL",
+  "row": "RS[F_17^32,H,256]",
+  "row_dependency_pressure": {
+    "best_failure_mode": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK",
+    "best_greedy_core_candidate": null,
+    "best_greedy_core_row_count": null,
+    "best_nullity": 0,
+    "dependency_groups_only": false,
+    "field": "GF(17^32)",
+    "greedy_core_enabled": false,
+    "max_group_tests": 0,
+    "menu": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_augmented_menu.json",
+    "pivot_core_enabled": true,
+    "positive_nullity_systems": 0,
+    "schedules": [
+      "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton22.json"
+    ],
+    "systems_tested": 3
+  },
+  "source_commit": "daca3df",
+  "systems": [
+    {
+      "candidate_id": "rank3_blockkey_001_bundle_0001",
+      "critical_group_count": 0,
+      "critical_groups_sample": [],
+      "dependency_groups_only": false,
+      "greedy_core": {},
+      "matrix_shape": [
+        156,
+        96
+      ],
+      "min_support": 327,
+      "nonempty_option_group_count": 64,
+      "nullity": 0,
+      "option_group_count": 64,
+      "pair_count_max": 255,
+      "pivot_cores": [
+        {
+          "core_group_count": 40,
+          "core_group_histograms": {
+            "fixed_point_support_histogram": {
+              "1": 24
+            },
+            "kind_counts": {
+              "POINT": 24,
+              "ZERO": 16
+            },
+            "max_fixed_point_support": 1,
+            "max_projective_key_support": 1,
+            "projective_key_support_histogram": {
+              "1": 24
+            }
+          },
+          "core_group_ids": [
+            "000:AUG_FIXED_105",
+            "001:AUG_FIXED_093",
+            "002:ZERO_ALL",
+            "003:AUG_FIXED_094",
+            "004:AUG_FIXED_097",
+            "005:ZERO_ALL",
+            "006:ZERO_ALL",
+            "007:ZERO_ALL",
+            "008:AUG_FIXED_085",
+            "009:AUG_FIXED_034",
+            "010:AUG_FIXED_086",
+            "011:ZERO_ALL",
+            "012:AUG_FIXED_104",
+            "013:ZERO_ALL",
+            "014:ZERO_ALL",
+            "015:AUG_FIXED_084",
+            "016:AUG_FIXED_099",
+            "017:ZERO_ALL",
+            "018:ZERO_ALL",
+            "019:AUG_FIXED_102",
+            "020:AUG_FIXED_074",
+            "021:ZERO_ALL",
+            "022:ZERO_ALL",
+            "023:AUG_FIXED_095",
+            "024:ZERO_ALL",
+            "025:AUG_FIXED_075",
+            "026:AUG_FIXED_100",
+            "027:AUG_FIXED_096",
+            "028:ZERO_ALL",
+            "029:ZERO_ALL",
+            "030:AUG_FIXED_088",
+            "031:ZERO_ALL",
+            "032:AUG_FIXED_103",
+            "033:AUG_FIXED_089",
+            "034:AUG_FIXED_077",
+            "035:AUG_FIXED_090",
+            "036:ZERO_ALL",
+            "037:AUG_FIXED_091",
+            "038:AUG_FIXED_092",
+            "039:AUG_FIXED_101"
+          ],
+          "core_rank": 96,
+          "core_row_count": 96,
+          "dependency_groups_in_core": 24,
+          "dependency_rows_in_core": 48,
+          "mode": "original"
+        },
+        {
+          "core_group_count": 44,
+          "core_group_histograms": {
+            "fixed_point_support_histogram": {
+              "1": 22,
+              "2": 7
+            },
+            "kind_counts": {
+              "POINT": 36,
+              "ZERO": 8
+            },
+            "max_fixed_point_support": 2,
+            "max_projective_key_support": 2,
+            "projective_key_support_histogram": {
+              "1": 22,
+              "2": 7
+            }
+          },
+          "core_group_ids": [
+            "008:AUG_FIXED_085",
+            "010:AUG_FIXED_086",
+            "012:AUG_FIXED_104",
+            "015:AUG_FIXED_084",
+            "016:AUG_FIXED_099",
+            "026:AUG_FIXED_100",
+            "030:AUG_FIXED_088",
+            "040:AUG_FIXED_085",
+            "042:AUG_FIXED_086",
+            "044:AUG_FIXED_104",
+            "047:AUG_FIXED_084",
+            "048:AUG_FIXED_099",
+            "058:AUG_FIXED_100",
+            "062:AUG_FIXED_088",
+            "000:AUG_FIXED_105",
+            "001:AUG_FIXED_093",
+            "003:AUG_FIXED_094",
+            "004:AUG_FIXED_097",
+            "009:AUG_FIXED_034",
+            "019:AUG_FIXED_102",
+            "020:AUG_FIXED_074",
+            "023:AUG_FIXED_095",
+            "025:AUG_FIXED_075",
+            "027:AUG_FIXED_096",
+            "032:AUG_FIXED_103",
+            "033:AUG_FIXED_089",
+            "034:AUG_FIXED_077",
+            "035:AUG_FIXED_090",
+            "037:AUG_FIXED_091",
+            "038:AUG_FIXED_092",
+            "039:AUG_FIXED_101",
+            "041:AUG_FIXED_014",
+            "043:AUG_FIXED_098",
+            "051:AUG_FIXED_106",
+            "057:AUG_FIXED_107",
+            "063:AUG_FIXED_015",
+            "002:ZERO_ALL",
+            "005:ZERO_ALL",
+            "006:ZERO_ALL",
+            "007:ZERO_ALL",
+            "011:ZERO_ALL",
+            "013:ZERO_ALL",
+            "014:ZERO_ALL",
+            "017:ZERO_ALL"
+          ],
+          "core_rank": 96,
+          "core_row_count": 96,
+          "dependency_groups_in_core": 36,
+          "dependency_rows_in_core": 72,
+          "mode": "dependency_first"
+        },
+        {
+          "core_group_count": 34,
+          "core_group_histograms": {
+            "fixed_point_support_histogram": {
+              "1": 6
+            },
+            "kind_counts": {
+              "POINT": 6,
+              "ZERO": 28
+            },
+            "max_fixed_point_support": 1,
+            "max_projective_key_support": 1,
+            "projective_key_support_histogram": {
+              "1": 6
+            }
+          },
+          "core_group_ids": [
+            "002:ZERO_ALL",
+            "005:ZERO_ALL",
+            "006:ZERO_ALL",
+            "007:ZERO_ALL",
+            "011:ZERO_ALL",
+            "013:ZERO_ALL",
+            "014:ZERO_ALL",
+            "017:ZERO_ALL",
+            "018:ZERO_ALL",
+            "021:ZERO_ALL",
+            "022:ZERO_ALL",
+            "024:ZERO_ALL",
+            "028:ZERO_ALL",
+            "029:ZERO_ALL",
+            "031:ZERO_ALL",
+            "036:ZERO_ALL",
+            "045:ZERO_ALL",
+            "046:ZERO_ALL",
+            "049:ZERO_ALL",
+            "050:ZERO_ALL",
+            "052:ZERO_ALL",
+            "053:ZERO_ALL",
+            "054:ZERO_ALL",
+            "055:ZERO_ALL",
+            "056:ZERO_ALL",
+            "059:ZERO_ALL",
+            "060:ZERO_ALL",
+            "061:ZERO_ALL",
+            "000:AUG_FIXED_105",
+            "001:AUG_FIXED_093",
+            "003:AUG_FIXED_094",
+            "004:AUG_FIXED_097",
+            "009:AUG_FIXED_034",
+            "019:AUG_FIXED_102"
+          ],
+          "core_rank": 96,
+          "core_row_count": 96,
+          "dependency_groups_in_core": 6,
+          "dependency_rows_in_core": 12,
+          "mode": "dependency_last"
+        },
+        {
+          "core_group_count": 44,
+          "core_group_histograms": {
+            "fixed_point_support_histogram": {
+              "1": 22,
+              "2": 7
+            },
+            "kind_counts": {
+              "POINT": 36,
+              "ZERO": 8
+            },
+            "max_fixed_point_support": 2,
+            "max_projective_key_support": 2,
+            "projective_key_support_histogram": {
+              "1": 22,
+              "2": 7
+            }
+          },
+          "core_group_ids": [
+            "000:AUG_FIXED_105",
+            "001:AUG_FIXED_093",
+            "003:AUG_FIXED_094",
+            "004:AUG_FIXED_097",
+            "008:AUG_FIXED_085",
+            "009:AUG_FIXED_034",
+            "010:AUG_FIXED_086",
+            "012:AUG_FIXED_104",
+            "015:AUG_FIXED_084",
+            "016:AUG_FIXED_099",
+            "019:AUG_FIXED_102",
+            "020:AUG_FIXED_074",
+            "023:AUG_FIXED_095",
+            "025:AUG_FIXED_075",
+            "026:AUG_FIXED_100",
+            "027:AUG_FIXED_096",
+            "030:AUG_FIXED_088",
+            "032:AUG_FIXED_103",
+            "033:AUG_FIXED_089",
+            "034:AUG_FIXED_077",
+            "035:AUG_FIXED_090",
+            "037:AUG_FIXED_091",
+            "038:AUG_FIXED_092",
+            "039:AUG_FIXED_101",
+            "040:AUG_FIXED_085",
+            "041:AUG_FIXED_014",
+            "042:AUG_FIXED_086",
+            "043:AUG_FIXED_098",
+            "044:AUG_FIXED_104",
+            "047:AUG_FIXED_084",
+            "048:AUG_FIXED_099",
+            "051:AUG_FIXED_106",
+            "057:AUG_FIXED_107",
+            "058:AUG_FIXED_100",
+            "062:AUG_FIXED_088",
+            "063:AUG_FIXED_015",
+            "002:ZERO_ALL",
+            "005:ZERO_ALL",
+            "006:ZERO_ALL",
+            "007:ZERO_ALL",
+            "011:ZERO_ALL",
+            "013:ZERO_ALL",
+            "014:ZERO_ALL",
+            "017:ZERO_ALL"
+          ],
+          "core_rank": 96,
+          "core_row_count": 96,
+          "dependency_groups_in_core": 36,
+          "dependency_rows_in_core": 72,
+          "mode": "zero_last"
+        }
+      ],
+      "plane_id": "rank3_blockkey_001",
+      "rank": 96,
+      "rank_drop_histogram": {},
+      "removable_group_count": 0,
+      "removable_groups_sample": [],
+      "row_cost": 156,
+      "row_metadata_hash": "cc1ce702a24b82124fb28a4750b9d4aed45f398042a426c74c79ed1653413246",
+      "schedule_path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton22.json",
+      "selected_group_histograms": {
+        "fixed_point_support_histogram": {
+          "1": 22,
+          "2": 7
+        },
+        "kind_counts": {
+          "POINT": 36,
+          "ZERO": 28
+        },
+        "max_fixed_point_support": 2,
+        "max_projective_key_support": 2,
+        "projective_key_support_histogram": {
+          "1": 22,
+          "2": 7
+        }
+      },
+      "selected_incidence_total": 2289,
+      "status": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK_REDUNDANT",
+      "tested_group_count": 0
+    },
+    {
+      "candidate_id": "rank3_blockkey_001_bundle_0003",
+      "critical_group_count": 0,
+      "critical_groups_sample": [],
+      "dependency_groups_only": false,
+      "greedy_core": {},
+      "matrix_shape": [
+        156,
+        96
+      ],
+      "min_support": 327,
+      "nonempty_option_group_count": 64,
+      "nullity": 0,
+      "option_group_count": 64,
+      "pair_count_max": 255,
+      "pivot_cores": [
+        {
+          "core_group_count": 41,
+          "core_group_histograms": {
+            "fixed_point_support_histogram": {
+              "1": 20,
+              "2": 3
+            },
+            "kind_counts": {
+              "POINT": 26,
+              "ZERO": 15
+            },
+            "max_fixed_point_support": 2,
+            "max_projective_key_support": 2,
+            "projective_key_support_histogram": {
+              "1": 20,
+              "2": 3
+            }
+          },
+          "core_group_ids": [
+            "000:ZERO_ALL",
+            "001:AUG_FIXED_093",
+            "002:AUG_FIXED_036",
+            "003:AUG_FIXED_094",
+            "004:AUG_FIXED_097",
+            "005:ZERO_ALL",
+            "006:AUG_FIXED_092",
+            "007:AUG_FIXED_101",
+            "008:AUG_FIXED_085",
+            "009:ZERO_ALL",
+            "010:AUG_FIXED_086",
+            "011:AUG_FIXED_080",
+            "012:AUG_FIXED_104",
+            "013:ZERO_ALL",
+            "014:ZERO_ALL",
+            "015:AUG_FIXED_084",
+            "016:AUG_FIXED_072",
+            "017:AUG_FIXED_081",
+            "018:ZERO_ALL",
+            "019:AUG_FIXED_102",
+            "020:ZERO_ALL",
+            "021:ZERO_ALL",
+            "022:ZERO_ALL",
+            "023:AUG_FIXED_095",
+            "024:ZERO_ALL",
+            "025:AUG_FIXED_075",
+            "026:AUG_FIXED_100",
+            "027:AUG_FIXED_096",
+            "028:ZERO_ALL",
+            "029:ZERO_ALL",
+            "030:AUG_FIXED_088",
+            "031:ZERO_ALL",
+            "032:AUG_FIXED_103",
+            "033:AUG_FIXED_089",
+            "034:ZERO_ALL",
+            "035:AUG_FIXED_090",
+            "036:ZERO_ALL",
+            "037:AUG_FIXED_091",
+            "038:AUG_FIXED_092",
+            "039:AUG_FIXED_101",
+            "040:AUG_FIXED_085"
+          ],
+          "core_rank": 96,
+          "core_row_count": 96,
+          "dependency_groups_in_core": 26,
+          "dependency_rows_in_core": 51,
+          "mode": "original"
+        },
+        {
+          "core_group_count": 44,
+          "core_group_histograms": {
+            "fixed_point_support_histogram": {
+              "1": 22,
+              "2": 7
+            },
+            "kind_counts": {
+              "POINT": 36,
+              "ZERO": 8
+            },
+            "max_fixed_point_support": 2,
+            "max_projective_key_support": 2,
+            "projective_key_support_histogram": {
+              "1": 22,
+              "2": 7
+            }
+          },
+          "core_group_ids": [
+            "006:AUG_FIXED_092",
+            "007:AUG_FIXED_101",
+            "008:AUG_FIXED_085",
+            "010:AUG_FIXED_086",
+            "012:AUG_FIXED_104",
+            "026:AUG_FIXED_100",
+            "030:AUG_FIXED_088",
+            "038:AUG_FIXED_092",
+            "039:AUG_FIXED_101",
+            "040:AUG_FIXED_085",
+            "042:AUG_FIXED_086",
+            "044:AUG_FIXED_104",
+            "058:AUG_FIXED_100",
+            "062:AUG_FIXED_088",
+            "001:AUG_FIXED_093",
+            "002:AUG_FIXED_036",
+            "003:AUG_FIXED_094",
+            "004:AUG_FIXED_097",
+            "011:AUG_FIXED_080",
+            "015:AUG_FIXED_084",
+            "016:AUG_FIXED_072",
+            "017:AUG_FIXED_081",
+            "019:AUG_FIXED_102",
+            "023:AUG_FIXED_095",
+            "025:AUG_FIXED_075",
+            "027:AUG_FIXED_096",
+            "032:AUG_FIXED_103",
+            "033:AUG_FIXED_089",
+            "035:AUG_FIXED_090",
+            "037:AUG_FIXED_091",
+            "041:AUG_FIXED_014",
+            "043:AUG_FIXED_098",
+            "048:AUG_FIXED_099",
+            "051:AUG_FIXED_106",
+            "057:AUG_FIXED_107",
+            "063:AUG_FIXED_015",
+            "000:ZERO_ALL",
+            "005:ZERO_ALL",
+            "009:ZERO_ALL",
+            "013:ZERO_ALL",
+            "014:ZERO_ALL",
+            "018:ZERO_ALL",
+            "020:ZERO_ALL",
+            "021:ZERO_ALL"
+          ],
+          "core_rank": 96,
+          "core_row_count": 96,
+          "dependency_groups_in_core": 36,
+          "dependency_rows_in_core": 72,
+          "mode": "dependency_first"
+        },
+        {
+          "core_group_count": 34,
+          "core_group_histograms": {
+            "fixed_point_support_histogram": {
+              "1": 6
+            },
+            "kind_counts": {
+              "POINT": 6,
+              "ZERO": 28
+            },
+            "max_fixed_point_support": 1,
+            "max_projective_key_support": 1,
+            "projective_key_support_histogram": {
+              "1": 6
+            }
+          },
+          "core_group_ids": [
+            "000:ZERO_ALL",
+            "005:ZERO_ALL",
+            "009:ZERO_ALL",
+            "013:ZERO_ALL",
+            "014:ZERO_ALL",
+            "018:ZERO_ALL",
+            "020:ZERO_ALL",
+            "021:ZERO_ALL",
+            "022:ZERO_ALL",
+            "024:ZERO_ALL",
+            "028:ZERO_ALL",
+            "029:ZERO_ALL",
+            "031:ZERO_ALL",
+            "034:ZERO_ALL",
+            "036:ZERO_ALL",
+            "045:ZERO_ALL",
+            "046:ZERO_ALL",
+            "047:ZERO_ALL",
+            "049:ZERO_ALL",
+            "050:ZERO_ALL",
+            "052:ZERO_ALL",
+            "053:ZERO_ALL",
+            "054:ZERO_ALL",
+            "055:ZERO_ALL",
+            "056:ZERO_ALL",
+            "059:ZERO_ALL",
+            "060:ZERO_ALL",
+            "061:ZERO_ALL",
+            "001:AUG_FIXED_093",
+            "002:AUG_FIXED_036",
+            "003:AUG_FIXED_094",
+            "004:AUG_FIXED_097",
+            "011:AUG_FIXED_080",
+            "015:AUG_FIXED_084"
+          ],
+          "core_rank": 96,
+          "core_row_count": 96,
+          "dependency_groups_in_core": 6,
+          "dependency_rows_in_core": 12,
+          "mode": "dependency_last"
+        },
+        {
+          "core_group_count": 44,
+          "core_group_histograms": {
+            "fixed_point_support_histogram": {
+              "1": 22,
+              "2": 7
+            },
+            "kind_counts": {
+              "POINT": 36,
+              "ZERO": 8
+            },
+            "max_fixed_point_support": 2,
+            "max_projective_key_support": 2,
+            "projective_key_support_histogram": {
+              "1": 22,
+              "2": 7
+            }
+          },
+          "core_group_ids": [
+            "001:AUG_FIXED_093",
+            "002:AUG_FIXED_036",
+            "003:AUG_FIXED_094",
+            "004:AUG_FIXED_097",
+            "006:AUG_FIXED_092",
+            "007:AUG_FIXED_101",
+            "008:AUG_FIXED_085",
+            "010:AUG_FIXED_086",
+            "011:AUG_FIXED_080",
+            "012:AUG_FIXED_104",
+            "015:AUG_FIXED_084",
+            "016:AUG_FIXED_072",
+            "017:AUG_FIXED_081",
+            "019:AUG_FIXED_102",
+            "023:AUG_FIXED_095",
+            "025:AUG_FIXED_075",
+            "026:AUG_FIXED_100",
+            "027:AUG_FIXED_096",
+            "030:AUG_FIXED_088",
+            "032:AUG_FIXED_103",
+            "033:AUG_FIXED_089",
+            "035:AUG_FIXED_090",
+            "037:AUG_FIXED_091",
+            "038:AUG_FIXED_092",
+            "039:AUG_FIXED_101",
+            "040:AUG_FIXED_085",
+            "041:AUG_FIXED_014",
+            "042:AUG_FIXED_086",
+            "043:AUG_FIXED_098",
+            "044:AUG_FIXED_104",
+            "048:AUG_FIXED_099",
+            "051:AUG_FIXED_106",
+            "057:AUG_FIXED_107",
+            "058:AUG_FIXED_100",
+            "062:AUG_FIXED_088",
+            "063:AUG_FIXED_015",
+            "000:ZERO_ALL",
+            "005:ZERO_ALL",
+            "009:ZERO_ALL",
+            "013:ZERO_ALL",
+            "014:ZERO_ALL",
+            "018:ZERO_ALL",
+            "020:ZERO_ALL",
+            "021:ZERO_ALL"
+          ],
+          "core_rank": 96,
+          "core_row_count": 96,
+          "dependency_groups_in_core": 36,
+          "dependency_rows_in_core": 72,
+          "mode": "zero_last"
+        }
+      ],
+      "plane_id": "rank3_blockkey_001",
+      "rank": 96,
+      "rank_drop_histogram": {},
+      "removable_group_count": 0,
+      "removable_groups_sample": [],
+      "row_cost": 156,
+      "row_metadata_hash": "0383e6a00f9023c02036cc1f3a9adb773a6eb5455fbae5dc596002de689b28e5",
+      "schedule_path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton22.json",
+      "selected_group_histograms": {
+        "fixed_point_support_histogram": {
+          "1": 22,
+          "2": 7
+        },
+        "kind_counts": {
+          "POINT": 36,
+          "ZERO": 28
+        },
+        "max_fixed_point_support": 2,
+        "max_projective_key_support": 2,
+        "projective_key_support_histogram": {
+          "1": 22,
+          "2": 7
+        }
+      },
+      "selected_incidence_total": 2289,
+      "status": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK_REDUNDANT",
+      "tested_group_count": 0
+    },
+    {
+      "candidate_id": "rank3_blockkey_001_bundle_0000",
+      "critical_group_count": 0,
+      "critical_groups_sample": [],
+      "dependency_groups_only": false,
+      "greedy_core": {},
+      "matrix_shape": [
+        156,
+        96
+      ],
+      "min_support": 327,
+      "nonempty_option_group_count": 64,
+      "nullity": 0,
+      "option_group_count": 64,
+      "pair_count_max": 255,
+      "pivot_cores": [
+        {
+          "core_group_count": 41,
+          "core_group_histograms": {
+            "fixed_point_support_histogram": {
+              "1": 24,
+              "2": 1
+            },
+            "kind_counts": {
+              "POINT": 26,
+              "ZERO": 15
+            },
+            "max_fixed_point_support": 2,
+            "max_projective_key_support": 2,
+            "projective_key_support_histogram": {
+              "1": 24,
+              "2": 1
+            }
+          },
+          "core_group_ids": [
+            "000:AUG_FIXED_105",
+            "001:AUG_FIXED_093",
+            "002:FIXED_000",
+            "003:AUG_FIXED_094",
+            "004:AUG_FIXED_097",
+            "005:ZERO_ALL",
+            "006:ZERO_ALL",
+            "007:ZERO_ALL",
+            "008:AUG_FIXED_085",
+            "009:AUG_FIXED_034",
+            "010:ZERO_ALL",
+            "011:AUG_FIXED_098",
+            "012:AUG_FIXED_104",
+            "013:ZERO_ALL",
+            "014:ZERO_ALL",
+            "015:AUG_FIXED_084",
+            "016:AUG_FIXED_099",
+            "017:AUG_FIXED_081",
+            "018:ZERO_ALL",
+            "019:AUG_FIXED_102",
+            "020:ZERO_ALL",
+            "021:ZERO_ALL",
+            "022:ZERO_ALL",
+            "023:AUG_FIXED_095",
+            "024:ZERO_ALL",
+            "025:AUG_FIXED_075",
+            "026:AUG_FIXED_100",
+            "027:AUG_FIXED_096",
+            "028:ZERO_ALL",
+            "029:ZERO_ALL",
+            "030:AUG_FIXED_088",
+            "031:ZERO_ALL",
+            "032:AUG_FIXED_103",
+            "033:AUG_FIXED_089",
+            "034:AUG_FIXED_077",
+            "035:AUG_FIXED_090",
+            "036:ZERO_ALL",
+            "037:AUG_FIXED_091",
+            "038:AUG_FIXED_092",
+            "039:AUG_FIXED_101",
+            "040:AUG_FIXED_085"
+          ],
+          "core_rank": 96,
+          "core_row_count": 96,
+          "dependency_groups_in_core": 26,
+          "dependency_rows_in_core": 51,
+          "mode": "original"
+        },
+        {
+          "core_group_count": 44,
+          "core_group_histograms": {
+            "fixed_point_support_histogram": {
+              "1": 22,
+              "2": 7
+            },
+            "kind_counts": {
+              "POINT": 36,
+              "ZERO": 8
+            },
+            "max_fixed_point_support": 2,
+            "max_projective_key_support": 2,
+            "projective_key_support_histogram": {
+              "1": 22,
+              "2": 7
+            }
+          },
+          "core_group_ids": [
+            "008:AUG_FIXED_085",
+            "011:AUG_FIXED_098",
+            "012:AUG_FIXED_104",
+            "015:AUG_FIXED_084",
+            "016:AUG_FIXED_099",
+            "026:AUG_FIXED_100",
+            "030:AUG_FIXED_088",
+            "040:AUG_FIXED_085",
+            "043:AUG_FIXED_098",
+            "044:AUG_FIXED_104",
+            "047:AUG_FIXED_084",
+            "048:AUG_FIXED_099",
+            "058:AUG_FIXED_100",
+            "062:AUG_FIXED_088",
+            "000:AUG_FIXED_105",
+            "001:AUG_FIXED_093",
+            "002:FIXED_000",
+            "003:AUG_FIXED_094",
+            "004:AUG_FIXED_097",
+            "009:AUG_FIXED_034",
+            "017:AUG_FIXED_081",
+            "019:AUG_FIXED_102",
+            "023:AUG_FIXED_095",
+            "025:AUG_FIXED_075",
+            "027:AUG_FIXED_096",
+            "032:AUG_FIXED_103",
+            "033:AUG_FIXED_089",
+            "034:AUG_FIXED_077",
+            "035:AUG_FIXED_090",
+            "037:AUG_FIXED_091",
+            "038:AUG_FIXED_092",
+            "039:AUG_FIXED_101",
+            "042:AUG_FIXED_086",
+            "051:AUG_FIXED_106",
+            "057:AUG_FIXED_107",
+            "063:AUG_FIXED_015",
+            "005:ZERO_ALL",
+            "006:ZERO_ALL",
+            "007:ZERO_ALL",
+            "010:ZERO_ALL",
+            "013:ZERO_ALL",
+            "014:ZERO_ALL",
+            "018:ZERO_ALL",
+            "020:ZERO_ALL"
+          ],
+          "core_rank": 96,
+          "core_row_count": 96,
+          "dependency_groups_in_core": 36,
+          "dependency_rows_in_core": 72,
+          "mode": "dependency_first"
+        },
+        {
+          "core_group_count": 34,
+          "core_group_histograms": {
+            "fixed_point_support_histogram": {
+              "1": 6
+            },
+            "kind_counts": {
+              "POINT": 6,
+              "ZERO": 28
+            },
+            "max_fixed_point_support": 1,
+            "max_projective_key_support": 1,
+            "projective_key_support_histogram": {
+              "1": 6
+            }
+          },
+          "core_group_ids": [
+            "005:ZERO_ALL",
+            "006:ZERO_ALL",
+            "007:ZERO_ALL",
+            "010:ZERO_ALL",
+            "013:ZERO_ALL",
+            "014:ZERO_ALL",
+            "018:ZERO_ALL",
+            "020:ZERO_ALL",
+            "021:ZERO_ALL",
+            "022:ZERO_ALL",
+            "024:ZERO_ALL",
+            "028:ZERO_ALL",
+            "029:ZERO_ALL",
+            "031:ZERO_ALL",
+            "036:ZERO_ALL",
+            "041:ZERO_ALL",
+            "045:ZERO_ALL",
+            "046:ZERO_ALL",
+            "049:ZERO_ALL",
+            "050:ZERO_ALL",
+            "052:ZERO_ALL",
+            "053:ZERO_ALL",
+            "054:ZERO_ALL",
+            "055:ZERO_ALL",
+            "056:ZERO_ALL",
+            "059:ZERO_ALL",
+            "060:ZERO_ALL",
+            "061:ZERO_ALL",
+            "000:AUG_FIXED_105",
+            "001:AUG_FIXED_093",
+            "002:FIXED_000",
+            "003:AUG_FIXED_094",
+            "004:AUG_FIXED_097",
+            "009:AUG_FIXED_034"
+          ],
+          "core_rank": 96,
+          "core_row_count": 96,
+          "dependency_groups_in_core": 6,
+          "dependency_rows_in_core": 12,
+          "mode": "dependency_last"
+        },
+        {
+          "core_group_count": 44,
+          "core_group_histograms": {
+            "fixed_point_support_histogram": {
+              "1": 22,
+              "2": 7
+            },
+            "kind_counts": {
+              "POINT": 36,
+              "ZERO": 8
+            },
+            "max_fixed_point_support": 2,
+            "max_projective_key_support": 2,
+            "projective_key_support_histogram": {
+              "1": 22,
+              "2": 7
+            }
+          },
+          "core_group_ids": [
+            "000:AUG_FIXED_105",
+            "001:AUG_FIXED_093",
+            "002:FIXED_000",
+            "003:AUG_FIXED_094",
+            "004:AUG_FIXED_097",
+            "008:AUG_FIXED_085",
+            "009:AUG_FIXED_034",
+            "011:AUG_FIXED_098",
+            "012:AUG_FIXED_104",
+            "015:AUG_FIXED_084",
+            "016:AUG_FIXED_099",
+            "017:AUG_FIXED_081",
+            "019:AUG_FIXED_102",
+            "023:AUG_FIXED_095",
+            "025:AUG_FIXED_075",
+            "026:AUG_FIXED_100",
+            "027:AUG_FIXED_096",
+            "030:AUG_FIXED_088",
+            "032:AUG_FIXED_103",
+            "033:AUG_FIXED_089",
+            "034:AUG_FIXED_077",
+            "035:AUG_FIXED_090",
+            "037:AUG_FIXED_091",
+            "038:AUG_FIXED_092",
+            "039:AUG_FIXED_101",
+            "040:AUG_FIXED_085",
+            "042:AUG_FIXED_086",
+            "043:AUG_FIXED_098",
+            "044:AUG_FIXED_104",
+            "047:AUG_FIXED_084",
+            "048:AUG_FIXED_099",
+            "051:AUG_FIXED_106",
+            "057:AUG_FIXED_107",
+            "058:AUG_FIXED_100",
+            "062:AUG_FIXED_088",
+            "063:AUG_FIXED_015",
+            "005:ZERO_ALL",
+            "006:ZERO_ALL",
+            "007:ZERO_ALL",
+            "010:ZERO_ALL",
+            "013:ZERO_ALL",
+            "014:ZERO_ALL",
+            "018:ZERO_ALL",
+            "020:ZERO_ALL"
+          ],
+          "core_rank": 96,
+          "core_row_count": 96,
+          "dependency_groups_in_core": 36,
+          "dependency_rows_in_core": 72,
+          "mode": "zero_last"
+        }
+      ],
+      "plane_id": "rank3_blockkey_001",
+      "rank": 96,
+      "rank_drop_histogram": {},
+      "removable_group_count": 0,
+      "removable_groups_sample": [],
+      "row_cost": 156,
+      "row_metadata_hash": "52b599ccc143a70186c03d0e57665729650164f664f483ef18d7e103865585a6",
+      "schedule_path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton22.json",
+      "selected_group_histograms": {
+        "fixed_point_support_histogram": {
+          "1": 22,
+          "2": 7
+        },
+        "kind_counts": {
+          "POINT": 36,
+          "ZERO": 28
+        },
+        "max_fixed_point_support": 2,
+        "max_projective_key_support": 2,
+        "projective_key_support_histogram": {
+          "1": 22,
+          "2": 7
+        }
+      },
+      "selected_incidence_total": 2289,
+      "status": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK_REDUNDANT",
+      "tested_group_count": 0
+    }
+  ],
+  "track": "INTERLEAVED_LIST"
+}

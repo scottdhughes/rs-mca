@@ -30,6 +30,34 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-06 - Experimental PR packet batch 281, 310, 322-351
+
+- **Agent/model:** DannyExperiments, Scott Hughes, LegaSage, Vadim Avdeev,
+  holmbuar, and Latif Kasuli; integrated by Codex.
+- **Files added or changed:** Experimental notes, JSON packets, verifier
+  scripts, optional GPU/provenance scripts, and Lean scaffolds under
+  `experimental/data/`, `experimental/notes/`, `experimental/scripts/`, and
+  `experimental/lean/`.  The PR-local `experimental/agents-log.md` edits were
+  not merged directly; this entry is the combined project log.
+- **Status:** EXPERIMENTAL / AUDIT / CONDITIONAL / COUNTEREXAMPLE /
+  FORMALIZATION.
+- **What is being added:** A broad integration batch from PRs `#281`, `#310`,
+  and `#322`-`#351`: CAP25 v13 threshold route cuts, identity/frontier-adjacent
+  row packets, KoalaBear adjacent-ledger checks, M1 a=327 `mu_8` triage,
+  M1/M2/L1 local-limit packets, finite staircase rows, mode-at-null and
+  prefix-collision ledgers, optional GPU engines with provenance checks, and
+  Lean staircase/towards-prize arithmetic anchors.
+- **How it is useful:** The batch strengthens the experimental v13/v14
+  final-resolution spine without promoting it to Paper-D authority: it gives
+  more exact packet material for the unsafe/safe adjacent staircase program,
+  records several route cuts and counterexamples, and supplies verifier-facing
+  artifacts for future audits.
+- **What to do next:** Re-run individual verifier scripts before citing any
+  packet.  Do not run the optional GPU engines or Lean/Lake builds unless a
+  maintainer explicitly asks.  Keep the Scott `a=327, mu_8` packet as route-cut
+  evidence, not a board-ready MCA/list claim, and keep all v13/v14 adjacent
+  rows experimental until the safe upper ledgers are printed and replayed.
+
 ### 2026-07-05 - Proximity Prize status memo for v12/v13/v14 picture
 
 - **Agent/model:** Maintainer-added status memo reviewed and integrated by
