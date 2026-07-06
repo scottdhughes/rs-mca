@@ -61,6 +61,21 @@ RANK3_SINGLETON_BLOCKED_REPEAT_PATH = Path(
 RANK3_CORE_DEPENDENCY_SUMMARY_PATH = Path(
     "experimental/data/m1_a327_mu8_rank3_core_dependency_synthesis_summary.json"
 )
+RANK3_GENERIC_CORE_NOGOODS_PATH = Path(
+    "experimental/data/m1_a327_mu8_rank3_generic_core_nogoods.json"
+)
+RANK3_CORE_NOGOOD_LOWROW_PATH = Path(
+    "experimental/data/m1_a327_mu8_rank3_core_nogood_lowrow_schedule.json"
+)
+RANK3_CORE_NOGOOD_EXACT_PATH = Path(
+    "experimental/data/m1_a327_mu8_rank3_core_nogood_exact_interpolation.json"
+)
+RANK3_CORE_NOGOOD_WITNESS_PATH = Path(
+    "experimental/data/m1_a327_mu8_rank3_core_nogood_witness_audit.json"
+)
+RANK3_CORE_NOGOOD_PRESSURE_PATH = Path(
+    "experimental/data/m1_a327_mu8_rank3_core_nogood_row_dependency_pressure.json"
+)
 
 REQUIRED_NONCLAIMS = [
     "MCA N_bad",
@@ -579,6 +594,74 @@ def compact_rank3_core_dependency_smoke() -> dict[str, Any]:
     }
 
 
+def compact_rank3_generic_core_nogoods() -> dict[str, Any]:
+    nogoods = load_json(RANK3_GENERIC_CORE_NOGOODS_PATH)
+    schedule = load_json(RANK3_CORE_NOGOOD_LOWROW_PATH)
+    pressure = load_json(RANK3_CORE_NOGOOD_PRESSURE_PATH)
+    out: dict[str, Any] = {
+        "nogoods_path": str(RANK3_GENERIC_CORE_NOGOODS_PATH),
+        "schedule_path": str(RANK3_CORE_NOGOOD_LOWROW_PATH),
+        "exact_path": str(RANK3_CORE_NOGOOD_EXACT_PATH),
+        "witness_path": str(RANK3_CORE_NOGOOD_WITNESS_PATH),
+        "pressure_path": str(RANK3_CORE_NOGOOD_PRESSURE_PATH),
+        "nogoods_present": nogoods is not None,
+        "schedule_present": schedule is not None,
+        "pressure_present": pressure is not None,
+        "exact": compact_exact(RANK3_CORE_NOGOOD_EXACT_PATH),
+        "witness": compact_exact(RANK3_CORE_NOGOOD_WITNESS_PATH, key="witness_audit"),
+    }
+    if nogoods:
+        meta = nogoods.get("generic_core_nogoods", {})
+        out["nogoods"] = {
+            "header_ok": header_ok(nogoods),
+            "proof_status": nogoods.get("proof_status"),
+            "pressure_files_scanned": meta.get("pressure_files_scanned"),
+            "pressure_systems_scanned": meta.get("pressure_systems_scanned"),
+            "eligible_dependency_free_full_rank_systems": meta.get(
+                "eligible_dependency_free_full_rank_systems"
+            ),
+            "unique_core_nogoods": meta.get("unique_core_nogoods"),
+            "singleton_projective_core_nogoods": meta.get("singleton_projective_core_nogoods"),
+        }
+    if schedule:
+        meta = schedule.get("rank3_lowrow_schedule", {})
+        out["guarded_schedule"] = {
+            "header_ok": header_ok(schedule),
+            "proof_status": schedule.get("proof_status"),
+            "forbid_core_subsets": meta.get("forbid_core_subsets"),
+            "support_pair_candidates": meta.get("support_pair_candidates"),
+            "best_min_support": meta.get("best_min_support"),
+            "best_total_incidence": meta.get("best_total_incidence"),
+            "best_pair_count_max": meta.get("best_pair_count_max"),
+            "best_core_nogood_constraints": meta.get("best_core_nogood_constraints"),
+            "best_max_selected_projective_key_support": meta.get(
+                "best_max_selected_projective_key_support"
+            ),
+        }
+    if pressure:
+        meta = pressure.get("row_dependency_pressure", {})
+        systems = pressure.get("systems", [])
+        dependency_free_cores = 0
+        singleton_projective_systems = 0
+        for system in systems:
+            hist = system.get("selected_group_histograms", {})
+            if int(hist.get("max_projective_key_support", 0) or 0) <= 1:
+                singleton_projective_systems += 1
+            for core in system.get("pivot_cores", []):
+                if int(core.get("dependency_groups_in_core", 0) or 0) == 0:
+                    dependency_free_cores += 1
+        out["followup_pressure"] = {
+            "header_ok": header_ok(pressure),
+            "proof_status": pressure.get("proof_status"),
+            "systems_tested": meta.get("systems_tested"),
+            "best_nullity": meta.get("best_nullity"),
+            "positive_nullity_systems": meta.get("positive_nullity_systems"),
+            "dependency_free_pivot_cores": dependency_free_cores,
+            "singleton_projective_systems": singleton_projective_systems,
+        }
+    return out
+
+
 def build_triage() -> dict[str, Any]:
     rank_one = load_json(RANK_ONE_PATH)
     rank_one_obstruction = None
@@ -612,6 +695,7 @@ def build_triage() -> dict[str, Any]:
         "non_singleton_synthesized_dependency": compact_rank3_non_singleton_synthesized(),
         "singleton_blocked_current": compact_rank3_singleton_blocked_current(),
         "core_dependency_smoke": compact_rank3_core_dependency_smoke(),
+        "generic_core_nogoods": compact_rank3_generic_core_nogoods(),
         "exact_sweep": rank3_exact_sweep,
         "row_pressure_sweep": rank3_pressure_sweep,
     }
@@ -634,6 +718,11 @@ def build_triage() -> dict[str, Any]:
         RANK3_SINGLETON_BLOCKED_PRESSURE_PATH,
         RANK3_SINGLETON_BLOCKED_REPEAT_PATH,
         RANK3_CORE_DEPENDENCY_SUMMARY_PATH,
+        RANK3_GENERIC_CORE_NOGOODS_PATH,
+        RANK3_CORE_NOGOOD_LOWROW_PATH,
+        RANK3_CORE_NOGOOD_EXACT_PATH,
+        RANK3_CORE_NOGOOD_WITNESS_PATH,
+        RANK3_CORE_NOGOOD_PRESSURE_PATH,
     ]
     file_hashes = {str(path): sha256_file(path) for path in evidence_files if path.exists()}
     tracked_files = git_tracked_files()
@@ -682,7 +771,10 @@ def build_triage() -> dict[str, Any]:
                     "in a generic exact-full-rank schedule, while hard reuse of the available "
                     "repeated projective keys loses the support front.  A new core-dependency "
                     "anchor smoke can synthesize carriers and pass support/pair, but its exact "
-                    "audit is also full-rank.  The evidence-tracking audit "
+                    "audit is also full-rank.  A generic-core no-good layer blocks previously "
+                    "mined dependency-free full-rank pivot cores while preserving support/pair, "
+                    "but exact Sage and follow-up pressure audits still find fresh full-rank "
+                    "singleton-projective cores.  The evidence-tracking audit "
                     + (
                         "shows this packet is self-contained as a narrow route-cut PR candidate; "
                         "it is still not board-ready because no exact witness or global theorem is claimed."
@@ -711,6 +803,7 @@ def build_triage() -> dict[str, Any]:
                 "options": [
                     "rank-2 feedback carrier synthesis with better balanced carrier planes",
                     "rank-3 menus whose dependency rows cannot be bypassed by singleton fixed groups",
+                    "structural constraints against singleton projective-key full-rank cores",
                     "module/syzygy abstraction of the repeated full-rank singleton pivot pattern",
                 ],
             },

@@ -236,6 +236,53 @@ def check_rank3(record: dict[str, Any]) -> dict[str, Any]:
     require(core_smoke["exact_positive_nullity_systems"] == 0, "rank-3 core-dependency positive nullity")
     require(core_smoke["row_pressure_best_nullity"] == 0, "rank-3 core-dependency row pressure nullity changed")
     require(core_smoke["witness_constructed"] is False, "rank-3 core-dependency unexpectedly constructed witness")
+
+    core_nogoods = rank3["generic_core_nogoods"]
+    require(core_nogoods["nogoods_present"] is True, "rank-3 generic core no-goods missing")
+    require(core_nogoods["schedule_present"] is True, "rank-3 core-no-good schedule missing")
+    require(core_nogoods["pressure_present"] is True, "rank-3 core-no-good pressure missing")
+    nogoods = core_nogoods["nogoods"]
+    require(nogoods["header_ok"] is True, "rank-3 generic core no-good header failed")
+    require(nogoods["pressure_files_scanned"] >= 30, "rank-3 no-good pressure file count changed")
+    require(nogoods["pressure_systems_scanned"] >= 79, "rank-3 no-good pressure system count changed")
+    require(
+        nogoods["eligible_dependency_free_full_rank_systems"] >= 56,
+        "rank-3 no-good eligible system count changed",
+    )
+    require(nogoods["unique_core_nogoods"] >= 54, "rank-3 unique no-good count changed")
+    require(
+        nogoods["singleton_projective_core_nogoods"] >= 54,
+        "rank-3 singleton no-good count changed",
+    )
+    guarded = core_nogoods["guarded_schedule"]
+    require(guarded["header_ok"] is True, "rank-3 guarded no-good schedule header failed")
+    require(guarded["forbid_core_subsets"] is True, "rank-3 guarded schedule did not forbid core subsets")
+    require(guarded["support_pair_candidates"] >= 2, "rank-3 guarded schedule lost support/pair")
+    require(guarded["best_min_support"] >= TARGET, "rank-3 guarded schedule support below target")
+    require(guarded["best_total_incidence"] >= REQUIRED_TOTAL, "rank-3 guarded schedule total below target")
+    require(guarded["best_pair_count_max"] <= 255, "rank-3 guarded schedule pair cap failed")
+    require(guarded["best_core_nogood_constraints"] >= 1, "rank-3 guarded schedule did not hit no-good")
+    require(
+        guarded["best_max_selected_projective_key_support"] <= 1,
+        "rank-3 guarded schedule unexpectedly left singleton-projective regime",
+    )
+    core_exact = core_nogoods["exact"]
+    require(core_exact["present"] is True, "rank-3 core-no-good exact missing")
+    require(core_exact["header_ok"] is True, "rank-3 core-no-good exact header failed")
+    require(core_exact["systems_tested"] == 2, "rank-3 core-no-good exact systems changed")
+    require(core_exact["best_nullity"] == 0, "rank-3 core-no-good exact nullity changed")
+    require(core_exact["positive_nullity_systems"] == 0, "rank-3 core-no-good positive nullity")
+    require(core_exact["pair_visible_systems"] == 0, "rank-3 core-no-good pair-visible system")
+    followup = core_nogoods["followup_pressure"]
+    require(followup["header_ok"] is True, "rank-3 core-no-good pressure header failed")
+    require(followup["systems_tested"] == 2, "rank-3 core-no-good pressure systems changed")
+    require(followup["best_nullity"] == 0, "rank-3 core-no-good pressure nullity changed")
+    require(followup["positive_nullity_systems"] == 0, "rank-3 core-no-good pressure positive nullity")
+    require(followup["dependency_free_pivot_cores"] >= 1, "rank-3 core-no-good did not find fresh generic core")
+    require(
+        followup["singleton_projective_systems"] == 2,
+        "rank-3 core-no-good pressure left singleton-projective regime",
+    )
     return {
         "exact_systems_tested": exact["systems_tested_total"],
         "row_pressure_systems_tested": pressure["systems_tested_total"],
@@ -255,6 +302,12 @@ def check_rank3(record: dict[str, Any]) -> dict[str, Any]:
             core_smoke["carriers_emitted"],
             core_smoke["support_pair_candidates"],
             core_smoke["exact_best_nullity"],
+        ],
+        "generic_core_nogoods": [
+            nogoods["unique_core_nogoods"],
+            guarded["support_pair_candidates"],
+            core_exact["best_nullity"],
+            followup["dependency_free_pivot_cores"],
         ],
     }
 

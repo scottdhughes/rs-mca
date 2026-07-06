@@ -313,6 +313,56 @@ The core-dependency family is therefore combinatorially viable but still
 algebraically generic at the tested pressure scale.  The exact core continues
 to pivot through singleton projective-key POINT groups.
 
+### Rank-3 generic-core no-good layer
+
+The next pass converted mined dependency-free full-rank pivot cores into
+CP-SAT no-good constraints:
+
+```text
+pressure files scanned = 30
+pressure systems scanned = 79
+eligible dependency-free full-rank systems = 56
+unique core no-goods = 54
+singleton projective core no-goods = 54
+```
+
+The guarded scheduler used hard `--forbid-core-subsets` and still reached the
+support/pair guard:
+
+```text
+support/pair candidates = 2
+best min support = 327
+best selected incidence total = 2293
+best pair max = 255
+best core no-good constraints = 1
+max selected projective-key support = 1
+```
+
+Exact Sage again found full rank:
+
+```text
+systems tested = 2
+matrix shape = 152 x 96
+rank/nullity = 96 / 0 for both systems
+positive nullity systems = 0
+pair-visible systems = 0
+```
+
+A follow-up row-pressure audit showed why the no-good layer is too weak:
+
+```text
+systems tested = 2
+best nullity = 0
+positive nullity systems = 0
+dependency-free pivot cores found = 5
+singleton-projective systems = 2
+```
+
+So blocking individual mined cores does not force algebraic dependency.  The
+scheduler simply escapes into fresh singleton projective-key full-rank cores.
+The next generator needs a structural constraint against this whole class, not
+more individual core signatures.
+
 ## Triage Decision
 
 ```text
@@ -326,8 +376,8 @@ The machine-readable packet now also audits whether the evidence is
 self-contained for a public PR:
 
 ```text
-hashed evidence files = 22
-tracked evidence files = 22
+hashed evidence files = 27
+tracked evidence files = 27
 local untracked evidence files = 0
 missing evidence files = 0
 self-contained for public PR = true
@@ -353,6 +403,9 @@ The route-cut candidate is only local:
    support/pair under both initial and stricter balance-aware pressure, but the
    exact and row-pressure audits are again full-rank with singleton
    projective-key cores.
+7. the generic-core no-good layer blocks known dependency-free full-rank cores
+   while preserving support/pair, but exact and pressure audits still find new
+   singleton projective-key full-rank cores.
 
 ## Next Best Attack
 
@@ -364,7 +417,9 @@ The next constructive step should introduce a new dependency family:
    planes, or
 2. build rank-3 menus whose dependency rows cannot be bypassed by singleton
    fixed groups, or
-3. formalize the repeated full-rank singleton pivot pattern as a module/syzygy
+3. impose structural constraints against singleton projective-key full-rank
+   cores, or
+4. formalize the repeated full-rank singleton pivot pattern as a module/syzygy
    obstruction with Macaulay2 or Singular.
 
 ## Tools

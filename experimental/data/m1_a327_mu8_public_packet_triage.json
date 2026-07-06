@@ -18,6 +18,11 @@
     "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton22_exact_interpolation.json": "15b27f6c1cf8f072e0ac0ad580db43ce873f0998ee1b16699268ea86e2a89fa1",
     "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton22_row_dependency_pressure.json": "36a5370668bd9890bc1c623e4f46f6575b7ebb04c1da7a051ba7b1ba59e6f5a0",
     "experimental/data/m1_a327_mu8_rank3_core_dependency_synthesis_summary.json": "3b3c66513f43b21e802b5a7ef009b58058c291edf8a02b200aa41e243c607b11",
+    "experimental/data/m1_a327_mu8_rank3_core_nogood_exact_interpolation.json": "7849d6421201ffeb0a2e0b221e27465f666099ff0776d3859b7264fc7644ca7f",
+    "experimental/data/m1_a327_mu8_rank3_core_nogood_lowrow_schedule.json": "e3d2819e0d48bf363fd31a706ff239cab82e857f97fe57a786ab29f360adbc01",
+    "experimental/data/m1_a327_mu8_rank3_core_nogood_row_dependency_pressure.json": "50cb9bef8aacbddaf28b4914842b1d45da94f80172ff0d786fb279113610485b",
+    "experimental/data/m1_a327_mu8_rank3_core_nogood_witness_audit.json": "d109d14b1fb67608b9faacb5d40d85c9fe1259967b5d9faa07b45a98c0884037",
+    "experimental/data/m1_a327_mu8_rank3_generic_core_nogoods.json": "55ffa6a450219f35291bbfba0b3448e33a8bf20e0d739208aee30671b0ae0d1f",
     "experimental/data/m1_a327_mu8_rank3_non_singleton_synthesized_dependency_summary.json": "f1f76b360b6b141b8ca694540664faaff0b973ba288ab0a527a9eb53098ca5a8",
     "experimental/data/m1_a327_mu8_rank3_singleton_blocked_repeat_pressure_schedule.json": "a356514240bb3cb7c93c0621bd262b45c1d42ba980aca72be509a138d17b009e",
     "experimental/data/m1_a327_mu8_rank3_singleton_blocked_support_first_exact_interpolation.json": "c45a0b04ac5fd80283b2248efb308b0cd89426b792be6156f8cd79ac718dd91f",
@@ -26,12 +31,12 @@
     "experimental/data/m1_a327_mu8_rank_one_carrier_obstruction.json": "f5f08b70921be696de10eb9c75687af4e2d5d4880d779e450228df399d3f8c2d"
   },
   "evidence_tracking": {
-    "evidence_files_expected": 22,
-    "evidence_files_hashed": 22,
+    "evidence_files_expected": 27,
+    "evidence_files_hashed": 27,
     "missing_count": 0,
     "missing_files": [],
     "self_contained_for_public_pr": true,
-    "tracked_count": 22,
+    "tracked_count": 27,
     "tracked_files": [
       "experimental/data/m1_a327_mu8_rank2_adaptive_ratio_columns.json",
       "experimental/data/m1_a327_mu8_rank2_current_menu_ceiling.json",
@@ -49,6 +54,11 @@
       "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton22_exact_interpolation.json",
       "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton22_row_dependency_pressure.json",
       "experimental/data/m1_a327_mu8_rank3_core_dependency_synthesis_summary.json",
+      "experimental/data/m1_a327_mu8_rank3_core_nogood_exact_interpolation.json",
+      "experimental/data/m1_a327_mu8_rank3_core_nogood_lowrow_schedule.json",
+      "experimental/data/m1_a327_mu8_rank3_core_nogood_row_dependency_pressure.json",
+      "experimental/data/m1_a327_mu8_rank3_core_nogood_witness_audit.json",
+      "experimental/data/m1_a327_mu8_rank3_generic_core_nogoods.json",
       "experimental/data/m1_a327_mu8_rank3_non_singleton_synthesized_dependency_summary.json",
       "experimental/data/m1_a327_mu8_rank3_singleton_blocked_repeat_pressure_schedule.json",
       "experimental/data/m1_a327_mu8_rank3_singleton_blocked_support_first_exact_interpolation.json",
@@ -68,6 +78,7 @@
     "options": [
       "rank-2 feedback carrier synthesis with better balanced carrier planes",
       "rank-3 menus whose dependency rows cannot be bypassed by singleton fixed groups",
+      "structural constraints against singleton projective-key full-rank cores",
       "module/syzygy abstraction of the repeated full-rank singleton pivot pattern"
     ],
     "primary": "new_dependency_family"
@@ -84,7 +95,7 @@
   "public_packet_triage": {
     "board_ready": false,
     "exact_a327_witness": false,
-    "reason": "No exact a=327 witness exists.  The current useful output is a compact route-cut/triage packet: rank-one mu8 carriers are structurally cut, rank-2 menus remain support-infeasible across the scanned adaptive ledgers, and the current rank-3 exact/row-pressure sweep is consistently full rank; the newer non-singleton synthesized rank-3 menu is also full-rank at the support/pair gate and loses support when dependency-row pressure is raised. The latest singleton-blocked rank-3 sample likewise passes support/pair only in a generic exact-full-rank schedule, while hard reuse of the available repeated projective keys loses the support front.  A new core-dependency anchor smoke can synthesize carriers and pass support/pair, but its exact audit is also full-rank.  The evidence-tracking audit shows this packet is self-contained as a narrow route-cut PR candidate; it is still not board-ready because no exact witness or global theorem is claimed.",
+    "reason": "No exact a=327 witness exists.  The current useful output is a compact route-cut/triage packet: rank-one mu8 carriers are structurally cut, rank-2 menus remain support-infeasible across the scanned adaptive ledgers, and the current rank-3 exact/row-pressure sweep is consistently full rank; the newer non-singleton synthesized rank-3 menu is also full-rank at the support/pair gate and loses support when dependency-row pressure is raised. The latest singleton-blocked rank-3 sample likewise passes support/pair only in a generic exact-full-rank schedule, while hard reuse of the available repeated projective keys loses the support front.  A new core-dependency anchor smoke can synthesize carriers and pass support/pair, but its exact audit is also full-rank.  A generic-core no-good layer blocks previously mined dependency-free full-rank pivot cores while preserving support/pair, but exact Sage and follow-up pressure audits still find fresh full-rank singleton-projective cores.  The evidence-tracking audit shows this packet is self-contained as a narrow route-cut PR candidate; it is still not board-ready because no exact witness or global theorem is claimed.",
     "recommended_public_action": "open_narrow_route_cut_pr_if_desired",
     "route_cut_candidate": true
   },
@@ -490,11 +501,11 @@
     },
     "exact_sweep": {
       "all_tested_systems_full_rank": true,
-      "exact_ledgers_scanned": 55,
+      "exact_ledgers_scanned": 62,
       "max_best_nullity": 0,
       "pair_visible_systems_total": 0,
       "positive_nullity_systems_total": 0,
-      "systems_tested_total": 180,
+      "systems_tested_total": 213,
       "top_by_systems_tested": [
         {
           "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
@@ -537,6 +548,15 @@
           "best_nullity": 0,
           "header_ok": true,
           "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank3_generic_replacement_singlefixed_multianchor_lowrow_exact_interpolation.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 8
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
           "path": "experimental/data/m1_a327_mu8_rank3_non_singleton_dependency_exact_interpolation.json",
           "positive_nullity_systems": 0,
           "systems_tested": 7
@@ -555,7 +575,34 @@
           "best_nullity": 0,
           "header_ok": true,
           "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank3_block_key_lowrow_exact_interpolation.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 6
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank3_generic_replacement_singlefixed_lowrow_exact_interpolation.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 6
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
           "path": "experimental/data/m1_a327_mu8_rank3_block_key_mid_exact_interpolation.json",
+          "positive_nullity_systems": 0,
+          "systems_tested": 5
+        },
+        {
+          "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+          "best_nullity": 0,
+          "header_ok": true,
+          "pair_visible_systems": 0,
+          "path": "experimental/data/m1_a327_mu8_rank3_block_key_mid_lowrow_exact_interpolation.json",
           "positive_nullity_systems": 0,
           "systems_tested": 5
         },
@@ -567,44 +614,67 @@
           "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_augmented_corepenalty50k_exact_interpolation.json",
           "positive_nullity_systems": 0,
           "systems_tested": 4
-        },
-        {
-          "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
-          "best_nullity": 0,
-          "header_ok": true,
-          "pair_visible_systems": 0,
-          "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_corepenalty50k_exact_interpolation.json",
-          "positive_nullity_systems": 0,
-          "systems_tested": 4
-        },
-        {
-          "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
-          "best_nullity": 0,
-          "header_ok": true,
-          "pair_visible_systems": 0,
-          "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_exact_interpolation.json",
-          "positive_nullity_systems": 0,
-          "systems_tested": 4
-        },
-        {
-          "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
-          "best_nullity": 0,
-          "header_ok": true,
-          "pair_visible_systems": 0,
-          "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multicorepenalty50k_exact_interpolation.json",
-          "positive_nullity_systems": 0,
-          "systems_tested": 4
-        },
-        {
-          "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
-          "best_nullity": 0,
-          "header_ok": true,
-          "pair_visible_systems": 0,
-          "path": "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_exact_interpolation.json",
-          "positive_nullity_systems": 0,
-          "systems_tested": 4
         }
       ]
+    },
+    "generic_core_nogoods": {
+      "exact": {
+        "best_failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+        "best_nullity": 0,
+        "header_ok": true,
+        "pair_visible_systems": 0,
+        "path": "experimental/data/m1_a327_mu8_rank3_core_nogood_exact_interpolation.json",
+        "positive_nullity_systems": 0,
+        "present": true,
+        "systems_tested": 2
+      },
+      "exact_path": "experimental/data/m1_a327_mu8_rank3_core_nogood_exact_interpolation.json",
+      "followup_pressure": {
+        "best_nullity": 0,
+        "dependency_free_pivot_cores": 5,
+        "header_ok": true,
+        "positive_nullity_systems": 0,
+        "proof_status": "EXACT_EXTRACTION_NO_A327 / MU8_RANK3_ROW_DEPENDENCY_FULL_RANK / PARTIAL / EXPERIMENTAL",
+        "singleton_projective_systems": 2,
+        "systems_tested": 2
+      },
+      "guarded_schedule": {
+        "best_core_nogood_constraints": 1,
+        "best_max_selected_projective_key_support": 1,
+        "best_min_support": 327,
+        "best_pair_count_max": 255,
+        "best_total_incidence": 2293,
+        "forbid_core_subsets": true,
+        "header_ok": true,
+        "proof_status": "CANDIDATE / MU8_RANK3_LOWROW_SUPPORT_PAIR_PASS / PARTIAL / EXPERIMENTAL",
+        "support_pair_candidates": 2
+      },
+      "nogoods": {
+        "eligible_dependency_free_full_rank_systems": 56,
+        "header_ok": true,
+        "pressure_files_scanned": 30,
+        "pressure_systems_scanned": 79,
+        "proof_status": "EXACT_EXTRACTION_NO_A327 / MU8_RANK3_GENERIC_CORE_NOGOODS / PARTIAL / EXPERIMENTAL",
+        "singleton_projective_core_nogoods": 54,
+        "unique_core_nogoods": 54
+      },
+      "nogoods_path": "experimental/data/m1_a327_mu8_rank3_generic_core_nogoods.json",
+      "nogoods_present": true,
+      "pressure_path": "experimental/data/m1_a327_mu8_rank3_core_nogood_row_dependency_pressure.json",
+      "pressure_present": true,
+      "schedule_path": "experimental/data/m1_a327_mu8_rank3_core_nogood_lowrow_schedule.json",
+      "schedule_present": true,
+      "witness": {
+        "best_failure_mode": null,
+        "best_nullity": null,
+        "header_ok": true,
+        "pair_visible_systems": null,
+        "path": "experimental/data/m1_a327_mu8_rank3_core_nogood_witness_audit.json",
+        "positive_nullity_systems": null,
+        "present": true,
+        "systems_tested": null
+      },
+      "witness_path": "experimental/data/m1_a327_mu8_rank3_core_nogood_witness_audit.json"
     },
     "non_singleton_synthesized_dependency": {
       "anchors": 35,
@@ -638,8 +708,8 @@
     "row_pressure_sweep": {
       "all_tested_cores_full_rank": true,
       "positive_nullity_systems_total": 0,
-      "pressure_ledgers_scanned": 30,
-      "systems_tested_total": 79,
+      "pressure_ledgers_scanned": 31,
+      "systems_tested_total": 81,
       "top_by_systems_tested": [
         {
           "best_failure_mode": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK",
@@ -1152,6 +1222,6 @@
   "witness_sweep": {
     "exact_a327_witness_passes": 0,
     "pass_paths": [],
-    "witness_ledgers_scanned": 67
+    "witness_ledgers_scanned": 74
   }
 }
