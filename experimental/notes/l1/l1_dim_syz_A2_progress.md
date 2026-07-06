@@ -42,3 +42,20 @@ rank `< E_3`). Mechanism (why the small fibers add only `K` dependencies) still 
 Aristotle sub-lemma is not yet isolated. Leads to try next: the dual functional space
 `{m : ⟨h_k X^d, m⟩ = 0 ∀k,d}` (Prony/reciprocal condition; `L=rev Γ` is one such `m`) and whether
 realizability caps its dimension at `ℓ−1−E_3`.
+
+## A2 update — dual formulation (`l1_syz_dual.sage`, verified)
+
+The crux `dim(ΣV_k) ≥ E_3` is dual to: the annihilator `A = {m ∈ 𝔽_p[X]_{≤ℓ-2} : ⟨h_k X^d, m⟩ = 0,
+d≤μ_k-2, all k}` has `dim A ≤ ℓ-1-E_3`. Since `⟨h_k X^d, m⟩ = [X^{ℓ-1-d}](h_k·m*)` (m* = reverse of m),
+this says **`h_k·m*` has a top-window coefficient gap at degrees `[ℓ+1-μ_k, ℓ-1]` for every k**.
+`rev(Γ)` is an explicit solution, forced by the realizability identity
+`h_k Γ = c_k h_k + (X^ℓ-w_k) s_k` (every term is out of that degree window). **VERIFIED at all 3
+saturators: `dim A = 1 = ℓ-1-E_3` and `A = ⟨rev Γ⟩` exactly.**
+
+So the clean sub-lemma to attack/route to Aristotle:
+> A polynomial `m*` of degree `≤ ℓ-2` whose products `h_k·m*` all have the top-window gap
+> `[ℓ+1-μ_k, ℓ-1]` (co-fiber locators `h_k` from a single Γ of degree `≤ ℓ-1`) spans, together with the
+> `≤ ℓ-1-E_3` slack, only the line `⟨rev Γ⟩` — i.e. `dim A ≤ ℓ-1-E_3`.
+
+This is a **reciprocal/Prony gap statement with an explicit distinguished solution** — arguably more
+tractable than the primal syzygy count, and the mechanism (why rev Γ works) is now explicit.
