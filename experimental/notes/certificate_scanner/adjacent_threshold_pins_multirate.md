@@ -1,7 +1,7 @@
 # Multi-rate adjacent-threshold pins (all four grand-challenge rates)
 
 Status: `PROVED_ADJACENT_THRESHOLD_ROW` (finite-slope support-wise line MCA /
-`LD_sw`) for a grid of **28 engineered admissible rows**. Exact-integer,
+`LD_sw`) for a grid of **64 engineered admissible rows**. Exact-integer,
 deterministic primality. Dated 2026-07-06.
 
 ## What this adds
@@ -10,11 +10,11 @@ The repo already pins the finite-slope support-wise MCA threshold for one
 `rho=1/2` row (`a426_two_core_exact_threshold_v26.md` / `a425_second_pin_unsafe.md`,
 `n=512, k=256`). This packet extends the **same certificate type** to a coverage
 grid: **all four grand-challenge rates** `rho in {1/2, 1/4, 1/8, 1/16}` over
-domain sizes `n in {2^9, 2^11, 2^13, 2^15, 2^17, 2^19}` (finer `1/n` resolution
-as `n` grows) **plus the prize scale** `k=2^40` for each rate. Each row engineers
+domain sizes `n in {2^9, ..., 2^21}` (every power of two; finer `1/n` resolution
+as `n` grows) **plus prize scale** `k in {2^20,2^30,2^40}` for each rate. Each row engineers
 a prime field so the `2^-128` reserve budget lands exactly between two adjacent
 line-decoding numerators, pinning `delta*_C` to a single agreement step
-(`1/n` resolution). The board-format curation of all 28 rows (pins + the
+(`1/n` resolution). The board-format curation of all 64 rows (pins + the
 complementary Paper D caps) is in `adjacent_threshold_pins_board.md`.
 
 No new theorem is proved. The packet **compiles committed repo theorems** into
@@ -78,7 +78,7 @@ order-`n` subgroup domain exists.
 
 ## Rows
 
-28 rows = 4 rates x {`n=2^9,2^11,2^13,2^15,2^17,2^19`} + 4 prize-scale (`k=2^40`).
+64 rows = 4 rates x {`n=2^9..2^21`} + 4 rates x prize-scale {`k=2^20,2^30,2^40`}.
 Representative rows (full list, with per-row primes and Proth witnesses, in
 `adjacent_threshold_pins.json`; board-format table in `adjacent_threshold_pins_board.md`):
 
@@ -90,17 +90,17 @@ Representative rows (full list, with per-row primes and Proth witnesses, in
 | prize-rho1_2-k2^40 | 1/2 | 2^41 | 2^40 | 366503875926 | (…926/n, …925/n] | 167 |
 | prize-rho1_16-k2^40 | 1/16 | 2^44 | 2^40 | 5497558138881 | (…881/n, …880/n] | 171 |
 
-All 28 rows are admissible: `rho in {1/2,1/4,1/8,1/16}`, `k <= 2^40`,
+All 64 rows are admissible: `rho in {1/2,1/4,1/8,1/16}`, `k <= 2^40`,
 `|F| < 2^256`, `n <= |F|`. As `n` grows the pin resolution `1/n` sharpens (the
-`rho=1/2` pin tightens from `1/512` at `n=2^9` to `1/524288` at `n=2^19`).
+`rho=1/2` pin tightens from `1/512` at `n=2^9` to `1/2^21` at `n=2^21`).
 
 ## Complementary near-capacity cap (committed scanner)
 
 Run on each engineered prime field, the committed Paper D universal-cap ledger
 (`certificate_scanner.py::paper_d_cap`) additionally certifies the one-sided
 near-capacity safe bound `delta*_C <= 1 - rho - 2/n` wherever its
-divisor/binomial/subfield hypotheses pass (`PROVED_PAPERD_V8_CAP`). **27 of the
-28 rows carry BOTH** a tight line-object pin (this packet) and a near-capacity
+divisor/binomial/subfield hypotheses pass (`PROVED_PAPERD_V8_CAP`). **63 of 64
+rows carry BOTH** a tight line-object pin (this packet) and a near-capacity
 full-MCA safe cap; the sole exception is the smallest low-rate field
 `rho=1/16, n=512` (`binom(512,34)` is below the cap's `|F|(q/k+1)` binomial
 threshold), which carries the pin only. Per-row caps + margins are tabulated in
@@ -110,16 +110,17 @@ bracket.
 
 ## One-step-deeper pins (two-core closure)
 
-`two_core_closure_general.md` proves `LD_sw(C, A_te-1) = R3+2` **exactly** for
-each emitted admissible row, by evaluating a426's two-core dichotomy at these
-`(n,k)` (a generalization of a426's single-row upper bound; the Case-A packing
-branch is a per-row-checked rate/scale condition, not universal in the rate). That lets
-each pin be pushed one `1/n` step deeper (matching a426's depth, now for all four
-rates): SAFE at `A_te-1` (`LD_sw = R3+2 = B_deep`, two-core exact), UNSAFE at
-`A_te-2` (`LD_sw >= R3+3`, tangent floor), budget `B_deep = R3+2`. These 28 deeper
-pins are in `adjacent_threshold_pins_deep.json`, each carrying its two-core
-witness (`packing`, `overlap`, `max = R3+2`), independently re-derived by the
-verifier. Their SAFE side rests on the two-core closure (a strictly stronger
+`two_core_closure_general.md` proves `LD_sw(C, A_te-1) = R3+2` **exactly** — a
+genuine theorem for the admissible rates `rho in {1/2,1/4,1/8,1/16}` at **every
+power-of-two `n >= 512`** (a universal-in-`n` packing lemma discharges a426's
+Case A for all such `n`, not just per row; a426 did only the `n=512,k=256` case).
+Since the emitted grid is all power-of-two `n >= 512`, every deep row is covered
+by the theorem (and the per-row check is enforced anyway). That lets each pin be
+pushed one `1/n` step deeper (a426's depth, now all four rates): SAFE at `A_te-1`
+(`LD_sw = R3+2 = B_deep`, two-core exact), UNSAFE at `A_te-2` (`LD_sw >= R3+3`,
+tangent floor), budget `B_deep = R3+2`. These 64 deeper pins are in
+`adjacent_threshold_pins_deep.json`, each carrying its two-core witness
+(`packing`, `overlap`, `max = R3+2`), independently re-derived by the verifier. Their SAFE side rests on the two-core closure (a strictly stronger
 dependency than the two-core-free pins below), and the dichotomy does **not**
 close at `A_te-2` (`cf. a425`'s non-exact fallback), so this is the deepest pin
 the argument reaches.

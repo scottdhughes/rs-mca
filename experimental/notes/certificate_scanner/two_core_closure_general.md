@@ -1,9 +1,10 @@
 # Two-core closure: `LD_sw(C, A_te-1) = n-A+1` for the emitted admissible rows
 
-Status: `PROVED_FOR_EMITTED_ROWS` (generalizes the row-specific two-core upper
-bound of `a426_two_core_exact_threshold_v26.md` from `n=512,k=256` to the emitted
-admissible-rate grid; the Case-A packing bound is a rate/scale condition,
-verified per row -- see the scope caveat). Dated 2026-07-06.
+Status: `PROVED` for the admissible rates `rho in {1/2,1/4,1/8,1/16}` at **every
+power-of-two `n >= 512`** (the universal-in-`n` packing lemma below discharges
+Case A for all such `n`, not just per row); generalizes the single-row two-core
+upper bound of `a426_two_core_exact_threshold_v26.md` (`n=512,k=256`). It is NOT
+claimed for arbitrary `k < n` -- see the scope caveat. Dated 2026-07-06.
 
 ## Statement
 
@@ -14,9 +15,8 @@ the one-below-tangent-exact agreement
 A := n - R3 - 1   (= A_te - 1, one step below the high-agreement exact range A >= n-R3).
 ```
 
-Then, **for each emitted admissible row** (`rho = k/n in {1/2,1/4,1/8,1/16}` at
-the deployed `n in {2^9,...,2^19}` and prize scale `k=2^40`), the finite-slope
-support-wise line-decoding numerator satisfies
+Then, **for `rho = k/n in {1/2,1/4,1/8,1/16}` and every power-of-two `n >= 512`**,
+the finite-slope support-wise line-decoding numerator satisfies
 
 ```text
 LD_sw(C, A) = n - A + 1 = R3 + 2      (exact).
@@ -24,9 +24,9 @@ LD_sw(C, A) = n - A + 1 = R3 + 2      (exact).
 
 The lower bound is the committed moving-root tangent floor
 `LD_sw(C,A) >= n-A+1`. The content is the matching **upper bound**, a426's
-two-core dichotomy, whose two branches we evaluate at these `(n,k)`. Case B is
-unconditional (any `m >= 9`); Case A is a bounded per-row check (see the scope
-caveat below) -- the code emits a row only when it passes.
+two-core dichotomy, whose two branches we bound at these `(n,k)`: Case B `= R3+2`
+unconditionally (any `m >= 9`), and Case A `<= R3+2` by the universal packing
+lemma below.
 
 ## Upper bound (a426 two-core dichotomy, general `(n,k)`)
 
@@ -70,27 +70,64 @@ distinct complements therefore cannot share any `(t_max+1)`-subset, so the
 |Z| <= floor( binom(n, t_max+1) / binom(n-A, t_max+1) ).
 ```
 
-This packing bound is `n`-independent up to `O(1/n)` (it tends to
-`(3/(1-rho))^{t_max+1}`, e.g. `36, 64, ...`) and is checked to be `<= R3+2` at
-every emitted admissible row (see the table: `35, 63, 11, 32, ...`), so on those
-rows it never governs. **It is not universal in the rate** -- see the scope caveat.
+### Universal packing lemma (admissible rates, power-of-two `n >= 512`)
 
-**Combine (emitted admissible rows).** `LD_sw(C,A) = |Z| <= max(Case A, Case B)`.
-Case B `= R3+2` always (`m >= 9`); Case A `<= R3+2` on every emitted row (checked).
-Hence `LD_sw(C,A) <= R3+2`, and with the tangent floor `LD_sw(C, A) = R3+2` exactly. QED.
+**Claim.** For `rho in {1/2,1/4,1/8,1/16}` and `n = 2^e >= 512`, with
+`j := t_max+1`, `binom(n,j)/binom(R3+1,j) <= R3+2`.
 
-## Scope caveat (the Case-A condition is NOT universal)
+**(i) `j` is bounded by the rate.** `t_max = -m + 3 floor(m/3) + 2 = 2 - (m mod 3)`,
+so `j = t_max+1 = 3 - (m mod 3)`, and `m = (1-rho) n`:
+- `rho=1/2`: `m = 2^{e-1}`, never `= 0 (mod 3)`; `2^{e-1} mod 3` alternates `2,1` with `e`,
+  so `j` alternates in `{1,2}` (`j <= 2`);
+- `rho=1/8`: `m = 7*2^{e-3}`, `7 = 1 (mod 3)`, so `m = 2^{e-3} (mod 3) in {1,2}` alternating,
+  `j in {1,2}` (`j <= 2`);
+- `rho=1/4`: `m = 3*2^{e-2} = 0 (mod 3)`, so `j = 3` (constant in `e`);
+- `rho=1/16`: `m = 15*2^{e-4}`, `15 = 0 (mod 3)`, so `j = 3` (constant in `e`).
 
-The Case-A packing bound `binom(n,t_max+1)/binom(n-A,t_max+1) <= R3+2` is a
-**rate-and-scale condition**, not an identity: it can fail for inadmissible rates
-or tiny `n`. Counterexample (Codex R1): `n=10, k=1` (`rho=1/10`, inadmissible),
-`m=9, R3=3, A=6, t_max=2` gives `binom(10,3)/binom(4,3) = 30 > R3+2 = 5`, so the
-combine step would be invalid there. This is why the theorem is scoped to the
-emitted admissible rows and the generator/verifier check `packing <= R3+2` per
-row (a row that failed the check would not be emitted). For the four admissible
-rates the packing constant `(3/(1-rho))^{t_max+1}` is small (`<= 64`) and the
-condition holds for all deployed `n >= 2^9`; the claim is not made for arbitrary
-`k < n`.
+So for every `e`, `j <= 2` for `rho in {1/2,1/8}` and `j = 3` for `rho in {1/4,1/16}` --
+`j` need not be constant in `e`, but it is bounded per rate, which is all Step (iii) uses.
+
+**(ii) A closed-form packing bound.** The factors of
+`binom(n,j)/binom(R3+1,j) = prod_{i=0}^{j-1} (n-i)/(R3+1-i)` are increasing in `i`
+(since `n > R3+1`), so each is `<= (n-j+1)/(R3-j+2) <= n/(R3-j+2)`. With
+`R3 = floor(m/3) >= (m-2)/3` and `j <= 3`, `R3-j+2 >= (m-2)/3 - 1 = (m-5)/3 = ((1-rho)n-5)/3`,
+hence
+
+```text
+binom(n,j)/binom(R3+1,j) <= ( 3n / ((1-rho)n - 5) )^j = ( 3 / ((1-rho) - 5/n) )^j.
+```
+
+**(iii) Compare to `R3+2`.** `R3+2 >= (m-2)/3 + 2 = (1-rho)n/3 + 4/3 > (1-rho)n/3`.
+It remains to check `( 3/((1-rho)-5/n) )^j <= (1-rho)n/3` for all `n >= 512`.
+Since the base `3/((1-rho)-5/n) > 1`, the left side is increasing in `j`, so it
+suffices to check the **worst-case (largest) `j`** each rate can take (by (i):
+`j=2` for `rho in {1/2,1/8}`, `j=3` for `rho in {1/4,1/16}`). At that `j` the left
+side is decreasing in `n` and the right side increasing, so it suffices at `n=512`:
+`rho=1/2, j=2`: `(3/(0.5-0.01))^2 = 37.5 <= 85.3`;
+`rho=1/8, j=2`: `12.0 <= 149.3`;
+`rho=1/4, j=3`: `66.6 <= 128`;
+`rho=1/16, j=3`: `33.8 <= 160`.
+All hold, and by monotonicity for every `n >= 512` and every admissible actual `j`.
+Hence `binom(n,j)/binom(R3+1,j) <= R3+2`. QED.
+
+(Deployed values at `n=512`: packing `35, 63, 11, 32`; the slack only grows with
+`n`. For the `j=3` rates packing is `n`-independent (`63, 32`); for the `j in {1,2}`
+rates it alternates with `e` but stays below the `j=2` worst case -- densely
+re-checked to `n=2^30` in the generator's development.)
+
+**Combine.** `LD_sw(C,A) = |Z| <= max(Case A, Case B) = R3+2` (Case B `= R3+2`
+for `m>=9`; Case A `<= R3+2` by the lemma). With the tangent floor,
+`LD_sw(C, A) = R3+2` exactly. QED.
+
+## Scope caveat (NOT universal in the rate)
+
+The lemma uses `j = 3 - (m mod 3)` being pinned by `rho` (step (i)) and the small
+packing constant of the four admissible rates. It is **not** an identity for
+arbitrary `k < n`: e.g. `n=10, k=1` (`rho=1/10`, inadmissible), `m=9, j=3` gives
+`binom(10,3)/binom(4,3) = 30 > R3+2 = 5` (Codex R1). The claim is made only for
+the four grand-challenge rates at power-of-two `n >= 512`; the generator/verifier
+additionally check `packing <= R3+2` per row, so any non-power-of-two or otherwise
+out-of-scope row would be caught rather than silently emitted.
 
 ## Per-row numeric witness (verify-first)
 
@@ -105,8 +142,10 @@ branches for each row and asserts `max = R3+2`. Reproduces a426
 | 1/8 | 512 | 64 | 149 | 362 | 11 | 151 | 151 ✓ |
 | 1/16 | 512 | 32 | 160 | 351 | 32 | 162 | 162 ✓ |
 
-(and identically at `n = 2^11..2^19` and prize scale; packing is `n`-independent
-at fixed rate, overlap `= R3+2` always.)
+(and identically at `n = 2^10..2^21` and prize scale; overlap `= R3+2` always;
+packing is `n`-independent for the `j=3` rates `1/4,1/16` (`63, 32`) and
+alternates in `e` for the `j in {1,2}` rates `1/2,1/8` (e.g. `35, 5, 35, ...`),
+always `<= R3+2` by the lemma above.)
 
 ## Consequence: one-step-deeper pins
 

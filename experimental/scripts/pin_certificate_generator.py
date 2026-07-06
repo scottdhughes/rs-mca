@@ -257,20 +257,21 @@ RATE_DEN = {"1_2": 2, "1_4": 4, "1_8": 8, "1_16": 16}
 
 
 def _grid_rows():
-    """Coverage grid: each admissible rate over a range of domain sizes n=2^e
-    (finer 1/n resolution as e grows), plus the prize-scale k=2^40 row per rate.
-    n must be a power of two >= the rate denominator so k=n/den is integral and
-    the redundancy gap n-k >= 3 holds."""
+    """Coverage grid: each admissible rate over domain sizes n=2^e (finer 1/n
+    resolution as e grows), plus prize-scale rows at several k=2^K. All domains
+    are power-of-two subgroups, so k=n/den is integral and n-k >= 3.  Power-of-two
+    admissible rows enjoy the universal-in-n two-core closure (see
+    two_core_closure_general.md); the per-row check is enforced regardless."""
     rows = []
     for label, den in RATE_DEN.items():
-        for e in (9, 11, 13, 15, 17, 19):        # n = 2^e domains
+        for e in range(9, 22):                    # n = 2^9 .. 2^21
             n = 1 << e
             k = n // den
             rows.append((f"rho{label}-n2^{e}-k{k}", n, k))
-        # prize-scale row: k = 2^40, n = k * den
-        k = 1 << 40
-        n = k * den
-        rows.append((f"prize-rho{label}-k2^40", n, k))
+        for K in (20, 30, 40):                     # prize-scale k = 2^K (K<=40)
+            k = 1 << K
+            n = k * den
+            rows.append((f"prize-rho{label}-k2^{K}", n, k))
     return rows
 
 
