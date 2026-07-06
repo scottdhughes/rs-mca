@@ -101,6 +101,18 @@ to Aristotle abstracted as pure finite-field algebra: `experimental/aristotle_e3
 project `70427d46-d108-4d03-8edd-bdf9594bb86f` (poll with `aristotle poll <id>`; output is a DRAFT to
 re-verify).
 
+## Refuted proof route (dead-end, preserved): naive leading-coefficient injectivity
+
+Attempted route: map a syzygy to its `K` leading coefficients `(lc(q_k))`; if injective,
+`dim Syz <= K`. Injectivity `<=>` the `E_3` polynomials `{ h_k X^d : 0<=d<=mu_k-3 }` (drop the top
+monomial per block) are linearly independent. **REFUTED at the saturators**
+(`subcollection_independence_e3.sage`): rank of that sub-collection is `E_3 - 1` or `E_3 - 2`
+(ell=11 p=331: 7 vs E_3=9; ell=13: 9 vs 11; ell=17 p=103: 13 vs 15), so the leading-coeff map has
+a nonzero kernel — there ARE syzygies with all `q_k` of sub-leading degree. Caveat: the script's
+random sweep prints "always independent" only because it under-samples the near-saturator regime;
+the anchor saturators are decisive and show the route fails. The small deficiency (1-2) is a lead
+for a refined (non-uniform monomial-drop) argument, not a proof. Crux `dim Syz <= K` remains OPEN.
+
 ## Reproducibility
 ```bash
 sage experimental/scripts/verify_e3_upper_bound.sage        # proof-core check on witnesses
