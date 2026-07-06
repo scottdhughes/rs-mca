@@ -82,10 +82,29 @@ First numerical probe, witnesses vs matched random `Gamma`:
 **Verdict:** bridge confirmed at the *phenomenon* level (rigidity of a rare special `Gamma`),
 refuted at the *literal additive-directions* level. The dictionary is multiplicative.
 
+## Multiplicative Rédei polynomial — BUILT (2026-07-06, `../scripts/multiplicative_redei.sage`)
+
+Constructed `R(W,T) = Res_X(X^ell - W, T - Gamma(X)) = prod_{x^ell=W}(T - Gamma(x))` in `F_p[W,T]`
+(`deg_T = ell`, `deg_W = ell-1`). Results:
+- **Bridge is constructively real:** every concentrated coset (`mu_b>=2`) IS a root of
+  `D(W)=disc_T R(W,T)` (verified TRUE, witness + random). The level-set problem = the repeated-root
+  locus of ONE bivariate polynomial — the classical directions setup, achieved multiplicatively.
+- **Plain discriminant is too coarse for `E_3`:** `deg D = 100`, and its root orders track the
+  QUADRATIC coincidence count `sum C(f,2)`, not the LINEAR excess `E_3 = sum (mu-2)_+`. `E_3` is a
+  max-per-coset quantity; the discriminant is symmetric in all fibers. So `deg D` does NOT give
+  `ell-2`; a finer readout is needed.
+- **Right fully-reducible sub-object identified:** fixing a value `c`,
+  `R(W,c) = prod_{x:Gamma(x)=c}(W - x^ell)` is fully reducible in `W` with root multiplicities =
+  fiber sizes of value `c`; concentration is the `zeta`-rotation coincidence `Gamma(X) = Gamma(zeta X)`,
+  `zeta in mu_ell`. This rotational structure is exactly the domain of **Ball Thm 1.9**
+  (`f = X^{q/s} g + h`, `gcd(g,h)=1`). That is the specific transfer target.
+
+**Honest status:** the constructive bridge is established; extracting `E_3 <= ell-2` from it is the
+open research step — apply Ball Thm 1.9 / the `f|(Xg+h)(h'g-g'h)` mechanism to the fully-reducible
+`R(W,c)` / `zeta`-rotation object (not the coarse discriminant). The library now has the full-proof
+sources (Ball–Weiner book, BBBSSz 1999, Gács 2003) to do this.
+
 ## Next steps
-0. **Build the MULTIPLICATIVE Rédei polynomial** for a `Gamma`-coset config (fibers of `x->x^ell`,
-   not additive slopes) and check the `f|(Xg+h)(h'g-g'h)` engine transfers to it. This is the
-   decisive constructive step.
 1. Read Ball's survey §1.2–1.4 + the `f|(Xg+h)(h'g-g'h)` proof in detail against our `g_k,h_k`.
 2. Test numerically whether the Rédei polynomial of a `Gamma`-coset configuration reproduces the
    direction-count / gap predicted by the classical bounds (a decisive check of the bridge).
