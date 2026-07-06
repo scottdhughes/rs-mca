@@ -6,6 +6,14 @@ Case A for all such `n`, not just per row); generalizes the single-row two-core
 upper bound of `a426_two_core_exact_threshold_v26.md` (`n=512,k=256`). It is NOT
 claimed for arbitrary `k < n` -- see the scope caveat. Dated 2026-07-06.
 
+**Machine-checked.** The universal packing lemma (Case A, below) is formally
+verified in Lean 4 + Mathlib: `experimental/lean/two_core_packing/`,
+`theorem universal_packing` -- `lake build` succeeds with zero `sorry`, and
+`#print axioms` reports only `[propext, Classical.choice, Quot.sound]` (no
+`sorryAx`). The Lean statement is `e`-symbolic over `e >= 9` and `den in
+{2,4,8,16}`, i.e. exactly the claim below. (Case B and the tangent-floor/
+exact-support inputs are the committed coding-theory results, not re-formalized.)
+
 ## Statement
 
 Let `C = RS[F, D, k]` with `|D| = n`, `m := n - k`, `R3 := floor(m/3)`, and set
