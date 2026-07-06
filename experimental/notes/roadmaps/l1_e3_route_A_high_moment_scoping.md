@@ -56,3 +56,22 @@ it needs the *cyclotomic / index* structure of `Gamma` restricted to `mu_ell`-co
 concrete, self-contained first move with a computable pass/fail at toy `ell`. Tools: all in hand
 (PARI, flint/Arb, Sage, Oscar). No new tooling; a technique (index-bound / additive-combinatorics)
 that neither we nor CAP25 has applied to this exact `M_r`.
+
+
+## STEP 2 RESULT (decisive go/no-go): per-frequency bounds INSUFFICIENT -> needs the inverse theorem
+
+`moment_charsum_test.sage`. Tested whether Wan's index bound / per-frequency Weil closes `M_r`:
+- **Wan's index bound is OUT OF REGIME:** it improves *large-degree, small-index* polynomials, but the
+  per-frequency sums `Delta_zeta = Gamma(X)-Gamma(zeta X)` have degree `<= ell-1` (small) -- already the
+  good Weil case, index gives no improvement.
+- **Character maxima stuck at `~3 sqrt(p)`** and IDENTICAL for extremal (54.9) vs random (49.1) at
+  `ell=11,p=331`: the per-frequency bound cannot beat `sqrt(p)` nor separate `E_3` levels.
+- **Error accumulates past the signal:** naive per-frequency bound on `M_2` ~ 547 > true `M_2` = 394,
+  useless already at `r=2`; worse by `ell^{r-1}p^{r-1}` frequency factor at higher `r`.
+
+**Conclusion:** the per-frequency / Weil / Wan-index route is INSUFFICIENT (independently confirming
+CAP25 line 8144). Route A survives ONLY via **joint cancellation across frequencies** = a BGK-style
+(Bourgain-Glibichuk-Konyagin / Kowalski) **additive-combinatorics inverse theorem**: large `M_r` =>
+quotient-stabilizer / block-structured support. This is the hard core (the paper's named open route),
+genuine multi-week research -- NOT a quick win. The easy first step is closed; the route is exactly as
+hard as CAP25 states.
