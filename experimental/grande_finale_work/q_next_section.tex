@@ -1,0 +1,200 @@
+\section{Q: sub-envelope floors and the corrected Fourier target}
+\label{sec:q-next}
+
+\paragraph{Status.}
+This is a proposed insertion for \texttt{experimental/grande\_finale.tex},
+best placed after the current head-depth flatness discussion.  It is
+theorem-level progress on the Q side, but it is not the missing frontier
+flatness theorem.  Its purpose is to rule out the wrong strengthening and to
+state the exact form of Q that remains plausible.
+
+\begin{theorem}[sub-envelope prefix floors are exponentially aperiodic]
+\label{thm:q-sub-envelope-aperiodic}
+Let \(n=2^\nu\), \(k=n/2\), and let \(p_\nu\) be a prime with
+\[
+        p_\nu\equiv 1\pmod n,\qquad \log p_\nu=O(\log n).
+\]
+Such primes exist by Linnik's theorem \cite{Linnik44}.  Put
+\(\B_\nu=\F_{p_\nu}\) and
+let \(D_\nu=\mu_n\subseteq \B_\nu^\times\).  Let \(m_\nu\) be any odd integer
+such that, with \(\beta_\nu=\log_2 p_\nu\),
+\[
+        {n\over 8\beta_\nu}
+        \le
+        m_\nu-k
+        \le
+        {n\over 4\beta_\nu}.
+\]
+Set \(K=k+1\), \(w_\nu=m_\nu-K\), and choose an extension
+\(\F_\nu/\B_\nu\) of minimal degree such that
+\[
+        q_\nu:=|\F_\nu|\ge k\,2^{n/8}.
+\]
+Then, for all sufficiently large \(\nu\), there is a pole line for
+\(\RS[\F_\nu,D_\nu,k]\) with at least \(2^{n/8-2}\) distinct finite
+support-wise MCA-bad slopes at agreement threshold \(m_\nu\).  Every
+threshold-\(m_\nu\) witness support of every slope produced by this line is
+aperiodic.
+
+Consequently, below the entropy--subfield envelope, no polynomial in \(n\)
+can uniformly bound the number of aperiodically witnessed bad slopes in the
+smooth rate-\(1/2\) family.  The old unnormalized aperiodic-band target is
+therefore false; the Q input must be normalized with the identity-prefix
+floor already removed.
+\end{theorem}
+
+\begin{proof}
+Let \(g_\nu=(m_\nu-k)/n\).  Since \(g_\nu\le 1/(4\beta_\nu)\), the elementary
+entropy estimate
+\[
+        H_2(1/2+g)\ge 1-4g^2,\qquad 0\le g\le 1/4,
+\]
+and the standard binomial lower bound give
+\[
+        \log_2\left(\binom n{m_\nu}p_\nu^{-w_\nu}\right)
+        \ge
+        nH_2(m_\nu/n)-\log_2(n+1)-w_\nu\beta_\nu .
+\]
+Because \(w_\nu\le m_\nu-k=ng_\nu\), the right hand side is at least
+\[
+        n\left(1-{1\over4\beta_\nu^2}-{1\over4}\right)-\log_2(n+1)
+        \ge {n\over2}
+\]
+for all large \(\nu\).  Thus some identity-prefix fiber has size
+\[
+        N_{\rm fib}\ge 2^{n/2}.
+\]
+
+Since \(q_\nu\) is the least power of \(p_\nu\) above \(k2^{n/8}\), one has
+\[
+        {q_\nu\over k}<p_\nu\,2^{n/8}=2^{n/8+O(\log n)}.
+\]
+Hence \(N_{\rm fib}\ge \lceil(q_\nu-n)/k\rceil\) for all large \(\nu\).
+Apply the fiber-to-slope conversion of \cref{thm:fiber-to-slope} with
+\[
+        N_0=\left\lceil{q_\nu-n\over k}\right\rceil.
+\]
+It gives a pole \(\alpha\in\F_\nu\setminus D_\nu\) for which the number of
+distinct finite MCA-bad slopes is at least
+\[
+        {N_0\over2}\left(1-{k\over q_\nu-n}\right).
+\]
+The defining inequality \(q_\nu\ge k2^{n/8}\), together with \(k=n/2\), gives
+\[
+        N_0\ge {q_\nu-n\over k}\ge 2^{n/8}-2,
+        \qquad
+        {k\over q_\nu-n}=o(1),
+\]
+so the displayed lower bound is at least \(2^{n/8-2}\) for all large \(\nu\).
+
+Finally, \(m_\nu\) is odd and \(n\) is a power of two.  If a support
+\(S\subseteq D_\nu\) is periodic for a nontrivial quotient scale, then it is a
+union of fibers of some scale \(c>1\) with \(c\mid n\), hence \(c\mid |S|\).
+This is impossible when \(|S|=m_\nu\).  The witness classification in
+\cref{prop:pole-line} confines all threshold-\(m_\nu\) witnesses to the chosen
+prefix fiber, so every witness produced above is aperiodic.
+\end{proof}
+
+\begin{proposition}[Fourier audit: character maxima are the wrong target]
+\label{prop:q-fourier-audit}
+Let \(D\subseteq\F_p\), let \(\Phi_w:\binom{D}{m}\to\F_p^w\) be the
+elementary-prefix map, and write
+\[
+        N(z)=|\Phi_w^{-1}(z)|,\qquad
+        \overline F=\binom{|D|}{m}p^{-w}.
+\]
+For \(t\in\F_p^w\), put
+\[
+        E(t)=\sum_{\substack{M\subseteq D\\ |M|=m}}
+        \exp\!\left({2\pi i\over p}\,t\cdot\Phi_w(M)\right).
+\]
+Then
+\[
+        N(z)-\overline F
+        =
+        p^{-w}\sum_{t\ne0}
+        \exp\!\left(-{2\pi i\over p}\,t\cdot z\right)E(t),
+\]
+and
+\[
+        \sum_{t\ne0}|E(t)|^2
+        =
+        p^w\sum_z |N(z)-\overline F|^2 .
+\]
+Therefore any proof of Q based only on the triangle inequality and a uniform
+nonzero-character estimate must prove
+\[
+        \max_{t\ne0}|E(t)|
+        \le
+        \operatorname{poly}(n)\binom{|D|}{m}p^{-w}.
+\]
+Square-root-strength estimates of size
+\(\binom{|D|}{m}p^{-w/2}\) are insufficient by a factor \(p^{w/2}\), and
+cannot decide the frontier or the finite adjacent rows without additional
+cancellation among the character family.
+\end{proposition}
+
+\begin{proof}
+The function \(N\) on \(\F_p^w\) has Fourier transform \(E\).  Fourier
+inversion gives
+\[
+        N(z)=p^{-w}\sum_t
+        \exp\!\left(-{2\pi i\over p}\,t\cdot z\right)E(t).
+\]
+The \(t=0\) term is \(p^{-w}\binom{|D|}{m}=\overline F\), which gives the
+first formula.  The second formula is Plancherel applied to
+\(N-\overline F\), whose zero Fourier coefficient is zero.
+
+If one bounds the first formula by the triangle inequality, the deviation
+\(|N(z)-\overline F|\) is at most \(\max_{t\ne0}|E(t)|\).  Q asks for
+\(|N(z)|\le\operatorname{poly}(n)\overline F\), after quotient and planted
+strata are paid.  Since \(\overline F=\binom{|D|}{m}p^{-w}\), a
+character-by-character proof must therefore reach the displayed \(p^{-w}\)
+scale.  A \(p^{-w/2}\)-scale character estimate, even uniformly in \(t\), is
+too weak by \(p^{w/2}\).  Thus the remaining Q problem is not a standard
+individual-character Weil-bound problem; it is a max-fiber or joint
+cancellation problem.
+\end{proof}
+
+\begin{remark}[composite directions and quotient charging]
+\label{rem:q-composite-audit}
+The composite Fourier directions are not primitive evidence against Q.  If
+the active indices of \(t\) have common divisor \(e>1\), the phase polynomial
+has the form \(h(X^e)\), and for a multiplicative coset \(S\)
+\[
+        \sum_{\substack{A\subseteq S\\ |A|=m}}
+        \psi\!\left(\sum_{a\in A} h(a^e)\right)
+        =
+        [T^m]\prod_{b\in S^e}\bigl(1+T\psi(h(b))\bigr)^e .
+\]
+Thus this mass lives on the quotient coset \(S^e\) with multiplicity \(e\),
+exactly as in \cref{prop:composite-descend}.  Any future Q theorem must
+first charge these divisor-lattice contributions to the quotient ledger, and
+then bound the remaining primitive max fibers.
+\end{remark}
+
+\paragraph{What remains open.}
+The theorem above proves that a polynomial aperiodic-slope bound is false
+below the entropy--subfield envelope, even when all witnesses are aperiodic.
+The proposition proves that the head-depth character method cannot simply be
+pushed to frontier depth by improving individual Weil-type estimates.  The
+remaining Q input is therefore the following sharper statement:
+\[
+        \max_z |\Phi_w^{-1}(z)|
+        \le
+        \kappa(n)\binom n m|\B|^{-w}
+\]
+after quotient-pulled-back and planted strata have been removed, with
+\(\kappa(n)=e^{o(n)}\) for the asymptotic theorem and with explicit constants
+small enough for the four finite adjacent rows.  A successful proof must use
+either a mode-at-null/exchange-compression principle, higher moment control
+with constants, or a direct primitive divisor-equidistribution theorem.  A
+counterexample must exhibit a super-polynomial primitive prefix fiber in the
+dense bulk; by the second-moment ledger, such a counterexample should also
+produce large primitive shift-pair mass.
+
+\paragraph{Bibliographic integration note.}
+If this snippet is pasted into \texttt{experimental/grande\_finale.tex}, add
+the bibliography key \texttt{Linnik44}; for example:
+Yu. V. Linnik, \emph{On the least prime in an arithmetic progression. I. The
+basic theorem}, Mat. Sb. (N.S.) 15(57), 1944.

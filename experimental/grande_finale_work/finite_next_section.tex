@@ -1,0 +1,297 @@
+\section{Finite Adjacent Rung Audit}
+\label{sec:finite-next}
+
+\paragraph{Status.}
+This section records the finite facts presently available from the
+\texttt{frontier-adjacent} packet family and the corresponding verifier
+\texttt{experimental/scripts/verify\_frontier\_adjacent\_v13\_rows.py}.
+It is an \textup{AUDIT}/\textup{PROVED-BY-EXACT-CERTIFICATE} section for the
+unsafe side and for the quotient-rung veto checks.  It is not a safe-side
+certificate: every row still has \texttt{safe\_certificates.status = OPEN}.
+
+\subsection{Budgets, Rows, and Endpoints}
+
+All four deployed packets have
+\[
+        n=2^{21}=2097152,\qquad k=2^{20}=1048576,\qquad \rho=\frac12.
+\]
+The finite budget is
+\[
+        B^*=\left\lfloor \varepsilon^* Q\right\rfloor,\qquad Q=q_{\rm line}.
+\]
+For KoalaBear,
+\[
+        p_{\rm KB}=2^{31}-2^{24}+1=2130706433,\qquad Q_{\rm KB}=p_{\rm KB}^6,
+\]
+and the packet budget is
+\[
+        B^*_{\rm KB}=
+        \left\lfloor\frac{p_{\rm KB}^6}{2^{128}}\right\rfloor
+        =274980728111395087.
+\]
+For the Mersenne-31 circle rows,
+\[
+        p_{\rm M31}=2^{31}-1=2147483647,\qquad Q_{\rm M31}=p_{\rm M31}^4,
+\]
+and the packet budget is
+\[
+        B^*_{\rm M31}=
+        \left\lfloor\frac{p_{\rm M31}^4}{2^{100}}\right\rfloor
+        =16777215.
+\]
+Thus the Mersenne-31 packet target is \(2^{-100}\), not \(2^{-128}\);
+indeed \(\left\lfloor p_{\rm M31}^4/2^{128}\right\rfloor=0\).
+
+The active v13 raw adjacent rows are as follows.  For the two MCA rows, the
+active pair is the moved-pair block \texttt{v13\_raw\_moved\_pair}; the
+older \texttt{agreement\_interval} fields in the same JSON files are historical
+and should not be used as the active v13 raw edge.
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}llrrrrr@{}}
+\toprule
+row & object & \(a_0\) & \(a_0+1\) & \(n-a_0\) & \(w(a_0)\) & budget\\
+\midrule
+KoalaBear & MCA  & 1116047 & 1116048 & 981105 & 67470 & \(B^*_{\rm KB}\)\\
+KoalaBear & list & 1116046 & 1116047 & 981106 & 67470 & \(B^*_{\rm KB}\)\\
+Mersenne-31 & MCA  & 1116023 & 1116024 & 981129 & 67446 & \(B^*_{\rm M31}\)\\
+Mersenne-31 & list & 1116022 & 1116023 & 981130 & 67446 & \(B^*_{\rm M31}\)\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Here \(w(a_0)=a_0-k-1\) for MCA rows and \(w(a_0)=a_0-k\) for list rows.
+The first proved unsafe closed-grid radius is \((n-a_0)/n\).  If a future
+upper ledger proves safety at \(a_0+1\), then the largest attained safe
+closed-grid radius is \((n-a_0-1)/n\).  Under the real-radius supremum
+convention, the threshold lies at the upper edge of this one-grid interval,
+so the endpoint convention must be printed with the final certificate.
+
+\subsection{Exact Lower-Side Packet Theorem}
+
+\begin{proposition}[packet-certified unsafe edges]
+\label{prop:finite-packet-unsafe}
+For the four active rows in the table above, the packet family certifies the
+unsafe inequality at \(a_0\):
+\[
+        N_{\rm row}(a_0)>B^*,
+\]
+where \(N_{\rm row}\) is the relevant bad numerator: support-wise MCA-bad
+slopes for the MCA rows and list codewords for the list rows.  Consequently
+the rows are unsafe at the closed radius \(1-a_0/n\):
+\[
+\begin{array}{c|c}
+\text{row} & \text{proved unsafe radius}\\ \hline
+\text{KoalaBear MCA} & 981105/2097152\\
+\text{KoalaBear list} & 490553/1048576\\
+\text{Mersenne-31 MCA} & 981129/2097152\\
+\text{Mersenne-31 list} & 490565/1048576.
+\end{array}
+\]
+For the two MCA rows, the active lower numerators stored in the moved-pair
+blocks are
+\[
+\begin{array}{c|cc}
+\text{row} & M(a_0) & M(a_0+1)\\ \hline
+\text{KoalaBear MCA} &
+138634741058327852652 & 57198030366\\
+\text{Mersenne-31 MCA} &
+4281388998575706 & 1752700.
+\end{array}
+\]
+Thus the moved MCA lower route fires at \(a_0\) and stops at \(a_0+1\).  The
+deficits at \(a_0+1\) are exactly
+\[
+        274980670913364722
+        \quad\text{and}\quad
+        15024516,
+\]
+respectively.
+\end{proposition}
+
+\begin{proof}
+For the list rows, the certificate is the identity-prefix comparison
+\[
+        \left\lceil \binom n{a_0}/p^{\,a_0-k}\right\rceil > B^*.
+\]
+For the MCA rows, the certificate first forms the \(C^+=\RS[\F,D,k+1]\)
+identity-prefix list floor
+\[
+        L(m)=
+        \left\lceil \binom n m / p^{\,m-k-1}\right\rceil
+\]
+and then applies the flexible-budget deep-point conversion
+\[
+        M(m)=
+        \left\lceil
+        \frac{L(m)(q-n)}{q-n+k(L(m)-1)}
+        \right\rceil .
+\]
+The moved-pair blocks in
+\texttt{kb\_mca\_v1.packet.json} and
+\texttt{m31\_mca\_v1.packet.json} store the displayed exact values of
+\(M(a_0)\) and \(M(a_0+1)\), and the verifier recomputes them from
+\(n,k,p,q\) and checks the fire pattern \(M(a_0)>B^*\), \(M(a_0+1)\le B^*\).
+The same verifier checks the two list-row identity-prefix fire patterns.
+Since \(Q\varepsilon^*\notin\mathbb Z\) in all four rows, a numerator
+\(>B^*=\lfloor Q\varepsilon^*\rfloor\) gives error \(>\varepsilon^*\).
+\end{proof}
+
+\begin{remark}[what the lower-route failure does and does not mean]
+\label{rem:finite-lower-route-failure}
+The inequalities \(M(a_0+1)\le B^*\) in the MCA rows, and the analogous
+identity-prefix failure in the list rows, are not safe upper bounds.  They
+only say that the present identity-prefix lower construction no longer proves
+failure one agreement step later.  A safety theorem still needs a complete
+upper ledger \(U(a_0+1)\le B^*\).
+\end{remark}
+
+\subsection{Dyadic Rung Audit}
+
+There are two audit layers in the present artifact.  Gate G6 of the verifier
+implements an exact scan over all dyadic scales
+\[
+        c=2^j,\qquad 0\le j\le20,
+\]
+in the graded-prefix, quotient-remainder, and planted quotient-core profiles,
+at both agreements of the original four packet pairs.  Gate G7 then checks the
+v13 raw moved-pair addendum for the two MCA rows: it recomputes the moved
+\(c=1\) lower route and the named Mersenne-31 \(c=2048\) watch item, and it
+checks those fields against the packet.  Thus the active moved-row rung
+statements below are packet-backed audit facts, with exact G7 checks for the
+displayed lower route and the named watch item; a promotion packet should still
+print the moved-row rung table directly.  The current packet-level conclusion
+at the active adjacent step is:
+\[
+\begin{array}{c|l}
+\text{row} & \text{rung-audit status at }a_0+1\\ \hline
+\text{KoalaBear MCA} &
+\text{GREEN; no firing or frontier-tight rung; }c=1\text{ margin }-22.1969\\
+\text{KoalaBear list} &
+\text{GREEN; no firing or frontier-tight rung; }c=1\text{ margin }-22.0109\\
+\text{Mersenne-31 MCA} &
+\text{one quiet watch item: }G_{\lceil\cdot\rceil},\,c=2048,\text{ margin }-0.3938\\
+\text{Mersenne-31 list} &
+\text{GREEN at the frontier; sub-frontier }c=2048\text{ watch item, margin }-0.2106.
+\end{array}
+\]
+For the Mersenne-31 MCA watch item, the packet stores the exact mass
+\[
+        12769758<16777215=B^*_{\rm M31}.
+\]
+Thus the watch item is quiet but close: it would need \(4007457\) additional
+codewords at the same covered agreement to cross the Mersenne-31 MCA budget.
+
+\begin{proposition}[rung-veto consequence]
+\label{prop:finite-rung-veto}
+Assuming the packet verifier is replayed successfully and the moved-pair
+packet blocks are accepted as the active v13 raw audit, no currently printed
+quotient-periodic lower floor refutes any of the four active adjacent safe
+candidates \(a_0+1\).  In particular, any new unsafe certificate at \(a_0+1\)
+must either sharpen one of the quiet watch items, come from an
+unscanned/non-dyadic quotient mechanism, or arise from a genuinely aperiodic,
+extension, sparse/CA, or list/interleaving residual branch.
+\end{proposition}
+
+\begin{proof}
+This is the combined scope of gates G6 and G7 of
+\texttt{verify\_frontier\_adjacent\_v13\_rows.py}: the script recomputes the
+original dyadic rung tables by exact integer arithmetic and compares the fields
+\texttt{fires}, \texttt{TIGHT}, \texttt{covered}, \(m\), \(w\), and the stored
+margin brackets against the packet JSON, while G7 recomputes the moved MCA
+\(c=1\) values and the named Mersenne-31 \(c=2048\) watch item.  The conclusion
+is a veto on this printed family of lower-floor refutations only.  It does not
+assert a quotient upper bound, since the packets still list the quotient image
+upper ledger as open.
+\end{proof}
+
+\subsection{Extension Cell Targets}
+
+The artifact \texttt{extension\_cell\_targets\_v1.json} records exact target
+ceilings for the genuinely full-extension branch \(K=F\).  The base and
+proper intermediate subfield branches are routed to lower-arity cells; the
+remaining \(K=F\) branch must be zero-dimensional with bounded total degree.
+The row-wise target ceilings are:
+\[
+\begin{array}{c|c|c}
+\text{row} & a_0+1 & \Delta_{\rm ext}\text{ ceiling}\\ \hline
+\text{KoalaBear MCA} & 1116048 & 4807520\\
+\text{KoalaBear list} & 1116047 & 4226236\\
+\text{Mersenne-31 MCA} & 1116024 & 9\\
+\text{Mersenne-31 list} & 1116023 & 8.
+\end{array}
+\]
+These numbers are targets, not payments: they state how small an exact
+zero-dimensional full-extension chart certificate must be in order to fit the
+finite adjacent ledger.  The toy full-orbit scan
+\texttt{f1\_full\_orbit\_scan\_v1.json} is useful falsifier evidence for this
+branch, but it is explicitly scoped to toy pencils and is not a deployed-row
+certificate.
+
+\subsection{What Is Still Missing for a Safe Adjacent Certificate}
+
+The required finite theorem has the form
+\[
+        U(a_0+1)\le B^*,
+\]
+where \(U\) is a first-match, deduplicated sum of all paid and residual cells.
+The packet family currently leaves the following cells open.
+
+\begin{enumerate}[label=\textup{(\arabic*)},leftmargin=2.4em]
+\item \textbf{Quotient image upper ledger.}
+The rung audit is a lower-floor veto, not an image-level upper bound.  A final
+packet needs exact quotient-image coalescing across all relevant divisor
+scales and slack profiles, or a theorem proving that the scanned dyadic
+profiles exhaust the periodic quotient branch.
+
+\item \textbf{Q: prefix maximum-fiber bound.}
+At the frontier depths \(w=67470\) for KoalaBear and \(w=67446\) for
+Mersenne-31, the head-depth Weil range does not apply.  The finite packet needs
+an exact maximum-fiber bound after quotient and planted strata are removed.
+A polynomial-loss theorem is insufficient unless all constants fit inside the
+listed margins.
+
+\item \textbf{BC: base-field-normalized split-pencil census.}
+The interior split-pencil branch must be counted with the base-field floor
+included.  The Mersenne-31 rows are the binding tests because their margins
+are only \(3.2589\) and \(3.0730\) bits.
+
+\item \textbf{SP: primitive shift-pair control.}
+The primitive part of the exact second-moment ledger must be bounded after
+constant-shift and quotient-pullback pairs have been charged.  The
+Mersenne-31 \(c=2048\) watch items should be treated as stress tests for this
+deduplication.
+
+\item \textbf{Tangent, sparse/CA, list, and extension residuals.}
+The moving-root tangent construction supplies lower floors in this band but
+does not license the high-agreement tangent upper cell.  The sparse/plain-CA
+layer, list/interleaving layer, and \(K=F\) extension branch must therefore be
+paid by exact row-specific certificates or by named theorems.  Any unresolved
+branch must remain explicitly labelled
+\[
+\texttt{CONDITIONAL\_ON\_NAMED\_INPUT}
+\quad\text{or}\quad
+\texttt{CONJECTURAL\_WITH\_FALSIFIER},
+\]
+not hidden in a point estimate.
+\end{enumerate}
+
+\begin{theorem}[finite adjacent compiler, packet form]
+\label{thm:finite-next-compiler}
+Fix one of the four active rows above.  Suppose a future packet supplies a
+deduplicated upper ledger \(U(a_0+1)\le B^*\), with every term either
+\texttt{PAID\_BY\_THEOREM}, \texttt{PAID\_BY\_EXACT\_CERTIFICATE}, or an
+explicitly discharged named input.  Then the first safe integer agreement is
+\(a_0+1\): the row is unsafe at agreement \(a_0\), safe at agreement
+\(a_0+1\), and its closed-grid threshold is pinned to the interval between
+\((n-a_0-1)/n\) and \((n-a_0)/n\).
+\end{theorem}
+
+\begin{proof}
+The unsafe inequality \(N_{\rm row}(a_0)>B^*\) is
+\cref{prop:finite-packet-unsafe}.  If the upper ledger is first-match and
+deduplicated, every bad line parameter or list object at agreement at least
+\(a_0+1\) appears in exactly one paid cell, so the total number is at most
+\(U(a_0+1)\le B^*\).  This is exactly the adjacent certificate condition under
+the closed integer-ball convention.
+\end{proof}

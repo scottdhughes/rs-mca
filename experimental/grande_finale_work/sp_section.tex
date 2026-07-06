@@ -1,0 +1,327 @@
+% Work packet for experimental/grande_finale.tex.
+% This file is not input by the main note.  It is a candidate section for the
+% primitive shift-pair part of the final safe-side package.
+
+\section{Primitive Shift-Pair Control}
+\label{sec:gf-sp}
+
+\paragraph{Status.}
+This section proves the structural part of the primitive shift-pair input:
+prefix-collision rigidity, the exact second-moment stratification, the
+deduplicated quotient-pullback reduction, and the exact normalization of the
+remaining primitive ledger.  It does not prove the primitive census bound needed
+for finite adjacent safety.  That bound is isolated below as
+\cref{conj:gf-sp-primitive-ledger}.
+
+\subsection{Definitions}
+
+Let \(D\subseteq\B\) be a multiplicative coset of size \(n\).  For a finite
+set \(S\subseteq D\), put
+\[
+        \ell_S(X):=\prod_{x\in S}(X-x).
+\]
+If \(M\subseteq D\) has size \(m\), write
+\[
+        \ell_M(X)=X^m+\lambda_1(M)X^{m-1}+\cdots+\lambda_m(M),
+        \qquad
+        \Phi_w(M):=(\lambda_1(M),\ldots,\lambda_w(M)).
+\]
+This coefficient-prefix definition is characteristic-free.  When
+\(\operatorname{char}\B>w\), Newton identities identify it triangularly with
+the first \(w\) power sums.
+
+\begin{definition}[shift pairs and primitive scale]
+\label{def:gf-sp-shiftpair}
+For \(D'\subseteq D\), define
+\[
+\mathrm{sp}_w(e;D') :=
+\#\Bigl\{(A,B):\begin{array}{l}
+A,B \text{ are monic squarefree degree-}e\text{ polynomials split over }D',\\
+\gcd(A,B)=1,\ \deg(A-B)\le e-w-1
+\end{array}\Bigr\}.
+\]
+Equivalently, if \(A=\ell_{S}\) and \(B=\ell_T\), then
+\(|S|=|T|=e\), \(S,T\subseteq D'\), \(S\cap T=\emptyset\), and
+\(\deg(\ell_S-\ell_T)\le e-w-1\).
+
+For a divisor \(c\mid n\), let \(\pi_c:D\to D_c\) be \(x\mapsto x^c\).  A
+subset \(S\subseteq D\) is \(c\)-pulled back if it is a union of complete
+\(\pi_c\)-fibers.  The common scale of an ordered shift pair
+\((\ell_S,\ell_T)\) is
+\[
+        c(S,T):=\gcd(c(S),c(T)),
+\]
+where \(c(S)\) is the ambient periodicity scale of \(S\).  The pair is
+\emph{primitive} if \(c(S,T)=1\).  If \(c(S,T)>1\), it is charged once, at the
+maximal common scale \(c(S,T)\), in the quotient-pullback ledger.
+\end{definition}
+
+The maximal-scale convention is the first-match rule needed for finite
+certificates: a pair with several quotient symmetries is not counted again in
+the primitive cell.
+
+\subsection{What Is Proved}
+
+\begin{proposition}[prefix-collision rigidity]
+\label{prop:gf-sp-rigidity}
+Let \(1\le w<m\le n\).  If \(M\ne M'\) are \(m\)-subsets of \(D\) with
+\(\Phi_w(M)=\Phi_w(M')\), then
+\[
+        |M\setminus M'|=|M'\setminus M|\ge w+1.
+\]
+Moreover, if equality holds then
+\[
+        \ell_{M\setminus M'}-\ell_{M'\setminus M}
+\]
+is a nonzero constant.
+\end{proposition}
+
+\begin{proof}
+Put \(R:=M\cap M'\), \(S:=M\setminus M'\), \(T:=M'\setminus M\), and
+\(e:=|S|=|T|\).  Then
+\[
+        \ell_M-\ell_{M'}=\ell_R(\ell_S-\ell_T).
+\]
+Since \(\ell_M\) and \(\ell_{M'}\) are monic and have the same first \(w\)
+coefficients, their difference has degree at most \(m-w-1\).  Hence
+\[
+        \deg(\ell_S-\ell_T)\le (m-w-1)-|R|=e-w-1.
+\]
+If \(e\le w\), this forces \(\ell_S=\ell_T\), hence \(S=T\), contradicting
+\(M\ne M'\).  Thus \(e\ge w+1\).  If \(e=w+1\), the same inequality gives
+\(\deg(\ell_S-\ell_T)\le0\).  The difference is not zero, again because
+\(S\ne T\), so it is a nonzero constant.
+\end{proof}
+
+\begin{proposition}[exact second-moment ledger]
+\label{prop:gf-sp-second-moment}
+Let
+\[
+        N_w(z):=\#\{M\subseteq D:\ |M|=m,\ \Phi_w(M)=z\}.
+\]
+Then
+\[
+\sum_{z\in\B^w} N_w(z)^2
+ =
+\binom{n}{m}
++\sum_{e=w+1}^{\min(m,n-m)} P_e,
+\qquad
+P_e:=
+\sum_{\substack{R\subseteq D\\ |R|=m-e}}
+\mathrm{sp}_w(e;D\setminus R).
+\]
+In particular \(P_e=0\) for \(1\le e\le w\).  At the top stratum,
+\[
+\mathrm{sp}_w(w+1;D')
+=
+\#\bigl\{(A,c):\ A \text{ monic squarefree split over }D',\ \deg A=w+1,
+c\in\B^\times,\ A-c \text{ squarefree split over }D'\bigr\}.
+\]
+\end{proposition}
+
+\begin{proof}
+The left side counts ordered pairs \((M,M')\) of \(m\)-subsets with equal
+prefix.  The diagonal contributes \(\binom nm\).  For an off-diagonal pair,
+use the notation of the proof of \cref{prop:gf-sp-rigidity}.  The assignment
+\[
+        (M,M')\longmapsto (R,\ell_S,\ell_T)
+\]
+is a bijection from off-diagonal collisions with side-difference \(e\) to
+triples in which \(R\) has size \(m-e\) and \((\ell_S,\ell_T)\) is a depth
+\(w\) shift pair over \(D\setminus R\).  The degree condition is exactly the
+one obtained in the rigidity proof.  Rigidity removes \(e\le w\), and the
+obvious support constraints give \(e\le\min(m,n-m)\).  When \(e=w+1\), the
+degree condition says \(\ell_S-\ell_T=c\in\B^\times\).  Conversely, if \(A\)
+and \(A-c\) are both split over \(D'\) with \(c\ne0\), then they have disjoint
+root sets, since a common root would force \(c=0\).
+\end{proof}
+
+\begin{proposition}[unconditional packing consequence]
+\label{prop:gf-sp-packing}
+For every prefix value \(z\in\B^w\),
+\[
+        N_w(z)\le \binom{n}{m-w}\Big/\binom{m}{w}.
+\]
+\end{proposition}
+
+\begin{proof}
+By \cref{prop:gf-sp-rigidity}, the family
+\(\{M:\Phi_w(M)=z\}\) has pairwise \(|M\setminus M'|>w\).  Apply the
+anticode packing argument: the \((m-w)\)-subsets contained in distinct members
+of this family are disjoint, and there are only \(\binom{n}{m-w}\) such
+subsets in total.
+\end{proof}
+
+\begin{proposition}[quotient-pullback reduction for shift pairs]
+\label{prop:gf-sp-pullback}
+Let \(c\mid n\), and suppose \((A,B)=(\ell_S,\ell_T)\) is a depth \(w\)
+shift pair of degree \(e\) such that \(S\) and \(T\) are both
+\(c\)-pulled back.  Write \(e=ce_0\), \(A(X)=A_0(X^c)\), and
+\(B(X)=B_0(X^c)\).  Then
+\[
+        \deg(A_0-B_0)\le e_0-\left\lceil\frac{w+1}{c}\right\rceil.
+\]
+Equivalently, \((A_0,B_0)\) is a depth
+\[
+        w_c:=\left\lceil\frac{w+1}{c}\right\rceil-1
+\]
+shift pair on the quotient coset.  Conversely, any quotient pair satisfying
+this displayed bound pulls back to a depth \(w\) shift pair upstairs.
+\end{proposition}
+
+\begin{proof}
+Since \(S\) and \(T\) are unions of complete \(\pi_c\)-fibers, their locators
+have the displayed forms, with \(A_0,B_0\) monic split over the quotient coset.
+The depth \(w\) condition gives
+\[
+        c\,\deg(A_0-B_0)=\deg(A-B)\le ce_0-w-1.
+\]
+Dividing by \(c\) and using integrality gives
+\[
+        \deg(A_0-B_0)\le
+        \left\lfloor e_0-\frac{w+1}{c}\right\rfloor
+        =
+        e_0-\left\lceil\frac{w+1}{c}\right\rceil.
+\]
+This is exactly the depth \(w_c\) condition.  The converse is the same
+inequality read upward.
+\end{proof}
+
+\begin{remark}[top-stratum quotient mass]
+\label{rem:gf-sp-top-pullback}
+If \(e=w+1\) and a top-stratum pair is \(c\)-pulled back, then \(c\mid w+1\)
+and the quotient pair is again a top-stratum constant-shift pair.  Thus the
+binomial prototypes \(X^{w+1}-\beta\), when available because
+\((w+1)\mid n\), are not primitive mass; they belong to the quotient ledger.
+Top-stratum primitive pairs, if they exist, are pairs \(A,A-c\) with both
+polynomials split over the ambient coset but with no common nontrivial
+periodicity in their root sets.
+\end{remark}
+
+\subsection{Exact Normalization of the Remaining Input}
+
+Split the off-diagonal ledger by the maximal common scale from
+\cref{def:gf-sp-shiftpair}:
+\[
+        P_e=P_e^{\mathrm{quot}}+P_e^{\mathrm{prim}},
+\]
+where \(P_e^{\mathrm{quot}}\) is assigned to quotient-pullback scales
+\(c\ge2\), with no double-counting, and \(P_e^{\mathrm{prim}}\) is the
+common-scale-one remainder.  Put
+\[
+        \bar F:=\binom{n}{m}|\B|^{-w},
+        \qquad
+        \Gamma_2(m,w):=|\B|^w\sum_{z\in\B^w}
+        \left(\frac{N_w(z)}{\binom nm}\right)^2 .
+\]
+
+\begin{proposition}[exact \(L^2\) gap identity]
+\label{prop:gf-sp-gamma2}
+With the above notation,
+\[
+        \Gamma_2(m,w)
+        =
+        \frac1{\bar F}
+        +\frac{\sum_e P_e^{\mathrm{quot}}}{\binom nm\,\bar F}
+        +\frac{\sum_e P_e^{\mathrm{prim}}}{\binom nm\,\bar F}.
+\]
+Consequently, after quotient-pullback pairs are paid by their quotient ledger,
+primitive shift-pair control is exactly the problem of bounding
+\[
+        \Gamma_{2,\mathrm{prim}}(m,w):=
+        \frac{\sum_e P_e^{\mathrm{prim}}}{\binom nm\,\bar F}.
+\]
+\end{proposition}
+
+\begin{proof}
+Divide \cref{prop:gf-sp-second-moment} by \(\binom nm^2|\B|^{-w}\).  The
+diagonal term becomes \(1/\bar F\), and the off-diagonal terms split according
+to the first-match quotient/primitive decomposition.
+\end{proof}
+
+\begin{conjecture}[SP: primitive shift-pair ledger]
+\label{conj:gf-sp-primitive-ledger}
+For the multiplicative deployed rows and for the smooth multiplicative reserve
+regime, the primitive ledger satisfies
+\[
+        \sum_e P_e^{\mathrm{prim}}
+        \le
+        R_{SP}(n)\,\binom nm\,\bar F
+\]
+after tangent, quotient, common-GCD, extension, planted/sunflower, and bounded
+chart strata have been removed by the existing first-match ledger.  The
+asymptotic target is \(R_{SP}(n)=e^{o(n)}\), or a printed polynomial loss used
+only with agreement reserve \(R\gg\log n\).  The finite adjacent target is the
+same inequality with row-specific explicit constants small enough to fit inside
+the printed margins of the four adjacent rows.
+\end{conjecture}
+
+\begin{remark}[why this is not already a finite certificate]
+\label{rem:gf-sp-moment-barrier}
+Even a polynomial bound on \(\Gamma_{2,\mathrm{prim}}\) is only an \(L^2\)
+statement.  For the max-to-mean prefix-fiber ratio
+\[
+        R_{\max}:=|\B|^w\max_z \frac{N_w(z)}{\binom nm},
+\]
+the general moment inequality gives
+\[
+        R_{\max}\le (\Gamma_r(m,w)|\B|^w)^{1/r}.
+\]
+At the deployed frontier depths, \(w\log_2|\B|\) is of order \(10^6\) bits.
+Thus fixed \(r\), and especially \(r=2\), cannot decide a finite adjacent row
+with margins of \(22.2,22.0,3.3,3.1\) bits.  The second-moment ledger is a
+structural calibration and a route to reserve-form asymptotics; the finite
+adjacent theorem still needs either high-moment control, an extremality theorem
+such as mode-at-null/exchange-compression, or a direct exact census.
+\end{remark}
+
+\subsection{Routes for the Primitive Census}
+
+\begin{enumerate}[label=\textup{SP\arabic*.},leftmargin=*]
+\item \textbf{Constant-shift classification.}
+The top stratum asks for monic split \(A\) such that \(A-c\) is also split.
+After \cref{prop:gf-sp-pullback}, quotient prototypes are removed.  The
+primitive problem resembles a finite-field version of classifying polynomials
+with two prescribed completely split value fibers over a multiplicative coset.
+Possible tools include monodromy of the coefficient space, exceptional
+polynomial methods, and finite-field value-set estimates.  A useful finite
+certificate would classify or sharply bound primitive \(A,A-c\) at the deployed
+depths.
+
+\item \textbf{Low-degree difference incidence.}
+For general \(e\), write \(A-B=H\) with \(\deg H\le e-w-1\).  For fixed
+\(H\), the condition that both \(A\) and \(A-H\) split over \(D'\) is a
+determinantal/incidence problem in the split-locator variety.  The expected
+primitive theorem is that a large family of such \(A\)'s forces a paid
+structure: common GCD, quotient pullback, tangent containment, extension-pole
+containment, or a bounded SPI chart.
+
+\item \textbf{Exchange and anticode rigidity.}
+\Cref{prop:gf-sp-rigidity} says collisions are far apart in the Johnson graph.
+Long exchange chains between many primitive pairs should either create a
+periodic stabilizer or compress to a graded/prefix extremizer.  This is the SP
+counterpart of the mode-at-null/exchange-compression route for Q.
+
+\item \textbf{Moment hierarchy.}
+The exact pair ledger should be extended to triples and higher tuples of
+prefix-colliding split locators.  Fixed-order \(e^{o(n)}\) control feeds the
+reserve-form frontier through the moment sandwich.  The finite adjacent rows
+require much more than fixed order, so this route should be advertised as
+asymptotic unless it is paired with an exact extremality statement.
+
+\item \textbf{References and techniques to mine.}
+For the analytic route: Halasz-type inverse Littlewood--Offord theorems over
+finite fields, Tao--Vu and Nguyen--Vu inverse theorems, and subgroup
+sum-product estimates of Bourgain--Glibichuk--Konyagin and Shkredov.  For the
+incidence route: monodromy of split polynomial covers, value-set and exceptional
+polynomial classifications, and the Hankel/Padé structure used in
+Berlekamp--Massey and Heinig--Rost theory.  These are strategy pointers, not
+imported theorems in the present packet.
+\end{enumerate}
+
+\paragraph{Conclusion.}
+The SP cell is now reduced to a single normalized primitive quantity,
+\(\Gamma_{2,\mathrm{prim}}\), after a theorem-level quotient/primitive
+decomposition.  The proved lemmas prevent hidden small-side collisions and
+show that all visible quotient prototypes are paid by descent.  What remains is
+the genuine primitive census in \cref{conj:gf-sp-primitive-ledger}.

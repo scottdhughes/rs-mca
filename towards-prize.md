@@ -1,4 +1,4 @@
-# Towards the Proximity Prize: v12 Audit and Execution Plan
+# Towards the Proximity Prize: v12 Authority and v13 raw Execution Plan
 
 Status: working plan / source-of-truth roadmap
 
@@ -24,17 +24,149 @@ towards-prize.pdf
 
 It is the prize-facing companion to Paper D v12, not the submission authority.
 Compared with the earlier roadmap drafts, the active note keeps the
-integer-staircase and deployed KoalaBear pincer, then adds the sparse residual
-layer:
+integer-staircase and deployed KoalaBear pincer.  The raw v13 package now
+sharpens the execution target further:
+the residual safe-side problem is organized by the three named inputs
+
+```text
+Q   prefix / quotient flatness
+BC  base-field-normalized split-pencil census
+SP  primitive shift-pair control
+```
+
+rather than by a single undifferentiated aperiodic band.  The older sparse
+residual formula
 
 ```text
 emca(C,delta) = max(eca(C,delta), sigma_C(delta)/q)
 ```
 
 under its stated conventions.  This changes the execution target.  The next
-threshold proof should either audit that sparse reduction or produce the
-corresponding CA/list certificates and sparse-residual bounds.  It is not a new
-leaderboard record by itself.
+threshold proof should either promote the v13 raw Q/BC/SP packet to exact
+certificates or produce a counterexample that becomes a new explicit floor.  It
+is not enough to add another lower bound without the adjacent safe certificate.
+
+## 0. Active v13 raw Final-Form Update
+
+This section is experimental until promoted into Paper D.  Paper D v12 remains
+the current paper authority, while `experimental/cap25_cap_v13_raw.tex` is the
+active raw final-resolution spine.
+
+The conjectural closed form is the entropy-subfield envelope:
+
+\[
+        \delta_C^*(\varepsilon^*)
+        =
+        1-\rho-g^*(\rho,\beta)+o(1),
+        \qquad
+        g^*(\rho,\beta)=
+        \sup\{g:\ H_2(\rho+g)\ge \beta g\},
+\]
+where \(D\subseteq B\), \(\beta=\log_2|B|\), and the threshold is governed by
+the generated/base field \(B\), not by a larger challenge field unless a
+separate transfer theorem says so.
+
+### 0.1 Exact unsafe certificates now known
+
+The identity-prefix floor plus the flexible-budget deep-point conversion gives
+the following experimental v13 raw deployed unsafe edges.  Each row is an exact
+integer comparison of the form
+
+```text
+binom(n,m) > |B|^w * floor(epsilon* Q)
+```
+
+at the printed agreement, with failure one step further in the same scanner.
+
+| row | target | proved unsafe for delta at least |
+|---|---:|---:|
+| KoalaBear sextic MCA | `2^-128` | `981105/2097152 = 0.4678273...` |
+| KoalaBear sextic list | `2^-128` | `490553/1048576 = 0.4678278...` |
+| Mersenne-31 circle MCA | `2^-100` | `981129/2097152 = 0.4678388...` |
+| Mersenne-31 circle list | `2^-100` | `490565/1048576 = 0.4678392...` |
+
+For the MCA rows this improves the older v12 public edge
+`15331/32768 = 0.467865...`, but it should not be cited as a Paper-D theorem
+until the v13 raw package is promoted and independently audited.
+
+### 0.2 Safe side and the current sandwich
+
+The safe side is still much weaker than the unsafe edge:
+
+```text
+self-contained MCA safe: delta <= (1-rho)/3;
+with the BCIKS half-distance import at rate 1/2: delta <= 1/4;
+Johnson-region list safety: delta <= 1 - sqrt(rho).
+```
+
+Thus, for the deployed rate-`1/2` MCA rows, the current proved sandwich is
+roughly
+
+```text
+KoalaBear:  delta*(2^-128) in [0.25, 0.4678273...]  with the import;
+Mersenne:   delta*(2^-100) in [0.25, 0.4678388...]  with the import.
+```
+
+The self-contained lower safe edge remains `(1-rho)/3 = 1/6`.
+
+### 0.3 What the new formulation adds
+
+The new useful content is not just a slightly better edge.  It changes the
+remaining proof obligation.
+
+```text
+1. The old q-scale/challenge-field census model is wrong for these floors.
+   The correct residual counts are |B|-normalized.
+
+2. The old broad aperiodic-band conjecture is false below the envelope:
+   identity-prefix floors produce exponentially many generic, hence
+   aperiodic, witnesses there.
+
+3. The slope quantifier has been reduced to split-locator / split-pencil
+   counting: per non-common support there is at most one finite slope, and
+   the final residual input is the BC/SP split-pencil census with Q as its
+   boundary profile.
+
+4. Prefix-fiber rigidity is now a proved anchor: colliding prefix fibers
+   must differ in at least w+1 points on each side, and the exact second
+   moment is governed by the constant-shift split-pair census.
+
+5. Q is proved only at head depths so far: roughly w <= 21--22 for
+   KoalaBear and w <= 10--11 for Mersenne-31.  The deployed band depth is
+   about 6.7e4, so the hard finite problem remains.
+```
+
+### 0.4 The adjacent finite targets
+
+The finite prize-shaped conjecture is now four adjacent pairs.  The unsafe side
+is supplied by the identity-prefix floor; the safe side must be a complete
+upper ledger at the next agreement.
+
+| row | proved unsafe agreement `a0` | conjectured first safe agreement |
+|---|---:|---:|
+| KoalaBear MCA | `1116047` | `1116048` |
+| KoalaBear list | `1116046` | `1116047` |
+| Mersenne-31 MCA | `1116023` | `1116024` |
+| Mersenne-31 list | `1116022` | `1116023` |
+
+The next-step margins are only about `22.2`, `22.0`, `3.3`, and `3.1` bits.
+So an unspecified `poly(n)` loss is not a finite certificate.  The finite
+one-step theorem needs exact constants, exact deduplication, and a per-rung
+quotient audit.
+
+### 0.5 Falsifiability
+
+A counterexample to the conjectured envelope should not be vague.  It should
+produce one of two explicit objects:
+
+```text
+super-polynomial primitive prefix fiber; or
+super-polynomial primitive split-pencil family.
+```
+
+Both are machine-checkable.  If one exists, it becomes the next obstruction
+floor and the certificate logic should be updated instead of hidden in a
+residual error term.
 
 ## 1. The Prize-Shaped Object
 

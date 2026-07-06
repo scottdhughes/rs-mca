@@ -1,0 +1,198 @@
+% Candidate insertion for experimental/grande_finale.tex.
+% Task: SP / primitive shift-pair control.
+% Status: PROVED SUBCASE / QUOTIENT SIEVE.
+%
+% This snippet does not prove the full primitive shift-pair bound.  It proves
+% a certificate-level quotient-pullback criterion: every shift pair whose two
+% locator polynomials have a common nontrivial coefficient scale is exactly a
+% quotient pullback, descends with the correct depth, and must be removed from
+% the primitive SP ledger.  The remaining obstruction is therefore genuinely
+% coefficient-primitive.
+
+\subsection{A quotient sieve for shift pairs}
+\label{subsec:sp-next-quotient-sieve}
+
+The exact second-moment ledger leaves a primitive shift-pair term.  Before
+trying to bound that term, one needs a checkable quotient sieve: a certificate
+should be able to decide whether a putative shift pair is genuinely primitive,
+or whether it is a pullback from a smaller quotient scale.  The following
+lemmas make that test algebraic.  Throughout this subsection
+\[
+        D=\alpha H\subseteq \B^\times,\qquad |H|=n,
+\]
+with \(H\) cyclic and \(\operatorname{char}\B\nmid n\).  For \(c\mid n\),
+write \(H_c\le H\) for the subgroup of order \(c\), and
+\(\pi_c:D\to D_c\) for \(x\mapsto x^c\).
+
+\begin{definition}[coefficient scale]
+\label{def:sp-next-coeff-scale}
+Let
+\[
+        L(X)=X^e+\sum_{j=1}^e \lambda_j X^{e-j}
+\]
+be a monic polynomial split over \(D\).  Its coefficient scale is
+\[
+        s(L):=\gcd\bigl(n,\ e,\ \{j:\lambda_j\ne0\}\bigr),
+\]
+where the gcd of an empty set of indices is interpreted as \(\gcd(n,e)\).
+For an ordered pair \((A,B)\) of monic split degree-\(e\) polynomials, put
+\[
+        s(A,B):=\gcd(s(A),s(B)).
+\]
+Thus \(s(A,B)>1\) means that both locators have only coefficient gaps
+divisible by a common nontrivial divisor of \(n\).
+When the same notation is applied on a quotient coset \(D_c\), the ambient
+length in the gcd is \(|D_c|=n/c\).
+\end{definition}
+
+\begin{lemma}[periodicity, coefficient support, and quotient form]
+\label{lem:sp-next-periodicity-equivalence}
+Let \(S\subseteq D\), \(|S|=e\), and \(L_S=\ell_S\).  For a divisor
+\(c\mid n\), the following are equivalent.
+\begin{enumerate}
+\item \(S\) is a union of complete \(H_c\)-orbits.
+\item \(L_S(X)=L_{S,c}(X^c)\) for a unique monic polynomial
+      \(L_{S,c}\) of degree \(e/c\), split over \(D_c=\pi_c(D)\).
+\item \(c\mid e\), and in
+      \(L_S=X^e+\sum_{j=1}^e\lambda_jX^{e-j}\) one has
+      \(\lambda_j=0\) unless \(c\mid j\).
+\end{enumerate}
+Consequently \(s(L_S)\) is the maximal periodicity scale of \(S\).
+\end{lemma}
+
+\begin{proof}
+If \(S\) is a union of complete \(H_c\)-orbits, then each orbit over
+\(y\in D_c\) has locator \(X^c-y\).  Multiplying over the quotient image
+\(\overline S:=\pi_c(S)\) gives
+\[
+        L_S(X)=\prod_{y\in\overline S}(X^c-y)=L_{S,c}(X^c),
+\]
+where \(L_{S,c}(Y)=\prod_{y\in\overline S}(Y-y)\).  This proves
+\((1)\Rightarrow(2)\), and uniqueness follows from injectivity of
+\(L(Y)\mapsto L(X^c)\).
+
+The implication \((2)\Rightarrow(3)\) is immediate by comparing exponents.
+Conversely, if the coefficient condition in \((3)\) holds, then
+\[
+        L_S(X)=X^e+\sum_{c\mid j}\lambda_jX^{e-j}
+              =L_{S,c}(X^c)
+\]
+for a unique monic \(L_{S,c}\in\B[Y]\) of degree \(e/c\).  If
+\(y\in D_c\) is a root of \(L_{S,c}\), then every \(x\in D\) with
+\(x^c=y\) is a root of \(L_S\); conversely every root of \(L_S\) maps to a
+root of \(L_{S,c}\).  Since \(X^n-\alpha^n\) is squarefree, the fibers of
+\(\pi_c\) on \(D\) have exactly \(c\) distinct points, so the roots of
+\(L_S\) are precisely full \(H_c\)-orbits.  This gives \((3)\Rightarrow(1)\).
+
+The last sentence follows because the set of divisors \(c\mid n\) satisfying
+the equivalent conditions is exactly the set of divisors of
+\(\gcd(n,e,\{j:\lambda_j\ne0\})\).
+\end{proof}
+
+\begin{theorem}[maximal quotient extraction for shift pairs]
+\label{thm:sp-next-maximal-extraction}
+Let \((A,B)=(\ell_S,\ell_T)\) be a depth-\(w\) shift pair of degree \(e\)
+over a multiplicative coset \(D\), meaning \(S,T\subseteq D\) are disjoint
+\(e\)-subsets and
+\[
+        \deg(A-B)\le e-w-1 .
+\]
+Let \(c=s(A,B)\).  If \(c>1\), then the pair is not primitive: there are
+unique monic degree-\(e/c\) locators \(A_c,B_c\), split over \(D_c=\pi_c(D)\),
+such that
+\[
+        A(X)=A_c(X^c),\qquad B(X)=B_c(X^c).
+\]
+Moreover \((A_c,B_c)\) is a depth
+\[
+        w_c=\left\lceil {w+1\over c}\right\rceil-1
+\]
+shift pair on the quotient coset.  If \(c=s(A,B)\) is maximal, then the
+descended pair \((A_c,B_c)\) is coefficient-primitive:
+\[
+        s(A_c,B_c)=1.
+\]
+Conversely, every coefficient-primitive depth-\(w_c\) quotient pair pulls
+back to a depth-\(w\) upstairs pair whose maximal common coefficient scale is
+exactly \(c\), provided the two pulled-back root sets are disjoint.
+\end{theorem}
+
+\begin{proof}
+Since \(c=s(A,B)\), \cref{lem:sp-next-periodicity-equivalence} gives
+unique quotient locators \(A_c,B_c\) with \(A=A_c(X^c)\) and \(B=B_c(X^c)\).
+The depth condition becomes
+\[
+        c\deg(A_c-B_c)=\deg(A-B)\le ce_c-w-1,\qquad e_c=e/c.
+\]
+Equivalently,
+\[
+        \deg(A_c-B_c)\le e_c-\left\lceil {w+1\over c}\right\rceil,
+\]
+which is the depth-\(w_c\) condition.
+
+It remains to justify the maximal-scale assertion.  Here coefficient scale for
+\((A_c,B_c)\) is computed relative to the quotient length \(n/c\).  Suppose
+the quotient pair had common coefficient scale \(d>1\).  By
+\cref{lem:sp-next-periodicity-equivalence}, \(A_c=A_{cd}(Y^d)\) and
+\(B_c=B_{cd}(Y^d)\) for quotient locators at the further quotient scale.
+Then
+\[
+        A(X)=A_{cd}(X^{cd}),\qquad B(X)=B_{cd}(X^{cd}),
+\]
+so \(cd\) divides the common coefficient scale of \((A,B)\), contradicting
+maximality of \(c\).  Thus \(s(A_c,B_c)=1\).
+
+Conversely, if \(A_c,B_c\) form a depth-\(w_c\) quotient pair, then
+\[
+        \deg(A_c-B_c)\le e_c-\left\lceil {w+1\over c}\right\rceil .
+\]
+Multiplying degrees by \(c\) gives
+\[
+        \deg(A_c(X^c)-B_c(X^c))
+        \le ce_c-c\left\lceil {w+1\over c}\right\rceil
+        \le ce_c-w-1,
+\]
+so the pullback is a depth-\(w\) pair upstairs.  Its coefficient scale is at
+least \(c\).  If it were larger than \(c\), then after dividing by \(c\) the
+extra common divisor would give the quotient pair a nontrivial common
+coefficient scale relative to \(n/c\), contrary to the coefficient-primitivity
+assumption.
+\end{proof}
+
+\begin{corollary}[primitive exclusion by coefficient support]
+\label{cor:sp-next-primitive-exclusion}
+Any depth-\(w\) shift pair \((A,B)\) with \(s(A,B)>1\) belongs to the
+quotient-pullback ledger and must not be counted in the primitive SP cell.
+Equivalently, every genuinely primitive shift pair has
+\[
+        \gcd\bigl(n,\ e,\ \{j:\lambda_j(A)\ne0\},\ \{j:\lambda_j(B)\ne0\}\bigr)=1 .
+\]
+At the top stratum \(e=w+1\), all binomial prototypes
+\[
+        A=X^{w+1}-\beta,\qquad B=X^{w+1}-\beta'
+\]
+with \(A\) and \(B\) split over \(D\) are quotient-borne; they have
+coefficient scale \(w+1\) and can occur only when \(w+1\mid n\).
+\end{corollary}
+
+\begin{proof}
+The first assertion is exactly \cref{thm:sp-next-maximal-extraction}.  The
+displayed gcd is the definition of \(s(A,B)\).  For the final assertion,
+both binomial locators have only the leading and constant coefficients, so
+their common coefficient scale is \(\gcd(n,w+1)\).  If they are split over
+\(D=\alpha H\), their root sets are full fibers of \(x\mapsto x^{w+1}\), so
+\(w+1\mid n\), and the common coefficient scale is \(w+1\).
+\end{proof}
+
+\begin{remark}[remaining primitive obstruction]
+\label{rem:sp-next-remaining-obstruction}
+\Cref{cor:sp-next-primitive-exclusion} is a genuine narrowing of the SP
+input: after this quotient sieve, the primitive ledger contains only pairs
+whose two locators have no common coefficient scale.  The theorem does not
+bound those coefficient-primitive pairs.  The remaining obstruction is a
+family of disjoint split locators \(A,B\), with
+\(\deg(A-B)\le e-w-1\), whose coefficient supports have gcd \(1\) after all
+common-GCD, tangent, quotient, extension, planted, and bounded-chart cells are
+removed.  Proving that such families have only density-model size, or finding
+a super-polynomial family of them, is the unresolved SP input.
+\end{remark}

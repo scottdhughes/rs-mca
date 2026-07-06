@@ -1,6 +1,6 @@
 # The Reed–Solomon MCA threshold: current final form
 
-**Submission summary for the Proximity Prize committee — CAP25 (v12 + v13 + v14).**
+**Submission summary for the Proximity Prize committee — CAP25 (v12 + v13 raw).**
 
 ## 1. The answer, in one line
 
@@ -21,7 +21,7 @@ with this closed form, and every mechanism that would beat it has been refuted (
 ### 2.1 Unsafe side (lower bounds on failure) — exact integer certificates
 
 The identity-prefix floor (pigeonholing locator prefixes over `B`) plus the flexible-budget
-deep-point conversion (v14; the counting inside the list-to-CA conversion, run at the challenge
+deep-point conversion (v13 raw; the counting inside the list-to-CA conversion, run at the challenge
 budget instead of the `q/k` threshold) give, at the deployed rows `n = 2²¹`, `k = 2²⁰`:
 
 | row | target ε* | proved unsafe for δ ≥ | distance to envelope ceiling |

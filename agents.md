@@ -25,19 +25,24 @@ current Paper-D-v12 authority edge is
 delta = 15331/32768 ~= 0.467865.
 ```
 
-The active experimental v13 identity-scale check improves the candidate unsafe
-edge to
+The active experimental v13 raw source is:
 
 ```text
-delta = 981109/2097152 ~= 0.4678292,
-unsafe agreement a0 = 1116043,
-conjectured first safe agreement = 1116044.
+experimental/cap25_cap_v13_raw.tex          extended raw-working master
 ```
 
-Do not mix these statuses: v12 is the current paper authority; v13 is the
-current experimental final-resolution spine.  In paper-authority mode, close
-the band below the v12 edge; in v13 experimental mode, close the adjacent band
-below the identity-scale candidate edge by adjacent staircase certificates:
+It moves the KoalaBear MCA experimental unsafe edge to
+
+```text
+delta = 981105/2097152 ~= 0.467827320,
+unsafe agreement a0 = 1116047,
+conjectured first safe agreement = 1116048.
+```
+
+Do not mix these statuses: v12 is the current paper authority; v13 raw
+is the current experimental final-resolution spine.  In paper-authority mode,
+close the band below the v12 edge; in v13 experimental mode, close the adjacent
+band below the raw-v13 candidate edge by adjacent staircase certificates:
 
 ```text
 B* = floor(2^-128 q_line)
@@ -49,10 +54,12 @@ B_mca(a0+1) <= B*
 Agents should prefer work that shrinks this interval for `delta*_C(2^-128)` over
 work that merely increases the already-supercritical error at a larger radius.
 
-## Final road toward FULL RESOLUTION -- experimental v13 spine
+## Final road toward FULL RESOLUTION -- experimental v13 raw spine
 
-**Status:** CONJECTURAL / EXPERIMENTAL until promoted into Paper D and replayed
-by exact certificates.
+**Status:** The unsafe side in the v13 raw source is theorem-level
+inside that experimental draft.  The exact threshold remains CONJECTURAL /
+CONDITIONAL until the safe upper ledgers Q, BC, and SP are proved with constants,
+replayed, audited, and promoted into Paper D.
 
 The project should now distinguish three levels of resolution.
 
@@ -85,21 +92,23 @@ The project should now distinguish three levels of resolution.
 
 ### Current experimental v13 frontier targets
 
-The identity-scale prefix floor supersedes the old `c=16/32` optimized rows and
-the proposed `c=2` terminal-scale rows, unless the identity map is intentionally
-excluded.  The finite conjecture is that the first safe agreement is one step
-after the best proved unsafe agreement:
+The identity-prefix floor plus the flexible-budget simple-pole conversion
+supersede the old `c=16/32` optimized rows and the proposed `c=2` terminal-scale
+rows, unless the identity map is intentionally excluded.  The finite conjecture
+is that the first safe agreement is one step after the best proved unsafe
+agreement:
 
 | row | proved unsafe agreement `a0` | conjectured first safe agreement |
 | --- | ---: | ---: |
-| KoalaBear MCA | `1116043` | `1116044` |
+| KoalaBear MCA | `1116047` | `1116048` |
 | KoalaBear list | `1116046` | `1116047` |
-| Mersenne-31 MCA | `1116021` | `1116022` |
+| Mersenne-31 MCA | `1116023` | `1116024` |
 | Mersenne-31 list | `1116022` | `1116023` |
 
 Do not call these Paper-D theorem rows until the exact adjacent upper ledger is
-printed and replayed.  Until then, call them `EXPERIMENTAL`, `CONDITIONAL`, or
-`AUDIT`, as appropriate.
+printed and replayed.  The lower/unsafe inequalities are exact certificate
+claims inside the experimental raw sources; the first-safe rows are conditional
+on finite Q/BC/SP safe certificates.
 
 ### The complete upper ledger to build at `a0 + 1`
 
@@ -112,8 +121,9 @@ U(a) =
 + paid_quotient(a)
 + paid_extension(a)
 + paid_plain_CA_or_sparse_layer(a)
-+ paid_L1/interleaved_list_layer(a)
-+ paid_M1_aperiodic_or_SPI_layer(a)
++ paid_Q_prefix_quotient(a)
++ paid_BC_split_pencil(a)
++ paid_SP_shift_pair(a)
 + explicitly named residuals.
 ```
 
@@ -175,25 +185,27 @@ B_C(a_safe - 1) > B*
 B_C(a_safe)     <= B*
 ```
 
-The unsafe side is supplied by the identity-prefix lower staircase.  The safe
-side is the stratified upper sum `tan + quot + ap + ext`, with first-match
-deduplication and an aperiodic rigidity input such as R2 / Conjecture-F / SPI /
-XR, or a counterexample that becomes a new obstruction floor.
+The unsafe side is supplied by the identity-prefix lower staircase and the
+flexible simple-pole MCA conversion.  The safe side is the stratified upper sum
+`tangent + quotient + extension + Q + BC + SP`, with first-match deduplication.
+A counterexample is still useful if it identifies a new obstruction floor and
+updates the cell decomposition.
 
 ### What counts as progress now
 
 Highest-value contributions are:
 
-1. exact adjacent upper certificates for the four v13 frontier rows;
-2. a complete `frontier-adjacent/*.json` packet family replayed by the
+1. finite Q maximum-fiber certificates at the four `a0 + 1` rows;
+2. finite BC split-pencil census certificates at the four `a0 + 1` rows;
+3. finite SP primitive shift-pair certificates at the four `a0 + 1` rows;
+4. a complete `frontier-adjacent/*.json` packet family replayed by the
    certificate scanner;
-3. a proof or falsifier for the aperiodic M1/R2 residual;
-4. a proof or falsifier for the primitive L1 image-fiber theorem and
-   mixed-petal/growing-defect residuals;
-5. an extension-line MCA theorem or explicit corrected-reserve counterexample;
-6. a Paper C protocol certificate consuming the exact row packet without
+5. asymptotic Q/BC/SP with polynomial or `e^{o(n)}` loss, which closes the
+   frontier with logarithmic agreement reserve;
+6. an extension-line MCA theorem or explicit corrected-reserve counterexample;
+7. a Paper C protocol certificate consuming the exact row packet without
    merging field ledgers;
-7. a Lean/formal replay of the staircase, row-packet, and paid-cell compilers.
+8. a Lean/formal replay of the staircase, row-packet, and paid-cell compilers.
 
 A negative result is still a resolution if it identifies the new obstruction
 floor and updates the certificate logic.
@@ -203,22 +215,29 @@ priority: promotion of any v13 frontier packet requires the v12/towards-prize
 audit gates below to be clean or explicitly waived by a maintainer.
 
 The experimental memo `experimental/rs_mca_proximity_prize_status.md` is a
-committee-facing status draft for the v12/v13/v14 picture.  Use it to orient
+committee-facing status draft for the v12/v13 raw picture.  Use it to orient
 the entropy-subfield-envelope thesis and the current unsafe certificate
-frontier, but do not treat its v14/matching-safe-side language as paper
+frontier, but do not treat its matching-safe-side language as paper
 authority until the corresponding claims are promoted into Paper D or
 `towards-prize` with replayable certificates.
 
-### Missing inputs strategy: `(A)` and `(Q)`
+### Missing inputs strategy: Q, BC, SP, and legacy `(A)`
 
 The proof-program guide
 `experimental/cap25_v13_missing_inputs_strategy.md` is the current agent route
-map for the two missing v13 inputs:
+map for the missing v13 safe-side inputs.  It was originally written in the
+older two-input language:
 
 ```text
 (A) aperiodic band / worst-case M1 local-limit upper theorem
 (Q) quotient-fiber / quotient-ledger equidistribution upper theorem
 ```
+
+Read it compatibly with `experimental/cap25_cap_v13_raw.tex` and its compact
+companion: Q remains the prefix/quotient flatness input, while the old broad
+`(A)` umbrella is now split into BC (base-field-normalized split-pencil census)
+and SP (primitive shift-pair control), plus already-paid tangent/quotient/
+extension cells.
 
 Use it as a strategy document, not as a theorem.  It makes three points agents
 should preserve:
@@ -241,19 +260,24 @@ Near-term useful tasks from that note are:
 - test the mode-at-null / exchange-compression extremality conjectures on small
   rows.
 
-## Current priority: audit Paper D v12 and `towards-prize.tex`
+## Current priority: audit v13 raw before promotion
 
-The main focus is now **auditing Paper D v12**:
+The main focus is now **auditing the experimental v13 raw package**
+against Paper D v12:
 
 ```text
 tex/cs25_cap_v12.tex
 tex/towards-prize.tex
+experimental/cap25_cap_v13_raw.tex
 ```
 
 `cs25_cap_v12.tex` is the current complete Paper D candidate.  It supersedes
 v10/v11 for new work unless a maintainer asks for a historical comparison.
 `tex/towards-prize.tex` is the compact prize-facing theorem note.  It should be
 kept aligned with v12, but it is not a replacement for the full Paper D ledger.
+The v13 raw file is an experimental successor: use it to work on the
+final-resolution package, but do not cite it as Paper-D authority until a
+maintainer promotes it.
 
 ### Main audit task: CS25 / Paper-D cap correctness
 
@@ -263,13 +287,17 @@ Before adding more computations, audit the cap paper itself.  The priority is:
    against Crites--Stewart and ABF conventions.
 2. Audit the optional BCIKS half-distance import in the exact normalization of
    `eca` used in v12.
-3. Verify that every "verified exactly" deployed-row inequality in v12 has a
-   reproducible script or a printed integer certificate.
+3. Verify that every "verified exactly" deployed-row inequality in v12 and the
+   v13 raw package has a reproducible script or a printed integer
+   certificate.
 4. Check the rational-scale/genus-one and circle/stereographic transports
    against the actual deployed code models.
 5. Keep `towards-prize.tex` scoped correctly: it is a compact theorem note for
    the smooth multiplicative prize box, not the full ledger paper.
-6. Report any issue as `AUDIT`, not as a theorem change, unless the proof fix is
+6. Check that any v13 promotion keeps the status split: unsafe
+   exact certificates are theorem-level in the raw draft, while first-safe adjacent
+   rows remain conditional on finite Q/BC/SP.
+7. Report any issue as `AUDIT`, not as a theorem change, unless the proof fix is
    already written and local.
 
 Only after this audit is stable should agents return to Hankel packets, M5
@@ -361,8 +389,10 @@ Whenever you add or materially change something under `experimental/`, add an en
    grammar, and open problems of `cs25_cap_v12.tex`.
 4. Read `tex/towards-prize.tex` as the compact prize-facing version of the v12
    theorem package.
-5. Read the certificate ledgers and open problems of `snarks_v5.tex`.
-6. Return to Paper B for the exact theorem labels relevant to your task.
+5. For v13 work, read `experimental/cap25_cap_v13_raw.tex` as the active raw
+   master ledger.
+6. Read the certificate ledgers and open problems of `snarks_v5.tex`.
+7. Return to Paper B for the exact theorem labels relevant to your task.
 
 ### Fast orientation
 
@@ -373,6 +403,8 @@ Paper A gives explicit no-slack lower bounds.
 Paper B builds the corrected reserve theory and states the main missing local limits.
 Paper D v12 gives the current two-sided cap, safe-side pincer, map/rational
 smooth extensions, and finite certificate grammar.
+Experimental v13 raw moves the unsafe frontier and reduces the final
+safe side to Q, BC, and SP, but it is not yet Paper-D authority.
 Paper C says how a protocol must consume the theory without mixing ledgers.
 ```
 
@@ -775,6 +807,50 @@ Attach script, seed, exact command, or symbolic certificate.
 7. Search for the first genuinely extension-valued bad line over `F_{p^2}`.
 8. Produce a JSON schema for Paper C reserve certificates.
 9. Extend the Lean formalization packages under `experimental/lean/`.
+
+### Lean formalization correspondence
+
+Use `experimental/lean/lean-blueprint.json` as the current formalization
+blueprint for `experimental/cap25_cap_v13_raw.tex`.  It is a dependency graph:
+each node records the TeX label, statement kind, module bucket, `depends_on`,
+reverse `implies`, and a `formalization` slot.  The important final targets are:
+
+```text
+target:Q_prefix_flatness
+target:BC_base_field_split_pencil
+target:SP_primitive_shift_pair_control
+target:finite_adjacent_deployed_ledgers
+target:RS_MCA_full_resolution
+```
+
+Do not fill a `lean_file` / `lean_name` slot by guesswork.  Fill or update it
+only when an actual Lean declaration exists under `experimental/lean/` and the
+statement has been matched to the blueprint node.
+
+Maintain TeX/Lean correspondence manually.  Bulk source-scanning tools are not
+part of the workflow because they can attach generic helper declarations to the
+wrong theorem labels or overwrite curated notes.  When a Lean declaration is
+added, compare its statement directly against the TeX node before recording it.
+
+Interpret existing correspondence fields carefully:
+
+```text
+mapping_confidence  exact_label_match / curated_alias / name_heuristic / mixed
+audit_status        whether the match still needs statement audit or proof work
+related_lean        all Lean declarations supporting a split blueprint node
+statement_status    source-scan status; not a Lake build result
+```
+
+`lean-inventory.json` and `lean-blueprint-report.md` are static orientation
+snapshots, not authorities.  Prefer package-local README files, correspondence
+notes, and direct theorem-statement audits when deciding what has really been
+formalized.
+
+If you complete a Lean theorem, update the relevant package README or
+correspondence note by hand, add an entry to `experimental/agents-log.md`, and
+record any blueprint change explicitly.  Only call a result Lean-certified after
+the relevant Lake package has actually been built and the theorem statement has
+been compared against the TeX node.
 
 The highest-priority formalization task is now to make
 `experimental/lean/cs25_cap_v12/` a complete Lean formalization of Paper D

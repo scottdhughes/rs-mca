@@ -1,0 +1,388 @@
+\section{Q: prefix flatness, banked structure, and the exact remaining input}
+\label{sec:q-work}
+
+\paragraph{Status.}
+This section is an \textup{AUDIT/CONDITIONAL} work snippet for the Q part of
+\texttt{experimental/grande\_finale.tex}.  It records the pieces of the
+quotient/prefix input that are already theorem-level in the current raw package
+\cite{CAP25v13}, and separates them from the still-conjectural max-fiber
+flatness needed by the finite adjacent rows.  It does not claim a deployed safe
+upper certificate.
+
+\subsection{Definitions and normalizations}
+
+Let \(D\subseteq \B\) be a smooth multiplicative domain of size \(n\).  For
+circle/twin-coset rows the same prefix definitions apply after replacing the
+multiplicative domain polynomial by the corresponding circle domain polynomial;
+the explicit divisor statement below is written only in the multiplicative
+case.  Fix an agreement \(m\) and an effective list dimension \(K\), and put
+\[
+        w:=m-K,\qquad
+        \Lambda_M(X):=\prod_{x\in M}(X-x)
+        =X^m+\sum_{j=1}^{m}(-1)^j e_j(M)X^{m-j}.
+\]
+The identity prefix map is
+\[
+        \Phi_{m,w}:\binom{D}{m}\longrightarrow \B^w,\qquad
+        M\longmapsto \bigl((-1)^j e_j(M)\bigr)_{1\le j\le w}.
+\]
+For \(z\in\B^w\), write
+\[
+        N_w(z):=\left|\Phi_{m,w}^{-1}(z)\right|,
+        \qquad
+        \overline F_{m,w}:=\binom{n}{m}|\B|^{-w}.
+\]
+The number \(\overline F_{m,w}\) is only the ambient average over \(\B^w\); if
+one later replaces \(\B^w\) by the actual image of \(\Phi_{m,w}\), the
+denominator must be stated explicitly in the row packet.
+
+\begin{proposition}[Newton dictionary]\label{prop:q-newton-dictionary}
+If \(\operatorname{char}\B>w\), then the elementary-prefix map
+\(\Phi_{m,w}\) is triangularly equivalent to the power-sum map
+\[
+        \Psi_{m,w}(M):=
+        \left(\sum_{x\in M}x^j\right)_{1\le j\le w}.
+\]
+In particular the two maps have exactly the same fiber sizes.
+\end{proposition}
+
+\begin{proof}
+Newton's identities give, for \(1\le j\le w\),
+\[
+        j e_j=\sum_{i=1}^{j}(-1)^{i-1}e_{j-i}p_i,
+        \qquad p_i:=\sum_{x\in M}x^i,\quad e_0:=1.
+\]
+Because every \(j\le w\) is invertible in \(\B\), these identities express
+\((e_1,\ldots,e_w)\) and \((p_1,\ldots,p_w)\) as mutually inverse
+unitriangular polynomial changes of coordinates.  The sign convention
+\((-1)^je_j\) is a coordinatewise bijection, so fiber sizes are unchanged.
+\end{proof}
+
+\subsection{What is already proved}
+
+\begin{proposition}[identity prefix floor and exact witness lists]
+\label{prop:q-prefix-floor-exact}
+For every \(m\ge K\) there is a \(\B\)-valued received word \(U_z\) for
+\(\RS[\F,D,K]\) with at least
+\[
+        \left\lceil \binom{n}{m}|\B|^{-w}\right\rceil
+\]
+codewords agreeing on \(m\) positions.  More precisely, for every prefix value
+\(z\), the list of codewords agreeing with
+\[
+        U_z(X)=X^m+\sum_{j=1}^{w}z_jX^{m-j}
+\]
+on at least \(m\) positions is exactly indexed by the fiber
+\(\Phi_{m,w}^{-1}(z)\), and no codeword agrees with \(U_z\) on more than \(m\)
+positions.
+\end{proposition}
+
+\begin{proof}
+For \(M\in\Phi_{m,w}^{-1}(z)\), the difference
+\[
+        U_z-\Lambda_M
+\]
+has degree at most \(m-w-1=K-1\), hence is a codeword and agrees with \(U_z\)
+on \(M\).  Conversely, if a degree-\(<K\) polynomial \(c\) agrees with \(U_z\)
+on at least \(m\) points, then \(U_z-c\) is monic of degree \(m\), has those
+points as roots, and therefore equals \(\Lambda_M\) for its root set \(M\).
+Comparing the top \(w\) coefficients puts \(M\) in the fiber of \(z\), and
+then \(c=U_z-\Lambda_M\).  A nonzero degree-\(m\) polynomial cannot vanish on
+more than \(m\) points.  This is the content of
+\texttt{lem:capff1-identity-prefix-floor} and
+\texttt{prop:capff1-witness-exact} in \cite{CAP25v13}.
+\end{proof}
+
+\begin{proposition}[head-depth flatness is theorem-level]
+\label{prop:q-head-depth}
+For the deployed identity-prefix rows, two-sided prefix-fiber flatness is
+proved at the following head depths.
+\[
+\begin{array}{c|c|c}
+\text{row family} & \text{deployed subset depths} & \text{head rungs}\\
+\hline
+\text{KoalaBear multiplicative} & w\le 21 & w\le 22\\
+\text{Mersenne-31 circle} & w\le 10 & w\le 11 .
+\end{array}
+\]
+In these ranges every fiber satisfies
+\[
+        N_w(z)=\binom{n}{m}|\B|^{-w}(1+\varepsilon_z),
+        \qquad |\varepsilon_z|\le 2^{-\mathrm{margin}},
+\]
+with the printed row margins from \texttt{cor:capff1-collision-head} and
+\texttt{cor:capff1-circle-head} of \cite{CAP25v13}.  These base cases do not
+extend to the frontier depth \(w\approx 6.7\cdot 10^4\).
+\end{proposition}
+
+\begin{proof}
+This is the Weil/head-depth theorem of the raw package.  For multiplicative
+cosets the proof bounds the relevant power-sum character sums after the
+power-parametrization of the coset; for circle rows it uses the analogous
+additive-character bound on the twin-coset conic.  The error term remains below
+the main term exactly in the printed head ranges.  The exact-list statement is
+\cref{prop:q-prefix-floor-exact}.
+\end{proof}
+
+\begin{proposition}[prefix-collision rigidity]\label{prop:q-prefix-rigidity}
+Let \(1\le w<m\le n\).  If \(M\ne M'\) are \(m\)-subsets of \(D\) with
+\(\Phi_{m,w}(M)=\Phi_{m,w}(M')\), then
+\[
+        |M\setminus M'|=|M'\setminus M|\ge w+1.
+\]
+If equality holds, then
+\[
+        \Lambda_{M\setminus M'}-\Lambda_{M'\setminus M}
+        \in\F^\times ,
+\]
+so the first nonzero collision stratum is the constant-shift split-pair
+stratum.
+\end{proposition}
+
+\begin{proof}
+Put \(R=M\cap M'\), \(A=\Lambda_{M\setminus M'}\),
+\(B=\Lambda_{M'\setminus M}\), \(G=\Lambda_R\), and
+\(e=|M\setminus M'|\).  Then
+\[
+        \Lambda_M-\Lambda_{M'}=G(A-B).
+\]
+Equality of the monic term and of the depth-\(w\) prefix gives
+\(\deg(\Lambda_M-\Lambda_{M'})\le m-w-1\), hence
+\(\deg(A-B)\le e-w-1\).  If \(e\le w\), this forces \(A=B\), hence the two
+disjoint root sets are equal and \(M=M'\), contradiction.  Thus \(e\ge w+1\).
+If \(e=w+1\), then \(A-B\) is a nonzero constant.  This is
+\texttt{lem:capg-prefix-rigidity} of \cite{CAP25v13}.
+\end{proof}
+
+\begin{corollary}[unconditional anticode cap]\label{cor:q-anticode-cap}
+For every \(z\in\B^w\),
+\[
+        N_w(z)\le {\binom{n}{m-w}\over \binom{m}{w}}.
+\]
+\end{corollary}
+
+\begin{proof}
+By \cref{prop:q-prefix-rigidity}, two distinct members of one fiber intersect
+in at most \(m-w-1\) points.  Hence no \((m-w)\)-subset of \(D\) is contained
+in two fiber members.  Counting pairs \((R,M)\) with
+\(M\in\Phi_{m,w}^{-1}(z)\), \(R\subseteq M\), and \(|R|=m-w\), gives
+\[
+        N_w(z)\binom{m}{w}\le \binom{n}{m-w}.
+\]
+\end{proof}
+
+\begin{proposition}[exact second moment]\label{prop:q-second-moment}
+Let \(D'\subseteq D\), and for \(e\ge1\) define
+\[
+\operatorname{sp}_w(e;D') :=
+\#\left\{(A,B):
+\begin{array}{l}
+\text{\(A,B\) monic split over \(D'\), degree \(e\),}\\
+\text{their root sets are disjoint, and } \deg(A-B)\le e-w-1
+\end{array}\right\}.
+\]
+Then
+\[
+        \sum_{z\in\B^w}N_w(z)^2
+        =
+        \binom{n}{m}
+        +\sum_{e=w+1}^{\min(m,n-m)}
+          \sum_{\substack{R\subseteq D\\ |R|=m-e}}
+          \operatorname{sp}_w(e;D\setminus R).
+\]
+Moreover the top stratum is
+\[
+\operatorname{sp}_w(w+1;D')=
+\#\{(A,c):\ A\text{ monic split over }D'\text{ of degree }w+1,
+c\in\F^\times,\ A-c\text{ split over }D'\}.
+\]
+\end{proposition}
+
+\begin{proof}
+The left side counts ordered pairs \((M,M')\) in a common prefix fiber.  The
+diagonal contributes \(\binom{n}{m}\).  For \(M\ne M'\), write
+\[
+        R=M\cap M',\qquad
+        A=\Lambda_{M\setminus M'},\qquad
+        B=\Lambda_{M'\setminus M}.
+\]
+This is a bijection between non-diagonal colliding pairs and triples with
+\(|R|=m-e\), \(A,B\) split of degree \(e\) over \(D\setminus R\), disjoint root
+sets, and \(\deg(A-B)\le e-w-1\).  The range \(e\ge w+1\) is
+\cref{prop:q-prefix-rigidity}; also \(e\le m,n-m\).  At \(e=w+1\), the degree
+condition says \(A-B=c\in\F^\times\), and conversely such a constant shift has
+disjoint roots because a common root would force \(c=0\).  This is the exact
+ledger \texttt{thm:capg-second-moment} in \cite{CAP25v13}.
+\end{proof}
+
+\begin{proposition}[twist-orbit constancy]\label{prop:q-orbit}
+For a multiplicative domain stable under \(\mu_n\), the action
+\[
+        (z_1,\ldots,z_w)\longmapsto(\zeta z_1,\zeta^2z_2,\ldots,\zeta^wz_w),
+        \qquad \zeta\in\mu_n,
+\]
+preserves fiber sizes.
+\end{proposition}
+
+\begin{proof}
+The map \(M\mapsto \zeta^{-1}M\) is a bijection on \(m\)-subsets of \(D\), and
+\[
+        \Lambda_{\zeta^{-1}M}(X)=\zeta^{-m}\Lambda_M(\zeta X).
+\]
+Thus the \(j\)-th prefix coordinate is multiplied by \(\zeta^j\).  This is
+\texttt{lem:capfp-orbit} of \cite{CAP25v13}.
+\end{proof}
+
+\begin{proposition}[boundary divisor form for multiplicative rows]
+\label{prop:q-boundary-divisor}
+Assume \(D\) is a multiplicative coset with
+\(\Lambda_D=X^n-\beta\).  For \(z\in\B^w\), set
+\[
+        P_z(X):=X^m+\sum_{j=1}^{w}z_jX^{m-j},
+        \qquad X^n=P_zQ_z+R_z,\quad \deg R_z<m,
+\]
+and \(\omega:=n-m\).  In the boundary branch of the interpolation lattice,
+the fiber of \(z\) is exactly the prescribed-top-coefficient divisor census
+\[
+        N_w(z)
+        =
+        \#\left\{A:\ \deg A\le \omega-w-1,\quad Q_z+A\mid X^n-\beta\right\}.
+\]
+Equivalently, Q is the boundary profile \(d_1=w+1\) of the split-pencil
+problem, while the BC input begins at the interior profiles.
+\end{proposition}
+
+\begin{proof}
+The pair \((1,P_z)\) belongs to the interpolation lattice of \(U_z\) and has
+shifted degree \(w+1\).  The Euclidean division gives
+\[
+        (Q_z,\beta-R_z)
+\]
+as a second lattice vector, since at every \(x\in D\),
+\[
+        Q_z(x)P_z(x)=x^n-R_z(x)=\beta-R_z(x).
+\]
+Their determinant is \(\beta-X^n=-\Lambda_D\), so they form a lattice basis.
+In the branch where the minimal shifted degree is exactly \(w+1\), every census
+element of \(W\)-degree \(\omega\) is uniquely \(Q_z+A\) after monic
+normalization, with \(\deg A\le\omega-w-1\).  The split condition is exactly
+\((Q_z+A)\mid X^n-\beta\).  This is the statement
+\texttt{thm:capfp-Q-unify} in \cite{CAP25v13}.
+\end{proof}
+
+\subsection{The exact remaining Q input}
+
+\begin{conjecture}[Q max-fiber flatness, active form]\label{conj:q-active}
+After quotient-pulled-back, planted, and other already paid prefix strata have
+been charged at their own image scale, the primitive identity-prefix fibers
+satisfy
+\[
+        N_w^{\mathrm{prim}}(z)
+        \le
+        \kappa_Q(n)\binom{n}{m}|\B|^{-w}
+        \qquad\text{for all }z\in\B^w.
+\]
+For asymptotic frontier closure with agreement reserve \(R\gg\log n\), it is
+enough to prove \(\kappa_Q(n)=n^{O(1)}\), or more generally
+\(\kappa_Q(n)=e^{o(n)}\).  For the finite adjacent rows, \(\kappa_Q\) must be
+an explicit row-dependent constant and the first-match quotient ledger must fit
+inside the printed margins \(22.2,22.0,3.3,3.1\) bits after all other paid
+cells are included.
+\end{conjecture}
+
+\begin{remark}[what is not proved by the current Q lemmas]
+\label{rem:q-not-proved}
+\Cref{cor:q-anticode-cap} is a genuine all-depth theorem, but it remains far
+above the average fiber at the frontier depths.  \Cref{prop:q-second-moment}
+is an exact identity, but it is not a max-fiber bound until the primitive
+shift-pair terms are bounded and higher moments or an extremality theorem
+control worst-case fibers.  In particular, second-moment control alone cannot
+settle the printed adjacent rows.
+\end{remark}
+
+\begin{proposition}[moment sandwich]\label{prop:q-moment-sandwich}
+Let \(\mu(z):=N_w(z)/\binom{n}{m}\), define
+\[
+        \Gamma_r:=|\B|^{w(r-1)}\sum_z\mu(z)^r,\qquad r\ge2,
+\]
+and let \(R:=|\B|^w\max_z\mu(z)\) be the max-to-mean ratio.  Then
+\[
+        { \log_2\Gamma_r\over r-1}
+        \le
+        \log_2 R
+        \le
+        { \log_2\Gamma_r+w\log_2|\B|\over r}.
+\]
+Thus \(R\le e^{o(n)}\) follows from \(\Gamma_r\le e^{o(n)}\) for every fixed
+\(r\), but a direct moment-to-max proof at the deployed adjacent margins would
+need a row-dependent finite hierarchy of very high order.
+\end{proposition}
+
+\begin{proof}
+Since \(N_w(z)\le R\binom{n}{m}|\B|^{-w}\), one has
+\(\Gamma_r\le R^{r-1}\), giving the left inequality.  Conversely,
+\[
+        \max_z\mu(z)\le \left(\sum_z\mu(z)^r\right)^{1/r}
+        =\left(\Gamma_r|\B|^{-w(r-1)}\right)^{1/r},
+\]
+and multiplying by \(|\B|^w\) gives the right inequality.  If every fixed
+\(r\) has \(\Gamma_r=e^{o(n)}\) and \(w\log_2|\B|=O(n)\), choose \(r\) as a
+large constant after fixing the desired \(o(n)\) slope.  This reproduces
+\texttt{prop:capfp-Q-sandwich} of \cite{CAP25v13}.
+\end{proof}
+
+\subsection{Proof strategy that is still legitimate}
+
+\begin{enumerate}[label=\textup{Q\arabic*.},leftmargin=3.0em]
+\item \textbf{Run the finite rung audit before analytic work.}
+At \(a_0+1\), quotient-periodic support counts are too large at support level
+and must be paid by image descent and first-match coalescing.  The audit must
+print every divisor rung, image denominator, loss in bits, and residual
+primitive bucket.  A tight or inverted rung is a periodic obstruction, not a
+primitive Q failure.
+
+\item \textbf{Use the proved collision ledger to build fixed moments.}
+\Cref{prop:q-second-moment} gives the exact \(r=2\) object.  Higher fixed
+moments should be organized as collision hypergraphs of split locators with
+common top prefix.  The asymptotic Q target is equivalent, via
+\cref{prop:q-moment-sandwich}, to proving \(\Gamma_r=e^{o(n)}\) for every
+fixed \(r\), after quotient-pulled-back cells have been removed.
+
+\item \textbf{Exploit twist symmetry to force structure on heavy fibers.}
+\Cref{prop:q-orbit} makes fiber size constant on twist orbits.  Moment bounds
+make heavy fibers few; if there are fewer heavy values than a generic orbit,
+then a heavy \(z\) must have nontrivial stabilizer, forcing its nonzero
+coordinates into divisible index classes.  That is exactly the quotient-pulled
+back shape that should descend to a coarser rung, modulo explicitly tracked
+folding defects.
+
+\item \textbf{Reduce the finite problem to extremality.}
+The finite adjacent constants are too small for unspecified polynomial losses.
+The clean finite target remains mode-at-null or exchange compression:
+\[
+        N_w(z)\le N_w(0)\quad\text{after quotient rungs are charged},
+        \qquad
+        N_w(0)\le \kappa_{\mathrm{row}}\overline F_{m,w}.
+\]
+This is still conjectural.  It is finitely falsifiable, and a violation would
+identify a new primitive prefix obstruction floor.
+
+\item \textbf{Do not use character-sum head-depth results beyond their range.}
+The Weil/head-depth proof pays one square-root cost per active prefix coordinate
+and stops at \(w\le21\)--\(22\) for KoalaBear and \(w\le10\)--\(11\) for
+Mersenne-31.  The frontier depth is about \(6.7\cdot10^4\).  Per-frequency
+short-interval or monodromy estimates, even if individually sharp, do not by
+themselves prove Q; the missing cancellation is joint cancellation across the
+whole character-tuple family, as recorded in
+\texttt{prop:capfp-Q-smooth} and \texttt{rem:capfp-Q-wall} of
+\cite{CAP25v13}.
+\end{enumerate}
+
+\paragraph{Overclaim guard.}
+The statements above prove structural control of Q and exact calibration of its
+collision ledger.  They do not prove \(\cref{conj:q-active}\), do not prove the
+first safe adjacent rows, and do not authorize spending a challenge-field
+denominator on a base-field prefix fiber.  Any promotion into
+\texttt{experimental/grande\_finale.tex} should keep the final Q input visibly
+CONJECTURAL unless a row packet supplies the finite constants or a theorem
+supplies the asymptotic max-fiber flatness.

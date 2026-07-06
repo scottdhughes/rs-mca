@@ -1,0 +1,278 @@
+\section{Finite Adjacent Certificate Audit}
+\label{sec:finite-adjacent-certificate-audit}
+
+\paragraph{Status.}
+This section is an \textup{AUDIT} snippet for the finite adjacent program.
+It records what is already checked by the current frontier-adjacent artifacts,
+what remains as named finite inputs, and the exact conditional theorem that
+would close the deployed adjacent rows.  It is not a proof of safety at the
+adjacent step.
+
+\subsection{Budget and Endpoint Convention}
+
+For every row below, agreement is integral and the closed ball at agreement
+\(a\) has radius \(1-a/n\), with
+\[
+        n=2^{21},\qquad k=2^{20},\qquad \rho=\frac12.
+\]
+The challenge budget is always
+\[
+        B^*=\bigl\lfloor \varepsilon^* Q\bigr\rfloor,
+        \qquad Q=q_{\rm line}.
+\]
+The generated/base field \(q_{\rm gen}=|\B|\) is the prefix entropy and
+locator-fiber denominator; it is not interchangeable with \(q_{\rm line}\).
+The line field is the challenge denominator in the present packet family:
+\[
+q_{\rm KB}=p_{\rm KB}^{6},\quad p_{\rm KB}=2^{31}-2^{24}+1=2130706433,
+\]
+\[
+q_{\rm M31}=p_{\rm M31}^{4},\quad p_{\rm M31}=2^{31}-1=2147483647.
+\]
+Thus
+\[
+B^*_{\rm KB}=\Bigl\lfloor\frac{p_{\rm KB}^6}{2^{128}}\Bigr\rfloor
+      =274980728111395087,
+\qquad
+B^*_{\rm M31}=\Bigl\lfloor\frac{p_{\rm M31}^4}{2^{100}}\Bigr\rfloor
+      =16777215.
+\]
+The Mersenne-31 rows therefore use \(\varepsilon^*=2^{-100}\), not
+\(2^{-128}\); otherwise \(B^*=0\) for \(p_{\rm M31}^{4}<2^{128}\).
+
+If the first safe integer agreement is \(a_*=a_0+1\), then the largest
+attained safe closed integer radius is \((n-a_*)/n\), while the real-radius
+supremum is \((n-a_*+1)/n=(n-a_0)/n\) and is not attained.
+
+\subsection{Active Row Data}
+
+The active adjacent rows are the rows of
+\(\mathrm{cor{:}capg\text{-}adjacent\text{-}pairs}\) in
+\texttt{experimental/cap25\_cap\_v13\_raw.tex}.  The four row packets live in
+\texttt{experimental/data/certificates/frontier-adjacent/}.  For the two MCA
+rows, the active pair is the moved-pair block
+\texttt{v13\_raw\_moved\_pair}; the older \texttt{agreement\_interval} fields
+inside those same packets are retained as historical packet data and should
+not be used as the active adjacent step.
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}llllrrrll@{}}
+\toprule
+row & object & \(q_{\rm gen}\) & \(Q\) & \(a_0\) & \(a_0+1\) & \(w(a_0)\) &
+\(B^*\) & headroom at \(a_0+1\)\\
+\midrule
+KoalaBear & MCA & \(p_{\rm KB}\) & \(p_{\rm KB}^6\) &
+1116047 & 1116048 & 67470 &
+274980728111395087 & 22.1969 bits\\
+KoalaBear & list & \(p_{\rm KB}\) & \(p_{\rm KB}^6\) &
+1116046 & 1116047 & 67470 &
+274980728111395087 & 22.0109 bits\\
+Mersenne-31 & MCA & \(p_{\rm M31}\) & \(p_{\rm M31}^4\) &
+1116023 & 1116024 & 67446 &
+16777215 & 3.2589 bits\\
+Mersenne-31 & list & \(p_{\rm M31}\) & \(p_{\rm M31}^4\) &
+1116022 & 1116023 & 67446 &
+16777215 & 3.0730 bits\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Here \(w(a_0)=a_0-k-1\) for MCA rows and \(w(a_0)=a_0-k\) for list rows.
+The headroom column is the exact bit margin by which the identity-prefix or
+quantitative deep-list floor fails to cross \(B^*\) at \(a_0+1\); it is
+available budget for a finite upper ledger, not a safety proof.
+
+\subsection{Checked Artifacts}
+
+The following are already certificate-checked in the current artifacts, subject
+to the fact that the verifiers were inspected here but not re-run in this audit
+turn.
+
+\begin{enumerate}[label=\textup{(\arabic*)}]
+\item \textbf{Budgets and row constants.}
+\texttt{verify\_frontier\_adjacent\_v13\_rows.py} recomputes \(B^*\), \(n\),
+\(k\), the KoalaBear and Mersenne-31 field sizes, and every scalar ledger
+field in the four row packets from \(n,k,p_{\rm KB},p_{\rm M31}\).
+
+\item \textbf{Unsafe lower staircase.}
+For the list rows, the identity-prefix list floor proves
+\[
+        L(a_0)>B^*.
+\]
+For the MCA rows, the active lower certificate uses the flexible-budget
+deep-point conversion:
+\[
+        L(m)=\Bigl\lceil\binom{n}{m}/p^{\,m-k-1}\Bigr\rceil,\qquad
+        M(m)=\Bigl\lceil
+        \frac{L(m)(q-n)}{q-n+k(L(m)-1)}
+        \Bigr\rceil,
+\]
+and checks \(M(a_0)>B^*\), while \(M(a_0+1)\le B^*\).  The active MCA values
+stored in the packets are
+\[
+\begin{array}{c|cc}
+\text{row} & M(a_0) & M(a_0+1)\\ \hline
+\text{KoalaBear MCA} & 138634741058327852652 & 57198030366\\
+\text{Mersenne-31 MCA} & 4281388998575706 & 1752700.
+\end{array}
+\]
+The corresponding unsafe pass margins are \(+8.9777\) bits and \(+27.927\)
+bits.  The adjacent failures are deficits of
+\(274980670913364722\) and \(15024516\), respectively.  These failures are
+\emph{not} safe certificates; they only say that this lower route stops.
+
+\item \textbf{Full dyadic rung audit.}
+The frontier-adjacent verifier implements a full exact scan over dyadic scales
+\(c=2^j\), \(0\le j\le20\), in the graded-prefix, quotient-remainder, and
+planted quotient-core profiles.  At the active adjacent steps, no frontier
+covering rung fires.  The current packet verdicts are:
+\[
+\begin{array}{c|l}
+\text{row} & \text{rung audit verdict at }a_0+1\\ \hline
+\text{KoalaBear MCA} & \text{GREEN; tightest frontier rung }c=1,\ -22.1969
+\text{ bits}\\
+\text{KoalaBear list} & \text{GREEN; tightest frontier rung }c=1,\ -22.0109
+\text{ bits}\\
+\text{Mersenne-31 MCA} &
+\text{TIGHT watch-item; }G_{\lceil\cdot\rceil},\ c=2048,\ -0.3938\text{ bit}\\
+\text{Mersenne-31 list} & \text{GREEN at the frontier; sub-frontier watch-item }
+c=2048,\ -0.2106\text{ bit}.
+\end{array}
+\]
+The Mersenne-31 MCA watch item has exact mass \(12769758\) against
+\(B^*_{\rm M31}=16777215\), so it is quiet but within one bit.  It is a
+binding audit risk, not a falsifier.
+
+\item \textbf{Safe-theorem gap table.}
+The packets record that the known broad safe theorems are far above these
+agreement steps: the current rows sit hundreds of thousands of agreement steps
+below the nearest known safe region.  Thus no existing broad theorem pays
+\(U(a_0+1)\).
+
+\item \textbf{Extension-cell target arithmetic.}
+\texttt{extension\_cell\_targets\_v1.json} and
+\texttt{verify\_frontier\_extension\_cell\_targets.py} reduce the genuinely
+full-extension slope branch to a zero-dimensional target.  A positive
+dimensional extension chart is unaffordable in every row.  The exact remaining
+degree ceilings for the \(K=F\) extension branch are:
+\[
+\begin{array}{c|c}
+\text{row} & \Delta_{\rm ext}\text{ ceiling}\\ \hline
+\text{KoalaBear MCA} & 4807520\\
+\text{KoalaBear list} & 4226236\\
+\text{Mersenne-31 MCA} & 9\\
+\text{Mersenne-31 list} & 8.
+\end{array}
+\]
+This artifact names the target and falsifier for the extension cell; it does
+not pay the cell.
+\end{enumerate}
+
+\subsection{Finite Audits and Proof Inputs Still Open}
+
+The remaining work is not another unsafe lower-floor computation.  It is an
+upper-ledger construction at \(a_0+1\).  A valid finite packet still needs the
+following exact inputs.
+
+\begin{enumerate}[label=\textup{(\arabic*)}]
+\item \textbf{Active-pair packet freshness.}
+For the MCA rows, the safe-cell tables in the older packet body still contain
+the historical \(\texttt{agreement\_interval}\) fields.  A promotion packet
+must print all safe cells directly at \(1116048\) and \(1116024\), not only in
+the moved-pair addendum.
+
+\item \textbf{Quotient image upper ledger.}
+The rung audit proves that no scanned lower-floor rung fires at \(a_0+1\).
+It does not prove a global image-level upper bound for the quotient cell.  The
+finite packet must provide an exact first-match quotient image ledger, with
+descent and lcm coalescing constants, and must re-audit any scale or slack
+profile not covered by the present \(21\)-scale scan.
+
+\item \textbf{Q: prefix maximum-fiber certificate.}
+The finite packet must prove an exact max-fiber bound for the identity-prefix
+map after quotient and planted strata are removed.  A polynomial-loss Q theorem
+is insufficient here unless the printed constant fits inside the row margins
+above.
+
+\item \textbf{BC: base-field-normalized split-pencil census.}
+The interior aperiodic split-pencil cell needs a finite census with row-wise
+constants.  The Mersenne-31 rows are binding: their budgets allow only a few
+bits of slack.
+
+\item \textbf{SP: primitive shift-pair control.}
+The primitive part of the second-moment shift-pair ledger must be bounded with
+explicit constants and deduplicated against Q and BC.  The Mersenne-31 MCA
+\(c=2048\) watch item should be treated as the periodic stress test for this
+deduplication.
+
+\item \textbf{Extension, sparse/CA, and list residuals.}
+The extension \(K=F\) branch must be certified zero-dimensional with the degree
+ceilings above.  The sparse/plain-CA layer and the list/interleaved residual
+must be printed as exact cells or routed to named theorems.  Any unresolved
+branch must remain one of
+\[
+\texttt{PAID\_BY\_THEOREM},\quad
+\texttt{PAID\_BY\_EXACT\_CERTIFICATE},\quad
+\texttt{CONDITIONAL\_ON\_NAMED\_INPUT},\quad
+\texttt{CONJECTURAL\_WITH\_FALSIFIER},\quad
+\texttt{COUNTEREXAMPLE\_NEW\_FLOOR}.
+\]
+
+\item \textbf{First-match deduplication.}
+The total \(U(a_0+1)\) must be a first-match, deduplicated union or a certified
+safe sum over named cells.  Lower witnesses are maximized, never summed.
+Upper cells may be summed only after support/image/root coalescing and
+cross-cell ownership are stated.
+\end{enumerate}
+
+\subsection{Finite Closure Theorem}
+
+\begin{theorem}[finite adjacent closure, audit form]
+\label{thm:finite-adjacent-closure-audit}
+Fix one of the four rows in the active row table above.  Let \(a_+=a_0+1\)
+and let \(B_R(a)\) be the row's finite bad-object numerator: support-wise
+MCA-bad slopes for the MCA rows and listed codewords for the list rows.  Assume:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item the banked lower certificate proves \(B_R(a_0)>B^*\);
+\item every object counted by \(B_R(a_+)\) is assigned by a first-match rule to
+exactly one paid or residual cell;
+\item the row prints exact nonnegative integers for
+\[
+U_R(a_+)=
+U_{\rm tan}+U_{\rm quot}+U_{\rm ext}+U_{\rm sparse/CA}
+        +U_Q+U_{BC}+U_{SP}+U_{\rm residual},
+\]
+with every residual branch carrying one of the five status labels above; and
+\item the exact integer inequality \(U_R(a_+)\le B^*\) is verified by the row
+packet replay.
+\end{enumerate}
+Then \(a_+\) is the first safe integer agreement for that row:
+\[
+        B_R(a_0)>B^*,\qquad B_R(a_+)\le B^*.
+\]
+Consequently the largest attained safe closed integer radius is
+\[
+        \delta_{\rm safe}^{\rm int}=\frac{n-a_+}{n},
+\]
+and the real-radius supremum is \((n-a_0)/n\), not attained under the strict
+unsafe inequality at \(a_0\).
+\end{theorem}
+
+\begin{proof}
+By (i), the row is unsafe at agreement \(a_0\).  By (ii), the first-match rule
+covers every object contributing to \(B_R(a_+)\) once and only once.  By (iii),
+the printed integer \(U_R(a_+)\) is therefore an upper bound for
+\(B_R(a_+)\).  By (iv), \(B_R(a_+)\le U_R(a_+)\le B^*\), so \(a_+\) is safe.
+Monotonicity of the closed integer staircase then gives the claimed adjacent
+transition and endpoint statement.
+\end{proof}
+
+\begin{remark}[do not promote beyond the artifacts]
+The present artifacts verify the lower staircase, the failure of that lower
+route at the adjacent step, the broad safe-theorem gap, the dyadic rung
+non-inversion audit, and the extension-cell degree targets.  They do not
+verify \(U_R(a_+)\le B^*\) for any row.  In particular, the phrases
+``GREEN rung audit'', ``lower route fails at \(a_0+1\)'', and
+``extension target fits the bit margin'' are not synonyms for a finite safe
+certificate.
+\end{remark}

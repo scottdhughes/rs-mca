@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Exact checks for the CAP25 v14 moved MCA frontier.
+"""Exact checks for the CAP25 v13-raw moved MCA frontier.
 
-This verifies the integer comparisons behind prop:v14-moved-frontier:
+This verifies the integer comparisons behind prop:v13-raw-moved-frontier:
   binom(n,m) > p^(m-k-1) floor(q/2^t),
   binom(n,m+1) <= p^(m-k) floor(q/2^t),
 and the flexible-budget admissibility and zero-collision inequalities.
@@ -41,7 +41,7 @@ def main() -> None:
         print(f"  pass/fail margins: {pass_margin:.3f} / {fail_margin:.3f} bits")
         print(f"  N1 bit length/log2: {N1.bit_length()} / {log2(N1):.3f}")
         print(f"  safe adjacent={m+1}, finite moment order approx={ceil((w+1)*log2(p)/fail_margin)}")
-    print("All exact v14 moved-frontier checks passed.")
+    print("All exact v13-raw moved-frontier checks passed.")
 
 if __name__ == "__main__":
     main()

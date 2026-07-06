@@ -133,7 +133,7 @@ The version changes matter for the website and scanner as follows:
   deployed KoalaBear pincer, and reduce the remaining MCA task to the sparse
   residual layer plus CA/list certificates.
 - **`experimental/rs_mca_proximity_prize_status.md`** is an experimental
-  committee-facing status memo for the v12/v13/v14 picture. It summarizes the
+  committee-facing status memo for the v12/v13 raw picture. It summarizes the
   entropy-subfield-envelope thesis, the current exact unsafe certificates, and
   the remaining `(Q)`/split-pencil conjectural safe side. Do not cite it as
   paper authority until the relevant claims are promoted into Paper D or

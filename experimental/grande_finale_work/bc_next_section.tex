@@ -1,0 +1,177 @@
+\subsection{BC: an interior subfield split-pencil theorem}
+\label{subsec:bc-next}
+
+This subsection records a proved subcase of the base-field-normalized
+split-pencil problem.  It does not prove the primitive upper census in
+\cref{conj:BC}; instead it proves that the base-field term in that conjecture
+is forced already by genuine interior split-pencil instances.  In particular,
+the \(q\)-normalized model for split pencils is false over extension rows
+unless the \(|\B|\)-scale term below is included.
+
+\begin{theorem}[interior prefix witnesses force the base-field BC floor]
+\label{thm:bc-interior-prefix-floor}
+Let \(C=\RS[\F,D,K]\), where \(D\subseteq\B\subseteq\F\), \(|D|=n\), and
+\(|\B|=b\).  Fix an agreement \(m\ge K\), put
+\[
+        \omega:=n-m,\qquad w:=m-K,
+\]
+and let \(d_1\) be an interior profile:
+\[
+        w+2\le d_1\le \left\lfloor {n-K+1\over2}\right\rfloor .
+\]
+Set \(m_{d_1}:=K-1+d_1\), and assume
+\[
+        m\le m_{d_1}\le n,\qquad        m_{d_1}+d_1\le n .
+\]
+For \(z=(z_1,\ldots,z_{d_1-1})\in\B^{d_1-1}\), define the
+\(\B\)-valued prefix word
+\[
+        U_z(X)=X^{m_{d_1}}+\sum_{h=1}^{d_1-1}z_hX^{m_{d_1}-h}
+        \quad\text{on }D .
+\]
+Then \(M_{U_z}\) has minimal shifted degree exactly \(d_1\).  Moreover, for
+some \(z^*\in\B^{d_1-1}\), every shifted weak-Popov basis of \(M_{U_{z^*}}\)
+with profile \((d_1,d_2)\), \(d_2=n-K+1-d_1\), has split-pencil count at
+least
+\[
+        \binom{m_{d_1}}m
+        \left\lceil \binom n{m_{d_1}} b^{-(d_1-1)}\right\rceil .
+\]
+Equivalently, the interior profile \(d_1\) contains a genuine
+base-field-normalized floor
+\[
+        M_{\B}(d_1)
+        =
+        \binom{m_{d_1}}m\binom n{m_{d_1}}b^{-(d_1-1)}
+\]
+up to the indicated integer ceiling.  Thus the correct BC model at interior
+profile \(d_1\) must include this \(|\B|\)-normalized term, not only the
+challenge-field-generic term.
+\end{theorem}
+
+\begin{proof}
+We first compute the minimal shifted degree.  The pair \((1,U_z)\) lies in
+the interpolation module \(M_{U_z}\), and its shifted degree is
+\[
+        \max(0,\deg U_z-(K-1))=m_{d_1}-(K-1)=d_1 .
+\]
+Suppose conversely that \((W,N)\in M_{U_z}\) has shifted degree \(<d_1\).
+Then \(\deg W<d_1\) and \(\deg N<K-1+d_1=m_{d_1}\).  The polynomial
+\[
+        WU_z-N
+\]
+vanishes on \(D\).  Its degree is at most \(m_{d_1}+d_1-1<n\), by the
+hypothesis \(m_{d_1}+d_1\le n\), hence it is the zero polynomial.  If
+\(W\ne0\), then the monicity of \(U_z\) gives
+\(\deg(WU_z)\ge m_{d_1}\), contradicting \(\deg N<m_{d_1}\).  Therefore
+\(W=0\), and then \(N=0\).  Thus no nonzero module element has shifted degree
+below \(d_1\).
+
+Now count forced split locators.  For an \(m_{d_1}\)-subset
+\(M'\subseteq D\), write
+\[
+        \ell_{M'}(X)=\prod_{x\in M'}(X-x).
+\]
+Since \(D\subseteq\B\), the map taking \(M'\) to the first \(d_1-1\)
+high-degree coefficients of \(\ell_{M'}\) has image in
+\(\B^{d_1-1}\).  Hence some prefix value \(z^*\) has fiber size at least
+\[
+        \left\lceil \binom n{m_{d_1}}b^{-(d_1-1)}\right\rceil .
+\]
+For each \(M'\) in this fiber, the polynomial
+\[
+        c_{M'}:=U_{z^*}-\ell_{M'}
+\]
+has degree \(<K\): the leading term and the first \(d_1-1\) high-degree
+coefficients cancel, and
+\[
+        m_{d_1}-d_1=K-1 .
+\]
+Thus \(c_{M'}\) agrees with \(U_{z^*}\) on all points of \(M'\).
+
+Every \(m\)-subset \(T\subseteq M'\) is therefore an agreement support of
+size \(m\).  The resulting support-codeword pairs are distinct as
+\((M',T)\) varies.  Indeed, if two such pairs gave the same \(T\) and the
+same explaining codeword, then
+\(\ell_{M'_1}=\ell_{M'_2}\) and hence \(M'_1=M'_2\).  If the explaining
+codewords were different but agreed with \(U_{z^*}\) on the same \(T\), their
+difference would be a nonzero polynomial of degree \(<K\) with at least
+\(|T|=m\ge K\) roots, impossible.
+
+Therefore the agreement-support census of \(U_{z^*}\) at size \(m\) is at
+least the displayed binomial multiple of the heaviest fiber size.  By
+\cref{prop:lattice-split}, this census is represented inside the split-pencil
+count of any shifted weak-Popov basis of \(M_{U_{z^*}}\), with monic
+\(D\)-split locator \(W=\ell_{D\setminus T}\).  Since the minimal shifted
+degree is \(d_1\), this is a genuine interior profile rather than the
+boundary-Q profile.  The final sentence is just the asymptotic version of the
+same lower bound.
+\end{proof}
+
+\begin{corollary}[rank-one line floor at the same base-field scale]
+\label{cor:bc-rank-one-pole-floor}
+Let \(C=\RS[\F,D,K]\), where \(D\subseteq\B\subseteq\F\), \(|D|\ge2\), put
+\(b:=|\B|\), and fix \(m\ge K+1\).  Put \(w:=m-K\), and let
+\(z^*\in\B^w\) be a heaviest depth \(w\) prefix value among \(m\)-subsets of
+\(D\).  For any
+\(\alpha\in\F\setminus(D\cup\B)\), define the simple-pole line
+\[
+        f_\alpha(x)={U_{z^*}(x)\over x-\alpha},\qquad
+        g_\alpha(x)={-1\over x-\alpha}\qquad(x\in D).
+\]
+Then at least
+\[
+        \left\lceil \binom n{m}b^{-w}\right\rceil
+\]
+\(m\)-supports are non-common rank-one supports for \((f_\alpha,g_\alpha)\).
+Consequently the rank-one support census feeding the BC reduction also has a
+base-field floor, and this floor is not contained in the \(\B\)-rational
+confinement stratum, even up to common scalar.
+\end{corollary}
+
+\begin{proof}
+The heaviest-fiber pigeonhole gives at least
+\[
+        \left\lceil \binom n{m}b^{-w}\right\rceil
+\]
+members \(S\in\Fib_w(z^*)\).  For each such \(S\), \cref{prop:pole-line}
+gives a slope
+\[
+        \zeta_S:=U_{z^*}(\alpha)-\ell_S(\alpha)
+\]
+for which \(f_\alpha+\zeta_Sg_\alpha\) is explained on \(S\).  In the
+slope-elimination notation this means
+\(\alpha(S)+\zeta_S\beta(S)=0\).  If \(g_\alpha\) were explained on \(S\) by
+a polynomial \(G\) of degree \(<K\), then \((X-\alpha)G+1\) would have degree
+at most \(K\), would vanish on the \(m\ge K+1\) points of \(S\), and would
+take value \(1\) at \(X=\alpha\).  This is impossible.  Thus
+\(\beta(S)\ne0\), so \(S\) is a non-common rank-one support.
+
+Finally we check the confinement assertion.  If some \(\lambda\ne0\) made
+\(\lambda g_\alpha(x)\in\B\) for every \(x\in D\), then for distinct
+\(x,y\in D\) the ratio
+\[
+        {g_\alpha(x)\over g_\alpha(y)}={y-\alpha\over x-\alpha}
+\]
+would lie in \(\B\).  Writing this ratio as \(r\), we have \(r\ne1\), and
+\[
+        \alpha={y-rx\over 1-r}\in\B,
+\]
+contradicting \(\alpha\notin\B\).  Hence the line is genuinely
+extension-valued and is outside the \(\B\)-confined rational stratum.
+\end{proof}
+
+\paragraph{What remains open.}
+\Cref{thm:bc-interior-prefix-floor,cor:bc-rank-one-pole-floor} are lower-floor
+and normalization theorems.  They prove that the BC ledger must contain the
+base-field term \(M_{\B}(d_1)\), and they identify a genuine interior
+split-pencil family attaining it.  They do not prove the needed safe-side
+upper bound for primitive interior pencils.  To settle one deployed adjacent
+row, a certificate must still enumerate the first-match paid cells at
+\(a_0+1\), remove tangent, common-GCD, quotient-pulled-back, extension,
+boundary-Q, bounded-chart, and subfield-floor contributions, and prove that
+the remaining primitive split-pencil count plus the printed base-field floor
+is at most the row budget \(B^*=\lfloor\varepsilon^*Q\rfloor\).  An
+asymptotic proof may allow \(e^{o(n)}\) loss above logarithmic reserve, but
+the deployed adjacent rows require explicit constants fitting inside their
+printed bit margins.

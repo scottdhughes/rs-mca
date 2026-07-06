@@ -1,0 +1,1432 @@
+\documentclass[a4paper,11pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage[capitalize]{cleveref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\F}{\mathbb F}
+\newcommand{\B}{\mathbb B}
+\newcommand{\RS}{\operatorname{RS}}
+\newcommand{\emca}{\varepsilon_{\mathrm{mca}}}
+\newcommand{\eca}{\varepsilon_{\mathrm{ca}}}
+\newcommand{\Htwo}{H_2}
+\newcommand{\poly}{\operatorname{poly}}
+\newcommand{\Fib}{\operatorname{Fib}}
+\newcommand{\wdeg}{\operatorname{wdeg}}
+\newcommand{\Cen}{\operatorname{Cen}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\wt}{\operatorname{wt}}
+
+\title{Final Inputs for RS-MCA}
+\date{July 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This note isolates the remaining proof and certificate inputs needed to turn the current CAP25 v13 raw program into a resolution of the smooth-domain Reed--Solomon MCA threshold.  The unsafe side is already reduced to exact integer prefix-floor certificates, while the safe side is reduced to three named residual inputs: prefix flatness, a base-field-normalized split-pencil census, and primitive shift-pair control.  We prove the structural reductions that make these the right residual inputs: exact prefix witnesses, slope elimination, the split-pencil normal form, quotient descent, and the primitive second-moment ledger.  We then prove the conditional closure theorem they imply and state the finite adjacent certificate problem whose completion would settle the deployed KoalaBear and Mersenne-31 rows at the printed challenge targets.  The note is a work plan, not a replacement for the full CAP25 v13 raw manuscript.
+\end{abstract}
+
+\section{The Threshold Problem}
+
+Let \(C=\RS[\F,D,k]\) be the Reed--Solomon code obtained by evaluating polynomials of degree \(<k\) on a smooth multiplicative or circle-type domain \(D\) of size \(n\), and put \(\rho=k/n\).  In the deployed cases \(D\) is defined over a base field \(\B\subseteq\F\); write \(\beta=\log_2|\B|\).  The quantity of interest is the largest radius \(\delta\) for which the support-wise mutual correlated agreement error is at most the challenge target:
+\[
+        \delta_C^*(\varepsilon^*)=\sup\{\delta<1-\rho:\emca(C,\delta)\le\varepsilon^*\}.
+\]
+All statements below use the closed integer-ball convention: agreement at least \(a\) means radius \(1-a/n\), and an adjacent threshold certificate has an unsafe statement at \(a_0\) and a safe statement at \(a_0+1\).
+
+The predicted asymptotic answer is the entropy--subfield envelope
+\[
+        \delta_C^*(\varepsilon^*)=1-\rho-g^*(\rho,\beta)+o(1),
+        \qquad
+        g^*(\rho,\beta)=\sup\{g:\Htwo(\rho+g)\ge \beta g\}.
+\]
+The point of the formula is that the base field \(\B\), not a larger challenge field, controls the frontier unless a separate transfer theorem is proved.
+
+\begin{definition}[support-wise CA and MCA at agreement \(a\)]\label{def:ca-mca}
+Let \(C\subseteq\F^D\) be linear, \(|D|=n\), and \(1\le a\le n\).  A word \(h\in\F^D\) is \(C\)-explained on \(S\subseteq D\) if some \(c\in C\) agrees with \(h\) on \(S\).  A pair \((f_1,f_2)\) is \(C^{\equiv2}\)-explained on \(S\) if some \(c_1,c_2\in C\) agree with \(f_1,f_2\) on \(S\).
+
+For a pair \((f_1,f_2)\), a finite slope \(\gamma\in\F\) is MCA-bad at agreement \(a\) if there is a set \(S\subseteq D\), \(|S|\ge a\), such that \(f_1+\gamma f_2\) is \(C\)-explained on \(S\), but \((f_1,f_2)\) is not \(C^{\equiv2}\)-explained on that same \(S\).  It is CA-bad at agreement \(a\) if \(f_1+\gamma f_2\) is \(C\)-explained on some \(S\) with \(|S|\ge a\), while \((f_1,f_2)\) is not \(C^{\equiv2}\)-explained on any set \(T\subseteq D\) with \(|T|\ge a\).
+
+With the uniform slope sampler \(\gamma\leftarrow\F\), define
+\[
+        \emca(C,1-a/n)
+        =
+        {1\over|\F|}
+        \max_{f_1,f_2\in\F^D}
+        |\{\gamma:\gamma\text{ is MCA-bad at agreement }a\}|,
+\]
+and define \(\eca(C,1-a/n)\) analogously with CA-bad slopes.
+\end{definition}
+
+\begin{lemma}[comparison and monotonicity]\label{lem:basic-staircase}
+For every linear code \(C\subseteq\F^D\) and every agreement threshold \(a\),
+\[
+        \eca(C,1-a/n)\le \emca(C,1-a/n).
+\]
+Moreover the bad-slope sets are monotone in the agreement threshold: if \(a'\le a\), then every MCA-bad slope at agreement \(a\) is MCA-bad at agreement \(a'\).  Consequently the radius function \(\delta\mapsto\emca(C,\delta)\) is nondecreasing under the closed integer-ball convention.
+\end{lemma}
+
+\begin{proof}
+If a slope is CA-bad for \((f_1,f_2)\), then some support \(S\) of size at least \(a\) explains \(f_1+\gamma f_2\), and no support of size at least \(a\) explains the pair.  In particular, the same \(S\) does not explain the pair, so the slope is MCA-bad.  Taking maxima gives the first inequality.
+
+For monotonicity, the same witness support \(S\) used at agreement \(a\) also satisfies \(|S|\ge a'\) when \(a'\le a\).  Thus it witnesses badness at the lower agreement threshold.  Since increasing the closed radius lowers the required integer agreement, \(\emca\) is nondecreasing in \(\delta\).
+\end{proof}
+
+\begin{definition}[staircase numerator]\label{def:staircase}
+For an MCA row, let \(B_C^{\rm MCA}(a)\) be the maximum number of MCA-bad line parameters with a witness support of size at least \(a\).  For a list row, let \(B_C^{\rm list}(a)\) be the maximum number of codewords agreeing with a received word on at least \(a\) positions.  When the row track is fixed, write \(B(a)\) for the relevant numerator.  For target \(\varepsilon^*\) and challenge denominator \(Q\), write \(B^*=\lfloor \varepsilon^* Q\rfloor\).  An adjacent certificate at \(a_0\) is the pair of inequalities \(B(a_0)>B^*\) and \(B(a_0+1)\le B^*\).
+\end{definition}
+
+\begin{lemma}[integer budget convention]\label{lem:integer-budget}
+Let a finite sampler have denominator \(Q\), and let \(B\) be the number of bad samples.  For \(B^*=\lfloor\varepsilon^*Q\rfloor\),
+\[
+        {B\over Q}\le\varepsilon^*
+        \quad\Longleftrightarrow\quad
+        B\le B^*,
+        \qquad
+        {B\over Q}>\varepsilon^*
+        \quad\Longleftrightarrow\quad
+        B>B^* .
+\]
+Thus every finite adjacent certificate can be stated purely as an integer comparison with \(B^*\).
+\end{lemma}
+
+\begin{proof}
+Since \(B\) is an integer, \(B\le\varepsilon^*Q\) is equivalent to \(B\le\lfloor\varepsilon^*Q\rfloor\).  The strict inequality is the negation of the first condition.
+\end{proof}
+
+The unsafe half of the present program supplies the first inequality in \cref{def:staircase} by identity-prefix floors.  The safe half must prove the second inequality after all tangent, quotient, extension, and aperiodic residual cells have been paid without double-counting.
+
+\begin{definition}[first-match upper ledger]\label{def:first-match-ledger}
+Fix a row, an agreement \(a\), and a received line \((f_1,f_2)\).  A first-match upper ledger for this line is a finite ordered list of cells \(\mathcal C_1,\ldots,\mathcal C_s\), together with supersets \(E_i\subseteq\F\) and certified bounds \(U_i\), such that every MCA-bad slope at agreement \(a\) lies in \(\bigcup_i E_i\) and \(|E_i|\le U_i\).  The associated first-match assignment sends a bad slope \(\gamma\) to the least \(i\) with \(\gamma\in E_i\).
+\end{definition}
+
+\begin{lemma}[first-match upper ledger]\label{lem:first-match-ledger}
+If every received line admits a first-match upper ledger at agreement \(a\) with \(\sum_iU_i\le U\), then \(B_C^{\rm MCA}(a)\le U\).  In particular, \(U\le B^*\) gives the MCA safe half of the adjacent certificate at agreement \(a\).
+\end{lemma}
+
+\begin{proof}
+For a fixed line, the first-match sets
+\[
+        F_i=\{\gamma:\gamma\text{ is bad and }i\text{ is the least index with }\gamma\in E_i\}
+\]
+are disjoint and cover all bad slopes.  Since \(F_i\subseteq E_i\), the number of bad slopes is at most \(\sum_i|E_i|\le\sum_iU_i\le U\).  Taking the maximum over received lines gives \(B_C^{\rm MCA}(a)\le U\).
+\end{proof}
+
+\begin{remark}[MCA versus list rows]\label{rem:mca-list-route}
+The four deployed rows use the same staircase language but not the same lower-side route.  The list rows compare the prefix list floor directly with \(B^*\).  The MCA rows first form a list floor for \(K=k+1\), then use the deep-point conversion to obtain a bad-slope lower bound.  In the moved v13 raw rows this conversion is packaged into an exact integer comparison against \(B^*\), but a certificate must still print which numerator, denominator, and route it uses.
+\end{remark}
+
+\section{What Is Already Banked}
+
+The current CAP25 v13 raw manuscript records exact unsafe deployed edges.  We treat those as the active experimental source and do not reproduce its long proof here.  The table states the consequence needed by this note.
+
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\toprule
+row & target & proved unsafe agreement \(a_0\) & unsafe radius\\
+\midrule
+KoalaBear MCA & \(2^{-128}\) & \(1116047\) & \(981105/2097152\)\\
+KoalaBear list & \(2^{-128}\) & \(1116046\) & \(490553/1048576\)\\
+Mersenne-31 MCA & \(2^{-100}\) & \(1116023\) & \(981129/2097152\)\\
+Mersenne-31 list & \(2^{-100}\) & \(1116022\) & \(490565/1048576\)\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Each entry is an exact integer comparison of the form
+\[
+        \binom{n}{m}>|\B|^w B^*
+\]
+after applying the route specified in \cref{rem:mca-list-route}, with the adjacent row failing in the same scanner.  The next-step bit margins for the safe inequality are approximately \(22.2,22.0,3.3,3.1\) bits in the displayed order, so a qualitative \(\poly(n)\) loss cannot settle the finite deployed rows.
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}llll@{}}
+\toprule
+row & adjacent agreement & spare margin & current adjacent status\\
+\midrule
+KoalaBear MCA & \(1116048\) & \(22.1969\) bits & unsafe route stops; no \(U\)-certificate\\
+KoalaBear list & \(1116047\) & \(22.0109\) bits & unsafe route stops; no \(U\)-certificate\\
+Mersenne-31 MCA & \(1116024\) & \(3.2589\) bits & tight dyadic watch item, still below budget\\
+Mersenne-31 list & \(1116023\) & \(3.0730\) bits & tight dyadic watch item, still below budget\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The exact challenge budgets are
+\[
+        B^*_{\mathrm{KB}}=\bigl\lfloor p_{\mathrm{KB}}^6/2^{128}\bigr\rfloor
+        =274980728111395087,
+        \qquad
+        B^*_{\mathrm{M31}}=\bigl\lfloor p_{\mathrm{M31}}^4/2^{100}\bigr\rfloor
+        =16777215.
+\]
+The Mersenne-31 rows therefore use target \(2^{-100}\), not \(2^{-128}\); at \(2^{-128}\) their line field would be below the target denominator and the row would be degenerate.  The current packet family records these budgets in
+\[
+\texttt{experimental/data/certificates/frontier-adjacent/*.packet.json}
+\]
+and the lightweight consistency verifier is
+\[
+\texttt{experimental/scripts/verify\_frontier\_adjacent\_v13\_rows.py}.
+\]
+That verifier checks the stored row constants, the unsafe-side replay, and the full dyadic rung-margin audit.  It does not prove \(U(a_0+1)\le B^*\), and the JSON packets correctly leave the safe certificate status open.
+
+\begin{remark}[finite adjacent artifact status]\label{rem:finite-artifacts}
+For the MCA rows, the active lower certificate uses the quantitative deep-list conversion.  The packet values are
+\[
+\begin{array}{c|cc}
+\text{row} & M(a_0) & M(a_0+1)\\
+\hline
+\text{KoalaBear MCA} & 138634741058327852652 & 57198030366\\
+\text{Mersenne-31 MCA} & 4281388998575706 & 1752700 .
+\end{array}
+\]
+Thus \(M(a_0)>B^*\) and the same lower route fails at \(a_0+1\).  This failure is not a safe upper bound.  The dyadic rung audit currently has no firing frontier rung at the adjacent agreements; the tightest item is the Mersenne-31 MCA \(c=2048\) quotient watch item, with exact mass \(12769758<16777215=B^*_{\mathrm{M31}}\).  The extension-cell artifact reduces the full-extension branch to zero-dimensional degree ceilings \(4807520,4226236,9,8\) for the four rows in table order.  These are useful target ceilings, not payments of the corresponding cells.
+\end{remark}
+
+\begin{remark}[packet convention]\label{rem:packet-convention}
+The MCA rows in the current packet family contain historical adjacent-pair fields as well as the active moved-pair block.  For v13 raw, the active MCA edges are the moved pairs displayed in this note: KoalaBear MCA at \(a_0=1116047\) and Mersenne-31 MCA at \(a_0=1116023\).  The list rows are unchanged.  In the verifier terminology, the broad dyadic rung scan is gate G6 for the original packet-pair tables, while gate G7 recomputes the moved MCA lower route and the named Mersenne-31 \(c=2048\) watch item.  Thus the rung audit is a veto on currently printed quotient lower-floor refutations at \(a_0+1\), not a quotient-image upper bound.  The Mersenne-31 MCA watch item is close but quiet: it is short by \(16777215-12769758=4007457\) objects.
+\end{remark}
+
+\begin{theorem}[quantitative simple-pole list-to-MCA floor]\label{thm:simple-pole-list-floor}
+Let \(C=\RS[\F,D,k]\), let \(C^+=\RS[\F,D,k+1]\), put \(q=|\F|\), \(n=|D|\), and assume \(q>n\).  Let \(U:D\to\F\) have \(L\ge1\) distinct codewords of \(C^+\) in the closed Hamming ball of radius \(\delta_0\), and assume \(\delta_0<1-k/n\).  Then for every \(\delta\in[\delta_0,1-k/n)\) there is a received line for \(C\) with at least
+\[
+        \left\lceil {L(q-n)\over q-n+k(L-1)}\right\rceil
+\]
+CA-bad finite slopes at radius \(\delta\).  If \(\delta>0\), the same slopes are support-wise MCA-bad.  In particular,
+\[
+        \eca(C,\delta),\ \emca(C,\delta)
+        \ge
+        {1\over q}
+        \left\lceil {L(q-n)\over q-n+k(L-1)}\right\rceil
+\]
+for \(\delta>0\), with the \(\emca\) conclusion omitted only at the degenerate endpoint \(\delta=0\).
+\end{theorem}
+
+\begin{proof}
+Let \(P_1,\ldots,P_L\in\F[X]_{<k+1}\) be distinct polynomials from the \(\delta_0\)-ball around \(U\).  Since \(\delta<1-k/n\), every \(P_i\) agrees with \(U\) on more than \(k\) points.  For \(\alpha\in\Omega:=\F\setminus D\), define the simple-pole line
+\[
+        f_\alpha(x)={U(x)\over x-\alpha},
+        \qquad
+        g_\alpha(x)={-1\over x-\alpha}
+        \qquad(x\in D).
+\]
+If \(P_i\) agrees with \(U\) on \(S_i\), then on \(S_i\)
+\[
+        f_\alpha(x)+P_i(\alpha)g_\alpha(x)
+        ={P_i(x)-P_i(\alpha)\over x-\alpha},
+\]
+which is the evaluation of a degree-\(<k\) polynomial.  Thus each distinct value of \(P_i(\alpha)\) gives a close slope for the line.
+
+The pair \((f_\alpha,g_\alpha)\) is not column-close at radius \(\delta\): a common explanation on more than \(k\) points would in particular explain \(g_\alpha\) there, so \((X-\alpha)G(X)+1\) would be a polynomial of degree at most \(k\) with more than \(k\) roots and value \(1\) at \(X=\alpha\).  This is impossible.  Therefore all close slopes just constructed are CA-bad, and because the same explaining support cannot explain the pair, they are also MCA-bad whenever the radius is nonzero.
+
+It remains to choose \(\alpha\) with many distinct values.  For \(i\ne j\), the nonzero polynomial \(P_i-P_j\) has degree at most \(k\), so \(P_i(\alpha)=P_j(\alpha)\) for at most \(k\) values \(\alpha\in\Omega\).  Hence some \(\alpha\) has at most \(k\binom L2/(q-n)\) colliding unordered pairs among the \(L\) values.  If the value multiplicities are \(m_1,\ldots,m_M\), then
+\[
+        \sum_r m_r=L,\qquad
+        \sum_r m_r^2
+        =L+2\sum_r\binom{m_r}{2}
+        \le L+{kL(L-1)\over q-n}.
+\]
+Cauchy--Schwarz gives
+\[
+        L^2\le M\sum_r m_r^2,
+        \qquad
+        M\ge {L(q-n)\over q-n+k(L-1)}.
+\]
+Since \(M\) is an integer, the displayed ceiling is valid.
+\end{proof}
+
+\begin{corollary}[identity-prefix unsafe criterion]\label{cor:identity-prefix-unsafe}
+Let \(D\subseteq\B\subseteq\F\), \(|D|=n\), and write \(b=|\B|\), \(q=|\F|\).  Fix an agreement \(a\) and a target numerator \(B^*\).
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item For the list row \(C_K=\RS[\F,D,K]\), put \(w=a-K\).  If \(w\ge0\) and
+\[
+        \left\lceil{\binom na\over b^w}\right\rceil>B^*,
+\]
+then there is a received word with more than \(B^*\) codewords of \(C_K\) agreeing on at least \(a\) positions.
+\item For the MCA row \(C=\RS[\F,D,k]\), put \(K=k+1\), \(w=a-K\), and
+\[
+        L_a=\left\lceil{\binom na\over b^w}\right\rceil .
+\]
+If \(w\ge0\), \(q>n\), and
+\[
+        \left\lceil {L_a(q-n)\over q-n+k(L_a-1)}\right\rceil>B^*,
+\]
+then \(C\) has more than \(B^*\) support-wise MCA-bad finite slopes at agreement \(a\) for some received line.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+For (i), \cref{prop:prefix-witness} gives a prefix value whose fiber has at least \(\lceil\binom na/b^w\rceil\) members; those members are distinct degree-\(<K\) codewords agreeing with one received word on exactly \(a\) positions.
+
+For (ii), apply the same list construction to \(C^+=\RS[\F,D,k+1]\) and then use \cref{thm:simple-pole-list-floor} at \(\delta=1-a/n\).  Since \(a\ge k+1\), this radius is \(<1-k/n\), and the displayed ceiling is a lower bound on the number of MCA-bad finite slopes.
+\end{proof}
+
+\begin{proposition}[finite packet consequences]\label{prop:finite-packet-consequences}
+For the four deployed rows in the table above, let \(p\) denote the row's base prime.  The current packet family proves the unsafe inequality at the displayed active agreement \(a_0\).  More precisely:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item For the two list rows, the identity-prefix list floor
+\[
+        L(a)=\left\lceil{\binom na\over p^{a-k}}\right\rceil
+\]
+satisfies \(L(a_0)>B^*\), while the same identity-prefix floor satisfies \(L(a_0+1)\le B^*\).
+\item For the two MCA rows, with \(K=k+1\),
+\[
+        L(a)=\left\lceil{\binom na\over p^{a-K}}\right\rceil,
+        \qquad
+        M(a)=\left\lceil {L(a)(q-n)\over q-n+k(L(a)-1)}\right\rceil ,
+\]
+the active moved-pair packet values are
+\[
+\begin{array}{c|cc}
+\text{row} & M(a_0) & M(a_0+1)\\
+\hline
+\text{KoalaBear MCA} & 138634741058327852652 & 57198030366\\
+\text{Mersenne-31 MCA} & 4281388998575706 & 1752700 .
+\end{array}
+\]
+Thus \(M(a_0)>B^*\) and \(M(a_0+1)\le B^*\).
+\end{enumerate}
+Consequently the listed \(a_0\)'s are genuine unsafe agreements for their rows, but the adjacent inequalities \(L(a_0+1)\le B^*\) and \(M(a_0+1)\le B^*\) are only lower-route failures, not safe upper bounds.
+\end{proposition}
+
+\begin{proof}
+For list rows, \cref{cor:identity-prefix-unsafe}(i) says that \(L(a_0)>B^*\) is exactly the unsafe list certificate, and \(L(a_0+1)\le B^*\) says only that this particular prefix-floor construction stops one agreement later.
+
+For MCA rows, \cref{cor:identity-prefix-unsafe}(ii) says that the resulting bad-slope numerator is at least \(M(a)\).  Hence \(M(a_0)>B^*\) proves \(\emca(C,1-a_0/n)>\varepsilon^*\).  The displayed values are the exact integer values recorded in the active moved-pair packet fields and recomputed by the replay script.  Since the same formula gives \(M(a_0+1)\le B^*\), the same lower construction no longer proves failure at the adjacent agreement.  This is not an upper bound on all bad slopes, because other tangent, quotient, extension, Q, BC, SP, list, or sparse cells may still contribute.
+\end{proof}
+
+\begin{proposition}[dyadic rung-veto consequence]\label{prop:rung-veto}
+Assume the frontier-adjacent packet verifier described above is replayed successfully.  Then no currently printed dyadic quotient lower-floor rung among the scanned scales \(c=2^j\), \(0\le j\le20\), and the printed graded-prefix, quotient-remainder, and planted-core profiles refutes any of the four active adjacent candidates \(a_0+1\).  The tightest active frontier watch item is the Mersenne-31 MCA \(c=2048\) rung with exact mass
+\[
+        12769758<16777215=B^*_{\mathrm{M31}}.
+\]
+Therefore a new adjacent unsafe certificate must either sharpen a quiet watch item, use an unscanned quotient mechanism, or come from a genuinely aperiodic, extension, sparse/CA, or list/interleaving residual branch.
+\end{proposition}
+
+\begin{proof}
+This is a scope statement for the exact rung audit, not a new mathematical upper bound.  The verifier recomputes, by exact integer arithmetic, every packet field in the dyadic rung tables for the scanned scales and profiles, including whether the corresponding lower floor fires, is within the printed tightness window, and covers the frontier agreement.  The stored and recomputed active moved-pair audit has no firing frontier rung at the adjacent agreements; the only active frontier-covering sub-one-bit watch item is the displayed Mersenne-31 MCA \(c=2048\) mass.  Since that mass is strictly below \(B^*_{\mathrm{M31}}\), the scanned printed quotient lower floors do not themselves refute the adjacent safe candidates.  The conclusion is only a veto on this lower-floor family.  It does not certify a quotient-image upper ledger \(B_Q^{\rm all}(a_0+1)\).
+\end{proof}
+
+\begin{proposition}[safe-anchor gap at the active adjacent rows]\label{prop:finite-safe-anchor-gap}
+Let \(a_+\) be the active adjacent agreement \(a_0+1\) for the four deployed rows, using the moved-pair convention for the two MCA rows.  The broad safe anchors currently recorded in the packet family begin at agreements
+\[
+        A_{\rm deep}=1747627,\qquad
+        A_{\rm half}=1572864,\qquad
+        A_{\rm HJ}=1790031,\qquad
+        A_{\rm BCHKS}=1493067.
+\]
+Here \(A_{\rm deep}\) is the self-contained deep-MCA edge, \(A_{\rm half}\) is the half-distance edge using the BCIKS20 import \cite{BCIKS20}, \(A_{\rm HJ}\) is the half-Johnson CA edge, and \(A_{\rm BCHKS}\) is the conditional BCHKS25 edge recorded in the packet audit \cite{BCHKS25}.  At the active adjacent rows the shortfalls \(A-a_+\) are:
+\[
+\begin{array}{c|rrrr}
+\text{row} & A_{\rm deep} & A_{\rm half} & A_{\rm HJ} & A_{\rm BCHKS}\\ \hline
+\text{KoalaBear MCA} & 631579 & 456816 & 673983 & 377019\\
+\text{KoalaBear list} & 631580 & 456817 & 673984 & 377020\\
+\text{Mersenne-31 MCA} & 631603 & 456840 & 674007 & 377043\\
+\text{Mersenne-31 list} & 631604 & 456841 & 674008 & 377044 .
+\end{array}
+\]
+Consequently none of these broad safe anchors supplies the adjacent upper ledger \(U(a_+)\le B^*\).  A finite adjacent certificate must use a row-specific first-match upper ledger, or a new theorem that reaches these agreements.
+\end{proposition}
+
+\begin{proof}
+The four safe-anchor agreements are the thresholds printed in the frontier-adjacent packet family and recomputed by the verifier's safe-theorem applicability audit.  The active adjacent agreements are \(1116048,1116047,1116024,1116023\), respectively; for MCA these are the moved v13 raw adjacent agreements, not the historical packet-pair fields.  Subtracting these from the four anchor agreements gives the displayed table.  Since each active \(a_+\) is strictly below every listed safe-anchor agreement, the hypotheses of those safe theorems do not reach the active adjacent row.  This is only an applicability audit; it gives no upper bound for the still-open cells.
+\end{proof}
+
+\begin{proposition}[full-extension cell target]\label{prop:extension-cell-target}
+In the finite-adjacent packet grammar, let \(p=|\B|\) and let \(a_+=a_0+1\).  For a list row set \(w=a_0-k\); for an MCA row set \(w=a_0-k-1\), because the MCA lower route first builds a list in \(\RS[\F,D,k+1]\).  Define the prefix-normalized extension headroom
+\[
+        H_{\rm ext}
+        :=
+        \left\lfloor {p^{w+1}B^*\over \binom n{a_+}}\right\rfloor .
+\]
+For the four deployed adjacent rows, in the order used above, exact integer arithmetic gives
+\[
+\begin{array}{c|c|c|c}
+\text{row} & p & a_+ & H_{\rm ext}\\ \hline
+\text{KoalaBear MCA} & 2^{31}-2^{24}+1 & 1116048 & 4807520\\
+\text{KoalaBear list} & 2^{31}-2^{24}+1 & 1116047 & 4226236\\
+\text{Mersenne-31 MCA} & 2^{31}-1 & 1116024 & 9\\
+\text{Mersenne-31 list} & 2^{31}-1 & 1116023 & 8 .
+\end{array}
+\]
+Consequently any full-orbit extension chart paid in this prefix-normalized margin by a dimension-degree term \(\Delta p^{e_Y}\), with \(\Delta\ge1\), must have \(e_Y=0\), and then must satisfy \(\Delta\le H_{\rm ext}\) in the corresponding row.
+\end{proposition}
+
+\begin{proof}
+The displayed \(H_{\rm ext}\) is just the exact floor of the row's remaining prefix-normalized multiplicative margin at \(a_+\).  The packet verifier computes it from \(n=2^{21}\), \(k=2^{20}\), the row prime \(p\), the target budget \(B^*\), and the active adjacent agreement \(a_+\), using integer binomial recurrences rather than floating point.  The KoalaBear values use \(B^*=\lfloor p^6/2^{128}\rfloor\), while the Mersenne-31 values use \(B^*=\lfloor p^4/2^{100}\rfloor\).
+
+If an extension chart contributes \(\Delta p^{e_Y}\) against this margin and \(e_Y\ge1\), then \(\Delta p^{e_Y}\ge p\).  In all four rows \(p>H_{\rm ext}\): for KoalaBear \(p>2^{30}\) while \(H_{\rm ext}<2^{23}\), and for Mersenne-31 \(p>2^{30}\) while \(H_{\rm ext}\le9\).  Thus no positive-dimensional chart can fit the printed adjacent headroom.  The zero-dimensional case contributes \(\Delta\), so fitting the same margin is exactly the inequality \(\Delta\le H_{\rm ext}\).
+\end{proof}
+
+\begin{remark}[what the extension target does not prove]\label{rem:extension-target-nonclaim}
+The proposition is a target for the open \(K=\F\) full-orbit branch, not a payment of that branch.  The lower minimal-field branches \(K=\B\) and \(\B<K<\F\) are routed by confinement and descent to base or lower-arity cells in the v13 raw ledger, while a genuinely full-orbit branch still needs a zero-dimensional eliminant or descended-cycle classification.  In particular, the binding Mersenne-31 list row demands total degree at most \(8\) for the full-orbit residual; a positive-dimensional family would be a new obstruction floor rather than a harmless error term.
+\end{remark}
+
+The safe side already has two broad anchors.  First, a self-contained deep-regime theorem gives MCA error at most \(n/|\F|\) below one third of the minimum distance.  Second, below one half of the minimum distance, MCA reduces to CA plus a tangent term; with the classical BCIKS half-distance CA input \cite{BCIKS20} this gives the rate-\(1/2\) safe edge \(\delta\le 1/4\).  These are not close enough to meet the unsafe edge, but they fix the outside of the remaining band.
+
+\begin{theorem}[deep-regime MCA bound]\label{thm:gf-deep-mca}
+Let \(C\subseteq\F^n\) be an \(\F\)-linear code with minimum nonzero Hamming weight \(d\), let \(q=|\F|\), and put \(r=\lfloor\delta n\rfloor\).  If
+\[
+        3r\le d-1,
+\]
+then
+\[
+        \eca(C,\delta)\le {r+1\over q},
+        \qquad
+        \emca(C,\delta)\le {r+1\over q}.
+\]
+For \(C=\RS[\F,D,k]\), this condition is \(3r\le n-k\).
+\end{theorem}
+
+\begin{proof}
+Fix a pair \((f_1,f_2)\), and let
+\[
+        S_{\rm cl}=\{\gamma\in\F:\dist(f_1+\gamma f_2,C)\le r\}.
+\]
+If \(|S_{\rm cl}|\le r+1\), then this pair contributes at most \(r+1\) close slopes, hence at most \(r+1\) CA- or MCA-bad slopes.
+
+Assume \(|S_{\rm cl}|\ge2\).  Choose distinct \(\gamma_1,\gamma_2\in S_{\rm cl}\), codewords \(p_1,p_2\), and error sets \(E_1,E_2\), \(|E_i|\le r\), such that \(f_1+\gamma_i f_2=p_i\) off \(E_i\).  Define
+\[
+        c_2={p_1-p_2\over\gamma_1-\gamma_2},
+        \qquad
+        c_1=p_1-\gamma_1c_2,
+        \qquad
+        e_i=f_i-c_i .
+\]
+Off \(T=E_1\cup E_2\), \(|T|\le2r\), the two linear equations imply \(e_1=e_2=0\).  Let \(T'\subseteq T\) be the support of the error pair \((e_1,e_2)\).
+
+For any \(\gamma\in S_{\rm cl}\), with explaining codeword \(p\) and error set \(E\), the codeword \(p-(c_1+\gamma c_2)\) vanishes outside \(T\cup E\), hence has weight at most \(3r\le d-1\).  It is therefore zero, so
+\[
+        \wt(e_1+\gamma e_2)\le r
+        \qquad(\gamma\in S_{\rm cl}).
+\]
+If \(|T'|\ge r+1\), each \(\gamma\in S_{\rm cl}\) must make at least \(|T'|-r\) of the nonzero affine coordinate functions \(e_{1,j}+\gamma e_{2,j}\) vanish.  Each coordinate vanishes for at most one \(\gamma\).  Double counting gives
+\[
+        |S_{\rm cl}|(|T'|-r)\le |T'|,
+        \qquad\text{hence}\qquad
+        |S_{\rm cl}|\le {|T'|\over |T'|-r}\le r+1.
+\]
+Thus this pair again contributes at most \(r+1\) close slopes.
+
+It remains to consider \(|T'|\le r\).  Then \(f_i=c_i\) outside \(T'\), so the pair is column-close to \(C^{\equiv2}\).  It has no CA-bad slope.  For MCA, if \(\gamma\) has a witness support \(S\) of size at least \(n-r\), the explaining codeword for \(f_1+\gamma f_2\) agrees with \(c_1+\gamma c_2\) on at least \(n-2r\) positions; since \(2r\le d-1\), the explaining codeword is \(c_1+\gamma c_2\).  A simultaneous explanation of the pair on \(S\) would also be forced to be \((c_1,c_2)\).  Hence badness can occur only if \(e_1+\gamma e_2\) vanishes at some coordinate of \(T'\), and each coordinate contributes at most one slope.  There are at most \(|T'|\le r\) such slopes.  Taking the maximum over pairs proves both bounds.  For Reed--Solomon, \(d=n-k+1\).
+\end{proof}
+
+\begin{proposition}[exact high-agreement tangent cell]\label{prop:exact-tangent-cell}
+Let \(C=\RS[\F,D,k]\), \(|D|=n\), and let \(A=n-r\).  If \(3r\le n-k\), then the maximum, over received lines, of the number of finite MCA-bad slopes at agreement \(A\) is exactly \(r+1=n-A+1\).  The same exact value holds for CA-bad slopes.  Thus the tangent/common-line paid cell is pointwise exact throughout this range.
+\end{proposition}
+
+\begin{proof}
+The upper bound is \cref{thm:gf-deep-mca} multiplied by \(|\F|\).
+
+For the lower bound, choose \(T=\{t_0,\ldots,t_r\}\subseteq D\) and distinct \(\gamma_0,\ldots,\gamma_r\in\F\).  This is possible because \(|\F|\ge n\ge r+1\).  Define
+\[
+        f_2(t_i)=1,\qquad f_1(t_i)=-\gamma_i,
+        \qquad
+        f_1(x)=f_2(x)=0\quad(x\in D\setminus T).
+\]
+For slope \(\gamma_i\), the word \(f_1+\gamma_i f_2\) vanishes on
+\[
+        S_i=D\setminus(T\setminus\{t_i\}),
+        \qquad |S_i|=n-r=A,
+\]
+so it is explained there by the zero codeword.
+
+We need two elementary inequalities.  If \(r=0\), then \(n-r-1\ge k\) and \(n-2r-1\ge k\).  If \(r\ge1\), then \(r+1\le3r\le n-k\), so \(n-r-1\ge k\); also \(3r\le n-k\) gives \(2r\le n-k-1\), hence \(n-2r-1\ge k\).
+
+First fix \(i\).  If two degree-\(<k\) polynomials explained \(f_1\) and \(f_2\) simultaneously on \(S_i\), then both would vanish on \(D\setminus T\), a set of size \(n-r-1\ge k\), hence both would be zero.  This contradicts \(f_2(t_i)=1\), since \(t_i\in S_i\).  Therefore \(\gamma_i\) is MCA-bad at agreement \(A\), and the \(r+1\) slopes are distinct.
+
+For CA-badness, let \(S\subseteq D\) have \(|S|\ge A\).  Since \(|T|=r+1\), the set \(S\cap T\) is nonempty.  Also
+\[
+        |S\cap(D\setminus T)|\ge |S|-|T|\ge n-2r-1\ge k .
+\]
+Any simultaneous degree-\(<k\) explanation of \(f_1,f_2\) on \(S\) would therefore vanish on at least \(k\) points outside \(T\), hence be the zero pair, contradicting \(f_2(t)=1\) for \(t\in S\cap T\).  Thus the pair is CA-far at agreement \(A\), while each \(f_1+\gamma_i f_2\) is explained on \(S_i\).  The same \(r+1\) slopes are CA-bad.
+\end{proof}
+
+\begin{theorem}[MCA from CA below half distance]\label{thm:gf-mca-from-ca}
+Let \(C\subseteq\F^n\) be linear with minimum nonzero Hamming weight \(d\), \(q=|\F|\), and \(r=\lfloor\delta n\rfloor\).  If \(2r\le d-1\), then
+\[
+        \emca(C,\delta)\le \max\!\left(\eca(C,\delta),{r\over q}\right).
+\]
+For \(C=\RS[\F,D,k]\), the hypothesis is \(2r\le n-k\).
+\end{theorem}
+
+\begin{proof}
+Fix \((f_1,f_2)\).  If the pair is column-far from \(C^{\equiv2}\) at radius \(\delta\), then every MCA-bad slope is already CA-bad: the point \(f_1+\gamma f_2\) is close to \(C\) on its witness support, while the pair is far on every support of the required size.
+
+If the pair is column-close, choose codewords \(p_1,p_2\in C\) agreeing with \(f_1,f_2\) outside an error set \(E\), \(|E|\le r\), and write \(e_i=f_i-p_i\).  Let \(\gamma\) be MCA-bad with witness support \(S\), \(|S|\ge n-r\), and explaining codeword \(c\).  On \(S\setminus E\), the codeword \(c-(p_1+\gamma p_2)\) vanishes; this set has size at least \(n-2r\), so the codeword has weight at most \(2r\le d-1\) and is zero.  Thus on \(S\), the error word \(e_1+\gamma e_2\) vanishes.  The support \(S\) must meet \(E\), otherwise \((p_1,p_2)\) would explain the pair on \(S\).  At some \(j\in S\cap E\), we have \(e_{1,j}+\gamma e_{2,j}=0\) with \((e_{1,j},e_{2,j})\ne(0,0)\), forcing \(e_{2,j}\ne0\) and \(\gamma=-e_{1,j}/e_{2,j}\).  Hence a column-close pair contributes at most \(|E|\le r\) MCA-bad slopes.  Taking the maximum over pairs gives the displayed inequality.
+\end{proof}
+
+\begin{theorem}[subfield confinement of bad slopes]\label{thm:subfield-confinement}
+Let \(\B\subseteq\F\) be finite fields, let \(D\subseteq\B\), and let \(C=\RS[\F,D,k]\).  If \(f,g\in\B^D\), then every support-wise CA- or MCA-bad slope for the line \(f+\gamma g\) lies in \(\B\).  More precisely, if \(\gamma\in\F\setminus\B\) and \(f+\gamma g\) is explained by a codeword of \(C\) on a support \(S\subseteq D\), then the pair \((f,g)\) is simultaneously explained by two codewords of \(C\) on the same support \(S\).  Consequently every \(\B\)-valued pair has bad-slope density at most \(|\B|/|\F|\) under the uniform \(\gamma\leftarrow\F\) sampler.  The same conclusion holds after multiplying both words by a common scalar in \(\F^\times\).
+\end{theorem}
+
+\begin{proof}
+Choose a \(\B\)-basis \(1=\beta_0,\beta_1,\ldots,\beta_{s-1}\) of \(\F\).  Every word \(h\in\F^D\) decomposes uniquely as \(h=\sum_i\beta_i h_i\) with \(h_i\in\B^D\).  Since \(D\subseteq\B\), every codeword of \(C=\RS[\F,D,k]\) decomposes componentwise into codewords of \(\RS[\B,D,k]\): decompose the coefficients of its defining polynomial in the same basis and evaluate on \(D\).
+
+Let \(\gamma=\sum_i\gamma_i\beta_i\notin\B\), and choose \(i_*>0\) with \(\gamma_{i_*}\ne0\).  Suppose a codeword \(c=\sum_i\beta_i c_i\in C\) agrees with \(f+\gamma g\) on \(S\).  Comparing basis components on \(S\) gives
+\[
+        c_0=f+\gamma_0 g,\qquad
+        c_{i_*}=\gamma_{i_*}g .
+\]
+Thus \(g\) agrees on \(S\) with \(\gamma_{i_*}^{-1}c_{i_*}\in C\), and \(f\) agrees on \(S\) with \(c_0-\gamma_0\gamma_{i_*}^{-1}c_{i_*}\in C\).  Hence every support explaining the line point also explains the pair on the same support.
+
+For MCA this directly rules out badness of every \(\gamma\notin\B\).  For CA, if \(f+\gamma g\) is close on some support of size required by the field radius, the same support gives a column explanation of \((f,g)\); hence \(\gamma\notin\B\) cannot be CA-bad whenever the internal radius is at least the field radius.  Therefore all bad slopes lie in \(\B\), giving density at most \(|\B|/|\F|\).  Multiplication by a common scalar preserves all support explanations by linearity of \(C\), so the same statement holds for scalar multiples of \(\B\)-valued pairs.
+\end{proof}
+
+\section{Proved Prefix and Split-Pencil Reductions}
+
+We record the part of the Q, BC, and SP program that is already theorem-level.  For a finite set \(D\subseteq\F\) and \(S\subseteq D\), put
+\[
+        \ell_S(X)=\prod_{x\in S}(X-x).
+\]
+For \(1\le w<m\le n\), define \(\Phi_w(M)\) to be the vector of the first \(w\) coefficients immediately below the leading term of the monic degree-\(m\) polynomial \(\ell_M\).  Thus two \(m\)-subsets have the same \(\Phi_w\)-value exactly when their locator polynomials have the same monic term and same next \(w\) high-degree coefficients.  Write \(\Fib_w(z)=\{M\subseteq D: |M|=m,\ \Phi_w(M)=z\}\).
+
+\begin{proposition}[Newton dictionary]\label{prop:newton}
+If \(\operatorname{char}\B>w\), then \(\Phi_w\) is triangularly equivalent to the power-sum map
+\[
+        M\longmapsto \left(\sum_{x\in M}x,\sum_{x\in M}x^2,\ldots,\sum_{x\in M}x^w\right).
+\]
+In particular the two maps have exactly the same fiber sizes.
+\end{proposition}
+
+\begin{proof}
+Newton's identities express the elementary symmetric functions \(e_1,\ldots,e_w\) and the power sums \(p_1,\ldots,p_w\) by mutually inverse triangular polynomial changes of coordinates, because every integer \(1,\ldots,w\) is invertible in \(\B\).  The sign convention in \(\Phi_w\) is coordinatewise invertible, so the fibers are unchanged.
+\end{proof}
+
+\begin{proposition}[identity-prefix witness lists]\label{prop:prefix-witness}
+Let \(K=m-w\).  For every prefix value \(z=(z_1,\ldots,z_w)\), define the received word
+\[
+        U_z(X)=X^m+\sum_{j=1}^{w}z_jX^{m-j}
+\]
+by evaluation on \(D\).  The degree-\(<K\) codewords agreeing with \(U_z\) on at least \(m\) points are exactly
+\[
+        U_z-\ell_M,\qquad M\in\Fib_w(z).
+\]
+No such codeword agrees with \(U_z\) on more than \(m\) points.  Consequently some \(z\) gives a list of size at least \(\lceil \binom{n}{m}|\B|^{-w}\rceil\).
+\end{proposition}
+
+\begin{proof}
+If \(M\in\Fib_w(z)\), then the leading \(w+1\) coefficients of \(U_z\) and \(\ell_M\) agree, so \(\deg(U_z-\ell_M)<m-w=K\), and this codeword agrees with \(U_z\) on \(M\).  Conversely, if a degree-\(<K\) polynomial \(c\) agrees with \(U_z\) on at least \(m\) points, then \(U_z-c\) is monic of degree \(m\) and has those points as roots.  It must equal \(\ell_M\) for the corresponding \(m\)-set \(M\), and comparison of the first \(w\) coefficients puts \(M\) in \(\Fib_w(z)\).  A nonzero degree-\(m\) polynomial cannot vanish on more than \(m\) points.  The average fiber size over the \(|\B|^w\) possible prefixes gives the last sentence.
+\end{proof}
+
+\begin{proposition}[pole-line transport to MCA]\label{prop:pole-line}
+Let \(C=\RS[\F,D,k]\), fix \(k+1\le m\le n\), and put \(K=k+1\), \(w=m-K\).  Assume \(z\in\B^w\), \(\alpha\in\F\setminus D\), and define
+\[
+        f_\alpha(x)={U_z(x)\over x-\alpha},
+        \qquad
+        g_\alpha(x)={-1\over x-\alpha}\qquad(x\in D).
+\]
+For a slope \(\zeta\in\F\) and a set \(S\subseteq D\) with \(|S|\ge m\), the word \(f_\alpha+\zeta g_\alpha\) is explained by \(C\) on \(S\) if and only if
+\[
+        |S|=m,\qquad S\in\Fib_w(z),\qquad
+        \ell_S(\alpha)=U_z(\alpha)-\zeta .
+\]
+Moreover the pair \((f_\alpha,g_\alpha)\) is never simultaneously explained by two codewords of \(C\) on any set of size at least \(k+1\).  Hence the finite MCA-bad slopes at agreement threshold \(m\) are exactly
+\[
+        \bigl\{\,U_z(\alpha)-\ell_S(\alpha):S\in\Fib_w(z)\,\bigr\},
+\]
+up to collisions in the displayed evaluation map.
+\end{proposition}
+
+\begin{proof}
+Suppose \(c=P|_D\), \(\deg P<k\), explains \(f_\alpha+\zeta g_\alpha\) on \(S\).  Then \(U_z(x)-\zeta=(x-\alpha)P(x)\) on \(S\).  The polynomial
+\[
+        \Psi(X)=U_z(X)-\zeta-(X-\alpha)P(X)
+\]
+is monic of degree \(m\), because \(\deg((X-\alpha)P)\le k\le m-1\), and it vanishes on \(S\).  Thus \(|S|=m\), \(\Psi=\ell_S\), the first \(w\) coefficients of \(\ell_S\) are those of \(U_z\), and \(\ell_S(\alpha)=U_z(\alpha)-\zeta\).  Conversely, if these three conditions hold, then \(U_z-\ell_S\) has degree at most \(k\) and takes the value \(\zeta\) at \(\alpha\), so
+\[
+        P(X)={U_z(X)-\ell_S(X)-\zeta\over X-\alpha}
+\]
+has degree \(<k\) and explains \(f_\alpha+\zeta g_\alpha\) on \(S\).
+
+For the far condition, if \(g_\alpha\) agreed on some \(S\), \(|S|\ge k+1\), with a polynomial \(G\) of degree \(<k\), then \((X-\alpha)G(X)+1\) would have degree at most \(k\) and at least \(k+1\) roots, hence would be zero.  Its value at \(X=\alpha\) is \(1\), a contradiction.  A simultaneous explanation of the pair would in particular explain \(g_\alpha\).  The final claim follows from the support-wise MCA definition and the first part of the proof.
+\end{proof}
+
+\begin{theorem}[fiber-to-slope conversion]\label{thm:fiber-to-slope}
+Let \(D\) be a multiplicative coset of order \(n\), let \(C=\RS[\F,D,k]\), and let \(k+1\le m\le n\), \(w=m-k-1\).  Fix a prefix value \(z\) and a subfamily \(\mathcal G\subseteq\Fib_w(z)\) of size \(N_0\).  Then there is a pole \(\alpha\in\F\setminus D\) for which the line \((f_\alpha,g_\alpha)\) of \cref{prop:pole-line} has at least
+\[
+        N_0-{\binom{N_0}{2}k\over |\F|-n}
+\]
+distinct finite MCA-bad slopes at agreement threshold \(m\).  If \(N_0\le (|\F|-n)/k+1\), this is at least
+\[
+        {N_0\over2}\left(1-{k\over |\F|-n}\right).
+\]
+If, in addition, \(\gcd(m,n)=1\), every threshold-\(m\) witness support of every slope produced by this construction is aperiodic.
+\end{theorem}
+
+\begin{proof}
+For distinct \(S,S'\in\mathcal G\), the polynomial \(\ell_S-\ell_{S'}\) has degree at most \(m-w-1=k\), because the leading term and the first \(w\) prefix coefficients cancel.  Hence the equality \(\ell_S(\alpha)=\ell_{S'}(\alpha)\) holds for at most \(k\) values of \(\alpha\).  Averaging over \(\Omega=\F\setminus D\), some \(\alpha\in\Omega\) has at most \(\binom{N_0}{2}k/(|\F|-n)\) colliding pairs among the values \(\ell_S(\alpha)\), \(S\in\mathcal G\).  The image size is at least the number of points minus the number of colliding pairs, giving the first bound.  The second bound is the displayed inequality with \(N_0-1\le (|\F|-n)/k\).
+
+By \cref{prop:pole-line}, each distinct value \(U_z(\alpha)-\ell_S(\alpha)\) is an MCA-bad slope, and every threshold-\(m\) witness lies in \(\Fib_w(z)\).  Finally, if a support \(S\subseteq D\) is periodic under a nontrivial subgroup of the order-\(n\) stabilizer, then it is a union of orbits of some size \(c>1\) with \(c\mid n\), so \(c\mid |S|=m\).  When \(\gcd(m,n)=1\), this is impossible; all such supports are aperiodic.
+\end{proof}
+
+\begin{theorem}[no uniform polynomial aperiodic bound below the envelope]\label{thm:no-old-band}
+There is an infinite family of smooth multiplicative rate-\(1/2\) rows for which, at agreements below the entropy--subfield envelope, a single received line has \(2^{\Omega(n)}\) MCA-bad finite slopes, all witnessed aperiodically.  Consequently no \(q\)-independent polynomial bound can hold for the unnormalized aperiodic band below the envelope.
+\end{theorem}
+
+\begin{proof}
+Let \(n=2^\nu\), \(k=n/2\), and choose a prime \(p_\nu\equiv1\pmod n\) with \(p_\nu=n^{O(1)}\), available by Linnik's theorem \cite{Linnik44}.  Put \(\B_\nu=\F_{p_\nu}\), let \(D_\nu=\mu_n\subseteq\B_\nu^\times\), and write \(\beta_\nu=\log_2p_\nu=O(\log n)\).  Choose an odd \(m_\nu\) with
+\[
+        {n\over 8\beta_\nu}\le m_\nu-k\le {n\over4\beta_\nu}
+\]
+and set \(w_\nu=m_\nu-k-1\).  Let \(\F_\nu/\B_\nu\) be an extension with \(q_\nu=|\F_\nu|\ge k\,2^{n/8}\), chosen minimally up to the next extension degree.
+
+By \cref{prop:prefix-witness}, some prefix fiber has size at least \(\binom n{m_\nu}p_\nu^{-w_\nu}\).  Since \(g=(m_\nu-k)/n\le1/(4\beta_\nu)\), the elementary estimate \(H_2(1/2+g)\ge1-4g^2\) gives
+\[
+        \log_2\binom n{m_\nu}-w_\nu\beta_\nu
+        \ge n\bigl(1-4g^2\bigr)-ng\beta_\nu-O(\log n)
+        \ge {n\over2}
+\]
+for all large \(\nu\).  Thus the heaviest fiber has at least \(2^{n/2}\) members.  By the minimal choice of the extension degree, \(\lceil(q_\nu-n)/k\rceil\le p_\nu 2^{n/8}=2^{n/8+O(\log n)}\), so we may choose a subfamily \(\mathcal G\) of size \(N_0=\lceil(q_\nu-n)/k\rceil\).
+
+\Cref{thm:fiber-to-slope} gives a pole line with at least
+\[
+        {N_0\over2}\left(1-{k\over q_\nu-n}\right)\ge 2^{n/8-2}
+\]
+bad slopes for all large \(\nu\).  Because \(m_\nu\) is odd and \(n\) is a power of two, \(\gcd(m_\nu,n)=1\), so every witness support produced by the theorem is aperiodic.  This is exponential in \(n\), contradicting any uniform polynomial aperiodic bound in the sub-envelope band.
+\end{proof}
+
+\begin{remark}[what the previous theorem changes]\label{rem:normalized-band}
+\Cref{thm:no-old-band} does not weaken the resolution program; it localizes it.  The identity-prefix floor is the expected unsafe side below the entropy--subfield envelope, so the positive aperiodic input must be normalized with its left edge at that envelope.  Q, BC, and SP should therefore be read as safe-side statements after the identity-prefix floor, quotient pullbacks, and planted strata have already been paid.
+\end{remark}
+
+\begin{proposition}[prefix-collision rigidity]\label{prop:prefix-rigidity}
+If \(M\ne M'\) are \(m\)-subsets of \(D\) with \(\Phi_w(M)=\Phi_w(M')\), then
+\[
+        |M\setminus M'|=|M'\setminus M|\ge w+1.
+\]
+If equality holds, then \(\ell_{M\setminus M'}-\ell_{M'\setminus M}\) is a nonzero constant.
+\end{proposition}
+
+\begin{proof}
+Let \(R=M\cap M'\), put \(A=\ell_{M\setminus M'}\), \(B=\ell_{M'\setminus M}\), and \(G=\ell_R\).  If \(e=|M\setminus M'|\), then
+\[
+        \ell_M-\ell_{M'}=G(A-B).
+\]
+The equality of the first \(w\) high-degree coefficients gives \(\deg(\ell_M-\ell_{M'})\le m-w-1\), while \(\deg G=m-e\).  Hence \(\deg(A-B)\le e-w-1\).  If \(e\le w\), this forces \(A=B\), and then the two disjoint root sets \(M\setminus M'\) and \(M'\setminus M\) coincide; so \(e=0\), contrary to \(M\ne M'\).  Thus \(e\ge w+1\).  When \(e=w+1\), the same inequality gives \(\deg(A-B)\le0\); since the root sets are disjoint and nonempty, \(A\ne B\), so the constant is nonzero.
+\end{proof}
+
+\begin{proposition}[exact second moment]\label{prop:second-moment}
+Let \(N_w(z)=|\Fib_w(z)|\).  For \(D'\subseteq D\), let \(\operatorname{sp}_w(e;D')\) be the number of ordered pairs \((A,B)\) of monic degree-\(e\) polynomials split over disjoint root sets in \(D'\) such that \(\deg(A-B)\le e-w-1\).  Then
+\[
+        \sum_z N_w(z)^2
+        =
+        \binom{n}{m}
+        +
+        \sum_{e=w+1}^{\min(m,n-m)}
+        \sum_{\substack{R\subseteq D\\ |R|=m-e}}
+        \operatorname{sp}_w(e;D\setminus R).
+\]
+The top nonzero stratum \(e=w+1\) consists exactly of constant-shift split pairs \(A\) and \(A-c\), \(c\in\F^\times\), both split over \(D'\).
+\end{proposition}
+
+\begin{proof}
+The left side counts ordered pairs \((M,M')\) of \(m\)-subsets with the same prefix.  The diagonal contributes \(\binom{n}{m}\).  For \(M\ne M'\), set \(R=M\cap M'\), \(A=\ell_{M\setminus M'}\), \(B=\ell_{M'\setminus M}\), and \(e=|M\setminus M'|\).  This is a bijective encoding of off-diagonal pairs by \(R\) together with a pair \((A,B)\) split over \(D\setminus R\) with disjoint root sets.  The same degree computation as in \cref{prop:prefix-rigidity} shows that prefix equality is precisely \(\deg(A-B)\le e-w-1\).  The range \(e\ge w+1\) follows from \cref{prop:prefix-rigidity}, and \(e\le\min(m,n-m)\) is forced by the sizes of \(M\) and \(D\setminus R\).  If \(e=w+1\), then \(\deg(A-B)\le0\), so \(A-B=c\in\F^\times\), and the converse is immediate.
+\end{proof}
+
+\begin{corollary}[anticode fiber cap]\label{cor:anticode-cap}
+For every \(z\), one has
+\[
+        |\Fib_w(z)|\le {\binom{n}{m-w}\over \binom{m}{w}}.
+\]
+\end{corollary}
+
+\begin{proof}
+By \cref{prop:prefix-rigidity}, two distinct fiber members cannot contain the same \((m-w)\)-subset.  Counting pairs \((R,M)\) with \(M\in\Fib_w(z)\), \(R\subseteq M\), and \(|R|=m-w\) gives the claim.
+\end{proof}
+
+\begin{proposition}[moment sandwich]\label{prop:moment-sandwich}
+Let \(\mu(z)=|\Fib_w(z)|/\binom{n}{m}\), set
+\[
+        \Gamma_r=|\B|^{w(r-1)}\sum_z\mu(z)^r,\qquad r\ge2,
+\]
+and let \(R=|\B|^w\max_z\mu(z)\).  Then
+\[
+        { \log_2\Gamma_r\over r-1}\le \log_2 R
+        \le { \log_2\Gamma_r+w\log_2|\B|\over r}.
+\]
+\end{proposition}
+
+\begin{proof}
+Since \(\mu(z)^r\le(\max_z\mu(z))^{r-1}\mu(z)\), we have \(\Gamma_r\le R^{r-1}\).  Conversely \(\max_z\mu(z)\le(\sum_z\mu(z)^r)^{1/r}\), and multiplying by \(|\B|^w\) gives the upper bound for \(R\).
+\end{proof}
+
+\begin{theorem}[moment criterion for Q]\label{thm:moment-q}
+With the notation of \cref{prop:moment-sandwich}, suppose a quotient/planted-pruned prefix problem has normalized maximum-fiber ratio
+\[
+        R=|\B|^w\max_z{|\Fib_w(z)|\over\binom nm}.
+\]
+Let \(r\ge2\).  If
+\[
+        \Gamma_r\le \exp(A)
+        \qquad\text{and}\qquad
+        w\log|\B|\le B,
+\]
+then
+\[
+        R\le \exp\!\left({A+B\over r}\right).
+\]
+Consequently, an asymptotic Q theorem follows from any sequence of moment bounds with \(A=o(rn)\) and \(B/r=o(n)\).  For a finite adjacent row with remaining bit margin \(\Delta>0\), this moment route can certify \(R\le2^\Delta\) only if
+\[
+        \log_2\Gamma_r+w\log_2|\B|\le r\Delta .
+\]
+\end{theorem}
+
+\begin{proof}
+The first bound is the upper half of \cref{prop:moment-sandwich}, rewritten with natural logarithms.  If \(A=o(rn)\) and \(B/r=o(n)\), then \(\log R=o(n)\), which is the \(e^{o(n)}\) form of Q after the paid quotient and planted strata have been removed.
+
+For the finite statement, take logarithms base \(2\) in the same inequality:
+\[
+        \log_2R\le{\log_2\Gamma_r+w\log_2|\B|\over r}.
+\]
+To prove \(R\le2^\Delta\), the numerator must be at most \(r\Delta\).
+\end{proof}
+
+\begin{remark}[why finite adjacent Q needs high order]\label{rem:finite-moment-order}
+At the deployed frontier depths, \(w\log_2|\B|\) is on the order of \(10^5\) to \(10^6\) bits, while the adjacent margins are \(22.2,22.0,3.3,3.1\) bits.  Thus a finite adjacent proof using only \cref{thm:moment-q} needs either very high moment order \(r\), an exchange-compression theorem after quotient routing, or a direct max-fiber certificate.  Fixed second or third moments can be asymptotically useful evidence, but they cannot by themselves fit the printed adjacent margins.  The raw mode-at-null shortcut is false by \cref{prop:mode-null-false}.
+\end{remark}
+
+\begin{proposition}[twist-orbit constancy]\label{prop:twist-orbit}
+Assume \(D\) is stable under multiplication by a cyclic group \(H\) of order \(n\).  For every \(\zeta\in H\), the map
+\[
+        (z_1,\ldots,z_w)\longmapsto(\zeta z_1,\zeta^2z_2,\ldots,\zeta^wz_w)
+\]
+preserves prefix-fiber sizes.
+\end{proposition}
+
+\begin{proof}
+The map \(M\mapsto \zeta M\) is a bijection on \(m\)-subsets of \(D\).  If
+\[
+        \ell_M(X)=X^m+\sum_{j=1}^m \lambda_j(M)X^{m-j},
+\]
+then \(\lambda_j(\zeta M)=\zeta^j\lambda_j(M)\).  Hence multiplication by \(\zeta\) sends the fiber over \(z\) bijectively to the fiber over \((\zeta^j z_j)_{j\le w}\).
+\end{proof}
+
+\begin{proposition}[mode-at-null is not the finite Q target]\label{prop:mode-null-false}
+Let \(D=\F_{17}^{\times}\), \(m=9\), and \(w=1\).  For \(s\in\F_{17}\), set
+\[
+        N_9(s)=\#\{M\subseteq D:\ |M|=9,\ \sum_{x\in M}x=s\}.
+\]
+Then
+\[
+        N_9(0)=672,
+        \qquad
+        N_9(s)=673\quad(s\ne0).
+\]
+Thus the largest first-prefix fiber is not the null fiber.  The nonzero fibers form one primitive twist orbit under \(\F_{17}^{\times}\).
+\end{proposition}
+
+\begin{proof}
+Let \(\omega=\exp(2\pi i/17)\).  Fourier inversion gives
+\[
+        N_9(s)={1\over17}\sum_{\lambda\in\F_{17}}\omega^{-\lambda s}
+        [T^9]\prod_{x\in\F_{17}^{\times}}(1+T\omega^{\lambda x}).
+\]
+For \(\lambda=0\), the coefficient is \(\binom{16}{9}=11440\).  For \(\lambda\ne0\), multiplication by \(\lambda\) permutes \(D\), and
+\[
+        \prod_{x\in D}(1+T\omega^{\lambda x})
+        =
+        \prod_{y=1}^{16}(1+T\omega^y)
+        ={1+T^{17}\over1+T}
+        =1-T+T^2-\cdots+T^{16}.
+\]
+The coefficient of \(T^9\) in this last polynomial is \(-1\).  Therefore
+\[
+        N_9(0)={11440+16(-1)\over17}=672,
+        \qquad
+        N_9(s)={11440-(-1)\over17}=673
+        \quad(s\ne0),
+\]
+because \(\sum_{\lambda\ne0}\omega^{-\lambda s}=-1\) for \(s\ne0\).  Since \(w=1\), any nonzero target has twist stabilizer \(\gcd(16,1)=1\), so the nonzero targets form a full primitive orbit by \cref{prop:twist-orbit}.
+\end{proof}
+
+\begin{proposition}[twist-orbit moment amplification]\label{prop:q-orbit-moment}
+Assume \(D\) is stable under multiplication by a cyclic group \(H\) of order \(n\).  For \(z=(z_1,\ldots,z_w)\in\B^w\), put
+\[
+        A(z)=\{1\le j\le w:z_j\ne0\},
+        \qquad
+        s(z)=
+        \begin{cases}
+        n, & A(z)=\varnothing,\\
+        \gcd(n,A(z)), & A(z)\ne\varnothing .
+        \end{cases}
+\]
+Let
+\[
+        R(z)=|\B|^w {|\Fib_w(z)|\over\binom nm},
+        \qquad
+        \Gamma_r=|\B|^{w(r-1)}
+        \sum_y\left({|\Fib_w(y)|\over\binom nm}\right)^r
+        \quad(r\ge2).
+\]
+Then
+\[
+        \Gamma_r\ge {n\over s(z)}\,{R(z)^r\over|\B|^w}.
+\]
+Consequently, if \(\Gamma_r\le G\), then
+\[
+        R(z)\le\left({G|\B|^w s(z)\over n}\right)^{1/r}.
+\]
+In particular, a primitive prefix value with \(\gcd(n,A(z))=1\) gains a full factor \(n\) in the moment test.
+\end{proposition}
+
+\begin{proof}
+By \cref{prop:twist-orbit}, every prefix value in the orbit
+\[
+        (\zeta z_1,\zeta^2z_2,\ldots,\zeta^wz_w),
+        \qquad \zeta\in H,
+\]
+has the same fiber size as \(z\).  The stabilizer consists exactly of those \(\zeta\in H\) satisfying \(\zeta^j=1\) for every \(j\in A(z)\), so its size is \(s(z)\).  Hence the orbit has size \(n/s(z)\).  The contribution of this orbit alone to \(\Gamma_r\) is
+\[
+        |\B|^{w(r-1)}{n\over s(z)}
+        \left({|\Fib_w(z)|\over\binom nm}\right)^r
+        =
+        {n\over s(z)}{R(z)^r\over|\B|^w}.
+\]
+This gives the first inequality, and the second follows by rearranging.
+\end{proof}
+
+\begin{proposition}[composite prefix directions descend]\label{prop:composite-descend}
+Let \(S\) be a multiplicative coset of order \(N\) in \(\F_p^\times\), let \(e\mid N\), and let \(\psi:\F_p\to\mathbb C^\times\) be a nontrivial additive character.  Suppose \(g(x)=h(x^e)\).  If \(S_e=\{a^e:a\in S\}\), then for every \(m\)
+\[
+        \sum_{\substack{A\subseteq S\\ |A|=m}}
+        \psi\!\left(\sum_{a\in A}g(a)\right)
+        =
+        [T^m]\prod_{b\in S_e}\bigl(1+T\psi(h(b))\bigr)^e .
+\]
+Thus any Fourier direction whose active indices share the divisor \(e\) is a quotient-scale object, not primitive mass.
+\end{proposition}
+
+\begin{proof}
+The left side is the coefficient of \(T^m\) in
+\[
+        \prod_{a\in S}(1+T\psi(g(a))).
+\]
+Since \(g(a)=h(a^e)\) is constant on fibers of \(a\mapsto a^e\), and each \(b\in S_e\) has exactly \(e\) preimages in the coset \(S\), the product factors as displayed.
+\end{proof}
+
+\begin{theorem}[proved head-depth prefix flatness]\label{thm:head-flatness}
+Let \(p\) be prime, \(H\le\F_p^\times\) have order \(N\), put \(d=(p-1)/N\), and let \(S=\alpha H\).  Let \(P\subseteq S\) have size \(\ell\), let \(1\le w<N-\ell\) satisfy \(wd<p\), and put \(m'=m-\ell\).  For \(\vec z\in\F_p^w\), define
+\[
+        \mathcal N_w^P(m,\vec z)=
+        \#\{A:P\subseteq A\subseteq S,\ |A|=m,\ (e_1(A),\ldots,e_w(A))=\vec z\}.
+\]
+Then
+\[
+        \left|\mathcal N_w^P(m,\vec z)-p^{-w}\binom{N-\ell}{m'}\right|
+        \le
+        p^{w/2}\binom{w\lceil\sqrt p\rceil+\ell+m'-1}{m'} .
+\]
+For \(w=1\) the prefactor \(p^{1/2}\) may be omitted.
+\end{theorem}
+
+\begin{proof}
+Write \(A=P\cup A'\), \(A'\subseteq S\setminus P\).  Since \(\ell_A=\ell_P\ell_{A'}\), the first \(w\) elementary symmetric functions of \(A\) are an affine unipotent triangular transform of those of \(A'\).  Thus planted fibers have the same sizes as unplanted fibers over transformed values, except that the ambient set has size \(N-\ell\).
+
+By Fourier inversion over \(\F_p^w\), the deviation from the mean is controlled by
+\[
+        E(\vec t)=
+        \sum_{\substack{A'\subseteq S\setminus P\\ |A'|=m'}}
+        \exp\left({2\pi i\over p}\sum_{j=1}^w t_j e_j(A')\right),
+        \qquad \vec t\ne0.
+\]
+Let \(j_0\) be the largest index with \(t_{j_0}\ne0\).  Newton identities rewrite \(\sum_jt_je_j(A')\) as a polynomial in the power sums \(p_1(A'),\ldots,p_{j_0}(A')\) that is nontrivially linear in the last variable.  A second Fourier inversion therefore reduces \(E(\vec t)\) to elementary symmetric functions of the numbers
+\[
+        \exp\left({2\pi i\over p}g(a)\right),
+        \qquad a\in S\setminus P,
+\]
+where \(g\in\F_p[X]\) is nonconstant of degree at most \(w\).
+
+For every nonzero integer \(r\) modulo \(p\), the power sum of this multiset is bounded by \(w\lceil\sqrt p\rceil+\ell\).  Indeed, parameterize the coset as \(S=\{\alpha y^d:y\in\F_p^\times\}\).  Since \(\deg_y(g(\alpha y^d))\le wd<p\), Weil's bound for nonconstant additive character sums \cite{Weil48} gives \(w\sqrt p\) up to harmless endpoint terms; removing the \(\ell\) planted points costs at most \(\ell\).
+
+Newton's recursion for elementary symmetric functions is coefficientwise dominated by the recursion for \((1-u)^{-(w\lceil\sqrt p\rceil+\ell)}\).  Hence every reduced Fourier coefficient is bounded by
+\[
+        \binom{w\lceil\sqrt p\rceil+\ell+m'-1}{m'}.
+\]
+The second Fourier transform contributes at most \(p^{j_0/2}\) by Parseval, and \(j_0\le w\).  Summing the first Fourier inversion and dividing by \(p^w\) gives the stated \(p^{w/2}\) bound.  When \(w=1\), the Newton-linearization step is absent and the Parseval factor is unnecessary.
+\end{proof}
+
+\begin{corollary}[the solved head of Q]\label{cor:head-q}
+For the KoalaBear identity-scale subgroup \(N=2^{21}\), \(d=1016\), and \(\ell=0\), \cref{thm:head-flatness} proves two-sided prefix flatness at the deployed subset sizes \(m=1116047\) and \(m=1116046\) for exactly \(w\le21\).  At the head rungs \(m=K+w\), it is nonvacuous for exactly \(w\le22\).  In these ranges every prefix fiber equals
+\[
+        \binom Nm p^{-w}(1+\varepsilon)
+\]
+with \(|\varepsilon|\) exponentially small in the recorded margin.
+\end{corollary}
+
+\begin{proof}
+Substitute the displayed row parameters into \cref{thm:head-flatness}.  The nonvacuous range is exactly the range in which the error term is smaller than the main term.  Using the standard entropy sandwich
+\[
+        {2^{M H_2(r/M)}\over M+1}\le \binom Mr\le 2^{M H_2(r/M)}
+\]
+turns this into explicit finite inequalities in \(p,N,m,w\), which are the head-depth inequalities recorded in the v13 raw manuscript.
+\end{proof}
+
+\begin{remark}[why Q remains open]\label{rem:head-does-not-close-q}
+\Cref{thm:head-flatness} pays one square-root loss per active power-sum direction.  This is why it reaches only \(w=21\) or \(22\) in the KoalaBear head regimes, while the deployed frontier rows have \(w\approx 67466\).  The next Q target is therefore not a uniform per-character bound.  Composite Fourier directions are quotient-scale objects by \cref{prop:composite-descend}, and primitive character maxima face the usual Parseval square-root barrier.  The remaining statement must bound the maximum prefix fiber itself, after quotient and planted strata have been paid.
+\end{remark}
+
+\begin{proposition}[Fourier audit for Q]\label{prop:fourier-audit}
+Let \(D\subseteq\F_p\), let \(\Phi_w:\binom{D}{m}\to\F_p^w\) be the prefix map, and write \(N(z)=|\Phi_w^{-1}(z)|\) and \(\overline F=\binom{|D|}{m}p^{-w}\).  For \(t\in\F_p^w\), define
+\[
+        E(t)=
+        \sum_{\substack{M\subseteq D\\ |M|=m}}
+        \exp\left({2\pi i\over p}\,t\cdot\Phi_w(M)\right).
+\]
+Then
+\[
+        N(z)-\overline F
+        =
+        p^{-w}\sum_{t\ne0}
+        \exp\left(-{2\pi i\over p}\,t\cdot z\right)E(t),
+        \qquad
+        \sum_{t\ne0}|E(t)|^2=p^w\sum_z |N(z)-\overline F|^2 .
+\]
+Consequently a proof of Q that uses only the triangle inequality and a uniform nonzero-character estimate must reach the scale
+\[
+        \max_{t\ne0}|E(t)|\le \poly(n)\binom{|D|}{m}p^{-w}.
+\]
+Uniform square-root estimates of order \(\binom{|D|}{m}p^{-w/2}\) are short by a factor \(p^{w/2}\) and cannot close the frontier-depth Q input without additional joint cancellation or max-fiber structure.
+\end{proposition}
+
+\begin{proof}
+The function \(N\) on the finite abelian group \(\F_p^w\) has Fourier transform \(E\).  Fourier inversion gives the first displayed identity, and the zero-frequency term is exactly \(\overline F\).  Plancherel applied to \(N-\overline F\) gives the second identity, since the zero Fourier coefficient of \(N-\overline F\) is zero.
+
+If the first formula is bounded by triangle inequality, then
+\[
+        |N(z)-\overline F|\le p^{-w}(p^w-1)\max_{t\ne0}|E(t)|<\max_{t\ne0}|E(t)|.
+\]
+Q asks, after quotient and planted strata have been removed, for \(N(z)\le\poly(n)\overline F\).  Since \(\overline F=\binom{|D|}{m}p^{-w}\), the required individual-character scale is the one displayed.  The square-root scale is larger by \(p^{w/2}\).
+\end{proof}
+
+\begin{proposition}[quotient pullback for shift pairs]\label{prop:sp-pullback}
+Assume \(D\) is a multiplicative coset and \(c\mid n\).  Suppose \(A(X)=A_0(X^c)\) and \(B(X)=B_0(X^c)\) are a depth-\(w\) shift pair of degree \(e=ce_0\), meaning \(\deg(A-B)\le e-w-1\).  Then \((A_0,B_0)\) is a shift pair on the quotient coset at depth
+\[
+        w_c=\left\lceil{w+1\over c}\right\rceil-1.
+\]
+Conversely, any quotient pair at depth \(w_c\) pulls back to a depth-\(w\) pair upstairs.
+\end{proposition}
+
+\begin{proof}
+The inequality \(c\deg(A_0-B_0)\le ce_0-w-1\) is equivalent to
+\[
+        \deg(A_0-B_0)\le e_0-\left\lceil{w+1\over c}\right\rceil,
+\]
+which is precisely the depth-\(w_c\) condition.  The converse is the same integer inequality read in the other direction.
+\end{proof}
+
+\begin{definition}[coefficient scale]\label{def:coefficient-scale}
+Assume \(D=\alpha H\subseteq\B^\times\), where \(H\) is cyclic of order \(n\) and \(\operatorname{char}\B\nmid n\).  For a monic degree-\(e\) polynomial
+\[
+        L(X)=X^e+\sum_{j=1}^e \lambda_jX^{e-j}
+\]
+split over \(D\), define
+\[
+        s(L)=\gcd\bigl(n,e,\{j:\lambda_j\ne0\}\bigr).
+\]
+For a pair \((A,B)\) of monic split degree-\(e\) polynomials, put \(s(A,B)=\gcd(s(A),s(B))\).
+\end{definition}
+
+\begin{lemma}[coefficient scale detects quotient support]\label{lem:coeff-scale}
+Let \(S\subseteq D\), \(|S|=e\), and \(L_S=\ell_S\).  For \(c\mid n\), the following are equivalent:
+\[
+        S\text{ is a union of fibers of }x\mapsto x^c,\qquad
+        L_S(X)=L_c(X^c)\text{ for a monic }L_c,\qquad
+        c\mid s(L_S).
+\]
+In this case \(L_c\) is uniquely determined and split over the quotient coset \(D_c=\{x^c:x\in D\}\).
+\end{lemma}
+
+\begin{proof}
+If \(S\) is a union of fibers of \(x\mapsto x^c\), then for \(\overline S=\{x^c:x\in S\}\) one has
+\[
+        L_S(X)=\prod_{y\in\overline S}(X^c-y)=L_c(X^c).
+\]
+This proves the first implication and uniqueness.  The second displayed condition is equivalent to \(c\mid e\) and to all nonzero coefficient gaps \(j\) being divisible by \(c\), which is exactly \(c\mid s(L_S)\).  Conversely, if \(L_S=L_c(X^c)\), then every root \(x\in D\) brings with it the whole fiber of \(x\mapsto x^c\), since \(X^n-\alpha^n\) is squarefree and \(c\mid n\).  Thus \(S\) is a union of quotient fibers.
+\end{proof}
+
+\begin{theorem}[maximal quotient extraction for shift pairs]\label{thm:coeff-quotient-extract}
+Let \((A,B)\) be a depth-\(w\) shift pair of degree \(e\) over \(D\):
+\[
+        A=\ell_S,\qquad B=\ell_T,\qquad S\cap T=\varnothing,\qquad
+        \deg(A-B)\le e-w-1.
+\]
+Let \(c=s(A,B)\).  If \(c>1\), then \((A,B)\) is quotient-borne.  More precisely, there are unique monic locators \(A_c,B_c\), split over \(D_c\), such that
+\[
+        A(X)=A_c(X^c),\qquad B(X)=B_c(X^c),
+\]
+and \((A_c,B_c)\) is a depth
+\[
+        w_c=\left\lceil{w+1\over c}\right\rceil-1
+\]
+shift pair on \(D_c\).  If \(c\) is maximal, then the descended pair has common coefficient scale \(1\) relative to the quotient length \(n/c\).
+\end{theorem}
+
+\begin{proof}
+\Cref{lem:coeff-scale} gives the unique quotient locators.  The depth statement is exactly \cref{prop:sp-pullback}.  For maximality, suppose the descended pair had a nontrivial common coefficient scale \(d>1\) relative to \(n/c\).  Then \(A_c=A_{cd}(Y^d)\) and \(B_c=B_{cd}(Y^d)\), so \(A=A_{cd}(X^{cd})\) and \(B=B_{cd}(X^{cd})\), contradicting maximality of \(c\).
+\end{proof}
+
+\begin{corollary}[primitive exclusion by coefficient support]\label{cor:primitive-coeff-exclusion}
+Every primitive shift pair has
+\[
+        \gcd\bigl(n,e,\{j:\lambda_j(A)\ne0\},\{j:\lambda_j(B)\ne0\}\bigr)=1.
+\]
+In particular, the top-stratum binomial prototypes \(A=X^{w+1}-\beta\), \(B=X^{w+1}-\beta'\), when split over \(D\), are quotient-borne and belong to the quotient ledger rather than the primitive SP cell.
+\end{corollary}
+
+\begin{proof}
+The displayed gcd is \(s(A,B)\).  If it is \(>1\), \cref{thm:coeff-quotient-extract} extracts a quotient pair, so the pair is not primitive.  For the binomial prototypes, the only nonzero coefficient gap is \(w+1=e\), and splitting over the order-\(n\) coset forces \(w+1\mid n\); hence the common coefficient scale is \(w+1\).
+\end{proof}
+
+\begin{proposition}[top-stratum quotient sieve]\label{prop:top-stratum-quotient-sieve}
+Assume \(D=\alpha H\subseteq\B^\times\), where \(H\) is cyclic of order \(n\) and \(\operatorname{char}\B\nmid n\).  Let \((A,B)=(\ell_S,\ell_T)\) be a depth-\(w\) shift pair of degree \(e=w+1\) over \(D\), with \(S\cap T=\varnothing\), and put \(c=s(A,B)\).  If \(c>1\), then \(c\mid w+1\), and maximal quotient extraction gives unique monic locators \(A_c,B_c\), split over \(D_c=\{x^c:x\in D\}\), such that
+\[
+        A(X)=A_c(X^c),\qquad B(X)=B_c(X^c),
+\]
+with
+\[
+        \deg A_c=\deg B_c={w+1\over c},
+        \qquad
+        A_c-B_c\in\B^\times .
+\]
+Thus every non-primitive top-stratum shift pair is paid by a top-stratum constant-shift cell on a quotient coset.  The primitive top-stratum residual consists only of constant-shift pairs \(A,A-\lambda\), \(\lambda\in\B^\times\), with \(s(A,A-\lambda)=1\).
+\end{proposition}
+
+\begin{proof}
+Since \(c=s(A,B)\), the definition of coefficient scale gives \(c\mid e=w+1\).  By \cref{thm:coeff-quotient-extract}, there are unique quotient locators \(A_c,B_c\) split over \(D_c\), and the descended pair has depth
+\[
+        w_c=\left\lceil {w+1\over c}\right\rceil-1
+        ={w+1\over c}-1 .
+\]
+Its degree is \(e_c=e/c=(w+1)/c\).  Therefore
+\[
+        \deg(A_c-B_c)\le e_c-w_c-1=0 .
+\]
+The constant is nonzero: if \(A_c=B_c\), then \(A=B\), contradicting disjointness of the positive-degree root sets.  Hence \(A_c-B_c\in\B^\times\).
+
+At the upstairs top stratum \(e=w+1\), the shift-pair condition itself says \(\deg(A-B)\le0\), so every top-stratum pair is a constant-shift pair.  The quotient-borne ones are exactly those with \(s(A,B)>1\), by \cref{thm:coeff-quotient-extract}.  The remaining top-stratum cell is therefore the coefficient-primitive constant-shift cell \(s(A,B)=1\).
+\end{proof}
+
+For later reference, split the off-diagonal sum in \cref{prop:second-moment} into quotient-pulled-back pairs and primitive pairs by assigning every periodic pair to its maximal common quotient scale.  Put
+\[
+        \overline F=\binom{n}{m}|\B|^{-w},
+        \qquad
+        \Gamma_2=|\B|^w\sum_z\left({|\Fib_w(z)|\over\binom{n}{m}}\right)^2 .
+\]
+
+\begin{proposition}[exact primitive \(L^2\) ledger]\label{prop:gamma2-ledger}
+With the first-match quotient assignment above,
+\[
+        \Gamma_2
+        =
+        {1\over\overline F}
+        +{\sum_e P_e^{\rm quot}\over \binom{n}{m}\overline F}
+        +{\sum_e P_e^{\rm prim}\over \binom{n}{m}\overline F},
+\]
+where \(P_e^{\rm quot}\) and \(P_e^{\rm prim}\) are the quotient and primitive parts of the \(e\)-th off-diagonal term in \cref{prop:second-moment}.  Thus SP is exactly the task of bounding the last displayed summand after quotient-pulled-back pairs have been paid.
+\end{proposition}
+
+\begin{proof}
+Divide the identity in \cref{prop:second-moment} by \(\binom{n}{m}^2|\B|^{-w}\).  The diagonal contributes \(1/\overline F\); the off-diagonal terms split by the first-match quotient/primitive assignment.
+\end{proof}
+
+\begin{proposition}[slope elimination]\label{prop:slope-elimination}
+Let \(u+zv\) be an affine line of received words and let \(T\subseteq D\) have \(|T|=m\).  Put \(w=m-K\) and
+\[
+        S_r(h,T)=\sum_{x\in T}{h(x)x^r\over \ell_T'(x)},\qquad 0\le r<w.
+\]
+Then \(u+zv\) restricts on \(T\) to a polynomial of degree \(<K\) if and only if
+\[
+        (S_r(u,T))_{r<w}+z(S_r(v,T))_{r<w}=0.
+\]
+If \(T\) is not a common support for both \(u\) and \(v\), then it supports at most one finite slope \(z\).
+\end{proposition}
+
+\begin{proof}
+The Lagrange interpolant of a word \(h:T\to\F\) has degree \(<K\) if and only if its top \(w\) coefficients vanish; the displayed \(S_r\)'s are the usual residue formula for those top coefficients, up to an invertible triangular change of basis.  Applying this to \(h=u+zv\) gives the vector equation.  If the second vector is zero, the support is either common or carries no finite slope.  If it is nonzero, any solution \(z\) is forced by a nonzero coordinate, so there is at most one.
+\end{proof}
+
+\begin{proposition}[interpolation-lattice split-pencil reduction]\label{prop:lattice-split}
+For a word \(U:D\to\F\), define
+\begin{align*}
+        M_U&=\{(W,N)\in\F[X]^2:
+        W(x)U(x)=N(x)\text{ for all }x\in D\},\\
+        \wdeg(W,N)&=\max(\deg W,\deg N-(K-1)).
+\end{align*}
+Let \(\omega=n-m\).  Agreement supports of size \(m\) are in bijection with pairs \((W,N)\in M_U\) such that \(W\) is monic, \(D\)-split, \(\deg W=\omega\), \(\wdeg(W,N)\le\omega\), and \(W\mid N\).  If a shifted weak-Popov basis \(g_i=(W_i,N_i)\) of \(M_U\) has profile \((d_1,d_2)\), every such pair has the form \(Ag_1+Bg_2\) with \(\deg A\le\omega-d_1\) and \(\deg B\le\omega-d_2\).  When \(W=AW_1+BW_2\) is \(D\)-split, the divisibility \(W\mid N\) is automatic.
+\end{proposition}
+
+\begin{proof}
+If \(U\) agrees with a degree-\(<K\) polynomial \(c\) on \(T\), take \(W=\ell_{D\setminus T}\) and \(N=Wc\).  Conversely, a pair with \(W\mid N\) gives \(N=Wc\), the weighted-degree bound gives \(\deg c<K\), and the relation \(W(U-c)=0\) on \(D\) gives agreement on \(D\setminus Z(W)\).  The weak-Popov representation is the predictable-degree property of a shifted basis of the rank-two interpolation module.  Finally, if \(W\) is \(D\)-split, then at every root \(x\in D\) of \(W\) the module relation gives \(N(x)=W(x)U(x)=0\); since \(W\) is squarefree, \(W\mid N\).
+\end{proof}
+
+\begin{theorem}[near-rational lattice dichotomy]\label{thm:near-rational}
+Let \(U:D\to\F\), let \(m\ge K\), put \(w=m-K\) and \(\omega=n-m\), and assume \(2w\le n-K\).  Let \(d_1=d_1(U)\) be the smallest shifted degree of a nonzero element of \(M_U\), and let
+\[
+        \Cen(U;m)=\#\{T\subseteq D:\ |T|=m,\ U|_T\text{ is explained by a degree-}<K\text{ polynomial}\}.
+\]
+Then exactly one of the following alternatives holds.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item If \(d_1\le w\), then either \(U\) is within Hamming distance exactly \(d_1\) of a unique codeword \(c\in C\), in which case
+\[
+        \Cen(U;m)=\binom{n-d_1}{m},
+\]
+or \(\Cen(U;m)=0\).
+\item If \(d_1\ge w+1\), every census element is represented in the two-generator family
+\[
+        Ag_1+Bg_2,\qquad
+        \deg A\le\omega-d_1,\quad \deg B\le\omega-d_2,
+\]
+where \(g_1,g_2\) is a shifted weak-Popov basis of \(M_U\), \(d_2=n-K+1-d_1\).  The parameter space has dimension \(\omega-w+1\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Let \(g_1=(W_1,N_1)\), \(g_2=(W_2,N_2)\) be a shifted weak-Popov basis with row degrees \(d_1\le d_2\).  The determinant degree gives \(d_1+d_2=n-K+1\).  If \(d_1\le w\), then \(d_2\ge n-K+1-w=\omega+1\).  By predictable degrees, any element of shifted degree at most \(\omega\) must be a multiple \(Ag_1\).  Therefore the census is empty unless \(W_1\), after scaling, is a monic squarefree divisor of \(\ell_D\), \(W_1\mid N_1\), and \(c=N_1/W_1\) has degree \(<K\).  In the nonempty case, \(c\) agrees with \(U\) outside the roots of \(W_1\).  Minimality of \(d_1\) forces the disagreement set to be exactly those roots; otherwise its error-locator pair would be a nonzero lattice element of smaller shifted degree.  The codeword is unique because two codewords within distance \(w\) of \(U\) would differ in at most \(2w\le n-K\) positions, contradicting the Reed--Solomon distance \(n-K+1\).  The valid supports are precisely the \(m\)-subsets of the \(n-d_1\) agreement positions, giving the binomial count.  If any required split/divisibility/codeword condition fails, the census is empty.
+
+If \(d_1\ge w+1\), both weak-Popov rows may occur.  Predictable degrees give the multiplier bounds \(\deg A\le\omega-d_1\) and \(\deg B\le\omega-d_2\).  The number of coefficients in \(A\) and \(B\) is
+\[
+        (\omega-d_1+1)+(\omega-d_2+1)
+        =2\omega+2-(n-K+1)=\omega-w+1.
+\]
+\end{proof}
+
+\begin{corollary}[near-rational slopes are paid outside the balanced core]\label{cor:near-rational-line}
+For an affine line \(u+zv\), suppose two distinct slopes \(z_1,z_2\) have \(d_1(u+z_iv)\le w\) and nonzero size-\(m\) census.  Then \(v\) is within distance \(2w\) of a codeword and \(u\) is within distance \(3w\) of a codeword.  Thus this line belongs to a common-proximity paid branch; after that branch is removed, at most one near-rational finite slope remains, and all other residual slopes satisfy \(d_1(u+zv)\ge w+1\).
+\end{corollary}
+
+\begin{proof}
+By \cref{thm:near-rational}, \(u+z_i v=c_i+\eta_i\), with \(c_i\in C\) and \(\operatorname{wt}(\eta_i)\le w\), for \(i=1,2\).  Since \(z_1\ne z_2\),
+\[
+        v={c_1-c_2\over z_1-z_2}+{\eta_1-\eta_2\over z_1-z_2}
+\]
+is within distance at most \(2w\) of a codeword.  Substituting into \(u=(u+z_1v)-z_1v\), the word \(u\) is within distance at most \(w+2w=3w\) of a codeword.  Such a line is therefore not part of the primitive balanced-core residual once common-proximity/tangent cells are paid.  If two near-rational slopes survived there, the preceding argument would put the line in the paid branch; hence at most one can remain.
+\end{proof}
+
+\begin{theorem}[deficiency-one split-test eliminant]\label{thm:deficiency-one-eliminant}
+Let \(\Lambda_D\in\F[X]\) be squarefree of degree \(n\).  Let \(M(Z)=M_0+ZM_1\) be a \(j\times(j+1)\) matrix pencil over \(\F\).  For \(0\le i\le j\), let \(c_i(Z)\) be the signed maximal minor obtained by deleting column \(i\), and set
+\[
+        L_Z(X)=\sum_{i=0}^j c_i(Z)X^i .
+\]
+Assume not all maximal minors vanish identically.  If \(c_j\not\equiv0\), perform pseudo-division over \(\F[Z]\):
+\[
+        c_j(Z)^{n-j+1}\Lambda_D(X)=Q(Z,X)L_Z(X)+R(Z,X),
+        \qquad \deg_XR<j .
+\]
+If some coefficient \(R_m(Z)\) is not identically zero, then every parameter \(z\) for which either \(M(z)\) drops rank, or \(M(z)\) has full rank with \(c_j(z)=0\), or \(M(z)\) has full rank with \(c_j(z)\ne0\) and \(L_z\mid\Lambda_D\), is a root of the nonzero polynomial \(c_j(Z)R_m(Z)\).  Its degree is at most \(j+(n-j+1)j\).  If \(c_j\equiv0\), the top chart is empty.  If \(c_j\not\equiv0\) and all coefficients of \(R\) vanish identically, then every top-chart parameter passes the split test \(L_z\mid\Lambda_D\), so this chart is a named residual branch rather than a paid bounded chart.
+\end{theorem}
+
+\begin{proof}
+Each maximal minor is a determinant of a \(j\times j\) matrix with affine-linear entries in \(Z\), so it has degree at most \(j\).  At a full-rank value \(z\), the cofactor vector \(c(z)=(c_0(z),\ldots,c_j(z))\) spans the one-dimensional kernel of \(M(z)\).  Thus \(c_j(z)=0\) is the full-rank chart where the candidate locator has degree \(<j\), while \(c_j(z)\ne0\) is the top chart.
+
+Pseudo-division by the degree-\(j\) polynomial \(L_Z\) takes \(n-j+1\) elimination steps.  Each step multiplies the current remainder by \(c_j\) and subtracts a shifted multiple of \(L_Z\), so every coefficient of \(R\) has \(Z\)-degree at most \((n-j+1)j\).
+
+Let \(z\) be a top-chart parameter with \(L_z\mid\Lambda_D\).  Since \(c_j(z)\ne0\), substituting \(Z=z\) into the pseudo-division identity gives that \(L_z\) divides \(R(z,X)\).  But \(\deg_XR(z,X)<j=\deg L_z\), hence \(R(z,X)=0\); in particular \(R_m(z)=0\).  If \(M(z)\) drops rank, all maximal minors vanish, including \(c_j(z)\).  If \(M(z)\) has full rank but \(c_j(z)=0\), again \(c_j(z)=0\).  These two classes are therefore roots of \(c_jR_m\).  The degree bound follows from the preceding paragraph and \(\deg c_j\le j\).  Finally, if all coefficients of \(R\) vanish identically, then the same pseudo-division identity gives \(L_z\mid\Lambda_D\) for every top-chart \(z\), and no eliminant is available.
+\end{proof}
+
+\begin{lemma}[split annihilator dictionary]\label{lem:split-annihilator}
+Let \(D\subseteq\F\) have size \(n\), let \(\Lambda_D(X)=\prod_{x\in D}(X-x)\), and put \(v_x=\Lambda_D'(x)^{-1}\).  Let \(L\in\F[X]\) be split over \(D\), with root set \(T\), \(\gamma=|T|=\deg L\), and let \(\tau\ge1\) satisfy \(\tau+\gamma\le n\).  For a word \(y:D\to\F\), the conditions
+\[
+        \sum_{x\in D}v_x\,y(x)L(x)x^m=0
+        \qquad(0\le m<\tau)
+\]
+hold if and only if
+\[
+        y\in \RS[\F,D,n-\tau-\gamma]+\F^T,
+\]
+where \(\F^T\) denotes words supported on \(T\).  The sum is direct.
+\end{lemma}
+
+\begin{proof}
+First note the residue identity: for every polynomial \(h\) with \(\deg h\le n-2\),
+\[
+        \sum_{x\in D}v_xh(x)=0.
+\]
+Indeed, \(h/\Lambda_D\) has no residue at infinity, and its finite residues are \(v_xh(x)\).
+
+If \(y\) is supported on \(T\), then \(y(x)L(x)=0\) for all \(x\in D\).  If \(y=p|_D\) with \(\deg p<n-\tau-\gamma\), then for \(m<\tau\) the polynomial \(pLX^m\) has degree at most \(n-2\), so the residue identity gives the displayed annihilator equations.  Thus the right side lies in the solution space.
+
+Conversely, the linear map
+\[
+        y\longmapsto
+        \left(\sum_{x\in D}v_x\,y(x)L(x)x^m\right)_{0\le m<\tau}
+\]
+has zero columns on \(T\).  On \(D\setminus T\), the nonzero scalars \(v_xL(x)\) multiply a \(\tau\times(n-\gamma)\) Vandermonde matrix on distinct points, hence the rank is \(\tau\).  The solution space therefore has dimension \(n-\tau\).  The right side has dimension \((n-\tau-\gamma)+\gamma=n-\tau\), because a degree-\(<n-\tau-\gamma\) polynomial vanishing on \(D\setminus T\) has at least \(n-\gamma\) roots, more than its degree unless it is zero.  The containment of equal-dimensional spaces proves the equivalence and directness.
+\end{proof}
+
+\begin{lemma}[constant divisor rigidity]\label{lem:constant-divisor}
+Let \(P\in\F[X]\) be nonzero and let \(L\in\F(Z)[X]\) be monic.  If \(L\mid P\) in \(\F(Z)[X]\), then \(L\in\F[X]\) and \(L\mid P\) already in \(\F[X]\).
+\end{lemma}
+
+\begin{proof}
+Over \(\overline{\F}(Z)\), all roots of \(P\) are constants.  Since \(L\) is a monic divisor of \(P\), it is a product of some of the linear factors \(X-\xi\) with \(\xi\in\overline{\F}\).  Thus the coefficients of \(L\) lie in \(\overline{\F}\).  They also lie in \(\F(Z)\), and the relative algebraic closure of \(\F\) in \(\F(Z)\) is \(\F\); hence the coefficients lie in \(\F\).  Division with remainder in \(\F[X]\) agrees with division in \(\F(Z)[X]\), so the remainder is zero.
+\end{proof}
+
+\begin{proposition}[split charts are tangent-borne]\label{prop:split-chart-tangent}
+Let \(C=\RS[\F,D,k]\), set \(j=n-a\), and assume \(j=a-k\).  Let \(M(Z)\) be the deficiency-one syndrome pencil of a received line \(f+Zg\).  In the notation of \cref{thm:deficiency-one-eliminant}, assume \(c_j\not\equiv0\) and all pseudo-division remainders vanish identically.  Then there is a fixed \(j\)-set \(T^*\subseteq D\) such that \(f\) and \(g\) each agree with codewords of \(C\) on \(D\setminus T^*\).  Consequently, at every threshold \(a'\ge a\), the line has at most \(j\) MCA-bad finite slopes, all among the tangent ratios
+\[
+        \begin{aligned}
+        &-{e_f(x)\over e_g(x)},\\
+        &x\in T^*,\quad e_g(x)\ne0,
+        \end{aligned}
+\]
+where \(e_f,e_g\) are the two error words supported on \(T^*\).  It has no no-loss CA-bad slopes whenever the internal radius is at least \(j/n\).
+\end{proposition}
+
+\begin{proof}
+The vanishing of all pseudo-division remainders says that the normalized top-chart locator
+\[
+        \widehat L_Z(X)=c_j(Z)^{-1}\sum_{i=0}^j c_i(Z)X^i
+\]
+divides \(\Lambda_D\) in \(\F(Z)[X]\).  By \cref{lem:constant-divisor}, \(\widehat L_Z=L^*\in\F[X]\) is a fixed monic divisor of \(\Lambda_D\).  Let \(T^*\) be its root set in \(D\), so \(|T^*|=j\).
+
+Because the cofactor vector \(c(Z)\) is a kernel vector of the syndrome pencil, the identity \(M(Z)c(Z)\equiv0\) separates into the two identities saying that \(L^*\) annihilates the exact-agreement syndromes of \(f\) and of \(g\).  Applying \cref{lem:split-annihilator} with \(\tau=j\) and \(\gamma=j\) gives \(f=c_f+e_f\) and \(g=c_g+e_g\), with \(c_f,c_g\in\RS[\F,D,n-2j]=C\) and \(e_f,e_g\) supported on \(T^*\).  Here \(n-2j=k\) by \(j=n-a=a-k\).
+
+Let \(z\) be MCA-bad at agreement \(a'\ge a\), with witness support \(S\) and explaining codeword \(c\) for \(f+zg\).  On \(S\setminus T^*\) the codewords \(c\) and \(c_f+zc_g\) agree.  This set has size at least \(a'-j\ge a-j=k\), so they are the same codeword.  Thus on \(S\cap T^*\) one has \(e_f+ze_g=0\).  If the pair were simultaneously explained on \(S\), it would be explained by \((c_f,c_g)\), so badness forces some \(x\in S\cap T^*\) with \((e_f(x),e_g(x))\ne(0,0)\).  At such an \(x\), the equality \(e_f(x)+ze_g(x)=0\) forces \(e_g(x)\ne0\) and \(z=-e_f(x)/e_g(x)\).  There are at most \(|T^*|=j\) such ratios.  Finally, if the internal radius is at least \(j/n\), then \((f,g)\) is column-close to \((c_f,c_g)\) and therefore cannot be CA-bad.
+\end{proof}
+
+\begin{proposition}[the boundary profile is Q]\label{prop:boundary-q}
+Assume \(D\) is a multiplicative coset with domain polynomial \(X^n-\beta\).  Let
+\[
+        P_z(X)=X^m+\sum_{j=1}^w z_jX^{m-j},\qquad
+        X^n=P_zQ_z+R_z,\quad \deg R_z<m,
+\]
+and put \(\omega=n-m\).  In the interpolation-lattice boundary branch of shifted degree \(w+1\), the prefix fiber is exactly the prescribed-divisor census
+\[
+        |\Fib_w(z)|
+        =
+        \#\{A:\deg A\le\omega-w-1,\ Q_z+A\mid X^n-\beta\}.
+\]
+Consequently Q is the boundary profile of the split-pencil problem, and BC starts only after this profile is removed.
+\end{proposition}
+
+\begin{proof}
+The pair \((1,P_z)\) is in the interpolation module of \(U_z\).  The Euclidean division above gives the second vector \((Q_z,\beta-R_z)\), since for every \(x\in D\) one has \(Q_z(x)P_z(x)=\beta-R_z(x)\).  Their determinant is \(\beta-X^n\), so they form a basis.  In the boundary branch, monic elements of \(W\)-degree \(\omega\) are exactly \(Q_z+A\) with \(\deg A\le\omega-w-1\).  Being a valid locator is precisely the divisibility condition \(Q_z+A\mid X^n-\beta\).  This is the same set counted by \(\Fib_w(z)\), by \cref{prop:prefix-witness}.
+\end{proof}
+
+\begin{theorem}[interior base-field split-pencil floor]\label{prop:base-field-floor}
+Let \(C=\RS[\F,D,K]\), where \(D\subseteq\B\subseteq\F\), \(|D|=n\), and put \(b=|\B|\).  Fix an agreement \(m\ge K\), put \(w=m-K\), and let
+\[
+        w+2\le d_1\le \left\lfloor {n-K+1\over2}\right\rfloor .
+\]
+Set \(m_{d_1}=K-1+d_1\), and assume \(m\le m_{d_1}\le n\) and \(m_{d_1}+d_1\le n\).  Then there is a \(\B\)-valued received word \(U\) whose interpolation module has minimal shifted degree exactly \(d_1\), and whose size-\(m\) split-pencil census is at least
+\[
+        \binom{m_{d_1}}{m}
+        \left\lceil\binom{n}{m_{d_1}}b^{-(d_1-1)}\right\rceil .
+\]
+Consequently any BC upper model for genuine interior profiles must include a base-field-normalized floor; a challenge-field-only normalization is false when \(|\F|\) is much larger than \(|\B|\).
+\end{theorem}
+
+\begin{proof}
+For \(z=(z_1,\ldots,z_{d_1-1})\in\B^{d_1-1}\), let
+\[
+        U_z(X)=X^{m_{d_1}}+\sum_{h=1}^{d_1-1}z_hX^{m_{d_1}-h}
+\]
+on \(D\).  The module element \((1,U_z)\) has shifted degree \(m_{d_1}-(K-1)=d_1\).  If \((W,N)\in M_{U_z}\) had shifted degree \(<d_1\), then \(\deg W<d_1\), \(\deg N<m_{d_1}\), and \(WU_z-N\) would vanish on \(D\).  Its degree is at most \(m_{d_1}+d_1-1<n\), so \(WU_z=N\) as polynomials.  If \(W\ne0\), monicity of \(U_z\) gives \(\deg(WU_z)\ge m_{d_1}\), contradicting \(\deg N<m_{d_1}\); hence \(W=N=0\).  Thus the minimal shifted degree is exactly \(d_1\).
+
+Now vary \(z\).  The first \(d_1-1\) high-degree coefficients of the locators of \(m_{d_1}\)-subsets of \(D\) lie in \(\B^{d_1-1}\), so by pigeonhole some \(z^*\) has at least
+\[
+        \left\lceil\binom n{m_{d_1}}b^{-(d_1-1)}\right\rceil
+\]
+subsets \(M'\) with that prefix.  For each such \(M'\), the polynomial \(U_{z^*}-\ell_{M'}\) has degree \(<K\), because the leading term and the first \(d_1-1\) coefficients cancel and \(m_{d_1}-d_1=K-1\).  Hence it agrees with \(U_{z^*}\) on every point of \(M'\).
+
+Every \(m\)-subset \(T\subseteq M'\) is therefore an agreement support.  Distinct pairs \((M',T)\) give distinct codeword-support pairs: if the same degree-\(<K\) codeword agreed on the same \(T\) with \(|T|=m\ge K\), then the codewords coincide, and then \(\ell_{M'}\) coincides as well.  By \cref{prop:lattice-split}, these agreement-support pairs are represented in the split-pencil count of any shifted weak-Popov basis of \(M_{U_{z^*}}\).  Since the minimal shifted degree is \(d_1\), the family lies in the genuine interior profile \(d_1\), not in the boundary-Q profile.
+\end{proof}
+
+\begin{proposition}[rank-one pole-line base-field floor]\label{prop:rank-one-floor}
+Let \(C=\RS[\F,D,K]\), with \(D\subseteq\B\subsetneq\F\), and fix \(m\ge K+1\), \(w=m-K\).  Let \(z^*\in\B^w\) be a heaviest depth-\(w\) prefix value among \(m\)-subsets of \(D\), and choose \(\alpha\in\F\setminus(D\cup\B)\).  For the pole line
+\[
+        f_\alpha(x)={U_{z^*}(x)\over x-\alpha},\qquad
+        g_\alpha(x)={-1\over x-\alpha},
+\]
+there are at least
+\[
+        \left\lceil\binom{n}{m}|\B|^{-w}\right\rceil
+\]
+non-common rank-one agreement supports of size \(m\).  Moreover the line is genuinely extension-valued, even after common scalar multiplication.
+\end{proposition}
+
+\begin{proof}
+By pigeonhole, \(|\Fib_w(z^*)|\ge\lceil\binom nm|\B|^{-w}\rceil\).  For each \(S\in\Fib_w(z^*)\), \cref{prop:pole-line} supplies the slope \(\zeta_S=U_{z^*}(\alpha)-\ell_S(\alpha)\) for which \(f_\alpha+\zeta_S g_\alpha\) is explained on \(S\).  In the slope-elimination notation of \cref{prop:slope-elimination}, this is a rank-one relation
+\[
+        (S_r(f_\alpha,S))_{r<w}+\zeta_S(S_r(g_\alpha,S))_{r<w}=0 .
+\]
+It is non-common because \(g_\alpha\) cannot be explained on any set of size at least \(K+1\), by the same argument as in \cref{prop:pole-line}: otherwise \((X-\alpha)G+1\) would have degree at most \(K\), vanish on at least \(K+1\) points, and take value \(1\) at \(\alpha\).
+
+Finally, suppose some nonzero scalar \(\lambda\) made \(\lambda g_\alpha(D)\subseteq\B\).  For distinct \(x,y\in D\), the ratio \(g_\alpha(x)/g_\alpha(y)=(y-\alpha)/(x-\alpha)\) would lie in \(\B\).  Writing this ratio as \(r\ne1\) gives \(\alpha=(y-rx)/(1-r)\in\B\), a contradiction.
+\end{proof}
+
+\begin{proposition}[extension-valued distinct-slope rank-one floor]\label{prop:rank-one-distinct-slope-floor}
+Let \(C=\RS[\F,D,K]\), with \(D\subseteq\B\subsetneq\F\), put \(q=|\F|\), and fix \(m\ge K+1\), \(w=m-K\).  Let \(z^*\in\B^w\) be a prefix value and let \(\mathcal G\subseteq\Fib_w(z^*)\) have size \(N\).  Then there exists \(\alpha\in\F\setminus\B\) such that the pole line
+\[
+        f_\alpha(x)={U_{z^*}(x)\over x-\alpha},
+        \qquad
+        g_\alpha(x)={-1\over x-\alpha}
+\]
+has at least
+\[
+        N-{\binom N2 (K-1)\over q-|\B|}
+\]
+distinct finite MCA-bad slopes at agreement \(m\).  In particular, if \(N\le(q-|\B|)/(K-1)+1\), then some genuinely extension-valued pole line has at least \(N/2\) distinct MCA-bad slopes.  The same conclusion applies to any \(N\le\lceil\binom nm|\B|^{-w}\rceil\) by choosing \(\mathcal G\) inside a heaviest prefix fiber.
+\end{proposition}
+
+\begin{proof}
+For each \(S\in\mathcal G\), \cref{prop:pole-line} gives the bad slope
+\[
+        \zeta_S(\alpha)=U_{z^*}(\alpha)-\ell_S(\alpha).
+\]
+If \(S\ne S'\), then \(\ell_S-\ell_{S'}\) has degree at most \(m-w-1=K-1\), because the leading term and the first \(w\) high-degree coefficients cancel.  Hence \(\zeta_S(\alpha)=\zeta_{S'}(\alpha)\) for at most \(K-1\) values of \(\alpha\in\F\), and therefore for at most \(K-1\) values in \(\F\setminus\B\).
+
+Averaging over the \(q-|\B|\) allowed extension poles gives some \(\alpha\notin\B\) with at most \(\binom N2(K-1)/(q-|\B|)\) colliding support-pairs.  The number of distinct slope values is at least \(N\) minus that number of colliding pairs.  By \cref{prop:pole-line}, all these slopes are MCA-bad at agreement \(m\), because the pole pair is never simultaneously explained on any support of size at least \(K+1\).  Finally, since \(\alpha\notin\B\), the scalar-confinement argument from \cref{prop:rank-one-floor} shows that the line is genuinely extension-valued.
+\end{proof}
+
+\begin{remark}[proved reductions versus open flatness]\label{rem:proved-not-flat}
+The propositions and theorems in this section, together with the safe anchors above, are proved reductions, solved subcases, or route-cut counterexamples: prefix exactness, pole-line transport, fiber-to-slope conversion, exact high-agreement tangent cells, subfield confinement, the exponential aperiodic floor below the envelope, collision rigidity, second moments, twist-orbit moment amplification, quotient descent, coefficient-scale quotient extraction, the top-stratum quotient sieve, head-depth flatness, slope elimination, near-rational lattice classification, deficiency-one eliminants, identically split chart collapse to tangent cells, split pencils, the Q boundary profile, rank-one pole-line floors with distinct extension-valued slope realization, and base-field census floors.  They do not prove prefix flatness at the deployed frontier depth, the interior split-pencil census, or the finite adjacent safe inequalities.  They replace those questions by explicit fiber, slope, pencil, quotient, extension, and primitive shift-pair counts, and they prove the head-depth part of Q outright.
+\end{remark}
+
+\section{The Three Missing Inputs}
+
+The rest of the proof is a safe-side census problem.  The following conjectures are deliberately stated as inputs to be proved, refuted, or replaced by stronger finite certificates.  The full v13 raw manuscript contains the detailed reductions and exact row packets to which these names refer.
+
+\begin{conjecture}[Q: prefix flatness]\label{conj:Q}
+Let \(\Phi_w\) be the identity-prefix map sending an \(m\)-subset \(M\subseteq D\) to the first \(w\) high-degree locator coefficients, equivalently to the first \(w\) power sums when the characteristic exceeds \(w\).  After quotient-pulled-back and planted strata are charged to their own ledgers, every primitive fiber satisfies
+\[
+        |\Phi_w^{-1}(z)|\le R_Q(n)\binom{n}{m}|\B|^{-w}.
+\]
+For the asymptotic frontier it suffices that \(R_Q(n)=e^{o(n)}\), or even \(\poly(n)\) with logarithmic agreement reserve.  For the finite adjacent rows, the row-specific constants must fit inside the margins in the table above.
+\end{conjecture}
+
+\begin{remark}[proved part of Q]\label{rem:proved-q-part}
+\Cref{thm:head-flatness,cor:head-q} prove Q with a much stronger \(1+o(1)\) constant at head depths in the Weil range.  Thus Q is not an all-or-nothing mystery: the open case is the dense frontier depth where direct character-by-character square-root cancellation is too weak.
+\end{remark}
+
+\begin{conjecture}[BC: base-field-normalized split-pencil census]\label{conj:BC}
+Consider the interior balanced profiles arising from the split-pencil reduction of a non-tangent, non-quotient MCA line after the near-rational branch of \cref{thm:near-rational,cor:near-rational-line} and the bounded deficiency-one charts of \cref{thm:deficiency-one-eliminant} have been paid.  After common-GCD, \(\B\)-rational subfield lines paid by \cref{thm:subfield-confinement}, extension, and remaining bounded chart strata are removed, the number of primitive split locators in each affine pencil is at most the base-field density prediction times a factor \(R_{BC}(n)\).  The asymptotic target is \(R_{BC}(n)=e^{o(n)}\), while a deployed adjacent certificate requires printed row-wise constants.
+\end{conjecture}
+
+\begin{conjecture}[SP: primitive shift-pair control]\label{conj:SP}
+In the exact second-moment ledger for prefix collisions, primitive shift-pair strata contribute no more than the quotient-normalized density prediction times a factor \(R_{SP}(n)\).  Equivalently, after the known constant-shift and quotient-pulled-back families are charged, the remaining primitive pair census is \(e^{o(n)}\) asymptotically and has explicit finite constants at the four adjacent deployed rows.
+\end{conjecture}
+
+The interaction between these conjectures is important.  Conjecture Q is the boundary profile of the split-locator problem; BC is the interior split-pencil census; SP controls the primitive part of the collision ledger needed to make Q worst-case rather than average-case.  A counterexample should therefore exhibit either a super-polynomial primitive prefix fiber or a super-polynomial primitive split-pencil family.  Such a counterexample would be progress: it would become the next obstruction floor.
+
+\section{Conditional Closure}
+
+\begin{theorem}[asymptotic closure from Q, BC, and SP]\label{thm:asymptotic}
+Assume \cref{conj:Q,conj:BC,conj:SP} in their \(e^{o(n)}\) forms, uniformly for smooth multiplicative and circle rows at fixed rate.  Then the RS-MCA threshold follows the entropy--subfield envelope with logarithmic agreement reserve:
+\[
+        \delta_C^*(\varepsilon^*)=1-\rho-g^*(\rho,\beta)+o(1).
+\]
+\end{theorem}
+
+\begin{proof}
+The lower, unsafe inequality is the identity-prefix floor: below the envelope there is enough locator entropy over \(\B\) to produce a prefix fiber whose list mass exceeds the challenge budget, and the deep-point conversion turns that list mass into CA and MCA failure.  Above the envelope, decompose any putative bad line into the paid ledgers and residual cells.  Tangent, quotient, extension, common-GCD, and bounded chart cells are paid by the existing ledgers in the v13 raw package.  The prefix boundary cell is paid by Q, the interior balanced split-pencil cell by BC, and the primitive second-moment cell by SP.  With \(e^{o(n)}\) loss and logarithmic reserve, the entropy gap above \(g^*(\rho,\beta)\) dominates the residual factors.  The complete upper ledger is therefore below the challenge budget, giving safety above the envelope plus \(o(1)\).  Combining the two directions proves the formula.
+\end{proof}
+
+\begin{theorem}[finite adjacent closure]\label{thm:finite}
+Fix one of the four deployed rows in the table, with its relevant numerator \(B(a)\) from \cref{def:staircase}.  Suppose the unsafe inequality at \(a_0\) is the banked identity-prefix certificate, and suppose an exact upper ledger proves
+\[
+        B(a_0+1)\le U(a_0+1)\le B^* .
+\]
+For an MCA row, \(U\) is the first-match, deduplicated sum of tangent, quotient, extension, Q, BC, SP, and any explicitly named residual cells.  For a list row, \(U\) is the corresponding exact list upper ledger.  Then the first safe integer agreement is \(a_0+1\), and \(\delta_C^*(\varepsilon^*)\) is pinned to one integer step under the closed-ball convention for that row object.
+\end{theorem}
+
+\begin{proof}
+By the unsafe certificate, \(B(a_0)>B^*\), so \cref{lem:integer-budget} gives error \(>\varepsilon^*\) at agreement \(a_0\).  The exact upper ledger gives \(B(a_0+1)\le U(a_0+1)\le B^*\).  Applying \cref{lem:integer-budget} again gives error at most \(\varepsilon^*\) at agreement \(a_0+1\).  This is precisely the adjacent certificate of \cref{def:staircase}.  In the MCA case, \cref{lem:first-match-ledger} is the generic mechanism by which a first-match cell ledger proves the required upper inequality.
+\end{proof}
+
+\begin{remark}[endpoint convention]\label{rem:endpoint}
+If \cref{thm:finite} is proved for \(a_0\), then the largest safe closed-grid radius is \((n-a_0-1)/n\).  The first proved unsafe grid radius is \((n-a_0)/n\), and monotonicity makes every larger closed-grid radius unsafe.  For MCA this is \cref{lem:basic-staircase}; for list rows it is the immediate fact that a codeword list at agreement \(a\) is still valid at every lower agreement threshold.  If one records \(\delta_C^*(\varepsilon^*)\) as a real supremum over closed integer balls, the threshold lies at the upper edge of this unit interval and the convention must be printed with the certificate.
+\end{remark}
+
+\section{Work Plan}
+
+The final attempt should proceed proof by proof and computation by computation.
+
+\paragraph{Q program.}  Prove prefix flatness first in a form that separates quotient-stabilized fibers from primitive fibers.  The raw null fiber is not an extremal proxy, by \cref{prop:mode-null-false}; the concrete finite target is instead primitive max-orbit flatness, or an exchange-compression theorem implying the same row-wise maximum after quotient-pulled-back fibers are charged to their rungs.  \Cref{thm:moment-q} gives the quantitative moment route: asymptotically one may use growing-order moment-kernel estimates with \(w\log|\B|/r=o(n)\), but the finite adjacent rows require the exact inequality \(\log_2\Gamma_r+w\log_2|\B|\le r\Delta\).  Low fixed moments are therefore insufficient for the deployed one-step proof unless paired with a separate max-fiber principle.
+
+\paragraph{BC program.}  Build split-pencil certificates at the four \(a_0+1\) agreements.  Each packet should print the row, the profile, removed ledgers, chart equations, split condition, root or divisor count, and the exact finite constant.  The first useful computation is not another unsafe floor; it is a complete upper ledger for one row, preferably KoalaBear MCA because its \(22.2\)-bit margin is the most forgiving.
+
+\paragraph{SP program.}  Complete the primitive shift-pair ledger for the prefix-collision second moment.  The proved rigidity \( |M\setminus M'|\ge w+1 \) makes the primitive pair census sharply structured.  The finite question is whether the remaining primitive pairs fit inside the adjacent margins after quotient and constant-shift families are removed.
+
+\paragraph{Rung audit.}  Before trying to prove hard equidistribution, run the exact divisor-lattice audit at \(a_0+1\) for all quotient scales.  If any periodic rung exceeds the budget, the adjacent conjecture is false for a paid reason and the edge must move.  If every rung is below budget with printed margin, the remaining work is genuinely primitive.
+
+\paragraph{Certificate scanner.}  Every final packet should be machine-checkable and should include: row data, challenge denominator, agreement interval, target budget, paid-cell counts, residual-cell counts, deduplication rule, endpoint convention, script path, and hash or replay command.  A statement with an unspecified polynomial factor is useful for the asymptotic theorem, but it is not a finite deployed certificate.
+
+\section{Conclusion}
+
+The present state is narrow enough to be falsifiable.  The unsafe side is exact; the broad safe side is known far below the frontier; and the remaining band has been reduced to Q, BC, SP, plus an exact rung audit.  A proof of these inputs settles the smooth-domain RS-MCA threshold at the entropy--subfield envelope.  A counterexample to any one of them should reveal a new obstruction floor and would also settle the next step of the program.
+
+\begin{thebibliography}{BCHKS25}
+
+\bibitem[PP26]{ProximityPrize}
+The Proximity Prize.
+\newblock The Proximity Prize: \$1M Reed--Solomon Challenge.
+\newblock Preliminary release, 2026.
+\newblock \url{https://proximityprize.org/}.
+
+\bibitem[ABF26]{ABF26}
+G.~Arnon, D.~Boneh, and G.~Fenzi.
+\newblock Remaining questions in list decoding and correlated agreement.
+\newblock IACR Cryptology ePrint Archive, Report 2026/680, 2026.
+\newblock \url{https://eprint.iacr.org/2026/680}.
+
+\bibitem[BCHKS25]{BCHKS25}
+E.~Ben-Sasson, D.~Carmon, U.~Hab{\"o}ck, S.~Kopparty, and S.~Saraf.
+\newblock On proximity gaps for Reed--Solomon codes.
+\newblock IACR Cryptology ePrint Archive, Report 2025/2055, 2025.
+\newblock \url{https://eprint.iacr.org/2025/2055}.
+
+\bibitem[BCIKS20]{BCIKS20}
+E.~Ben-Sasson, D.~Carmon, Y.~Ishai, S.~Kopparty, and S.~Saraf.
+\newblock Proximity gaps for Reed--Solomon codes.
+\newblock In \emph{Proc. 61st IEEE Symposium on Foundations of Computer Science (FOCS)}, 2020.
+\newblock Extended manuscript: IACR Cryptology ePrint Archive, Report 2020/654.
+
+\bibitem[Cho26a]{Cho26a}
+P.~Chojecki.
+\newblock Capacity-edge obstructions to Reed--Solomon mutual correlated agreement over smooth multiplicative domains.
+\newblock Manuscript, 2026.
+
+\bibitem[Cho26b]{Cho26b}
+P.~Chojecki.
+\newblock Slack, quotient cores, and the entropy gap for smooth-domain Reed--Solomon codes.
+\newblock Manuscript, merged corrected edition, 2026.
+
+\bibitem[CAP25v13]{CAP25v13}
+P.~Chojecki and contributors.
+\newblock \emph{CAP25 v13 raw manuscript}.
+\newblock Experimental manuscript in this repository, \texttt{experimental/cap25\_cap\_v13\_raw.tex}, 2026.
+
+\bibitem[CS25]{CS25}
+E.~Crites and A.~Stewart.
+\newblock On Reed--Solomon proximity gaps conjectures.
+\newblock IACR Cryptology ePrint Archive, Report 2025/2046, 2025.
+\newblock \url{https://eprint.iacr.org/2025/2046}.
+
+\bibitem[Lin44]{Linnik44}
+Y.~V. Linnik.
+\newblock On the least prime in an arithmetic progression. I. The basic theorem.
+\newblock \emph{Rec. Math. [Mat. Sbornik] N.S.}, 15(57):139--178, 1944.
+
+\bibitem[Wei48]{Weil48}
+A.~Weil.
+\newblock On some exponential sums.
+\newblock \emph{Proceedings of the National Academy of Sciences of the United States of America}, 34(5):204--207, 1948.
+
+\end{thebibliography}
+
+\end{document}

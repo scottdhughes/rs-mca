@@ -1,0 +1,337 @@
+\section{BC: Base-Field-Normalized Split-Pencil Census}
+\label{sec:gf-work-bc}
+
+\paragraph{Status.}
+This section separates the part of BC that is already proved in the raw
+CAP25 package from the part that remains a genuine census input.  The slope
+elimination, interpolation-lattice, determinantal-representation, automatic
+divisibility, boundary-profile, and base-field-floor reductions below are
+PROVED relative to \cite{CAP25v13}.  The final interior split-pencil count is
+still CONJECTURAL; its finite deployed form requires exact row constants and
+cannot be replaced by an unspecified polynomial loss.
+
+\begin{definition}[BC parameters and split locators]
+\label{def:gf-bc-parameters}
+Let \(C=\RS[\F,D,K]\), where \(D\subseteq\B\subseteq\F\), \(|D|=n\),
+\(|\B|=b\), \(|\F|=q\), and
+\[
+        \Lambda_D(X)=\prod_{x\in D}(X-x).
+\]
+Fix an agreement \(m\ge K\), and put
+\[
+        \omega=n-m,\qquad w=m-K .
+\]
+An interior balanced profile is an integer \(d_1\) satisfying
+\[
+        w+2\le d_1\le \left\lfloor {n-K+1\over2}\right\rfloor,
+        \qquad d_2=n-K+1-d_1 .
+\]
+The excluded endpoint \(d_1=w+1\) is the quotient/prefix boundary profile and
+belongs to Q, not to BC.
+
+A monic polynomial \(W\) is \(D\)-split of degree \(\omega\) if
+\(W\mid\Lambda_D\) and \(\deg W=\omega\).  Thus \(W=\Lambda_{D\setminus T}\)
+for a unique \(m\)-subset \(T\subseteq D\).
+\end{definition}
+
+\begin{definition}[determinantal datum and BC pencil count]
+\label{def:gf-bc-pencil-count}
+For a word \(U:D\to\F\), let
+\[
+        M_U=\{(W,N)\in\F[X]^2:\ W(x)U(x)=N(x)\ \text{for every }x\in D\}
+\]
+and set
+\[
+        \operatorname{wdeg}(W,N)=
+        \max\{\deg W,\deg N-(K-1)\}.
+\]
+A determinantal datum of profile \((d_1,d_2)\) is a quadruple
+\[
+        \mathfrak g=(W_1,N_1,W_2,N_2)
+\]
+arising from a shifted weak-Popov basis \(g_i=(W_i,N_i)\) of some \(M_U\), with
+\(\operatorname{wdeg}(g_i)=d_i\).  Equivalently, after choosing a unit
+\(\gamma\in\F^\times\),
+\[
+        W_1N_2-W_2N_1=\gamma\Lambda_D,\qquad \gcd(W_1,W_2)=1,
+        \qquad d_1+d_2=n-K+1.
+\]
+For an interior profile define the split-pencil count
+\[
+\begin{aligned}
+        \mathrm{BC}_{\mathfrak g}(m,d_1)
+        :=\#\Bigl\{(A,B):\;&
+        \deg A\le \omega-d_1,\quad
+        \deg B\le \omega-d_2,\\
+        &W_{A,B}:=AW_1+BW_2
+        \text{ is monic, }D\text{-split, and }\deg W_{A,B}=\omega
+        \Bigr\}.
+\end{aligned}
+\]
+The monic condition fixes the scalar normalization of the pencil.
+\end{definition}
+
+\begin{definition}[base-field floor at an interior profile]
+\label{def:gf-bc-base-floor}
+For \(d_1\) as in \cref{def:gf-bc-parameters}, put
+\[
+        m_{d_1}:=K-1+d_1 .
+\]
+The exact base-field floor forced by the identity-prefix construction at this
+profile is
+\[
+        \underline M_{\B}(d_1)
+        :=
+        \binom{m_{d_1}}m
+        \left\lceil \binom n{m_{d_1}} b^{-(d_1-1)}\right\rceil .
+\]
+Its density-model version, used for asymptotic statements, is
+\[
+        M_{\B}(d_1)
+        :=
+        \binom{m_{d_1}}m
+        \binom n{m_{d_1}} b^{-(d_1-1)} .
+\]
+\end{definition}
+
+\begin{proposition}[slope elimination]
+\label{prop:gf-bc-slope-elimination}
+Let \((u,v)\) be an affine received line, and let \(T\subseteq D\) have
+\(|T|=m\).  For \(0\le r<w\) define
+\[
+        S_r(h,T)=\sum_{x\in T}{h(x)x^r\over\Lambda_T'(x)},\qquad
+        \alpha(T)=(S_r(u,T))_{r<w},\quad
+        \beta(T)=(S_r(v,T))_{r<w}.
+\]
+Then \((u+zv)|_T\) extends to a polynomial of degree \(<K\) if and only if
+\[
+        \alpha(T)+z\beta(T)=0 .
+\]
+If \(T\) is not common, meaning \((\alpha(T),\beta(T))\ne(0,0)\), then it
+supports at most one finite slope.  Consequently, after common-support and
+tangent cells have been paid, the number of unpaid bad finite slopes at
+agreement \(m\) is bounded by the number of non-common rank-one supports,
+namely supports with \(\alpha(T)\) and \(\beta(T)\) proportional and
+\(\beta(T)\ne0\).
+\end{proposition}
+
+\begin{proof}
+The Lagrange interpolant of \(h:T\to\F\) has degree \(<K\) if and only if its
+top \(w=m-K\) coefficients vanish.  The displayed functionals are a
+unitriangular change of coordinates from those top coefficients, so this is
+equivalent to \(S_r(h,T)=0\) for every \(r<w\).  Applying this to \(h=u+zv\)
+and using linearity gives the vector equation.  If \(\beta(T)=0\), either
+\(\alpha(T)=0\) and every slope is carried by the common-support cell, or no
+slope is carried by \(T\).  If \(\beta(T)\ne0\), any solution \(z\) is forced
+by one nonzero coordinate of \(\beta(T)\), and it exists exactly when
+\(\alpha(T)\) and \(\beta(T)\) are proportional.  Choosing one non-common
+support for each unpaid bad slope gives the injection.
+\end{proof}
+
+\begin{proposition}[lattice and split-pencil reduction]
+\label{prop:gf-bc-lattice-split}
+For a word \(U:D\to\F\), the agreement-support census is
+\[
+\begin{aligned}
+        \mathrm{cen}(U;m)
+        =\#\Bigl\{(W,N)\in M_U:\;&
+        W\text{ monic},\ \deg W=\omega,\
+        \operatorname{wdeg}(W,N)\le\omega,\\
+        &W\mid\Lambda_D,\quad W\mid N
+        \Bigr\}.
+\end{aligned}
+\]
+If the minimal shifted degree of \(M_U\) is an interior profile \(d_1\), and
+\((g_1,g_2)\) is a shifted weak-Popov basis of profile \((d_1,d_2)\), then
+every census element has the form
+\[
+        (W,N)=A g_1+B g_2,\qquad
+        \deg A\le\omega-d_1,\quad \deg B\le\omega-d_2 .
+\]
+Moreover, for any such element with \(W\) \(D\)-split, the divisibility
+\(W\mid N\) is automatic.  Hence the balanced interior census of \(U\) is
+bounded by, and with the monic exact-degree normalization equals, the
+split-pencil count of \cref{def:gf-bc-pencil-count}.
+\end{proposition}
+
+\begin{proof}
+If \(T\) is a valid agreement support and \(c\in\RS[\F,T,K]\) is the unique
+degree-\(<K\) codeword agreeing with \(U\) on \(T\), then
+\(W=\Lambda_{D\setminus T}\) and \(N=Wc\) satisfy the displayed conditions.
+Conversely, if \((W,N)\) satisfies them, write \(N=Wc\); the shifted-degree
+cap gives \(\deg c<K\), and \(W(U-c)=0\) on \(D\), so \(U\) and \(c\) agree
+on the \(m\)-point support \(D\setminus Z(W)\).
+
+The module \(M_U\) is free of rank two with basis \((1,\widehat U)\) and
+\((0,\Lambda_D)\).  A shifted weak-Popov basis has predictable degrees and row
+degree sum \(n-K+1\), so an element of shifted degree at most \(\omega\) has
+the displayed representation with the displayed degree bounds.  Finally, if
+\(W\mid\Lambda_D\), then \(W\) is squarefree and all its roots lie in \(D\).
+At each root \(x\) of \(W\), the defining relation of \(M_U\) gives
+\(N(x)=W(x)U(x)=0\), so \(W\mid N\).
+\end{proof}
+
+\begin{proposition}[boundary profile is Q]
+\label{prop:gf-bc-boundary-is-q}
+The profile \(d_1=w+1\) of the split-pencil formulation is exactly the
+quotient/prefix divisor problem: for a prefix value \(z\), the census is the
+number of monic degree-\(\omega\) divisors of \(\Lambda_D\) with the prescribed
+top \(w+1\) coefficients.  Therefore BC starts at \(d_1=w+2\); counting
+\(d_1=w+1\) inside BC would double-count Q and would use the wrong scale.
+\end{proposition}
+
+\begin{proof}
+This is the Q-unification theorem of the raw package.  For the identity-prefix
+witness \(U_z\), the pair \((1,P_z)\), where
+\[
+        P_z=X^m+\sum_{j\le w}z_jX^{m-j},
+\]
+has shifted degree \(w+1\).  The companion row is obtained from the division
+\(\Lambda_D=P_zQ_z+R_z\).  In the balanced branch, predictable degrees force
+every census element to be \(Q_z+A\) after monic normalization, with
+\(\deg A\le\omega-w-1\), so the split condition is precisely
+\((Q_z+A)\mid\Lambda_D\).  This is the prefix-fiber problem and is assigned to
+Q.
+\end{proof}
+
+\begin{proposition}[base-field floor is unavoidable]
+\label{prop:gf-bc-base-floor}
+Assume \(m_{d_1}+d_1\le n\).  There exists a word whose shifted lattice has
+minimal profile \(d_1\) and whose size-\(m\) balanced census is at least
+\[
+        \underline M_{\B}(d_1)
+        =
+        \binom{m_{d_1}}m
+        \left\lceil \binom n{m_{d_1}} b^{-(d_1-1)}\right\rceil .
+\]
+Consequently no correct BC model may be normalized only at the challenge-field
+scale \(\binom n\omega q^{1-w}\) when \(q\) is larger than \(b\).
+\end{proposition}
+
+\begin{proof}
+Use the level-\(m_{d_1}\) identity-prefix witness with prefix depth
+\(d_1-1\):
+\[
+        P_{z'}^{(m_{d_1})}
+        =
+        X^{m_{d_1}}+\sum_{j\le d_1-1} z'_j X^{m_{d_1}-j},
+        \qquad z'\in\B^{d_1-1}.
+\]
+The same shifted-degree computation as in the boundary profile gives minimal
+degree \(d_1\) under the hypothesis \(m_{d_1}+d_1\le n\).  By pigeonhole, the
+heaviest prefix value has at least
+\[
+        \left\lceil \binom n{m_{d_1}} b^{-(d_1-1)}\right\rceil
+\]
+level-\(m_{d_1}\) supports.  Each such support gives a distinct codeword
+agreeing with the witness on \(m_{d_1}\) points, and each such codeword
+contributes \(\binom{m_{d_1}}m\) size-\(m\) sub-supports to the binomial
+agreement moment.  Distinct level supports give distinct codewords, so the
+contributions do not collide.
+\end{proof}
+
+\begin{conjecture}[BC, exact census form]
+\label{conj:gf-bc-exact-census}
+For every smooth multiplicative or circle row, every agreement \(m\) in the
+normalized band, and every primitive interior determinantal datum
+\(\mathfrak g\) after tangent, common-support, common-GCD, quotient-pullback,
+subfield-confined, extension-line, boundary-Q, and bounded-chart cells have
+been paid, one has
+\[
+        \mathrm{BC}_{\mathfrak g}(m,d_1)
+        \le
+        R_{BC}(n)\,
+        \max\left(
+        1,\ M_{\B}(d_1),\ \binom n\omega q^{1-w}
+        \right)
+\]
+uniformly over the interior range
+\[
+        w+2\le d_1\le \left\lfloor {n-K+1\over2}\right\rfloor .
+\]
+The asymptotic target is \(R_{BC}(n)=e^{o(n)}\), or any explicitly bounded
+polynomial loss used only with logarithmic agreement reserve.  The finite
+adjacent target replaces \(R_{BC}(n)\) by row-wise constants
+\(R_{BC,\mathrm{row}}(d_1)\) and by exact integer ceilings for the three model
+terms; the resulting sum over profiles must fit inside the printed one-step
+margins.
+\end{conjecture}
+
+\begin{remark}[finite packet required for BC]
+\label{rem:gf-bc-finite-packet}
+A finite BC packet for one deployed row should print, for each interior
+profile \(d_1\):
+\[
+\begin{array}{ll}
+\text{row data} & (\F,\B,D,K,n,m,\omega,w,q,b),\\
+\text{profile} & (d_1,d_2),\\
+\text{paid removals} &
+\text{tangent/common, GCD, quotient, subfield, extension, Q, bounded charts},\\
+\text{datum} & (W_1,N_1,W_2,N_2),\
+W_1N_2-W_2N_1=\gamma\Lambda_D,\\
+\text{pencil equations} & \deg A\le\omega-d_1,\ \deg B\le\omega-d_2,\
+AW_1+BW_2\mid\Lambda_D,\\
+\text{normalization} & AW_1+BW_2\text{ monic of degree }\omega,\\
+\text{count} & \mathrm{BC}_{\mathfrak g}(m,d_1)
+\le R_{BC,\mathrm{row}}(d_1)\max(1,\underline M_{\B}(d_1),
+\lceil\binom n\omega q^{1-w}\rceil),\\
+\text{ledger use} & \text{first-match insertion into }U(a_0+1),\\
+\text{status} & \text{PROVED / CONDITIONAL / CONJECTURAL / COUNTEREXAMPLE}.
+\end{array}
+\]
+Without these row constants, BC can support only the reserve/asymptotic closure,
+not the deployed adjacent theorem.
+\end{remark}
+
+\begin{remark}[proof routes and citations]
+\label{rem:gf-bc-routes}
+The reductions above leave a single interior census problem: split divisors of
+\(\Lambda_D\) lying in a two-generator affine pencil.  The plausible routes are:
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item \textbf{Master flatness.}  Prove a base-field split-locator flatness
+theorem for affine conditions on monic split divisors, with quotient and
+common-divisor components removed.  This would imply the asymptotic BC bound
+with reserve.  The formulation should be aligned with the master flatness
+target in \cite{CAP25v13}.
+\item \textbf{Determinantal incidence and monodromy.}  Treat
+\(AW_1+BW_2\mid\Lambda_D\) as a point-count problem on the determinantal
+incidence variety attached to
+\[
+        W_1N_2-W_2N_1=\gamma\Lambda_D .
+\]
+The expected obstruction strata are exactly the base-field floor, quotient
+pullbacks, common factors, and bounded charts; a primitive excess beyond these
+would be a new obstruction floor.
+\item \textbf{Exchange-compression.}  Try to show that exchanging roots toward
+graded or quotient-stabilized configurations cannot decrease the number of
+split points in a codimension condition.  A proof would turn the known floor
+strata into extremizers; a counterexample would falsify the current frontier
+model by producing a primitive split-pencil family.
+\item \textbf{Rung transfer for dyadic rows.}  Use the tower
+\(x\mapsto x^2\) to separate periodic mass exactly and prove a bounded-loss
+transfer for primitive residuals.  A constant loss per rung is only polynomial
+asymptotically, but the finite deployed packet must still track the bit cost
+at every rung.
+\item \textbf{Singular-bucket cleanup.}  For overdetermined or low-deficiency
+charts, use Kronecker pencil structure and Berlekamp--Massey/Pad'e
+two-generator normal forms to show that identically split charts collapse to
+tangent or already-paid cells.  These tools should be cited explicitly if this
+route is promoted from strategy to theorem.
+\end{enumerate}
+\end{remark}
+
+\begin{remark}[overclaiming guardrails]
+\label{rem:gf-bc-overclaiming}
+The following statements are not proved by the reductions in this section:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item the bound in \cref{conj:gf-bc-exact-census} for primitive interior
+split pencils;
+\item any finite adjacent safe certificate at \(a_0+1\);
+\item replacement of the base-field floor by a challenge-field floor;
+\item merging BC with Q or SP in a point estimate; and
+\item using \(e^{o(n)}\) or polynomial losses in the finite deployed rows
+without printed constants fitting the row margins.
+\end{enumerate}
+These items should remain labelled CONJECTURAL or CONDITIONAL until a replayable
+certificate or a proof with explicit constants is supplied.
+\end{remark}
