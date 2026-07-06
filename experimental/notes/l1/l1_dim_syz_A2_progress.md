@@ -59,3 +59,26 @@ So the clean sub-lemma to attack/route to Aristotle:
 
 This is a **reciprocal/Prony gap statement with an explicit distinguished solution** — arguably more
 tractable than the primal syzygy count, and the mechanism (why rev Γ works) is now explicit.
+
+## ⚠ REFUTED TARGET (2026-07-06, cross-terminal catch) — this whole A-thread chased a false statement
+
+**The KEY LEMMA `E_3 ≤ ℓ−2` (equivalently `dim Syz ≤ K`, `delta ≤ K`) is FALSE.** Refuted in-repo by
+`l1_prime_ell_key_lemma_refuted.md` + `verify_l1_key_lemma_refuted.py` (from-scratch, well-formed
+counterexamples: constant-free mixed Γ, K≥3 chart), and **independently re-verified here with my own
+fiber code**: at the certificate witnesses `E_3 = 19/30/24` for `ℓ=17/29/23` (all `> ℓ−2 = 15/27/21`),
+matching their E_3 exactly. The witnesses have **`delta = dim Syz = K+1`** (e.g. ℓ=11 p=67 spectrum
+`[8,3,3,3,3,2]`, E_3=10=ℓ−1, K=6, delta=7=K+1) — so `dim Syz ≤ K` fails outright. Even `E_3 ≤ ℓ` is false
+at T≥5 (`l1_e3_law_refuted.md`, max E_3 = ℓ+2); the surviving proved statement is **T≤4 ⟹ E_3 ≤ ℓ**
+(holmbuar master identity `σ = E_3+K−ℓ+dimU`).
+
+**What was still valid:** the upper half `dim(ΣV_k) ≤ ℓ−2` (elementary, unaffected); the 3-engine and
+dual computations are correct *as computations* — they were run on my saturators, which are all
+`E_3 = ℓ−2` **boundary** cases and never touch the `E_3 > ℓ−2` region.
+
+**Root cause (mine):** I built this A-thread on `l1_e3_subspace_upper_bound.md` ("crux open, *pending
+independent review*") without reading the refutation notes in the SAME directory. Caught by the Codex
+terminal's cross-review. **Process fix:** before building on any "open crux," grep the object's directory
+for `refuted`/`counterexample`/`negative` notes first. NO further work toward `E_3 ≤ ℓ−2` / `dim Syz ≤ K`.
+
+**Corrected target (pivot):** classify the `delta = K+1 / K+2` witnesses; seek a surviving bound
+(`E_3 ≤ ℓ + C` with the observed max `ℓ+2`, or a scarcity/count theorem), NOT `E_3 ≤ ℓ−2`.
