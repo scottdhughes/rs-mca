@@ -104,6 +104,24 @@ open research step — apply Ball Thm 1.9 / the `f|(Xg+h)(h'g-g'h)` mechanism to
 `R(W,c)` / `zeta`-rotation object (not the coarse discriminant). The library now has the full-proof
 sources (Ball–Weiner book, BBBSSz 1999, Gács 2003) to do this.
 
+## Thm 1.9 applied to R(W,c): additive theory does NOT transfer; Carlitz–McConnel is the right tool
+
+`../scripts/redei_RWc_structure.sage`: for each excess coset's modal value `c`,
+`R(W,c) = Res_X(Gamma(X)-c, W - X^ell) = prod_{Gamma(x)=c}(W - x^ell)` is fully reducible with
+root multiplicities = the value-`c` fiber sizes (VERIFIED: `c=301 -> [5]`, `c=215 -> [4,1,1]`, ...).
+**But `deg_W R(W,c) = ell-1 << p`, so it is NOT a Frobenius `W^p g + h` object** — Ball Thm 1.9's
+hypothesis (`x -> x^p`, `X^p - X = prod(X-a)`) fails. The additive lacunary/directions theory does
+NOT literally transfer: our structure is Kummer (`ell | p-1`, multiplicative), not Artin–Schreier /
+Frobenius (`p^e`, additive).
+
+**The correct engine is the MULTIPLICATIVE (cyclotomic) analog — the Carlitz–McConnel theorem and
+its recent extensions.** Carlitz–McConnel: if the difference quotients of `f: F_q -> F_q` all lie in
+a proper multiplicative subgroup of `F_q^*`, then `f` is a monomial (Frobenius-linear). Recent work
+extends this to difference quotients in **unions of cosets of a multiplicative subgroup**
+(= cyclotomic classes = our cosets of `mu_ell`): Xiong–Yip (arXiv 2604.04126), Asgarli–Yip,
+Blokhuis–Sziklai. This is literally the "directions restricted to `mu_ell`-cosets" rigidity our
+`E_3 <= ell-2` needs. Library: `../../literature/cyclotomic-directions/`.
+
 ## Next steps
 1. Read Ball's survey §1.2–1.4 + the `f|(Xg+h)(h'g-g'h)` proof in detail against our `g_k,h_k`.
 2. Test numerically whether the Rédei polynomial of a `Gamma`-coset configuration reproduces the
