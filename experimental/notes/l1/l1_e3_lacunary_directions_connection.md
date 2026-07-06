@@ -67,7 +67,25 @@ match is evidence it goes through, not a proof.
   underlying bound. Cite Rédei/Szőnyi/Ball/Gács; frame as "the frontier is governed by classical
   lacunary-polynomial theory," which is itself a valuable and defensible novelty.
 
+## Bridge probe (2026-07-06, `../scripts/bridge_probe_directions.sage`)
+
+First numerical probe, witnesses vs matched random `Gamma`:
+- **NOT literal additive directions:** `N_add(Gamma) = p` exactly at every witness (deg `Gamma << p`
+  ⟹ it determines all additive slopes). The classical additive-directions theorem does not apply
+  off-the-shelf; the correspondence is the **multiplicative/dual** version.
+- **Extremals are astronomically special (rigidity fingerprint):** random dense `Gamma` have
+  `E_3 ~ 0` (essentially no coset gets a size->=3 fiber; coincidence count `C ~ 6-14`), while the
+  frontier witnesses saturate `E_3 = ell-2` with `C = 64-104` (~10x). Value-set size is mildly
+  smaller only at `ell=17,p=103` (51 vs ~65). Conclusion: the specialness is real and extreme,
+  consistent with a lacunary/rigidity theorem, but keyed to the **multiplicative** coset structure.
+
+**Verdict:** bridge confirmed at the *phenomenon* level (rigidity of a rare special `Gamma`),
+refuted at the *literal additive-directions* level. The dictionary is multiplicative.
+
 ## Next steps
+0. **Build the MULTIPLICATIVE Rédei polynomial** for a `Gamma`-coset config (fibers of `x->x^ell`,
+   not additive slopes) and check the `f|(Xg+h)(h'g-g'h)` engine transfers to it. This is the
+   decisive constructive step.
 1. Read Ball's survey §1.2–1.4 + the `f|(Xg+h)(h'g-g'h)` proof in detail against our `g_k,h_k`.
 2. Test numerically whether the Rédei polynomial of a `Gamma`-coset configuration reproduces the
    direction-count / gap predicted by the classical bounds (a decisive check of the bridge).
