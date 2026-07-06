@@ -78,6 +78,43 @@ different full-rank core. The next generator must prevent dependency-free
 `POINT/ZERO` pivot cores as a structural class, not merely block the first
 mined core signatures.
 
+## Follow-up Pressure Audit
+
+The guarded candidates were then rerun through row-dependency pressure mining:
+
+```text
+experimental/data/m1_a327_mu8_rank3_core_nogood_row_dependency_pressure.json
+```
+
+Result:
+
+```text
+systems_tested = 2
+matrix shapes = 152 x 96
+rank/nullity = 96 / 0 for both systems
+positive_nullity_systems = 0
+critical_group_count = 0 for both systems
+rank_drop_histogram = {0: 62} for both systems
+```
+
+Both selected schedules still have only singleton projective keys:
+
+```text
+max_projective_key_support = 1
+projective_key_support_histogram = {1: 34}
+```
+
+Pivot-core mining found fresh full-rank cores. In one candidate, the
+`dependency_last` core has no dependency groups. In the other, all tested pivot
+core orderings have no dependency groups. Thus the no-good layer blocked known
+core signatures but did not force the scheduler into repeated-function
+dependency structure.
+
+This strengthens the local route cut: for this menu, forbidding individual
+generic cores is too weak. A future generator needs a structural constraint
+against singleton projective-key full-rank cores, or it needs a different
+dependency-producing menu family.
+
 ## Non-claims
 
 - No MCA numerator.
