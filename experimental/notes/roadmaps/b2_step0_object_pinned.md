@@ -41,10 +41,17 @@ Difficulty is **depth-dependent**:
   regime" I was about to attack was the WRONG problem (wrong `w`, wrong regime, wrong difficulty).
 - **The protocol worked:** Step-0 (pin object+params from primary source, check the arithmetic) caught a
   wrong-`w` model before any effort went into it. Code-green earlier had masked it (correct code, wrong `w`).
-- **Immediate open question (decides b2's fate):** is the DEPLOYED `w` in the **head** range (`w ≤ w_0`,
-  PROVED — then b2 is essentially done for those rows) or the **band** range (`w ≈ 67466`, OPEN)? Need
-  `w_0` (the proved head-depth bound) and the exact deployed `w` per campaign row. That is the next step,
-  NOT grinding an inverse theorem.
+- **RESOLVED (2026-07-06): DEPLOYED = BAND = OPEN at every row.** Proved head-depth bound is tiny:
+  `w_0 = 21–22` (KoalaBear) / `10–11` (Mersenne-31) — `:7111` ("pays one Weil cost √p per power sum, and
+  this is exactly what stops it at `w_0=21–22`"), `:8158`, `cor:capff1-collision-head`. Deployed rows sit
+  at `w = 4096` (MCA, `:5149`) to `w = 67470/67446` (list frontier, `:6944` `prop:capff1-identity-frontier`)
+  — orders of magnitude ABOVE `w_0`. So the max-fiber bound is proved only for the first ~21 rungs and is
+  **OPEN at every deployed depth**. `:7115`: even a poly-loss bound "does NOT decide the printed adjacent
+  pairs" (margins 22.2/22.0/3.3/3.1 bits) — needs the constant-factor `(1+o(1))`-of-mean form.
+- **VERDICT: b2 is OPEN at every deployed row — NOT a shippable milestone.** The "b2 is the tractable
+  entry point" thesis is REFUTED. b2 = the √p-barrier max-fiber inequality at band depth = divisor
+  equidistribution open over ℤ. b2 and L1 are in the SAME difficulty class (both √p-barrier; b2 stops at
+  `w_0=21` for the same reason L1 route A did). Neither has a crude escape.
 - **Novelty framing (upside):** connecting the deployed rows to divisor-equidistribution / short-interval
   results in `𝔽_q[X]` (Hayes / Keating–Rudnick / Sawin) is the correct literature — and the function-field
   moment-curve structure may be more tractable than the ℤ analogue. That is the real D1-style lit target,
