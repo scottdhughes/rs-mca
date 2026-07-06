@@ -36,7 +36,26 @@ coprime-only version lacks) to narrow `Syz`. Equivalently, for every `t`, `Σ_k 
 (connects to the frontier note's "pencil-locality / rotation-coupling" Route A). It cuts `Syz`
 but does not yet close `dim Syz ≤ K` — that remains the open crux.
 
-## Next step
-Exploit `Syz(h) ⊆ Syz(s)` (the all-`t` pencil condition): a syzygy simultaneously kills
-`{h_k}` and `{s_k}` with `deg s_k = deg h_k - 1`. Push this toward `dim Syz ≤ K` (or find the
-next obstruction). Re-verify any step on a second engine before promotion.
+## Pushing the pencil lead — outcome: DEPENDENT (no cut), but a clean geometric reframing
+
+`../scripts/pencil_cut_test.sage`. The pencil identity is exact:
+`X^ell - t*Gamma - b_k(t) = g_k*(h_k - t*s_k)`, `b_k(t)=w_k - t*c_k` (verified). So the `K` excess
+fibers are **common level sets of the pencil `F_t = X^ell - t*Gamma`** — equivalently the fibers of
+the map `phi = (X^ell, Gamma) : x -> (x^ell, Gamma(x))`, and `mu_k = |coset_k ∩ Gamma^{-1}(c_k)|`.
+
+**But the `s_k` condition does NOT cut `Syz` — it is a dependent consequence.** Adding
+`Sum s_k q_k = 0`, then the companion `Sum u_k q_k = 0` (`u_k = w_k s_k - c_k h_k`), then a
+`Gamma`-variant, leaves `dim Syz` UNCHANGED (`4, 7, 6, 5` for the saturators + non-saturator;
+verified). Reason (exact): `Gamma*(Sum h_k q_k) = X^ell*(Sum s_k q_k) + (deg <= ell-2)`, so
+`Sum s_k q_k` is *determined by* `Sum h_k q_k` (map `M`: top-`X^ell` part of `Gamma*A`) and vanishes
+automatically on `Syz`. Every pencil-derived relation is such a consequence. So the lead reframes but
+does not reduce the dimension. (Corrects Aristotle's "cuts down Syz".)
+
+**Reframed crux (geometric):** `E_3 <= ell-2` <=> the degree-`ell` map `phi=(X^ell,Gamma)` has total
+fiber-excess `Sum_{|fiber|>=3}(|fiber|-2) <= ell-2` — a rigidity of a single pencil.
+
+## Open routes (neither elementary-in-hand)
+1. **Pencil / AG genus count:** bound the common level sets of the pencil `{X^ell - t*Gamma}` (or the
+   fibers of `phi`) via a Riemann–Hurwitz / value-set argument. Deep, not faked here.
+2. **Direct rank of `Syz`:** the `dim Syz <= K` linear-algebra bound, without the (dependent) pencil
+   conditions — still the K>=3 open chart. Re-verify any step on a second engine before promotion.
