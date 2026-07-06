@@ -30,6 +30,26 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-06 - CAP25 v13 raw Lean blueprint
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/lean/lean-blueprint.json`;
+  `experimental/agents-log.md`.
+- **Status:** AUDIT / FORMALIZATION PLAN.
+- **What is being added:** A machine-readable Lean formalization blueprint for
+  `experimental/cap25_cap_v13_raw.tex`, organized as theorem, lemma,
+  proposition, corollary, definition, remark, computation, and final-target
+  nodes with dependency edges and reverse-support links.  The first pass keeps
+  all `lean_file` and `lean_name` slots blank by design.
+- **How it is useful:** Gives Lean agents a dependency graph for formalizing the
+  v13 raw program, with special targets for Q prefix flatness, BC split-pencil
+  census, SP primitive shift-pair control, finite adjacent deployed ledgers, and
+  full RS-MCA resolution.
+- **What to do next:** Assign nodes to concrete Lean files only after choosing
+  module boundaries.  Treat syntactic dependencies and computation-support
+  edges as an orientation map, then audit each proof dependency before
+  mechanization.
+
 ### 2026-07-06 - Grande finale proof-plan note
 
 - **Agent/model:** Codex.
