@@ -36,3 +36,20 @@ prize-critical node has contributors. Realistic high-value moves, ranked:
 
 Given density + the confirmed-hard cruxes, (1) is the durable play and (4) is the honest default;
 (2) is the cheap opportunistic win; (3) only if the analytic-NT fight is specifically wanted.
+
+## Correction (2026-07-06, after running the R6 lookups)
+
+Two claims above were made on incomplete information and are now corrected (see
+`../audits/rules_freeze_completion_R6.md`):
+1. **"No notes found on these -> possibly unworked" is FALSE.** The R6 nodes are already substantially
+   worked upstream: `../audits/rules_freeze.md`, `field_cap_check.md`, `prize_rules_pinning.md`,
+   `m_handling.md`, `rules_m_reading.md` all exist and pin the field/rate/m box (PROVED/citation), and
+   the `certifier_uniformity` DAG node already adopted "Reading B" (compiler semantics accepted) on
+   2026-07-03. R6's net-new gap is narrower than stated: a **2026-07-06 drift recheck** + a
+   **primary-source-grounded compiler-semantics freeze row**, not a from-scratch lookup.
+2. **"can delete a critical node" is FALSE for the tower case.** Q0.1 resolves the *critical* way:
+   `field_cap_check` confirms the family INCLUDES non-generating rows (extension fields `< 2^256`,
+   `n` up to `2^41`), so `f1_case_tower` is **genuinely critical, no longer family-conditional** --
+   confirmed, not deleted. The "one-hour reading deletes a critical node" hope does not hold here.
+   (Root cause of the error: conflating `generating_escape` = "non-generating rows forced *tiny*" with
+   "no non-generating rows"; they are not the same.)
