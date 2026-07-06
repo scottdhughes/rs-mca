@@ -1,18 +1,21 @@
 # Multi-rate adjacent-threshold pins (all four grand-challenge rates)
 
 Status: `PROVED_ADJACENT_THRESHOLD_ROW` (finite-slope support-wise line MCA /
-`LD_sw`) for eight engineered admissible rows. Exact-integer, deterministic
-primality. Dated 2026-07-06.
+`LD_sw`) for a grid of **28 engineered admissible rows**. Exact-integer,
+deterministic primality. Dated 2026-07-06.
 
 ## What this adds
 
 The repo already pins the finite-slope support-wise MCA threshold for one
 `rho=1/2` row (`a426_two_core_exact_threshold_v26.md` / `a425_second_pin_unsafe.md`,
-`n=512, k=256`). This packet extends the **same certificate type** to the three
-missing grand-challenge rates `rho in {1/4, 1/8, 1/16}` at `n=512`, and to all
-four rates at **prize scale** `k=2^40`. Each row engineers a prime field so the
-`2^-128` reserve budget lands exactly between two adjacent line-decoding
-numerators, pinning `delta*_C` to a single agreement step (`1/n` resolution).
+`n=512, k=256`). This packet extends the **same certificate type** to a coverage
+grid: **all four grand-challenge rates** `rho in {1/2, 1/4, 1/8, 1/16}` over
+domain sizes `n in {2^9, 2^11, 2^13, 2^15, 2^17, 2^19}` (finer `1/n` resolution
+as `n` grows) **plus the prize scale** `k=2^40` for each rate. Each row engineers
+a prime field so the `2^-128` reserve budget lands exactly between two adjacent
+line-decoding numerators, pinning `delta*_C` to a single agreement step
+(`1/n` resolution). The board-format curation of all 28 rows (pins + the
+complementary Paper D caps) is in `adjacent_threshold_pins_board.md`.
 
 No new theorem is proved. The packet **compiles committed repo theorems** into
 new exact-integer rows and is Codex-cross-reviewed and independently verified by
@@ -75,40 +78,35 @@ order-`n` subgroup domain exists.
 
 ## Rows
 
-| id | rho | n | k | budget B | delta (unsafe, safe] | field |
-|---|---:|---:|---:|---:|---|---|
-| rho1_2-n512-k256 | 1/2 | 512 | 256 | 86 | (86/512, 85/512] | 2^134..2^135 |
-| rho1_4-n512-k128 | 1/4 | 512 | 128 | 129 | (129/512, 128/512] | 2^135..2^136 |
-| rho1_8-n512-k64 | 1/8 | 512 | 64 | 150 | (150/512, 149/512] | 2^135..2^136 |
-| rho1_16-n512-k32 | 1/16 | 512 | 32 | 161 | (161/512, 160/512] | 2^135..2^136 |
-| prize-rho1_2-k2^40 | 1/2 | 2^41 | 2^40 | 366503875926 | (…926/n, …925/n] | 2^166..2^167 |
-| prize-rho1_4-k2^40 | 1/4 | 2^42 | 2^40 | 1099511627777 | (…777/n, …776/n] | 2^168..2^169 |
-| prize-rho1_8-k2^40 | 1/8 | 2^43 | 2^40 | 2565527131478 | (…478/n, …477/n] | 2^169..2^170 |
-| prize-rho1_16-k2^40 | 1/16 | 2^44 | 2^40 | 5497558138881 | (…881/n, …880/n] | 2^170..2^171 |
+28 rows = 4 rates x {`n=2^9,2^11,2^13,2^15,2^17,2^19`} + 4 prize-scale (`k=2^40`).
+Representative rows (full list, with per-row primes and Proth witnesses, in
+`adjacent_threshold_pins.json`; board-format table in `adjacent_threshold_pins_board.md`):
 
-All rows are admissible: `rho in {1/2,1/4,1/8,1/16}`, `k <= 2^40`, `|F| < 2^256`,
-`n <= |F|`.
+| id | rho | n | k | budget B | delta (unsafe, safe] | field bits |
+|---|---:|---:|---:|---:|---|---|
+| rho1_2-n2^9-k256 | 1/2 | 512 | 256 | 86 | (86/512, 85/512] | 135 |
+| rho1_2-n2^19-k262144 | 1/2 | 524288 | 262144 | 87382 | (87382/n, 87381/n] | 145 |
+| rho1_16-n2^9-k32 | 1/16 | 512 | 32 | 161 | (161/512, 160/512] | 136 |
+| prize-rho1_2-k2^40 | 1/2 | 2^41 | 2^40 | 366503875926 | (…926/n, …925/n] | 167 |
+| prize-rho1_16-k2^40 | 1/16 | 2^44 | 2^40 | 5497558138881 | (…881/n, …880/n] | 171 |
+
+All 28 rows are admissible: `rho in {1/2,1/4,1/8,1/16}`, `k <= 2^40`,
+`|F| < 2^256`, `n <= |F|`. As `n` grows the pin resolution `1/n` sharpens (the
+`rho=1/2` pin tightens from `1/512` at `n=2^9` to `1/524288` at `n=2^19`).
 
 ## Complementary near-capacity cap (committed scanner)
 
 Run on each engineered prime field, the committed Paper D universal-cap ledger
 (`certificate_scanner.py::paper_d_cap`) additionally certifies the one-sided
 near-capacity safe bound `delta*_C <= 1 - rho - 2/n` wherever its
-divisor/binomial/subfield hypotheses pass (`PROVED_PAPERD_V8_CAP`):
-
-| id | Paper D cap `delta <= 1-rho-2/N` | hyp margin |
-|---|---|---:|
-| rho1_2-n512-k256 | 127/256 | 246.3 bits |
-| rho1_4-n512-k128 | 191/256 | 150.9 bits |
-| rho1_8-n512-k64 | 223/256 | 15.2 bits |
-| rho1_16-n512-k32 | (no active cap: `binom(512,34)` below `|F|(q/k+1)` threshold) | — |
-| prize-rho1_2..1_16 (k=2^40) | 1-rho-2/n, all four | > 2^41 bits |
-
-So seven of the eight rows carry BOTH a tight line-object pin (this packet) and
-a near-capacity full-MCA safe cap (committed scanner); the `rho=1/16, n=512`
-field is below the cap's binomial hypothesis and carries the pin only. The two
-certificate types concern different objects (`LD_sw` line vs full MCA) and are
-not combined into a single bracket.
+divisor/binomial/subfield hypotheses pass (`PROVED_PAPERD_V8_CAP`). **27 of the
+28 rows carry BOTH** a tight line-object pin (this packet) and a near-capacity
+full-MCA safe cap; the sole exception is the smallest low-rate field
+`rho=1/16, n=512` (`binom(512,34)` is below the cap's `|F|(q/k+1)` binomial
+threshold), which carries the pin only. Per-row caps + margins are tabulated in
+`adjacent_threshold_pins_board.md` (Table 2). The two certificate types concern
+different objects (`LD_sw` line vs full MCA) and are not combined into a single
+bracket.
 
 ## Honest scope
 
@@ -127,6 +125,8 @@ which are one-sided safe bounds with large margin.
   the generator; cross-checks the committed `a426` prime):
   `experimental/scripts/verify_adjacent_threshold_pins.py`
 - Certificate: `experimental/data/certificates/adjacent-threshold-pins-multirate/adjacent_threshold_pins.json`
+- Board-format curation (pins + Paper D caps): `experimental/scripts/curate_pin_board.py`
+  -> `experimental/notes/certificate_scanner/adjacent_threshold_pins_board.md`
 - Independent-engine cross-check: the committed `certificate_scanner.py`, run on
   the engineered `rho=1/2` prime, reports `finite_line_exact = 86` (`PROVED exact`,
   `safe_at_target = True`) at `A=427` and `tangent_lower = 87 > 86` at `A=426`,

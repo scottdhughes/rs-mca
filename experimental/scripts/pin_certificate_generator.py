@@ -174,17 +174,28 @@ def build_pin(row_id: str, n: int, k: int) -> PinCertificate:
     )
 
 
-DEFAULT_ROWS = [
-    # (id, n, k): all four rates at n=512, plus prize-scale k=2^40.
-    ("rho1_2-n512-k256", 512, 256),
-    ("rho1_4-n512-k128", 512, 128),
-    ("rho1_8-n512-k64", 512, 64),
-    ("rho1_16-n512-k32", 512, 32),
-    ("prize-rho1_2-k2^40", 1 << 41, 1 << 40),
-    ("prize-rho1_4-k2^40", 1 << 42, 1 << 40),
-    ("prize-rho1_8-k2^40", 1 << 43, 1 << 40),
-    ("prize-rho1_16-k2^40", 1 << 44, 1 << 40),
-]
+RATE_DEN = {"1_2": 2, "1_4": 4, "1_8": 8, "1_16": 16}
+
+
+def _grid_rows():
+    """Coverage grid: each admissible rate over a range of domain sizes n=2^e
+    (finer 1/n resolution as e grows), plus the prize-scale k=2^40 row per rate.
+    n must be a power of two >= the rate denominator so k=n/den is integral and
+    the redundancy gap n-k >= 3 holds."""
+    rows = []
+    for label, den in RATE_DEN.items():
+        for e in (9, 11, 13, 15, 17, 19):        # n = 2^e domains
+            n = 1 << e
+            k = n // den
+            rows.append((f"rho{label}-n2^{e}-k{k}", n, k))
+        # prize-scale row: k = 2^40, n = k * den
+        k = 1 << 40
+        n = k * den
+        rows.append((f"prize-rho{label}-k2^40", n, k))
+    return rows
+
+
+DEFAULT_ROWS = _grid_rows()
 
 
 def main(argv: Optional[list] = None) -> int:
