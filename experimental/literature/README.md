@@ -22,6 +22,11 @@ Ball theory of fully-reducible lacunary polynomials / directions** in multiplica
 
 ## A. Lacunary polynomials & directions — THE PROOF ENGINE (highest priority)
 
+- `[LOCAL]` **Ball–Weiner, "An Introduction to Finite Geometry" (book, 3rd ed.)** —
+  `lacunary-directions/Ball-Weiner-Introduction-to-Finite-Geometry-book.pdf`. **Full proofs** of
+  the directions / lacunary-polynomial theory (Rédei, Blokhuis–Ball–…). Deepest open source we have.
+- `[LOCAL]` **Ball, "Functions over prime fields (that do not determine all directions)"** —
+  `lacunary-directions/Ball-functions-over-prime-fields-directions.pdf`. Focused directions notes.
 - `[LOCAL]` **Ball, "Lacunary Polynomials over Finite Fields" (survey/notes)** —
   `lacunary-directions/Ball-lacunary-polynomials-over-finite-fields-notes.pdf`.
   Thm 1.1 (Rédei `X^p+g` fully reducible ⟹ `g°≥(p+1)/2`); Thm 1.9/1.14 (`f=X^q g+h`,
