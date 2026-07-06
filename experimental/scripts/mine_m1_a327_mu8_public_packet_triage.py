@@ -42,6 +42,9 @@ RANK3_SINGLETON22_EXACT_PATH = Path(
 RANK3_SINGLETON22_PRESSURE_PATH = Path(
     "experimental/data/m1_a327_mu8_rank3_balanced_key_bundle_multiphase_corecap34_targetrepair_nondep84_singleton22_row_dependency_pressure.json"
 )
+RANK3_NON_SINGLETON_SYNTH_SUMMARY_PATH = Path(
+    "experimental/data/m1_a327_mu8_rank3_non_singleton_synthesized_dependency_summary.json"
+)
 
 REQUIRED_NONCLAIMS = [
     "MCA N_bad",
@@ -394,6 +397,41 @@ def compact_rank3_pressure() -> dict[str, Any]:
     return out
 
 
+def compact_rank3_non_singleton_synthesized() -> dict[str, Any]:
+    record = load_json(RANK3_NON_SINGLETON_SYNTH_SUMMARY_PATH)
+    if not record:
+        return {"path": str(RANK3_NON_SINGLETON_SYNTH_SUMMARY_PATH), "present": False}
+    return {
+        "path": str(RANK3_NON_SINGLETON_SYNTH_SUMMARY_PATH),
+        "present": True,
+        "header_ok": header_ok(record),
+        "proof_status": record.get("proof_status"),
+        "anchors": record.get("anchor_plan", {}).get("anchor_targets"),
+        "carriers_emitted": record.get("synthesized_menu", {}).get("carriers_emitted"),
+        "support_pair_candidates": record.get("schedule", {}).get("support_pair_candidates"),
+        "best_min_support": record.get("schedule", {}).get("best_min_support"),
+        "best_total_incidence": record.get("schedule", {}).get("best_total_incidence"),
+        "best_pair_count_max": record.get("schedule", {}).get("best_pair_count_max"),
+        "exact_best_nullity": record.get("exact_audit", {}).get("best_nullity"),
+        "exact_systems_tested": record.get("exact_audit", {}).get("systems_tested"),
+        "depmin2_support_pair_candidates": record.get("depmin2_schedule", {}).get("support_pair_candidates"),
+        "depmin2_best_min_support": record.get("depmin2_schedule", {}).get("best_min_support"),
+        "depmin2_best_total_incidence": record.get("depmin2_schedule", {}).get("best_total_incidence"),
+        "depmin2_pair_count_max": record.get("depmin2_schedule", {}).get("best_pair_count_max"),
+        "depmin2_exact_best_nullity": record.get("depmin2_exact_audit", {}).get("best_nullity"),
+        "depmin3_support_pair_candidates": record.get("depmin3_schedule", {}).get("support_pair_candidates"),
+        "depmin3_best_min_support": record.get("depmin3_schedule", {}).get("best_min_support"),
+        "depmin3_best_total_incidence": record.get("depmin3_schedule", {}).get("best_total_incidence"),
+        "depmin3_pair_count_max": record.get("depmin3_schedule", {}).get("best_pair_count_max"),
+        "depmin3_selected_incidence_gap": record.get("depmin3_schedule", {}).get("best_selected_incidence_gap"),
+        "depmin4_support_pair_candidates": record.get("depmin4_schedule", {}).get("support_pair_candidates"),
+        "depmin4_best_min_support": record.get("depmin4_schedule", {}).get("best_min_support"),
+        "depmin4_best_total_incidence": record.get("depmin4_schedule", {}).get("best_total_incidence"),
+        "depmin4_pair_count_max": record.get("depmin4_schedule", {}).get("best_pair_count_max"),
+        "depmin4_selected_incidence_gap": record.get("depmin4_schedule", {}).get("best_selected_incidence_gap"),
+    }
+
+
 def build_triage() -> dict[str, Any]:
     rank_one = load_json(RANK_ONE_PATH)
     rank_one_obstruction = None
@@ -424,6 +462,7 @@ def build_triage() -> dict[str, Any]:
     rank3 = {
         "singleton_boundary": rank3_singleton,
         "singleton22_exact_and_pressure": compact_rank3_pressure(),
+        "non_singleton_synthesized_dependency": compact_rank3_non_singleton_synthesized(),
         "exact_sweep": rank3_exact_sweep,
         "row_pressure_sweep": rank3_pressure_sweep,
     }
@@ -440,7 +479,9 @@ def build_triage() -> dict[str, Any]:
         *RANK3_SINGLETON_FILES.values(),
         RANK3_SINGLETON22_EXACT_PATH,
         RANK3_SINGLETON22_PRESSURE_PATH,
+        RANK3_NON_SINGLETON_SYNTH_SUMMARY_PATH,
     ]
+    evidence_files.extend(sorted(Path("experimental/data").glob("m1_a327_mu8_*witness_audit.json")))
     file_hashes = {str(path): sha256_file(path) for path in evidence_files if path.exists()}
 
     board_ready = False
@@ -460,7 +501,9 @@ def build_triage() -> dict[str, Any]:
                     "No exact a=327 witness exists.  The current useful output is a compact "
                     "route-cut/triage packet: rank-one mu8 carriers are structurally cut, "
                     "rank-2 menus remain support-infeasible across the scanned adaptive ledgers, "
-                    "and the current rank-3 exact/row-pressure sweep is consistently full rank."
+                    "and the current rank-3 exact/row-pressure sweep is consistently full rank; "
+                    "the newer non-singleton synthesized rank-3 menu is also full-rank at the "
+                    "support/pair gate and loses support when dependency-row pressure is raised."
                 ),
             },
             "witness_sweep": witness_sweep,

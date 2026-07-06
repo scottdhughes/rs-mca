@@ -23,16 +23,16 @@ The machine-readable triage is:
 experimental/data/m1_a327_mu8_public_packet_triage.json
 ```
 
-It was generated from the full local `mu_8` worktree by:
+It was generated from the compact public evidence set in this PR worktree by:
 
 ```text
 python3 experimental/scripts/mine_m1_a327_mu8_public_packet_triage.py --write --json
 ```
 
 This compact packet includes the primary evidence ledgers named in the triage
-hash map.  It does not include every intermediate scan ledger from the local
-worktree, so the miner is provenance tooling rather than the public replay
-command for this PR-sized packet.
+hash map.  It does not include every intermediate scan ledger from the private
+local worktree; the public claim is only about the files hashed in the triage
+JSON and checked by the verifier.
 
 It is checked by:
 
@@ -40,11 +40,11 @@ It is checked by:
 python3 experimental/scripts/verify_m1_a327_mu8_public_packet_triage.py --json
 ```
 
-The miner also scans the local witness-audit ledgers.  In the current
+The miner also scans the included witness-audit ledgers.  In this compact PR
 worktree:
 
 ```text
-witness ledgers scanned: 62
+witness ledgers scanned: 1
 EXACT_A327_INTERLEAVED_LIST_WITNESS_PASS ledgers: 0
 ```
 
@@ -79,10 +79,10 @@ support/pair candidates: 0
 The aggregate adaptive sweep is consistent with that diagnosis:
 
 ```text
-adaptive ledgers scanned: 50
-best min support: 317
+adaptive ledgers scanned: 3
+best min support: 316
 best total incidence: 2224
-support gap: 10
+support gap: 11
 selected incidence gap: 65
 support/pair passing ledgers: 0
 ```
@@ -105,8 +105,8 @@ not produced a witness-relevant system.
 Near-front exact diagnostics have also been negative:
 
 ```text
-rank-2 exact/near-front ledgers scanned: 17
-exact systems tested: 39
+rank-2 exact/near-front ledgers scanned: 2
+exact systems tested: 8
 positive nullity systems: 0
 max best nullity: 0
 ```
@@ -153,13 +153,59 @@ help.
 The broader exact sweep reinforces that this is not an isolated Sage result:
 
 ```text
-rank-3 exact ledgers scanned: 50
-rank-3 exact systems tested: 167
+rank-3 exact ledgers scanned: 1
+rank-3 exact systems tested: 3
 positive nullity systems: 0
-row-pressure ledgers scanned: 28
-row-pressure systems tested: 76
+row-pressure ledgers scanned: 1
+row-pressure systems tested: 3
 positive row-pressure nullity systems: 0
 ```
+
+### Rank-3 `mu_8` non-singleton synthesized menu
+
+The newer non-singleton synthesized menu moves the local construction upstream:
+it synthesizes rank-3 carriers from non-singleton dependency targets instead of
+only repairing a fixed schedule.  This improves the support/pair layer:
+
+```text
+non-singleton anchors: 35
+pair-visible rank-3 carriers emitted: 6
+support/pair candidates: 2
+best min support: 330
+best selected incidence total: 2315
+best pair max: 255
+```
+
+The exact Sage audit is still full rank:
+
+```text
+systems tested: 2
+matrix shape: 156 x 96
+rank/nullity: 96 / 0
+```
+
+Forcing small dependency-row use keeps support/pair feasible at cost `2`, but
+again gives full rank:
+
+```text
+dep-min-2 support/pair candidates: 1
+best min support: 328
+best selected incidence total: 2300
+best pair max: 254
+matrix shape: 154 x 96
+rank/nullity: 96 / 0
+```
+
+Pushing the same synthesized menu harder loses the support guard:
+
+```text
+dep-min-3: min support 323, total incidence 2266, pair max 255, support/pair candidates 0
+dep-min-4: min support 311, total incidence 2182, pair max 255, support/pair candidates 0
+```
+
+So this menu has a practical boundary: dependency-row cost `2` is schedulable
+but full-rank, while dependency-row cost `3` is already short by 4 support on
+the weakest label and 23 total selected incidences.
 
 ## Triage Decision
 
@@ -175,7 +221,9 @@ The route-cut candidate is only local:
 1. rank-one `mu_8` carriers are structurally cut;
 2. current rank-2 menus are support-infeasible;
 3. current rank-3 fixed menu passes support/pair only with enough singleton
-   fixed groups to expose full-rank pivot cores.
+   fixed groups to expose full-rank pivot cores;
+4. the current non-singleton synthesized rank-3 menu is support/pair feasible
+   only at low dependency-row pressure, and exact audits remain full-rank.
 
 ## Next Best Attack
 

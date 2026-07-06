@@ -132,10 +132,40 @@ def check_rank3(record: dict[str, Any]) -> dict[str, Any]:
     require(pressure["systems_tested_total"] > 0, "rank-3 pressure systems missing")
     require(pressure["positive_nullity_systems_total"] == 0, "rank-3 pressure sweep found positive nullity")
     require(pressure["all_tested_cores_full_rank"] is True, "rank-3 pressure systems are not all full-rank")
+
+    non_singleton = rank3["non_singleton_synthesized_dependency"]
+    require(non_singleton["present"] is True, "rank-3 non-singleton synthesized summary missing")
+    require(non_singleton["header_ok"] is True, "rank-3 non-singleton header failed")
+    require(non_singleton["anchors"] == 35, "rank-3 non-singleton anchor count changed")
+    require(non_singleton["carriers_emitted"] == 6, "rank-3 synthesized carrier count changed")
+    require(non_singleton["support_pair_candidates"] == 2, "rank-3 non-singleton support/pair count changed")
+    require(non_singleton["best_min_support"] >= TARGET, "rank-3 non-singleton support below target")
+    require(non_singleton["best_total_incidence"] >= REQUIRED_TOTAL, "rank-3 non-singleton total below target")
+    require(non_singleton["best_pair_count_max"] <= 255, "rank-3 non-singleton pair cap failed")
+    require(non_singleton["exact_best_nullity"] == 0, "rank-3 non-singleton exact nullity changed")
+    require(non_singleton["depmin2_support_pair_candidates"] == 1, "rank-3 depmin2 support/pair count changed")
+    require(non_singleton["depmin2_best_min_support"] >= TARGET, "rank-3 depmin2 support below target")
+    require(non_singleton["depmin2_best_total_incidence"] >= REQUIRED_TOTAL, "rank-3 depmin2 total below target")
+    require(non_singleton["depmin2_pair_count_max"] <= 255, "rank-3 depmin2 pair cap failed")
+    require(non_singleton["depmin2_exact_best_nullity"] == 0, "rank-3 depmin2 exact nullity changed")
+    require(non_singleton["depmin3_support_pair_candidates"] == 0, "rank-3 depmin3 unexpectedly passed")
+    require(non_singleton["depmin3_best_min_support"] == 323, "rank-3 depmin3 boundary changed")
+    require(non_singleton["depmin3_best_total_incidence"] == 2266, "rank-3 depmin3 total changed")
+    require(non_singleton["depmin3_selected_incidence_gap"] == 23, "rank-3 depmin3 gap changed")
+    require(non_singleton["depmin4_support_pair_candidates"] == 0, "rank-3 depmin4 unexpectedly passed")
+    require(non_singleton["depmin4_best_min_support"] == 311, "rank-3 depmin4 boundary changed")
+    require(non_singleton["depmin4_best_total_incidence"] == 2182, "rank-3 depmin4 total changed")
+    require(non_singleton["depmin4_selected_incidence_gap"] == 107, "rank-3 depmin4 gap changed")
     return {
         "exact_systems_tested": exact["systems_tested_total"],
         "row_pressure_systems_tested": pressure["systems_tested_total"],
         "singleton22_candidates": singleton["22"]["support_pair_candidates"],
+        "non_singleton_support_pair_candidates": non_singleton["support_pair_candidates"],
+        "depmin2_support_pair_candidates": non_singleton["depmin2_support_pair_candidates"],
+        "depmin3_support_total": [
+            non_singleton["depmin3_best_min_support"],
+            non_singleton["depmin3_best_total_incidence"],
+        ],
     }
 
 
