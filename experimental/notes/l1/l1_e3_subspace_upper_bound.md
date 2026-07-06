@@ -76,10 +76,37 @@ pairwise-coprime co-fiber locators `h_k` by `K`.** This is a concrete commutativ
 (no fibers, no varying primes) with the base case done — a natural handoff to a syzygy/resultant
 argument (or Aristotle/Codex on the clean sub-lemma).
 
+## Syzygy generators, cross-check, and why realizability is essential (part a)
+
+`syzygy_generators_e3.sage` computes an explicit basis of `Syz` at the saturators and finds
+`dim Syz = K` with a **triangular / staircase basis**: ordering fibers by size, the generators are
+indexed by monomials `X^d` in the leading block(s), each extending uniquely to a syzygy (e.g.
+`ell=11 p=331`, K=4: the four generators have `q_0 = 1, X, X^2, X^3` with the other `q_k`
+determined). This is the structure a leading-term proof of `dim Syz <= K` would exploit.
+
+**Independent second-engine cross-check.** `syzygy_xcheck.gp` (PARI/GP, its own primitive root and
+polynomial arithmetic) reproduces `dim(sum V_k) = E_3` and `dim Syz = K` at all three saturators —
+matches Sage exactly.
+
+**Realizability is ESSENTIAL (decides the hypothesis).** For *arbitrary* pairwise-coprime co-fiber
+locators `h_k` (random distinct `w_k`, random `mu_k`-subsets, NOT level sets of a common `Gamma`),
+`dim Syz <= K` FAILS badly — up to `dim Syz - K = +29` at `ell=13` (e.g. sizes `[10,12,6,11,12]`,
+`E_3 = 41`). Reason: any config with `E_3 >= ell` forces `dim Syz > K` by pure dimension count
+(`image ⊆ F_p[X]_{<=ell-2}`). So the bound is NOT a general fact about pairwise-coprime polynomials;
+the hypothesis that a *single* `Gamma` of degree `<= ell-1` threads all the level sets (CRT rigidity)
+is exactly what pulls `E_3` down to `<= ell-2`. The Aristotle obligation carries this hypothesis.
+
+**Aristotle.** The KEY LEMMA (with the proven upper half and the `dim Syz <= K` crux) was submitted
+to Aristotle abstracted as pure finite-field algebra: `experimental/aristotle_e3_obligation.md`,
+project `70427d46-d108-4d03-8edd-bdf9594bb86f` (poll with `aristotle poll <id>`; output is a DRAFT to
+re-verify).
+
 ## Reproducibility
 ```bash
 sage experimental/scripts/verify_e3_upper_bound.sage        # proof-core check on witnesses
 sage experimental/scripts/universal_dim_sweep_e3.sage       # 2024-Gamma sweep + annihilator=rev(Gamma)
+sage experimental/scripts/syzygy_generators_e3.sage         # (a) syzygy generators + arbitrary-config stress
+gp  -q experimental/scripts/syzygy_xcheck.gp                 # PARI/GP independent cross-check
 ```
 
 ## Honest scope
