@@ -43,8 +43,14 @@ Ball theory of fully-reducible lacunary polynomials / directions** in multiplica
   function defined on a finite field*, JCTA **86** (1999) 187–196. (The main classification.)
 - `[FIND]` Ball, *The number of directions determined by a function over a finite field*, JCTA
   **104** (2003) 341–350.
-- `[FIND]` **Gács, *On a generalization of Rédei's theorem*, Combinatorica 23 (2003) 585–598** —
-  the `ceil(2(p-1)/3)` bound (= our refuted conjecture). Key for the numerology.
+- `[LOCAL]` **Gács, *On a generalization of Rédei's theorem*, Combinatorica 23 (2003) 585–598** —
+  `lacunary-directions/Gacs-2003-generalization-of-Redei-theorem-Combinatorica.pdf`. States BOTH
+  our critical values: the `(p+3)/2` bound (= `m*`) and the forbidden gap `((p+5)/2, 2(p-1)/3)`
+  (= refuted `ceil(2ell/3)`). Key numerology source.
+- `[FIND]` **BBBSSz slopes paper** = *On the number of slopes of the graph of a function defined
+  on a finite field*, JCTA **86** (1999) 187–196. DOI `10.1006/jcta.1998.2915` →
+  https://doi.org/10.1006/jcta.1998.2915 (ScienceDirect, paywalled). **Its classification is
+  reproduced with full proofs in the Ball–Weiner book above, so this is not a blocker.**
 - `[FIND]` Lovász, Schrijver, *Remarks on a theorem of Rédei*, Studia Sci. Math. Hungar. 16
   (1983) 449–454. (Characterizes the `(p+3)/2` case.)
 - `[FIND]` Szőnyi, *On the number of directions determined by a set of points in an affine
