@@ -23,6 +23,8 @@
     "experimental/data/m1_a327_mu8_rank3_core_nogood_row_dependency_pressure.json": "50cb9bef8aacbddaf28b4914842b1d45da94f80172ff0d786fb279113610485b",
     "experimental/data/m1_a327_mu8_rank3_core_nogood_witness_audit.json": "d109d14b1fb67608b9faacb5d40d85c9fe1259967b5d9faa07b45a98c0884037",
     "experimental/data/m1_a327_mu8_rank3_generic_core_nogoods.json": "55ffa6a450219f35291bbfba0b3448e33a8bf20e0d739208aee30671b0ae0d1f",
+    "experimental/data/m1_a327_mu8_rank3_no_singleton_projective_key_blockkey001_schedule.json": "2934ca8c1bb80b6f6d6a0619dc13aa00a5e5bceab42da83cbdce200addbd7c92",
+    "experimental/data/m1_a327_mu8_rank3_no_singleton_projective_key_schedule.json": "f50edfe0e3a5992550944409d6803013ef379e9efa6c3c8293e0063b391004b3",
     "experimental/data/m1_a327_mu8_rank3_non_singleton_synthesized_dependency_summary.json": "f1f76b360b6b141b8ca694540664faaff0b973ba288ab0a527a9eb53098ca5a8",
     "experimental/data/m1_a327_mu8_rank3_singleton_blocked_repeat_pressure_schedule.json": "a356514240bb3cb7c93c0621bd262b45c1d42ba980aca72be509a138d17b009e",
     "experimental/data/m1_a327_mu8_rank3_singleton_blocked_support_first_exact_interpolation.json": "c45a0b04ac5fd80283b2248efb308b0cd89426b792be6156f8cd79ac718dd91f",
@@ -31,12 +33,12 @@
     "experimental/data/m1_a327_mu8_rank_one_carrier_obstruction.json": "f5f08b70921be696de10eb9c75687af4e2d5d4880d779e450228df399d3f8c2d"
   },
   "evidence_tracking": {
-    "evidence_files_expected": 27,
-    "evidence_files_hashed": 27,
+    "evidence_files_expected": 29,
+    "evidence_files_hashed": 29,
     "missing_count": 0,
     "missing_files": [],
     "self_contained_for_public_pr": true,
-    "tracked_count": 27,
+    "tracked_count": 29,
     "tracked_files": [
       "experimental/data/m1_a327_mu8_rank2_adaptive_ratio_columns.json",
       "experimental/data/m1_a327_mu8_rank2_current_menu_ceiling.json",
@@ -59,6 +61,8 @@
       "experimental/data/m1_a327_mu8_rank3_core_nogood_row_dependency_pressure.json",
       "experimental/data/m1_a327_mu8_rank3_core_nogood_witness_audit.json",
       "experimental/data/m1_a327_mu8_rank3_generic_core_nogoods.json",
+      "experimental/data/m1_a327_mu8_rank3_no_singleton_projective_key_blockkey001_schedule.json",
+      "experimental/data/m1_a327_mu8_rank3_no_singleton_projective_key_schedule.json",
       "experimental/data/m1_a327_mu8_rank3_non_singleton_synthesized_dependency_summary.json",
       "experimental/data/m1_a327_mu8_rank3_singleton_blocked_repeat_pressure_schedule.json",
       "experimental/data/m1_a327_mu8_rank3_singleton_blocked_support_first_exact_interpolation.json",
@@ -95,7 +99,7 @@
   "public_packet_triage": {
     "board_ready": false,
     "exact_a327_witness": false,
-    "reason": "No exact a=327 witness exists.  The current useful output is a compact route-cut/triage packet: rank-one mu8 carriers are structurally cut, rank-2 menus remain support-infeasible across the scanned adaptive ledgers, and the current rank-3 exact/row-pressure sweep is consistently full rank; the newer non-singleton synthesized rank-3 menu is also full-rank at the support/pair gate and loses support when dependency-row pressure is raised. The latest singleton-blocked rank-3 sample likewise passes support/pair only in a generic exact-full-rank schedule, while hard reuse of the available repeated projective keys loses the support front.  A new core-dependency anchor smoke can synthesize carriers and pass support/pair, but its exact audit is also full-rank.  A generic-core no-good layer blocks previously mined dependency-free full-rank pivot cores while preserving support/pair, but exact Sage and follow-up pressure audits still find fresh full-rank singleton-projective cores.  The evidence-tracking audit shows this packet is self-contained as a narrow route-cut PR candidate; it is still not board-ready because no exact witness or global theorem is claimed.",
+    "reason": "No exact a=327 witness exists.  The current useful output is a compact route-cut/triage packet: rank-one mu8 carriers are structurally cut, rank-2 menus remain support-infeasible across the scanned adaptive ledgers, and the current rank-3 exact/row-pressure sweep is consistently full rank; the newer non-singleton synthesized rank-3 menu is also full-rank at the support/pair gate and loses support when dependency-row pressure is raised. The latest singleton-blocked rank-3 sample likewise passes support/pair only in a generic exact-full-rank schedule, while hard reuse of the available repeated projective keys loses the support front.  A new core-dependency anchor smoke can synthesize carriers and pass support/pair, but its exact audit is also full-rank.  A generic-core no-good layer blocks previously mined dependency-free full-rank pivot cores while preserving support/pair, but exact Sage and follow-up pressure audits still find fresh full-rank singleton-projective cores.  A structural no-singleton projective-key constraint eliminates the support/pair front on the tested augmented menu. The evidence-tracking audit shows this packet is self-contained as a narrow route-cut PR candidate; it is still not board-ready because no exact witness or global theorem is claimed.",
     "recommended_public_action": "open_narrow_route_cut_pr_if_desired",
     "route_cut_candidate": true
   },
@@ -675,6 +679,34 @@
         "systems_tested": null
       },
       "witness_path": "experimental/data/m1_a327_mu8_rank3_core_nogood_witness_audit.json"
+    },
+    "no_singleton_projective_keys": {
+      "broad": {
+        "best_singleton_key_forbid_constraints": 513,
+        "forbid_core_subsets": true,
+        "forbid_singleton_projective_keys": true,
+        "header_ok": true,
+        "infeasible_count": 7,
+        "proof_status": "EXACT_EXTRACTION_NO_A327 / MU8_RANK3_LOWROW_NO_SUPPORT_PAIR_PASS / PARTIAL / EXPERIMENTAL",
+        "subspaces_solved": 8,
+        "support_pair_candidates": 0,
+        "unknown_count": 1
+      },
+      "broad_path": "experimental/data/m1_a327_mu8_rank3_no_singleton_projective_key_schedule.json",
+      "broad_present": true,
+      "focused": {
+        "forbid_core_subsets": true,
+        "forbid_singleton_projective_keys": true,
+        "header_ok": true,
+        "proof_status": "EXACT_EXTRACTION_NO_A327 / MU8_RANK3_LOWROW_NO_SUPPORT_PAIR_PASS / PARTIAL / EXPERIMENTAL",
+        "singleton_key_forbid_constraints": 613,
+        "solver_status": "INFEASIBLE",
+        "subspace_id": "rank3_blockkey_001",
+        "subspaces_solved": 1,
+        "support_pair_candidates": 0
+      },
+      "focused_path": "experimental/data/m1_a327_mu8_rank3_no_singleton_projective_key_blockkey001_schedule.json",
+      "focused_present": true
     },
     "non_singleton_synthesized_dependency": {
       "anchors": 35,

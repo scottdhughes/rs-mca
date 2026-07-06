@@ -39,7 +39,7 @@ The miner also scans the local witness-audit ledgers.  In the current
 worktree:
 
 ```text
-witness ledgers scanned: 67
+witness ledgers scanned: 74
 EXACT_A327_INTERLEAVED_LIST_WITNESS_PASS ledgers: 0
 ```
 
@@ -363,6 +363,39 @@ scheduler simply escapes into fresh singleton projective-key full-rank cores.
 The next generator needs a structural constraint against this whole class, not
 more individual core signatures.
 
+### Rank-3 no-singleton projective-key audit
+
+The structural no-singleton audit imposed a stronger projective-key condition:
+each selected projective key must appear either zero times or at least twice.
+This blocks the singleton projective-key pivot escape class directly rather
+than only excluding individual mined cores.
+
+On the augmented balanced-key menu, the broad run solved eight subspaces:
+
+```text
+support/pair candidates = 0
+infeasible subspaces = 7
+unknown subspaces = 1
+best singleton-key forbid constraints = 513
+```
+
+The one timeout/unknown case was then rerun directly:
+
+```text
+subspace = rank3_blockkey_001
+solver status = INFEASIBLE
+support/pair candidates = 0
+singleton-key forbid constraints = 613
+```
+
+This is a useful local cut.  In the tested augmented rank-3 menu, the
+support/pair front depends on singleton projective-key use.  When singleton
+projective keys are structurally forbidden, the menu cannot even reach a
+witness-relevant support/pair schedule for Sage to audit.
+
+The next rank-3 menu family therefore needs repeated projective keys to be
+support-balanced by construction, not added as a late pressure constraint.
+
 ## Triage Decision
 
 ```text
@@ -376,8 +409,8 @@ The machine-readable packet now also audits whether the evidence is
 self-contained for a public PR:
 
 ```text
-hashed evidence files = 27
-tracked evidence files = 27
+hashed evidence files = 29
+tracked evidence files = 29
 local untracked evidence files = 0
 missing evidence files = 0
 self-contained for public PR = true
@@ -406,6 +439,8 @@ The route-cut candidate is only local:
 7. the generic-core no-good layer blocks known dependency-free full-rank cores
    while preserving support/pair, but exact and pressure audits still find new
    singleton projective-key full-rank cores.
+8. the no-singleton projective-key audit blocks that whole singleton-key class,
+   but then the tested augmented menu loses the support/pair front.
 
 ## Next Best Attack
 
@@ -418,7 +453,7 @@ The next constructive step should introduce a new dependency family:
 2. build rank-3 menus whose dependency rows cannot be bypassed by singleton
    fixed groups, or
 3. impose structural constraints against singleton projective-key full-rank
-   cores, or
+   cores by constructing repeated projective-key support balance upstream, or
 4. formalize the repeated full-rank singleton pivot pattern as a module/syzygy
    obstruction with Macaulay2 or Singular.
 

@@ -283,6 +283,62 @@ def check_rank3(record: dict[str, Any]) -> dict[str, Any]:
         followup["singleton_projective_systems"] == 2,
         "rank-3 core-no-good pressure left singleton-projective regime",
     )
+
+    no_singleton_keys = rank3["no_singleton_projective_keys"]
+    require(
+        no_singleton_keys["broad_present"] is True,
+        "rank-3 no-singleton projective-key broad audit missing",
+    )
+    require(
+        no_singleton_keys["focused_present"] is True,
+        "rank-3 no-singleton projective-key focused audit missing",
+    )
+    broad = no_singleton_keys["broad"]
+    require(broad["header_ok"] is True, "rank-3 no-singleton broad header failed")
+    require(
+        broad["proof_status"].startswith(
+            "EXACT_EXTRACTION_NO_A327 / MU8_RANK3_LOWROW_NO_SUPPORT_PAIR_PASS"
+        ),
+        "rank-3 no-singleton broad proof status changed",
+    )
+    require(broad["subspaces_solved"] == 8, "rank-3 no-singleton broad subspace count changed")
+    require(broad["support_pair_candidates"] == 0, "rank-3 no-singleton broad unexpectedly passed")
+    require(broad["forbid_core_subsets"] is True, "rank-3 no-singleton broad did not forbid cores")
+    require(
+        broad["forbid_singleton_projective_keys"] is True,
+        "rank-3 no-singleton broad did not forbid singleton keys",
+    )
+    require(broad["infeasible_count"] == 7, "rank-3 no-singleton broad infeasible count changed")
+    require(broad["unknown_count"] == 1, "rank-3 no-singleton broad unknown count changed")
+    require(
+        broad["best_singleton_key_forbid_constraints"] >= 500,
+        "rank-3 no-singleton broad constraint count changed",
+    )
+
+    focused = no_singleton_keys["focused"]
+    require(focused["header_ok"] is True, "rank-3 no-singleton focused header failed")
+    require(
+        focused["proof_status"].startswith(
+            "EXACT_EXTRACTION_NO_A327 / MU8_RANK3_LOWROW_NO_SUPPORT_PAIR_PASS"
+        ),
+        "rank-3 no-singleton focused proof status changed",
+    )
+    require(focused["subspaces_solved"] == 1, "rank-3 no-singleton focused subspace count changed")
+    require(focused["support_pair_candidates"] == 0, "rank-3 no-singleton focused unexpectedly passed")
+    require(focused["forbid_core_subsets"] is True, "rank-3 no-singleton focused did not forbid cores")
+    require(
+        focused["forbid_singleton_projective_keys"] is True,
+        "rank-3 no-singleton focused did not forbid singleton keys",
+    )
+    require(
+        focused["subspace_id"] == "rank3_blockkey_001",
+        "rank-3 no-singleton focused subspace changed",
+    )
+    require(focused["solver_status"] == "INFEASIBLE", "rank-3 no-singleton focused status changed")
+    require(
+        focused["singleton_key_forbid_constraints"] >= 600,
+        "rank-3 no-singleton focused constraint count changed",
+    )
     return {
         "exact_systems_tested": exact["systems_tested_total"],
         "row_pressure_systems_tested": pressure["systems_tested_total"],
@@ -308,6 +364,11 @@ def check_rank3(record: dict[str, Any]) -> dict[str, Any]:
             guarded["support_pair_candidates"],
             core_exact["best_nullity"],
             followup["dependency_free_pivot_cores"],
+        ],
+        "no_singleton_projective_keys": [
+            broad["infeasible_count"],
+            broad["unknown_count"],
+            focused["solver_status"],
         ],
     }
 

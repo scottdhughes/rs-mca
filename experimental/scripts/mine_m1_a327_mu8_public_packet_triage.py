@@ -76,6 +76,12 @@ RANK3_CORE_NOGOOD_WITNESS_PATH = Path(
 RANK3_CORE_NOGOOD_PRESSURE_PATH = Path(
     "experimental/data/m1_a327_mu8_rank3_core_nogood_row_dependency_pressure.json"
 )
+RANK3_NO_SINGLETON_PROJECTIVE_KEYS_PATH = Path(
+    "experimental/data/m1_a327_mu8_rank3_no_singleton_projective_key_schedule.json"
+)
+RANK3_NO_SINGLETON_PROJECTIVE_KEYS_FOCUSED_PATH = Path(
+    "experimental/data/m1_a327_mu8_rank3_no_singleton_projective_key_blockkey001_schedule.json"
+)
 
 REQUIRED_NONCLAIMS = [
     "MCA N_bad",
@@ -662,6 +668,49 @@ def compact_rank3_generic_core_nogoods() -> dict[str, Any]:
     return out
 
 
+def compact_rank3_no_singleton_projective_keys() -> dict[str, Any]:
+    broad = load_json(RANK3_NO_SINGLETON_PROJECTIVE_KEYS_PATH)
+    focused = load_json(RANK3_NO_SINGLETON_PROJECTIVE_KEYS_FOCUSED_PATH)
+    out: dict[str, Any] = {
+        "broad_path": str(RANK3_NO_SINGLETON_PROJECTIVE_KEYS_PATH),
+        "focused_path": str(RANK3_NO_SINGLETON_PROJECTIVE_KEYS_FOCUSED_PATH),
+        "broad_present": broad is not None,
+        "focused_present": focused is not None,
+    }
+    if broad:
+        meta = broad.get("rank3_lowrow_schedule", {})
+        statuses = [row.get("solver_status") for row in broad.get("candidates", [])]
+        out["broad"] = {
+            "header_ok": header_ok(broad),
+            "proof_status": broad.get("proof_status"),
+            "subspaces_solved": meta.get("subspaces_solved"),
+            "support_pair_candidates": meta.get("support_pair_candidates"),
+            "forbid_core_subsets": meta.get("forbid_core_subsets"),
+            "forbid_singleton_projective_keys": meta.get("forbid_singleton_projective_keys"),
+            "best_singleton_key_forbid_constraints": meta.get(
+                "best_singleton_key_forbid_constraints"
+            ),
+            "infeasible_count": sum(1 for status in statuses if status == "INFEASIBLE"),
+            "unknown_count": sum(1 for status in statuses if status == "UNKNOWN"),
+        }
+    if focused:
+        meta = focused.get("rank3_lowrow_schedule", {})
+        candidates = focused.get("candidates", [])
+        row = candidates[0] if candidates else {}
+        out["focused"] = {
+            "header_ok": header_ok(focused),
+            "proof_status": focused.get("proof_status"),
+            "subspaces_solved": meta.get("subspaces_solved"),
+            "support_pair_candidates": meta.get("support_pair_candidates"),
+            "forbid_core_subsets": meta.get("forbid_core_subsets"),
+            "forbid_singleton_projective_keys": meta.get("forbid_singleton_projective_keys"),
+            "subspace_id": row.get("subspace_id"),
+            "solver_status": row.get("solver_status"),
+            "singleton_key_forbid_constraints": row.get("singleton_key_forbid_constraints"),
+        }
+    return out
+
+
 def build_triage() -> dict[str, Any]:
     rank_one = load_json(RANK_ONE_PATH)
     rank_one_obstruction = None
@@ -696,6 +745,7 @@ def build_triage() -> dict[str, Any]:
         "singleton_blocked_current": compact_rank3_singleton_blocked_current(),
         "core_dependency_smoke": compact_rank3_core_dependency_smoke(),
         "generic_core_nogoods": compact_rank3_generic_core_nogoods(),
+        "no_singleton_projective_keys": compact_rank3_no_singleton_projective_keys(),
         "exact_sweep": rank3_exact_sweep,
         "row_pressure_sweep": rank3_pressure_sweep,
     }
@@ -723,6 +773,8 @@ def build_triage() -> dict[str, Any]:
         RANK3_CORE_NOGOOD_EXACT_PATH,
         RANK3_CORE_NOGOOD_WITNESS_PATH,
         RANK3_CORE_NOGOOD_PRESSURE_PATH,
+        RANK3_NO_SINGLETON_PROJECTIVE_KEYS_PATH,
+        RANK3_NO_SINGLETON_PROJECTIVE_KEYS_FOCUSED_PATH,
     ]
     file_hashes = {str(path): sha256_file(path) for path in evidence_files if path.exists()}
     tracked_files = git_tracked_files()
@@ -774,7 +826,9 @@ def build_triage() -> dict[str, Any]:
                     "audit is also full-rank.  A generic-core no-good layer blocks previously "
                     "mined dependency-free full-rank pivot cores while preserving support/pair, "
                     "but exact Sage and follow-up pressure audits still find fresh full-rank "
-                    "singleton-projective cores.  The evidence-tracking audit "
+                    "singleton-projective cores.  A structural no-singleton projective-key "
+                    "constraint eliminates the support/pair front on the tested augmented menu. "
+                    "The evidence-tracking audit "
                     + (
                         "shows this packet is self-contained as a narrow route-cut PR candidate; "
                         "it is still not board-ready because no exact witness or global theorem is claimed."
