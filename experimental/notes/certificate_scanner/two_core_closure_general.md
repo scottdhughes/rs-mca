@@ -6,13 +6,21 @@ Case A for all such `n`, not just per row); generalizes the single-row two-core
 upper bound of `a426_two_core_exact_threshold_v26.md` (`n=512,k=256`). It is NOT
 claimed for arbitrary `k < n` -- see the scope caveat. Dated 2026-07-06.
 
-**Machine-checked.** The universal packing lemma (Case A, below) is formally
-verified in Lean 4 + Mathlib: `experimental/lean/two_core_packing/`,
-`theorem universal_packing` -- `lake build` succeeds with zero `sorry`, and
-`#print axioms` reports only `[propext, Classical.choice, Quot.sound]` (no
-`sorryAx`). The Lean statement is `e`-symbolic over `e >= 9` and `den in
-{2,4,8,16}`, i.e. exactly the claim below. (Case B and the tangent-floor/
-exact-support inputs are the committed coding-theory results, not re-formalized.)
+**Machine-checked (twice, independently).** The universal packing lemma (Case A,
+below) is formally verified in Lean 4 + Mathlib by two independent provers, each
+`lake build`-clean with `#print axioms` reporting only
+`[propext, Classical.choice, Quot.sound]` (no `sorryAx`):
+- `experimental/lean/two_core_packing/` -- `theorem universal_packing`
+  (Lean v4.31), `e`-symbolic over `e >= 9` and `den in {2,4,8,16}`: exactly the
+  four admissible rates of the claim below.
+- `experimental/lean/dyadic_packing/` -- `theorem dyadic_packing_bound`
+  (Lean v4.28), the **strictly stronger** statement for **every dyadic rate**
+  `rho = 2^{-i}` (`i >= 1`, `n = 2^e >= 512`, `i <= e`). This proves Case A -- and
+  hence the whole two-core closure -- for all dyadic-rate RS codes, not just the
+  prize four.
+
+(Case B and the tangent-floor / exact-support inputs are the committed
+coding-theory results, not re-formalized.)
 
 ## Statement
 
