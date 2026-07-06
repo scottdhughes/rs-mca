@@ -122,9 +122,27 @@ extends this to difference quotients in **unions of cosets of a multiplicative s
 Blokhuis–Sziklai. This is literally the "directions restricted to `mu_ell`-cosets" rigidity our
 `E_3 <= ell-2` needs. Library: `../../literature/cyclotomic-directions/`.
 
+## The correct engine (Xiong–Yip 2604.04126 + lineage): cyclotomic rigidity via CHARACTER SUMS
+
+Key theorems (`../../literature/cyclotomic-directions/`):
+- **Carlitz–McConnel (Thm 1.1):** if `(f(x)-f(y))/(x-y)` lies in a proper multiplicative SUBGROUP of
+  `F_q^*` for all `x!=y`, then `f(x)=a x^{p^j}+b`. Difference-quotients confined to cosets force a
+  Frobenius monomial.
+- **Xiong–Yip (Thm 1.4/1.8):** extend to `D` = union of `r` cosets of a subgroup of index `d`, with
+  threshold `|D_f| <= (q+1)/2` (= our `(ell+3)/2`); Thm 1.8/Blokhuis–Sziklai Thm 1.7 = the
+  difference-set form (`A-A` in coset-unions => `A` is a subfield).
+- **Proof technique (stated in the paper):** "a novel combination of character-sum estimates and
+  finite geometry" (Lemma 2.1 = char-sum estimates over subfields). THIS is the method for
+  `E_3 <= ell-2` — analytic NT, not the additive Frobenius lacunary calculus.
+
+**Mapping.** `mu_b >= 2` <=> the level set `Gamma^{-1}(c)` has two points with RATIO in `mu_ell`
+(same coset). So `E_3` is a level-set-vs-`mu_ell`-coset concentration = the generalized-Paley /
+cyclotomic-scheme max-clique quantity these theorems govern. `E_3 <= ell-2` is the elementary
+(Blokhuis–Sziklai-type, hypothesis-free) end — matching our small-`p` numerics.
+
 ## Next steps
-1. Read Ball's survey §1.2–1.4 + the `f|(Xg+h)(h'g-g'h)` proof in detail against our `g_k,h_k`.
-2. Test numerically whether the Rédei polynomial of a `Gamma`-coset configuration reproduces the
-   direction-count / gap predicted by the classical bounds (a decisive check of the bridge).
-3. If it transfers: draft the multiplicative lacunary lemma and (re)route to Aristotle with the
-   classical method as scaffolding.
+1. Read Xiong–Yip §2 (Lemma 2.1 char-sum estimates) + Blokhuis–Sziklai Thm 1.7 proof; formulate the
+   exact char-sum inequality over the `mu_ell`-coset structure whose deficit is `E_3`.
+2. Draft the `E_3 <= ell-2` statement in the cyclotomic-rigidity framework and (re)route to Aristotle
+   with the character-sum method as scaffolding (supersedes the additive Ball Thm 1.9 scaffolding).
+3. Cross-check any char-sum bound on a second engine (PARI `lfun`/Sage) before promotion.

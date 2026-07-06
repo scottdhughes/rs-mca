@@ -58,6 +58,25 @@ Ball theory of fully-reducible lacunary polynomials / directions** in multiplica
   Galois plane*, JCTA **74** (1996) 141–146. (The `(k+3)/2` bound for `k<p`.)
 - `[FIND]` Rédei, *Lacunary Polynomials over Finite Fields*, North-Holland (1973). (The book.)
 
+## A2. Cyclotomic-class / Carlitz–McConnel directions — THE MULTIPLICATIVE ENGINE (highest priority)
+
+The additive Rédei/Ball theory (§A) is `x->x^p` (Frobenius); OUR structure is `x->x^ell`, `ell|p-1`
+(Kummer/multiplicative). The correct rigidity theory is the cyclotomic-class / Carlitz–McConnel line,
+proved by **character sums + finite geometry** — the method for `E_3 <= ell-2`.
+
+- `[LOCAL]` **Xiong–Yip, *Extensions of the Carlitz–McConnel and Blokhuis–Sziklai theorems for unions
+  of cyclotomic classes* (arXiv 2604.04126)** —
+  `cyclotomic-directions/Xiong-Yip-2604.04126-Carlitz-McConnel-cyclotomic-classes.pdf`. Thm 1.1
+  (Carlitz–McConnel), Thm 1.4/1.8 (directions/differences in `r` cosets of `mu`-subgroup, threshold
+  `(q+1)/2` = our `(ell+3)/2`), Thm 1.7 (Blokhuis–Sziklai). Lemma 2.1 = the char-sum estimate. THE
+  reference for the proof route.
+- `[LOCAL]` **Carlitz–McConnel for non-permutations (arXiv 2409.04045)** —
+  `cyclotomic-directions/Carlitz-McConnel-nonpermutations-2409.04045.pdf`.
+- `[LOCAL]` **A Carlitz-type result for linearized polynomials (arXiv 1804.03251)** —
+  `cyclotomic-directions/Carlitz-type-linearized-polynomials-1804.03251.pdf`.
+- `[FIND]` Blokhuis (1994) / Sziklai, van Lint–MacWilliams conjecture; Asgarli–Yip — the difference-set
+  subfield-rigidity lineage (refs in Xiong–Yip).
+
 ## B. Proximity gaps / correlated agreement — near-capacity failure (POSITIONING / NOVELTY)
 
 - `[LOCAL]` **ABF, "Open Problems in List Decoding and Correlated Agreement" (eprint 2026/680)** —
