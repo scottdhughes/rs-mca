@@ -92,21 +92,39 @@ hope, is false below balance). This is *not* a refutation of u2c: their coset-on
 balance or a narrower construction. Encouragingly, near balance the extras are modest (160 at t=4,
 `≪ n^3`) and only balloon far below balance; the prize is *just* below balance.
 
-## Step 2 (revised after Phase 0): the analytic route, not a coset dichotomy
+## Step 2, fixed-b target + Prong 1 attempt (2026-07-06): pruned by the cancellation barrier
 
-Bound the count of the genuinely-unstructured extras directly — the node's own `attack_surface` calls this
-"most promising" (the Hayes/Carlitz divisor frame), and Phase 0 confirms it is the *only* viable route.
-Two prongs, both avoiding the cancellation floor (extras `≪ N_t`, so no subtracting two `~2^{4e10}` counts):
-1. **Hayes/Carlitz divisor count.** Bound `#{monic deg-b divisors of X^n−1 with a top-t coefficient gap
-   that are ∉ 𝔽_q[X^M]}` via the leading-coefficient (Hayes) character group over `𝔽_q[X]`: the
-   structured mass sits on characters trivial on the μ_M-substructure, the extras on the complementary
-   characters — bounded by Weil **directly, no subtraction**.
-2. **Pair-correlation of the defect.** Second moment of the *non-coset defect* (not the total count) —
-   genuinely `~n^3`-size because the obstruction rarely fires; uses the same cyclotomic-index structure
-   as the L1 directions bridge.
-Tools: PARI/GP (Hayes char sums, `factormod`), python-flint/Arb (rigorous enclosures), Sage cross-check,
-Oscar (monodromy of the coincidence variety for prong 2), Aristotle for an isolated rigidity sub-lemma;
-empirical extras-vs-n scaling near balance → the research CPU box (MITM to n≈48–56).
+**Target corrected to FIXED degree-b.** b2 bounds non-coset-union t-null blocks of a *fixed* size `b`
+in the giant regime `b > t` (the node's "monic degree-b divisors"), NOT the all-sizes count `N_t` (which
+is `~2^{n − t log2 q} ≫ n^3` and is the wrong object). Fixed-b machinery built and **two-engine
+cross-checked** (`../scripts/b2_prong1_fixed_b.py`, **Codex-GREEN**): a size-marked exact DP for
+`N_{t,b}` vs the MITM/brute bucketing agree. Structural fact confirmed: at sizes `b` NOT divisible by
+`M0`, structured `= 0` (every t-null block of that size is an extra — u2c's "weight not divisible by 16
+⇒ primitive"). Near balance (32,4,97) the fixed-b extras are modest: `~32 = n` per size, total 160 `≪ n^3`.
+
+**Prong 1 (per-character Hayes/Carlitz Weil) — ATTEMPTED and PRUNED.** For `b ∤ M0`,
+`extras_b = N_{t,b} = q^{-t}[ C(n,b) + Σ_{c≠0} S_b(c) ]`, `S_b(c) = [z^b] Π_{x∈μ_n}(1 + z·e_q(f_c(x)))`,
+`f_c = Σ_r c_r x^r`. Wolfram-verified reduction (`app-kernel`): `log Π = Σ_r (−1)^{r-1}/r·p_r z^r`, so
+`S_b` is Newton-Girard in the power sums `p_r(c) = Σ_{x∈μ_n} e_q(r·f_c(x))` — which are **Weil character
+sums**. Numerics (`gp`/Python, `q=97,n=32`): the `p_r(c)` ARE Weil-small (`|p_r| ≈ 3–6 ~ √q`). **But
+the per-character bound is useless**: for giant `b=13`, individual `|S_b(c)|` has mean **2473** and max
+**493394** (`≫ n=32`), while the true `extras_13 = 32`. The small count survives **only by signed
+cancellation across the c-sum** (`Σ_c|S_b(c)|/q^t ≈ 2473 ≫ 32`). So bounding `S_b(c)` per character
+cannot work — this is the **√p barrier** (CAP25 Rem 16.10), the **same "joint cancellation required"
+wall as L1 route A** (the BGK inverse theorem). **Net: b2's giant-extras core and L1's E_3 core are the
+same additive-combinatorics problem.**
+
+## Step 3 (the surviving route): second moment / monodromy, not per-character
+
+Bound `Σ_{c≠0} S_b(c)` via cancellation, not term-by-term. Two handles:
+1. **Geometric monodromy / Katz equidistribution** of the family `{ Π_x(1 + z·e_q(f_c(x))) }_c` — a
+   sheaf on `𝔸^t`; big monodromy ⇒ square-root cancellation in the c-sum. Tool: **Oscar**
+   (function-field Galois / monodromy of the coincidence variety).
+2. **BGK additive-combinatorics inverse theorem** (Bourgain–Glibichuk–Konyagin / Kowalski): large
+   `Σ_c S_b(c)` ⇒ block/quotient-stabilizer structure — the CAP25 named-open route, shared with L1.
+Because b2 ≡ L1 at this core, **progress on either transfers**; the 123-bit cushion (2^100-lossy OK) is
+the reason b2 is the more tractable entry point. Tools: Oscar (monodromy), PARI/Arb (rigorous char-sum
+enclosures), the research CPU box (MITM extras-vs-n scaling to n≈48–56), Aristotle for an isolated lemma.
 
 ## Honest scope
 
