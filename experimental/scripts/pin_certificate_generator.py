@@ -174,6 +174,85 @@ def build_pin(row_id: str, n: int, k: int) -> PinCertificate:
     )
 
 
+def two_core_upper_bound(n: int, k: int, A: int) -> tuple[int, int, int]:
+    """a426 two-core dichotomy upper bound on LD_sw(C,A); returns
+    (max_bound, packing_case, overlap_case). See two_core_closure_general.md."""
+    from math import comb
+    T = n - A
+    t_max = 2 * n + k - 3 * A - 1                 # pairwise complement overlap cap
+    if t_max < 0:
+        packing = n // T if T > 0 else 0
+    else:
+        j = t_max + 1
+        packing = comb(n, j) // comb(T, j) if (T >= j and n >= j) else n  # n = safe cap
+    # Case B overlap max_{n+k-A <= c <= A} floor((n-c)/max(1,A-c)).
+    # For c=A-d (d>=1): g(d)=1+floor((n-A)/d), non-increasing in d, so the max is
+    # at the smallest admissible d=1 (i.e. c=A-1), provided c=A-1 >= n+k-A; the
+    # c=A endpoint (d=0) gives n-A. O(1), no loop (prize scale n=2^44).
+    overlap = n - A if A <= n else 0              # c=A endpoint = R3+1
+    if (A - 1) >= (n + k - A) and A >= 1:         # c=A-1 in Case-B range
+        overlap = max(overlap, 1 + (n - A))       # d=1 -> R3+2
+    return max(packing, overlap), packing, overlap
+
+
+def build_deep_pin(row_id: str, n: int, k: int) -> Dict[str, Any]:
+    """One-step-deeper pin: SAFE at A_te-1 (LD_sw = R3+2 exact by the two-core
+    closure), UNSAFE at A_te-2 (tangent floor >= R3+3). Budget B_deep = R3+2."""
+    rate = Fraction(k, n)
+    if rate not in ADMISSIBLE_RATES:
+        raise ValueError(f"rate {rate} not admissible")
+    R3 = (n - k) // 3
+    A_safe = n - R3 - 1                            # = A_te - 1
+    A_unsafe = A_safe - 1                          # = A_te - 2
+    num_safe = n - A_safe + 1                      # = R3 + 2
+    num_unsafe = n - A_unsafe + 1                  # = R3 + 3 (tangent floor)
+    B = R3 + 2
+    tc_max, tc_pack, tc_overlap = two_core_upper_bound(n, k, A_safe)
+    p, s, a = proth_prime_in_budget(n, B)
+    u = (p - 1) >> s
+    cert = {
+        "id": row_id, "rate": f"{rate.numerator}/{rate.denominator}",
+        "n": n, "k": k, "R3": R3, "budget_B": B,
+        "A_safe": A_safe, "r_safe": n - A_safe, "numerator_safe": num_safe,
+        "delta_safe": f"{n - A_safe}/{n}",
+        "A_unsafe": A_unsafe, "r_unsafe": n - A_unsafe, "numerator_unsafe_lower": num_unsafe,
+        "delta_unsafe": f"{n - A_unsafe}/{n}",
+        "two_core": {"max_bound": tc_max, "packing_case": tc_pack,
+                     "overlap_case": tc_overlap, "equals_R3_plus_2": tc_max == R3 + 2},
+        "p": p, "proth_s": s, "proth_u": u, "proth_witness_a": a,
+        "field_bitlength": int(p).bit_length(),
+    }
+    checks = {
+        "rate_admissible": rate in ADMISSIBLE_RATES,
+        "k_le_2^40": k <= K_CAP,
+        "field_lt_2^256": p < FIELD_CAP,
+        "subgroup_exists": (p - 1) % n == 0,
+        "budget_matches": (p - 1) // (1 << TARGET) == B,
+        "budget_equals_R3_plus_2": B == R3 + 2,
+        # SAFE side rests on the two-core closure being exact at A_te-1
+        "two_core_closes": tc_max == R3 + 2,
+        "safe_numerator_is_R3_plus_2": num_safe == R3 + 2,
+        "safe_num_le_budget": num_safe <= B,
+        "safe_exact_ineq": num_safe * (1 << TARGET) <= p - 1,
+        # UNSAFE side uses only the tangent floor at A_te-2 (>= k+1)
+        "unsafe_A_ge_k_plus_1": A_unsafe >= k + 1,
+        "unsafe_numerator_is_R3_plus_3": num_unsafe == R3 + 3,
+        "unsafe_num_gt_budget": num_unsafe > B,
+        "unsafe_exact_ineq": num_unsafe * (1 << TARGET) > p - 1,
+        "adjacent": A_unsafe == A_safe - 1,
+        # Proth
+        "proth_u_odd": u % 2 == 1,
+        "proth_u_lt_2^s": u < (1 << s),
+        "proth_2^s_gt_sqrt_p": (1 << s) * (1 << s) > p,
+        "proth_form": u * (1 << s) + 1 == p,
+        "proth_witness_qnr": jacobi(a, p) == -1,
+        "proth_witness_pow": powmod(a, (p - 1) // 2, p) == p - 1,
+    }
+    cert["checks"] = checks
+    cert["all_checks_passed"] = all(checks.values())
+    return cert
+
+
 RATE_DEN = {"1_2": 2, "1_4": 4, "1_8": 8, "1_16": 16}
 
 
@@ -201,6 +280,8 @@ DEFAULT_ROWS = _grid_rows()
 def main(argv: Optional[list] = None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--json-out", type=Path, default=None)
+    ap.add_argument("--deep-json-out", type=Path, default=None,
+                    help="also emit the one-step-deeper two-core pins")
     ap.add_argument("--rows", type=Path, default=None, help="optional JSON list of [id,n,k]")
     args = ap.parse_args(argv)
     rows = DEFAULT_ROWS
@@ -227,6 +308,27 @@ def main(argv: Optional[list] = None) -> int:
     report = {"target_lambda": TARGET, "num_rows": len(out), "all_rows_passed": allok, "rows": out}
     if args.json_out:
         args.json_out.write_text(json.dumps(report, indent=2))
+
+    if args.deep_json_out:
+        deep = []
+        for row_id, n, k in rows:
+            dc = build_deep_pin(row_id, n, k)
+            allok = allok and dc["all_checks_passed"]
+            deep.append(dc)
+            tc = dc["two_core"]
+            print(f"[{'OK ' if dc['all_checks_passed'] else 'FAIL'}] DEEP {row_id}: "
+                  f"pin delta in ({dc['delta_unsafe']} unsafe, {dc['delta_safe']} safe], "
+                  f"B_deep={dc['budget_B']}, two-core max={tc['max_bound']}=R3+2? {tc['equals_R3_plus_2']}")
+            if not dc["all_checks_passed"]:
+                for kk, vv in dc["checks"].items():
+                    if not vv:
+                        print(f"        FAILED CHECK: {kk}")
+        deep_report = {"target_lambda": TARGET, "num_rows": len(deep),
+                       "all_rows_passed": all(d["all_checks_passed"] for d in deep),
+                       "depends_on": "two_core_closure_general.md (generalized a426 two-core upper bound)",
+                       "rows": deep}
+        args.deep_json_out.write_text(json.dumps(deep_report, indent=2))
+
     print(f"\nAll rows passed: {allok}")
     return 0 if allok else 1
 

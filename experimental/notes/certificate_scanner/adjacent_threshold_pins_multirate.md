@@ -108,6 +108,22 @@ threshold), which carries the pin only. Per-row caps + margins are tabulated in
 different objects (`LD_sw` line vs full MCA) and are not combined into a single
 bracket.
 
+## One-step-deeper pins (two-core closure)
+
+`two_core_closure_general.md` proves `LD_sw(C, A_te-1) = R3+2` **exactly** for
+each emitted admissible row, by evaluating a426's two-core dichotomy at these
+`(n,k)` (a generalization of a426's single-row upper bound; the Case-A packing
+branch is a per-row-checked rate/scale condition, not universal in the rate). That lets
+each pin be pushed one `1/n` step deeper (matching a426's depth, now for all four
+rates): SAFE at `A_te-1` (`LD_sw = R3+2 = B_deep`, two-core exact), UNSAFE at
+`A_te-2` (`LD_sw >= R3+3`, tangent floor), budget `B_deep = R3+2`. These 28 deeper
+pins are in `adjacent_threshold_pins_deep.json`, each carrying its two-core
+witness (`packing`, `overlap`, `max = R3+2`), independently re-derived by the
+verifier. Their SAFE side rests on the two-core closure (a strictly stronger
+dependency than the two-core-free pins below), and the dichotomy does **not**
+close at `A_te-2` (`cf. a425`'s non-exact fallback), so this is the deepest pin
+the argument reaches.
+
 ## Honest scope
 
 These pin the **finite-slope support-wise line** object `LD_sw` (the same object

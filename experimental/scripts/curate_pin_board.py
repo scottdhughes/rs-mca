@@ -38,7 +38,23 @@ def _load_scanner():
     return mod
 
 
-def curate(pins: dict, scanner) -> str:
+def deep_table(deep: dict) -> list:
+    out = ["## Table 3 -- one-step-deeper pins (two-core closure)", "",
+           "SAFE side rests on `two_core_closure_general.md` "
+           "(`LD_sw(A_te-1) = R3+2` exact); each row carries its two-core witness "
+           "(`packing`, `overlap`, `max=R3+2`). One `1/n` step deeper than Table 1.",
+           "",
+           "| id | rho | n | safe delta | unsafe delta | B_deep | two-core (pack, ovlp=R3+2) |",
+           "|---|---:|---:|---:|---:|---:|---:|"]
+    for r in deep["rows"]:
+        tc = r["two_core"]
+        out.append(f"| `{r['id']}` | {r['rate']} | {r['n']} | {r['delta_safe']} | "
+                   f"{r['delta_unsafe']} | {r['budget_B']} | ({tc['packing_case']}, {tc['overlap_case']}) |")
+    out.append("")
+    return out
+
+
+def curate(pins: dict, scanner, deep: dict = None) -> str:
     Row = scanner.Row
     paper_d_cap = scanner.paper_d_cap
     pin_rows, cap_rows = [], []
@@ -98,6 +114,8 @@ def curate(pins: dict, scanner) -> str:
         mb = "-" if x["margin_bits"] is None else f"{x['margin_bits']:.1f}"
         out.append(f"| `{x['id']}` | {x['rho']} | {x['n']} | {x['delta_cap']} | {mb} | {x['status']} |")
     out.append("")
+    if deep is not None:
+        out += deep_table(deep)
     out.append("## Notes")
     out.append("")
     out.append("- Pins are tight (margin ~0): they resolve the `LD_sw` line-object threshold "
@@ -114,11 +132,15 @@ def main(argv=None) -> int:
     ap.add_argument("--json", type=Path,
                     default=REPO / "experimental/data/certificates/"
                     "adjacent-threshold-pins-multirate/adjacent_threshold_pins.json")
+    ap.add_argument("--deep-json", type=Path,
+                    default=REPO / "experimental/data/certificates/"
+                    "adjacent-threshold-pins-multirate/adjacent_threshold_pins_deep.json")
     ap.add_argument("--md-out", type=Path, default=None)
     args = ap.parse_args(argv)
     pins = json.loads(args.json.read_text())
+    deep = json.loads(args.deep_json.read_text()) if args.deep_json.exists() else None
     scanner = _load_scanner()
-    md = curate(pins, scanner)
+    md = curate(pins, scanner, deep)
     if args.md_out:
         args.md_out.write_text(md)
         print(f"wrote {args.md_out}")
