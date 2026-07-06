@@ -115,6 +115,7 @@ def solve_plane(
     min_repeat_key_support: int,
     max_projective_key_count: int | None,
     min_projective_key_count: int | None,
+    forbid_singleton_projective_keys: bool,
     min_fixed_point_count: int | None,
     max_generic_row_cost: int | None,
     max_generic_point_row_cost: int | None,
@@ -210,6 +211,14 @@ def solve_plane(
         model.Add(max_key_count == 0)
     if min_projective_key_count is not None:
         model.Add(max_key_count >= int(min_projective_key_count))
+    singleton_key_forbid_constraints = 0
+    if forbid_singleton_projective_keys:
+        for projective_key, vars_for_key in projective_key_vars.items():
+            used = model.NewBoolVar(f"projective_key_used_{projective_key[:16]}")
+            count = sum(vars_for_key)
+            model.Add(count == 0).OnlyEnforceIf(used.Not())
+            model.Add(count >= 2).OnlyEnforceIf(used)
+            singleton_key_forbid_constraints += 1
     repeat_eligible_keys = {
         key for key, vars_for_key in projective_key_vars.items()
         if len(vars_for_key) >= min_repeat_key_support
@@ -315,6 +324,8 @@ def solve_plane(
             "max_zero_row_cost": max_zero_row_cost,
             "min_dependency_row_cost": min_dependency_row_cost,
             "max_core_overlap": max_core_overlap,
+            "forbid_singleton_projective_keys": forbid_singleton_projective_keys,
+            "singleton_key_forbid_constraints": singleton_key_forbid_constraints,
             "core_overlap_weight": core_overlap_weight,
             "generic_row_cost_weight": generic_row_cost_weight,
             "dependency_row_cost_weight": dependency_row_cost_weight,
@@ -390,6 +401,8 @@ def solve_plane(
         "max_zero_row_cost": max_zero_row_cost,
         "min_dependency_row_cost": min_dependency_row_cost,
         "max_core_overlap": max_core_overlap,
+        "forbid_singleton_projective_keys": forbid_singleton_projective_keys,
+        "singleton_key_forbid_constraints": singleton_key_forbid_constraints,
         "core_overlap_weight": core_overlap_weight,
         "generic_row_cost_weight": generic_row_cost_weight,
         "dependency_row_cost_weight": dependency_row_cost_weight,
@@ -487,6 +500,7 @@ def build_record(args: argparse.Namespace) -> dict[str, Any]:
             min_repeat_key_support=args.min_repeat_key_support,
             max_projective_key_count=args.max_projective_key_count,
             min_projective_key_count=args.min_projective_key_count,
+            forbid_singleton_projective_keys=args.forbid_singleton_projective_keys,
             min_fixed_point_count=args.min_fixed_point_count,
             max_generic_row_cost=args.max_generic_row_cost,
             max_generic_point_row_cost=args.max_generic_point_row_cost,
@@ -538,6 +552,7 @@ def build_record(args: argparse.Namespace) -> dict[str, Any]:
             "max_zero_row_cost": args.max_zero_row_cost,
             "min_dependency_row_cost": args.min_dependency_row_cost,
             "max_core_overlap": args.max_core_overlap,
+            "forbid_singleton_projective_keys": args.forbid_singleton_projective_keys,
             "avoid_core_files": [str(path) for path in args.avoid_core_file] if args.avoid_core_file else [],
             "avoid_core_mode": args.avoid_core_mode,
             "generic_row_cost_weight": args.generic_row_cost_weight,
@@ -547,6 +562,7 @@ def build_record(args: argparse.Namespace) -> dict[str, Any]:
             "best_core_nogood_sets": best.get("core_nogood_sets"),
             "best_core_nogood_constraints": best.get("core_nogood_constraints"),
             "best_core_nogood_partial_matches": best.get("core_nogood_partial_matches"),
+            "best_singleton_key_forbid_constraints": best.get("singleton_key_forbid_constraints"),
             "best_min_support": best.get("min_support"),
             "best_total_incidence": best.get("selected_incidence_total"),
             "best_pair_count_max": best.get("pair_count_max"),
@@ -586,6 +602,7 @@ def main() -> None:
     parser.add_argument("--min-repeat-key-support", type=int, default=2)
     parser.add_argument("--max-projective-key-count", type=int)
     parser.add_argument("--min-projective-key-count", type=int)
+    parser.add_argument("--forbid-singleton-projective-keys", action="store_true")
     parser.add_argument("--min-fixed-point-count", type=int)
     parser.add_argument("--max-generic-row-cost", type=int)
     parser.add_argument("--max-generic-point-row-cost", type=int)
@@ -618,6 +635,7 @@ def main() -> None:
         "max_zero_row_cost": record["rank3_lowrow_schedule"].get("max_zero_row_cost"),
         "min_dependency_row_cost": record["rank3_lowrow_schedule"].get("min_dependency_row_cost"),
         "max_core_overlap": record["rank3_lowrow_schedule"].get("max_core_overlap"),
+        "forbid_singleton_projective_keys": record["rank3_lowrow_schedule"].get("forbid_singleton_projective_keys"),
         "generic_row_cost_weight": record["rank3_lowrow_schedule"].get("generic_row_cost_weight"),
         "core_overlap_weight": record["rank3_lowrow_schedule"].get("core_overlap_weight"),
         "dependency_row_cost_weight": record["rank3_lowrow_schedule"].get("dependency_row_cost_weight"),
@@ -625,6 +643,7 @@ def main() -> None:
         "best_core_nogood_sets": record["rank3_lowrow_schedule"].get("best_core_nogood_sets"),
         "best_core_nogood_constraints": record["rank3_lowrow_schedule"].get("best_core_nogood_constraints"),
         "best_core_nogood_partial_matches": record["rank3_lowrow_schedule"].get("best_core_nogood_partial_matches"),
+        "best_singleton_key_forbid_constraints": record["rank3_lowrow_schedule"].get("best_singleton_key_forbid_constraints"),
         "best_min_support": record["rank3_lowrow_schedule"]["best_min_support"],
         "best_total_incidence": record["rank3_lowrow_schedule"]["best_total_incidence"],
         "best_pair_count_max": record["rank3_lowrow_schedule"]["best_pair_count_max"],
