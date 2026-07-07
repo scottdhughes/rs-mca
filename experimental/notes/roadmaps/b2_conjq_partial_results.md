@@ -150,3 +150,41 @@ symmetric-function object, but our dual family is the ADDITIVE frequencies c, wh
 MULTIPLICATIVE-character / big-monodromy family so a Katz/Rodgers-type equidistribution supplies the
 cancellation the abelian additive family cannot.** Round-(a) model attack now running on Routes 1 (LO n-loss),
 2 (multiplicative big-monodromy), 3 (transplant Pach Lemma 2.3), 4 (minimal value sets for E_{w+1}).
+
+## Round (a) — the crux distilled to ONE estimate; Route 2 killed (2026-07-07, both claims verified)
+
+Focused model attack. Two rigorous negatives + one clean distillation:
+- **Result A (PROVED+verified): Route 2 (multiplicative reformulation) is DEAD.** N = p^{-w} sum_{chi in U_1-hat}
+  e_m({chi(1-aX)}), U_1 = 1+X F_p[X]/(X^{w+1}). BUT for w<p, U_1 is elementary abelian ((1+cX)^p=1 mod
+  X^{w+1}, verified p=7..17) and log-linearizes: chi_t(1-aX)=e_p(f_c(a)) with c_j=-t_j/j. So the
+  multiplicative family IS the additive family reindexed -- same abelian rank-1 Artin-Schreier sheaves,
+  ZERO extra cancellation. The structure turns non-abelian only when w>=p (verified fails at w=9,p=7) --
+  the small-p regime where the concentration is FALSE. So the Rodgers/Katz big-monodromy hope is a mirage
+  here. Route 2 closed.
+- **Result B (PROVED+verified): no purely combinatorial method reaches n^3.** N <= Johnson/anticode bound
+  A(n,w+1,m) <= C(n,m-e+1)/C(m,e-1), e=ceil((w+1)/2) (verified N<=Johnson on toys). Deployed: Johnson saves
+  only ~3.15 bits/constraint (~10%); reaching n^3 needs ~31 bits/constraint. A(n,w+1,m) is p-INDEPENDENT
+  while mean & target are not, and by Gilbert-Varshamov A >= 2^{1.66e6} >>> n^3. **So NO code/packing/
+  design/LP argument can EVER give n^3 -- the savings MUST be F_p equidistribution (signed cancellation).**
+- **Result C (PROVED reduction): all routes reduce to ONE object -- large values of the subgroup sum.**
+  Both half-slices (Route 1), the chi-sum (Route 2=additive), and Pach's Li-Wan terms (Route 3) all reduce
+  to controlling `pi(c) = sum_{a in mu_n} e_p(f_c(a))`. Pach's Lemma 2.3 fails because it needs the FULL group
+  (nontrivial char sums to 0); over mu_n (density p^-0.32) pi(c) != 0 for c != 0 -- that missing vanishing
+  IS the wall.
+- **Result D (the distilled crux) -- Hypothesis SP:** for s ~ n/4, `sum_{c != 0} |pi_odd(c)|^s <= n^{O(1)} n^s`
+  (a large-values / thin-spectrum bound). SP => N_prim <= n^{O(1)} * mean; need only L <= 2^{27.3}, poly-n
+  suffices. **The single missing ingredient: a poly-loss high-moment (s~n/4) large-values bound, at a SINGLE
+  fixed prime p, for the subgroup sum with GROWING degree w ~ sqrt(p).** Every tool fails at one hinge (Weil:
+  degree growing; BGK: fixed degree; Katz/Rodgers: bounded conductor q->inf; Li-Wan/Pach: full group).
+  Believed OPEN. Concrete next step: prove SP for the REDUCED spectrum after removing the 2-power/square
+  exponent terms (the n=2^k defect that N_prim's subtraction targets).
+
+**Two corrections flagged (verify/patch):** (1) the LO reduction's per-s bound `A_s <= L_o 2^s C(n/2,s)/p^{w/2}`
+is NOT uniform in s (false for s <~ 1.47 w_o where the random value < 1); holds only in the dominant band
+s ~ n/4 -- a gap in the T8-T10 reduction to patch (patchable). (2) The operative multiplicative slack is
+`n^3/mean = 2^{27.3}` (need L <= 2^27.3), NOT the earlier "~2^41"; correct the calibration.
+
+**NET (maximal distillation):** every alternative route provably reduces to, or is dead against, ONE open
+estimate -- Hypothesis SP, a large-values bound for exponential sums over the LARGE subgroup mu_n with
+sqrt(q)-degree phase at fixed p. This is the sharp, isolated, currently-open crux. The attack: SP on the
+2-power-reduced spectrum.
