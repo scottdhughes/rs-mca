@@ -627,3 +627,17 @@ per-level growth `~1.46 < 1.75`. The missing analytic inputs are the averaged pe
 small-subgroup base case. This is the first crack that is not a dead proxy; it exploits the 2-power structure
 directly. Still OPEN, but for the first time there is a route whose obstruction is a concrete lemma rather than a
 factorial-in-`r` collapse.
+
+**Correction (round i.1, `b2_sp_energy_descent.py`): the "descend on `L^4`" idea is REFUTED (diagonal-dominated).**
+Tempting to descend on the 4th moment `E(G_j) = (1/2^j) sum_t|phihat_{G_j}|^4` (= the round-g/h mult-energy,
+a positive additive quantity). But `E(G_j) ~ 2(2^j)^2` is DIAGONAL-DOMINATED (round g), so the per-level ratio
+is trivially `kappa = E(G_j)/E(G_{j-1}) = 4.00` (geo-mean 3.99-4.00, exponent `theta_E -> 2.0`) -- the diagonal
+doubling, carrying NO information about the sup bound / OffDiag. So `L^4` descent is uninformative; the working
+descent object is the SUP `max_t|phihat_{G_j}|` (ratio `1.46`, round i) or the signed OffDiag directly (small,
+harder to track). **Corrected (i): the per-level lemma is a SUP peak-separation statement** --
+    `max_t |A_t + omega^t B_t| <= 2^{theta} max_t max(|A_t|,|B_t|)`, `theta < 0.81`, uniform in `c`,
+where `A = phihat_{G_{j-1}}` (subgroup) and `B = phihat^{(zeta)}_{G_{j-1}}` (coset, phase `f_c(zeta y)`). The
+mechanism (verified `cancel ~ 0.9`) is that the two half-spectra `A, B` PEAK AT DIFFERENT frequencies, i.e. the
+phases `f_c(y)` and `f_c(zeta y)` have DECORRELATED `G_{j-1}`-spectra. Proving that decorrelation, uniformly in
+`c`, is the concrete (i). The `sqrt(p)` base-case split (BGK small subgroup at `mu_{2^15}`) is UNAFFECTED by
+this correction (it is about where the descent starts, not the descent object).
