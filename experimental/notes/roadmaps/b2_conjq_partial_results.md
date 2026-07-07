@@ -195,3 +195,66 @@ s ~ n/4 -- a gap in the T8-T10 reduction to patch (patchable). (2) The operative
 estimate -- Hypothesis SP, a large-values bound for exponential sums over the LARGE subgroup mu_n with
 sqrt(q)-degree phase at fixed p. This is the sharp, isolated, currently-open crux. The attack: SP on the
 2-power-reduced spectrum.
+
+## Round (b) -- SP anatomized: moments are DEAD, the crux is the near-n large spectrum (2026-07-07)
+
+Self-derived (not delegated), all load-bearing claims exact-checked or numerically verified here.
+Structural facts first (both PROVED):
+- **pi_odd is a Fourier transform.** With the odd moment curve `Phi: mu_n -> F_p^{w_odd}, a |-> (a^j)_{j odd<=w}`,
+  `pi_odd(c) = sum_{a in mu_n} e_p(<c,Phi(a)>) = mu_hat(c)`, `mu = sum_a delta_{Phi(a)}`. So SP is an
+  ANTICONCENTRATION statement on the large Fourier spectrum of the subgroup pushed onto the moment curve.
+- **The proved moment law T5 IS the 2s-th spectral moment.** `sum_c |pi_odd(c)|^{2s} = p^{w_odd} J_s(J_odd;mu_n)
+  <= p^{w_odd}(2s-1)!! n^s` exactly (Phi injective via the j=1 coordinate => Parseval `sum_c|pi|^2 = p^{w_odd} n`).
+
+**T14 (PROVED, exact-exponent, `b2_metaprompt` arithmetic re-run): the moment method CANNOT prove SP.**
+By Holder, `sum_{c!=0}|pi_odd|^s <= (sum_c|pi|^{2s})^{1/2}(#c)^{1/2} <= p^{w_odd}((2s-1)!!)^{1/2} n^{s/2}`.
+At deployed `(p~2^31, n=2^21, w_odd~33735, s=n/4)` this bound is `2^{11,415,495}` while the SP target
+`n^3 n^s = 2^{11,010,111}` -- an **OVERSHOOT of `2^{405,384} = n^{~19,300}`.** The population inflation
+`p^{w_odd}=2^{1,045,785}` is only partly cancelled by the `(2s/en)^{s/2}` decay `2^{-640,338}`. So SP is
+STRICTLY stronger than the sharp moment law (which we own): moments control the AVERAGE tail (sub-Gaussian,
+variance n, over the full `p^{w_odd}` population) but SP needs the near-n tail to be `n^{O(1)}` -- an
+INVERSE/structural bound on the large spectrum, not an average. **This is exactly parallel to T11 (energy
+dead): the two "cheap" analytic methods (2nd moment/energy AND all higher moments) are both provably
+insufficient; the savings must come from the algebraic STRUCTURE of the large-value c.** (Script:
+`b2_sp_large_spectrum.py`; T14 is exponent arithmetic, regime-independent.)
+
+**The sharpened crux -- minimal-value-set dictionary (PROVED direction + numerics).** `|pi_odd(c)| >= (1-delta)n`
+forces `f_c` (degree `<= w`) to have a SMALL/CONCENTRATED value set on `mu_n` (most a map into a tiny arc).
+So the near-n large spectrum = degree-`<=w` MINIMAL-VALUE-SET polynomials on the subgroup `mu_n` -- the
+Carlitz-Lewis-Mills-Wan regime (cf. 1108.1852, Dae San Kim), now over a SUBGROUP with GROWING degree w.
+SP holds iff this near-n set is a bounded union of `O(n^{O(1)})` algebraic families each of size `~p=poly(n)`.
+
+**Numerics (`b2_sp_large_spectrum.py`, `b2_sp_structured_vs_random.py`) -- SP SUPPORTED, with regime caveat:**
+- n/2-level spectrum is NOT thin: `#{c!=0:|pi_odd|>=n/2} ~ 0.045 p^{w_odd}` (positive fraction) -- so SP lives
+  entirely on the s~n/4 moment being dominated by the NEAR-n tail, not the n/2 tail. (n=16,w_odd=2 exact.)
+- **Random c concentrate BELOW n and further as n grows:** `rand_max/n = 0.9, 0.72, 0.5` and
+  `rand_99.9/n = 0.76, 0.56, 0.40` for `n=16,32,64` (w_odd=4,8,16). The generic near-n spectrum THINS with n.
+- **Structured families reach ~n:** the all-equal "spike" `c=t*(1,..,1)` hits `0.8-0.98 n` at every scale (a
+  size-(p-1)=poly(n) line); single-monomial stays `<= 0.58` (subgroup Gauss period `~sqrt(p)/n -> 0`). So the
+  near-n spectrum is confined to STRUCTURED lines while random c fall away -- the SP-true picture.
+- CAVEAT (regime-first): tested only `n <= 64` vs deployed `2^21`; sampling lower-bounds the true random max.
+  The TREND (rand_max/n decreasing, near-n = structured) is the signal, not a proof.
+
+**Descent link (OPEN, NOT yet established -- flagged honestly, do not build on it).** Tempting: the dominant
+spike concentrates `f_c` on the 2-torsion pair `{1,-1}` (`g(a)=sum_{j odd<=w}a^j` is large only when `a^2~1`),
+and `N_prim = N - 1[2|m]N(n/2,..)` subtracts the `S=-S` part (T3). BUT these are on OPPOSITE sides of the
+Li-Wan duality -- `{1,-1}` is a single coset on the FREQUENCY/`c` side, while `S=-S` is a pairing condition on
+the SUBSET side -- so the connection is NOT tight and may be a coincidence of small toys. Status: an
+unverified heuristic, not a lead to lean on. (To settle it one would need the spike's contribution traced
+through the full plethystic sum `N = sum_lambda (+-1/z_lambda) p^{-w} sum_c prod_r pi(rc)^{m_r}`, not done.)
+
+**The well-posed concrete next step (ii).** Independent of the descent heuristic, T14 + the dictionary reduce
+SP to a clean, literature-connected COUNTING problem:
+    **bound `#{ c in F_p^{w_odd}, c != 0 : f_c has value set of size <= n/K on mu_n }` by `n^{O(1)} K^{O(1)}`,**
+i.e. count degree-`<=w` polynomials with a `K`-fold-concentrated value distribution on the subgroup `mu_n`.
+This is Carlitz-Lewis-Mills-Wan minimal-value-set theory (over `F_q`: minimal value set forces the poly into a
+thin algebraic family) transplanted to a SUBGROUP and to GROWING degree `w`. Tools that could bite (unlike the
+dead moment/energy methods): Stepanov's method on `{x in mu_n : f_c(x) = v}`; the value-set structure theorems
+of CLMW/1108.1852; Weil restriction of the fiber curves. This is the sharpest OPEN form of the crux.
+
+**NET round (b):** SP's two cheap analytic routes -- 2nd moment/energy (T11) AND all higher moments (T14) --
+are BOTH provably dead (overshoot `n^{~19,300}`). The surviving route is INVERSE/structural: the near-n large
+spectrum is (numerically) confined to few structured minimal-value-set families while random c fall away
+(`rand_max/n: 0.9->0.5` as `n:16->64`), so SP is supported and reduces to the CLMW-type subgroup value-set
+count (ii). The crux is now a concrete algebraic-geometry counting problem over a subgroup, not an analytic
+estimate in the void. (Regime caveat: numerics `n<=64`; deployed `n=2^21`.)
