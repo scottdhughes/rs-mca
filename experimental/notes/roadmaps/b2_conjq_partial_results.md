@@ -489,3 +489,44 @@ subgroup 4th moment `sum_{a in G}|T_a^G(c)|^2 <= n^{2.62}` (fixes round (d)'s `F
 (generic Weil, completion/sparse-complete-sum, mean-value/VMVT, OSV `r`-term induction) is PROVED dead at `r ~ 3.4e4`.
 Monomials + binomials are handled; the barrier is purely the dense high-`r` phase, and the target beats trivial by
 only `n^{0.38}` with `n^{0.15}` numerical margin. Still OPEN; needs a subgroup inverse/structure theorem.
+
+## Round (g) -- attack (1): the subgroup 4th moment IS a multiplicative-energy sum; DIAGONAL DOMINANCE (2026-07-07)
+
+Direct attack on `sum_{a in G}|T_a^G|^2 <= n^{2.62}`. `T_a^G(c) = sum_{y in G} phi(ay) conj(phi(y))` is the
+AUTOCORRELATION of `phi := e_p o f_c` on the group `G`, so Wiener-Khinchin gives THREE EXACT equal forms
+(all verified `F1==direct==F2` on n=128, `b2_sp_subgroup_4moment.py`):
+- **(F1)** `sum_{a in G}|T_a^G|^2 = (1/n) sum_{xi in Ghat} |phihat(xi)|^4`, `phihat(xi_t) = sum_{x in G} conj(chi_t(x)) e_p(f_c(x))`
+  (4th moment of the `G`-Fourier spectrum; `phihat(xi_0) = pi_odd(c)`). Computable as `(1/n) sum_t |FFT(phi)_t|^4`.
+- **(F2)** `= sum_{x1 x2 = x3 x4, x_i in G} e_p(f_c(x1)+f_c(x2)-f_c(x3)-f_c(x4))` -- a MULTIPLICATIVE-ENERGY
+  weighted exponential sum (Bourgain-Garaev regime; `G = mu_n` has `|G| = p^{0.68} > sqrt p`).
+- **(F3)** `= sum_{u in G}|R_u(c)|^2`, `R_u = sum_{x in G} e_p(f_c(x) + f_c(u/x))` (`R = phi *conv phi` on `Z/n`).
+
+**KEY STRUCTURAL FINDING -- DIAGONAL DOMINANCE (verified).** Split F2 by the multiplicative-energy diagonal
+`{x3,x4} = {x1,x2}` (`2n^2 - n` solutions, all phase `1`):
+    `sum_{a in G}|T_a^G|^2 = (2 n^2 - n) + OffDiag(c)`.
+The diagonal `2 n^2` sits at `n^2 * 2 << n^{2.62}` (margin `n^{0.62}`) -- it needs NO cancellation. And numerically
+the off-diagonal is TINY and often NEGATIVE (net cancellation below the diagonal):
+    `|OffDiag| / n^{2.62} <= 0.01`, decreasing with n (n=2048 dense: `-2e-4`; adversarial-on-the-4moment: `+3e-3`,
+    shrinking `0.088 -> 0.010 -> 0.005 -> 0.003` for `n=128..2048`).
+So the ENTIRE remaining task is: **`OffDiag(c) = sum_{x1x2=x3x4, {x1,x2}!={x3,x4}} e_p(f_c(x1)+f_c(x2)-f_c(x3)-f_c(x4))
+<= n^{2.62}`, uniform in c** -- a `3`-variable (`x,y,z in G`, `x4 = xy/z`) multiplicative-energy sum needing only
+`n^{0.38}` cancellation from `~n^3` terms; observed cancellation is `~n^{1.5}` (far more than needed).
+
+**Two live sub-routes (numerically viable):**
+1. **Bourgain-Garaev on OffDiag directly:** a power-saving bound for the multiplicative-energy exp-sum over a
+   subgroup of size `> sqrt p` with additive phase `f_c`. Only `n^{0.38}` saving needed -- weak.
+2. **Sup of `R_u` (F3):** `max_{u in G}|R_u| <= n^{0.81} => sum_u|R_u|^2 <= n * n^{1.62} = n^{2.62}`. `R_u` is a
+   KLOOSTERMAN-type subgroup sum of the Laurent phase `f_c(x)+f_c(u/x)` (poles order `w` at `0,infty`).
+   Numerics: `max_u|R_u| ~ n^{0.70-0.79}` (dense/monomial), `<= n^{0.85}` adversarial at small n, trending to
+   `n^{0.70}` -- under the `n^{0.81}` bar for the deployed-size n. (Tighter target than `pi_odd`'s `n^{0.905}`,
+   but Kloosterman structure may help; ties to Fouvry-Kowalski-Michel / Bourgain-Garaev Kloosterman-over-subgroup.)
+
+**Adversary fix (vs round d):** the coordinate ascent here maximizes `sum_{a in G}|T_a^G|^2` ITSELF (the correct
+adversary for this object), not `|pi_odd|`; it stays under threshold (`<= 0.19`, decreasing to `0.02`) AND gives
+the same value for dense and resonant-monomial c -- resonance-stability confirmed against the right adversary.
+
+**NET (round g):** `sum_{a in G}|T_a^G|^2 <= n^{2.62}` reduces (PROVED split) to `OffDiag(c) <= n^{2.62}`, the
+off-diagonal MULTIPLICATIVE-ENERGY exponential sum -- diagonal is free (`2n^2`). This is a clean Bourgain-Garaev
+target needing only `n^{0.38}` saving, with two viable sub-routes (direct energy bound; or `max_u|R_u| <= n^{0.81}`).
+Numerics: massive margin (off-diagonal `~n^{1.5}` cancellation observed vs `n^{0.38}` needed). Still OPEN but now a
+standard-shaped multiplicative-energy / Kloosterman-subgroup estimate, not an unstructured sup bound.
