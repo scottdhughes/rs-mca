@@ -170,7 +170,50 @@ constant degrades in k; BGK/Bourgain-Chang/Shkredov subgroup sums -- power-savin
 `sqrt`, `delta(gamma)->0` as `gamma->0`; Cochrane-Pinner/Bourgain fewnomial -- saving degrades in #terms;
 finite-field decoupling (2508.08377) -- fixed low dim / large q, mean value not sup. NONE is r-uniform.
 
-## Honest path forward
+## ChatGPT external review (2026-07-07): reframing + moment theorem PROVED; ALL claims verified here
+
+Fed the full metaprompt to ChatGPT; it produced real mathematics, corrected two of our errors, and
+proved new results. I re-verified every load-bearing claim numerically (reviewer!=generator):
+
+**Our errors it corrected:**
+- "Odd frequencies detect exactly N_prim" is FALSE. One-way (S=-S => odd p_j=0) holds, but the
+  TRUNCATED odd block (only odd j<w, w<<n) does not characterize (-1)-invariance. Counterexample
+  (VERIFIED): F_17, mu_16, S={1,3,13}: p_1(S)=0 but S != -S. So `b2_primitive_runiform` measured the
+  wrong object. The EXACT descent `N_prim = N(n,m,w) - 1[2|m] N(n/2,m/2,floor(w/2))` still stands.
+- Our earlier "sup form is FALSE" spike used the FULL odd block (deg up to n); in the deployed
+  truncated block (deg P_c < w << n) an antisymmetric delta spike CANNOT be realized (a deg-<w poly
+  vanishing on n-2>w points is 0). So the sup disproof was in the wrong regime -- but it is moot,
+  since the averaged object is T(c)=e_m(...), not pi(c) (see below).
+
+**PROVED (Thm 1, verified: moments 1,2.96,15.17,101.87 vs (2s-1)!!=1,3,15,105).** For J containing the
+initial odd block {1,3,...,2s-1} and char>2s: `J_s(J;mu_n) <= (2s-1)!! n^s`, UNIFORM in |J|. Clean
+Newton-pairing proof: substitute x_{s+i}=-b_i (uses -1 in mu_n), odd power sums of the 2s x's vanish
+=> e_k=0 for odd k (Newton) => prod(T-x_i) is EVEN => roots pair {h,-h} => (2s-1)!! pairings * n^s.
+Explains the 2.9/14 numerics as the mu_2-pairing (real-Gaussian) moments. NO efficient congruencing
+needed -- much cleaner than our "short research project" framing. (False for arbitrary sparse J: J={1}
+gives additive energy n^{4-1/gamma}; the initial-odd-block hypothesis is essential.)
+
+**PROVED (Thm 2, exact cycle expansion; Thm 3, low-cycle vanishing -- VERIFIED: N=3=brute, M_lambda=0
+for l<=w).** Li-Wan cycle index: `N = sum_{lambda|-m} ((-1)^{m-l(lambda)}/z_lambda) M_lambda`, where
+`M_lambda = #{x in mu_n^{l} : sum_i lambda_i x_i^j = 0, j=1..w} = q^{-w} sum_c prod_r pi(rc)^{m_r}`.
+**Thm 3:** if `l(lambda) <= w` then `M_lambda = 0` (Vandermonde in the distinct values forces all
+aggregate weights D_nu=0, impossible since 0 < D_nu <= m < char). So `N = sum_{l(lambda) > w} (...)`:
+ONLY partitions with MORE THAN w cycles contribute (deployed: > 67000 cycles). This is the precise
+reframing and the exact obstruction to a moment route: T(c)'s average sees only high-cycle configs,
+and depends on the JOINT process {pi(c),pi(2c),...,pi(mc)}, not the marginals Thm 1 controls.
+
+**Sufficiency verdict (ChatGPT, concur): moment + exceptional does NOT close it.** N_prim is not the
+odd-freq average (our error), and T(c) needs the mixed averages E_c prod pi(rc)^{m_r}, not marginals.
+Exceptional-set count needed is ABSOLUTE (<= n^3/mean ~ 2^27) but moment bounds give a FRACTION.
+
+**Rule-outs re-confirmed:** Sawin-Shusterman dead (slope w); Katz dead (abelian c-family for T(c),
+robust to post-descent largeness); completed-sum gives only w*sqrt(q), trivial. VMVT/decoupling don't
+apply (interval + fixed degree).
+
+**NET / OPEN:** the conjecture `N_prim <= n^3` is OPEN, now EXACTLY reframed: prove a HIGH-CYCLE
+(l(lambda)>w) WEIGHTED DIAGONAL equidistribution estimate `M_lambda = q^{-w} n^{l(lambda)} + cycle-index-
+summable error` over `mu_n` (or the primitive signed-difference version). This is the crux -- not a
+sqrt(n) bound for pi(c), not O(log n) moments. Cross-check pending vs Claude's independent take.
 
 This is a precise, well-posed open problem in additive combinatorics (r-uniform subgroup exp-sums),
 in a favorable large-subgroup/prime-field regime, base case known, strong evidence true. Realistic
@@ -180,3 +223,32 @@ code structure may give the uniformity generic subgroups lack); (ii) targeted se
 `r`-uniform subgroup-sum results; (iii) pose the exact lemma to the Bourgain-Chang school (Chang,
 Konyagin, Shkredov) or the geometric side (Sawin). Coordinated with holmbuar's `conj:Q` ledger.
 Deliverables banked: 4 validated scripts + 4 notes + this synthesis.
+
+## Convergence: 2nd external model (Claude subagent) + TheoremSearch (2026-07-07)
+
+**Claude attack CONVERGES with ChatGPT and adds results (all re-verified here):**
+- **Thm B (VERIFIED, power-of-2 n): `n | N_prim`**, N_prim = n*(#free mu_n-orbits) (free orbit = trivial
+  stabilizer, size n). So **Conjecture <=> #free orbits <= n^2** (verified 16,32,64; n=12 out of scope).
+- **Thm D (sharpest takeaway): the bound is a CONCENTRATION statement, p-SENSITIVE, not rigidity.** For small
+  p at the same (n,m,w), N_prim >> n^3 (up to 7e15 at n=64); N_prim/mean has median exactly 1. So N_prim<=n^3
+  holds ONLY because deployed mean = C(n,m)/p^w ~ 2^35.7 <= n^3. Any proof must use that p is large (mean
+  small); a p-blind structural/coding bound is IMPOSSIBLE.
+- **Reduction E (positive route): additive energy.** E = sum_v nu(v)^2 = sum_d C(n-2d,m-d) E_d, E_d =
+  #{disjoint A,B in mu_n, |A|=|B|=d, p_j(A)=p_j(B) for j<=w} = a Prouhet-Tarry-Escott/Vandermonde system over
+  mu_n; E/E_0 ~ 1 (near-random), POSITIVE (defeats the signed-cancellation no-go). Crux splits: (E-a) excess
+  energy E - E_0 <= n^{O(1)} p^w; (E-b) the v=0 fiber transfer (variance controls a TYPICAL fiber, but
+  nu(0)=N hoards rotation orbits -- the sup-vs-average issue again). **Small-d rigid range E_d=0 for d<=d_0(w)
+  is PROVABLE NOW** (same Vandermonde as low-cycle vanishing) -- a concrete first theorem.
+- Calibration (both models): ~2^41 slack (|N_prim-mean|~sqrt(mean)~2^18 << n^3=2^63); morally certain.
+
+**TheoremSearch citation leads (theoremsearch.com; 11.7M arXiv + Mathlib):**
+- arXiv:1210.0456 Cheong-Matchett Wood-Zaman "Distribution of points on superelliptic curves", Lemma 3.3:
+  count of polynomials with prescribed leading coefficients over F_q, MAIN TERM + O(q^{(d-sum s_i)/n+1}) error.
+  Closest published analogue; chase whether its method gives the mu_n-restricted equidistribution input (E-a).
+- arXiv:0807.4671 Dae San Kim -- code weight distribution as subset-sum with field-weighted constraint
+  (sum nu_beta*beta=0) + Kloosterman power moments (the coding form).
+- arXiv:1803.03351 Koh-Pham-Shen-Vinh -- subgroup product/energy expansion bounds (for E_d).
+
+**NET (both models + search agree):** conjecture is a p-sensitive CONCENTRATION, morally certain; the single
+open crux is a rigorous high-degree additive-energy / joint-equidistribution estimate over mu_n (E-a) plus
+the v=0 fiber transfer (E-b). New provable pieces: n|N_prim, small-d PTE rigidity. Sharpest convergent state.
