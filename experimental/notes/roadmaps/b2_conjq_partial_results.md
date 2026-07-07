@@ -229,11 +229,15 @@ SP holds iff this near-n set is a bounded union of `O(n^{O(1)})` algebraic famil
   entirely on the s~n/4 moment being dominated by the NEAR-n tail, not the n/2 tail. (n=16,w_odd=2 exact.)
 - **Random c concentrate BELOW n and further as n grows:** `rand_max/n = 0.9, 0.72, 0.5` and
   `rand_99.9/n = 0.76, 0.56, 0.40` for `n=16,32,64` (w_odd=4,8,16). The generic near-n spectrum THINS with n.
-- **Structured families reach ~n:** the all-equal "spike" `c=t*(1,..,1)` hits `0.8-0.98 n` at every scale (a
-  size-(p-1)=poly(n) line); single-monomial stays `<= 0.58` (subgroup Gauss period `~sqrt(p)/n -> 0`). So the
-  near-n spectrum is confined to STRUCTURED lines while random c fall away -- the SP-true picture.
-- CAVEAT (regime-first): tested only `n <= 64` vs deployed `2^21`; sampling lower-bounds the true random max.
-  The TREND (rand_max/n decreasing, near-n = structured) is the signal, not a proof.
+- **Structured families reach ~n ONLY in the (non-representative) near-FULL block** (`w_odd ~ n/2`): the spike
+  `c=t*(1,..,1)` hits `0.8-0.98 n` for `n<=64, w_odd=n/2`. **SUPERSEDED by round (c): this is a FULL-BLOCK
+  ARTIFACT.** In the regime-representative TRUNCATED block (`w_odd/(n/2) ~ 0.03` = deployed `w/n`), the spike
+  is NOT near n -- it drops to `0.13-0.20 n ~ sqrt(p)` (round c). The fiber bound (deg `f_c <= w`, each value
+  hit `<= w` times) forbids single-value domination when `w << n`, so the spike cannot concentrate. Read
+  round (b)'s near-n picture through round (c)'s correction: at deployed truncation ALL c (random + spike)
+  sit at `~sqrt(p) << n`.
+- CAVEAT (regime-first): round-(b) numerics used near-full blocks (NOT representative). Round (c) fixes the
+  regime (`w_odd/(n/2) ~ 0.03`); see there for the deployed-representative behavior.
 
 **Descent link (OPEN, NOT yet established -- flagged honestly, do not build on it).** Tempting: the dominant
 spike concentrates `f_c` on the 2-torsion pair `{1,-1}` (`g(a)=sum_{j odd<=w}a^j` is large only when `a^2~1`),
@@ -258,3 +262,46 @@ spectrum is (numerically) confined to few structured minimal-value-set families 
 (`rand_max/n: 0.9->0.5` as `n:16->64`), so SP is supported and reduces to the CLMW-type subgroup value-set
 count (ii). The crux is now a concrete algebraic-geometry counting problem over a subgroup, not an analytic
 estimate in the void. (Regime caveat: numerics `n<=64`; deployed `n=2^21`.)
+
+## Round (c) -- SP REDUCES TO A UNIFORM SUP BOUND (crude count); the min-value-set concern EVAPORATES (2026-07-07)
+
+The single cleanest advance so far. Self-derived + verified (`b2_sp_sup_reduction.py`).
+
+**T15 (PROVED reduction, exact-exponent): SP follows from a UNIFORM SUP bound.** Let `M = max_{c!=0}
+|pi_odd(c)|`. Trivially `sum_{c!=0}|pi_odd(c)|^s <= (#c) M^s <= p^{w_odd} M^s`. This beats the SP target
+`n^{O(1)} n^s = p^{gamma s + O(1)}` as soon as
+    **`log_p M <= gamma - w_odd/s =: theta*`**,  deployed `theta* = 0.678 - 0.0643 = 0.6137`, i.e.
+    **SP  <==  `M = max_{c!=0}|pi_odd(c)| <= p^{0.6137} = n^{0.905}`.**
+So the high-moment large-values estimate collapses to a SINGLE incomplete-character-sum SUP bound -- a far
+more standard object. (With `M ~ sqrt(p)` the crude `L = sum_{c!=0}|pi_odd|^s / n^s` is `~ p^{-0.11 s} << 1`,
+astronomically inside the operative slack `L <= 2^{27.3}` -- the reduction is not delicate.)
+
+**The min-value-set worry of round (b) EVAPORATES -- and here's WHY (structural).** A value-set reduction
+for `f_c` on `mu_n` would need `f_c` to factor through a power map `x |-> x^d` with `d | n` (so `f_c` is
+constant on cosets of `mu_{n/d}`). But `n = 2^k`, so a nontrivial `d | n` is EVEN, forcing EVEN exponents --
+while `pi_odd` is supported on ODD frequencies. Odd `d | 2^k` means `d=1` (no reduction). **So no
+odd-supported `f_c` has a minimal value set: the oddness (inherited from the primitive/initial-block
+structure, T5) STRUCTURALLY BLOCKS the only mechanism that could push `M` up to `sqrt(w n)`.** Hence `M ~
+sqrt(p)`, not `sqrt(w n)`.
+
+**Numerics (`b2_sp_sup_reduction.py`, adversarial coordinate ascent from spike/geometric/random, REGIME-
+REPRESENTATIVE `w_odd/(n/2) ~ 0.03`):** the true `M` tracks `sqrt(p)`:
+    `M/sqrt(p) in [0.9, 1.9]` across `n=512,1024,2048` (`p` up to 41 K); `M/n` SHRINKS `0.21 -> 0.15 -> 0.10`.
+    `M/sqrt(w n)` DECREASES (`1.17 -> 0.84 -> 0.58`) -- confirming `M ~ sqrt(p)` (not `sqrt(w n)`).
+Threshold headroom is a factor `p^{theta*-1/2} = n^{0.168} = 2^{3.5} ~ 11.5` in the CONSTANT `C` (`M <= C
+sqrt(p)`); the observed `C ~ 1-2`. Comfortable.
+
+**Honest status of the remaining gap.** The sup bound `M <= n^{0.905}` is still NOT Weil-accessible: Weil per
+multiplicative character gives `|pi_odd| <= (1/m') * m' * w sqrt(p) = w sqrt(p) = n^{1.501}` -- WORSE than the
+trivial `n`. So a proof must beat trivial by `n^{0.1}` using the subgroup structure (small index `m'=(p-1)/n
+=127`), NOT generic Weil. Candidate: the 2nd-moment-over-characters identity `sum_{psi triv on mu_n}|S(psi,c)|^2
+= m' sum_{x/y in mu_n} e_p(f_c(x)-f_c(y))` (a coset-restricted autocorrelation of `f_c`), which may give `M <=
+sqrt(m') sqrt(p) * (deg factor)` if the diagonal dominates -- OPEN. This is the one clean estimate to prove now.
+
+**NET (rounds a-c):** every route reduces to ONE object, and that object is now the SHARPEST/most-standard it
+has been: a uniform sup bound `max_{c!=0}|pi_odd(c)| <= n^{0.905}` for an incomplete character sum over the
+large subgroup `mu_n` with a degree-`w` ODD phase -- and (i) the crude count then gives SP with room to spare
+(T15), (ii) the odd-support provably kills the minimal-value-set inflation, (iii) numerics put the truth at
+`~sqrt(p) = n^{0.74}`, comfortably inside. The crux is a single sub-trivial character-sum bound; Weil is the
+wrong tool (degree growing), the subgroup small-index structure is the right one. Still OPEN, now maximally
+concrete.
