@@ -783,3 +783,69 @@ the freeze-or-decorrelate inverse theorem. Every refutation has come from a degr
 approached `0.81`. The partial-results package (T1-T18, rounds a-l, 2 Lean anchors) now contains a complete
 map of this barrier: every cheap route provably dead, every extremal family identified and capped, one sharply-
 stated inverse theorem remaining.
+
+## Round (m) -- n^0.81 spectral target REFUTED (pigeonhole approximate-freeze); crux returns to SP-large-values, now calibrated (2026-07-07)
+
+Model round on DB: **DB and the `n^{0.81}` spectral target are REFUTED (PROVED, non-constructive)** -- every
+arithmetic step independently verified (`b2_sp_pigeonhole_freeze.py`; the construction is a pigeonhole existence
+proof, so verification = the proof's arithmetic, exact to the bit).
+
+**The construction (PROVED, verified).** `V` = admissible odd polynomials (`r = 33736` dims, `r log2 p =
+1,045,434` bits). Evaluation on one representative per `{x,-x}` pair of `H = G_19` is INJECTIVE (odd `f`
+vanishing on `R` vanishes on `H`, `2^19` points `> deg <= w`). Partition `F_p` into `Q = 15` boxes: pattern
+space `= 2^18 log2 15 = 1,024,168` bits `< 1,045,434` (margin exactly `21,266` bits). Pigeonhole: two distinct
+polys share every box; their difference `f != 0` has `|f(x)|_p <= ceil(p/15)` on ALL of `G_19` -- an
+**APPROXIMATE FREEZE of a `2^19`-point subgroup (`7.8 w` points!) by a degree-`<= w` polynomial.** Pairing
+(`f` odd) gives `A_H >= 2^19 cos(24 deg) = 478,960.9`, and quotient-Parseval over `G/H` lifts it:
+    `max_chi |phihat(chi)| >= 478,960 = n^{0.89855} > 3.63 * n^{0.81}`.  **`n^{0.81}` DEAD. DB DEAD.**
+
+**What failed in DB:** the degree cap controls EXACT fibers (`<= w` roots); but the COEFFICIENT DIMENSION
+(`r log2 p` bits) controls APPROXIMATE fibers, and it is large enough to confine `f` to a `p/15`-interval on
+`2^19` points. Degree/root-counting (Stepanov included) cannot see this; it is a geometry-of-numbers/coding
+phenomenon. (Capacity check, verified: `G_20` worst-case freeze is impossible -- `Q <= 3` by the bit budget and
+`cos(2pi/3) < 0`, so the GUARANTEED construction tops out at `G_19`/`n^{0.8986}`.)
+
+**Our push (P1, HEURISTIC, arithmetic verified): the T15 sup target `n^{0.905}` is PRESUMED DEAD too.** The
+guaranteed construction sits just UNDER it (`478,960 < 526,108`, margin `1.098x`), but AVERAGE-case coherence
+(typical same-box difference ~ triangular, `E[cos] = sinc^2(pi/Q)`) fits `G_20` at `Q = 3` in the bit budget
+(`830,977 < 1,045,434`) with `E[cos] = 0.684`, giving heuristically `pi_odd ~ 0.684 * 2^20 = 717,140 =
+n^{0.9263} > n^{0.905}`. Not a proof (average-case is not pigeonhole-guaranteed), but the sup route should be
+treated as dead: no sup threshold below `~n^{0.93}` is safe.
+
+**Our push (P2, verified exponent arithmetic): the ESCAPE -- freeze families are measure-tiny; SP-large-values
+SURVIVES them.** The freeze-family count is calibrated by the pigeonhole margin (`~2^{21,266}` classes). Its
+contribution to the SP moment (`s = n/4`, worst extremal `V = n^{0.9263}`) is `21,266 + 0.9263 s log2 n =
+10,216,571` bits vs target `s log2 n + 3 log2 n = 11,010,111` bits -- **793,540 bits UNDER: negligible.** So
+the freeze phenomenon kills every SUP-based sufficient condition but NOT the original Hypothesis SP
+(round (a), Result D): `sum_{c != 0} |pi_odd(c)|^s <= n^{O(1)} n^s`.
+
+**THE REPAIRED CRUX (full circle, but sharply calibrated): a LARGE-VALUES CAPACITY bound.** Let
+`N(V) = #{c != 0 : |pi_odd(c)| >= V}`. SP needs `N(V) <= n^{O(1)} (n/V)^s`-type decay. The pigeonhole gives the
+LOWER bound `N(n^{0.8986}) >= 2^{21,266}`; the natural conjecture (FREEZE-CAPACITY DUALITY) is that the
+pigeonhole bit-budget is essentially TIGHT:
+    **`N(rho n) <~ 2^{r log2 p - (coherent-mass bits for rho)}`** -- i.e. large `|pi_odd|` REQUIRES approximate
+freezing, and freezing costs bits linearly in the frozen mass. Under this, SP holds with enormous room (count
+decay `2^{-rho n}` crushes `V^s` gains). CODING REFRAME: the evaluation code `{(f_c(x))_{x in G}} subset F_p^n`
+is a `p`-ary code of dimension `r` (T13's dual side); `N(V)` is its LEE/ARC-WEIGHT distribution near the
+minimum -- the crux is a lee-weight-distribution / list-decoding-capacity theorem for this GRS-type code.
+
+**NET (round m):** the sup-bound program (rounds c-l) is definitively closed: `n^{0.81}` refuted (proved),
+`n^{0.905}` heuristically unreachable; the crux returns to Hypothesis SP in its ORIGINAL large-values form,
+now with (i) the extremal mechanism identified (pigeonhole approximate-freezes), (ii) its guaranteed extremal
+verified (`n^{0.8986}`), (iii) its count calibrated (`2^{21,266}`), (iv) proof that these families cannot break
+SP (793K bits of room), and (v) the needed theorem named: freeze-capacity duality / Lee-weight distribution of
+the odd-evaluation code. The barrier is a capacity statement, not a cancellation statement -- a genuinely
+different (and more structured) kind of open problem than where this started.
+
+**Round (m.1) -- the SP open window QUANTIFIED (verified exponent arithmetic).** SP requires the large-values
+ledger bound `N(rho n) <= e^{(n/4) ln(1/rho) + O(ln n)}`. Computing where this is already settled:
+- `rho < 0.251`: the FULL population `p^{w_odd}` fits inside the SP budget -- nothing to prove.
+- `rho > 0.731`: the PROVED T5 moment law (`E|pi|^{2s} <= (2s-1)!! n^s`, optimized `s' = rho^2 n/2`, Gaussian
+  tail `e^{-rho^2 n/2}`) already thins the population SP-sufficiently.
+- **OPEN WINDOW: `rho in (0.251, 0.731)`** -- SP holds iff `N(rho n) <= e^{(n/4) ln(1/rho)}` there.
+Known constructions sit FAR inside budget: pigeonhole-`G_19` (`rho = 0.228`, count `e^{14,740}` vs budget
+`e^{774,225}`: room 759,484 nats -- and it is below the window anyway); heuristic `G_20`-freeze (`rho = 0.342`,
+count `e^{148,650}` vs `e^{562,595}`: room 413,945 nats). **The entire conj:Q dual crux is now: show that no
+more than `(1/rho)^{n/4}` coefficient vectors achieve coherence fraction `rho` on `mu_n`, for
+`rho in (0.251, 0.731)`** -- with the capacity heuristic (freezing costs `>~ 1` bit per frozen point,
+`count <~ 2^{r log2 p - rho n}`) giving it with enormous room (`2^{-rho n}` vs the needed `rho^{n/4}`).
