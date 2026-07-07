@@ -98,6 +98,25 @@ The last two expose the pattern-level finite fact: all six dangerous shifts have
 the same unique alternate survivor, the coset-37 triple `[17,36,130]`, and exact
 alternate contribution `1`.
 
+### `L1Threshold.CollapseEdgeStructuralLemma` — proof-facing wrapper
+
+This module imports the finite graph checker and restates its output as the
+short structural implication used by the W3 memo:
+
+- every stored case has the dangerous head antecedent `(missing,stray)=(2,1)`;
+- each dangerous case forces alternate contribution `<= 1`;
+- each dangerous case has the same unique large alternate survivor, the
+  coset-37 triple `[17,36,130]`.
+
+The main wrapper theorems are:
+
+- `dangerousPatternForcesAlternateCollapse`
+- `dangerousPatternForcesUniqueCoset37Survivor`
+- `dangerousPatternStructuralPacketOK`
+
+This is still a finite graph wrapper, not a reconstruction of the `GF(137)`
+edge arithmetic.
+
 ### `L1Threshold.CollapseEdgeOriginSummary` — compact origin-audit metadata
 
 Note: `experimental/notes/l1/l1_residual_excess_w3_collapse_edge_origin.md`.
@@ -122,14 +141,16 @@ These are also kernel-checked by `decide` and print with no axioms in
 
 ### `L1Threshold.CollapseEdgeCompactPacket` — reviewer-facing aggregate
 
-This module imports both collapse-edge modules and exposes one compact gate:
+This module imports the collapse-edge certificate modules and exposes one
+compact gate:
 
 - `compactPacketOK`
 
 It checks, in one theorem, that the finite graph checker passes, the compact
 origin-summary checker passes, the summary accounts for `6528` edge rules with
-zero mismatches, and the six alternate contributions are exactly
-`[1,1,1,1,1,1]`. It is still not a per-edge `GF(137)` arithmetic replay.
+zero mismatches, the structural wrapper passes, and the six alternate
+contributions are exactly `[1,1,1,1,1,1]`. It is still not a per-edge
+`GF(137)` arithmetic replay.
 
 ## Build
 

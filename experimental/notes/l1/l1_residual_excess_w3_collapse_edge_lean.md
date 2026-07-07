@@ -32,6 +32,20 @@ The contribution-only theorem is:
 L1Threshold.CollapseEdgeCertificate.collapseEdgeAllCaseContributionsLeOne
 ```
 
+The proof-facing structural wrapper is:
+
+```lean
+L1Threshold.CollapseEdgeStructuralLemma.dangerousPatternForcesAlternateCollapse
+L1Threshold.CollapseEdgeStructuralLemma.dangerousPatternForcesUniqueCoset37Survivor
+L1Threshold.CollapseEdgeStructuralLemma.dangerousPatternStructuralPacketOK
+```
+
+It repackages the finite graph certificate as:
+
+- every stored case has `(missing,stray)=(2,1)`;
+- that dangerous head pattern forces alternate contribution `<= 1`;
+- the only large alternate survivor is the coset-37 triple `[17,36,130]`.
+
 The pattern-exposing theorems are:
 
 ```lean
@@ -62,8 +76,9 @@ It only certifies the finite graph implication after the raw edge rules have
 been generated.  A companion Lean module,
 `L1Threshold.CollapseEdgeOriginSummary`, checks the compact origin-audit
 metadata/count summary, but it also does not replay the omitted per-edge affine
-arithmetic.  `L1Threshold.CollapseEdgeCompactPacket` combines those two finite
-checks into a single reviewer-facing gate.  The compact PR records the raw source hash in the origin-audit
+arithmetic.  `L1Threshold.CollapseEdgeStructuralLemma` repackages the finite
+graph result as the dangerous-pattern implication.  `L1Threshold.CollapseEdgeCompactPacket`
+combines these finite checks into a single reviewer-facing gate.  The compact PR records the raw source hash in the origin-audit
 summary, but does not include the 45k-line raw edge-rule JSON.
 
 This is not a symbolic W3 lemma, not a global L1 theorem, and not MCA/protocol

@@ -58,6 +58,14 @@ Source notes: `experimental/notes/l1/l1_residual_excess_w3_collapse_edge_lean.md
 | Therefore each dangerous case has alternate contribution `<= 1`. | `collapseEdgeCase0Contribution` ... `collapseEdgeCase5Contribution`; bundled by `collapseEdgeAllCaseContributionsLeOne`. | "head dangerous pattern forces alternate collapse." | Lean-certified finite graph check (`decide`, axiom-free) |
 | The alternate contribution is exactly `1` in each of the six stored cases. | `collapseEdgeAllAlternateContributionsExact`. | Collapse-edge finite graph certificate. | Lean-certified finite graph check (`decide`, axiom-free) |
 
+## W3 collapse-edge structural wrapper — `L1Threshold.CollapseEdgeStructuralLemma`
+
+| Mathematical / certificate statement | Lean theorem / definition | Source artifact | Verification status |
+|---|---|---|---|
+| For every stored dangerous `(missing,stray)=(2,1)` case, the alternate contribution is `<= 1`. | `dangerousPatternForcesAlternateCollapse`. | Repackaging of `CollapseEdgeCertificate`. | Lean-certified finite graph implication (`decide`, axiom-free) |
+| The unique large alternate survivor in every stored dangerous case is the coset-37 triple `[17,36,130]`. | `dangerousPatternForcesUniqueCoset37Survivor`. | Repackaging of `CollapseEdgeCertificate`. | Lean-certified finite graph implication (`decide`, axiom-free) |
+| The six-case structural packet combines the dangerous antecedent, alternate-collapse bound, and unique-survivor conclusion. | `dangerousPatternStructuralPacketOK`. | Repackaging of `CollapseEdgeCertificate`. | Lean-certified finite graph implication (`decide`, axiom-free) |
+
 ## W3 collapse-edge compact origin summary — `L1Threshold.CollapseEdgeOriginSummary`
 
 Source note: `experimental/notes/l1/l1_residual_excess_w3_collapse_edge_origin.md`.

@@ -20,6 +20,7 @@ DEFAULT_ORIGIN = (
 )
 DEFAULT_LEAN = "experimental/lean/l1_threshold_ledger/L1Threshold/CollapseEdgeCertificate.lean"
 DEFAULT_ORIGIN_LEAN = "experimental/lean/l1_threshold_ledger/L1Threshold/CollapseEdgeOriginSummary.lean"
+DEFAULT_STRUCTURAL_LEAN = "experimental/lean/l1_threshold_ledger/L1Threshold/CollapseEdgeStructuralLemma.lean"
 DEFAULT_PACKET_LEAN = "experimental/lean/l1_threshold_ledger/L1Threshold/CollapseEdgeCompactPacket.lean"
 
 EXPECTED_SOURCE_SHA256 = "1aab9da15bf074232122898bd9958fe2f2240eacdbc138af5638851be99a889d"
@@ -106,13 +107,32 @@ def check_origin_lean(path: Path, issues: list[str]) -> None:
             issues.append("origin-summary Lean file missing %r" % needle)
 
 
+def check_structural_lean(path: Path, issues: list[str]) -> None:
+    text = path.read_text()
+    required = [
+        "def dangerousAntecedent",
+        "def dangerousImpliesAlternateCollapse",
+        "def uniqueCoset37SurvivorConclusion",
+        "theorem allDangerousAntecedentsOK",
+        "theorem dangerousPatternForcesAlternateCollapse",
+        "theorem dangerousPatternForcesUniqueCoset37Survivor",
+        "theorem dangerousPatternStructuralPacketOK",
+        "finite graph certificate only",
+    ]
+    for needle in required:
+        if needle not in text:
+            issues.append("structural-lemma Lean file missing %r" % needle)
+
+
 def check_packet_lean(path: Path, issues: list[str]) -> None:
     text = path.read_text()
     required = [
         "theorem compactPacketOK",
         "theorem compactPacketNoGraphOrSummaryMismatches",
+        "theorem compactPacketStructuralLemmaOK",
         "CollapseEdgeCertificate.checkAllCases = true",
         "CollapseEdgeOriginSummary.edgeRulesAudited = 6528",
+        "CollapseEdgeStructuralLemma.allStructuralCasesOK = true",
     ]
     for needle in required:
         if needle not in text:
@@ -124,6 +144,7 @@ def main() -> int:
     parser.add_argument("--origin", default=DEFAULT_ORIGIN)
     parser.add_argument("--lean", default=DEFAULT_LEAN)
     parser.add_argument("--origin-lean", default=DEFAULT_ORIGIN_LEAN)
+    parser.add_argument("--structural-lean", default=DEFAULT_STRUCTURAL_LEAN)
     parser.add_argument("--packet-lean", default=DEFAULT_PACKET_LEAN)
     parser.add_argument("--json", action="store_true")
     args = parser.parse_args()
@@ -132,6 +153,7 @@ def main() -> int:
     origin = check_origin(Path(args.origin), issues)
     check_lean(Path(args.lean), issues)
     check_origin_lean(Path(args.origin_lean), issues)
+    check_structural_lean(Path(args.structural_lean), issues)
     check_packet_lean(Path(args.packet_lean), issues)
     result = {
         "ok": not issues,
