@@ -46,6 +46,13 @@ hypothesis is essential.
 **T6 (PTE rigidity).** With the additive energy `E = sum_v nu(v)^2 = sum_{d>=0} C(n-2d,m-d) E_d`,
 `E_d = #{disjoint A,B subset mu_n, |A|=|B|=d, p_j(A)=p_j(B), j=1..w}`, one has `E_d = 0 for 1 <= d <= w`
 (same Newton argument as T2). So the energy `E = C(n,m) + sum_{d>w} C(n-2d,m-d) E_d`.
+> **[Machine-checked, Lean 4 / Mathlib]** The algebraic engine of T6 (and of T2's low-cycle vanishing) is
+> *power-sum rigidity*: over any field where `1,...,d` are invertible (char `0` or `> d`; deployed `d <= w << p`),
+> two size-`d` multisets with equal power sums `p_1,...,p_d` are equal. Formalized zero-`sorry`, axioms
+> `[propext, Classical.choice, Quot.sound]` only, as `PowersumRigidity.powersum_rigidity` in
+> `experimental/lean/powersum_rigidity/` (Lean `v4.31.0`, Mathlib `9a9483a`). Independently rebuilt + axiom-checked.
+> This discharges `E_d = 0` for `1 <= d <= w`: equal `p_1..p_d` force `A = B` as multisets, but `A,B` disjoint
+> and nonempty is a contradiction. (Newton's identities `mul_esymm_eq_sum` + Vieta `prod_X_sub_X_eq_sum_esymm`.)
 
 **T7 (Concentration, not rigidity -- p-sensitivity).** `N_prim <= n^3` is NOT combinatorial: for small `p`
 at the same `(n,m,w)`, `N_prim >> n^3`; empirically `N_prim/mean` has median exactly `1`. The bound holds
