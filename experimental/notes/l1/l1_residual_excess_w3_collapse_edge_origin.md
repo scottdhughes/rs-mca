@@ -4,6 +4,7 @@
 - **Branch:** `scott/l1-w3-collapse-edge-lean-compact`.
 - **Data:** `experimental/data/certificates/l1-residual-excess-classifier/w3_collapse_edge_origin_audit_combo012_sizes10_2_3.json`
 - **Compact verifier:** `experimental/scripts/verify_l1_w3_collapse_edge_compact_packet.py`
+- **Lean metadata checker:** `experimental/lean/l1_threshold_ledger/L1Threshold/CollapseEdgeOriginSummary.lean`
 
 ## Purpose
 
@@ -53,10 +54,23 @@ is identified by SHA-256 in the summary:
 1aab9da15bf074232122898bd9958fe2f2240eacdbc138af5638851be99a889d
 ```
 
+The companion Lean module `L1Threshold.CollapseEdgeOriginSummary` checks the
+compact metadata/count statement:
+
+```lean
+L1Threshold.CollapseEdgeOriginSummary.originSummaryAllCasesOK
+L1Threshold.CollapseEdgeOriginSummary.originSummaryEdgeRulesAudited
+L1Threshold.CollapseEdgeOriginSummary.originSummaryTwoFamilies
+```
+
+These Lean theorems certify the six-case/two-family shape, the `6528` audited
+edge-rule count, zero mismatches, and the repeated eight-coset rule-count
+pattern present in the compact summary.
+
 ## Scope
 
-This is still not a Lean-certified `GF(137)` reconstruction.  It is a Python
-finite-field arithmetic audit that sits between:
+This is still not a Lean-certified per-edge `GF(137)` reconstruction.  The
+per-edge arithmetic audit is Python finite-field arithmetic that sits between:
 
 1. the raw generated edge-rule certificate; and
 2. the Lean finite graph checker.

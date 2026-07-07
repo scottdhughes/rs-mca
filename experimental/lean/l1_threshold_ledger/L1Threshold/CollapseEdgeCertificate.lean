@@ -679,6 +679,13 @@ def allCases : List CaseCert :=
 
 def checkAllCases : Bool := allCases.all checkCase
 
+def collapseEdgeSurvivor : LargeComponent :=
+  { cosetW := 37, component := [17, 36, 130] }
+
+def collapseEdgeExpectedSurvivorPattern : List (List LargeComponent) :=
+  [[collapseEdgeSurvivor], [collapseEdgeSurvivor], [collapseEdgeSurvivor],
+   [collapseEdgeSurvivor], [collapseEdgeSurvivor], [collapseEdgeSurvivor]]
+
 theorem collapseEdgeAllCasesOk : checkAllCases = true := by
   decide
 
@@ -693,8 +700,26 @@ theorem collapseEdgeAllCaseContributionsLeOne :
     (allCases.map alternateContribution).all (fun n => decide (n <= 1)) = true := by
   decide
 
+theorem collapseEdgeShiftsAreTwoTriples :
+    allCases.map CaseCert.shift = [67, 103, 111, 17, 20, 121] := by
+  decide
+
+theorem collapseEdgeAllExpectedSurvivorsSame :
+    allCases.map CaseCert.expectedAlternateLarge = collapseEdgeExpectedSurvivorPattern := by
+  decide
+
+theorem collapseEdgeAllActualSurvivorsSame :
+    allCases.map alternateLarge = collapseEdgeExpectedSurvivorPattern := by
+  decide
+
+theorem collapseEdgeAllAlternateContributionsExact :
+    allCases.map alternateContribution = [1, 1, 1, 1, 1, 1] := by
+  decide
+
 #print axioms collapseEdgeAllCasesOk
 #print axioms collapseEdgeAllCaseContributionsLeOne
+#print axioms collapseEdgeAllActualSurvivorsSame
+#print axioms collapseEdgeAllAlternateContributionsExact
 
 end CollapseEdgeCertificate
 end L1Threshold

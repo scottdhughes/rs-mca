@@ -19,6 +19,7 @@ DEFAULT_ORIGIN = (
     "w3_collapse_edge_origin_audit_combo012_sizes10_2_3.json"
 )
 DEFAULT_LEAN = "experimental/lean/l1_threshold_ledger/L1Threshold/CollapseEdgeCertificate.lean"
+DEFAULT_ORIGIN_LEAN = "experimental/lean/l1_threshold_ledger/L1Threshold/CollapseEdgeOriginSummary.lean"
 
 EXPECTED_SOURCE_SHA256 = "1aab9da15bf074232122898bd9958fe2f2240eacdbc138af5638851be99a889d"
 EXPECTED_CASES = {
@@ -76,8 +77,12 @@ def check_lean(path: Path, issues: list[str]) -> None:
     required = [
         "def checkCase",
         "def alternateContribution",
+        "def collapseEdgeSurvivor",
         "theorem collapseEdgeAllCasesOk",
         "theorem collapseEdgeAllCaseContributionsLeOne",
+        "theorem collapseEdgeShiftsAreTwoTriples",
+        "theorem collapseEdgeAllActualSurvivorsSame",
+        "theorem collapseEdgeAllAlternateContributionsExact",
         "no reconstruction of the underlying `GF(137)` arithmetic",
     ]
     for needle in required:
@@ -85,16 +90,33 @@ def check_lean(path: Path, issues: list[str]) -> None:
             issues.append("Lean file missing %r" % needle)
 
 
+def check_origin_lean(path: Path, issues: list[str]) -> None:
+    text = path.read_text()
+    required = [
+        "theorem originSummaryAllCasesOK",
+        "theorem originSummaryCaseCount",
+        "theorem originSummaryEdgeRulesAudited",
+        "theorem originSummaryNoMismatches",
+        "theorem originSummaryTwoFamilies",
+        "theorem originSummaryRepeatedCosetPattern",
+    ]
+    for needle in required:
+        if needle not in text:
+            issues.append("origin-summary Lean file missing %r" % needle)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--origin", default=DEFAULT_ORIGIN)
     parser.add_argument("--lean", default=DEFAULT_LEAN)
+    parser.add_argument("--origin-lean", default=DEFAULT_ORIGIN_LEAN)
     parser.add_argument("--json", action="store_true")
     args = parser.parse_args()
 
     issues: list[str] = []
     origin = check_origin(Path(args.origin), issues)
     check_lean(Path(args.lean), issues)
+    check_origin_lean(Path(args.origin_lean), issues)
     result = {
         "ok": not issues,
         "issues": issues,

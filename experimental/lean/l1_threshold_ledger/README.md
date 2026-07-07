@@ -90,8 +90,35 @@ The main certificates are:
 
 - `collapseEdgeAllCasesOk`
 - `collapseEdgeAllCaseContributionsLeOne`
+- `collapseEdgeAllActualSurvivorsSame`
+- `collapseEdgeAllAlternateContributionsExact`
 
-Both are kernel-checked by `decide` and print with no axioms in `lake build`.
+These are kernel-checked by `decide` and print with no axioms in `lake build`.
+The last two expose the pattern-level finite fact: all six dangerous shifts have
+the same unique alternate survivor, the coset-37 triple `[17,36,130]`, and exact
+alternate contribution `1`.
+
+### `L1Threshold.CollapseEdgeOriginSummary` — compact origin-audit metadata
+
+Note: `experimental/notes/l1/l1_residual_excess_w3_collapse_edge_origin.md`.
+
+This module Lean-checks the compact origin-audit summary included in this PR. It
+does not replay the omitted per-edge `GF(137)` affine arithmetic. It verifies the
+metadata/count gate that the compact packet claims:
+
+- six cases, split as two three-shift families;
+- `6528` total edge rules audited;
+- zero mismatches;
+- the repeated eight-coset rule-count pattern across all six cases.
+
+The main certificates are:
+
+- `originSummaryAllCasesOK`
+- `originSummaryEdgeRulesAudited`
+- `originSummaryTwoFamilies`
+
+These are also kernel-checked by `decide` and print with no axioms in
+`lake build`.
 
 ## Build
 
@@ -110,8 +137,14 @@ no mathlib**. Each module ends with `#print axioms`:
   the standard sanctioned set (cf. `rs_mca_formalization`'s `HighAgreementLedger`
   note); `choose_values` depends on no axioms.
 - `CollapseEdgeCertificate.collapseEdgeAllCasesOk` /
-  `collapseEdgeAllCaseContributionsLeOne`: **no axioms**. These are finite
+  `collapseEdgeAllCaseContributionsLeOne` /
+  `collapseEdgeAllActualSurvivorsSame` /
+  `collapseEdgeAllAlternateContributionsExact`: **no axioms**. These are finite
   graph checks over the stored certificate data.
+- `CollapseEdgeOriginSummary.originSummaryAllCasesOK` /
+  `originSummaryEdgeRulesAudited` /
+  `originSummaryTwoFamilies`: **no axioms**. These are compact metadata/count
+  checks over the origin-audit summary, not a `GF(137)` arithmetic replay.
 
 ## Scope (honest)
 

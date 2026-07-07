@@ -53,7 +53,20 @@ Source notes: `experimental/notes/l1/l1_residual_excess_w3_collapse_edge_lean.md
 | --- | --- | --- | --- |
 | Activating the six stored dangerous-case edge-rule packets at their certified shifts gives the listed active edges and component decompositions. | `checkCase`; bundled by `collapseEdgeAllCasesOk`. | W3 collapse-edge finite graph certificate. | Lean-certified finite graph check (`decide`, axiom-free) |
 | In each of the six `(missing,stray)=(2,1)` cases, the only alternate component of size at least three is the coset-37 triple `[17,36,130]`. | `collapseEdgeAllCasesOk` | Collapse-edge certificate. | Lean-certified finite graph check (`decide`, axiom-free) |
+| The six cases have certified shifts `[67,103,111,17,20,121]`, split as two three-shift families in the compact packet. | `collapseEdgeShiftsAreTwoTriples`; companion metadata in `originSummaryTwoFamilies`. | Collapse-edge compact packet. | Lean-certified finite data check (`decide`, axiom-free) |
+| The unique survivor pattern is identical in all six cases: coset `37`, component `[17,36,130]`. | `collapseEdgeAllActualSurvivorsSame`; `collapseEdgeAllExpectedSurvivorsSame`. | Collapse-edge finite graph certificate. | Lean-certified finite graph check (`decide`, axiom-free) |
 | Therefore each dangerous case has alternate contribution `<= 1`. | `collapseEdgeCase0Contribution` ... `collapseEdgeCase5Contribution`; bundled by `collapseEdgeAllCaseContributionsLeOne`. | "head dangerous pattern forces alternate collapse." | Lean-certified finite graph check (`decide`, axiom-free) |
+| The alternate contribution is exactly `1` in each of the six stored cases. | `collapseEdgeAllAlternateContributionsExact`. | Collapse-edge finite graph certificate. | Lean-certified finite graph check (`decide`, axiom-free) |
+
+## W3 collapse-edge compact origin summary — `L1Threshold.CollapseEdgeOriginSummary`
+
+Source note: `experimental/notes/l1/l1_residual_excess_w3_collapse_edge_origin.md`.
+
+| Claim consumed by the note | Lean certificate | Source claim | Status |
+| --- | --- | --- | --- |
+| The compact origin-audit summary contains six cases and the expected two-family/three-shift case list. | `originSummaryCaseCount`; `originSummaryTwoFamilies`. | Compact origin-audit summary. | Lean-certified metadata check (`decide`, axiom-free) |
+| The compact origin-audit summary accounts for `6528` edge rules with zero mismatches. | `originSummaryEdgeRulesAudited`; `originSummaryNoMismatches`; bundled by `originSummaryAllCasesOK`. | Compact origin-audit summary. | Lean-certified metadata/count check (`decide`, axiom-free) |
+| All six compact origin summaries share the same eight-coset rule-count pattern. | `originSummaryRepeatedCosetPattern`. | Compact origin-audit summary. | Lean-certified metadata/count check (`decide`, axiom-free) |
 
 ## Typed Targets And Non-Claims
 

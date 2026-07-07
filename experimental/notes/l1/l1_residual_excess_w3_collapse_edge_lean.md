@@ -32,13 +32,29 @@ The contribution-only theorem is:
 L1Threshold.CollapseEdgeCertificate.collapseEdgeAllCaseContributionsLeOne
 ```
 
-Both print with no axioms in the local `lake build` audit.
+The pattern-exposing theorems are:
+
+```lean
+L1Threshold.CollapseEdgeCertificate.collapseEdgeShiftsAreTwoTriples
+L1Threshold.CollapseEdgeCertificate.collapseEdgeAllActualSurvivorsSame
+L1Threshold.CollapseEdgeCertificate.collapseEdgeAllAlternateContributionsExact
+```
+
+They record that the six certified shifts are
+`[67,103,111,17,20,121]`, that every case has the same unique alternate
+survivor `cosetW = 37`, component `[17,36,130]`, and that every certified
+alternate contribution is exactly `1`.
+
+These print with no axioms in the local `lake build` audit.
 
 ## Scope
 
 This Lean certificate does not reconstruct the underlying `GF(137)` arithmetic.
 It only certifies the finite graph implication after the raw edge rules have
-been generated.  The compact PR records the raw source hash in the origin-audit
+been generated.  A companion Lean module,
+`L1Threshold.CollapseEdgeOriginSummary`, checks the compact origin-audit
+metadata/count summary, but it also does not replay the omitted per-edge affine
+arithmetic.  The compact PR records the raw source hash in the origin-audit
 summary, but does not include the 45k-line raw edge-rule JSON.
 
 This is not a symbolic W3 lemma, not a global L1 theorem, and not MCA/protocol
