@@ -306,10 +306,24 @@ large subgroup `mu_n` with a degree-`w` ODD phase -- and (i) the crude count the
 wrong tool (degree growing), the subgroup small-index structure is the right one. Still OPEN, now maximally
 concrete.
 
-## Round (d) -- conj:Q collapses to ONE 4th-moment estimate `S2off <= O(np)` (2026-07-07)
+## Round (d) -- 4th-moment reduction `S2off <= O(np)` [RETRACTED as a proof route, see round (e)] (2026-07-07)
 
-The sup bound (round c) is itself reduced -- by a chain of PROVED identities -- to a single clean 4th-moment.
-All steps verified (`b2_sp_2ndmoment_route.py`).
+> **RETRACTION (round e, adversarial model round + independently re-verified `b2_sp_resonance_check.py`):**
+> the target `S2off <= O(np)` with an ABSOLUTE constant is **FALSE**, and the route is fatally LOSSY.
+> Resonant monomials `c = e_{j0}` (`f_c = x^{j0}`, `j0` odd) give `S2off = (d-1) n p (1+o(1))`, `d = gcd(j0, p-1)`
+> (verified: `x^15 -> 14.15 np`, `x^21 -> 21 np`, `x^31 -> 25.3 np`, matching `d-1`). At DEPLOYED params
+> `p-1 = 2^24 * 127`, `n = 2^21`, so `m' = 1016 = 2^3 * 127`, `d_max = 127`, and `S2off ~ 126 np`. Propagating
+> the SHARP `S2off` through the Cauchy-Schwarz step gives only `M = |pi_odd| <= sqrt(p + n sqrt(127 p)) =
+> n^{0.952} > n^{0.905}` -- FAILS the T15 threshold. The Cauchy-Schwarz `sig2 = sum_i |Pi_i|^2` step loses a
+> factor `sqrt(m')` exactly at resonances (all `|Pi_i|` equal). My round-(d) "numerics `S2off/np ~ 1`" was a
+> SAMPLING MISS: coordinate ascent on DENSE `c` never finds the isolated SPARSE optimum `x^{j0}` (same failure
+> mode as the earlier sup-form overclaims). **Round (d) is a documented dead-end; the reduction identities
+> below are correct, but the 2nd-moment/S2off proxy CANNOT prove the sup bound.** T15 (round c) is UNAFFECTED
+> and still LIVE -- see round (e). (Also: the stated `J(y,y')` had a spurious prefactor; correct is
+> `J(y,y') = pi(c'')`, `c''_j = c_j(y^j - y'^j)`, no `e_p(...)` factor. Non-load-bearing.)
+
+The sup bound (round c) is here reduced -- by a chain of PROVED identities -- to a single 4th-moment. All
+identities verified (`b2_sp_2ndmoment_route.py`); but the resulting estimate is false/lossy (see retraction).
 
 **T16 (PROVED reduction chain). Define** `T_a(c) = sum_{y in F_p^*} e_p(f_c(ay) - f_c(y))` for `a in mu_n`
 (a COMPLETE degree-`<=w` additive character sum; `T_1 = p-1`). Then:
@@ -318,8 +332,9 @@ All steps verified (`b2_sp_2ndmoment_route.py`).
    `mu_n` in `F_p^*` (`Pi_1 = pi_odd(c)`). [`sum_a T_a = sum_i|Pi_i|^2 >= 0`, and `|Pi_1|^2 <= sum_i|Pi_i|^2`.]
 2. **a=1 split + Cauchy-Schwarz (PROVED):** `sig2 = (p-1) + sum_{a != 1} T_a <= (p-1) + sqrt((n-1) * S2off)`,
    where **`S2off := sum_{a in mu_n, a != 1} |T_a(c)|^2`** is the 4th moment with the trivial diagonal removed.
-3. **THE ONE OPEN ESTIMATE:** `S2off <= K n p` with `K = O(1)`. Then `M^2 = |pi_odd|^2 <= sig2 <= p + n sqrt(Kp)`,
-   so `M <= n^{0.87} < n^{0.905}` (T15 threshold) `=> SP => N_prim <= n^{O(1)} mean <= n^3`. **conj:Q DONE.**
+3. **[FALSE -- see retraction] The proposed estimate:** `S2off <= K n p` with `K = O(1)`. Would give `M^2 =
+   |pi_odd|^2 <= sig2 <= p + n sqrt(Kp)`, `M <= n^{0.87}`. But `K` is NOT `O(1)` (`~d_max=127` deployed), so the
+   sharp version yields only `M <= n^{0.952}` -- insufficient. The route is dead; identities 1-2 remain correct.
 
 **Numerics (adversarial-max c, coordinate ascent, regime-representative `w_odd/(n/2)~0.03`):**
     `S2off/(np) = 1.0 - 1.2` across `n=512,1024,2048` (K ~ 1); the CS-implied PROVABLE sup bound
@@ -336,7 +351,44 @@ additive-energy sum. This is the clean self-contained sub-lemma to (a) hand a fo
 to Aristotle, (c) attempt directly (Bombieri/Weil for the inner subgroup curve sum + summation by parts over
 `y,y'`). It is the LAST domino.
 
-**NET (rounds a-d): the entire conj:Q reduces, by PROVED steps, to `S2off = sum_{a in mu_n, a!=1}
-|sum_{y in F_p^*} e_p(f_c(ay)-f_c(y))|^2 <= O(np)`** -- a single, clean, uniform-in-`c` 4th-moment
-(subgroup-averaged additive energy) estimate, numerically `~np` (constant `~1`). Every other route is dead
-(energy T11, moments T14) or reduces here. This is the sharpest and most self-contained the crux has ever been.
+**NET (round d, CORRECTED by round e):** the 2nd-moment/`S2off` route is DEAD -- it loses `sqrt(m')` at
+resonant monomials and cannot prove the sup bound (`S2off <= O(np)` is false; sharp `S2off ~ 126 np` deployed
+gives only `M <= n^{0.952}`). The LIVE reduction remains T15 (round c): conj:Q `<== max_{c!=0}|pi_odd(c)| <=
+n^{0.905}`, which must be proved DIRECTLY (resonance-stable), not via the S2off proxy. See round (e).
+
+## Round (e) -- adversarial correction: back to the DIRECT sup bound, via sparse-subgroup sums (2026-07-07)
+
+A focused model round (self-contained, abstracted) adversarially broke round (d) and re-centered the crux.
+All its claims INDEPENDENTLY re-verified here (`b2_sp_resonance_check.py`).
+
+**What broke (verified):** `S2off` is inflated by resonant monomials to `(d-1)np`, `d = gcd(j0,p-1)`, so the
+Cauchy-Schwarz route through `sig2 = sum_i|Pi_i|^2` is lossy by `sqrt(m')`. Deployed `m'=1016`, odd part `127`,
+so the route caps at `M <= n^{0.952}` -- above the `n^{0.905}` needed. DEAD.
+
+**What SURVIVES and is the real target -- T15 (round c), reaffirmed:**
+    **conj:Q  <==  `M := max_{c != 0} |pi_odd(c)| = max_{c} |sum_{a in mu_n} e_p(f_c(a))| <= n^{0.905}`.**
+This is RESONANCE-STABLE: at the resonant `c = e_{j0}`, `a -> a^{j0}` PERMUTES `mu_n` (`j0` odd, `gcd(j0,2^k)=1`),
+so `pi_odd(e_{j0}) = sum_{b in mu_n} e_p(b)` = a fixed subgroup Gauss period, `|pi_odd| <= ~sqrt(p) << n^{0.905}`.
+Verified: at every resonant monomial `|pi_odd|/sqrt(p) <= 0.23` and `|pi_odd|/n^{0.905} <= 0.34`. So the sup
+bound holds with margin (`~sqrt(p) = n^{0.74}`, headroom `~n^{0.16}`), resonances included -- only the S2off
+PROXY was inflated.
+
+**The correct tool (model round + concurring): a SPARSE-POLYNOMIAL / LARGE-SUBGROUP exponential-sum bound.**
+`pi_odd(c) = sum_{a in mu_n} e_p(f_c(a))`, `f_c` is `w_odd`-SPARSE (only `w_odd` monomials, odd exponents) of
+degree `<= w ~ sqrt(p)`, summed over a subgroup `mu_n` of size `n > sqrt(p)`. The needed `|pi_odd| <= n^{1-delta}`
+is exactly the regime of **Bourgain-Cochrane-Pinner / Bourgain-Chang / Karatsuba / Shkredov sparse-subgroup-sum
+bounds** (which are sensitive to sparsity `w_odd` and subgroup size `n`, NOT to the degree `w` per se -- so they
+sidestep the "degree growing" Weil wall). This is resonance-stable by construction (bounds `|pi_odd|` directly).
+NEXT: check the quantitative reach of BCP/Karatsuba for a `w_odd~sqrt(p)`-sparse phase over `mu_n` with
+`|mu_n|=p^{0.68}`; the question is whether they deliver `n^{1-delta}` with `delta` large enough (`>= 0.095`).
+
+**Methodology fix (banked):** "adversarial max via coordinate ascent on dense `c`" MISSES sparse resonant
+optima -- it explores only the dense basin. Any future sup-bound numerics MUST include the sparse monomial /
+few-term families explicitly (they are the true extremizers of `S2off`, though NOT of `|pi_odd|`).
+
+**NET (rounds a-e):** conj:Q reduces (T15, LIVE, resonance-stable) to the DIRECT sup bound
+`max_{c!=0}|pi_odd(c)| <= n^{0.905}` for a `sqrt(p)`-sparse phase over the large subgroup `mu_n`; the moment
+(T14), energy (T11), and 2nd-moment/S2off (round d) proxies are ALL dead (each inflated or lossy). The one
+live tool is a sparse-polynomial subgroup-sum bound (BCP/Karatsuba/Shkredov). Numerics: truth `|pi_odd| ~
+sqrt(p) = n^{0.74}`, comfortably inside `n^{0.905}`. Still OPEN; the target is now correctly identified and
+resonance-stable.
