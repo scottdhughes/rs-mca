@@ -69,6 +69,30 @@ dual-distance "`<= 1 owner`" fact (note §3) is the finite-field input; it enter
 as the `Nodup` hypothesis and is recorded as the typed target
 `SingletonOwnerBound`.
 
+### `L1Threshold.CollapseEdgeCertificate` — W3 collapse-edge finite graph gate
+
+Notes: `experimental/notes/l1/l1_residual_excess_w3_collapse_edge_lean.md`,
+`experimental/notes/l1/l1_residual_excess_w3_collapse_edge_origin.md`.
+
+This module is a self-contained finite graph certificate for the six dangerous
+W3 collapse-edge cases with `(missing,stray)=(2,1)`. It does not reconstruct
+`GF(137)` arithmetic. Instead it checks the stored finite graph rules:
+
+- activate `always / never / atShift t` edge rules at the certified shift;
+- verify the listed active edges as a finite edge set;
+- verify the component decomposition is a partition;
+- verify listed components are connected and no active edge crosses components;
+- verify the only alternate component of size at least three is the coset-37
+  triple `[17,36,130]`;
+- conclude alternate contribution `<= 1` in all six cases.
+
+The main certificates are:
+
+- `collapseEdgeAllCasesOk`
+- `collapseEdgeAllCaseContributionsLeOne`
+
+Both are kernel-checked by `decide` and print with no axioms in `lake build`.
+
 ## Build
 
 ```sh
@@ -85,6 +109,9 @@ no mathlib**. Each module ends with `#print axioms`:
   Quot.sound]` — `Classical.choice` enters through a stdlib `List` lemma; this is
   the standard sanctioned set (cf. `rs_mca_formalization`'s `HighAgreementLedger`
   note); `choose_values` depends on no axioms.
+- `CollapseEdgeCertificate.collapseEdgeAllCasesOk` /
+  `collapseEdgeAllCaseContributionsLeOne`: **no axioms**. These are finite
+  graph checks over the stored certificate data.
 
 ## Scope (honest)
 

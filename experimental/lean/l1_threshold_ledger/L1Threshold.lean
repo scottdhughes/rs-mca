@@ -1,2 +1,3 @@
 import L1Threshold.PairCountClosing
 import L1Threshold.FiberDoubleCount
+import L1Threshold.CollapseEdgeCertificate

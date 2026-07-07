@@ -44,6 +44,17 @@ Source: `experimental/notes/m1/conjecture_f_fiber_scoped.md` (PR #225, Theorem A
 | **QF.10 Theorem A** (fiber bound): `#E_p <= binom(n,d)/binom(j,d)`. | `fiber_bound` (`b=binom(j,d)`, `T=binom(n,d)`, `d<=j`). | Note Theorem A. | Lean-certified (given §3 MDS input) |
 | Local `binom` reproduces standard values / ratios, e.g. `binom(6,2)/binom(4,2)=2`. | `choose_values`; `double_count_example`. | Note reserve-`d` ratio. | Lean-certified (`decide`, axiom-free) |
 
+## W3 collapse-edge finite graph gate — `L1Threshold.CollapseEdgeCertificate`
+
+Source notes: `experimental/notes/l1/l1_residual_excess_w3_collapse_edge_lean.md`,
+`experimental/notes/l1/l1_residual_excess_w3_collapse_edge_origin.md`.
+
+| Claim consumed by the note | Lean certificate | Source claim | Status |
+| --- | --- | --- | --- |
+| Activating the six stored dangerous-case edge-rule packets at their certified shifts gives the listed active edges and component decompositions. | `checkCase`; bundled by `collapseEdgeAllCasesOk`. | W3 collapse-edge finite graph certificate. | Lean-certified finite graph check (`decide`, axiom-free) |
+| In each of the six `(missing,stray)=(2,1)` cases, the only alternate component of size at least three is the coset-37 triple `[17,36,130]`. | `collapseEdgeAllCasesOk` | Collapse-edge certificate. | Lean-certified finite graph check (`decide`, axiom-free) |
+| Therefore each dangerous case has alternate contribution `<= 1`. | `collapseEdgeCase0Contribution` ... `collapseEdgeCase5Contribution`; bundled by `collapseEdgeAllCaseContributionsLeOne`. | "head dangerous pattern forces alternate collapse." | Lean-certified finite graph check (`decide`, axiom-free) |
+
 ## Typed Targets And Non-Claims
 
 | Claim boundary | Lean artifact | Classification |
