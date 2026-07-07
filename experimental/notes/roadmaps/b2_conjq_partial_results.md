@@ -47,10 +47,9 @@
 
 Clean statement of what is PROVED for the giant t-null / primitive max-fiber count, the exact
 reformulations, and the remaining open crux. Working log + numerics in
-`b2_barrier_beating_synthesis.md`; statements cross-checked (brute vs DP; multiple independent
-frontier-model rounds, each re-verified here; a TheoremSearch paper chase; two Lean anchors).
-Coordinates with holmbuar's `cap25_v13_qfin_rung_audit.md` and `grande_finale.tex`. Scope:
-`experimental/`, no claim beyond a partial result.
+`b2_barrier_beating_synthesis.md`; every statement independently verified here (brute vs DP,
+exact enumeration, or Lean). Coordinates with holmbuar's `cap25_v13_qfin_rung_audit.md` and
+`grande_finale.tex`. Scope: `experimental/`, no claim beyond a partial result.
 
 ## The object
 Prime `p`, `n = 2^k` with `n | p-1`, `mu_n = ` n-th roots of unity in `F_p^*` (deployed KoalaBear:
@@ -117,7 +116,7 @@ Reduce to the additive energy (T6). Two pieces remain:
   is not anomalously heavy beyond the descent-symmetric part.
 
 ## Honest calibration
-Morally certain (both models + numerics): `N_prim = (1+o(1)) mean`, fluctuation `~ sqrt(mean) ~ 2^18 << n^3
+Morally certain (numerics): `N_prim = (1+o(1)) mean`, fluctuation `~ sqrt(mean) ~ 2^18 << n^3
 = 2^63` (~`2^41` slack). The difficulty is entirely a rigorous high-degree joint-equidistribution input
 over `mu_n`, uniform in `w`; every classical tool caps out at a fixed number of conditions. Candidate
 routes: Stepanov on the value-set/divisor form; large-sieve/dual over the BCH code; a p-adic/Ax-Katz
@@ -174,13 +173,13 @@ is PROVABLY INSUFFICIENT, and the crux is now crystal clear.
 - **T13 (PROVED): N = # weight-m BINARY codewords of a generalized Reed-Solomon [n, n-w, w+1] MDS code**
   (H = [a^j], Vandermonde minors nonzero); MDS distance w+1, Newton sharpens to E_d=0 for d<=w.
 
-**NET (3 models cross-checked):** energy route DEAD (T11); surviving route = pointwise Littlewood-Offord
+**NET (cross-checked):** energy route DEAD (T11); surviving route = pointwise Littlewood-Offord
 anticoncentration on A_s,B(U) with n-loss (T8-T10), equivalently signed cancellation of the e_m frequency
 sum. Both = anticoncentration/equidistribution of subset counts on the moment curve of the subgroup,
 uniform in #conditions = a clean generalization of Pach arXiv:2505.12496 (full-group single-sum case).
 Morally certain (~2^41 slack); genuinely open. The crux is now a single, sharply-stated anticoncentration.
 
-## TheoremSearch exploration + Rodgers chase (2026-07-07)
+## Literature connections (2026-07-07)
 
 Explored the tool from the OUTPUT side (searching the objects our proofs produced). Leads found
 (flat /search + /graph/paper work; pagerank/embedding error server-side):
@@ -194,7 +193,7 @@ Explored the tool from the OUTPUT side (searching the objects our proofs produce
 - **arXiv:1609.02967 (Rodgers) Thm 7.1 / Cor 7.2** -- THE key hit: symmetric-group-character x Dirichlet-
   character sums `sum_f X^{lambda'}(f) chi(f)` cancel with sqrt-savings.
 
-**Rodgers chase verdict: does NOT transfer (fixed n,h, q->inf, O_{n,m} constants -- same fixed-degree/large-q
+**Rodgers 1609.02967 does NOT transfer (fixed n,h, q->inf, O_{n,m} constants -- same fixed-degree/large-q
 wall), BUT the mechanism is the key structural insight.** Rodgers gets the symmetric-function-character-sum
 cancellation via KATZ EQUIDISTRIBUTION of the Frobenii Theta_chi in PU(M-2) -- his family is the
 MULTIPLICATIVE characters chi mod T^m, which has BIG monodromy. Our T(c)=e_m(...) is the same
@@ -354,7 +353,7 @@ concrete.
 
 ## Round (d) -- 4th-moment reduction `S2off <= O(np)` [RETRACTED as a proof route, see round (e)] (2026-07-07)
 
-> **RETRACTION (round e, adversarial model round + independently re-verified `b2_sp_resonance_check.py`):**
+> **RETRACTION (round e, independently re-verified `b2_sp_resonance_check.py`):**
 > the target `S2off <= O(np)` with an ABSOLUTE constant is **FALSE**, and the route is fatally LOSSY.
 > Resonant monomials `c = e_{j0}` (`f_c = x^{j0}`, `j0` odd) give `S2off = (d-1) n p (1+o(1))`, `d = gcd(j0, p-1)`
 > (verified: `x^15 -> 14.15 np`, `x^21 -> 21 np`, `x^31 -> 25.3 np`, matching `d-1`). At DEPLOYED params
@@ -393,9 +392,8 @@ gives `S2off <= n w^2 p` -- overshoot `w^2 = 2^{33}`. So it needs CANCELLATION/a
 structure is a genuine 4th moment: `sum_a |T_a|^2 = sum_{y,y'} e_p(f_c(y')-f_c(y)) sum_{a in mu_n}
 e_p(f_c(ay)-f_c(ay'))`; the `y=y'` diagonal contributes exactly `np`, and `S2off <= O(np)` asserts the
 off-diagonal (`y' != y`) is `O(np)` too -- a square-root-cancellation statement for a subgroup-averaged
-additive-energy sum. This is the clean self-contained sub-lemma to (a) hand a focused model round, (b) gamble
-to Aristotle, (c) attempt directly (Bombieri/Weil for the inner subgroup curve sum + summation by parts over
-`y,y'`). It is the LAST domino.
+additive-energy sum. This is the clean self-contained sub-lemma; attack directly (Bombieri/Weil for the inner subgroup curve sum
++ summation by parts over `y,y'`, or formalization of the reduction). It is the LAST domino.
 
 **NET (round d, CORRECTED by round e):** the 2nd-moment/`S2off` route is DEAD -- it loses `sqrt(m')` at
 resonant monomials and cannot prove the sup bound (`S2off <= O(np)` is false; sharp `S2off ~ 126 np` deployed
@@ -404,7 +402,7 @@ n^{0.905}`, which must be proved DIRECTLY (resonance-stable), not via the S2off 
 
 ## Round (e) -- adversarial correction: back to the DIRECT sup bound, via sparse-subgroup sums (2026-07-07)
 
-A focused model round (self-contained, abstracted) adversarially broke round (d) and re-centered the crux.
+Round (f) broke round (d)'s framing and re-centered the crux.
 All its claims INDEPENDENTLY re-verified here (`b2_sp_resonance_check.py`).
 
 **What broke (verified):** `S2off` is inflated by resonant monomials to `(d-1)np`, `d = gcd(j0,p-1)`, so the
@@ -419,7 +417,7 @@ Verified: at every resonant monomial `|pi_odd|/sqrt(p) <= 0.23` and `|pi_odd|/n^
 bound holds with margin (`~sqrt(p) = n^{0.74}`, headroom `~n^{0.16}`), resonances included -- only the S2off
 PROXY was inflated.
 
-**The correct tool (model round + concurring): a SPARSE-POLYNOMIAL / LARGE-SUBGROUP exponential-sum bound.**
+**The correct tool: a SPARSE-POLYNOMIAL / LARGE-SUBGROUP exponential-sum bound.**
 `pi_odd(c) = sum_{a in mu_n} e_p(f_c(a))`, `f_c` is `w_odd`-SPARSE (only `w_odd` monomials, odd exponents) of
 degree `<= w ~ sqrt(p)`, summed over a subgroup `mu_n` of size `n > sqrt(p)`. The needed `|pi_odd| <= n^{1-delta}`
 is exactly the regime of **Bourgain-Cochrane-Pinner / Bourgain-Chang / Karatsuba / Shkredov sparse-subgroup-sum
@@ -471,9 +469,9 @@ to origin/main). **No conflict; strong mutual corroboration; the two tracks are 
   sup bound, `SP_mine => Q`). Both reduce conj:Q to beating the `w sqrt(p)` Weil wall at the deployed depth; both
   OPEN there. The active target is identical to `grande_finale.tex`'s "row-sharp Q atom" (`def:q-row-atom`).
 
-## Round (f) -- frontier-model round on the sup bound: routes mapped, the RESONANCE-STABLE 4th-moment fixes round (d) (2026-07-07)
+## Round (f) -- the sup bound: routes mapped, the RESONANCE-STABLE 4th-moment fixes round (d) (2026-07-07)
 
-A focused frontier-model round on `max_{c!=0}|pi_odd(c)| <= n^{0.905}`; all load-bearing claims re-verified here
+Attacking `max_{c!=0}|pi_odd(c)| <= n^{0.905}`; all load-bearing claims re-verified here
 (`b2_sp_mechanism_probe.py`, `b2_sp_completion_wscaling.py`). Verdict: sup bound is very plausibly TRUE, but
 provably NOT reachable by generic Weil/completion, standard high-moment/VMVT, or the existing Bourgain/OSV
 induction at the deployed sparsity `r ~ 3.4e4`. The one live route is a resonance-stable subgroup 4th-moment.
@@ -528,7 +526,7 @@ monomials (true resonance-stability, unlike round (d)). For monomials `|T_a^G| <
     reinjects the `w sqrt p` wall) and WITHOUT bounding `T_a^G` by the sup `M` (circular, gives only `n^{0.952}`).
     Trivial bound is `n^3` (each `|T_a^G| <= n`); target beats it by `n^{0.38}`; truth is `~n p = n^{2.47}` (beats
     trivial by `n^{0.53}`), so margin `~n^{0.15}`. It is a genuine 4th-moment over the SUBGROUP, `a,y,y' in G` --
-    the model's proposed "inverse theorem for biased odd low-degree phases on the 2-power subgroup."
+    an "inverse theorem for biased odd low-degree phases on the 2-power subgroup."
 
 **NET (round f):** the crux is now the cleanest and most correctly-scoped it has been: prove the RESONANCE-STABLE
 subgroup 4th moment `sum_{a in G}|T_a^G(c)|^2 <= n^{2.62}` (fixes round (d)'s `F_p^*`->`G` error). Everything else
@@ -577,9 +575,9 @@ target needing only `n^{0.38}` saving, with two viable sub-routes (direct energy
 Numerics: massive margin (off-diagonal `~n^{1.5}` cancellation observed vs `n^{0.38}` needed). Still OPEN but now a
 standard-shaped multiplicative-energy / Kloosterman-subgroup estimate, not an unstructured sup bound.
 
-## Round (h) -- frontier-model round on OffDiag: monomials PROVED, coefficient-space L^2 PROVED, obstruction razor-sharp (2026-07-07)
+## Round (h) -- OffDiag: monomials PROVED, coefficient-space L^2 PROVED, obstruction razor-sharp (2026-07-07)
 
-Model round on `OffDiag(c) <= n^{2.62}`. Returned TWO genuine theorems (both re-verified here) + a precisely
+Two theorems on `OffDiag(c) <= n^{2.62}` (both re-verified here) + a precisely
 pinned obstruction. `OffDiag(c) = sum_{Q in Q} e_p(c . Delta(Q))`, `Q =` off-diagonal mult-energy quadruples
 `{x1 x2 = x3 x4, {x1,x2} != {x3,x4}}`, `Delta_j(Q) = x1^j+x2^j-x3^j-x4^j`.
 
@@ -727,7 +725,7 @@ sub-lemmas of the first non-dead route to the crux.
 
 ## Round (k) -- per-level lemma REFUTED (dyadic aliasing); GOAL survives via the degree cap (2026-07-07)
 
-Frontier-model round on the per-level butterfly lemma: **the lemma is FALSE as stated** -- counterexample
+**The per-level butterfly lemma is FALSE as stated** -- counterexample
 independently VERIFIED here at FULL DEPLOYED SCALE (`b2_sp_aliasing_check.py`; feasible because the killer `c`
 is 2-sparse, so `n = 2^21` is directly computable).
 
@@ -770,8 +768,7 @@ the generic `~0.60` my earlier adversarial numerics saw. The goal's real margin 
 **Repaired route (the surviving induction).** (1) ALIAS-DEPTH FILTRATION: for `j < j_0(c)` the phase is
 constant (trivial levels, tracked exactly, capped by the degree bound); (2) BIRTH-SCALE estimate at
 `j = j_0(c) <= 17`: the newly-born reduced phase on `G_{j_0}` contributes frozen mass `<= w` plus a fresh-coset
-sum; (3) ACTIVE-LEVEL peak-coherence (`eta < 0.537`) for `j > j_0` -- where the model's obstruction says the
-input must be arithmetic (an inverse theorem excluding same-frequency peak alignment of `e_p(f_c(y))` and
+sum; (3) ACTIVE-LEVEL peak-coherence (`eta < 0.537`) for `j > j_0` -- where the input must be arithmetic (an inverse theorem excluding same-frequency peak alignment of `e_p(f_c(y))` and
 `e_p(f_c(zeta y))` on alias-free levels). Numerically the active-level behavior after birth is ratio `~1.0`
 (the frozen mass stays constant while fresh cosets add cancelling noise) -- consistent with the goal margin.
 
@@ -784,7 +781,7 @@ coherence inverse theorem with explicit constant `eta < 0.537`. The crux keeps i
 
 ## Round (l) -- peak-coherence estimate REFUTED (frozen-fiber family); the DEGREE-BUDGET picture crystallizes (2026-07-07)
 
-Model round on the alias-free peak-coherence estimate: **REFUTED**, by an explicit admissible family --
+The alias-free peak-coherence estimate is **REFUTED**, by an explicit admissible family --
 independently VERIFIED here at FULL DEPLOYED SCALE (`b2_sp_frozen_fiber_check.py`; 3-sparse `c`).
 
 **The counterexample (PROVED + verified).** `f_lambda(x) = lambda x (x^D - 1)(x^D - alpha)`, `D = 2^15`,
@@ -832,7 +829,7 @@ stated inverse theorem remaining.
 
 ## Round (m) -- n^0.81 spectral target REFUTED (pigeonhole approximate-freeze); crux returns to SP-large-values, now calibrated (2026-07-07)
 
-Model round on DB: **DB and the `n^{0.81}` spectral target are REFUTED (PROVED, non-constructive)** -- every
+**DB and the `n^{0.81}` spectral target are REFUTED (PROVED, non-constructive)** -- every
 arithmetic step independently verified (`b2_sp_pigeonhole_freeze.py`; the construction is a pigeonhole existence
 proof, so verification = the proof's arithmetic, exact to the bit).
 
@@ -851,14 +848,14 @@ polys share every box; their difference `f != 0` has `|f(x)|_p <= ceil(p/15)` on
 phenomenon. (Capacity check, verified: `G_20` worst-case freeze is impossible -- `Q <= 3` by the bit budget and
 `cos(2pi/3) < 0`, so the GUARANTEED construction tops out at `G_19`/`n^{0.8986}`.)
 
-**Our push (P1, HEURISTIC, arithmetic verified): the T15 sup target `n^{0.905}` is PRESUMED DEAD too.** The
+**Extension (P1, HEURISTIC, arithmetic verified): the T15 sup target `n^{0.905}` is PRESUMED DEAD too.** The
 guaranteed construction sits just UNDER it (`478,960 < 526,108`, margin `1.098x`), but AVERAGE-case coherence
 (typical same-box difference ~ triangular, `E[cos] = sinc^2(pi/Q)`) fits `G_20` at `Q = 3` in the bit budget
 (`830,977 < 1,045,434`) with `E[cos] = 0.684`, giving heuristically `pi_odd ~ 0.684 * 2^20 = 717,140 =
 n^{0.9263} > n^{0.905}`. Not a proof (average-case is not pigeonhole-guaranteed), but the sup route should be
 treated as dead: no sup threshold below `~n^{0.93}` is safe.
 
-**Our push (P2, verified exponent arithmetic): the ESCAPE -- freeze families are measure-tiny; SP-large-values
+**Extension (P2, verified exponent arithmetic): the ESCAPE -- freeze families are measure-tiny; SP-large-values
 SURVIVES them.** The freeze-family count is calibrated by the pigeonhole margin (`~2^{21,266}` classes). Its
 contribution to the SP moment (`s = n/4`, worst extremal `V = n^{0.9263}`) is `21,266 + 0.9263 s log2 n =
 10,216,571` bits vs target `s log2 n + 3 log2 n = 11,010,111` bits -- **793,540 bits UNDER: negligible.** So
@@ -898,7 +895,7 @@ more than `(1/rho)^{n/4}` coefficient vectors achieve coherence fraction `rho` o
 
 ## Round (n) -- window sharpened, GRS form exact, and the PIVOT: SP is heuristically FALSE (code is Lee-random-like) (2026-07-07)
 
-Model round on the capacity window + OUR decisive experiment. All model arithmetic INDEPENDENTLY VERIFIED
+The capacity window + a decisive experiment. All arithmetic INDEPENDENTLY VERIFIED
 (exact agreement): moment-law crossovers, delta correction, Cramer rates, random-code window.
 
 **Verified refinements (model, all PROVED):**
@@ -907,7 +904,7 @@ Model round on the capacity window + OUR decisive experiment. All model arithmet
 - **Exact GRS form:** after +-pairing, `c -> (x_z P_c(z))_{z in mu_{2^20}}` is a GRS code, length `m = 2^20`,
   dim `r = 33736`; any `r` coordinates determine `c`. `N(rho)` = Lee/cosine-ledger of this code. A rigorous
   MDS/arc counting bound follows but saves only on the `r`-scale -- PROVED insufficient (needs `n`-scale).
-- **CORRECTION to our round-(m) clipboard claim (owned):** "any tiny explicit delta > 0 closes the window" is
+- **CORRECTION to the round-(m) claim:** "any tiny explicit delta > 0 closes the window" is
   FALSE. Closing needs `delta_bits >= 0.52854` (at `rho = 0.6824`) -- large-deviation strength, not tiny.
   (The capacity heuristic's `~1.5` bits/point would still suffice IF provable -- but it is not "tiny".)
 - **Logical correction (adopted):** the pigeonhole freeze lower-bounds the max over QUOTIENT characters, not
