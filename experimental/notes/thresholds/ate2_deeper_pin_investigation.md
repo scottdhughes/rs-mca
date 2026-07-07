@@ -63,17 +63,19 @@ Across four diverse rows (varied `m`, rate), the thorough diverse search
 2. `A_te-1` best `= R3+2` in every row, never exceeded -> an **independent
    empirical corroboration** of the two-core closure (the deep pins in PR #381).
 
-## Proof route (stalls at the same wall as a425)
+## Proof route -> reduced to a single collinearity lemma
 
-In Case A (low overlap), for bad slopes `z,w`, on `S_z cap S_w` both `w_z,w_w`
-are codeword restrictions, so `(z-w) g = w_z - w_w` forces `g` to extend to a
-deg-`<k` poly `p_{zw}` there. For `m >= 12` these pairwise overlaps have size
-`> k`, so `p_{zw}` is unique. If the `p_{zw}` glued into one global poly, `g`
-would extend on `S_z` -- contradiction, bounding `|Z|`. **But the gluing fails:**
-triple overlaps have size `~ n - 3R3 - 6 = (m mod 3) - 6 < k`, so `p_{zw}` and
-`p_{zv}` agree on fewer than `k` points and need not be equal. The `g`-defect can
-hide in each support's private points. This is precisely the wall a425 hit; a
-chain/connectivity argument over the overlap graph is a candidate fix (unproven).
+A first "gluing" route (force the pairwise polys `p_{zw}` into one global poly)
+stalls -- triple overlaps have size `~ (m mod 3) - 6 < k`. **But a stronger route
+succeeded in reducing the whole bound to one clean lemma** (see
+`ate2_reduction_to_collinearity.md`): the bad-slope codewords empirically lie on
+a single code-line `c_z = a+zb` (**collinearity lemma L1**, `L=1` in 1200/1200
+configs + Sage rank-1). Given L1, shifting by that code-line makes `f'=-zg'` on
+each `S_z`, partitioning the domain by the ratio `-f'/g'`; a disjointness count
+then gives `|Z| <= R3+3` unconditionally. That reduction is **verified two ways**
+(Codex logic review: Steps 1,3,4,5 sound, L1 the sole gap; Sage CAS: count and
+rank cross-checked). So `A_te-2` is now `LD_sw = R3+3` **modulo L1** -- a strict
+advance on a425's OPEN, with L1 the crisp remaining target.
 
 ## Honest scope
 
