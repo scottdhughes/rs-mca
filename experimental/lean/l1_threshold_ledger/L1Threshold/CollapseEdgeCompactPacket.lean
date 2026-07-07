@@ -1,5 +1,6 @@
 import L1Threshold.CollapseEdgeCertificate
 import L1Threshold.CollapseEdgeOriginSummary
+import L1Threshold.CollapseEdgeOriginArithmetic
 
 namespace L1Threshold
 
@@ -11,29 +12,41 @@ collapse-edge PR packet. It combines:
 
 * the finite graph checker in `CollapseEdgeCertificate`; and
 * the compact origin-audit metadata/count checker in
-  `CollapseEdgeOriginSummary`.
+  `CollapseEdgeOriginSummary`; and
+* the compact modular edge-origin arithmetic checker in
+  `CollapseEdgeOriginArithmetic`.
 
-It still does not replay the omitted per-edge `GF(137)` affine arithmetic.
+It still does not reconstruct the W3 geometry symbolically.
 -/
 
 namespace CollapseEdgeCompactPacket
 
-set_option maxRecDepth 1000000
-set_option maxHeartbeats 2000000
-
 theorem compactPacketOK :
     CollapseEdgeCertificate.checkAllCases = true
       ∧ CollapseEdgeOriginSummary.allCasesOK = true
+      ∧ CollapseEdgeOriginArithmetic.allRowsOK = true
       ∧ CollapseEdgeOriginSummary.edgeRulesAudited = 6528
+      ∧ CollapseEdgeOriginArithmetic.edgeRows.length = 6528
       ∧ CollapseEdgeOriginSummary.mismatchCount = 0
       ∧ CollapseEdgeCertificate.allCases.map CollapseEdgeCertificate.alternateContribution =
           [1, 1, 1, 1, 1, 1] := by
-  decide
+  exact
+    And.intro CollapseEdgeCertificate.collapseEdgeAllCasesOk
+      (And.intro CollapseEdgeOriginSummary.originSummaryAllCasesOK
+        (And.intro CollapseEdgeOriginArithmetic.edgeOriginArithmeticAllRowsOK
+          (And.intro CollapseEdgeOriginSummary.originSummaryEdgeRulesAudited
+            (And.intro CollapseEdgeOriginArithmetic.edgeOriginArithmeticRowCount
+              (And.intro CollapseEdgeOriginSummary.originSummaryNoMismatches
+                CollapseEdgeCertificate.collapseEdgeAllAlternateContributionsExact)))))
 
 theorem compactPacketNoGraphOrSummaryMismatches :
     CollapseEdgeCertificate.checkAllCases = true
-      ∧ CollapseEdgeOriginSummary.allCasesOK = true := by
-  decide
+      ∧ CollapseEdgeOriginSummary.allCasesOK = true
+      ∧ CollapseEdgeOriginArithmetic.allRowsOK = true := by
+  exact
+    And.intro CollapseEdgeCertificate.collapseEdgeAllCasesOk
+      (And.intro CollapseEdgeOriginSummary.originSummaryAllCasesOK
+        CollapseEdgeOriginArithmetic.edgeOriginArithmeticAllRowsOK)
 
 #print axioms compactPacketOK
 #print axioms compactPacketNoGraphOrSummaryMismatches

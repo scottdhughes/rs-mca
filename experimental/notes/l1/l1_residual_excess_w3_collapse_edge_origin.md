@@ -3,8 +3,10 @@
 - **Status:** EXPERIMENTAL / FINITE ARITHMETIC ORIGIN AUDIT.
 - **Branch:** `scott/l1-w3-collapse-edge-lean-compact`.
 - **Data:** `experimental/data/certificates/l1-residual-excess-classifier/w3_collapse_edge_origin_audit_combo012_sizes10_2_3.json`
+- **Compact arithmetic data:** `experimental/data/certificates/l1-residual-excess-classifier/w3_collapse_edge_origin_arithmetic_compact_combo012_sizes10_2_3.json`
 - **Compact verifier:** `experimental/scripts/verify_l1_w3_collapse_edge_compact_packet.py`
 - **Lean metadata checker:** `experimental/lean/l1_threshold_ledger/L1Threshold/CollapseEdgeOriginSummary.lean`
+- **Lean arithmetic checker:** `experimental/lean/l1_threshold_ledger/L1Threshold/CollapseEdgeOriginArithmetic.lean`
 
 ## Purpose
 
@@ -67,13 +69,40 @@ These Lean theorems certify the six-case/two-family shape, the `6528` audited
 edge-rule count, zero mismatches, and the repeated eight-coset rule-count
 pattern present in the compact summary.
 
+The companion Lean module `L1Threshold.CollapseEdgeOriginArithmetic` checks the
+compact per-edge arithmetic packet:
+
+```lean
+L1Threshold.CollapseEdgeOriginArithmetic.edgeOriginArithmeticAllRowsOK
+L1Threshold.CollapseEdgeOriginArithmetic.edgeOriginArithmeticRowCount
+L1Threshold.CollapseEdgeOriginArithmetic.edgeOriginArithmeticCaseCounts
+```
+
+For each compact row, Lean verifies that the stored edge kind is certified by
+the modular affine equation:
+
+```text
+intercept + shift * slope = 0 mod 137
+```
+
+This moves the stored edge-kind arithmetic classification into Lean while
+keeping the raw 45k-line graph certificate and W3 reconstruction data out of the
+compact packet.
+
 ## Scope
 
-This is still not a Lean-certified per-edge `GF(137)` reconstruction.  The
-per-edge arithmetic audit is Python finite-field arithmetic that sits between:
+This is still not a Lean-certified symbolic W3 reconstruction.  The compact
+Lean arithmetic checker trusts the generated `(intercept,slope)` rows and checks
+their modular classification.  The Python finite-field arithmetic audit remains
+the layer that reconstructs those `(intercept,slope)` rows from the W3 basis and
+dot products.
 
-1. the raw generated edge-rule certificate; and
-2. the Lean finite graph checker.
+The audited chain is now:
+
+1. raw W3 data and finite-field dot products;
+2. Python origin audit producing compact `(intercept,slope)` rows;
+3. Lean modular arithmetic checker for stored edge kinds;
+4. Lean finite graph checker for active components and alternate contribution.
 
 It does not prove a symbolic collapse-edge rule, does not cover all W3 generated
 families, and does not prove the global L1 theorem.

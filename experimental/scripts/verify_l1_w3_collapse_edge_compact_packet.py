@@ -18,8 +18,13 @@ DEFAULT_ORIGIN = (
     "experimental/data/certificates/l1-residual-excess-classifier/"
     "w3_collapse_edge_origin_audit_combo012_sizes10_2_3.json"
 )
+DEFAULT_ARITHMETIC = (
+    "experimental/data/certificates/l1-residual-excess-classifier/"
+    "w3_collapse_edge_origin_arithmetic_compact_combo012_sizes10_2_3.json"
+)
 DEFAULT_LEAN = "experimental/lean/l1_threshold_ledger/L1Threshold/CollapseEdgeCertificate.lean"
 DEFAULT_ORIGIN_LEAN = "experimental/lean/l1_threshold_ledger/L1Threshold/CollapseEdgeOriginSummary.lean"
+DEFAULT_ARITHMETIC_LEAN = "experimental/lean/l1_threshold_ledger/L1Threshold/CollapseEdgeOriginArithmetic.lean"
 DEFAULT_PACKET_LEAN = "experimental/lean/l1_threshold_ledger/L1Threshold/CollapseEdgeCompactPacket.lean"
 
 EXPECTED_SOURCE_SHA256 = "1aab9da15bf074232122898bd9958fe2f2240eacdbc138af5638851be99a889d"
@@ -73,6 +78,62 @@ def check_origin(path: Path, issues: list[str]) -> dict:
     return data
 
 
+def check_arithmetic(path: Path, issues: list[str]) -> dict:
+    data = json.loads(path.read_text())
+    p = int(data.get("p", -1))
+    rows = data.get("rows", [])
+    if data.get("status") != "L1_W3_EDGE_ORIGIN_ARITHMETIC_COMPACT":
+        issues.append("unexpected arithmetic status %r" % data.get("status"))
+    if data.get("source_sha256") != EXPECTED_SOURCE_SHA256:
+        issues.append("unexpected arithmetic raw source sha256")
+    if p != 137:
+        issues.append("arithmetic p is not 137")
+    if int(data.get("case_count", -1)) != 6:
+        issues.append("arithmetic case_count is not 6")
+    if int(data.get("edge_origin_rows", -1)) != 6528:
+        issues.append("edge_origin_rows is not 6528")
+    if len(rows) != 6528:
+        issues.append("arithmetic rows length is not 6528")
+    if data.get("row_columns") != [
+        "case_index",
+        "coset_w",
+        "a",
+        "b",
+        "kind_code",
+        "shift",
+        "intercept",
+        "slope",
+    ]:
+        issues.append("unexpected arithmetic row_columns")
+    case_counts = [0] * 6
+    for index, row in enumerate(rows):
+        if not isinstance(row, list) or len(row) != 8:
+            issues.append("arithmetic row %s is not length-8 list" % index)
+            continue
+        case_index, _coset_w, a, b, kind_code, shift, intercept, slope = [int(x) for x in row]
+        if not 0 <= case_index < 6:
+            issues.append("arithmetic row %s has bad case index" % index)
+            continue
+        case_counts[case_index] += 1
+        for label, value in [("a", a), ("b", b), ("shift", shift), ("intercept", intercept), ("slope", slope)]:
+            if not 0 <= value < p:
+                issues.append("arithmetic row %s has out-of-range %s=%s" % (index, label, value))
+        if kind_code == 0:
+            if not (slope == 0 and intercept == 0):
+                issues.append("arithmetic row %s bad always classification" % index)
+        elif kind_code == 1:
+            if not (slope == 0 and intercept != 0):
+                issues.append("arithmetic row %s bad never classification" % index)
+        elif kind_code == 2:
+            if not (slope != 0 and (intercept + shift * slope) % p == 0):
+                issues.append("arithmetic row %s bad at_shift classification" % index)
+        else:
+            issues.append("arithmetic row %s has unknown kind code %s" % (index, kind_code))
+    if case_counts != [1088, 1088, 1088, 1088, 1088, 1088]:
+        issues.append("unexpected arithmetic case row counts %r" % case_counts)
+    return data
+
+
 def check_lean(path: Path, issues: list[str]) -> None:
     text = path.read_text()
     required = [
@@ -106,12 +167,26 @@ def check_origin_lean(path: Path, issues: list[str]) -> None:
             issues.append("origin-summary Lean file missing %r" % needle)
 
 
+def check_arithmetic_lean(path: Path, issues: list[str]) -> None:
+    text = path.read_text()
+    required = [
+        "theorem edgeOriginArithmeticAllRowsOK",
+        "theorem edgeOriginArithmeticRowCount",
+        "theorem edgeOriginArithmeticCaseCounts",
+        "intercept + shift * slope = 0 mod 137",
+    ]
+    for needle in required:
+        if needle not in text:
+            issues.append("origin-arithmetic Lean file missing %r" % needle)
+
+
 def check_packet_lean(path: Path, issues: list[str]) -> None:
     text = path.read_text()
     required = [
         "theorem compactPacketOK",
         "theorem compactPacketNoGraphOrSummaryMismatches",
         "CollapseEdgeCertificate.checkAllCases = true",
+        "CollapseEdgeOriginArithmetic.allRowsOK = true",
         "CollapseEdgeOriginSummary.edgeRulesAudited = 6528",
     ]
     for needle in required:
@@ -122,16 +197,20 @@ def check_packet_lean(path: Path, issues: list[str]) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--origin", default=DEFAULT_ORIGIN)
+    parser.add_argument("--arithmetic", default=DEFAULT_ARITHMETIC)
     parser.add_argument("--lean", default=DEFAULT_LEAN)
     parser.add_argument("--origin-lean", default=DEFAULT_ORIGIN_LEAN)
+    parser.add_argument("--arithmetic-lean", default=DEFAULT_ARITHMETIC_LEAN)
     parser.add_argument("--packet-lean", default=DEFAULT_PACKET_LEAN)
     parser.add_argument("--json", action="store_true")
     args = parser.parse_args()
 
     issues: list[str] = []
     origin = check_origin(Path(args.origin), issues)
+    arithmetic = check_arithmetic(Path(args.arithmetic), issues)
     check_lean(Path(args.lean), issues)
     check_origin_lean(Path(args.origin_lean), issues)
+    check_arithmetic_lean(Path(args.arithmetic_lean), issues)
     check_packet_lean(Path(args.packet_lean), issues)
     result = {
         "ok": not issues,
@@ -139,6 +218,7 @@ def main() -> int:
         "status": origin.get("status"),
         "case_count": origin.get("case_count"),
         "edge_rules_audited": origin.get("edge_rules_audited"),
+        "edge_origin_rows": arithmetic.get("edge_origin_rows"),
         "source_sha256": origin.get("source_sha256"),
     }
     if args.json:
