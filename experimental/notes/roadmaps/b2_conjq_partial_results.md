@@ -947,3 +947,39 @@ the definitive knowledge of WHICH sufficient conditions cannot work -- a fence a
 **NET (round n): the dual analytic program is COMPLETE as a map: conj:Q's dual crux requires SIGNED
 cancellation; no absolute-value statement suffices (SP heuristically false, verified random-like ledger).**
 This is a genuine and citable structural finding about the prize barrier itself.
+
+## Round (o) -- cross-check vs #397 (avdeevvadim row-sharp Q-atom): the freeze families do NOT threaten `max_z|R_prim|` (2026-07-07)
+
+PR #397 isolates the row-sharp Q-atom to a sup-certificate `max_z |R_prim(z)| <= 4805007 * mean`
+(`L = 2^{22.2}`, tighter than our `n^3 = 2^{27.3}`). Since our barrier map showed the DUAL `|pi_odd|` sup
+bound is FALSE (freeze families, round m), the natural worry: does a freeze `c` also break avdeevvadim's
+`max_z|R_prim|` target? Answer (verified): **NO -- the freeze obstruction is invisible to `R_prim`.**
+
+**The object identification (PROVED).** `R_prim(z) = #{primitive S, |S|=m : Phi_w(S) = z}` has Fourier
+transform in `z`:
+    `Rhat(c) = sum_{|S|=m} prod_{a in S} e_p(f_c(a)) = e_m({v_a}_{a in mu_n})`,  `v_a = e_p(f_c(a))`,
+the SIGNED elementary symmetric function of degree `m` (= our rounds a/d/n `e_m`/`T(c)` object) -- NOT
+`|pi_odd(c)|`. `pi_odd = p_1(v)` is ONE power sum; `e_m` sums `prod` over `m ~ 10^6` elements. So
+    `max_z|R_prim| <= p^{-w}(C(n,m) + sum_{c!=0}|e_m(v_c)|)`,  and #397's target `<=> sum_{c!=0}|e_m| <= (L-1)C(n,m)`.
+
+**Verified (`b2_sp_rprim_vs_freeze.py`, toy `n=64,128,256`).** The exact-alias freeze `f = x - x^{1+D}` (which
+makes `pi_odd/n ~ 0.11`, LARGE, breaking the dual sup bound) has `|e_m(v_freeze)| / C(n,m) ~ 10^{-16}, 10^{-32},
+10^{-59}` -- astronomically below the `c=0` mean term `C(n,m)`. The freeze inflates `pi_odd` but leaves `e_m`
+(= `Rhat`) negligible: the small per-element phase arc, multiplied across `m` elements in the `m`-fold symmetric
+function, WRAPS and cancels. So the freeze does NOT inflate `max_z|R_prim|`.
+
+**Why it is FORBIDDEN to do better (capacity argument, ties to round m/n).** The pigeonhole freeze that breaks
+the `pi_odd` sup bound confines `2^{18}` points to a COARSE `p/15` arc, costing `2^{18} log2(15) ~ 1.0e6` bits --
+just within the `r log2 p = 1.045e6` coefficient budget. To instead inflate `e_m` one needs the `m`-fold products
+coherent, i.e. `~m ~ 2^{20}` points confined to a TIGHT `~pi/m` arc, costing `~m log2(m) ~ 2e7` bits -- ~20x OVER
+budget. The SAME capacity ledger that PERMITS the dual freeze FORBIDS an `e_m`/`R_prim` freeze.
+
+**Conclusion / contribution to #397.** (i) The freeze obstruction that killed our dual `|pi_odd|` sup bound does
+NOT threaten avdeevvadim's `max_z|R_prim| <= L*mean` -- his certificate lives on the SIGNED `e_m`, immune to
+freezes. So the cross-check CORROBORATES #397 (no refutation). (ii) It structurally EXPLAINS why the primal
+max-fiber (signed) form is the right target while the dual absolute-value form is not -- exactly our
+"signed cancellation is the surviving route" finding, now concrete for `R_prim`. (iii) The remaining truth of
+`sum_{c!=0}|e_m(v_c)| <= (L-1)C(n,m)` is a SIGNED large-values / Lee-weight question on `e_m` -- the same
+`x4b_moment_trade_exclusion` "charge the moment trades" object our barrier map points to. HONEST SCOPE: the toy
+settles the MECHANISM (freezes don't inflate `e_m`), not the deployed sum; `m ~ 10^6` at deployed makes the
+wrapping-cancellation far STRONGER than the toy, so the toy is conservative.
