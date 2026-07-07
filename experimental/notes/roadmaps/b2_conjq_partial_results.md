@@ -849,3 +849,49 @@ count `e^{148,650}` vs `e^{562,595}`: room 413,945 nats). **The entire conj:Q du
 more than `(1/rho)^{n/4}` coefficient vectors achieve coherence fraction `rho` on `mu_n`, for
 `rho in (0.251, 0.731)`** -- with the capacity heuristic (freezing costs `>~ 1` bit per frozen point,
 `count <~ 2^{r log2 p - rho n}`) giving it with enormous room (`2^{-rho n}` vs the needed `rho^{n/4}`).
+
+## Round (n) -- window sharpened, GRS form exact, and the PIVOT: SP is heuristically FALSE (code is Lee-random-like) (2026-07-07)
+
+Model round on the capacity window + OUR decisive experiment. All model arithmetic INDEPENDENTLY VERIFIED
+(exact agreement): moment-law crossovers, delta correction, Cramer rates, random-code window.
+
+**Verified refinements (model, all PROVED):**
+- **Window narrowed:** the exact optimized moment bound `min_s p^r (2s-1)!! n^s/(rho n)^{2s}` closes
+  `rho in (0.251, 0.300861]` and the upper endpoint; OPEN window is `(0.300861, 0.731050)` (verified to 6 digits).
+- **Exact GRS form:** after +-pairing, `c -> (x_z P_c(z))_{z in mu_{2^20}}` is a GRS code, length `m = 2^20`,
+  dim `r = 33736`; any `r` coordinates determine `c`. `N(rho)` = Lee/cosine-ledger of this code. A rigorous
+  MDS/arc counting bound follows but saves only on the `r`-scale -- PROVED insufficient (needs `n`-scale).
+- **CORRECTION to our round-(m) clipboard claim (owned):** "any tiny explicit delta > 0 closes the window" is
+  FALSE. Closing needs `delta_bits >= 0.52854` (at `rho = 0.6824`) -- large-deviation strength, not tiny.
+  (The capacity heuristic's `~1.5` bits/point would still suffice IF provable -- but it is not "tiny".)
+- **Logical correction (adopted):** the pigeonhole freeze lower-bounds the max over QUOTIENT characters, not
+  the trivial `pi(c)` (unfrozen cosets could cancel); large trivial-`pi` from freezing is heuristic-only.
+- **Compression obstruction (PROVED):** reconstruction-from-`r`-coordinates arguments cap at `r I_cos(rho) ~
+  9,051` nats of savings at `rho = 0.5` vs the `~361,231` needed. MDS information cannot close the window.
+
+**THE DECISIVE EXPERIMENT (ours, `b2_sp_code_vs_random_ledger.py`): the code is LEE-RANDOM-LIKE.** Exact
+enumeration of the ENTIRE code at `(n,p,w_odd) = (16,97,2), (32,97,3), (16,257,2)` vs the iid-uniform-phase
+random model: ledger ratios `F_code/F_random = 0.89 - 1.29` across `rho in [0.3, 0.7]`, no systematic thinning.
+**So the random-code Cramer heuristic applies, and (verified arithmetic) `ln N_random(rho) = r ln p - m
+I_cos(rho)` EXCEEDS the SP budget `(n/4) ln(1/rho)` throughout `rho in (0.303, 0.642)`** (at `rho = 0.5`:
+`443,327` vs `363,409` nats). Estimated SP overshoot at the dominating `rho* ~ 0.47`: `~e^{81,000}`.
+    **CONCLUSION (heuristic, empirically supported at toy scale): Hypothesis SP -- the large-values /
+    absolute-value sufficient condition, in ALL its forms (crude count, sup bounds, capacity ledger) -- is
+    FALSE at deployed parameters.** Not merely unprovable: the medium-bias (`rho ~ 0.3-0.6`) codewords of a
+    random-like code are genuinely too numerous. (CAVEAT: toy `r/m` ratios `0.19-0.25` vs deployed `0.032`;
+    matching held across all tested configs and both `p`; a deployed-ratio test would need larger toys.)
+
+**STRATEGIC PIVOT (the honest endpoint of the dual absolute-value program).** Rounds (a)-(n) have now
+established, with proofs, verified extremals, and a falsifiable experiment: every absolute-value route to
+conj:Q on the dual side -- moments (T14), energy (T11), 2nd-moment proxies (round d), sup bounds (rounds c-m),
+capacity ledgers (round m-n) -- is either proved dead or heuristically false. **The surviving dual route is the
+SIGNED sum** (exactly as flagged in rounds (a) line-3 and (d)): the alternating plethystic/e_m structure
+`sum_{c != 0} T(c)`, `T(c) = e_m({e_p(f_c(a))})`, whose cancellation is REAL (conj:Q is morally certain, the
+mean is tiny) but invisible to any `|.|`-bound. Alternatively: the primal census route (holmbuar's shift-pair
+track). What this saga contributes to either: the complete extremal map (freeze families, random-like Lee
+statistics, the exact GRS formulation), the proved moment law + window bounds, two Lean-verified anchors, and
+the definitive knowledge of WHICH sufficient conditions cannot work -- a fence around the real problem.
+
+**NET (round n): the dual analytic program is COMPLETE as a map: conj:Q's dual crux requires SIGNED
+cancellation; no absolute-value statement suffices (SP heuristically false, verified random-like ledger).**
+This is a genuine and citable structural finding about the prize barrier itself.
