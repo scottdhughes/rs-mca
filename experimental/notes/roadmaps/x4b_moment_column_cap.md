@@ -103,3 +103,39 @@ an exact linear syzygy on the tails: grading by degree, the shifted tail coeffic
 syzygy (L6) and whose parts carry the Frobenius-inversion orbit structure (L5). These are the concrete
 handles a finishing argument (or an enumeration/charge) would use; the first-moment window continues to give
 the conditional closure (`k <= 2`, mass `<= 4`, 22 bits of room).
+
+## THEOREM (Mersenne reciprocal-gap rigidity) -- the M31 residue is CLOSED (2026-07-07)
+
+**Theorem.** Let `p == -1 (mod n)` (so `mu_n subset F_{p^2}` and Frobenius acts on `mu_n` as inversion),
+`char p > t`. Then every `t`-null block `B subset mu_n` with `|B| = b <= 2t+1` has BINOMIAL locator
+`L_B = X^b + q_0`; hence `b | n` and `B` is a full `mu_b`-coset. In particular **no primitive `t`-null block
+has size `<= 2t+1`** at such rows.
+
+*Proof.* Write `L_B = X^b + sum_{k=0}^{s-1} q_k X^k`, `s = b - t` (`t`-nullity kills coefficients at
+`X^{b-1}..X^{b-t}`), `q_0 = +-prod B != 0`. (i) Frobenius: `0 = p_j(B)^p = sum x^{jp} = p_{-j mod n}(B) =
+p_j(B^{-1})` for `j <= t`, so `B^{-1}` is `t`-null (Newton, `char > t`) -- this is L5. (ii) The reciprocal
+polynomial: `L_{B^{-1}} = q_0^{-1} X^b L_B(1/X) = X^b + sum_{k=1}^{s-1} (q_k/q_0) X^{b-k} + q_0^{-1}`. Its
+middle coefficients sit at degrees `b-1, ..., t+1` -- INSIDE the `t`-null vanishing range `[b-t, b-1]`
+(using `s - 1 <= t`, i.e. `b <= 2t+1`). `t`-nullity of `B^{-1}` forces `q_1 = ... = q_{s-1} = 0`, so
+`L_B = X^b + q_0`. (iii) The solutions of `X^b = -q_0` inside `mu_n` form a coset of `mu_{gcd(b,n)}` (or are
+empty); `b` distinct roots all in `mu_n` force `gcd(b,n) = b`, i.e. `b | n`, and `B` is that `mu_b`-coset --
+rotation-stabilized by `mu_b`, hence quotient-charged, never primitive. QED
+
+**Verified exhaustively** (`x4b_m31_binomial_check.sage`, genuine `F_{p^2}`): at `(p,n,t) = (31,16,2)` and
+`(127,16,2)` (both `p == -1 mod 16`), every block with `b <= 2t+1` is binomial (only the four `mu_4`-cosets;
+sizes 3 and 5 empty), zero theorem violations; and even at `b = 8` (beyond the theorem) zero primitives --
+in sharp contrast to the recorded primitive witness at the `p == +1` row `(193, 64, 3)`, whose size
+`b = 8 = 2t+2` is exactly the first size the theorem does not cover. The Frobenius sign is the mechanism.
+
+**COROLLARY (M31 closure).** At the M31 rows (`p' = 2^31 - 1 == -1 (mod 2^21)`, `t = 67,447 / 67,446`):
+the only 2-power in `[t+1, 2t+1]` is `2^17`, so every `t`-null block of size `<= 2t+1 = 134,895` is a
+`mu_{2^17}`-coset (quotient column). Primitive blocks need `b >= 2t+2 = 134,896`, so disjoint primitive
+families have `k <= floor(n/(2t+2)) = 15`, and the per-(prefix,degree) moment-column mass is
+`<= C(15,7) = 6,435 = 2^{12.65} < B*_{M31} = 2^{24}` -- **11.35 bits of room. The 4.16-bit M31 gap is
+CLOSED, unconditionally.**
+
+**NET: the x4b MomentTradeStaircase column is closed unconditionally at ALL FOUR deployed rows** -- KB rows
+by the `k <= 31` cap (`2^{28.16} < B*_KB = 2^{57.93}`, and `< n^2`), M31 rows by reciprocal-gap rigidity +
+the `k <= 15` cap (`2^{12.65} < B*_{M31} = 2^{24}`). Option (a) ("no super-logarithmic disjoint primitive
+family") holds at all four rows; the per-row inputs are one Frobenius sign and one integer comparison.
+Scope: per-prefix staircase multiplicity in the four-column split's framing, post-strip, as before.
