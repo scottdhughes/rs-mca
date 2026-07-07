@@ -69,6 +69,68 @@ dual-distance "`<= 1 owner`" fact (note §3) is the finite-field input; it enter
 as the `Nodup` hypothesis and is recorded as the typed target
 `SingletonOwnerBound`.
 
+### `L1Threshold.CollapseEdgeCertificate` — W3 collapse-edge finite graph gate
+
+Notes: `experimental/notes/l1/l1_residual_excess_w3_collapse_edge_lean.md`,
+`experimental/notes/l1/l1_residual_excess_w3_collapse_edge_origin.md`.
+
+This module is a self-contained finite graph certificate for the six dangerous
+W3 collapse-edge cases with `(missing,stray)=(2,1)`. It does not reconstruct
+`GF(137)` arithmetic. Instead it checks the stored finite graph rules:
+
+- activate `always / never / atShift t` edge rules at the certified shift;
+- verify the listed active edges as a finite edge set;
+- verify the component decomposition is a partition;
+- verify listed components are connected and no active edge crosses components;
+- verify the only alternate component of size at least three is the coset-37
+  triple `[17,36,130]`;
+- conclude alternate contribution `<= 1` in all six cases.
+
+The main certificates are:
+
+- `collapseEdgeAllCasesOk`
+- `collapseEdgeAllCaseContributionsLeOne`
+- `collapseEdgeAllActualSurvivorsSame`
+- `collapseEdgeAllAlternateContributionsExact`
+
+These are kernel-checked by `decide` and print with no axioms in `lake build`.
+The last two expose the pattern-level finite fact: all six dangerous shifts have
+the same unique alternate survivor, the coset-37 triple `[17,36,130]`, and exact
+alternate contribution `1`.
+
+### `L1Threshold.CollapseEdgeOriginSummary` — compact origin-audit metadata
+
+Note: `experimental/notes/l1/l1_residual_excess_w3_collapse_edge_origin.md`.
+
+This module Lean-checks the compact origin-audit summary included in this PR. It
+does not replay the omitted per-edge `GF(137)` affine arithmetic. It verifies the
+metadata/count gate that the compact packet claims:
+
+- six cases, split as two three-shift families;
+- `6528` total edge rules audited;
+- zero mismatches;
+- the repeated eight-coset rule-count pattern across all six cases.
+
+The main certificates are:
+
+- `originSummaryAllCasesOK`
+- `originSummaryEdgeRulesAudited`
+- `originSummaryTwoFamilies`
+
+These are also kernel-checked by `decide` and print with no axioms in
+`lake build`.
+
+### `L1Threshold.CollapseEdgeCompactPacket` — reviewer-facing aggregate
+
+This module imports both collapse-edge modules and exposes one compact gate:
+
+- `compactPacketOK`
+
+It checks, in one theorem, that the finite graph checker passes, the compact
+origin-summary checker passes, the summary accounts for `6528` edge rules with
+zero mismatches, and the six alternate contributions are exactly
+`[1,1,1,1,1,1]`. It is still not a per-edge `GF(137)` arithmetic replay.
+
 ## Build
 
 ```sh
@@ -85,6 +147,17 @@ no mathlib**. Each module ends with `#print axioms`:
   Quot.sound]` — `Classical.choice` enters through a stdlib `List` lemma; this is
   the standard sanctioned set (cf. `rs_mca_formalization`'s `HighAgreementLedger`
   note); `choose_values` depends on no axioms.
+- `CollapseEdgeCertificate.collapseEdgeAllCasesOk` /
+  `collapseEdgeAllCaseContributionsLeOne` /
+  `collapseEdgeAllActualSurvivorsSame` /
+  `collapseEdgeAllAlternateContributionsExact`: **no axioms**. These are finite
+  graph checks over the stored certificate data.
+- `CollapseEdgeOriginSummary.originSummaryAllCasesOK` /
+  `originSummaryEdgeRulesAudited` /
+  `originSummaryTwoFamilies`: **no axioms**. These are compact metadata/count
+  checks over the origin-audit summary, not a `GF(137)` arithmetic replay.
+- `CollapseEdgeCompactPacket.compactPacketOK`: **no axioms**. This is the
+  aggregate compact-packet gate combining the graph and origin-summary checks.
 
 ## Scope (honest)
 

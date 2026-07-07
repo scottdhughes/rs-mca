@@ -1,0 +1,222 @@
+{
+  "track": "INTERLEAVED_LIST",
+  "row": "RS[F_17^32,H,256]",
+  "denominator": "17^32",
+  "agreement_target": 327,
+  "mca_counted": false,
+  "summary_id": "m1_a327_mu8_rank2_selected_front_route_cut_summary",
+  "route_scope": "selected rank-2 mu8 carrier-plane fronts and adaptive near-front diagnostic",
+  "source_commits": [
+    "ddc7fe9",
+    "46a0755",
+    "14684a5",
+    "daca3df"
+  ],
+  "source_artifacts": [
+    {
+      "role": "rank-2 carrier menu scan",
+      "path": "experimental/data/m1_a327_mu8_rank2_carrier_menu_scan.json",
+      "line_count": 3482,
+      "byte_count": 51681,
+      "sha256": "6903bb376ba01c40ba1f54fa3fe032e8f7693450868447ecec8e887cb4f8bcb5"
+    },
+    {
+      "role": "rank-2 greedy carrier schedule candidates",
+      "path": "experimental/data/m1_a327_mu8_rank2_carrier_schedule_candidates.json",
+      "line_count": 68728,
+      "byte_count": 1132539,
+      "sha256": "2b7f0fa241f4cc8a600cda8a358f529ecb78be0e8df4ffd012957060831d9efe"
+    },
+    {
+      "role": "rank-2 CP-SAT width-4 schedule candidates",
+      "path": "experimental/data/m1_a327_mu8_rank2_cpsat_schedule_candidates.json",
+      "line_count": 3390,
+      "byte_count": 75049,
+      "sha256": "3097ac25f30ba77bbb229d63c19b5b14526cd97edd9e07b993ddf593505accdd"
+    },
+    {
+      "role": "rank-2 width ablation summary",
+      "path": "experimental/data/m1_a327_mu8_rank2_width_ablation.json",
+      "line_count": 51,
+      "byte_count": 1454,
+      "sha256": "d6e6964a74da96aaad071bba34a91578084494fee4b06d8d8b8744026892e474"
+    },
+    {
+      "role": "rank-2 full-menu schedule candidates",
+      "path": "experimental/data/m1_a327_mu8_rank2_fullmenu_schedule_candidates.json",
+      "line_count": 3714,
+      "byte_count": 72034,
+      "sha256": "a8ac78992e43029705a3ec8f750ce940b15ac260579328c1e0905046f664f00a"
+    },
+    {
+      "role": "rank-2 adaptive ratio-column scan",
+      "path": "experimental/data/m1_a327_mu8_rank2_adaptive_ratio_columns.json",
+      "line_count": 8725,
+      "byte_count": 205884,
+      "sha256": "1a3fdd0af70ec936c06cb73ec09ab4b4208bd7409bc70bea0c4cbdad239e975f"
+    },
+    {
+      "role": "rank-2 adaptive schedule candidates",
+      "path": "experimental/data/m1_a327_mu8_rank2_adaptive_schedule_candidates.json",
+      "line_count": 3957,
+      "byte_count": 75626,
+      "sha256": "e3a28f36611b816af66017d0a074e0e76bed0f702c50544c97a96bb4ba41b485"
+    },
+    {
+      "role": "rank-2 adaptive near-front exact diagnostic",
+      "path": "experimental/data/m1_a327_mu8_rank2_adaptive_near_front_exact.json",
+      "line_count": 55,
+      "byte_count": 1549,
+      "sha256": "dbeb3da88abe2bb080e550821e837f2eaac0d7a4ac795e393dc4baa81f335d26"
+    },
+    {
+      "role": "rank-2 adaptive support/pair exact interpolation audit",
+      "path": "experimental/data/m1_a327_mu8_rank2_adaptive_exact_interpolation.json",
+      "line_count": 26,
+      "byte_count": 768,
+      "sha256": "ff3bd9c7af28a8f75f6aa0ff0a8ec7d26e26f0a8e36f97ce7fcdf2da4481ce71"
+    },
+    {
+      "role": "rank-2 adaptive witness audit",
+      "path": "experimental/data/m1_a327_mu8_rank2_adaptive_witness_audit.json",
+      "line_count": 24,
+      "byte_count": 674,
+      "sha256": "820958b85f6bdd79edbee0ca7eab7ca5db8768bee91f72d0449efcab84f35ff5"
+    }
+  ],
+  "rank2_model": {
+    "ansatz": "q(Y)=u*F(Y)+v*G(Y), deg(F),deg(G)<32",
+    "quotient_points": 64,
+    "interpolation_variables": 64,
+    "field": "GF(17^32)"
+  },
+  "frontier_progression": [
+    {
+      "front": "greedy carrier schedule",
+      "source_status": "MU8_RANK2_CARRIER_NO_GUARD_PASS",
+      "planes_audited": 64,
+      "constructed_schedule_attempts": 64,
+      "guard_passing": 0,
+      "exact_interpolation_systems_tested": 0,
+      "best_min_support": 286,
+      "best_selected_incidence_total": 2032,
+      "min_support_gap": 41,
+      "selected_incidence_gap": 257
+    },
+    {
+      "front": "CP-SAT width-4 with row-cap gate",
+      "source_status": "MU8_RANK2_CARRIER_PLANE_SUPPORT_PAIR_SLACK_INFEASIBLE",
+      "planes_solved": 64,
+      "ratio_limit": 4,
+      "interpolation_row_cap": 63,
+      "guard_passing": 0,
+      "exact_interpolation_systems_tested": 0,
+      "best_min_support": 291,
+      "best_selected_incidence_total": 2041,
+      "min_support_gap": 36,
+      "selected_incidence_gap": 248
+    },
+    {
+      "front": "full-menu width ablation",
+      "source_status": "MU8_RANK2_CARRIER_FULL_MENU_SUPPORT_PAIR_INFEASIBLE",
+      "planes_per_width": 64,
+      "widths_tested": [
+        4,
+        8
+      ],
+      "hard_row_slack_gate": false,
+      "guard_passing": 0,
+      "exact_interpolation_systems_tested": 0,
+      "best_min_support": 313,
+      "best_selected_incidence_total": 2193,
+      "best_pair_count_max": 255,
+      "min_support_gap": 14,
+      "selected_incidence_gap": 96
+    },
+    {
+      "front": "adaptive ratio-column selected front",
+      "source_status": "MU8_RANK2_ADAPTIVE_WIDTH_IMPROVES_SUPPORT",
+      "planes_solved": 64,
+      "start_width": 8,
+      "max_width": 32,
+      "width_caps": [
+        12,
+        16,
+        24,
+        32
+      ],
+      "support_pair_candidates": 0,
+      "near_front_candidates": 1,
+      "best_candidate_id": "rank2_plane_0148_adaptive_seed_w04",
+      "best_min_support": 314,
+      "best_support_vector": [
+        314,
+        315,
+        317,
+        314,
+        314,
+        314,
+        314
+      ],
+      "best_selected_incidence_total": 2202,
+      "best_pair_count_max": 255,
+      "best_row_cost": 92,
+      "min_support_gap": 13,
+      "selected_incidence_gap": 87
+    }
+  ],
+  "adaptive_near_front_exact_diagnostic": {
+    "diagnostic_only": true,
+    "support_pair_pass": false,
+    "candidate_id": "rank2_plane_0148_adaptive_seed_w04",
+    "plane_id": "rank2_plane_0148",
+    "field": "GF(17^32)",
+    "matrix_shape": [
+      92,
+      64
+    ],
+    "rank": 64,
+    "nullity": 0,
+    "positive_nullity_systems": 0,
+    "forced_equal_pairs": [],
+    "forced_global_ratio_lines": [],
+    "max_ratio_line_support": 4,
+    "ratio_line_support_histogram": {
+      "1": 6,
+      "2": 12,
+      "4": 1
+    },
+    "rank_one_collapse_risk": false,
+    "row_metadata_hash": "a2d1cde5f6cc3d363e0da088ed58cab68f04a16f10267081b5d0ec629a4ed814",
+    "status": "MU8_RANK2_ADAPTIVE_NEAR_FRONT_DIAGNOSTIC"
+  },
+  "support_pair_exact_interpolation": {
+    "systems_tested": 0,
+    "positive_nullity_systems": 0,
+    "pair_visible_systems": 0,
+    "best_failure_mode": "MU8_RANK2_ADAPTIVE_NO_SUPPORT_PAIR_CANDIDATE"
+  },
+  "witness_audit": {
+    "constructed": false,
+    "seven_distinct": false,
+    "agreement_vector": null,
+    "min_agreement": null,
+    "status": "NO_EXACT_WITNESS_CONSTRUCTED"
+  },
+  "candidate": {
+    "constructed": false,
+    "seven_distinct": false,
+    "agreement_vector": null,
+    "exact_a327_witness_passes": 0
+  },
+  "proof_status": "EXACT_EXTRACTION_NO_A327 / MU8_RANK2_SELECTED_FRONT_NO_SUPPORT_PAIR_PASS / PARTIAL / EXPERIMENTAL",
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C",
+    "impossibility of rank-2 mu8 carrier constructions"
+  ]
+}

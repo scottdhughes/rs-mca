@@ -30,6 +30,100 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-07 - Grande finale logarithmic-moment Q route
+
+- **Agent/model:** Maintainer-added Q/Tao notes integrated by Codex.
+- **Files added or changed:** `experimental/grande_finale.tex`,
+  `experimental/grande_finale.pdf`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED / CONJECTURAL / AUDIT.
+- **What is being added:** Integrated the theorem-level equivalence between
+  primitive logarithmic collision moments and primitive asymptotic Q, under
+  the condition `w log |B| / r = o(n)`.  The paper now isolates the remaining
+  additive-combinatorics input as an entropy-scale inverse theorem for
+  primitive moment-curve subset sums, with a Vandermonde-rank closure showing
+  why a low-rank output would finish asymptotic Q after paid cells are removed.
+- **How it is useful:** This sharpens the asymptotic route: Q is no longer a
+  vague max-fiber target but is equivalent to a logarithmic moment theorem.
+  It also clarifies that standard polynomial-scale inverse Littlewood-Offord
+  and Green-Ruzsa/Freiman results are templates, not black-box proofs at the
+  exponential fiber scale.
+- **What to do next:** Prove or refute the entropy-scale inverse theorem in
+  `prob:entropy-inverse-q`.  For finite deployed adjacent rows, do not use the
+  asymptotic `e^{o(n)}` statement as a certificate; the row still needs
+  audited constants fitting the printed margins and the BC chart-decomposition
+  audit.
+
+### 2026-07-07 - Grande finale Q-attempt promotion and Lean cleanup
+
+- **Agent/model:** Maintainer-added `grande_finale_q_attempt` reviewed and
+  integrated by Codex.
+- **Files added or changed:** `experimental/grande_finale.tex`;
+  `experimental/grande_finale.pdf`; `experimental/lean/grande_finale/`;
+  deleted `experimental/lean-certificates/`; updated `AGENTS.md` and
+  `experimental/agents-log.md`.
+- **Status:** PROVED / CONDITIONAL / AUDIT.
+- **What is being added:** Promoted the Q-attempt version to the canonical
+  `experimental/grande_finale.tex`, preserving the composite-prefix
+  `gcd(e,N)` multiplicity repair.  The note now records that SP is downstream
+  from max-fiber Q, primitive one-parameter BC pencils are paid by the
+  moving-root theorem, and the adjacent safe rows remain open at row-sharp Q
+  plus the finite BC chart-decomposition audit.  The new
+  `experimental/lean/grande_finale/` package was normalized under its Lake
+  module layout and documented as a partial formalization.
+- **How it is useful:** This makes the final-resolution target sharper:
+  proving Q is now the main bottleneck, while BC/SP are either paid in the
+  one-parameter case or downstream of Q subject to the finite chart audit.  The
+  guide now also states that all Lean packages belong under `experimental/lean/`.
+- **What to do next:** Attack `def:q-row-atom` / `prob:row-sharp-q` in
+  `experimental/grande_finale.tex` and the corresponding v13 raw source
+  ledger.  Build `experimental/lean/grande_finale/` in a Mathlib-enabled
+  environment before calling any declaration Lean-certified, and add missing
+  formalization for the row-sharp Q atom theorem and finite BC chart audit.
+
+### 2026-07-07 - Reviewed PR integration for v13 adjacent ledgers
+
+- **Agent/model:** Scott Hughes via PRs #362, #367, #377, #381, and #387;
+  Holm Buar via PRs #363, #364, #365, #366, #368, #378, #379, #382, #383,
+  and #384; Vadim Avdeev via PRs #385 and #386; Danny/Gia via PRs #376,
+  #380, and #388; LegaSage/Ken via PRs #371--#375; Latif Kasuli via PR #369;
+  Manifold Control via PR #370; Codex for review, selective integration, and
+  site/log updates.
+- **Files added or changed:** Added reviewed packets under
+  `experimental/data/certificates/`, `experimental/notes/thresholds/`,
+  `experimental/notes/l1/`, `experimental/notes/m1/`,
+  `experimental/notes/certificate_scanner/`, `experimental/notes/roadmaps/`,
+  `experimental/lean/`, and `experimental/scripts/`; repaired
+  `experimental/grande_finale.tex` and
+  `experimental/grande_finale_work/q_next_section.tex`; updated
+  `experimental/scripts/README.md`; added #381 near-capacity cap examples to
+  `site/data/rate-leaderboards.json` and the embedded site fallback.
+- **Status:** PROVED / CONDITIONAL / EXPERIMENTAL / AUDIT / COUNTEREXAMPLE,
+  depending on the individual packet.  No packet is promoted to Paper D here.
+- **What is being added:** Banks a broad reviewed PR wave: Q first-match
+  leakage and composite-multiplicity repairs; a conditional KB-MCA `A=1116048`
+  first-match ledger; Gamma-r and saturated-BC budget audits; M31/KB Q-rung
+  route cuts; BC lower-floor Lean formalization; L1 bounded-excess, T=7,
+  min-`j`, W3 collapse-edge, ell=19, and dim-Syz refutation packets; M1/CAPG
+  finite-testability, split-pencil, adjacent-pair, shift-pair, Q/R1, and
+  nonconsecutive-window packets; multi-rate LD_sw adjacent pins and board cap
+  examples; small standalone Lean toy certificates were reviewed later and
+  removed as redundant with stronger Lean tracks.
+- **How it is useful:** Turns the v13 adjacent program into a much more
+  explicit proof ledger.  The unsafe/lower rows and arithmetic margins are
+  better audited; several false or overstrong L1/Q routes are cut; and the
+  remaining safe-side work is more sharply named as primitive Q/max-fiber,
+  saturated BC/split-pencil, and finite first-match residual payment with
+  exact constants.  The site now exposes Scott's near-capacity Paper D cap
+  examples as public leaderboard rows while keeping them separate from exact
+  threshold claims.
+- **What to do next:** Do not run the heavier verifiers casually.  For paper
+  promotion, replay the relevant certificates independently, then distill only
+  theorem-level material into the next CAP25 draft.  The live finite target is
+  still the adjacent safe ledger at the v13 rows, especially KB-MCA
+  `A=1116048`, with every residual branch paid by theorem, exact certificate,
+  or explicitly labelled conjectural input.  Draft PR #355 remains unintegrated.
+
 ### 2026-07-06 - PRs #356-#361 experimental integration
 
 - **Agent/model:** Holm Buar via PRs #358, #359, and #361; LegaSage via

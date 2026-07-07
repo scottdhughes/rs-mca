@@ -1,0 +1,217 @@
+{
+  "track": "INTERLEAVED_LIST",
+  "row": "RS[F_17^32,H,256]",
+  "denominator": "17^32",
+  "agreement_target": 327,
+  "mca_counted": false,
+  "summary_id": "m1_a327_mu8_rank3_forced_bundle_route_cut_summary",
+  "route_scope": "fixed rank-3 mu8 menu and forced-bundle construction",
+  "source_commits": [
+    "72354e9",
+    "793cf45",
+    "6ab7d17",
+    "ed2a865",
+    "d4256e9"
+  ],
+  "source_artifacts": [
+    {
+      "role": "forced-bundle anchor file",
+      "path": "experimental/data/m1_a327_mu8_rank3_forced_bundle_anchor_file.json",
+      "line_count": 842,
+      "byte_count": 13336,
+      "sha256": "ffa66c290e942d5ea1aa5f537292b6719a988b97ba4d07dcfb1c6e0cd6227f1b"
+    },
+    {
+      "role": "forced-bundle scheduler ledger",
+      "path": "experimental/data/m1_a327_mu8_rank3_forced_bundle_schedule.json",
+      "line_count": 4387,
+      "byte_count": 84926,
+      "sha256": "91248069ebc497bda4b70b072f82ab6b52ea1e888224d8e99a6626ef2edc1f51"
+    },
+    {
+      "role": "forced-bundle exact interpolation audit",
+      "path": "experimental/data/m1_a327_mu8_rank3_forced_bundle_exact_interpolation.json",
+      "line_count": 46,
+      "byte_count": 1344,
+      "sha256": "7ffd96e855c3e688d78fe05c2a37484354f5a64c28d76e390cd6d23eca2a456a"
+    },
+    {
+      "role": "singleton replacement target ledger",
+      "path": "experimental/data/m1_a327_mu8_rank3_forced_bundle_singleton_replacement_targets.json",
+      "line_count": 2049,
+      "byte_count": 53022,
+      "sha256": "4b931a7f5242f9505b8a625d6adefbe55c6e5195cf4fd708e9c1999cc39b88f2"
+    },
+    {
+      "role": "singleton shared-point probe",
+      "path": "experimental/data/m1_a327_mu8_rank3_forced_bundle_singleton_shared_point_probe.json",
+      "line_count": 1171,
+      "byte_count": 20946,
+      "sha256": "5efcee4f65c4ae322e58656542e929f5b33da0e5ae2199ce1a8ee625371e26e0"
+    },
+    {
+      "role": "singleton projective-line probe",
+      "path": "experimental/data/m1_a327_mu8_rank3_forced_bundle_singleton_projective_line_probe.json",
+      "line_count": 4726,
+      "byte_count": 83205,
+      "sha256": "cd45e61178fbb82c67924c7b5108eef969f97c4cb405993fde59059952627ba2"
+    },
+    {
+      "role": "projective-line bundle plan",
+      "path": "experimental/data/m1_a327_mu8_rank3_forced_bundle_projective_line_bundle_plan.json",
+      "line_count": 68,
+      "byte_count": 2326,
+      "sha256": "bf6bd4824a10331a0fb06137b1d8f48b6aa9f2575e18c05213f7843337b60d2d"
+    }
+  ],
+  "forced_bundle_anchor": {
+    "plane_id": "rank3_spread_147",
+    "candidate_id": "rank3_spread_147_lowrow",
+    "forced_anchor_count": 12,
+    "forced_selected_incidence": 336,
+    "forced_support_vector": [
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48
+    ],
+    "forced_pair_count_max": 48,
+    "forced_row_cost": 24,
+    "remaining_quotient_points": 52,
+    "residual_selected_incidence_need": 1953,
+    "residual_support_need": [
+      279,
+      279,
+      279,
+      279,
+      279,
+      279,
+      279
+    ],
+    "source_schedule_support_pair_pass": true,
+    "source_schedule_selected_incidence": 2298,
+    "source_schedule_pair_count_max": 254,
+    "source_schedule_singleton_projective_keys": 30
+  },
+  "forced_bundle_scheduler": {
+    "bundles_solved": 4,
+    "support_pair_candidates": 1,
+    "strict_support_pair_candidates": 0,
+    "strict_failure_mode": "MU8_RANK3_FORCED_KEY_FAMILY_STRICT_NO_SUPPORT_PAIR_PASS",
+    "best_candidate_id": "rank3_spread_147_forced_only_12",
+    "best_solver_status": "FEASIBLE",
+    "best_min_support": 327,
+    "best_support_vector": [
+      328,
+      328,
+      327,
+      330,
+      327,
+      327,
+      327
+    ],
+    "best_total_incidence": 2294,
+    "best_pair_count_max": 255,
+    "best_row_cost": 148,
+    "best_forced_projective_key_selected_count": 12,
+    "best_nonforced_repeated_projective_key_count": 0,
+    "best_nonforced_singleton_projective_key_count": 29,
+    "interpretation": "support/pair passes only when non-forced singleton projective-key escape rows are allowed"
+  },
+  "exact_interpolation": {
+    "field": "GF(17^32)",
+    "systems_tested": 1,
+    "positive_nullity_systems": 0,
+    "pair_visible_systems": 0,
+    "best_candidate_id": "rank3_spread_147_forced_only_12",
+    "matrix_shape": [
+      148,
+      96
+    ],
+    "rank": 96,
+    "nullity": 0,
+    "row_metadata_hash": "e40179030dcdaac330c5d06251ff72bef50393453be102d4008f29a5a8e2f445",
+    "failure_mode": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK"
+  },
+  "singleton_replacement_targets": {
+    "candidate_limit": 4,
+    "support_pair_candidates_scanned": 1,
+    "singleton_signature_groups": 12,
+    "singleton_projective_rows": 29,
+    "best_target_group_id": "POINT_020_f1d9e22258cc42de",
+    "best_target_group_count": 8,
+    "best_target_group_incidence": 168,
+    "best_target_group_support_vector": [
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24
+    ],
+    "best_target_group_pair_count_max": 16,
+    "best_target_group_qidxs": [
+      21,
+      28,
+      32,
+      38,
+      43,
+      46,
+      48,
+      49
+    ]
+  },
+  "singleton_shared_point_probe": {
+    "target_groups_tested": 12,
+    "nontrivial_target_groups_tested": 5,
+    "nontrivial_shared_point_groups": 0,
+    "best_nontrivial_target_group_id": "POINT_020_f1d9e22258cc42de",
+    "best_nontrivial_target_count": 8,
+    "best_nontrivial_matrix_shape": [
+      104,
+      3
+    ],
+    "best_nontrivial_rank": 3,
+    "best_nontrivial_nullity": 0,
+    "failure_mode": "MU8_RANK3_NONTRIVIAL_SINGLETON_SHARED_POINT_NULLITY_ZERO"
+  },
+  "singleton_projective_line_probe": {
+    "nontrivial_projective_line_groups": 2,
+    "best_nontrivial_line_target_group_id": "POINT_008_ac7537bf3dc15163",
+    "best_nontrivial_line_target_count": 2,
+    "best_nontrivial_line_target_selected_incidence": 54,
+    "best_nontrivial_line_point_constraint_span_rank": 2,
+    "line_probe_status": "MU8_RANK3_NONTRIVIAL_SINGLETON_PROJECTIVE_LINE_FOUND"
+  },
+  "projective_line_bundle_plan": {
+    "line_positive_groups": 2,
+    "candidate_bundles": 1,
+    "material_bundles": 0,
+    "best_candidate_id": "rank3_spread_147_forced_only_12",
+    "best_line_target_count": 4,
+    "best_line_target_selected_incidence": 96,
+    "best_remaining_singleton_rows": 25,
+    "best_max_line_support": 2,
+    "degree32_repeated_line_threshold": 32,
+    "failure_mode": "MU8_RANK3_PROJECTIVE_LINE_BUNDLE_TOO_SMALL"
+  },
+  "candidate": {
+    "constructed": false,
+    "seven_distinct": false,
+    "agreement_vector": null,
+    "exact_a327_witness_passes": 0
+  },
+  "proof_status": "EXACT_EXTRACTION_NO_A327 / MU8_RANK3_FORCED_BUNDLE_SINGLETON_BOUNDARY_ROUTE_CUT / PARTIAL / EXPERIMENTAL",
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C"
+  ]
+}

@@ -59,11 +59,12 @@ Large error at a large radius is useful only as an auditable crossing
 certificate.  A barely-supercritical certificate at a smaller radius is more
 important.  Equivalently, on the integer agreement grid `a = (1-delta)n`, if
 `B_mca(a)` denotes the number of MCA-bad line parameters at agreement at least
-`a`, the ideal certificate is an adjacent staircase:
+`a`, and `B* = floor(epsilon* q_line)` is the exact integer budget, the ideal
+certificate is an adjacent staircase:
 
 ```text
-B_mca(a0)   > epsilon* q_line,
-B_mca(a0+1) <= epsilon* q_line.
+B_mca(a0)   > B*,
+B_mca(a0+1) <= B*.
 ```
 
 Such a pair pins `delta*_C(epsilon*)` to one integer agreement step.  The
@@ -79,6 +80,26 @@ delta = 15331/32768 ~= 0.467865.
 
 The remaining task is to close the open band below that edge, ideally by
 adjacent staircase certificates.
+
+The active experimental v13/grande-finale program splits this into two proof
+problems:
+
+1. **Finite deployed one-step resolution.**  For each deployed row, prove an
+   adjacent certificate `U(a0+1) <= B* < L(a0)`, where `L` is the exact unsafe
+   staircase, `U` is the complete safe upper ledger, and `B*` is the integer
+   challenge budget.  The unsafe side is supplied by exact certificate claims
+   in the v13 raw sources; the adjacent safe side still needs row-sharp `Q`,
+   finite BC chart-decomposition, and quotient/rung audits with constants.
+2. **Asymptotic frontier resolution.**  Prove or refute the entropy-subfield
+   envelope
+
+   ```text
+   delta*_C(epsilon*) = 1 - rho - g*(rho, log2 |B|) + o(1).
+   ```
+
+   Here polynomial or `e^{o(n)}` losses may be acceptable once the reserve is
+   larger than `O(log n)`, but they do not by themselves prove the finite
+   deployed adjacent rows.
 
 These are protocol-relevant because many proximity/SNARK reductions have a soundness term schematically like
 
@@ -138,6 +159,11 @@ The version changes matter for the website and scanner as follows:
   the remaining `(Q)`/split-pencil conjectural safe side. Do not cite it as
   paper authority until the relevant claims are promoted into Paper D or
   `towards-prize`.
+- **`experimental/cap25_cap_v13_raw.tex` and `experimental/grande_finale.tex`**
+  are the current experimental final-resolution sources. The former is the long
+  raw v13 ledger; the latter isolates the compact `Q`-focused route. They should
+  guide finite adjacent-certificate work and the asymptotic envelope proof, but
+  are not Paper D authority until promoted.
 - **`experimental/lean/towards_prize/`** is the Mathlib-based Lean track for
   the compact threshold note. Its entry point is `TowardsPrize.lean`; it should
   be reviewed and mapped theorem-by-theorem before any towards-prize claim is
@@ -263,6 +289,8 @@ A rough status map:
 | Safe-side pincer and two-sided threshold sandwich | Proved self-contained up to the deep/half-Johnson edges; half-distance edge depends on the isolated BCIKS import. |
 | Map/rational smooth, circle, and genus-one extensions | Proved in Paper D v12 under its stated model hypotheses; these are high-priority audit targets. |
 | Certificate grammar and printed deployed certificates | Stated in Paper D v12; every "verified exactly" inequality should have a reproducible script or printed integer certificate. |
+| Finite deployed adjacent threshold resolution | Open/experimental. v13 raw gives exact unsafe-side certificate claims; the adjacent safe side needs row-sharp `Q`, finite BC chart decomposition, and quotient/rung audits with constants. |
+| Asymptotic entropy-subfield envelope | Open. The target is `delta*_C(epsilon*) = 1 - rho - g*(rho, log2 |B|) + o(1)`; the main missing input is asymptotic `Q`/prefix-fiber flatness, with BC/SP handled or reduced in the grande-finale route. |
 | Generated-field locator local limit above all floors | Open. Main list-side positive theorem target. |
 | Corrected MCA / residue-line local limit above all floors | Open. Main MCA-side positive theorem target. |
 | Line-decoding formulation of corrected MCA | Open. Important for protocols. |
@@ -284,8 +312,11 @@ Good first contributions include:
 5. **Hankel certificates.** Use `scripts/aperiodic_eliminant_schema.json` to
    package exact-agreement eliminants, empty chart certificates, or named
    residual obstructions for the Paper D v12 certificate grammar.
-6. **New bounds.** Attack the local-limit conjectures, interleaved-list constants, extension-line MCA, or domain-shattering alternatives.
-7. **Protocol rewrites.** Rewrite FRI, WHIR, or other proximity reductions in the exact ledger format of Paper C.
+6. **Finite/asymptotic threshold work.** Attack row-sharp `Q`, finite BC
+   chart-decomposition, quotient/rung audits, or the asymptotic
+   entropy-subfield-envelope theorem.
+7. **New bounds.** Attack the local-limit conjectures, interleaved-list constants, extension-line MCA, or domain-shattering alternatives.
+8. **Protocol rewrites.** Rewrite FRI, WHIR, or other proximity reductions in the exact ledger format of Paper C.
 
 See `AGENTS.md` for a prioritized task list and suggested toy cases.
 

@@ -15,7 +15,7 @@
       "rows": [
         {
           "id": "paperD-v12-first-grid-rho-1-2",
-          "title": "Paper D v12 first-grid MCA \u03b4* upper cap",
+          "title": "Paper D v12 first-grid MCA δ* upper cap",
           "rho": "1/2",
           "track": "mca",
           "trackLabel": "MCA / CA",
@@ -57,14 +57,14 @@
           "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v12.tex",
           "nonClaims": [
             "Applies to official-rate rows with 127 <= k <= 2^40, q<2^256, and q>n; it is stronger than the older fixed cap 255/512 in that range.",
-            "This is a \u03b4* upper cap from a failure lower bound, not an exact threshold or a safe-side theorem.",
+            "This is a δ* upper cap from a failure lower bound, not an exact threshold or a safe-side theorem.",
             "The c=1 first-grid proof does not require smoothness, but the public board records it for smooth Proximity Prize rows."
           ],
           "authors": "Paper D authors / Codex audit"
         },
         {
           "id": "mca-cap-rho-1-2",
-          "title": "Paper D MCA \u03b4* upper cap",
+          "title": "Paper D MCA δ* upper cap",
           "rho": "1/2",
           "track": "mca",
           "trackLabel": "MCA / CA",
@@ -107,9 +107,59 @@
           "nonClaims": [
             "Paper D v12 cap; hypotheses verified by the displayed divisor, binomial, and field ledgers.",
             "Paper D v12 routes the MCA cap through the self-contained deep-point argument; CA/list comparison statements still have separate radius and import conventions.",
-            "This is a \u03b4* upper cap from a failure lower bound, not an exact threshold."
+            "This is a δ* upper cap from a failure lower bound, not an exact threshold."
           ],
           "authors": "Paper D authors / Codex audit"
+        },
+        {
+          "id": "board-cap-1-2-k128-n256-paperD-Nn",
+          "title": "Prime-field Paper D near-capacity cap, rho=1/2",
+          "rho": "1/2",
+          "track": "mca",
+          "trackLabel": "support-wise MCA",
+          "direction": "threshold-cap-example",
+          "n": "256",
+          "k": "128",
+          "field": "prime p ~ 2^126",
+          "fieldSizeLog2": 125.314,
+          "domainKind": "multiplicative-subgroup",
+          "smoothPowerOfTwo": true,
+          "agreementA": "130",
+          "sigma": "2",
+          "deltaExact": "63/128",
+          "deltaApprox": 0.4921875,
+          "etaExact": "1/128",
+          "etaApprox": 0.0078125,
+          "qGen": "52876485308845267216293388343134126081",
+          "qLine": "52876485308845267216293388343134126081",
+          "qChal": "not protocol-bound",
+          "nBad": ">=206548770737676825063646048215367679",
+          "failureMarginBits": 120,
+          "marginLabel": "+120 bits",
+          "prizeBox": {
+            "rate": true,
+            "smoothDomain": true,
+            "kBound": true,
+            "fieldBound": true,
+            "denominatorAudited": true,
+            "endpointConvention": true,
+            "publicSource": true,
+            "conditionalImport": false,
+            "rhoNIntegral": true,
+            "powerOfTwoQuotient": true,
+            "quotientDivisor": "cap divisor N=n (first closed grid point)"
+          },
+          "status": "PROVED_PAPERD_V12_CAP",
+          "statusLabel": "proved Paper D v12 cap",
+          "source": "board_cap_certificate_generator.py + certificate_scanner.paper_d_cap",
+          "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/board_nearcapacity_caps.md",
+          "nonClaims": [
+            "Instantiated example of the Paper D v12 cap at divisor N=n, not a new theorem beyond Paper D.",
+            "delta* upper cap from the near-capacity MCA error-floor lower bound eps >= (q-n)/(2kq); not an exact threshold or a safe-side theorem.",
+            "The bad-count is the equivalent numerator N_bad=floor((q-n)/(2k)) from the error floor, not an explicit slope census.",
+            "Prime-field row engineered near the cap ceiling; the committed scanner verifies the divisor/binomial/field ledgers."
+          ],
+          "authors": "Scott Hughes / Codex + Sage cross-check"
         },
         {
           "id": "cap25-v13-identity-kb-mca-edge",
@@ -162,7 +212,7 @@
         },
         {
           "id": "list-cap-rho-1-2",
-          "title": "Interleaved-list \u03b4* upper cap from base-list obstruction",
+          "title": "Interleaved-list δ* upper cap from base-list obstruction",
           "rho": "1/2",
           "track": "list",
           "trackLabel": "Interleaved-list",
@@ -204,7 +254,7 @@
           "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/slackMCA_v4.tex",
           "nonClaims": [
             "List lower bound only; it is not by itself an MCA or protocol soundness theorem.",
-            "This is a \u03b4*_list upper cap from a list-size lower bound, not an exact threshold."
+            "This is a δ*_list upper cap from a list-size lower bound, not an exact threshold."
           ],
           "authors": "RS-MCA experimental notes / Codex audit"
         },
@@ -837,7 +887,7 @@
       "rows": [
         {
           "id": "paperD-v12-first-grid-rho-1-4",
-          "title": "Paper D v12 first-grid MCA \u03b4* upper cap",
+          "title": "Paper D v12 first-grid MCA δ* upper cap",
           "rho": "1/4",
           "track": "mca",
           "trackLabel": "MCA / CA",
@@ -879,14 +929,14 @@
           "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v12.tex",
           "nonClaims": [
             "Applies to official-rate rows with 78 <= k <= 2^40, q<2^256, and q>n; it is stronger than the older fixed cap 383/512 in that range.",
-            "This is a \u03b4* upper cap from a failure lower bound, not an exact threshold or a safe-side theorem.",
+            "This is a δ* upper cap from a failure lower bound, not an exact threshold or a safe-side theorem.",
             "The c=1 first-grid proof does not require smoothness, but the public board records it for smooth Proximity Prize rows."
           ],
           "authors": "Paper D authors / Codex audit"
         },
         {
           "id": "mca-cap-rho-1-4",
-          "title": "Paper D MCA \u03b4* upper cap",
+          "title": "Paper D MCA δ* upper cap",
           "rho": "1/4",
           "track": "mca",
           "trackLabel": "MCA / CA",
@@ -929,13 +979,63 @@
           "nonClaims": [
             "Paper D v12 cap; hypotheses verified by the displayed divisor, binomial, and field ledgers.",
             "Paper D v12 routes the MCA cap through the self-contained deep-point argument; CA/list comparison statements still have separate radius and import conventions.",
-            "This is a \u03b4* upper cap from a failure lower bound, not an exact threshold."
+            "This is a δ* upper cap from a failure lower bound, not an exact threshold."
           ],
           "authors": "Paper D authors / Codex audit"
         },
         {
+          "id": "board-cap-1-4-k128-n512-paperD-Nn",
+          "title": "Prime-field Paper D near-capacity cap, rho=1/4",
+          "rho": "1/4",
+          "track": "mca",
+          "trackLabel": "support-wise MCA",
+          "direction": "threshold-cap-example",
+          "n": "512",
+          "k": "128",
+          "field": "prime p ~ 2^207",
+          "fieldSizeLog2": 206.444,
+          "domainKind": "multiplicative-subgroup",
+          "smoothPowerOfTwo": true,
+          "agreementA": "130",
+          "sigma": "2",
+          "deltaExact": "191/256",
+          "deltaApprox": 0.74609375,
+          "etaExact": "1/256",
+          "etaApprox": 0.00390625,
+          "qGen": "139892442374698000895371181974088502168815426203143952050159617",
+          "qLine": "139892442374698000895371181974088502168815426203143952050159617",
+          "qChal": "not protocol-bound",
+          "nBad": ">=546454853026164065997543679586283211596935258606031062695934",
+          "failureMarginBits": 120,
+          "marginLabel": "+120 bits",
+          "prizeBox": {
+            "rate": true,
+            "smoothDomain": true,
+            "kBound": true,
+            "fieldBound": true,
+            "denominatorAudited": true,
+            "endpointConvention": true,
+            "publicSource": true,
+            "conditionalImport": false,
+            "rhoNIntegral": true,
+            "powerOfTwoQuotient": true,
+            "quotientDivisor": "cap divisor N=n (first closed grid point)"
+          },
+          "status": "PROVED_PAPERD_V12_CAP",
+          "statusLabel": "proved Paper D v12 cap",
+          "source": "board_cap_certificate_generator.py + certificate_scanner.paper_d_cap",
+          "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/board_nearcapacity_caps.md",
+          "nonClaims": [
+            "Instantiated example of the Paper D v12 cap at divisor N=n, not a new theorem beyond Paper D.",
+            "delta* upper cap from the near-capacity MCA error-floor lower bound eps >= (q-n)/(2kq); not an exact threshold or a safe-side theorem.",
+            "The bad-count is the equivalent numerator N_bad=floor((q-n)/(2k)) from the error floor, not an explicit slope census.",
+            "Prime-field row engineered near the cap ceiling; the committed scanner verifies the divisor/binomial/field ledgers."
+          ],
+          "authors": "Scott Hughes / Codex + Sage cross-check"
+        },
+        {
           "id": "list-cap-rho-1-4",
-          "title": "Interleaved-list \u03b4* upper cap from base-list obstruction",
+          "title": "Interleaved-list δ* upper cap from base-list obstruction",
           "rho": "1/4",
           "track": "list",
           "trackLabel": "Interleaved-list",
@@ -977,7 +1077,7 @@
           "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/slackMCA_v4.tex",
           "nonClaims": [
             "List lower bound only; it is not by itself an MCA or protocol soundness theorem.",
-            "This is a \u03b4*_list upper cap from a list-size lower bound, not an exact threshold."
+            "This is a δ*_list upper cap from a list-size lower bound, not an exact threshold."
           ],
           "authors": "RS-MCA experimental notes / Codex audit"
         },
@@ -1047,7 +1147,7 @@
       "rows": [
         {
           "id": "paperD-v12-first-grid-rho-1-8",
-          "title": "Paper D v12 first-grid MCA \u03b4* upper cap",
+          "title": "Paper D v12 first-grid MCA δ* upper cap",
           "rho": "1/8",
           "track": "mca",
           "trackLabel": "MCA / CA",
@@ -1089,14 +1189,14 @@
           "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v12.tex",
           "nonClaims": [
             "Applies to official-rate rows with 58 <= k <= 2^40, q<2^256, and q>n; it is stronger than the older fixed cap 447/512 in that range.",
-            "This is a \u03b4* upper cap from a failure lower bound, not an exact threshold or a safe-side theorem.",
+            "This is a δ* upper cap from a failure lower bound, not an exact threshold or a safe-side theorem.",
             "The c=1 first-grid proof does not require smoothness, but the public board records it for smooth Proximity Prize rows."
           ],
           "authors": "Paper D authors / Codex audit"
         },
         {
           "id": "mca-cap-rho-1-8",
-          "title": "Paper D MCA \u03b4* upper cap",
+          "title": "Paper D MCA δ* upper cap",
           "rho": "1/8",
           "track": "mca",
           "trackLabel": "MCA / CA",
@@ -1139,13 +1239,63 @@
           "nonClaims": [
             "Paper D v12 cap; hypotheses verified by the displayed divisor, binomial, and field ledgers.",
             "Paper D v12 routes the MCA cap through the self-contained deep-point argument; CA/list comparison statements still have separate radius and import conventions.",
-            "This is a \u03b4* upper cap from a failure lower bound, not an exact threshold."
+            "This is a δ* upper cap from a failure lower bound, not an exact threshold."
           ],
           "authors": "Paper D authors / Codex audit"
         },
         {
+          "id": "board-cap-1-8-k64-n512-paperD-Nn",
+          "title": "Prime-field Paper D near-capacity cap, rho=1/8",
+          "rho": "1/8",
+          "track": "mca",
+          "trackLabel": "support-wise MCA",
+          "direction": "threshold-cap-example",
+          "n": "512",
+          "k": "64",
+          "field": "prime p ~ 2^139",
+          "fieldSizeLog2": 138.809,
+          "domainKind": "multiplicative-subgroup",
+          "smoothPowerOfTwo": true,
+          "agreementA": "66",
+          "sigma": "2",
+          "deltaExact": "223/256",
+          "deltaApprox": 0.87109375,
+          "etaExact": "1/256",
+          "etaApprox": 0.00390625,
+          "qGen": "610562189253219505902654087925727156502529",
+          "qLine": "610562189253219505902654087925727156502529",
+          "qChal": "not protocol-bound",
+          "nBad": ">=4770017103540777389864485061919743410172",
+          "failureMarginBits": 121,
+          "marginLabel": "+121 bits",
+          "prizeBox": {
+            "rate": true,
+            "smoothDomain": true,
+            "kBound": true,
+            "fieldBound": true,
+            "denominatorAudited": true,
+            "endpointConvention": true,
+            "publicSource": true,
+            "conditionalImport": false,
+            "rhoNIntegral": true,
+            "powerOfTwoQuotient": true,
+            "quotientDivisor": "cap divisor N=n (first closed grid point)"
+          },
+          "status": "PROVED_PAPERD_V12_CAP",
+          "statusLabel": "proved Paper D v12 cap",
+          "source": "board_cap_certificate_generator.py + certificate_scanner.paper_d_cap",
+          "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/board_nearcapacity_caps.md",
+          "nonClaims": [
+            "Instantiated example of the Paper D v12 cap at divisor N=n, not a new theorem beyond Paper D.",
+            "delta* upper cap from the near-capacity MCA error-floor lower bound eps >= (q-n)/(2kq); not an exact threshold or a safe-side theorem.",
+            "The bad-count is the equivalent numerator N_bad=floor((q-n)/(2k)) from the error floor, not an explicit slope census.",
+            "Prime-field row engineered near the cap ceiling; the committed scanner verifies the divisor/binomial/field ledgers."
+          ],
+          "authors": "Scott Hughes / Codex + Sage cross-check"
+        },
+        {
           "id": "list-cap-rho-1-8",
-          "title": "Interleaved-list \u03b4* upper cap from base-list obstruction",
+          "title": "Interleaved-list δ* upper cap from base-list obstruction",
           "rho": "1/8",
           "track": "list",
           "trackLabel": "Interleaved-list",
@@ -1187,7 +1337,7 @@
           "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/slackMCA_v4.tex",
           "nonClaims": [
             "List lower bound only; it is not by itself an MCA or protocol soundness theorem.",
-            "This is a \u03b4*_list upper cap from a list-size lower bound, not an exact threshold."
+            "This is a δ*_list upper cap from a list-size lower bound, not an exact threshold."
           ],
           "authors": "RS-MCA experimental notes / Codex audit"
         },
@@ -1257,7 +1407,7 @@
       "rows": [
         {
           "id": "paperD-v12-first-grid-rho-1-16",
-          "title": "Paper D v12 first-grid MCA \u03b4* upper cap",
+          "title": "Paper D v12 first-grid MCA δ* upper cap",
           "rho": "1/16",
           "track": "mca",
           "trackLabel": "MCA / CA",
@@ -1299,14 +1449,14 @@
           "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v12.tex",
           "nonClaims": [
             "Applies to official-rate rows with 47 <= k <= 2^40, q<2^256, and q>n; it is stronger than the older fixed cap 959/1024 in that range.",
-            "This is a \u03b4* upper cap from a failure lower bound, not an exact threshold or a safe-side theorem.",
+            "This is a δ* upper cap from a failure lower bound, not an exact threshold or a safe-side theorem.",
             "The c=1 first-grid proof does not require smoothness, but the public board records it for smooth Proximity Prize rows."
           ],
           "authors": "Paper D authors / Codex audit"
         },
         {
           "id": "mca-cap-rho-1-16",
-          "title": "Paper D MCA \u03b4* upper cap",
+          "title": "Paper D MCA δ* upper cap",
           "rho": "1/16",
           "track": "mca",
           "trackLabel": "MCA / CA",
@@ -1349,13 +1499,63 @@
           "nonClaims": [
             "Paper D v12 cap; hypotheses verified by the displayed divisor, binomial, and field ledgers.",
             "Paper D v12 routes the MCA cap through the self-contained deep-point argument; CA/list comparison statements still have separate radius and import conventions.",
-            "This is a \u03b4* upper cap from a failure lower bound, not an exact threshold."
+            "This is a δ* upper cap from a failure lower bound, not an exact threshold."
           ],
           "authors": "Paper D authors / Codex audit"
         },
         {
+          "id": "board-cap-1-16-k64-n1024-paperD-Nn",
+          "title": "Prime-field Paper D near-capacity cap, rho=1/16",
+          "rho": "1/16",
+          "track": "mca",
+          "trackLabel": "support-wise MCA",
+          "direction": "threshold-cap-example",
+          "n": "1024",
+          "k": "64",
+          "field": "prime p ~ 2^174",
+          "fieldSizeLog2": 173.425,
+          "domainKind": "multiplicative-subgroup",
+          "smoothPowerOfTwo": true,
+          "agreementA": "66",
+          "sigma": "2",
+          "deltaExact": "479/512",
+          "deltaApprox": 0.935546875,
+          "etaExact": "1/512",
+          "etaApprox": 0.001953125,
+          "qGen": "16071121663997697994234817461573161796528909112573953",
+          "qLine": "16071121663997697994234817461573161796528909112573953",
+          "qChal": "not protocol-bound",
+          "nBad": ">=125555637999982015579959511418540326535382102441976",
+          "failureMarginBits": 121,
+          "marginLabel": "+121 bits",
+          "prizeBox": {
+            "rate": true,
+            "smoothDomain": true,
+            "kBound": true,
+            "fieldBound": true,
+            "denominatorAudited": true,
+            "endpointConvention": true,
+            "publicSource": true,
+            "conditionalImport": false,
+            "rhoNIntegral": true,
+            "powerOfTwoQuotient": true,
+            "quotientDivisor": "cap divisor N=n (first closed grid point)"
+          },
+          "status": "PROVED_PAPERD_V12_CAP",
+          "statusLabel": "proved Paper D v12 cap",
+          "source": "board_cap_certificate_generator.py + certificate_scanner.paper_d_cap",
+          "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/board_nearcapacity_caps.md",
+          "nonClaims": [
+            "Instantiated example of the Paper D v12 cap at divisor N=n, not a new theorem beyond Paper D.",
+            "delta* upper cap from the near-capacity MCA error-floor lower bound eps >= (q-n)/(2kq); not an exact threshold or a safe-side theorem.",
+            "The bad-count is the equivalent numerator N_bad=floor((q-n)/(2k)) from the error floor, not an explicit slope census.",
+            "Prime-field row engineered near the cap ceiling; the committed scanner verifies the divisor/binomial/field ledgers."
+          ],
+          "authors": "Scott Hughes / Codex + Sage cross-check"
+        },
+        {
           "id": "list-cap-rho-1-16",
-          "title": "Interleaved-list \u03b4* upper cap from base-list obstruction",
+          "title": "Interleaved-list δ* upper cap from base-list obstruction",
           "rho": "1/16",
           "track": "list",
           "trackLabel": "Interleaved-list",
@@ -1397,7 +1597,7 @@
           "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/tex/slackMCA_v4.tex",
           "nonClaims": [
             "List lower bound only; it is not by itself an MCA or protocol soundness theorem.",
-            "This is a \u03b4*_list upper cap from a list-size lower bound, not an exact threshold."
+            "This is a δ*_list upper cap from a list-size lower bound, not an exact threshold."
           ],
           "authors": "RS-MCA experimental notes / Codex audit"
         },

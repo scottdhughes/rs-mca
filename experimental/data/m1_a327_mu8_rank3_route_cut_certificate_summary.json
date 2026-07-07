@@ -1,0 +1,219 @@
+{
+  "track": "INTERLEAVED_LIST",
+  "row": "RS[F_17^32,H,256]",
+  "denominator": "17^32",
+  "agreement_target": 327,
+  "source_pr": 355,
+  "source_pr_url": "https://github.com/przchojecki/rs-mca/pull/355",
+  "source_head": "bf8d5c122c3bcacee1844433ad12115bd82756dd",
+  "proof_status": "EXACT_EXTRACTION_NO_A327 / MU8_RANK3_ROUTE_CUT_CERTIFICATE_SUMMARY / PARTIAL / EXPERIMENTAL",
+  "mca_counted": false,
+  "not_claimed": [
+    "MCA N_bad",
+    "protocol soundness",
+    "ordinary list decoding beyond stated interleaved-list predicate",
+    "global Lambda_mu(C,327) <= 6",
+    "exact Lambda_mu",
+    "exact delta*_C"
+  ],
+  "summary": {
+    "exact_a327_witness_passes": 0,
+    "board_ready": false,
+    "public_value": "compact route-cut summary for the current rank-3 mu8 singleton-projective full-rank front",
+    "next_direction": "synthesize menus where repeated projective keys are support-balanced by construction"
+  },
+  "generic_core_nogoods": {
+    "status": "MU8_RANK3_GENERIC_CORE_NOGOODS_READY",
+    "pressure_files_scanned": 30,
+    "pressure_systems_scanned": 79,
+    "eligible_dependency_free_full_rank_systems": 56,
+    "unique_core_nogoods": 54,
+    "singleton_projective_core_nogoods": 54,
+    "duplicate_cores_removed": 2,
+    "planes": {
+      "rank3_blockkey_000": {
+        "unique_core_nogoods": 6,
+        "singleton_projective_cores": 6
+      },
+      "rank3_blockkey_001": {
+        "unique_core_nogoods": 36,
+        "singleton_projective_cores": 36
+      },
+      "rank3_blockkey_002": {
+        "unique_core_nogoods": 4,
+        "singleton_projective_cores": 4
+      },
+      "rank3_blockkey_003": {
+        "unique_core_nogoods": 5,
+        "singleton_projective_cores": 5
+      },
+      "rank3_blockkey_004": {
+        "unique_core_nogoods": 1,
+        "singleton_projective_cores": 1
+      },
+      "rank3_blockkey_005": {
+        "unique_core_nogoods": 1,
+        "singleton_projective_cores": 1
+      },
+      "rank3_blockkey_006": {
+        "unique_core_nogoods": 1,
+        "singleton_projective_cores": 1
+      }
+    }
+  },
+  "guarded_core_nogood_run": {
+    "schedule_status": "MU8_RANK3_LOWROW_SUPPORT_PAIR_PASS",
+    "support_pair_candidates": 2,
+    "best_min_support": 327,
+    "best_total_incidence": 2293,
+    "best_pair_count_max": 255,
+    "best_max_selected_projective_key_support": 1,
+    "best_core_nogood_constraints": 1,
+    "exact_status": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK",
+    "exact_field": "GF(17^32)",
+    "exact_systems_tested": 2,
+    "exact_positive_nullity_systems": 0,
+    "exact_best_nullity": 0,
+    "exact_matrix_shapes": [
+      [
+        152,
+        96
+      ],
+      [
+        152,
+        96
+      ]
+    ],
+    "row_pressure_status": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK",
+    "row_pressure_systems_tested": 2,
+    "row_pressure_positive_nullity_systems": 0,
+    "row_pressure_rank_drop_histogram": {
+      "0": 62
+    },
+    "witness_constructed": false
+  },
+  "singleton_projective_key_forbid_run": {
+    "status": "MU8_RANK3_LOWROW_NO_SUPPORT_PAIR_PASS",
+    "forbid_core_subsets": true,
+    "forbid_singleton_projective_keys": true,
+    "broad_subspaces_solved": 8,
+    "broad_support_pair_candidates": 0,
+    "broad_solver_status_counts": {
+      "INFEASIBLE": 7,
+      "UNKNOWN": 1
+    },
+    "best_singleton_key_forbid_constraints": 513,
+    "focused_subspace": "rank3_blockkey_001",
+    "focused_solver_status": "INFEASIBLE",
+    "focused_support_pair_candidates": 0,
+    "focused_singleton_key_forbid_constraints": 613,
+    "interpretation": "allowing singleton projective keys gives support/pair schedules with exact full rank; forbidding singleton projective keys eliminates the tested support/pair front"
+  },
+  "large_raw_schedule_archive": {
+    "status": "ARCHIVED_SEPARATELY",
+    "path": "experimental/data/m1_a327_mu8_rank3_singleton_blocked_support_first_schedule.json",
+    "line_count": 73753,
+    "byte_count": 1300748,
+    "sha256": "b9eea14d9db3ac34fd626dbcc8276a5fe8a70c8b133189acfcab5897395c637a",
+    "support_pair_candidates": 1,
+    "best_min_support": 327,
+    "best_total_incidence": 2289,
+    "best_pair_count_max": 250,
+    "max_selected_projective_key_support": 1,
+    "exact_interpolation": {
+      "systems_tested": 1,
+      "field": "GF(17^32)",
+      "matrix_shape": [
+        155,
+        96
+      ],
+      "rank": 96,
+      "nullity": 0,
+      "status": "MU8_RANK3_PROJECTIVE_INTERPOLATION_FULL_RANK"
+    },
+    "row_dependency_pressure": {
+      "systems_tested": 1,
+      "rank": 96,
+      "nullity": 0,
+      "critical_group_count": 0,
+      "rank_drop_histogram": {
+        "0": 64
+      },
+      "status": "MU8_RANK3_ROW_DEPENDENCY_FULL_RANK_REDUNDANT"
+    }
+  },
+  "hash_addressed_artifacts": [
+    {
+      "role": "core dependency synthesis summary",
+      "path": "experimental/data/m1_a327_mu8_rank3_core_dependency_synthesis_summary.json",
+      "line_count": 166,
+      "byte_count": 9566,
+      "sha256": "3b3c66513f43b21e802b5a7ef009b58058c291edf8a02b200aa41e243c607b11",
+      "included_in_this_pr": false
+    },
+    {
+      "role": "core no-good exact interpolation",
+      "path": "experimental/data/m1_a327_mu8_rank3_core_nogood_exact_interpolation.json",
+      "line_count": 65,
+      "byte_count": 1914,
+      "sha256": "7849d6421201ffeb0a2e0b221e27465f666099ff0776d3859b7264fc7644ca7f",
+      "included_in_this_pr": false
+    },
+    {
+      "role": "core no-good lowrow raw schedule",
+      "path": "experimental/data/m1_a327_mu8_rank3_core_nogood_lowrow_schedule.json",
+      "line_count": 8263,
+      "byte_count": 152020,
+      "sha256": "e3d2819e0d48bf363fd31a706ff239cab82e857f97fe57a786ab29f360adbc01",
+      "included_in_this_pr": false
+    },
+    {
+      "role": "core no-good row dependency pressure",
+      "path": "experimental/data/m1_a327_mu8_rank3_core_nogood_row_dependency_pressure.json",
+      "line_count": 1336,
+      "byte_count": 39810,
+      "sha256": "50cb9bef8aacbddaf28b4914842b1d45da94f80172ff0d786fb279113610485b",
+      "included_in_this_pr": false
+    },
+    {
+      "role": "core no-good witness audit",
+      "path": "experimental/data/m1_a327_mu8_rank3_core_nogood_witness_audit.json",
+      "line_count": 24,
+      "byte_count": 674,
+      "sha256": "d109d14b1fb67608b9faacb5d40d85c9fe1259967b5d9faa07b45a98c0884037",
+      "included_in_this_pr": false
+    },
+    {
+      "role": "generic core no-good mined cores",
+      "path": "experimental/data/m1_a327_mu8_rank3_generic_core_nogoods.json",
+      "line_count": 4615,
+      "byte_count": 137768,
+      "sha256": "55ffa6a450219f35291bbfba0b3448e33a8bf20e0d739208aee30671b0ae0d1f",
+      "included_in_this_pr": false
+    },
+    {
+      "role": "no-singleton broad schedule",
+      "path": "experimental/data/m1_a327_mu8_rank3_no_singleton_projective_key_schedule.json",
+      "line_count": 234,
+      "byte_count": 8122,
+      "sha256": "f50edfe0e3a5992550944409d6803013ef379e9efa6c3c8293e0063b391004b3",
+      "included_in_this_pr": false
+    },
+    {
+      "role": "no-singleton focused blockkey001 schedule",
+      "path": "experimental/data/m1_a327_mu8_rank3_no_singleton_projective_key_blockkey001_schedule.json",
+      "line_count": 80,
+      "byte_count": 2800,
+      "sha256": "2934ca8c1bb80b6f6d6a0619dc13aa00a5e5bceab42da83cbdce200addbd7c92",
+      "included_in_this_pr": false
+    },
+    {
+      "role": "large singleton-blocked support-first raw schedule archive",
+      "path": "experimental/data/m1_a327_mu8_rank3_singleton_blocked_support_first_schedule.json",
+      "line_count": 73753,
+      "byte_count": 1300748,
+      "sha256": "b9eea14d9db3ac34fd626dbcc8276a5fe8a70c8b133189acfcab5897395c637a",
+      "included_in_this_pr": false
+    }
+  ]
+}

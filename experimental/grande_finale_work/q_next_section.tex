@@ -160,17 +160,18 @@ cancellation problem.
 \label{rem:q-composite-audit}
 The composite Fourier directions are not primitive evidence against Q.  If
 the active indices of \(t\) have common divisor \(e>1\), the phase polynomial
-has the form \(h(X^e)\), and for a multiplicative coset \(S\)
+has the form \(h(X^e)\).  For a multiplicative coset \(S\) of order \(N\),
+put \(c=\gcd(e,N)\).  Then
 \[
         \sum_{\substack{A\subseteq S\\ |A|=m}}
         \psi\!\left(\sum_{a\in A} h(a^e)\right)
         =
-        [T^m]\prod_{b\in S^e}\bigl(1+T\psi(h(b))\bigr)^e .
+        [T^m]\prod_{b\in S^e}\bigl(1+T\psi(h(b))\bigr)^c .
 \]
-Thus this mass lives on the quotient coset \(S^e\) with multiplicity \(e\),
-exactly as in \cref{prop:composite-descend}.  Any future Q theorem must
-first charge these divisor-lattice contributions to the quotient ledger, and
-then bound the remaining primitive max fibers.
+Thus this mass lives on the image coset \(S^e\) with multiplicity \(c\),
+exactly as in \cref{prop:composite-descend}.  When \(c>1\), any future Q
+theorem must first charge these divisor-lattice contributions to the quotient
+ledger, and then bound the remaining primitive max fibers.
 \end{remark}
 
 \paragraph{What remains open.}
