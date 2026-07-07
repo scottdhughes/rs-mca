@@ -585,3 +585,45 @@ theorem (approximate-spike exclusion) -- a hard open problem in its own right, b
 be true for all but a `1e-13` fraction of coefficient directions. This is the frontier; consistent with the
 barrier being the genuine hard core of the EF prize (both this DUAL track and holmbuar's PRIMAL shift-pair track
 converge here).
+
+## Round (i) -- DYADIC DESCENT up the 2-power tower: numerical GREEN LIGHT for a novel proof route (2026-07-07)
+
+Attacking the inverse-theorem crux `max_t |phihat_t| <= n^{0.81}` via a route that uses the ONE thing making
+`G = mu_{2^k}` special -- its 2-power structure -- which no generic sum-product/Bourgain method exploits.
+
+**The structure (exact).** The nested tower `G_9 subset ... subset G_k = G`, `G_j = mu_{2^j} = <z_j>`, has
+`phihat_{G_j}(chi_t) = DFT(phi_j)_t`, `phi_j[m] = e_p(f_c(z_j^m))`. The tower is EXACTLY the FFT
+decimation-in-time butterfly: `phi_{G_{j-1}} =` even subsamples of `phi_{G_j}`, and
+`phihat_{G_j}(t) = A_t + omega^t B_t` with `A = DFT_even` (over `G_{j-1}`), `B = DFT_odd` (over the coset
+`zeta G_{j-1}`). So an INDUCTIVE proof of `max_t|phihat_{G_j}| <= (2^j)^{theta}` needs the per-level ratio
+`rho_j := max_t|phihat_{G_j}| / max_t|phihat_{G_{j-1}}|` to satisfy `rho_j <= 2^{theta}` (geometric-mean sense).
+Target `theta = 0.81 => 2^{0.81} = 1.753`.
+
+**Numerics (`b2_sp_dyadic_descent.py`, deployed prime, tower `j = 9..18`, 128 odd exps):** GREEN.
+- **Per-level ratio `rho(up)` mean `= 1.46 - 1.54`** (dense 1.459, monomial 1.476, adversarial 1.544) --
+  comfortably below `2^{0.81} = 1.75`. Range: dense `[1.36, 1.60]` (all under), adversarial `[1.35, 2.10]`
+  (one level touches `2.10`, so a HARD-CAP per-level induction fails, but the geometric mean is what governs).
+- **The self-similar exponent `log_{2^j} max|phihat_{G_j}|` is STABLE at `~0.60`** across the whole tower
+  (dense 0.647 -> 0.595; adversarial 0.639 -> 0.626), i.e. `max|phihat_{G_j}| ~ (2^j)^{0.60}` -- the geometric
+  mean of the `rho`'s is `2^{0.60} < 2^{0.81}`, with MARGIN. The exponent does NOT drift up as `j` grows.
+- `max|phihat|/sqrt(N_j) ~ 2.5 - 4.8` (slowly growing), consistent with exponent `0.60`. Butterfly cancellation
+  `|phihat|/(|A|+|B|) ~ 0.83 - 1.0` (the two half-spectra peak at different frequencies -- that is WHY `rho ~ 1.46`,
+  not `2`).
+
+**Verdict + what a proof needs.** The 2-power dyadic descent is the FIRST route not proved-dead; numerics say the
+sup bound is dyadically SELF-SIMILAR with effective exponent `~0.60 << 0.81`, so an AMORTIZED/averaged descent
+(not a hard per-level cap -- adversarial `rho` occasionally hits `~2.1`) is viable. A proof needs: (i) a per-level
+LEMMA `max_t|phihat_{G_j}| <= 2^{theta} max_t|phihat_{G_{j-1}}|` in an averaged/`L^p`-amortized form with
+`theta < 0.81` (the butterfly `A_t, B_t` peak-separation is the mechanism -- must be made quantitative and
+uniform in `c`); (ii) a BASE CASE bound on a small `G_{j0}` (small subgroup, possibly Weil-accessible). This is a
+concrete, novel, non-dead proof strategy -- unlike Bourgain-orbit/OSV (which collapse at `r = 33736`), it does not
+see `r` at all, only the tower height `k = 21`. CAVEAT (regime-first): tested `j <= 18`, 128 terms; deployed
+`k = 21`, `w_odd = 33736` -- the exponent stability across `j = 9..18` is the signal, not a proof; larger runs
+(bigger `k`, deployed-scale `w_odd`) should confirm the `~0.60` self-similar exponent and the mean `rho < 1.75`.
+
+**NET (round i):** the inverse-theorem crux has a live, novel proof STRATEGY -- dyadic descent up the 2-power
+tower (the FFT butterfly), numerically self-similar at exponent `~0.60` (target `0.81`, margin) with mean
+per-level growth `~1.46 < 1.75`. The missing analytic inputs are the averaged per-level butterfly lemma + a
+small-subgroup base case. This is the first crack that is not a dead proxy; it exploits the 2-power structure
+directly. Still OPEN, but for the first time there is a route whose obstruction is a concrete lemma rather than a
+factorial-in-`r` collapse.
