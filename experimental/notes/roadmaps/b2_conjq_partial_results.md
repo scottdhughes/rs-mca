@@ -1,10 +1,56 @@
 # conj:Q / u2c_giant_tnull: a partial-results package (2026-07-07)
 
+> ## EXECUTIVE SUMMARY (for reviewers)
+>
+> **Object (deployed KoalaBear `p = 2^31-2^24+1`, `n = 2^21 = p^{0.678}`, `w = 67471`):** the primitive
+> max-fiber count `N_prim` for the subset-sum `conj:Q`; target `N_prim <= n^3`. This is the DUAL
+> (character-sum) attack; holmbuar's `grande_finale` is the PRIMAL (shift-pair census) attack; they converge
+> on the same barrier (see the "Cross-check vs holmbuar" section).
+>
+> **Headline result of this package: the entire DUAL absolute-value program is COMPLETE AS A MAP.** conj:Q's
+> dual crux reduces (all steps proved) to Hypothesis SP -- a large-values bound `sum_{c!=0}|pi_odd(c)|^s <=
+> n^{O(1)} n^s` -- and we show **NO absolute-value statement can suffice**: every `|.|`-route is proved dead or
+> (for the final capacity form) heuristically FALSE, verified by exact code enumeration. What remains for the
+> dual side is SIGNED cancellation (the alternating `e_m`/plethystic sum), invisible to any `|.|`-bound. This
+> "no absolute-value bound suffices" is itself a citable structural finding about the prize barrier.
+>
+> **PROVED (machine-checked in Lean 4 / Mathlib, zero-sorry, `experimental/lean/powersum_rigidity/`):**
+> - `powersum_rigidity` -- equal power sums `p_1..p_d` determine a size-`d` multiset (char 0 or `> d`). Anchors
+>   T6 (PTE rigidity) / T2 (low-cycle vanishing), and formally certifies holmbuar's `prop:prefix-rigidity`.
+> - `OffdiagMultiplicity.solutions_ncard_le` -- the off-diagonal multiplicative-energy fiber has `ncard <= 16`
+>   (Newton elimination). Anchors T18's coefficient-space `L^2` genericity result.
+>
+> **PROVED (analytic, cross-checked numerically at deployed or toy scale):** reformulations T1-T13; the
+> `(2s-1)!!` odd moment law (T5); PTE rigidity `E_d = 0` for `d <= w` (T6); energy route caps at `sqrt(M)`
+> (T11, DEAD); monomial phases `|pi_odd(cx^j)| <= (1+(m'-1)sqrt p)/m' = n^{0.738}` (T17); the exact GRS
+> `[2^20, 33736]` code form; the moment-law large-values ledger closing `rho in (0.251, 0.301] cup [0.731, 1)`.
+>
+> **PROVED DEAD (with the exact obstruction, so nobody re-runs them):** generic Weil/completion (`w sqrt p =
+> n^{1.5}`); higher moments (T14, overshoot `n^{19,300}`); additive energy (T11); 2nd/4th-moment proxies over
+> `F_p^*` (round d, resonance-lossy); the uniform sup bound (rounds c-m, refuted by pigeonhole approximate-
+> freeze reaching `n^{0.8986} > n^{0.81}`); the dyadic per-level butterfly lemma (round k, dyadic aliasing);
+> peak-coherence (round l, frozen-fiber family); `L^p`-Young on the butterfly convolution; Cochrane-Pinner
+> sparse sums; OSV/Bourgain `r`-term induction (factorial collapse at `r = 33736`); and -- heuristically, by a
+> VERIFIED Lee-random-like code ledger -- Hypothesis SP itself in the middle window `rho in (0.303, 0.642)`.
+>
+> **Verified extremal map:** generic `c` `~n^{0.60}`; monomials `n^{0.738}`; dyadic-aliased `n^{0.7651}`;
+> frozen-fiber `n^{0.7617}`; pigeonhole approximate-freeze `n^{0.8986}` (all checked at FULL deployed scale
+> for the sparse constructions). The degree cap (`f_c` const on `S => |S| <= w`) governs exact freezes; the
+> coefficient DIMENSION governs approximate freezes.
+>
+> **STATUS: conj:Q remains OPEN.** This package does not prove it. It delivers (a) two Lean-verified lemmas,
+> (b) the complete proved-dead fence around the dual absolute-value approach, (c) the exact GRS/Lee-weight
+> reformulation, (d) the verified extremal families, and (e) the pivot: the dual side needs signed cancellation
+> (or the primal census route). Navigation: PROVED theorems T1-T18 below; then the chronological rounds (a)-(n)
+> record the reductions, retractions (round d/i.1 self-corrected; round k/l/m refuted by verified
+> counterexamples), and cross-check vs holmbuar. Scripts: `experimental/scripts/b2_sp_*.py` (each self-checks).
+
 Clean statement of what is PROVED for the giant t-null / primitive max-fiber count, the exact
-reformulations, and the single remaining open crux. Working log + numerics in
-`b2_barrier_beating_synthesis.md`; all statements cross-checked (brute vs DP; two independent
-frontier-model derivations; a TheoremSearch paper chase). Coordinates with holmbuar's
-`cap25_v13_qfin_rung_audit.md`. Scope: `experimental/`, no claim beyond a partial result.
+reformulations, and the remaining open crux. Working log + numerics in
+`b2_barrier_beating_synthesis.md`; statements cross-checked (brute vs DP; multiple independent
+frontier-model rounds, each re-verified here; a TheoremSearch paper chase; two Lean anchors).
+Coordinates with holmbuar's `cap25_v13_qfin_rung_audit.md` and `grande_finale.tex`. Scope:
+`experimental/`, no claim beyond a partial result.
 
 ## The object
 Prime `p`, `n = 2^k` with `n | p-1`, `mu_n = ` n-th roots of unity in `F_p^*` (deployed KoalaBear:
