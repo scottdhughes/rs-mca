@@ -530,3 +530,58 @@ off-diagonal MULTIPLICATIVE-ENERGY exponential sum -- diagonal is free (`2n^2`).
 target needing only `n^{0.38}` saving, with two viable sub-routes (direct energy bound; or `max_u|R_u| <= n^{0.81}`).
 Numerics: massive margin (off-diagonal `~n^{1.5}` cancellation observed vs `n^{0.38}` needed). Still OPEN but now a
 standard-shaped multiplicative-energy / Kloosterman-subgroup estimate, not an unstructured sup bound.
+
+## Round (h) -- frontier-model round on OffDiag: monomials PROVED, coefficient-space L^2 PROVED, obstruction razor-sharp (2026-07-07)
+
+Model round on `OffDiag(c) <= n^{2.62}`. Returned TWO genuine theorems (both re-verified here) + a precisely
+pinned obstruction. `OffDiag(c) = sum_{Q in Q} e_p(c . Delta(Q))`, `Q =` off-diagonal mult-energy quadruples
+`{x1 x2 = x3 x4, {x1,x2} != {x3,x4}}`, `Delta_j(Q) = x1^j+x2^j-x3^j-x4^j`.
+
+**T17 (PROVED -- monomials satisfy the target with fixed-prime room).** For `f = lambda x^j` (`j` odd,
+`lambda != 0`): sub `z = x^j` (permutes `G`), `v = u^j`, so `R_u = sum_{z in G} e_p(lambda z + lambda v/z)`;
+completing over the `m'=1016` cosets, each inner sum is a twisted Kloosterman sum `<= 2 sqrt p` (Weil). Hence
+`max_u |R_u| <= 2 sqrt p = 2^{16.49} < n^{0.81} = 2^{17.01}`, and `OffDiag(lambda x^j) <= sum_u|R_u|^2 - (2n^2-n)
+<= 4 n p = 2^{53.99} < n^{2.62} = 2^{55.02}`. **PROVED, deployed-checked.**
+
+**T18 (PROVED + VERIFIED -- coefficient-space `L^2`; bounded multiplicity; mean-zero).** The fiber of
+`Q -> (Delta_1, Delta_3, Delta_5)` (just the FIRST THREE odd power-sum differences) has size `<= 16`: from
+`Delta_1 = s - t != 0` (`s = x1+x2`, `t = x3+x4`, `P = x1 x2 = x3 x4`), Newton for `p_3, p_5` gives a quadratic
+in `q^2 = (s+t)^2` (coeffs in `Delta_1, Delta_3, Delta_5`), so `q` has `<= 4` values, then `s,t,P` fixed and each
+pair `<= 2` ordered roots `=> <= 16`. Therefore
+    `(1/p^{|Jodd|}) sum_c |OffDiag(c)|^2 = #{Q,Q': Delta(Q)=Delta(Q')} <= 16 |Q| <= 16 n^3`,
+so `Pr_c(|OffDiag(c)| > n^{2.62}) <= 16 n^{-2.24} = 1.1e-13`, and `sum_c OffDiag(c) = #{Q: Delta(Q)=0} = 0`
+(off-diagonal forbids `Delta_1 = 0`) -- **exact mean-zero**. **VERIFIED (`b2_sp_offdiag_fibers.py`):** max fiber
+`= 16` exactly (n=64,128), `coll/n^3 <= 7.85 < 16`, `#{Delta=0} = 0`. So the target holds GENERICALLY (all but a
+`1e-13` fraction of `c`) with bounded-multiplicity structure -- it is NOT a large algebraically-degenerate family.
+
+**Both remaining sub-routes now PROVED-DEAD for general `c` (model):**
+- **Kloosterman sub-route (2) is DEAD for general `c`:** completing `R_u(c)` gives a Laurent phase of pole order
+  `w` at `0,infty`, so Weil gives only `2 w sqrt p = 6.2e9 >> n` (worse than trivial). A sheaf 2nd-moment with
+  conductor loss `w^A` beats `n^{2.62}` only if `A < 0.196`; ordinary conductor estimates have `A >= 1`. So FKM/
+  Deligne needs a degree-free/resonance-stable input, not sharper bookkeeping. (Works ONLY for monomials, T17,
+  where the Laurent phase collapses to a genuine 2-term Kloosterman.)
+- **Bourgain sparse-orbit gives a power saving but factorially too small:** `OffDiag <<_r n^{3 - Delta(r)}`,
+  `Delta(r) = 2 eta(r)/gamma`, but `eta(r) ~ exp(-C r (1/eps + log r))`. Target needs `eta >= 0.38 gamma/2 =
+  0.1288`; at `r = 33736` the saving is astronomically below. Same factorial collapse as OSV (round f).
+
+**The obstruction, razor-sharp (PROVED exact-spike exclusion; OPEN approximate-spike).** Sufficient spectral
+condition: `max_t |phihat_t| <= n^{0.81}` (`phihat_t = sum_{x in G} chi_t(x)^{-1} e_p(f_c(x))`, `phihat_0 = pi_odd`),
+i.e. NO multiplicative character `chi_t` of `G` correlates with `e_p(f_c)` beyond `n^{-0.19} = 6.3%` of trivial
+mass. **EXACT spikes are impossible:** `e_p(f_c) = xi chi_t` on `G` forces (since `gcd(p,n)=1`) `chi_t` trivial,
+then `f_c` constant on `n > w` points `=> f_c = 0 => c = 0`. So the ONLY missing ingredient is:
+    **`max_{c != 0} max_t | sum_{x in G} chi_t(x)^{-1} e_p(f_c(x)) | <= n^{0.81}`**
+-- a quantitative APPROXIMATE-multiplicative-character-spike exclusion (an inverse theorem) for the odd low-degree
+additive phase `e_p(f_c)` on the `2`-power subgroup `G`. Current tech proves it generically (T18), for monomials
+(T17), and asymptotically-with-tiny-saving (Bourgain), but cannot exclude a rare `c` with `6.3%` character bias.
+
+**Setup precision (model):** the clean `|pi_odd| <= n^{0.905}` needs `OffDiag <= n^{2.62} - (2n^2 - n)`; the
+diagonal is `0.0241%` of `n^{2.62}` deployed, harmless given the upstream `p^{0.6137}` crude-count slack.
+
+**NET (round h):** the barrier is now mapped to the millimeter -- `OffDiag <= n^{2.62}` is PROVED for monomials
+(T17), PROVED generic with bounded multiplicity + mean-zero (T18, `Pr(bad) <= 1e-13`), and the ONLY gap is a rare
+exceptional `c` with a `>6.3%` multiplicative-character correlation; both the Kloosterman and Bourgain-orbit
+routes to excluding it are PROVED insufficient at `r = 33736`. The missing piece is a genuine quantitative inverse
+theorem (approximate-spike exclusion) -- a hard open problem in its own right, but the conjecture is now known to
+be true for all but a `1e-13` fraction of coefficient directions. This is the frontier; consistent with the
+barrier being the genuine hard core of the EF prize (both this DUAL track and holmbuar's PRIMAL shift-pair track
+converge here).
