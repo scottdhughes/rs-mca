@@ -150,7 +150,7 @@ all.** Notably `2(t+1)` is exactly the size of the recorded primitive witness at
 `(127,16,2)`, `b = 2t+2 = 6` blocks: none found in the exhaustive run.) Primitive blocks at M31 therefore
 need `b >= 2t+3`; `floor(n/(2t+3)) = 15`, so the `k <= 15` cap and the closure margins are unchanged.
 
-**The theorem's algebraic core is MACHINE-CHECKED (Lean 4 / Mathlib, zero-sorry, axioms
+**The theorem is MACHINE-CHECKED end-to-end (Lean 4 / Mathlib, zero-sorry, axioms
 `[propext, Classical.choice, Quot.sound]`, independently rebuilt + axiom-checked; file
 `experimental/lean/powersum_rigidity/PowersumRigidity/ReciprocalGap.lean`, in the companion b2 PR whose
 branch hosts the Lean project):**
@@ -160,5 +160,12 @@ branch hosts the Lean project):**
   intermediate `e_j(B)` vanish (`j = 1..b-1`): the locator is a BINOMIAL. (Char-free; over any field.)
 - `ReciprocalGap.binom_split_dvd` -- `b` distinct solutions of `x^b = c` all satisfying `x^n = 1` force
   `b | n`. (So the binomial block is a full `mu_b`-coset.)
-The one non-formalized step in the M31 chain is L5 (Frobenius = inversion at `p == -1 mod n`, giving
-"`B^{-1}` `t`-null"), an eight-line freshman's-dream computation verified numerically in `F_{p^2}`.
+**L5 and the full theorem are ALSO machine-checked** (`FrobeniusInversion.lean`, same project):
+- `FrobeniusInversion.psum_inv_eq_psum_pow` -- L5: on `B subset mu_{p+1}` in char `p`, `(sum x^j)^p =
+  sum (x^{-1})^j` (Frobenius acts as inversion), giving `B^{-1}` `t`-null whenever `B` is.
+- `FrobeniusInversion.mersenne_reciprocal_gap` -- THE CAPSTONE, fully formal: field of char `p`,
+  `B subset mu_{p+1}`, `t`-null, `t+1 <= b <= 2t+1`, `(1..t)` invertible `=> ALL intermediate esymm(B)
+  vanish` (binomial locator). Composes L5 + the Newton psum<=>esymm bridges + `reciprocal_gap`.
+**The entire Mersenne reciprocal-gap closure chain is now formal end-to-end -- no informal steps remain.**
+(The deployed rows satisfy the hypotheses: `p' = 2^31 - 1 == -1 (mod n)` gives `mu_n subset mu_{p'+1} =
+mu_{2^31} subset F_{p'^2}`, char `p' > t`, so `(1..t)` are invertible.)
