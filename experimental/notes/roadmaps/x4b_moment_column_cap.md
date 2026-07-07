@@ -73,3 +73,33 @@ unconditional exclusion is Q-wall-hard. CONDITIONAL closure: the first-moment wi
   comparison; row owners can evaluate their rows directly.
 - The cap bounds the staircase MULTIPLICITY; it does not (and need not) decide whether primitive blocks exist
   at official rows -- that existence question remains the Q-wall.
+
+## Structural lemmas for the M31 residue (L4/L5/L6, all verified; `x4b_structural_lemmas.py`)
+
+**L4 (complement closure; PROVED).** `p_j(mu_n) = 0` for `1 <= j <= t < n`, so the complement of a `t`-null
+set is `t`-null; with rigidity, any disjoint family has `sum b_i <= n - t - 1` or `= n`. Consequences at the
+deployed rows: (i) every maximal disjoint family COMPLETES to a partition of `mu_n` into `t`-null parts;
+(ii) `31 (t+1) > n - t - 1`, so a 31-family with all parts in the band must PARTITION `mu_n` exactly;
+(iii) every 27-family lives inside a partition into `<= 31` parts with `>= 27` in-band.
+
+**L5 (Mersenne Frobenius-inversion; PROVED -- M31-specific structure).** At the M31 rows `p' == -1 (mod n)`
+(`2^31 - 1 == -1 mod 2^21`), so Frobenius acts on `mu_n` as INVERSION:
+`0 = p_j(B)^{p'} = p_{j p' mod n}(B) = p_j(B^{-1})`. Hence `B^{-1}` is `t`-null whenever `B` is, and blocks
+come in `{B, -B, B^{-1}, -B^{-1}}` orbits -- linking the moment column to the DihedralStaircase charged class
+at M31 (the inversion symmetry is Frobenius-forced, not optional). At the KB rows `p == 1 (mod n)`: no
+content. Verified in genuine `F_{p^2}` (Sage): all blocks inverse-closed at `(31,16,2)` and `(127,16,2)`;
+the mechanism identity `p_j(S)^p = p_j(S^{-1})` holds for arbitrary subsets.
+
+**L6 (band syzygy; PROVED).** For a partition `mu_n = B_1 || ... || B_K` with every part `t`-null and every
+size `<= 2(t+1)`: writing `L_i = X^{b_i} + Q_i` (`deg Q_i <= b_i - t - 1`, `Q_i(0) != 0`), the single-`Q`
+terms of `prod_i L_i = X^n - 1` occupy degrees `(n - 2(t+1), n - t - 1]` alone (double products sit lower;
+`X^n - 1` has no support there), and each term's full support lies inside the window. Hence
+    **`sum_i X^{n - b_i} Q_i(X) = 0` identically** --
+an exact linear syzygy on the tails: grading by degree, the shifted tail coefficients cancel level-by-level
+(in particular no size class can be a singleton at the extremes). Verified on coset partitions (two rows).
+
+**Sharpened M31 residue.** Unconditional `B*`-closure at M31 now reads: exclude a partition of `mu_n` into
+`<= 31` `t`-null parts of which `>= 27` lie in `[t+1, 77,672]` -- whose in-band tails satisfy the exact
+syzygy (L6) and whose parts carry the Frobenius-inversion orbit structure (L5). These are the concrete
+handles a finishing argument (or an enumeration/charge) would use; the first-moment window continues to give
+the conditional closure (`k <= 2`, mass `<= 4`, 22 bits of room).
