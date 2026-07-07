@@ -14,9 +14,16 @@
 > dual side is SIGNED cancellation (the alternating `e_m`/plethystic sum), invisible to any `|.|`-bound. This
 > "no absolute-value bound suffices" is itself a citable structural finding about the prize barrier.
 >
-> **PROVED (machine-checked in Lean 4 / Mathlib, zero-sorry, `experimental/lean/powersum_rigidity/`):**
+> **PROVED (machine-checked in Lean 4 / Mathlib, zero-sorry, axioms `[propext, Classical.choice, Quot.sound]`,
+> `experimental/lean/powersum_rigidity/`) -- FOUR anchors:**
 > - `powersum_rigidity` -- equal power sums `p_1..p_d` determine a size-`d` multiset (char 0 or `> d`). Anchors
 >   T6 (PTE rigidity) / T2 (low-cycle vanishing), and formally certifies holmbuar's `prop:prefix-rigidity`.
+> - `RigidityCorollaries.pte_rigidity` -- disjoint size-`d` `Finset`s (`d >= 1`) CANNOT share power sums
+>   `p_1..p_d` (char `> d`). This is `E_d = 0` for `1 <= d <= w` (T6) end-to-end from the anchor above -- the
+>   PTE/prefix-rigidity fact BOTH the dual and primal (holmbuar) tracks rely on.
+> - `RigidityCorollaries.const_on_large_set` -- a polynomial constant on a `Finset S` with `|S| > deg f` is
+>   constant. This is THE DEGREE CAP: every exact-freeze `f_c` const on `S subset mu_n` has `|S| <= w = n^{0.764}`
+>   -- the unconditional invariant governing the entire verified extremal map (survives rounds k/l/m).
 > - `OffdiagMultiplicity.solutions_ncard_le` -- the off-diagonal multiplicative-energy fiber has `ncard <= 16`
 >   (Newton elimination). Anchors T18's coefficient-space `L^2` genericity result.
 >
@@ -98,6 +105,8 @@ hypothesis is essential.
 > `experimental/lean/powersum_rigidity/` (Lean `v4.31.0`, Mathlib `9a9483a`). Independently rebuilt + axiom-checked.
 > This discharges `E_d = 0` for `1 <= d <= w`: equal `p_1..p_d` force `A = B` as multisets, but `A,B` disjoint
 > and nonempty is a contradiction. (Newton's identities `mul_esymm_eq_sum` + Vieta `prod_X_sub_X_eq_sum_esymm`.)
+> **The full `E_d = 0` statement is itself machine-checked end-to-end: `RigidityCorollaries.pte_rigidity`
+> (disjoint size-`d` `Finset`s, `d >= 1`, cannot share power sums `p_1..p_d`; zero-sorry, standard axioms).**
 
 **T7 (Concentration, not rigidity -- p-sensitivity).** `N_prim <= n^3` is NOT combinatorial: for small `p`
 at the same `(n,m,w)`, `N_prim >> n^3`; empirically `N_prim/mean` has median exactly `1`. The bound holds
