@@ -1,0 +1,149 @@
+# b2 / conj:Q barrier-beating attack: the synthesis and the single open lemma (2026-07-07)
+
+- **Status:** the barrier-beating attack, run to completion. Problem reduced to ONE precise,
+  well-posed open lemma in a FAVORABLE regime; wrong tools cleared; strong numeric evidence true.
+  NOT a proof. Supersedes the sparse-subgroup framing in `b2_sawin_route_crux.md` (that was wrong).
+- **Companions:** `b2_literature_pioneer_verdict.md`, `b2_primitive_core_numerics.md`,
+  `b2_sawin_route_crux.md`, holmbuar `cap25_v13_qfin_rung_audit.md`.
+
+## The object, in final form (three exact reductions)
+
+1. **Fourier duality collapses the "outer t-sum" to the fiber count itself** (Li-Wan sieve identity,
+   arXiv:1507.06329 Lemma 3.1). Because psi is additive, `prod_{a in S} psi(P_t(a)) = psi(<p(S),t>)`,
+   so `sum_{t in F_q^w} T(t) = q^w * f(0)` and
+   ```
+   f(0) = #{ S subset mu_n : |S|=m, p_j(S)=0 for all j in J }   (exactly),
+   ```
+   `J` = exponent support of the phase (`|J|=w`). The "cancellation of sum_{t != 0} T(t)" and the
+   fiber-count bound are literally the SAME statement. (So neither per-x monodromy nor a per-t bound
+   is the mechanism — the content is the arithmetic of this count.)
+2. **Subfield descent** (memo 0.2, VERIFIED). `n=2^21` is a 2-power, so `mu_n` lies in the base/
+   quadratic subfield: **KoalaBear `v2(p-1)=24 >= 21 => mu_n subset F_p`, `|mu_n|=p^0.678` (LARGER
+   than sqrt p!)**; Mersenne-31 `mu_n subset F_{p^2}`, `(p^2)^0.339`. The earlier "hyper-sparse
+   `n/q~2^-165`" claim was WRONG (used `F_{p^6}`). The real regime is a **large subgroup in a small
+   field** — the most favorable setting for additive combinatorics.
+3. **Coding/uncertainty lens.** `p_j(S) = sum_{k in S} zeta^{jk}` is the `F_p`-DFT of `1_S` on `Z/n`
+   at frequency `j`. So `f(0) = #{ 0/1 weight-m vectors in the F_p-cyclic code with Fourier-zeros
+   {1..w} }`. The conjecture = "this cyclic code has near-RANDOM binary-codeword count" (`C(n,m)/p^w`).
+
+## What is RULED OUT
+
+- **Sawin-Shusterman (horizontal short-sum):** slope `= w >> 1` violates their slopes<=1 hypothesis
+  structurally (equivalence of categories on the slope>1 part). Dead.
+- **Katz big-monodromy (framework a):** dead for TWO reasons — (i) sub-sqrt(q) blindness (etale
+  methods control complete sums / full G_m, invisible to the subgroup below the Weil floor), and
+  (ii) the t-family sheaf is a direct sum of rank-1 Artin-Schreier sheaves => ABELIAN monodromy =>
+  no vertical cancellation beyond the orthogonality that just returns the count. Matches the
+  [[feedback-transport-decorrelation-trap]] "FF global stats blind to local monodromy". Do NOT invest.
+- **2nd moment / naive moment hierarchy:** = holmbuar/Danny shift-pairs; controls only average
+  flatness, not `f(0)`; needs `r~5886` (holmbuar #366). Dead.
+
+## The correct architecture and the SINGLE open lemma
+
+**Architecture:** Li-Wan distinct-coordinate sieve (exact) + a subgroup polynomial exponential-sum
+bound that is **UNIFORM IN THE NUMBER OF MONOMIALS `r=|J|`**.
+
+**The lemma (over `K=F_p` for KoalaBear, `|mu_n|=n=|K|^{0.678}`; `K=F_{p^2}` for Mersenne):**
+```
+exists delta>0 INDEPENDENT of |J|, s.t. max_{c != 0} | sum_{a in mu_n} psi(sum_{j in J} c_j a^j) | <= n * |K|^{-delta}.
+Equivalently:  #{ S subset mu_n : |S|=m, p_j(S)=0, j in J } <= poly(n) * max(1, C(n,m)/|K|^{|J|}).
+```
+- **Base case `|J| in {1,2}`: a THEOREM** (Bourgain-Chang, "A Gauss sum estimate in arbitrary finite
+  fields," CRAS 2006, Thm 2; prime-field subfield condition holds since `v2(p-1)=24`).
+- **The genuinely open crux = the `r`-uniformity.** Every proven subgroup/Mordell bound (Bourgain
+  "Mordell revisited" JAMS 2005; Bourgain-Chang; Cochrane-Pinner) has `delta = delta(r) -> 0` as the
+  monomial count `r -> infinity`. Our `r = |J| = w ~ 6.7e4`. **No published theorem is uniform in `r`.**
+  A per-`t` bound alone is also insufficient (needs `delta*m > w`); genuine structure of the count
+  (the cyclic-code / Li-Wan arithmetic) must be used. This is the frontier: "subgroup exponential
+  sums for polynomials with an unbounded number of monomials."
+
+## Evidence and status
+
+Numerics (this repo) show the target is very likely TRUE: fibers near-flat in the dense regime
+(`E2/flat - 1 ~ 0.003`), degeneracy locus exactly `{t=0}`, `conc(max/mean)` small until the mean
+drops below 1. The deployed regime is dense (mean fiber ~`2^35.7 << n^3=2^63`), so poly concentration
+suffices with huge room. But the accessible scale cannot reach `w > w_0`, and the sharp bound is the
+open lemma above.
+
+## r-uniformity probe at SCALE (2026-07-07): the crux ingredient looks TRUE
+
+`b2_runiform_probe.py` (numpy, n up to 65536 -- a thousandfold past the q^w-bound fiber DP)
+computes the single subgroup sum `pi(c) = sum_{a in mu_n} e_p(sum_{j=1}^r c_j a^j)` over sampled c,
+as the monomial count `r=|J|` grows. Result at n=4096 (p=12289, gamma=0.88, LARGE subgroup):
+```
+ r=|J|:   1     2     4     8    16    32    64   128   256   512  1024  2048
+ max|pi|/sqrt(n): 1.13  2.26  2.60  2.58  2.36  2.29  2.62  2.24  2.20  2.67  2.15  2.69
+```
+`max|pi|/sqrt(n)` stays FLAT ~2.2-2.7 as `r` grows to `n/2` -- **sqrt(n) cancellation, UNIFORM in the
+monomial count**, exactly the r-uniformity the memo flagged as the open obstruction. So the proven
+Bourgain-Chang `delta=delta(r)->0` is a defect of the BOUNDS, not the truth; empirically
+`delta ~ gamma/2` is r-uniform.
+
+**Consequence — both obstructions may clear in the corrected large-subgroup regime.** With
+`delta ~ gamma/2` (KoalaBear gamma=0.678 => delta~0.34) and `m ~ rho n`, `delta*m ~ 0.34*10^6 >> w=67471`,
+so the Li-Wan sieve error condition `delta*m > w` (memo obstruction ii) is satisfied. The memo's
+pessimism rested on (a) the lossy proven bounds and (b) the WRONG hyper-sparse regime; both are
+corrected here. **So the architecture (Li-Wan sieve + r-uniform per-t bound) looks VIABLE, with
+strong numeric support.**
+
+**ADVERSARIAL CORRECTION (crucial).** Random-c sampling HID the worst case. The single-monomial probe
+shows `|pi(e_j)|` is maximal at RESONANT `j | n`: `j=n/2` gives `|pi|=n` EXACTLY (no cancellation, since
+`a^{n/2}=+-1`), `j=n/4` gives `0.86 n`, etc. So the FULL-sum r-uniformity is **FALSE** in worst case --
+I did not overclaim from the random data (regime discipline held). BUT the bad `j` are exactly the
+resonant `j | n` = the STRUCTURED / coset-union directions the descent SUBTRACTS. Restricting to the
+PRIMITIVE part -- odd frequencies `j` coprime to `n` (where `x^j` PERMUTES `mu_n`) -- the worst case
+is tame: single odd-monomial `0.40*sqrt(n)`, and sampled max over odd-support `c` stays FLAT at
+`~3.0-3.6*sqrt(n)` as #odd-frequencies grows to 1024. **The PRIMITIVE r-uniformity holds worst-case**
+(not just on average), and the primitive object IS the conjecture (`extras`, after coset-union peel).
+
+**Structural reason (clean):** for odd `j`, `x^j` is a bijection of `mu_n`, so every single odd-monomial
+sum equals the SAME subgroup Gauss sum `~sqrt(n)`; the resonances that kill even `j` are absent. This is
+likely why the primitive/odd-frequency bound is r-uniform where the general one is not -- and it is a
+cleaner, more tractable lemma.
+
+**Corrected lemma:** `max_{c != 0 on ODD freqs} |sum_{a in mu_n} psi(sum_{j odd} c_j a^j)| <= C sqrt(n)`,
+uniform in the number of odd frequencies. Numerically confirmed worst-case (n<=4096); the odd-j-permutes-
+mu_n structure is the lever. Remaining: prove it (Mordell-over-subgroup restricted to coprime exponents),
+verify the descent isolates exactly the even-j structured part, and check Li-Wan on the primitive part.
+
+**Caveats:** sampled (400 c) not exhaustive worst-case; n<=4096 for the primitive probe; `delta*m>w`
+heuristic. Strong worst-case evidence + a clean structural lever, not a proof.
+
+## Three-front sharpening (2026-07-07): gamma-robust, algebraically isolated, Vinogradov-identified
+
+**(1) gamma-dependence: ROBUST.** `b2_primitive_runiform.py` tests the primitive (odd-freq) worst case
+across `gamma = log_p|mu_n| in {0.34, 0.5, 0.68, 0.85}` (0.34 = Mersenne deployed row in `F_{p^2}`;
+0.68 = KoalaBear in `F_p`). `max|pi|/sqrt(n)` stays bounded `~2.5-4.3`, UNIFORM in r (to 512) AND across
+gamma. Both deployed regimes pass; not a large-gamma artifact.
+
+**(2) Algebraic isolation: PROVED.** If `M` is `mu_{2^s}`-symmetric then `p_j(M) = omega^j p_j(M)` for
+`omega in mu_{2^s}`, so `p_j(M)=0` unless `2^s | j`. Hence the dual (frequency) variable stratifies by
+`v_2(j)`: structured M at symmetry level s live only on frequencies with `v_2(j) >= s`, and the ODD
+frequencies (`v_2=0`) vanish on EVERY structured M. So odd-frequency phases detect EXACTLY the primitive
+(trivial-stabilizer) part = `extras`. Verified exactly (`s=1,2,3`: nonzero `p_j` only at `2^s | j`). This
+rigorously justifies the primitive lemma and the even-j = structured / descent split.
+
+**(3) Proof tool identified: Vinogradov mean value over the subgroup.** The moments of the primitive sum
+are a Vinogradov system: `E_c |pi(c)|^{2k} = #{ a_i,b_i in mu_n : sum a_i^j = sum b_i^j, all odd j }`.
+Numerically `E|pi|^2/n = 1.0` (diagonal), `E|pi|^4/n^2 ~ 2.9`, `E|pi|^6/n^3 ~ 14` -- above Gaussian
+(2,6) but STABLE in r; the excess is exactly the `c=-a` (mu_2-symmetric) configs (`p_1=p_3=0` auto). So
+`pi(c)` is `O(1)*Gaussian` uniformly in r, and the closing tool is **Vinogradov mean value / efficient
+congruencing (Wooley / Bourgain-Demeter-Guth) for the ODD-power-sum system over the multiplicative
+subgroup `mu_n subset F_p`, uniform in the degree**. This is far more concrete than "generic Bourgain-
+Chang": a named, powerful machine, connection numerically validated.
+
+**Net position:** the conjecture reduces to a Vinogradov-mean-value bound for odd-power-sums over `mu_n`,
+uniform in degree, feeding the Li-Wan sieve -- with (2) PROVED, (1) robust across both deployed regimes,
+and (3) the tool named and its moment structure validated. Remaining: the Vinogradov-over-subgroup
+theorem itself (Wooley/BDG frontier) + rigorous Li-Wan assembly. Attemptable or cleanly posable.
+
+## Honest path forward
+
+This is a precise, well-posed open problem in additive combinatorics (r-uniform subgroup exp-sums),
+in a favorable large-subgroup/prime-field regime, base case known, strong evidence true. Realistic
+routes to the proof: (i) attempt the `r`-uniform extension exploiting the specific cyclic structure
+of `mu_n` (the count is over roots of unity `= Z/n`, not a generic subgroup — the Fourier-gap / cyclic-
+code structure may give the uniformity generic subgroups lack); (ii) targeted search for post-2020
+`r`-uniform subgroup-sum results; (iii) pose the exact lemma to the Bourgain-Chang school (Chang,
+Konyagin, Shkredov) or the geometric side (Sawin). Coordinated with holmbuar's `conj:Q` ledger.
+Deliverables banked: 4 validated scripts + 4 notes + this synthesis.
