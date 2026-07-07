@@ -678,3 +678,60 @@ The per-level lemma reduces (PROVED) to spectral NON-concentration of `g`: `B = 
 induction driven by a peaked/spread dichotomy; the single remaining analytic gap is an `L^p`-refined convolution-
 tail bound `B = A conv ghat` at `A`'s peak. That -- plus the `sqrt(p)` BGK base case -- are the two concrete open
 sub-lemmas of the first non-dead route to the crux.
+
+## Round (k) -- per-level lemma REFUTED (dyadic aliasing); GOAL survives via the degree cap (2026-07-07)
+
+Frontier-model round on the per-level butterfly lemma: **the lemma is FALSE as stated** -- counterexample
+independently VERIFIED here at FULL DEPLOYED SCALE (`b2_sp_aliasing_check.py`; feasible because the killer `c`
+is 2-sparse, so `n = 2^21` is directly computable).
+
+**The counterexample (PROVED + verified, deployed scale).** `f = x - x^{65537}` (`65537 = 1 + 2^16`, both
+exponents odd `<= w`). On `G_j`, `j <= 16`: `x^{2^16} = 1`, so `f == 0` IDENTICALLY (verified on all `2^16`
+points of `G_16`). The phase is constant on SEVEN tower levels (`j = 9..16`); the butterfly ratio is exactly
+`2` there; the sup itself is `N_j` (exponent `1.0`). So NO `theta < 1` holds uniformly: the per-level lemma as
+stated is dead. **Mechanism: DYADIC ALIASING of the exponent set mod `2^j`** -- only `c`'s image
+`C^(j)_a = sum_{i = a mod 2^j} c_i` matters on `G_j`, and at `j = 16` the reduction has kernel dim
+`>= 33736 - 2^15 = 968`. My round-(j) claim "`g` const `=> c = 0`" is valid only for `j >= 18` (`w < 2^{j-1}`);
+setup error acknowledged. (Round-(i) numerics missed this because the 128 test exponents lay in `[1,255]` --
+no aliased pairs above level 7. THIRD sparse-extremizer sampling miss; adversary catalogs must now include
+dyadically-aliased families.)
+
+**Birth scale (PROVED).** All exponents `<= w = 67471 < 2^17` are DISTINCT mod `2^17`, so `C^(17) = c != 0`:
+every nonzero `c` is "born" by level `j_0(c) <= 17`, and on `G_17` a nonzero reduced polynomial of degree
+`<= w < 2^17` cannot vanish identically. Aliasing lives only on levels `j <= 16`.
+
+**THE DEGREE CAP (our addition, PROVED) -- the GOAL survives exact aliasing.** If `f_c` is constant on
+`S subset G` then `f_c - const` has `|S| <= deg f_c <= w` roots, so the exact-freeze mass is
+**`<= w = 67471 = n^{0.7639}` at EVERY level and for EVERY `c`.** Exact aliasing therefore CANNOT break the
+top-level goal `max_t|phihat_G| <= n^{0.81}`; it breaks only the uniform per-level INDUCTION. Verified at
+deployed scale: `f = x - x^{65537}` gives `max_t|phihat_{G_21}| = 68702 = n^{0.7651}` (frozen coset `2^16`
++ noise), UNDER the goal `n^{0.81} = 131984` with margin `1.92x`. Depth-15 multi-pair freeze gives less
+(`n^{0.718}`, mass `2^15`) -- the cap binds exactly at depth 16.
+**Consequence: the TRUE extremizers of the sup are the dyadically-aliased `c` at exponent `~0.765`** -- not
+the generic `~0.60` my earlier adversarial numerics saw. The goal's real margin is a FACTOR `~1.9`, not
+`n^{0.16}`. (T15's `n^{0.905}` sup target has more room: `n^{0.7651} << n^{0.905}`, margin `~18x`.)
+
+**Model's proved obstructions (adopted):**
+- **`L^p`-Young route DEAD:** using only Parseval + the inductive sup bound, Young/interpolation is minimized
+  at `p = 2` and returns the trivial `N'`. No scalar `L^p` spectral norm closes the tail.
+- **Flatness alone is INSUFFICIENT (functional-analytic model):** there exist unit-modulus `U, V` with flat
+  spectra (`sup ~ N^{0.81}`), small `ghat_0`, yet aligned peaks (ratio `2 - o(1)`). So Parseval + sup + small
+  `ghat_0` cannot prove peak-separation -- the proof MUST use the arithmetic of `e_p(f_c)`, not Fourier
+  statistics.
+- **Conditional form:** peak-coherence bound `|Re(omega^s A_s conj(B_s))| <= eta M^2` uniformly gives
+  `theta(eta) = log_2(2 + 2 eta)/2`; `theta < 0.81` needs `eta < 0.537`.
+
+**Repaired route (the surviving induction).** (1) ALIAS-DEPTH FILTRATION: for `j < j_0(c)` the phase is
+constant (trivial levels, tracked exactly, capped by the degree bound); (2) BIRTH-SCALE estimate at
+`j = j_0(c) <= 17`: the newly-born reduced phase on `G_{j_0}` contributes frozen mass `<= w` plus a fresh-coset
+sum; (3) ACTIVE-LEVEL peak-coherence (`eta < 0.537`) for `j > j_0` -- where the model's obstruction says the
+input must be arithmetic (an inverse theorem excluding same-frequency peak alignment of `e_p(f_c(y))` and
+`e_p(f_c(zeta y))` on alias-free levels). Numerically the active-level behavior after birth is ratio `~1.0`
+(the frozen mass stays constant while fresh cosets add cancelling noise) -- consistent with the goal margin.
+
+**NET (round k):** the naive dyadic descent is dead (aliasing), but the refutation IMPROVED the state: the true
+extremal family is now identified and PROVABLY capped (`<= w`, degree bound) BELOW the goal with factor-2
+margin; the top-level goal survives all exact-aliasing attacks at deployed scale; and the surviving open piece
+is (as in round h, now localized to alias-free levels `j >= 17`) a quantitative approximate-spike / peak-
+coherence inverse theorem with explicit constant `eta < 0.537`. The crux keeps its shape -- approximate spikes
+-- but the exact-spike sector is now completely closed by the degree cap.
