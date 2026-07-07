@@ -252,3 +252,26 @@ Deliverables banked: 4 validated scripts + 4 notes + this synthesis.
 **NET (both models + search agree):** conjecture is a p-sensitive CONCENTRATION, morally certain; the single
 open crux is a rigorous high-degree additive-energy / joint-equidistribution estimate over mu_n (E-a) plus
 the v=0 fiber transfer (E-b). New provable pieces: n|N_prim, small-d PTE rigidity. Sharpest convergent state.
+
+## Move (2): Cheong-Matchett Wood-Zaman does NOT transfer; PTE rigidity PROVED (2026-07-07)
+
+Chased the top TheoremSearch lead (arXiv:1210.0456, Lemma 3.3, count of polynomials with prescribed
+values). **Verdict: does NOT transfer.** Method = Mobius inversion + Euler product (not even Weil), with
+the NUMBER OF CONDITIONS FIXED (l=q) and d->infinity; "cannot handle l growing with d." Our regime has
+w~0.03n conditions GROWING with n -- the same fixed-vs-growing-conditions wall that kills VMVT (fixed
+degree) and Bourgain-Chang (bounded #monomials). Third confirmation (now via a concrete paper) that the
+growing-#conditions equidistribution is genuinely NEW, not in the literature.
+
+**PROVED + VERIFIED (PTE rigidity): E_d = 0 for 1 <= d <= w.** If disjoint A,B subset mu_n have |A|=|B|=d<=w
+and p_j(A)=p_j(B) for j=1..w, then p_1..p_d agree, so by Newton (char>d) the size-d monic polynomials
+prod(X-a), prod(X-b) coincide => A=B => (disjoint) empty => d=0. Verified: n=12,w=2 -> E_1=E_2=0, E_3=168;
+n=16,w=3 -> E_1=E_2=E_3=0, E_4=252. So the additive energy `E = C(n,m) + sum_{d>w} C(n-2d,m-d) E_d`: the
+small-d terms vanish, and the **d>w TAIL dominates (~E_0 = C(n,m)^2/p^w) -- the tail IS crux (E-a).**
+
+**Consolidated in-hand PROVED theorems** (the durable partial contribution): (1) Li-Wan cycle expansion +
+low-cycle vanishing (only >w-cycle partitions contribute); (2) exact descent N_prim = N - 1[2|m]N(n/2,..);
+(3) n | N_prim (=> conj iff #free orbits <= n^2), power-of-2 n; (4) moment law E_c|pi|^{2s} <= (2s-1)!! n^s
+uniform in #freqs; (5) PTE rigidity E_d=0 for d<=w; (6) reformulations (divisor coeff-gap / BCH Boolean
+codeword / F_p-quadrature); (7) it is a p-sensitive CONCENTRATION not rigidity (Thm D). OPEN crux: the
+d>w additive-energy tail equidistribution over mu_n (E-a) + v=0 fiber transfer (E-b). Morally certain
+(~2^41 slack), genuinely new equidistribution input, confirmed by 2 models + a theorem-search paper chase.
