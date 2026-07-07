@@ -424,3 +424,68 @@ to origin/main). **No conflict; strong mutual corroboration; the two tracks are 
 - **NET:** holmbuar works the PRIMAL (shift-pair/second-moment census, `Q => SP`); I work the DUAL (character-sum
   sup bound, `SP_mine => Q`). Both reduce conj:Q to beating the `w sqrt(p)` Weil wall at the deployed depth; both
   OPEN there. The active target is identical to `grande_finale.tex`'s "row-sharp Q atom" (`def:q-row-atom`).
+
+## Round (f) -- frontier-model round on the sup bound: routes mapped, the RESONANCE-STABLE 4th-moment fixes round (d) (2026-07-07)
+
+A focused frontier-model round on `max_{c!=0}|pi_odd(c)| <= n^{0.905}`; all load-bearing claims re-verified here
+(`b2_sp_mechanism_probe.py`, `b2_sp_completion_wscaling.py`). Verdict: sup bound is very plausibly TRUE, but
+provably NOT reachable by generic Weil/completion, standard high-moment/VMVT, or the existing Bourgain/OSV
+induction at the deployed sparsity `r ~ 3.4e4`. The one live route is a resonance-stable subgroup 4th-moment.
+
+**Setup corrections (model, adopted):** `|J_odd| = (w+1)/2 = 33736` (NOT 33735); `sqrt(p) = 46159.575`, so
+`w = 67471 = 1.462 sqrt(p)` -- `w` is a genuine constant multiple of `sqrt p`, not `~sqrt p` loosely. Target
+`n^{0.905} = 526108 = p^{0.61329}`; subgroup is `n = p^{3/7 + eps}`, `eps = gamma - 3/7 = 0.24910`.
+
+**PROVED (model, verified): monomials are harmless.** For `f = c x^j` (`j` odd), `a -> a^j` permutes `G = mu_n`,
+so `pi(c x^j) = sum_{a in G} e_p(ca)` = a Gauss period of index `m' = 1016`, whence
+    `|pi(c x^j)| <= (1 + (m'-1) sqrt p)/m' < 46115 = n^{0.738}`.
+Clean, unconditional, and confirms resonance-stability (the dangerous complete-sum `127`-resonances do NOT
+create large `pi` on `G`, because odd exponentiation permutes `G`).
+
+**PROVED-asymptotic (model): the exponent is exactly at the OSV binomial threshold, but not a fixed-p certificate.**
+Ostafe-Shparlinski-Voloch give, for `|G| = tau >= p^{3/7+eps}`, `S(G;f) << tau p^{-eta_d(eps)}`; base savings
+`eta_1 = eta_2 = 7 eps/27 = 0.06458`. For BINOMIALS `S(G; a x^m + b x^n) << tau^{20/27} p^{1/9} = n^{0.904702}` --
+just below `n^{0.905}`, BUT the slack is only `526108/523831 = 1.0043`, so any implied constant `> 1.0043` loses
+it: an asymptotic exponent, NOT a deployed-prime certificate. For `r`-term phases the recursion COLLAPSES
+factorially: `eta_3 = 0.01384` (`n^{0.980}`), `eta_4 = 0.00176` (`n^{0.997}`), ... `eta_r -> 0`; at `r = 33736`
+the saving is effectively zero. **OSV/Bourgain induction is dead for the full dense odd phase.**
+
+**PROVED obstruction (model): standard Holder/VMVT cannot reach the target for large `r`.** Even granting a
+PERFECT diagonal mean-value `Q_K(E;G) << n^K`, the Holder framework gives only `|S(G;f)| << n^{1 - gamma/(2r) +
+o(1/r)}`; at `r = 33736` this is `n^{0.99999}`. The diagonal term + the `p^r` coefficient-space factor kill any
+`0.095` saving. **Mean-value / decoupling / efficient-congruencing route is DEAD.**
+
+**PROVED obstruction (model): completion to a sparse complete sum is out of reach.** Generic Weil gives
+`|S(chi, f_c)| <= w sqrt p > p` (no saving); Cochrane-Pinner sparse improvements need a product-of-exponents
+condition, and for the full odd set the geometric mean of exponents `~ 24822` exceeds the C-P nontriviality
+threshold `sqrt(p)/4 = 11540` by an exponential-in-`r` margin. **Sparse-complete-sum route is DEAD.**
+  - MY numerics (`b2_sp_mechanism_probe.py`, `_completion_wscaling.py`) refine this: for TYPICAL (dense-basin) `c`,
+    `max_psi |S(psi,c)|/sqrt p ~ 1.4-2.4`, roughly CONSTANT as `w: 16 -> 66` (`<< sqrt(w)`), i.e. the completed
+    sums are empirically `~2 sqrt p` in the dense basin (mechanism M1). BUT this is random-`c` sampling; Weil-sharp
+    adversarial `c` for `S(triv,c)` almost surely exist (round-d lesson), so M1 is NOT a proved worst-case fact and
+    completion is not salvaged. Recorded as an OPEN empirical curiosity, not a route.
+
+**THE LIVE ROUTE (model route 7, VERIFIED) -- resonance-stable subgroup autocorrelation; this REPAIRS round (d).**
+Define the SUBGROUP-internal autocorrelation (sum over `G`, NOT over `F_p^*` -- that was round (d)'s fatal error):
+    `T_a^G(c) = sum_{y in G} e_p(f_c(ay) - f_c(y))`, `a in G`.
+Then (PROVED identity, numerically confirmed) `|pi_odd(c)|^2 = sum_{a in G} T_a^G(c)`, and by Cauchy
+    `|pi_odd(c)|^4 <= n * sum_{a in G} |T_a^G(c)|^2`.
+So the sup bound `|pi_odd| <= n^{0.905}` follows from **the ONE estimate**
+    **`sum_{a in G} |T_a^G(c)|^2 <= n^{2.62}`  (== `8.17 n p`; RMS `<= 2.86 sqrt p`), uniform in `c != 0`.**
+This is RESONANCE-STABLE by construction: every odd exponent is invertible mod `n = 2^k`, so the `127`-resonances
+(which poisoned round (d)'s `F_p^*` sum) do NOT appear in the internal `a in G` sum. **Verified
+(`_completion_wscaling.py` Part B):** the identity holds exactly; `sum_{a in G}|T_a^G|^2/(np) = 0.06-0.17` and
+`/n^{2.62} = 0.018-0.041` -- under threshold with ~25-50x margin -- and IDENTICAL for dense `c` and resonant
+monomials (true resonance-stability, unlike round (d)). For monomials `|T_a^G| <= sqrt p + O(1)` gives
+`sum <= n^2 + (n-1)p ~ 8.18x` under threshold unconditionally.
+  - **The open ingredient:** prove `sum_{a in G} |T_a^G|^2 <= n^{2.62}` WITHOUT completing each `T_a^G` (completion
+    reinjects the `w sqrt p` wall) and WITHOUT bounding `T_a^G` by the sup `M` (circular, gives only `n^{0.952}`).
+    Trivial bound is `n^3` (each `|T_a^G| <= n`); target beats it by `n^{0.38}`; truth is `~n p = n^{2.47}` (beats
+    trivial by `n^{0.53}`), so margin `~n^{0.15}`. It is a genuine 4th-moment over the SUBGROUP, `a,y,y' in G` --
+    the model's proposed "inverse theorem for biased odd low-degree phases on the 2-power subgroup."
+
+**NET (round f):** the crux is now the cleanest and most correctly-scoped it has been: prove the RESONANCE-STABLE
+subgroup 4th moment `sum_{a in G}|T_a^G(c)|^2 <= n^{2.62}` (fixes round (d)'s `F_p^*`->`G` error). Everything else
+(generic Weil, completion/sparse-complete-sum, mean-value/VMVT, OSV `r`-term induction) is PROVED dead at `r ~ 3.4e4`.
+Monomials + binomials are handled; the barrier is purely the dense high-`r` phase, and the target beats trivial by
+only `n^{0.38}` with `n^{0.15}` numerical margin. Still OPEN; needs a subgroup inverse/structure theorem.
