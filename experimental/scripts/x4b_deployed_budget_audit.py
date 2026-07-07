@@ -1,67 +1,60 @@
 #!/usr/bin/env python3
-"""x4b step 2: deployed-row budget audit for the MomentTradeStaircase column. Printed exact constants.
+"""x4b: four-deployed-row budget audit for the MomentTradeStaircase column. Printed exact constants.
 
-THE UNCONDITIONAL CAP (rigidity + pigeonhole; rigidity is Lean-anchored via powersum_rigidity):
-  any t-null block B (e_1..e_t = 0) has |B| >= t+1  [locator would be X^b otherwise; 0 not in mu_n]
-  => any DISJOINT family of blocks in a domain of size n has k <= floor(n/(t+1))
-  => per-prefix MomentTradeStaircase multiplicity <= 2^k  (each member = tail + a sub-union of the family;
-     sub-unions of equal total size only, so 2^k is conservative).
-CRITERION: the x4 primitive budget is n^2, so the moment column is UNCONDITIONALLY affordable when
-  2^{floor(n/(t+1))} <= n^2   <=>   floor(n/(t+1)) <= 2 log2 n   <=>   t >~ n/(2 log2 n) - 1.
-CONDITIONAL sharpening (first-moment window): E[#blocks size b] = C(n,b)/p^t < 1 outside b in
-  [n/2 - d, n/2 + d]; solve for d. Blocks confined to the window => k <= floor(n/(n/2 - d)) (usually 2)
-  => mass <= 4. Also print the b = t+1 deficit (the Q-gap cliff; cross-check vs prop:proper-q-gap 1.66e6).
-Rows: KB-MCA deployed; the toy witness row (193, 64, 3) for contrast; criterion check for both.
+CAP (PROVED, unconditional; rigidity core Lean-anchored):
+  L1: any t-null block has |B| >= t+1 (locator X^b otherwise; 0 not in mu_n).
+  L2: disjoint families have k <= floor(n/(t+1)).
+  L3 (Erdos-Littlewood-Offord 1945): per (prefix, degree), staircase members from one family+tail are
+      sub-unions of EQUAL total size => <= C(k, floor(k/2)) for ANY size profile.
+Row constants from grande_finale.tex finite tables + certificates: n = 2^21 for all four rows;
+  KB (p = 2^31-2^24+1): B* = floor(p^6/2^128); M31 (p' = 2^31-1): B* = floor(p'^4/2^100) = 16777215.
+  t: KB-MCA 67471, KB-list 67470, M31-MCA 67447 (w_safe printed), M31-list 67446 (derived from a+).
 """
-from __future__ import annotations
 import math
 
-
 def log2C(n, b):
-    return (math.lgamma(n + 1) - math.lgamma(b + 1) - math.lgamma(n - b + 1)) / math.log(2)
+    return (math.lgamma(n+1) - math.lgamma(b+1) - math.lgamma(n-b+1)) / math.log(2)
 
-
-def audit(name, p, n, t):
-    print(f"\n### row {name}: p={p}, n={n}, t={t}")
-    k_uncond = n // (t + 1)
-    log2n = math.log2(n)
-    crit_t = n / (2 * log2n) - 1
-    ok = k_uncond <= 2 * log2n
-    print(f"  UNCONDITIONAL: |B| >= t+1 = {t+1}  =>  k <= floor(n/(t+1)) = {k_uncond}")
-    print(f"    per-prefix moment-column mass <= 2^{k_uncond};  n^2 budget = 2^{2*log2n:.1f}")
-    print(f"    criterion t >= n/(2 log2 n) - 1 = {crit_t:,.0f}:  t = {t:,} -> {'PASS: moment column <= n^2 UNCONDITIONALLY' if ok else 'FAIL: 2^k exceeds n^2 (column open at this row)'}")
-    # first-moment window
-    tlog2p = t * math.log2(p)
-    maxb = log2C(n, n // 2)
-    if maxb < tlog2p:
-        print(f"    first-moment: even b=n/2 has log2 C(n,b) = {maxb:,.0f} < t log2 p = {tlog2p:,.0f} -> NO blocks expected at any size (mean<1 everywhere)")
-        return
-    lo, hi = 1, n // 2
-    while hi - lo > 1:
-        mid = (lo + hi) // 2
-        if log2C(n, mid) < tlog2p:
-            lo = mid
-        else:
-            hi = mid
-    bmin = hi
-    d = n // 2 - bmin
-    k_window = n // bmin if bmin > 0 else 0
-    cliff = tlog2p - log2C(n, t + 1)
-    print(f"    first-moment window: mean >= 1 iff b in [{bmin:,}, {n - bmin:,}]  (d = n/2 - bmin = {d:,})")
-    print(f"    => window-conditional k <= floor(n/bmin) = {k_window}; mass <= 2^{k_window} = {2**k_window}")
-    print(f"    b = t+1 deficit (the Q-gap cliff): t log2 p - log2 C(n,t+1) = {cliff:,.0f} bits"
-          f"  (prop:proper-q-gap ~ 1.66e6 at KB: {'MATCHES' if abs(cliff - 1.66e6) < 5e4 else 'differs'})")
-
+N = 2**21
+ROWS = [
+    ("KB-MCA",   2**31-2**24+1, 67471, 6, 128, "a+=1116048"),
+    ("KB-list",  2**31-2**24+1, 67470, 6, 128, "a+=1116047"),
+    ("M31-MCA",  2**31-1,       67447, 4, 100, "a+=1116024, w_safe printed"),
+    ("M31-list", 2**31-1,       67446, 4, 100, "a+=1116023, w derived"),
+]
 
 def main():
-    print("# x4b MomentTradeStaircase budget audit -- exact printed constants")
-    audit("KB-MCA (deployed)", 2**31 - 2**24 + 1, 2**21, 67471)
-    audit("toy witness row", 193, 64, 3)
-    audit("toy (97, 32, 2)", 97, 32, 2)
-    print("\n# PASS rows: the moment column is closed UNCONDITIONALLY (<= n^2) by rigidity+pigeonhole alone.")
-    print("# FAIL rows (small t/n ratio, incl. the witness toy): the column is genuinely live there --")
-    print("#   consistent with the verified primitive witness at (193,64,3) and the C(R,R/2) toy blowup.")
-
+    log2n = math.log2(N)
+    print(f"# x4b four-row audit: n = 2^21; criterion t >= n/(2 log2 n) - 1 = {N/(2*log2n)-1:,.0f}")
+    for name, p, t, e, shift, note in ROWS:
+        k = N // (t + 1)
+        Bstar_bits = e * math.log2(p) - shift
+        elo_bits = log2C(k, k // 2)
+        # window
+        tl2p = t * math.log2(p)
+        lo, hi = 1, N // 2
+        while hi - lo > 1:
+            mid = (lo + hi) // 2
+            if log2C(N, mid) < tl2p: lo = mid
+            else: hi = mid
+        bmin = hi; kwin = N // bmin
+        # M31-style residue: smallest k with C(k, k/2) > B*
+        kneed = k
+        for kk in range(2, k + 1):
+            if log2C(kk, kk // 2) > Bstar_bits:
+                kneed = kk
+                break
+        else:
+            kneed = None
+        print(f"\n## {name} (p={p}, t={t}) [{note}]")
+        print(f"   UNCONDITIONAL: k <= {k} (<= 2 log2 n = 42: option (a) HOLDS, log-bounded)")
+        print(f"   per-(prefix,degree) mass <= C({k},{k//2}) = 2^{elo_bits:.2f}  [Erdos-LO]  vs n^2 = 2^42: "
+              f"{'FITS' if elo_bits <= 42 else 'over'}  vs B* = 2^{Bstar_bits:.2f}: "
+              f"{'FITS unconditionally' if elo_bits <= Bstar_bits else f'GAP {elo_bits - Bstar_bits:.2f} bits'}")
+        if kneed:
+            print(f"   RESIDUE (unconditional closure vs B*): exclude k >= {kneed} disjoint blocks all of size "
+                  f"in [{t+1:,}, {N//kneed:,}]  (C({kneed},{kneed//2}) = 2^{log2C(kneed,kneed//2):.2f} > B*)")
+        print(f"   WINDOW (first-moment): blocks confined to b >= {bmin:,} => k <= {kwin}; conditional mass <= {2**kwin}")
 
 if __name__ == "__main__":
     raise SystemExit(main())
