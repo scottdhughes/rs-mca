@@ -169,3 +169,32 @@ branch hosts the Lean project):**
 **The entire Mersenne reciprocal-gap closure chain is now formal end-to-end -- no informal steps remain.**
 (The deployed rows satisfy the hypotheses: `p' = 2^31 - 1 == -1 (mod n)` gives `mu_n subset mu_{p'+1} =
 mu_{2^31} subset F_{p'^2}`, char `p' > t`, so `(1..t)` are invertible.)
+
+## Step-3 role: low-support moment-null-block trade removal on the 2-power domain (2026-07-07)
+
+`grande_finale.tex rem:entropy-inverse-skeleton` step 3: *"Tao's cyclic-prime uncertainty principle and the
+BCH/Vandermonde barrier [Tao05] remove low-support primitive trades."* Tao05 is a CYCLIC-PRIME uncertainty
+principle; the deployed domain `D = mu_n = mu_{2^k}` has prime-POWER order `2^k`, so (as noted in #396) Tao05
+applies on the base field `B`, not on the domain `D`. This packet supplies the step-3 obligation directly ON
+`D`, for the 0/1 (moment-null-block) trade subclass -- the `moment_trade_staircase` object:
+
+- **All four deployed rows (unconditional, rigidity core Lean-anchored):** any disjoint family of `t`-moment-null
+  blocks in `mu_{2^k}` has `k_fam <= floor(n/(t+1))` members (Lemma 1+2); at the deployed rows `<= 31`,
+  log-bounded -- "no super-logarithmic disjoint primitive family," exactly the step-3 conclusion for this class.
+- **The two Mersenne rows (`p == -1 mod n`; machine-checked):** every low-support (`b <= 2t+1`) moment-null block
+  is a `mu_b`-coset (`FrobeniusInversion.mersenne_reciprocal_gap`), and size `2t+2` is excluded by the
+  fiber-count addendum. So primitive low-support moment-null blocks do NOT exist at the Mersenne rows -- a
+  STRUCTURAL removal (Frobenius = inversion), not a counting bound, precisely where Tao05 does not reach `D`.
+
+**Scope (honest).** This covers the 0/1 / unsigned moment-null-block trades (the `moment_trade_staircase`
+column), NOT general signed trades or the full `sp_w(w+1; D)` shift-pair census (which #405 measures at model
+scale and which is `p`-specific, not a clean `p mod n` effect -- verified below). It is a partial, class-specific
+step-3 input, complementary to Tao05's general signed-trade removal.
+
+**Confirming census (`x4b_step3_census.sage`, `p == +1` vs `p == -1 mod n`).** At `n = 16`, `t = 2, 3`: (A)
+moment-null blocks of size `<= 2t+1` are coset-only (zero primitive) at BOTH signs -- the sign distinction is
+invisible at this size and first appears at `b = 2t+2`, where the recorded primitive witness `(193, 64, 3)`
+(`p == +1 mod 64`, `b = 8 = 2t+2`) exists and reciprocal-gap + the addendum forbid it at `p == -1 mod 64`.
+(B) the `sp_w(w+1; D)` top-stratum primitive count is `p`-specific (e.g. 32 at `(97,16,2)` vs 0 at
+`(113,16,2)`, both `p == +1`), NOT a clean `p mod n` collapse -- so no shift-pair claim is made here; the
+proved handle is the moment-null-block class only.
