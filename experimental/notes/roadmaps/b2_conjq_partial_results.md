@@ -126,3 +126,27 @@ anticoncentration on A_s,B(U) with n-loss (T8-T10), equivalently signed cancella
 sum. Both = anticoncentration/equidistribution of subset counts on the moment curve of the subgroup,
 uniform in #conditions = a clean generalization of Pach arXiv:2505.12496 (full-group single-sum case).
 Morally certain (~2^41 slack); genuinely open. The crux is now a single, sharply-stated anticoncentration.
+
+## TheoremSearch exploration + Rodgers chase (2026-07-07)
+
+Explored the tool from the OUTPUT side (searching the objects our proofs produced). Leads found
+(flat /search + /graph/paper work; pagerank/embedding error server-side):
+- **arXiv:2304.13801** (Prop 3.4): disjoint subsets A,B of a multiplicative subgroup (d|q-1) with equal
+  sums -- closest published analogue of E_d (PTE over a subgroup).
+- **arXiv:1108.1852** minimal value sets over F_q, + Carlitz-Lewis-Mills-Wan -- for bounding E_{w+1}
+  (#{deg-(w+1) maps on mu_n with two full fibers}).
+- **arXiv:1906.08818 "Pell surfaces" / 0801.3011** -- polynomial Pell x^2-gy^2=1 over F_q[x] = our T12
+  perfect-square/polynomial-Pell object.
+- **arXiv:2504.21816 (2025) / 1812.00901** -- RS/MDS minimum-weight codeword enumeration = T13.
+- **arXiv:1609.02967 (Rodgers) Thm 7.1 / Cor 7.2** -- THE key hit: symmetric-group-character x Dirichlet-
+  character sums `sum_f X^{lambda'}(f) chi(f)` cancel with sqrt-savings.
+
+**Rodgers chase verdict: does NOT transfer (fixed n,h, q->inf, O_{n,m} constants -- same fixed-degree/large-q
+wall), BUT the mechanism is the key structural insight.** Rodgers gets the symmetric-function-character-sum
+cancellation via KATZ EQUIDISTRIBUTION of the Frobenii Theta_chi in PU(M-2) -- his family is the
+MULTIPLICATIVE characters chi mod T^m, which has BIG monodromy. Our T(c)=e_m(...) is the same
+symmetric-function object, but our dual family is the ADDITIVE frequencies c, whose monodromy is ABELIAN
+(blind) -- exactly why additive routes stall. **NEW ROUTE (2): reformulate the fiber count via a
+MULTIPLICATIVE-character / big-monodromy family so a Katz/Rodgers-type equidistribution supplies the
+cancellation the abelian additive family cannot.** Round-(a) model attack now running on Routes 1 (LO n-loss),
+2 (multiplicative big-monodromy), 3 (transplant Pach Lemma 2.3), 4 (minimal value sets for E_{w+1}).
