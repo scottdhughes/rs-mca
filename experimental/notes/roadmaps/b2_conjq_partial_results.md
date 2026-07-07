@@ -392,3 +392,35 @@ few-term families explicitly (they are the true extremizers of `S2off`, though N
 live tool is a sparse-polynomial subgroup-sum bound (BCP/Karatsuba/Shkredov). Numerics: truth `|pi_odd| ~
 sqrt(p) = n^{0.74}`, comfortably inside `n^{0.905}`. Still OPEN; the target is now correctly identified and
 resonance-stable.
+
+## Cross-check vs holmbuar's grande_finale (upstream, synced 2026-07-07)
+
+Reconciled this track against holmbuar's `experimental/grande_finale.tex` + `grande_finale_work/` +
+`notes/thresholds/cap25_v13_qfin_rung_routes_dead.md` + `data/.../kb_mca_conjq_route_margins_v1.json` (merged
+to origin/main). **No conflict; strong mutual corroboration; the two tracks are DUAL/complementary.**
+
+- **"SP" is an OVERLOADED name across the two tracks -- they are DIFFERENT objects (do not conflate):**
+  - **holmbuar SP = "Shift-Pair"** (`sp_w(e;D')`, `prop:q-second-moment`, `prop:gamma2-ledger`): the primitive
+    PTE/shift-pair CENSUS = the exact `L^2` prefix-fiber (SECOND-MOMENT) stratification = the PRIMAL/energy side.
+    This is my T6 (PTE `E_d`) + T11 (energy `E` = diagonal + shift-pair strata). Their `thm:q-implies-sp` is
+    ONE-WAY (`grande_finale.tex:2051`: "a max-fiber Q would discharge SP, NOT that SP proves Q"): `Q => ShiftPair`.
+  - **my SP = "Hypothesis SP"** (rounds a-c): an exponential-sum LARGE-VALUES bound, reduced (T15) to the sup
+    bound `max|pi_odd| <= n^{0.905}` = the DUAL/character-sum side. My `SP => Q` is a different object; NO
+    circularity with their one-way `Q => ShiftPair`.
+- **Independent corroboration (same conclusions, different formulae):**
+  - their H1 anticode cap `|Fib_w(z)| <= C(n,m-w)/C(m,w)` DEAD at all 5 rungs  ==  my Result B (packing dead).
+  - their `thm:moment-q` (low-moment bridge) DEAD  ==  my T14 (moments dead).
+  - their "fixed moments cannot fit the adjacent margins" / SP census still conjectural  ==  my T11 (energy dead,
+    `sqrt(M)` ceiling) + round(d) retraction (2nd/4th-moment proxies lossy).
+  - their `prop:proper-q-gap` `2^{1.66e6}` allowed bits vs `2^{22.2}` budget  ==  my Result B bit-budget.
+  - their `prop:prefix-rigidity` (distinct fiber members differ in `>= w+1`)  ==  my T8 + the **machine-checked
+    `powersum_rigidity`** Lean anchor (T6 core). My Lean file is a formal certificate for THEIR rigidity lemma too.
+- **SHARED barrier (the key point):** `grande_finale.tex:1022` bounds the coset power-sum character sums by
+  **`w sqrt(p)` via Weil** ("deg_y(g(alpha y^d)) <= wd < p, Weil gives w sqrt(p)") -- the SAME degree-growing
+  `w sqrt(p) = n^{1.5}` wall my sup bound hits. Both tracks are stuck at Weil-`w sqrt(p)`; conj:Q needs to beat it.
+  **My value-add over the shared wall:** (i) T15 crude count shows the SUP bound (not full equidistribution)
+  SUFFICES; (ii) resonance-stability -- `|pi_odd|` stays `~sqrt(p)` where the 2nd-moment proxies blow up;
+  (iii) the sparse-subgroup-sum (BCP/Karatsuba) angle to sub-Weil, which the primal shift-pair track does not use.
+- **NET:** holmbuar works the PRIMAL (shift-pair/second-moment census, `Q => SP`); I work the DUAL (character-sum
+  sup bound, `SP_mine => Q`). Both reduce conj:Q to beating the `w sqrt(p)` Weil wall at the deployed depth; both
+  OPEN there. The active target is identical to `grande_finale.tex`'s "row-sharp Q atom" (`def:q-row-atom`).
