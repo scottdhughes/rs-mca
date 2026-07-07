@@ -1,3 +1,4 @@
 import PowersumRigidity.Basic
 import PowersumRigidity.OffdiagMultiplicity
 import PowersumRigidity.RigidityCorollaries
+import PowersumRigidity.ReciprocalGap
