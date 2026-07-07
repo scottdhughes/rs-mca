@@ -19,10 +19,23 @@ trusted -- each candidate's actual note/PR state must be checked.
    Non-overlapping with M1 (which owns the crowded `rho=1/2` proof-record rows).
 
 2. **`fm1` exact aligned-count identity** `E[#aligned] = C(n,j)(1-q^{-t})q^{1-t}`
-   -- DAG `PROVABLE`, no dedicated note found (its adjacent-jump ratio is in
-   `staircase_steepness.md`, but the expectation identity itself may be
-   uncaptured). If open, a clean Lean-verifiable target like the two-core packing
-   lemma. STATUS CHECK NEEDED before claiming.
+   -- **STATUS CHECK DONE (2026-07-06): CLOSED, not a lane for us.** It is already
+   PROVED and it is **M1-owned**: `experimental/notes/m1/fm1_exact_aperiodic_first_moment.md`
+   (identical statement + proof: Vandermonde-block surjectivity -> uniform `(a,b)`
+   -> span-count -> linearity), a 10-check verifier
+   `verify_fm1_exact_aperiodic_first_moment.py` (all PASS: F_5 brute mean 96/125,
+   F_13 495-map surjectivity, F_17^32 window), a certificate JSON, AND a whole
+   superstructure I did not have (two-locator joint rank, exact 2nd moment,
+   overlap-excess/variance, Paley-Zygmund, dependency-graph concentration). My
+   independent re-derivation (exact per-locator probability across `q in {5,7,13,97}`,
+   `t=1..5`; 495/495 surjectivity on F_13 and F_97) only *reproduced* a strict
+   subset. A Lean cert of the one asserted-general step (generalized-Vandermonde
+   row-block full rank => surjective) would be genuine, but it is M1's step to
+   certify, in the M1 lane -- out of scope for this L1 terminal. Aborted before
+   any commit; the `staircase_steepness.md` adjacent-jump ratio is the only
+   fm1-adjacent thing still elsewhere, and it too is PROVED. **Lesson: run the
+   note-status + directory-owner check FIRST, before writing any verifier** -- the
+   `m1/` prefix alone flags M1 ownership.
 
 3. **Other certificate-flavoured `PROVABLE` nodes** (`paid_tan_fn`,
    `paid_quot_fn`, `collision_norm_criterion`, `spi_dim1`, `u1_cramer`) -- require
