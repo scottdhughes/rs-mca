@@ -82,15 +82,22 @@ QED modulo L1.
   bad-slope count `= R3+3` and on `L=1` (Sage rank `<= 1`, rank `1` on a
   non-degenerate code-line).
 
-## Status / honest scope (CORRECTED)
+## Status / honest scope (CORRECTED, and NOT resolved)
 
-`A_te-2` is **OPEN**. L1 is **FALSE**, so this note does NOT prove
-`LD_sw(A_te-2) <= R3+3`; it proves it only in the (non-universal) `L=1` case.
-What survives: (i) the Steps 1,3,4,5 reduction as a correct CONDITIONAL result;
-(ii) the unconditional structural fact that `>=2` bad slopes force `g` within
-`2R3+4` of `C`; (iii) an explicit family of `L>1` configs (rank 2). The 3-slope
-`L>1` configs found so far have `|Z| = 3 < R3+3`, so they do NOT yet disprove the
-bound either -- whether `L>1` configs can reach `|Z| > R3+3` (which would CAP the
-pin at `A_te-1`) is the reopened question. LESSON: the prior "evidence pin
-extends" and "reduced to L1" were both undermined by a **biased search** (a425
-basin); the correct next step is an UNBIASED search over `L>1` constructions.
+`A_te-2` is **OPEN and unresolved.** L1 is **FALSE**, so this note proves
+`LD_sw(A_te-2) <= R3+3` only in the (non-universal) `L=1` case. What is SOLID:
+(i) the Steps 1,3,4,5 reduction as a correct CONDITIONAL (`L=1`) result
+(Codex + Sage verified); (ii) the unconditional structural fact that `>=2` bad
+slopes force `g` within `2R3+4` of `C`; (iii) `L1` is refuted by an explicit
+reliable 3-slope rank-2 construction (`ate2_L1_refute.sage`), which has
+`|Z| = 3 < R3+3`.
+
+**What is NOT established:** the maximum `|Z|` over `L>1` configs. Multiple
+attempts to build an unbiased `L>1` explorer that scales past 3 slopes were
+BUGGY (only the 3-slope `ate2_L1_refute.sage` construction is verified to work);
+generalized constructors produced no valid rank-`>=2` configs, so any "unbiased
+search topped at R3+3" claim from them is UNRELIABLE and is withdrawn. Whether
+`L>1` can reach `|Z| > R3+3` (capping the pin at `A_te-1`) or stays below it (pin
+extends) is genuinely undetermined here. A reliable resolution needs a
+carefully-verified `L>1` constructor / exact `emca` in the above-unique-radius
+regime (which is `q^{2m}`-infeasible at deployed `m`) -- deferred, not claimed.
