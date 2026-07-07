@@ -139,3 +139,13 @@ by the `k <= 31` cap (`2^{28.16} < B*_KB = 2^{57.93}`, and `< n^2`), M31 rows by
 the `k <= 15` cap (`2^{12.65} < B*_{M31} = 2^{24}`). Option (a) ("no super-logarithmic disjoint primitive
 family") holds at all four rows; the per-row inputs are one Frobenius sign and one integer comparison.
 Scope: per-prefix staircase multiplicity in the four-column split's framing, post-strip, as before.
+
+**Addendum (size `2(t+1)` exclusion at M31 -- the witness size dies too).** At `b = 2t+2 = 2(t+1)` the
+reciprocal argument leaves exactly ONE free middle coefficient: `L_B = X^{2(t+1)} + lambda X^{t+1} + q_0`, a
+QUADRATIC in `Y = X^{t+1}`. Distinctness of roots forces two distinct `Y`-roots, so `B` lies in two fibers of
+`x -> x^{t+1}` on `mu_n`, each of size `gcd(t+1, n)`. At M31: `gcd(67448, 2^21) = 8` (resp. `gcd(67447, 2^21)
+= 1` at M31-list), so `|B| <= 16 << 2t+2 = 134,896` -- **no `t`-null blocks of size `2(t+1)` exist at M31 at
+all.** Notably `2(t+1)` is exactly the size of the recorded primitive witness at the `p == +1` toy row
+`(193, 64, 3)`: the Mersenne sign kills precisely that configuration. (Toy consistency: at `(31,16,2)` and
+`(127,16,2)`, `b = 2t+2 = 6` blocks: none found in the exhaustive run.) Primitive blocks at M31 therefore
+need `b >= 2t+3`; `floor(n/(2t+3)) = 15`, so the `k <= 15` cap and the closure margins are unchanged.
