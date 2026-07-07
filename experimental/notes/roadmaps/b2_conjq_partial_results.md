@@ -305,3 +305,38 @@ large subgroup `mu_n` with a degree-`w` ODD phase -- and (i) the crude count the
 `~sqrt(p) = n^{0.74}`, comfortably inside. The crux is a single sub-trivial character-sum bound; Weil is the
 wrong tool (degree growing), the subgroup small-index structure is the right one. Still OPEN, now maximally
 concrete.
+
+## Round (d) -- conj:Q collapses to ONE 4th-moment estimate `S2off <= O(np)` (2026-07-07)
+
+The sup bound (round c) is itself reduced -- by a chain of PROVED identities -- to a single clean 4th-moment.
+All steps verified (`b2_sp_2ndmoment_route.py`).
+
+**T16 (PROVED reduction chain). Define** `T_a(c) = sum_{y in F_p^*} e_p(f_c(ay) - f_c(y))` for `a in mu_n`
+(a COMPLETE degree-`<=w` additive character sum; `T_1 = p-1`). Then:
+1. **Coset-sum identity (PROVED):** `|pi_odd(c)|^2 <= sig2(c) := sum_{a in mu_n} T_a(c) = sum_{i=1}^{m'}|Pi_i|^2`,
+   where `Pi_i = sum_{z in coset_i} e_p(f_c(z))` are the sums of `f_c`'s phase over the `m'=(p-1)/n` cosets of
+   `mu_n` in `F_p^*` (`Pi_1 = pi_odd(c)`). [`sum_a T_a = sum_i|Pi_i|^2 >= 0`, and `|Pi_1|^2 <= sum_i|Pi_i|^2`.]
+2. **a=1 split + Cauchy-Schwarz (PROVED):** `sig2 = (p-1) + sum_{a != 1} T_a <= (p-1) + sqrt((n-1) * S2off)`,
+   where **`S2off := sum_{a in mu_n, a != 1} |T_a(c)|^2`** is the 4th moment with the trivial diagonal removed.
+3. **THE ONE OPEN ESTIMATE:** `S2off <= K n p` with `K = O(1)`. Then `M^2 = |pi_odd|^2 <= sig2 <= p + n sqrt(Kp)`,
+   so `M <= n^{0.87} < n^{0.905}` (T15 threshold) `=> SP => N_prim <= n^{O(1)} mean <= n^3`. **conj:Q DONE.**
+
+**Numerics (adversarial-max c, coordinate ascent, regime-representative `w_odd/(n/2)~0.03`):**
+    `S2off/(np) = 1.0 - 1.2` across `n=512,1024,2048` (K ~ 1); the CS-implied PROVABLE sup bound
+    `sqrt((p-1)+sqrt((n-1)S2off))` is `n^{0.88}` at n=512, **improving to `n^{0.81}` at n=2048** -- under the
+    `n^{0.905}` target and DECREASING toward `sqrt(p)`. Median `|T_a| ~ sqrt(p)`; the only large `T_a` is the
+    trivial `a=1` term. The Weil `w`-factor does NOT materialize off-diagonal.
+
+**Status of `S2off <= O(np)` (the sole remaining gap).** NOT Weil-provable: per-term Weil `|T_a|^2 <= (w-1)^2 p`
+gives `S2off <= n w^2 p` -- overshoot `w^2 = 2^{33}`. So it needs CANCELLATION/averaging over `a in mu_n`. Its
+structure is a genuine 4th moment: `sum_a |T_a|^2 = sum_{y,y'} e_p(f_c(y')-f_c(y)) sum_{a in mu_n}
+e_p(f_c(ay)-f_c(ay'))`; the `y=y'` diagonal contributes exactly `np`, and `S2off <= O(np)` asserts the
+off-diagonal (`y' != y`) is `O(np)` too -- a square-root-cancellation statement for a subgroup-averaged
+additive-energy sum. This is the clean self-contained sub-lemma to (a) hand a focused model round, (b) gamble
+to Aristotle, (c) attempt directly (Bombieri/Weil for the inner subgroup curve sum + summation by parts over
+`y,y'`). It is the LAST domino.
+
+**NET (rounds a-d): the entire conj:Q reduces, by PROVED steps, to `S2off = sum_{a in mu_n, a!=1}
+|sum_{y in F_p^*} e_p(f_c(ay)-f_c(y))|^2 <= O(np)`** -- a single, clean, uniform-in-`c` 4th-moment
+(subgroup-averaged additive energy) estimate, numerically `~np` (constant `~1`). Every other route is dead
+(energy T11, moments T14) or reduces here. This is the sharpest and most self-contained the crux has ever been.
