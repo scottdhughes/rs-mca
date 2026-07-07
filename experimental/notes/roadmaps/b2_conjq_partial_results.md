@@ -735,3 +735,51 @@ margin; the top-level goal survives all exact-aliasing attacks at deployed scale
 is (as in round h, now localized to alias-free levels `j >= 17`) a quantitative approximate-spike / peak-
 coherence inverse theorem with explicit constant `eta < 0.537`. The crux keeps its shape -- approximate spikes
 -- but the exact-spike sector is now completely closed by the degree cap.
+
+## Round (l) -- peak-coherence estimate REFUTED (frozen-fiber family); the DEGREE-BUDGET picture crystallizes (2026-07-07)
+
+Model round on the alias-free peak-coherence estimate: **REFUTED**, by an explicit admissible family --
+independently VERIFIED here at FULL DEPLOYED SCALE (`b2_sp_frozen_fiber_check.py`; 3-sparse `c`).
+
+**The counterexample (PROVED + verified).** `f_lambda(x) = lambda x (x^D - 1)(x^D - alpha)`, `D = 2^15`,
+`alpha = z20^D` (order 32); exponents `{1, 32769, 65537}` all odd `<= w`. On `H = G_19` (level `j = 20`,
+alias-free: `deg f = 65537 < N'/2`): writing `q = y^D in mu_16`, `f(y) = lambda y (q-1)(q-alpha)` and
+`f(zeta y) = lambda zeta y (alpha q - 1) alpha (q - 1)` -- BOTH vanish exactly on the fiber `q = 1` of size
+`D = 2^15` (verified: exactly 32768 zeros on each half). The zeta-dilation does NOT decorrelate: it PRESERVES
+the common exact-zero fiber. A second-moment argument over `lambda` (collision count `<= 15 * 15D`) yields
+`lambda` with outside-sums `<= sqrt(450 D)`, so `|A_0|, |B_0| >= D - sqrt(450D) > N'^{0.76}` at the SAME
+frequency `s* = 0` with coherence `Re(A_0 conj(B_0)) > 0.53 max^2`. Verified: `|A_0| = 32415, |B_0| = 32430
+> 22227 = N'^{0.76}`, coherence `= 1.000`. Same construction works at `j = 18, 19, 20` (certified ratios
+`> 0.92, 0.82, 0.66`). **So large same-frequency peaks CAN be coherent at alias-free levels; the `N'^{0.76}`
+threshold is too low; the heuristic "correlation => log-rigidity => shift decorrelates" is false.**
+
+**But the GOAL survives AGAIN, at the same scale (verified).** On `G_21` the same `f` freezes TWO fibers
+(`q = 1` and `q = alpha`, `q in mu_64`): frozen mass exactly `2^16 = 65536 ~ deg f` (the degree budget).
+Top-level `max_t|phihat_{G_21}| = 65369 = n^{0.7617} < n^{0.81}` -- margin `2.02x`. Level-20 sup
+`= |G_20|^{0.7992}`, still (barely) under `0.81`.
+
+**THE CRYSTALLIZED PICTURE -- the DEGREE BUDGET governs.** Every extremal construction found so far (dyadic-
+aliased pairs round (k): `n^{0.7651}`; frozen fibers round (l): `n^{0.7617}`; certified caps: exact-freeze
+`<= deg f <= w` ALWAYS) tops out at the SAME scale `~w = n^{0.764}`. The structure family is now explicit:
+    `f(x) = x P(x^D)` with `P` vanishing at consecutive `zeta^D`-translates -- common-fiber freezing,
+    whose TOTAL top-level contribution is degree-budgeted at `<= w`.
+**Working conjecture (DB):** `max_{c != 0} max_t |phihat_G(chi_t)| <= C w polylog = C n^{0.764+o(1)}` -- the
+degree budget is the fundamental invariant; the `n^{0.81}` goal then holds with factor-`~2` room. All verified
+data (generic `0.60`, aliased `0.765`, frozen-fiber `0.762`) is consistent with DB.
+
+**Repaired open target (model, adopted -- the sharp remaining statement).** A per-level induction only needs
+coherence control for DANGEROUS peaks: `M > 2^{-0.19} N'^{0.81}` (smaller peaks tolerate the trivial factor 2).
+The missing theorem is the INVERSE statement:
+    **large coherent same-frequency peaks at alias-free levels are either (a) produced by the `x P(x^D)`
+    common-fiber structure -- whose total contribution is degree-budgeted (`<= w`) and harmless at top scale --
+    or (b) obey a true arithmetic decorrelation estimate.**
+This is a classification/inverse theorem with the obstruction family EXPLICITLY identified -- research-grade
+open, but maximally structured: the enemy is named (`x P(x^D)` freezing), capped (degree budget), and every
+other mechanism must decorrelate.
+
+**NET (round l):** third refutation round, third time the GOAL survives at `~n^{0.764}`. The saga has converged
+to: (DB) the degree budget governs the sup; extremals are freeze constructions capped at `w`; the open core is
+the freeze-or-decorrelate inverse theorem. Every refutation has come from a degree-budgeted freeze -- none has
+approached `0.81`. The partial-results package (T1-T18, rounds a-l, 2 Lean anchors) now contains a complete
+map of this barrier: every cheap route provably dead, every extremal family identified and capped, one sharply-
+stated inverse theorem remaining.
