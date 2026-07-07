@@ -2,5 +2,6 @@ import L1Threshold.PairCountClosing
 import L1Threshold.FiberDoubleCount
 import L1Threshold.CollapseEdgeCertificate
 import L1Threshold.CollapseEdgeOriginSummary
+import L1Threshold.CollapseEdgeOriginDot
 import L1Threshold.CollapseEdgeOriginArithmetic
 import L1Threshold.CollapseEdgeCompactPacket

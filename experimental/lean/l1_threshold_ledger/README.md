@@ -143,6 +143,29 @@ This moves the per-edge arithmetic classification into Lean, but it still does
 not symbolically reconstruct the W3 geometry, bases, or dot products that
 produced the compact `(intercept,slope)` rows.
 
+### `L1Threshold.CollapseEdgeOriginDot` — compact dot-product origin check
+
+Data:
+`experimental/data/certificates/l1-residual-excess-classifier/w3_collapse_edge_origin_dot_compact_combo012_sizes10_2_3.json`.
+
+This generated module checks one layer below the modular edge-kind
+classification. For each of the `6528` compact rows, Lean verifies:
+
+```text
+intercept = <v(a)-v(b), quotient_base> mod 137
+slope     = <v(a)-v(b), seed_coords>   mod 137
+```
+
+using the supplied four-coordinate endpoint evaluations `v(a),v(b)` and the
+stored quotient/seed vectors. The checker proves:
+
+- `edgeOriginDotAllRowsOK`
+- `edgeOriginDotRowCount`
+- `edgeOriginDotCaseCounts`
+
+This still does not reconstruct the W3 basis polynomials that produced the
+endpoint evaluations.
+
 ### `L1Threshold.CollapseEdgeCompactPacket` — reviewer-facing aggregate
 
 This module imports both collapse-edge modules and exposes one compact gate:
@@ -150,10 +173,11 @@ This module imports both collapse-edge modules and exposes one compact gate:
 - `compactPacketOK`
 
 It checks, in one theorem, that the finite graph checker passes, the compact
-origin-summary checker passes, the compact arithmetic-origin checker passes, the
-summary accounts for `6528` edge rules with zero mismatches, the arithmetic
-packet contains `6528` checked rows, and the six alternate contributions are
-exactly `[1,1,1,1,1,1]`. It is still not a symbolic W3 reconstruction.
+origin-summary checker passes, the compact dot-product checker passes, the
+compact arithmetic-origin checker passes, the summary accounts for `6528` edge
+rules with zero mismatches, the arithmetic/dot packets contain `6528` checked
+rows, and the six alternate contributions are exactly `[1,1,1,1,1,1]`. It is
+still not a symbolic W3 reconstruction.
 
 ## Build
 
@@ -184,9 +208,13 @@ no mathlib**. Each module ends with `#print axioms`:
   `edgeOriginArithmeticRowCount` /
   `edgeOriginArithmeticCaseCounts`: **no axioms**. These check the compact
   per-edge modular arithmetic classifications.
+- `CollapseEdgeOriginDot.edgeOriginDotAllRowsOK` /
+  `edgeOriginDotRowCount` /
+  `edgeOriginDotCaseCounts`: **no axioms**. These check the compact dot-product
+  origin rows for intercept/slope.
 - `CollapseEdgeCompactPacket.compactPacketOK`: **no axioms**. This is the
-  aggregate compact-packet gate combining the graph, origin-summary, and
-  origin-arithmetic checks.
+  aggregate compact-packet gate combining the graph, origin-summary,
+  origin-dot, and origin-arithmetic checks.
 
 ## Scope (honest)
 

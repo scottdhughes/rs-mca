@@ -53,8 +53,9 @@ The one-line compact-packet aggregate theorem is:
 L1Threshold.CollapseEdgeCompactPacket.compactPacketOK
 ```
 
-It combines the finite graph checker, the compact origin-summary checker, and
-the compact modular edge-origin arithmetic checker.
+It combines the finite graph checker, the compact origin-summary checker, the
+compact dot-product origin checker, and the compact modular edge-origin
+arithmetic checker.
 
 ## Scope
 
@@ -65,7 +66,10 @@ been generated.  A companion Lean module,
 metadata/count summary, but it also does not replay the omitted per-edge affine
 arithmetic.  A second companion module,
 `L1Threshold.CollapseEdgeOriginArithmetic`, checks the compact per-edge modular
-classification rows `(intercept,slope)` over modulus `137`.
+classification rows `(intercept,slope)` over modulus `137`.  A third companion
+module, `L1Threshold.CollapseEdgeOriginDot`, checks that those intercept/slope
+values are dot products of supplied endpoint evaluations against the quotient
+and seed vectors.
 `L1Threshold.CollapseEdgeCompactPacket` combines these finite checks into a
 single reviewer-facing gate.  The compact packet records the raw source hash in
 the origin-audit summary, but does not include the 45k-line raw edge-rule JSON.

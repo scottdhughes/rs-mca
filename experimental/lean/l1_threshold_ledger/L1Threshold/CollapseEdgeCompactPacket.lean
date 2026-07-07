@@ -1,5 +1,6 @@
 import L1Threshold.CollapseEdgeCertificate
 import L1Threshold.CollapseEdgeOriginSummary
+import L1Threshold.CollapseEdgeOriginDot
 import L1Threshold.CollapseEdgeOriginArithmetic
 
 namespace L1Threshold
@@ -13,6 +14,7 @@ collapse-edge PR packet. It combines:
 * the finite graph checker in `CollapseEdgeCertificate`; and
 * the compact origin-audit metadata/count checker in
   `CollapseEdgeOriginSummary`; and
+* the compact origin dot-product checker in `CollapseEdgeOriginDot`; and
 * the compact modular edge-origin arithmetic checker in
   `CollapseEdgeOriginArithmetic`.
 
@@ -24,8 +26,10 @@ namespace CollapseEdgeCompactPacket
 theorem compactPacketOK :
     CollapseEdgeCertificate.checkAllCases = true
       ∧ CollapseEdgeOriginSummary.allCasesOK = true
+      ∧ CollapseEdgeOriginDot.allRowsOK = true
       ∧ CollapseEdgeOriginArithmetic.allRowsOK = true
       ∧ CollapseEdgeOriginSummary.edgeRulesAudited = 6528
+      ∧ CollapseEdgeOriginDot.edgeRows.length = 6528
       ∧ CollapseEdgeOriginArithmetic.edgeRows.length = 6528
       ∧ CollapseEdgeOriginSummary.mismatchCount = 0
       ∧ CollapseEdgeCertificate.allCases.map CollapseEdgeCertificate.alternateContribution =
@@ -33,20 +37,24 @@ theorem compactPacketOK :
   exact
     And.intro CollapseEdgeCertificate.collapseEdgeAllCasesOk
       (And.intro CollapseEdgeOriginSummary.originSummaryAllCasesOK
-        (And.intro CollapseEdgeOriginArithmetic.edgeOriginArithmeticAllRowsOK
-          (And.intro CollapseEdgeOriginSummary.originSummaryEdgeRulesAudited
-            (And.intro CollapseEdgeOriginArithmetic.edgeOriginArithmeticRowCount
-              (And.intro CollapseEdgeOriginSummary.originSummaryNoMismatches
-                CollapseEdgeCertificate.collapseEdgeAllAlternateContributionsExact)))))
+        (And.intro CollapseEdgeOriginDot.edgeOriginDotAllRowsOK
+          (And.intro CollapseEdgeOriginArithmetic.edgeOriginArithmeticAllRowsOK
+            (And.intro CollapseEdgeOriginSummary.originSummaryEdgeRulesAudited
+              (And.intro CollapseEdgeOriginDot.edgeOriginDotRowCount
+                (And.intro CollapseEdgeOriginArithmetic.edgeOriginArithmeticRowCount
+                  (And.intro CollapseEdgeOriginSummary.originSummaryNoMismatches
+                    CollapseEdgeCertificate.collapseEdgeAllAlternateContributionsExact)))))))
 
 theorem compactPacketNoGraphOrSummaryMismatches :
     CollapseEdgeCertificate.checkAllCases = true
       ∧ CollapseEdgeOriginSummary.allCasesOK = true
+      ∧ CollapseEdgeOriginDot.allRowsOK = true
       ∧ CollapseEdgeOriginArithmetic.allRowsOK = true := by
   exact
     And.intro CollapseEdgeCertificate.collapseEdgeAllCasesOk
       (And.intro CollapseEdgeOriginSummary.originSummaryAllCasesOK
-        CollapseEdgeOriginArithmetic.edgeOriginArithmeticAllRowsOK)
+        (And.intro CollapseEdgeOriginDot.edgeOriginDotAllRowsOK
+          CollapseEdgeOriginArithmetic.edgeOriginArithmeticAllRowsOK))
 
 #print axioms compactPacketOK
 #print axioms compactPacketNoGraphOrSummaryMismatches

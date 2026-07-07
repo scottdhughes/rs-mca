@@ -78,11 +78,21 @@ Source data:
 | Each of the `6528` compact edge-origin rows has the stored rule kind certified by the modular affine equation `intercept + shift*slope = 0 mod 137`: `always` has slope/intercept zero, `never` has zero slope and nonzero intercept, and `at_shift` has nonzero slope and vanishes at the stored shift. | `edgeOriginArithmeticAllRowsOK`. | Compact arithmetic-origin packet. | Lean-certified finite modular arithmetic check (`decide`, axiom-free); does not reconstruct the W3 dot products that produced `(intercept,slope)`. |
 | The arithmetic packet contains `6528` rows, split evenly across the six stored cases. | `edgeOriginArithmeticRowCount`; `edgeOriginArithmeticCaseCounts`. | Compact arithmetic-origin packet. | Lean-certified finite count check (`decide`, axiom-free) |
 
+## W3 collapse-edge compact dot-product origin — `L1Threshold.CollapseEdgeOriginDot`
+
+Source data:
+`experimental/data/certificates/l1-residual-excess-classifier/w3_collapse_edge_origin_dot_compact_combo012_sizes10_2_3.json`.
+
+| Claim consumed by the note | Lean certificate | Source claim | Status |
+| --- | --- | --- | --- |
+| Each compact dot-product row has `intercept = <v(a)-v(b), quotient_base>` and `slope = <v(a)-v(b), seed_coords>` over `F_137`, using the supplied four-coordinate endpoint evaluations. | `edgeOriginDotAllRowsOK`. | Compact dot-origin packet. | Lean-certified finite modular dot-product check (`decide`, axiom-free); does not reconstruct the W3 basis polynomials that produced endpoint evaluations. |
+| The dot packet contains `6528` rows, split evenly across the six stored cases. | `edgeOriginDotRowCount`; `edgeOriginDotCaseCounts`. | Compact dot-origin packet. | Lean-certified finite count check (`decide`, axiom-free) |
+
 ## W3 collapse-edge compact packet aggregate — `L1Threshold.CollapseEdgeCompactPacket`
 
 | Claim consumed by the note | Lean certificate | Source claim | Status |
 | --- | --- | --- | --- |
-| The compact packet passes all three machine-checked layers: finite graph checker, compact origin-summary metadata/count checker, and compact modular edge-origin arithmetic checker. It also records `6528` audited rules, zero summary mismatches, and exact alternate contribution `[1,1,1,1,1,1]`. | `compactPacketOK`. | Compact PR packet. | Lean-certified aggregate finite check (axiom-free); still not a symbolic W3 reconstruction. |
+| The compact packet passes all four machine-checked layers: finite graph checker, compact origin-summary metadata/count checker, compact dot-product origin checker, and compact modular edge-origin arithmetic checker. It also records `6528` audited rules, zero summary mismatches, and exact alternate contribution `[1,1,1,1,1,1]`. | `compactPacketOK`. | Compact PR packet. | Lean-certified aggregate finite check (axiom-free); still not a symbolic W3 reconstruction. |
 
 ## Typed Targets And Non-Claims
 

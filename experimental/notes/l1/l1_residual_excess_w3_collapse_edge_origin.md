@@ -4,8 +4,10 @@
 - **Branch:** `scott/l1-w3-collapse-edge-lean-compact`.
 - **Data:** `experimental/data/certificates/l1-residual-excess-classifier/w3_collapse_edge_origin_audit_combo012_sizes10_2_3.json`
 - **Compact arithmetic data:** `experimental/data/certificates/l1-residual-excess-classifier/w3_collapse_edge_origin_arithmetic_compact_combo012_sizes10_2_3.json`
+- **Compact dot data:** `experimental/data/certificates/l1-residual-excess-classifier/w3_collapse_edge_origin_dot_compact_combo012_sizes10_2_3.json`
 - **Compact verifier:** `experimental/scripts/verify_l1_w3_collapse_edge_compact_packet.py`
 - **Lean metadata checker:** `experimental/lean/l1_threshold_ledger/L1Threshold/CollapseEdgeOriginSummary.lean`
+- **Lean dot checker:** `experimental/lean/l1_threshold_ledger/L1Threshold/CollapseEdgeOriginDot.lean`
 - **Lean arithmetic checker:** `experimental/lean/l1_threshold_ledger/L1Threshold/CollapseEdgeOriginArithmetic.lean`
 
 ## Purpose
@@ -89,20 +91,39 @@ This moves the stored edge-kind arithmetic classification into Lean while
 keeping the raw 45k-line graph certificate and W3 reconstruction data out of the
 compact packet.
 
+The companion Lean module `L1Threshold.CollapseEdgeOriginDot` checks one layer
+below that:
+
+```lean
+L1Threshold.CollapseEdgeOriginDot.edgeOriginDotAllRowsOK
+L1Threshold.CollapseEdgeOriginDot.edgeOriginDotRowCount
+L1Threshold.CollapseEdgeOriginDot.edgeOriginDotCaseCounts
+```
+
+For each compact row, Lean verifies:
+
+```text
+intercept = <v(a)-v(b), quotient_base> mod 137
+slope     = <v(a)-v(b), seed_coords>   mod 137
+```
+
+using supplied four-coordinate endpoint evaluations and the stored quotient/seed
+vectors.
+
 ## Scope
 
 This is still not a Lean-certified symbolic W3 reconstruction.  The compact
-Lean arithmetic checker trusts the generated `(intercept,slope)` rows and checks
-their modular classification.  The Python finite-field arithmetic audit remains
-the layer that reconstructs those `(intercept,slope)` rows from the W3 basis and
-dot products.
+Lean dot checker trusts the generated endpoint evaluation vectors, and the
+Python finite-field arithmetic audit remains the layer that reconstructs those
+endpoint evaluations from the W3 basis.
 
 The audited chain is now:
 
-1. raw W3 data and finite-field dot products;
-2. Python origin audit producing compact `(intercept,slope)` rows;
-3. Lean modular arithmetic checker for stored edge kinds;
-4. Lean finite graph checker for active components and alternate contribution.
+1. raw W3 basis data and endpoint evaluations;
+2. Python origin audit producing compact endpoint/dot rows;
+3. Lean dot-product checker for `(intercept,slope)`;
+4. Lean modular arithmetic checker for stored edge kinds;
+5. Lean finite graph checker for active components and alternate contribution.
 
 It does not prove a symbolic collapse-edge rule, does not cover all W3 generated
 families, and does not prove the global L1 theorem.

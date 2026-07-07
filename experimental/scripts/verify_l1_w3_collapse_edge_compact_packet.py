@@ -22,9 +22,14 @@ DEFAULT_ARITHMETIC = (
     "experimental/data/certificates/l1-residual-excess-classifier/"
     "w3_collapse_edge_origin_arithmetic_compact_combo012_sizes10_2_3.json"
 )
+DEFAULT_DOT = (
+    "experimental/data/certificates/l1-residual-excess-classifier/"
+    "w3_collapse_edge_origin_dot_compact_combo012_sizes10_2_3.json"
+)
 DEFAULT_LEAN = "experimental/lean/l1_threshold_ledger/L1Threshold/CollapseEdgeCertificate.lean"
 DEFAULT_ORIGIN_LEAN = "experimental/lean/l1_threshold_ledger/L1Threshold/CollapseEdgeOriginSummary.lean"
 DEFAULT_ARITHMETIC_LEAN = "experimental/lean/l1_threshold_ledger/L1Threshold/CollapseEdgeOriginArithmetic.lean"
+DEFAULT_DOT_LEAN = "experimental/lean/l1_threshold_ledger/L1Threshold/CollapseEdgeOriginDot.lean"
 DEFAULT_PACKET_LEAN = "experimental/lean/l1_threshold_ledger/L1Threshold/CollapseEdgeCompactPacket.lean"
 
 EXPECTED_SOURCE_SHA256 = "1aab9da15bf074232122898bd9958fe2f2240eacdbc138af5638851be99a889d"
@@ -134,6 +139,59 @@ def check_arithmetic(path: Path, issues: list[str]) -> dict:
     return data
 
 
+def mod_dot_diff(row: list[int], coeffs: list[int], p: int) -> int:
+    va = row[4:8]
+    vb = row[8:12]
+    return sum(((a - b) % p) * c for a, b, c in zip(va, vb, coeffs)) % p
+
+
+def check_dot(path: Path, issues: list[str]) -> dict:
+    data = json.loads(path.read_text())
+    p = int(data.get("p", -1))
+    rows = data.get("rows", [])
+    if data.get("status") != "L1_W3_EDGE_ORIGIN_DOT_COMPACT":
+        issues.append("unexpected dot status %r" % data.get("status"))
+    if data.get("source_sha256") != EXPECTED_SOURCE_SHA256:
+        issues.append("unexpected dot raw source sha256")
+    if p != 137:
+        issues.append("dot p is not 137")
+    if int(data.get("case_count", -1)) != 6:
+        issues.append("dot case_count is not 6")
+    if int(data.get("edge_origin_rows", -1)) != 6528:
+        issues.append("dot edge_origin_rows is not 6528")
+    if len(rows) != 6528:
+        issues.append("dot rows length is not 6528")
+    contexts = {
+        int(ctx["case_index"]): (list(map(int, ctx["quotient_base"])), list(map(int, ctx["seed_coords"])))
+        for ctx in data.get("case_contexts", [])
+    }
+    case_counts = [0] * 6
+    for index, row in enumerate(rows):
+        if not isinstance(row, list) or len(row) != 14:
+            issues.append("dot row %s is not length-14 list" % index)
+            continue
+        values = [int(x) for x in row]
+        case_index = values[0]
+        if not 0 <= case_index < 6:
+            issues.append("dot row %s has bad case index" % index)
+            continue
+        if case_index not in contexts:
+            issues.append("dot row %s has no case context" % index)
+            continue
+        case_counts[case_index] += 1
+        for value in values[4:]:
+            if not 0 <= value < p:
+                issues.append("dot row %s has out-of-range field value %s" % (index, value))
+        quotient, seed = contexts[case_index]
+        if mod_dot_diff(values, quotient, p) != values[12]:
+            issues.append("dot row %s bad intercept dot" % index)
+        if mod_dot_diff(values, seed, p) != values[13]:
+            issues.append("dot row %s bad slope dot" % index)
+    if case_counts != [1088, 1088, 1088, 1088, 1088, 1088]:
+        issues.append("unexpected dot case row counts %r" % case_counts)
+    return data
+
+
 def check_lean(path: Path, issues: list[str]) -> None:
     text = path.read_text()
     required = [
@@ -180,12 +238,26 @@ def check_arithmetic_lean(path: Path, issues: list[str]) -> None:
             issues.append("origin-arithmetic Lean file missing %r" % needle)
 
 
+def check_dot_lean(path: Path, issues: list[str]) -> None:
+    text = path.read_text()
+    required = [
+        "theorem edgeOriginDotAllRowsOK",
+        "theorem edgeOriginDotRowCount",
+        "theorem edgeOriginDotCaseCounts",
+        "intercept = <v(a)-v(b), quotient_base> mod 137",
+    ]
+    for needle in required:
+        if needle not in text:
+            issues.append("origin-dot Lean file missing %r" % needle)
+
+
 def check_packet_lean(path: Path, issues: list[str]) -> None:
     text = path.read_text()
     required = [
         "theorem compactPacketOK",
         "theorem compactPacketNoGraphOrSummaryMismatches",
         "CollapseEdgeCertificate.checkAllCases = true",
+        "CollapseEdgeOriginDot.allRowsOK = true",
         "CollapseEdgeOriginArithmetic.allRowsOK = true",
         "CollapseEdgeOriginSummary.edgeRulesAudited = 6528",
     ]
@@ -198,9 +270,11 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--origin", default=DEFAULT_ORIGIN)
     parser.add_argument("--arithmetic", default=DEFAULT_ARITHMETIC)
+    parser.add_argument("--dot", default=DEFAULT_DOT)
     parser.add_argument("--lean", default=DEFAULT_LEAN)
     parser.add_argument("--origin-lean", default=DEFAULT_ORIGIN_LEAN)
     parser.add_argument("--arithmetic-lean", default=DEFAULT_ARITHMETIC_LEAN)
+    parser.add_argument("--dot-lean", default=DEFAULT_DOT_LEAN)
     parser.add_argument("--packet-lean", default=DEFAULT_PACKET_LEAN)
     parser.add_argument("--json", action="store_true")
     args = parser.parse_args()
@@ -208,9 +282,11 @@ def main() -> int:
     issues: list[str] = []
     origin = check_origin(Path(args.origin), issues)
     arithmetic = check_arithmetic(Path(args.arithmetic), issues)
+    dot = check_dot(Path(args.dot), issues)
     check_lean(Path(args.lean), issues)
     check_origin_lean(Path(args.origin_lean), issues)
     check_arithmetic_lean(Path(args.arithmetic_lean), issues)
+    check_dot_lean(Path(args.dot_lean), issues)
     check_packet_lean(Path(args.packet_lean), issues)
     result = {
         "ok": not issues,
@@ -219,6 +295,7 @@ def main() -> int:
         "case_count": origin.get("case_count"),
         "edge_rules_audited": origin.get("edge_rules_audited"),
         "edge_origin_rows": arithmetic.get("edge_origin_rows"),
+        "dot_origin_rows": dot.get("edge_origin_rows"),
         "source_sha256": origin.get("source_sha256"),
     }
     if args.json:
