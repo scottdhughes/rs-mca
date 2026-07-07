@@ -641,3 +641,40 @@ mechanism (verified `cancel ~ 0.9`) is that the two half-spectra `A, B` PEAK AT 
 phases `f_c(y)` and `f_c(zeta y)` have DECORRELATED `G_{j-1}`-spectra. Proving that decorrelation, uniformly in
 `c`, is the concrete (i). The `sqrt(p)` base-case split (BGK small subgroup at `mu_{2^15}`) is UNAFFECTED by
 this correction (it is about where the descent starts, not the descent object).
+
+## Round (j) -- attacking the per-level lemma via the difference phase; T18 machine-checked (2026-07-07)
+
+**T18 now MACHINE-CHECKED (Lean 4 / Mathlib, independently re-verified).** `OffdiagMultiplicity.solutions_ncard_le`:
+over any field with `2,3,5 != 0` and `D1 != 0`, the off-diagonal fiber `{(x1,x2,x3,x4): x1x2=x3x4=P, sum-diff=D1,
+p3-diff=D3, p5-diff=D5}` has `ncard <= 16`. Zero `sorry`; axioms `[propext, Classical.choice, Quot.sound]`. Core
+lemma `q_quartic`: `q=x1+x2+x3+x4` satisfies the explicit quartic with leading coeff `45 D1^2 != 0` (a single
+`linear_combination` off `x1x2=x3x4`, Newton implicit via `ring`), then `Polynomial.card_roots'` + injection
+counting. File `experimental/lean/powersum_rigidity/PowersumRigidity/OffdiagMultiplicity.lean`. Second machine-
+checked anchor (with `powersum_rigidity`) -- T18's `L^2`/`Pr(bad)<=1e-13` result now rests on a verified core.
+
+**Attack (1) -- difference phase `g(y) = f_c(zeta y) - f_c(y)`. Honest mixed result (`b2_sp_difference_phase.py`).**
+The per-level lemma reduces (PROVED) to spectral NON-concentration of `g`: `B = A conv (spectrum of e_p(g))`, so
+`A,B` peak together (ratio -> 2) iff `e_p(g)` is spectrally concentrated; exactly-concentrated (`g` const) forces
+`c = 0` (`g = sum_i c_i(zeta^i-1) y^i`, deg `<= w < 2^{j-1}`). Findings:
+- **DEAD END: `zeta^i - 1` gives NO free simplification.** The magnitudes `|zeta^i - 1|` are ~uniform in `[0,p)`
+  (median `~p/2`), and `g` is SELF-SIMILAR to `f_c`: `exp(max|ghat|) = 0.60-0.61 ~ exp(max|phihat_{f_c}|) = 0.60`
+  (dense/monomial). No support reduction, no lower degree. So mining the `zeta`-structure does not make `g` easier;
+  the descent is a PURE INDUCTION over the odd-phase class, not a reduction to a smaller problem. (For the
+  `f_c`-adversarial `c`, `g` is slightly SIMPLER, `0.602 < 0.623` -- the worst `c` for `f_c` is not worst for `g`.)
+- **REAL STRUCTURE: the induction is NON-CIRCULAR via a peaked/spread DICHOTOMY.** Peak-coincidence
+  `|B[argmax|A|]| / max|B| = 0.32 - 0.39` (peaks well-separated -- WHY `rho ~ 1.3-1.6`). Mechanism: if `A` is
+  PEAKED at `s*`, then `B[s*] ~ A[s*] * ghat_0 / 2^{j-1} + (conv tail)`, and `ghat_0 = sum_y e_p(g(y))` is bounded
+  by the INDUCTIVE HYPOTHESIS applied to the odd phase `g` -- so `B` is small at `A`'s peak (separation). If `A` is
+  SPREAD, `max|A|` is already small. This dichotomy is genuine (uses the hypothesis on `g`, which is in-class), so
+  the descent does NOT circularly assume its conclusion.
+- **The remaining analytic gap (concrete):** the CONVOLUTION TAIL `B[s*] = (1/2^{j-1}) sum_r A_r ghat_{s*-r}`.
+  Naive `sup * L^1` gives `(2^{j-1})^{theta+0.5}` (too weak); `sup * L^2`/Cauchy-Schwarz gives the trivial
+  `2^{j-1}`. Closing (i) needs an `L^p`-refined / restricted convolution bound coupling the inductive bounds on
+  `A` (spectrum of `f_c`) and `ghat` (spectrum of `g`) -- NOT a free consequence of the level-`(j-1)` sup bound.
+  This is the precise open sub-lemma of the descent.
+
+**NET (round j):** T18 is machine-checked (2nd anchor). The dyadic descent's per-level lemma is now dissected: the
+`zeta^i-1` structure gives no free simplification (`g` self-similar), but the descent is a legitimate non-circular
+induction driven by a peaked/spread dichotomy; the single remaining analytic gap is an `L^p`-refined convolution-
+tail bound `B = A conv ghat` at `A`'s peak. That -- plus the `sqrt(p)` BGK base case -- are the two concrete open
+sub-lemmas of the first non-dead route to the crux.

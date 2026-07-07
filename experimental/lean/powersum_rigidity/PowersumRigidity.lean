@@ -1,1 +1,2 @@
 import PowersumRigidity.Basic
+import PowersumRigidity.OffdiagMultiplicity
