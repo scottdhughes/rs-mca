@@ -95,3 +95,34 @@ External-model contribution, all load-bearing claims RE-VERIFIED here:
 over `mu_{n/2}`, with only an n-loss.** A developed area (Halasz, Tao-Vu, Nguyen-Vu inverse LO); much
 sharper than the marginal pi(c) moments (which give only (ell-1)!! n^{ell/2}, too large after 1/z_lambda).
 This is the most tractable form of the crux to date.
+
+## Correction + clarification (2026-07-07, d>w tail attack, both claims VERIFIED)
+
+Third model contribution (independent). IMPORTANT correction: the additive-energy route (Reduction E)
+is PROVABLY INSUFFICIENT, and the crux is now crystal clear.
+- **T11 (Prop 1, PROVED+verified): exact energy->fiber transfer + a sqrt(M) CEILING.** Removing the main
+  term BEFORE Cauchy-Schwarz: `|N - mean| <= sqrt(E - E0_rand)`, `E >= E0_rand = M^2/p^w`, and `E >= M`
+  (integer fibers, nu^2>=nu). Verified (n=16,w=2,m=10: |N-mean|=4.29 <= sqrt(E-E0)=28.56). **But this
+  CANNOT reach n^3:** the diagonal energy term is M = C(n,m), so `sqrt(E-E0) >~ sqrt(M)` which at deployed
+  scale is astronomically >> n^3. Any E-a bound `E-E0 <= n^{O(1)} p^w` yields only `N <= mean * p^{w/2}` --
+  the sqrt(p^w) barrier is STRUCTURAL (the Cauchy-Schwarz sqrt(#frequencies)). **So E-a and E-b do NOT
+  combine; the 2nd moment / additive energy is dead** (corrects the earlier "positive route" framing).
+- **Consequence — the LO reduction (T8-T10) is the SURVIVING route** precisely because it bounds the COUNTS
+  A_s, B(U) POINTWISE (Littlewood-Offord anticoncentration), NOT via energy -- so it sidesteps the sqrt(M)
+  ceiling. If the pointwise LO bounds hold with product loss L <= n, then `N_prim <= L*mean ~ 2^56.7 < n^3`,
+  BELOW the energy ceiling. A_s, B(U) are themselves many-condition subset counts (the same crux, cleaner).
+- **The one genuine missing ingredient (both routes reduce to it):** direct anticoncentration / signed
+  cancellation, NOT the second moment. Signed form: `|sum_{t != 0} e_m({e_p(f_t(a))}_{a in mu_n})| <=
+  n^{O(1)} p^w`. No |A(t)| bound helps (typical |A(t)| ~ sqrt(M)); Weil per-frequency is w*sqrt(p) > n.
+- **T12 (Theorem 2, PROVED+verified): E_{w+1} = 2*#{U subset mu_n, |U|=2(w+1) : P_U + gamma is a perfect
+  square for some gamma != 0}** (polynomial-Pell: `Qhat^2 - P_U = gamma`). Verified (n=12,w=2: E_3=168=2*84).
+  Unconditional `E_{w+1} <= 30*C(n,w+1)` (each deg-(w+1) locator has <= n/(w+1)=31 full fibers). Off the
+  critical path (energy tail dead) but a clean self-similar minimal-value-set object.
+- **T13 (PROVED): N = # weight-m BINARY codewords of a generalized Reed-Solomon [n, n-w, w+1] MDS code**
+  (H = [a^j], Vandermonde minors nonzero); MDS distance w+1, Newton sharpens to E_d=0 for d<=w.
+
+**NET (3 models cross-checked):** energy route DEAD (T11); surviving route = pointwise Littlewood-Offord
+anticoncentration on A_s,B(U) with n-loss (T8-T10), equivalently signed cancellation of the e_m frequency
+sum. Both = anticoncentration/equidistribution of subset counts on the moment curve of the subgroup,
+uniform in #conditions = a clean generalization of Pach arXiv:2505.12496 (full-group single-sum case).
+Morally certain (~2^41 slack); genuinely open. The crux is now a single, sharply-stated anticoncentration.
