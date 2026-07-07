@@ -1,12 +1,19 @@
-# A_te-2 upper bound reduces to a collinearity lemma
+# A_te-2 upper bound: a conditional reduction (its lemma L1 is FALSE)
 
-Status: the exact upper bound `LD_sw(C, A_te-2) <= R3+3` (a425's
-`EXACT_A425_UPPER_OPEN`) is **PROVED modulo one collinearity lemma L1**. The
-reduction below is verified two independent ways: adversarial logic review
-(Codex) and CAS cross-check of its computational claims (Sage coding-theory
-module). Dated 2026-07-06. Combined with the tangent floor `>= R3+3`, closing L1
-would give `LD_sw(A_te-2) = R3+3` -- the pin extends one step past the two-core
-range.
+Status: **CORRECTED / L1 REFUTED (2026-07-06).** The reduction below proves
+`LD_sw(C, A_te-2) <= R3+3` **only in the `L=1` case** (all bad-slope codewords on
+one code-line). The collinearity lemma L1 -- that we are ALWAYS in the `L=1`
+case -- is **FALSE**: a Sage/CAS construction exhibits configs with 3 bad slopes
+whose codewords have rank 2 (non-collinear, `L>1`). The earlier "1200/1200
+`L=1`" evidence was a **biased sample** (all perturbations of the a425 witness,
+which sits in its own `L=1` basin). Therefore this note does NOT prove the bound;
+`A_te-2` is fully OPEN again. The reduction steps (1,3,4,5) remain individually
+valid (Codex-verified) as a CONDITIONAL result. Counterexample constructor:
+`experimental/scripts/ate2_L1_refute.sage`.
+
+> The rest of this note is retained as the (correct) conditional argument for the
+> `L=1` case and the record of how L1 was refuted. Do not read the original
+> "PROVED modulo L1" framing as a proof.
 
 ## Setup
 
@@ -31,14 +38,17 @@ for uniqueness; this is why L1 is nontrivial.)
 
 ## Step 2 -- the collinearity lemma L1 (the one open input)
 
-**L1.** The bad codewords are collinear in the parameter-respecting sense: there
-are codewords `a,b` with `c_z = a + z b` for every `z in Z`.
-
-Evidence: `L := #{distinct p_{z z_0}} = 1` in **1200/1200** tested configs
-(m=16,17,20,21), and a CAS (Sage) confirms the bad codewords span **rank 1** on a
-non-degenerate planted-code-line config (rank 0 for a425, whose bad codewords are
-all the zero codeword). L1 is **not** implied by list-decoding (`g` is only
-`2R3+4`-close to `C`, past the Johnson radius). It is the sole remaining crux.
+**L1 (FALSE).** "The bad codewords are collinear: `c_z = a + z b` for every
+`z in Z`." -- **This is false.** `ate2_L1_refute.sage` constructs, on 4 rows,
+configs with 3 bad slopes whose codewords have **rank 2** (non-collinear). The
+construction: pick `c_0,c_2` random codewords and `c_1 = (c_0+c_2+h)/2` with `h`
+a deg-`<k` poly vanishing on the triple overlap `T` (so the pairwise
+difference-polys agree on `T`, making `g` consistently definable) and `h != 0`
+(so `c_1` is off the line). Since the triple overlap has size `>= (m mod 3)+k-6`,
+i.e. only `~k-6 < k`, three distinct difference-polys CAN agree there -- nothing
+forces collinearity. The earlier `L=1` observation was a biased sample (a425
+perturbations). So the `L=1` reduction below is CONDITIONAL and does not close the
+bound.
 
 ## Steps 3-5 -- the reduction (unconditional given L1)
 
@@ -72,11 +82,15 @@ QED modulo L1.
   bad-slope count `= R3+3` and on `L=1` (Sage rank `<= 1`, rank `1` on a
   non-degenerate code-line).
 
-## Status / honest scope
+## Status / honest scope (CORRECTED)
 
-`A_te-2` remains **OPEN**, but is now reduced to the single crisp collinearity
-lemma **L1** (all bad-slope codewords lie on one parameter-respecting code-line),
-verified on two independent engines and in 1200 configs. This is a strict advance
-on a425's `EXACT_A425_UPPER_OPEN`. No deeper certificate is emitted until L1 is
-proved. L1 is a clean, self-contained target (a natural next proof attempt or a
-formalization gamble).
+`A_te-2` is **OPEN**. L1 is **FALSE**, so this note does NOT prove
+`LD_sw(A_te-2) <= R3+3`; it proves it only in the (non-universal) `L=1` case.
+What survives: (i) the Steps 1,3,4,5 reduction as a correct CONDITIONAL result;
+(ii) the unconditional structural fact that `>=2` bad slopes force `g` within
+`2R3+4` of `C`; (iii) an explicit family of `L>1` configs (rank 2). The 3-slope
+`L>1` configs found so far have `|Z| = 3 < R3+3`, so they do NOT yet disprove the
+bound either -- whether `L>1` configs can reach `|Z| > R3+3` (which would CAP the
+pin at `A_te-1`) is the reopened question. LESSON: the prior "evidence pin
+extends" and "reduced to L1" were both undermined by a **biased search** (a425
+basin); the correct next step is an UNBIASED search over `L>1` constructions.

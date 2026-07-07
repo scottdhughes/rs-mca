@@ -1,9 +1,13 @@
 # A_te-2 deeper-pin investigation (does the LD_sw pin extend one more step?)
 
-Status: **OPEN** (a425's `EXACT_A425_UPPER_OPEN` stands). This note records
-**strong empirical evidence that the pin EXTENDS** to `A_te-2`
-(`LD_sw(C, A_te-2) = R3+3`), plus an independent empirical corroboration of the
-two-core closure at `A_te-1`. Dated 2026-07-06.
+Status: **OPEN** (a425's `EXACT_A425_UPPER_OPEN` stands). Dated 2026-07-06.
+**CORRECTION (same day):** the "evidence the pin extends" recorded below came from
+a search biased to the a425 witness's basin, and a follow-up CAS construction
+found `L>1` configs refuting the collinearity lemma it suggested (see
+`ate2_reduction_to_collinearity.md`, `ate2_L1_refute.sage`). So the A_te-2
+extension is NOT supported as first claimed -- treat the "evidence extends" below
+as biased/inconclusive. What DOES stand: the independent empirical corroboration
+of the two-core closure at `A_te-1` (a theorem regardless), and the reusable tool.
 
 ## The question
 
