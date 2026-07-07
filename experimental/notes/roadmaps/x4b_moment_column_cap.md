@@ -149,3 +149,16 @@ all.** Notably `2(t+1)` is exactly the size of the recorded primitive witness at
 `(193, 64, 3)`: the Mersenne sign kills precisely that configuration. (Toy consistency: at `(31,16,2)` and
 `(127,16,2)`, `b = 2t+2 = 6` blocks: none found in the exhaustive run.) Primitive blocks at M31 therefore
 need `b >= 2t+3`; `floor(n/(2t+3)) = 15`, so the `k <= 15` cap and the closure margins are unchanged.
+
+**The theorem's algebraic core is MACHINE-CHECKED (Lean 4 / Mathlib, zero-sorry, axioms
+`[propext, Classical.choice, Quot.sound]`, independently rebuilt + axiom-checked; file
+`experimental/lean/powersum_rigidity/PowersumRigidity/ReciprocalGap.lean`, in the companion b2 PR whose
+branch hosts the Lean project):**
+- `ReciprocalGap.esymm_image_inv_mul` -- the reciprocal esymm identity `e_j(B^{-1}) e_b(B) = e_{b-j}(B)`
+  (division-free form; complement-bijection proof).
+- `ReciprocalGap.reciprocal_gap` -- if `B` and `B^{-1}` are both `t`-null and `t+1 <= b <= 2t+1`, then ALL
+  intermediate `e_j(B)` vanish (`j = 1..b-1`): the locator is a BINOMIAL. (Char-free; over any field.)
+- `ReciprocalGap.binom_split_dvd` -- `b` distinct solutions of `x^b = c` all satisfying `x^n = 1` force
+  `b | n`. (So the binomial block is a full `mu_b`-coset.)
+The one non-formalized step in the M31 chain is L5 (Frobenius = inversion at `p == -1 mod n`, giving
+"`B^{-1}` `t`-null"), an eight-line freshman's-dream computation verified numerically in `F_{p^2}`.
