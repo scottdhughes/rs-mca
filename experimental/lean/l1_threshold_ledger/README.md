@@ -120,6 +120,17 @@ The main certificates are:
 These are also kernel-checked by `decide` and print with no axioms in
 `lake build`.
 
+### `L1Threshold.CollapseEdgeCompactPacket` — reviewer-facing aggregate
+
+This module imports both collapse-edge modules and exposes one compact gate:
+
+- `compactPacketOK`
+
+It checks, in one theorem, that the finite graph checker passes, the compact
+origin-summary checker passes, the summary accounts for `6528` edge rules with
+zero mismatches, and the six alternate contributions are exactly
+`[1,1,1,1,1,1]`. It is still not a per-edge `GF(137)` arithmetic replay.
+
 ## Build
 
 ```sh
@@ -145,6 +156,8 @@ no mathlib**. Each module ends with `#print axioms`:
   `originSummaryEdgeRulesAudited` /
   `originSummaryTwoFamilies`: **no axioms**. These are compact metadata/count
   checks over the origin-audit summary, not a `GF(137)` arithmetic replay.
+- `CollapseEdgeCompactPacket.compactPacketOK`: **no axioms**. This is the
+  aggregate compact-packet gate combining the graph and origin-summary checks.
 
 ## Scope (honest)
 

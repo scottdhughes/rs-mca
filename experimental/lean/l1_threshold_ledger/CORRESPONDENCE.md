@@ -68,6 +68,12 @@ Source note: `experimental/notes/l1/l1_residual_excess_w3_collapse_edge_origin.m
 | The compact origin-audit summary accounts for `6528` edge rules with zero mismatches. | `originSummaryEdgeRulesAudited`; `originSummaryNoMismatches`; bundled by `originSummaryAllCasesOK`. | Compact origin-audit summary. | Lean-certified metadata/count check (`decide`, axiom-free) |
 | All six compact origin summaries share the same eight-coset rule-count pattern. | `originSummaryRepeatedCosetPattern`. | Compact origin-audit summary. | Lean-certified metadata/count check (`decide`, axiom-free) |
 
+## W3 collapse-edge compact packet aggregate — `L1Threshold.CollapseEdgeCompactPacket`
+
+| Claim consumed by the note | Lean certificate | Source claim | Status |
+| --- | --- | --- | --- |
+| The compact packet passes both machine-checked layers: the finite graph checker and the compact origin-summary metadata/count checker. It also records `6528` audited rules, zero summary mismatches, and exact alternate contribution `[1,1,1,1,1,1]`. | `compactPacketOK`. | Compact PR packet. | Lean-certified aggregate finite check (`decide`, axiom-free); still not a per-edge `GF(137)` replay. |
+
 ## Typed Targets And Non-Claims
 
 | Claim boundary | Lean artifact | Classification |
