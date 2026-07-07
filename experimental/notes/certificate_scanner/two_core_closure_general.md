@@ -163,6 +163,27 @@ packing is `n`-independent for the `j=3` rates `1/4,1/16` (`63, 32`) and
 alternates in `e` for the `j in {1,2}` rates `1/2,1/8` (e.g. `35, 5, 35, ...`),
 always `<= R3+2` by the lemma above.)
 
+## Connection to prize-DAG node `a426_universal_numerator`
+
+The first grid row (`rho=1/2, n=512, k=256`) is exactly the prize-DAG node
+**`a426_universal_numerator`**: "`LD_sw(RS[F,D,256],426) = 87` for **every** field
+`F` and **every** 512-point domain `D`" (`A_te-1 = 512-85-1 = 426`, `R3+2 = 87`).
+As of the live DAG (allengrahamhart.github.io/prize-dag) that node is still
+`PROVABLE`, its proof written but un-integrated (PR #204, a Hankel-free single-row
+argument).
+
+**This theorem proves it — and generalizes it.** The domain/field universality the
+node asks for is intrinsic here: the statement is `C = RS[F, D, k]` for an arbitrary
+`n`-point `D` over an arbitrary `F`, and neither branch of the dichotomy uses any
+structure of `D` beyond `|D| = n` (Case A is the purely combinatorial packing lemma;
+Case B is the code-line overlap argument; the tangent-floor and exact-support inputs
+are the committed general-`D` results). So the `= 87` value holds for every field and
+every 512-domain, matching the node verbatim. Beyond the node, this theorem also
+covers **all four admissible rates and every power-of-two `n >= 512`** (the grid
+above), and its Case-A crux is **Lean-verified twice** (`two_core_packing`,
+`dyadic_packing`) — strictly stronger evidence than the single un-integrated instance.
+No new claim is made about non-power-of-two `n` or arbitrary `k` (see Honest scope).
+
 ## Consequence: one-step-deeper pins
 
 With `LD_sw(C, A_te-1) = R3+2` exact, engineer a prime `p == 1 (mod n)` with
