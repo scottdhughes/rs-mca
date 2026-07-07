@@ -137,6 +137,39 @@ uniform in degree, feeding the Li-Wan sieve -- with (2) PROVED, (1) robust acros
 and (3) the tool named and its moment structure validated. Remaining: the Vinogradov-over-subgroup
 theorem itself (Wooley/BDG frontier) + rigorous Li-Wan assembly. Attemptable or cleanly posable.
 
+## CORRECTION (2026-07-07, Vinogradov cite-vs-prove): the SUP form is FALSE
+
+A rigorous literature assessment + my own verification REFUTE the sup form of the primitive lemma,
+and expose that I conflated two INEQUIVALENT statements:
+- **Sup form** `max_{c != 0} |pi(c)| <= C sqrt(n)`: **FALSE.** The odd monomials `{a^j : j odd}` span
+  the odd functions on `mu_n` (dimension n/2). Taking the antisymmetric spike `f(a_0)=1, f(-a_0)=-1,
+  else 0` gives an ODD-support `c != 0` with `pi(c) = (n-2)+2cos(2pi/p) ~ n` -- NO cancellation.
+  **Verified** (n=16,p=17: `c=[15]*8`, `|pi|=15.87 ~ n`). My "primitive r-uniformity holds worst-case"
+  was a SAMPLING ARTIFACT -- 300 random c miss this measure-zero structured spike. (2nd sampling
+  miss in this attack; LESSON: sampling can NEVER certify a sup -- need a basis/algebraic argument.)
+- **Moment / mean-value form** `E_c |pi|^{2s} = J_s(J;mu_n) ~ s! n^s`, uniform in r, for `s=O(1)/O(log)`:
+  **TRUE and r-uniform** (this is what the `2.9, 14` moments actually show). It controls the
+  AVERAGE/typical c (`|pi| ~ sqrt(n)` for all but few c), NOT the max.
+
+**Why the moment method CANNOT reach the sup (rigorous, from the memo):** Markov gives
+`#{c: |pi|>lambda} <= p^r J_s / lambda^{2s}`; to force `< 1` at `lambda = A sqrt(n)` needs `s >~ r/gamma`,
+but `J_s` stays diagonal only BELOW the critical exponent `s_crit ~ r/gamma`; at `s=s_crit` the bound
+degrades to the TRIVIAL `n`. So no diagonal-dominated moment reaches the sup for `r >~ log n`.
+
+**Status of the reduction, corrected.** The clean "primitive sup bound => conjecture" path is BROKEN.
+What survives: `f(0) - mean = q^-w sum_{c != 0} T(c)` is an AVERAGE over c, so the conjecture plausibly
+needs the MOMENT form (typical control) PLUS a bound on the contribution of the few EXCEPTIONAL (spike)
+c. The spikes are odd-support (primitive) and structured; whether their aggregate contribution is
+`<= poly(n)*mean` is the NEW crux. So: (i) the moment form is a tractable "short research project" (not
+a citation) via efficient congruencing over `mu_n` with the odd slice (Wooley's method is field-flexible;
+control the mu_2-orbit excess uniformly in r up to s=O(log)); (ii) it must be COMBINED with an
+exceptional-set / spike-count bound to close `f(0) <= poly*mean`. That combination is the honest open target.
+
+**Nearest results (all NON-uniform in r):** VMVT main conj (BDG 2016 / Wooley) -- interval, fixed degree,
+constant degrades in k; BGK/Bourgain-Chang/Shkredov subgroup sums -- power-saving `|H|^{1-delta}` not
+`sqrt`, `delta(gamma)->0` as `gamma->0`; Cochrane-Pinner/Bourgain fewnomial -- saving degrades in #terms;
+finite-field decoupling (2508.08377) -- fixed low dim / large q, mean value not sup. NONE is r-uniform.
+
 ## Honest path forward
 
 This is a precise, well-posed open problem in additive combinatorics (r-uniform subgroup exp-sums),
