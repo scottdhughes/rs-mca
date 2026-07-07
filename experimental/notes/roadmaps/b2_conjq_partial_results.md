@@ -70,3 +70,28 @@ over `mu_n`, uniform in `w`; every classical tool caps out at a fixed number of 
 routes: Stepanov on the value-set/divisor form; large-sieve/dual over the BCH code; a p-adic/Ax-Katz
 congruence for `N mod (powers of p)`; efficient-congruencing adapted to `mu_n`. Nearest published leads:
 Cheong-Matchett Wood-Zaman 1210.0456, Dae San Kim 0807.4671, Koh-Pham-Shen-Vinh 1803.03351.
+
+## Update (2026-07-07): the crux REDUCES to Littlewood-Offord slice-mixing (n-loss suffices)
+
+External-model contribution, all load-bearing claims RE-VERIFIED here:
+- **T8 (primitive defect, PROVED+verified):** if S is primitive (not (-1)-invariant) then `|S cap -S| <= m-w-1`,
+  i.e. S breaks `s >= w+1` opposite-pairs. Proof: `Delta_eta(X)=Q_S(X)-eta^{-m}Q_S(eta X)` has the top w+1
+  coeffs zero (the gap), so deg <= m-w-1; it vanishes on `S cap eta^{-1}S`. (eta=-1.) Verified: all 32
+  primitive sols at (17,16,2,10) have s>=3.
+- **T9 (exact ternary reduction, PROVED):** via a square-root section `b_v^2=v` on `mu_{n/2}`, each S <->
+  `(y_v,h_v) in {-1,0,1}, y_v^2+h_v^2=1`, with `sum y_v=delta`, `sum y_v v^r=0 (r<=floor(w/2))`,
+  `sum h_v b_v v^r=0 (r<=ceil(w/2)-1)`; `N_prim = #{h != 0}`. Singletons U (odd constraints p_j(U)=0, j odd
+  <=w) x double-pairs D (even constraints `2p_r(D)=-p_r(U^2)`).
+- **T10 (dimension bound, PROVED+verified TIGHT):** `M_lambda <= w! * n^{ell(lambda)-w}` (Bezout: the last
+  ell-w vars free, first w have a 0-dim'l fiber by the Vandermonde-at-infinity argument). Right dimension,
+  but the `w!` misses the `(n/p)^w` density factor -- fatal alone.
+- **KEY REDUCTION (verified identity `sum_s 2^s C(N0,s)C(N0-s,(N0-s+delta)/2) = C(n,m)`):** IF the two
+  half-slice estimates hold -- `A_s <= L_o(s) 2^s C(N0,s)/p^{q_o}` (odd/singleton) and `B(U) <= L_e(s)
+  C(N0-s,..)/p^{q_e}` (even/double, uniform in the deleted W=U^2) -- with product loss `L = max L_o L_e`,
+  then `N_prim <= L * C(n,m)/p^w = L * mean`. Deployed: `mean ~ 2^35.7`, so **`L <= n=2^21` gives
+  `N_prim <= 2^56.7 < 2^63 = n^3`** (even `L <= n^{1.3}` closes it).
+
+**The crux is now: two LITTLEWOOD-OFFORD / anticoncentration slice-mixing estimates for the moment curve
+over `mu_{n/2}`, with only an n-loss.** A developed area (Halasz, Tao-Vu, Nguyen-Vu inverse LO); much
+sharper than the marginal pi(c) moments (which give only (ell-1)!! n^{ell/2}, too large after 1/z_lambda).
+This is the most tractable form of the crux to date.
