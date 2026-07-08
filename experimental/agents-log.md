@@ -4,6 +4,27 @@
 
 
 
+
+### 2026-07-08 - KB-MCA Route-D v5: N_can_prim via m-fiber routing
+
+- **Agent/model:** Grok + Scott Hughes (`scottdhughes`).
+- **Files added or changed:**
+  `experimental/scripts/verify_kb_qatom_route_d_v5.py`,
+  `experimental/notes/thresholds/kb_qatom_route_d_v5.md`,
+  `experimental/data/certificates/kb-qatom-route-d-v5/`,
+  `experimental/notes/certificate_scanner/outputs/kb_qatom_route_d_v5.report.md`,
+  `experimental/agents-log.md`.
+- **Status:** PARTIAL / PROVED routing+criterion; M_m and U_res OPEN.
+- **What is being added:** Residual can-cores with side-prefix u route into the
+  m-subset fiber Fib_w^{(m)}(b(z,u)). Hence N_can_prim <= U_res * M_m.
+  Deployed entropy: log2(avg m-fiber) ≈ -18820 — avg is 2^{-18820}, so
+  M_m^{max}<=1 is the natural finite claim. Conditional criterion: if
+  M_m<=1 and U_res<=target/17 then residual K_rem atom form holds; if also
+  U_res<=t*p/17 then |D_prim|<=t*p. Side-prefix e-subset pencils pack to
+  floor(n/e)=31. Path A = same routing for full fibers. Toys: when M_m=1,
+  cores/u=1 and N_can_prim=U_res (structure confirmed).
+- **What to do next:** Prove M_m^{max} tiny (B1) and/or bound U_res (B2).
+
 ### 2026-07-08 - KB-MCA Route-D v4: residual-first N_can_prim (B then A)
 
 - **Agent/model:** Grok + Scott Hughes (`scottdhughes`).

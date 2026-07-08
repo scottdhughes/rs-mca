@@ -1,0 +1,160 @@
+{
+  "claims": {
+    "proves_Mm_one": false,
+    "proves_U_res_bound": false,
+    "proves_conditional_criterion_Mm_Ures": true,
+    "proves_residual_core_routing": true,
+    "proves_row_sharp_q_atom": false,
+    "proves_side_prefix_pencil": true
+  },
+  "entropy": {
+    "budgets": {
+      "N_can_prim_atom": 16166878605395467,
+      "N_can_prim_tp": 8456648496904,
+      "log2_N_can_prim_atom": 53.84389067782479,
+      "log2_N_can_prim_tp": 42.94322315247798
+    },
+    "interpretation": "Average m-subset depth-w fiber is ~2^(-18820): the natural finite criterion is M_m := max_b |Fib_w^{(m)}(b)| is 0 or 1 (or tiny). Anticode is ~2^1.69e6 \u2014 useless for the atom; entropy is the signal.",
+    "log2_anticode_m_fiber": 1693127.6169890293,
+    "log2_avg_e_subset_fiber_depth_w": -1660562.220737431,
+    "log2_avg_j_subset_fiber_depth_w": 35.73524640034884,
+    "log2_avg_m_subset_fiber_depth_w": -18820.249565912876,
+    "parameters": {
+      "e": 67472,
+      "j": 981104,
+      "m": 913632,
+      "n": 2097152,
+      "p": 2130706433,
+      "pack": 17,
+      "w": 67471
+    },
+    "status": "PROVED_BY_EXACT_FLOAT_ENTROPY_ARITHMETIC"
+  },
+  "lemmas": {
+    "criterion_Mm_Ures": {
+      "deployed_numbers": {
+        "log2_avg_m_fiber": -18820.249565912876,
+        "target_over_pack": 16166878605395467,
+        "tp_over_pack": 8456648496904
+      },
+      "name": "residual_atom_from_Mm_and_Ures",
+      "note": "Entropy makes M_m^{max}<=1 the expected truth at deployed (m,w,p); proving it is a sharp prefix-fiber uniqueness statement for m-subsets.",
+      "open_inputs": [
+        "OPEN: prove M_m^{max} <= 1 (or any bound <= 2^10 is already powerful)",
+        "OPEN: prove U_res(z) <= target/pack (or <= t*p/pack for D_prim form)"
+      ],
+      "proof": [
+        "N_can_prim <= U_res * M_m <= U_res * 1.",
+        "Apply v4: |R| <= pack * N_can_prim <= pack * (target/pack) = target."
+      ],
+      "statement": "If M_m^{max} := max_b |Fib_w^{(m)}(b)| <= 1 and max_z U_res(z) <= floor(target_floor/pack_ceil), then max_z N_can_prim(z) <= floor(target_floor/pack_ceil), hence max_z |R(z)| <= target_floor by residual lex covering (v4), which is the K_rem residual flatness form.",
+      "status": "PROVED_CONDITIONAL_CRITERION"
+    },
+    "full_fiber_routing": {
+      "name": "full_fiber_N_can_same_routing",
+      "proof": [
+        "Identical to residual routing without restricting the domain."
+      ],
+      "statement": "The same side-prefix routing holds for full Fib_w(z): N_can(z) <= U_full(z) * M_m(z). Path A is identical algebra with R=Fib.",
+      "status": "PROVED"
+    },
+    "residual_core_routing": {
+      "name": "residual_can_core_side_prefix_routing",
+      "proof": [
+        "v3/v4: triangular inversion under m>=w gives b as a function of (z,u).",
+        "C is an m-subset whose monic locator has prefix b, i.e. C in Fib_w^{(m)}(b).",
+        "Partition residual can-cores by the side-prefix u of their defining S. Each block has size <= M_m(z). Number of blocks <= U_res(z)."
+      ],
+      "statement": "Let R(z) be any subset of Fib_w(z) (e.g. first-match residual). For S in R(z) let U be the e=w+1 smallest-exponent elements of S, C=S\\\\U, and let u be the first w monic coefficients of Lambda_U. Let b=b(z,u) be the triangular core prefix from v3. Then C lies in the m-subset fiber Fib_w^{(m)}(b). Consequently, writing U_res(z) for the number of distinct residual side-prefixes u and M_m(z) = max_u |Fib_w^{(m)}(b(z,u))|, one has N_can_prim(z) <= U_res(z) * M_m(z).",
+      "status": "PROVED"
+    },
+    "side_prefix_pencil": {
+      "deployed_pack_sides": 31,
+      "name": "e_subset_fixed_w_prefix_is_constant_shift_pencil",
+      "proof": [
+        "Monic degree e=w+1: fixing the first w monic coefficients leaves only the constant term free \u2014 that is the definition of a constant-shift pencil.",
+        "Root sets of distinct fully split members are pairwise disjoint; pack into D."
+      ],
+      "statement": "Fix w and e=w+1. The e-subsets U whose monic locators share a fixed length-w coefficient prefix u form a constant-shift family (varying only the constant term). Hence there are at most floor(n/e) such U.",
+      "status": "PROVED"
+    }
+  },
+  "open_program": {
+    "A_same_with_full_U": "Same routing for full-fiber N_can with U_full instead of U_res.",
+    "B1_prove_Mm_max": "Prove max_b |Fib_w^{(m)}(b)| is tiny at n=2^21,m=913632,w=67471,p=KoalaBear. Entropy: log2 avg \u2248 -18820.25.",
+    "B2_prove_U_res": "Prove max residual side-prefix count U_res(z) <= 16166878605395467 (or <= 8456648496904 for t*p form)."
+  },
+  "packet": "kb_qatom_route_d_v5",
+  "status": "PARTIAL_PROVED_LEMMAS_ATOM_OPEN",
+  "title": "Residual N_can_prim via m-fiber routing and M_m criterion",
+  "toy_suite": {
+    "rows": [
+      {
+        "M_m_max_measured": 17,
+        "N_can_le_U_times_cores_per_u": true,
+        "j": 8,
+        "m": 5,
+        "max_N_can_prim": 49,
+        "max_R_proxy": 49,
+        "max_U_res": 34,
+        "max_cores_per_u": 7,
+        "n": 16,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "M_m_max_measured": 4,
+        "N_can_le_U_times_cores_per_u": true,
+        "j": 8,
+        "m": 4,
+        "max_N_can_prim": 5,
+        "max_R_proxy": 5,
+        "max_U_res": 5,
+        "max_cores_per_u": 2,
+        "n": 16,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "M_m_max_measured": 1,
+        "N_can_le_U_times_cores_per_u": true,
+        "j": 5,
+        "m": 2,
+        "max_N_can_prim": 32,
+        "max_R_proxy": 33,
+        "max_U_res": 32,
+        "max_cores_per_u": 1,
+        "n": 32,
+        "p": 97,
+        "w": 2
+      },
+      {
+        "M_m_max_measured": 1,
+        "N_can_le_U_times_cores_per_u": true,
+        "j": 5,
+        "m": 1,
+        "max_N_can_prim": 7,
+        "max_R_proxy": 7,
+        "max_U_res": 7,
+        "max_cores_per_u": 1,
+        "n": 32,
+        "p": 97,
+        "w": 3
+      },
+      {
+        "M_m_max_measured": 1,
+        "N_can_le_U_times_cores_per_u": true,
+        "j": 4,
+        "m": 1,
+        "max_N_can_prim": 25,
+        "max_R_proxy": 32,
+        "max_U_res": 25,
+        "max_cores_per_u": 1,
+        "n": 64,
+        "p": 193,
+        "w": 2
+      }
+    ],
+    "status": "PASS"
+  }
+}
