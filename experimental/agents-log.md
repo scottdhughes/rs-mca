@@ -3,6 +3,30 @@
 
 
 
+
+### 2026-07-08 - KB-MCA Route-D v4: residual-first N_can_prim (B then A)
+
+- **Agent/model:** Grok + Scott Hughes (`scottdhughes`).
+- **Files added or changed:**
+  `experimental/scripts/verify_kb_qatom_route_d_v4.py`,
+  `experimental/notes/thresholds/kb_qatom_route_d_v4.md`,
+  `experimental/data/certificates/kb-qatom-route-d-v4/`,
+  `experimental/notes/certificate_scanner/outputs/kb_qatom_route_d_v4.report.md`,
+  `experimental/agents-log.md`.
+- **Status:** PARTIAL / PROVED residual lex-covering; N_can_prim OPEN.
+- **Path B (first):** Lex-split covering restricts to first-match residual R(z):
+  |R(z)| <= 17 * N_can_prim(z). Exact budgets:
+  N_can_prim <= floor(target/17) ≈ 2^53.84 for K_rem residual flatness;
+  N_can_prim <= floor(t*p/17) ≈ 2^43.1 for |D_prim|<=t*p (v1 additive form).
+  Residual definition cited from first-match ledger; terminal quotient exclusion
+  definitional.
+- **Path A (second):** Full-fiber m-subset routing lemma (can-cores lie in
+  Fib_w^{(m)}(b(z,u))) — infrastructure only; full N_can still open.
+- **Toys:** Aperiodic residual proxy; covering+injection green; residual is
+  ~99.5–100% of mass at toy scales (periodicity rare).
+- **What to do next:** Bound N_can_prim via triangular inversion on residual
+  sides only; then lift techniques to full N_can (A).
+
 ### 2026-07-08 - KB-MCA Route-D v3: canonical lex-split injection
 
 - **Agent/model:** Grok + Scott Hughes (`scottdhughes`).

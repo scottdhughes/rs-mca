@@ -1,0 +1,168 @@
+{
+  "claims": {
+    "proves_N_can_full_bound": false,
+    "proves_N_can_prim_bound": false,
+    "proves_full_fiber_m_subset_routing": true,
+    "proves_residual_excludes_terminal_quotients_definitional": true,
+    "proves_residual_lex_covering": true,
+    "proves_row_sharp_q_atom": false
+  },
+  "packet": "kb_qatom_route_d_v4",
+  "path_A_full_fiber": {
+    "lemmas": {
+      "m_subset_routing": {
+        "consequence": "N_can(z) <= sum_{u in F_p^w} |Fib_w^{(m)}(b(z,u))|, which is tautological at worst p^w * max_m_fiber. Useful only with a sharp bound on m-subset fibers or with few u realized by residual/full sides.",
+        "name": "full_fiber_can_core_m_subset_routing",
+        "open": "Bound the number of realized side-prefixes u from residual/full S, or bound m-subset fibers at depth w with constants fitting 2^53.84.",
+        "proof": [
+          "v3 triangular inversion under m >= w (deployed).",
+          "C is an m-subset whose monic locator has prefix b(z,u)."
+        ],
+        "statement": "For S in Fib_w(z) with lex-split (C,U), the first w monic coefficients b of Lambda_C are the triangular function b=b(z,u) of the first w monic coefficients u of Lambda_U (v3). Consequently every canonical core C(S) lies in the m-subset depth-w fiber Fib_w^{(m)}(b(z,u(S))).",
+        "status": "PROVED"
+      }
+    },
+    "open_target": "Prove max_z N_can(z) <= 16166878605395467 for full fibers (harder; shallow counterexamples to crude n*p remain)."
+  },
+  "path_B_residual": {
+    "arithmetic": {
+      "pack_ceil": 17,
+      "paid_proved": {
+        "B_gen_le_t_p": 143763024447376,
+        "B_paid_proved": 143763495894416,
+        "B_quot_terminal": 471447040,
+        "B_rem_proved": 274836964615500671,
+        "K_rem_proved": 4805007
+      },
+      "residual_core_budgets": {
+        "N_can_prim_for_K_rem_atom": 16166878605395467,
+        "N_can_prim_for_t_p_D_prim": 8456648496904,
+        "log2_N_can_prim_atom": 53.84389067782479,
+        "log2_N_can_prim_tp": 42.94322315247798,
+        "meaning": "If max_z N_can_prim(z) <= N_can_prim_for_K_rem_atom then |R(z)| <= pack * N_can_prim <= TARGET and the K_rem residual flatness form holds for the residual fiber. If N_can_prim <= N_can_prim_for_t_p_D_prim then |D_prim| <= t*p, which with G_gen_support paid separately closes the v1 additive support certificate."
+      },
+      "status": "PROVED_BY_EXACT_INTEGER_ARITHMETIC",
+      "v1_conditional_additive": {
+        "hypothesis": "|G_gen_support| + |D_full_rank_prim| <= t*p",
+        "slack_bits": 10.900667525231924,
+        "target_floor": 274836936291722953,
+        "with_lift": 143763024458816
+      }
+    },
+    "lemmas": {
+      "residual_excludes_terminal_quotients": {
+        "deployed_terminal_c": [
+          65536,
+          131072
+        ],
+        "name": "residual_excludes_terminal_quotient_supports",
+        "proof": [
+          "By definition of R(z) in the first-match ledger (branch 4 terminal pay). This is a definitional exclusion, not a new geometric theorem."
+        ],
+        "statement": "Under the ledger residual definition, every S in R(z) is not assigned to terminal quotient/planted at c in {65536, 131072}. In particular R(z) contains no support that is a pure union of complete c-fibers for those terminal c (the Q0 raw-paid terminal classes).",
+        "status": "PROVED",
+        "toy_proxy": "On toys we proxy 'quotient-assigned' by pure c-periodicity for all c|n, c>1 (stronger than terminal-only). Residual proxy = aperiodic supports (trivial cyclic stabilizer)."
+      },
+      "residual_lex_covering": {
+        "name": "residual_lex_split_covering",
+        "proof": [
+          "The v3 lex-split injection proof never uses that S exhausts Fib_w(z); it only uses that all S under consideration share the same prefix z (so core-pencils live inside one fiber) and the core-pencil theorem. Restricting the domain to R(z) preserves injectivity.",
+          "Covering: same as v3 double covering, summed only over cores that appear from residual supports."
+        ],
+        "residual_definition_source": "experimental/notes/thresholds/kb_mca_1116048_first_match_ledger_v1.md \u00a7First-match branches / Remaining target: R(z) removes generated-field, terminal quotient/planted, tangent/common-line, extension-confined, sparse/Pade-Hankel, M1/half-turn, contained/rank-drop assignments.",
+        "statement": "Let R(z) subset Fib_w(z) be any subset of the depth-w fiber (in particular the first-match residual). Define C_can, c_U on R(z) exactly as in v3 lex-split. Then phi: S |-> (C_can(S), c_U(S)) is injective on R(z), and |R(z)| <= pack_ceil * N_can_prim(z) and |R(z)| <= p * N_can_prim(z), where N_can_prim(z) = |{C_can(S) : S in R(z)}|.",
+        "status": "PROVED"
+      }
+    },
+    "open_target": "Prove max_z N_can_prim(z) <= 16166878605395467 (K_rem residual flatness) or <= 8456648496904 (sufficient for |D_prim| <= t*p)."
+  },
+  "priority": "B_then_A",
+  "status": "PARTIAL_PROVED_LEMMAS_ATOM_OPEN",
+  "title": "Residual-first N_can^prim (B) and full-fiber N_can routing (A)",
+  "toy_suite": {
+    "residual_proxy": "aperiodic = trivial cyclic period n (not pure c-quotient for any c>1)",
+    "rows": [
+      {
+        "covering_fail": 0,
+        "inj_fail": 0,
+        "j": 8,
+        "max_N_can_full": 54,
+        "max_N_can_prim_proxy": 49,
+        "max_full_fiber": 54,
+        "max_residual_proxy_fiber": 49,
+        "n": 16,
+        "p": 17,
+        "pack": 3,
+        "residual_fraction": 0.9945609945609946,
+        "total_residual_proxy": 12800,
+        "total_supports": 12870,
+        "w": 2
+      },
+      {
+        "covering_fail": 0,
+        "inj_fail": 0,
+        "j": 8,
+        "max_N_can_full": 7,
+        "max_N_can_prim_proxy": 5,
+        "max_full_fiber": 7,
+        "max_residual_proxy_fiber": 5,
+        "n": 16,
+        "p": 17,
+        "pack": 3,
+        "residual_fraction": 0.9945609945609946,
+        "total_residual_proxy": 12800,
+        "total_supports": 12870,
+        "w": 3
+      },
+      {
+        "covering_fail": 0,
+        "inj_fail": 0,
+        "j": 5,
+        "max_N_can_full": 32,
+        "max_N_can_prim_proxy": 32,
+        "max_full_fiber": 33,
+        "max_residual_proxy_fiber": 33,
+        "n": 32,
+        "p": 97,
+        "pack": 10,
+        "residual_fraction": 1.0,
+        "total_residual_proxy": 201376,
+        "total_supports": 201376,
+        "w": 2
+      },
+      {
+        "covering_fail": 0,
+        "inj_fail": 0,
+        "j": 5,
+        "max_N_can_full": 7,
+        "max_N_can_prim_proxy": 7,
+        "max_full_fiber": 7,
+        "max_residual_proxy_fiber": 7,
+        "n": 32,
+        "p": 97,
+        "pack": 7,
+        "residual_fraction": 1.0,
+        "total_residual_proxy": 201376,
+        "total_supports": 201376,
+        "w": 3
+      },
+      {
+        "covering_fail": 0,
+        "inj_fail": 0,
+        "j": 4,
+        "max_N_can_full": 25,
+        "max_N_can_prim_proxy": 25,
+        "max_full_fiber": 32,
+        "max_residual_proxy_fiber": 32,
+        "n": 64,
+        "p": 193,
+        "pack": 21,
+        "residual_fraction": 0.9992193598750976,
+        "total_residual_proxy": 634880,
+        "total_supports": 635376,
+        "w": 2
+      }
+    ],
+    "status": "PASS"
+  }
+}

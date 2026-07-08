@@ -1,0 +1,5 @@
+# v4 report
+
+status: PARTIAL_PROVED_LEMMAS_ATOM_OPEN
+N_can_prim_atom: 16166878605395467
+N_can_prim_tp: 8456648496904
