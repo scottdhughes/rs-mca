@@ -55,7 +55,7 @@ theorem compactPacketOK :
                     (And.intro CollapseEdgeOriginDot.edgeOriginDotRowCount
                       (And.intro CollapseEdgeOriginArithmetic.edgeOriginArithmeticRowCount
                         (And.intro CollapseEdgeOriginSummary.originSummaryNoMismatches
-                          CollapseEdgeCertificate.collapseEdgeAllAlternateContributionsExact)))))))))
+                          CollapseEdgeCertificate.collapseEdgeAllAlternateContributionsExact))))))))))
 
 theorem compactPacketNoGraphOrSummaryMismatches :
     CollapseEdgeCertificate.checkAllCases = true

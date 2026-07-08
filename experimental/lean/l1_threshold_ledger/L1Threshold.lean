@@ -7,3 +7,4 @@ import L1Threshold.CollapseEdgeStructuralLemma
 import L1Threshold.CollapseEdgeOriginDot
 import L1Threshold.CollapseEdgeOriginArithmetic
 import L1Threshold.CollapseEdgeCompactPacket
+import L1Threshold.CollapseEdgeAffineRuleBridge
