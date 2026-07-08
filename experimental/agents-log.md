@@ -5,6 +5,28 @@
 
 
 
+
+### 2026-07-08 - KB-MCA Route-D v6: B1 free regimes + B2 U_res structure
+
+- **Agent/model:** Grok + Scott Hughes (`scottdhughes`).
+- **Files added or changed:**
+  `experimental/scripts/verify_kb_qatom_route_d_v6.py`,
+  `experimental/notes/thresholds/kb_qatom_route_d_v6.md`,
+  `experimental/data/certificates/kb-qatom-route-d-v6/`,
+  `experimental/notes/certificate_scanner/outputs/kb_qatom_route_d_v6.report.md`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED free-0/free-1 uniqueness; deployed B1 OPEN; B2 structure PROVED.
+- **B1 PROVED:** (free=0) w>=m => M_m<=1; (free=1) w=m-1 => M_m<=floor(n/m) CS packing;
+  side e=w+1 always free=1 => <=floor(n/e)=31. Deployed free=m-w=846161: NOT in these
+  regimes (gap in w is 846160). Entropy still log2 avg m-fiber ≈ -18820.
+- **B2 PROVED:** U_res<=|R|; per-u side pack floor(n/e); N_can_prim<=U_res*M_m;
+  if M_m<=1 then N_can_prim<=U_res. Absolute U_res<=target/17 still OPEN (circular
+  via |R| does not close).
+- **Combined criterion:** M_m<=K and U_res<=target/(17K) => |R|<=target.
+- **Toys:** 44 free-0/1 checks green; residual structure green.
+- **What to do next:** Deployed B1 needs a free=846161 uniqueness method (not free-0/1);
+  B2 needs non-circular U_res sparsity from residual first-match geometry.
+
 ### 2026-07-08 - KB-MCA Route-D v5: N_can_prim via m-fiber routing
 
 - **Agent/model:** Grok + Scott Hughes (`scottdhughes`).

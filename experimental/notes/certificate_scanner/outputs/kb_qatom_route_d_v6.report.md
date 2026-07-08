@@ -1,0 +1,5 @@
+# v6 report
+
+status: PARTIAL_PROVED_REGIMES_DEPLOYED_OPEN
+free_m: 846161
+log2_avg_m: -18820.2496

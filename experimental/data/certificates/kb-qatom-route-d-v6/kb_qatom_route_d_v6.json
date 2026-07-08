@@ -1,0 +1,284 @@
+{
+  "claims": {
+    "proves_Mm_pack_free1": true,
+    "proves_Mm_unique_free0": true,
+    "proves_U_res_absolute_atom_budget": false,
+    "proves_U_res_le_R_and_side_pack": true,
+    "proves_deployed_Mm_unique": false,
+    "proves_side_free1": true
+  },
+  "deployed": {
+    "U_res_atom_budget_if_Mm_1": 16166878605395467,
+    "U_res_tp_budget_if_Mm_1": 8456648496904,
+    "e": 67472,
+    "free_m": 846161,
+    "log2_avg_m_fiber": -18820.249565912876,
+    "m": 913632,
+    "pack_e": 31,
+    "pack_j": 17,
+    "pack_m_if_free1": 2,
+    "w": 67471
+  },
+  "lemmas": {
+    "B1_deployed_status": {
+      "conclusion": "Deployed m-fiber uniqueness is outside the free-0/free-1 regimes. Entropy (log2 avg \u2248 -18820) still predicts M_m^{max} is typically 0 or 1, but the only unconditional packing we prove for general free is the weak anticode / p^{free} envelope, which does not fit the atom. B1 at deployed remains OPEN as a uniqueness theorem for free=846161.",
+      "free_m": 846161,
+      "log2_avg_m_fiber": -18820.249565912876,
+      "name": "deployed_B1_status",
+      "status": "AUDIT",
+      "what_would_close_B1": "Any proof that M_m^{max} <= 2^{53} (even much larger than 1) combines with a U_res bound; M_m^{max} <= 1 is the entropy-natural target."
+    },
+    "B1_free0": {
+      "deployed_applies": false,
+      "deployed_free": 846161,
+      "deployed_note": "Deployed free = m-w = 846161 >> 0, so free-0 does not apply.",
+      "name": "Mm_unique_when_w_ge_m",
+      "proof": [
+        "A monic degree-m polynomial has exactly m non-leading coefficients. Specifying w >= m of the high monic coefficients (the full coefficient vector when w=m, and overdetermined when w>m) determines at most one monic polynomial.",
+        "A monic polynomial has at most one set of m distinct roots. Hence at most one m-subset lies in any depth-w fiber."
+      ],
+      "statement": "If w >= m, then every depth-w monic-prefix fiber of m-subsets has size <= 1. In particular M_m^{max} <= 1.",
+      "status": "PROVED"
+    },
+    "B1_free1": {
+      "bound_if_applied": 2,
+      "deployed_actual_w": 67471,
+      "deployed_applies": false,
+      "deployed_gap_in_w": 846160,
+      "deployed_would_need_w": 913631,
+      "name": "Mm_pack_when_w_eq_m_minus_1",
+      "proof": [
+        "Monic degree m with the top m-1 monic coefficients fixed: only the constant term remains free. That is a constant-shift pencil Lambda_c = X^m + a_1 X^{m-1} + ... + a_{m-1} X + c.",
+        "If two distinct members both split completely over D into distinct roots, their root sets are disjoint: a shared root x would force Lambda_c(x)=Lambda_{c'}(x)=0 hence c=c'. Pack m-sets into a ground set of size n: at most floor(n/m) members."
+      ],
+      "statement": "If w = m-1 (exactly one free lower coefficient), then the m-subsets sharing a fixed depth-w monic prefix form a constant-shift family of monic locators, and M_m^{max} <= floor(n/m).",
+      "status": "PROVED"
+    },
+    "B1_side_free1": {
+      "deployed_applies": true,
+      "deployed_bound": 31,
+      "name": "side_e_subset_always_free1",
+      "proof": [
+        "Apply free-1 packing with m replaced by e=w+1: free = e-w = 1 automatically."
+      ],
+      "statement": "For e = w+1, every depth-w monic-prefix fiber of e-subsets has size <= floor(n/e). (This is free = e-w = 1.)",
+      "status": "PROVED"
+    },
+    "B2_U_res_structure": {
+      "budgets_if_Mm_one": {
+        "U_res_for_atom": 16166878605395467,
+        "U_res_for_tp": 8456648496904,
+        "log2_atom": 53.84389067782479,
+        "log2_tp": 42.94322315247798
+      },
+      "name": "U_res_structural_bounds",
+      "open": "Prove an absolute upper bound U_res(z) <= target/17 without assuming |R| small. Circular bound U_res <= |R| does not close the atom alone.",
+      "proof": [
+        "(i) Each residual S contributes one lex side and one u; map S |-> u has image size U_res and domain size |R|.",
+        "(ii) Side free-1 packing (lemma_B1_side_free1).",
+        "(iii)-(iv) Residual core routing (v5)."
+      ],
+      "statement": "Let R(z) subset Fib_w(z) and U_res(z) = number of distinct monic length-w prefixes u of Lambda_U for residual/lex sides U of S in R(z). Then:\n(i) U_res(z) <= |R(z)|;\n(ii) for each u, the number of e-subsets with monic prefix u is <= floor(n/e);\n(iii) N_can_prim(z) <= U_res(z) * M_m^{max} (v5 routing);\n(iv) if M_m^{max} <= 1 then N_can_prim(z) <= U_res(z).",
+      "status": "PROVED"
+    },
+    "B2_partial_global": {
+      "deployed_note": "p^w is ~2^{2.09e6}, far above the atom. The bound is structural, not finite-useful without a residual sparsity constraint on which pencils appear.",
+      "deployed_p_w_bits": 2090837.5445468891,
+      "name": "U_res_le_num_nonempty_side_fibers_global",
+      "proof": [
+        "By definition of U_res as a set of realized prefixes.",
+        "Each nonempty e-fiber is one constant-shift pencil (free-1); distinct pencils have distinct length-w prefixes (the free constant does not affect the prefix).",
+        "Hence nonempty e-prefixes inject into the set of such pencils, size <= C(n,e) and <= p^w."
+      ],
+      "statement": "U_res(z) is at most the number of depth-w monic prefixes u for which the e-subset fiber is nonempty AND at least one U in that fiber is the lex-min e-set of some S in R(z). In particular U_res(z) <= |{u : e-fiber(u) nonempty}| <= p^w, and more tightly U_res(z) <= C(n,e) with the free-1 refinement that the nonempty u are in bijection with constant-shift pencils that hit at least one residual lex side.",
+      "status": "PROVED"
+    },
+    "combined_criterion": {
+      "name": "atom_from_B1_and_B2",
+      "proof": [
+        "N_can_prim <= U_res * M_m <= U_res * K.",
+        "|R| <= pack * N_can_prim <= pack * K * U_res <= target."
+      ],
+      "special_case_K_1": {
+        "entropy_support_for_K_1": -18820.249565912876,
+        "need_U_res_le": 16166878605395467
+      },
+      "statement": "If M_m^{max} <= K and max_z U_res(z) <= floor(target_floor / (pack_ceil * K)) for a positive integer K, then max |R(z)| <= target_floor.",
+      "status": "PROVED_CONDITIONAL"
+    }
+  },
+  "packet": "kb_qatom_route_d_v6",
+  "status": "PARTIAL_PROVED_REGIMES_DEPLOYED_OPEN",
+  "title": "B1 free-regime uniqueness and B2 U_res structure",
+  "toy_suite": {
+    "free01_checks": 44,
+    "free01_sample": [
+      {
+        "bound": 1,
+        "free": 0,
+        "m": 1,
+        "maxM": 1,
+        "n": 16,
+        "p": 17,
+        "w": 1
+      },
+      {
+        "bound": 1,
+        "free": 0,
+        "m": 2,
+        "maxM": 1,
+        "n": 16,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "bound": 8,
+        "free": 1,
+        "m": 2,
+        "maxM": 8,
+        "n": 16,
+        "p": 17,
+        "w": 1
+      },
+      {
+        "bound": 1,
+        "free": 0,
+        "m": 3,
+        "maxM": 1,
+        "n": 16,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "bound": 5,
+        "free": 1,
+        "m": 3,
+        "maxM": 3,
+        "n": 16,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "bound": 1,
+        "free": 0,
+        "m": 4,
+        "maxM": 1,
+        "n": 16,
+        "p": 17,
+        "w": 4
+      },
+      {
+        "bound": 4,
+        "free": 1,
+        "m": 4,
+        "maxM": 4,
+        "n": 16,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "bound": 1,
+        "free": 0,
+        "m": 5,
+        "maxM": 1,
+        "n": 16,
+        "p": 17,
+        "w": 5
+      },
+      {
+        "bound": 1,
+        "free": 0,
+        "m": 30,
+        "maxM": 1,
+        "n": 32,
+        "p": 97,
+        "w": 30
+      },
+      {
+        "bound": 1,
+        "free": 1,
+        "m": 30,
+        "maxM": 1,
+        "n": 32,
+        "p": 97,
+        "w": 29
+      },
+      {
+        "bound": 1,
+        "free": 0,
+        "m": 31,
+        "maxM": 1,
+        "n": 32,
+        "p": 97,
+        "w": 31
+      },
+      {
+        "bound": 1,
+        "free": 1,
+        "m": 31,
+        "maxM": 1,
+        "n": 32,
+        "p": 97,
+        "w": 30
+      }
+    ],
+    "residual_rows": [
+      {
+        "floor_n_e": 5,
+        "j": 8,
+        "max_R": 49,
+        "max_S_per_u": 7,
+        "max_U_per_u": 3,
+        "max_U_res": 34,
+        "n": 16,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "floor_n_e": 4,
+        "j": 8,
+        "max_R": 5,
+        "max_S_per_u": 2,
+        "max_U_per_u": 2,
+        "max_U_res": 5,
+        "n": 16,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "floor_n_e": 10,
+        "j": 5,
+        "max_R": 33,
+        "max_S_per_u": 3,
+        "max_U_per_u": 3,
+        "max_U_res": 32,
+        "n": 32,
+        "p": 97,
+        "w": 2
+      },
+      {
+        "floor_n_e": 8,
+        "j": 5,
+        "max_R": 7,
+        "max_S_per_u": 7,
+        "max_U_per_u": 7,
+        "max_U_res": 7,
+        "n": 32,
+        "p": 97,
+        "w": 3
+      },
+      {
+        "floor_n_e": 21,
+        "j": 4,
+        "max_R": 32,
+        "max_S_per_u": 4,
+        "max_U_per_u": 4,
+        "max_U_res": 25,
+        "n": 64,
+        "p": 193,
+        "w": 2
+      }
+    ],
+    "status": "PASS"
+  }
+}
