@@ -1,0 +1,288 @@
+{
+  "arithmetic": {
+    "conditional_closure": {
+      "closes_atom": true,
+      "does_not_claim": "The hypothesis is not proved in this packet.",
+      "hypothesis": "For every primitive finite prefix target z, after first-match deletion, |G_gen_support(z)| + |D_full_rank_prim(z)| <= t*p",
+      "integer_slack": 274693173267264137,
+      "slack_bits": 10.900667525231924,
+      "target_floor": 274836936291722953,
+      "with_retained_lift": 143763024458816
+    },
+    "dead_shortcuts": {
+      "lift_class_keep_one": {
+        "source": "PR #417 / verify_liftclass_cost_model_refuted.py",
+        "status": "REFUTED_UPSTREAM"
+      },
+      "p_squared_alone": {
+        "fits_target": false,
+        "gap_bits": 4.0460158558233985,
+        "value": 4539909903627583489
+      },
+      "r2_moment_CS_Plancherel": {
+        "source": "cap25_v13_q_pw2_concentration_floor.md",
+        "status": "REFUTED_UPSTREAM"
+      }
+    },
+    "multipliers": {
+      "K_raw": 4807520,
+      "K_rem_after_image_gen": 4805007,
+      "retained_exact_lift_C_16_7": 11440
+    },
+    "paid_image_cells": {
+      "B_gen_le_t_p": 143763024447376,
+      "formula": "R <= t row indices times p generated slopes",
+      "scope": "IMAGE_CELL_NOT_SUPPORT"
+    },
+    "row": {
+      "B_star": 274980728111395087,
+      "agreement_a_plus": 1116048,
+      "j": 981104,
+      "k": 1048576,
+      "n": 2097152,
+      "p": 2130706433,
+      "q_line": "93571093019388561295270373781649880353786165192103559169",
+      "t": 67472,
+      "w": 67471
+    },
+    "status": "PROVED_BY_EXACT_INTEGER_ARITHMETIC",
+    "sufficient_support_budgets_that_fit": {
+      "mu1_ceiling_for_free_coeff_filtration": {
+        "meaning": "If max_z max_alpha |Fib_{w+1}(z||alpha)| <= mu1_ceiling, then max |Fib_w(z)| <= p*mu1_ceiling <= target_floor.",
+        "value": 128988645
+      },
+      "n*p": {
+        "slack_bits_with_lift": 5.942668831622164,
+        "value": 4468415257378816
+      },
+      "t*p": {
+        "slack_bits_with_lift": 10.900667525231924,
+        "value": 143763024447376
+      },
+      "w*p": {
+        "slack_bits_with_lift": 10.900688907519864,
+        "value": 143760893740943
+      }
+    }
+  },
+  "claims": {
+    "proves_U_1116048_le_Bstar": false,
+    "proves_conditional_closure_arithmetic": true,
+    "proves_fixed_core_clique_packing": true,
+    "proves_free_coeff_filtration": true,
+    "proves_kappa_self_similarity": true,
+    "proves_row_sharp_q_atom": false
+  },
+  "lemmas": {
+    "fixed_core_clique": {
+      "deployed_numeric": {
+        "core_size": 913632,
+        "e": 67472,
+        "packing_ceiling": 17
+      },
+      "name": "fixed_core_top_seam_clique_packing",
+      "proof_sketch": [
+        "Top-seam means e = |S\\T| = |T\\S| = w+1 and S\u2229T = C with |C|=j-e.",
+        "Side sets U=S\\C and V=T\\C are disjoint by construction of C=S\u2229T.",
+        "Any two members of a same-core clique give side sets both disjoint from C and pairwise disjoint from each other (their supports meet exactly at C).",
+        "Pack e-sets into a ground set of size n-|C|."
+      ],
+      "statement": "For a fixed common core C of size j-(w+1), any family of top-seam mates sharing exactly that core has pairwise disjoint side sets of size e=w+1, hence size <= floor((n-|C|)/(w+1)).",
+      "status": "PROVED"
+    },
+    "free_coeff_filtration": {
+      "atom_criterion": "If max |Fib_{w+1}| <= floor(target_floor / p) = 128988645, the w-depth max fiber is <= target_floor and the additive residual split is not even needed.",
+      "name": "free_coefficient_filtration",
+      "proof_sketch": [
+        "The first w monic coefficients are the fiber label z.",
+        "The next monic coefficient a_{w+1} takes values in a set of size <= p.",
+        "Fixing (z, a_{w+1}) is exactly the depth-(w+1) prefix fiber."
+      ],
+      "self_similarity": "The multiplier kappa = target/avg is invariant under this depth shift: avg_{w+1}=avg_w/p and target_{w+1}=target_w/p, so kappa is unchanged. Depth reduction alone does not ease the finite kappa demand.",
+      "statement": "Write Lambda_S = X^j + z_1 X^{j-1}+...+z_w X^{j-w} + a_{w+1} X^{j-w-1}+.... For fixed z=(z_1..z_w), partition Fib_w(z) by a_{w+1} in F_p. Each block is a fiber of the depth-(w+1) prefix map. Hence |Fib_w(z)| <= p * max_alpha |Fib_{w+1}(z||alpha)|.",
+      "status": "PROVED"
+    },
+    "kappa_self_similarity": {
+      "K_rem": 4805007,
+      "avg_log2_approx": 35.73524641711265,
+      "name": "kappa_depth_self_similarity",
+      "statement": "For the full-fiber form of the atom, the admissible multiplier kappa = floor(B_rem * p^w / C(n,j)) is unchanged when the prefix depth increases by 1 and the target/average are both divided by p.",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v1",
+  "provenance": [
+    {
+      "name": "KB first-match ledger",
+      "path": "experimental/notes/thresholds/kb_mca_1116048_first_match_ledger_v1.md",
+      "use": "row constants, image-cell t*p, exact-lift 11440, Route D naming"
+    },
+    {
+      "name": "row-sharp reductions #397",
+      "path": "experimental/notes/thresholds/rowsharp_q_prefix_atom_reductions_v1.md",
+      "use": "conditional closure shape; missing support certificate isolation"
+    },
+    {
+      "name": "lift-class refutation #417",
+      "path": "thresholds: lift-class cost model refuted",
+      "use": "do not pay residual by keep-one lift class"
+    },
+    {
+      "name": "pw2 concentration floor",
+      "path": "experimental/notes/thresholds/cap25_v13_q_pw2_concentration_floor.md",
+      "use": "r=2 routes dead; full N_w bound is sufficient for atom"
+    },
+    {
+      "name": "grande_finale",
+      "path": "experimental/grande_finale.tex",
+      "use": "def:q-row-atom, prop:q-exact-target, prop:prefix-rigidity, top-seam constant shift"
+    }
+  ],
+  "remaining": {
+    "deployed_target": "For every primitive finite prefix target z at KB-MCA a=1116048, after first-match deletion of generated_field / quotient_planted / sparse_pade_hankel / m1_window_shadow / rank_drop_pivot / bc_chart / sp_shift_pair / extension_slope, |G_gen_support(z)| + |D_full_rank_prim(z)| <= t*p = 143763024447376.",
+    "equivalent_forms": [
+      {
+        "form": "|G_gen_support(z)| + |D_full_rank_prim(z)| <= t*p",
+        "id": "E1_additive_support"
+      },
+      {
+        "form": "Residual supports inject (controlled mult <=1 after first-match) into a label space of size <= t*p, e.g. {0..t-1} x F_p or marked-incidence keys.",
+        "id": "E2_marked_incidence_injection"
+      },
+      {
+        "form": "Every large signed folding defect satisfying the odd prefix equations is quotient-descended, sparse/Pade-Hankel, M1/window-shadow, rank-drop with printed pivot cost, generated-field support-paid, or lies in a primitive full-rank defect stratum of mass <= t*p.",
+        "id": "E3_large_folding_defect_transfer"
+      },
+      {
+        "form": "max fiber at depth w+1 is <= 128988645 (closes full N_w without additive residual split; kappa-self-similar so not obviously easier).",
+        "id": "E4_mu1_ceiling"
+      },
+      {
+        "form": "Residual supports inject into D x F_p (size n*p) after first-match; slack ~5.94 bits with retained lift.",
+        "id": "E5_np_injection"
+      }
+    ],
+    "falsifier": "Exhibit a primitive residual leaf at a finite prefix target z with support mass > t*p after the named first-match deletions, or a full prefix fiber larger than target_floor.",
+    "name": "route_d_support_certificate",
+    "status": "OPEN",
+    "upstream_dead_ends_not_to_repeat": [
+      "lift-class keep-one payment (PR #417 refuted)",
+      "r=2 / CS / Plancherel alone (pw2 concentration floor)",
+      "absolute-value dual character sums (PR #398 barrier map)",
+      "raw Delsarte distance packing (Gilbert gap ~1.37e6 bits)"
+    ]
+  },
+  "status": "PARTIAL_PROVED_LEMMAS_ATOM_OPEN",
+  "title": "KB-MCA Route-D support certificate attack: proved lemmas + exact closure arithmetic",
+  "toy_suite": {
+    "notes": "Filtration is general. Fixed-core packing is general. Toy suite checks constant-shift normal form + packing + filtration numerics.",
+    "rows": [
+      {
+        "filtration_holds": true,
+        "fixed_core_cliques_checked": 210,
+        "fixed_core_pack_violations": 0,
+        "j": 8,
+        "max_fiber": 758,
+        "mu1_max_next_coeff_mult": 54,
+        "mu2_max_two_free_mult": 7,
+        "n": 16,
+        "num_fibers": 17,
+        "p": 17,
+        "p_times_mu1": 918,
+        "top_seam_constant_shift_violations_in_sample": 0,
+        "w": 1
+      },
+      {
+        "filtration_holds": true,
+        "fixed_core_cliques_checked": 384,
+        "fixed_core_pack_violations": 0,
+        "j": 8,
+        "max_fiber": 54,
+        "mu1_max_next_coeff_mult": 7,
+        "mu2_max_two_free_mult": 2,
+        "n": 16,
+        "num_fibers": 289,
+        "p": 17,
+        "p_times_mu1": 119,
+        "top_seam_constant_shift_violations_in_sample": 0,
+        "w": 2
+      },
+      {
+        "filtration_holds": true,
+        "fixed_core_cliques_checked": 15,
+        "fixed_core_pack_violations": 0,
+        "j": 8,
+        "max_fiber": 7,
+        "mu1_max_next_coeff_mult": 2,
+        "mu2_max_two_free_mult": 2,
+        "n": 16,
+        "num_fibers": 4881,
+        "p": 17,
+        "p_times_mu1": 34,
+        "top_seam_constant_shift_violations_in_sample": 0,
+        "w": 3
+      },
+      {
+        "filtration_holds": true,
+        "fixed_core_cliques_checked": 63,
+        "fixed_core_pack_violations": 0,
+        "j": 5,
+        "max_fiber": 33,
+        "mu1_max_next_coeff_mult": 7,
+        "mu2_max_two_free_mult": 2,
+        "n": 32,
+        "num_fibers": 9408,
+        "p": 97,
+        "p_times_mu1": 679,
+        "top_seam_constant_shift_violations_in_sample": 0,
+        "w": 2
+      },
+      {
+        "filtration_holds": true,
+        "fixed_core_cliques_checked": 1,
+        "fixed_core_pack_violations": 0,
+        "j": 5,
+        "max_fiber": 7,
+        "mu1_max_next_coeff_mult": 2,
+        "mu2_max_two_free_mult": 1,
+        "n": 32,
+        "num_fibers": 183936,
+        "p": 97,
+        "p_times_mu1": 194,
+        "top_seam_constant_shift_violations_in_sample": 0,
+        "w": 3
+      },
+      {
+        "filtration_holds": true,
+        "fixed_core_cliques_checked": 40,
+        "fixed_core_pack_violations": 0,
+        "j": 4,
+        "max_fiber": 32,
+        "mu1_max_next_coeff_mult": 16,
+        "mu2_max_two_free_mult": 1,
+        "n": 64,
+        "num_fibers": 37249,
+        "p": 193,
+        "p_times_mu1": 3088,
+        "top_seam_constant_shift_violations_in_sample": 0,
+        "w": 2
+      },
+      {
+        "filtration_holds": true,
+        "fixed_core_cliques_checked": 1,
+        "fixed_core_pack_violations": 0,
+        "j": 3,
+        "max_fiber": 21,
+        "mu1_max_next_coeff_mult": 1,
+        "mu2_max_two_free_mult": 0,
+        "n": 128,
+        "num_fibers": 65792,
+        "p": 257,
+        "p_times_mu1": 257,
+        "top_seam_constant_shift_violations_in_sample": 0,
+        "w": 2
+      }
+    ],
+    "status": "PROVED_ON_TOY_SUITE_AND_GENERAL_PROOF"
+  }
+}

@@ -1,5 +1,33 @@
 # Agents Log
 
+
+### 2026-07-08 - KB-MCA Route-D support certificate attack v1
+
+- **Agent/model:** Grok + Scott Hughes (`scottdhughes`).
+- **Files added or changed:**
+  `experimental/scripts/verify_kb_qatom_route_d_v1.py`,
+  `experimental/notes/thresholds/kb_qatom_route_d_v1.md`,
+  `experimental/data/certificates/kb-qatom-route-d-v1/`,
+  `experimental/notes/certificate_scanner/outputs/kb_qatom_route_d_v1.report.md`,
+  `experimental/agents-log.md`.
+- **Status:** PARTIAL / PROVED lemmas + EXACT conditional-closure arithmetic;
+  row-sharp Q atom and `U(1116048)<=B*` remain OPEN.
+- **What is being added:** An attack packet on the single remaining support
+  certificate that closes the KoalaBear MCA adjacent safe side at
+  `a+=1116048`.  Proves (A) fixed-core top-seam clique packing,
+  (B) free-coefficient filtration `|Fib_w(z)| <= p * mu_1(z)`,
+  (C) kappa depth self-similarity.  Machine-checks the #397 conditional
+  closure (`t*p + 11440 < target_floor`, slack ≈ 10.9006675 bits) and the
+  sufficient-budget ladder `t*p` / `w*p` / `n*p` (all fit) vs `p^2` (does not).
+  Isolates five equivalent open forms E1–E5 with explicit falsifier.  Toy suite
+  of 7 dyadic rows passes filtration + constant-shift + packing gates.
+- **How it is useful:** Turns the prize-facing residual into a finite checklist
+  with proved structure and exact integers; any one of E1–E5 upgrades the
+  packet into an atom proof.  Avoids dead routes (#417 lift-class, r=2 floor,
+  absolute-value dual, Delsarte packing).
+- **What to do next:** Prove a residual support injection into a space of size
+  `<= n*p` or `<= t*p` (E2/E5), or the large folding-defect transfer (E3).
+
 This file is the working ledger for agent-created material in `experimental/`.
 Use it to record every new note, script, scan, formalization stub, or audit before
 the material is promoted into `tex/` or `scripts/`.
