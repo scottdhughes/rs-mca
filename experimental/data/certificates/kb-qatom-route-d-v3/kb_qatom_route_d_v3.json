@@ -1,0 +1,140 @@
+{
+  "arithmetic": {
+    "bounds": {
+      "Ncan_for_atom_via_p": 128988645,
+      "Ncan_for_atom_via_pack": 16166878605395467,
+      "Ncan_for_tp_via_p": 67472,
+      "Ncan_for_tp_via_pack": 8456648496904,
+      "best_atom_core_budget": 128988645,
+      "best_atom_route": "via_p",
+      "fib_le_p_times_Ncan": true,
+      "fib_le_pack_times_Ncan": true,
+      "log2_Ncan_atom_p": 26.942668828443388,
+      "log2_Ncan_atom_pack": 53.84389067782479,
+      "log2_Ncan_tp_pack": 42.94322315247798
+    },
+    "core_size": 913632,
+    "e": 67472,
+    "note": "p-route needs N_can <= ~2^26.94; pack-route needs N_can <= ~2^53.84. Pack route is the easier core-count target for the full-fiber atom.",
+    "pack_ceil": 17,
+    "status": "PROVED_BY_EXACT_INTEGER_ARITHMETIC"
+  },
+  "claims": {
+    "proves_double_covering": true,
+    "proves_lex_split_injection": true,
+    "proves_row_sharp_q_atom": false,
+    "proves_triangular_side_to_core": true
+  },
+  "lemmas": {
+    "double_covering": {
+      "deployed": {
+        "effective_per_core_cap": 17,
+        "p": 2130706433,
+        "pack_ceil": 17
+      },
+      "name": "double_covering_pack_and_p",
+      "proof": [
+        "Pack route: for fixed canonical core C, the supports S with C(S)=C are exactly C cup U for U in U(C,z) satisfying max(U)<min(C). That set has size <= |U(C,z)| <= pack_ceil by the core-pencil theorem.",
+        "p-route: by lex-split injection, S is uniquely determined by (C,c) with c in F_p, so for each C there are at most p supports with that canonical core.",
+        "Sum over C."
+      ],
+      "statement": "Let N_can(z) = |{C(S) : S in Fib_w(z)}| under the lex-split of lemma_lex_split_injection. Then |Fib_w(z)| <= pack_ceil * N_can(z) and |Fib_w(z)| <= p * N_can(z), where pack_ceil = floor((n-(j-w-1))/(w+1)).",
+      "status": "PROVED"
+    },
+    "lex_split_injection": {
+      "name": "canonical_lex_split_injection",
+      "proof": [
+        "Write e=w+1. For any j-subset S the e smallest exponents U form the unique e-subset of S with max(U)<min(S\\\\U) (or C empty if e=j).",
+        "Suppose phi(S1)=phi(S2)=(C,c). Then S_i = C cup U_i with U_i = e smallest of S_i, hence max(U_i)<min(C) when C nonempty, and monic Lambda_{U_i} has constant term c.",
+        "Both U_i lie in U(C,z) := {U : C cup U in Fib_w(z), |U|=e} (v2 core-pencil setup).",
+        "By the core-pencil theorem, {Lambda_U : U in U(C,z)} is a constant-shift family: Lambda_U = X^e + a_1 X^{e-1}+...+a_{e-1} X + u with fixed a_i and varying constant u. Distinct members have distinct constants.",
+        "Therefore the constant c selects at most one U in U(C,z). Hence U1=U2 and S1=S2."
+      ],
+      "statement": "Order D as (omega^0,...,omega^{n-1}). For S in Fib_w(z) let U(S) be the e=w+1 elements of S with smallest exponents, C(S)=S\\\\U(S), and c(S) the constant term of the monic side locator Lambda_{U(S)}. Then phi: S |-> (C(S), c(S)) is injective on Fib_w(z).",
+      "status": "PROVED"
+    },
+    "triangular_side_to_core": {
+      "deployed_m_ge_w": true,
+      "name": "triangular_side_prefix_determines_core_prefix",
+      "proof": [
+        "Expand the product. The coefficient of X^{j-k} in Lambda_C Lambda_U is b_k + u_k + sum_{i=1}^{k-1} b_i u_{k-i} (with the convention that out-of-range coefficients are zero). For 1 <= k <= w < e and k <= m this includes both b_k and u_k. Set equal to z_k and solve for b_k."
+      ],
+      "statement": "Let Lambda_C = X^m + b_1 X^{m-1}+... and Lambda_U = X^e + u_1 X^{e-1}+...+u_e with m=j-w-1, e=w+1, and suppose Lambda_C Lambda_U has first w monic coefficients z_1..z_w. Then for each k=1..w, as long as the coefficient ranges make sense (in particular m >= w, which holds at the deployed row), b_k is uniquely determined by (z_1..z_k, u_1..u_k) via the triangular rule b_k = z_k - u_k - sum_{i=1}^{k-1} b_i u_{k-i}.",
+      "status": "PROVED",
+      "use": "Pairs every canonical (C,U) with a core prefix b(z,u). Active canonical cores with a given side-prefix u lie in a single depth-w fiber of m-subsets."
+    }
+  },
+  "packet": "kb_qatom_route_d_v3",
+  "remaining": {
+    "attack_on_N_can": [
+      "Use triangular inversion: canonical (C,U) has b_prefix determined by (z,u_prefix); cores with fixed side-prefix lie in one m-subset depth-w fiber \u2014 apply head-depth Q / packing there if w is still large.",
+      "Show residual first-match leaves force N_can to be poly(n) or <= t*p/pack.",
+      "Inject can-cores into D x F_p via (min(C), b_1) after residualization."
+    ],
+    "reduced_target": "Bound N_can_cores(z) <= 16166878605395467 (pack route, ~2^53.84) for every z, or the tighter residual budgets via t*p.",
+    "status": "OPEN",
+    "why_easier_than_raw_max_fiber": "N_can_cores counts m-subsets (cores), not j-subsets, and each core carries at most pack_ceil=17 fiber members. The lex-split gives an explicit bijection Fib <-> subset of can-cores x F_p."
+  },
+  "status": "PARTIAL_PROVED_LEMMAS_ATOM_OPEN",
+  "title": "Canonical lex-split injection and double covering for KB-MCA Q fibers",
+  "toy_suite": {
+    "rows": [
+      {
+        "inj_fail": 0,
+        "j": 8,
+        "max_N_can_cores": 54,
+        "max_fiber": 54,
+        "max_fiber_le_n_p": true,
+        "n": 16,
+        "p": 17,
+        "pack": 3,
+        "w": 2
+      },
+      {
+        "inj_fail": 0,
+        "j": 8,
+        "max_N_can_cores": 7,
+        "max_fiber": 7,
+        "max_fiber_le_n_p": true,
+        "n": 16,
+        "p": 17,
+        "pack": 3,
+        "w": 3
+      },
+      {
+        "inj_fail": 0,
+        "j": 5,
+        "max_N_can_cores": 32,
+        "max_fiber": 33,
+        "max_fiber_le_n_p": true,
+        "n": 32,
+        "p": 97,
+        "pack": 10,
+        "w": 2
+      },
+      {
+        "inj_fail": 0,
+        "j": 5,
+        "max_N_can_cores": 7,
+        "max_fiber": 7,
+        "max_fiber_le_n_p": true,
+        "n": 32,
+        "p": 97,
+        "pack": 7,
+        "w": 3
+      },
+      {
+        "inj_fail": 0,
+        "j": 4,
+        "max_N_can_cores": 25,
+        "max_fiber": 32,
+        "max_fiber_le_n_p": true,
+        "n": 64,
+        "p": 193,
+        "pack": 21,
+        "w": 2
+      }
+    ],
+    "status": "PASS"
+  }
+}

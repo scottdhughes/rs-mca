@@ -2,6 +2,29 @@
 
 
 
+
+### 2026-07-08 - KB-MCA Route-D v3: canonical lex-split injection
+
+- **Agent/model:** Grok + Scott Hughes (`scottdhughes`).
+- **Files added or changed:**
+  `experimental/scripts/verify_kb_qatom_route_d_v3.py`,
+  `experimental/notes/thresholds/kb_qatom_route_d_v3.md`,
+  `experimental/data/certificates/kb-qatom-route-d-v3/`,
+  `experimental/notes/certificate_scanner/outputs/kb_qatom_route_d_v3.report.md`,
+  `experimental/agents-log.md`.
+- **Status:** PARTIAL / PROVED; atom OPEN at `N_can_cores`.
+- **What is being added:** (A) **Canonical lex-split injection**: S |-> (C_can, c_U)
+  with U = e smallest exponents in S is injective on each Fib_w(z) — proved via
+  core-pencil uniqueness of constant terms. (B) **Double covering**:
+  |Fib| <= pack_ceil * N_can and |Fib| <= p * N_can; deployed pack_ceil=17 binds.
+  Atom full-fiber form <=> N_can(z) <= floor(target/17) ≈ 2^53.84.
+  (C) Triangular side-prefix -> core-prefix inversion (m >= w at deployed).
+  Toy suite 5/5 green, inj_fail=0.
+- **How it is useful:** Explicit bijection Fib <-> subset of (core, constant);
+  reduces Q atom to bounding the number of canonical cores, not raw supports.
+- **What to do next:** Bound N_can(z) using triangular inversion (cores with fixed
+  side-prefix lie in one m-subset depth-w fiber) after first-match residualization.
+
 ### 2026-07-08 - KB-MCA Route-D v2: core-pencil + covering reduction
 
 - **Agent/model:** Grok + Scott Hughes (`scottdhughes`).
