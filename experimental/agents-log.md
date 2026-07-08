@@ -30,6 +30,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-08 - Entropic inverse route and asymptotic closure in Grande Finale
+
+- **Agent/model:** Maintainer-added TeX drafts integrated by Codex.
+- **Files added or changed:** `experimental/grande_finale.tex`,
+  `experimental/grande_finale.pdf`, `experimental/agents-log.md`.
+- **Status:** CONDITIONAL / PROVED / AUDIT.
+- **What is being added:** Integrated the standalone primitive entropic inverse
+  theorem for Vandermonde slice sums as the clean additive-combinatorics atom
+  behind Q.  Added the conditional asymptotic RS--MCA closure theorem showing
+  that this inverse theorem, together with the printed first-match ledger
+  hypotheses, gives the entropy--subfield threshold formula.  Also added a
+  Fourier-flat sufficient condition for Q in large-characteristic leaves.
+- **How it is useful:** This separates the remaining Q proof from RS-MCA
+  language and makes the asymptotic prize route precise: prove the primitive
+  inverse theorem, or find a new algebraic obstruction cell.  The Fourier
+  theorem gives a theorem-level route in leaves where the explicit character
+  sum error fits the frontier ledger.
+- **What to do next:** Prove or refute the primitive entropic inverse theorem,
+  including the entropy BSG/PFR or free-energy branch and the slice derivative
+  back to Vandermonde rank defect.  For finite deployed rows, do not use the
+  asymptotic theorem unless all constants fit the printed adjacent margins.
+
 ### 2026-07-08 - Reviewed PR integration for Q, BC, L1, and Lean packets
 
 - **Agent/model:** DannyExperiments/Gia via PRs #389, #409, #411, and #413;

@@ -44,13 +44,17 @@
 \Crefname{problem}{Problem}{Problems}
 
 \newcommand{\F}{\mathbb F}
+\newcommand{\K}{\mathbb K}
+\newcommand{\C}{\mathbb C}
 \newcommand{\B}{\mathbb B}
 \newcommand{\RS}{\operatorname{RS}}
+\newcommand{\Q}{\operatorname{Q}}
 \newcommand{\emca}{\varepsilon_{\mathrm{mca}}}
 \newcommand{\eca}{\varepsilon_{\mathrm{ca}}}
 \newcommand{\Htwo}{H_2}
 \newcommand{\poly}{\operatorname{poly}}
 \newcommand{\Fib}{\operatorname{Fib}}
+\newcommand{\Span}{\operatorname{span}}
 \newcommand{\wdeg}{\operatorname{wdeg}}
 \newcommand{\Cen}{\operatorname{Cen}}
 \newcommand{\LineRay}{\operatorname{LineRay}}
@@ -63,7 +67,7 @@
 \begin{document}
 
 \begin{abstract}
-This expanded proof-audited note separates genuine theorem-level material from the still-missing dense-frontier upper ledger for smooth-domain Reed--Solomon MCA.  The unsafe side is reduced to exact integer prefix floors and the simple-pole list-to-MCA conversion.  On the safe side the note keeps only statements proved under their displayed hypotheses: broad safe anchors, quotient descent, split-pencil reductions, second-moment identities, unconditional but weak prefix/split-pair ceilings, the exact saturation identity for MCA codeword rays, and the theorem that the shift-pair ledger is downstream from Q once Q is stated as a max-fiber bound.  This revision also fixes endpoint and notation issues found in the audit, expands the finite-arithmetic tables, adds line-ray saturation bookkeeping, proves the logarithmic-moment equivalence for primitive asymptotic Q, and prints the remaining proof obligations explicitly.  It does not claim the adjacent deployed safe rows: an attempted Q closure is added below and shows that the active quantitative task is still the row-sharp prefix atom theorem, together with the finite audit that every residual balanced-core split-pencil chart reduces to the one-parameter moving-root theorem proved here.
+This expanded proof-audited note separates genuine theorem-level material from the still-missing dense-frontier upper ledger for smooth-domain Reed--Solomon MCA.  The unsafe side is reduced to exact integer prefix floors and the simple-pole list-to-MCA conversion.  On the safe side the note keeps only statements proved under their displayed hypotheses: broad safe anchors, quotient descent, split-pencil reductions, second-moment identities, unconditional but weak prefix/split-pair ceilings, the exact saturation identity for MCA codeword rays, and the theorem that the shift-pair ledger is downstream from Q once Q is stated as a max-fiber bound.  This revision also fixes endpoint and notation issues found in the audit, expands the finite-arithmetic tables, adds line-ray saturation bookkeeping, proves the logarithmic-moment equivalence for primitive asymptotic Q, and adds the conditional asymptotic closure theorem from the entropy-scale inverse input.  It also records a Fourier-flat sufficient condition for Q in large-characteristic leaves.  It does not claim the adjacent deployed safe rows: an attempted Q closure is added below and shows that the active quantitative task is still the row-sharp prefix atom theorem, together with the finite audit that every residual balanced-core split-pencil chart reduces to the one-parameter moving-root theorem proved here.
 \end{abstract}
 
 \maketitle
@@ -820,18 +824,49 @@ Therefore
 as required.
 \end{proof}
 
-\begin{problem}[entropy-scale inverse theorem for primitive moment-curve sums]\label{prob:entropy-inverse-q}
-Prove the following inverse theorem, or identify the new obstruction cell that replaces it.  Let
+\begin{problem}[primitive entropic inverse theorem for Vandermonde slice sums]\label{prob:entropy-inverse-q}
+Prove the following standalone additive-combinatorics statement, or identify the extra obstruction cell that must be added to the first-match ledger.  Let \(\K=\K_N\) be a finite field, let \(T=T_N\subseteq\K\) have \(|T|=N\), let \(R=R_N\asymp N\), and choose nonzero weights \(\rho(t)\in\K^\times\).  Define the Vandermonde columns
 \[
-        V=\{v_y=(\rho(y),\rho(y)y,\ldots,\rho(y)y^{R-1}):y\in T\}\subseteq\B^R,
+        v_t=\rho(t)(1,t,t^2,\ldots,t^{R-1})\in\K^R,
+        \qquad t\in T .
+\]
+Let \(\Omega\subseteq\{0,1\}^T\), or more generally \(\Omega\subseteq\{-1,0,1\}^T\), be a fixed-density profile slice: all active coordinate counts lie between \(\alpha N\) and \((1-\alpha)N\) for some fixed \(\alpha>0\).  Let
+\[
+        \Phi:\Omega\to\K^R,
         \qquad
-        \rho(y)^2=y,
+        \Phi(x)=\sum_{t\in T}x_tv_t,
 \]
-be the primitive leaf moment-curve column system after quotient, planted, tangent, extension, Chebyshev, differential-locator, and saturated first-match cells have been removed.  Let \(X\) be a fixed-density singleton or signed-profile selector on \(T\).  If, for some \(r\le(\log n)^A\),
+and let \(\Omega^\circ\subseteq\Omega\) be the primitive residual model after quotient pullbacks, Chebyshev/dihedral pullbacks, planted common blocks, tangent cells, extension cells, differential-locator low-defect cells, and saturation cells have been removed.  Assume the frontier normalization
 \[
-        \Gamma_r^{\rm prim}\ge\exp(\eta nr)
+        \log|\Omega^\circ|-R\log|\K|=o(N).
 \]
-with fixed \(\eta>0\), then a positive-rate set \(U\subseteq T\) is contained in a proper generalized arithmetic progression or coset progression whose affine span has rank \(o(n)\), unless the excess is carried by one of the paid cells: quotient pullback, Chebyshev pullback, planted common block, tangent/common-code-line, extension-valued descent, differential-locator low-defect, or saturation.
+For \(X_0\) uniform on \(\Omega^\circ\), write \(\nu=\Phi_*X_0\), and define the normalized Renyi collision excess
+\[
+        \Gamma_\ell(\Omega^\circ,\Phi)
+        =
+        |\K|^{R(\ell-1)}\sum_{s\in\K^R}\nu(s)^\ell
+        =
+        |\K|^{-R}\sum_s
+        \left(
+        \frac{|\Omega^\circ\cap\Phi^{-1}(s)|}
+             {|\Omega^\circ|\,|\K|^{-R}}
+        \right)^\ell .
+\]
+For every fixed \(\alpha,\kappa,\eta>0\) and \(A<\infty\), with \(\kappa N\le R\le\kappa^{-1}N\), if \(\ell=\ell_N\to\infty\), \(\ell\le(\log N)^A\), and
+\[
+        \Gamma_\ell(\Omega^\circ,\Phi)\ge\exp(\eta N\ell),
+\]
+then at least one of the following alternatives holds.
+
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item A positive-density restriction of the datum lies in one of the bounded-complexity algebraic cells already removed above.
+\item There is a positive-density set \(U\subseteq T\) for which
+\[
+        \operatorname{rank}_{\K}\Span\{v_t:t\in U\}<\min(|U|,R).
+\]
+\end{enumerate}
+
+The robust proof form may pass through an additional Sidon/free-energy branch: either level-typical star trades have entropy-small difference \(H(Y-Y')\le H(Y)+o(N)\), leading by entropic BSG/PFR and a slice-derivative lemma to the rank-defect alternative above, or else the free-energy decay of \(Y-Y'\) bounds that level's contribution to \(\Gamma_\ell\) by \(\exp(-\Omega(N\ell))\).  This problem is intentionally stated without RS, decoding, MCA, Q, or SP language.  It is the independent inverse theorem needed by the primitive Q route.
 \end{problem}
 
 \begin{remark}[why standard inverse theorems do not plug in directly]\label{rem:standard-inverse-gap}
@@ -839,7 +874,7 @@ The intended proof route follows the Tao--Vu inverse Littlewood--Offord and Gree
 \end{remark}
 
 \begin{proposition}[Vandermonde rank kills the inverse output]\label{prop:vandermonde-kills-low-rank}
-Let \(y_1,\ldots,y_t\) be distinct elements of \(T\), with \(t\le R\) and all \(\rho(y_i)\ne0\).  Then the columns
+Let \(y_1,\ldots,y_t\) be distinct elements of \(T\), with \(t\le R\) and all weights \(\rho(y_i)\ne0\).  Then the columns
 \[
         v_{y_i}=(\rho(y_i),\rho(y_i)y_i,\ldots,\rho(y_i)y_i^{R-1})
 \]
@@ -856,6 +891,72 @@ If \cref{prob:entropy-inverse-q} holds for the primitive first-match residual fa
 
 \begin{proof}
 If primitive asymptotic Q failed, then by \cref{thm:logmoment-equivalence} there would be a logarithmic moment order \(r\) with \(\Gamma_r^{\rm prim}\ge\exp(\eta nr)\) along a subsequence for some \(\eta>0\).  Applying \cref{prob:entropy-inverse-q} gives either a paid cell, contrary to first-match removal, or a positive-density primitive subset in affine rank \(o(n)\).  The latter is impossible by \cref{prop:vandermonde-kills-low-rank} in the moment-curve range \(R=\Theta(n)\).  Thus \(M_{\rm prim}\le\exp(o(n))\), which is primitive asymptotic Q.
+\end{proof}
+
+\begin{definition}[Fourier-flat prefix leaf]\label{def:fourier-flat-prefix-leaf}
+Let \(E\) be a finite field of cardinality \(Q\) and characteristic \(p\), let \(T\subseteq E\) have size \(N\), and let \(\Omega_m=\{M\subseteq T:|M|=m\}\).  For \(w<p\), define
+\[
+        \Psi(M)=\left(\sum_{y\in M}y,\sum_{y\in M}y^2,\ldots,\sum_{y\in M}y^w\right)\in E^w .
+\]
+Fix a nontrivial additive character \(\psi:E\to\mathbb C^\times\).  A sequence of such leaves is Fourier-flat if there is an integer \(L=L_N\) such that, for every nonzero \(\alpha=(\alpha_1,\ldots,\alpha_w)\in E^w\) and every \(1\le j\le m\) with \(p\nmid j\),
+\[
+        \left|\sum_{y\in T}\psi\left(j\sum_{i=1}^w\alpha_i y^i\right)\right|\le L,
+\]
+and, with
+\[
+        \theta=L+\left\lceil\frac{N-L}{p}\right\rceil ,
+\]
+one has
+\[
+        Q^w\binom{m+\theta-1}{m}\binom Nm^{-1}\le \exp(o(N)).
+\]
+It is strongly Fourier-flat if the last expression is \(o(1)\).
+\end{definition}
+
+\begin{theorem}[Fourier-flat leaves satisfy asymptotic Q]\label{thm:fourier-flat-q}
+In a Fourier-flat prefix leaf,
+\[
+        \max_{\xi\in E^w}
+        \left|\{M\in\Omega_m:\Psi(M)=\xi\}\right|
+        \le
+        \exp(o(N))\,Q^{-w}\binom Nm .
+\]
+If the leaf is strongly Fourier-flat, the normalized maximum is \(1+o(1)\).  Since \(w<p\), Newton identities identify the fibers of \(\Psi\) with the fibers of the first \(w\) locator coefficients.  Thus Fourier-flatness is a sufficient condition for the asymptotic Q input on that leaf.
+\end{theorem}
+
+\begin{proof}
+For \(\xi\in E^w\), character orthogonality gives
+\[
+        |\Psi^{-1}(\xi)|
+        =
+        Q^{-w}\sum_{\alpha\in E^w}\psi(-\alpha\cdot\xi)
+        \sum_{M\in\Omega_m}
+        \psi\left(\sum_{y\in M}\sum_{i=1}^w\alpha_i y^i\right).
+\]
+The term \(\alpha=0\) is \(Q^{-w}\binom Nm\).  For \(\alpha\ne0\), apply the distinct-coordinate inclusion-exclusion sieve of Li--Wan \cite{LiWanSieve}.  A cycle of length divisible by \(p\) contributes at most \(N\), and every other cycle contributes at most \(L\) by hypothesis.  Hence the corresponding elementary-symmetric character sum is bounded by the coefficient of \(z^m\) in
+\[
+        (1-z)^{-L}(1-z^p)^{-(N-L)/p}.
+\]
+Replacing \((N-L)/p\) by \(\lceil(N-L)/p\rceil\) and using coefficientwise monotonicity gives the upper bound \(\binom{m+\theta-1}{m}\).  Therefore
+\[
+        |\Psi^{-1}(\xi)|
+        \le
+        Q^{-w}\binom Nm+\binom{m+\theta-1}{m}.
+\]
+The Fourier-flat inequality is exactly the assertion that the second term is at most \(\exp(o(N))\) times the random-model mean \(Q^{-w}\binom Nm\); the strongly Fourier-flat version gives \(1+o(1)\).  Finally, because \(w<p\), the first \(w\) elementary-symmetric locator coefficients and the first \(w\) power sums are related by invertible triangular Newton identities.
+\end{proof}
+
+\begin{corollary}[large-characteristic Fourier examples]\label{cor:large-characteristic-fourier-examples}
+If \(T=E=\F_p\), \(m/p\to\rho\in(0,1)\), and \(w=o(\sqrt p)\), then the leaf is strongly Fourier-flat.  More generally the leaf is Fourier-flat whenever Weil's bound gives \(L=O(w\sqrt p)\) and
+\[
+        w\log p+\log\binom{m+O(w\sqrt p+p^{-1}N)-1}{m}
+        \le
+        \log\binom Nm+o(N).
+\]
+\end{corollary}
+
+\begin{proof}
+For \(T=\F_p\), every nonzero phase polynomial \(\sum_{i=1}^w\alpha_iX^i\) has degree \(<p\), so Weil's bound gives \(L\le(w-1)\sqrt p\) for all nontrivial modes.  If \(w=o(\sqrt p)\), then \(\theta=o(p)\), \(w\log p=o(p)\), and \(\log\binom{m+\theta-1}{m}=o(p)\), while \(\log\binom pm=\Theta(p)\) for fixed density.  The stated general criterion is the same calculation with the displayed bound for \(L\).
 \end{proof}
 
 \begin{remark}[proof skeleton for \cref{prob:entropy-inverse-q}]\label{rem:entropy-inverse-skeleton}
@@ -2106,6 +2207,117 @@ and can be exponentially larger than the slope numerator.  The enumerative obstr
 The exact integer tables in this note can be checked independently from the displayed formulas using integer arithmetic only: \(B^*=\lfloor p^s2^{-\lambda}\rfloor\), \(L(a)=\lceil\binom na p^{-(a-K)}\rceil\), the simple-pole value \(M(a)=\lceil L(a)(q-n)/(q-n+k(L(a)-1))\rceil\), the extension headroom in \cref{prop:extension-cell-target}, and the logarithmic Q-packing estimate in \cref{prop:proper-q-gap}, and the two-slope primitive one-pencil BC count in \cref{cor:bc-one-pencil}.  These checks are arithmetic audits; they do not replace the missing row-sharp Q theorem or the chart-decomposition verification in \cref{prob:row-sharp-q,prob:saturated-bc}.
 \end{remark}
 
+\section{Conditional Asymptotic Closure}
+\label{sec:conditional-asymptotic-closure}
+
+The previous sections isolate Q as the primitive max-fiber input and prove that SP is downstream from Q.  This section records the exact conditional implication from the additive-combinatorics atom \cref{prob:entropy-inverse-q} to the asymptotic RS--MCA frontier.  It is a theorem about the compiler once that atom is supplied; it is not a proof of the atom.
+
+\begin{definition}[frontier sequence for MCA]\label{def:frontier-mca-sequence}
+Let
+\[
+        C_n=\RS[\F_n,D_n,k_n],
+        \qquad
+        |D_n|=n,
+        \qquad
+        k_n/n\to\rho,
+\]
+be a sequence of smooth-domain Reed--Solomon rows with base fields \(\B_n\), and put \(K_n=k_n+1\) on the MCA route.  For an agreement threshold \(a_n\), set
+\[
+        m_n=a_n,
+        \qquad
+        w_n=a_n-K_n,
+        \qquad
+        \overline N_n=\binom n{m_n}|\B_n|^{-w_n}.
+\]
+The row is a frontier row if \(\overline N_n=\exp(o(n))\), and an extended frontier row if \(\overline N_n\ge\exp(-o(n))\).  A primitive residual leaf means the family remaining after quotient, planted, tangent, extension, Chebyshev, differential-locator, saturation, and split-pencil paid cells have been assigned by first match.
+\end{definition}
+
+\begin{lemma}[largest primitive fiber gives logarithmic excess]\label{lem:largest-fiber-to-excess-closure}
+Let \(N^{\rm prim}(s)\), \(R^{\rm prim}(s)\), \(M_{\rm prim}\), and \(\Gamma_r^{\rm prim}\) be as in \cref{def:primitive-logmoment}.  Assume \(r\to\infty\) and \(w\log|\B|/r=o(n)\).  If \(M_{\rm prim}\ge\exp(\eta n)\) along a subsequence for some fixed \(\eta>0\), then, after replacing \(\eta\) by \(\eta/2\),
+\[
+        \Gamma_r^{\rm prim}\ge\exp((\eta/2)nr)
+\]
+along that subsequence.
+\end{lemma}
+
+\begin{proof}
+Let \(s_0\) have \(R^{\rm prim}(s_0)=M_{\rm prim}\).  One term of the moment sum gives
+\[
+        \Gamma_r^{\rm prim}\ge |\B|^{-w}M_{\rm prim}^r
+        \ge \exp(\eta nr-w\log|\B|).
+\]
+The hypothesis \(w\log|\B|/r=o(n)\) makes the exponent at least \((\eta/2)nr\) for all sufficiently large \(n\) in the subsequence.
+\end{proof}
+
+\begin{theorem}[primitive Q from the entropic inverse theorem]\label{thm:primitive-q-closure-module}
+Assume that \cref{prob:entropy-inverse-q} holds uniformly for the primitive first-match residual leaves in an extended frontier sequence.  Then every primitive residual leaf satisfies
+\[
+        \max_s N^{\rm prim}(s)
+        \le
+        \exp(o(n))\binom n{m}|\B|^{-w}.
+\]
+Equivalently, \(M_{\rm prim}\le\exp(o(n))\).
+\end{theorem}
+
+\begin{proof}
+If the conclusion failed, then for some fixed \(\eta>0\), \(M_{\rm prim}\ge\exp(\eta n)\) on an infinite subsequence.  Choose a logarithmic moment order \(r\to\infty\) with \(w\log|\B|/r=o(n)\).  By \cref{lem:largest-fiber-to-excess-closure}, that subsequence has positive-rate logarithmic excess.  Applying \cref{prob:entropy-inverse-q} gives either a paid algebraic cell or a positive-density rank defect among primitive Vandermonde columns.  The paid-cell alternative is excluded by the definition of the primitive residual leaf, and the rank-defect alternative contradicts \cref{prop:vandermonde-kills-low-rank}.  Hence no positive-rate failure of \(M_{\rm prim}\le\exp(o(n))\) remains.
+\end{proof}
+
+\begin{lemma}[subexponential add-back]\label{lem:subexponential-addback-closure}
+Suppose that, in every first-match leaf, the number of paid quotient/profile cells is \(\exp(o(n))\), each paid cell contributes at most \(\exp(o(n))\overline N_n\) supports to any prefix syndrome, and the primitive residual satisfies \cref{thm:primitive-q-closure-module}.  Then the full residual prefix-boundary fiber satisfies
+\[
+        \max_sN(s)\le\exp(o(n))\overline N_n.
+\]
+\end{lemma}
+
+\begin{proof}
+For a fixed syndrome, decompose the fiber into first-match paid pieces and the primitive residual.  The primitive residual has size \(\exp(o(n))\overline N_n\) by \cref{thm:primitive-q-closure-module}.  There are \(\exp(o(n))\) paid pieces and each has the same scale.  Multiplying subexponential factors remains subexponential.
+\end{proof}
+
+\begin{proposition}[Q discharges SP at the frontier]\label{prop:q-sp-frontier-closure}
+If \(\max_sN(s)\le\kappa_n\overline N_n\), then
+\[
+        \binom n{m}^{-1}\sum_sN(s)^2\le\kappa_n\overline N_n.
+\]
+In particular, if \(\kappa_n=\exp(o(n))\), the shift-pair ledger has the same asymptotic size as the Q max-fiber ledger.
+\end{proposition}
+
+\begin{proof}
+Since \(\sum_sN(s)=\binom nm\),
+\[
+        \sum_sN(s)^2
+        \le
+        (\max_sN(s))\sum_sN(s)
+        \le
+        \kappa_n\overline N_n\binom nm .
+\]
+Dividing by \(\binom nm\) proves the claim.
+\end{proof}
+
+\begin{theorem}[asymptotic RS--MCA closure from the primitive inverse theorem]\label{thm:asymptotic-rs-mca-closure-combined}
+Consider an extended frontier smooth-domain Reed--Solomon MCA sequence as in \cref{def:frontier-mca-sequence}.  Suppose the first-match ledger covers every MCA-bad finite slope by paid cells, residual Q, or residual SP; suppose the paid cells have total contribution \(\exp(o(n))\overline N_n\); suppose the quotient/profile add-back hypotheses of \cref{lem:subexponential-addback-closure} hold; and suppose \cref{prob:entropy-inverse-q} is true for every primitive residual leaf.  Then
+\[
+        B_{C_n}^{\rm MCA}(a_n)\le \exp(o(n))\overline N_n.
+\]
+Consequently, if the same hypotheses hold uniformly for agreements \(a_n=K_n+g_nn+o(n)\) on the safe side of the entropy--subfield crossing, then
+\[
+        \delta^*_{C_n}(\varepsilon^*)
+        =
+        1-\rho-g^*(\rho,\log_2|\B_n|)+o(1)
+\]
+whenever the identity-prefix lower construction supplies the matching unsafe side below the crossing.
+\end{theorem}
+
+\begin{proof}
+The inverse theorem gives primitive Q by \cref{thm:primitive-q-closure-module}.  The add-back lemma upgrades primitive Q to the full residual Q ledger.  Then \cref{prop:q-sp-frontier-closure} bounds SP at the same asymptotic scale.  The paid part has scale \(\exp(o(n))\overline N_n\) by hypothesis, and first-match disjointness is exactly \cref{lem:first-match-ledger}.  Summing paid, Q, and SP cells gives the displayed numerator bound.
+
+For the threshold identity, combine this upper bound with \cref{lem:entropy-bookkeeping}: above the entropy--subfield crossing, any \(o(n)\) agreement reserve whose entropy gain dominates the subexponential loss makes the safe numerator fit the target.  Below the crossing, \cref{thm:unsafe-envelope} supplies the identity-prefix unsafe numerator.  The remaining corridor has width \(o(n)\), which is the asserted \(o(1)\) radius error.
+\end{proof}
+
+\begin{remark}[why this is not a no-input proof]\label{rem:not-no-input-proof}
+\Cref{thm:asymptotic-rs-mca-closure-combined} proves the compiler implication after the primitive entropy-scale inverse theorem has been supplied.  Removing that hypothesis requires proving \cref{prob:entropy-inverse-q}: a Renyi-scale trade-entropy bridge, an entropy BSG/PFR structural step or free-energy decay alternative, and the slice derivative from small-doubling trades back to a positive-density rank defect among individual Vandermonde columns.  Without that theorem, the adjacent finite rows and the asymptotic equality remain conditional safe-side statements.
+\end{remark}
+
 \section{Remaining Finite Upper-Ledger Target}
 
 The proper proofs above remove the fake certificate-theorem closure.  They prove real replacement statements, but they do not settle the dense frontier.  A finite adjacent proof must improve the upper bound \(U(a_0+1)\) in \cref{thm:finite} until it fits inside the exact margins \(22.1969,22.0109,3.2589,3.0730\) bits.  After \cref{thm:q-implies-sp} and \cref{thm:bc-moving-root}, the independent active MCA targets are row-sharp multilevel Q and the finite BC chart-decomposition audit.  SP remains an exact audit ledger and follows once Q is strong enough; a primitive one-parameter BC pencil is now paid by the moving-root theorem.
@@ -2124,7 +2336,7 @@ The new unconditional packing theorem \cref{thm:q-proper} is valid but, by \cref
 
 \section{Conclusion}
 
-This version contains no finite Q, BC, or SP certificate theorem.  The unsafe side is exact and the broad safe anchors are unconditional in their stated ranges.  The former SP input is now a theorem downstream from Q; the raw BC support count is replaced by exact saturation and line-ray identities; and primitive one-parameter BC pencils are paid by the moving-root theorem.  On the asymptotic side, \cref{thm:logmoment-equivalence} proves that primitive Q is exactly a logarithmic collision-moment theorem under \(w\log|\B|/r=o(n)\), and \cref{cor:asymp-q-from-entropy-inverse} reduces the remaining asymptotic frontier proof to the entropy-scale inverse theorem \cref{prob:entropy-inverse-q}.  The full entropy--subfield equality and the adjacent safe inequalities are still not asserted.  The attempted Q closure in \cref{prop:q-exact-target,prop:q-moment-order-floor,prop:bc-not-q,prop:q-not-closed,prob:entropy-inverse-q} identifies the exact missing atom theorem and rules out the current shortcuts: packing is far too weak, fixed moments cannot fit the finite rows, standard polynomial-scale inverse Littlewood--Offord does not directly apply at exponential fiber scale, SP is downstream from Q rather than upstream, and the paid BC theorem applies to one-parameter pencils rather than the high-dimensional boundary-Q slice.  A closed adjacent theorem still requires a row-sharp Q atom bound together with the BC chart-decomposition audit required by \cref{prob:saturated-bc}.
+This version contains no finite Q, BC, or SP certificate theorem.  The unsafe side is exact and the broad safe anchors are unconditional in their stated ranges.  The former SP input is now a theorem downstream from Q; the raw BC support count is replaced by exact saturation and line-ray identities; and primitive one-parameter BC pencils are paid by the moving-root theorem.  On the asymptotic side, \cref{thm:logmoment-equivalence} proves that primitive Q is exactly a logarithmic collision-moment theorem under \(w\log|\B|/r=o(n)\), \cref{prob:entropy-inverse-q} isolates the standalone additive-combinatorics atom as an inverse theorem for Vandermonde slice sums, and \cref{thm:asymptotic-rs-mca-closure-combined} proves the conditional entropy--subfield threshold formula once that atom and the printed first-match ledger hypotheses are supplied.  \Cref{thm:fourier-flat-q} records a theorem-level sufficient condition for Q in Fourier-flat leaves, but it is not a deployed adjacent certificate unless the explicit Fourier error fits the row's finite margin.  The attempted Q closure in \cref{prop:q-exact-target,prop:q-moment-order-floor,prop:bc-not-q,prop:q-not-closed,prob:entropy-inverse-q} identifies the exact missing atom theorem and rules out the current shortcuts: packing is far too weak, fixed moments cannot fit the finite rows, standard polynomial-scale inverse Littlewood--Offord does not directly apply at exponential fiber scale, SP is downstream from Q rather than upstream, and the paid BC theorem applies to one-parameter pencils rather than the high-dimensional boundary-Q slice.  A closed adjacent theorem still requires a row-sharp Q atom bound together with the BC chart-decomposition audit required by \cref{prob:saturated-bc}.
 
 \begin{thebibliography}{BCHKS25}
 
@@ -2182,6 +2394,11 @@ Y.~V. Linnik.
 A.~Weil.
 \newblock On some exponential sums.
 \newblock \emph{Proceedings of the National Academy of Sciences of the United States of America}, 34(5):204--207, 1948.
+
+\bibitem[LW10]{LiWanSieve}
+J.~Li and D.~Wan.
+\newblock A new sieve for distinct coordinate counting.
+\newblock \emph{Science China Mathematics}, 53(9):2351--2362, 2010.
 
 \bibitem[Tao05]{Tao05}
 T.~Tao.
