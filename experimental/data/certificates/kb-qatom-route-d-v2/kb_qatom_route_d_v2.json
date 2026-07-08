@@ -1,0 +1,143 @@
+{
+  "arithmetic": {
+    "core_size": 913632,
+    "covering": {
+      "N_cores_sufficient_for_atom": 16166878605395467,
+      "N_cores_sufficient_for_n_p": 262847956316400,
+      "N_cores_sufficient_for_t_p": 8456648496904,
+      "log2_cores_for_atom_approx": 53.84389067782479,
+      "log2_cores_for_t_p_approx": 42.94322315247798,
+      "pack_ceil": 17,
+      "statement": "|Fib_w(z)| <= pack_ceil * N_active_cores(z)"
+    },
+    "e_top_seam": 67472,
+    "pack_ceil": 17,
+    "status": "PROVED_BY_EXACT_INTEGER_ARITHMETIC",
+    "v1_conditional_still_holds": {
+      "slack_bits": 10.900667525231924,
+      "t_p_plus_lift": 143763024458816,
+      "target_floor": 274836936291722953
+    }
+  },
+  "claims": {
+    "proves_core_pencil_theorem": true,
+    "proves_fiber_core_covering": true,
+    "proves_oriented_first_mate_injectivity": true,
+    "proves_row_sharp_q_atom": false,
+    "proves_shallow_np_counterexample": true
+  },
+  "lemmas": {
+    "core_pencil": {
+      "deployed_pack_ceil": 17,
+      "name": "core_pencil_in_fiber",
+      "proof": [
+        "Write m=j-w-1=|C|, e=w+1. For U in U(C,z) the monic locator Lambda_{C\u222aU}=Lambda_C Lambda_U has first w monic coefficients equal to z.",
+        "If U,V both in U(C,z) then Lambda_C Lambda_U and Lambda_C Lambda_V share those w coefficients, so their difference Delta = Lambda_C (Lambda_U-Lambda_V) has degree <= j-w-1 = m.",
+        "If Lambda_U != Lambda_V and d:=deg(Lambda_U-Lambda_V) >= 1 then deg(Delta)=m+d >= m+1 = j-w, contradicting deg(Delta) <= m. Hence d=0: Lambda_U-Lambda_V is a nonzero constant.",
+        "Root sets of distinct constant-shift monic degree-e polynomials that both split inside D\\C are pairwise disjoint (shared root x would give Lambda_U(x)=Lambda_V(x)=0 so constant=0). Pack e-sets into D\\C."
+      ],
+      "statement": "Fix a prefix z and a core C subset D with |C|=j-w-1. Let U(C,z)={U subset D\\C : |U|=w+1 and C\u222aU in Fib_w(z)}. If |U(C,z)|>=2 then for any U,V in U(C,z) the monic side locators satisfy Lambda_U - Lambda_V is a nonzero constant in F_p, and the root sets are pairwise disjoint; hence |U(C,z)| <= floor((n-|C|)/(w+1)).",
+      "status": "PROVED"
+    },
+    "covering": {
+      "atom_reduction": "At the deployed row pack_ceil=17, so the atom holds whenever N_active_cores(z) <= floor(target_floor / pack_ceil) = 16166878605395467 for every z (full-fiber form). Residual forms may replace Fib by R_prim.",
+      "name": "fiber_core_covering",
+      "proof": [
+        "Every S in Fib_w(z) has size j. For any e-subset U of S set C=S\\U (|C|=j-e=j-w-1); then U in U(C,z) and S=C\u222aU.",
+        "Apply the core-pencil packing bound to each nonempty U(C,z)."
+      ],
+      "statement": "For every z, Fib_w(z) = union_{C} {C\u222aU : U in U(C,z)} over cores C of size j-w-1. Consequently |Fib_w(z)| <= pack_ceil * N_active_cores(z), where N_active_cores(z) = |{C : U(C,z) nonempty}| and pack_ceil = floor((n-(j-w-1))/(w+1)).",
+      "status": "PROVED"
+    },
+    "oriented_injectivity": {
+      "name": "oriented_first_mate_injectivity",
+      "note": "The label space includes arbitrary cores C so this is structural injectivity, not by itself a |Fib|<=n*p bound. Combined with core-pencil covering it routes the bound to N_active_cores.",
+      "proof": [
+        "A top-seam edge with core C is, by the core-pencil theorem, a pair of root sets on a single constant-shift pencil for that C. The two constants {c_U,c_V} and the side bit select exactly one endpoint.",
+        "If two non-isolated supports received the same first-mate key, they would be the same endpoint of the same edge, hence equal.",
+        "Existence of the mate edge is the non-isolated hypothesis; first-mate is well-defined by lex order on a finite nonempty set of keys."
+      ],
+      "statement": "Within a single fiber Fib_w(z), label each non-isolated support S by its lexicographically first top-seam mate edge key (C, higher_coeffs(Lambda_side), min(c_U,c_V), max(c_U,c_V), side), where side in {0,1} selects which endpoint of the constant-shift edge is S. This label is injective on non-isolated vertices.",
+      "status": "PROVED"
+    },
+    "shallow_np_counterexample": {
+      "max_fiber": 758,
+      "meaning": "Full-fiber bound |Fib_w| <= n*p fails at w=1 on F_17. Any n*p claim must be residual-only or depth-restricted.",
+      "n_p": 272,
+      "name": "shallow_w_np_failure",
+      "row": {
+        "j": 8,
+        "n": 16,
+        "p": 17,
+        "w": 1
+      },
+      "status": "PROVED_COUNTEREXAMPLE"
+    }
+  },
+  "packet": "kb_qatom_route_d_v2",
+  "remaining": {
+    "reduced_target": "Bound N_active_cores(z) <= 16166878605395467 for every z (full-fiber atom via covering with pack_ceil=17), or prove the same bound for residual cores after first-match deletion.",
+    "status": "OPEN",
+    "suggested_routes": [
+      "Bound active cores by injection into D x F_p or [n] x F_p using the product equation Lambda_C * Lambda_U ~ z (w equations on C).",
+      "Show residual first-match leaves admit N_cores <= t*p / pack_ceil.",
+      "Exploit that active C must make the convolution system for U rank-w with solution pencil compatible with z."
+    ],
+    "why_progress": "The Q atom no longer requires a diffuse max-fiber argument: it is enough to bound the number of cores C that participate in any depth-w fiber. Each core contributes at most 17 supports at the deployed row."
+  },
+  "status": "PARTIAL_PROVED_LEMMAS_ATOM_OPEN",
+  "title": "Core-pencil theorem and covering reduction for the KB-MCA Q atom",
+  "toy_suite": {
+    "rows": [
+      {
+        "core_pencils_checked": 86016,
+        "j": 8,
+        "max_active_cores_overcount": 2640,
+        "max_fiber": 54,
+        "n": 16,
+        "orient_collision_fibers": 0,
+        "p": 17,
+        "pack_ceil": 3,
+        "violations": 0,
+        "w": 2
+      },
+      {
+        "core_pencils_checked": 8780,
+        "j": 8,
+        "max_active_cores_overcount": 475,
+        "max_fiber": 7,
+        "n": 16,
+        "orient_collision_fibers": 0,
+        "p": 17,
+        "pack_ceil": 3,
+        "violations": 0,
+        "w": 3
+      },
+      {
+        "core_pencils_checked": 279616,
+        "j": 5,
+        "max_active_cores_overcount": 259,
+        "max_fiber": 33,
+        "n": 32,
+        "orient_collision_fibers": 0,
+        "p": 97,
+        "pack_ceil": 10,
+        "violations": 0,
+        "w": 2
+      },
+      {
+        "core_pencils_checked": 8864,
+        "j": 5,
+        "max_active_cores_overcount": 29,
+        "max_fiber": 7,
+        "n": 32,
+        "orient_collision_fibers": 0,
+        "p": 97,
+        "pack_ceil": 7,
+        "violations": 0,
+        "w": 3
+      }
+    ],
+    "status": "PASS"
+  }
+}

@@ -1,6 +1,31 @@
 # Agents Log
 
 
+
+### 2026-07-08 - KB-MCA Route-D v2: core-pencil + covering reduction
+
+- **Agent/model:** Grok + Scott Hughes (`scottdhughes`).
+- **Files added or changed:**
+  `experimental/scripts/verify_kb_qatom_route_d_v2.py`,
+  `experimental/notes/thresholds/kb_qatom_route_d_v2.md`,
+  `experimental/data/certificates/kb-qatom-route-d-v2/`,
+  `experimental/notes/certificate_scanner/outputs/kb_qatom_route_d_v2.report.md`,
+  `experimental/agents-log.md`.
+- **Status:** PARTIAL / PROVED theorems; atom OPEN.
+- **What is being added:** (1) **Core-pencil theorem**: for fixed fiber z and core C,
+  the side sets U with C∪U in Fib_w(z) form a constant-shift family and pack to
+  size <= floor((n-|C|)/(w+1)). (2) **Covering**: |Fib_w(z)| <= pack_ceil *
+  N_active_cores(z) with deployed pack_ceil=17. Atom reduces to
+  N_active_cores(z) <= floor(target_floor/17). (3) Oriented first-mate
+  injectivity with higher-coeff edge keys. (4) Shallow counterexample:
+  w=1 on F_17 has max fiber 758 > n*p=272 (so full-fiber E5 is depth-sensitive).
+- **How it is useful:** Replaces diffuse max-fiber hunt by a core-count problem
+  with explicit constant 17. Any bound N_cores <= target/17 closes the full-fiber
+  atom form.
+- **What to do next:** Bound active cores via the product equation
+  Lambda_C * Lambda_U having prefix z (injection of cores into a small label
+  space), preferably after first-match residualization.
+
 ### 2026-07-08 - KB-MCA Route-D support certificate attack v1
 
 - **Agent/model:** Grok + Scott Hughes (`scottdhughes`).
