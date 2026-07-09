@@ -109,13 +109,13 @@ All scanned packets: **no false claim** of `|T|≤H2` or `A_SP≤t·p`.
 
 ## Path to completion
 
-1. **Preferred (v68–v70):** ban sparse multipad polynomials
-   `G = P_e · H` with `G(X)=∑_A X^a−∑_B X^b` on `{0..n'−1}`.  
-   - CLOSED: disjoint multipads; `t<2e⇒|T|=0`; `G(ω^k)=0`; `P_e|G`; deg/support.  
-   - OPEN: no such sparse `G` at deployed.  
+1. **Preferred (v68–v71):** ban cancelled multipad products
+   `G = P_e · H` with `supp(G)=2e` on `{0..n'−1}`.  
+   - CLOSED: disjoint; `t<2e⇒|T|=0`; `G(ω^k)=0`; `P_e|G`; **`P_e` full support**.  
+   - OPEN: no cancelled `supp=2e` multiple at deployed.  
 2. **Fallback:** `SoftB_Deployed` then CONDITIONAL chain (v67).  
 3. A_SP pipeline (separate).  
-4. **Lean:** phase 1 done; phase 2 Mathlib paths + [AXLE](https://axle.axiommath.ai/v1/docs/).
+4. **Lean:** phase 1 done; phase 2 Mathlib Gaussian binomials + [AXLE](https://axle.axiommath.ai/v1/docs/).
 
 ### Lean roadmap
 
