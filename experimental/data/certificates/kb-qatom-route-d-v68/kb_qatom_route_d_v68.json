@@ -1,0 +1,789 @@
+{
+  "claims": {
+    "proves_A_SP_le_tp": false,
+    "proves_S_equals_ee_of_u": true,
+    "proves_SoftB_Deployed": false,
+    "proves_T_le_H2_deployed": false,
+    "proves_deployed_injectivity": false,
+    "proves_deployed_pigeonhole_room": true,
+    "proves_injectivity_implies_T_zero": true,
+    "proves_multipad_poly_criterion": true
+  },
+  "deployed": {
+    "B_star": 393171.5875467097,
+    "H2": 77291948627,
+    "e": 67472,
+    "n_prime": 1183520,
+    "note": "injectivity => |T|=0 PROVED as implication; deployed injectivity OPEN (random model empty coll)",
+    "p": 2130706433
+  },
+  "impact_on_program": {
+    "closed": "Preferred residual close: free-1 high injectivity => coll=0 => |T|=0; S=e_e(u) identity for power-sum phase",
+    "wall": "prove injectivity (or SoftB) at deployed GP prefix"
+  },
+  "lemmas": {
+    "OPEN": {
+      "name": "OPEN_injectivity_or_SoftB_deployed",
+      "statement": "Prove free-1 high injectivity on the deployed GP prefix, or SoftB max|S|<=B_*~393172.",
+      "status": "OPEN"
+    },
+    "ee_identity": {
+      "name": "free1_S_equals_elementary_symmetric_of_u",
+      "proof": [
+        "Expand prod_i (1 + z u_i) = sum_k z^k e_k(u).",
+        "Coefficient of z^e is sum_{|I|=e} prod_{i in I} u_i = sum_{|I|=e} psi(sum_{i in I} Q(v_i))."
+      ],
+      "statement": "For Q of deg <= e-1: S = sum_{|U|=e} psi(sum_{x in U} Q(x)) = e_e(u) with u_i = psi(Q(v_i)).",
+      "status": "PROVED"
+    },
+    "injectivity_close": {
+      "name": "injectivity_implies_T_zero",
+      "proof": [
+        "Injective => m_h in {0,1} => coll = sum m(m-1) = 0.",
+        "v57: |T| <= coll/2 = 0."
+      ],
+      "statement": "If free-1 high is injective on e-subsets of I_t, then coll=0 and |T|<=coll/2=0 <= H2.",
+      "status": "PROVED"
+    },
+    "multipad_poly": {
+      "name": "multipad_monic_polynomial_criterion",
+      "proof": [
+        "Free-1 monic high = coeffs of X^{e-1},...,X^1 (or equiv e1..e_{e-1}).",
+        "Same high => f_U - f_V is constant delta.",
+        "delta=0 => f_U=f_V => same root set (char 0 / distinct roots)."
+      ],
+      "statement": "U!=V are free-1 multipads iff monic f_U, f_V differ by a nonzero constant delta (agree in degrees 1..e-1).",
+      "status": "PROVED"
+    },
+    "pigeonhole_room": {
+      "name": "deployed_pigeonhole_room_for_injectivity",
+      "numbers": {
+        "log2_C": 373341.4820927906,
+        "log2_expected_coll": -1344154.580361308,
+        "log2_p_em1": 2090837.5445468891,
+        "log2_space_over_C": 1717496.0624540986
+      },
+      "proof": [
+        "Image lives in F_p^{e-1} of size p^{e-1}.",
+        "C = binom(n',e); compare logs by summing log2 ratios."
+      ],
+      "statement": "log2 C ~ 373341.5 << log2 p^{e-1} ~ 2090837.5; injectivity not counting-obstructed. E[coll] log2 ~ -1344154.6.",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v68",
+  "status": "INJECTIVITY_PATH_PROVED_DEPLOYED_INJ_OPEN",
+  "title": "Free-1 high injectivity close path + e_e identity",
+  "tools": {
+    "numpy": "e_e identity",
+    "python_nt": "GP multipad census"
+  },
+  "toy_suite": {
+    "census": [
+      {
+        "C": 10,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 10,
+        "e": 3,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 61,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 5,
+        "term_clash": 0
+      },
+      {
+        "C": 20,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 20,
+        "e": 3,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 61,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 6,
+        "term_clash": 0
+      },
+      {
+        "C": 84,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 84,
+        "e": 3,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 61,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 9,
+        "term_clash": 0
+      },
+      {
+        "C": 220,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 220,
+        "e": 3,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 61,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 12,
+        "term_clash": 0
+      },
+      {
+        "C": 15,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 15,
+        "e": 4,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 61,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 6,
+        "term_clash": 0
+      },
+      {
+        "C": 70,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 70,
+        "e": 4,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 61,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 8,
+        "term_clash": 0
+      },
+      {
+        "C": 495,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 495,
+        "e": 4,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 61,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 12,
+        "term_clash": 0
+      },
+      {
+        "C": 1820,
+        "T_zero_if_injective": true,
+        "coll": 2,
+        "distinct": 1819,
+        "e": 4,
+        "injective": false,
+        "max_m": 2,
+        "multipad_highs": 1,
+        "p": 61,
+        "poly_criterion_checked": 1,
+        "poly_criterion_ok": true,
+        "t": 16,
+        "term_clash": 0
+      },
+      {
+        "C": 21,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 21,
+        "e": 5,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 61,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 7,
+        "term_clash": 0
+      },
+      {
+        "C": 252,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 252,
+        "e": 5,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 61,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 10,
+        "term_clash": 0
+      },
+      {
+        "C": 3003,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 3003,
+        "e": 5,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 61,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 15,
+        "term_clash": 0
+      },
+      {
+        "C": 15504,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 15504,
+        "e": 5,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 61,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 20,
+        "term_clash": 0
+      },
+      {
+        "C": 10,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 10,
+        "e": 3,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 101,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 5,
+        "term_clash": 0
+      },
+      {
+        "C": 20,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 20,
+        "e": 3,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 101,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 6,
+        "term_clash": 0
+      },
+      {
+        "C": 84,
+        "T_zero_if_injective": true,
+        "coll": 2,
+        "distinct": 83,
+        "e": 3,
+        "injective": false,
+        "max_m": 2,
+        "multipad_highs": 1,
+        "p": 101,
+        "poly_criterion_checked": 1,
+        "poly_criterion_ok": true,
+        "t": 9,
+        "term_clash": 0
+      },
+      {
+        "C": 220,
+        "T_zero_if_injective": true,
+        "coll": 8,
+        "distinct": 216,
+        "e": 3,
+        "injective": false,
+        "max_m": 2,
+        "multipad_highs": 4,
+        "p": 101,
+        "poly_criterion_checked": 4,
+        "poly_criterion_ok": true,
+        "t": 12,
+        "term_clash": 0
+      },
+      {
+        "C": 15,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 15,
+        "e": 4,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 101,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 6,
+        "term_clash": 0
+      },
+      {
+        "C": 70,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 70,
+        "e": 4,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 101,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 8,
+        "term_clash": 0
+      },
+      {
+        "C": 495,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 495,
+        "e": 4,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 101,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 12,
+        "term_clash": 0
+      },
+      {
+        "C": 1820,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 1820,
+        "e": 4,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 101,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 16,
+        "term_clash": 0
+      },
+      {
+        "C": 21,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 21,
+        "e": 5,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 101,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 7,
+        "term_clash": 0
+      },
+      {
+        "C": 252,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 252,
+        "e": 5,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 101,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 10,
+        "term_clash": 0
+      },
+      {
+        "C": 3003,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 3003,
+        "e": 5,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 101,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 15,
+        "term_clash": 0
+      },
+      {
+        "C": 15504,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 15504,
+        "e": 5,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 101,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 20,
+        "term_clash": 0
+      },
+      {
+        "C": 10,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 10,
+        "e": 3,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 127,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 5,
+        "term_clash": 0
+      },
+      {
+        "C": 20,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 20,
+        "e": 3,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 127,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 6,
+        "term_clash": 0
+      },
+      {
+        "C": 84,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 84,
+        "e": 3,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 127,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 9,
+        "term_clash": 0
+      },
+      {
+        "C": 220,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 220,
+        "e": 3,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 127,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 12,
+        "term_clash": 0
+      },
+      {
+        "C": 15,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 15,
+        "e": 4,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 127,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 6,
+        "term_clash": 0
+      },
+      {
+        "C": 70,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 70,
+        "e": 4,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 127,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 8,
+        "term_clash": 0
+      },
+      {
+        "C": 495,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 495,
+        "e": 4,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 127,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 12,
+        "term_clash": 0
+      },
+      {
+        "C": 1820,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 1820,
+        "e": 4,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 127,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 16,
+        "term_clash": 0
+      },
+      {
+        "C": 21,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 21,
+        "e": 5,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 127,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 7,
+        "term_clash": 0
+      },
+      {
+        "C": 252,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 252,
+        "e": 5,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 127,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 10,
+        "term_clash": 0
+      },
+      {
+        "C": 3003,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 3003,
+        "e": 5,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 127,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 15,
+        "term_clash": 0
+      },
+      {
+        "C": 15504,
+        "T_zero_if_injective": true,
+        "coll": 0,
+        "distinct": 15504,
+        "e": 5,
+        "injective": true,
+        "max_m": 1,
+        "multipad_highs": 0,
+        "p": 127,
+        "poly_criterion_checked": 0,
+        "poly_criterion_ok": true,
+        "t": 20,
+        "term_clash": 0
+      }
+    ],
+    "deployed": {
+      "B_star": 393171.5875467097,
+      "H2": 77291948627,
+      "e": 67472,
+      "n_prime": 1183520,
+      "note": "injectivity => |T|=0 PROVED as implication; deployed injectivity OPEN (random model empty coll)",
+      "p": 2130706433
+    },
+    "deployed_injectivity_room": {
+      "log2_C": 373341.4820927906,
+      "log2_expected_coll": -1344154.580361308,
+      "log2_p_em1": 2090837.5445468891,
+      "log2_p_em1_over_C": 1717496.0624540986,
+      "pigeonhole_obstruction": false,
+      "random_model_coll_empty": true
+    },
+    "ee_rows": [
+      {
+        "abs_S": 9.882450500819633,
+        "abs_ee": 9.882450500819626,
+        "e": 3,
+        "err": 7.107378653578542e-15,
+        "lams": [
+          1,
+          0
+        ],
+        "ok": true,
+        "p": 61,
+        "t": 12
+      },
+      {
+        "abs_S": 4.247189419300017,
+        "abs_ee": 4.24718941930002,
+        "e": 3,
+        "err": 2.2683353487313223e-14,
+        "lams": [
+          1,
+          1
+        ],
+        "ok": true,
+        "p": 61,
+        "t": 12
+      },
+      {
+        "abs_S": 7.393662817545103,
+        "abs_ee": 7.393662817545101,
+        "e": 3,
+        "err": 1.5713480306226774e-14,
+        "lams": [
+          3,
+          5
+        ],
+        "ok": true,
+        "p": 61,
+        "t": 12
+      },
+      {
+        "abs_S": 25.500597178591885,
+        "abs_ee": 25.500597178591892,
+        "e": 4,
+        "err": 1.6377200852866892e-13,
+        "lams": [
+          1,
+          0,
+          0
+        ],
+        "ok": true,
+        "p": 61,
+        "t": 15
+      },
+      {
+        "abs_S": 2.532767163065477,
+        "abs_ee": 2.532767163065432,
+        "e": 4,
+        "err": 8.698368902961652e-14,
+        "lams": [
+          1,
+          1,
+          2
+        ],
+        "ok": true,
+        "p": 61,
+        "t": 15
+      },
+      {
+        "abs_S": 16.31831818659942,
+        "abs_ee": 16.318318186599498,
+        "e": 4,
+        "err": 8.032124064108908e-14,
+        "lams": [
+          3,
+          5,
+          7
+        ],
+        "ok": true,
+        "p": 61,
+        "t": 15
+      },
+      {
+        "abs_S": 26.03518638156112,
+        "abs_ee": 26.03518638156113,
+        "e": 3,
+        "err": 1.5295311772062914e-14,
+        "lams": [
+          1,
+          0
+        ],
+        "ok": true,
+        "p": 101,
+        "t": 12
+      },
+      {
+        "abs_S": 2.1530540445196076,
+        "abs_ee": 2.1530540445195974,
+        "e": 3,
+        "err": 1.3981759298281529e-14,
+        "lams": [
+          2,
+          7
+        ],
+        "ok": true,
+        "p": 101,
+        "t": 12
+      },
+      {
+        "abs_S": 15.489177669378314,
+        "abs_ee": 15.489177669378291,
+        "e": 3,
+        "err": 3.3937249765157416e-14,
+        "lams": [
+          1,
+          1
+        ],
+        "ok": true,
+        "p": 127,
+        "t": 14
+      },
+      {
+        "abs_S": 32.206068756140624,
+        "abs_ee": 32.20606875614064,
+        "e": 4,
+        "err": 8.616704033411014e-14,
+        "lams": [
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "p": 127,
+        "t": 16
+      }
+    ],
+    "status": "PASS",
+    "summary": {
+      "B_star": 393171.5875467097,
+      "H2": 77291948627,
+      "all_ee_ok": true,
+      "all_term_clash_zero": true,
+      "max_coll": 8,
+      "n_census": 36,
+      "n_ee": 10,
+      "n_injective": 33,
+      "n_with_multipads": 3
+    }
+  }
+}

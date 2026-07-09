@@ -4,7 +4,7 @@
 **Goal:** residual free-1 / A_SP card toward `A_SP ≤ t·p` on KoalaBear MCA `a+=1116048`.
 **Does NOT claim** `U ≤ B*` or full MCA close.
 
-Last tip packet: **v54** on `main`; local attack **v55–v67** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
+Last tip packet: **v54** on `main`; local attack **v55–v68** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
 `experimental/scripts/verify_kb_qatom_route_d_v{N}.py` with matching
 notes, certificates, and scanner reports.
 
@@ -120,9 +120,9 @@ Certificates: `experimental/data/certificates/kb-qatom-route-d-v{N}/`.
 
 ## Next session entry
 
-**Primary:** prove `SoftB_Deployed` (`max|S|≤B_*≈3.93e5` free-1 highs at
-deployed) then compose with v67 conditional close. Lean phase-1 arithmetic is
-built; SoftB / FF is phase-2. Do not restart ambient L / pack-k / envelopes.
+**Primary:** prove free-1 high **injectivity** on deployed GP prefix (v68 ⇒ |T|=0)
+or SoftB_Deployed (v67). Random model E[coll] log2~-1.34e6. Lean phase-1
+built. Do not restart ambient L / pack-k / envelopes.
 
 ---
 
@@ -182,3 +182,8 @@ for free-1 highs (linear G is not S).
 `SoftB_Deployed => |T|<=H2`; primary OPEN SoftB; packet integrity scan (no
 false full-close). Lean phase-1 `route_d_residual` builds (constants + B*
 arithmetic + ledger). Honest: full residual NOT closed.
+
+**v68**: Injectivity path: free-1 high injective => coll=0 => |T|=0 PROVED.
+S=e_e(u) identity PROVED; multipad monic poly criterion PROVED; deployed
+pigeonhole room + random E[coll]~0 certified. CAS sparse e=4 injective.
+OPEN: deployed injectivity (preferred) or SoftB.

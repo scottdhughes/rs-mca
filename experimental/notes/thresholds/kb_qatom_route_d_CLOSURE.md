@@ -109,11 +109,12 @@ All scanned packets: **no false claim** of `|T|≤H2` or `A_SP≤t·p`.
 
 ## Path to completion
 
-1. **Prove `SoftB_Deployed`** (analytic / character-sum bound on free-1 highs).  
-2. Compose with CLOSED chain ⇒ **certificate of `|T|≤H2`**.  
+1. **Preferred (v68):** prove free-1 high **injectivity** on the deployed GP
+   prefix ⇒ `coll=0` ⇒ `|T|=0` (implication already CLOSED).  
+2. **Fallback:** prove `SoftB_Deployed` then compose with CONDITIONAL chain.  
 3. Feed residual card into A_SP pipeline ⇒ program goal (separate).  
-4. **Lean phase 1 (now):** arithmetic + status ledger (stdlib).  
-5. **Lean phase 2 (after SoftB or in parallel tools):** Mathlib FF + GP sums.
+4. **Lean phase 1:** arithmetic + status ledger (stdlib) — done.  
+5. **Lean phase 2:** Mathlib FF + injectivity / SoftB.
 
 ### Lean roadmap
 
