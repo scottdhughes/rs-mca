@@ -1,6 +1,16 @@
 # Agents Log
 
 
+### 2026-07-09 - KB-MCA Route-D v45: residual after SR + H_M (R2 / H_R2)
+
+- Defined double residual: R1 = free-1 pairs not Type-S multipad; R2 = R1 with
+  high∉H_M; H_R2 = highs of R2.
+- Proved: Type D only after SR, pack_D=2 deployed; residual card criteria
+  |R2|≤e·p or |H_R2|≤H2 (M_pad≤2).
+- Toys: avg frac S≈0.54 cuts residual; avg frac R2≈0.39; max H_R2=952≪H2;
+  max R2≪e·p on suite. free_core≥1 often SR-heavy.
+- Open: deployed |R2|≤e·p or |H_R2|≤H2 at free_core=846161.
+
 ### 2026-07-09 - KB-MCA Route-D v44: CAS free-1 growth + R-cell bulk
 
 - CAS Sage: cyclic ambient free-1 census (n≤100); e=2 |H|=p (PROVED |H|≤p≤H2);

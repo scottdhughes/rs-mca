@@ -1,0 +1,7 @@
+# v45 report
+
+status: PARTIAL_DOUBLE_RESIDUAL
+max R2: 11250
+max H_R2: 952
+avg frac R2: 0.38600402433476183
+deployed R2/HR2: OPEN
