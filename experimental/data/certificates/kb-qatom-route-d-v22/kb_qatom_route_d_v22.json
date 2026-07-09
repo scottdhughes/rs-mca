@@ -1,0 +1,1454 @@
+{
+  "claims": {
+    "banks_ep_mark_negatives": true,
+    "proves_M_pad_le_1_deployed": false,
+    "proves_ep_cs_injection": false,
+    "proves_free_core_dictionary": true,
+    "proves_multipad_cores_phi_w_equal": true,
+    "proves_multipad_requires_core_multimates": true,
+    "toy_confirms_core_phi_eq": true
+  },
+  "deployed": {
+    "e": 67472,
+    "e_p": 143763024447376,
+    "free_core": 846161,
+    "j": 981104,
+    "j_le_2w_plus_1": false,
+    "m_c": 913632,
+    "t": 67472,
+    "t_equals_e": true,
+    "t_p": 143763024447376,
+    "two_w_plus_2": 134944,
+    "w": 67471
+  },
+  "impact_on_program": {
+    "ep_marks": "Natural e\u00b7p CS-pair marks banked negative (toys collide)",
+    "next": "Bound/extend core multi-mates of size m_c with common CS side pair; or non-natural e\u00b7p / larger structured mark for CS pairs",
+    "reduction": "Multipad control \u2264 core multi-mate control at (m_c,w) with free_core=846161, plus joint CS e-extension"
+  },
+  "lemmas": {
+    "OPEN": {
+      "name": "OPEN_core_multimate_extension_and_ep_mark",
+      "statement": "(1) At free_core = 846161, bound or eliminate multipads: core multi-mates of size m_c that share a CS e-extension into one j-fiber.\n(2) Inject free-1 CS e-set pairs into e\u00b7p labels (budget e\u00b7p = 143763024447376).\nCAS: Sage multipad examples; msolve on joint core+side systems.",
+      "status": "OPEN"
+    },
+    "core_multimates": {
+      "check_identity": true,
+      "deployed_free_core": 846161,
+      "deployed_m_c": 913632,
+      "identity": "j - 2*w - 2 == m_c - w - 1",
+      "name": "multipad_cores_are_depth_w_multimates",
+      "proof": [
+        "v21: deg(\u039b_C \u2212 \u039b_{C'}) \u2264 j\u22122w\u22122.",
+        "j\u22122w\u22122 = (j\u2212w\u22121) \u2212 w \u2212 1 = m_c \u2212 w \u2212 1.",
+        "For monic degree-m_c locators, deg(diff) \u2264 m_c\u2212w\u22121 is exactly the condition that the first w monic high coefficients agree, i.e. Phi_w(C)=Phi_w(C')."
+      ],
+      "statement": "Let e=w+1 and m_c = j\u2212e = j\u2212w\u22121. If C\u2260C' are m_c-subsets admitting a free-1 CS pair (U,V) of e-sets with Phi_w(C\u222aU)=Phi_w(C'\u222aU), then Phi_w(C)=Phi_w(C'). Equivalently, multipad cores are depth-w multi-mates of size m_c.",
+      "status": "PROVED"
+    },
+    "ep_mark_negative": {
+      "deployed_e_p": 143763024447376,
+      "name": "ep_mark_candidates_collide",
+      "proof": [
+        "Toy census in toy_suite.ep_mark_bank.",
+        "Budget: e\u00b7p = t\u00b7p deployed (t=e). Injection remains OPEN."
+      ],
+      "statement": "Natural free-1 CS ordered-pair marks of size \u2264 e\u00b7p \u2014 (minU mod e, c0U), (minU mod e, c0V), (minU mod e, \u0394c), (min(U\u222aV) mod e, c0U), (min(U\u222aV) mod e, \u0394c) \u2014 all collide on toy free-1 CS pairs, including when restricted to M_pad=1 side keys. No tested e\u00b7p-scale mark is injective on CS ordered pairs.",
+      "status": "BANKED_NEGATIVE"
+    },
+    "free_core": {
+      "deployed_free_core": 846161,
+      "deployed_j_le_2w_plus_1": false,
+      "name": "free_core_dictionary",
+      "proof": [
+        "m_c = j\u2212w\u22121; free_core = m_c\u2212w = j\u22122w\u22121.",
+        "If m_c \u2264 w, Phi_w includes coefficients of X^{m_c\u22121},\u2026,X^{m_c\u2212w} which cover all of X^{m_c\u22121},\u2026,X^0 when w \u2265 m_c, so monic of degree m_c is unique given Phi_w. Multipad needs two cores with same Phi_w (previous lemma), impossible unless C=C'.",
+        "Note j \u2264 2w+1 is equivalent to j < 2w+2 for integers, recovering v21."
+      ],
+      "statement": "Write free_core = m_c \u2212 w = j \u2212 2w \u2212 1. Then:\n  free_core \u2264 0  \u21d4  j \u2264 2w+1  \u21d4  m_c \u2264 w\n    \u21d2 monic degree-m_c locator is determined by Phi_w (w \u2265 m_c uses \u2265 all non-leading coeffs) \u21d2 at most one core per Phi_w value \u21d2 M_pad \u2264 1.\n  free_core = 1  \u21d4  j = 2w+2  \u21d2 cores free-1; CS packing applies.\n  free_core \u2265 1  \u21d4  j \u2265 2w+2 (deployed free_core = j\u22122w\u22121 \u226b 1).",
+      "status": "PROVED"
+    },
+    "path": {
+      "name": "payment_path_restated",
+      "proof": [
+        "v20 bridge + free_core dictionary + deployed t=e."
+      ],
+      "statement": "A_SP \u2264 t\u00b7p if either:\n  (i)  M_pad\u22641 (e.g. free_core\u22640 / j\u22642w+1) and CS ordered pairs inject into e\u00b7p (=t\u00b7p=143763024447376 deployed), or\n  (ii) multipads controlled so N_ord \u2264 t\u00b7p by other means.",
+      "status": "PROVED"
+    },
+    "reduction": {
+      "name": "multipad_requires_core_multimates",
+      "program": "Open core multi-mate control at (m_c,w) with free_core=j\u22122w\u22121, plus joint CS-extension constraint \u2014 stricter than raw M_m(m_c,w).",
+      "proof": [
+        "M_pad\u22652 means \u22652 cores for one side key (U,V) in fiber z.",
+        "Previous lemma: those cores share Phi_w.",
+        "They share the same CS (U,V) by construction of the side key."
+      ],
+      "statement": "M_pad(z) \u2265 2 only if there exist distinct m_c-subsets with the same depth-w prefix that both admit a common free-1 CS e-extension pair (U,V) lifting into fiber z. Thus controlling multipads reduces to controlling core multi-mates of size m_c at depth w that are jointly extendable by one CS side pair.",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v22",
+  "status": "PARTIAL_MPAD_REDUCTION",
+  "title": "Multipads are core multi-mates; free_core dictionary; e\u00b7p mark bank",
+  "toy_suite": {
+    "ep_mark_bank": {
+      "budget": "e*p",
+      "conclusion": "No tested natural e\u00b7p-scale mark is injective on free-1 CS ordered pairs (all or M_pad=1-restricted).",
+      "deployed_e_p": 143763024447376,
+      "marks": {
+        "minUV_mod_e_c0U": {
+          "collisions_all": 342,
+          "collisions_mpad1": 335,
+          "n_pairs_mpad1": 8948,
+          "n_pairs_total": 22244
+        },
+        "minUV_mod_e_dc": {
+          "collisions_all": 332,
+          "collisions_mpad1": 330,
+          "n_pairs_mpad1": 8948,
+          "n_pairs_total": 22244
+        },
+        "minU_mod_e_c0U": {
+          "collisions_all": 353,
+          "collisions_mpad1": 344,
+          "n_pairs_mpad1": 8948,
+          "n_pairs_total": 22244
+        },
+        "minU_mod_e_c0U_xor_c0V": {
+          "collisions_all": 331,
+          "collisions_mpad1": 330,
+          "n_pairs_mpad1": 8948,
+          "n_pairs_total": 22244
+        },
+        "minU_mod_e_c0V": {
+          "collisions_all": 338,
+          "collisions_mpad1": 335,
+          "n_pairs_mpad1": 8948,
+          "n_pairs_total": 22244
+        },
+        "minU_mod_e_dc": {
+          "collisions_all": 349,
+          "collisions_mpad1": 346,
+          "n_pairs_mpad1": 8948,
+          "n_pairs_total": 22244
+        }
+      },
+      "status": "BANKED_NEGATIVE",
+      "total_cs_pairs": 22244,
+      "total_cs_pairs_mpad1": 8948
+    },
+    "rows": [
+      {
+        "all_core_phi_eq": true,
+        "bound": 2,
+        "ep_marks": {
+          "minUV_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 32,
+            "n_collision_labels_mpad1": 32,
+            "n_labels": 32,
+            "n_labels_mpad1": 32,
+            "n_unique_pairs": 200,
+            "n_unique_pairs_mpad1": 172
+          },
+          "minUV_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 32,
+            "n_collision_labels_mpad1": 32,
+            "n_labels": 32,
+            "n_labels_mpad1": 32,
+            "n_unique_pairs": 200,
+            "n_unique_pairs_mpad1": 172
+          },
+          "minU_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 32,
+            "n_collision_labels_mpad1": 30,
+            "n_labels": 32,
+            "n_labels_mpad1": 32,
+            "n_unique_pairs": 200,
+            "n_unique_pairs_mpad1": 172
+          },
+          "minU_mod_e_c0U_xor_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 30,
+            "n_collision_labels_mpad1": 30,
+            "n_labels": 30,
+            "n_labels_mpad1": 30,
+            "n_unique_pairs": 200,
+            "n_unique_pairs_mpad1": 172
+          },
+          "minU_mod_e_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 32,
+            "n_collision_labels_mpad1": 32,
+            "n_labels": 32,
+            "n_labels_mpad1": 32,
+            "n_unique_pairs": 200,
+            "n_unique_pairs_mpad1": 172
+          },
+          "minU_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 32,
+            "n_collision_labels_mpad1": 32,
+            "n_labels": 32,
+            "n_labels_mpad1": 32,
+            "n_unique_pairs": 200,
+            "n_unique_pairs_mpad1": 172
+          }
+        },
+        "free_core": 3,
+        "j": 6,
+        "m_c": 4,
+        "max_Mpad": 14,
+        "max_core_diff_deg": 2,
+        "n": 16,
+        "n_cs_pairs": 4616,
+        "n_cs_pairs_mpad1": 720,
+        "n_multipad_events": 904,
+        "p": 17,
+        "w": 1
+      },
+      {
+        "all_core_phi_eq": true,
+        "bound": 0,
+        "ep_marks": {
+          "minUV_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 39,
+            "n_collision_labels_mpad1": 39,
+            "n_labels": 46,
+            "n_labels_mpad1": 46,
+            "n_unique_pairs": 146,
+            "n_unique_pairs_mpad1": 146
+          },
+          "minUV_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 36,
+            "n_collision_labels_mpad1": 36,
+            "n_labels": 44,
+            "n_labels_mpad1": 44,
+            "n_unique_pairs": 146,
+            "n_unique_pairs_mpad1": 146
+          },
+          "minU_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 41,
+            "n_collision_labels_mpad1": 41,
+            "n_labels": 45,
+            "n_labels_mpad1": 45,
+            "n_unique_pairs": 146,
+            "n_unique_pairs_mpad1": 146
+          },
+          "minU_mod_e_c0U_xor_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 36,
+            "n_collision_labels_mpad1": 36,
+            "n_labels": 44,
+            "n_labels_mpad1": 44,
+            "n_unique_pairs": 146,
+            "n_unique_pairs_mpad1": 146
+          },
+          "minU_mod_e_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 39,
+            "n_collision_labels_mpad1": 39,
+            "n_labels": 45,
+            "n_labels_mpad1": 45,
+            "n_unique_pairs": 146,
+            "n_unique_pairs_mpad1": 146
+          },
+          "minU_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 41,
+            "n_collision_labels_mpad1": 41,
+            "n_labels": 47,
+            "n_labels_mpad1": 47,
+            "n_unique_pairs": 146,
+            "n_unique_pairs_mpad1": 146
+          }
+        },
+        "free_core": 1,
+        "j": 6,
+        "m_c": 3,
+        "max_Mpad": 2,
+        "max_core_diff_deg": 0,
+        "n": 16,
+        "n_cs_pairs": 930,
+        "n_cs_pairs_mpad1": 926,
+        "n_multipad_events": 2,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "all_core_phi_eq": true,
+        "bound": -2,
+        "ep_marks": {
+          "minUV_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 14,
+            "n_collision_labels_mpad1": 14,
+            "n_labels": 34,
+            "n_labels_mpad1": 34,
+            "n_unique_pairs": 60,
+            "n_unique_pairs_mpad1": 60
+          },
+          "minUV_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 16,
+            "n_collision_labels_mpad1": 16,
+            "n_labels": 24,
+            "n_labels_mpad1": 24,
+            "n_unique_pairs": 60,
+            "n_unique_pairs_mpad1": 60
+          },
+          "minU_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 19,
+            "n_collision_labels_mpad1": 19,
+            "n_labels": 35,
+            "n_labels_mpad1": 35,
+            "n_unique_pairs": 60,
+            "n_unique_pairs_mpad1": 60
+          },
+          "minU_mod_e_c0U_xor_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 16,
+            "n_collision_labels_mpad1": 16,
+            "n_labels": 36,
+            "n_labels_mpad1": 36,
+            "n_unique_pairs": 60,
+            "n_unique_pairs_mpad1": 60
+          },
+          "minU_mod_e_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 15,
+            "n_collision_labels_mpad1": 15,
+            "n_labels": 33,
+            "n_labels_mpad1": 33,
+            "n_unique_pairs": 60,
+            "n_unique_pairs_mpad1": 60
+          },
+          "minU_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 15,
+            "n_collision_labels_mpad1": 15,
+            "n_labels": 27,
+            "n_labels_mpad1": 27,
+            "n_unique_pairs": 60,
+            "n_unique_pairs_mpad1": 60
+          }
+        },
+        "free_core": -1,
+        "j": 6,
+        "m_c": 2,
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "n": 16,
+        "n_cs_pairs": 150,
+        "n_cs_pairs_mpad1": 150,
+        "n_multipad_events": 0,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "all_core_phi_eq": true,
+        "bound": 3,
+        "ep_marks": {
+          "minUV_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 31,
+            "n_collision_labels_mpad1": 27,
+            "n_labels": 32,
+            "n_labels_mpad1": 32,
+            "n_unique_pairs": 132,
+            "n_unique_pairs_mpad1": 104
+          },
+          "minUV_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 28,
+            "n_collision_labels_mpad1": 28,
+            "n_labels": 32,
+            "n_labels_mpad1": 32,
+            "n_unique_pairs": 132,
+            "n_unique_pairs_mpad1": 104
+          },
+          "minU_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 31,
+            "n_collision_labels_mpad1": 27,
+            "n_labels": 31,
+            "n_labels_mpad1": 30,
+            "n_unique_pairs": 132,
+            "n_unique_pairs_mpad1": 104
+          },
+          "minU_mod_e_c0U_xor_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 28,
+            "n_collision_labels_mpad1": 27,
+            "n_labels": 29,
+            "n_labels_mpad1": 29,
+            "n_unique_pairs": 132,
+            "n_unique_pairs_mpad1": 104
+          },
+          "minU_mod_e_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 30,
+            "n_collision_labels_mpad1": 28,
+            "n_labels": 32,
+            "n_labels_mpad1": 32,
+            "n_unique_pairs": 132,
+            "n_unique_pairs_mpad1": 104
+          },
+          "minU_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 29,
+            "n_collision_labels_mpad1": 28,
+            "n_labels": 31,
+            "n_labels_mpad1": 31,
+            "n_unique_pairs": 132,
+            "n_unique_pairs_mpad1": 104
+          }
+        },
+        "free_core": 4,
+        "j": 7,
+        "m_c": 5,
+        "max_Mpad": 17,
+        "max_core_diff_deg": 3,
+        "n": 16,
+        "n_cs_pairs": 3666,
+        "n_cs_pairs_mpad1": 466,
+        "n_multipad_events": 620,
+        "p": 17,
+        "w": 1
+      },
+      {
+        "all_core_phi_eq": true,
+        "bound": 1,
+        "ep_marks": {
+          "minUV_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 25,
+            "n_collision_labels_mpad1": 25,
+            "n_labels": 38,
+            "n_labels_mpad1": 38,
+            "n_unique_pairs": 80,
+            "n_unique_pairs_mpad1": 80
+          },
+          "minUV_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 22,
+            "n_collision_labels_mpad1": 22,
+            "n_labels": 36,
+            "n_labels_mpad1": 36,
+            "n_unique_pairs": 80,
+            "n_unique_pairs_mpad1": 80
+          },
+          "minU_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 27,
+            "n_collision_labels_mpad1": 27,
+            "n_labels": 39,
+            "n_labels_mpad1": 39,
+            "n_unique_pairs": 80,
+            "n_unique_pairs_mpad1": 80
+          },
+          "minU_mod_e_c0U_xor_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 23,
+            "n_collision_labels_mpad1": 23,
+            "n_labels": 40,
+            "n_labels_mpad1": 40,
+            "n_unique_pairs": 80,
+            "n_unique_pairs_mpad1": 80
+          },
+          "minU_mod_e_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 22,
+            "n_collision_labels_mpad1": 22,
+            "n_labels": 38,
+            "n_labels_mpad1": 38,
+            "n_unique_pairs": 80,
+            "n_unique_pairs_mpad1": 80
+          },
+          "minU_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 26,
+            "n_collision_labels_mpad1": 26,
+            "n_labels": 42,
+            "n_labels_mpad1": 42,
+            "n_unique_pairs": 80,
+            "n_unique_pairs_mpad1": 80
+          }
+        },
+        "free_core": 2,
+        "j": 7,
+        "m_c": 4,
+        "max_Mpad": 2,
+        "max_core_diff_deg": 1,
+        "n": 16,
+        "n_cs_pairs": 598,
+        "n_cs_pairs_mpad1": 590,
+        "n_multipad_events": 4,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "all_core_phi_eq": true,
+        "bound": -1,
+        "ep_marks": {
+          "minUV_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 3,
+            "n_collision_labels_mpad1": 3,
+            "n_labels": 21,
+            "n_labels_mpad1": 21,
+            "n_unique_pairs": 26,
+            "n_unique_pairs_mpad1": 26
+          },
+          "minUV_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 6,
+            "n_collision_labels_mpad1": 6,
+            "n_labels": 14,
+            "n_labels_mpad1": 14,
+            "n_unique_pairs": 26,
+            "n_unique_pairs_mpad1": 26
+          },
+          "minU_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 4,
+            "n_collision_labels_mpad1": 4,
+            "n_labels": 22,
+            "n_labels_mpad1": 22,
+            "n_unique_pairs": 26,
+            "n_unique_pairs_mpad1": 26
+          },
+          "minU_mod_e_c0U_xor_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 4,
+            "n_collision_labels_mpad1": 4,
+            "n_labels": 21,
+            "n_labels_mpad1": 21,
+            "n_unique_pairs": 26,
+            "n_unique_pairs_mpad1": 26
+          },
+          "minU_mod_e_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 5,
+            "n_collision_labels_mpad1": 5,
+            "n_labels": 20,
+            "n_labels_mpad1": 20,
+            "n_unique_pairs": 26,
+            "n_unique_pairs_mpad1": 26
+          },
+          "minU_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 8,
+            "n_collision_labels_mpad1": 8,
+            "n_labels": 17,
+            "n_labels_mpad1": 17,
+            "n_unique_pairs": 26,
+            "n_unique_pairs_mpad1": 26
+          }
+        },
+        "free_core": 0,
+        "j": 7,
+        "m_c": 3,
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "n": 16,
+        "n_cs_pairs": 68,
+        "n_cs_pairs_mpad1": 68,
+        "n_multipad_events": 0,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "all_core_phi_eq": true,
+        "bound": 4,
+        "ep_marks": {
+          "minUV_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 27,
+            "n_collision_labels_mpad1": 24,
+            "n_labels": 31,
+            "n_labels_mpad1": 31,
+            "n_unique_pairs": 86,
+            "n_unique_pairs_mpad1": 74
+          },
+          "minUV_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 22,
+            "n_collision_labels_mpad1": 20,
+            "n_labels": 30,
+            "n_labels_mpad1": 30,
+            "n_unique_pairs": 86,
+            "n_unique_pairs_mpad1": 74
+          },
+          "minU_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 27,
+            "n_collision_labels_mpad1": 24,
+            "n_labels": 29,
+            "n_labels_mpad1": 28,
+            "n_unique_pairs": 86,
+            "n_unique_pairs_mpad1": 74
+          },
+          "minU_mod_e_c0U_xor_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 23,
+            "n_collision_labels_mpad1": 23,
+            "n_labels": 26,
+            "n_labels_mpad1": 25,
+            "n_unique_pairs": 86,
+            "n_unique_pairs_mpad1": 74
+          },
+          "minU_mod_e_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 24,
+            "n_collision_labels_mpad1": 23,
+            "n_labels": 30,
+            "n_labels_mpad1": 30,
+            "n_unique_pairs": 86,
+            "n_unique_pairs_mpad1": 74
+          },
+          "minU_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 25,
+            "n_collision_labels_mpad1": 23,
+            "n_labels": 28,
+            "n_labels_mpad1": 28,
+            "n_unique_pairs": 86,
+            "n_unique_pairs_mpad1": 74
+          }
+        },
+        "free_core": 5,
+        "j": 8,
+        "m_c": 6,
+        "max_Mpad": 14,
+        "max_core_diff_deg": 4,
+        "n": 16,
+        "n_cs_pairs": 2162,
+        "n_cs_pairs_mpad1": 298,
+        "n_multipad_events": 364,
+        "p": 17,
+        "w": 1
+      },
+      {
+        "all_core_phi_eq": true,
+        "bound": 2,
+        "ep_marks": {
+          "minUV_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 12,
+            "n_collision_labels_mpad1": 12,
+            "n_labels": 26,
+            "n_labels_mpad1": 26,
+            "n_unique_pairs": 42,
+            "n_unique_pairs_mpad1": 42
+          },
+          "minUV_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 10,
+            "n_collision_labels_mpad1": 10,
+            "n_labels": 26,
+            "n_labels_mpad1": 26,
+            "n_unique_pairs": 42,
+            "n_unique_pairs_mpad1": 42
+          },
+          "minU_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 13,
+            "n_collision_labels_mpad1": 13,
+            "n_labels": 26,
+            "n_labels_mpad1": 26,
+            "n_unique_pairs": 42,
+            "n_unique_pairs_mpad1": 42
+          },
+          "minU_mod_e_c0U_xor_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 12,
+            "n_collision_labels_mpad1": 12,
+            "n_labels": 26,
+            "n_labels_mpad1": 26,
+            "n_unique_pairs": 42,
+            "n_unique_pairs_mpad1": 42
+          },
+          "minU_mod_e_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 10,
+            "n_collision_labels_mpad1": 10,
+            "n_labels": 27,
+            "n_labels_mpad1": 27,
+            "n_unique_pairs": 42,
+            "n_unique_pairs_mpad1": 42
+          },
+          "minU_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 11,
+            "n_collision_labels_mpad1": 11,
+            "n_labels": 30,
+            "n_labels_mpad1": 30,
+            "n_unique_pairs": 42,
+            "n_unique_pairs_mpad1": 42
+          }
+        },
+        "free_core": 3,
+        "j": 8,
+        "m_c": 5,
+        "max_Mpad": 2,
+        "max_core_diff_deg": 2,
+        "n": 16,
+        "n_cs_pairs": 282,
+        "n_cs_pairs_mpad1": 278,
+        "n_multipad_events": 2,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "all_core_phi_eq": true,
+        "bound": 0,
+        "ep_marks": {
+          "minUV_mod_e_c0U": {
+            "injective_all": true,
+            "injective_mpad1": true,
+            "n_collision_labels": 0,
+            "n_collision_labels_mpad1": 0,
+            "n_labels": 10,
+            "n_labels_mpad1": 10,
+            "n_unique_pairs": 10,
+            "n_unique_pairs_mpad1": 10
+          },
+          "minUV_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 2,
+            "n_collision_labels_mpad1": 2,
+            "n_labels": 6,
+            "n_labels_mpad1": 6,
+            "n_unique_pairs": 10,
+            "n_unique_pairs_mpad1": 10
+          },
+          "minU_mod_e_c0U": {
+            "injective_all": true,
+            "injective_mpad1": true,
+            "n_collision_labels": 0,
+            "n_collision_labels_mpad1": 0,
+            "n_labels": 10,
+            "n_labels_mpad1": 10,
+            "n_unique_pairs": 10,
+            "n_unique_pairs_mpad1": 10
+          },
+          "minU_mod_e_c0U_xor_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 2,
+            "n_collision_labels_mpad1": 2,
+            "n_labels": 7,
+            "n_labels_mpad1": 7,
+            "n_unique_pairs": 10,
+            "n_unique_pairs_mpad1": 10
+          },
+          "minU_mod_e_c0V": {
+            "injective_all": true,
+            "injective_mpad1": true,
+            "n_collision_labels": 0,
+            "n_collision_labels_mpad1": 0,
+            "n_labels": 10,
+            "n_labels_mpad1": 10,
+            "n_unique_pairs": 10,
+            "n_unique_pairs_mpad1": 10
+          },
+          "minU_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 2,
+            "n_collision_labels_mpad1": 2,
+            "n_labels": 8,
+            "n_labels_mpad1": 8,
+            "n_unique_pairs": 10,
+            "n_unique_pairs_mpad1": 10
+          }
+        },
+        "free_core": 1,
+        "j": 8,
+        "m_c": 4,
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "n": 16,
+        "n_cs_pairs": 18,
+        "n_cs_pairs_mpad1": 18,
+        "n_multipad_events": 0,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "all_core_phi_eq": true,
+        "bound": 3,
+        "ep_marks": {
+          "minUV_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 2,
+            "n_collision_labels_mpad1": 2,
+            "n_labels": 14,
+            "n_labels_mpad1": 14,
+            "n_unique_pairs": 16,
+            "n_unique_pairs_mpad1": 16
+          },
+          "minUV_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 2,
+            "n_collision_labels_mpad1": 2,
+            "n_labels": 14,
+            "n_labels_mpad1": 14,
+            "n_unique_pairs": 16,
+            "n_unique_pairs_mpad1": 16
+          },
+          "minU_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 1,
+            "n_collision_labels_mpad1": 1,
+            "n_labels": 15,
+            "n_labels_mpad1": 15,
+            "n_unique_pairs": 16,
+            "n_unique_pairs_mpad1": 16
+          },
+          "minU_mod_e_c0U_xor_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 3,
+            "n_collision_labels_mpad1": 3,
+            "n_labels": 13,
+            "n_labels_mpad1": 13,
+            "n_unique_pairs": 16,
+            "n_unique_pairs_mpad1": 16
+          },
+          "minU_mod_e_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 2,
+            "n_collision_labels_mpad1": 2,
+            "n_labels": 13,
+            "n_labels_mpad1": 13,
+            "n_unique_pairs": 16,
+            "n_unique_pairs_mpad1": 16
+          },
+          "minU_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 1,
+            "n_collision_labels_mpad1": 1,
+            "n_labels": 15,
+            "n_labels_mpad1": 15,
+            "n_unique_pairs": 16,
+            "n_unique_pairs_mpad1": 16
+          }
+        },
+        "free_core": 4,
+        "j": 9,
+        "m_c": 6,
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "n": 16,
+        "n_cs_pairs": 94,
+        "n_cs_pairs_mpad1": 94,
+        "n_multipad_events": 0,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "all_core_phi_eq": true,
+        "bound": 1,
+        "ep_marks": {
+          "minUV_mod_e_c0U": {
+            "injective_all": true,
+            "injective_mpad1": true,
+            "n_collision_labels": 0,
+            "n_collision_labels_mpad1": 0,
+            "n_labels": 2,
+            "n_labels_mpad1": 2,
+            "n_unique_pairs": 2,
+            "n_unique_pairs_mpad1": 2
+          },
+          "minUV_mod_e_dc": {
+            "injective_all": true,
+            "injective_mpad1": true,
+            "n_collision_labels": 0,
+            "n_collision_labels_mpad1": 0,
+            "n_labels": 2,
+            "n_labels_mpad1": 2,
+            "n_unique_pairs": 2,
+            "n_unique_pairs_mpad1": 2
+          },
+          "minU_mod_e_c0U": {
+            "injective_all": true,
+            "injective_mpad1": true,
+            "n_collision_labels": 0,
+            "n_collision_labels_mpad1": 0,
+            "n_labels": 2,
+            "n_labels_mpad1": 2,
+            "n_unique_pairs": 2,
+            "n_unique_pairs_mpad1": 2
+          },
+          "minU_mod_e_c0U_xor_c0V": {
+            "injective_all": true,
+            "injective_mpad1": true,
+            "n_collision_labels": 0,
+            "n_collision_labels_mpad1": 0,
+            "n_labels": 2,
+            "n_labels_mpad1": 2,
+            "n_unique_pairs": 2,
+            "n_unique_pairs_mpad1": 2
+          },
+          "minU_mod_e_c0V": {
+            "injective_all": true,
+            "injective_mpad1": true,
+            "n_collision_labels": 0,
+            "n_collision_labels_mpad1": 0,
+            "n_labels": 2,
+            "n_labels_mpad1": 2,
+            "n_unique_pairs": 2,
+            "n_unique_pairs_mpad1": 2
+          },
+          "minU_mod_e_dc": {
+            "injective_all": true,
+            "injective_mpad1": true,
+            "n_collision_labels": 0,
+            "n_collision_labels_mpad1": 0,
+            "n_labels": 2,
+            "n_labels_mpad1": 2,
+            "n_unique_pairs": 2,
+            "n_unique_pairs_mpad1": 2
+          }
+        },
+        "free_core": 2,
+        "j": 9,
+        "m_c": 5,
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "n": 16,
+        "n_cs_pairs": 2,
+        "n_cs_pairs_mpad1": 2,
+        "n_multipad_events": 0,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "all_core_phi_eq": true,
+        "bound": 4,
+        "ep_marks": {
+          "minUV_mod_e_c0U": {
+            "injective_all": true,
+            "injective_mpad1": true,
+            "n_collision_labels": 0,
+            "n_collision_labels_mpad1": 0,
+            "n_labels": 6,
+            "n_labels_mpad1": 6,
+            "n_unique_pairs": 6,
+            "n_unique_pairs_mpad1": 6
+          },
+          "minUV_mod_e_dc": {
+            "injective_all": true,
+            "injective_mpad1": true,
+            "n_collision_labels": 0,
+            "n_collision_labels_mpad1": 0,
+            "n_labels": 6,
+            "n_labels_mpad1": 6,
+            "n_unique_pairs": 6,
+            "n_unique_pairs_mpad1": 6
+          },
+          "minU_mod_e_c0U": {
+            "injective_all": true,
+            "injective_mpad1": true,
+            "n_collision_labels": 0,
+            "n_collision_labels_mpad1": 0,
+            "n_labels": 6,
+            "n_labels_mpad1": 6,
+            "n_unique_pairs": 6,
+            "n_unique_pairs_mpad1": 6
+          },
+          "minU_mod_e_c0U_xor_c0V": {
+            "injective_all": true,
+            "injective_mpad1": true,
+            "n_collision_labels": 0,
+            "n_collision_labels_mpad1": 0,
+            "n_labels": 6,
+            "n_labels_mpad1": 6,
+            "n_unique_pairs": 6,
+            "n_unique_pairs_mpad1": 6
+          },
+          "minU_mod_e_c0V": {
+            "injective_all": true,
+            "injective_mpad1": true,
+            "n_collision_labels": 0,
+            "n_collision_labels_mpad1": 0,
+            "n_labels": 6,
+            "n_labels_mpad1": 6,
+            "n_unique_pairs": 6,
+            "n_unique_pairs_mpad1": 6
+          },
+          "minU_mod_e_dc": {
+            "injective_all": true,
+            "injective_mpad1": true,
+            "n_collision_labels": 0,
+            "n_collision_labels_mpad1": 0,
+            "n_labels": 6,
+            "n_labels_mpad1": 6,
+            "n_unique_pairs": 6,
+            "n_unique_pairs_mpad1": 6
+          }
+        },
+        "free_core": 5,
+        "j": 10,
+        "m_c": 7,
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "n": 16,
+        "n_cs_pairs": 20,
+        "n_cs_pairs_mpad1": 20,
+        "n_multipad_events": 0,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "all_core_phi_eq": true,
+        "bound": 2,
+        "ep_marks": {
+          "minUV_mod_e_c0U": {
+            "injective_all": null,
+            "injective_mpad1": null,
+            "n_collision_labels": 0,
+            "n_collision_labels_mpad1": 0,
+            "n_labels": 0,
+            "n_labels_mpad1": 0,
+            "n_unique_pairs": 0,
+            "n_unique_pairs_mpad1": 0
+          },
+          "minUV_mod_e_dc": {
+            "injective_all": null,
+            "injective_mpad1": null,
+            "n_collision_labels": 0,
+            "n_collision_labels_mpad1": 0,
+            "n_labels": 0,
+            "n_labels_mpad1": 0,
+            "n_unique_pairs": 0,
+            "n_unique_pairs_mpad1": 0
+          },
+          "minU_mod_e_c0U": {
+            "injective_all": null,
+            "injective_mpad1": null,
+            "n_collision_labels": 0,
+            "n_collision_labels_mpad1": 0,
+            "n_labels": 0,
+            "n_labels_mpad1": 0,
+            "n_unique_pairs": 0,
+            "n_unique_pairs_mpad1": 0
+          },
+          "minU_mod_e_c0U_xor_c0V": {
+            "injective_all": null,
+            "injective_mpad1": null,
+            "n_collision_labels": 0,
+            "n_collision_labels_mpad1": 0,
+            "n_labels": 0,
+            "n_labels_mpad1": 0,
+            "n_unique_pairs": 0,
+            "n_unique_pairs_mpad1": 0
+          },
+          "minU_mod_e_c0V": {
+            "injective_all": null,
+            "injective_mpad1": null,
+            "n_collision_labels": 0,
+            "n_collision_labels_mpad1": 0,
+            "n_labels": 0,
+            "n_labels_mpad1": 0,
+            "n_unique_pairs": 0,
+            "n_unique_pairs_mpad1": 0
+          },
+          "minU_mod_e_dc": {
+            "injective_all": null,
+            "injective_mpad1": null,
+            "n_collision_labels": 0,
+            "n_collision_labels_mpad1": 0,
+            "n_labels": 0,
+            "n_labels_mpad1": 0,
+            "n_unique_pairs": 0,
+            "n_unique_pairs_mpad1": 0
+          }
+        },
+        "free_core": 3,
+        "j": 10,
+        "m_c": 6,
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "n": 16,
+        "n_cs_pairs": 0,
+        "n_cs_pairs_mpad1": 0,
+        "n_multipad_events": 0,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "all_core_phi_eq": true,
+        "bound": 1,
+        "ep_marks": {
+          "minUV_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 32,
+            "n_collision_labels_mpad1": 32,
+            "n_labels": 32,
+            "n_labels_mpad1": 32,
+            "n_unique_pairs": 286,
+            "n_unique_pairs_mpad1": 258
+          },
+          "minUV_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 32,
+            "n_collision_labels_mpad1": 32,
+            "n_labels": 32,
+            "n_labels_mpad1": 32,
+            "n_unique_pairs": 286,
+            "n_unique_pairs_mpad1": 258
+          },
+          "minU_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 32,
+            "n_collision_labels_mpad1": 32,
+            "n_labels": 32,
+            "n_labels_mpad1": 32,
+            "n_unique_pairs": 286,
+            "n_unique_pairs_mpad1": 258
+          },
+          "minU_mod_e_c0U_xor_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 31,
+            "n_collision_labels_mpad1": 31,
+            "n_labels": 31,
+            "n_labels_mpad1": 31,
+            "n_unique_pairs": 286,
+            "n_unique_pairs_mpad1": 258
+          },
+          "minU_mod_e_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 32,
+            "n_collision_labels_mpad1": 32,
+            "n_labels": 32,
+            "n_labels_mpad1": 32,
+            "n_unique_pairs": 286,
+            "n_unique_pairs_mpad1": 258
+          },
+          "minU_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 32,
+            "n_collision_labels_mpad1": 32,
+            "n_labels": 32,
+            "n_labels_mpad1": 32,
+            "n_unique_pairs": 286,
+            "n_unique_pairs_mpad1": 258
+          }
+        },
+        "free_core": 2,
+        "j": 5,
+        "m_c": 3,
+        "max_Mpad": 9,
+        "max_core_diff_deg": 1,
+        "n": 16,
+        "n_cs_pairs": 4386,
+        "n_cs_pairs_mpad1": 1274,
+        "n_multipad_events": 972,
+        "p": 17,
+        "w": 1
+      },
+      {
+        "all_core_phi_eq": true,
+        "bound": -1,
+        "ep_marks": {
+          "minUV_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 45,
+            "n_collision_labels_mpad1": 45,
+            "n_labels": 48,
+            "n_labels_mpad1": 48,
+            "n_unique_pairs": 260,
+            "n_unique_pairs_mpad1": 260
+          },
+          "minUV_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 44,
+            "n_collision_labels_mpad1": 44,
+            "n_labels": 46,
+            "n_labels_mpad1": 46,
+            "n_unique_pairs": 260,
+            "n_unique_pairs_mpad1": 260
+          },
+          "minU_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 46,
+            "n_collision_labels_mpad1": 46,
+            "n_labels": 48,
+            "n_labels_mpad1": 48,
+            "n_unique_pairs": 260,
+            "n_unique_pairs_mpad1": 260
+          },
+          "minU_mod_e_c0U_xor_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 45,
+            "n_collision_labels_mpad1": 45,
+            "n_labels": 47,
+            "n_labels_mpad1": 47,
+            "n_unique_pairs": 260,
+            "n_unique_pairs_mpad1": 260
+          },
+          "minU_mod_e_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 47,
+            "n_collision_labels_mpad1": 47,
+            "n_labels": 47,
+            "n_labels_mpad1": 47,
+            "n_unique_pairs": 260,
+            "n_unique_pairs_mpad1": 260
+          },
+          "minU_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 47,
+            "n_collision_labels_mpad1": 47,
+            "n_labels": 48,
+            "n_labels_mpad1": 48,
+            "n_unique_pairs": 260,
+            "n_unique_pairs_mpad1": 260
+          }
+        },
+        "free_core": 0,
+        "j": 5,
+        "m_c": 2,
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "n": 16,
+        "n_cs_pairs": 1090,
+        "n_cs_pairs_mpad1": 1090,
+        "n_multipad_events": 0,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "all_core_phi_eq": true,
+        "bound": 0,
+        "ep_marks": {
+          "minUV_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 32,
+            "n_collision_labels_mpad1": 32,
+            "n_labels": 32,
+            "n_labels_mpad1": 32,
+            "n_unique_pairs": 400,
+            "n_unique_pairs_mpad1": 400
+          },
+          "minUV_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 32,
+            "n_collision_labels_mpad1": 32,
+            "n_labels": 32,
+            "n_labels_mpad1": 32,
+            "n_unique_pairs": 400,
+            "n_unique_pairs_mpad1": 400
+          },
+          "minU_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 32,
+            "n_collision_labels_mpad1": 32,
+            "n_labels": 32,
+            "n_labels_mpad1": 32,
+            "n_unique_pairs": 400,
+            "n_unique_pairs_mpad1": 400
+          },
+          "minU_mod_e_c0U_xor_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 31,
+            "n_collision_labels_mpad1": 31,
+            "n_labels": 31,
+            "n_labels_mpad1": 31,
+            "n_unique_pairs": 400,
+            "n_unique_pairs_mpad1": 400
+          },
+          "minU_mod_e_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 32,
+            "n_collision_labels_mpad1": 32,
+            "n_labels": 32,
+            "n_labels_mpad1": 32,
+            "n_unique_pairs": 400,
+            "n_unique_pairs_mpad1": 400
+          },
+          "minU_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 32,
+            "n_collision_labels_mpad1": 32,
+            "n_labels": 32,
+            "n_labels_mpad1": 32,
+            "n_unique_pairs": 400,
+            "n_unique_pairs_mpad1": 400
+          }
+        },
+        "free_core": 1,
+        "j": 4,
+        "m_c": 2,
+        "max_Mpad": 4,
+        "max_core_diff_deg": 0,
+        "n": 16,
+        "n_cs_pairs": 3170,
+        "n_cs_pairs_mpad1": 1962,
+        "n_multipad_events": 540,
+        "p": 17,
+        "w": 1
+      },
+      {
+        "all_core_phi_eq": true,
+        "bound": -2,
+        "ep_marks": {
+          "minUV_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 48,
+            "n_collision_labels_mpad1": 48,
+            "n_labels": 48,
+            "n_labels_mpad1": 48,
+            "n_unique_pairs": 440,
+            "n_unique_pairs_mpad1": 440
+          },
+          "minUV_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 48,
+            "n_collision_labels_mpad1": 48,
+            "n_labels": 48,
+            "n_labels_mpad1": 48,
+            "n_unique_pairs": 440,
+            "n_unique_pairs_mpad1": 440
+          },
+          "minU_mod_e_c0U": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 48,
+            "n_collision_labels_mpad1": 48,
+            "n_labels": 48,
+            "n_labels_mpad1": 48,
+            "n_unique_pairs": 440,
+            "n_unique_pairs_mpad1": 440
+          },
+          "minU_mod_e_c0U_xor_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 47,
+            "n_collision_labels_mpad1": 47,
+            "n_labels": 47,
+            "n_labels_mpad1": 47,
+            "n_unique_pairs": 440,
+            "n_unique_pairs_mpad1": 440
+          },
+          "minU_mod_e_c0V": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 48,
+            "n_collision_labels_mpad1": 48,
+            "n_labels": 48,
+            "n_labels_mpad1": 48,
+            "n_unique_pairs": 440,
+            "n_unique_pairs_mpad1": 440
+          },
+          "minU_mod_e_dc": {
+            "injective_all": false,
+            "injective_mpad1": false,
+            "n_collision_labels": 48,
+            "n_collision_labels_mpad1": 48,
+            "n_labels": 48,
+            "n_labels_mpad1": 48,
+            "n_unique_pairs": 440,
+            "n_unique_pairs_mpad1": 440
+          }
+        },
+        "free_core": -1,
+        "j": 4,
+        "m_c": 1,
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "n": 16,
+        "n_cs_pairs": 992,
+        "n_cs_pairs_mpad1": 992,
+        "n_multipad_events": 0,
+        "p": 17,
+        "w": 2
+      }
+    ],
+    "status": "PASS"
+  }
+}

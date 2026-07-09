@@ -7,6 +7,18 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v22: multipads = core multi-mates + e·p mark bank
+
+- Proved: multipad cores share Phi_w (depth-w multi-mates of size m_c=j−e);
+  free_core = m_c−w = j−2w−1 dictionary (≤0 ⇒ M_pad≤1); multipad requires
+  core multi-mates + joint CS e-extension.
+- Deployed free_core=846161 ≫ 1 — M_pad≤1 still OPEN.
+- Banked negative: natural e·p CS-pair marks (minU/minUV mod e × c0U/c0V/Δc)
+  all collide on toys (22244 CS pairs), including M_pad=1-restricted.
+- Path: M_pad≤1 + CS→e·p (=t·p) ⇒ A_SP≤t·p remains conditional.
+- Next: control core multi-mates at (m_c,w) with joint CS extension; or
+  structure-aware e·p mark.
+
 ### 2026-07-09 - KB-MCA Route-D v21: M_pad degree obstruction
 
 - Proved: multipad cores satisfy deg(Λ_C-Λ_C')≤j-2w-2; hence j<2w+2 ⇒ M_pad≤1.
