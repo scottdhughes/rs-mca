@@ -1,0 +1,260 @@
+{
+ "_provenance": {
+  "atom": "prob:entropy-inverse-q",
+  "tex": "experimental/grande_finale.tex",
+  "escape_clause_line": 828,
+  "removal_list_line": 839,
+  "frontier_normalization_lines": "840-842",
+  "alternatives_lines": "861-867",
+  "sidon_freeenergy_dichotomy_line": 869,
+  "mass_aware_remark_lines": "966-968",
+  "cell_operational_pins": {
+   "quotient": "prop:sp-pullback L1189 ; lem:coeff-scale L1217",
+   "dihedral": "thm:near-rational L1350",
+   "planted_block": "thm:head-flatness L1095",
+   "diff_locator": "prop:vandermonde-kills-low-rank L876 (alt (b); toy R=w)"
+  },
+  "sibling": "PR #420 cap25_v13_entropy_inverse_toy_dichotomy (Lane 1 toy dichotomy instrumentation); conventions inherited",
+  "convention": {
+   "T_domain": "E=F_p ; T in {mu_n<F_p^*, AP, GP, coset-union, ...}",
+   "syndrome": "Psi(M)=(sum y,...,sum y^w) power sums (Newton-equiv to first-w locator coeffs, w<p)",
+   "R": "R=w (def:primitive-logmoment normalization)",
+   "Gamma_ell": "|K|^{R(ell-1)} sum_s N(s)^ell / C^ell , |K|=p , exact (Fraction)",
+   "excess_ratio": "Gamma_2 / ( p^w/C + (C-1)/C )  ; >>1 structure, ~1 random (same-size Poisson baseline)",
+   "excess_flag": "excess_ratio > 1.3",
+   "dyadic_level": "j = floor(log2(N(s)/mean)), mean=C/p^w ; above-random iff j>=0 ; popular iff N>=2*mean",
+   "ES_branch": "gap=H(Y-Y')-H(Y) <= DOUB_C*N  AND ES-guard(>=8 distinct trades and H(Y)>=1 bit)",
+   "FE_branch": "fe_slope <= -DECAY_C*N (mean d/dell log2 contrib_ell over ell in {2,4,8})",
+   "constants": {
+    "DOUB_C": 0.1,
+    "DECAY_C": 0.05,
+    "K_TOP": 64,
+    "P_CAP": 1200,
+    "LS_MULT": 2
+   },
+   "norm_side_condition": "gap = log2|Omega'| - w*log2(p) = o(N) ; norm_ok iff gap/N > -0.25",
+   "candidate": "excess AND any_ES AND not caught AND norm_ok  (ZERO found at every toy)"
+  }
+ },
+ "mu_16": [
+  {
+   "w": 1,
+   "C": 12870,
+   "excess_ratio": 0.9987584388639796,
+   "rho_max": 1.0012432012432013,
+   "gamma8": 1.000002711025866,
+   "n_trade_levels": 2,
+   "best_rel_doubling": 0.7418230182416573,
+   "any_ES": false,
+   "min_trade_supp": 4,
+   "bch": 4,
+   "max_rank_defect": 0,
+   "gap_over_N": 0.5977663494911079,
+   "verdicts": [
+    "NEITHER",
+    "NEITHER"
+   ]
+  },
+  {
+   "w": 2,
+   "C": 12870,
+   "excess_ratio": 0.9796172819428632,
+   "rho_max": 1.2125874125874125,
+   "gamma8": 1.0477443062554006,
+   "n_trade_levels": 1,
+   "best_rel_doubling": 0.8297138987893569,
+   "any_ES": false,
+   "min_trade_supp": 6,
+   "bch": 6,
+   "max_rank_defect": 0,
+   "gap_over_N": 0.34229992191296166,
+   "verdicts": [
+    "NEITHER"
+   ]
+  },
+  {
+   "w": 3,
+   "C": 12870,
+   "excess_ratio": 0.8234190708378087,
+   "rho_max": 2.672183372183372,
+   "gamma8": 13.1448820759936,
+   "n_trade_levels": 2,
+   "best_rel_doubling": 0.9318886295160744,
+   "any_ES": false,
+   "min_trade_supp": 8,
+   "bch": 8,
+   "max_rank_defect": 0,
+   "gap_over_N": 0.08683349433481546,
+   "verdicts": [
+    "NEITHER",
+    "NEITHER"
+   ]
+  },
+  {
+   "w": 4,
+   "C": 12870,
+   "excess_ratio": 0.8989416070897552,
+   "rho_max": 12.97917637917638,
+   "gamma8": 2790396.0367936934,
+   "n_trade_levels": 1,
+   "best_rel_doubling": 0.9685656125876007,
+   "any_ES": false,
+   "min_trade_supp": 12,
+   "bch": 10,
+   "max_rank_defect": 0,
+   "gap_over_N": -0.16863293324333073,
+   "verdicts": [
+    "NEITHER"
+   ]
+  },
+  {
+   "w": 5,
+   "C": 12870,
+   "excess_ratio": 0.9911718262936847,
+   "rho_max": 220.64599844599846,
+   "gamma8": 202838361966475.9,
+   "n_trade_levels": 0,
+   "best_rel_doubling": null,
+   "any_ES": false,
+   "min_trade_supp": 16,
+   "bch": 12,
+   "max_rank_defect": 0,
+   "gap_over_N": -0.4240993608214769,
+   "verdicts": []
+  },
+  {
+   "w": 6,
+   "C": 12870,
+   "excess_ratio": 0.9996224491652524,
+   "rho_max": 3750.9819735819738,
+   "gamma8": 8.323242428281738e+22,
+   "n_trade_levels": 0,
+   "best_rel_doubling": null,
+   "any_ES": false,
+   "min_trade_supp": 16,
+   "bch": 14,
+   "max_rank_defect": 0,
+   "gap_over_N": -0.6795657883996231,
+   "verdicts": []
+  },
+  {
+   "w": 7,
+   "C": 12870,
+   "excess_ratio": 1.0001240343664919,
+   "rho_max": 63766.69355089355,
+   "gamma8": 3.4153482530784263e+31,
+   "n_trade_levels": 0,
+   "best_rel_doubling": null,
+   "any_ES": false,
+   "min_trade_supp": 16,
+   "bch": 16,
+   "max_rank_defect": 0,
+   "gap_over_N": -0.9350322159777693,
+   "verdicts": []
+  }
+ ],
+ "AP_F31": [
+  {
+   "w": 1,
+   "C": 12870,
+   "excess_ratio": 1.0330618408292827,
+   "rho_max": 1.2717948717948717,
+   "gamma8": 2.128702766539319,
+   "n_trade_levels": 2,
+   "best_rel_doubling": 0.7146224319231845,
+   "any_ES": false,
+   "min_trade_supp": 4,
+   "bch": 4,
+   "max_rank_defect": 0,
+   "gap_over_N": 0.5435955076700744,
+   "verdicts": [
+    "NEITHER",
+    "NEITHER"
+   ]
+  },
+  {
+   "w": 2,
+   "C": 12870,
+   "excess_ratio": 0.9926058853173818,
+   "rho_max": 2.016083916083916,
+   "gamma8": 4.091389271460802,
+   "n_trade_levels": 2,
+   "best_rel_doubling": 0.811573801552821,
+   "any_ES": false,
+   "min_trade_supp": 6,
+   "bch": 6,
+   "max_rank_defect": 0,
+   "gap_over_N": 0.23395823827089468,
+   "verdicts": [
+    "NEITHER",
+    "NEITHER"
+   ]
+  },
+  {
+   "w": 3,
+   "C": 12870,
+   "excess_ratio": 0.9291608500891201,
+   "rho_max": 9.25905205905206,
+   "gamma8": 57722.23261960077,
+   "n_trade_levels": 2,
+   "best_rel_doubling": 0.8760657932964223,
+   "any_ES": false,
+   "min_trade_supp": 8,
+   "bch": 8,
+   "max_rank_defect": 0,
+   "gap_over_N": -0.075679031128285,
+   "verdicts": [
+    "NEITHER",
+    "NEITHER"
+   ]
+  },
+  {
+   "w": 4,
+   "C": 12870,
+   "excess_ratio": 0.9874829103849062,
+   "rho_max": 143.51530691530692,
+   "gamma8": 11343409517720.074,
+   "n_trade_levels": 0,
+   "best_rel_doubling": null,
+   "any_ES": false,
+   "min_trade_supp": 12,
+   "bch": 10,
+   "max_rank_defect": 0,
+   "gap_over_N": -0.3853163005274647,
+   "verdicts": []
+  },
+  {
+   "w": 5,
+   "C": 12870,
+   "excess_ratio": 0.9995506950976223,
+   "rho_max": 2224.487257187257,
+   "gamma8": 2.6953145507943036e+23,
+   "n_trade_levels": 0,
+   "best_rel_doubling": null,
+   "any_ES": false,
+   "min_trade_supp": 0,
+   "bch": 12,
+   "max_rank_defect": 0,
+   "gap_over_N": -0.6949535699266445,
+   "verdicts": []
+  },
+  {
+   "w": 6,
+   "C": 12870,
+   "excess_ratio": 0.9999854999887045,
+   "rho_max": 68959.10497280497,
+   "gamma8": 7.415514914376699e+33,
+   "n_trade_levels": 0,
+   "best_rel_doubling": null,
+   "any_ES": false,
+   "min_trade_supp": 0,
+   "bch": 14,
+   "max_rank_defect": 0,
+   "gap_over_N": -1.004590839325824,
+   "verdicts": []
+  }
+ ],
+ "mu_any_ES": false,
+ "ap_any_ES": false,
+ "bch_saturated": true
+}

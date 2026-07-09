@@ -1,0 +1,175 @@
+{
+ "_note": "Claim III: supporting instrumentation. generic-rho null (no excess survives balance under a generic weight), min signed-trade support = the exact Vandermonde barrier R+1, differential-locator defect 0, the large-subgroup corner (#421 residual) CLOSED, plant hunt 0 candidates, and the gamma=42 honesty item.",
+ "generic_rho_null": [
+  {
+   "name": "S27t",
+   "R": 4,
+   "at_balance": true,
+   "excess_generic": 1.059558754676883
+  },
+  {
+   "name": "U16",
+   "R": 3,
+   "at_balance": true,
+   "excess_generic": 0.4746163332419841
+  },
+  {
+   "name": "S49t",
+   "R": 3,
+   "at_balance": true,
+   "excess_generic": 1.0559736175244554
+  },
+  {
+   "name": "U64",
+   "R": 3,
+   "at_balance": true,
+   "excess_generic": 0.4788260783927516
+  }
+ ],
+ "generic_rho_null_bound": 1.08,
+ "large_subgroup": {
+  "F64_mu21_retained_excess": 0.6036886124812352,
+  "F27_mu13_retained_excess": 1.069,
+  "F49_mu16_retained_excess": 0.923,
+  "verdict": "CLOSED (retained excess ~1 vs paired firstN control = no missing cell)"
+ },
+ "min_signed_dep": {
+  "F16_R3": 4,
+  "barrier": "R+1 (exact Vandermonde), sharper than the 2(w+1) prefix heuristic"
+ },
+ "dichotomy_S27_ones": [
+  {
+   "R": 3,
+   "min_supp": 5,
+   "vdm_barrier": 4,
+   "bch2_barrier": 8,
+   "rel_doubling": 0.8354965415212655,
+   "fe_slope": 3.1921988950669853,
+   "verdict": "NEITHER"
+  },
+  {
+   "R": 4,
+   "min_supp": 5,
+   "vdm_barrier": 5,
+   "bch2_barrier": 10,
+   "rel_doubling": 0.8354965415212655,
+   "fe_slope": 8.053379381746282,
+   "verdict": "NEITHER"
+  },
+  {
+   "R": 5,
+   "min_supp": 6,
+   "vdm_barrier": 6,
+   "bch2_barrier": 12,
+   "rel_doubling": 0.7757516618006637,
+   "fe_slope": 10.392805547106834,
+   "verdict": "NEITHER"
+  },
+  {
+   "R": 6,
+   "min_supp": 8,
+   "vdm_barrier": 7,
+   "bch2_barrier": 14,
+   "rel_doubling": 0.8304574211178023,
+   "fe_slope": 12.282576821459616,
+   "verdict": "NEITHER"
+  }
+ ],
+ "u64_singleton_no_trade": {
+  "R3": "NO-TRADE-LEVELS",
+  "R4": "NO-TRADE-LEVELS",
+  "R5": "NO-TRADE-LEVELS",
+  "note": "maxN=1 at/past balance"
+ },
+ "diff_locator": {
+  "all_defects_zero": true,
+  "synthetic": "F16/F27 at R in {3,5}, distinct_over |U|>R and distinct_under |U|<R, plus zero-weight: defect 0 everywhere"
+ },
+ "plant_hunt": {
+  "n_candidates": 0,
+  "plants": [
+   "P1-subfield-block",
+   "P2-frobenius-block",
+   "P3-frobenius-union",
+   "P4-trace-balanced",
+   "P5-mu5-coset-union(POS)",
+   "P6-random-restriction(NEG)"
+  ],
+  "verdict": "0 candidate cells beyond the F_p-span cell"
+ },
+ "support_attribution": {
+  "S27_not_caught": 0.979720471362017,
+  "S49_not_caught": 1.0,
+  "U16_not_caught": 0.8958333333333334,
+  "null_S27_not_caught": 0.965,
+  "U64_ext_trace_classifier": 1.0,
+  "U64_ext_trace_null": 1.0,
+  "note": "rho=ones excess is SUPPORT-INVISIBLE (~98-100% not-caught, matches 96.5% random null); U64 trace-cell hit is domain-vacuous (null hits ext:trace=1.0 too)."
+ },
+ "thin_alphabet": {
+  "generic_floor": [
+   1.4392824885342441,
+   1.438577205109049,
+   1.4350326693793811
+  ],
+  "N_scaling": [
+   {
+    "N": 8,
+    "exc_cond_mean": 1.0480768157982818
+   },
+   {
+    "N": 10,
+    "exc_cond_mean": 1.1643704904391727
+   },
+   {
+    "N": 12,
+    "exc_cond_mean": 1.3958073060691054
+   },
+   {
+    "N": 14,
+    "exc_cond_mean": 1.4389298468216465
+   },
+   {
+    "N": 16,
+    "exc_cond_mean": 1.374244310061033
+   }
+  ],
+  "verdict": "BOUNDED (peaks ~1.44 near balance, falls past it -- no exp(eta N) growth)"
+ },
+ "gamma_scaling": {
+  "gamma": 42,
+  "Tnof7": [
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20
+  ],
+  "Tspread": [
+   1,
+   8,
+   15,
+   22,
+   29,
+   36,
+   43,
+   2,
+   9,
+   16,
+   23,
+   30,
+   37,
+   44
+  ],
+  "note": "HONESTY: the builder's first two discriminator T's were gamma-scaling-equivalent (gamma=42, census bijection s_j->gamma^j s_j); caught and replaced with genuine generic-T trials."
+ }
+}

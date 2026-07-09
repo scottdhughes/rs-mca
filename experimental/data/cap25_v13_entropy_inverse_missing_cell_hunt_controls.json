@@ -1,0 +1,418 @@
+{
+ "_provenance": {
+  "atom": "prob:entropy-inverse-q",
+  "tex": "experimental/grande_finale.tex",
+  "escape_clause_line": 828,
+  "removal_list_line": 839,
+  "frontier_normalization_lines": "840-842",
+  "alternatives_lines": "861-867",
+  "sidon_freeenergy_dichotomy_line": 869,
+  "mass_aware_remark_lines": "966-968",
+  "cell_operational_pins": {
+   "quotient": "prop:sp-pullback L1189 ; lem:coeff-scale L1217",
+   "dihedral": "thm:near-rational L1350",
+   "planted_block": "thm:head-flatness L1095",
+   "diff_locator": "prop:vandermonde-kills-low-rank L876 (alt (b); toy R=w)"
+  },
+  "sibling": "PR #420 cap25_v13_entropy_inverse_toy_dichotomy (Lane 1 toy dichotomy instrumentation); conventions inherited",
+  "convention": {
+   "T_domain": "E=F_p ; T in {mu_n<F_p^*, AP, GP, coset-union, ...}",
+   "syndrome": "Psi(M)=(sum y,...,sum y^w) power sums (Newton-equiv to first-w locator coeffs, w<p)",
+   "R": "R=w (def:primitive-logmoment normalization)",
+   "Gamma_ell": "|K|^{R(ell-1)} sum_s N(s)^ell / C^ell , |K|=p , exact (Fraction)",
+   "excess_ratio": "Gamma_2 / ( p^w/C + (C-1)/C )  ; >>1 structure, ~1 random (same-size Poisson baseline)",
+   "excess_flag": "excess_ratio > 1.3",
+   "dyadic_level": "j = floor(log2(N(s)/mean)), mean=C/p^w ; above-random iff j>=0 ; popular iff N>=2*mean",
+   "ES_branch": "gap=H(Y-Y')-H(Y) <= DOUB_C*N  AND ES-guard(>=8 distinct trades and H(Y)>=1 bit)",
+   "FE_branch": "fe_slope <= -DECAY_C*N (mean d/dell log2 contrib_ell over ell in {2,4,8})",
+   "constants": {
+    "DOUB_C": 0.1,
+    "DECAY_C": 0.05,
+    "K_TOP": 64,
+    "P_CAP": 1200,
+    "LS_MULT": 2
+   },
+   "norm_side_condition": "gap = log2|Omega'| - w*log2(p) = o(N) ; norm_ok iff gap/N > -0.25",
+   "candidate": "excess AND any_ES AND not caught AND norm_ok  (ZERO found at every toy)"
+  }
+ },
+ "toy_anchor": [
+  17,
+  16,
+  8,
+  3
+ ],
+ "validation": {
+  "PC1_caught_quotient": true,
+  "PC1_has_excess": true,
+  "PC2_caught_planted": true,
+  "NC_no_excess": true,
+  "NC_not_candidate": true,
+  "RAW_reproduces_anchor": true
+ },
+ "all_pass": true,
+ "results": [
+  {
+   "name": "RAW mu_16 (Lane1 anchor)",
+   "meta": {
+    "kind": "raw"
+   },
+   "p": 17,
+   "N": 16,
+   "m": 8,
+   "w": 3,
+   "C_family": 12870,
+   "gamma": {
+    "2": 1.13768748388795,
+    "4": 1.9148628508259027,
+    "8": 13.1448820759936
+   },
+   "rho_max": 2.672183372183372,
+   "maxN": 7,
+   "n_occ": 4881,
+   "exp_G2_rand": 1.3816627816627818,
+   "excess_ratio": 0.8234190708378087,
+   "norm": {
+    "logOmega": 13.651724433108065,
+    "wlogp": 12.262388523751017,
+    "gap": 1.3893359093570474,
+    "gap_over_N": 0.08683349433481546
+   },
+   "norm_ok": true,
+   "levels": [
+    {
+     "j": 0,
+     "nfibers": 2712,
+     "pop_trades": 220,
+     "distinctA": 136,
+     "HY": 6.804924027996478,
+     "HYY": 13.14635535440712,
+     "doubling_gap": 6.3414313264106426,
+     "rel_doubling": 0.9318886295160744,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 0.5411445778259462,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.3090909090909091,
+     "trade_dihedral_frac": 0.2409090909090909
+    },
+    {
+     "j": 1,
+     "nfibers": 9,
+     "pop_trades": 53,
+     "distinctA": 48,
+     "HY": 5.539241209280178,
+     "HYY": 10.761987227714208,
+     "doubling_gap": 5.22274601843403,
+     "rel_doubling": 0.9428630783732785,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 1.4054941998663095,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.2830188679245283,
+     "trade_dihedral_frac": 0.37735849056603776
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.005666666666666667,
+    "dihedral_frac": 0.08316666666666667,
+    "planted_block": {
+     "caught": true,
+     "block_size": 1,
+     "block": [
+      0
+     ],
+     "ambient_size": 16,
+     "n_members": 6000
+    },
+    "n_sampled": 6000
+   },
+   "best_rel_doubling": 0.9318886295160744,
+   "any_ES": false,
+   "caught": [
+    "planted-block(1)"
+   ],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "PC1 coset-union(c=2)",
+   "meta": {
+    "kind": "pos-quotient"
+   },
+   "p": 17,
+   "N": 16,
+   "m": 8,
+   "w": 3,
+   "C_family": 70,
+   "gamma": {
+    "2": 308.81714285714287,
+    "4": 34297135.126829155,
+    "8": 5.821306036003852e+17
+   },
+   "rho_max": 421.1142857142857,
+   "maxN": 6,
+   "n_occ": 17,
+   "exp_G2_rand": 71.17142857142856,
+   "excess_ratio": 4.339060618225613,
+   "norm": {
+    "logOmega": 6.129283016944966,
+    "wlogp": 12.262388523751017,
+    "gap": -6.133105506806051,
+    "gap_over_N": -0.3833190941753782
+   },
+   "norm_ok": false,
+   "levels": [
+    {
+     "j": 7,
+     "nfibers": 8,
+     "pop_trades": 16,
+     "distinctA": 12,
+     "HY": 3.5,
+     "HYY": 6.695159765557392,
+     "doubling_gap": 3.195159765557392,
+     "rel_doubling": 0.9129027901592549,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 7.718068007527208,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 1.0,
+     "trade_dihedral_frac": 0.375
+    },
+    {
+     "j": 8,
+     "nfibers": 9,
+     "pop_trades": 37,
+     "distinctA": 25,
+     "HY": 4.452696608872195,
+     "HYY": 8.04634086204082,
+     "doubling_gap": 3.593644253168625,
+     "rel_doubling": 0.8070714375661998,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 8.518663281947768,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 1.0,
+     "trade_dihedral_frac": 0.6756756756756757
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 1.0,
+    "dihedral_frac": 0.5428571428571428,
+    "planted_block": {
+     "caught": false,
+     "block_size": 0,
+     "block": [],
+     "ambient_size": 16,
+     "n_members": 70
+    },
+    "n_sampled": 70
+   },
+   "best_rel_doubling": 0.8070714375661998,
+   "any_ES": false,
+   "caught": [
+    "quotient",
+    "dihedral"
+   ],
+   "excess": true,
+   "candidate": false
+  },
+  {
+   "name": "PC2 planted-block{0,1,2}",
+   "meta": {
+    "kind": "pos-planted",
+    "block": [
+     0,
+     1,
+     2
+    ]
+   },
+   "p": 17,
+   "N": 16,
+   "m": 8,
+   "w": 3,
+   "C_family": 1287,
+   "gamma": {
+    "2": 4.226730275681325,
+    "4": 97.3839299270162,
+    "8": 172685.95997229617
+   },
+   "rho_max": 7.634809634809635,
+   "maxN": 2,
+   "n_occ": 1218,
+   "exp_G2_rand": 4.8166278166278165,
+   "excess_ratio": 0.877528934473603,
+   "norm": {
+    "logOmega": 10.329796338220701,
+    "wlogp": 12.262388523751017,
+    "gap": -1.932592185530316,
+    "gap_over_N": -0.12078701159564476
+   },
+   "norm_ok": true,
+   "levels": [
+    {
+     "j": 2,
+     "nfibers": 69,
+     "pop_trades": 64,
+     "distinctA": 17,
+     "HY": 3.9237949406953985,
+     "HYY": 7.509483582837488,
+     "doubling_gap": 3.5856886421420895,
+     "rel_doubling": 0.913831812400118,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 2.932592185530316,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0625,
+     "trade_dihedral_frac": 0.03125
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.003885003885003885,
+    "dihedral_frac": 0.08313908313908314,
+    "planted_block": {
+     "caught": true,
+     "block_size": 3,
+     "block": [
+      0,
+      1,
+      2
+     ],
+     "ambient_size": 16,
+     "n_members": 1287
+    },
+    "n_sampled": 1287
+   },
+   "best_rel_doubling": 0.913831812400118,
+   "any_ES": false,
+   "caught": [
+    "planted-block(3)"
+   ],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "NC random-restrict f=0.1",
+   "meta": {
+    "kind": "neg-random",
+    "frac": 0.1,
+    "seed": 12345
+   },
+   "p": 17,
+   "N": 16,
+   "m": 8,
+   "w": 3,
+   "C_family": 1358,
+   "gamma": {
+    "2": 4.342450020713993,
+    "4": 124.62229958855004,
+    "8": 735302.5530915294
+   },
+   "rho_max": 14.471281296023564,
+   "maxN": 4,
+   "n_occ": 1229,
+   "exp_G2_rand": 4.617083946980854,
+   "excess_ratio": 0.9405178832742588,
+   "norm": {
+    "logOmega": 10.407267764244732,
+    "wlogp": 12.262388523751017,
+    "gap": -1.8551207595062849,
+    "gap_over_N": -0.1159450474691428
+   },
+   "norm_ok": true,
+   "levels": [
+    {
+     "j": 2,
+     "nfibers": 118,
+     "pop_trades": 4,
+     "distinctA": 4,
+     "HY": 2.0,
+     "HYY": 3.5,
+     "doubling_gap": 1.5,
+     "rel_doubling": 0.75,
+     "pop_ok": false,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 2.8551207595062866,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0,
+     "trade_dihedral_frac": 0.25
+    },
+    {
+     "j": 3,
+     "nfibers": 5,
+     "pop_trades": 1,
+     "distinctA": 1,
+     "HY": 0.0,
+     "HYY": 0.0,
+     "doubling_gap": 0.0,
+     "rel_doubling": 0.0,
+     "pop_ok": false,
+     "sidon_side": "STRUCTURED",
+     "fe_slope": 3.6526961708660437,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0,
+     "trade_dihedral_frac": 0.0
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.008533747090768037,
+    "dihedral_frac": 0.09231962761830877,
+    "planted_block": {
+     "caught": false,
+     "block_size": 0,
+     "block": [],
+     "ambient_size": 16,
+     "n_members": 1289
+    },
+    "n_sampled": 1289
+   },
+   "best_rel_doubling": null,
+   "any_ES": false,
+   "caught": [],
+   "excess": false,
+   "candidate": false
+  }
+ ]
+}

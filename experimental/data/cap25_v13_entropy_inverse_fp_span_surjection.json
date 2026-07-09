@@ -1,0 +1,336 @@
+{
+ "_note": "Image-structure theorem closing the #422 surjection. image(Phi|a) subset a single coset of the move-subspace D<=W_c^0 (D=V_T signed / even-column-sum span unsigned); under Conn_a (image = full coset) occupancy=|image|/|W_c|=p^-defect, defect=dim W_c^flat - dim V_T = #pinned functionals; image=W_c <=> defect=0. Gamma_2>=index*p^defect from containment alone (strengthens #422's Gamma_2>=index). defect via T in trace-hyperplanes: F64-firstN & F32-1HP defect1 (occ 1/2); F32-2HP & F64-2HP defect2 m=2 (occ 1/4). S27-1HP: defect1 yet Conn FALSE -> occ!=1/3 (Conn is load-bearing). Connectivity exact threshold MEASURED (coset weight distribution of ker Phi, min-dist R+1).",
+ "configs": [
+  {
+   "q": 27,
+   "p": 3,
+   "k": 3,
+   "R": 4,
+   "N": 14,
+   "a": 7,
+   "signed": true,
+   "dimVT": 7,
+   "dimD": 7,
+   "flat": 7,
+   "w0": 7,
+   "Wc": 2187,
+   "index": 243,
+   "defect": 0,
+   "free": [
+    1,
+    2
+   ],
+   "red": [
+    3
+   ],
+   "n_occ": 2187,
+   "C": 439296,
+   "G2": 243.7159306289596,
+   "occupancy": 1.0,
+   "conn": true,
+   "pred_occ": 1,
+   "G2_lb": 243,
+   "dimD_minus_w0": 0,
+   "tag": "S27@R4",
+   "pinned_ok": null
+  },
+  {
+   "q": 16,
+   "p": 2,
+   "k": 4,
+   "R": 4,
+   "N": 15,
+   "a": 8,
+   "signed": false,
+   "dimVT": 9,
+   "dimD": 8,
+   "flat": 9,
+   "w0": 8,
+   "Wc": 256,
+   "index": 256,
+   "defect": 0,
+   "free": [
+    1,
+    3
+   ],
+   "red": [
+    2
+   ],
+   "n_occ": 256,
+   "C": 6435,
+   "G2": 259.7828556318067,
+   "occupancy": 1.0,
+   "conn": true,
+   "pred_occ": 1,
+   "G2_lb": 256,
+   "dimD_minus_w0": 0,
+   "tag": "U16o@R4",
+   "pinned_ok": null
+  },
+  {
+   "q": 64,
+   "p": 2,
+   "k": 6,
+   "R": 3,
+   "N": 21,
+   "a": 10,
+   "signed": false,
+   "dimVT": 6,
+   "dimD": 5,
+   "flat": 7,
+   "w0": 6,
+   "Wc": 64,
+   "index": 4096,
+   "defect": 1,
+   "free": [
+    1
+   ],
+   "red": [
+    2
+   ],
+   "n_occ": 32,
+   "C": 352716,
+   "G2": 8192.174595042816,
+   "occupancy": 0.5,
+   "conn": true,
+   "pred_occ": 0.5,
+   "G2_lb": 8192,
+   "dimD_minus_w0": -1,
+   "tag": "F64-firstN@R3",
+   "pinned_ok": true
+  },
+  {
+   "q": 32,
+   "p": 2,
+   "k": 5,
+   "R": 3,
+   "N": 15,
+   "a": 7,
+   "signed": false,
+   "dimVT": 5,
+   "dimD": 4,
+   "flat": 6,
+   "w0": 5,
+   "Wc": 32,
+   "index": 1024,
+   "defect": 1,
+   "free": [
+    1
+   ],
+   "red": [
+    2
+   ],
+   "n_occ": 16,
+   "C": 6435,
+   "G2": 2048.908783006685,
+   "occupancy": 0.5,
+   "conn": true,
+   "pred_occ": 0.5,
+   "G2_lb": 2048,
+   "dimD_minus_w0": -1,
+   "tag": "F32-1HP@R3",
+   "pinned_ok": true
+  },
+  {
+   "q": 32,
+   "p": 2,
+   "k": 5,
+   "R": 3,
+   "N": 7,
+   "a": 3,
+   "signed": false,
+   "dimVT": 4,
+   "dimD": 3,
+   "flat": 6,
+   "w0": 5,
+   "Wc": 32,
+   "index": 1024,
+   "defect": 2,
+   "free": [
+    1
+   ],
+   "red": [
+    2
+   ],
+   "n_occ": 8,
+   "C": 35,
+   "G2": 4306.651428571428,
+   "occupancy": 0.25,
+   "conn": true,
+   "pred_occ": 0.25,
+   "G2_lb": 4096,
+   "dimD_minus_w0": -2,
+   "tag": "F32-2HP@R3",
+   "pinned_ok": true
+  },
+  {
+   "q": 64,
+   "p": 2,
+   "k": 6,
+   "R": 3,
+   "N": 15,
+   "a": 7,
+   "signed": false,
+   "dimVT": 5,
+   "dimD": 4,
+   "flat": 7,
+   "w0": 6,
+   "Wc": 64,
+   "index": 4096,
+   "defect": 2,
+   "free": [
+    1
+   ],
+   "red": [
+    2
+   ],
+   "n_occ": 16,
+   "C": 6435,
+   "G2": 16391.27026405348,
+   "occupancy": 0.25,
+   "conn": true,
+   "pred_occ": 0.25,
+   "G2_lb": 16384,
+   "dimD_minus_w0": -2,
+   "tag": "F64-2HP@R3",
+   "pinned_ok": true
+  },
+  {
+   "q": 27,
+   "p": 3,
+   "k": 3,
+   "R": 3,
+   "N": 8,
+   "a": 4,
+   "signed": true,
+   "dimVT": 6,
+   "dimD": 6,
+   "flat": 7,
+   "w0": 7,
+   "Wc": 2187,
+   "index": 9,
+   "defect": 1,
+   "free": [
+    1,
+    2
+   ],
+   "red": [],
+   "n_occ": 656,
+   "C": 1120,
+   "G2": 38.9140943877551,
+   "occupancy": 0.29995427526291724,
+   "conn": false,
+   "pred_occ": 0.3333333333333333,
+   "G2_lb": 27,
+   "dimD_minus_w0": -1,
+   "tag": "S27-1HP@R3-connFAILS",
+   "pinned_ok": null
+  }
+ ],
+ "threshold": [
+  {
+   "name": "U-F16@R3:N10",
+   "q": 16,
+   "R": 3,
+   "N": 10,
+   "dimD": 4,
+   "signed": false,
+   "full_a": [
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "band_lo": 3,
+   "band_hi": 7
+  },
+  {
+   "name": "U-F16@R4:N12-hole",
+   "q": 16,
+   "R": 4,
+   "N": 12,
+   "dimD": 8,
+   "signed": false,
+   "full_a": [
+    5,
+    7
+   ],
+   "band_lo": 5,
+   "band_hi": 7
+  },
+  {
+   "name": "U-F8@R3:N7",
+   "q": 8,
+   "R": 3,
+   "N": 7,
+   "dimD": 3,
+   "signed": false,
+   "full_a": [
+    3,
+    4
+   ],
+   "band_lo": 3,
+   "band_hi": 4
+  },
+  {
+   "name": "S-F27@R3:N10",
+   "q": 27,
+   "R": 3,
+   "N": 10,
+   "dimD": 7,
+   "signed": true,
+   "full_a": [
+    6,
+    7,
+    8
+   ],
+   "band_lo": 6,
+   "band_hi": 8
+  },
+  {
+   "name": "S-F27@R3:N11",
+   "q": 27,
+   "R": 3,
+   "N": 11,
+   "dimD": 7,
+   "signed": true,
+   "full_a": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "band_lo": 5,
+   "band_hi": 10
+  }
+ ],
+ "pinned": {
+  "F64_firstN_functional": "ell(s)=Tr(s_1); T=firstN(21) subset {Tr(t)=0}",
+  "m2_realized": true,
+  "m2_occ": 0.25,
+  "F32_2HP_mus": [
+   1,
+   2
+  ],
+  "F64_2HP_mus": [
+   1,
+   2
+  ]
+ },
+ "obstruction": {
+  "bound": "Gamma_2 >= index * p^defect",
+  "uses": "containment only (no surjection)"
+ },
+ "provenance": {
+  "atom_line": 827,
+  "escape_clause_line": 828,
+  "removal_list_line": 839,
+  "alt_a_line": 862,
+  "alt_b_line": 863,
+  "vandermonde_line": 876,
+  "fourier_flat_line": 896
+ }
+}

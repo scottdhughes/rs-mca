@@ -1,0 +1,89 @@
+{
+ "_note": "Claim II: the frontier normalization log|Omega'|-R log|K|=o(N) cannot hold as printed with T subset K (|K|>=N) and R asymp N: the offset is -Theta(N log N) = -omega(N). Finite toys sit ON the balance R*=log|Omega|/log q with offsets straddling 0.",
+ "_provenance": {
+  "file": "experimental/grande_finale.tex",
+  "atom_line": 827,
+  "escape_clause_line": 828,
+  "removal_list_line": 839,
+  "normalization_line": 840,
+  "alt_a_line": 862,
+  "alt_b_line": 863
+ },
+ "tension": {
+  "kappa": 0.25,
+  "instances": [
+   {
+    "N": 100,
+    "max_log_Omega": 109.86122886681098,
+    "min_R_logK": 115.12925464970229,
+    "max_norm_value": -5.268025782891314,
+    "max_norm_over_N": -0.05268025782891314
+   },
+   {
+    "N": 1000,
+    "max_log_Omega": 1098.6122886681098,
+    "min_R_logK": 1726.9388197455341,
+    "max_norm_value": -628.3265310774243,
+    "max_norm_over_N": -0.6283265310774243
+   },
+   {
+    "N": 10000,
+    "max_log_Omega": 10986.122886681098,
+    "min_R_logK": 23025.850929940458,
+    "max_norm_value": -12039.72804325936,
+    "max_norm_over_N": -1.203972804325936
+   },
+   {
+    "N": 100000,
+    "max_log_Omega": 109861.22886681098,
+    "min_R_logK": 287823.13662425574,
+    "max_norm_value": -177961.90775744477,
+    "max_norm_over_N": -1.7796190775744478
+   }
+  ],
+  "order_of_failure": "-Theta(N log N)",
+  "needed_for_o_N": "R log|K| = log|Omega'| + o(N) = O(N), impossible since R log|K| >= kappa N log N = omega(N)"
+ },
+ "two_repairs": [
+  "(A) two-field reading: the moment columns live in a POINT field E>=N (cf. def:fourier-flat-prefix-leaf, T subset E, Psi(M) in E^w); the normalization |K| is the FIXED base field B with log|B|=O(1) (bytes). The single symbol K conflates E (>=N) with B (O(1)); thm:logmoment-equivalence's analog log C(n,m)-w log|B|=o(n) forces w asymp n only when log|B|=O(1).",
+  "(B) one-field reading: keep one K but replace 'R asymp N' by 'R log|K| asymp N', i.e. R=Theta(N/log|K|)=o(N). Then |Omega'| ~ |K|^R=exp(Theta(N))<=3^N is achievable and the printed normalization holds; the over-strong clause is 'R asymp N'."
+ ],
+ "balance": [
+  {
+   "name": "S27",
+   "q": 27,
+   "Rstar": 3.942224464610502,
+   "balance_R": 4,
+   "offset_bits": -0.2747161711543278
+  },
+  {
+   "name": "U16",
+   "q": 16,
+   "Rstar": 3.162931108277016,
+   "balance_R": 3,
+   "offset_bits": 0.6517244331080647
+  },
+  {
+   "name": "S49",
+   "q": 49,
+   "Rstar": 3.3385222670314927,
+   "balance_R": 3,
+   "offset_bits": 1.9007043051539192
+  },
+  {
+   "name": "U64",
+   "q": 64,
+   "Rstar": 2.5948770454860153,
+   "balance_R": 3,
+   "offset_bits": -2.4307377270839083
+  },
+  {
+   "name": "S25",
+   "q": 25,
+   "Rstar": 3.605803701322595,
+   "balance_R": 4,
+   "offset_bits": -1.8305909215993523
+  }
+ ],
+ "span_cell_mandatoriness": "The span cell is asymptotically mandatory exactly when |K|=O(1) and R asymp N (reading (A)'s bounded base field B, or the |K|=O(1) branch of (B)): then #red={j in [1,R): p|j} = Theta(N), index = |K|^#red = exp(Theta(N)), and Gamma_ell is inflated by index^{ell-1} = exp(Theta(N ell)) -- the atom's own trigger exp(eta N ell). Under the |K|->inf, R=o(N) branch the index is |K|^{o(N)} and the cell may be sub-exponential."
+}

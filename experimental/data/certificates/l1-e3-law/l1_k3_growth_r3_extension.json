@@ -1,0 +1,1013 @@
+{
+ "_provenance": {
+  "what": "standalone r3 refinement of the integrated k3 growth-refutation packet: ell=23 late-record STABILIZATION, ell=29/31 deepening, record-process/search-depth confound, candidate-growth-law route-cuts",
+  "date": "2026-07-08",
+  "integrated_base": {
+   "note": "experimental/notes/l1/l1_k3_growth_refutation.md (integrated e83962ae, was PR #410) -- NOT modified by this packet",
+   "scan_json": "experimental/data/certificates/l1-e3-law/l1_k3_growth_r2_scan.json (integrated e83962ae, was PR #410; 180 rows -- NOT modified by this packet)",
+   "verifier": "experimental/scripts/verify_l1_k3_growth_refutation.py (integrated; its gauge_max_k3 is the independent cross-check engine used here)"
+  },
+  "supersedes_citation": "the ell=23 'empirical max k3 = 5' entry in experimental/notes/l1/l1_m19_pin_excess3_atlas.md sec 5/6 (integrated e83962ae, was PR #399): the exhaustive-gauge sup is 7 (late record at p=1657, now STABILIZED). That note's H_19 hypothesis / spine / conditional theorem are UNAFFECTED.",
+  "method": "exhaustive-up-to-rotation-gauge max k3, night_r2 scan_lib.py engine (same as the integrated R2 grid). Every new k3 independently re-verified via the integrated verifier's gauge_max_k3 (a genuinely distinct engine: discrete-log coset labels + polynomial long division): 31/31 rows MATCH, 0 mismatch. Lane's 3 spot points (23,4463)->5, (29,2437)->5, (29,3307)->5 reproduced.",
+  "row_status_counts": {
+   "new_to_repo": 24,
+   "reconfirms_integrated": 7,
+   "total": 31
+  },
+  "tri_note": "tri = a winning drop-exponent orbit rep in scan_lib's generator convention (as all integrated rows); non-canonical (alternate maximizers exist); the load-bearing verified quantity is k3 (the exhaustive-gauge MAX).",
+  "schema_rows": "ell, n, p, k3 (=exhaustive-gauge max), tri, sec (wall seconds), status"
+ },
+ "rows": [
+  {
+   "ell": 23,
+   "n": 84,
+   "p": 1933,
+   "k3": 5,
+   "tri": [
+    0,
+    1,
+    4
+   ],
+   "sec": 6.92,
+   "status": "reconfirms-integrated"
+  },
+  {
+   "ell": 23,
+   "n": 86,
+   "p": 1979,
+   "k3": 5,
+   "tri": [
+    0,
+    1,
+    9
+   ],
+   "sec": 7.47,
+   "status": "reconfirms-integrated"
+  },
+  {
+   "ell": 23,
+   "n": 102,
+   "p": 2347,
+   "k3": 5,
+   "tri": [
+    0,
+    1,
+    7
+   ],
+   "sec": 8.74,
+   "status": "reconfirms-integrated"
+  },
+  {
+   "ell": 23,
+   "n": 104,
+   "p": 2393,
+   "k3": 5,
+   "tri": [
+    0,
+    1,
+    8
+   ],
+   "sec": 9.42,
+   "status": "reconfirms-integrated"
+  },
+  {
+   "ell": 23,
+   "n": 110,
+   "p": 2531,
+   "k3": 5,
+   "tri": [
+    0,
+    1,
+    9
+   ],
+   "sec": 9.77,
+   "status": "reconfirms-integrated"
+  },
+  {
+   "ell": 23,
+   "n": 132,
+   "p": 3037,
+   "k3": 4,
+   "tri": [
+    0,
+    1,
+    9
+   ],
+   "sec": 11.48,
+   "status": "reconfirms-integrated"
+  },
+  {
+   "ell": 23,
+   "n": 134,
+   "p": 3083,
+   "k3": 5,
+   "tri": [
+    0,
+    1,
+    4
+   ],
+   "sec": 11.89,
+   "status": "reconfirms-integrated"
+  },
+  {
+   "ell": 23,
+   "n": 140,
+   "p": 3221,
+   "k3": 5,
+   "tri": [
+    0,
+    1,
+    6
+   ],
+   "sec": 12.93,
+   "status": "new"
+  },
+  {
+   "ell": 23,
+   "n": 144,
+   "p": 3313,
+   "k3": 5,
+   "tri": [
+    0,
+    1,
+    8
+   ],
+   "sec": 13.51,
+   "status": "new"
+  },
+  {
+   "ell": 23,
+   "n": 146,
+   "p": 3359,
+   "k3": 4,
+   "tri": [
+    0,
+    1,
+    8
+   ],
+   "sec": 13.63,
+   "status": "new"
+  },
+  {
+   "ell": 23,
+   "n": 162,
+   "p": 3727,
+   "k3": 5,
+   "tri": [
+    0,
+    1,
+    3
+   ],
+   "sec": 14.89,
+   "status": "new"
+  },
+  {
+   "ell": 23,
+   "n": 170,
+   "p": 3911,
+   "k3": 5,
+   "tri": [
+    0,
+    1,
+    4
+   ],
+   "sec": 16.43,
+   "status": "new"
+  },
+  {
+   "ell": 23,
+   "n": 174,
+   "p": 4003,
+   "k3": 5,
+   "tri": [
+    0,
+    1,
+    7
+   ],
+   "sec": 16.69,
+   "status": "new"
+  },
+  {
+   "ell": 23,
+   "n": 176,
+   "p": 4049,
+   "k3": 5,
+   "tri": [
+    0,
+    1,
+    8
+   ],
+   "sec": 17.9,
+   "status": "new"
+  },
+  {
+   "ell": 23,
+   "n": 194,
+   "p": 4463,
+   "k3": 5,
+   "tri": [
+    0,
+    2,
+    5
+   ],
+   "sec": 19.45,
+   "status": "new"
+  },
+  {
+   "ell": 29,
+   "n": 84,
+   "p": 2437,
+   "k3": 5,
+   "tri": [
+    0,
+    1,
+    4
+   ],
+   "sec": 27.12,
+   "status": "new"
+  },
+  {
+   "ell": 29,
+   "n": 98,
+   "p": 2843,
+   "k3": 5,
+   "tri": [
+    0,
+    1,
+    3
+   ],
+   "sec": 31.57,
+   "status": "new"
+  },
+  {
+   "ell": 29,
+   "n": 110,
+   "p": 3191,
+   "k3": 5,
+   "tri": [
+    0,
+    1,
+    5
+   ],
+   "sec": 37.0,
+   "status": "new"
+  },
+  {
+   "ell": 29,
+   "n": 114,
+   "p": 3307,
+   "k3": 5,
+   "tri": [
+    0,
+    1,
+    10
+   ],
+   "sec": 37.99,
+   "status": "new"
+  },
+  {
+   "ell": 29,
+   "n": 122,
+   "p": 3539,
+   "k3": 5,
+   "tri": [
+    0,
+    1,
+    9
+   ],
+   "sec": 44.77,
+   "status": "new"
+  },
+  {
+   "ell": 29,
+   "n": 138,
+   "p": 4003,
+   "k3": 7,
+   "tri": [
+    0,
+    2,
+    6
+   ],
+   "sec": 54.62,
+   "status": "new"
+  },
+  {
+   "ell": 29,
+   "n": 144,
+   "p": 4177,
+   "k3": 5,
+   "tri": [
+    0,
+    1,
+    12
+   ],
+   "sec": 60.51,
+   "status": "new"
+  },
+  {
+   "ell": 29,
+   "n": 152,
+   "p": 4409,
+   "k3": 5,
+   "tri": [
+    0,
+    1,
+    11
+   ],
+   "sec": 63.18,
+   "status": "new"
+  },
+  {
+   "ell": 29,
+   "n": 158,
+   "p": 4583,
+   "k3": 5,
+   "tri": [
+    0,
+    1,
+    4
+   ],
+   "sec": 73.25,
+   "status": "new"
+  },
+  {
+   "ell": 31,
+   "n": 22,
+   "p": 683,
+   "k3": 7,
+   "tri": [
+    0,
+    2,
+    5
+   ],
+   "sec": 12.79,
+   "status": "new"
+  },
+  {
+   "ell": 31,
+   "n": 36,
+   "p": 1117,
+   "k3": 5,
+   "tri": [
+    0,
+    1,
+    14
+   ],
+   "sec": 22.19,
+   "status": "new"
+  },
+  {
+   "ell": 31,
+   "n": 42,
+   "p": 1303,
+   "k3": 6,
+   "tri": [
+    0,
+    1,
+    5
+   ],
+   "sec": 19.54,
+   "status": "new"
+  },
+  {
+   "ell": 31,
+   "n": 46,
+   "p": 1427,
+   "k3": 6,
+   "tri": [
+    0,
+    1,
+    15
+   ],
+   "sec": 18.94,
+   "status": "new"
+  },
+  {
+   "ell": 31,
+   "n": 48,
+   "p": 1489,
+   "k3": 7,
+   "tri": [
+    0,
+    2,
+    6
+   ],
+   "sec": 19.64,
+   "status": "new"
+  },
+  {
+   "ell": 31,
+   "n": 52,
+   "p": 1613,
+   "k3": 7,
+   "tri": [
+    0,
+    2,
+    14
+   ],
+   "sec": 26.4,
+   "status": "new"
+  },
+  {
+   "ell": 31,
+   "n": 60,
+   "p": 1861,
+   "k3": 6,
+   "tri": [
+    0,
+    1,
+    12
+   ],
+   "sec": 32.84,
+   "status": "new"
+  }
+ ],
+ "by_ell": {
+  "23": [
+   {
+    "ell": 23,
+    "n": 84,
+    "p": 1933,
+    "k3": 5,
+    "tri": [
+     0,
+     1,
+     4
+    ],
+    "sec": 6.92,
+    "status": "reconfirms-integrated"
+   },
+   {
+    "ell": 23,
+    "n": 86,
+    "p": 1979,
+    "k3": 5,
+    "tri": [
+     0,
+     1,
+     9
+    ],
+    "sec": 7.47,
+    "status": "reconfirms-integrated"
+   },
+   {
+    "ell": 23,
+    "n": 102,
+    "p": 2347,
+    "k3": 5,
+    "tri": [
+     0,
+     1,
+     7
+    ],
+    "sec": 8.74,
+    "status": "reconfirms-integrated"
+   },
+   {
+    "ell": 23,
+    "n": 104,
+    "p": 2393,
+    "k3": 5,
+    "tri": [
+     0,
+     1,
+     8
+    ],
+    "sec": 9.42,
+    "status": "reconfirms-integrated"
+   },
+   {
+    "ell": 23,
+    "n": 110,
+    "p": 2531,
+    "k3": 5,
+    "tri": [
+     0,
+     1,
+     9
+    ],
+    "sec": 9.77,
+    "status": "reconfirms-integrated"
+   },
+   {
+    "ell": 23,
+    "n": 132,
+    "p": 3037,
+    "k3": 4,
+    "tri": [
+     0,
+     1,
+     9
+    ],
+    "sec": 11.48,
+    "status": "reconfirms-integrated"
+   },
+   {
+    "ell": 23,
+    "n": 134,
+    "p": 3083,
+    "k3": 5,
+    "tri": [
+     0,
+     1,
+     4
+    ],
+    "sec": 11.89,
+    "status": "reconfirms-integrated"
+   },
+   {
+    "ell": 23,
+    "n": 140,
+    "p": 3221,
+    "k3": 5,
+    "tri": [
+     0,
+     1,
+     6
+    ],
+    "sec": 12.93,
+    "status": "new"
+   },
+   {
+    "ell": 23,
+    "n": 144,
+    "p": 3313,
+    "k3": 5,
+    "tri": [
+     0,
+     1,
+     8
+    ],
+    "sec": 13.51,
+    "status": "new"
+   },
+   {
+    "ell": 23,
+    "n": 146,
+    "p": 3359,
+    "k3": 4,
+    "tri": [
+     0,
+     1,
+     8
+    ],
+    "sec": 13.63,
+    "status": "new"
+   },
+   {
+    "ell": 23,
+    "n": 162,
+    "p": 3727,
+    "k3": 5,
+    "tri": [
+     0,
+     1,
+     3
+    ],
+    "sec": 14.89,
+    "status": "new"
+   },
+   {
+    "ell": 23,
+    "n": 170,
+    "p": 3911,
+    "k3": 5,
+    "tri": [
+     0,
+     1,
+     4
+    ],
+    "sec": 16.43,
+    "status": "new"
+   },
+   {
+    "ell": 23,
+    "n": 174,
+    "p": 4003,
+    "k3": 5,
+    "tri": [
+     0,
+     1,
+     7
+    ],
+    "sec": 16.69,
+    "status": "new"
+   },
+   {
+    "ell": 23,
+    "n": 176,
+    "p": 4049,
+    "k3": 5,
+    "tri": [
+     0,
+     1,
+     8
+    ],
+    "sec": 17.9,
+    "status": "new"
+   },
+   {
+    "ell": 23,
+    "n": 194,
+    "p": 4463,
+    "k3": 5,
+    "tri": [
+     0,
+     2,
+     5
+    ],
+    "sec": 19.45,
+    "status": "new"
+   }
+  ],
+  "29": [
+   {
+    "ell": 29,
+    "n": 84,
+    "p": 2437,
+    "k3": 5,
+    "tri": [
+     0,
+     1,
+     4
+    ],
+    "sec": 27.12,
+    "status": "new"
+   },
+   {
+    "ell": 29,
+    "n": 98,
+    "p": 2843,
+    "k3": 5,
+    "tri": [
+     0,
+     1,
+     3
+    ],
+    "sec": 31.57,
+    "status": "new"
+   },
+   {
+    "ell": 29,
+    "n": 110,
+    "p": 3191,
+    "k3": 5,
+    "tri": [
+     0,
+     1,
+     5
+    ],
+    "sec": 37.0,
+    "status": "new"
+   },
+   {
+    "ell": 29,
+    "n": 114,
+    "p": 3307,
+    "k3": 5,
+    "tri": [
+     0,
+     1,
+     10
+    ],
+    "sec": 37.99,
+    "status": "new"
+   },
+   {
+    "ell": 29,
+    "n": 122,
+    "p": 3539,
+    "k3": 5,
+    "tri": [
+     0,
+     1,
+     9
+    ],
+    "sec": 44.77,
+    "status": "new"
+   },
+   {
+    "ell": 29,
+    "n": 138,
+    "p": 4003,
+    "k3": 7,
+    "tri": [
+     0,
+     2,
+     6
+    ],
+    "sec": 54.62,
+    "status": "new"
+   },
+   {
+    "ell": 29,
+    "n": 144,
+    "p": 4177,
+    "k3": 5,
+    "tri": [
+     0,
+     1,
+     12
+    ],
+    "sec": 60.51,
+    "status": "new"
+   },
+   {
+    "ell": 29,
+    "n": 152,
+    "p": 4409,
+    "k3": 5,
+    "tri": [
+     0,
+     1,
+     11
+    ],
+    "sec": 63.18,
+    "status": "new"
+   },
+   {
+    "ell": 29,
+    "n": 158,
+    "p": 4583,
+    "k3": 5,
+    "tri": [
+     0,
+     1,
+     4
+    ],
+    "sec": 73.25,
+    "status": "new"
+   }
+  ],
+  "31": [
+   {
+    "ell": 31,
+    "n": 22,
+    "p": 683,
+    "k3": 7,
+    "tri": [
+     0,
+     2,
+     5
+    ],
+    "sec": 12.79,
+    "status": "new"
+   },
+   {
+    "ell": 31,
+    "n": 36,
+    "p": 1117,
+    "k3": 5,
+    "tri": [
+     0,
+     1,
+     14
+    ],
+    "sec": 22.19,
+    "status": "new"
+   },
+   {
+    "ell": 31,
+    "n": 42,
+    "p": 1303,
+    "k3": 6,
+    "tri": [
+     0,
+     1,
+     5
+    ],
+    "sec": 19.54,
+    "status": "new"
+   },
+   {
+    "ell": 31,
+    "n": 46,
+    "p": 1427,
+    "k3": 6,
+    "tri": [
+     0,
+     1,
+     15
+    ],
+    "sec": 18.94,
+    "status": "new"
+   },
+   {
+    "ell": 31,
+    "n": 48,
+    "p": 1489,
+    "k3": 7,
+    "tri": [
+     0,
+     2,
+     6
+    ],
+    "sec": 19.64,
+    "status": "new"
+   },
+   {
+    "ell": 31,
+    "n": 52,
+    "p": 1613,
+    "k3": 7,
+    "tri": [
+     0,
+     2,
+     14
+    ],
+    "sec": 26.4,
+    "status": "new"
+   },
+   {
+    "ell": 31,
+    "n": 60,
+    "p": 1861,
+    "k3": 6,
+    "tri": [
+     0,
+     1,
+     12
+    ],
+    "sec": 32.84,
+    "status": "new"
+   }
+  ]
+ },
+ "record_stabilization_ell23": {
+  "record": {
+   "n": 72,
+   "p": 1657,
+   "k3": 7
+  },
+  "integrated_caution_quoted": "l1_k3_growth_refutation.md sec 2: \"set at the LARGEST prime R2 tested for that ell -- a late record\"; sec 3A: \"ell = 23's record arrives at its LARGEST tested prime (p = 1657 ...) and drops back to 5 at the very next prime\", \"the right object is sup over p, and it remains OPEN at every ell\", \"late records are possible at any ell\".",
+  "resolution": "extended 21 -> 29 exhaustive primes (p up to 4463); the 15 primes with n>72 all give k3<=5, so the record is STABILIZED-in-range -- a converged sup lower bound, not open-ended.",
+  "primes_past_record": 15,
+  "max_k3_past_record": 5,
+  "deepest_p": 4463
+ },
+ "ell29_deepening": {
+  "from_primes": 12,
+  "to_primes": 21,
+  "max_k3": 7,
+  "k3_eq_7_at_n": [
+   8,
+   44,
+   68,
+   138
+  ],
+  "note": "k3=7 recurs a 4th time at n=138 (p=4003); no new record"
+ },
+ "ell31_grid": {
+  "r3_primes_n": [
+   22,
+   36,
+   42,
+   46,
+   48,
+   52,
+   60
+  ],
+  "k3_sequence": [
+   7,
+   5,
+   6,
+   6,
+   7,
+   7,
+   6
+  ],
+  "k3_eq_7_at_n": [
+   22,
+   48,
+   52
+  ],
+  "max_k3": 7,
+  "note": "new grid (ell=31 absent from the integrated scan JSON); + integrated build-time n=10,12 (both 7) => 9 distinct primes. k3=7 recurs at n=48,52."
+ },
+ "record_process_confound": {
+  "finding": "search depth and 'record stabilized' status are near-perfectly confounded",
+  "shallow_open_ended_ells": [
+   37,
+   41,
+   47,
+   59,
+   61,
+   67,
+   71,
+   73
+  ],
+  "deep_stabilizing_ells_nprimes": {
+   "17": 44,
+   "19": 80,
+   "23": 29,
+   "29": 21,
+   "43": 9,
+   "53": 6
+  },
+  "implication": "MEASURED, not interpretive: every ell tested at 1-3 primes has its record at its last tested point (open-ended by construction); the apparent ell=37..73 plateau near k3=9 is UNMEASURED, not deceleration."
+ },
+ "candidate_law_route_cuts": {
+  "base_table_ell_maxk3": [
+   [
+    11,
+    4
+   ],
+   [
+    13,
+    4
+   ],
+   [
+    17,
+    7
+   ],
+   [
+    19,
+    6
+   ],
+   [
+    23,
+    7
+   ],
+   [
+    29,
+    7
+   ],
+   [
+    31,
+    7
+   ],
+   [
+    37,
+    7
+   ],
+   [
+    41,
+    7
+   ],
+   [
+    43,
+    8
+   ],
+   [
+    47,
+    7
+   ],
+   [
+    53,
+    11
+   ],
+   [
+    59,
+    9
+   ],
+   [
+    61,
+    9
+   ],
+   [
+    67,
+    9
+   ],
+   [
+    71,
+    9
+   ],
+   [
+    73,
+    9
+   ]
+  ],
+  "ceiling_formula": "floor((2*ell-5)/3)",
+  "A_constant_fraction_of_ceiling": {
+   "verdict": "DEAD",
+   "ratio_fall_factor": 4.18,
+   "ratio_ell11": "4/5",
+   "ratio_ell73": "9/47",
+   "well_searched_subset_ratios": {
+    "11": 0.8,
+    "17": 0.78,
+    "19": 0.55,
+    "23": 0.54,
+    "29": 0.41
+   }
+  },
+  "B_bounded_additive_gap": {
+   "verdict": "DEAD",
+   "gap_ell11": 1,
+   "gap_ell73": 38,
+   "gap_over_sqrt_ell_min": 0.3,
+   "gap_over_sqrt_ell_max": 4.45,
+   "gap_over_sqrt_ell_max_at_ell": 73,
+   "gap_over_sqrt_ell_at_ell71": 4.27,
+   "note": "additive restatement of the refuted O(1) cap; c*sqrt(ell) variant also dead (gap/sqrt(ell) climbs 15x)"
+  },
+  "C_sublinear_vs_log": {
+   "verdict": "OPEN",
+   "k3_over_sqrt_ell_spread": 1.66,
+   "k3_over_ln_ell_spread": 1.78,
+   "raw_k3_over_ell_spread": 3.34,
+   "divergence_ell_range": "150-300",
+   "note": "heuristic float normalization; both curves far flatter than the ceiling-ratio; indistinguishable below ell~150"
+  }
+ }
+}

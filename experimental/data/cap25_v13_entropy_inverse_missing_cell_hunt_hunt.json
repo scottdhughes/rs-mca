@@ -1,0 +1,2033 @@
+{
+ "_provenance": {
+  "atom": "prob:entropy-inverse-q",
+  "tex": "experimental/grande_finale.tex",
+  "escape_clause_line": 828,
+  "removal_list_line": 839,
+  "frontier_normalization_lines": "840-842",
+  "alternatives_lines": "861-867",
+  "sidon_freeenergy_dichotomy_line": 869,
+  "mass_aware_remark_lines": "966-968",
+  "cell_operational_pins": {
+   "quotient": "prop:sp-pullback L1189 ; lem:coeff-scale L1217",
+   "dihedral": "thm:near-rational L1350",
+   "planted_block": "thm:head-flatness L1095",
+   "diff_locator": "prop:vandermonde-kills-low-rank L876 (alt (b); toy R=w)"
+  },
+  "sibling": "PR #420 cap25_v13_entropy_inverse_toy_dichotomy (Lane 1 toy dichotomy instrumentation); conventions inherited",
+  "convention": {
+   "T_domain": "E=F_p ; T in {mu_n<F_p^*, AP, GP, coset-union, ...}",
+   "syndrome": "Psi(M)=(sum y,...,sum y^w) power sums (Newton-equiv to first-w locator coeffs, w<p)",
+   "R": "R=w (def:primitive-logmoment normalization)",
+   "Gamma_ell": "|K|^{R(ell-1)} sum_s N(s)^ell / C^ell , |K|=p , exact (Fraction)",
+   "excess_ratio": "Gamma_2 / ( p^w/C + (C-1)/C )  ; >>1 structure, ~1 random (same-size Poisson baseline)",
+   "excess_flag": "excess_ratio > 1.3",
+   "dyadic_level": "j = floor(log2(N(s)/mean)), mean=C/p^w ; above-random iff j>=0 ; popular iff N>=2*mean",
+   "ES_branch": "gap=H(Y-Y')-H(Y) <= DOUB_C*N  AND ES-guard(>=8 distinct trades and H(Y)>=1 bit)",
+   "FE_branch": "fe_slope <= -DECAY_C*N (mean d/dell log2 contrib_ell over ell in {2,4,8})",
+   "constants": {
+    "DOUB_C": 0.1,
+    "DECAY_C": 0.05,
+    "K_TOP": 64,
+    "P_CAP": 1200,
+    "LS_MULT": 2
+   },
+   "norm_side_condition": "gap = log2|Omega'| - w*log2(p) = o(N) ; norm_ok iff gap/N > -0.25",
+   "candidate": "excess AND any_ES AND not caught AND norm_ok  (ZERO found at every toy)"
+  }
+ },
+ "hunt": [
+  {
+   "name": "REF raw mu_16 @F17",
+   "meta": {
+    "cls": "reference"
+   },
+   "p": 17,
+   "N": 16,
+   "m": 8,
+   "w": 3,
+   "C_family": 12870,
+   "gamma": {
+    "2": 1.13768748388795,
+    "4": 1.9148628508259027,
+    "8": 13.1448820759936
+   },
+   "rho_max": 2.672183372183372,
+   "maxN": 7,
+   "n_occ": 4881,
+   "exp_G2_rand": 1.3816627816627818,
+   "excess_ratio": 0.8234190708378087,
+   "norm": {
+    "logOmega": 13.651724433108065,
+    "wlogp": 12.262388523751017,
+    "gap": 1.3893359093570474,
+    "gap_over_N": 0.08683349433481546
+   },
+   "norm_ok": true,
+   "levels": [
+    {
+     "j": 0,
+     "nfibers": 2712,
+     "pop_trades": 220,
+     "distinctA": 136,
+     "HY": 6.804924027996478,
+     "HYY": 13.14635535440712,
+     "doubling_gap": 6.3414313264106426,
+     "rel_doubling": 0.9318886295160744,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 0.5411445778259462,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.3090909090909091,
+     "trade_dihedral_frac": 0.2409090909090909
+    },
+    {
+     "j": 1,
+     "nfibers": 9,
+     "pop_trades": 53,
+     "distinctA": 48,
+     "HY": 5.539241209280178,
+     "HYY": 10.761987227714208,
+     "doubling_gap": 5.22274601843403,
+     "rel_doubling": 0.9428630783732785,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 1.4054941998663095,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.2830188679245283,
+     "trade_dihedral_frac": 0.37735849056603776
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.005666666666666667,
+    "dihedral_frac": 0.08316666666666667,
+    "planted_block": {
+     "caught": true,
+     "block_size": 1,
+     "block": [
+      0
+     ],
+     "ambient_size": 16,
+     "n_members": 6000
+    },
+    "n_sampled": 6000
+   },
+   "best_rel_doubling": 0.9318886295160744,
+   "any_ES": false,
+   "caught": [
+    "planted-block(1)"
+   ],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "H1 AP{0..15} @F31",
+   "meta": {
+    "cls": "hunt-AP-additive"
+   },
+   "p": 31,
+   "N": 16,
+   "m": 8,
+   "w": 3,
+   "C_family": 12870,
+   "gamma": {
+    "2": 3.0798758247709297,
+    "4": 47.622111247244376,
+    "8": 57722.23261960077
+   },
+   "rho_max": 9.25905205905206,
+   "maxN": 4,
+   "n_occ": 10911,
+   "exp_G2_rand": 3.314685314685315,
+   "excess_ratio": 0.9291608500891201,
+   "norm": {
+    "logOmega": 13.651724433108065,
+    "wlogp": 14.862588931160625,
+    "gap": -1.21086449805256,
+    "gap_over_N": -0.075679031128285
+   },
+   "norm_ok": true,
+   "levels": [
+    {
+     "j": 2,
+     "nfibers": 1791,
+     "pop_trades": 104,
+     "distinctA": 39,
+     "HY": 4.947613339238798,
+     "HYY": 9.616242433820503,
+     "doubling_gap": 4.668629094581704,
+     "rel_doubling": 0.9436123590248028,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 2.4385468678469118,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0,
+     "trade_dihedral_frac": 0.0
+    },
+    {
+     "j": 3,
+     "nfibers": 12,
+     "pop_trades": 36,
+     "distinctA": 23,
+     "HY": 4.326465890981193,
+     "HYY": 8.116734663933544,
+     "doubling_gap": 3.790268772952351,
+     "rel_doubling": 0.8760657932964223,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 3.210864498052562,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0,
+     "trade_dihedral_frac": 0.0
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.0,
+    "dihedral_frac": 0.0,
+    "planted_block": {
+     "caught": true,
+     "block_size": 1,
+     "block": [
+      0
+     ],
+     "ambient_size": 16,
+     "n_members": 6000
+    },
+    "n_sampled": 6000
+   },
+   "best_rel_doubling": 0.8760657932964223,
+   "any_ES": false,
+   "caught": [
+    "planted-block(1)"
+   ],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "H1 AP{0..17} @F37",
+   "meta": {
+    "cls": "hunt-AP-additive"
+   },
+   "p": 37,
+   "N": 18,
+   "m": 9,
+   "w": 3,
+   "C_family": 48620,
+   "gamma": {
+    "2": 2.090913549634241,
+    "4": 17.52367226127864,
+    "8": 6267.7228865912
+   },
+   "rho_max": 7.292698477992595,
+   "maxN": 7,
+   "n_occ": 30772,
+   "exp_G2_rand": 2.0417935006170302,
+   "excess_ratio": 1.02405730501266,
+   "norm": {
+    "logOmega": 15.569262272916092,
+    "wlogp": 15.628360096886851,
+    "gap": -0.05909782397075958,
+    "gap_over_N": -0.0032832124428199766
+   },
+   "norm_ok": true,
+   "levels": [
+    {
+     "j": 2,
+     "nfibers": 922,
+     "pop_trades": 300,
+     "distinctA": 158,
+     "HY": 7.027592649669859,
+     "HYY": 13.505991439151929,
+     "doubling_gap": 6.47839878948207,
+     "rel_doubling": 0.921851779469092,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 2.3170547401052484,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0,
+     "trade_dihedral_frac": 0.0
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.0,
+    "dihedral_frac": 0.0,
+    "planted_block": {
+     "caught": true,
+     "block_size": 2,
+     "block": [
+      0,
+      1
+     ],
+     "ambient_size": 18,
+     "n_members": 6000
+    },
+    "n_sampled": 6000
+   },
+   "best_rel_doubling": 0.921851779469092,
+   "any_ES": false,
+   "caught": [
+    "planted-block(2)"
+   ],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "H1 AP{0..11} @F31",
+   "meta": {
+    "cls": "hunt-AP-additive"
+   },
+   "p": 31,
+   "N": 12,
+   "m": 6,
+   "w": 2,
+   "C_family": 924,
+   "gamma": {
+    "2": 2.1498730346132944,
+    "4": 19.083679778950785,
+    "8": 5584.017309934245
+   },
+   "rho_max": 5.20021645021645,
+   "maxN": 5,
+   "n_occ": 575,
+   "exp_G2_rand": 2.038961038961039,
+   "excess_ratio": 1.0543963290778577,
+   "norm": {
+    "logOmega": 9.851749041416058,
+    "wlogp": 9.90839262077375,
+    "gap": -0.05664357935769182,
+    "gap_over_N": -0.004720298279807651
+   },
+   "norm_ok": true,
+   "levels": [
+    {
+     "j": 1,
+     "nfibers": 217,
+     "pop_trades": 80,
+     "distinctA": 36,
+     "HY": 4.874347315227057,
+     "HYY": 9.209119668743156,
+     "doubling_gap": 4.334772353516099,
+     "rel_doubling": 0.8893031360269773,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 1.463799614346578,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 6,
+     "bch": 6,
+     "vdm_rank": 2,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0,
+     "trade_dihedral_frac": 0.0
+    },
+    {
+     "j": 2,
+     "nfibers": 24,
+     "pop_trades": 78,
+     "distinctA": 35,
+     "HY": 4.904009834735911,
+     "HYY": 9.023197758164937,
+     "doubling_gap": 4.119187923429026,
+     "rel_doubling": 0.839963226470742,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 2.218935072582466,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 6,
+     "bch": 6,
+     "vdm_rank": 2,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0,
+     "trade_dihedral_frac": 0.0
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.0,
+    "dihedral_frac": 0.007575757575757576,
+    "planted_block": {
+     "caught": false,
+     "block_size": 0,
+     "block": [],
+     "ambient_size": 12,
+     "n_members": 924
+    },
+    "n_sampled": 924
+   },
+   "best_rel_doubling": 0.839963226470742,
+   "any_ES": false,
+   "caught": [],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "H1c centered-AP @F31",
+   "meta": {
+    "cls": "hunt-AP-centered"
+   },
+   "p": 31,
+   "N": 16,
+   "m": 8,
+   "w": 3,
+   "C_family": 12870,
+   "gamma": {
+    "2": 3.0798758247709297,
+    "4": 47.622111247244376,
+    "8": 57722.23261960077
+   },
+   "rho_max": 9.25905205905206,
+   "maxN": 4,
+   "n_occ": 10911,
+   "exp_G2_rand": 3.314685314685315,
+   "excess_ratio": 0.9291608500891201,
+   "norm": {
+    "logOmega": 13.651724433108065,
+    "wlogp": 14.862588931160625,
+    "gap": -1.21086449805256,
+    "gap_over_N": -0.075679031128285
+   },
+   "norm_ok": true,
+   "levels": [
+    {
+     "j": 2,
+     "nfibers": 1791,
+     "pop_trades": 104,
+     "distinctA": 33,
+     "HY": 4.657954947609024,
+     "HYY": 9.047377719764143,
+     "doubling_gap": 4.389422772155118,
+     "rel_doubling": 0.9423497697005966,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 2.4385468678469118,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.019230769230769232,
+     "trade_dihedral_frac": 0.0
+    },
+    {
+     "j": 3,
+     "nfibers": 12,
+     "pop_trades": 36,
+     "distinctA": 23,
+     "HY": 4.326465890981193,
+     "HYY": 8.116734663933544,
+     "doubling_gap": 3.790268772952351,
+     "rel_doubling": 0.8760657932964223,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 3.210864498052562,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.05555555555555555,
+     "trade_dihedral_frac": 0.0
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.0,
+    "dihedral_frac": 0.005166666666666667,
+    "planted_block": {
+     "caught": true,
+     "block_size": 1,
+     "block": [
+      0
+     ],
+     "ambient_size": 16,
+     "n_members": 6000
+    },
+    "n_sampled": 6000
+   },
+   "best_rel_doubling": 0.8760657932964223,
+   "any_ES": false,
+   "caught": [
+    "planted-block(1)"
+   ],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "H1b AP step2 @F31",
+   "meta": {
+    "cls": "hunt-AP-step2"
+   },
+   "p": 31,
+   "N": 16,
+   "m": 8,
+   "w": 3,
+   "C_family": 12870,
+   "gamma": {
+    "2": 3.0798758247709297,
+    "4": 47.622111247244376,
+    "8": 57722.23261960077
+   },
+   "rho_max": 9.25905205905206,
+   "maxN": 4,
+   "n_occ": 10911,
+   "exp_G2_rand": 3.314685314685315,
+   "excess_ratio": 0.9291608500891201,
+   "norm": {
+    "logOmega": 13.651724433108065,
+    "wlogp": 14.862588931160625,
+    "gap": -1.21086449805256,
+    "gap_over_N": -0.075679031128285
+   },
+   "norm_ok": true,
+   "levels": [
+    {
+     "j": 2,
+     "nfibers": 1791,
+     "pop_trades": 104,
+     "distinctA": 46,
+     "HY": 5.23502021819967,
+     "HYY": 10.192534347242887,
+     "doubling_gap": 4.957514129043217,
+     "rel_doubling": 0.9469904455780902,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 2.4385468678469118,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0,
+     "trade_dihedral_frac": 0.0
+    },
+    {
+     "j": 3,
+     "nfibers": 12,
+     "pop_trades": 36,
+     "distinctA": 23,
+     "HY": 4.326465890981193,
+     "HYY": 8.116734663933544,
+     "doubling_gap": 3.790268772952351,
+     "rel_doubling": 0.8760657932964223,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 3.210864498052562,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0,
+     "trade_dihedral_frac": 0.0
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.0,
+    "dihedral_frac": 0.0045,
+    "planted_block": {
+     "caught": true,
+     "block_size": 1,
+     "block": [
+      0
+     ],
+     "ambient_size": 16,
+     "n_members": 6000
+    },
+    "n_sampled": 6000
+   },
+   "best_rel_doubling": 0.8760657932964223,
+   "any_ES": false,
+   "caught": [
+    "planted-block(1)"
+   ],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "H2 Sidon|5| @F31",
+   "meta": {
+    "cls": "hunt-sidon",
+    "set": [
+     0,
+     1,
+     3,
+     7,
+     12
+    ]
+   },
+   "p": 31,
+   "N": 5,
+   "m": 3,
+   "w": 2,
+   "C_family": 10,
+   "gamma": {
+    "2": 96.1,
+    "4": 887503.681,
+    "8": 75694393522079.62
+   },
+   "rho_max": 96.1,
+   "maxN": 1,
+   "n_occ": 10,
+   "exp_G2_rand": 97.0,
+   "excess_ratio": 0.990721649484536,
+   "norm": {
+    "logOmega": 3.321928094887362,
+    "wlogp": 9.90839262077375,
+    "gap": -6.586464525886388,
+    "gap_over_N": -1.3172929051772777
+   },
+   "norm_ok": false,
+   "levels": [],
+   "supp_cells": {
+    "quotient_frac": 0.0,
+    "dihedral_frac": 0.0,
+    "planted_block": {
+     "caught": false,
+     "block_size": 0,
+     "block": [],
+     "ambient_size": 5,
+     "n_members": 10
+    },
+    "n_sampled": 10
+   },
+   "best_rel_doubling": null,
+   "any_ES": false,
+   "caught": [],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "H2 Sidon|5| @F37",
+   "meta": {
+    "cls": "hunt-sidon",
+    "set": [
+     0,
+     1,
+     3,
+     7,
+     12
+    ]
+   },
+   "p": 37,
+   "N": 5,
+   "m": 3,
+   "w": 2,
+   "C_family": 10,
+   "gamma": {
+    "2": 136.9,
+    "4": 2565726.409,
+    "8": 901206129599500.9
+   },
+   "rho_max": 136.9,
+   "maxN": 1,
+   "n_occ": 10,
+   "exp_G2_rand": 137.8,
+   "excess_ratio": 0.9934687953555877,
+   "norm": {
+    "logOmega": 3.321928094887362,
+    "wlogp": 10.4189067312579,
+    "gap": -7.0969786363705385,
+    "gap_over_N": -1.4193957272741078
+   },
+   "norm_ok": false,
+   "levels": [],
+   "supp_cells": {
+    "quotient_frac": 0.0,
+    "dihedral_frac": 0.1,
+    "planted_block": {
+     "caught": false,
+     "block_size": 0,
+     "block": [],
+     "ambient_size": 5,
+     "n_members": 10
+    },
+    "n_sampled": 10
+   },
+   "best_rel_doubling": null,
+   "any_ES": false,
+   "caught": [],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "H3 GP(g=3,|16|) @F31",
+   "meta": {
+    "cls": "hunt-GP"
+   },
+   "p": 31,
+   "N": 16,
+   "m": 8,
+   "w": 3,
+   "C_family": 12870,
+   "gamma": {
+    "2": 3.197502476803176,
+    "4": 55.73452286452022,
+    "8": 100458.78984529036
+   },
+   "rho_max": 11.573815073815075,
+   "maxN": 5,
+   "n_occ": 10666,
+   "exp_G2_rand": 3.314685314685315,
+   "excess_ratio": 0.9646473716937851,
+   "norm": {
+    "logOmega": 13.651724433108065,
+    "wlogp": 14.862588931160625,
+    "gap": -1.21086449805256,
+    "gap_over_N": -0.075679031128285
+   },
+   "norm_ok": true,
+   "levels": [
+    {
+     "j": 2,
+     "nfibers": 1958,
+     "pop_trades": 88,
+     "distinctA": 36,
+     "HY": 4.8038879764889755,
+     "HYY": 9.172842532256816,
+     "doubling_gap": 4.36895455576784,
+     "rel_doubling": 0.9094622058528901,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 2.47228836776076,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0,
+     "trade_dihedral_frac": 0.011363636363636364
+    },
+    {
+     "j": 3,
+     "nfibers": 20,
+     "pop_trades": 62,
+     "distinctA": 27,
+     "HY": 4.489777156847016,
+     "HYY": 8.342446977882378,
+     "doubling_gap": 3.852669821035362,
+     "rel_doubling": 0.8580982276948755,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 3.294565102365702,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0,
+     "trade_dihedral_frac": 0.016129032258064516
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.0,
+    "dihedral_frac": 0.017333333333333333,
+    "planted_block": {
+     "caught": true,
+     "block_size": 1,
+     "block": [
+      0
+     ],
+     "ambient_size": 16,
+     "n_members": 6000
+    },
+    "n_sampled": 6000
+   },
+   "best_rel_doubling": 0.8580982276948755,
+   "any_ES": false,
+   "caught": [
+    "planted-block(1)"
+   ],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "H3 GP(g=2,|18|) @F37",
+   "meta": {
+    "cls": "hunt-GP"
+   },
+   "p": 37,
+   "N": 18,
+   "m": 9,
+   "w": 3,
+   "C_family": 48620,
+   "gamma": {
+    "2": 2.02234495608198,
+    "4": 14.968739469875826,
+    "8": 3110.1239961662395
+   },
+   "rho_max": 6.250884409707939,
+   "maxN": 6,
+   "n_occ": 31382,
+   "exp_G2_rand": 2.0417935006170302,
+   "excess_ratio": 0.9904747740017917,
+   "norm": {
+    "logOmega": 15.569262272916092,
+    "wlogp": 15.628360096886851,
+    "gap": -0.05909782397075958,
+    "gap_over_N": -0.0032832124428199766
+   },
+   "norm_ok": true,
+   "levels": [
+    {
+     "j": 2,
+     "nfibers": 802,
+     "pop_trades": 260,
+     "distinctA": 130,
+     "HY": 6.653239566427343,
+     "HYY": 12.800653589649954,
+     "doubling_gap": 6.147414023222611,
+     "rel_doubling": 0.9239730452880189,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 2.176158301544824,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0,
+     "trade_dihedral_frac": 0.026923076923076925
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.0,
+    "dihedral_frac": 0.003,
+    "planted_block": {
+     "caught": true,
+     "block_size": 2,
+     "block": [
+      0,
+      1
+     ],
+     "ambient_size": 18,
+     "n_members": 6000
+    },
+    "n_sampled": 6000
+   },
+   "best_rel_doubling": 0.9239730452880189,
+   "any_ES": false,
+   "caught": [
+    "planted-block(2)"
+   ],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "H4 H3uH5 comp @F31",
+   "meta": {
+    "cls": "hunt-composite",
+    "h1": 3,
+    "h2": 5
+   },
+   "p": 31,
+   "N": 8,
+   "m": 4,
+   "w": 2,
+   "C_family": 70,
+   "gamma": {
+    "2": 13.728571428571428,
+    "4": 2587.4742886297377,
+    "8": 91913104.13916412
+   },
+   "rho_max": 13.728571428571428,
+   "maxN": 1,
+   "n_occ": 70,
+   "exp_G2_rand": 14.714285714285714,
+   "excess_ratio": 0.933009708737864,
+   "norm": {
+    "logOmega": 6.129283016944966,
+    "wlogp": 9.90839262077375,
+    "gap": -3.7791096038287835,
+    "gap_over_N": -0.47238870047859793
+   },
+   "norm_ok": false,
+   "levels": [],
+   "supp_cells": {
+    "quotient_frac": 0.0,
+    "dihedral_frac": 0.14285714285714285,
+    "planted_block": {
+     "caught": false,
+     "block_size": 0,
+     "block": [],
+     "ambient_size": 8,
+     "n_members": 70
+    },
+    "n_sampled": 70
+   },
+   "best_rel_doubling": null,
+   "any_ES": false,
+   "caught": [],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "H4 H4uH3 comp @F37",
+   "meta": {
+    "cls": "hunt-composite",
+    "h1": 4,
+    "h2": 3
+   },
+   "p": 37,
+   "N": 7,
+   "m": 4,
+   "w": 2,
+   "C_family": 35,
+   "gamma": {
+    "2": 39.114285714285714,
+    "4": 59842.015370262394,
+    "8": 140070870116.96548
+   },
+   "rho_max": 39.114285714285714,
+   "maxN": 1,
+   "n_occ": 35,
+   "exp_G2_rand": 40.08571428571428,
+   "excess_ratio": 0.9757662152530293,
+   "norm": {
+    "logOmega": 5.129283016944966,
+    "wlogp": 10.4189067312579,
+    "gap": -5.289623714312934,
+    "gap_over_N": -0.7556605306161334
+   },
+   "norm_ok": false,
+   "levels": [],
+   "supp_cells": {
+    "quotient_frac": 0.02857142857142857,
+    "dihedral_frac": 0.02857142857142857,
+    "planted_block": {
+     "caught": false,
+     "block_size": 0,
+     "block": [],
+     "ambient_size": 7,
+     "n_members": 35
+    },
+    "n_sampled": 35
+   },
+   "best_rel_doubling": null,
+   "any_ES": false,
+   "caught": [],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "H5 tH u t2H(h=5) @F31",
+   "meta": {
+    "cls": "hunt-shift-tower",
+    "h": 5
+   },
+   "p": 31,
+   "N": 10,
+   "m": 5,
+   "w": 2,
+   "C_family": 252,
+   "gamma": {
+    "2": 3.8437578735197784,
+    "4": 58.5395846240629,
+    "8": 23551.029923921335
+   },
+   "rho_max": 7.626984126984127,
+   "maxN": 2,
+   "n_occ": 251,
+   "exp_G2_rand": 4.80952380952381,
+   "excess_ratio": 0.7991971816229241,
+   "norm": {
+    "logOmega": 7.977279923499917,
+    "wlogp": 9.90839262077375,
+    "gap": -1.931112697273833,
+    "gap_over_N": -0.1931112697273833
+   },
+   "norm_ok": true,
+   "levels": [
+    {
+     "j": 2,
+     "nfibers": 1,
+     "pop_trades": 1,
+     "distinctA": 1,
+     "HY": 0.0,
+     "HYY": 0.0,
+     "doubling_gap": 0.0,
+     "rel_doubling": 0.0,
+     "pop_ok": false,
+     "sidon_side": "STRUCTURED",
+     "fe_slope": 2.931112697273834,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 10,
+     "bch": 6,
+     "vdm_rank": 2,
+     "rank_defect": 0,
+     "trade_quotient_frac": 1.0,
+     "trade_dihedral_frac": 1.0
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.007936507936507936,
+    "dihedral_frac": 0.007936507936507936,
+    "planted_block": {
+     "caught": false,
+     "block_size": 0,
+     "block": [],
+     "ambient_size": 10,
+     "n_members": 252
+    },
+    "n_sampled": 252
+   },
+   "best_rel_doubling": null,
+   "any_ES": false,
+   "caught": [
+    "trade-quotient",
+    "trade-dihedral"
+   ],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "H5 tH u t2H(h=6) @F37",
+   "meta": {
+    "cls": "hunt-shift-tower",
+    "h": 6
+   },
+   "p": 37,
+   "N": 12,
+   "m": 6,
+   "w": 3,
+   "C_family": 924,
+   "gamma": {
+    "2": 54.93792048499841,
+    "4": 167236.26904549173,
+    "8": 1896730929113.3235
+   },
+   "rho_max": 109.63852813852814,
+   "maxN": 2,
+   "n_occ": 923,
+   "exp_G2_rand": 55.81818181818182,
+   "excess_ratio": 0.984229845822447,
+   "norm": {
+    "logOmega": 9.851749041416058,
+    "wlogp": 15.628360096886851,
+    "gap": -5.776611055470793,
+    "gap_over_N": -0.4813842546225661
+   },
+   "norm_ok": false,
+   "levels": [
+    {
+     "j": 6,
+     "nfibers": 1,
+     "pop_trades": 1,
+     "distinctA": 1,
+     "HY": 0.0,
+     "HYY": 0.0,
+     "doubling_gap": 0.0,
+     "rel_doubling": 0.0,
+     "pop_ok": false,
+     "sidon_side": "STRUCTURED",
+     "fe_slope": 6.776611055470792,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 12,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 1.0,
+     "trade_dihedral_frac": 1.0
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.025974025974025976,
+    "dihedral_frac": 0.12337662337662338,
+    "planted_block": {
+     "caught": false,
+     "block_size": 0,
+     "block": [],
+     "ambient_size": 12,
+     "n_members": 924
+    },
+    "n_sampled": 924
+   },
+   "best_rel_doubling": null,
+   "any_ES": false,
+   "caught": [
+    "trade-quotient",
+    "trade-dihedral"
+   ],
+   "excess": false,
+   "candidate": false
+  }
+ ],
+ "probe": [
+  {
+   "name": "A H5uH6(|10|)@F31",
+   "meta": {
+    "cls": "probe-composite"
+   },
+   "p": 31,
+   "N": 10,
+   "m": 8,
+   "w": 3,
+   "C_family": 45,
+   "gamma": {
+    "2": 662.0222222222222,
+    "4": 290146745.2474184,
+    "8": 5.573242934156835e+19
+   },
+   "rho_max": 662.0222222222222,
+   "maxN": 1,
+   "n_occ": 45,
+   "exp_G2_rand": 663.0,
+   "excess_ratio": 0.9985252220546339,
+   "norm": {
+    "logOmega": 5.491853096329675,
+    "wlogp": 14.862588931160625,
+    "gap": -9.370735834830949,
+    "gap_over_N": -0.9370735834830949
+   },
+   "norm_ok": false,
+   "levels": [],
+   "supp_cells": {
+    "quotient_frac": 0.0,
+    "dihedral_frac": 0.1111111111111111,
+    "planted_block": {
+     "caught": false,
+     "block_size": 0,
+     "block": [],
+     "ambient_size": 10,
+     "n_members": 45
+    },
+    "n_sampled": 45
+   },
+   "best_rel_doubling": null,
+   "any_ES": false,
+   "caught": [],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "A H6uH10(|14|)@F31",
+   "meta": {
+    "cls": "probe-composite"
+   },
+   "p": 31,
+   "N": 14,
+   "m": 8,
+   "w": 3,
+   "C_family": 3003,
+   "gamma": {
+    "2": 10.534864070328606,
+    "4": 1446.426338606874,
+    "8": 156841409.1367092
+   },
+   "rho_max": 29.76123876123876,
+   "maxN": 3,
+   "n_occ": 2914,
+   "exp_G2_rand": 10.92007992007992,
+   "excess_ratio": 0.964724081456311,
+   "norm": {
+    "logOmega": 11.552188759557149,
+    "wlogp": 14.862588931160625,
+    "gap": -3.310400171603476,
+    "gap_over_N": -0.236457155114534
+   },
+   "norm_ok": true,
+   "levels": [
+    {
+     "j": 4,
+     "nfibers": 85,
+     "pop_trades": 68,
+     "distinctA": 12,
+     "HY": 3.0096371340745587,
+     "HYY": 5.560350725542993,
+     "doubling_gap": 2.5507135914684347,
+     "rel_doubling": 0.8475153242195625,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 4.481717837698456,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.5588235294117647,
+     "trade_dihedral_frac": 0.029411764705882353
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.011655011655011656,
+    "dihedral_frac": 0.034299034299034296,
+    "planted_block": {
+     "caught": false,
+     "block_size": 0,
+     "block": [],
+     "ambient_size": 14,
+     "n_members": 3003
+    },
+    "n_sampled": 3003
+   },
+   "best_rel_doubling": 0.8475153242195625,
+   "any_ES": false,
+   "caught": [
+    "trade-quotient"
+   ],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "A H6uH4(|10|)@F37",
+   "meta": {
+    "cls": "probe-composite"
+   },
+   "p": 37,
+   "N": 10,
+   "m": 8,
+   "w": 3,
+   "C_family": 45,
+   "gamma": {
+    "2": 1125.6222222222223,
+    "4": 1426191931.9075665,
+    "8": 2.2895419695445914e+21
+   },
+   "rho_max": 1125.6222222222223,
+   "maxN": 1,
+   "n_occ": 45,
+   "exp_G2_rand": 1126.6000000000001,
+   "excess_ratio": 0.999132098546265,
+   "norm": {
+    "logOmega": 5.491853096329675,
+    "wlogp": 15.628360096886851,
+    "gap": -10.136507000557177,
+    "gap_over_N": -1.0136507000557178
+   },
+   "norm_ok": false,
+   "levels": [],
+   "supp_cells": {
+    "quotient_frac": 0.1111111111111111,
+    "dihedral_frac": 0.0,
+    "planted_block": {
+     "caught": false,
+     "block_size": 0,
+     "block": [],
+     "ambient_size": 10,
+     "n_members": 45
+    },
+    "n_sampled": 45
+   },
+   "best_rel_doubling": null,
+   "any_ES": false,
+   "caught": [],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "A H6uH10(|16|)@F61",
+   "meta": {
+    "cls": "probe-composite"
+   },
+   "p": 61,
+   "N": 16,
+   "m": 8,
+   "w": 3,
+   "C_family": 12870,
+   "gamma": {
+    "2": 18.908128792557697,
+    "4": 8346.634069384578,
+    "8": 6824980365.998629
+   },
+   "rho_max": 52.90932400932401,
+   "maxN": 3,
+   "n_occ": 12412,
+   "exp_G2_rand": 18.636363636363637,
+   "excess_ratio": 1.0145825205762666,
+   "norm": {
+    "logOmega": 13.651724433108065,
+    "wlogp": 17.79221201268866,
+    "gap": -4.1404875795805935,
+    "gap_over_N": -0.2587804737237871
+   },
+   "norm_ok": false,
+   "levels": [
+    {
+     "j": 5,
+     "nfibers": 452,
+     "pop_trades": 70,
+     "distinctA": 14,
+     "HY": 3.5460934681046856,
+     "HYY": 6.793840272450745,
+     "doubling_gap": 3.2477468043460593,
+     "rel_doubling": 0.9158661026726725,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 5.204546374358763,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.7,
+     "trade_dihedral_frac": 0.21428571428571427
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.005666666666666667,
+    "dihedral_frac": 0.010166666666666666,
+    "planted_block": {
+     "caught": true,
+     "block_size": 1,
+     "block": [
+      0
+     ],
+     "ambient_size": 16,
+     "n_members": 6000
+    },
+    "n_sampled": 6000
+   },
+   "best_rel_doubling": 0.9158661026726725,
+   "any_ES": false,
+   "caught": [
+    "planted-block(1)",
+    "trade-quotient"
+   ],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "B AP{0..15} w=1@F31",
+   "meta": {
+    "cls": "probe-AP-w"
+   },
+   "p": 31,
+   "N": 16,
+   "m": 8,
+   "w": 1,
+   "C_family": 12870,
+   "gamma": {
+    "2": 1.0354699103883254,
+    "4": 1.2147206258896972,
+    "8": 2.128702766539319
+   },
+   "rho_max": 1.2717948717948717,
+   "maxN": 528,
+   "n_occ": 31,
+   "exp_G2_rand": 1.0023310023310024,
+   "excess_ratio": 1.0330618408292827,
+   "norm": {
+    "logOmega": 13.651724433108065,
+    "wlogp": 4.954196310386875,
+    "gap": 8.69752812272119,
+    "gap_over_N": 0.5435955076700744
+   },
+   "norm_ok": true,
+   "levels": [
+    {
+     "j": -1,
+     "nfibers": 16,
+     "pop_trades": 1200,
+     "distinctA": 935,
+     "HY": 9.744407648720951,
+     "HYY": 17.167674221836005,
+     "doubling_gap": 7.423266573115054,
+     "rel_doubling": 0.7617976218482023,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": -0.19033233414549655,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 4,
+     "bch": 4,
+     "vdm_rank": 1,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0,
+     "trade_dihedral_frac": 0.0008333333333333334
+    },
+    {
+     "j": 0,
+     "nfibers": 15,
+     "pop_trades": 1200,
+     "distinctA": 1003,
+     "HY": 9.887274825874595,
+     "HYY": 16.95294320703398,
+     "doubling_gap": 7.065668381159384,
+     "rel_doubling": 0.7146224319231845,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 0.25815536214763035,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 4,
+     "bch": 4,
+     "vdm_rank": 1,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0,
+     "trade_dihedral_frac": 0.0025
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.0,
+    "dihedral_frac": 0.0,
+    "planted_block": {
+     "caught": true,
+     "block_size": 1,
+     "block": [
+      0
+     ],
+     "ambient_size": 16,
+     "n_members": 6000
+    },
+    "n_sampled": 6000
+   },
+   "best_rel_doubling": 0.7146224319231845,
+   "any_ES": false,
+   "caught": [
+    "planted-block(1)"
+   ],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "B RANDdom|16| w=1@F31",
+   "meta": {
+    "cls": "probe-rand-dom"
+   },
+   "p": 31,
+   "N": 16,
+   "m": 8,
+   "w": 1,
+   "C_family": 12870,
+   "gamma": {
+    "2": 1.000017254609329,
+    "4": 1.0001034351309388,
+    "8": 1.0004818769143209
+   },
+   "rho_max": 1.0068376068376068,
+   "maxN": 418,
+   "n_occ": 31,
+   "exp_G2_rand": 1.0023310023310024,
+   "excess_ratio": 0.9976916330869818,
+   "norm": {
+    "logOmega": 13.651724433108065,
+    "wlogp": 4.954196310386875,
+    "gap": 8.69752812272119,
+    "gap_over_N": 0.5435955076700744
+   },
+   "norm_ok": true,
+   "levels": [
+    {
+     "j": -1,
+     "nfibers": 16,
+     "pop_trades": 1200,
+     "distinctA": 940,
+     "HY": 9.76277356540204,
+     "HYY": 17.075313757160387,
+     "doubling_gap": 7.312540191758346,
+     "rel_doubling": 0.7490228204895591,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": -0.0044160303174263045,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 4,
+     "bch": 4,
+     "vdm_rank": 1,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0,
+     "trade_dihedral_frac": 0.01
+    },
+    {
+     "j": 0,
+     "nfibers": 15,
+     "pop_trades": 1200,
+     "distinctA": 995,
+     "HY": 9.872054273785855,
+     "HYY": 17.247559423715266,
+     "doubling_gap": 7.3755051499294115,
+     "rel_doubling": 0.7471094612510638,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 0.004789424295003582,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 4,
+     "bch": 4,
+     "vdm_rank": 1,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0,
+     "trade_dihedral_frac": 0.006666666666666667
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.0,
+    "dihedral_frac": 0.005166666666666667,
+    "planted_block": {
+     "caught": true,
+     "block_size": 1,
+     "block": [
+      0
+     ],
+     "ambient_size": 16,
+     "n_members": 6000
+    },
+    "n_sampled": 6000
+   },
+   "best_rel_doubling": 0.7471094612510638,
+   "any_ES": false,
+   "caught": [
+    "planted-block(1)"
+   ],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "B AP{0..15} w=2@F31",
+   "meta": {
+    "cls": "probe-AP-w"
+   },
+   "p": 31,
+   "N": 16,
+   "m": 8,
+   "w": 2,
+   "C_family": 12870,
+   "gamma": {
+    "2": 1.0666464175555084,
+    "4": 1.4192306148561125,
+    "8": 4.091389271460802
+   },
+   "rho_max": 2.016083916083916,
+   "maxN": 27,
+   "n_occ": 961,
+   "exp_G2_rand": 1.0745920745920747,
+   "excess_ratio": 0.9926058853173818,
+   "norm": {
+    "logOmega": 13.651724433108065,
+    "wlogp": 9.90839262077375,
+    "gap": 3.743331812334315,
+    "gap_over_N": 0.23395823827089468
+   },
+   "norm_ok": true,
+   "levels": [
+    {
+     "j": 0,
+     "nfibers": 465,
+     "pop_trades": 1152,
+     "distinctA": 656,
+     "HY": 9.03302774541374,
+     "HYY": 16.668173778426805,
+     "doubling_gap": 7.635146033013065,
+     "rel_doubling": 0.8452477118637868,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 0.3699058304756972,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 6,
+     "bch": 6,
+     "vdm_rank": 2,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0026041666666666665,
+     "trade_dihedral_frac": 0.006944444444444444
+    },
+    {
+     "j": 1,
+     "nfibers": 2,
+     "pop_trades": 52,
+     "distinctA": 51,
+     "HY": 5.661978179679557,
+     "HYY": 10.257091335271216,
+     "doubling_gap": 4.595113155591659,
+     "rel_doubling": 0.811573801552821,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 1.011555689829155,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 6,
+     "bch": 6,
+     "vdm_rank": 2,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0,
+     "trade_dihedral_frac": 0.0
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.0,
+    "dihedral_frac": 0.0,
+    "planted_block": {
+     "caught": true,
+     "block_size": 1,
+     "block": [
+      0
+     ],
+     "ambient_size": 16,
+     "n_members": 6000
+    },
+    "n_sampled": 6000
+   },
+   "best_rel_doubling": 0.811573801552821,
+   "any_ES": false,
+   "caught": [
+    "planted-block(1)"
+   ],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "B RANDdom|16| w=2@F31",
+   "meta": {
+    "cls": "probe-rand-dom"
+   },
+   "p": 31,
+   "N": 16,
+   "m": 8,
+   "w": 2,
+   "C_family": 12870,
+   "gamma": {
+    "2": 1.0398418830586662,
+    "4": 1.2440212143438396,
+    "8": 2.460500900680922
+   },
+   "rho_max": 1.4933954933954934,
+   "maxN": 20,
+   "n_occ": 961,
+   "exp_G2_rand": 1.0745920745920747,
+   "excess_ratio": 0.9676619692671752,
+   "norm": {
+    "logOmega": 13.651724433108065,
+    "wlogp": 9.90839262077375,
+    "gap": 3.743331812334315,
+    "gap_over_N": 0.23395823827089468
+   },
+   "norm_ok": true,
+   "levels": [
+    {
+     "j": 0,
+     "nfibers": 477,
+     "pop_trades": 1134,
+     "distinctA": 563,
+     "HY": 8.78217994899741,
+     "HYY": 16.11064217468116,
+     "doubling_gap": 7.328462225683751,
+     "rel_doubling": 0.8344696041579497,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 0.2912317202593769,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 6,
+     "bch": 6,
+     "vdm_rank": 2,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.02821869488536155,
+     "trade_dihedral_frac": 0.01146384479717813
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.0,
+    "dihedral_frac": 0.007666666666666666,
+    "planted_block": {
+     "caught": true,
+     "block_size": 1,
+     "block": [
+      0
+     ],
+     "ambient_size": 16,
+     "n_members": 6000
+    },
+    "n_sampled": 6000
+   },
+   "best_rel_doubling": 0.8344696041579497,
+   "any_ES": false,
+   "caught": [
+    "planted-block(1)"
+   ],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "B AP{0..15} w=3@F31",
+   "meta": {
+    "cls": "probe-AP-w"
+   },
+   "p": 31,
+   "N": 16,
+   "m": 8,
+   "w": 3,
+   "C_family": 12870,
+   "gamma": {
+    "2": 3.0798758247709297,
+    "4": 47.622111247244376,
+    "8": 57722.23261960077
+   },
+   "rho_max": 9.25905205905206,
+   "maxN": 4,
+   "n_occ": 10911,
+   "exp_G2_rand": 3.314685314685315,
+   "excess_ratio": 0.9291608500891201,
+   "norm": {
+    "logOmega": 13.651724433108065,
+    "wlogp": 14.862588931160625,
+    "gap": -1.21086449805256,
+    "gap_over_N": -0.075679031128285
+   },
+   "norm_ok": true,
+   "levels": [
+    {
+     "j": 2,
+     "nfibers": 1791,
+     "pop_trades": 104,
+     "distinctA": 39,
+     "HY": 4.947613339238798,
+     "HYY": 9.616242433820503,
+     "doubling_gap": 4.668629094581704,
+     "rel_doubling": 0.9436123590248028,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 2.4385468678469118,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0,
+     "trade_dihedral_frac": 0.0
+    },
+    {
+     "j": 3,
+     "nfibers": 12,
+     "pop_trades": 36,
+     "distinctA": 23,
+     "HY": 4.326465890981193,
+     "HYY": 8.116734663933544,
+     "doubling_gap": 3.790268772952351,
+     "rel_doubling": 0.8760657932964223,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 3.210864498052562,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0,
+     "trade_dihedral_frac": 0.0
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.0,
+    "dihedral_frac": 0.0,
+    "planted_block": {
+     "caught": true,
+     "block_size": 1,
+     "block": [
+      0
+     ],
+     "ambient_size": 16,
+     "n_members": 6000
+    },
+    "n_sampled": 6000
+   },
+   "best_rel_doubling": 0.8760657932964223,
+   "any_ES": false,
+   "caught": [
+    "planted-block(1)"
+   ],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "B RANDdom|16| w=3@F31",
+   "meta": {
+    "cls": "probe-rand-dom"
+   },
+   "p": 31,
+   "N": 16,
+   "m": 8,
+   "w": 3,
+   "C_family": 12870,
+   "gamma": {
+    "2": 3.071962105062338,
+    "4": 45.983824272978644,
+    "8": 41141.20384471612
+   },
+   "rho_max": 9.25905205905206,
+   "maxN": 4,
+   "n_occ": 10911,
+   "exp_G2_rand": 3.314685314685315,
+   "excess_ratio": 0.9267733776875829,
+   "norm": {
+    "logOmega": 13.651724433108065,
+    "wlogp": 14.862588931160625,
+    "gap": -1.21086449805256,
+    "gap_over_N": -0.075679031128285
+   },
+   "norm_ok": true,
+   "levels": [
+    {
+     "j": 2,
+     "nfibers": 1813,
+     "pop_trades": 124,
+     "distinctA": 49,
+     "HY": 5.30273321007354,
+     "HYY": 10.320604555267511,
+     "doubling_gap": 5.017871345193972,
+     "rel_doubling": 0.9462801816356856,
+     "pop_ok": true,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 2.4448698559505946,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0,
+     "trade_dihedral_frac": 0.024193548387096774
+    },
+    {
+     "j": 3,
+     "nfibers": 2,
+     "pop_trades": 6,
+     "distinctA": 5,
+     "HY": 2.2516291673878226,
+     "HYY": 3.8365916681089782,
+     "doubling_gap": 1.5849625007211556,
+     "rel_doubling": 0.7039180890341346,
+     "pop_ok": false,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 3.210864498052562,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0,
+     "trade_dihedral_frac": 0.0
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.0,
+    "dihedral_frac": 0.006,
+    "planted_block": {
+     "caught": true,
+     "block_size": 1,
+     "block": [
+      0
+     ],
+     "ambient_size": 16,
+     "n_members": 6000
+    },
+    "n_sampled": 6000
+   },
+   "best_rel_doubling": 0.9462801816356856,
+   "any_ES": false,
+   "caught": [
+    "planted-block(1)"
+   ],
+   "excess": false,
+   "candidate": false
+  },
+  {
+   "name": "C heavy-fiber AP{0..15}@F31",
+   "meta": {
+    "cls": "trap-heavy-fiber",
+    "Nheavy": 4
+   },
+   "p": 31,
+   "N": 16,
+   "m": 8,
+   "w": 3,
+   "C_family": 4,
+   "gamma": {
+    "2": 29791.0,
+    "4": 26439622160671.0,
+    "8": 2.0825506393391553e+31
+   },
+   "rho_max": 29791.0,
+   "maxN": 4,
+   "n_occ": 1,
+   "exp_G2_rand": 7448.5,
+   "excess_ratio": 3.999597234342485,
+   "norm": {
+    "logOmega": 2.0,
+    "wlogp": 14.862588931160625,
+    "gap": -12.862588931160625,
+    "gap_over_N": -0.803911808197539
+   },
+   "norm_ok": false,
+   "levels": [
+    {
+     "j": 14,
+     "nfibers": 1,
+     "pop_trades": 3,
+     "distinctA": 3,
+     "HY": 1.584962500721156,
+     "HYY": 2.6416041678685933,
+     "doubling_gap": 1.0566416671474372,
+     "rel_doubling": 0.6666666666666665,
+     "pop_ok": false,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 14.862588931160625,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.0,
+     "trade_dihedral_frac": 0.0
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.0,
+    "dihedral_frac": 0.0,
+    "planted_block": {
+     "caught": false,
+     "block_size": 0,
+     "block": [],
+     "ambient_size": 16,
+     "n_members": 4
+    },
+    "n_sampled": 4
+   },
+   "best_rel_doubling": null,
+   "any_ES": false,
+   "caught": [],
+   "excess": true,
+   "candidate": false
+  },
+  {
+   "name": "C heavy-fiber mu_16@F17",
+   "meta": {
+    "cls": "trap-heavy-fiber",
+    "Nheavy": 7
+   },
+   "p": 17,
+   "N": 16,
+   "m": 8,
+   "w": 3,
+   "C_family": 7,
+   "gamma": {
+    "2": 4913.0,
+    "4": 118587876497.0,
+    "8": 6.909193391300873e+25
+   },
+   "rho_max": 4913.0,
+   "maxN": 7,
+   "n_occ": 1,
+   "exp_G2_rand": 702.7142857142858,
+   "excess_ratio": 6.9914616792030895,
+   "norm": {
+    "logOmega": 2.807354922057604,
+    "wlogp": 12.262388523751017,
+    "gap": -9.455033601693414,
+    "gap_over_N": -0.5909396001058383
+   },
+   "norm_ok": false,
+   "levels": [
+    {
+     "j": 12,
+     "nfibers": 1,
+     "pop_trades": 6,
+     "distinctA": 6,
+     "HY": 2.584962500721156,
+     "HYY": 4.739097917988784,
+     "doubling_gap": 2.1541354172676277,
+     "rel_doubling": 0.8333333333333324,
+     "pop_ok": false,
+     "sidon_side": "SIDON-FREE",
+     "fe_slope": 12.262388523751019,
+     "ES": false,
+     "FE": false,
+     "verdict": "NEITHER",
+     "min_supp": 8,
+     "bch": 8,
+     "vdm_rank": 3,
+     "rank_defect": 0,
+     "trade_quotient_frac": 0.16666666666666666,
+     "trade_dihedral_frac": 0.3333333333333333
+    }
+   ],
+   "supp_cells": {
+    "quotient_frac": 0.42857142857142855,
+    "dihedral_frac": 0.14285714285714285,
+    "planted_block": {
+     "caught": false,
+     "block_size": 0,
+     "block": [],
+     "ambient_size": 16,
+     "n_members": 7
+    },
+    "n_sampled": 7
+   },
+   "best_rel_doubling": null,
+   "any_ES": false,
+   "caught": [],
+   "excess": true,
+   "candidate": false
+  }
+ ],
+ "n_candidates_hunt": 0,
+ "n_candidates_probe": 0,
+ "n_candidates_total": 0
+}

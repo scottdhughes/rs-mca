@@ -698,6 +698,48 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-09 - Reviewed PR integration for entropy-inverse, row-sharp Q, BC, and Route-D packets
+
+- **Agent/model:** Holm Buar via PRs #414-#418, #420-#422, and #427-#430;
+  AllenGrahamHart via PR #419; Scott Hughes via selected material from PR #423;
+  DannyExperiments via PRs #424 and #426; Vadim Avdeev via PR #425; Codex for
+  review, selective integration, and log consolidation.
+- **Files added or changed:** Added Q/threshold notes under
+  `experimental/notes/thresholds/`; a BC note under
+  `experimental/notes/bc_near_pencil_chart_reduction.md`; a Lean audit under
+  `experimental/notes/audits/lean_grande_finale_correspondence_audit.md`; L1
+  stabilization material under `experimental/notes/l1/`; data and certificates
+  under `experimental/data/`; verifier and audit scripts under
+  `experimental/scripts/`; updated `experimental/scripts/README.md` with the
+  singleton top-seam verifier commands.  PR #423 was deliberately reduced to its
+  canonical status note and the high-signal packets v25, v45, v46, v48, v49,
+  v51, v53, and v54 rather than importing the full v1-v54 archive.
+- **Status:** PROVED / CONDITIONAL / EXPERIMENTAL / AUDIT / COUNTEREXAMPLE.
+- **What is being added:** Integrated a batch of experimental packets around the
+  current v13/Grande Finale bottlenecks: signed-`e_m` and masked participation
+  ratio reformulations, the lift-class cost-model refutation, entropy-inverse
+  toy dichotomy and missing-cell hunts, the `F_p`-span cell and its codimension,
+  surjection, connectivity, and residual-control follow-ups, a row-sharp Q
+  singleton top-seam Route-D compiler, a Q moment-floor route cut, the M31
+  Chebyshev fixed-remainder floor audit, the BC near-pencil chart reduction,
+  an L1 k3 record-stabilization extension, and a textual correspondence audit
+  for the Grande Finale Lean package.
+- **How it is useful:** The batch sharpens the proof map without claiming a
+  deployed adjacent safe row.  The entropy-inverse material identifies and
+  measures an `F_p`-span obstruction cell and distinguishes theorem-level toy
+  facts from measured evidence.  The Q and Route-D packets clarify which
+  shortcut payment routes are dead, conditional, or still open.  The BC packet
+  reduces one saturated-chart family to a split-in-subspace residual tied to
+  the existing Q/BC frontier.  The Lean audit records concrete docstring/label
+  drift to fix before relying on the formalization as a paper map.
+- **What to do next:** Do not promote these packets into Paper D or
+  `grande_finale.tex` as theorem rows without separate proof review.  The next
+  useful steps are: prove the row-sharp Q max-fiber bound or a precise residual
+  cell theorem; close the BC chart decomposition beyond the near-pencil family;
+  attack Scott's remaining Route-D wall `|T| <= H2`; fix the documented Lean
+  label drift; and run selected verifier scripts only when their cost is
+  acceptable for the local environment.
+
 ### 2026-07-08 - Grande Finale Lean package normalization
 
 - **Agent/model:** Maintainer-added Lean files integrated by Codex.

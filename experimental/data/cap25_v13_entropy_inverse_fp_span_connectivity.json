@@ -1,0 +1,439 @@
+{
+ "_note": "Sufficient connectivity-band theorem closing the #428 OPEN item. MacWilliams identity N_a(x0+C)|C^perp| = sum_u chi(-<u,x0>) K_a(wt u) (K_a p-ary Krawtchouk).  Head-aware SUFFICIENT band: Conn_a holds when mu > sum_{u in C^perp\\H} |K_a(wt u)|, mu=2C(N,a),H={0,1} unsigned p=2 / mu=C(N,a)2^a,H={0} signed p=3.  Band is exact-subset of measured, SHARP (=[R,N-R]) on odd-R large-kernel unsigned, covers F64-firstN/F32-1HP/F32-2HP/F64-2HP -> their occupancies 1/2,1/2,1/4,1/4 now THEOREMS (no measured hypothesis).  F16@R4:N12 a=6 hole DERIVED: exact cancellation 2C(12,6)+err = 1848-1848 = 0 => N_6=0. Naive band without head refinement is vacuous. p in {2,3} scope.",
+ "configs": [
+  {
+   "p": 3,
+   "k": 3,
+   "q": 27,
+   "R": 4,
+   "N": 14,
+   "a": 7,
+   "signed": true,
+   "dimVT": 7,
+   "dimD": 7,
+   "flat": 7,
+   "defect": 0,
+   "Cperp": 2187,
+   "head_word": true,
+   "mu": 439296,
+   "err": 918918,
+   "in_band": false,
+   "wenum": {
+    "5": 34,
+    "6": 94,
+    "7": 190,
+    "8": 388,
+    "9": 456,
+    "10": 412,
+    "11": 382,
+    "12": 178,
+    "13": 46,
+    "14": 6
+   },
+   "tag": "S27@R4"
+  },
+  {
+   "p": 2,
+   "k": 4,
+   "q": 16,
+   "R": 4,
+   "N": 15,
+   "a": 8,
+   "signed": false,
+   "dimVT": 9,
+   "dimD": 8,
+   "flat": 9,
+   "defect": 0,
+   "Cperp": 512,
+   "head_word": true,
+   "mu": 12870,
+   "err": 23610,
+   "in_band": false,
+   "wenum": {
+    "3": 5,
+    "4": 15,
+    "5": 60,
+    "6": 100,
+    "7": 75,
+    "8": 75,
+    "9": 100,
+    "10": 60,
+    "11": 15,
+    "12": 5,
+    "15": 1
+   },
+   "tag": "U16o@R4"
+  },
+  {
+   "p": 2,
+   "k": 6,
+   "q": 64,
+   "R": 3,
+   "N": 21,
+   "a": 10,
+   "signed": false,
+   "dimVT": 6,
+   "dimD": 5,
+   "flat": 7,
+   "defect": 1,
+   "Cperp": 64,
+   "head_word": true,
+   "mu": 705432,
+   "err": 17128,
+   "in_band": true,
+   "wenum": {
+    "6": 1,
+    "7": 1,
+    "8": 1,
+    "9": 6,
+    "10": 22,
+    "11": 22,
+    "12": 6,
+    "13": 1,
+    "14": 1,
+    "15": 1,
+    "21": 1
+   },
+   "tag": "F64-firstN@R3"
+  },
+  {
+   "p": 2,
+   "k": 5,
+   "q": 32,
+   "R": 3,
+   "N": 15,
+   "a": 7,
+   "signed": false,
+   "dimVT": 5,
+   "dimD": 4,
+   "flat": 6,
+   "defect": 1,
+   "Cperp": 32,
+   "head_word": true,
+   "mu": 12870,
+   "err": 1050,
+   "in_band": true,
+   "wenum": {
+    "7": 15,
+    "8": 15,
+    "15": 1
+   },
+   "tag": "F32-1HP@R3"
+  },
+  {
+   "p": 2,
+   "k": 5,
+   "q": 32,
+   "R": 3,
+   "N": 7,
+   "a": 3,
+   "signed": false,
+   "dimVT": 4,
+   "dimD": 3,
+   "flat": 6,
+   "defect": 2,
+   "Cperp": 16,
+   "head_word": true,
+   "mu": 70,
+   "err": 42,
+   "in_band": true,
+   "wenum": {
+    "3": 7,
+    "4": 7,
+    "7": 1
+   },
+   "tag": "F32-2HP@R3"
+  },
+  {
+   "p": 2,
+   "k": 6,
+   "q": 64,
+   "R": 3,
+   "N": 15,
+   "a": 7,
+   "signed": false,
+   "dimVT": 5,
+   "dimD": 4,
+   "flat": 7,
+   "defect": 2,
+   "Cperp": 32,
+   "head_word": true,
+   "mu": 12870,
+   "err": 1050,
+   "in_band": true,
+   "wenum": {
+    "7": 15,
+    "8": 15,
+    "15": 1
+   },
+   "tag": "F64-2HP@R3"
+  },
+  {
+   "p": 3,
+   "k": 3,
+   "q": 27,
+   "R": 3,
+   "N": 8,
+   "a": 4,
+   "signed": true,
+   "dimVT": 6,
+   "dimD": 6,
+   "flat": 7,
+   "defect": 1,
+   "Cperp": 729,
+   "head_word": true,
+   "mu": 1120,
+   "err": 14640,
+   "in_band": false,
+   "wenum": {
+    "2": 8,
+    "3": 64,
+    "4": 120,
+    "5": 176,
+    "6": 232,
+    "7": 96,
+    "8": 32
+   },
+   "tag": "S27-1HP@R3-connFAILS"
+  }
+ ],
+ "threshold": [
+  {
+   "q": 16,
+   "R": 3,
+   "N": 10,
+   "signed": false,
+   "dimD": 4,
+   "Cperp": 32,
+   "suff_band": [
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "meas_band": [
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "interval_RtoNmR": [
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "subset": true,
+   "sharp": true,
+   "name": "U-F16@R3:N10"
+  },
+  {
+   "q": 16,
+   "R": 4,
+   "N": 12,
+   "signed": false,
+   "dimD": 8,
+   "Cperp": 512,
+   "suff_band": [],
+   "meas_band": [
+    5,
+    7
+   ],
+   "interval_RtoNmR": [
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "subset": true,
+   "sharp": false,
+   "name": "U-F16@R4:N12-hole"
+  },
+  {
+   "q": 8,
+   "R": 3,
+   "N": 7,
+   "signed": false,
+   "dimD": 3,
+   "Cperp": 16,
+   "suff_band": [
+    3,
+    4
+   ],
+   "meas_band": [
+    3,
+    4
+   ],
+   "interval_RtoNmR": [
+    3,
+    4
+   ],
+   "subset": true,
+   "sharp": true,
+   "name": "U-F8@R3:N7"
+  },
+  {
+   "q": 27,
+   "R": 3,
+   "N": 10,
+   "signed": true,
+   "dimD": 7,
+   "Cperp": 2187,
+   "suff_band": [],
+   "meas_band": [
+    6,
+    7,
+    8
+   ],
+   "interval_RtoNmR": [
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "subset": true,
+   "sharp": false,
+   "name": "S-F27@R3:N10"
+  },
+  {
+   "q": 27,
+   "R": 3,
+   "N": 11,
+   "signed": true,
+   "dimD": 7,
+   "Cperp": 2187,
+   "suff_band": [],
+   "meas_band": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "interval_RtoNmR": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "subset": true,
+   "sharp": false,
+   "name": "S-F27@R3:N11"
+  }
+ ],
+ "hypothesis_free": [
+  "F32-1HP@R3",
+  "F32-2HP@R3",
+  "F64-2HP@R3",
+  "F64-firstN@R3"
+ ],
+ "hole": {
+  "N": 12,
+  "R": 4,
+  "a": 6,
+  "Cperp": 512,
+  "main": 924,
+  "head_term": 924,
+  "err_excl_head": -1848,
+  "total": 0,
+  "Na": 0,
+  "two_main_plus_err": 0,
+  "n_uncovered_even": 2,
+  "covered_Na": 5
+ },
+ "parseval": [
+  {
+   "name": "F32-2HP",
+   "lhs": 161,
+   "rhs_num": 2576,
+   "Cperp": 16,
+   "match": true
+  },
+  {
+   "name": "F16@R4:N12",
+   "lhs": 3848,
+   "rhs_num": 1970176,
+   "Cperp": 512,
+   "match": true
+  },
+  {
+   "name": "S27-1HP",
+   "lhs": 2480,
+   "rhs_num": 1807920,
+   "Cperp": 729,
+   "match": true
+  }
+ ],
+ "min_distance": [
+  {
+   "name": "U-F16@R3:N10",
+   "N": 10,
+   "R": 3,
+   "dimC": 5,
+   "dmin": 4,
+   "Rp1": 4,
+   "ge": true
+  },
+  {
+   "name": "U-F16@R4:N12",
+   "N": 12,
+   "R": 4,
+   "dimC": 3,
+   "dmin": 6,
+   "Rp1": 5,
+   "ge": true
+  },
+  {
+   "name": "U-F8@R3:N7",
+   "N": 7,
+   "R": 3,
+   "dimC": 3,
+   "dmin": 4,
+   "Rp1": 4,
+   "ge": true
+  },
+  {
+   "name": "F64-firstN",
+   "N": 21,
+   "R": 3,
+   "dimC": 15,
+   "dmin": 4,
+   "Rp1": 4,
+   "ge": true
+  },
+  {
+   "name": "F32-2HP",
+   "N": 7,
+   "R": 3,
+   "dimC": 3,
+   "dmin": 4,
+   "Rp1": 4,
+   "ge": true
+  },
+  {
+   "name": "S-F27@R3:N10",
+   "N": 10,
+   "R": 3,
+   "dimC": 3,
+   "dmin": 5,
+   "Rp1": 4,
+   "ge": true
+  }
+ ],
+ "provenance": {
+  "atom_line": 827,
+  "escape_clause_line": 828,
+  "removal_list_line": 839,
+  "alt_a_line": 862,
+  "alt_b_line": 863,
+  "vandermonde_line": 876
+ }
+}
