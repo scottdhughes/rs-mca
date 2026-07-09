@@ -4,7 +4,7 @@
 **Goal:** residual free-1 / A_SP card toward `A_SP ≤ t·p` on KoalaBear MCA `a+=1116048`.
 **Does NOT claim** `U ≤ B*` or full MCA close.
 
-Last tip packet: **v54** on `main`; local attack **v55–v64** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
+Last tip packet: **v54** on `main`; local attack **v55–v65** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
 `experimental/scripts/verify_kb_qatom_route_d_v{N}.py` with matching
 notes, certificates, and scanner reports.
 
@@ -117,9 +117,9 @@ Certificates: `experimental/data/certificates/kb-qatom-route-d-v{N}/`.
 
 ## Next session entry
 
-Attack **`max|S| ≤ B_*=√(2 H2)≈3.93e5`** at deployed `(n',e)` (soft-B; v64),
-or continue e=3 laboratory via phased energy `∑|f|²` on GP arcs. Do not restart
-ambient L / pack-k tourism / unrestricted ★ / pure envelopes.
+Attack **incomplete GP** `|G|` for length-`n'` prefixes of `mu_n` (v65: full
+subgroup has `|G|≤√p+1`), and/or **`max|S|≤B_*≈3.93e5`** at deployed (soft-B).
+Do not restart ambient L / pack-k / unrestricted ★ / pure envelopes.
 
 ---
 
@@ -163,3 +163,8 @@ CS |All|<=sqrt(sum|f|^2) sqrt(p t) PROVED; phased energy <= E_+(S).
 B_*=sqrt(2 H2)~3.93e5 suffices for |T|<=H2 via v58. e=3 |S|<=sqrt(C) is a
 method template, not the deployed numerical target. OPEN: max|S|<=B_* at
 deployed (n',e).
+
+**v65**: E_+=p^{-1} sum|G|^4 PROVED; Linf/L2 energy bound PROVED; multiplicative
+subgroup |G|<=sqrt(p)+1 PROVED (Gauss chars). Deployed arc is incomplete
+prefix n'<n of mu_n — subgroup law not automatic. CAS incomplete still
+Gmax<=sqrt(p)+1 on toys. OPEN: incomplete GP |G|; soft-B max|S|<=B_*.
