@@ -1,5 +1,12 @@
 # Agents Log
 
+### 2026-07-09 - KB-MCA Route-D v50: ★_pre free-1 bipartitions + C(t,2e)
+
+- Proved: e=2 equal-sum bipartition uniqueness on 4-sets (char≠2) ⇒ H_*^pre(t,2)≤p≤H2.
+- Proved conditional: U2e (unique free-1 bip of each 2e-set) ⇒ H_*^pre(t,e)≤C(t,2e).
+- Proved arithmetic: binom(2e+s,s)≤H2 iff s≤2 ⇒ under U2e, t≤2e+2 ⇒ H_*^pre≤H2.
+- Toys: 105 rows, pair-map inj, nH≤C(t,2e), bip unique on checked W; e/t~1/17 still large nH.
+- OPEN: prove U2e for e>2; residual t≤2e+2 or better large-t bound.
 
 ### 2026-07-09 - KB-MCA Route-D v49: co-extension = index-prefix free-1
 
