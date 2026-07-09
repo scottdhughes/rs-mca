@@ -7,6 +7,14 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v38: SR enum e·p under |H| gate + load bound
+
+- Proved: μ_enum=(i mod e, ⌊i/e⌋) injects Type S keys; under |H|≤2170,
+  N_S≤e·p ⇒ size-e·p SR mark. Local drop of c0U from μ₂ still collides.
+- Proved: |H|≤(n/e)·L with L=max point-high load; L≤70 ⇒ |H|≤2170.
+- Toys: enum/μ₂ inj; max L=51; optional H^{≤R_max} thinning to K_cap.
+- Open: L≤70 deployed; ambient |H|≤2170 without load/thinning.
+
 ### 2026-07-09 - KB-MCA Route-D v37: SR e·p² near-miss + multi-tier under |H|≤K_cap
 
 - SR mark μ₂=(r_* mod e, c0U, δ) size e·p² injective on all toy Type S rows
