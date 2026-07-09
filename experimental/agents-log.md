@@ -1,6 +1,14 @@
 # Agents Log
 
 
+### 2026-07-09 - KB-MCA Route-D v44: CAS free-1 growth + R-cell bulk
+
+- CAS Sage: cyclic ambient free-1 census (n≤100); e=2 |H|=p (PROVED |H|≤p≤H2);
+  e=3 |H|~n² empirical; e=2 near-saturates crude degree bound.
+- PARI: redeploy H2/M_*/deg=16 arithmetic.
+- Residual after H_M: avg ~87% pairs in R-cell (max 98.7%); M-cell pair-thin.
+- Open: residual max N_ord≤e·p or |H_R|≤H2 at free_core (deployed e≫2).
+
 ### 2026-07-09 - KB-MCA Route-D v43: N_ord / |H|≤H2 at deployed free_core
 
 - Proved: free-1 CS degree on A_SP complements ≤16 (n'=A+e, pack=17).
