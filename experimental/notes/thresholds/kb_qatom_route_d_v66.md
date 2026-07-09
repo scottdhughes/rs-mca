@@ -29,7 +29,7 @@ G_t(alpha) = sum_{k=0}^{t-1} psi(alpha omega^k)
 | n' | 1183520 |
 | t/n | 0.5643 |
 | ln n | 14.556 |
-| **incomplete \|G\| bound** | **744113.1** |
+| **incomplete |G| bound** | **744113.1** |
 | Plancherel √(pt−t²) | 50202917.8 |
 | bound / Plancherel | 0.0148 |
 | B_\* = √(2 H2) | 393171.6 |

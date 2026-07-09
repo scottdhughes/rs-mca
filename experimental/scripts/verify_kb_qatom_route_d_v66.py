@@ -446,7 +446,7 @@ G_t(alpha) = sum_{{k=0}}^{{t-1}} psi(alpha omega^k)
 | n' | {dep['n_prime']} |
 | t/n | {dep['t_over_n']:.4f} |
 | ln n | {dep['ln_n']:.3f} |
-| **incomplete \|G\| bound** | **{dep['incomplete_bound']:.1f}** |
+| **incomplete |G| bound** | **{dep['incomplete_bound']:.1f}** |
 | Plancherel √(pt−t²) | {dep['plancherel_bound']:.1f} |
 | bound / Plancherel | {dep['bound_over_plancherel']:.4f} |
 | B_\\* = √(2 H2) | {dep['B_star']:.1f} |
