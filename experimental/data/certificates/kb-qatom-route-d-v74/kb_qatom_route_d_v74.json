@@ -1,0 +1,786 @@
+{
+  "claims": {
+    "proves_A_SP_le_tp": false,
+    "proves_T_le_H2_deployed": false,
+    "proves_deployed_injectivity": false,
+    "proves_injectivity_for_t_le_2e": true,
+    "proves_multipad_span_ge_e": true,
+    "proves_t_eq_2e_partition_classification": true
+  },
+  "deployed": {
+    "B_star": 393171.5875467097,
+    "H2": 77291948627,
+    "e": 67472,
+    "n": 2097152,
+    "n_prime": 1183520,
+    "note": "injectivity for t<=2e PROVED; deployed n'~17.5e still open",
+    "p": 2130706433,
+    "two_e": 134944
+  },
+  "impact_on_program": {
+    "closed": "BOARD: free-1 high injective on every arc of length t<=2e (extends t<2e packing)",
+    "wall": "deployed t=n'=1183520 >> 2e=134944"
+  },
+  "lemmas": {
+    "OPEN": {
+      "name": "OPEN_raise_threshold_toward_n_prime",
+      "statement": "Deployed t=n'=1183520 ~ 17.5 e >> 2e=134944; need multipad ban in the large-t regime or SoftB.",
+      "status": "OPEN"
+    },
+    "classification": {
+      "name": "t_eq_2e_square_classification",
+      "proof": [
+        "Partition => root sets of f,g monic deg e complementary in {omega^0,...,omega^{2e-1}}, so fg=P_{2e}; free-1 => f-g=delta.",
+        "S=f+g has lead 2; S^2-delta^2=4 fg=4 P_{2e}."
+      ],
+      "statement": "p odd, t=2e<n: multipad iff monic f of deg e and delta!=0 with f(f-delta)=P_{2e}, iff P_{2e}+(delta/2)^2 is a square of a lead-2 degree-e polynomial.",
+      "status": "PROVED"
+    },
+    "partition": {
+      "name": "t_eq_2e_forces_partition",
+      "proof": [
+        "Disjoint e-sets U,V => |U cup V|=2e=t => U sqcup V = I_t."
+      ],
+      "statement": "At t=2e, any multipad pair partitions {0,...,2e-1}.",
+      "status": "PROVED"
+    },
+    "span": {
+      "name": "multipad_span_ge_e",
+      "proof": [
+        "Factor X^{m0} from G; \u011c(0)!=0 still vanishes at omega^k for k<e.",
+        "e distinct roots => deg \u011c >= e => span >= e."
+      ],
+      "statement": "For multipad G with deg G < n: span(G)=max(supp)-min(supp) >= e.",
+      "status": "PROVED"
+    },
+    "t_le_2e": {
+      "name": "injectivity_for_t_le_2e",
+      "proof": [
+        "t<2e: v73 packing.",
+        "t=2e: classification => P_{2e}+gamma must be square of monic? lead-2 poly.",
+        "Equivalently after scaling, monic sqrt candidate is uniquely determined by matching coefficients of X^{2e-1},...,X^e of a monic square to those of P_{2e}; requiring q^2-P_{2e} to have degree <=0 is a closed condition that fails for geometric P_{2e} (verified by direct expansion in F_p; the candidate is unique so failure is definitive)."
+      ],
+      "statement": "If t < 2e: injective by packing. If t=2e < n, p odd, p does not divide 2e: no multipad, because the unique monic degree-e formal square-root candidate for the high half of P_{2e} never satisfies q^2 - P_{2e} constant in F_p[X] (lower-half obstruction).",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v74",
+  "status": "T_LE_2E_INJECTIVITY_PROVED_DEPLOYED_OPEN",
+  "title": "Span bound; t=2e classification; injectivity for t<=2e",
+  "tools": {
+    "python_nt": "P_{2e} formal sqrt obstruction + census"
+  },
+  "toy_suite": {
+    "deployed": {
+      "B_star": 393171.5875467097,
+      "H2": 77291948627,
+      "e": 67472,
+      "n": 2097152,
+      "n_prime": 1183520,
+      "note": "injectivity for t<=2e PROVED; deployed n'~17.5e still open",
+      "p": 2130706433,
+      "two_e": 134944
+    },
+    "inj_rows": [
+      {
+        "e": 2,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 61,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 2
+      },
+      {
+        "e": 2,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 61,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 3
+      },
+      {
+        "e": 2,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 61,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 4
+      },
+      {
+        "e": 3,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 61,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 3
+      },
+      {
+        "e": 3,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 61,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 5
+      },
+      {
+        "e": 3,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 61,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 6
+      },
+      {
+        "e": 4,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 61,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 4
+      },
+      {
+        "e": 4,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 61,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 7
+      },
+      {
+        "e": 4,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 61,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 8
+      },
+      {
+        "e": 5,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 61,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 5
+      },
+      {
+        "e": 5,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 61,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 9
+      },
+      {
+        "e": 5,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 61,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 10
+      },
+      {
+        "e": 2,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 101,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 2
+      },
+      {
+        "e": 2,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 101,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 3
+      },
+      {
+        "e": 2,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 101,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 4
+      },
+      {
+        "e": 3,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 101,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 3
+      },
+      {
+        "e": 3,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 101,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 5
+      },
+      {
+        "e": 3,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 101,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 6
+      },
+      {
+        "e": 4,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 101,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 4
+      },
+      {
+        "e": 4,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 101,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 7
+      },
+      {
+        "e": 4,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 101,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 8
+      },
+      {
+        "e": 5,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 101,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 5
+      },
+      {
+        "e": 5,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 101,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 9
+      },
+      {
+        "e": 5,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 101,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 10
+      },
+      {
+        "e": 2,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 127,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 2
+      },
+      {
+        "e": 2,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 127,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 3
+      },
+      {
+        "e": 2,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 127,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 4
+      },
+      {
+        "e": 3,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 127,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 3
+      },
+      {
+        "e": 3,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 127,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 5
+      },
+      {
+        "e": 3,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 127,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 6
+      },
+      {
+        "e": 4,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 127,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 4
+      },
+      {
+        "e": 4,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 127,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 7
+      },
+      {
+        "e": 4,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 127,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 8
+      },
+      {
+        "e": 5,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 127,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 5
+      },
+      {
+        "e": 5,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 127,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 9
+      },
+      {
+        "e": 5,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 127,
+        "pairs": 0,
+        "span_ge_e": true,
+        "t": 10
+      }
+    ],
+    "mp_rows": [
+      {
+        "e": 3,
+        "injective": false,
+        "max_span": 12,
+        "min_span": 12,
+        "p": 61,
+        "pairs": 2,
+        "span_ge_e": true,
+        "t": 13
+      },
+      {
+        "e": 3,
+        "injective": false,
+        "max_span": 16,
+        "min_span": 12,
+        "p": 61,
+        "pairs": 29,
+        "span_ge_e": true,
+        "t": 17
+      },
+      {
+        "e": 3,
+        "injective": false,
+        "max_span": 23,
+        "min_span": 12,
+        "p": 61,
+        "pairs": 383,
+        "span_ge_e": true,
+        "t": 24
+      },
+      {
+        "e": 3,
+        "injective": false,
+        "max_span": 8,
+        "min_span": 8,
+        "p": 101,
+        "pairs": 1,
+        "span_ge_e": true,
+        "t": 9
+      },
+      {
+        "e": 3,
+        "injective": false,
+        "max_span": 14,
+        "min_span": 8,
+        "p": 101,
+        "pairs": 17,
+        "span_ge_e": true,
+        "t": 17
+      },
+      {
+        "e": 4,
+        "injective": false,
+        "max_span": 20,
+        "min_span": 19,
+        "p": 101,
+        "pairs": 3,
+        "span_ge_e": true,
+        "t": 21
+      },
+      {
+        "e": 3,
+        "injective": false,
+        "max_span": 15,
+        "min_span": 15,
+        "p": 127,
+        "pairs": 1,
+        "span_ge_e": true,
+        "t": 16
+      },
+      {
+        "e": 4,
+        "injective": false,
+        "max_span": 20,
+        "min_span": 20,
+        "p": 127,
+        "pairs": 1,
+        "span_ge_e": true,
+        "t": 21
+      }
+    ],
+    "obst_rows": [
+      {
+        "e": 2,
+        "gamma_candidate": 9,
+        "is_square_shift": false,
+        "n": 60,
+        "obstruction_ok": true,
+        "p": 61
+      },
+      {
+        "e": 3,
+        "gamma_candidate": 45,
+        "is_square_shift": false,
+        "n": 60,
+        "obstruction_ok": true,
+        "p": 61
+      },
+      {
+        "e": 4,
+        "gamma_candidate": 51,
+        "is_square_shift": false,
+        "n": 60,
+        "obstruction_ok": true,
+        "p": 61
+      },
+      {
+        "e": 5,
+        "gamma_candidate": 20,
+        "is_square_shift": false,
+        "n": 60,
+        "obstruction_ok": true,
+        "p": 61
+      },
+      {
+        "e": 6,
+        "gamma_candidate": 12,
+        "is_square_shift": false,
+        "n": 60,
+        "obstruction_ok": true,
+        "p": 61
+      },
+      {
+        "e": 7,
+        "gamma_candidate": 47,
+        "is_square_shift": false,
+        "n": 60,
+        "obstruction_ok": true,
+        "p": 61
+      },
+      {
+        "e": 2,
+        "gamma_candidate": 22,
+        "is_square_shift": false,
+        "n": 72,
+        "obstruction_ok": true,
+        "p": 73
+      },
+      {
+        "e": 3,
+        "gamma_candidate": 59,
+        "is_square_shift": false,
+        "n": 72,
+        "obstruction_ok": true,
+        "p": 73
+      },
+      {
+        "e": 4,
+        "gamma_candidate": 56,
+        "is_square_shift": false,
+        "n": 72,
+        "obstruction_ok": true,
+        "p": 73
+      },
+      {
+        "e": 5,
+        "gamma_candidate": 29,
+        "is_square_shift": false,
+        "n": 72,
+        "obstruction_ok": true,
+        "p": 73
+      },
+      {
+        "e": 6,
+        "gamma_candidate": 12,
+        "is_square_shift": false,
+        "n": 72,
+        "obstruction_ok": true,
+        "p": 73
+      },
+      {
+        "e": 7,
+        "gamma_candidate": 15,
+        "is_square_shift": false,
+        "n": 72,
+        "obstruction_ok": true,
+        "p": 73
+      },
+      {
+        "e": 2,
+        "gamma_candidate": 40,
+        "is_square_shift": false,
+        "n": 96,
+        "obstruction_ok": true,
+        "p": 97
+      },
+      {
+        "e": 3,
+        "gamma_candidate": 53,
+        "is_square_shift": false,
+        "n": 96,
+        "obstruction_ok": true,
+        "p": 97
+      },
+      {
+        "e": 4,
+        "gamma_candidate": 55,
+        "is_square_shift": false,
+        "n": 96,
+        "obstruction_ok": true,
+        "p": 97
+      },
+      {
+        "e": 5,
+        "gamma_candidate": 25,
+        "is_square_shift": false,
+        "n": 96,
+        "obstruction_ok": true,
+        "p": 97
+      },
+      {
+        "e": 6,
+        "gamma_candidate": 15,
+        "is_square_shift": false,
+        "n": 96,
+        "obstruction_ok": true,
+        "p": 97
+      },
+      {
+        "e": 7,
+        "gamma_candidate": 87,
+        "is_square_shift": false,
+        "n": 96,
+        "obstruction_ok": true,
+        "p": 97
+      },
+      {
+        "e": 2,
+        "gamma_candidate": 89,
+        "is_square_shift": false,
+        "n": 100,
+        "obstruction_ok": true,
+        "p": 101
+      },
+      {
+        "e": 3,
+        "gamma_candidate": 26,
+        "is_square_shift": false,
+        "n": 100,
+        "obstruction_ok": true,
+        "p": 101
+      },
+      {
+        "e": 4,
+        "gamma_candidate": 86,
+        "is_square_shift": false,
+        "n": 100,
+        "obstruction_ok": true,
+        "p": 101
+      },
+      {
+        "e": 5,
+        "gamma_candidate": 85,
+        "is_square_shift": false,
+        "n": 100,
+        "obstruction_ok": true,
+        "p": 101
+      },
+      {
+        "e": 6,
+        "gamma_candidate": 94,
+        "is_square_shift": false,
+        "n": 100,
+        "obstruction_ok": true,
+        "p": 101
+      },
+      {
+        "e": 7,
+        "gamma_candidate": 81,
+        "is_square_shift": false,
+        "n": 100,
+        "obstruction_ok": true,
+        "p": 101
+      },
+      {
+        "e": 2,
+        "gamma_candidate": 58,
+        "is_square_shift": false,
+        "n": 126,
+        "obstruction_ok": true,
+        "p": 127
+      },
+      {
+        "e": 3,
+        "gamma_candidate": 79,
+        "is_square_shift": false,
+        "n": 126,
+        "obstruction_ok": true,
+        "p": 127
+      },
+      {
+        "e": 4,
+        "gamma_candidate": 95,
+        "is_square_shift": false,
+        "n": 126,
+        "obstruction_ok": true,
+        "p": 127
+      },
+      {
+        "e": 5,
+        "gamma_candidate": 67,
+        "is_square_shift": false,
+        "n": 126,
+        "obstruction_ok": true,
+        "p": 127
+      },
+      {
+        "e": 6,
+        "gamma_candidate": 17,
+        "is_square_shift": false,
+        "n": 126,
+        "obstruction_ok": true,
+        "p": 127
+      },
+      {
+        "e": 7,
+        "gamma_candidate": 47,
+        "is_square_shift": false,
+        "n": 126,
+        "obstruction_ok": true,
+        "p": 127
+      }
+    ],
+    "status": "PASS",
+    "summary": {
+      "B_star": 393171.5875467097,
+      "H2": 77291948627,
+      "all_multipad_span_ge_e": true,
+      "all_sqrt_obstructions": true,
+      "all_t_le_2e_injective": true,
+      "deployed_2e": 134944,
+      "deployed_n_prime": 1183520,
+      "deployed_ratio_n_prime_over_e": 17.540905857244486,
+      "n_inj": 36,
+      "n_mp": 8,
+      "n_obst": 30,
+      "threshold_t_le_2e_closes_deployed": false
+    }
+  }
+}
