@@ -1,6 +1,17 @@
 # Agents Log
 
 
+### 2026-07-09 - KB-MCA Route-D v40: ambient L≤70 REFUTED; L_rep≤R_max PROVED
+
+- REFUTED ambient free-1 load L≤70 (counters L=96,406,2346,2485) and L≤2176
+  (n=70/72,e=3). A_SP-prefix census also hits L≥72 / L=105.
+- PROVED matched representative load L_rep≤R_max=70 (≤1 U_rep through r per
+  multi-tier). Full-cover L on H_core NOT ≤R (mates; banked cover>R on 16 rows).
+- PROVED |H_core|≤K_cap by packing (v39); multi-mate |H|≤nL/(2e); injection
+  L(r)≤C(n−1,e−1).
+- Resolution: ambient L-gate DEAD; surviving L≤70 is L_rep; high gate is H_core
+  packing. Overflow when |H|≫K_cap still OPEN.
+
 ### 2026-07-09 - KB-MCA Route-D v39: H_core ≤K_cap ledger + overflow pair enum
 
 - Proved (ledger): H_core = multi-tier FM highs with tier < R_max=70 satisfies
