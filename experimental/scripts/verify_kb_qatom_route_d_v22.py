@@ -16,7 +16,7 @@ Proved:
         free_core < 0  ⇔  j < 2w+1  (impossible: m_c < w, Phi_w overdetermined)
         free_core = 0  ⇔  j = 2w+1  ⇒ core Phi_w unique monic ⇒ M_pad≤1
         free_core = 1  ⇔  j = 2w+2  ⇒ cores free-1 CS packing available
-        free_core ≥ 1  ⇔  j ≥ 2w+2  (deployed: free_core = 846160)
+        free_core ≥ 1  ⇔  j ≥ 2w+2  (deployed: free_core = 846161)
   (4) Recover j < 2w+2 ⇒ M_pad≤1 as free_core ≤ 0 cases (aligned with v21).
   (5) Toy bank: every multipad pair of cores has Phi_w equal; deg(diff) ≤ bound;
       free_core matches j−2w−1.
