@@ -1,0 +1,328 @@
+{
+  "claims": {
+    "banks_naive_injection_failures": true,
+    "proves_Mm_res_le_1": false,
+    "proves_U_1116048_le_Bstar": false,
+    "proves_U_phi_atom": false,
+    "proves_injection_bridges": true,
+    "proves_lex_dual_mass": true,
+    "proves_mass_sufficient_budgets": true,
+    "proves_residual_injection": false,
+    "proves_routing_dual_import": true
+  },
+  "deployed": {
+    "B_gen": 143763024447376,
+    "B_rem": 274836964615500671,
+    "K_rem": 4805007,
+    "TARGET": 274836936291722953,
+    "TARGET_over_pack": 16166878605395467,
+    "a_plus": 1116048,
+    "j": 981104,
+    "log2_TARGET_over_pack": 53.84389067782479,
+    "log2_n_p": 51.988684687449265,
+    "log2_t_p": 47.0306859937284,
+    "m": 913632,
+    "n": 2097152,
+    "n_p": 4468415257378816,
+    "p": 2130706433,
+    "pack": 17,
+    "pack_n_p": 75963059375439872,
+    "pack_t_p": 2443971415605392,
+    "t": 67472,
+    "t_p": 143763024447376,
+    "w": 67471
+  },
+  "impact_on_program": {
+    "best_bridges": "E2/E5 support injection, or core injection N_can\u2264n*p, or M_m^res=1 + U_phi",
+    "next": "Prove ledger residual support injection into D\u00d7F_p or [t]\u00d7F_p, or residual can-core injection into size \u2264 TARGET/17, or M_m^res\u22641 with U_phi bound \u2014 using first-match structure, not aperiodic proxy alone",
+    "reanchor": "Residual mass is the attack surface; multi-mate taxonomy is support only"
+  },
+  "lemmas": {
+    "OPEN_RES_MASS": {
+      "do_not": [
+        "Re-prove global M_m \u2264 1 (refuted v8)",
+        "Replace ledger residual by aperiodic proxy without justification",
+        "Stack more multi-mate taxonomy without a mass bound"
+      ],
+      "falsifier": "A ledger-residual leaf z with |R(z)| > TARGET, or with N_can_prim larger than every proved budget under the claimed injection, after the named first-match deletions.",
+      "name": "OPEN_RES_MASS",
+      "statement": "Prove one of the following for ledger residual R(z) at deployed KB-MCA a+=1116048 (not merely aperiodic proxy):\n  (i)   max |R(z)| \u2264 TARGET;\n  (ii)  max N_can_prim(z) \u2264 floor(TARGET/17);\n  (iii) residual supports inject into a set of size \u2264 n\u00b7p or \u2264 t\u00b7p;\n  (iv)  residual can-cores inject into a set of size \u2264 floor(TARGET/17) or \u2264 n\u00b7p or \u2264 t;\n  (v)   M_m^{res} \u2264 1 and U_phi \u2264 floor(TARGET/17) (or U_res with side routing).\nAny one upgrades Route-D conditional closure toward residual atom (still subject to other first-match branches for full U\u2264B*).",
+      "status": "OPEN"
+    },
+    "injection_bridges": {
+      "name": "injection_bridges_to_mass",
+      "note": "These bridges are the correct attack surface. v8\u2013v13 constrain possible multi-mate structure inside fibers of \u03ba or inside M_m^{res}; they are not themselves mass bounds.",
+      "proof": [
+        "Cardinality of domain \u2264 cardinality of codomain under injection.",
+        "Combine with lemma_mass_arithmetic (P1)/(P4) and routing dual."
+      ],
+      "statement": "Bridge A (supports): If there is an injection \u03b9: R(z) \u2192 L with |L| \u2264 B for every z, then max |R| \u2264 B. Taking B = t\u00b7p recovers E2-scale residual mass; B = n\u00b7p recovers E5.\nBridge B (cores): If there is an injection \u03ba: C_res(z) \u2192 L with |L| \u2264 B, then N_can_prim \u2264 B. With B \u2264 floor(TARGET/17), pack residual atom closes (P1). With B \u2264 t, p-cover gives |R| \u2264 t\u00b7p (P4).\nBridge C (routing): If M_m^{res,phi} \u2264 1 then N_can_prim = U_phi, so a U_phi \u2264 floor(TARGET/17) bound is equivalent to pack atom.",
+      "status": "PROVED"
+    },
+    "lex_dual": {
+      "name": "residual_lex_dual_mass",
+      "proof": [
+        "v3 lex-split injection depends only on shared prefix z and the core-pencil theorem, not on exhausting the full fiber; v4 applies it to residual.",
+        "Image of \u03c6 lands in C_res \u00d7 F_p; injectivity gives |R| \u2264 p\u00b7|C_res|.",
+        "C_can surjects onto C_res by definition, so N_can_prim \u2264 |R|."
+      ],
+      "statement": "On any residual family R(z) \u2286 Fib_w^{(j)}(z), the map \u03c6: S \u21a6 (C_can(S), c_U(S)) is injective (v3/v4). Therefore |R(z)| \u2264 p \u00b7 N_can_prim(z) and N_can_prim(z) \u2264 |R(z)|. Equivalently residual supports inject into C_res(z) \u00d7 F_p.",
+      "status": "PROVED"
+    },
+    "mass_arithmetic": {
+      "name": "residual_mass_sufficient_budgets",
+      "numbers": {
+        "TARGET": 274836936291722953,
+        "TARGET_over_pack": 16166878605395467,
+        "log2_TARGET_over_pack": 53.84389067782479,
+        "log2_n_p": 51.988684687449265,
+        "log2_t_p": 47.0306859937284,
+        "n_p": 4468415257378816,
+        "pack_n_p": 75963059375439872,
+        "pack_t_p": 2443971415605392,
+        "slack_TARGET_minus_pack_n_p": 198873876916283081,
+        "slack_bits_pack_n_p": 1.8552059903755236,
+        "t_p": 143763024447376
+      },
+      "proof": [
+        "v4: |R| \u2264 pack \u00b7 N_can_prim with pack=17.",
+        "v3: |R| \u2264 p \u00b7 N_can_prim via S |-> (C_can, c_U).",
+        "Direct comparison of integers PACK*N_P, PACK*T_P, N_P, T_P, TARGET.",
+        "v1 retained lift 11440 only needed for additive E1 with G_gen; pure residual mass |R|\u2264t\u00b7p already fits TARGET with large slack."
+      ],
+      "statement": "With pack_ceil=17 and TARGET the Route-D residual floor:\n  (P1) If max N_can_prim \u2264 floor(TARGET/17), then max |R| \u2264 TARGET by residual lex covering (v4).\n  (P2) If max N_can_prim \u2264 n\u00b7p, then max |R| \u2264 17\u00b7n\u00b7p \u2264 TARGET (17\u00b7n\u00b7p = 75963059375439872).\n  (P3) If max N_can_prim \u2264 t\u00b7p, then max |R| \u2264 17\u00b7t\u00b7p \u2264 TARGET.\n  (P4) If max N_can_prim \u2264 t, then max |R| \u2264 p\u00b7N_can_prim \u2264 t\u00b7p by the p-covering |R| \u2264 p\u00b7N_can (v3), which is the E1/E2 scale for residual mass alone (before adding G_gen).\n  (P5) If residual supports inject into a set of size \u2264 n\u00b7p (E5) or \u2264 t\u00b7p (E2), then |R| \u2264 that size \u2264 TARGET.",
+      "status": "PROVED_BY_EXACT_INTEGER_ARITHMETIC"
+    },
+    "naive_injection_bank": {
+      "name": "naive_core_injections_fail_on_proxy",
+      "proof": [
+        "Computational certificates in toy_suite: collision max fibers > 1 for listed schemes on multiple (j,w) rows.",
+        "min_b = (min, Phi_w) can be nearly injective (max fiber 2 on some rows) but still collides \u2014 not a proof."
+      ],
+      "statement": "On aperiodic residual-proxy can-cores for small dyadic (p,n), the maps C \u21a6 min(C), C \u21a6 (min(C), c_0), C \u21a6 (min(C), c_{m-1}), C \u21a6 (min(C), Phi_w(C)), and S \u21a6 (min(S), c_U) are not injective in general. Therefore these naive marks do not prove Bridge B/A at toy scale; a residual injection proof needs ledger structure or a different label.",
+      "status": "PROVED_NEGATIVE_TOY_BANK"
+    },
+    "north_star": {
+      "deployed_TARGET": 274836936291722953,
+      "deployed_n_p": 4468415257378816,
+      "deployed_t_p": 143763024447376,
+      "name": "residual_mass_north_star",
+      "source_ledger": "experimental/notes/thresholds/kb_mca_1116048_first_match_ledger_v1.md",
+      "source_v1_forms": "experimental/notes/thresholds/kb_qatom_route_d_v1.md E1\u2013E5",
+      "statement": "The Route-D north star is residual mass for ledger residual R(z) at KB-MCA a+=1116048 (first-match residual of j-supports), not global multi-mate taxonomy. Sufficient forms include:\n  (K_rem) max_z |R(z)| \u2264 TARGET (residual flatness / pack atom);\n  (E1)    |G_gen_support| + |D_full_rank_prim| \u2264 t\u00b7p;\n  (E2)    residual supports inject into a set of size \u2264 t\u00b7p;\n  (E5)    residual supports inject into D \u00d7 F_p (size n\u00b7p).\nCovering+routing reduce (K_rem) to bounds on N_can_prim, U_res, M_m^{res}, or U_phi (v4\u2013v11). Multi-mate geometry (v8\u2013v13) only constrains M_m / M_m^{res} structure; it does not replace mass.",
+      "status": "PROVED_AS_PROGRAM_LAW"
+    },
+    "routing_dual": {
+      "name": "residual_routing_mass_dual",
+      "primary_open": [
+        "M_m^{res,side} \u2264 1 (or small K_res)",
+        "U_phi \u2264 floor(TARGET/17) (B2 residual can-core Phi_w-image)",
+        "residual support injection |R| \u2264 t\u00b7p or n\u00b7p (E2/E5)",
+        "residual can-core injection N_can \u2264 n\u00b7p or t (core E5/E2)"
+      ],
+      "proof": [
+        "Imported residual routing from v5/v11; residual-restricted."
+      ],
+      "statement": "N_can_prim(z) \u2264 U_res(z) \u00b7 M_m^{res,side}(z) and N_can_prim(z) \u2264 U_phi(z) \u00b7 M_m^{res,phi}(z) (v5/v10/v11). Hence residual mass is controlled by either a residual uniqueness bound on M_m^{res,*} or a residual image bound on U_res / U_phi, or both.",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v14",
+  "status": "PARTIAL_MASS_REANCHOR",
+  "title": "Residual mass atom re-anchor (on-track north star)",
+  "toy_suite": {
+    "rows": [
+      {
+        "N_can": 1716,
+        "j": 9,
+        "lex_injective": true,
+        "m": 6,
+        "max_lex_fiber": 1,
+        "min_S_cU_max_fiber": 1716,
+        "n": 16,
+        "n_R": 11440,
+        "p": 17,
+        "schemes": {
+          "min": {
+            "injective": false,
+            "max_fiber": 792,
+            "n_cores": 1716,
+            "n_labels": 8
+          },
+          "min_b": {
+            "injective": false,
+            "max_fiber": 6,
+            "n_cores": 1716,
+            "n_labels": 944
+          },
+          "min_b1": {
+            "injective": false,
+            "max_fiber": 49,
+            "n_cores": 1716,
+            "n_labels": 107
+          },
+          "min_c0": {
+            "injective": false,
+            "max_fiber": 52,
+            "n_cores": 1716,
+            "n_labels": 98
+          }
+        },
+        "w": 2
+      },
+      {
+        "N_can": 715,
+        "j": 7,
+        "lex_injective": true,
+        "m": 4,
+        "max_lex_fiber": 1,
+        "min_S_cU_max_fiber": 826,
+        "n": 16,
+        "n_R": 11440,
+        "p": 17,
+        "schemes": {
+          "min": {
+            "injective": false,
+            "max_fiber": 220,
+            "n_cores": 715,
+            "n_labels": 10
+          },
+          "min_b": {
+            "injective": false,
+            "max_fiber": 3,
+            "n_cores": 715,
+            "n_labels": 645
+          },
+          "min_b1": {
+            "injective": false,
+            "max_fiber": 15,
+            "n_cores": 715,
+            "n_labels": 133
+          },
+          "min_c0": {
+            "injective": false,
+            "max_fiber": 15,
+            "n_cores": 715,
+            "n_labels": 115
+          }
+        },
+        "w": 2
+      },
+      {
+        "N_can": 923,
+        "j": 10,
+        "lex_injective": true,
+        "m": 6,
+        "max_lex_fiber": 1,
+        "min_S_cU_max_fiber": 922,
+        "n": 16,
+        "n_R": 7952,
+        "p": 17,
+        "schemes": {
+          "min": {
+            "injective": false,
+            "max_fiber": 461,
+            "n_cores": 923,
+            "n_labels": 7
+          },
+          "min_b": {
+            "injective": false,
+            "max_fiber": 2,
+            "n_cores": 923,
+            "n_labels": 920
+          },
+          "min_b1": {
+            "injective": false,
+            "max_fiber": 30,
+            "n_cores": 923,
+            "n_labels": 90
+          },
+          "min_c0": {
+            "injective": false,
+            "max_fiber": 33,
+            "n_cores": 923,
+            "n_labels": 82
+          }
+        },
+        "w": 3
+      },
+      {
+        "N_can": 792,
+        "j": 9,
+        "lex_injective": true,
+        "m": 5,
+        "max_lex_fiber": 1,
+        "min_S_cU_max_fiber": 842,
+        "n": 16,
+        "n_R": 11440,
+        "p": 17,
+        "schemes": {
+          "min": {
+            "injective": false,
+            "max_fiber": 330,
+            "n_cores": 792,
+            "n_labels": 8
+          },
+          "min_b": {
+            "injective": false,
+            "max_fiber": 2,
+            "n_cores": 792,
+            "n_labels": 791
+          },
+          "min_b1": {
+            "injective": false,
+            "max_fiber": 21,
+            "n_cores": 792,
+            "n_labels": 104
+          },
+          "min_c0": {
+            "injective": false,
+            "max_fiber": 24,
+            "n_cores": 792,
+            "n_labels": 92
+          }
+        },
+        "w": 3
+      },
+      {
+        "N_can": 286,
+        "j": 6,
+        "lex_injective": true,
+        "m": 3,
+        "max_lex_fiber": 1,
+        "min_S_cU_max_fiber": 388,
+        "n": 16,
+        "n_R": 7952,
+        "p": 17,
+        "schemes": {
+          "min": {
+            "injective": false,
+            "max_fiber": 66,
+            "n_cores": 286,
+            "n_labels": 11
+          },
+          "min_b": {
+            "injective": true,
+            "max_fiber": 1,
+            "n_cores": 286,
+            "n_labels": 286
+          },
+          "min_b1": {
+            "injective": false,
+            "max_fiber": 5,
+            "n_cores": 286,
+            "n_labels": 132
+          },
+          "min_c0": {
+            "injective": false,
+            "max_fiber": 6,
+            "n_cores": 286,
+            "n_labels": 112
+          }
+        },
+        "w": 2
+      }
+    ],
+    "status": "PASS"
+  }
+}

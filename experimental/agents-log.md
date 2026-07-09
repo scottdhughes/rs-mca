@@ -7,6 +7,27 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v14: residual mass re-anchor (on-track)
+
+- **Agent/model:** Grok + Scott Hughes (`scottdhughes`).
+- **Files added or changed:**
+  `experimental/scripts/verify_kb_qatom_route_d_v14.py`,
+  `experimental/notes/thresholds/kb_qatom_route_d_v14.md`,
+  `experimental/data/certificates/kb-qatom-route-d-v14/`,
+  `experimental/notes/certificate_scanner/outputs/kb_qatom_route_d_v14.report.md`,
+  `experimental/agents-log.md`.
+- **Status:** PARTIAL_MASS_REANCHOR — mass criteria/bridges PROVED; atom OPEN.
+- **On-track:** North star = residual mass |R|≤TARGET (or E1/E2/E5 / N_can).
+  Multi-mate taxonomy (v8–v13) demoted to support structure only.
+- **Proved arithmetic:** N_can≤n*p or t*p or TARGET/17 sufficient for pack atom;
+  17*n*p≤TARGET; N_can≤t ⇒ |R|≤t*p via p-cover; E2/E5 support injection
+  closes mass. Lex dual R↪C_res×F_p; routing duals imported.
+- **OPEN_RES_MASS:** ledger residual injection or M_m^res+U_phi.
+- **Toy bank:** naive (min,Phi)/(min,c0)/(minS,cU) not injective on proxy;
+  lex dual OK per fiber.
+- **What to do next:** Prove ledger residual support/core injection (E2/E5)
+  or residual uniqueness+image bound — not more multi-mate taxonomy.
+
 ### 2026-07-08 - KB-MCA Route-D v13: block factorization of multi-mates
 
 - **Agent/model:** Grok + Scott Hughes (`scottdhughes`).
