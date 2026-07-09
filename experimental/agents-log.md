@@ -7,6 +7,17 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v26: free_core=1 M_pad packing + high-tag criterion
+
+- Proved: free_core=1 ⇒ M_pad ≤ ⌊(n−2e)/m_c⌋ (cores free-1 family, disjoint, in
+  complement of U∪V); high-tag payment: M_pad≤1 + residual highs↪[K] with
+  K·⌊n/e⌋≤e ⇒ (κ,ι,δ) injects into e·p; K_max=2176 deployed; K=1 special case.
+- Deployed: ⌊(n−2e)/m_c⌋=2 but free_core≠1 — packing not applied; would need
+  multipad-core disjointness at free_core≫1.
+- Toys: fc1 packing OK; fc≥2 core intersections; multi-high fibers 433/1002;
+  (ι,δ) cross-high collides; full high injects (over budget).
+- Open: residual highs↪[2176]; M_pad at free_core=846161.
+
 ### 2026-07-09 - KB-MCA Route-D v25: free-1 high families disjoint + residual census
 
 - Proved: free-1 high families F_H pairwise disjoint (c0=−H(r) forces unique U);

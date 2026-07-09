@@ -1,0 +1,636 @@
+{
+  "claims": {
+    "proves_A_SP_le_tp": false,
+    "proves_M_pad_le_1_deployed": false,
+    "proves_UV_disjoint": true,
+    "proves_fc1_Mpad_packing_bound": true,
+    "proves_high_tag_payment_criterion": true,
+    "proves_residual_highs_into_Kmax": false,
+    "proves_single_high_special_case": true,
+    "toy_confirms_fc1_pack_and_cross_high_gap": true
+  },
+  "deployed": {
+    "K_max": 2176,
+    "K_max_times_floor_n_e": 67456,
+    "e": 67472,
+    "e_p": 143763024447376,
+    "floor_n_minus_2e_over_mc": 2,
+    "floor_n_over_e": 31,
+    "floor_n_over_mc": 2,
+    "free_core": 846161,
+    "is_free_core_1": false,
+    "m_c": 913632,
+    "n": 2097152,
+    "t": 67472,
+    "t_p": 143763024447376
+  },
+  "impact_on_program": {
+    "deployed_gap": "free_core=846161: core intersections possible (toys); need highs\u21aa[2176] or M_pad control",
+    "fc1_model": "free_core=1 \u21d2 M_pad \u2264 \u230a(n\u22122e)/m_c\u230b (packing); deployed would be \u22642 if free_core were 1",
+    "high_tag": "Payment \u21d0 M_pad\u22641 + residual highs \u21aa [2176] + within-family (\u03b9,\u03b4)",
+    "next": "Construct \u03ba: residual highs\u2192[K_max] from fiber/ledger geometry; or prove multipad cores nearly-disjoint / M_pad\u22642 at deployed"
+  },
+  "lemmas": {
+    "OPEN": {
+      "name": "OPEN_high_tag_and_deployed_Mpad",
+      "statement": "(1) Inject residual free-1 highs into [K] with K\u22642176 (=\u230ae/\u230an/e\u230b\u230b), or prove residual A_SP pairs use \u22642176 highs with an explicit \u03ba.\n(2) M_pad\u22641 (or \u22642 via core packing) at free_core=846161: need multipad-core disjointness or other free_core\u226b1 control; toys show core intersections when free_core\u22652.",
+      "status": "OPEN"
+    },
+    "UV_disjoint": {
+      "name": "free1_CS_sides_disjoint",
+      "proof": [
+        "v25 free-1 high family packing."
+      ],
+      "statement": "Any free-1 CS ordered pair (U,V) has U \u2229 V = \u2205. Proof: same free-1 high H \u21d2 both in F_H \u21d2 pairwise disjoint (v25).",
+      "status": "PROVED"
+    },
+    "fc1_Mpad": {
+      "deployed_floor_n_minus_2e_over_mc": 2,
+      "deployed_floor_n_over_mc": 2,
+      "deployed_note": "Deployed free_core=846161 \u2260 1, so this bound does not apply. Numerically \u230a(n\u22122e)/m_c\u230b = 2 and \u230an/m_c\u230b = 2 \u2014 packing would give M_pad\u22642 if multipad cores were disjoint at free_core\u226b1 (OPEN).",
+      "name": "free_core_1_M_pad_packing_bound",
+      "proof": [
+        "v23: free_core=1 multipad cores are free-1 CS of degree m_c.",
+        "v25 applied to m_c-sets with free-1 high (= depth-(m_c\u22121) multi-mates): free-1 family pairwise disjoint.",
+        "Joint avoidance: cores \u2286 D \\ (U \u222a V).",
+        "U \u2229 V = \u2205 \u21d2 |U \u222a V| = 2e.",
+        "Disjoint m_c-sets in a ground set of size n\u22122e \u21d2 bound."
+      ],
+      "statement": "Suppose free_core = 1 (so m_c = w+1). For any multipad side pair (U,V), the multipad cores form a free-1 CS clique of m_c-sets (v23) with a common free-1 high H_core, hence are pairwise disjoint and lie in D \\ (U \u222a V). Therefore M_pad \u2264 \u230a(n \u2212 |U \u222a V|) / m_c\u230b = \u230a(n \u2212 2e) / m_c\u230b (using |U \u222a V| = 2e from side disjointness).",
+      "status": "PROVED"
+    },
+    "high_tag": {
+      "deployed": {
+        "K_max": 2176,
+        "K_max_times_floor": 67456,
+        "e": 67472,
+        "fits": true,
+        "floor_n_over_e": 31
+      },
+      "name": "residual_high_tag_payment_criterion",
+      "proof": [
+        "v20: M_pad\u22641 \u21d2 pairs inject via side geometry; N_ord = N_side.",
+        "v25: within F_H, (\u03b9,\u03b4) injective and |F_H|\u2264\u230an/e\u230b.",
+        "\u03ba injective on residual highs \u21d2 (\u03ba(H),\u03b9(U),\u03b4) injective globally on residual pairs (pairs are always mono-high).",
+        "Cardinality: |\u03ba|\u00b7|\u03b9|\u00b7|\u03b4| \u2264 K\u00b7\u230an/e\u230b\u00b7p \u2264 e\u00b7p."
+      ],
+      "statement": "Assume M_pad \u2264 1. Suppose residual free-1 highs (those appearing among residual top-seam free-1 CS pairs) inject into a label set of size K with K \u00b7 \u230an/e\u230b \u2264 e. Let \u03b9: F_H \u2192 {0,..,|F_H|\u22121} \u2286 [\u230an/e\u230b] be the within-family rank (v25). Then (U,V) \u21a6 (\u03ba(H), \u03b9(U), \u03b4) with \u03b4 = c0U\u2212c0V injects residual free-1 CS ordered pairs into a set of size \u2264 K\u00b7\u230an/e\u230b\u00b7p \u2264 e\u00b7p = t\u00b7p = 143763024447376, hence |A_SP| \u2264 t\u00b7p.",
+      "status": "PROVED"
+    },
+    "single_high": {
+      "name": "single_residual_high_closes_payment",
+      "proof": [
+        "High-tag criterion with K=1; v25 within-family marks."
+      ],
+      "statement": "If M_pad\u22641 and residual free-1 CS pairs use only one high (K=1 \u2264 K_max), then (\u03b9,\u03b4) alone injects into e\u00b7p and |A_SP|\u2264t\u00b7p.",
+      "status": "PROVED",
+      "toy_note": "Multi-high fibers occur on toys \u2014 single-high is not automatic."
+    }
+  },
+  "packet": "kb_qatom_route_d_v26",
+  "status": "PARTIAL_HIGH_TAG_CRITERION",
+  "title": "free_core=1 M_pad packing + residual high-tag e\u00b7p criterion",
+  "toy_suite": {
+    "census": {
+      "n_fc1_cores_disj": 818,
+      "n_fc1_mp_pair_checks": 818,
+      "n_fibers_multi_high": 433,
+      "n_fibers_with_pairs": 1002,
+      "n_rows_fc_ge2_with_inter": 4,
+      "n_rows_full_high_inj": 12,
+      "n_rows_iota_delta_cross_coll": 10,
+      "n_tag_rows": 12
+    },
+    "rows": [
+      {
+        "all_UV_disjoint": true,
+        "e": 2,
+        "fc1_cores_disjoint": true,
+        "fc_ge2_saw_core_intersection": null,
+        "floor_n_over_e": 8,
+        "floor_pack_n_minus_2e_over_mc": 6,
+        "free_core": 1,
+        "j": 4,
+        "k_max": 0,
+        "m_c": 2,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 400,
+            "nuniq": 400
+          },
+          "high0_mod_kmax_iota_delta": {
+            "coll": 100,
+            "inj": false,
+            "nlab": 112,
+            "nuniq": 400
+          },
+          "iota_delta": {
+            "coll": 100,
+            "inj": false,
+            "nlab": 112,
+            "nuniq": 400
+          },
+          "sumhigh_mod_kmax_iota_delta": {
+            "coll": 100,
+            "inj": false,
+            "nlab": 112,
+            "nuniq": 400
+          }
+        },
+        "max_Mpad": 4,
+        "max_highs_per_fiber": 17,
+        "n": 16,
+        "n_multipad_events": 540,
+        "p": 17,
+        "w": 1
+      },
+      {
+        "all_UV_disjoint": true,
+        "e": 2,
+        "fc1_cores_disjoint": null,
+        "fc_ge2_saw_core_intersection": true,
+        "floor_n_over_e": 8,
+        "floor_pack_n_minus_2e_over_mc": 4,
+        "free_core": 2,
+        "j": 5,
+        "k_max": 0,
+        "m_c": 3,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 286,
+            "nuniq": 286
+          },
+          "high0_mod_kmax_iota_delta": {
+            "coll": 82,
+            "inj": false,
+            "nlab": 109,
+            "nuniq": 286
+          },
+          "iota_delta": {
+            "coll": 82,
+            "inj": false,
+            "nlab": 109,
+            "nuniq": 286
+          },
+          "sumhigh_mod_kmax_iota_delta": {
+            "coll": 82,
+            "inj": false,
+            "nlab": 109,
+            "nuniq": 286
+          }
+        },
+        "max_Mpad": 9,
+        "max_highs_per_fiber": 17,
+        "n": 16,
+        "n_multipad_events": 972,
+        "p": 17,
+        "w": 1
+      },
+      {
+        "all_UV_disjoint": true,
+        "e": 3,
+        "fc1_cores_disjoint": null,
+        "fc_ge2_saw_core_intersection": null,
+        "floor_n_over_e": 5,
+        "floor_pack_n_minus_2e_over_mc": 5,
+        "free_core": 0,
+        "j": 5,
+        "k_max": 0,
+        "m_c": 2,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 260,
+            "nuniq": 260
+          },
+          "high0_mod_kmax_iota_delta": {
+            "coll": 44,
+            "inj": false,
+            "nlab": 45,
+            "nuniq": 260
+          },
+          "iota_delta": {
+            "coll": 44,
+            "inj": false,
+            "nlab": 45,
+            "nuniq": 260
+          },
+          "sumhigh_mod_kmax_iota_delta": {
+            "coll": 44,
+            "inj": false,
+            "nlab": 45,
+            "nuniq": 260
+          }
+        },
+        "max_Mpad": 1,
+        "max_highs_per_fiber": 5,
+        "n": 16,
+        "n_multipad_events": 0,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "all_UV_disjoint": true,
+        "e": 2,
+        "fc1_cores_disjoint": null,
+        "fc_ge2_saw_core_intersection": true,
+        "floor_n_over_e": 8,
+        "floor_pack_n_minus_2e_over_mc": 3,
+        "free_core": 3,
+        "j": 6,
+        "k_max": 0,
+        "m_c": 4,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 200,
+            "nuniq": 200
+          },
+          "high0_mod_kmax_iota_delta": {
+            "coll": 65,
+            "inj": false,
+            "nlab": 102,
+            "nuniq": 200
+          },
+          "iota_delta": {
+            "coll": 65,
+            "inj": false,
+            "nlab": 102,
+            "nuniq": 200
+          },
+          "sumhigh_mod_kmax_iota_delta": {
+            "coll": 65,
+            "inj": false,
+            "nlab": 102,
+            "nuniq": 200
+          }
+        },
+        "max_Mpad": 14,
+        "max_highs_per_fiber": 17,
+        "n": 16,
+        "n_multipad_events": 904,
+        "p": 17,
+        "w": 1
+      },
+      {
+        "all_UV_disjoint": true,
+        "e": 3,
+        "fc1_cores_disjoint": true,
+        "fc_ge2_saw_core_intersection": null,
+        "floor_n_over_e": 5,
+        "floor_pack_n_minus_2e_over_mc": 3,
+        "free_core": 1,
+        "j": 6,
+        "k_max": 0,
+        "m_c": 3,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 146,
+            "nuniq": 146
+          },
+          "high0_mod_kmax_iota_delta": {
+            "coll": 29,
+            "inj": false,
+            "nlab": 43,
+            "nuniq": 146
+          },
+          "iota_delta": {
+            "coll": 29,
+            "inj": false,
+            "nlab": 43,
+            "nuniq": 146
+          },
+          "sumhigh_mod_kmax_iota_delta": {
+            "coll": 29,
+            "inj": false,
+            "nlab": 43,
+            "nuniq": 146
+          }
+        },
+        "max_Mpad": 2,
+        "max_highs_per_fiber": 6,
+        "n": 16,
+        "n_multipad_events": 2,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "all_UV_disjoint": true,
+        "e": 4,
+        "fc1_cores_disjoint": null,
+        "fc_ge2_saw_core_intersection": null,
+        "floor_n_over_e": 4,
+        "floor_pack_n_minus_2e_over_mc": 4,
+        "free_core": -1,
+        "j": 6,
+        "k_max": 1,
+        "m_c": 2,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 60,
+            "nuniq": 60
+          },
+          "high0_mod_kmax_iota_delta": {
+            "coll": 16,
+            "inj": false,
+            "nlab": 24,
+            "nuniq": 60
+          },
+          "iota_delta": {
+            "coll": 16,
+            "inj": false,
+            "nlab": 24,
+            "nuniq": 60
+          },
+          "sumhigh_mod_kmax_iota_delta": {
+            "coll": 16,
+            "inj": false,
+            "nlab": 24,
+            "nuniq": 60
+          }
+        },
+        "max_Mpad": 1,
+        "max_highs_per_fiber": 1,
+        "n": 16,
+        "n_multipad_events": 0,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "all_UV_disjoint": true,
+        "e": 3,
+        "fc1_cores_disjoint": null,
+        "fc_ge2_saw_core_intersection": true,
+        "floor_n_over_e": 5,
+        "floor_pack_n_minus_2e_over_mc": 2,
+        "free_core": 2,
+        "j": 7,
+        "k_max": 0,
+        "m_c": 4,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 80,
+            "nuniq": 80
+          },
+          "high0_mod_kmax_iota_delta": {
+            "coll": 23,
+            "inj": false,
+            "nlab": 34,
+            "nuniq": 80
+          },
+          "iota_delta": {
+            "coll": 23,
+            "inj": false,
+            "nlab": 34,
+            "nuniq": 80
+          },
+          "sumhigh_mod_kmax_iota_delta": {
+            "coll": 23,
+            "inj": false,
+            "nlab": 34,
+            "nuniq": 80
+          }
+        },
+        "max_Mpad": 2,
+        "max_highs_per_fiber": 5,
+        "n": 16,
+        "n_multipad_events": 4,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "all_UV_disjoint": true,
+        "e": 4,
+        "fc1_cores_disjoint": null,
+        "fc_ge2_saw_core_intersection": null,
+        "floor_n_over_e": 4,
+        "floor_pack_n_minus_2e_over_mc": 2,
+        "free_core": 0,
+        "j": 7,
+        "k_max": 1,
+        "m_c": 3,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 26,
+            "nuniq": 26
+          },
+          "high0_mod_kmax_iota_delta": {
+            "coll": 8,
+            "inj": false,
+            "nlab": 16,
+            "nuniq": 26
+          },
+          "iota_delta": {
+            "coll": 8,
+            "inj": false,
+            "nlab": 16,
+            "nuniq": 26
+          },
+          "sumhigh_mod_kmax_iota_delta": {
+            "coll": 8,
+            "inj": false,
+            "nlab": 16,
+            "nuniq": 26
+          }
+        },
+        "max_Mpad": 1,
+        "max_highs_per_fiber": 1,
+        "n": 16,
+        "n_multipad_events": 0,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "all_UV_disjoint": true,
+        "e": 3,
+        "fc1_cores_disjoint": null,
+        "fc_ge2_saw_core_intersection": true,
+        "floor_n_over_e": 5,
+        "floor_pack_n_minus_2e_over_mc": 2,
+        "free_core": 3,
+        "j": 8,
+        "k_max": 0,
+        "m_c": 5,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 42,
+            "nuniq": 42
+          },
+          "high0_mod_kmax_iota_delta": {
+            "coll": 10,
+            "inj": false,
+            "nlab": 24,
+            "nuniq": 42
+          },
+          "iota_delta": {
+            "coll": 10,
+            "inj": false,
+            "nlab": 24,
+            "nuniq": 42
+          },
+          "sumhigh_mod_kmax_iota_delta": {
+            "coll": 10,
+            "inj": false,
+            "nlab": 24,
+            "nuniq": 42
+          }
+        },
+        "max_Mpad": 2,
+        "max_highs_per_fiber": 3,
+        "n": 16,
+        "n_multipad_events": 2,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "all_UV_disjoint": true,
+        "e": 4,
+        "fc1_cores_disjoint": true,
+        "fc_ge2_saw_core_intersection": null,
+        "floor_n_over_e": 4,
+        "floor_pack_n_minus_2e_over_mc": 2,
+        "free_core": 1,
+        "j": 8,
+        "k_max": 1,
+        "m_c": 4,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 10,
+            "nuniq": 10
+          },
+          "high0_mod_kmax_iota_delta": {
+            "coll": 2,
+            "inj": false,
+            "nlab": 8,
+            "nuniq": 10
+          },
+          "iota_delta": {
+            "coll": 2,
+            "inj": false,
+            "nlab": 8,
+            "nuniq": 10
+          },
+          "sumhigh_mod_kmax_iota_delta": {
+            "coll": 2,
+            "inj": false,
+            "nlab": 8,
+            "nuniq": 10
+          }
+        },
+        "max_Mpad": 1,
+        "max_highs_per_fiber": 1,
+        "n": 16,
+        "n_multipad_events": 0,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "all_UV_disjoint": true,
+        "e": 3,
+        "fc1_cores_disjoint": null,
+        "fc_ge2_saw_core_intersection": false,
+        "floor_n_over_e": 5,
+        "floor_pack_n_minus_2e_over_mc": 1,
+        "free_core": 4,
+        "j": 9,
+        "k_max": 0,
+        "m_c": 6,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 16,
+            "nuniq": 16
+          },
+          "high0_mod_kmax_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 16,
+            "nuniq": 16
+          },
+          "iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 16,
+            "nuniq": 16
+          },
+          "sumhigh_mod_kmax_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 16,
+            "nuniq": 16
+          }
+        },
+        "max_Mpad": 1,
+        "max_highs_per_fiber": 2,
+        "n": 16,
+        "n_multipad_events": 0,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "all_UV_disjoint": true,
+        "e": 4,
+        "fc1_cores_disjoint": null,
+        "fc_ge2_saw_core_intersection": false,
+        "floor_n_over_e": 4,
+        "floor_pack_n_minus_2e_over_mc": 1,
+        "free_core": 2,
+        "j": 9,
+        "k_max": 1,
+        "m_c": 5,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "high0_mod_kmax_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "sumhigh_mod_kmax_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          }
+        },
+        "max_Mpad": 1,
+        "max_highs_per_fiber": 1,
+        "n": 16,
+        "n_multipad_events": 0,
+        "p": 17,
+        "w": 3
+      }
+    ],
+    "status": "PASS"
+  }
+}
