@@ -7,6 +7,16 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v24: Newton multi-mates + (U,δ) CS-pair reduction
+
+- Proved: multipad product identity (Λ_C−Λ_C')Λ_U = Λ_{C∪U}−Λ_{C'∪U};
+  Newton form Phi_w ⇔ first w power sums (p>m_c); free_core=1 fiber automatic
+  (deg c·Λ_U = j−w−1); ψ=(U,δ) injects free-1 CS pairs into FS_1(e)×F_p^×;
+  payment reduces to residual FS_1(e)↪[e] + M_pad≤1.
+- CAS: Sage free_core=1 model PASS (w=1..4).
+- Toys: 16044 product+Newton checks; 1528 pairs U_delta injective; e-index×δ collide.
+- Open: free_core=846161 multi-mates with joint avoid; FS_1(e)→[e].
+
 ### 2026-07-09 - KB-MCA Route-D v23: free_core=1 multipads = free-1 CS cores
 
 - Proved: free_core=1 multipads are free-1 CS core pairs (same monic free-1 high,

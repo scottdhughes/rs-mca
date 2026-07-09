@@ -1,0 +1,735 @@
+{
+  "claims": {
+    "proves_M_pad_le_1_deployed": false,
+    "proves_U_delta_injection": true,
+    "proves_ep_cs_injection": false,
+    "proves_eset_into_e": false,
+    "proves_fc1_fiber_automatic": true,
+    "proves_newton_multimate": true,
+    "proves_payment_reduces_to_eset_into_e": true,
+    "proves_product_identity": true,
+    "toy_confirms_product_newton_Udelta": true
+  },
+  "deployed": {
+    "e": 67472,
+    "e_p": 143763024447376,
+    "free_core": 846161,
+    "j": 981104,
+    "m_c": 913632,
+    "p": 2130706433,
+    "p_gt_mc": true,
+    "t": 67472,
+    "t_equals_e": true,
+    "t_p": 143763024447376,
+    "w": 67471
+  },
+  "impact_on_program": {
+    "multimate": "Multipads = depth-w power-sum multi-mates + joint complement CS-extension; free_core=1 fiber free (CAS)",
+    "next": "Inject residual FS_1(e) into [e], or bound free_core\u226b1 power-sum multi-mates with joint avoid",
+    "structure_aware": "CS pairs \u2192 (U,\u03b4); e\u00b7p payment \u21d0 free-1 e-sets \u2192 [e] + M_pad\u22641"
+  },
+  "lemmas": {
+    "OPEN": {
+      "name": "OPEN_high_fc_multimates_and_eset_to_e",
+      "statement": "(1) Bound multipads at free_core=846161: depth-w power-sum multi-mates of size m_c=913632 jointly avoiding a free-1 CS e-pair in the common complement.\n(2) Inject residual free-1 fully-split e-sets into [e] (structure-aware completion of e\u00b7p mark).\nCAS: free_core=1 model shows fiber is free \u2014 lift joint-avoid / fully-split constraints; Newton form for free_core\u226b1 multi-mates.",
+      "status": "OPEN"
+    },
+    "U_delta": {
+      "budget_reduction": "Injecting free-1 CS pairs into e\u00b7p reduces to injecting FS_1(e) (or residual sides) into a set of size e, then pairing with \u03b4\u2208F_p.",
+      "deployed_e_p": 143763024447376,
+      "name": "free1_CS_pairs_inject_via_U_delta",
+      "proof": [
+        "Free-1 CS: monic free-1 high of U equals that of V, and c0(U)\u2260c0(V), so \u039b_U \u2212 \u039b_V is the nonzero constant \u03b4.",
+        "Given U and \u03b4, \u039b_U is known; set \u039b := \u039b_U \u2212 \u03b4 (same high, constant c0(U)\u2212\u03b4). Unique monic \u21d2 unique candidate V as root set if fully split into domain.",
+        "If \u03c8(U,V)=\u03c8(U',V') then U=U' and \u03b4=\u03b4' \u21d2 \u039b_V=\u039b_{V'} \u21d2 V=V'."
+      ],
+      "statement": "Let FS_1(e) be the set of fully-split free-1 monic e-sets (equivalently monic free-1 locators that split into distinct domain roots). The map \u03c8: {(U,V) free-1 CS ordered} \u2192 FS_1(e) \u00d7 F_p^\u00d7, \u03c8(U,V) = (U, \u03b4) with \u03b4 = c0(U)\u2212c0(V), is injective. Indeed \u039b_V = \u039b_U \u2212 \u03b4 is the unique monic of degree e with that difference, so V is recovered from (U,\u03b4) when fully split.",
+      "status": "PROVED"
+    },
+    "fc1_fiber": {
+      "cas": "sage free_core=1 multipad model (embedded in toy_suite.cas_fc1)",
+      "name": "free_core_1_fiber_automatic",
+      "proof": [
+        "v23: free_core=1 \u21d2 free-1 CS cores.",
+        "Product identity: (\u039b_C\u2212\u039b_{C'})\u039b_U = c\u00b7\u039b_U, deg = e.",
+        "Phi_w agreement for monic j-sets \u21d4 deg(diff) \u2264 j\u2212w\u22121.",
+        "j\u2212w\u22121 = 2w+2\u2212w\u22121 = w+1 = e. Equality case \u21d2 auto.",
+        "CAS: Sage single-ring model checks CA\u2212CB=cA\u2212cB and SU\u2212SUp=(cA\u2212cB)\u00b7U for w=1..4."
+      ],
+      "statement": "When free_core=1 (so m_c = w+1 = e and j = 2w+2), multipad cores are free-1 CS: \u039b_C \u2212 \u039b_{C'} = c \u2260 0 constant. Then \u039b_{C\u222aU} \u2212 \u039b_{C'\u222aU} = c \u00b7 \u039b_U has degree e = j\u2212w\u22121, which is exactly the Phi_w fiber room. Hence same-fiber membership of C\u222aU and C'\u222aU is automatic. Multipads at free_core=1 are obstructed only by fully-split + joint avoidance, not by fiber.",
+      "status": "PROVED"
+    },
+    "newton": {
+      "deployed_p_gt_mc": true,
+      "name": "newton_power_sum_multimate",
+      "proof": [
+        "Monic locator coeffs are (signed) elementary symmetric functions of the roots.",
+        "Newton\u2013Girard: for 1 \u2264 k \u2264 m_c < p, the map between (e_1,...,e_k) and (p_1,...,p_k) is triangular with diagonal units (\u00b1k \u2260 0 in F_p), hence bijective.",
+        "Phi_w records the first w non-leading monic coeffs \u21d4 (e_1,...,e_w) \u21d4 (p_1,...,p_w)."
+      ],
+      "statement": "Assume char F_p with p > m_c (deployed p=2130706433 > m_c=913632). For monic degree-m_c locators, Phi_w(C)=Phi_w(C') if and only if the first w power sums of roots agree: \u2211_{r\u2208C} r^k = \u2211_{r\u2208C'} r^k for k=1,...,w. Thus multipad cores are joint-complement free-1-CS-extendable depth-w power-sum multi-mates of size m_c.",
+      "status": "PROVED"
+    },
+    "payment_reduction": {
+      "name": "payment_reduces_to_free1_eset_into_e",
+      "open_piece": "\u03b9: residual FS_1(e) \u2192 [e] (or M_pad\u22641 at free_core\u226b1).",
+      "proof": [
+        "v20: M_pad\u22641 \u21d2 N_ord = N_side (pairs inject via side key).",
+        "\u03c8(U,V)=(U,\u03b4) injective (previous lemma).",
+        "\u03b9 injective on residual U's \u21d2 (\u03b9(U),\u03b4) injective on residual pairs."
+      ],
+      "statement": "If M_pad\u22641 and there is an injection \u03b9: residual free-1 CS side supports \u2192 {0,...,e\u22121}, then (U,V) \u21a6 (\u03b9(U), \u03b4) injects residual free-1 CS ordered pairs into [e]\u00d7F_p of size e\u00b7p = t\u00b7p = 143763024447376 (deployed t=e), hence |A_SP| \u2264 t\u00b7p.",
+      "status": "PROVED"
+    },
+    "product": {
+      "name": "multipad_product_identity",
+      "proof": [
+        "\u039b_{C\u222aU} = \u039b_C \u00b7 \u039b_U and \u039b_{C'\u222aU} = \u039b_{C'} \u00b7 \u039b_U by disjoint union of root supports (monic product).",
+        "Factor: \u039b_C \u039b_U \u2212 \u039b_{C'} \u039b_U = (\u039b_C \u2212 \u039b_{C'}) \u039b_U."
+      ],
+      "statement": "If C, C' are cores and U is an e-set disjoint from both, then in F_p[X]: (\u039b_C \u2212 \u039b_{C'}) \u00b7 \u039b_U = \u039b_{C\u222aU} \u2212 \u039b_{C'\u222aU}, where \u039b denotes the monic locator. In particular this holds for every multipad pair with common free-1 side U.",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v24",
+  "status": "PARTIAL_STRUCTURE_AWARE",
+  "title": "Newton multi-mates + (U,\u03b4) CS-pair reduction + free_core=1 CAS",
+  "toy_suite": {
+    "cas_fc1": {
+      "ok": true,
+      "returncode": 0,
+      "status": "PASS",
+      "stdout_tail": "OK\n[{'w': 1, 'm': 2, 'j': 4, 'dC_ok': True, 'dS_ok': True, 'room': 2, 'auto': True}, {'w': 2, 'm': 3, 'j': 6, 'dC_ok': True, 'dS_ok': True, 'room': 3, 'auto': True}, {'w': 3, 'm': 4, 'j': 8, 'dC_ok': True, 'dS_ok': True, 'room': 4, 'auto': True}, {'w': 4, 'm': 5, 'j': 10, 'dC_ok': True, 'dS_ok': True, 'room': 5, 'auto': True}]"
+    },
+    "census": {
+      "mark_global": {
+        "U_delta": {
+          "always_inj_rows": 12,
+          "coll_labels": 0,
+          "n_pairs": 1528,
+          "rows_with_pairs": 12
+        },
+        "high0_mod_e_delta": {
+          "always_inj_rows": 1,
+          "coll_labels": 246,
+          "n_pairs": 1528,
+          "rows_with_pairs": 12
+        },
+        "minU_mod_e_delta": {
+          "always_inj_rows": 1,
+          "coll_labels": 247,
+          "n_pairs": 1528,
+          "rows_with_pairs": 12
+        },
+        "prodU_mod_e_delta": {
+          "always_inj_rows": 1,
+          "coll_labels": 252,
+          "n_pairs": 1528,
+          "rows_with_pairs": 12
+        },
+        "sumU_mod_e_delta": {
+          "always_inj_rows": 3,
+          "coll_labels": 241,
+          "n_pairs": 1528,
+          "rows_with_pairs": 12
+        }
+      },
+      "n_U_delta_pairs": 1528,
+      "n_newton_checks": 16044,
+      "n_newton_ok": 16044,
+      "n_product_checks": 16044,
+      "n_product_ok": 16044
+    },
+    "rows": [
+      {
+        "all_newton_ps": true,
+        "all_product_id": true,
+        "deg_bound": 0,
+        "free_core": 1,
+        "j": 4,
+        "m_c": 2,
+        "marks": {
+          "U_delta": {
+            "injective": true,
+            "n_collision_labels": 0,
+            "n_labels": 400,
+            "n_unique_pairs": 400
+          },
+          "high0_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 32,
+            "n_labels": 32,
+            "n_unique_pairs": 400
+          },
+          "minU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 32,
+            "n_labels": 32,
+            "n_unique_pairs": 400
+          },
+          "prodU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 32,
+            "n_labels": 32,
+            "n_unique_pairs": 400
+          },
+          "sumU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 32,
+            "n_labels": 32,
+            "n_unique_pairs": 400
+          }
+        },
+        "max_Mpad": 4,
+        "max_core_diff_deg": 0,
+        "min_lead_idx": 2,
+        "n": 16,
+        "n_multipad_events": 540,
+        "n_unique_CS_pairs": 400,
+        "p": 17,
+        "w": 1,
+        "w_plus_1": 2
+      },
+      {
+        "all_newton_ps": true,
+        "all_product_id": true,
+        "deg_bound": 1,
+        "free_core": 2,
+        "j": 5,
+        "m_c": 3,
+        "marks": {
+          "U_delta": {
+            "injective": true,
+            "n_collision_labels": 0,
+            "n_labels": 286,
+            "n_unique_pairs": 286
+          },
+          "high0_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 32,
+            "n_labels": 32,
+            "n_unique_pairs": 286
+          },
+          "minU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 32,
+            "n_labels": 32,
+            "n_unique_pairs": 286
+          },
+          "prodU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 32,
+            "n_labels": 32,
+            "n_unique_pairs": 286
+          },
+          "sumU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 32,
+            "n_labels": 32,
+            "n_unique_pairs": 286
+          }
+        },
+        "max_Mpad": 9,
+        "max_core_diff_deg": 1,
+        "min_lead_idx": 2,
+        "n": 16,
+        "n_multipad_events": 972,
+        "n_unique_CS_pairs": 286,
+        "p": 17,
+        "w": 1,
+        "w_plus_1": 2
+      },
+      {
+        "all_newton_ps": null,
+        "all_product_id": null,
+        "deg_bound": -1,
+        "free_core": 0,
+        "j": 5,
+        "m_c": 2,
+        "marks": {
+          "U_delta": {
+            "injective": true,
+            "n_collision_labels": 0,
+            "n_labels": 260,
+            "n_unique_pairs": 260
+          },
+          "high0_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 48,
+            "n_labels": 48,
+            "n_unique_pairs": 260
+          },
+          "minU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 47,
+            "n_labels": 48,
+            "n_unique_pairs": 260
+          },
+          "prodU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 48,
+            "n_labels": 48,
+            "n_unique_pairs": 260
+          },
+          "sumU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 48,
+            "n_labels": 48,
+            "n_unique_pairs": 260
+          }
+        },
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "min_lead_idx": null,
+        "n": 16,
+        "n_multipad_events": 0,
+        "n_unique_CS_pairs": 260,
+        "p": 17,
+        "w": 2,
+        "w_plus_1": 3
+      },
+      {
+        "all_newton_ps": true,
+        "all_product_id": true,
+        "deg_bound": 2,
+        "free_core": 3,
+        "j": 6,
+        "m_c": 4,
+        "marks": {
+          "U_delta": {
+            "injective": true,
+            "n_collision_labels": 0,
+            "n_labels": 200,
+            "n_unique_pairs": 200
+          },
+          "high0_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 32,
+            "n_labels": 32,
+            "n_unique_pairs": 200
+          },
+          "minU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 32,
+            "n_labels": 32,
+            "n_unique_pairs": 200
+          },
+          "prodU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 32,
+            "n_labels": 32,
+            "n_unique_pairs": 200
+          },
+          "sumU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 32,
+            "n_labels": 32,
+            "n_unique_pairs": 200
+          }
+        },
+        "max_Mpad": 14,
+        "max_core_diff_deg": 2,
+        "min_lead_idx": 2,
+        "n": 16,
+        "n_multipad_events": 904,
+        "n_unique_CS_pairs": 200,
+        "p": 17,
+        "w": 1,
+        "w_plus_1": 2
+      },
+      {
+        "all_newton_ps": true,
+        "all_product_id": true,
+        "deg_bound": 0,
+        "free_core": 1,
+        "j": 6,
+        "m_c": 3,
+        "marks": {
+          "U_delta": {
+            "injective": true,
+            "n_collision_labels": 0,
+            "n_labels": 146,
+            "n_unique_pairs": 146
+          },
+          "high0_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 42,
+            "n_labels": 44,
+            "n_unique_pairs": 146
+          },
+          "minU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 41,
+            "n_labels": 47,
+            "n_unique_pairs": 146
+          },
+          "prodU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 42,
+            "n_labels": 47,
+            "n_unique_pairs": 146
+          },
+          "sumU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 40,
+            "n_labels": 46,
+            "n_unique_pairs": 146
+          }
+        },
+        "max_Mpad": 2,
+        "max_core_diff_deg": 0,
+        "min_lead_idx": 3,
+        "n": 16,
+        "n_multipad_events": 2,
+        "n_unique_CS_pairs": 146,
+        "p": 17,
+        "w": 2,
+        "w_plus_1": 3
+      },
+      {
+        "all_newton_ps": null,
+        "all_product_id": null,
+        "deg_bound": -2,
+        "free_core": -1,
+        "j": 6,
+        "m_c": 2,
+        "marks": {
+          "U_delta": {
+            "injective": true,
+            "n_collision_labels": 0,
+            "n_labels": 60,
+            "n_unique_pairs": 60
+          },
+          "high0_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 16,
+            "n_labels": 32,
+            "n_unique_pairs": 60
+          },
+          "minU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 15,
+            "n_labels": 27,
+            "n_unique_pairs": 60
+          },
+          "prodU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 18,
+            "n_labels": 31,
+            "n_unique_pairs": 60
+          },
+          "sumU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 17,
+            "n_labels": 30,
+            "n_unique_pairs": 60
+          }
+        },
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "min_lead_idx": null,
+        "n": 16,
+        "n_multipad_events": 0,
+        "n_unique_CS_pairs": 60,
+        "p": 17,
+        "w": 3,
+        "w_plus_1": 4
+      },
+      {
+        "all_newton_ps": true,
+        "all_product_id": true,
+        "deg_bound": 1,
+        "free_core": 2,
+        "j": 7,
+        "m_c": 4,
+        "marks": {
+          "U_delta": {
+            "injective": true,
+            "n_collision_labels": 0,
+            "n_labels": 80,
+            "n_unique_pairs": 80
+          },
+          "high0_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 26,
+            "n_labels": 40,
+            "n_unique_pairs": 80
+          },
+          "minU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 26,
+            "n_labels": 42,
+            "n_unique_pairs": 80
+          },
+          "prodU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 28,
+            "n_labels": 40,
+            "n_unique_pairs": 80
+          },
+          "sumU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 28,
+            "n_labels": 42,
+            "n_unique_pairs": 80
+          }
+        },
+        "max_Mpad": 2,
+        "max_core_diff_deg": 1,
+        "min_lead_idx": 3,
+        "n": 16,
+        "n_multipad_events": 4,
+        "n_unique_CS_pairs": 80,
+        "p": 17,
+        "w": 2,
+        "w_plus_1": 3
+      },
+      {
+        "all_newton_ps": null,
+        "all_product_id": null,
+        "deg_bound": -1,
+        "free_core": 0,
+        "j": 7,
+        "m_c": 3,
+        "marks": {
+          "U_delta": {
+            "injective": true,
+            "n_collision_labels": 0,
+            "n_labels": 26,
+            "n_unique_pairs": 26
+          },
+          "high0_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 6,
+            "n_labels": 18,
+            "n_unique_pairs": 26
+          },
+          "minU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 8,
+            "n_labels": 17,
+            "n_unique_pairs": 26
+          },
+          "prodU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 7,
+            "n_labels": 18,
+            "n_unique_pairs": 26
+          },
+          "sumU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 4,
+            "n_labels": 22,
+            "n_unique_pairs": 26
+          }
+        },
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "min_lead_idx": null,
+        "n": 16,
+        "n_multipad_events": 0,
+        "n_unique_CS_pairs": 26,
+        "p": 17,
+        "w": 3,
+        "w_plus_1": 4
+      },
+      {
+        "all_newton_ps": true,
+        "all_product_id": true,
+        "deg_bound": 2,
+        "free_core": 3,
+        "j": 8,
+        "m_c": 5,
+        "marks": {
+          "U_delta": {
+            "injective": true,
+            "n_collision_labels": 0,
+            "n_labels": 42,
+            "n_unique_pairs": 42
+          },
+          "high0_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 8,
+            "n_labels": 30,
+            "n_unique_pairs": 42
+          },
+          "minU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 11,
+            "n_labels": 30,
+            "n_unique_pairs": 42
+          },
+          "prodU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 10,
+            "n_labels": 32,
+            "n_unique_pairs": 42
+          },
+          "sumU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 8,
+            "n_labels": 34,
+            "n_unique_pairs": 42
+          }
+        },
+        "max_Mpad": 2,
+        "max_core_diff_deg": 2,
+        "min_lead_idx": 3,
+        "n": 16,
+        "n_multipad_events": 2,
+        "n_unique_CS_pairs": 42,
+        "p": 17,
+        "w": 2,
+        "w_plus_1": 3
+      },
+      {
+        "all_newton_ps": null,
+        "all_product_id": null,
+        "deg_bound": 0,
+        "free_core": 1,
+        "j": 8,
+        "m_c": 4,
+        "marks": {
+          "U_delta": {
+            "injective": true,
+            "n_collision_labels": 0,
+            "n_labels": 10,
+            "n_unique_pairs": 10
+          },
+          "high0_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 2,
+            "n_labels": 6,
+            "n_unique_pairs": 10
+          },
+          "minU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 2,
+            "n_labels": 8,
+            "n_unique_pairs": 10
+          },
+          "prodU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 2,
+            "n_labels": 8,
+            "n_unique_pairs": 10
+          },
+          "sumU_mod_e_delta": {
+            "injective": true,
+            "n_collision_labels": 0,
+            "n_labels": 10,
+            "n_unique_pairs": 10
+          }
+        },
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "min_lead_idx": null,
+        "n": 16,
+        "n_multipad_events": 0,
+        "n_unique_CS_pairs": 10,
+        "p": 17,
+        "w": 3,
+        "w_plus_1": 4
+      },
+      {
+        "all_newton_ps": null,
+        "all_product_id": null,
+        "deg_bound": 3,
+        "free_core": 4,
+        "j": 9,
+        "m_c": 6,
+        "marks": {
+          "U_delta": {
+            "injective": true,
+            "n_collision_labels": 0,
+            "n_labels": 16,
+            "n_unique_pairs": 16
+          },
+          "high0_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 2,
+            "n_labels": 14,
+            "n_unique_pairs": 16
+          },
+          "minU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 1,
+            "n_labels": 15,
+            "n_unique_pairs": 16
+          },
+          "prodU_mod_e_delta": {
+            "injective": false,
+            "n_collision_labels": 1,
+            "n_labels": 15,
+            "n_unique_pairs": 16
+          },
+          "sumU_mod_e_delta": {
+            "injective": true,
+            "n_collision_labels": 0,
+            "n_labels": 16,
+            "n_unique_pairs": 16
+          }
+        },
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "min_lead_idx": null,
+        "n": 16,
+        "n_multipad_events": 0,
+        "n_unique_CS_pairs": 16,
+        "p": 17,
+        "w": 2,
+        "w_plus_1": 3
+      },
+      {
+        "all_newton_ps": null,
+        "all_product_id": null,
+        "deg_bound": 1,
+        "free_core": 2,
+        "j": 9,
+        "m_c": 5,
+        "marks": {
+          "U_delta": {
+            "injective": true,
+            "n_collision_labels": 0,
+            "n_labels": 2,
+            "n_unique_pairs": 2
+          },
+          "high0_mod_e_delta": {
+            "injective": true,
+            "n_collision_labels": 0,
+            "n_labels": 2,
+            "n_unique_pairs": 2
+          },
+          "minU_mod_e_delta": {
+            "injective": true,
+            "n_collision_labels": 0,
+            "n_labels": 2,
+            "n_unique_pairs": 2
+          },
+          "prodU_mod_e_delta": {
+            "injective": true,
+            "n_collision_labels": 0,
+            "n_labels": 2,
+            "n_unique_pairs": 2
+          },
+          "sumU_mod_e_delta": {
+            "injective": true,
+            "n_collision_labels": 0,
+            "n_labels": 2,
+            "n_unique_pairs": 2
+          }
+        },
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "min_lead_idx": null,
+        "n": 16,
+        "n_multipad_events": 0,
+        "n_unique_CS_pairs": 2,
+        "p": 17,
+        "w": 3,
+        "w_plus_1": 4
+      }
+    ],
+    "status": "PASS"
+  }
+}
