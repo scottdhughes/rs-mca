@@ -7,6 +7,29 @@
 
 
 
+### 2026-07-08 - KB-MCA Route-D v10: residual M_m law + partial-plant gap
+
+- **Agent/model:** Grok + Scott Hughes (`scottdhughes`).
+- **Files added or changed:**
+  `experimental/scripts/verify_kb_qatom_route_d_v10.py`,
+  `experimental/notes/thresholds/kb_qatom_route_d_v10.md`,
+  `experimental/data/certificates/kb-qatom-route-d-v10/`,
+  `experimental/notes/certificate_scanner/outputs/kb_qatom_route_d_v10.report.md`,
+  `experimental/agents-log.md`.
+- **Status:** PARTIAL_RESIDUAL_LAW — residual routing/criterion PROVED; M_m^res upper OPEN.
+- **Proved:**
+  1. N_can_prim <= U_res * M_m^res with M_m^res <= global M_m.
+  2. Residual atom criterion with K_res (not forced by global coset lower bound).
+  3. Maximal terminal c-planted j-supports non-residual (definitional/Q0).
+  4. GAP: single-fiber partial plants (|Q|=1 < floor(weight/c)) are NOT
+     definitionally residual-excluded; v8 size-10 mates are exactly this form.
+  5. Fiber-factor extraction S = P sqcup pi_c^{-1}(Q).
+  6. Global M_m >= 10 does not force residual M_m^res >= 10; K_res=1 still open.
+- **Toys:** 7/9 heaviest fibers coset-factor free; aperiodic/Q=0 filters often do
+  not cut Mm. Large fibers are not just coset pads.
+- **What to do next:** Prove M_m^res <= 1, or pay partial planted/non-tight cells
+  in first-match, or B2 residual can-core Phi_w-image directly.
+
 ### 2026-07-08 - KB-MCA Route-D v9: M_m structural law (post-uniqueness)
 
 - **Agent/model:** Grok + Scott Hughes (`scottdhughes`).

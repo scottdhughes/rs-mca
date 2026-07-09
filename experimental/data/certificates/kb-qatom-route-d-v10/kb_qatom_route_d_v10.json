@@ -1,0 +1,368 @@
+{
+  "claims": {
+    "proves_Mm_res_le_1": false,
+    "proves_U_res_atom": false,
+    "proves_fiber_factor_extraction": true,
+    "proves_global_lower_not_force_residual_lower": true,
+    "proves_maximal_terminal_planted_nonresidual": true,
+    "proves_partial_plant_not_definitionally_excluded": true,
+    "proves_residual_Mm_routing": true,
+    "proves_residual_criterion": true,
+    "refutes_Mm_le_1_global": true
+  },
+  "deployed": {
+    "Mm_global_lower": 10,
+    "U_res_if_Kres_1": 16166878605395467,
+    "U_res_if_Kres_10": 1616687860539546,
+    "e0_coset": 131072,
+    "floor_j_e0": 7,
+    "floor_m_e0": 6,
+    "j": 981104,
+    "j_mod_e0": 63600,
+    "k_tight": 18,
+    "log2_U_res_K1": 53.84389067782479,
+    "log2_U_res_K10": 50.52196258293743,
+    "m": 913632,
+    "m_mod_e0": 127200,
+    "n": 2097152,
+    "terminal_c": [
+      65536,
+      131072
+    ],
+    "w": 67471
+  },
+  "impact_on_program": {
+    "B2": "still open; residual routing makes B2 the right wall",
+    "next": "Prove M_m^{res}<=1 (or small K_res), or pay partial single-fiber plants in first-match, or bound residual can-core Phi_w-image directly.",
+    "residual_K_res": "not forced to 10; K_res=1 still logically open",
+    "v8_global_Mm_ge_10": "stands for global fibers only"
+  },
+  "lemmas": {
+    "fiber_factor": {
+      "name": "maximal_c_fiber_factor_extraction",
+      "proof": [
+        "By definition Q indexes exactly the full fibers contained in S.",
+        "Every point of S either lies in such a fiber or in P; the union is disjoint. Uniqueness: any full fiber inside S contributes its base point to Q.",
+        "For D = mu_n and c|n, pi_c-fibers are cosets of the order-c subgroup, i.e. exponent APs with step n/c and length c."
+      ],
+      "statement": "Fix c|n. For every S subset D, let Q = { beta in D_{n/c} : pi_c^{-1}(beta) subset S } and P = S \\\\ pi_c^{-1}(Q). Then S = P sqcup pi_c^{-1}(Q), P contains no full pi_c-fiber, and (|P|,|Q|) is uniquely determined. In exponent coordinates with c|n, full fibers are the n/c residue classes mod n/c of length c.",
+      "status": "PROVED"
+    },
+    "global_not_residual": {
+      "name": "global_Mm_lower_does_not_force_residual_lower",
+      "proof": [
+        "M_m^{res} counts only residual can-cores. Global witnesses may all be non-residual (paid by some first-match branch) or may fail to appear as C_can of residual j-supports.",
+        "Partial-plant gap: the known size-10 global fiber from coset pads is not definitionally residual.",
+        "Therefore the residual atom criterion is logically independent of the v8 refutation of global uniqueness."
+      ],
+      "statement": "Global M_m^{max} >= 10 (v8) does not imply M_m^{res,max} >= 10. Residual routing may use K_res = 1 even while global uniqueness is false.",
+      "status": "PROVED"
+    },
+    "maximal_planted": {
+      "deployed_terminal_rows": [
+        {
+          "c": 65536,
+          "j_c": 14,
+          "r_c": 63600,
+          "r_c_le_w": true,
+          "terminal_raw_paid": true
+        },
+        {
+          "c": 131072,
+          "j_c": 7,
+          "r_c": 63600,
+          "r_c_le_w": true,
+          "terminal_raw_paid": true
+        }
+      ],
+      "name": "maximal_terminal_planted_is_nonresidual",
+      "proof": [
+        "Ledger definition of R(z) (kb_mca_1116048_first_match_ledger_v1): excludes supports assigned to terminal quotient/planted.",
+        "Q0 raw-pays terminal rungs c=65536 and c=131072 (binom(32,14)+binom(16,7)).",
+        "Deployed: for both terminal c, r_c = j mod c <= w, so the Q0 descent hypotheses apply and the maximal planted class is exactly the paid class."
+      ],
+      "source": "experimental/notes/thresholds/kb_mca_1116048_first_match_ledger_v1.md",
+      "statement": "Under the first-match ledger residual definition, every j-support that is c-quotient/planted in the maximal form S = P sqcup pi_c^{-1}(Q) with |Q|=floor(j/c), |P|=j mod c, for terminal c in {65536,131072}, is assigned to branch 4 and is not in R(z).",
+      "status": "PROVED"
+    },
+    "partial_plant_gap": {
+      "deployed_numbers": {
+        "c": 131072,
+        "floor_j_over_c": 7,
+        "floor_m_over_c": 6,
+        "j": 981104,
+        "j_mod_c": 63600,
+        "j_mod_c_le_w": true,
+        "m": 913632,
+        "m_mod_c": 127200,
+        "m_mod_c_gt_w": true,
+        "v8_pad_Q_count": 1
+      },
+      "name": "partial_single_fiber_plant_not_definitionally_residual_excluded",
+      "program_impact": "Do not set K_res = 10 from v8 alone. Either prove a planted/partial-factor branch that removes single-fiber pads from residual, or bound M_m^{res} by other structure (possibly M_m^{res}=1 still holds).",
+      "proof": [
+        "Fiber-factor extraction gives |Q|=1 for pure single-coset pads when R is fiber-free.",
+        "Maximal planted requires |Q|=floor(m/c)=6 (m-sets) or floor(j/c)=7 (j-sets). Since 1 < those maxima, single-fiber pads are not in the maximal planted class.",
+        "Branch 4 pays maximal terminal classes (Q0). Branch 5 (planted/prefix-structured for non-maximal / open tails) is not a proved payment that deletes all |Q|>=1 supports from residual.",
+        "Hence residual M_m^{res} is not forced to inherit the global lower bound M_m >= 10 from v8."
+      ],
+      "statement": "A support (m-set or j-set) that contains exactly one full c-fiber for c=131072, with maximal Q-count 1 < floor(weight/c), is only *partially* planted. The ledger residual definition excludes maximal terminal quotient/planted assignments, not every support with |Q|>=1. Therefore the v8 coset-pad mates (each an m-set R cup U with U a single c-coset, so |Q|=1 while floor(m/c)=6) are not definitionally non-residual as m-sets, and a j-support C cup U_side built from such a can-core is not definitionally non-residual unless some first-match branch assigns it.",
+      "status": "PROVED"
+    },
+    "program_law": {
+      "name": "residual_program_law",
+      "not_proved": [
+        "M_m^{res} <= 1",
+        "U_res <= target/17",
+        "partial single-fiber plants are non-residual"
+      ],
+      "proof": [
+        "From residual routing + lex covering: |R| <= pack * U_res * M_m^{res}.",
+        "v8 kills only global M_m <= 1. v9 kills using k_tight as full-fiber upper.",
+        "This packet separates residual from global."
+      ],
+      "statement": "Closing the residual atom after v8/v9 requires one of: (A) M_m^{res} <= K_res with K_res small (ideally 1) and U_res budget target/(17 K_res); (B) a direct bound on residual can-core Phi_w-image (v7 B2) without Mm; (C) a first-match payment that removes all multi-mate residual cores (e.g. partial planted / sparse-null / non-tight collision cells).",
+      "status": "PROVED_AS_PROGRAM_LAW"
+    },
+    "residual_criterion": {
+      "budgets": {
+        "K_res_1": {
+          "K": 1,
+          "U_res_atom": 16166878605395467,
+          "log2": 53.84389067782479
+        },
+        "K_res_coset_lower_if_realized": {
+          "K": 10,
+          "U_res_atom": 1616687860539546,
+          "log2": 50.52196258293743
+        },
+        "K_res_tight": {
+          "K": 18,
+          "U_res_atom": 898159922521970,
+          "log2": 49.67396567638247
+        }
+      },
+      "name": "residual_atom_criterion",
+      "proof": [
+        "N_can_prim <= U_res * M_m^{res} <= (target/(pack K_res)) * K_res = target/pack.",
+        "|R| <= pack * N_can_prim <= target."
+      ],
+      "statement": "If max_z M_m^{res}(z) <= K_res and max_z U_res(z) <= floor(target/(pack*K_res)), then max_z N_can_prim(z) <= floor(target/pack), hence max_z |R(z)| <= target by residual lex covering (v4).",
+      "status": "PROVED_CONDITIONAL"
+    },
+    "residual_routing": {
+      "consequence": "Atom criteria should use K_res >= M_m^{res}, not the global coset lower bound K_coset=10, unless residual realizes those coset-pad mates.",
+      "name": "residual_Mm_routing",
+      "proof": [
+        "v5 residual core routing: cores partition by side-prefix u; each block embeds into Fib_w^{(m)}(b(z,u)) via C_can.",
+        "Restricting the count to residual S only yields M_m^{res} instead of the full m-fiber size M_m. The block count is still <= U_res.",
+        "N_can_prim = |{C_can(S): S in R}| <= sum_u |block_u| <= U_res * M_m^{res}.",
+        "M_m^{res} <= M_m because residual can-cores are a subfamily of all m-subsets."
+      ],
+      "statement": "Let R(z) subset Fib_w^{(j)}(z) be any residual family of j-supports. For S in R(z) let U be the e=w+1 lex-smallest elements, C = S\\\\U, u = Phi_w(Lambda_U), b = b(z,u) the triangular core prefix (v3/v5). Let M_m^{res}(z) = max_u |{ C_can(S) : S in R(z), u(S)=u }| (equivalently, max number of residual can-cores sharing one side-prefix block; each such core lies in one m-subset Phi_w fiber). Let U_res(z) = |{ u(S) : S in R(z) }|. Then N_can_prim(z) <= U_res(z) * M_m^{res}(z). Always M_m^{res}(z) <= M_m^{max} (global).",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v10",
+  "status": "PARTIAL_RESIDUAL_LAW",
+  "title": "Residual M_m routing; partial-plant gap; coset lower bound not residual",
+  "toy_suite": {
+    "partial_pad_check": {
+      "Phi_match": true,
+      "Q_counts": [
+        1,
+        1
+      ],
+      "e0": 2,
+      "m": 6,
+      "n": 16,
+      "p": 17,
+      "partial": true,
+      "qmax": 3,
+      "w": 1
+    },
+    "rows": [
+      {
+        "Mm": 32,
+        "Mm_Qeq0": 32,
+        "Mm_ap": 32,
+        "Mm_not_maximal_planted": 32,
+        "Q0_cuts_Mm": false,
+        "ap_cuts_Mm": false,
+        "e0": 4,
+        "heavy_coset_free": true,
+        "heavy_size": 32,
+        "heavy_with_full_fiber": 0,
+        "inter_cap": 3,
+        "k_coset": 3,
+        "k_tight": 4,
+        "m": 6,
+        "max_inter": 3,
+        "n": 16,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "Mm": 5,
+        "Mm_Qeq0": 5,
+        "Mm_ap": 4,
+        "Mm_not_maximal_planted": 5,
+        "Q0_cuts_Mm": false,
+        "ap_cuts_Mm": true,
+        "e0": 4,
+        "heavy_coset_free": true,
+        "heavy_size": 5,
+        "heavy_with_full_fiber": 0,
+        "inter_cap": 2,
+        "k_coset": 3,
+        "k_tight": 3,
+        "m": 6,
+        "max_inter": 2,
+        "n": 16,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "Mm": 17,
+        "Mm_Qeq0": 17,
+        "Mm_ap": 17,
+        "Mm_not_maximal_planted": 17,
+        "Q0_cuts_Mm": false,
+        "ap_cuts_Mm": false,
+        "e0": 4,
+        "heavy_coset_free": true,
+        "heavy_size": 17,
+        "heavy_with_full_fiber": 0,
+        "inter_cap": 2,
+        "k_coset": 3,
+        "k_tight": 4,
+        "m": 5,
+        "max_inter": 2,
+        "n": 16,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "Mm": 8,
+        "Mm_Qeq0": 8,
+        "Mm_ap": 8,
+        "Mm_not_maximal_planted": 8,
+        "Q0_cuts_Mm": false,
+        "ap_cuts_Mm": false,
+        "e0": 4,
+        "heavy_coset_free": true,
+        "heavy_size": 8,
+        "heavy_with_full_fiber": 0,
+        "inter_cap": 1,
+        "k_coset": 4,
+        "k_tight": 5,
+        "m": 4,
+        "max_inter": 1,
+        "n": 16,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "Mm": 2,
+        "Mm_Qeq0": 2,
+        "Mm_ap": 2,
+        "Mm_not_maximal_planted": 2,
+        "Q0_cuts_Mm": false,
+        "ap_cuts_Mm": false,
+        "e0": 8,
+        "heavy_coset_free": true,
+        "heavy_size": 2,
+        "heavy_with_full_fiber": 0,
+        "inter_cap": 5,
+        "k_coset": 1,
+        "k_tight": 2,
+        "m": 10,
+        "max_inter": 4,
+        "n": 16,
+        "p": 17,
+        "w": 4
+      },
+      {
+        "Mm": 2,
+        "Mm_Qeq0": 1,
+        "Mm_ap": 1,
+        "Mm_not_maximal_planted": 1,
+        "Q0_cuts_Mm": true,
+        "ap_cuts_Mm": true,
+        "e0": 8,
+        "heavy_coset_free": false,
+        "heavy_size": 2,
+        "heavy_with_full_fiber": 2,
+        "inter_cap": 2,
+        "k_coset": 2,
+        "k_tight": 2,
+        "m": 8,
+        "max_inter": 0,
+        "n": 16,
+        "p": 17,
+        "w": 5
+      },
+      {
+        "Mm": 5,
+        "Mm_Qeq0": 5,
+        "Mm_ap": 5,
+        "Mm_not_maximal_planted": 5,
+        "Q0_cuts_Mm": false,
+        "ap_cuts_Mm": false,
+        "e0": 4,
+        "heavy_coset_free": true,
+        "heavy_size": 5,
+        "heavy_with_full_fiber": 0,
+        "inter_cap": 3,
+        "k_coset": 3,
+        "k_tight": 3,
+        "m": 7,
+        "max_inter": 3,
+        "n": 16,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "Mm": 2,
+        "Mm_Qeq0": 2,
+        "Mm_ap": 2,
+        "Mm_not_maximal_planted": 2,
+        "Q0_cuts_Mm": false,
+        "ap_cuts_Mm": false,
+        "e0": 8,
+        "heavy_coset_free": true,
+        "heavy_size": 2,
+        "heavy_with_full_fiber": 0,
+        "inter_cap": 4,
+        "k_coset": 1,
+        "k_tight": 2,
+        "m": 9,
+        "max_inter": 3,
+        "n": 16,
+        "p": 17,
+        "w": 4
+      },
+      {
+        "Mm": 2,
+        "Mm_Qeq0": 1,
+        "Mm_ap": 1,
+        "Mm_not_maximal_planted": 1,
+        "Q0_cuts_Mm": true,
+        "ap_cuts_Mm": true,
+        "e0": 8,
+        "heavy_coset_free": false,
+        "heavy_size": 2,
+        "heavy_with_full_fiber": 2,
+        "inter_cap": 1,
+        "k_coset": 2,
+        "k_tight": 2,
+        "m": 8,
+        "max_inter": 0,
+        "n": 16,
+        "p": 17,
+        "w": 6
+      }
+    ],
+    "status": "PASS"
+  }
+}
