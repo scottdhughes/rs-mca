@@ -4,7 +4,7 @@
 **Goal:** residual free-1 / A_SP card toward `A_SP ≤ t·p` on KoalaBear MCA `a+=1116048`.
 **Does NOT claim** `U ≤ B*` or full MCA close.
 
-Last tip packet: **v54** on `main`; local attack **v55–v65** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
+Last tip packet: **v54** on `main`; local attack **v55–v66** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
 `experimental/scripts/verify_kb_qatom_route_d_v{N}.py` with matching
 notes, certificates, and scanner reports.
 
@@ -117,9 +117,9 @@ Certificates: `experimental/data/certificates/kb-qatom-route-d-v{N}/`.
 
 ## Next session entry
 
-Attack **incomplete GP** `|G|` for length-`n'` prefixes of `mu_n` (v65: full
-subgroup has `|G|≤√p+1`), and/or **`max|S|≤B_*≈3.93e5`** at deployed (soft-B).
-Do not restart ambient L / pack-k / unrestricted ★ / pure envelopes.
+Attack **`max|S|≤B_*≈3.93e5`** for free-1 highs at deployed (soft-B; v64–v66).
+Incomplete GP `|G|` is closed (v66). Do not restart ambient L / pack-k /
+unrestricted ★ / pure envelopes.
 
 ---
 
@@ -168,3 +168,9 @@ deployed (n',e).
 subgroup |G|<=sqrt(p)+1 PROVED (Gauss chars). Deployed arc is incomplete
 prefix n'<n of mu_n — subgroup law not automatic. CAS incomplete still
 Gmax<=sqrt(p)+1 on toys. OPEN: incomplete GP |G|; soft-B max|S|<=B_*.
+
+**v66**: Incomplete GP bound PROVED:
+|G_t(a)| <= (t/n)(sqrt(p)+1) + sqrt(p)(1+ln n) for a!=0
+(Dirichlet completion + mixed Gauss J). Deployed |G| <= ~7.44e5
+(~67x better than Plancherel ~5e7; ~1.9x B_*). OPEN: soft-B max|S|<=B_*
+for free-1 highs (linear G is not S).

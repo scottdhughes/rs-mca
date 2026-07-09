@@ -1,0 +1,394 @@
+{
+  "claims": {
+    "proves_A_SP_le_tp": false,
+    "proves_Dirichlet_expansion": true,
+    "proves_Dirichlet_kernel_mass": true,
+    "proves_J_mixed_Gauss_bound": true,
+    "proves_S_le_Bstar_deployed": false,
+    "proves_T_le_H2_deployed": false,
+    "proves_deployed_incomplete_numerics": true,
+    "proves_incomplete_GP_G_bound": true
+  },
+  "deployed": {
+    "B_star": 393171.5875467097,
+    "H2": 77291948627,
+    "e": 67472,
+    "incomplete_G_bound": 744113.1019552016,
+    "n": 2097152,
+    "n_prime": 1183520,
+    "note": "incomplete |G|<= (t/n)(sqrt(p)+1)+sqrt(p)(1+ln n) PROVED; soft-B for free-1 S still open",
+    "p": 2130706433
+  },
+  "impact_on_program": {
+    "closed": "incomplete GP |G_t| <= (t/n)(sqrt(p)+1)+sqrt(p)(1+ln n); deployed ~7.44e5 vs Plancherel ~5e7",
+    "wall": "soft-B max|S|<=B_* for free-1 highs (not linear G)"
+  },
+  "lemmas": {
+    "D_mass": {
+      "name": "Dirichlet_kernel_mass",
+      "proof": [
+        "|D(m)| = |sin(pi t m/n)/sin(pi m/n)| <= 1/|sin(pi m/n)|.",
+        "|sin(pi m/n)| >= 2 d(m)/n with d(m)=min(m,n-m) on 1..n-1 (sin(pi x) >= 2x on [0,1/2]).",
+        "Thus |D(m)| <= n/(2 d(m)).",
+        "sum_{m!=0}|D| <= 2 sum_{d=1}^{floor(n/2)} n/(2d) = n H_{floor(n/2)}.",
+        "H_k <= 1 + ln k <= 1 + ln n."
+      ],
+      "statement": "sum_{m=1}^{n-1} |D(m)| <= n (1 + ln n) for 1<=t<=n.",
+      "status": "PROVED"
+    },
+    "J": {
+      "name": "mixed_Gauss_J_bound",
+      "proof": [
+        "m=0: full subgroup sum (v65).",
+        "m!=0: J=sum_{x in H} psi(alpha x) eta(x), eta nontrivial on H.",
+        "1_H = (n/(p-1)) sum_{rho|H=1} rho; expand; all resulting multiplicative characters are nontrivial (eta nontrivial on H), each Gauss sum has magnitude sqrt(p); triangle with (n/(p-1))*((p-1)/n)*sqrt(p)=sqrt(p)."
+      ],
+      "statement": "For alpha!=0: |J(0,alpha)|<=sqrt(p)+1; |J(m,alpha)|<=sqrt(p) for m not equiv 0 mod n.",
+      "status": "PROVED"
+    },
+    "OPEN": {
+      "name": "OPEN_soft_B_free1_S",
+      "statement": "Prove max|S(lambda)| <= B_*~393172 for free-1 monic highs of e-sets on the deployed GP arc (linear G bound is not enough alone).",
+      "status": "OPEN"
+    },
+    "deployed_num": {
+      "name": "deployed_incomplete_G_numerics",
+      "numbers": {
+        "B_star": 393171.5875467097,
+        "bound": 744113.1019552016,
+        "bound_over_B_star": 1.8925912388488633,
+        "bound_over_plancherel": 0.014822108638609522,
+        "plancherel": 50202917.82350663
+      },
+      "proof": [
+        "Plug n=2^21, n'=1183520, p=KoalaBear into (4)."
+      ],
+      "statement": "At deployed (n,n',p): max_{a!=0}|G_{n'}(a)| <= 744113.1, vs Plancherel 50202917.8, vs B_*=393171.6.",
+      "status": "PROVED"
+    },
+    "dirichlet": {
+      "name": "incomplete_GP_Dirichlet_expansion",
+      "proof": [
+        "Fourier expansion of 1_{[0,t)} on Z/nZ.",
+        "Substitute into sum_{k<t} psi(alpha omega^k)."
+      ],
+      "statement": "G_t(alpha) = n^{-1} sum_m D(m) J(m,alpha) with D(m)=sum_{j<t} e^{-2 pi i m j / n}, J(m,alpha)=sum_{k<n} psi(alpha omega^k) e^{2 pi i m k / n}.",
+      "status": "PROVED"
+    },
+    "incomplete": {
+      "name": "incomplete_GP_G_bound",
+      "proof": [
+        "|G_t| <= n^{-1}( |D(0)||J(0)| + sum_{m!=0}|D(m)||J(m)| ).",
+        "<= n^{-1}( t (sqrt(p)+1) + sqrt(p) sum_{m!=0}|D| ).",
+        "<= (t/n)(sqrt(p)+1) + sqrt(p)(1+ln n)."
+      ],
+      "statement": "For alpha!=0, 1<=t<=n, |G_t(alpha)| <= (t/n)(sqrt(p)+1) + sqrt(p)(1+ln n).",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v66",
+  "status": "INCOMPLETE_G_PROVED_SOFTB_S_OPEN",
+  "title": "Incomplete GP |G| bound via Dirichlet completion",
+  "tools": {
+    "numpy_fft": "max|G|",
+    "python_nt": "GP prefixes + D mass"
+  },
+  "toy_suite": {
+    "D_rows": [
+      {
+        "bound_n_1_ln_n": 305.660673733326,
+        "n": 60,
+        "ok": true,
+        "sum_abs_D": 106.65224643168354,
+        "t": 15
+      },
+      {
+        "bound_n_1_ln_n": 305.660673733326,
+        "n": 60,
+        "ok": true,
+        "sum_abs_D": 93.8352240051524,
+        "t": 30
+      },
+      {
+        "bound_n_1_ln_n": 305.660673733326,
+        "n": 60,
+        "ok": true,
+        "sum_abs_D": 1.7497996554987274e-12,
+        "t": 60
+      },
+      {
+        "bound_n_1_ln_n": 560.5170185988092,
+        "n": 100,
+        "ok": true,
+        "sum_abs_D": 197.37720674277313,
+        "t": 25
+      },
+      {
+        "bound_n_1_ln_n": 560.5170185988092,
+        "n": 100,
+        "ok": true,
+        "sum_abs_D": 172.65057369295977,
+        "t": 50
+      },
+      {
+        "bound_n_1_ln_n": 735.3715202758863,
+        "n": 126,
+        "ok": true,
+        "sum_abs_D": 226.80852428516744,
+        "t": 63
+      },
+      {
+        "bound_n_1_ln_n": 735.3715202758863,
+        "n": 126,
+        "ok": true,
+        "sum_abs_D": 4.232061832187519e-12,
+        "t": 126
+      }
+    ],
+    "G_rows": [
+      {
+        "G0": 15.0,
+        "Gmax": 5.918838498196949,
+        "Gmax_le_bound": true,
+        "Gmax_le_plancherel": true,
+        "bound": 41.99066538502865,
+        "bound_over_plancherel": 1.5985573112977653,
+        "n": 60,
+        "p": 61,
+        "plancherel": 26.267851073127396,
+        "t": 15,
+        "t_over_n": 0.25
+      },
+      {
+        "G0": 30.0,
+        "Gmax": 6.374430978578692,
+        "Gmax_le_bound": true,
+        "Gmax_le_plancherel": true,
+        "bound": 44.19322780400532,
+        "bound_over_plancherel": 1.4491530280276208,
+        "n": 60,
+        "p": 61,
+        "plancherel": 30.495901363953813,
+        "t": 30,
+        "t_over_n": 0.5
+      },
+      {
+        "G0": 45.0,
+        "Gmax": 6.152668258833927,
+        "Gmax_le_bound": true,
+        "Gmax_le_plancherel": true,
+        "bound": 46.39579022298198,
+        "bound_over_plancherel": 1.7290690134734639,
+        "n": 60,
+        "p": 61,
+        "plancherel": 26.832815729997478,
+        "t": 45,
+        "t_over_n": 0.75
+      },
+      {
+        "G0": 60.0,
+        "Gmax": 1.0000000000000013,
+        "Gmax_le_bound": true,
+        "Gmax_le_plancherel": true,
+        "bound": 48.59835264195864,
+        "bound_over_plancherel": 6.274020347847368,
+        "n": 60,
+        "p": 61,
+        "plancherel": 7.745966692414834,
+        "t": 60,
+        "t_over_n": 1.0
+      },
+      {
+        "G0": 25.000000000000004,
+        "Gmax": 8.862973784908446,
+        "Gmax_le_bound": true,
+        "Gmax_le_plancherel": true,
+        "bound": 59.09373210967559,
+        "bound_over_plancherel": 1.3557031919091604,
+        "n": 100,
+        "p": 101,
+        "plancherel": 43.58898943540674,
+        "t": 25,
+        "t_over_n": 0.25
+      },
+      {
+        "G0": 50.0,
+        "Gmax": 9.578205325060123,
+        "Gmax_le_bound": true,
+        "Gmax_le_plancherel": true,
+        "bound": 61.856201014955815,
+        "bound_over_plancherel": 1.2249353090565953,
+        "n": 100,
+        "p": 101,
+        "plancherel": 50.49752469181039,
+        "t": 50,
+        "t_over_n": 0.5
+      },
+      {
+        "G0": 75.0,
+        "Gmax": 8.891011417881273,
+        "Gmax_le_bound": true,
+        "Gmax_le_plancherel": true,
+        "bound": 64.61866992023604,
+        "bound_over_plancherel": 1.4633247185530696,
+        "n": 100,
+        "p": 101,
+        "plancherel": 44.15880433163923,
+        "t": 75,
+        "t_over_n": 0.75
+      },
+      {
+        "G0": 100.0,
+        "Gmax": 1.0000000000000062,
+        "Gmax_le_bound": true,
+        "Gmax_le_plancherel": true,
+        "bound": 67.38113882551626,
+        "bound_over_plancherel": 6.738113882551626,
+        "n": 100,
+        "p": 101,
+        "plancherel": 10.0,
+        "t": 100,
+        "t_over_n": 1.0
+      },
+      {
+        "G0": 31.000000000000007,
+        "Gmax": 10.265361591655633,
+        "Gmax_le_bound": true,
+        "Gmax_le_plancherel": true,
+        "bound": 68.79022552205333,
+        "bound_over_plancherel": 1.2609860143096736,
+        "n": 126,
+        "p": 127,
+        "plancherel": 54.55272678794342,
+        "t": 31,
+        "t_over_n": 0.24603174603174602
+      },
+      {
+        "G0": 63.0,
+        "Gmax": 11.259767990043667,
+        "Gmax_le_bound": true,
+        "Gmax_le_plancherel": true,
+        "bound": 71.90627064448753,
+        "bound_over_plancherel": 1.1324173204251082,
+        "n": 126,
+        "p": 127,
+        "plancherel": 63.49803146555018,
+        "t": 63,
+        "t_over_n": 0.5
+      },
+      {
+        "G0": 94.0,
+        "Gmax": 11.043870551254443,
+        "Gmax_le_bound": true,
+        "Gmax_le_plancherel": true,
+        "bound": 74.92493935684566,
+        "bound_over_plancherel": 1.345257752108852,
+        "n": 126,
+        "p": 127,
+        "plancherel": 55.695601262577284,
+        "t": 94,
+        "t_over_n": 0.746031746031746
+      },
+      {
+        "G0": 126.0,
+        "Gmax": 1.0000000000000073,
+        "Gmax_le_bound": true,
+        "Gmax_le_plancherel": true,
+        "bound": 78.04098447927986,
+        "bound_over_plancherel": 6.9524434773335235,
+        "n": 126,
+        "p": 127,
+        "plancherel": 11.224972160321824,
+        "t": 126,
+        "t_over_n": 1.0
+      },
+      {
+        "G0": 24.0,
+        "Gmax": 6.655234251424393,
+        "Gmax_le_bound": true,
+        "Gmax_le_plancherel": true,
+        "bound": 48.265189665435805,
+        "bound_over_plancherel": 1.407441512130591,
+        "n": 72,
+        "p": 73,
+        "plancherel": 34.292856398964496,
+        "t": 24,
+        "t_over_n": 0.3333333333333333
+      },
+      {
+        "G0": 48.0,
+        "Gmax": 7.256742654509873,
+        "Gmax_le_bound": true,
+        "Gmax_le_plancherel": true,
+        "bound": 51.446524247208316,
+        "bound_over_plancherel": 1.4851332311498164,
+        "n": 72,
+        "p": 73,
+        "plancherel": 34.64101615137755,
+        "t": 48,
+        "t_over_n": 0.6666666666666666
+      },
+      {
+        "G0": 32.0,
+        "Gmax": 8.621851976197394,
+        "Gmax_le_bound": true,
+        "Gmax_le_plancherel": true,
+        "bound": 58.418760031380074,
+        "bound_over_plancherel": 1.2809160490873714,
+        "n": 96,
+        "p": 97,
+        "plancherel": 45.60701700396552,
+        "t": 32,
+        "t_over_n": 0.3333333333333333
+      },
+      {
+        "G0": 64.0,
+        "Gmax": 7.971689408320358,
+        "Gmax_le_bound": true,
+        "Gmax_le_plancherel": true,
+        "bound": 62.03504596531211,
+        "bound_over_plancherel": 1.3498644235931878,
+        "n": 96,
+        "p": 97,
+        "plancherel": 45.95650117230423,
+        "t": 64,
+        "t_over_n": 0.6666666666666666
+      }
+    ],
+    "census": {
+      "all_D_mass_ok": true,
+      "all_G_le_incomplete_bound": true,
+      "deployed_B_star": 393171.5875467097,
+      "deployed_bound_over_plancherel": 0.014822108638609522,
+      "deployed_incomplete_bound": 744113.1019552016,
+      "deployed_plancherel": 50202917.82350663,
+      "max_Gmax_over_bound": 0.15658951422627926,
+      "min_bound_over_plancherel": 1.1324173204251082,
+      "n_D": 7,
+      "n_G": 16
+    },
+    "deployed": {
+      "B_star": 393171.5875467097,
+      "H2": 77291948627,
+      "e": 67472,
+      "incomplete_G_bound": 744113.1019552016,
+      "n": 2097152,
+      "n_prime": 1183520,
+      "note": "incomplete |G|<= (t/n)(sqrt(p)+1)+sqrt(p)(1+ln n) PROVED; soft-B for free-1 S still open",
+      "p": 2130706433
+    },
+    "deployed_numerics": {
+      "B_star": 393171.5875467097,
+      "bound_over_B_star": 1.8925912388488633,
+      "bound_over_plancherel": 0.014822108638609522,
+      "incomplete_bound": 744113.1019552016,
+      "ln_n": 14.556090791758852,
+      "n": 2097152,
+      "n_prime": 1183520,
+      "p": 2130706433,
+      "plancherel_bound": 50202917.82350663,
+      "t_over_n": 0.5643463134765625
+    },
+    "status": "PASS"
+  }
+}
