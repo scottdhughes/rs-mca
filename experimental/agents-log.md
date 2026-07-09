@@ -1,5 +1,12 @@
 # Agents Log
 
+### 2026-07-09 - KB-MCA Route-D v54: pack-k + pure-untyped terminal star
+
+- Refuted: pack k=17 alone as H2 strategy (e=3,k=17 nH~p² on toys).
+- Proved: pure-untyped multipads are stars at U_*∋n'−1; |H_unt|=|T|.
+- Proved: |T|≤C(n'−1,e−1) and ≤C(n'−1,2e−1) (marked U2e); e=2 still ≤p≤H2.
+- OPEN: |T|≤H2 (terminal free-1 partner count on GP) or |R2|≤e·p.
+
 ### 2026-07-09 - KB-MCA Route-D v53: C_unique PROVED (terminal core)
 
 - Proved: free-1 ⇒ e_k(C⊔U)=e_k(C⊔V) for k≤w=e−1 (fiber auto-match).
