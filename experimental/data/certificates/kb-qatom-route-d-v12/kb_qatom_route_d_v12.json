@@ -1,0 +1,367 @@
+{
+  "claims": {
+    "proves_Mm_res_le_1": false,
+    "proves_free_ge_2_long_trades_possible": true,
+    "proves_free_le_1_pack": true,
+    "proves_min_weight_criterion_Kres_18": true,
+    "proves_residual_only_min_weight": false,
+    "proves_tight_component_can_exceed_ktight": true,
+    "proves_trade_weight_law": true,
+    "proves_unconditional_atom": false
+  },
+  "deployed": {
+    "U_res_if_Kres_1": 16166878605395467,
+    "U_res_if_Kres_18": 898159922521970,
+    "free": 846161,
+    "k_coset_lower": 10,
+    "k_tight": 18,
+    "log2_U_res_K1": 53.84389067782479,
+    "log2_U_res_K18": 49.67396567638247,
+    "log2_avg_m_fiber": -18820.249565912876,
+    "m": 913632,
+    "min_trade_weight": 134944,
+    "n": 2097152,
+    "v8_coset_trade_weight": 262144,
+    "w": 67471
+  },
+  "impact_on_program": {
+    "new_conditional_path": "min-weight + pairwise-tight residual fibers => K_res<=18",
+    "next": "Prove residual multi-mates are min-weight (pay/forbid long trades), then prove pairwise-tight (or size 1), OR attack U_phi.",
+    "still_open": "residual forbids long trades; residual tight fibers are cliques; or K_res=1; or U_phi bound",
+    "unconditional_atom": false
+  },
+  "lemmas": {
+    "entropy": {
+      "free": 846161,
+      "interpretation": "Deployed free=846161 \u226b 1 so free-0/1 packing is unavailable. Average m-fiber size ~ 2^(-18820.25) \u226a 1, so random multi-mates are absurdly rare; residual uniqueness is still the expected truth but not proved. Min trade weight is {MIN_TRADE}.",
+      "log2_avg_m_fiber": -18820.249565912876,
+      "min_trade_weight": 134944,
+      "name": "deployed_avg_m_fiber",
+      "status": "PROVED_BY_EXACT_FLOAT_ENTROPY_ARITHMETIC"
+    },
+    "free_ge_2": {
+      "deployed_free": 846161,
+      "deployed_is_free_ge_2": true,
+      "name": "free_ge_2_allows_long_trades",
+      "proof": [
+        "cap = free \u2212 1 \u2265 1 when free \u2265 2, so |\u2229| \u2264 cap\u22121 is permitted by v9.",
+        "v8: e0 = 2^17 > w+1, pad mates have |\u2229| = m\u2212e0 < m\u2212w\u22121, |\u25b3| = 2 e0 > 2(w+1).",
+        "Toy suite certifies long trades for free \u2265 2 on (F_17, mu_16)."
+      ],
+      "statement": "If free = m \u2212 w \u2265 2, then the intersection cap m\u2212w\u22121 \u2265 1, so non-tight multi-mates with |C \u2229 C'| \u2264 m\u2212w\u22122 (hence |\u25b3| \u2265 2(w+2)) are not ruled out by the intersection law. Toys realize such pairs; v8 coset pads with e0 > w+1 are long trades (|\u25b3| = 2 e0 > 2(w+1)).",
+      "status": "PROVED"
+    },
+    "free_le_1": {
+      "applies_to_deployed": false,
+      "deployed_free": 846161,
+      "name": "free_le_1_only_min_weight_and_pack",
+      "proof": [
+        "free=0: Phi_w determines the full monic locator \u21d2 at most one m-set (v6).",
+        "free=1: cap = m\u2212w\u22121 = 0, so |\u2229| \u2264 0 \u21d2 disjoint multi-mates; difference is a nonzero constant (CS). Pack \u2264 floor(n/m) (v6).",
+        "Min-weight: 2(w+1) = 2m when w=m\u22121, and |\u25b3|=2m when |\u2229|=0."
+      ],
+      "statement": "If free = m \u2212 w = 0 (i.e. w \u2265 m), then M_m^{max} \u2264 1. If free = 1 (w = m \u2212 1), then every multi-mate pair is min-weight/tight (|\u25b3| = 2m, |\u2229| = 0), and M_m^{max} \u2264 floor(n/m) by free-1 CS packing.",
+      "status": "PROVED"
+    },
+    "min_weight_criterion": {
+      "budgets": {
+        "K_res": 18,
+        "U_res_atom": 898159922521970,
+        "log2": 49.67396567638247
+      },
+      "hypotheses_open": [
+        "Residual multi-mates are all min-weight (no long trades in C_res)",
+        "Each residual multi-mate fiber is a pairwise-tight clique (not merely tight-graph connected)"
+      ],
+      "name": "min_weight_pairwise_tight_gives_Kres_le_ktight",
+      "proof": [
+        "Min-weight \u21d4 tight (trade-weight law).",
+        "Pairwise-tight family size \u2264 k_tight (v9 tight-clique packing), applied inside C_res (v11).",
+        "Residual criterion (v10/v11) with K_res = k_tight."
+      ],
+      "statement": "If every residual multi-mate pair is min-weight (tight), and every Phi_w fiber of residual can-cores is a pairwise-tight family (equivalently: a tight clique), then M_m^{res,phi} \u2264 k_tight = 18. If also U_res \u2264 floor(target/(pack * k_tight)), then |R| \u2264 target.",
+      "status": "PROVED_CONDITIONAL",
+      "warning": "Tight-graph connectivity alone is insufficient: toys show tight components larger than k_tight when the component is not a clique."
+    },
+    "program": {
+      "name": "v12_reduction",
+      "not_proved": [
+        "residual has only min-weight multi-mates",
+        "residual min-weight fibers are cliques",
+        "M_m^{res} \u2264 1",
+        "U_res atom bound"
+      ],
+      "statement": "Unconditional atom-scale residual flatness remains open. After trade-weight law, the residual multi-mate wall splits as:\n  min-weight tight cliques \u2192 K_res \u2264 18 if pairwise-tight;\n  long trades \u2192 class (ii) partial plant or (iii) coset-free;\n  free\u22641 \u2192 already packed (wrong free for deployed).\nTo close unconditionally need: residual forbids long trades AND residual min-weight fibers are pairwise-tight cliques of size \u2264 18 (or \u2264 1), OR bound U_phi / U_res directly.",
+      "status": "PROVED_AS_PROGRAM_LAW"
+    },
+    "tight_component_warning": {
+      "name": "tight_graph_component_can_exceed_ktight",
+      "proof": [
+        "Computational certificate in toy suite: e.g. (p,n,m,w)=(17,16,4,2) has a fiber of size 8 with max tight-component 8 > k_tight=5, and the fiber is not a tight clique (nontight edges present).",
+        "v9 packing applies only to families where EVERY pair is tight."
+      ],
+      "statement": "Let G_tight be the graph on a Phi_w fiber with edges = tight multi-mate pairs. A connected component of G_tight can have size > k_tight. Therefore 'all multi-mates are tight-adjacent to something' does not imply M_m \u2264 k_tight; one needs a pairwise-tight (clique) hypothesis.",
+      "status": "PROVED"
+    },
+    "trade_weight": {
+      "classification": {
+        "long_trade": "|\u25b3| \u2265 2(w+2) = non-tight; class (ii) or (iii) by plant factor",
+        "min_weight_tight": "|\u25b3| = 2(w+1) = class (i) when also residual"
+      },
+      "deployed": {
+        "e": 67472,
+        "min_trade_weight": 134944,
+        "w": 67471
+      },
+      "name": "multimate_trade_weight_law",
+      "proof": [
+        "v9 intersection law: |C \u2229 C'| \u2264 m \u2212 w \u2212 1 from deg(\u039b_C \u2212 \u039b_{C'}) \u2264 m \u2212 w \u2212 1 and C \u2229 C' \u2282 roots of the difference.",
+        "Symmetric difference size identity: |C \u25b3 C'| = |C| + |C'| \u2212 2|C \u2229 C'| = 2m \u2212 2|C \u2229 C'|.",
+        "Hence |C \u25b3 C'| \u2265 2m \u2212 2(m \u2212 w \u2212 1) = 2(w + 1).",
+        "Equality iff |C \u2229 C'| = m \u2212 w \u2212 1 iff tight pair (v9 tight-pair law)."
+      ],
+      "statement": "Let C \u2260 C' be m-subsets with Phi_w(C)=Phi_w(C'). Then |C \u2229 C'| \u2264 m \u2212 w \u2212 1 and |C \u25b3 C'| = 2(m \u2212 |C \u2229 C'|) \u2265 2(w + 1). Equality |C \u25b3 C'| = 2(w + 1) holds if and only if the pair is tight (|C \u2229 C'| = m \u2212 w \u2212 1), iff C,C' are free-1 CS pads of (w+1)-blocks on a common core of size m\u2212(w+1) (v9).",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v12",
+  "status": "PARTIAL_TRADE_STRUCTURE",
+  "title": "Trade-weight law; free-regime packing; min-weight residual criterion",
+  "toy_suite": {
+    "deployed_min_trade": 134944,
+    "deployed_v8_trade_weight": 262144,
+    "rows": [
+      {
+        "Mm": 108,
+        "free": 3,
+        "k_tight": 7,
+        "m": 4,
+        "max_tight_comp": 108,
+        "min_trade": 4,
+        "n": 16,
+        "n_long_pairs": 72490,
+        "n_min_weight_pairs": 24024,
+        "n_pure_min_weight_fibers": 0,
+        "only_min_weight": false,
+        "p": 17,
+        "tight_comp_gt_ktight": true,
+        "w": 1
+      },
+      {
+        "Mm": 8,
+        "free": 2,
+        "k_tight": 5,
+        "m": 4,
+        "max_tight_comp": 8,
+        "min_trade": 6,
+        "n": 16,
+        "n_long_pairs": 1494,
+        "n_min_weight_pairs": 3520,
+        "n_pure_min_weight_fibers": 0,
+        "only_min_weight": false,
+        "p": 17,
+        "tight_comp_gt_ktight": true,
+        "w": 2
+      },
+      {
+        "Mm": 4,
+        "free": 1,
+        "k_tight": 4,
+        "m": 4,
+        "max_tight_comp": 4,
+        "min_trade": 8,
+        "n": 16,
+        "n_long_pairs": 0,
+        "n_min_weight_pairs": 126,
+        "n_pure_min_weight_fibers": 89,
+        "only_min_weight": true,
+        "p": 17,
+        "tight_comp_gt_ktight": false,
+        "w": 3
+      },
+      {
+        "Mm": 17,
+        "free": 3,
+        "k_tight": 4,
+        "m": 5,
+        "max_tight_comp": 17,
+        "min_trade": 6,
+        "n": 16,
+        "n_long_pairs": 15312,
+        "n_min_weight_pairs": 15840,
+        "n_pure_min_weight_fibers": 0,
+        "only_min_weight": false,
+        "p": 17,
+        "tight_comp_gt_ktight": true,
+        "w": 2
+      },
+      {
+        "Mm": 3,
+        "free": 2,
+        "k_tight": 3,
+        "m": 5,
+        "max_tight_comp": 3,
+        "min_trade": 8,
+        "n": 16,
+        "n_long_pairs": 112,
+        "n_min_weight_pairs": 1008,
+        "n_pure_min_weight_fibers": 848,
+        "only_min_weight": false,
+        "p": 17,
+        "tight_comp_gt_ktight": false,
+        "w": 3
+      },
+      {
+        "Mm": 1,
+        "free": 1,
+        "k_tight": 3,
+        "m": 5,
+        "max_tight_comp": 1,
+        "min_trade": 10,
+        "n": 16,
+        "n_long_pairs": 0,
+        "n_min_weight_pairs": 0,
+        "n_pure_min_weight_fibers": 0,
+        "only_min_weight": true,
+        "p": 17,
+        "tight_comp_gt_ktight": false,
+        "w": 4
+      },
+      {
+        "Mm": 32,
+        "free": 4,
+        "k_tight": 4,
+        "m": 6,
+        "max_tight_comp": 32,
+        "min_trade": 6,
+        "n": 16,
+        "n_long_pairs": 65112,
+        "n_min_weight_pairs": 42240,
+        "n_pure_min_weight_fibers": 0,
+        "only_min_weight": false,
+        "p": 17,
+        "tight_comp_gt_ktight": true,
+        "w": 2
+      },
+      {
+        "Mm": 5,
+        "free": 3,
+        "k_tight": 3,
+        "m": 6,
+        "max_tight_comp": 5,
+        "min_trade": 8,
+        "n": 16,
+        "n_long_pairs": 952,
+        "n_min_weight_pairs": 3528,
+        "n_pure_min_weight_fibers": 1792,
+        "only_min_weight": false,
+        "p": 17,
+        "tight_comp_gt_ktight": true,
+        "w": 3
+      },
+      {
+        "Mm": 2,
+        "free": 2,
+        "k_tight": 3,
+        "m": 6,
+        "max_tight_comp": 1,
+        "min_trade": 10,
+        "n": 16,
+        "n_long_pairs": 40,
+        "n_min_weight_pairs": 0,
+        "n_pure_min_weight_fibers": 0,
+        "only_min_weight": false,
+        "p": 17,
+        "tight_comp_gt_ktight": false,
+        "w": 4
+      },
+      {
+        "Mm": 1,
+        "free": 1,
+        "k_tight": 2,
+        "m": 6,
+        "max_tight_comp": 1,
+        "min_trade": 12,
+        "n": 16,
+        "n_long_pairs": 0,
+        "n_min_weight_pairs": 0,
+        "n_pure_min_weight_fibers": 0,
+        "only_min_weight": true,
+        "p": 17,
+        "tight_comp_gt_ktight": false,
+        "w": 5
+      },
+      {
+        "free": 6,
+        "m": 8,
+        "skip": 12870,
+        "w": 2
+      },
+      {
+        "free": 2,
+        "m": 8,
+        "skip": 12870,
+        "w": 6
+      },
+      {
+        "free": 1,
+        "m": 8,
+        "skip": 12870,
+        "w": 7
+      },
+      {
+        "Mm": 2,
+        "free": 6,
+        "k_tight": 2,
+        "m": 10,
+        "max_tight_comp": 1,
+        "min_trade": 10,
+        "n": 16,
+        "n_long_pairs": 40,
+        "n_min_weight_pairs": 0,
+        "n_pure_min_weight_fibers": 0,
+        "only_min_weight": false,
+        "p": 17,
+        "tight_comp_gt_ktight": false,
+        "w": 4
+      },
+      {
+        "Mm": 1,
+        "free": 2,
+        "k_tight": 1,
+        "m": 10,
+        "max_tight_comp": 1,
+        "min_trade": 18,
+        "n": 16,
+        "n_long_pairs": 0,
+        "n_min_weight_pairs": 0,
+        "n_pure_min_weight_fibers": 0,
+        "only_min_weight": true,
+        "p": 17,
+        "tight_comp_gt_ktight": false,
+        "w": 8
+      },
+      {
+        "Mm": 1,
+        "free": 1,
+        "k_tight": 1,
+        "m": 10,
+        "max_tight_comp": 1,
+        "min_trade": 20,
+        "n": 16,
+        "n_long_pairs": 0,
+        "n_min_weight_pairs": 0,
+        "n_pure_min_weight_fibers": 0,
+        "only_min_weight": true,
+        "p": 17,
+        "tight_comp_gt_ktight": false,
+        "w": 9
+      }
+    ],
+    "status": "PASS",
+    "unit_min_weight_pad": {
+      "expected": 4,
+      "min_weight_pad_sd": 4
+    }
+  }
+}

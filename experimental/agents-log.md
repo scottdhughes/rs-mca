@@ -7,6 +7,26 @@
 
 
 
+### 2026-07-08 - KB-MCA Route-D v12: trade-weight law + min-weight criterion
+
+- **Agent/model:** Grok + Scott Hughes (`scottdhughes`).
+- **Files added or changed:**
+  `experimental/scripts/verify_kb_qatom_route_d_v12.py`,
+  `experimental/notes/thresholds/kb_qatom_route_d_v12.md`,
+  `experimental/data/certificates/kb-qatom-route-d-v12/`,
+  `experimental/notes/certificate_scanner/outputs/kb_qatom_route_d_v12.report.md`,
+  `experimental/agents-log.md`.
+- **Status:** PARTIAL_TRADE_STRUCTURE — trade law PROVED; unconditional atom NO.
+- **Proved:**
+  1. Trade-weight: multi-mates have |△| ≥ 2(w+1), eq iff tight.
+  2. free≤1: only min-weight; free-0/1 packing (deployed free=846161 N/A).
+  3. free≥2: long trades possible (v8 trade weight 262144 > min 134944).
+  4. Conditional: residual min-weight + pairwise-tight cliques ⇒ K_res≤18.
+  5. Warning: tight-graph components can exceed k_tight if not cliques (toys).
+- **Unconditional atom:** still NO.
+- **What to do next:** Forbid residual long trades + prove pairwise-tight (or size 1);
+  or U_phi bound; or M_m^res≤1 by other means.
+
 ### 2026-07-08 - KB-MCA Route-D v11: residual can-core family + multi-mate partition
 
 - **Agent/model:** Grok + Scott Hughes (`scottdhughes`).
