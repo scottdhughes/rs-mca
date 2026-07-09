@@ -4,7 +4,7 @@
 **Goal:** residual free-1 / A_SP card toward `A_SP ≤ t·p` on KoalaBear MCA `a+=1116048`.
 **Does NOT claim** `U ≤ B*` or full MCA close.
 
-Last tip packet: **v54** on `main`; local attack **v55–v61** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
+Last tip packet: **v54** on `main`; local attack **v55–v62** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
 `experimental/scripts/verify_kb_qatom_route_d_v{N}.py` with matching
 notes, certificates, and scanner reports.
 
@@ -144,3 +144,7 @@ gap remains bounding coll << p^(e-1) on GP.
 |S|<=(1/6)(p^2 t^{3/2}+O(t^2)) PROVED and **structurally dead** for √-cancel
 (factor ~ p^2/sqrt(6)). OPEN: oscillatory cancel in triple Fourier
 All = p^{-1} sum hatH(-xi) hat_mu(xi)^3.
+
+**v62**: Gauss |hatH|=sqrt(p) flat PROVED; refined |All|<=sqrt(p) t W_inf
+<= p t^{3/2} (factor ~sqrt(p/t) better than v61 in sparse). Still weak for
+√-cancel (factor ~ p/sqrt(6)). OPEN: phase of hat_mu^3 vs hatH.
