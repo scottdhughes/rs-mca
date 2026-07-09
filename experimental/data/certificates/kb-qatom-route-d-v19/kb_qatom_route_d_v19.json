@@ -1,0 +1,282 @@
+{
+  "claims": {
+    "proves_ambient_CS_pair_bound": true,
+    "proves_degree_bound": true,
+    "proves_global_sum_N_ord": true,
+    "proves_handshaking_cost_chain": true,
+    "proves_max_N_ord_le_tp": false,
+    "proves_max_P_multi_le_tp_over_pack": false,
+    "proves_payment_criteria": true
+  },
+  "deployed": {
+    "Delta": 16,
+    "a": 1116048,
+    "ambient_n_prime": 1183520,
+    "core": 913632,
+    "e": 67472,
+    "j": 981104,
+    "log2_t_p": 47.0306859937284,
+    "log2_t_p_over_pack": 42.94322315247798,
+    "n": 2097152,
+    "n_p": 4468415257378816,
+    "pack": 17,
+    "t": 67472,
+    "t_p": 143763024447376,
+    "t_p_over_pack": 8456648496904,
+    "w": 67471
+  },
+  "impact_on_program": {
+    "next": "Inject top-seam ordered pairs into a set of size \u2264t*p (marked incidence with small mark), or bound max fiber of pair-counts directly via SP geometry",
+    "reduction": "A_SP cell paid if max N_ord\u2264t*p or max P_multi\u2264t*p/17. N_ord\u226416*N reduces to fiber max \u2014 circular with Q unless pairs inject."
+  },
+  "lemmas": {
+    "OPEN": {
+      "name": "OPEN_max_N_ord_or_P_multi",
+      "note": "N_ord \u2264 (pack\u22121)\u00b7N reduces A_SP cost to a multiple of max fiber size \u2014 circular with the Q atom unless a separate pair mark injects seam pairs into a small set.",
+      "statement": "Prove max_z N_ord(z) \u2264 t\u00b7p or max_z P_multi(z) \u2264 t\u00b7p/17 (or any U with pack\u00b7U \u2264 remaining safe budget). CAS route: larger dyadic scans (Sage/PARI); relate max N_ord to max fiber N(z) via N_ord \u2264 (pack\u22121)N; still needs fiber control unless a direct pair injection into [t]\u00d7F_p exists.",
+      "status": "OPEN"
+    },
+    "ambient_CS": {
+      "consequence": "sum_z N_ord(z) \u2264 binom(n,j\u2212e) \u00b7 binom(n\u2212j+e,e) \u00b7 max(floor((n\u2212j+e)/e)\u22121,0). This bounds the SUM over z, not max_z N_ord(z). Average N_ord \u2264 that quantity / p^w (if every z appeared \u2014 only an envelope).",
+      "name": "ambient_CS_pair_bound",
+      "proof": [
+        "Free-1: fixed high e\u22121 monic coeffs, vary constant \u2014 unique pencil per split monic of that form.",
+        "Distinct fully split CS mates are pairwise disjoint (v2/v6 free-1), so pencil size \u2264 floor(n'/e).",
+        "Each of binom(n',e) sets contributes \u2264 pack\u22121 outgoing ordered mates."
+      ],
+      "statement": "For any ambient \u03a9 of size n' and e\u22651, Nord_CS(e;\u03a9) \u2264 binom(n',e) \u00b7 max(floor(n'/e)\u22121, 0). Proof: each e-subset lies in at most one free-1 pencil; that pencil has size \u2264 floor(n'/e); hence each e-set has at most max(floor(n'/e)\u22121,0) CS mates; double-count ordered pairs.",
+      "status": "PROVED"
+    },
+    "degree": {
+      "check_A_plus_e_over_e": 17,
+      "deployed_Delta": 16,
+      "deployed_pack": 17,
+      "name": "topseam_degree_bound",
+      "proof": [
+        "Neighbors of S=C\u222aU are C\u222aV for V in the same core pencil U(C,z), V\u2260U.",
+        "v2: |U(C,z)| \u2264 floor((n\u2212|C|)/e).",
+        "Deployed: |C|=j\u2212e \u21d2 floor((n\u2212j+e)/e)=floor((A+e)/e).",
+        "A+e = 1116048+67472 = 1183520; floor((1183520)/67472) = 17 = 17."
+      ],
+      "statement": "In G_z, the degree of any vertex S is at most pack_ceil(S)\u22121 \u2264 pack_ceil\u22121 = 17-1 = 16, where pack_ceil = floor((n\u2212|C_can(S)|)/e) \u2264 floor((n\u2212(j\u2212e))/e) = floor((n\u2212j+e)/e) and deployed pack_ceil = 17.",
+      "status": "PROVED"
+    },
+    "global_sum": {
+      "check_ambient": true,
+      "deployed_ambient_size": 1183520,
+      "name": "global_sum_N_ord_equals_padded_CS_pairs",
+      "proof": [
+        "Top-seam ordered pair (S,S')=(C\u222aU,C\u222aV) with U\u2260V CS is uniquely written as pad C and CS pair (U,V) in D\\\\C (v16: top-seam \u21d4 CS sides).",
+        "Phi_w(C\u222aU)=Phi_w(C\u222aV) always for CS sides (deg difference =|C|=j\u2212w\u22121), so the pair lies in exactly one fiber z=Phi_w(C\u222aU).",
+        "Summing over fibers counts each such geometric pair once."
+      ],
+      "statement": "sum_z N_ord(z) = sum_{C \u2282 D, |C|=j\u2212e} Nord_CS(e; D\\\\C), where Nord_CS(e;\u03a9) is the number of ordered pairs of distinct e-subsets of \u03a9 whose monic locators differ by a nonzero constant (free-1 CS pair).",
+      "status": "PROVED"
+    },
+    "handshaking": {
+      "name": "A_SP_handshaking_cost_chain",
+      "proof": [
+        "Within a pencil of size k the directed complete graph without loops has k(k\u22121) arcs; sum over multi pencils is N_ord. Each vertex in a multi pencil has out-degree k\u22121 \u2265 1.",
+        "Hence A = #verts with deg\u22651 \u2264 sum deg = N_ord (actually sum deg = N_ord counts only multi pencils; singleton deg=0).",
+        "A = sum_{k\u22652} k \u2265 2P \u21d2 P \u2264 floor(A/2).",
+        "A \u2264 N \u21d2 P \u2264 floor(N/2).",
+        "v17: A \u2264 pack\u00b7P. Degree bound: N_ord = sum deg \u2264 \u0394\u00b7A with \u0394=pack\u22121."
+      ],
+      "statement": "Let N=|Fib_w(z)|, A=|A_SP(z)|, P=P_multi(z), N_ord=sum_{multi pencils} k(k\u22121). Then:\n  N_ord = sum_v deg(v)  (sum over vertices of ordered out-degree in the directed complete orientation of each pencil clique);\n  A \u2264 N_ord          (each A_SP vertex has deg \u2265 1);\n  P \u2264 floor(A/2)     (each multi pencil has k \u2265 2);\n  P \u2264 floor(N/2)     (A \u2264 N and previous);\n  A \u2264 pack_ceil \u00b7 P \u2264 pack_ceil \u00b7 floor(N/2);\n  A \u2264 N;\n  N_ord \u2264 (pack_ceil\u22121) \u00b7 A \u2264 (pack_ceil\u22121) \u00b7 N.",
+      "status": "PROVED"
+    },
+    "payment": {
+      "name": "A_SP_payment_criteria",
+      "numbers": {
+        "global_sum_envelope_log2_hint": "sum_z N_ord uses binom(n,core)*binom(A+e,e)*(pack-1); far above t*p \u2014 only max_z constraints help the cell.",
+        "log2_t_p": 47.0306859937284,
+        "log2_t_p_over_pack": 42.94322315247798,
+        "t_p": 143763024447376,
+        "t_p_over_pack": 8456648496904
+      },
+      "open": "Prove C1 or C2 at deployed (or a weaker budget that still fits B*).",
+      "proof": [
+        "From handshaking: |A_SP| \u2264 N_ord and |A_SP| \u2264 pack\u00b7P_multi."
+      ],
+      "statement": "Any of the following implies max |A_SP| \u2264 t\u00b7p:\n  (C1) max_z N_ord(z) \u2264 t\u00b7p = 143763024447376\n  (C2) max_z P_multi(z) \u2264 floor(t\u00b7p / pack) = 8456648496904\n  (C3) max_z |A_SP(z)| \u2264 t\u00b7p (tautological target).\nThen A_SP is a first-match cell with printed support cost \u2264 t\u00b7p, matching the generated-field image budget scale (v1).",
+      "status": "PROVED_CONDITIONAL"
+    }
+  },
+  "packet": "kb_qatom_route_d_v19",
+  "status": "PARTIAL_A_SP_GRAPH",
+  "title": "P_multi / |A_SP| graph cost laws and payment criteria",
+  "toy_suite": {
+    "rows": [
+      {
+        "A_le_Nord": true,
+        "P_le_N_half": true,
+        "j": 4,
+        "maxA": 85,
+        "maxN": 108,
+        "maxNord": 202,
+        "maxP": 30,
+        "n": 16,
+        "p": 17,
+        "sum_nord": 3170,
+        "w": 1
+      },
+      {
+        "A_le_Nord": true,
+        "P_le_N_half": true,
+        "j": 4,
+        "maxA": 7,
+        "maxN": 8,
+        "maxNord": 12,
+        "maxP": 3,
+        "n": 16,
+        "p": 17,
+        "sum_nord": 992,
+        "w": 2
+      },
+      {
+        "A_le_Nord": true,
+        "P_le_N_half": true,
+        "j": 5,
+        "maxA": 151,
+        "maxN": 257,
+        "maxNord": 270,
+        "maxP": 61,
+        "n": 16,
+        "p": 17,
+        "sum_nord": 4386,
+        "w": 1
+      },
+      {
+        "A_le_Nord": true,
+        "P_le_N_half": true,
+        "j": 5,
+        "maxA": 10,
+        "maxN": 17,
+        "maxNord": 10,
+        "maxP": 5,
+        "n": 16,
+        "p": 17,
+        "sum_nord": 1090,
+        "w": 2
+      },
+      {
+        "A_le_Nord": true,
+        "P_le_N_half": true,
+        "j": 6,
+        "maxA": 12,
+        "maxN": 32,
+        "maxNord": 12,
+        "maxP": 6,
+        "n": 16,
+        "p": 17,
+        "sum_nord": 930,
+        "w": 2
+      },
+      {
+        "A_le_Nord": true,
+        "P_le_N_half": true,
+        "j": 6,
+        "maxA": 2,
+        "maxN": 5,
+        "maxNord": 2,
+        "maxP": 1,
+        "n": 16,
+        "p": 17,
+        "sum_nord": 150,
+        "w": 3
+      },
+      {
+        "A_le_Nord": true,
+        "P_le_N_half": true,
+        "j": 7,
+        "maxA": 10,
+        "maxN": 42,
+        "maxNord": 12,
+        "maxP": 5,
+        "n": 16,
+        "p": 17,
+        "sum_nord": 598,
+        "w": 2
+      },
+      {
+        "A_le_Nord": true,
+        "P_le_N_half": true,
+        "j": 8,
+        "maxA": 7,
+        "maxN": 54,
+        "maxNord": 10,
+        "maxP": 3,
+        "n": 16,
+        "p": 17,
+        "sum_nord": 282,
+        "w": 2
+      },
+      {
+        "A_le_Nord": true,
+        "P_le_N_half": true,
+        "j": 8,
+        "maxA": 2,
+        "maxN": 7,
+        "maxNord": 2,
+        "maxP": 1,
+        "n": 16,
+        "p": 17,
+        "sum_nord": 18,
+        "w": 3
+      },
+      {
+        "A_le_Nord": true,
+        "P_le_N_half": true,
+        "j": 9,
+        "maxA": 4,
+        "maxN": 42,
+        "maxNord": 4,
+        "maxP": 2,
+        "n": 16,
+        "p": 17,
+        "sum_nord": 94,
+        "w": 2
+      },
+      {
+        "A_le_Nord": true,
+        "P_le_N_half": true,
+        "j": 9,
+        "maxA": 2,
+        "maxN": 5,
+        "maxNord": 2,
+        "maxP": 1,
+        "n": 16,
+        "p": 17,
+        "sum_nord": 2,
+        "w": 3
+      },
+      {
+        "A_le_Nord": true,
+        "P_le_N_half": true,
+        "j": 10,
+        "maxA": 0,
+        "maxN": 5,
+        "maxNord": 0,
+        "maxP": 0,
+        "n": 16,
+        "p": 17,
+        "sum_nord": 0,
+        "w": 3
+      },
+      {
+        "A_le_Nord": true,
+        "P_le_N_half": true,
+        "j": 10,
+        "maxA": 0,
+        "maxN": 2,
+        "maxNord": 0,
+        "maxP": 0,
+        "n": 16,
+        "p": 17,
+        "sum_nord": 0,
+        "w": 4
+      }
+    ],
+    "status": "PASS"
+  }
+}

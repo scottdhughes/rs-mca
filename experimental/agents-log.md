@@ -7,6 +7,11 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v19: P_multi / |A_SP| graph cost laws
+
+- Proved handshaking cost chain, global N_ord sum, ambient CS bound, payment criteria.
+- Open: max N_ord or pair injection into t*p (N_ord<=16*N circular with Q).
+
 ### 2026-07-09 - KB-MCA Route-D v18: CAS tools + mu_E5 collision algebra
 
 - Tools: sage/pari/msolve/M2/singular/wolfram available; routing recorded.
