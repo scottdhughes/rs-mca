@@ -7,6 +7,13 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v21: M_pad degree obstruction
+
+- Proved: multipad cores satisfy deg(Λ_C-Λ_C')≤j-2w-2; hence j<2w+2 ⇒ M_pad≤1.
+- Deployed j>2w+2 (room j-2w-2>0) — does not force M_pad=1.
+- Path: M_pad≤1 + CS pairs→e·p (=t·p) ⇒ A_SP≤t·p.
+- Toys confirm degree bound and j<2w+2 corollary.
+
 ### 2026-07-09 - KB-MCA Route-D v20: top-seam pair injection / M_pad
 
 - Proved: pair (C,U,V) normal form; side key φ=(high,c0U,c0V) with multi-pad

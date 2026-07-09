@@ -1,0 +1,277 @@
+{
+  "claims": {
+    "proves_A_SP_le_tp": false,
+    "proves_M_pad_le_1_deployed": false,
+    "proves_M_pad_le_1_if_j_lt_2w_plus_2": true,
+    "proves_ep_pair_injection": false,
+    "proves_multipad_degree_bound": true,
+    "toy_confirms_degree_bound": true,
+    "toy_confirms_j_lt_threshold": true
+  },
+  "deployed": {
+    "e": 67472,
+    "e_p": 143763024447376,
+    "j": 981104,
+    "j_lt_2w_plus_2": false,
+    "j_minus_2w_minus_2": 846160,
+    "t": 67472,
+    "t_equals_e": true,
+    "t_p": 143763024447376,
+    "two_w_plus_2": 134944,
+    "w": 67471
+  },
+  "impact_on_program": {
+    "deployed": "degree room j-2w-2>0; need non-degree multipad control or ep injection",
+    "next": "Kill multipads by split/residual constraints, or e\u00b7p mark for CS pairs",
+    "win": "M_pad=1 for all rows with j<2w+2 (proved)"
+  },
+  "lemmas": {
+    "M_pad_small_j": {
+      "deployed_applies": false,
+      "name": "M_pad_le_1_when_j_lt_2w_plus_2",
+      "note": "Deployed j \u226b 2w+2, so this sufficient condition does not fire. It does prove M_pad=1 on all shallow-w regimes with j < 2w+2.",
+      "proof": [
+        "Apply multipad degree bound. Negative degree bound \u21d2 difference zero.",
+        "Distinct sets have distinct monic locators, contradiction unless C=C'."
+      ],
+      "statement": "If j < 2w+2, then M_pad(z) \u2264 1 for every z. Indeed j\u22122w\u22122 < 0 forces deg(\u039b_C\u2212\u039b_{C'}) < 0, so \u039b_C=\u039b_{C'}.",
+      "status": "PROVED"
+    },
+    "OPEN": {
+      "cas": "Sage/msolve: ideal for monic \u039b_C \u2260 \u039b_{C'} of degree j\u2212e with (\u039b_C\u2212\u039b_{C'})\u039b_U of degree \u2264 j\u2212w\u22121 and both fully split \u2014 emptiness in residual regimes.",
+      "name": "OPEN_M_pad_deployed_and_ep_injection",
+      "statement": "(1) Prove M_pad\u22641 at deployed despite j>2w+2 (using split support constraints, residual, or first-match), OR bound M_pad by a small constant.\n(2) Inject free-1 CS ordered pairs (U,V) into size e\u00b7p (=143763024447376 labels). Candidate form: one index in {0..e\u22121} and one field element \u2014 toys fail when multipads/dense pencils exist.",
+      "status": "OPEN"
+    },
+    "deployed_room": {
+      "name": "deployed_degree_room_for_multipad",
+      "proof": [
+        "Direct comparison of integers."
+      ],
+      "statement": "At deployed j=981104, w=67471: j\u22122w\u22122 = 846160 \u2265 0 and j \u2265 2w+2 = 134944. Degree obstruction does not rule out M_pad\u22652.",
+      "status": "PROVED_BY_EXACT_INTEGER_ARITHMETIC"
+    },
+    "multipad_degree": {
+      "deployed": {
+        "j": 981104,
+        "j_lt_2w_plus_2": false,
+        "j_minus_2w_minus_2": 846160,
+        "two_w_plus_2": 134944,
+        "w": 67471
+      },
+      "name": "multipad_core_difference_degree_bound",
+      "proof": [
+        "\u039b_{C\u222aU} = \u039b_C \u039b_U and \u039b_{C'\u222aU} = \u039b_{C'} \u039b_U (disjoint unions).",
+        "Phi_w equal means the monic degree-j locators agree in coefficients of X^{j\u22121},\u2026,X^{j\u2212w}, so deg(\u039b_C \u039b_U \u2212 \u039b_{C'} \u039b_U) \u2264 j\u2212w\u22121.",
+        "Factor: (\u039b_C \u2212 \u039b_{C'}) \u039b_U has degree deg(\u039b_C\u2212\u039b_{C'})+e.",
+        "Hence deg(\u039b_C\u2212\u039b_{C'})+e \u2264 j\u2212w\u22121.",
+        "e=w+1 \u21d2 deg(\u039b_C\u2212\u039b_{C'}) \u2264 j\u2212w\u22121\u2212(w+1) = j\u22122w\u22122."
+      ],
+      "statement": "Suppose C \u2260 C' are (j\u2212e)-subsets, U,V are disjoint e-subsets with e=w+1, \u039b_U\u2212\u039b_V = c \u2208 F_p^\u00d7, and Phi_w(C\u222aU)=Phi_w(C'\u222aU)  (hence also = Phi_w(C\u222aV)=Phi_w(C'\u222aV)). Then deg(\u039b_C \u2212 \u039b_{C'}) \u2264 j \u2212 2w \u2212 2.",
+      "status": "PROVED"
+    },
+    "path_Mpad1": {
+      "name": "path_after_M_pad_one",
+      "proof": [
+        "v20 payment bridge + deployed t=e."
+      ],
+      "statement": "If M_pad\u22641 then N_ord=N_side (v20) and A_SP payment reduces to injecting ordered free-1 CS e-set pairs into a set of size \u2264 t\u00b7p. Deployed t=e=w+1, so the natural budget is e\u00b7p = t\u00b7p = 143763024447376.",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v21",
+  "status": "PARTIAL_MPAD_DEGREE",
+  "title": "M_pad degree obstruction j-2w-2; path to e\u00b7p pair injection",
+  "toy_suite": {
+    "rows": [
+      {
+        "deg_bound": 2,
+        "j": 6,
+        "j_lt_2w2": false,
+        "max_Mpad": 14,
+        "max_core_diff_deg": 2,
+        "max_nord": 288,
+        "n": 16,
+        "p": 17,
+        "w": 1
+      },
+      {
+        "deg_bound": 0,
+        "j": 6,
+        "j_lt_2w2": false,
+        "max_Mpad": 2,
+        "max_core_diff_deg": 0,
+        "max_nord": 12,
+        "n": 16,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "deg_bound": -2,
+        "j": 6,
+        "j_lt_2w2": true,
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "max_nord": 2,
+        "n": 16,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "deg_bound": -4,
+        "j": 6,
+        "j_lt_2w2": true,
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "max_nord": 0,
+        "n": 16,
+        "p": 17,
+        "w": 4
+      },
+      {
+        "deg_bound": 1,
+        "j": 7,
+        "j_lt_2w2": false,
+        "max_Mpad": 2,
+        "max_core_diff_deg": 1,
+        "max_nord": 12,
+        "n": 16,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "deg_bound": -1,
+        "j": 7,
+        "j_lt_2w2": true,
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "max_nord": 2,
+        "n": 16,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "deg_bound": 2,
+        "j": 8,
+        "j_lt_2w2": false,
+        "max_Mpad": 2,
+        "max_core_diff_deg": 2,
+        "max_nord": 10,
+        "n": 16,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "deg_bound": 0,
+        "j": 8,
+        "j_lt_2w2": false,
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "max_nord": 2,
+        "n": 16,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "deg_bound": -2,
+        "j": 8,
+        "j_lt_2w2": true,
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "max_nord": 0,
+        "n": 16,
+        "p": 17,
+        "w": 4
+      },
+      {
+        "deg_bound": 3,
+        "j": 9,
+        "j_lt_2w2": false,
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "max_nord": 4,
+        "n": 16,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "deg_bound": 1,
+        "j": 9,
+        "j_lt_2w2": false,
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "max_nord": 2,
+        "n": 16,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "deg_bound": 4,
+        "j": 10,
+        "j_lt_2w2": false,
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "max_nord": 2,
+        "n": 16,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "deg_bound": 2,
+        "j": 10,
+        "j_lt_2w2": false,
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "max_nord": 0,
+        "n": 16,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "deg_bound": 1,
+        "j": 5,
+        "j_lt_2w2": false,
+        "max_Mpad": 9,
+        "max_core_diff_deg": 1,
+        "max_nord": 270,
+        "n": 16,
+        "p": 17,
+        "w": 1
+      },
+      {
+        "deg_bound": -1,
+        "j": 5,
+        "j_lt_2w2": true,
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "max_nord": 10,
+        "n": 16,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "deg_bound": 0,
+        "j": 4,
+        "j_lt_2w2": false,
+        "max_Mpad": 4,
+        "max_core_diff_deg": 0,
+        "max_nord": 202,
+        "n": 16,
+        "p": 17,
+        "w": 1
+      },
+      {
+        "deg_bound": -2,
+        "j": 4,
+        "j_lt_2w2": true,
+        "max_Mpad": 1,
+        "max_core_diff_deg": -1,
+        "max_nord": 12,
+        "n": 16,
+        "p": 17,
+        "w": 2
+      }
+    ],
+    "status": "PASS"
+  }
+}
