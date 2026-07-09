@@ -7,6 +7,14 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v35: SR-cell Type-D residual + matching highs
+
+- Proved: shared-root first-match cell pays all Type S ⇒ residual multipads are
+  Type D only (M_pad≤2 deployed); non-star paid too (star-only not forced);
+  matching-supported H_M ≤⌊n/e⌋=31≤2170.
+- Banked: SR mark (r_*,sidekey) collides (cell cost OPEN); matching pairs thin.
+- Open: SR-cell ≤e·p; |H_A_SP|≤2170 ambient.
+
 ### 2026-07-09 - KB-MCA Route-D v34: recursive multipad bound + multi-tier FM
 
 - Proved: recursive M(m,f,N) multipad bound for all free_core (non-Helly OK);
