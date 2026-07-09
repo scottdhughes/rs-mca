@@ -1,6 +1,13 @@
 # Agents Log
 
 
+### 2026-07-09 - KB-MCA Route-D v49: co-extension = index-prefix free-1
+
+- Proved: coext multi-U free-1 pencils live in I_t={0..t-1}, t=min(C);
+  multipad forces t∈[2e,n′]=[134944,1183520] deployed.
+- Proved: |H_coext(C)|≤H_*^pre(t,e); under C_unique |H_unt|≤N_C·max H_*^pre.
+- e=2 prefix ≤p≤H2. OPEN ★_pre: max_t H_*^pre(t,e) at deployed e.
+
 ### 2026-07-09 - KB-MCA Route-D v48: attack H_* (refine ★_D)
 
 - Proved: |H|≤p^{e-1}; e=2 ⇒ |H|≤p≤H2; e>n/2 ⇒ H_*=0; |H|≤binom/2.

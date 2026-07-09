@@ -1,0 +1,490 @@
+{
+  "claims": {
+    "proves_A_SP_le_tp": false,
+    "proves_Hcoext_le_Hstar_prefix": true,
+    "proves_Hstar_pre_deployed_le_H2": false,
+    "proves_e2_prefix_le_H2": true,
+    "proves_prefix_window": true,
+    "proves_window_range_2e_to_nprime": true,
+    "refutes_Hstar_pre_le_floor": true
+  },
+  "deployed": {
+    "H2": 77291948627,
+    "e": 67472,
+    "e_over_nprime": 0.05700959848587265,
+    "floor_nprime_e": 17,
+    "free_core": 846161,
+    "m_c": 913632,
+    "n_prime": 1183520,
+    "t_max": 1183520,
+    "t_min": 134944
+  },
+  "impact_on_program": {
+    "geometry": "Co-extension free-1 multipads = free-1 multipads on an index prefix I_t of D with t=min(C) \u2208 [2e, n']",
+    "vs_v48": "Not abstract cyclic field domains \u2014 arcs inside fixed D",
+    "wall": "H_*^{pre}(t,e) for large e on roots-of-unity arcs"
+  },
+  "lemmas": {
+    "OPEN": {
+      "name": "OPEN_Hstar_prefix_deployed",
+      "note": "Not ambient cyclic of size t in a field of size ~t (v48 refuted that for e=3). This is an arc inside the fixed n-point roots-of-unity domain.",
+      "statement": "Bound max_t H_*^pre(t, e=67472) for t\u2264n'=1183520 \u2014 free-1 multipad highs on a length-t arc of the KB cyclic domain. Target \u2264 H2=77291948627 (or \u2264 H2/N_C).",
+      "status": "OPEN"
+    },
+    "e2": {
+      "deployed_e": 67472,
+      "name": "prefix_e2_Hstar_le_p_le_H2",
+      "proof": [
+        "v48 coeff bound specialized to e=2; independent of t."
+      ],
+      "statement": "For e=2, H_*^pre(t,2) \u2264 p \u2264 H2 for all t (high = one F_p coeff). Co-extension residual card closes for e=2.",
+      "status": "PROVED"
+    },
+    "global": {
+      "deployed_H2": 77291948627,
+      "name": "H_unt_le_NC_max_Hstar_pre",
+      "proof": [
+        "v47 reduction + Lemmas prefix/per-core/window range."
+      ],
+      "statement": "Under C_unique (v47): |H_unt| \u2264 N_C \u00b7 max_{t\u2208[2e,n']} H_*^pre(t,e). Card closes if that max \u2264 H2/N_C (e.g. N_C=1 \u21d2 need max H_*^pre \u2264 H2).",
+      "status": "PROVED_CONDITIONAL"
+    },
+    "per_core": {
+      "name": "H_coext_C_le_Hstar_prefix",
+      "proof": [
+        "Lemma prefix window: all coext free-1 U of C lie in I_t.",
+        "Highs of multi-U free-1 pencils with that C are free-1 multipad highs realized inside I_t."
+      ],
+      "statement": "|H_coext(C)| \u2264 H_*^{pre}(min(C), e): free-1 multipad highs among e-subsets of the index prefix I_t of D (values \u03c9^0..\u03c9^{t\u22121}).",
+      "status": "PROVED"
+    },
+    "prefix_window": {
+      "name": "coext_free1_lives_in_index_prefix",
+      "proof": [
+        "By construction of sorted-index prefix: every index in U is < every index in C, so U \u2286 {0,...,min(C)\u22121}.",
+        "Multi-U pencil fixes C and varies U among free-1 mates of a high."
+      ],
+      "statement": "Under the A_SP prefix split U = e least domain indices of S and C = S\\U: max(U) < min(C). Any multi-U free-1 pencil with core C has every U \u2286 I_t = {0,...,t\u22121}, t = min(C).",
+      "status": "PROVED"
+    },
+    "window_range": {
+      "deployed": {
+        "e": 67472,
+        "n_prime": 1183520,
+        "t_max": 1183520,
+        "t_min": 134944
+      },
+      "name": "multipad_window_range",
+      "proof": [
+        "\u230at/e\u230b \u2265 2 for two disjoint e-sets in I_t \u21d2 t \u2265 2e.",
+        "C \u2286 {t,...,n\u22121}, |C|=m_c \u21d2 n\u2212t \u2265 m_c \u21d2 t \u2264 n\u2212m_c = n' = A+e."
+      ],
+      "statement": "For a multipad free-1 pencil (|F|\u22652) with core C of size m_c: t=min(C) satisfies 2e \u2264 t \u2264 n\u2212m_c. Deployed: 134944 \u2264 t \u2264 1183520.",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v49",
+  "status": "PARTIAL_COEXT_PREFIX",
+  "title": "Co-extension free-1 multipads live in index prefixes",
+  "toy_suite": {
+    "census": {
+      "all_prefix_windows_ok": true,
+      "e2_pre_le_p": true,
+      "max_coext_H_per_C": 961,
+      "max_coext_nH": 961,
+      "max_prefix_nH": 6368,
+      "n_coext": 11,
+      "n_prefix": 16,
+      "refute_Hpre_le_floor": true
+    },
+    "coext_rows": [
+      {
+        "e": 2,
+        "fc": 1,
+        "j": 4,
+        "m_c": 2,
+        "max_H_per_C": 17,
+        "max_f": 6,
+        "max_t": 14,
+        "min_t": 6,
+        "multipad_t_ge_2e": true,
+        "n": 16,
+        "nH_coext": 17,
+        "n_C": 45,
+        "p": 17,
+        "w": 1
+      },
+      {
+        "e": 2,
+        "fc": 2,
+        "j": 5,
+        "m_c": 3,
+        "max_H_per_C": 17,
+        "max_f": 6,
+        "max_t": 13,
+        "min_t": 6,
+        "multipad_t_ge_2e": true,
+        "n": 16,
+        "nH_coext": 17,
+        "n_C": 120,
+        "p": 17,
+        "w": 1
+      },
+      {
+        "e": 3,
+        "fc": 0,
+        "j": 5,
+        "m_c": 2,
+        "max_H_per_C": 110,
+        "max_f": 3,
+        "max_t": 14,
+        "min_t": 8,
+        "multipad_t_ge_2e": true,
+        "n": 16,
+        "nH_coext": 110,
+        "n_C": 28,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "e": 2,
+        "fc": 3,
+        "j": 6,
+        "m_c": 4,
+        "max_H_per_C": 17,
+        "max_f": 5,
+        "max_t": 12,
+        "min_t": 6,
+        "multipad_t_ge_2e": true,
+        "n": 16,
+        "nH_coext": 17,
+        "n_C": 210,
+        "p": 17,
+        "w": 1
+      },
+      {
+        "e": 3,
+        "fc": 1,
+        "j": 6,
+        "m_c": 3,
+        "max_H_per_C": 65,
+        "max_f": 3,
+        "max_t": 13,
+        "min_t": 8,
+        "multipad_t_ge_2e": true,
+        "n": 16,
+        "nH_coext": 65,
+        "n_C": 56,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "e": 3,
+        "fc": 2,
+        "j": 7,
+        "m_c": 4,
+        "max_H_per_C": 36,
+        "max_f": 3,
+        "max_t": 12,
+        "min_t": 8,
+        "multipad_t_ge_2e": true,
+        "n": 16,
+        "nH_coext": 36,
+        "n_C": 70,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "e": 3,
+        "fc": 3,
+        "j": 8,
+        "m_c": 5,
+        "max_H_per_C": 19,
+        "max_f": 3,
+        "max_t": 11,
+        "min_t": 8,
+        "multipad_t_ge_2e": true,
+        "n": 16,
+        "nH_coext": 19,
+        "n_C": 56,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "e": 3,
+        "fc": 0,
+        "j": 5,
+        "m_c": 2,
+        "max_H_per_C": 179,
+        "max_f": 4,
+        "max_t": 16,
+        "min_t": 10,
+        "multipad_t_ge_2e": true,
+        "n": 18,
+        "nH_coext": 179,
+        "n_C": 28,
+        "p": 19,
+        "w": 2
+      },
+      {
+        "e": 3,
+        "fc": 1,
+        "j": 6,
+        "m_c": 3,
+        "max_H_per_C": 127,
+        "max_f": 4,
+        "max_t": 15,
+        "min_t": 10,
+        "multipad_t_ge_2e": true,
+        "n": 18,
+        "nH_coext": 127,
+        "n_C": 56,
+        "p": 19,
+        "w": 2
+      },
+      {
+        "e": 3,
+        "fc": 2,
+        "j": 7,
+        "m_c": 4,
+        "max_H_per_C": 85,
+        "max_f": 3,
+        "max_t": 14,
+        "min_t": 10,
+        "multipad_t_ge_2e": true,
+        "n": 18,
+        "nH_coext": 85,
+        "n_C": 70,
+        "p": 19,
+        "w": 2
+      },
+      {
+        "e": 3,
+        "fc": -1,
+        "j": 4,
+        "m_c": 1,
+        "max_H_per_C": 961,
+        "max_f": 9,
+        "max_t": 29,
+        "min_t": 10,
+        "multipad_t_ge_2e": true,
+        "n": 30,
+        "nH_coext": 961,
+        "n_C": 20,
+        "p": 31,
+        "w": 2
+      }
+    ],
+    "prefix_rows": [
+      {
+        "comb": 28,
+        "e": 2,
+        "floor": 4,
+        "max_f": 3,
+        "n": 16,
+        "nH": 10,
+        "nH_le_floor": false,
+        "nH_le_p_pow": true,
+        "p": 17,
+        "p_pow": 17,
+        "t": 8
+      },
+      {
+        "comb": 120,
+        "e": 2,
+        "floor": 8,
+        "max_f": 8,
+        "n": 16,
+        "nH": 17,
+        "nH_le_floor": false,
+        "nH_le_p_pow": true,
+        "p": 17,
+        "p_pow": 17,
+        "t": 16
+      },
+      {
+        "comb": 56,
+        "e": 3,
+        "floor": 2,
+        "max_f": 2,
+        "n": 16,
+        "nH": 1,
+        "nH_le_floor": true,
+        "nH_le_p_pow": true,
+        "p": 17,
+        "p_pow": 289,
+        "t": 8
+      },
+      {
+        "comb": 220,
+        "e": 3,
+        "floor": 4,
+        "max_f": 3,
+        "n": 16,
+        "nH": 36,
+        "nH_le_floor": false,
+        "nH_le_p_pow": true,
+        "p": 17,
+        "p_pow": 289,
+        "t": 12
+      },
+      {
+        "comb": 560,
+        "e": 3,
+        "floor": 5,
+        "max_f": 3,
+        "n": 16,
+        "nH": 224,
+        "nH_le_floor": false,
+        "nH_le_p_pow": true,
+        "p": 17,
+        "p_pow": 289,
+        "t": 16
+      },
+      {
+        "comb": 105,
+        "e": 2,
+        "floor": 7,
+        "max_f": 5,
+        "n": 30,
+        "nH": 30,
+        "nH_le_floor": false,
+        "nH_le_p_pow": true,
+        "p": 31,
+        "p_pow": 31,
+        "t": 15
+      },
+      {
+        "comb": 435,
+        "e": 2,
+        "floor": 15,
+        "max_f": 15,
+        "n": 30,
+        "nH": 31,
+        "nH_le_floor": false,
+        "nH_le_p_pow": true,
+        "p": 31,
+        "p_pow": 31,
+        "t": 30
+      },
+      {
+        "comb": 220,
+        "e": 3,
+        "floor": 4,
+        "max_f": 2,
+        "n": 30,
+        "nH": 12,
+        "nH_le_floor": false,
+        "nH_le_p_pow": true,
+        "p": 31,
+        "p_pow": 961,
+        "t": 12
+      },
+      {
+        "comb": 1140,
+        "e": 3,
+        "floor": 6,
+        "max_f": 4,
+        "n": 30,
+        "nH": 312,
+        "nH_le_floor": false,
+        "nH_le_p_pow": true,
+        "p": 31,
+        "p_pow": 961,
+        "t": 20
+      },
+      {
+        "comb": 4060,
+        "e": 3,
+        "floor": 10,
+        "max_f": 10,
+        "n": 30,
+        "nH": 961,
+        "nH_le_floor": false,
+        "nH_le_p_pow": true,
+        "p": 31,
+        "p_pow": 961,
+        "t": 30
+      },
+      {
+        "comb": 816,
+        "e": 3,
+        "floor": 6,
+        "max_f": 2,
+        "n": 72,
+        "nH": 50,
+        "nH_le_floor": false,
+        "nH_le_p_pow": true,
+        "p": 73,
+        "p_pow": 5329,
+        "t": 18
+      },
+      {
+        "comb": 7140,
+        "e": 3,
+        "floor": 12,
+        "max_f": 5,
+        "n": 72,
+        "nH": 2145,
+        "nH_le_floor": false,
+        "nH_le_p_pow": true,
+        "p": 73,
+        "p_pow": 5329,
+        "t": 36
+      },
+      {
+        "comb": 59640,
+        "e": 3,
+        "floor": 24,
+        "max_f": 24,
+        "n": 72,
+        "nH": 5329,
+        "nH_le_floor": false,
+        "nH_le_p_pow": true,
+        "p": 73,
+        "p_pow": 5329,
+        "t": 72
+      },
+      {
+        "comb": 455,
+        "e": 3,
+        "floor": 5,
+        "max_f": 2,
+        "n": 100,
+        "nH": 11,
+        "nH_le_floor": false,
+        "nH_le_p_pow": true,
+        "p": 101,
+        "p_pow": 10201,
+        "t": 15
+      },
+      {
+        "comb": 4060,
+        "e": 3,
+        "floor": 10,
+        "max_f": 3,
+        "n": 100,
+        "nH": 546,
+        "nH_le_floor": false,
+        "nH_le_p_pow": true,
+        "p": 101,
+        "p_pow": 10201,
+        "t": 30
+      },
+      {
+        "comb": 19600,
+        "e": 3,
+        "floor": 16,
+        "max_f": 6,
+        "n": 100,
+        "nH": 6368,
+        "nH_le_floor": false,
+        "nH_le_p_pow": true,
+        "p": 101,
+        "p_pow": 10201,
+        "t": 50
+      }
+    ],
+    "status": "PASS"
+  }
+}
