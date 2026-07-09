@@ -7,6 +7,14 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v31: Type S common packing + high census
+
+- Proved: multipad global common |I|≤free_core−1; if |I|=free_core−1 then
+  M_pad≤⌊A/e⌋=16 deployed (reduced free-1 pack); mpad=2 Type S is one edge;
+  |H_A_SP|≤N_side≤N_ord (need ≤2176 for payment).
+- Toys: 2802 Type S all intersection-connected; 1042 maximal-common pack OK.
+- Open: general Type S connectedness/Helly theorem; |H_A_SP|≤2176 deployed.
+
 ### 2026-07-09 - KB-MCA Route-D v30: Type S free_core peel + high budget
 
 - Proved: Type S shared-root drops free_core by 1 (reduced multi-mates size m_c−1);
