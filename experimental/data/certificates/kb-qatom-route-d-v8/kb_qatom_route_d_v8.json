@@ -1,0 +1,158 @@
+{
+  "claims": {
+    "proves_Mm_ge_2": true,
+    "proves_Mm_ge_k_max": true,
+    "proves_Mm_le_1": false,
+    "proves_coset_locator": true,
+    "proves_padding_collision": true,
+    "refutes_Mm_le_1": true
+  },
+  "deployed": {
+    "Mm_lower_bound": 10,
+    "U_res_budget_if_K_eq_Mm_lower": 1616687860539546,
+    "U_res_tp_if_K_eq_Mm_lower": 845664849690,
+    "e0": 131072,
+    "log2_U_res_atom_tightened": 50.52196258293743,
+    "m": 913632,
+    "n": 2097152,
+    "num_cosets": 16,
+    "pack_j": 17,
+    "w": 67471
+  },
+  "impact_on_program": {
+    "B1_as_uniqueness": "REFUTED",
+    "B2_still_open": "U_res / residual can-core prefix-image bound still needed; budgets tighten by factor k_max=10 if K=M_m is only known via lower bound",
+    "next": "Determine exact M_m (or a tight upper bound), or bypass M_m by bounding N_can_prim / residual core-prefix image directly without uniqueness",
+    "v5_criterion_Mm_le_1": "DEAD \u2014 premise false at deployed"
+  },
+  "lemmas": {
+    "B1_refuted": {
+      "improved_lower_bound_Mm": 10,
+      "improved_lower_bound_reason": "n-k*e0 >= m-e0 allows k <= 1+(n-m)/e0 = 10 cosets simultaneously disjoint from one R of size m-e0; all R cup U_i then share one Phi_w prefix.",
+      "lower_bound_Mm": 2,
+      "name": "deployed_Mm_at_least_2_refutes_uniqueness",
+      "proof": [
+        "By lemma_coset_locator and lemma_coset_free1_pencil, any two distinct e0-cosets form a CS pair.",
+        "Choose two cosets U,V and R subset D\\\\(U cup V) with |R|=m-e0 (possible because n-2*e0=1835008 >= m-e0=782560).",
+        "Apply lemma_padding_collision with e0 > w (in fact e0 >= w+1).",
+        "Hence Phi_w(R cup U)=Phi_w(R cup V) with R cup U != R cup V."
+      ],
+      "statement": "At deployed (n,m,w)=(2097152,913632,67471) with e0=131072=2^17 | n, the coset constant-shift padding construction produces at least two distinct m-subsets with the same depth-w monic prefix. Therefore M_m^{max} >= 2, and the B1 claim M_m^{max} <= 1 is FALSE.",
+      "status": "PROVED"
+    },
+    "coset_free1_pencil": {
+      "deployed_e0": 131072,
+      "deployed_pencil_size": 16,
+      "name": "all_e0_cosets_share_one_free1_prefix",
+      "proof": [
+        "Immediate from Lambda_{gH} = X^{e0} - g^{e0}: only the constant term depends on g.",
+        "Different cosets are disjoint and partition D, so there are exactly n/e0 of them, matching the free-1 packing ceiling floor(n/e0)=n/e0."
+      ],
+      "statement": "For e0 | n, every coset locator is of the form X^{e0} - a. Hence all n/e0 cosets share the same length-(e0-1) monic high-coefficient prefix (all zeros) and form a single free-1 fiber of size exactly n/e0.",
+      "status": "PROVED"
+    },
+    "coset_locator": {
+      "name": "coset_locator_is_pure_power",
+      "proof": [
+        "The elements of gH are g, g zeta, ..., g zeta^{e0-1} where zeta = omega^{n/e0} has order e0.",
+        "Pi_{k=0}^{e0-1} (X - g zeta^k) = g^{e0} Pi (g^{-1} X - zeta^k) = g^{e0} ((g^{-1} X)^{e0} - 1) = X^{e0} - g^{e0}."
+      ],
+      "statement": "Let D = <omega> be cyclic of order n in F_p^x with n | (p-1). Let e0 | n and H = <omega^{n/e0}> the unique subgroup of order e0. For any coset gH, the monic locator is Lambda_{gH}(X) = X^{e0} - g^{e0}.",
+      "status": "PROVED"
+    },
+    "padding_collision": {
+      "deployed_numbers": {
+        "deg_ok": true,
+        "e0": 131072,
+        "m": 913632,
+        "m_minus_e0": 782560,
+        "m_minus_w_minus_1": 846160,
+        "n_minus_2e0": 1835008,
+        "room_for_R": true,
+        "w": 67471
+      },
+      "name": "padding_CS_gives_depth_w_collision",
+      "proof": [
+        "Lambda_S = Lambda_R Lambda_U and Lambda_T = Lambda_R Lambda_V, so Lambda_S - Lambda_T = Lambda_R (Lambda_U - Lambda_V) = c Lambda_R.",
+        "Hence deg(Lambda_S - Lambda_T) = deg(Lambda_R) = m - e0.",
+        "The first w monic high coefficients of a monic degree-m polynomial are the coefficients of X^{m-1},...,X^{m-w}. These vanish in the difference whenever deg(difference) <= m-w-1, i.e. m-e0 <= m-w-1, i.e. e0 >= w+1.",
+        "Under the weaker hypothesis e0 > w we have m-e0 < m-w, so coefficients of X^{m-1},...,X^{m-w} still vanish in the difference (deg <= m-e0 <= m-w-1 when e0 >= w+1; if only e0 > w then deg <= m-w-1 still holds for integer e0 >= w+1). For e0 > w, m-e0 <= m-w-1 iff e0 >= w+1. So we require e0 >= w+1.",
+        "Deployed uses e0=2^17=131072 > w+1=67472, and m-e0=782560 <= m-w-1=846160."
+      ],
+      "statement": "Let e0 >= 1, w < e0, and m >= e0 with n >= m + e0. Suppose U, V are disjoint e0-subsets of D whose monic locators differ by a nonzero constant c. Let R be any (m-e0)-subset of D\\\\(U cup V). Set S = R cup U and T = R cup V. Then |S|=|T|=m, S != T, and Phi_w(S)=Phi_w(T).",
+      "status": "PROVED"
+    },
+    "revised_criterion": {
+      "U_res_budget_if_K_eq_lower": 1616687860539546,
+      "U_res_tp_budget_if_K_eq_lower": 845664849690,
+      "log2_U_res_atom_tightened": 50.52196258293743,
+      "name": "atom_criterion_with_Mm_lower_bound",
+      "statement": "Since M_m^{max} >= 10, the v5 criterion requiring M_m <= 1 is impossible. The corrected sufficient condition is: if M_m^{{max}} <= K and U_res <= floor(target/(pack_ceil*K)) for some K >= M_m^{{max}}, then |R| <= target. Using only the proved lower bound, any proof must allow K >= 10, which tightens the U_res budget to <= floor(target/(17*10)).",
+      "status": "PROVED_CONDITIONAL"
+    }
+  },
+  "packet": "kb_qatom_route_d_v8",
+  "status": "PROVED_REFUTATION_OF_Mm_UNIQUENESS",
+  "title": "B1 uniqueness REFUTED by coset CS padding; revised budgets",
+  "toy_suite": {
+    "deployed_k_max": 10,
+    "padding_tests": [
+      {
+        "Phi_w_match": true,
+        "const_U": 16,
+        "const_V": 4,
+        "e0": 4,
+        "k_max_cosets": 3,
+        "m": 6,
+        "n": 16,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "Phi_w_match": true,
+        "const_U": 16,
+        "const_V": 4,
+        "e0": 4,
+        "k_max_cosets": 3,
+        "m": 8,
+        "n": 16,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "Phi_w_match": true,
+        "const_U": 96,
+        "const_V": 75,
+        "e0": 8,
+        "k_max_cosets": 3,
+        "m": 12,
+        "n": 32,
+        "p": 97,
+        "w": 5
+      },
+      {
+        "Phi_w_match": true,
+        "const_U": 96,
+        "const_V": 75,
+        "e0": 8,
+        "k_max_cosets": 2,
+        "m": 20,
+        "n": 32,
+        "p": 97,
+        "w": 3
+      },
+      {
+        "Phi_w_match": true,
+        "const_U": 192,
+        "const_V": 81,
+        "e0": 16,
+        "k_max_cosets": 2,
+        "m": 40,
+        "n": 64,
+        "p": 193,
+        "w": 10
+      }
+    ],
+    "status": "PASS"
+  }
+}

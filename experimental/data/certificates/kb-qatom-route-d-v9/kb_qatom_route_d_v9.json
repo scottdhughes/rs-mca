@@ -1,0 +1,365 @@
+{
+  "claims": {
+    "proves_Mm_ge_10": true,
+    "proves_Mm_le_atom_scale": false,
+    "proves_Mm_le_k_tight": false,
+    "proves_anticode": true,
+    "proves_intersection_bound": true,
+    "proves_padding_reduction": true,
+    "proves_tight_clique_le_18": true,
+    "proves_tight_pair_CS": true,
+    "refutes_Mm_le_1": true,
+    "toy_Mm_exceeds_k_tight": true
+  },
+  "deployed": {
+    "Mm_lower_coset": 10,
+    "U_res_if_K_coset": 1616687860539546,
+    "U_res_if_K_tight": 898159922521970,
+    "e0_coset": 131072,
+    "e_side": 67472,
+    "free": 846161,
+    "k_tight_clique": 18,
+    "log2_U_res_if_K_coset": 50.52196258293743,
+    "log2_U_res_if_K_tight": 49.67396567638247,
+    "log2_anticode": 1693127.6169890293,
+    "m": 913632,
+    "n": 2097152,
+    "pack_j": 17,
+    "w": 67471
+  },
+  "impact_on_program": {
+    "B2": "still OPEN \u2014 residual can-core Phi_w-image; right wall",
+    "Mm_uniqueness": "still REFUTED (v8)",
+    "Mm_upper_atom": "OPEN \u2014 tight-clique 18 is not a fiber upper bound",
+    "next": "Either (1) atom-scale upper bound on full M_m (must handle non-tight pairs), or (2) prove residual fibers are tight-clique-like / size-1 after first-match deletion of algebraic pencils, or (3) bound residual core-prefix image directly."
+  },
+  "lemmas": {
+    "anticode": {
+      "atom_useful": false,
+      "deployed_log2_bound": 1693127.6169890293,
+      "name": "anticode_free_set_packing",
+      "note": "Deployed log2(anticode) \u2248 1693127.62 \u226b 53.84 atom bit budget.",
+      "proof": [
+        "If S \u2260 T are fiber mates then |S \u2229 T| \u2264 m \u2212 w \u2212 1 = free \u2212 1, so they share no common free-subset of size free.",
+        "Each m-set has C(m, free) free-subsets. These families are pairwise disjoint across a fiber, and sit inside the C(n, free) free-subsets of D.",
+        "Hence |fiber| \u00b7 C(m, free) \u2264 C(n, free)."
+      ],
+      "statement": "M_m^{max} \u2264 C(n, free) / C(m, free) where free = m \u2212 w. (Prefix-rigidity: distinct fiber mates share no free-subset of size free.)",
+      "status": "PROVED"
+    },
+    "budgets": {
+      "budgets": {
+        "K_eq_100": {
+          "K": 100,
+          "U_res_atom": 161668786053954,
+          "U_res_tp": 84566484969,
+          "log2_U_res_atom": 47.200034488050065
+        },
+        "K_eq_1000": {
+          "K": 1000,
+          "U_res_atom": 16166878605395,
+          "U_res_tp": 8456648496,
+          "log2_U_res_atom": 43.8781063931627
+        },
+        "K_eq_coset_lower": {
+          "K": 10,
+          "U_res_atom": 1616687860539546,
+          "U_res_tp": 845664849690,
+          "log2_U_res_atom": 50.52196258293743
+        },
+        "K_eq_tight_clique": {
+          "K": 18,
+          "U_res_atom": 898159922521970,
+          "U_res_tp": 469813805383,
+          "log2_U_res_atom": 49.67396567638247
+        }
+      },
+      "deployed_known": {
+        "Mm_lower": 10,
+        "Mm_upper_anticode_log2": 1693127.6169890293,
+        "Mm_upper_atom_scale": null
+      },
+      "name": "budgets_for_candidate_K",
+      "statement": "If M_m^{max} \u2264 K then U_res \u2264 floor(target/(17 K)) suffices for |R| \u2264 target (v5 routing + v4 lex covering).",
+      "status": "PROVED_CONDITIONAL"
+    },
+    "coset_lower": {
+      "best_k": 10,
+      "k_tight_vs_k_coset": {
+        "gap": 8,
+        "k_coset": 10,
+        "k_tight": 18,
+        "meaning": "k_tight is the packing cap for e0=w+1 free-1 pads (existence open when e0 \u2224 n). k_coset is achieved. Full M_m may exceed both (toy evidence)."
+      },
+      "name": "coset_lower_bound_table",
+      "proof": [
+        "v8: e0-cosets form a free-1 pencil of size n/e0; padding gives k_max = 1+floor((n\u2212m)/e0) simultaneous mates.",
+        "Smaller e0 gives larger k_max but requires e0 \u2265 w+1 and e0 | n for pure coset locators X^{e0}\u2212a. Minimal such e0 is 2^17."
+      ],
+      "statement": "Among pure e0-coset paddings with e0 | n and e0 \u2265 w+1, the optimal lower bound is M_m \u2265 10 at e0=2^17.",
+      "status": "PROVED",
+      "table": [
+        {
+          "e0": 131072,
+          "e0_pow2": 17,
+          "k_max": 10,
+          "pencil": 16
+        },
+        {
+          "e0": 262144,
+          "e0_pow2": 18,
+          "k_max": 5,
+          "pencil": 8
+        },
+        {
+          "e0": 524288,
+          "e0_pow2": 19,
+          "k_max": 3,
+          "pencil": 4
+        }
+      ]
+    },
+    "intersection": {
+      "deployed": {
+        "free_minus_1": 846160,
+        "m_minus_w_minus_1": 846160
+      },
+      "name": "fiber_intersection_bound",
+      "proof": [
+        "Let \u039b_S, \u039b_T be the monic degree-m locators. Phi_w(S)=Phi_w(T) means the coefficients of X^{m-1},...,X^{m-w} agree, so deg(\u039b_S \u2212 \u039b_T) \u2264 m \u2212 w \u2212 1.",
+        "If \u03b1 \u2208 S \u2229 T then \u039b_S(\u03b1) = \u039b_T(\u03b1) = 0, so (\u039b_S \u2212 \u039b_T)(\u03b1) = 0.",
+        "Hence S \u2229 T is contained in the root set of the nonzero polynomial \u039b_S \u2212 \u039b_T (nonzero because S \u2260 T \u21d2 \u039b_S \u2260 \u039b_T), and |S \u2229 T| \u2264 deg(\u039b_S \u2212 \u039b_T) \u2264 m \u2212 w \u2212 1."
+      ],
+      "statement": "Let S \u2260 T be m-subsets of D with Phi_w(S) = Phi_w(T). Then |S \u2229 T| \u2264 m \u2212 w \u2212 1.",
+      "status": "PROVED"
+    },
+    "not_upper_by_tight": {
+      "consequence": "Cannot close atom budgets by setting K = k_tight = 18 unless a separate argument rules out non-tight pairs inside residual fibers.",
+      "name": "tight_clique_is_not_fiber_upper_bound",
+      "proof": [
+        "Counterexample certificate is computational (toy suite): on (p,n)=(17,16), m=6, w=2, free=4: k_tight = 1+floor((16-6)/3)=4, coset k_max at e0=4 is 3, but measured M_m^{max} = 32 (null prefix fiber).",
+        "Pairwise intersections in that fiber realize values 0,1,2,3 \u2014 not only the tight value 3 \u2014 so the fiber is not a tight clique."
+      ],
+      "statement": "The bound |F| \u2264 k_tight for pairwise-tight F does not imply M_m^{max} \u2264 k_tight. There exist parameters with M_m^{max} > k_tight (and > coset k_max).",
+      "status": "PROVED"
+    },
+    "padding_reduction": {
+      "e0_equals_w_plus_1": "e0=w+1=67472 gives packing cap k_tight=18, but existence of a free-1 fiber of size \u22652 among e0-sets requires a CS collision; when e0 \u2224 n this may fail (no pure-power cosets).",
+      "name": "padding_reduction_Mm_from_smaller",
+      "proof": [
+        "\u039b_{S_i} = \u039b_R \u039b_{U_i}. For i \u2260 j, deg(\u039b_{U_i} \u2212 \u039b_{U_j}) \u2264 e0 \u2212 w \u2212 1 because Phi_w(U_i)=Phi_w(U_j) (high w monic coeffs of degree-e0 monics agree).",
+        "Hence deg(\u039b_{S_i} \u2212 \u039b_{S_j}) = deg(\u039b_R (\u039b_{U_i} \u2212 \u039b_{U_j})) \u2264 (m \u2212 e0) + (e0 \u2212 w \u2212 1) = m \u2212 w \u2212 1, so Phi_w(S_i)=Phi_w(S_j).",
+        "Room: n \u2212 k e0 \u2265 m \u2212 e0 \u21d2 k \u2264 1 + floor((n\u2212m)/e0), matching the packing cap."
+      ],
+      "specializes_to_v8_coset": "e0=131072=2^17 | n, free-1 coset pencil size n/e0=16, k_max=10.",
+      "statement": "Fix e0 \u2265 1 with m \u2265 e0 and n \u2212 e0 \u2265 m. Suppose U_1,...,U_k are pairwise disjoint e0-subsets of D lying in a single Phi_w fiber of e0-subsets, and there exists R \u2282 D \\ \u22c3 U_i with |R| = m \u2212 e0. Then the m-sets S_i = R \u222a U_i all lie in one Phi_w fiber of m-subsets, so M_m^{max} \u2265 k.",
+      "status": "PROVED"
+    },
+    "tight_clique": {
+      "deployed_e": 67472,
+      "deployed_k_tight": 18,
+      "name": "tight_clique_bound",
+      "note": "This bounds only pairwise-tight cliques, NOT the full fiber. Fibers may contain non-tight pairs (|\u2229| < m\u2212w\u22121) and then may exceed k_tight.",
+      "proof": [
+        "By the tight-pair law, every pair shares a core of size m\u2212(w+1) and their (w+1)-differences form a free-1 CS pencil.",
+        "In a pairwise-tight clique, all members share the SAME core R: if S,T share R and T,Q share R', tightness forces the (w+1)-blocks to be pairwise CS, and the unique core of size m\u2212e for e=w+1 compatible with a free-1 pencil of pairwise-disjoint (w+1)-sets is R = S \\ U for the block U \u2282 S (pairwise free-1 mates are root-disjoint, so the common intersection of all clique members equals each S minus its (w+1)-block).",
+        "More directly: free-1 CS mates of size e=w+1 are pairwise disjoint, so at most k blocks fit with one R of size m\u2212e iff n \u2212 k e \u2265 m \u2212 e, i.e. k \u2264 1 + floor((n\u2212m)/e).",
+        "Hence |F| \u2264 k_tight."
+      ],
+      "statement": "Let F be a family of m-subsets contained in a single Phi_w fiber, and suppose every pair in F is tight (|S \u2229 T| = m \u2212 w \u2212 1). Then |F| \u2264 k_tight = 1 + floor((n \u2212 m)/(w + 1)) = 18.",
+      "status": "PROVED"
+    },
+    "tight_pair": {
+      "deployed_e": 67472,
+      "name": "tight_pairs_are_free1_CS_pads",
+      "proof": [
+        "|U| = |V| = m \u2212 |R| = m \u2212 (m \u2212 w \u2212 1) = w + 1.",
+        "\u039b_S = \u039b_R \u039b_U and \u039b_T = \u039b_R \u039b_V, so \u039b_S \u2212 \u039b_T = \u039b_R (\u039b_U \u2212 \u039b_V).",
+        "deg(\u039b_S \u2212 \u039b_T) \u2264 m \u2212 w \u2212 1 and deg(\u039b_R) = |R| = m \u2212 w \u2212 1, so deg(\u039b_U \u2212 \u039b_V) = 0: \u039b_U \u2212 \u039b_V is a nonzero constant (free-1 CS pair).",
+        "Conversely, any free-1 CS pair U,V of (w+1)-sets with common pad R of size m\u2212(w+1) yields Phi_w(R\u222aU)=Phi_w(R\u222aV) with |\u2229| = m\u2212w\u22121 (v8 padding with e0=w+1)."
+      ],
+      "statement": "Let S \u2260 T be m-subsets with Phi_w(S)=Phi_w(T) and |S \u2229 T| = m \u2212 w \u2212 1. Write R = S \u2229 T, U = S \\ T, V = T \\ S. Then |U| = |V| = w + 1, \u039b_U \u2212 \u039b_V is a nonzero constant, and \u039b_S \u2212 \u039b_T = c \u039b_R.",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v9",
+  "status": "PARTIAL_STRUCTURE",
+  "title": "M_m structural law after uniqueness death: intersection, tight cliques, padding reduction",
+  "toy_suite": {
+    "intersection_gap": {
+      "rows": [
+        {
+          "Mm_gt_k_coset": true,
+          "Mm_gt_k_tight": true,
+          "Mm_max": 32,
+          "best_e0": 4,
+          "free": 4,
+          "inter_cap": 3,
+          "inter_hist_top": {
+            "0": 8,
+            "1": 128,
+            "2": 152,
+            "3": 208
+          },
+          "k_coset_best": 3,
+          "k_tight": 4,
+          "m": 6,
+          "max_inter": 3,
+          "model_avg": 27.709342560553633,
+          "n": 16,
+          "p": 17,
+          "w": 2
+        },
+        {
+          "Mm_gt_k_coset": true,
+          "Mm_gt_k_tight": true,
+          "Mm_max": 54,
+          "best_e0": 8,
+          "free": 6,
+          "inter_cap": 5,
+          "inter_hist_top": {
+            "0": 27,
+            "3": 384,
+            "4": 636,
+            "5": 384
+          },
+          "k_coset_best": 3,
+          "k_tight": 3,
+          "m": 8,
+          "max_inter": 5,
+          "model_avg": 44.53287197231834,
+          "n": 16,
+          "p": 17,
+          "w": 2
+        },
+        {
+          "Mm_gt_k_coset": true,
+          "Mm_gt_k_tight": true,
+          "Mm_max": 5,
+          "best_e0": 4,
+          "free": 3,
+          "inter_cap": 2,
+          "inter_hist_top": {
+            "0": 2,
+            "1": 2,
+            "2": 6
+          },
+          "k_coset_best": 3,
+          "k_tight": 3,
+          "m": 6,
+          "max_inter": 2,
+          "model_avg": 1.6299613270913902,
+          "n": 16,
+          "p": 17,
+          "w": 3
+        },
+        {
+          "Mm_gt_k_coset": false,
+          "Mm_gt_k_tight": false,
+          "Mm_max": 2,
+          "best_e0": 8,
+          "free": 4,
+          "inter_cap": 3,
+          "inter_hist_top": {
+            "2": 1
+          },
+          "k_coset_best": 2,
+          "k_tight": 2,
+          "m": 8,
+          "max_inter": 2,
+          "model_avg": 0.15409298260317764,
+          "n": 16,
+          "p": 17,
+          "w": 4
+        },
+        {
+          "Mm_gt_k_coset": true,
+          "Mm_gt_k_tight": true,
+          "Mm_max": 17,
+          "best_e0": 4,
+          "free": 3,
+          "inter_cap": 2,
+          "inter_hist_top": {
+            "0": 14,
+            "1": 56,
+            "2": 66
+          },
+          "k_coset_best": 3,
+          "k_tight": 4,
+          "m": 5,
+          "max_inter": 2,
+          "model_avg": 15.114186851211073,
+          "n": 16,
+          "p": 17,
+          "w": 2
+        },
+        {
+          "Mm_gt_k_coset": true,
+          "Mm_gt_k_tight": true,
+          "Mm_max": 8,
+          "best_e0": 4,
+          "free": 2,
+          "inter_cap": 1,
+          "inter_hist_top": {
+            "0": 9,
+            "1": 19
+          },
+          "k_coset_best": 4,
+          "k_tight": 5,
+          "m": 4,
+          "max_inter": 1,
+          "model_avg": 6.29757785467128,
+          "n": 16,
+          "p": 17,
+          "w": 2
+        },
+        {
+          "Mm_gt_k_coset": false,
+          "Mm_gt_k_tight": false,
+          "Mm_max": 2,
+          "best_e0": 8,
+          "free": 2,
+          "inter_cap": 1,
+          "inter_hist_top": {
+            "0": 1
+          },
+          "k_coset_best": 2,
+          "k_tight": 2,
+          "m": 8,
+          "max_inter": 0,
+          "model_avg": 0.0005331937114296804,
+          "n": 16,
+          "p": 17,
+          "w": 6
+        },
+        {
+          "Mm_gt_k_coset": true,
+          "Mm_gt_k_tight": false,
+          "Mm_max": 2,
+          "best_e0": 8,
+          "free": 6,
+          "inter_cap": 5,
+          "inter_hist_top": {
+            "4": 1
+          },
+          "k_coset_best": 1,
+          "k_tight": 2,
+          "m": 10,
+          "max_inter": 4,
+          "model_avg": 0.09588007806419942,
+          "n": 16,
+          "p": 17,
+          "w": 4
+        }
+      ],
+      "status": "PASS"
+    },
+    "tight_pair": {
+      "fiber": 32,
+      "m": 6,
+      "status": "PASS",
+      "tight_pairs_checked": 208,
+      "w": 2
+    }
+  }
+}

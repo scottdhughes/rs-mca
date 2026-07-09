@@ -7,6 +7,45 @@
 
 
 
+### 2026-07-08 - KB-MCA Route-D v9: M_m structural law (post-uniqueness)
+
+- **Agent/model:** Grok + Scott Hughes (`scottdhughes`).
+- **Files added or changed:**
+  `experimental/scripts/verify_kb_qatom_route_d_v9.py`,
+  `experimental/notes/thresholds/kb_qatom_route_d_v9.md`,
+  `experimental/data/certificates/kb-qatom-route-d-v9/`,
+  `experimental/notes/certificate_scanner/outputs/kb_qatom_route_d_v9.report.md`,
+  `experimental/agents-log.md`.
+- **Status:** PARTIAL_STRUCTURE — intersection/tight-pair/tight-clique/padding/anticode PROVED; atom-scale M_m upper OPEN.
+- **Proved structure:**
+  1. Intersection: fiber mates have |S∩T| ≤ m−w−1.
+  2. Tight pairs (|∩|=m−w−1) ⇔ free-1 CS pads of (w+1)-blocks.
+  3. Pairwise-tight cliques ≤ k_tight = 18 at deployed (NOT full-fiber upper).
+  4. Padding reduction: Phi_w fiber of e0-sets with k disjoint members ⇒ M_m ≥ k.
+  5. Anticode M_m ≤ C(n,free)/C(m,free), log2 ≈ 1.69e6 (useless for atom).
+  6. Toys: M_m can strictly exceed k_tight and coset k_max (e.g. (17,16,6,2): Mm=32 > k_tight=4).
+- **Deployed:** M_m ≥ 10 (coset); k_tight=18 is not a legal K for full fibers.
+- **What to do next:** Atom-scale M_m upper handling non-tight pairs; or residual
+  fibers after first-match have size ≤1 / no non-tight pairs; or B2 residual
+  can-core Phi_w-image bound. Do not claim M_m ≤ k_tight for full fibers.
+
+### 2026-07-08 - KB-MCA Route-D v8: B1 uniqueness REFUTED by coset CS padding
+
+- **Agent/model:** Grok + Scott Hughes (`scottdhughes`).
+- **Files added or changed:**
+  `experimental/scripts/verify_kb_qatom_route_d_v8.py`,
+  `experimental/notes/thresholds/kb_qatom_route_d_v8.md`,
+  `experimental/data/certificates/kb-qatom-route-d-v8/`,
+  `experimental/notes/certificate_scanner/outputs/kb_qatom_route_d_v8.report.md`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED REFUTATION — M_m^{max} ≤ 1 is FALSE at deployed.
+- **Main theorem:** e0=2^17 | n cosets have locators X^{e0}−a (free-1 pencil size 16).
+  Padding with common R of size m−e0 gives Phi_w collisions for deployed w.
+  Improved lower bound M_m ≥ k_max = 1+floor((n−m)/e0) = 10.
+- **Impact:** v5 criterion needing M_m ≤ 1 is dead. U_res budgets tighten by ×10
+  if one only knows the lower bound as K.
+- **What to do next:** Upper-bound M_m (beyond 10) or B2 residual can-core image.
+
 ### 2026-07-08 - KB-MCA Route-D v7: large-free B1 + B2 bijective sparseness
 
 - **Agent/model:** Grok + Scott Hughes (`scottdhughes`).
