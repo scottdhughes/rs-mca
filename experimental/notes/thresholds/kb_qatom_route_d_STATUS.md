@@ -4,7 +4,7 @@
 **Goal:** residual free-1 / A_SP card toward `A_SP ≤ t·p` on KoalaBear MCA `a+=1116048`.
 **Does NOT claim** `U ≤ B*` or full MCA close.
 
-Last tip packet: **v54** on `main`; local attack **v55–v62** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
+Last tip packet: **v54** on `main`; local attack **v55–v63** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
 `experimental/scripts/verify_kb_qatom_route_d_v{N}.py` with matching
 notes, certificates, and scanner reports.
 
@@ -148,3 +148,9 @@ All = p^{-1} sum hatH(-xi) hat_mu(xi)^3.
 **v62**: Gauss |hatH|=sqrt(p) flat PROVED; refined |All|<=sqrt(p) t W_inf
 <= p t^{3/2} (factor ~sqrt(p/t) better than v61 in sparse). Still weak for
 √-cancel (factor ~ p/sqrt(6)). OPEN: phase of hat_mu^3 vs hatH.
+
+**v63**: Bilinear factorization All = sum_{i,j} psi(K) G(alpha) PROVED;
+|All|<=sum r2|G|<=t^2(1+M) PROVED (beats v62 iff t<<sqrt(p); deployed
+t/sqrt(p)~25 so v62 tighter). Fourth-moment = additive energy of highs
+PROVED; L2 RMS sits at sqrt(C) when injective. OPEN: oscillatory bilinear
+sum (keep phases of K and G).
