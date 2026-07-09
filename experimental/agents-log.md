@@ -7,6 +7,13 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v34: recursive multipad bound + multi-tier FM
+
+- Proved: recursive M(m,f,N) multipad bound for all free_core (non-Helly OK);
+  f=1→2, f=2→4 deployed-scale; multi-tier FM tags κ=(τ,local) capacity 70×31=2170≤K_max.
+- Toys: 2802 Type S respect M_bound; all connected; multi-tier tags all highs + full pair cover.
+- Open: useful M at free_core=846161; connectedness proof; |H_A_SP|≤2170.
+
 ### 2026-07-09 - KB-MCA Route-D v33: free_core=2 non-Helly bound + FM high matching
 
 - Proved: free_core=2 through-cliques + M_pad≤⌊T₂(n−2e)/m_c⌋ (Helly and non-Helly);
