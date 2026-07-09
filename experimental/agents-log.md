@@ -7,6 +7,18 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v16: H_seam via A_SP + isolated marks
+
+- **Agent/model:** Grok + Scott Hughes (`scottdhughes`).
+- **Files:** verify/note/cert/report v16; agents-log.
+- **Proved:** Top-seam support pairs are maximal depth-w shift pairs
+  (deg=j-w-1). Assignment rule A_SP ⇒ H_seam ⇒ |R|=N_can. Bridge
+  A_SP+injective mark ⇒ residual mass.
+- **Gap:** Existing SP census does NOT prove A_SP (support assignment).
+- **Marks defined:** μ_E5=(min,a_{w+1}), μ_E5U, μ_piv=(i_*,λ_*); injectivity OPEN.
+- **Toys:** all seam pairs are shift pairs; μ_E5 collides on A_SP+aperiodic proxy.
+- **Next:** Prove support-level SP/BC payment (A_SP) with cost, or injective mark.
+
 ### 2026-07-09 - KB-MCA Route-D v15: ledger residual injection (top-seam / E2)
 
 - **Agent/model:** Grok + Scott Hughes (`scottdhughes`).

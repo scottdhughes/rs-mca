@@ -1,0 +1,228 @@
+{
+  "claims": {
+    "banks_mark_failures_on_proxy": true,
+    "defines_A_SP": true,
+    "defines_isolated_marks": true,
+    "proves_A_SP_from_existing_SP": false,
+    "proves_H_seam_from_A_SP": true,
+    "proves_mark_injectivity": false,
+    "proves_residual_mass_atom": false,
+    "proves_topseam_is_shift_pair": true
+  },
+  "deployed": {
+    "TARGET": 274836936291722953,
+    "a_plus": 1116048,
+    "e": 67472,
+    "j": 981104,
+    "j_minus_w_minus_1": 913632,
+    "n": 2097152,
+    "n_p": 4468415257378816,
+    "t": 67472,
+    "t_p": 143763024447376,
+    "w": 67471
+  },
+  "impact_on_program": {
+    "gap": "A_SP not implied by existing SP census; marks not injective on toys",
+    "next": "Prove support-level SP/BC payment (A_SP) with cost, or different mark with injectivity proof for ledger residual",
+    "reduction": "A_SP => H_seam => |R|=N_can; injective mark => mass atom"
+  },
+  "lemmas": {
+    "A_SP": {
+      "name": "A_SP_support_level_topseam_assignment",
+      "proof": [
+        "This is a definition of a first-match support assignment rule, not a theorem about the existing SP census. It is the precise rule that makes residual matching-free."
+      ],
+      "relation_to_existing_SP": "grande_finale/sp_notes prove structure (rigidity, second moment, quotient pullback) and leave primitive SP census OPEN. They do not state A_SP. Generated-field payment is explicitly image-cell (multiplicity unpaid). A_SP is stronger: support assignment.",
+      "statement": "Assignment rule A_SP (support-level SP/top-seam payment):\n  For each prefix z and each support S \u2208 Fib_w(z), if S is incident to a top-seam edge in G_z (i.e. participates in a multi-member core pencil U(C,z) with |U(C,z)|\u22652), assign S to the SP cell (or the BC chart cell that absorbs that seam pencil).\nEquivalently: delete every support that lies in a multi-member top-seam core pencil; residual supports lie only in singleton pencils.",
+      "status": "PROVED_AS_ASSIGNMENT_RULE"
+    },
+    "H_seam_from_A_SP": {
+      "corollary_mass": "Under A_SP residual, residual mass atom reduces to bounding N_can_prim or injecting residual supports/cores into size \u2264 t\u00b7p or n\u00b7p.",
+      "name": "H_seam_from_A_SP",
+      "proof": [
+        "If S,S' \u2208 R(z) formed a top-seam edge, both would be incident to a top-seam edge, hence both assigned by A_SP, contradiction.",
+        "Apply v15 matching-free mass law."
+      ],
+      "statement": "Let R(z) be the set of supports in Fib_w(z) not assigned by A_SP. Then R(z) is matching-free in G_z (H_seam). By v15 matching-free mass law, |R(z)| = N_can_prim(z) and |R(z)| \u2264 1 \u00b7 N_can_prim(z).",
+      "status": "PROVED"
+    },
+    "H_seam_gap": {
+      "name": "H_seam_not_from_existing_SP_census",
+      "path_to_close_gap": "Prove a theorem: every multi-member top-seam core pencil is first-match assigned at support level to SP/BC with printed cost, or pay residual multi-member pencils as an explicit cell with cost \u2264 remaining budget.",
+      "proof": [
+        "sp_notes / grande_finale: primitive SP census bound OPEN; proved parts are pair structure and quotient sieve, not residual support deletion of all multi-member seam pencils.",
+        "v1 residual list names sp_shift_pair as a deleted branch, but without A_SP that name does not force matching-free residual.",
+        "Image-cell payments (as in generated-field) can leave multiple supports per cell unpaid as raw mass."
+      ],
+      "statement": "H_seam is NOT a consequence of currently proved SP theorems alone. The SP package does not supply A_SP (support assignment of all top-seam participants). Therefore residual mass via H_seam remains conditional on adopting A_SP (or proving an equivalent SP/BC support-level payment).",
+      "status": "PROVED_AS_GAP"
+    },
+    "OPEN": {
+      "falsifier": "A residual fiber containing a top-seam edge after claimed A_SP payment; or two residual supports with the same mark under a claimed injection.",
+      "name": "OPEN_A_SP_AND_MARK_INJECTIVITY",
+      "statement": "(1) Prove A_SP (or equivalent support-level SP/BC payment of all multi-member top-seam pencils) as a first-match theorem with cost.\n(2) Prove injectivity of \u03bc_E5, \u03bc_E5U, or \u03bc_piv (or another mark) on ledger residual.\nEither (2) alone with H_seam, or both, closes residual mass.",
+      "status": "OPEN"
+    },
+    "bridge": {
+      "name": "A_SP_plus_injective_mark_closes_mass",
+      "numbers": {
+        "TARGET": 274836936291722953,
+        "n_p": 4468415257378816,
+        "t_p": 143763024447376
+      },
+      "proof": [
+        "A_SP \u21d2 H_seam \u21d2 matching-free mass law (v15/v16).",
+        "Injection \u21d2 |R| \u2264 |L|.",
+        "v14: t\u00b7p and n\u00b7p fit under TARGET."
+      ],
+      "statement": "If residual is defined using A_SP (hence H_seam) and some mark \u03bc: R(z) \u2192 L is injective with |L| \u2264 t\u00b7p (resp. n\u00b7p) for every z, then max |R(z)| \u2264 t\u00b7p (resp. n\u00b7p) \u2264 TARGET, closing residual mass.",
+      "status": "PROVED"
+    },
+    "isolated_marks": {
+      "bridge": "If any mark is injective on ledger residual for every z, then |R| \u2264 n\u00b7p or t\u00b7p and residual mass closes (v14/v15).",
+      "injectivity": "OPEN (toy bank: \u03bc_E5 and \u03bc_E5U fail on aperiodic seam-free proxy)",
+      "name": "isolated_residual_mark_schemes",
+      "proof": [
+        "Under H_seam, S is well-defined and isolated; lex side U(S) well-defined.",
+        "Monic \u039b_S has unique coefficient sequence; a_{w+1} is unique.",
+        "Rank-drop deletion is in the residual definition; residual admits a pivot row in the ledger packet shape (kb first-match ledger: pivot failures removed before generated-field). The concrete \u03bb_* formula must match the packet rows used for that residual class.",
+        "Cardinality of codomains is immediate."
+      ],
+      "statement": "Assume residual R(z) is matching-free (H_seam / A_SP). Every residual S is isolated in G_z. Define marks:\n  \u03bc_E5(S)  = (min_exp(S), a_{w+1}(\u039b_S)) \u2208 {0,...,n-1} \u00d7 F_p,\n             where a_{w+1} is the coefficient of X^{j-w-1} in monic \u039b_S (first free monic coefficient below the fixed depth-w prefix z).\n  \u03bc_E5U(S) = (min_exp(U(S)), a_{w+1}(\u039b_S)), U=lex side.\n  \u03bc_piv(S) = (i_*(S), \u03bb_*(S)) where, after rank-drop deletion, the ledger affine row packet (L_i) has a first pivot row i_* < t with nonvanishing pivot coefficient, and \u03bb_* is the normalized residual coordinate on that row (generated-field style slope when finite, or a fixed honest-lift coordinate when infinite/honest).\nCodomain sizes: |\u03bc_E5|,|\u03bc_E5U| \u2264 n\u00b7p; |\u03bc_piv| \u2264 t\u00b7p if i_* \u2208 {0..t-1} and \u03bb_* \u2208 F_p.",
+      "status": "PROVED_AS_DEFINITIONS"
+    },
+    "topseam_shift_pair": {
+      "deployed": {
+        "e": 67472,
+        "j": 981104,
+        "j_minus_w_minus_1": 913632,
+        "w": 67471
+      },
+      "name": "topseam_support_pair_is_depth_w_shift_pair",
+      "proof": [
+        "\u039b_S = \u039b_C \u039b_U, \u039b_{S'} = \u039b_C \u039b_V (disjoint union core/side).",
+        "Core pencil (v2): \u039b_U \u2212 \u039b_V = c \u2260 0 constant.",
+        "Difference: \u039b_S \u2212 \u039b_{S'} = \u039b_C (\u039b_U \u2212 \u039b_V) = c \u039b_C, degree |C| = j\u2212e = j\u2212w\u22121.",
+        "Depth-w shift pair definition (grande_finale prop second-moment / SP notes): deg(A\u2212B) \u2264 deg\u2212w\u22121 with deg=j gives threshold j\u2212w\u22121; equality holds.",
+        "Side view: e=w+1 and deg(\u039b_U\u2212\u039b_V)=0 is exactly the constant-shift top stratum."
+      ],
+      "statement": "Let S \u2260 S' \u2208 Fib_w(z) form a top-seam edge: C_can(S)=C_can(S')=C and lex sides U,V \u2208 U(C,z) with \u039b_U \u2212 \u039b_V = c \u2208 F_p^\u00d7. Then \u039b_S \u2212 \u039b_{S'} = c \u039b_C, so deg(\u039b_S \u2212 \u039b_{S'}) = |C| = j \u2212 (w+1) = j \u2212 w \u2212 1, and Phi_w(S)=Phi_w(S')=z. Hence (\u039b_S, \u039b_{S'}) is a depth-w shift pair of monic degree-j locators at the maximal allowed difference degree j\u2212w\u22121. Equivalently the side pair (U,V) is a constant-shift split pair of degree e=w+1 (top nonzero SP stratum in the second-moment ledger).",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v16",
+  "status": "PARTIAL_HSEAM_MARK",
+  "title": "H_seam via A_SP support assignment; isolated residual marks",
+  "toy_suite": {
+    "mark_rows": [
+      {
+        "j": 9,
+        "max_R_A_SP_ap": 42,
+        "n": 16,
+        "n_p": 272,
+        "p": 17,
+        "w": 2,
+        "worst_marks": {
+          "minS_cU": 10,
+          "mu_E5": 5,
+          "mu_E5U": 5
+        }
+      },
+      {
+        "j": 7,
+        "max_R_A_SP_ap": 42,
+        "n": 16,
+        "n_p": 272,
+        "p": 17,
+        "w": 2,
+        "worst_marks": {
+          "minS_cU": 7,
+          "mu_E5": 4,
+          "mu_E5U": 4
+        }
+      },
+      {
+        "j": 10,
+        "max_R_A_SP_ap": 4,
+        "n": 16,
+        "n_p": 272,
+        "p": 17,
+        "w": 3,
+        "worst_marks": {
+          "minS_cU": 2,
+          "mu_E5": 2,
+          "mu_E5U": 2
+        }
+      },
+      {
+        "j": 6,
+        "max_R_A_SP_ap": 31,
+        "n": 16,
+        "n_p": 272,
+        "p": 17,
+        "w": 2,
+        "worst_marks": {
+          "minS_cU": 5,
+          "mu_E5": 3,
+          "mu_E5U": 3
+        }
+      },
+      {
+        "j": 5,
+        "max_R_A_SP_ap": 17,
+        "n": 16,
+        "n_p": 272,
+        "p": 17,
+        "w": 2,
+        "worst_marks": {
+          "minS_cU": 2,
+          "mu_E5": 3,
+          "mu_E5U": 3
+        }
+      },
+      {
+        "j": 9,
+        "max_R_A_SP_ap": 5,
+        "n": 16,
+        "n_p": 272,
+        "p": 17,
+        "w": 3,
+        "worst_marks": {
+          "minS_cU": 2,
+          "mu_E5": 2,
+          "mu_E5U": 2
+        }
+      }
+    ],
+    "status": "PASS",
+    "topseam_shift_rows": [
+      {
+        "check": "topseam_shift",
+        "j": 9,
+        "n": 16,
+        "p": 17,
+        "seam_pairs": 47,
+        "shift_ok": 47,
+        "w": 2
+      },
+      {
+        "check": "topseam_shift",
+        "j": 7,
+        "n": 16,
+        "p": 17,
+        "seam_pairs": 299,
+        "shift_ok": 299,
+        "w": 2
+      },
+      {
+        "check": "topseam_shift",
+        "j": 6,
+        "n": 16,
+        "p": 17,
+        "seam_pairs": 465,
+        "shift_ok": 465,
+        "w": 2
+      }
+    ]
+  }
+}
