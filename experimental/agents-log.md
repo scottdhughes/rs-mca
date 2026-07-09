@@ -1,6 +1,16 @@
 # Agents Log
 
 
+### 2026-07-09 - KB-MCA Route-D v42: decouple K_cap multi-tier from card A_SP≤t·p
+
+- Proved: Gate A (multi-tier sides) needs |H|≤K_cap; Gate B (card |A_SP|≤t·p)
+  needs only N_ord≤e·p via |A_SP|≤N_ord, N_ord≤M_pad·N_side, N_side≤930|H|.
+- Proved weak |H| gates: H1≈1.55e11 (M_pad≤1), H2≈7.73e10 (M_pad≤2 Type D),
+  H17≈9.09e9 (pack) — all ≫2170. μ_all joint enum under N_side≤e·p.
+- Overflow |H|>K_cap blocks multi-tier only; card survives until N_ord>e·p.
+- Toys: asp max H=961; ambient free-1 H up to 5329>K_cap still N_side≪e·p.
+- Open: deployed N_ord≤e·p or |H|≤H2 (preferred) or |H|≤K_cap.
+
 ### 2026-07-09 - KB-MCA Route-D v41: overflow when |H|≫K_cap
 
 - Proved: single e·p side mark (τ,local,ι,δ) forces R_max=70 (70·31·31=67270≤e;
