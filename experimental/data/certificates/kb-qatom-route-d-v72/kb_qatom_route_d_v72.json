@@ -1,0 +1,289 @@
+{
+  "claims": {
+    "proves_A_SP_le_tp": false,
+    "proves_H_diameter_bound": true,
+    "proves_T_le_H2_deployed": false,
+    "proves_deployed_multipad_ban": false,
+    "proves_full_support_shift_blocks": true,
+    "proves_min_support_deg_lt_n": true,
+    "proves_multipad_H_gaps_le_e": true,
+    "proves_separated_monomials_product_support": true
+  },
+  "deployed": {
+    "B_star": 393171.5875467097,
+    "H2": 77291948627,
+    "e": 67472,
+    "n_prime": 1183520,
+    "note": "multipad H has all consecutive support gaps <= e; board structure for fewnomial ban",
+    "p": 2130706433
+  },
+  "impact_on_program": {
+    "closed": "BOARD: multipad H-support is e-chained (all consecutive gaps <= e)",
+    "wall": "use gap law + +/-1 G to ban deployed multipads"
+  },
+  "lemmas": {
+    "OPEN": {
+      "name": "OPEN_gap_law_forbids_deployed_multipad",
+      "statement": "Combine gap law + +/-1 shape of G to rule out multipads at deployed, or SoftB.",
+      "status": "OPEN"
+    },
+    "diameter": {
+      "name": "H_support_diameter_bound",
+      "proof": [
+        "Sum of s-1 gaps each <= e."
+      ],
+      "statement": "If supp(H) has s points and consecutive gaps <= e, then max(supp H)-min(supp H) <= e(s-1).",
+      "status": "PROVED"
+    },
+    "full_shift": {
+      "name": "full_support_shift_block",
+      "proof": [
+        "X^i multiplies degrees by +i; coefficients unchanged."
+      ],
+      "statement": "If P has all coeffs on 0..m nonzero, then X^i P has all coeffs on i..i+m nonzero.",
+      "status": "PROVED"
+    },
+    "gap_product": {
+      "name": "separated_monomials_product_support",
+      "proof": [
+        "Each h_j X^{i_j} P occupies full block [i_j, i_j+m].",
+        "Gaps force blocks pairwise disjoint; each site hit once."
+      ],
+      "statement": "If P full support deg m and H=sum h_j X^{i_j} with i_{j+1}>=i_j+m+1, then supp(P H)=s(m+1) with s=#terms (no cancel).",
+      "status": "PROVED"
+    },
+    "min_support": {
+      "name": "min_support_multiple_deg_lt_n",
+      "proof": [
+        "Else supp G = t <= e with distinct a_j in 0..n-1 => distinct v_j=omega^{a_j}; vanishing is Vandermonde system of rank t on c_j.",
+        "t<=e => only c=0. Minimum e+1 from c X^r P_e."
+      ],
+      "statement": "If G!=0, deg G < n=ord(omega), and G(omega^k)=0 for k=0..e-1, then supp(G) >= e+1.",
+      "status": "PROVED"
+    },
+    "multipad_gap_law": {
+      "name": "multipad_H_consecutive_gaps_le_e",
+      "proof": [
+        "If gap i_{j+1}-i_j >= e+1, split H=H_L+H_R.",
+        "Product supports disjoint => supp(G)=supp(P H_L)+supp(P H_R).",
+        "Each side nonzero, deg < n, P_e divides => supp >= e+1 each.",
+        "Hence supp(G)>=2e+2 > 2e, contradiction."
+      ],
+      "statement": "For multipad G=P_e H with supp(G)=2e and deg G < n: every consecutive gap in supp(H) is at most e.",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v72",
+  "status": "H_GAP_LAW_PROVED_DEPLOYED_BAN_OPEN",
+  "title": "Multipad H-support gap law (gaps <= e)",
+  "tools": {
+    "python_nt": "H recovery / gap census"
+  },
+  "toy_suite": {
+    "deployed": {
+      "B_star": 393171.5875467097,
+      "H2": 77291948627,
+      "e": 67472,
+      "n_prime": 1183520,
+      "note": "multipad H has all consecutive support gaps <= e; board structure for fewnomial ban",
+      "p": 2130706433
+    },
+    "min_rows": [
+      {
+        "e": 3,
+        "min_multiple_support": 4,
+        "ok": true,
+        "p": 61,
+        "supp_Pe": 4,
+        "supp_X3_Pe": 4
+      },
+      {
+        "e": 5,
+        "min_multiple_support": 6,
+        "ok": true,
+        "p": 101,
+        "supp_Pe": 6,
+        "supp_X3_Pe": 6
+      },
+      {
+        "e": 4,
+        "min_multiple_support": 5,
+        "ok": true,
+        "p": 127,
+        "supp_Pe": 5,
+        "supp_X3_Pe": 5
+      }
+    ],
+    "mp_rows": [
+      {
+        "all_gaps_le_e": true,
+        "e": 3,
+        "has_pairs": true,
+        "max_maxgap": 2,
+        "min_maxgap": 1,
+        "n_pairs": 29,
+        "p": 61,
+        "t": 17
+      },
+      {
+        "all_gaps_le_e": true,
+        "e": 3,
+        "has_pairs": true,
+        "max_maxgap": 2,
+        "min_maxgap": 1,
+        "n_pairs": 40,
+        "p": 61,
+        "t": 24
+      },
+      {
+        "all_gaps_le_e": true,
+        "e": 3,
+        "has_pairs": true,
+        "max_maxgap": 1,
+        "min_maxgap": 1,
+        "n_pairs": 17,
+        "p": 101,
+        "t": 17
+      },
+      {
+        "all_gaps_le_e": true,
+        "e": 4,
+        "has_pairs": true,
+        "max_maxgap": 1,
+        "min_maxgap": 1,
+        "n_pairs": 3,
+        "p": 101,
+        "t": 21
+      },
+      {
+        "all_gaps_le_e": true,
+        "e": 4,
+        "has_pairs": true,
+        "max_maxgap": 1,
+        "min_maxgap": 1,
+        "n_pairs": 1,
+        "p": 127,
+        "t": 21
+      },
+      {
+        "all_gaps_le_e": true,
+        "e": 4,
+        "has_pairs": true,
+        "max_maxgap": 3,
+        "min_maxgap": 1,
+        "n_pairs": 40,
+        "p": 61,
+        "t": 30
+      }
+    ],
+    "sep_rows": [
+      {
+        "e": 3,
+        "expect": 4,
+        "ok": true,
+        "p": 61,
+        "s": 1,
+        "supp_prod": 4
+      },
+      {
+        "e": 3,
+        "expect": 8,
+        "ok": true,
+        "p": 61,
+        "s": 2,
+        "supp_prod": 8
+      },
+      {
+        "e": 3,
+        "expect": 12,
+        "ok": true,
+        "p": 61,
+        "s": 3,
+        "supp_prod": 12
+      },
+      {
+        "e": 4,
+        "expect": 5,
+        "ok": true,
+        "p": 61,
+        "s": 1,
+        "supp_prod": 5
+      },
+      {
+        "e": 4,
+        "expect": 10,
+        "ok": true,
+        "p": 61,
+        "s": 2,
+        "supp_prod": 10
+      },
+      {
+        "e": 4,
+        "expect": 15,
+        "ok": true,
+        "p": 61,
+        "s": 3,
+        "supp_prod": 15
+      },
+      {
+        "e": 4,
+        "expect": 5,
+        "ok": true,
+        "p": 101,
+        "s": 1,
+        "supp_prod": 5
+      },
+      {
+        "e": 4,
+        "expect": 10,
+        "ok": true,
+        "p": 101,
+        "s": 2,
+        "supp_prod": 10
+      },
+      {
+        "e": 4,
+        "expect": 15,
+        "ok": true,
+        "p": 101,
+        "s": 3,
+        "supp_prod": 15
+      },
+      {
+        "e": 5,
+        "expect": 6,
+        "ok": true,
+        "p": 127,
+        "s": 1,
+        "supp_prod": 6
+      },
+      {
+        "e": 5,
+        "expect": 12,
+        "ok": true,
+        "p": 127,
+        "s": 2,
+        "supp_prod": 12
+      },
+      {
+        "e": 5,
+        "expect": 18,
+        "ok": true,
+        "p": 127,
+        "s": 3,
+        "supp_prod": 18
+      }
+    ],
+    "status": "PASS",
+    "summary": {
+      "B_star": 393171.5875467097,
+      "H2": 77291948627,
+      "all_multipad_H_gaps_le_e": true,
+      "all_separated_formula_ok": true,
+      "deployed_e": 67472,
+      "deployed_gap_cap": 67472,
+      "n_mp": 6,
+      "n_sep": 12
+    }
+  }
+}
