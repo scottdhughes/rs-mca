@@ -7,6 +7,14 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v28: ledger-native κ + multipad locus (t-packing)
+
+- Proved: free-1 Newton high[0]=−p_1 constant on F_H; e=2 high↔p_1 bijective;
+  multipads only on CS-pair/A_SP fibers (R_sing has M_pad=1 vacuous); point
+  multiplicity packing M_pad≤⌊t(n−2e)/m_c⌋ with t=1 ⇒ M_pad≤2 deployed.
+- Toys: 8263 Newton OK; 19487 no-pair fibers; fc≥2 has t≥2; high0 mod K collides.
+- Open: residual t=1 at free_core=846161; compress high[0]/first-match into [2176].
+
 ### 2026-07-09 - KB-MCA Route-D v27: multipad intersections ≤ free_core−1 + κ census
 
 - Proved: multipad cores |C∩C'| ≤ free_core−1 (common roots of Δ=Λ_C−Λ_C');

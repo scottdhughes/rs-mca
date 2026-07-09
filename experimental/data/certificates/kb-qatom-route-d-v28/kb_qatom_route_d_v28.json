@@ -1,0 +1,966 @@
+{
+  "claims": {
+    "proves_A_SP_le_tp": false,
+    "proves_e2_high_p1_bijective": true,
+    "proves_free1_newton_invariants": true,
+    "proves_kappa_into_Kmax": false,
+    "proves_multipads_only_on_CS_fibers": true,
+    "proves_point_multiplicity_packing": true,
+    "proves_residual_t1_deployed": false,
+    "proves_t1_gives_Mpad_le_2_deployed": true,
+    "toy_confirms_locus_newton_t_and_kappa_bank": true
+  },
+  "deployed": {
+    "K_max": 2176,
+    "e": 67472,
+    "e_p": 143763024447376,
+    "floor_n_minus_2e_over_mc": 2,
+    "free_core": 846161,
+    "m_c": 913632,
+    "t1_implies_Mpad_le": 2,
+    "t_p": 143763024447376
+  },
+  "impact_on_program": {
+    "Mpad": "t=1 \u21d2 M_pad\u22642 deployed; multipads only on CS/A_SP fibers; residual t=1 OPEN at free_core\u226b1",
+    "kappa": "Ledger-native \u03ba_raw = high[0] = \u2212p_1 (Newton); need compression to [2176] or \u22642176 residual highs",
+    "next": "Prove residual A_SP multipad cores are pairwise disjoint (t=1), or bound # residual highs by K_max via ledger first-match"
+  },
+  "lemmas": {
+    "OPEN": {
+      "name": "OPEN_kappa_Kmax_and_residual_t1",
+      "statement": "(1) Compress ledger-native high[0]=\u2212p_1 (or exclusive first-match witness) into [2176] without collisions on residual highs, or prove \u2264K_max residual highs.\n(2) Residual multipad point-multiplicity t=1 at free_core=846161 (\u21d2 M_pad\u22642), or other residual constraint forcing near-disjoint multipad cores on A_SP.",
+      "status": "OPEN"
+    },
+    "e2": {
+      "name": "e2_high_equals_p1",
+      "proof": [
+        "e\u22121=1: high=(a1,) with a1=\u2212(r+s) for the free-1 pair family.",
+        "Distinct highs \u21d4 distinct a1 \u21d4 distinct p_1."
+      ],
+      "statement": "When e=2, free-1 high is a single coefficient a1=\u2212p_1, so highs are bijective with their p_1 values. \u03ba=high[0] completely separates free-1 highs (still in F_p, not [e]).",
+      "status": "PROVED"
+    },
+    "exclusive": {
+      "name": "fiber_exclusive_cover_witness_definition",
+      "proof": [
+        "By definition exclusive r lies in only one active high's cover in z.",
+        "Toys: exclusive often missing or colliding across fibers when used as \u03ba."
+      ],
+      "statement": "In a fiber z, let Cover(H) be the union of free-1 sides of high H that appear in z. An index r \u2208 Cover(H) is exclusive if r \u2209 Cover(H') for all other highs H' active in z. Any exclusive r is a fiber-native witness for H. Existence is not guaranteed; global uniqueness of min exclusive across fibers is not guaranteed.",
+      "status": "PROVED"
+    },
+    "locus": {
+      "name": "multipads_only_on_CS_pair_fibers",
+      "proof": [
+        "Definition of multipad: \u22652 cores for one side key (high,c0U,c0V).",
+        "Side key exists only when a free-1 CS ordered pair is present.",
+        "No CS pair \u21d2 no side key \u21d2 M_pad:=1 by convention, N_ord=0.",
+        "v17: Fib = A_SP \u2294 R_sing; R_sing is matching-free."
+      ],
+      "statement": "A multipad event requires a free-1 CS ordered pair (U,V), hence a fiber whose free-1 pencil has \u22652 members. Fibers with no top-seam CS pair (matching-free / R_sing style) have N_ord=0 and M_pad=1 vacuously. Multipad control is only needed on A_SP / top-seam fibers.",
+      "status": "PROVED"
+    },
+    "newton": {
+      "kappa_note": "So \u03ba_raw = high[0] is the ledger-native first Newton coordinate of the free-1 family \u2014 not an arbitrary hash. Still F_p-valued; reducing mod K loses injectivity (v27 bank).",
+      "name": "free1_high_newton_invariants",
+      "proof": [
+        "Free-1 high fixes monic coeffs of X^{e\u22121},...,X^1; only c0 varies.",
+        "Newton\u2013Girard: p_1,...,p_{e\u22121} are triangular functions of e_1,...,e_{e\u22121} hence of the free-1 high (p > e deployed).",
+        "Explicitly p_1 = sum roots and monic coeff of X^{e\u22121} is \u2212p_1."
+      ],
+      "statement": "For a free-1 high H and any U \u2208 F_H, the monic free-1 coefficients of \u039b_U are (H, c0(U)), and the power sums p_k(U) for k=1,...,e\u22121 depend only on H. In particular high[0] = \u2212p_1(U) for every U \u2208 F_H (with monic product convention \u039b = \u220f(X\u2212r)).",
+      "status": "PROVED"
+    },
+    "t_packing": {
+      "deployed": {
+        "floor_n_minus_2e_over_mc": 2,
+        "open": "t=1 at free_core\u226b1 on residual A_SP multipads",
+        "t1_gives_Mpad_le": 2
+      },
+      "name": "M_pad_point_multiplicity_packing",
+      "proof": [
+        "Double count pairs (core, root\u2208core): left M_pad\u00b7m_c; right \u2264 t\u00b7|D\\(U\u222aV)| = t(n\u22122e).",
+        "t=1 \u21d4 cores pairwise disjoint (each root in \u22641 core).",
+        "free_core=1 \u21d2 |C\u2229C'|=0 (v27) \u21d2 t=1 \u21d2 packing bound (v26)."
+      ],
+      "statement": "Fix multipad sides (U,V). Let t = max_r |{multipad cores C \u220b r}| over r \u2208 D\\(U\u222aV). Then M_pad \u2264 \u230at(n\u22122e)/m_c\u230b. In particular t=1 \u21d2 M_pad \u2264 \u230a(n\u22122e)/m_c\u230b (= 2 deployed).",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v28",
+  "status": "PARTIAL_NATIVE_WITNESS",
+  "title": "Ledger/fiber-native \u03ba witnesses + residual multipad locus (t-packing)",
+  "toy_suite": {
+    "census": {
+      "mark_coll_rows": {
+        "full_high_iota_delta": 0,
+        "high0_iota_delta": 4,
+        "high0_mod_K_iota_delta": 10,
+        "min_excl_iota_delta": 10,
+        "min_family_iota_delta": 10,
+        "min_family_mod_K_iota_delta": 10,
+        "min_fiber_cover_iota_delta": 10,
+        "min_fiber_cover_mod_K_iota_delta": 10
+      },
+      "mark_inj_rows": {
+        "full_high_iota_delta": 12,
+        "high0_iota_delta": 8,
+        "high0_mod_K_iota_delta": 2,
+        "min_excl_iota_delta": 2,
+        "min_family_iota_delta": 2,
+        "min_family_mod_K_iota_delta": 2,
+        "min_fiber_cover_iota_delta": 2,
+        "min_fiber_cover_mod_K_iota_delta": 2
+      },
+      "mark_tested": {
+        "full_high_iota_delta": 12,
+        "high0_iota_delta": 12,
+        "high0_mod_K_iota_delta": 12,
+        "min_excl_iota_delta": 12,
+        "min_family_iota_delta": 12,
+        "min_family_mod_K_iota_delta": 12,
+        "min_fiber_cover_iota_delta": 12,
+        "min_fiber_cover_mod_K_iota_delta": 12
+      },
+      "n_e2_bijective": 3,
+      "n_excl_pair_instances": 942,
+      "n_newton_checked": 8263,
+      "n_newton_ok": 8263,
+      "n_pairs_total": 1528,
+      "n_rsing_fibers": 19487,
+      "n_t1_fc1_rows": 2,
+      "n_t_ge2_fc_ge2_rows": 4
+    },
+    "rows": [
+      {
+        "K_tag": 2,
+        "e": 2,
+        "free_core": 1,
+        "j": 4,
+        "m_c": 2,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 400,
+            "nuniq": 400
+          },
+          "high0_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 400,
+            "nuniq": 400
+          },
+          "high0_mod_K_iota_delta": {
+            "coll": 128,
+            "inj": false,
+            "nlab": 204,
+            "nuniq": 400
+          },
+          "min_excl_iota_delta": {
+            "coll": 42,
+            "inj": false,
+            "nlab": 95,
+            "nuniq": 148
+          },
+          "min_family_iota_delta": {
+            "coll": 100,
+            "inj": false,
+            "nlab": 157,
+            "nuniq": 400
+          },
+          "min_family_mod_K_iota_delta": {
+            "coll": 100,
+            "inj": false,
+            "nlab": 157,
+            "nuniq": 400
+          },
+          "min_fiber_cover_iota_delta": {
+            "coll": 102,
+            "inj": false,
+            "nlab": 202,
+            "nuniq": 400
+          },
+          "min_fiber_cover_mod_K_iota_delta": {
+            "coll": 109,
+            "inj": false,
+            "nlab": 171,
+            "nuniq": 400
+          }
+        },
+        "max_Mpad": 4,
+        "max_highs_per_pair_fiber": 17,
+        "max_point_mult_t": 1,
+        "n": 16,
+        "n_excl_pairs": 148,
+        "n_fibers_no_pair": 0,
+        "n_fibers_with_pair": 17,
+        "n_multipad_events": 540,
+        "p": 17,
+        "simple_pack": 6,
+        "t1_packing_bound": 6,
+        "w": 1
+      },
+      {
+        "K_tag": 2,
+        "e": 2,
+        "free_core": 2,
+        "j": 5,
+        "m_c": 3,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 286,
+            "nuniq": 286
+          },
+          "high0_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 286,
+            "nuniq": 286
+          },
+          "high0_mod_K_iota_delta": {
+            "coll": 88,
+            "inj": false,
+            "nlab": 172,
+            "nuniq": 286
+          },
+          "min_excl_iota_delta": {
+            "coll": 23,
+            "inj": false,
+            "nlab": 60,
+            "nuniq": 86
+          },
+          "min_family_iota_delta": {
+            "coll": 82,
+            "inj": false,
+            "nlab": 138,
+            "nuniq": 286
+          },
+          "min_family_mod_K_iota_delta": {
+            "coll": 82,
+            "inj": false,
+            "nlab": 138,
+            "nuniq": 286
+          },
+          "min_fiber_cover_iota_delta": {
+            "coll": 75,
+            "inj": false,
+            "nlab": 177,
+            "nuniq": 286
+          },
+          "min_fiber_cover_mod_K_iota_delta": {
+            "coll": 80,
+            "inj": false,
+            "nlab": 155,
+            "nuniq": 286
+          }
+        },
+        "max_Mpad": 9,
+        "max_highs_per_pair_fiber": 17,
+        "max_point_mult_t": 4,
+        "n": 16,
+        "n_excl_pairs": 86,
+        "n_fibers_no_pair": 0,
+        "n_fibers_with_pair": 17,
+        "n_multipad_events": 972,
+        "p": 17,
+        "simple_pack": 4,
+        "t1_packing_bound": 16,
+        "w": 1
+      },
+      {
+        "K_tag": 3,
+        "e": 3,
+        "free_core": 0,
+        "j": 5,
+        "m_c": 2,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 260,
+            "nuniq": 260
+          },
+          "high0_iota_delta": {
+            "coll": 35,
+            "inj": false,
+            "nlab": 224,
+            "nuniq": 260
+          },
+          "high0_mod_K_iota_delta": {
+            "coll": 79,
+            "inj": false,
+            "nlab": 119,
+            "nuniq": 260
+          },
+          "min_excl_iota_delta": {
+            "coll": 52,
+            "inj": false,
+            "nlab": 167,
+            "nuniq": 252
+          },
+          "min_family_iota_delta": {
+            "coll": 62,
+            "inj": false,
+            "nlab": 118,
+            "nuniq": 260
+          },
+          "min_family_mod_K_iota_delta": {
+            "coll": 61,
+            "inj": false,
+            "nlab": 96,
+            "nuniq": 260
+          },
+          "min_fiber_cover_iota_delta": {
+            "coll": 63,
+            "inj": false,
+            "nlab": 133,
+            "nuniq": 260
+          },
+          "min_fiber_cover_mod_K_iota_delta": {
+            "coll": 65,
+            "inj": false,
+            "nlab": 103,
+            "nuniq": 260
+          }
+        },
+        "max_Mpad": 1,
+        "max_highs_per_pair_fiber": 5,
+        "max_point_mult_t": 0,
+        "n": 16,
+        "n_excl_pairs": 252,
+        "n_fibers_no_pair": 28,
+        "n_fibers_with_pair": 261,
+        "n_multipad_events": 0,
+        "p": 17,
+        "simple_pack": 5,
+        "t1_packing_bound": 5,
+        "w": 2
+      },
+      {
+        "K_tag": 2,
+        "e": 2,
+        "free_core": 3,
+        "j": 6,
+        "m_c": 4,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 200,
+            "nuniq": 200
+          },
+          "high0_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 200,
+            "nuniq": 200
+          },
+          "high0_mod_K_iota_delta": {
+            "coll": 49,
+            "inj": false,
+            "nlab": 143,
+            "nuniq": 200
+          },
+          "min_excl_iota_delta": {
+            "coll": 14,
+            "inj": false,
+            "nlab": 66,
+            "nuniq": 80
+          },
+          "min_family_iota_delta": {
+            "coll": 60,
+            "inj": false,
+            "nlab": 119,
+            "nuniq": 200
+          },
+          "min_family_mod_K_iota_delta": {
+            "coll": 60,
+            "inj": false,
+            "nlab": 119,
+            "nuniq": 200
+          },
+          "min_fiber_cover_iota_delta": {
+            "coll": 45,
+            "inj": false,
+            "nlab": 145,
+            "nuniq": 200
+          },
+          "min_fiber_cover_mod_K_iota_delta": {
+            "coll": 55,
+            "inj": false,
+            "nlab": 130,
+            "nuniq": 200
+          }
+        },
+        "max_Mpad": 14,
+        "max_highs_per_pair_fiber": 17,
+        "max_point_mult_t": 7,
+        "n": 16,
+        "n_excl_pairs": 80,
+        "n_fibers_no_pair": 0,
+        "n_fibers_with_pair": 17,
+        "n_multipad_events": 904,
+        "p": 17,
+        "simple_pack": 3,
+        "t1_packing_bound": 21,
+        "w": 1
+      },
+      {
+        "K_tag": 3,
+        "e": 3,
+        "free_core": 1,
+        "j": 6,
+        "m_c": 3,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 146,
+            "nuniq": 146
+          },
+          "high0_iota_delta": {
+            "coll": 16,
+            "inj": false,
+            "nlab": 130,
+            "nuniq": 146
+          },
+          "high0_mod_K_iota_delta": {
+            "coll": 39,
+            "inj": false,
+            "nlab": 89,
+            "nuniq": 146
+          },
+          "min_excl_iota_delta": {
+            "coll": 17,
+            "inj": false,
+            "nlab": 123,
+            "nuniq": 140
+          },
+          "min_family_iota_delta": {
+            "coll": 34,
+            "inj": false,
+            "nlab": 84,
+            "nuniq": 146
+          },
+          "min_family_mod_K_iota_delta": {
+            "coll": 38,
+            "inj": false,
+            "nlab": 75,
+            "nuniq": 146
+          },
+          "min_fiber_cover_iota_delta": {
+            "coll": 35,
+            "inj": false,
+            "nlab": 94,
+            "nuniq": 146
+          },
+          "min_fiber_cover_mod_K_iota_delta": {
+            "coll": 41,
+            "inj": false,
+            "nlab": 84,
+            "nuniq": 146
+          }
+        },
+        "max_Mpad": 2,
+        "max_highs_per_pair_fiber": 6,
+        "max_point_mult_t": 1,
+        "n": 16,
+        "n_excl_pairs": 140,
+        "n_fibers_no_pair": 54,
+        "n_fibers_with_pair": 235,
+        "n_multipad_events": 2,
+        "p": 17,
+        "simple_pack": 3,
+        "t1_packing_bound": 3,
+        "w": 2
+      },
+      {
+        "K_tag": 1,
+        "e": 4,
+        "free_core": -1,
+        "j": 6,
+        "m_c": 2,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 60,
+            "nuniq": 60
+          },
+          "high0_iota_delta": {
+            "coll": 2,
+            "inj": false,
+            "nlab": 58,
+            "nuniq": 60
+          },
+          "high0_mod_K_iota_delta": {
+            "coll": 16,
+            "inj": false,
+            "nlab": 24,
+            "nuniq": 60
+          },
+          "min_excl_iota_delta": {
+            "coll": 16,
+            "inj": false,
+            "nlab": 38,
+            "nuniq": 60
+          },
+          "min_family_iota_delta": {
+            "coll": 18,
+            "inj": false,
+            "nlab": 36,
+            "nuniq": 60
+          },
+          "min_family_mod_K_iota_delta": {
+            "coll": 16,
+            "inj": false,
+            "nlab": 24,
+            "nuniq": 60
+          },
+          "min_fiber_cover_iota_delta": {
+            "coll": 16,
+            "inj": false,
+            "nlab": 38,
+            "nuniq": 60
+          },
+          "min_fiber_cover_mod_K_iota_delta": {
+            "coll": 16,
+            "inj": false,
+            "nlab": 24,
+            "nuniq": 60
+          }
+        },
+        "max_Mpad": 1,
+        "max_highs_per_pair_fiber": 1,
+        "max_point_mult_t": 0,
+        "n": 16,
+        "n_excl_pairs": 60,
+        "n_fibers_no_pair": 4405,
+        "n_fibers_with_pair": 75,
+        "n_multipad_events": 0,
+        "p": 17,
+        "simple_pack": 4,
+        "t1_packing_bound": 4,
+        "w": 3
+      },
+      {
+        "K_tag": 3,
+        "e": 3,
+        "free_core": 2,
+        "j": 7,
+        "m_c": 4,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 80,
+            "nuniq": 80
+          },
+          "high0_iota_delta": {
+            "coll": 3,
+            "inj": false,
+            "nlab": 77,
+            "nuniq": 80
+          },
+          "high0_mod_K_iota_delta": {
+            "coll": 15,
+            "inj": false,
+            "nlab": 61,
+            "nuniq": 80
+          },
+          "min_excl_iota_delta": {
+            "coll": 11,
+            "inj": false,
+            "nlab": 67,
+            "nuniq": 80
+          },
+          "min_family_iota_delta": {
+            "coll": 20,
+            "inj": false,
+            "nlab": 57,
+            "nuniq": 80
+          },
+          "min_family_mod_K_iota_delta": {
+            "coll": 21,
+            "inj": false,
+            "nlab": 54,
+            "nuniq": 80
+          },
+          "min_fiber_cover_iota_delta": {
+            "coll": 18,
+            "inj": false,
+            "nlab": 59,
+            "nuniq": 80
+          },
+          "min_fiber_cover_mod_K_iota_delta": {
+            "coll": 20,
+            "inj": false,
+            "nlab": 55,
+            "nuniq": 80
+          }
+        },
+        "max_Mpad": 2,
+        "max_highs_per_pair_fiber": 5,
+        "max_point_mult_t": 2,
+        "n": 16,
+        "n_excl_pairs": 80,
+        "n_fibers_no_pair": 105,
+        "n_fibers_with_pair": 184,
+        "n_multipad_events": 4,
+        "p": 17,
+        "simple_pack": 2,
+        "t1_packing_bound": 4,
+        "w": 2
+      },
+      {
+        "K_tag": 1,
+        "e": 4,
+        "free_core": 0,
+        "j": 7,
+        "m_c": 3,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 26,
+            "nuniq": 26
+          },
+          "high0_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 26,
+            "nuniq": 26
+          },
+          "high0_mod_K_iota_delta": {
+            "coll": 8,
+            "inj": false,
+            "nlab": 16,
+            "nuniq": 26
+          },
+          "min_excl_iota_delta": {
+            "coll": 6,
+            "inj": false,
+            "nlab": 18,
+            "nuniq": 26
+          },
+          "min_family_iota_delta": {
+            "coll": 6,
+            "inj": false,
+            "nlab": 18,
+            "nuniq": 26
+          },
+          "min_family_mod_K_iota_delta": {
+            "coll": 8,
+            "inj": false,
+            "nlab": 16,
+            "nuniq": 26
+          },
+          "min_fiber_cover_iota_delta": {
+            "coll": 6,
+            "inj": false,
+            "nlab": 18,
+            "nuniq": 26
+          },
+          "min_fiber_cover_mod_K_iota_delta": {
+            "coll": 8,
+            "inj": false,
+            "nlab": 16,
+            "nuniq": 26
+          }
+        },
+        "max_Mpad": 1,
+        "max_highs_per_pair_fiber": 1,
+        "max_point_mult_t": 0,
+        "n": 16,
+        "n_excl_pairs": 26,
+        "n_fibers_no_pair": 4782,
+        "n_fibers_with_pair": 34,
+        "n_multipad_events": 0,
+        "p": 17,
+        "simple_pack": 2,
+        "t1_packing_bound": 2,
+        "w": 3
+      },
+      {
+        "K_tag": 3,
+        "e": 3,
+        "free_core": 3,
+        "j": 8,
+        "m_c": 5,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 42,
+            "nuniq": 42
+          },
+          "high0_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 42,
+            "nuniq": 42
+          },
+          "high0_mod_K_iota_delta": {
+            "coll": 8,
+            "inj": false,
+            "nlab": 34,
+            "nuniq": 42
+          },
+          "min_excl_iota_delta": {
+            "coll": 8,
+            "inj": false,
+            "nlab": 33,
+            "nuniq": 42
+          },
+          "min_family_iota_delta": {
+            "coll": 10,
+            "inj": false,
+            "nlab": 31,
+            "nuniq": 42
+          },
+          "min_family_mod_K_iota_delta": {
+            "coll": 10,
+            "inj": false,
+            "nlab": 29,
+            "nuniq": 42
+          },
+          "min_fiber_cover_iota_delta": {
+            "coll": 10,
+            "inj": false,
+            "nlab": 31,
+            "nuniq": 42
+          },
+          "min_fiber_cover_mod_K_iota_delta": {
+            "coll": 10,
+            "inj": false,
+            "nlab": 29,
+            "nuniq": 42
+          }
+        },
+        "max_Mpad": 2,
+        "max_highs_per_pair_fiber": 3,
+        "max_point_mult_t": 2,
+        "n": 16,
+        "n_excl_pairs": 42,
+        "n_fibers_no_pair": 181,
+        "n_fibers_with_pair": 108,
+        "n_multipad_events": 2,
+        "p": 17,
+        "simple_pack": 2,
+        "t1_packing_bound": 4,
+        "w": 2
+      },
+      {
+        "K_tag": 1,
+        "e": 4,
+        "free_core": 1,
+        "j": 8,
+        "m_c": 4,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 10,
+            "nuniq": 10
+          },
+          "high0_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 10,
+            "nuniq": 10
+          },
+          "high0_mod_K_iota_delta": {
+            "coll": 2,
+            "inj": false,
+            "nlab": 8,
+            "nuniq": 10
+          },
+          "min_excl_iota_delta": {
+            "coll": 2,
+            "inj": false,
+            "nlab": 8,
+            "nuniq": 10
+          },
+          "min_family_iota_delta": {
+            "coll": 2,
+            "inj": false,
+            "nlab": 8,
+            "nuniq": 10
+          },
+          "min_family_mod_K_iota_delta": {
+            "coll": 2,
+            "inj": false,
+            "nlab": 8,
+            "nuniq": 10
+          },
+          "min_fiber_cover_iota_delta": {
+            "coll": 2,
+            "inj": false,
+            "nlab": 8,
+            "nuniq": 10
+          },
+          "min_fiber_cover_mod_K_iota_delta": {
+            "coll": 2,
+            "inj": false,
+            "nlab": 8,
+            "nuniq": 10
+          }
+        },
+        "max_Mpad": 1,
+        "max_highs_per_pair_fiber": 1,
+        "max_point_mult_t": 0,
+        "n": 16,
+        "n_excl_pairs": 10,
+        "n_fibers_no_pair": 4872,
+        "n_fibers_with_pair": 9,
+        "n_multipad_events": 0,
+        "p": 17,
+        "simple_pack": 2,
+        "t1_packing_bound": 2,
+        "w": 3
+      },
+      {
+        "K_tag": 3,
+        "e": 3,
+        "free_core": 4,
+        "j": 9,
+        "m_c": 6,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 16,
+            "nuniq": 16
+          },
+          "high0_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 16,
+            "nuniq": 16
+          },
+          "high0_mod_K_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 16,
+            "nuniq": 16
+          },
+          "min_excl_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 16,
+            "nuniq": 16
+          },
+          "min_family_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 16,
+            "nuniq": 16
+          },
+          "min_family_mod_K_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 16,
+            "nuniq": 16
+          },
+          "min_fiber_cover_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 16,
+            "nuniq": 16
+          },
+          "min_fiber_cover_mod_K_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 16,
+            "nuniq": 16
+          }
+        },
+        "max_Mpad": 1,
+        "max_highs_per_pair_fiber": 2,
+        "max_point_mult_t": 0,
+        "n": 16,
+        "n_excl_pairs": 16,
+        "n_fibers_no_pair": 245,
+        "n_fibers_with_pair": 44,
+        "n_multipad_events": 0,
+        "p": 17,
+        "simple_pack": 1,
+        "t1_packing_bound": 1,
+        "w": 2
+      },
+      {
+        "K_tag": 1,
+        "e": 4,
+        "free_core": 2,
+        "j": 9,
+        "m_c": 5,
+        "marks": {
+          "full_high_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "high0_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "high0_mod_K_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "min_excl_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "min_family_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "min_family_mod_K_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "min_fiber_cover_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "min_fiber_cover_mod_K_iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          }
+        },
+        "max_Mpad": 1,
+        "max_highs_per_pair_fiber": 1,
+        "max_point_mult_t": 0,
+        "n": 16,
+        "n_excl_pairs": 2,
+        "n_fibers_no_pair": 4815,
+        "n_fibers_with_pair": 1,
+        "n_multipad_events": 0,
+        "p": 17,
+        "simple_pack": 1,
+        "t1_packing_bound": 1,
+        "w": 3
+      }
+    ],
+    "status": "PASS"
+  }
+}
