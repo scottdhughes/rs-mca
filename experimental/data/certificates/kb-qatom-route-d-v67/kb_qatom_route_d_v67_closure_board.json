@@ -1,0 +1,400 @@
+{
+  "claims": {
+    "certifies_closed_intermediate_lemmas": true,
+    "certifies_conditional_T_le_H2_from_SoftB": true,
+    "certifies_deployed_Bstar_arithmetic": true,
+    "certifies_incomplete_G_bound_recorded": true,
+    "certifies_packet_integrity_no_false_full_close": true,
+    "proves_A_SP_le_tp": false,
+    "proves_SoftB_Deployed": false,
+    "proves_T_le_H2_deployed": false,
+    "ready_for_lean_phase1_arithmetic": true,
+    "ready_for_lean_phase2_SoftB": false
+  },
+  "closed_lemmas": [
+    {
+      "id": "C_unique",
+      "packet": "v53",
+      "statement": "Untyped residual core is the terminal block C_*={n'..n-1}; N_C=1; |H_unt| <= H_*^{pre}(n',e).",
+      "status": "CLOSED"
+    },
+    {
+      "id": "terminal_star",
+      "packet": "v54",
+      "statement": "Pure-untyped highs are stars through n'-1; |H_unt|=|T|.",
+      "status": "CLOSED"
+    },
+    {
+      "id": "U2e",
+      "packet": "v51",
+      "statement": "At most one free-1 bipartition of any 2e-set (char != 2).",
+      "status": "CLOSED"
+    },
+    {
+      "id": "e2_T_le_H2",
+      "packet": "v48/v50",
+      "statement": "For e=2: |T| <= p <= H2 at deployed constants.",
+      "status": "CLOSED"
+    },
+    {
+      "id": "terminal_high_injectivity",
+      "packet": "v57",
+      "statement": "Terminal e-sets have pairwise distinct monic highs; |T| <= nH <= coll/2.",
+      "status": "CLOSED"
+    },
+    {
+      "id": "plancherel_coll",
+      "packet": "v58",
+      "statement": "sum_h m_h^2 = p^{-(e-1)} sum_lambda |S(lambda)|^2; if max_{lambda!=0}|S|<=B then coll <= C^2/p^{e-1} + B^2.",
+      "status": "CLOSED"
+    },
+    {
+      "id": "G_plancherel",
+      "packet": "v59",
+      "statement": "max_{a!=0}|G(a)| <= sqrt(p t - t^2) for any t-set.",
+      "status": "CLOSED"
+    },
+    {
+      "id": "soft_B_budget",
+      "packet": "v64",
+      "statement": "If max|S|<=B and B^2 + C^2/p^{e-1} <= 2 H2 then |T|<=H2 (via coll/2 and v57-v58).",
+      "status": "CLOSED"
+    },
+    {
+      "id": "deployed_Bstar_arithmetic",
+      "packet": "v64",
+      "statement": "At deployed params, log2(C^2/p^{e-1}) ~ -1.34e6 (negligible), so B_*=sqrt(2 H2) is a sufficient soft-B threshold.",
+      "status": "CLOSED"
+    },
+    {
+      "id": "energy_G4",
+      "packet": "v65",
+      "statement": "E_+(S) = p^{-1} sum |G|^4; Linf/L2 energy bound.",
+      "status": "CLOSED"
+    },
+    {
+      "id": "subgroup_G",
+      "packet": "v65",
+      "statement": "Full multiplicative subgroup H: |sum_{x in H} psi(a x)| <= sqrt(p)+1 for a!=0.",
+      "status": "CLOSED"
+    },
+    {
+      "id": "incomplete_GP_G",
+      "packet": "v66",
+      "statement": "Prefix length t of order-n GP: |G_t(a)| <= (t/n)(sqrt(p)+1) + sqrt(p)(1+ln n) for a!=0.",
+      "status": "CLOSED"
+    },
+    {
+      "id": "e3_lab_structure",
+      "packet": "v60-v63",
+      "statement": "e=3: high formulas, diagonal All=6S+3D2+D3, triple Fourier, W_inf<=sqrt(pt), Gauss |hatH|=sqrt(p), bilinear f\u00b7G form, CS |All|<=sqrt(sum|f|^2 p t). Envelopes too weak for |S|<=sqrt(C).",
+      "status": "CLOSED"
+    }
+  ],
+  "conditional_close": {
+    "conclusion": "|T| <= H2 = 77291948627 at deployed parameters",
+    "does_not_imply": [
+      "A_SP <= t*p (needs residual card fully into A_SP pipeline)",
+      "U <= B* / full MCA close"
+    ],
+    "hypothesis": "SoftB_Deployed",
+    "hypothesis_statement": "Let S(lambda) be the free-1 monic high exponential sum over e-subsets of the length-n'=1183520 GP prefix of mu_n in F_p (p=2130706433, e=67472). Then max_{lambda != 0} |S(lambda)| <= B_* with B_* = sqrt(2 H2) = 393171.5875467097.",
+    "id": "conditional_T_le_H2",
+    "proof_chain": [
+      "v53 C_unique: |H_unt| = untyped residual high count",
+      "v54 star: |H_unt| = |T|",
+      "v57: |T| <= coll/2",
+      "v58: coll <= C^2/p^{e-1} + B^2 under max|S|<=B",
+      "v64: C^2/p^{e-1} negligible; B=B_* => coll <= 2 H2 => |T|<=H2"
+    ],
+    "status": "CONDITIONAL"
+  },
+  "deployed": {
+    "A": 1116048,
+    "B_star": 393171.5875467097,
+    "B_star_sq": 154583897254.0,
+    "C2_over_p_em1_negligible": true,
+    "H2": 77291948627,
+    "e": 67472,
+    "e_p": 143763024447376,
+    "floor_n_prime_over_e": 17,
+    "free_core": 846161,
+    "incomplete_G_bound": 744113.1019552016,
+    "incomplete_G_over_B_star": 1.8925912388488633,
+    "incomplete_over_plancherel": 0.014822108638609522,
+    "log2_C": 373341.4820927906,
+    "log2_C2_over_p_em1": -1344154.580361308,
+    "n": 2097152,
+    "n_divides_p_minus_1": true,
+    "n_prime": 1183520,
+    "n_prime_lt_n": true,
+    "p": 2130706433,
+    "plancherel_G_bound": 50202917.82350663
+  },
+  "lean_roadmap": {
+    "mathlib": "not required for arithmetic ledger; required later for SoftB",
+    "package": "experimental/lean/route_d_residual/",
+    "phase1_stdlib_now": [
+      "Deployed constants as Nat (p,n,e,n',H2)",
+      "B_star_sq = 2 * H2 exact Nat inequality certificates",
+      "ProofStatus + ClosureNode records",
+      "ConditionalClose Prop (SoftB -> T_le_H2) as statement only"
+    ],
+    "phase2_mathlib_later": [
+      "Finite field F_p, mu_n, incomplete GP G-bound",
+      "Plancherel on F_p^{e-1}",
+      "C_unique / star combinatorics on index sets",
+      "SoftB_Deployed proof or certified bound"
+    ],
+    "policy": "No sorry in phase-1 arithmetic. SoftB remains an open Prop until proved; do not mark residual CLOSED in Lean until SoftB lands.",
+    "toolchain": "leanprover/lean4:v4.31.0 (match rs_mca_formalization)"
+  },
+  "open_lemmas": [
+    {
+      "blocks": [
+        "conditional_T_le_H2",
+        "primary residual card"
+      ],
+      "id": "SoftB_Deployed",
+      "lean_target": "RouteD.SoftBDeployed (Prop; proof future)",
+      "priority": 1,
+      "statement": "Let S(lambda) be the free-1 monic high exponential sum over e-subsets of the length-n'=1183520 GP prefix of mu_n in F_p (p=2130706433, e=67472). Then max_{lambda != 0} |S(lambda)| <= B_* with B_* = sqrt(2 H2) = 393171.5875467097.",
+      "status": "OPEN"
+    },
+    {
+      "blocks": [
+        "alternate residual card"
+      ],
+      "id": "R2_pair_budget",
+      "lean_target": null,
+      "priority": 2,
+      "statement": "|R2| <= e*p alternate residual close (v45-v46 path).",
+      "status": "OPEN"
+    },
+    {
+      "blocks": [
+        "prize-facing card"
+      ],
+      "id": "A_SP_le_tp",
+      "lean_target": null,
+      "priority": 3,
+      "statement": "A_SP <= t*p on deployed MCA (program goal; needs residual).",
+      "status": "OPEN"
+    }
+  ],
+  "packet": "kb_qatom_route_d_v67_closure_board",
+  "packet_scan": {
+    "n_packets": 9,
+    "none_claim_full_close": true,
+    "rows": [
+      {
+        "claims_false": [
+          "proves_A_SP_le_tp",
+          "proves_Hpre_deployed_full_window_le_H2",
+          "proves_residual_t_le_2e_plus_2"
+        ],
+        "claims_true": [
+          "proves_Hpre_le_Ct2e_unconditional",
+          "proves_U2e_all_e_char_ne_2",
+          "proves_e2_Hpre_le_H2_all_t",
+          "proves_t_le_2e_plus_2_implies_H2"
+        ],
+        "dir": "kb-qatom-route-d-v51",
+        "n_claims_false": 3,
+        "n_claims_true": 4,
+        "packet": "v51",
+        "proves_A_SP": false,
+        "proves_T_le_H2": false,
+        "status": "U2E_PROVED_LARGE_T_OPEN",
+        "title": "U2e PROVED (char\u22602) \u21d2 H_*^pre \u2264 C(t,2e) unconditional"
+      },
+      {
+        "claims_false": [
+          "proves_A_SP_le_tp",
+          "proves_Hstar_pre_nprime_le_H2"
+        ],
+        "claims_true": [
+          "proves_C_unique",
+          "proves_H_unt_le_Hstar_pre_nprime",
+          "proves_N_C_le_1",
+          "proves_core_count_binom",
+          "proves_free1_fiber_automatch",
+          "proves_untyped_iff_terminal_C_star"
+        ],
+        "dir": "kb-qatom-route-d-v53",
+        "n_claims_false": 2,
+        "n_claims_true": 6,
+        "packet": "v53",
+        "proves_A_SP": false,
+        "proves_T_le_H2": false,
+        "status": "C_UNIQUE_PROVED",
+        "title": "C_unique PROVED: untyped core = terminal block C_*; N_C=1"
+      },
+      {
+        "claims_false": [
+          "proves_A_SP_le_tp",
+          "proves_Hstar_pre_nprime_le_H2"
+        ],
+        "claims_true": [
+          "proves_H_unt_le_C_nprime_2e_minus_1",
+          "proves_H_unt_le_T_le_C_nprime_e_minus_1",
+          "proves_e2_still_closed",
+          "proves_pure_untyped_star",
+          "refutes_pack_k_alone_for_H2"
+        ],
+        "dir": "kb-qatom-route-d-v54",
+        "n_claims_false": 2,
+        "n_claims_true": 5,
+        "packet": "v54",
+        "proves_A_SP": false,
+        "proves_T_le_H2": false,
+        "status": "STAR_PROVED_H2_OPEN",
+        "title": "\u2605_pre pack-k + pure-untyped star at terminal index"
+      },
+      {
+        "claims_false": [
+          "proves_A_SP_le_tp",
+          "proves_T_le_H2_deployed"
+        ],
+        "claims_true": [
+          "proves_T_le_nH_le_coll_over_2",
+          "proves_partner_packing_pair_injection",
+          "proves_same_high_share_root_equal_sets",
+          "proves_terminal_high_injective"
+        ],
+        "dir": "kb-qatom-route-d-v57",
+        "n_claims_false": 2,
+        "n_claims_true": 4,
+        "packet": "v57",
+        "proves_A_SP": false,
+        "proves_T_le_H2": false,
+        "status": "INJECTIVITY_PROVED_BOUND_OPEN",
+        "title": "Terminal high injectivity + collision geometry for |T|"
+      },
+      {
+        "claims_false": [
+          "proves_A_SP_le_tp",
+          "proves_T_le_H2_deployed_unconditional",
+          "proves_sqrt_cancellation"
+        ],
+        "claims_true": [
+          "proves_coll_bound_from_max_S",
+          "proves_e2_S_closed_form",
+          "proves_plancherel_coll_identity",
+          "proves_sqrt_cancel_implies_T_empty_deployed"
+        ],
+        "dir": "kb-qatom-route-d-v58",
+        "n_claims_false": 3,
+        "n_claims_true": 4,
+        "packet": "v58",
+        "proves_A_SP": false,
+        "proves_T_le_H2": false,
+        "status": "FOURIER_PROVED_SQRT_CANCEL_OPEN",
+        "title": "Fourier coll identity + conditional square-root cancellation"
+      },
+      {
+        "claims_false": [
+          "G_bound_implies_sqrt_cancel",
+          "proves_A_SP_le_tp",
+          "proves_T_le_H2_deployed_e_gt_2",
+          "proves_sqrt_cancellation"
+        ],
+        "claims_true": [
+          "proves_G_max_le_sqrt_pt_minus_t2",
+          "proves_e2_S_bound_from_G",
+          "proves_full_star_G_eq_1"
+        ],
+        "dir": "kb-qatom-route-d-v59",
+        "n_claims_false": 4,
+        "n_claims_true": 3,
+        "packet": "v59",
+        "proves_A_SP": false,
+        "proves_T_le_H2": false,
+        "status": "G_PLANCHEREL_PROVED_SQRT_CANCEL_OPEN",
+        "title": "Plancherel bound on arc G-sums; e=2 S from G; sqrt-cancel still open"
+      },
+      {
+        "claims_false": [
+          "proves_A_SP_le_tp",
+          "proves_S_le_Bstar_deployed",
+          "proves_S_le_sqrtC",
+          "proves_T_le_H2_deployed"
+        ],
+        "claims_true": [
+          "proves_All_CS_Plancherel",
+          "proves_All_level_set_f_G",
+          "proves_deployed_Bstar_arithmetic",
+          "proves_phased_energy_le_Eplus",
+          "proves_soft_B_coll_budget"
+        ],
+        "dir": "kb-qatom-route-d-v64",
+        "n_claims_false": 4,
+        "n_claims_true": 5,
+        "packet": "v64",
+        "proves_A_SP": false,
+        "proves_T_le_H2": false,
+        "status": "PHASE_CS_SOFTB_PROVED_DEPLOYED_BSTAR_OPEN",
+        "title": "Phase form All=sum f G; CS bound; deployed soft-B budget"
+      },
+      {
+        "claims_false": [
+          "proves_A_SP_le_tp",
+          "proves_S_le_Bstar_deployed",
+          "proves_T_le_H2_deployed",
+          "proves_incomplete_GP_G_le_sqrtp"
+        ],
+        "claims_true": [
+          "proves_deployed_arc_incomplete",
+          "proves_energy_Linf_L2_bound",
+          "proves_energy_identity_G4",
+          "proves_subgroup_G_le_sqrtp_plus_1",
+          "proves_subgroup_energy_bound"
+        ],
+        "dir": "kb-qatom-route-d-v65",
+        "n_claims_false": 4,
+        "n_claims_true": 5,
+        "packet": "v65",
+        "proves_A_SP": false,
+        "proves_T_le_H2": false,
+        "status": "ENERGY_SUBGROUP_PROVED_INCOMPLETE_SOFTB_OPEN",
+        "title": "Additive energy via |G|^4; subgroup |G|<=sqrt(p)+1"
+      },
+      {
+        "claims_false": [
+          "proves_A_SP_le_tp",
+          "proves_S_le_Bstar_deployed",
+          "proves_T_le_H2_deployed"
+        ],
+        "claims_true": [
+          "proves_Dirichlet_expansion",
+          "proves_Dirichlet_kernel_mass",
+          "proves_J_mixed_Gauss_bound",
+          "proves_deployed_incomplete_numerics",
+          "proves_incomplete_GP_G_bound"
+        ],
+        "dir": "kb-qatom-route-d-v66",
+        "n_claims_false": 3,
+        "n_claims_true": 5,
+        "packet": "v66",
+        "proves_A_SP": false,
+        "proves_T_le_H2": false,
+        "status": "INCOMPLETE_G_PROVED_SOFTB_S_OPEN",
+        "title": "Incomplete GP |G| bound via Dirichlet completion"
+      }
+    ]
+  },
+  "status": "RESIDUAL_CONDITIONAL_SOFTB_OPEN",
+  "summary": {
+    "B_star": 393171.5875467097,
+    "H2": 77291948627,
+    "honest_conditional_path_ready": true,
+    "honest_full_residual_closed": false,
+    "n_closed": 13,
+    "n_open": 3,
+    "primary_open": "SoftB_Deployed"
+  },
+  "title": "Route-D master closure board (conditional residual; SoftB open)",
+  "tools": {
+    "python": "closure board + packet JSON scan"
+  }
+}

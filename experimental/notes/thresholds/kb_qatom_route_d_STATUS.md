@@ -4,9 +4,12 @@
 **Goal:** residual free-1 / A_SP card toward `A_SP ≤ t·p` on KoalaBear MCA `a+=1116048`.
 **Does NOT claim** `U ≤ B*` or full MCA close.
 
-Last tip packet: **v54** on `main`; local attack **v55–v66** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
+Last tip packet: **v54** on `main`; local attack **v55–v67** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
 `experimental/scripts/verify_kb_qatom_route_d_v{N}.py` with matching
 notes, certificates, and scanner reports.
+
+**Closure board:** `experimental/notes/thresholds/kb_qatom_route_d_CLOSURE.md`
+(+ JSON `kb-qatom-route-d-v67`, Lean phase-1 `experimental/lean/route_d_residual/`).
 
 ---
 
@@ -117,9 +120,9 @@ Certificates: `experimental/data/certificates/kb-qatom-route-d-v{N}/`.
 
 ## Next session entry
 
-Attack **`max|S|≤B_*≈3.93e5`** for free-1 highs at deployed (soft-B; v64–v66).
-Incomplete GP `|G|` is closed (v66). Do not restart ambient L / pack-k /
-unrestricted ★ / pure envelopes.
+**Primary:** prove `SoftB_Deployed` (`max|S|≤B_*≈3.93e5` free-1 highs at
+deployed) then compose with v67 conditional close. Lean phase-1 arithmetic is
+built; SoftB / FF is phase-2. Do not restart ambient L / pack-k / envelopes.
 
 ---
 
@@ -174,3 +177,8 @@ Gmax<=sqrt(p)+1 on toys. OPEN: incomplete GP |G|; soft-B max|S|<=B_*.
 (Dirichlet completion + mixed Gauss J). Deployed |G| <= ~7.44e5
 (~67x better than Plancherel ~5e7; ~1.9x B_*). OPEN: soft-B max|S|<=B_*
 for free-1 highs (linear G is not S).
+
+**v67**: Master **closure board** — 13 CLOSED intermediate lemmas; CONDITIONAL
+`SoftB_Deployed => |T|<=H2`; primary OPEN SoftB; packet integrity scan (no
+false full-close). Lean phase-1 `route_d_residual` builds (constants + B*
+arithmetic + ledger). Honest: full residual NOT closed.
