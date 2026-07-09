@@ -4,7 +4,7 @@
 **Goal:** residual free-1 / A_SP card toward `A_SP ≤ t·p` on KoalaBear MCA `a+=1116048`.
 **Does NOT claim** `U ≤ B*` or full MCA close.
 
-Last tip packet: **v54** on `main`; local attack **v55** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
+Last tip packet: **v54** on `main`; local attack **v55–v56** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
 `experimental/scripts/verify_kb_qatom_route_d_v{N}.py` with matching
 notes, certificates, and scanner reports.
 
@@ -126,3 +126,7 @@ Attack **`|T|≤H2`**: count/bound free-1 partners of e-sets containing index `n
 **v55** (`scott/kb-route-d-T-bound`): hierarchy for `|T|` proved; e=2 closed; deployed
 random-model entropy `log2 E[multipad pairs] ≈ −1.34×10^6` (heuristic empty);
 e≥3 toys show `|T|>p` so no cheap `|T|≤p`. Still need algebraic `|T|≤H2` at deployed e.
+
+**v56**: free-1 ⇔ power sums (char>e); φ-fibre multipad dictionary; dense (t∼p)
+vs sparse (t≪p) regime — sparse e≥4 empty on toys, e=3 rare hits; deployed is
+sparse. OPEN: prove sparse `|T|≤H2`.
