@@ -4,7 +4,7 @@
 **Goal:** residual free-1 / A_SP card toward `A_SP ≤ t·p` on KoalaBear MCA `a+=1116048`.
 **Does NOT claim** `U ≤ B*` or full MCA close.
 
-Last tip packet: **v54** on `main`; local attack **v55–v60** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
+Last tip packet: **v54** on `main`; local attack **v55–v61** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
 `experimental/scripts/verify_kb_qatom_route_d_v{N}.py` with matching
 notes, certificates, and scanner reports.
 
@@ -139,3 +139,8 @@ gap remains bounding coll << p^(e-1) on GP.
 **v59**: Plancherel max|G|<=sqrt(pt-t^2) PROVED; e=2 S from G; that bound does not yield sqrt-cancel when t<<p. Full F_p^*: |S|=1.
 
 **v60**: e=3 S reduced to W_inf (quadratic Weyl on arc); |S|<=(1/6)(sqrt(p)W^3+O(t^2)) PROVED but weak. OPEN: sharp W_inf.
+
+**v61**: W_inf <= sqrt(p t) PROVED (per-A Plancherel, any t-set). e=3 envelope
+|S|<=(1/6)(p^2 t^{3/2}+O(t^2)) PROVED and **structurally dead** for √-cancel
+(factor ~ p^2/sqrt(6)). OPEN: oscillatory cancel in triple Fourier
+All = p^{-1} sum hatH(-xi) hat_mu(xi)^3.

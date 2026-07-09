@@ -1,0 +1,342 @@
+{
+  "claims": {
+    "proves_A_SP_le_tp": false,
+    "proves_S_le_sqrtC": false,
+    "proves_T_le_H2_deployed": false,
+    "proves_W_per_A_Plancherel": true,
+    "proves_Winf_le_sqrt_pt": true,
+    "proves_e3_S_envelope_p2_t32": true,
+    "proves_envelope_cannot_force_sqrt_cancel": true
+  },
+  "deployed": {
+    "H2": 77291948627,
+    "e": 67472,
+    "n_prime": 1183520,
+    "note": "W_inf<=sqrt(pt) PROVED; e=3 envelope ~ p^2 t^{3/2} cannot force sqrt-cancel (factor ~ p^2/sqrt(6))",
+    "p": 2130706433
+  },
+  "impact_on_program": {
+    "closed": "W_inf <= sqrt(p t) unconditionally (any t-set)",
+    "wall": "e=3 needs oscillatory cancel in triple Fourier; envelope path is dead for sqrt-cancel"
+  },
+  "lemmas": {
+    "OPEN": {
+      "name": "OPEN_oscillatory_triple_Fourier",
+      "statement": "Prove |S| <= sqrt(C) for free-1 e=3 highs on GP arcs via cancellation in All = p^{-1} sum_xi hatH(-xi) hat_mu(xi)^3, not envelope estimates. Then lift to general e and close |T|<=H2.",
+      "status": "OPEN"
+    },
+    "S_envelope": {
+      "name": "e3_S_envelope_from_Winf_plancherel",
+      "proof": [
+        "v60: |All| <= sqrt(p) W_inf^3 and |S| <= (1/6)(|All|+3t(t-1)+t).",
+        "W_inf <= sqrt(p t) => |All| <= sqrt(p) (p t)^{3/2} = p^2 t^{3/2}."
+      ],
+      "statement": "For l1!=0, |S| <= (1/6)( p^2 t^{3/2} + 3t(t-1)+t ).",
+      "status": "PROVED"
+    },
+    "W_plancherel": {
+      "name": "W_per_A_Plancherel",
+      "proof": [
+        "f_A(x) = 1_{S_arc}(x) psi(A x^2); |f_A(x)|=1_S(x).",
+        "W(A,B) = sum_x f_A(x) psi(B x) = hat f_A at frequency B (sign convention).",
+        "Plancherel on F_p: sum_B |hat f|^2 = p sum_x |f|^2 = p t."
+      ],
+      "statement": "For any t-set S_arc subset F_p and any A: sum_B |W(A,B)|^2 = p t, where W(A,B)=sum_{x in S_arc} psi(A x^2 + B x).",
+      "status": "PROVED"
+    },
+    "Winf": {
+      "name": "Winf_le_sqrt_pt",
+      "proof": [
+        "For each A: max_B |W(A,B)| <= sqrt(sum_B |W|^2) = sqrt(p t).",
+        "Take max over A."
+      ],
+      "statement": "W_inf = max_{A,B} |W(A,B)| <= sqrt(p t) for any t-set S_arc.",
+      "status": "PROVED"
+    },
+    "envelope_too_weak": {
+      "name": "e3_envelope_cannot_force_sqrt_cancel",
+      "proof": [
+        "sqrt(C) = sqrt(t(t-1)(t-2)/6) ~ t^{3/2}/sqrt(6).",
+        "bound / sqrt(C) ~ p^2 / sqrt(6) -> infinity for any t>=3 as p grows.",
+        "Even the optimistic W_inf ~ sqrt(t) (typical L2 size) only improves to |All| <= sqrt(p) t^{3/2}, still ratio ~ sqrt(p) -> infinity."
+      ],
+      "statement": "The absolute envelope (1/6)(p^2 t^{3/2}+O(t^2)) exceeds sqrt(binom(t,3)) by a factor ~ p^2/sqrt(6) as p->infty (fixed density or sparse t). Hence envelope bounds alone cannot yield v58 sqrt-cancel for e=3.",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v61",
+  "status": "WINF_PROVED_ENVELOPE_TOO_WEAK_OSCILLATORY_OPEN",
+  "title": "Prove W_inf <= sqrt(p t); e=3 envelope too weak for sqrt-cancel",
+  "tools": {
+    "numpy_fft": "per-A Plancherel + e=3 maxS",
+    "python_nt": "GP domain"
+  },
+  "toy_suite": {
+    "census": {
+      "all_Winf_le_sqrt_pt": true,
+      "all_plancherel_ok": true,
+      "deployed_asymp_p2_over_sqrt6": 1.8534104570159222e+18,
+      "envelope_always_weak": true,
+      "log10_deployed_asymp": 18.26797160899884,
+      "max_S_over_sqrtC": 3.2717174359816896,
+      "max_Winf_over_sqrt_pt": 0.7682212795973759,
+      "max_bound_over_sqrtC": 7326.325833543924,
+      "max_plancherel_rel_err": 5.967813003759372e-16,
+      "n_max": 9,
+      "n_plan": 7
+    },
+    "deployed": {
+      "H2": 77291948627,
+      "e": 67472,
+      "n_prime": 1183520,
+      "note": "W_inf<=sqrt(pt) PROVED; e=3 envelope ~ p^2 t^{3/2} cannot force sqrt-cancel (factor ~ p^2/sqrt(6))",
+      "p": 2130706433
+    },
+    "env_rows": [
+      {
+        "C": 455,
+        "asymp_p2_over_sqrt6": 1519.0918888160345,
+        "bound_S_envelope": 36135.92757809449,
+        "bound_over_sqrtC": 1694.0784145280488,
+        "envelope_forces_sqrt_cancel": false,
+        "p": 61,
+        "sqrtC": 21.330729007701542,
+        "t": 15
+      },
+      {
+        "C": 7140,
+        "asymp_p2_over_sqrt6": 1519.0918888160345,
+        "bound_S_envelope": 134592.0,
+        "bound_over_sqrtC": 1592.8326187206565,
+        "envelope_forces_sqrt_cancel": false,
+        "p": 61,
+        "sqrtC": 84.49852069711044,
+        "t": 36
+      },
+      {
+        "C": 2024,
+        "asymp_p2_over_sqrt6": 4164.540811021867,
+        "bound_S_envelope": 200177.95892904958,
+        "bound_over_sqrtC": 4449.4978644284665,
+        "envelope_forces_sqrt_cancel": false,
+        "p": 101,
+        "sqrtC": 44.98888751680797,
+        "t": 24
+      },
+      {
+        "C": 7140,
+        "asymp_p2_over_sqrt6": 6584.636676891647,
+        "bound_S_envelope": 581280.0,
+        "bound_over_sqrtC": 6879.173684988285,
+        "envelope_forces_sqrt_cancel": false,
+        "p": 127,
+        "sqrtC": 84.49852069711044,
+        "t": 36
+      }
+    ],
+    "max_rows": [
+      {
+        "C": 455,
+        "S_over_sqrtC": 2.812205476070997,
+        "bound_S_envelope": 36135.92757809449,
+        "bound_over_sqrtC": 1694.0784145280488,
+        "envelope_forces_sqrt_cancel": false,
+        "maxS": 59.98639292404474,
+        "maxS_le_envelope": true,
+        "p": 61,
+        "sqrtC": 21.330729007701542,
+        "t": 15
+      },
+      {
+        "C": 2024,
+        "S_over_sqrtC": 2.156845843077803,
+        "bound_S_envelope": 73196.41066316963,
+        "bound_over_sqrtC": 1626.9886788337067,
+        "envelope_forces_sqrt_cancel": false,
+        "maxS": 97.03409502532213,
+        "maxS_le_envelope": true,
+        "p": 61,
+        "sqrtC": 44.98888751680797,
+        "t": 24
+      },
+      {
+        "C": 7140,
+        "S_over_sqrtC": 2.07709344569016,
+        "bound_S_envelope": 134592.0,
+        "bound_over_sqrtC": 1592.8326187206565,
+        "envelope_forces_sqrt_cancel": false,
+        "maxS": 175.5113235104824,
+        "maxS_le_envelope": true,
+        "p": 61,
+        "sqrtC": 84.49852069711044,
+        "t": 36
+      },
+      {
+        "C": 455,
+        "S_over_sqrtC": 2.682671915749517,
+        "bound_S_envelope": 98878.25778665465,
+        "bound_over_sqrtC": 4635.484223298429,
+        "envelope_forces_sqrt_cancel": false,
+        "maxS": 57.22334765142449,
+        "maxS_le_envelope": true,
+        "p": 101,
+        "sqrtC": 21.330729007701542,
+        "t": 15
+      },
+      {
+        "C": 2024,
+        "S_over_sqrtC": 3.0263837279150665,
+        "bound_S_envelope": 200177.95892904958,
+        "bound_over_sqrtC": 4449.4978644284665,
+        "envelope_forces_sqrt_cancel": false,
+        "maxS": 136.1536371178689,
+        "maxS_le_envelope": true,
+        "p": 101,
+        "sqrtC": 44.98888751680797,
+        "t": 24
+      },
+      {
+        "C": 7140,
+        "S_over_sqrtC": 2.6156172468447485,
+        "bound_S_envelope": 367872.0,
+        "bound_over_sqrtC": 4353.591009227928,
+        "envelope_forces_sqrt_cancel": false,
+        "maxS": 221.01578806823,
+        "maxS_le_envelope": true,
+        "p": 101,
+        "sqrtC": 84.49852069711044,
+        "t": 36
+      },
+      {
+        "C": 455,
+        "S_over_sqrtC": 3.2717174359816896,
+        "bound_S_envelope": 156275.87097744856,
+        "bound_over_sqrtC": 7326.325833543924,
+        "envelope_forces_sqrt_cancel": false,
+        "maxS": 69.78811801669754,
+        "maxS_le_envelope": true,
+        "p": 127,
+        "sqrtC": 21.330729007701542,
+        "t": 15
+      },
+      {
+        "C": 2024,
+        "S_over_sqrtC": 2.8259387195093204,
+        "bound_S_envelope": 316342.560490799,
+        "bound_over_sqrtC": 7031.571082361452,
+        "envelope_forces_sqrt_cancel": false,
+        "maxS": 127.13583918139716,
+        "maxS_le_envelope": true,
+        "p": 127,
+        "sqrtC": 44.98888751680797,
+        "t": 24
+      },
+      {
+        "C": 7140,
+        "S_over_sqrtC": 2.625092266788755,
+        "bound_S_envelope": 581280.0,
+        "bound_over_sqrtC": 6879.173684988285,
+        "envelope_forces_sqrt_cancel": false,
+        "maxS": 221.8164132370742,
+        "maxS_le_envelope": true,
+        "p": 127,
+        "sqrtC": 84.49852069711044,
+        "t": 36
+      }
+    ],
+    "plan_rows": [
+      {
+        "Winf_le_sqrt_pt": true,
+        "Winf_over_sqrt_pt": 0.4435327625727437,
+        "Winf_sample": 12.0,
+        "all_max_le_sqrt_pt": true,
+        "all_plancherel_ok": true,
+        "full_A_scan": true,
+        "max_plancherel_rel_err": 3.106197751956722e-16,
+        "n_A": 61,
+        "p": 61,
+        "sqrt_pt": 27.055498516937366,
+        "t": 12
+      },
+      {
+        "Winf_le_sqrt_pt": true,
+        "Winf_over_sqrt_pt": 0.62725004818718,
+        "Winf_sample": 24.0,
+        "all_max_le_sqrt_pt": true,
+        "all_plancherel_ok": true,
+        "full_A_scan": true,
+        "max_plancherel_rel_err": 3.106197751956722e-16,
+        "n_A": 61,
+        "p": 61,
+        "sqrt_pt": 38.262252939417984,
+        "t": 24
+      },
+      {
+        "Winf_le_sqrt_pt": true,
+        "Winf_over_sqrt_pt": 0.7682212795973759,
+        "Winf_sample": 36.0,
+        "all_max_le_sqrt_pt": true,
+        "all_plancherel_ok": true,
+        "full_A_scan": true,
+        "max_plancherel_rel_err": 4.141597002608963e-16,
+        "n_A": 61,
+        "p": 61,
+        "sqrt_pt": 46.861498055439924,
+        "t": 36
+      },
+      {
+        "Winf_le_sqrt_pt": true,
+        "Winf_over_sqrt_pt": 0.38537624665403103,
+        "Winf_sample": 15.000000000000002,
+        "all_max_le_sqrt_pt": true,
+        "all_plancherel_ok": true,
+        "full_A_scan": true,
+        "max_plancherel_rel_err": 3.001632679118575e-16,
+        "n_A": 101,
+        "p": 101,
+        "sqrt_pt": 38.92300091205713,
+        "t": 15
+      },
+      {
+        "Winf_le_sqrt_pt": true,
+        "Winf_over_sqrt_pt": 0.5970223141259935,
+        "Winf_sample": 36.0,
+        "all_max_le_sqrt_pt": true,
+        "all_plancherel_ok": true,
+        "full_A_scan": true,
+        "max_plancherel_rel_err": 2.5013605659321457e-16,
+        "n_A": 101,
+        "p": 101,
+        "sqrt_pt": 60.29925372672534,
+        "t": 36
+      },
+      {
+        "Winf_le_sqrt_pt": true,
+        "Winf_over_sqrt_pt": 0.34367169831173533,
+        "Winf_sample": 15.0,
+        "all_max_le_sqrt_pt": true,
+        "all_plancherel_ok": true,
+        "full_A_scan": true,
+        "max_plancherel_rel_err": 4.774250403007497e-16,
+        "n_A": 127,
+        "p": 127,
+        "sqrt_pt": 43.64630568559039,
+        "t": 15
+      },
+      {
+        "Winf_le_sqrt_pt": true,
+        "Winf_over_sqrt_pt": 0.5324139056496683,
+        "Winf_sample": 36.0,
+        "all_max_le_sqrt_pt": true,
+        "all_plancherel_ok": true,
+        "full_A_scan": true,
+        "max_plancherel_rel_err": 5.967813003759372e-16,
+        "n_A": 127,
+        "p": 127,
+        "sqrt_pt": 67.61656601750786,
+        "t": 36
+      }
+    ],
+    "status": "PASS"
+  }
+}
