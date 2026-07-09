@@ -1,5 +1,11 @@
 # Agents Log
 
+### 2026-07-09 - Local sync: origin/main after PR #423 selective integration
+
+- Merged `origin/main` (`84b393e`) into `scott/kb-qatom-route-d`.
+- Upstream closed #423 without merge; promoted v25/45/46/48/49/51/53/54 + STATUS only.
+- Full v1–v54 archive retained on this fork branch; STATUS updated with on-main map.
+
 ### 2026-07-09 - KB-MCA Route-D wrap: STATUS index for PR handoff
 
 - Added experimental/notes/thresholds/kb_qatom_route_d_STATUS.md (v1–v54 map,
