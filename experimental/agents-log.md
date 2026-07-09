@@ -1,6 +1,18 @@
 # Agents Log
 
 
+### 2026-07-09 - KB-MCA Route-D v41: overflow when |H|≫K_cap
+
+- Proved: single e·p side mark (τ,local,ι,δ) forces R_max=70 (70·31·31=67270≤e;
+  R=71 overflows); no second multi-tier layer in one e·p.
+- Proved: |H_over|≥max(0,|H|−K_cap); N_over≤930|H_over|; μ_over e·p iff
+  N_over≤e·p (|H_over|≤~1.55e11 worst-family).
+- Proved arithmetic: ⌊TARGET/(e·p)⌋=1911 ⇒ ≤4.15e6 highs via TARGET-charged
+  layers (strategy OPEN vs A_SP≤t·p).
+- Banked negative: local overflow marks (c0U,δ), (minU mod e,δ), … collide.
+- Toys: enum 11/11; local-fail 11; pigeon 11. Ambient L≤70 not reopened.
+- Open: deployed N_over≤e·p or |H|≤K_cap; single t·p fold of overflow.
+
 ### 2026-07-09 - KB-MCA Route-D v40: ambient L≤70 REFUTED; L_rep≤R_max PROVED
 
 - REFUTED ambient free-1 load L≤70 (counters L=96,406,2346,2485) and L≤2176
