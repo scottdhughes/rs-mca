@@ -4,7 +4,7 @@
 **Goal:** residual free-1 / A_SP card toward `A_SP ≤ t·p` on KoalaBear MCA `a+=1116048`.
 **Does NOT claim** `U ≤ B*` or full MCA close.
 
-Last tip packet: **v54** (2026-07-09). Verifiers live under
+Last tip packet: **v54** on `main`; local attack **v55** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
 `experimental/scripts/verify_kb_qatom_route_d_v{N}.py` with matching
 notes, certificates, and scanner reports.
 
@@ -118,3 +118,11 @@ Certificates: `experimental/data/certificates/kb-qatom-route-d-v{N}/`.
 ## Next session entry
 
 Attack **`|T|≤H2`**: count/bound free-1 partners of e-sets containing index `n'−1` on the KB roots-of-unity arc of length `n'`, with `e` large and `n'≪p`. Do not restart ambient L / pack-k tourism / unrestricted ★.
+
+---
+
+## Local in progress (not on `main` yet)
+
+**v55** (`scott/kb-route-d-T-bound`): hierarchy for `|T|` proved; e=2 closed; deployed
+random-model entropy `log2 E[multipad pairs] ≈ −1.34×10^6` (heuristic empty);
+e≥3 toys show `|T|>p` so no cheap `|T|≤p`. Still need algebraic `|T|≤H2` at deployed e.
