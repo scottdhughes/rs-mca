@@ -7,6 +7,14 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v32: Helly refuted; high matching ≤⌊n/e⌋
+
+- Banked: Type S Helly REFUTED (780 clique non-star multipads); connectedness
+  universal on 2802 Type S toys (proof OPEN); star/maximal-common ≤16 retained.
+- Proved: high matching ν(H)≤⌊n/e⌋=31≤K_max=2176 — first-match matching
+  transversal fits budget; |H|≤K_max still needs thinning.
+- Open: prove Type S connectedness; thin H_A_SP to a matching; non-Helly M_pad.
+
 ### 2026-07-09 - KB-MCA Route-D v31: Type S common packing + high census
 
 - Proved: multipad global common |I|≤free_core−1; if |I|=free_core−1 then
