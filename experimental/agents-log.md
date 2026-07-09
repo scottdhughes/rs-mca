@@ -7,6 +7,14 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v30: Type S free_core peel + high budget
+
+- Proved: Type S shared-root drops free_core by 1 (reduced multi-mates size m_c−1);
+  free_core=2 through-set packs ≤⌊(n−2e−1)/(m_c−1)⌋; peel to Type D in
+  ≤free_core−1 steps; high-tag budget K≤2176 (Mpad1) / ≤1088 (Mpad2 half).
+- Toys: 2802 Type S peels OK (max peels 4); fc2 through-pack holds.
+- Open: global Type S M_pad≤2 at free_core=846161; |A_SP highs|≤2176.
+
 ### 2026-07-09 - KB-MCA Route-D v29: residual multipad emptiness + Type D/S split
 
 - Proved: after A_SP first-match payment, residual ⊆ R_sing has no multipads
