@@ -1,5 +1,12 @@
 # Agents Log
 
+### 2026-07-09 - KB-MCA Route-D v52: residual t-gate vs multipad windows
+
+- Hierarchy: H_*^pre ≤ min(p^{e-1}, C(t,2e), ⌊C(t,e)/2⌋).
+- Arithmetic: only s=t−2e≤2 gives C≤H2 (sufficient gate).
+- REFUTED: ambient multipads have t_min_pair≤2e+2 (e=3 toys frac~0).
+- OPEN: residual-specific |H_unt| (C_unique / free_core / filters), not ambient small-t.
+
 ### 2026-07-09 - KB-MCA Route-D v51: U2e PROVED (char ≠ 2)
 
 - Proved: free-1 bipartition uniqueness for all e≥2 in char ≠ 2 via triangular

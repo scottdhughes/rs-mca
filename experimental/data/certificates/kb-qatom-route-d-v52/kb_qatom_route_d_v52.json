@@ -1,0 +1,556 @@
+{
+  "claims": {
+    "proves_A_SP_le_tp": false,
+    "proves_Hpre_deployed_full_window_le_H2": false,
+    "proves_Hpre_hierarchy": true,
+    "proves_only_s_le_2_for_C_le_H2": true,
+    "proves_residual_t_le_2e_plus_2": false,
+    "refutes_ambient_t_min_pair_le_2e_plus_2": true
+  },
+  "deployed": {
+    "E_min_C_uniform": 1.295399794009192,
+    "H2": 77291948627,
+    "e": 67472,
+    "free_core": 846161,
+    "n_prime": 1183520,
+    "t_min": 134944
+  },
+  "impact_on_program": {
+    "closed": "t\u22642e+2 is only a sufficient arithmetic gate, not ambient truth",
+    "next": "residual-specific |H_unt| (C_unique / free_core / filters)"
+  },
+  "lemmas": {
+    "OPEN": {
+      "name": "OPEN_residual_specific_Hpre_or_core_sum",
+      "statement": "Close |H_unt|\u2264H2 via residual-only structure (C_unique + free_core filters + Type/SR/H_M), not ambient \u2605_pre at full t\u2208[2e,n'].",
+      "status": "OPEN"
+    },
+    "arith": {
+      "H2": 77291948627,
+      "name": "only_s_le_2_C_bound_le_H2",
+      "statement": "Deployed: C(2e+s,s)\u2264H2=77291948627 iff s\u2208{0,1,2} among s=0..4 checked; s=3 already 409570621781265 > H2.",
+      "status": "PROVED",
+      "values": {
+        "0": 1,
+        "1": 134945,
+        "2": 9105143985,
+        "3": 409570621781265,
+        "4": 13817684067034537305
+      }
+    },
+    "hierarchy": {
+      "name": "Hpre_hierarchy",
+      "proof": [
+        "p^{e-1}: monic high has e\u22121 free coeffs (v48).",
+        "C(t,2e): U2e injection H\u21a6W (v51).",
+        "\u230aC(t,e)/2\u230b: each multipad high consumes \u22652 e-sets."
+      ],
+      "statement": "H_*^pre(t,e) \u2264 min(p^{e-1}, C(t,2e), \u230aC(t,e)/2\u230b) (char\u22602 for C(t,2e)).",
+      "status": "PROVED"
+    },
+    "t_gate_refuted": {
+      "evidence": "toy_suite.t_gate_refutations",
+      "name": "ambient_multipad_t_min_pair_le_2e_plus_2",
+      "statement": "It is FALSE that every free-1 multipad high on a cyclic domain admits some free-1 pair with covering window t_min_pair \u2264 2e+2. Hence residual cannot quote t\u22642e+2 from ambient multipad geometry alone.",
+      "status": "REFUTED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v52",
+  "status": "T_GATE_REFUTED_LARGE_T_OPEN",
+  "title": "residual t-gate: H2 window sufficient, ambient multipad t large REFUTED",
+  "toy_suite": {
+    "census": {
+      "all_hier_ok": true,
+      "n_hier": 51,
+      "n_refutations": 6,
+      "n_window": 6
+    },
+    "deployed": {
+      "C_2e2_2": 9105143985,
+      "C_2e3_3": 409570621781265,
+      "E_min_C_uniform": 1.295399794009192,
+      "H2": 77291948627,
+      "n_prime": 1183520,
+      "pack_ceil": 17,
+      "t_min_multipad": 134944
+    },
+    "hierarchy_rows": [
+      {
+        "bound": 1,
+        "e": 2,
+        "nH": 0,
+        "p": 17,
+        "t": 4
+      },
+      {
+        "bound": 5,
+        "e": 2,
+        "nH": 0,
+        "p": 17,
+        "t": 5
+      },
+      {
+        "bound": 7,
+        "e": 2,
+        "nH": 2,
+        "p": 17,
+        "t": 6
+      },
+      {
+        "bound": 10,
+        "e": 2,
+        "nH": 6,
+        "p": 17,
+        "t": 7
+      },
+      {
+        "bound": 14,
+        "e": 2,
+        "nH": 10,
+        "p": 17,
+        "t": 8
+      },
+      {
+        "bound": 17,
+        "e": 2,
+        "nH": 13,
+        "p": 17,
+        "t": 9
+      },
+      {
+        "bound": 17,
+        "e": 2,
+        "nH": 16,
+        "p": 17,
+        "t": 10
+      },
+      {
+        "bound": 17,
+        "e": 2,
+        "nH": 17,
+        "p": 17,
+        "t": 11
+      },
+      {
+        "bound": 1,
+        "e": 3,
+        "nH": 0,
+        "p": 17,
+        "t": 6
+      },
+      {
+        "bound": 7,
+        "e": 3,
+        "nH": 0,
+        "p": 17,
+        "t": 7
+      },
+      {
+        "bound": 28,
+        "e": 3,
+        "nH": 1,
+        "p": 17,
+        "t": 8
+      },
+      {
+        "bound": 42,
+        "e": 3,
+        "nH": 3,
+        "p": 17,
+        "t": 9
+      },
+      {
+        "bound": 60,
+        "e": 3,
+        "nH": 8,
+        "p": 17,
+        "t": 10
+      },
+      {
+        "bound": 82,
+        "e": 3,
+        "nH": 19,
+        "p": 17,
+        "t": 11
+      },
+      {
+        "bound": 110,
+        "e": 3,
+        "nH": 36,
+        "p": 17,
+        "t": 12
+      },
+      {
+        "bound": 143,
+        "e": 3,
+        "nH": 65,
+        "p": 17,
+        "t": 13
+      },
+      {
+        "bound": 182,
+        "e": 3,
+        "nH": 110,
+        "p": 17,
+        "t": 14
+      },
+      {
+        "bound": 1,
+        "e": 2,
+        "nH": 0,
+        "p": 31,
+        "t": 4
+      },
+      {
+        "bound": 5,
+        "e": 2,
+        "nH": 1,
+        "p": 31,
+        "t": 5
+      },
+      {
+        "bound": 7,
+        "e": 2,
+        "nH": 3,
+        "p": 31,
+        "t": 6
+      },
+      {
+        "bound": 10,
+        "e": 2,
+        "nH": 4,
+        "p": 31,
+        "t": 7
+      },
+      {
+        "bound": 14,
+        "e": 2,
+        "nH": 6,
+        "p": 31,
+        "t": 8
+      },
+      {
+        "bound": 18,
+        "e": 2,
+        "nH": 8,
+        "p": 31,
+        "t": 9
+      },
+      {
+        "bound": 22,
+        "e": 2,
+        "nH": 13,
+        "p": 31,
+        "t": 10
+      },
+      {
+        "bound": 27,
+        "e": 2,
+        "nH": 19,
+        "p": 31,
+        "t": 11
+      },
+      {
+        "bound": 1,
+        "e": 3,
+        "nH": 0,
+        "p": 31,
+        "t": 6
+      },
+      {
+        "bound": 7,
+        "e": 3,
+        "nH": 0,
+        "p": 31,
+        "t": 7
+      },
+      {
+        "bound": 28,
+        "e": 3,
+        "nH": 0,
+        "p": 31,
+        "t": 8
+      },
+      {
+        "bound": 42,
+        "e": 3,
+        "nH": 0,
+        "p": 31,
+        "t": 9
+      },
+      {
+        "bound": 60,
+        "e": 3,
+        "nH": 1,
+        "p": 31,
+        "t": 10
+      },
+      {
+        "bound": 82,
+        "e": 3,
+        "nH": 5,
+        "p": 31,
+        "t": 11
+      },
+      {
+        "bound": 110,
+        "e": 3,
+        "nH": 12,
+        "p": 31,
+        "t": 12
+      },
+      {
+        "bound": 143,
+        "e": 3,
+        "nH": 21,
+        "p": 31,
+        "t": 13
+      },
+      {
+        "bound": 182,
+        "e": 3,
+        "nH": 33,
+        "p": 31,
+        "t": 14
+      },
+      {
+        "bound": 1,
+        "e": 2,
+        "nH": 0,
+        "p": 61,
+        "t": 4
+      },
+      {
+        "bound": 5,
+        "e": 2,
+        "nH": 0,
+        "p": 61,
+        "t": 5
+      },
+      {
+        "bound": 7,
+        "e": 2,
+        "nH": 0,
+        "p": 61,
+        "t": 6
+      },
+      {
+        "bound": 10,
+        "e": 2,
+        "nH": 1,
+        "p": 61,
+        "t": 7
+      },
+      {
+        "bound": 14,
+        "e": 2,
+        "nH": 4,
+        "p": 61,
+        "t": 8
+      },
+      {
+        "bound": 18,
+        "e": 2,
+        "nH": 7,
+        "p": 61,
+        "t": 9
+      },
+      {
+        "bound": 22,
+        "e": 2,
+        "nH": 10,
+        "p": 61,
+        "t": 10
+      },
+      {
+        "bound": 27,
+        "e": 2,
+        "nH": 14,
+        "p": 61,
+        "t": 11
+      },
+      {
+        "bound": 1,
+        "e": 3,
+        "nH": 0,
+        "p": 61,
+        "t": 6
+      },
+      {
+        "bound": 7,
+        "e": 3,
+        "nH": 0,
+        "p": 61,
+        "t": 7
+      },
+      {
+        "bound": 28,
+        "e": 3,
+        "nH": 0,
+        "p": 61,
+        "t": 8
+      },
+      {
+        "bound": 42,
+        "e": 3,
+        "nH": 0,
+        "p": 61,
+        "t": 9
+      },
+      {
+        "bound": 60,
+        "e": 3,
+        "nH": 0,
+        "p": 61,
+        "t": 10
+      },
+      {
+        "bound": 82,
+        "e": 3,
+        "nH": 0,
+        "p": 61,
+        "t": 11
+      },
+      {
+        "bound": 110,
+        "e": 3,
+        "nH": 0,
+        "p": 61,
+        "t": 12
+      },
+      {
+        "bound": 143,
+        "e": 3,
+        "nH": 2,
+        "p": 61,
+        "t": 13
+      },
+      {
+        "bound": 182,
+        "e": 3,
+        "nH": 5,
+        "p": 61,
+        "t": 14
+      }
+    ],
+    "status": "PASS",
+    "t_gate_refutations": [
+      {
+        "e": 2,
+        "example_t_min": 11,
+        "gate": 6,
+        "p": 17
+      },
+      {
+        "e": 3,
+        "example_t_min": 16,
+        "gate": 8,
+        "p": 17
+      },
+      {
+        "e": 2,
+        "example_t_min": 17,
+        "gate": 6,
+        "p": 31
+      },
+      {
+        "e": 3,
+        "example_t_min": 29,
+        "gate": 8,
+        "p": 31
+      },
+      {
+        "e": 2,
+        "example_t_min": 32,
+        "gate": 6,
+        "p": 61
+      },
+      {
+        "e": 3,
+        "example_t_min": 54,
+        "gate": 8,
+        "p": 61
+      }
+    ],
+    "window_rows": [
+      {
+        "e": 2,
+        "frac_le_gate": 0.11764705882352941,
+        "gate_2e_plus_2": 6,
+        "max_fiber": 8,
+        "max_t_min_pair": 11,
+        "mean_t_min_pair": 8.235294117647058,
+        "min_t_min_pair": 6,
+        "n": 16,
+        "nH": 17,
+        "n_t_min_le_gate": 2,
+        "p": 17
+      },
+      {
+        "e": 3,
+        "frac_le_gate": 0.004464285714285714,
+        "gate_2e_plus_2": 8,
+        "max_fiber": 3,
+        "max_t_min_pair": 16,
+        "mean_t_min_pair": 14.1875,
+        "min_t_min_pair": 8,
+        "n": 16,
+        "nH": 224,
+        "n_t_min_le_gate": 1,
+        "p": 17
+      },
+      {
+        "e": 2,
+        "frac_le_gate": 0.0967741935483871,
+        "gate_2e_plus_2": 6,
+        "max_fiber": 15,
+        "max_t_min_pair": 17,
+        "mean_t_min_pair": 10.64516129032258,
+        "min_t_min_pair": 5,
+        "n": 30,
+        "nH": 31,
+        "n_t_min_le_gate": 3,
+        "p": 31
+      },
+      {
+        "e": 3,
+        "frac_le_gate": 0.0,
+        "gate_2e_plus_2": 8,
+        "max_fiber": 10,
+        "max_t_min_pair": 29,
+        "mean_t_min_pair": 21.95837669094693,
+        "min_t_min_pair": 10,
+        "n": 30,
+        "nH": 961,
+        "n_t_min_le_gate": 0,
+        "p": 31
+      },
+      {
+        "e": 2,
+        "frac_le_gate": 0.0,
+        "gate_2e_plus_2": 6,
+        "max_fiber": 30,
+        "max_t_min_pair": 32,
+        "mean_t_min_pair": 14.59016393442623,
+        "min_t_min_pair": 7,
+        "n": 60,
+        "nH": 61,
+        "n_t_min_le_gate": 0,
+        "p": 61
+      },
+      {
+        "e": 3,
+        "frac_le_gate": 0.0,
+        "gate_2e_plus_2": 8,
+        "max_fiber": 20,
+        "max_t_min_pair": 54,
+        "mean_t_min_pair": 34.00053748992207,
+        "min_t_min_pair": 13,
+        "n": 60,
+        "nH": 3721,
+        "n_t_min_le_gate": 0,
+        "p": 61
+      }
+    ]
+  }
+}
