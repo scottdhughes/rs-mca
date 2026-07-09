@@ -1,0 +1,1174 @@
+{
+  "claims": {
+    "proves_A_SP_le_tp": false,
+    "proves_M_pad_le_1_deployed": false,
+    "proves_constructive_kappa": false,
+    "proves_fc1_packing_via_intersection": true,
+    "proves_multipad_intersection_bound": true,
+    "proves_uniform_packing_bound": true,
+    "proves_uniform_packing_gives_Mpad_le_2_deployed": false,
+    "toy_confirms_intersection_and_kappa_negatives": true
+  },
+  "deployed": {
+    "K_max": 2176,
+    "e": 67472,
+    "e_p": 143763024447376,
+    "floor_n_over_e": 31,
+    "free_core": 846161,
+    "intersection_bound": 846160,
+    "j": 981104,
+    "m_c": 913632,
+    "simple_pack_if_disjoint": 2,
+    "t_p": 143763024447376,
+    "uniform_pack_log10_est": 478050.28,
+    "w": 67471
+  },
+  "impact_on_program": {
+    "Mpad": "Structural: multipad cores intersect in \u2264 free_core\u22121 points; free_core=1 packing recovered; deployed binomial packing useless",
+    "kappa": "Need constructive residual highs\u21aa[2176]; naive tags banked negative",
+    "next": "Ledger/fiber-native high witness for \u03ba; residual multipad constraints forcing near-disjoint cores or M_pad\u22642"
+  },
+  "lemmas": {
+    "OPEN": {
+      "name": "OPEN_kappa_constructive_and_deployed_Mpad",
+      "statement": "(1) Constructive \u03ba: residual free-1 highs \u2192 [2176] from fiber/ledger geometry (naive tags banked negative in toys).\n(2) M_pad\u22641 or \u22642 at free_core=846161: intersection packing only gives a huge binomial ratio; need residual/split constraints beyond |C\u2229C'|\u2264free_core\u22121.",
+      "status": "OPEN"
+    },
+    "fc1_recovery": {
+      "name": "free_core_1_disjoint_packing_recovered",
+      "proof": [
+        "Intersection theorem + v25/v26 packing."
+      ],
+      "statement": "free_core=1 \u21d2 |C\u2229C'|\u22640 \u21d2 multipad cores pairwise disjoint \u2286 D\\(U\u222aV) with |U\u222aV|=2e \u21d2 M_pad \u2264 \u230a(n\u22122e)/m_c\u230b.",
+      "status": "PROVED"
+    },
+    "intersection": {
+      "deployed_free_core": 846161,
+      "deployed_intersection_bound": 846160,
+      "name": "multipad_core_intersection_le_free_core_minus_1",
+      "proof": [
+        "v22: multipad cores are depth-w multi-mates: Phi_w(C)=Phi_w(C'), so \u0394 := \u039b_C \u2212 \u039b_{C'} has deg(\u0394) \u2264 m_c \u2212 w \u2212 1 = free_core \u2212 1.",
+        "C \u2260 C' monic same degree \u21d2 \u0394 \u2260 0.",
+        "If r \u2208 C \u2229 C' then \u039b_C(r)=\u039b_{C'}(r)=0 \u21d2 \u0394(r)=0.",
+        "A nonzero univariate polynomial of degree \u2264 d over a field has at most d roots. Hence |C \u2229 C'| \u2264 deg(\u0394) \u2264 free_core \u2212 1."
+      ],
+      "statement": "If C \u2260 C' are multipad cores (share free-1 CS sides (U,V) in one j-fiber), then |C \u2229 C'| \u2264 free_core \u2212 1, where free_core = m_c \u2212 w = j \u2212 2w \u2212 1.",
+      "status": "PROVED"
+    },
+    "kappa_criterion": {
+      "deployed_K_max": 2176,
+      "name": "high_tag_criterion_restated",
+      "proof": [
+        "v26 high-tag payment criterion."
+      ],
+      "statement": "M_pad\u22641 and residual highs \u21aa [K] with K\u00b7\u230an/e\u230b\u2264e (deployed K\u22642176) \u21d2 (\u03ba,\u03b9,\u03b4) injects residual free-1 CS pairs into e\u00b7p \u21d2 |A_SP|\u2264t\u00b7p.",
+      "status": "PROVED"
+    },
+    "uniform_packing": {
+      "deployed": {
+        "free_core": 846161,
+        "log10_bound_estimate": 478050.28,
+        "m_c": 913632,
+        "n_minus_2e": 1962208,
+        "note": "Ratio is ~10^478050 (log10 via lgamma) \u2014 useless for M_pad\u22642."
+      },
+      "name": "multipad_uniform_intersection_packing",
+      "proof": [
+        "If two m_c-sets both contain the same (s+1)-set T, then their intersection has size \u2265 s+1 > s, contradicting the intersection bound.",
+        "Hence the map core \u21a6 its family of (s+1)-subsets is disjointly supported.",
+        "Count: M_pad \u00b7 C(m_c, s+1) \u2264 C(n\u22122e, s+1)."
+      ],
+      "statement": "Let s = free_core \u2212 1. Among multipad cores for fixed (U,V), every pair intersects in \u2264 s points, so each core's (s+1)-subsets are exclusive. With ground set D\\(U\u222aV) of size n\u22122e and |core|=m_c: M_pad \u2264 C(n\u22122e, s+1) / C(m_c, s+1) = C(n\u22122e, free_core) / C(m_c, free_core).",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v27",
+  "status": "PARTIAL_INTERSECTION_BOUND",
+  "title": "Multipad core intersections \u2264 free_core\u22121 + constructive \u03ba census",
+  "toy_suite": {
+    "census": {
+      "kappa_coll_rows": {
+        "canon_c0_mod_K": 12,
+        "canon_minU_mod_K": 12,
+        "const": 12,
+        "fiber_high_rank": 11,
+        "full_high": 0,
+        "high0_mod_K": 12,
+        "min_union_mod_K": 12,
+        "pair_minU_mod_K": 12,
+        "sumh_mod_K": 12
+      },
+      "kappa_inj_rows": {
+        "canon_c0_mod_K": 2,
+        "canon_minU_mod_K": 2,
+        "const": 2,
+        "fiber_high_rank": 3,
+        "full_high": 14,
+        "high0_mod_K": 2,
+        "min_union_mod_K": 2,
+        "pair_minU_mod_K": 2,
+        "sumh_mod_K": 2
+      },
+      "kappa_tested_rows": 14,
+      "n_fc1_pack_rows": 2,
+      "n_fc_ge2_exceed_simple_pack": 4,
+      "n_inter_ok": 34144,
+      "n_inter_pairs": 34144,
+      "n_inter_tight": 21268,
+      "tight_frac": 0.6228912839737581
+    },
+    "rows": [
+      {
+        "K_budget": 0,
+        "K_tag": 2,
+        "e": 2,
+        "exceeds_simple_pack": false,
+        "free_core": 1,
+        "inter_bound": 0,
+        "j": 4,
+        "m_c": 2,
+        "marks": {
+          "canon_c0_mod_K": {
+            "coll": 117,
+            "inj": false,
+            "nlab": 194,
+            "nuniq": 400
+          },
+          "canon_minU_mod_K": {
+            "coll": 122,
+            "inj": false,
+            "nlab": 186,
+            "nuniq": 400
+          },
+          "const": {
+            "coll": 100,
+            "inj": false,
+            "nlab": 112,
+            "nuniq": 400
+          },
+          "fiber_high_rank": {
+            "coll": 20,
+            "inj": false,
+            "nlab": 380,
+            "nuniq": 400
+          },
+          "full_high": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 400,
+            "nuniq": 400
+          },
+          "high0_mod_K": {
+            "coll": 128,
+            "inj": false,
+            "nlab": 204,
+            "nuniq": 400
+          },
+          "min_union_mod_K": {
+            "coll": 100,
+            "inj": false,
+            "nlab": 157,
+            "nuniq": 400
+          },
+          "pair_minU_mod_K": {
+            "coll": 123,
+            "inj": false,
+            "nlab": 189,
+            "nuniq": 400
+          },
+          "sumh_mod_K": {
+            "coll": 128,
+            "inj": false,
+            "nlab": 204,
+            "nuniq": 400
+          }
+        },
+        "max_Mpad": 4,
+        "max_highs_per_fiber": 17,
+        "max_pair_inter": 0,
+        "n": 16,
+        "n_fibers_with_pairs": 17,
+        "n_multipad_events": 540,
+        "p": 17,
+        "simple_pack": 6,
+        "w": 1
+      },
+      {
+        "K_budget": 0,
+        "K_tag": 2,
+        "e": 2,
+        "exceeds_simple_pack": true,
+        "free_core": 2,
+        "inter_bound": 1,
+        "j": 5,
+        "m_c": 3,
+        "marks": {
+          "canon_c0_mod_K": {
+            "coll": 79,
+            "inj": false,
+            "nlab": 172,
+            "nuniq": 286
+          },
+          "canon_minU_mod_K": {
+            "coll": 81,
+            "inj": false,
+            "nlab": 170,
+            "nuniq": 286
+          },
+          "const": {
+            "coll": 82,
+            "inj": false,
+            "nlab": 109,
+            "nuniq": 286
+          },
+          "fiber_high_rank": {
+            "coll": 6,
+            "inj": false,
+            "nlab": 280,
+            "nuniq": 286
+          },
+          "full_high": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 286,
+            "nuniq": 286
+          },
+          "high0_mod_K": {
+            "coll": 88,
+            "inj": false,
+            "nlab": 172,
+            "nuniq": 286
+          },
+          "min_union_mod_K": {
+            "coll": 82,
+            "inj": false,
+            "nlab": 138,
+            "nuniq": 286
+          },
+          "pair_minU_mod_K": {
+            "coll": 88,
+            "inj": false,
+            "nlab": 166,
+            "nuniq": 286
+          },
+          "sumh_mod_K": {
+            "coll": 88,
+            "inj": false,
+            "nlab": 172,
+            "nuniq": 286
+          }
+        },
+        "max_Mpad": 9,
+        "max_highs_per_fiber": 17,
+        "max_pair_inter": 1,
+        "n": 16,
+        "n_fibers_with_pairs": 17,
+        "n_multipad_events": 972,
+        "p": 17,
+        "simple_pack": 4,
+        "w": 1
+      },
+      {
+        "K_budget": 0,
+        "K_tag": 3,
+        "e": 3,
+        "exceeds_simple_pack": false,
+        "free_core": 0,
+        "inter_bound": -1,
+        "j": 5,
+        "m_c": 2,
+        "marks": {
+          "canon_c0_mod_K": {
+            "coll": 81,
+            "inj": false,
+            "nlab": 111,
+            "nuniq": 260
+          },
+          "canon_minU_mod_K": {
+            "coll": 71,
+            "inj": false,
+            "nlab": 108,
+            "nuniq": 260
+          },
+          "const": {
+            "coll": 44,
+            "inj": false,
+            "nlab": 45,
+            "nuniq": 260
+          },
+          "fiber_high_rank": {
+            "coll": 56,
+            "inj": false,
+            "nlab": 100,
+            "nuniq": 260
+          },
+          "full_high": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 260,
+            "nuniq": 260
+          },
+          "high0_mod_K": {
+            "coll": 79,
+            "inj": false,
+            "nlab": 119,
+            "nuniq": 260
+          },
+          "min_union_mod_K": {
+            "coll": 61,
+            "inj": false,
+            "nlab": 96,
+            "nuniq": 260
+          },
+          "pair_minU_mod_K": {
+            "coll": 73,
+            "inj": false,
+            "nlab": 111,
+            "nuniq": 260
+          },
+          "sumh_mod_K": {
+            "coll": 76,
+            "inj": false,
+            "nlab": 109,
+            "nuniq": 260
+          }
+        },
+        "max_Mpad": 1,
+        "max_highs_per_fiber": 5,
+        "max_pair_inter": -1,
+        "n": 16,
+        "n_fibers_with_pairs": 261,
+        "n_multipad_events": 0,
+        "p": 17,
+        "simple_pack": 5,
+        "w": 2
+      },
+      {
+        "K_budget": 0,
+        "K_tag": 2,
+        "e": 2,
+        "exceeds_simple_pack": true,
+        "free_core": 3,
+        "inter_bound": 2,
+        "j": 6,
+        "m_c": 4,
+        "marks": {
+          "canon_c0_mod_K": {
+            "coll": 48,
+            "inj": false,
+            "nlab": 142,
+            "nuniq": 200
+          },
+          "canon_minU_mod_K": {
+            "coll": 50,
+            "inj": false,
+            "nlab": 143,
+            "nuniq": 200
+          },
+          "const": {
+            "coll": 65,
+            "inj": false,
+            "nlab": 102,
+            "nuniq": 200
+          },
+          "fiber_high_rank": {
+            "coll": 5,
+            "inj": false,
+            "nlab": 195,
+            "nuniq": 200
+          },
+          "full_high": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 200,
+            "nuniq": 200
+          },
+          "high0_mod_K": {
+            "coll": 49,
+            "inj": false,
+            "nlab": 143,
+            "nuniq": 200
+          },
+          "min_union_mod_K": {
+            "coll": 60,
+            "inj": false,
+            "nlab": 119,
+            "nuniq": 200
+          },
+          "pair_minU_mod_K": {
+            "coll": 53,
+            "inj": false,
+            "nlab": 139,
+            "nuniq": 200
+          },
+          "sumh_mod_K": {
+            "coll": 49,
+            "inj": false,
+            "nlab": 143,
+            "nuniq": 200
+          }
+        },
+        "max_Mpad": 14,
+        "max_highs_per_fiber": 17,
+        "max_pair_inter": 2,
+        "n": 16,
+        "n_fibers_with_pairs": 17,
+        "n_multipad_events": 904,
+        "p": 17,
+        "simple_pack": 3,
+        "w": 1
+      },
+      {
+        "K_budget": 0,
+        "K_tag": 3,
+        "e": 3,
+        "exceeds_simple_pack": false,
+        "free_core": 1,
+        "inter_bound": 0,
+        "j": 6,
+        "m_c": 3,
+        "marks": {
+          "canon_c0_mod_K": {
+            "coll": 38,
+            "inj": false,
+            "nlab": 85,
+            "nuniq": 146
+          },
+          "canon_minU_mod_K": {
+            "coll": 41,
+            "inj": false,
+            "nlab": 83,
+            "nuniq": 146
+          },
+          "const": {
+            "coll": 29,
+            "inj": false,
+            "nlab": 43,
+            "nuniq": 146
+          },
+          "fiber_high_rank": {
+            "coll": 31,
+            "inj": false,
+            "nlab": 71,
+            "nuniq": 146
+          },
+          "full_high": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 146,
+            "nuniq": 146
+          },
+          "high0_mod_K": {
+            "coll": 39,
+            "inj": false,
+            "nlab": 89,
+            "nuniq": 146
+          },
+          "min_union_mod_K": {
+            "coll": 38,
+            "inj": false,
+            "nlab": 75,
+            "nuniq": 146
+          },
+          "pair_minU_mod_K": {
+            "coll": 41,
+            "inj": false,
+            "nlab": 85,
+            "nuniq": 146
+          },
+          "sumh_mod_K": {
+            "coll": 36,
+            "inj": false,
+            "nlab": 86,
+            "nuniq": 146
+          }
+        },
+        "max_Mpad": 2,
+        "max_highs_per_fiber": 6,
+        "max_pair_inter": 0,
+        "n": 16,
+        "n_fibers_with_pairs": 235,
+        "n_multipad_events": 2,
+        "p": 17,
+        "simple_pack": 3,
+        "w": 2
+      },
+      {
+        "K_budget": 1,
+        "K_tag": 1,
+        "e": 4,
+        "exceeds_simple_pack": false,
+        "free_core": -1,
+        "inter_bound": -2,
+        "j": 6,
+        "m_c": 2,
+        "marks": {
+          "canon_c0_mod_K": {
+            "coll": 16,
+            "inj": false,
+            "nlab": 24,
+            "nuniq": 60
+          },
+          "canon_minU_mod_K": {
+            "coll": 16,
+            "inj": false,
+            "nlab": 24,
+            "nuniq": 60
+          },
+          "const": {
+            "coll": 16,
+            "inj": false,
+            "nlab": 24,
+            "nuniq": 60
+          },
+          "fiber_high_rank": {
+            "coll": 16,
+            "inj": false,
+            "nlab": 24,
+            "nuniq": 60
+          },
+          "full_high": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 60,
+            "nuniq": 60
+          },
+          "high0_mod_K": {
+            "coll": 16,
+            "inj": false,
+            "nlab": 24,
+            "nuniq": 60
+          },
+          "min_union_mod_K": {
+            "coll": 16,
+            "inj": false,
+            "nlab": 24,
+            "nuniq": 60
+          },
+          "pair_minU_mod_K": {
+            "coll": 16,
+            "inj": false,
+            "nlab": 24,
+            "nuniq": 60
+          },
+          "sumh_mod_K": {
+            "coll": 16,
+            "inj": false,
+            "nlab": 24,
+            "nuniq": 60
+          }
+        },
+        "max_Mpad": 1,
+        "max_highs_per_fiber": 1,
+        "max_pair_inter": -1,
+        "n": 16,
+        "n_fibers_with_pairs": 75,
+        "n_multipad_events": 0,
+        "p": 17,
+        "simple_pack": 4,
+        "w": 3
+      },
+      {
+        "K_budget": 0,
+        "K_tag": 2,
+        "e": 2,
+        "exceeds_simple_pack": true,
+        "free_core": 4,
+        "inter_bound": 3,
+        "j": 7,
+        "m_c": 5,
+        "marks": {
+          "canon_c0_mod_K": {
+            "coll": 22,
+            "inj": false,
+            "nlab": 108,
+            "nuniq": 132
+          },
+          "canon_minU_mod_K": {
+            "coll": 23,
+            "inj": false,
+            "nlab": 109,
+            "nuniq": 132
+          },
+          "const": {
+            "coll": 42,
+            "inj": false,
+            "nlab": 85,
+            "nuniq": 132
+          },
+          "fiber_high_rank": {
+            "coll": 1,
+            "inj": false,
+            "nlab": 131,
+            "nuniq": 132
+          },
+          "full_high": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 132,
+            "nuniq": 132
+          },
+          "high0_mod_K": {
+            "coll": 20,
+            "inj": false,
+            "nlab": 109,
+            "nuniq": 132
+          },
+          "min_union_mod_K": {
+            "coll": 33,
+            "inj": false,
+            "nlab": 96,
+            "nuniq": 132
+          },
+          "pair_minU_mod_K": {
+            "coll": 28,
+            "inj": false,
+            "nlab": 104,
+            "nuniq": 132
+          },
+          "sumh_mod_K": {
+            "coll": 20,
+            "inj": false,
+            "nlab": 109,
+            "nuniq": 132
+          }
+        },
+        "max_Mpad": 17,
+        "max_highs_per_fiber": 16,
+        "max_pair_inter": 3,
+        "n": 16,
+        "n_fibers_with_pairs": 17,
+        "n_multipad_events": 620,
+        "p": 17,
+        "simple_pack": 2,
+        "w": 1
+      },
+      {
+        "K_budget": 0,
+        "K_tag": 3,
+        "e": 3,
+        "exceeds_simple_pack": false,
+        "free_core": 2,
+        "inter_bound": 1,
+        "j": 7,
+        "m_c": 4,
+        "marks": {
+          "canon_c0_mod_K": {
+            "coll": 19,
+            "inj": false,
+            "nlab": 57,
+            "nuniq": 80
+          },
+          "canon_minU_mod_K": {
+            "coll": 18,
+            "inj": false,
+            "nlab": 61,
+            "nuniq": 80
+          },
+          "const": {
+            "coll": 23,
+            "inj": false,
+            "nlab": 34,
+            "nuniq": 80
+          },
+          "fiber_high_rank": {
+            "coll": 23,
+            "inj": false,
+            "nlab": 47,
+            "nuniq": 80
+          },
+          "full_high": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 80,
+            "nuniq": 80
+          },
+          "high0_mod_K": {
+            "coll": 15,
+            "inj": false,
+            "nlab": 61,
+            "nuniq": 80
+          },
+          "min_union_mod_K": {
+            "coll": 21,
+            "inj": false,
+            "nlab": 54,
+            "nuniq": 80
+          },
+          "pair_minU_mod_K": {
+            "coll": 16,
+            "inj": false,
+            "nlab": 60,
+            "nuniq": 80
+          },
+          "sumh_mod_K": {
+            "coll": 19,
+            "inj": false,
+            "nlab": 59,
+            "nuniq": 80
+          }
+        },
+        "max_Mpad": 2,
+        "max_highs_per_fiber": 5,
+        "max_pair_inter": 1,
+        "n": 16,
+        "n_fibers_with_pairs": 184,
+        "n_multipad_events": 4,
+        "p": 17,
+        "simple_pack": 2,
+        "w": 2
+      },
+      {
+        "K_budget": 1,
+        "K_tag": 1,
+        "e": 4,
+        "exceeds_simple_pack": false,
+        "free_core": 0,
+        "inter_bound": -1,
+        "j": 7,
+        "m_c": 3,
+        "marks": {
+          "canon_c0_mod_K": {
+            "coll": 8,
+            "inj": false,
+            "nlab": 16,
+            "nuniq": 26
+          },
+          "canon_minU_mod_K": {
+            "coll": 8,
+            "inj": false,
+            "nlab": 16,
+            "nuniq": 26
+          },
+          "const": {
+            "coll": 8,
+            "inj": false,
+            "nlab": 16,
+            "nuniq": 26
+          },
+          "fiber_high_rank": {
+            "coll": 8,
+            "inj": false,
+            "nlab": 16,
+            "nuniq": 26
+          },
+          "full_high": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 26,
+            "nuniq": 26
+          },
+          "high0_mod_K": {
+            "coll": 8,
+            "inj": false,
+            "nlab": 16,
+            "nuniq": 26
+          },
+          "min_union_mod_K": {
+            "coll": 8,
+            "inj": false,
+            "nlab": 16,
+            "nuniq": 26
+          },
+          "pair_minU_mod_K": {
+            "coll": 8,
+            "inj": false,
+            "nlab": 16,
+            "nuniq": 26
+          },
+          "sumh_mod_K": {
+            "coll": 8,
+            "inj": false,
+            "nlab": 16,
+            "nuniq": 26
+          }
+        },
+        "max_Mpad": 1,
+        "max_highs_per_fiber": 1,
+        "max_pair_inter": -1,
+        "n": 16,
+        "n_fibers_with_pairs": 34,
+        "n_multipad_events": 0,
+        "p": 17,
+        "simple_pack": 2,
+        "w": 3
+      },
+      {
+        "K_budget": 0,
+        "K_tag": 2,
+        "e": 2,
+        "exceeds_simple_pack": true,
+        "free_core": 5,
+        "inter_bound": 4,
+        "j": 8,
+        "m_c": 6,
+        "marks": {
+          "canon_c0_mod_K": {
+            "coll": 11,
+            "inj": false,
+            "nlab": 75,
+            "nuniq": 86
+          },
+          "canon_minU_mod_K": {
+            "coll": 11,
+            "inj": false,
+            "nlab": 75,
+            "nuniq": 86
+          },
+          "const": {
+            "coll": 22,
+            "inj": false,
+            "nlab": 63,
+            "nuniq": 86
+          },
+          "fiber_high_rank": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 86,
+            "nuniq": 86
+          },
+          "full_high": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 86,
+            "nuniq": 86
+          },
+          "high0_mod_K": {
+            "coll": 8,
+            "inj": false,
+            "nlab": 77,
+            "nuniq": 86
+          },
+          "min_union_mod_K": {
+            "coll": 15,
+            "inj": false,
+            "nlab": 70,
+            "nuniq": 86
+          },
+          "pair_minU_mod_K": {
+            "coll": 13,
+            "inj": false,
+            "nlab": 73,
+            "nuniq": 86
+          },
+          "sumh_mod_K": {
+            "coll": 8,
+            "inj": false,
+            "nlab": 77,
+            "nuniq": 86
+          }
+        },
+        "max_Mpad": 14,
+        "max_highs_per_fiber": 12,
+        "max_pair_inter": 4,
+        "n": 16,
+        "n_fibers_with_pairs": 17,
+        "n_multipad_events": 364,
+        "p": 17,
+        "simple_pack": 2,
+        "w": 1
+      },
+      {
+        "K_budget": 0,
+        "K_tag": 3,
+        "e": 3,
+        "exceeds_simple_pack": false,
+        "free_core": 3,
+        "inter_bound": 2,
+        "j": 8,
+        "m_c": 5,
+        "marks": {
+          "canon_c0_mod_K": {
+            "coll": 6,
+            "inj": false,
+            "nlab": 36,
+            "nuniq": 42
+          },
+          "canon_minU_mod_K": {
+            "coll": 9,
+            "inj": false,
+            "nlab": 33,
+            "nuniq": 42
+          },
+          "const": {
+            "coll": 10,
+            "inj": false,
+            "nlab": 24,
+            "nuniq": 42
+          },
+          "fiber_high_rank": {
+            "coll": 10,
+            "inj": false,
+            "nlab": 27,
+            "nuniq": 42
+          },
+          "full_high": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 42,
+            "nuniq": 42
+          },
+          "high0_mod_K": {
+            "coll": 8,
+            "inj": false,
+            "nlab": 34,
+            "nuniq": 42
+          },
+          "min_union_mod_K": {
+            "coll": 10,
+            "inj": false,
+            "nlab": 29,
+            "nuniq": 42
+          },
+          "pair_minU_mod_K": {
+            "coll": 8,
+            "inj": false,
+            "nlab": 33,
+            "nuniq": 42
+          },
+          "sumh_mod_K": {
+            "coll": 7,
+            "inj": false,
+            "nlab": 35,
+            "nuniq": 42
+          }
+        },
+        "max_Mpad": 2,
+        "max_highs_per_fiber": 3,
+        "max_pair_inter": 2,
+        "n": 16,
+        "n_fibers_with_pairs": 108,
+        "n_multipad_events": 2,
+        "p": 17,
+        "simple_pack": 2,
+        "w": 2
+      },
+      {
+        "K_budget": 1,
+        "K_tag": 1,
+        "e": 4,
+        "exceeds_simple_pack": false,
+        "free_core": 1,
+        "inter_bound": 0,
+        "j": 8,
+        "m_c": 4,
+        "marks": {
+          "canon_c0_mod_K": {
+            "coll": 2,
+            "inj": false,
+            "nlab": 8,
+            "nuniq": 10
+          },
+          "canon_minU_mod_K": {
+            "coll": 2,
+            "inj": false,
+            "nlab": 8,
+            "nuniq": 10
+          },
+          "const": {
+            "coll": 2,
+            "inj": false,
+            "nlab": 8,
+            "nuniq": 10
+          },
+          "fiber_high_rank": {
+            "coll": 2,
+            "inj": false,
+            "nlab": 8,
+            "nuniq": 10
+          },
+          "full_high": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 10,
+            "nuniq": 10
+          },
+          "high0_mod_K": {
+            "coll": 2,
+            "inj": false,
+            "nlab": 8,
+            "nuniq": 10
+          },
+          "min_union_mod_K": {
+            "coll": 2,
+            "inj": false,
+            "nlab": 8,
+            "nuniq": 10
+          },
+          "pair_minU_mod_K": {
+            "coll": 2,
+            "inj": false,
+            "nlab": 8,
+            "nuniq": 10
+          },
+          "sumh_mod_K": {
+            "coll": 2,
+            "inj": false,
+            "nlab": 8,
+            "nuniq": 10
+          }
+        },
+        "max_Mpad": 1,
+        "max_highs_per_fiber": 1,
+        "max_pair_inter": -1,
+        "n": 16,
+        "n_fibers_with_pairs": 9,
+        "n_multipad_events": 0,
+        "p": 17,
+        "simple_pack": 2,
+        "w": 3
+      },
+      {
+        "K_budget": 0,
+        "K_tag": 3,
+        "e": 3,
+        "exceeds_simple_pack": false,
+        "free_core": 4,
+        "inter_bound": 3,
+        "j": 9,
+        "m_c": 6,
+        "marks": {
+          "canon_c0_mod_K": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 16,
+            "nuniq": 16
+          },
+          "canon_minU_mod_K": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 16,
+            "nuniq": 16
+          },
+          "const": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 16,
+            "nuniq": 16
+          },
+          "fiber_high_rank": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 16,
+            "nuniq": 16
+          },
+          "full_high": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 16,
+            "nuniq": 16
+          },
+          "high0_mod_K": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 16,
+            "nuniq": 16
+          },
+          "min_union_mod_K": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 16,
+            "nuniq": 16
+          },
+          "pair_minU_mod_K": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 16,
+            "nuniq": 16
+          },
+          "sumh_mod_K": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 16,
+            "nuniq": 16
+          }
+        },
+        "max_Mpad": 1,
+        "max_highs_per_fiber": 2,
+        "max_pair_inter": -1,
+        "n": 16,
+        "n_fibers_with_pairs": 44,
+        "n_multipad_events": 0,
+        "p": 17,
+        "simple_pack": 1,
+        "w": 2
+      },
+      {
+        "K_budget": 1,
+        "K_tag": 1,
+        "e": 4,
+        "exceeds_simple_pack": false,
+        "free_core": 2,
+        "inter_bound": 1,
+        "j": 9,
+        "m_c": 5,
+        "marks": {
+          "canon_c0_mod_K": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "canon_minU_mod_K": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "const": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "fiber_high_rank": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "full_high": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "high0_mod_K": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "min_union_mod_K": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "pair_minU_mod_K": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "sumh_mod_K": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          }
+        },
+        "max_Mpad": 1,
+        "max_highs_per_fiber": 1,
+        "max_pair_inter": -1,
+        "n": 16,
+        "n_fibers_with_pairs": 1,
+        "n_multipad_events": 0,
+        "p": 17,
+        "simple_pack": 1,
+        "w": 3
+      }
+    ],
+    "status": "PASS"
+  }
+}

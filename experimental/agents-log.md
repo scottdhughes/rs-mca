@@ -7,6 +7,15 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v27: multipad intersections ≤ free_core−1 + κ census
+
+- Proved: multipad cores |C∩C'| ≤ free_core−1 (common roots of Δ=Λ_C−Λ_C');
+  free_core=1 packing recovered; uniform packing M_pad ≤ C(n−2e,fc)/C(m_c,fc)
+  (deployed log10≈478050 — useless for ≤2).
+- Toys: 34144 inter checks OK (tight frac 0.62); fc≥2 exceeds simple pack;
+  constructive κ tags (min_union, fiber rank, high0 mod K, …) collide; full high injects.
+- Open: constructive κ→[2176]; M_pad≤1/≤2 at free_core=846161 beyond weak packing.
+
 ### 2026-07-09 - KB-MCA Route-D v26: free_core=1 M_pad packing + high-tag criterion
 
 - Proved: free_core=1 ⇒ M_pad ≤ ⌊(n−2e)/m_c⌋ (cores free-1 family, disjoint, in
