@@ -6,6 +6,32 @@
 
 
 
+
+### 2026-07-08 - KB-MCA Route-D v7: large-free B1 + B2 bijective sparseness
+
+- **Agent/model:** Grok + Scott Hughes (`scottdhughes`).
+- **Files added or changed:**
+  `experimental/scripts/verify_kb_qatom_route_d_v7.py`,
+  `experimental/notes/thresholds/kb_qatom_route_d_v7.md`,
+  `experimental/data/certificates/kb-qatom-route-d-v7/`,
+  `experimental/notes/certificate_scanner/outputs/kb_qatom_route_d_v7.report.md`,
+  `experimental/agents-log.md`.
+- **Status:** PROVED reformulations; deployed uniqueness/budget OPEN.
+- **B1 real math:** M_m^{max}<=1 <=> Phi_w injective on m-subsets. Deployed
+  C(n,m)<p^w (log2 avg ≈ -18820) so pigeonhole does not force collisions.
+  Large-free affine dimension free=m-w=846161 with trivial bound p^free.
+  Deployed injectivity still OPEN (outside free-0/1).
+- **B2 real math (non-circular sparseness law):** For fixed z, u<->b is an
+  affine bijection on F_p^w. Residual can-cores each have unique side-prefix u
+  (side free-1 pencil). Therefore U_res(z) equals the Phi_w-image size of the
+  residual can-core family: bound that m-subset prefix-image, not |R|.
+  U_res <= N_can_prim always; equality when residual cores have distinct prefixes.
+  If B1 holds, U_res=N_can_prim and both collapse to one count.
+- **Toys:** bijection OK; U_res=core_prefix_image always; when M_m>1, Ncan>U_res
+  (p=17,w=2: 49>34).
+- **What to do next:** Prove Phi_w injective on m-subsets (B1) or bound the
+  residual can-core prefix-image by target/17 (B2).
+
 ### 2026-07-08 - KB-MCA Route-D v6: B1 free regimes + B2 U_res structure
 
 - **Agent/model:** Grok + Scott Hughes (`scottdhughes`).

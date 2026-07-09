@@ -1,0 +1,5 @@
+# v7 report
+
+status: PARTIAL_PROVED_REFORMULATIONS_DEPLOYED_OPEN
+free: 846161
+log2_avg_m: -18820.2496

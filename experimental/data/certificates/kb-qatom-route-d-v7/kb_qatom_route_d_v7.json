@@ -1,0 +1,183 @@
+{
+  "claims": {
+    "proves_C_nm_lt_p_w": true,
+    "proves_Mm_le1_iff_injective": true,
+    "proves_U_res_atom_budget": false,
+    "proves_U_res_eq_core_prefix_image_law": true,
+    "proves_deployed_Mm_le1": false,
+    "proves_large_free_affine_count": true,
+    "proves_u_b_bijection": true
+  },
+  "deployed": {
+    "U_res_or_Ncan_atom": 16166878605395467,
+    "U_res_or_Ncan_tp": 8456648496904,
+    "free": 846161,
+    "log2_C_nm": 2072017.2949809763,
+    "log2_avg_m_fiber": -18820.249565912876,
+    "log2_p_w": 2090837.5445468891,
+    "m": 913632,
+    "pack_j": 17,
+    "w": 67471
+  },
+  "lemmas": {
+    "B1_domain_codomain": {
+      "consequence": "Injectivity of Phi_w is not ruled out by pigeonhole (domain smaller than codomain). Collisions remain possible; free-1 toys show collisions can occur with avg < 1.",
+      "free_0_1_apply": false,
+      "free_dimension": 846161,
+      "log2_avg_m_fiber": -18820.249565912876,
+      "name": "deployed_C_nm_strictly_less_than_p_w",
+      "proof": [
+        "Compute log2 C(n,m) by the exact product formula sum_{i=0}^{m-1} log2(n-i)-log2(i+1).",
+        "Subtract w log2 p. The result is negative by more than 18000 bits, hence C(n,m) < p^w."
+      ],
+      "statement": "At deployed (n,m,w,p)=(2097152,913632,67471,2130706433), one has C(n,m) < p^w. Quantitatively log2(C(n,m)/p^w) \u2248 -18820.2496 < -18000.",
+      "status": "PROVED_BY_LOG_SANDWICH"
+    },
+    "B1_iff_injective": {
+      "name": "Mm_le_1_iff_Phi_injective_on_m_subsets",
+      "proof": [
+        "If Phi_w is injective, every fiber has size <= 1, so M_m^{max} <= 1.",
+        "If M_m^{max} <= 1, then no two distinct m-subsets share a prefix, so Phi_w is injective."
+      ],
+      "statement": "Let Phi_w map m-subsets of D to their length-w monic high-coefficient prefixes. Then M_m^{max} := max_b |Phi_w^{-1}(b)| is <= 1 if and only if Phi_w is injective on the set of all m-subsets of D.",
+      "status": "PROVED"
+    },
+    "B1_large_free_count": {
+      "log2_C_nm": 2072017.2949809763,
+      "log2_p_free": 26221416.423816755,
+      "name": "large_free_affine_parameter_count",
+      "note": "This is the correct large-free parameter count; it does not give uniqueness.",
+      "proof": [
+        "Write Lambda = X^m + z_1 X^{m-1}+...+z_w X^{m-w} + a_1 X^{m-w-1}+...+a_{m-w}. The a_i range freely in F_p. Each fully split Lambda contributes at most one m-subset.",
+        "There are p^{m-w} coefficient choices and at most C(n,m) split m-subsets total."
+      ],
+      "statement": "Monic degree-m polynomials with a fixed length-w high monic prefix form an affine space of dimension free = m-w = 846161 over F_p (the free lower coefficients). At most p^{m-w} such polynomials exist, hence M_m^{max} <= p^{m-w}. Also M_m^{max} <= C(n,m). Both are far above the atom scale.",
+      "status": "PROVED"
+    },
+    "B2_U_res_core_prefix": {
+      "name": "U_res_equals_num_distinct_residual_core_prefixes_under_pencil",
+      "proof": [
+        "Triangular product identities give b=invert_b(z,u).",
+        "Fix can-core C. Residual S with C_can(S)=C have U = S\\\\C of size e, and by the core-pencil theorem those U form a constant-shift family: identical length-w monic prefixes u, varying only the constant term. Hence one u per core.",
+        "Different cores may share a prefix b only if they collide in Fib_m(b); the map core |-> u = invert_u(z, Phi_w(C)) is therefore well-defined on residual cores, and the image size is U_res. Injectivity of core |-> u fails exactly when two residual cores share Phi_w, i.e. M_m contributions. Always U_res <= N_can_prim, with equality if residual can-cores have distinct Phi_w-prefixes."
+      ],
+      "sparseness_law": "NON-CIRCULAR REPHRASE of B2: bound the number of distinct Phi_w-prefixes among residual can-cores (an m-subset prefix-image size), not |R|. When residual can-cores form an injective Phi_w family, U_res = N_can_prim and the atom reduces to N_can_prim <= target/17.",
+      "statement": "Let R(z) be a residual (or any) subset of Fib_w(z). For each S in R(z) let C_can(S), U_lex(S) be the lex-split and u(S)=Phi_w(U_lex(S)), b(S)=Phi_w(C_can(S)). Then b(S)=invert_b(z,u(S)). Moreover all residual supports with the same can-core C share the same u (side free-1 pencil: only constant term varies). Consequently the set of residual side-prefixes and the set of residual can-core prefixes are in bijection via invert_b(z,\u00b7), and U_res(z) = |{Phi_w(C): C = C_can(S) for some S in R(z)}| <= N_can_prim(z).",
+      "status": "PROVED"
+    },
+    "B2_bijection": {
+      "name": "side_prefix_core_prefix_affine_bijection",
+      "proof": [
+        "Product monic high coefficients give z_k = b_k + u_k + sum_{i<k} b_i u_{k-i} for k=1..w (with m,e > w at deployed).",
+        "Solving for b_k: b_k = z_k - u_k - sum_{i<k} b_i u_{k-i} (forward triangular, diag 1).",
+        "Solving for u_k: u_k = z_k - b_k - sum_{i<k} b_i u_{k-i} (same shape).",
+        "Mutual inversion is by direct substitution / induction on k."
+      ],
+      "statement": "Fix a j-fiber prefix z in F_p^w. The maps u |-> b = invert_b(z,u) and b |-> u = invert_u(z,b) are mutually inverse bijections F_p^w -> F_p^w. Explicitly, both are triangular with nonzero diagonal.",
+      "status": "PROVED"
+    },
+    "B2_sparseness_target": {
+      "link_to_B1": "If B1 holds (Phi_w injective on ALL m-subsets), then every family of m-subsets has |Phi_w-image| = |family|, so U_res = N_can_prim and B2 becomes identical to bounding N_can_prim directly.",
+      "name": "B2_residual_core_prefix_image",
+      "statement": "Prove that the set of Phi_w-prefixes of residual can-cores at each z has size <= 16166878605395467 (K_rem form) or <= 8456648496904 (t*p form). This does not go through |R|; it is an m-subset prefix-image bound on a residual-selected family of m-subsets.",
+      "status": "OPEN_TARGET_SHARPENED",
+      "why_not_circular": "The family of residual can-cores has size N_can_prim, which may be << |R| when many residual supports share cores (up to pack_ceil=17 per core). Bounding the Phi_w-image of that family is a pure m-subset problem on a structured subfamily, not a bound on j-subset residual mass."
+    }
+  },
+  "packet": "kb_qatom_route_d_v7",
+  "status": "PARTIAL_PROVED_REFORMULATIONS_DEPLOYED_OPEN",
+  "title": "Large-free B1 injectivity equivalence and B2 bijective core-prefix sparseness law",
+  "toy_suite": {
+    "b2_rows": [
+      {
+        "j": 8,
+        "max_N_can_prim": 49,
+        "max_U_res": 34,
+        "max_core_prefix_image": 34,
+        "n": 16,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "j": 8,
+        "max_N_can_prim": 5,
+        "max_U_res": 5,
+        "max_core_prefix_image": 5,
+        "n": 16,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "j": 5,
+        "max_N_can_prim": 32,
+        "max_U_res": 32,
+        "max_core_prefix_image": 32,
+        "n": 32,
+        "p": 97,
+        "w": 2
+      },
+      {
+        "j": 5,
+        "max_N_can_prim": 7,
+        "max_U_res": 7,
+        "max_core_prefix_image": 7,
+        "n": 32,
+        "p": 97,
+        "w": 3
+      },
+      {
+        "j": 4,
+        "max_N_can_prim": 25,
+        "max_U_res": 25,
+        "max_core_prefix_image": 25,
+        "n": 64,
+        "p": 193,
+        "w": 2
+      }
+    ],
+    "bijection_checked": true,
+    "equiv_rows": [
+      {
+        "injective": true,
+        "m": 5,
+        "maxM": 1,
+        "n": 16,
+        "n_pref": 4368,
+        "n_sub": 4368,
+        "p": 17,
+        "w": 4
+      },
+      {
+        "injective": false,
+        "m": 4,
+        "maxM": 4,
+        "n": 16,
+        "n_pref": 1713,
+        "n_sub": 1820,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "injective": false,
+        "m": 3,
+        "maxM": 3,
+        "n": 32,
+        "n_pref": 4064,
+        "n_sub": 4960,
+        "p": 97,
+        "w": 2
+      },
+      {
+        "injective": false,
+        "m": 4,
+        "maxM": 8,
+        "n": 32,
+        "n_pref": 35585,
+        "n_sub": 35960,
+        "p": 97,
+        "w": 3
+      }
+    ],
+    "status": "PASS"
+  }
+}
