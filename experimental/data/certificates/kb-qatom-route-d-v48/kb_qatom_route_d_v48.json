@@ -1,0 +1,479 @@
+{
+  "claims": {
+    "cas_e3_cyclic_saturates_p2": true,
+    "proves_A_SP_le_tp": false,
+    "proves_H_le_binom_over_2": true,
+    "proves_H_le_p_pow_em1": true,
+    "proves_deployed_Hstar_D_le_H2": false,
+    "proves_e2_Hstar_le_H2": true,
+    "proves_e_gt_n_half_Hstar_0": true,
+    "refutes_unrestricted_Hstar_le_H2_for_e3": true
+  },
+  "deployed": {
+    "H2": 77291948627,
+    "e": 67472,
+    "e_over_nprime": 0.05700959848587265,
+    "floor_nprime_e": 17,
+    "free_core": 846161,
+    "n_prime": 1183520,
+    "p": 2130706433,
+    "p2_gt_H2": true,
+    "p_le_H2": true
+  },
+  "impact_on_program": {
+    "deployed": "e=67472\u2248n'/17.5: need \u2605_D on D\\C complements (co-extension), not abstract-domain H_*",
+    "e2": "untyped residual card closed when e=2",
+    "e3_plus": "cannot use unrestricted H_*\u2264H2 (cyclic p^{e-1} saturation)"
+  },
+  "lemmas": {
+    "OPEN_star_D": {
+      "name": "OPEN_Hstar_D_restricted",
+      "statement": "\u2605_D: For \u03a9 = D\\C with D the fixed n-point KB domain in F_p and |C|=m_c, the number of free-1 multipad highs among e-subsets of \u03a9 is \u2264 H2=77291948627. (Optionally: only highs co-extending with C under \u03a6_w.) Deployed e/n'=67472/1183520\u22480.0570 (\u22481/17.5).",
+      "status": "OPEN"
+    },
+    "coeff": {
+      "deployed": {
+        "e": 67472,
+        "note": "p\u2264H2 but p\u00b2>H2 \u21d2 coeff bound closes H_*\u2264H2 only for e=2",
+        "p": 2130706433,
+        "p2_le_H2": false,
+        "p_le_H2": true
+      },
+      "name": "free1_high_coeff_space",
+      "proof": [
+        "monic_rev / Vieta: high = poly[1:e] has length e\u22121 over F_p."
+      ],
+      "statement": "A free-1 high is the (e\u22121)-tuple of monic coefficients of X^{e\u22121},\u2026,X^1, hence |{free-1 highs on any \u03a9\u2282F_p}| \u2264 p^{e\u22121}.",
+      "status": "PROVED"
+    },
+    "cyclic_sat": {
+      "consequence": "v47 \u2605 as stated for arbitrary domains of size A+e is FALSE for e=3. Must refine to D-restricted / co-extension-restricted count \u2605_D.",
+      "name": "cyclic_e2_e3_saturate_p_power",
+      "statement": "Sage cyclic domains (n|p\u22121): e=2 attains |H|=p; e=3 attains |H|=p\u00b2 on checked n=p\u22121 rows (ratio 1.0000). Thus unrestricted H_*(\u00b7,3) \u2264 H2 fails whenever p\u00b2 > H2 (true deployed).",
+      "status": "BANKED_CAS"
+    },
+    "e2": {
+      "deployed_e_is_2": false,
+      "name": "e2_Hstar_le_p_le_H2",
+      "note": "Deployed e=67472 \u226b 2; this closes only the e=2 side case.",
+      "proof": [
+        "e=2 \u21d2 high is a single F_p coefficient (pair sum).",
+        "Deployed p=2130706433 \u2264 H2=77291948627."
+      ],
+      "statement": "For e=2, |H_*| \u2264 p \u2264 H2=77291948627. Untyped residual free-1 card closes whenever the free-1 side size is e=2.",
+      "status": "PROVED"
+    },
+    "half": {
+      "deployed": {
+        "e": 67472,
+        "e_gt_half": false,
+        "floor": 17,
+        "n_prime": 1183520
+      },
+      "name": "e_gt_n_over_2_implies_Hstar_0",
+      "proof": [
+        "v25 packing |F_H|\u2264\u230an/e\u230b."
+      ],
+      "statement": "If e > n/2 then \u230an/e\u230b \u2264 1, so no free-1 family of size \u22652, hence H_*=0.",
+      "status": "PROVED"
+    },
+    "pack": {
+      "name": "Hstar_le_binom_over_2",
+      "proof": [
+        "Partition e-sets into multipad fibers of size \u22652 plus singles."
+      ],
+      "statement": "|H_*| \u2264 binom(n,e)/2 (each multipad high claims \u22652 e-sets).",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v48",
+  "status": "ATTACK_REFINE_STAR_D",
+  "title": "Attack H_*: coeff bound, e=2 close, e=3 cyclic refutes unrestricted \u2605",
+  "toy_suite": {
+    "census": {
+      "coeff_bound": true,
+      "deployed_e": 67472,
+      "deployed_ratio_e_over_nprime": 0.05700959848587265,
+      "e2_closes_H2": true,
+      "e2_sat_p": true,
+      "e3_sat_p2_on_cyclic": true,
+      "unrestricted_Hstar3_le_H2": false,
+      "vanish_e5_n16_floor_ge2": true
+    },
+    "python_rows": [
+      {
+        "comb": 120,
+        "e": 2,
+        "floor": 8,
+        "max_f": 8,
+        "n": 16,
+        "nH": 17,
+        "nH_eq_p_pow": true,
+        "nH_le_p_pow": true,
+        "p": 17,
+        "p_pow": 17
+      },
+      {
+        "comb": 560,
+        "e": 3,
+        "floor": 5,
+        "max_f": 3,
+        "n": 16,
+        "nH": 224,
+        "nH_eq_p_pow": false,
+        "nH_le_p_pow": true,
+        "p": 17,
+        "p_pow": 289
+      },
+      {
+        "comb": 435,
+        "e": 2,
+        "floor": 15,
+        "max_f": 15,
+        "n": 30,
+        "nH": 31,
+        "nH_eq_p_pow": true,
+        "nH_le_p_pow": true,
+        "p": 31,
+        "p_pow": 31
+      },
+      {
+        "comb": 4060,
+        "e": 3,
+        "floor": 10,
+        "max_f": 10,
+        "n": 30,
+        "nH": 961,
+        "nH_eq_p_pow": true,
+        "nH_le_p_pow": true,
+        "p": 31,
+        "p_pow": 961
+      }
+    ],
+    "sage": {
+      "rows": [
+        {
+          "comb": 435,
+          "e": 2,
+          "floor": 15,
+          "max_f": 15,
+          "n": 30,
+          "nH": 31,
+          "nH_eq_p_pow": true,
+          "p": 31,
+          "p_pow": 31
+        },
+        {
+          "comb": 4060,
+          "e": 3,
+          "floor": 10,
+          "max_f": 10,
+          "n": 30,
+          "nH": 961,
+          "nH_eq_p_pow": true,
+          "p": 31,
+          "p_pow": 961
+        },
+        {
+          "comb": 861,
+          "e": 2,
+          "floor": 21,
+          "max_f": 21,
+          "n": 42,
+          "nH": 43,
+          "nH_eq_p_pow": true,
+          "p": 43,
+          "p_pow": 43
+        },
+        {
+          "comb": 11480,
+          "e": 3,
+          "floor": 14,
+          "max_f": 14,
+          "n": 42,
+          "nH": 1849,
+          "nH_eq_p_pow": true,
+          "p": 43,
+          "p_pow": 1849
+        },
+        {
+          "comb": 1770,
+          "e": 2,
+          "floor": 30,
+          "max_f": 30,
+          "n": 60,
+          "nH": 61,
+          "nH_eq_p_pow": true,
+          "p": 61,
+          "p_pow": 61
+        },
+        {
+          "comb": 34220,
+          "e": 3,
+          "floor": 20,
+          "max_f": 20,
+          "n": 60,
+          "nH": 3721,
+          "nH_eq_p_pow": true,
+          "p": 61,
+          "p_pow": 3721
+        },
+        {
+          "comb": 2556,
+          "e": 2,
+          "floor": 36,
+          "max_f": 36,
+          "n": 72,
+          "nH": 73,
+          "nH_eq_p_pow": true,
+          "p": 73,
+          "p_pow": 73
+        },
+        {
+          "comb": 59640,
+          "e": 3,
+          "floor": 24,
+          "max_f": 24,
+          "n": 72,
+          "nH": 5329,
+          "nH_eq_p_pow": true,
+          "p": 73,
+          "p_pow": 5329
+        },
+        {
+          "comb": 4950,
+          "e": 2,
+          "floor": 50,
+          "max_f": 50,
+          "n": 100,
+          "nH": 101,
+          "nH_eq_p_pow": true,
+          "p": 101,
+          "p_pow": 101
+        },
+        {
+          "comb": 161700,
+          "e": 3,
+          "floor": 33,
+          "max_f": 17,
+          "n": 100,
+          "nH": 10100,
+          "nH_eq_p_pow": false,
+          "p": 101,
+          "p_pow": 10201
+        },
+        {
+          "comb": 120,
+          "e": 2,
+          "floor": 8,
+          "max_f": 8,
+          "n": 16,
+          "nH": 17,
+          "nH_eq_p_pow": true,
+          "p": 17,
+          "p_pow": 17
+        },
+        {
+          "comb": 560,
+          "e": 3,
+          "floor": 5,
+          "max_f": 3,
+          "n": 16,
+          "nH": 224,
+          "nH_eq_p_pow": false,
+          "p": 17,
+          "p_pow": 289
+        },
+        {
+          "comb": 1820,
+          "e": 4,
+          "floor": 4,
+          "max_f": 4,
+          "n": 16,
+          "nH": 89,
+          "nH_eq_p_pow": false,
+          "p": 17,
+          "p_pow": 4913
+        },
+        {
+          "comb": 4368,
+          "e": 5,
+          "floor": 3,
+          "max_f": 1,
+          "n": 16,
+          "nH": 0,
+          "nH_eq_p_pow": false,
+          "p": 17,
+          "p_pow": 83521
+        },
+        {
+          "comb": 8008,
+          "e": 6,
+          "floor": 2,
+          "max_f": 1,
+          "n": 16,
+          "nH": 0,
+          "nH_eq_p_pow": false,
+          "p": 17,
+          "p_pow": 1419857
+        },
+        {
+          "comb": 11440,
+          "e": 7,
+          "floor": 2,
+          "max_f": 1,
+          "n": 16,
+          "nH": 0,
+          "nH_eq_p_pow": false,
+          "p": 17,
+          "p_pow": 24137569
+        },
+        {
+          "comb": 12870,
+          "e": 8,
+          "floor": 2,
+          "max_f": 2,
+          "n": 16,
+          "nH": 1,
+          "nH_eq_p_pow": false,
+          "p": 17,
+          "p_pow": 410338673
+        },
+        {
+          "comb": 153,
+          "e": 2,
+          "floor": 9,
+          "max_f": 9,
+          "n": 18,
+          "nH": 19,
+          "nH_eq_p_pow": true,
+          "p": 19,
+          "p_pow": 19
+        },
+        {
+          "comb": 816,
+          "e": 3,
+          "floor": 6,
+          "max_f": 6,
+          "n": 18,
+          "nH": 307,
+          "nH_eq_p_pow": false,
+          "p": 19,
+          "p_pow": 361
+        },
+        {
+          "comb": 3060,
+          "e": 4,
+          "floor": 4,
+          "max_f": 2,
+          "n": 18,
+          "nH": 396,
+          "nH_eq_p_pow": false,
+          "p": 19,
+          "p_pow": 6859
+        },
+        {
+          "comb": 8568,
+          "e": 5,
+          "floor": 3,
+          "max_f": 2,
+          "n": 18,
+          "nH": 81,
+          "nH_eq_p_pow": false,
+          "p": 19,
+          "p_pow": 130321
+        },
+        {
+          "comb": 18564,
+          "e": 6,
+          "floor": 3,
+          "max_f": 3,
+          "n": 18,
+          "nH": 19,
+          "nH_eq_p_pow": false,
+          "p": 19,
+          "p_pow": 2476099
+        },
+        {
+          "comb": 31824,
+          "e": 7,
+          "floor": 2,
+          "max_f": 1,
+          "n": 18,
+          "nH": 0,
+          "nH_eq_p_pow": false,
+          "p": 19,
+          "p_pow": 47045881
+        },
+        {
+          "comb": 43758,
+          "e": 8,
+          "floor": 2,
+          "max_f": 1,
+          "n": 18,
+          "nH": 0,
+          "nH_eq_p_pow": false,
+          "p": 19,
+          "p_pow": 893871739
+        },
+        {
+          "comb": 48620,
+          "e": 9,
+          "floor": 2,
+          "max_f": 2,
+          "n": 18,
+          "nH": 1,
+          "nH_eq_p_pow": false,
+          "p": 19,
+          "p_pow": 16983563041
+        },
+        {
+          "comb": 435,
+          "e": 2,
+          "floor": 15,
+          "max_f": 15,
+          "n": 30,
+          "nH": 31,
+          "nH_eq_p_pow": true,
+          "p": 31,
+          "p_pow": 31
+        },
+        {
+          "comb": 4060,
+          "e": 3,
+          "floor": 10,
+          "max_f": 10,
+          "n": 30,
+          "nH": 961,
+          "nH_eq_p_pow": true,
+          "p": 31,
+          "p_pow": 961
+        },
+        {
+          "comb": 27405,
+          "e": 4,
+          "floor": 7,
+          "max_f": 4,
+          "n": 30,
+          "nH": 6070,
+          "nH_eq_p_pow": false,
+          "p": 31,
+          "p_pow": 29791
+        },
+        {
+          "comb": 142506,
+          "e": 5,
+          "floor": 6,
+          "max_f": 6,
+          "n": 30,
+          "nH": 4591,
+          "nH_eq_p_pow": false,
+          "p": 31,
+          "p_pow": 923521
+        }
+      ],
+      "status": "PASS"
+    },
+    "status": "PASS"
+  }
+}

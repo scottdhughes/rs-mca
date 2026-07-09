@@ -1,6 +1,13 @@
 # Agents Log
 
 
+### 2026-07-09 - KB-MCA Route-D v48: attack H_* (refine ★_D)
+
+- Proved: |H|≤p^{e-1}; e=2 ⇒ |H|≤p≤H2; e>n/2 ⇒ H_*=0; |H|≤binom/2.
+- CAS: e=2,3 cyclic saturate p^{e-1}; e=3 ⇒ p²>H2 so unrestricted ★ FALSE.
+- Large e/n can force H_*=0 with floor≥2; mid e has H_*≫floor.
+- Refined OPEN ★_D: free-1 multipad highs on KB complements D\\C only.
+
 ### 2026-07-09 - KB-MCA Route-D v47: untyped high bound draft
 
 - Draft: pure-untyped free-1 highs reduce to free-1 multipad highs in complements

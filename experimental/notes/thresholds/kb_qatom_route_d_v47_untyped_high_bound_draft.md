@@ -199,16 +199,24 @@ Special cases:
 
 ---
 
-## 9. Open sublemma ★ — the real wall
+## 9. Open sublemma ★ — refined after v48 attack
 
-**Conjecture / open theorem.**
+**Original unrestricted form (FALSE for e=3):**
 
 ```text
-H_*(A + e, e)  ≤  H2
+H_*(any domain of size A+e, e)  ≤  H2
 ```
 
-i.e. the number of free-1 multipad highs among e-subsets of any
-`(A+e)`-point subset of the domain is at most `H2 ≈ 7.73×10^10`.
+v48 CAS: cyclic domains with e=3 attain `|H|=p² > H2`. So abstract-domain ★ fails.
+
+**Refined ★_D (LIVE):**
+
+```text
+Ω = D \ C,  D = fixed KB n-point domain ⊂ F_p,  |C|=m_c
+H_*^D = # free-1 multipad highs among e-subsets of Ω
+Need H_*^D ≤ H2
+(or co-extension-restricted count ≤ H2)
+```
 
 ### Why this is the right residual problem
 
