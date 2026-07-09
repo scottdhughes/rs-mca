@@ -7,6 +7,14 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v17: A_SP cost algebra + mark bank
+
+- **Proved:** Fib=A_SP⊔R_sing; |A_SP|≤17·P_multi and |A_SP|≤N_ord (ordered
+  seam pairs). First-match split form. P_multi≤t·p/17 ⇒ A_SP≤t·p (conditional).
+  R_sing ↔ cores bijective.
+- **Banked:** no tested n·p-scale mark injective on all toys; n·p² sometimes works.
+- **Open:** bound P_multi / |A_SP|; ledger-pivot injective mark on R_sing.
+
 ### 2026-07-09 - KB-MCA Route-D v16: H_seam via A_SP + isolated marks
 
 - **Agent/model:** Grok + Scott Hughes (`scottdhughes`).

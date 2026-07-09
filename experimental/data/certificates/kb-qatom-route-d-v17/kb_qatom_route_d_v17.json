@@ -1,0 +1,352 @@
+{
+  "claims": {
+    "banks_mark_search_failures": true,
+    "proves_A_SP_cost_identities": true,
+    "proves_A_SP_cost_le_tp": false,
+    "proves_P_multi_criterion": true,
+    "proves_R_sing_core_bijection": true,
+    "proves_fiber_partition": true,
+    "proves_first_match_split_form": true,
+    "proves_mark_injectivity": false
+  },
+  "deployed": {
+    "P_multi_budget_for_A_SP_le_tp": 8456648496904,
+    "TARGET": 274836936291722953,
+    "j": 981104,
+    "log2_P_multi_budget": 42.94322315247798,
+    "n": 2097152,
+    "n_p": 4468415257378816,
+    "pack_ceil": 17,
+    "t": 67472,
+    "t_p": 143763024447376,
+    "w": 67471
+  },
+  "impact_on_program": {
+    "A_SP_path": "Pay |A_SP|\u226417*P_multi or \u2264N_ord; need P_multi or N_ord bound",
+    "mark_path": "No tested E2/E5 mark works on toys; need ledger pivot geometry",
+    "next": "Bound P_multi(z) or design injective R_sing mark from rank/RIM"
+  },
+  "lemmas": {
+    "OPEN": {
+      "falsifier": "A fiber with |A_SP| larger than the claimed U_A_SP; or two R_sing supports with the same claimed mark.",
+      "name": "OPEN_A_SP_COST_AND_R_SING_MARK",
+      "statement": "(1) Bound max P_multi or max |A_SP| by a printed constant (ideally \u2264 t\u00b7p), using SP/BC geometry \u2014 establishes A_SP as a paid cell.\n(2) Prove an injective mark on R_sing into size \u2264 t\u00b7p or n\u00b7p (ledger pivot / RIM / selector), not a failed local (min,\u00b7) form.",
+      "status": "OPEN"
+    },
+    "P_multi_criterion": {
+      "name": "P_multi_bound_gives_A_SP_cost",
+      "numbers": {
+        "log2_t_p_over_pack": 42.94322315247798,
+        "t_p_over_pack": 8456648496904
+      },
+      "open": "Bound max_z P_multi(z) (number of multi-member top-seam pencils).",
+      "proof": [
+        "Immediate from |A_SP| \u2264 pack_ceil \u00b7 P_multi."
+      ],
+      "statement": "If max_z P_multi(z) \u2264 floor(B / 17), then max |A_SP(z)| \u2264 B by cost identity (i). In particular B = t\u00b7p gives the criterion P_multi \u2264 floor(t\u00b7p / 17) = 8456648496904.",
+      "status": "PROVED_CONDITIONAL"
+    },
+    "R_sing_mark": {
+      "name": "R_sing_mark_equals_core_injection",
+      "proof": [
+        "Singleton pencil \u21d2 unique support per core in the fiber (v15/v16).",
+        "Cardinality bijection."
+      ],
+      "statement": "On R_sing(z), C_can: R_sing \u2192 C_res is bijective. Therefore an injective mark on residual supports exists with codomain L iff residual can-cores inject into L. E2/E5 marks may be defined on supports or cores interchangeably for R_sing.",
+      "status": "PROVED"
+    },
+    "cost_identities": {
+      "deployed_pack_ceil": 17,
+      "name": "A_SP_printed_cost_identities",
+      "printed_cost_forms": {
+        "exact_support": "|A_SP|",
+        "ordered_pairs": "N_ord",
+        "pack_P_multi": "17 * P_multi"
+      },
+      "proof": [
+        "(i) Each multi-member pencil has size k \u2264 pack_ceil by core-pencil packing (v2). Sum of k over P_multi pencils \u2264 pack_ceil \u00b7 P_multi.",
+        "(ii) k\u2264k(k-1) for k\u22652: for k=2 equality; for k\u22653, k-1\u22652 so k(k-1)\u22652k>k.",
+        "Summing over multi-member pencils yields |A_SP| \u2264 N_ord."
+      ],
+      "statement": "Let pencils of sizes k_1,...,k_r include multi-member ones with sizes k\u22652. Write\n  |A_SP(z)| = sum_{k\u22652} k\n  P_multi(z) = |{pencils : k\u22652}|\n  N_ord(z) = sum_{k\u22652} k(k-1)   (ordered top-seam pairs in G_z).\nThen:\n  (i)  |A_SP(z)| \u2264 pack_ceil \u00b7 P_multi(z)\n       (deployed pack_ceil=17, since k \u2264 floor((n-|C|)/e) \u2264 17);\n  (ii) |A_SP(z)| \u2264 N_ord(z)\n       because for every integer k\u22652 one has k \u2264 k(k-1).",
+      "status": "PROVED"
+    },
+    "first_match_split": {
+      "name": "first_match_A_SP_cell_then_residual_sing",
+      "note": "This packages A_SP as a payable first-match cell with an explicit support set. The missing inputs are (a) U_A_SP \u2264 printed budget and (b) injective mark / mass bound on R_sing.",
+      "proof": [
+        "First-match upper ledger (grande_finale): sum of cell bounds upper-bounds union. Partition Fib = A_SP \u2294 R_sing.",
+        "R_sing matching-free \u21d2 mass law |R_sing|=N_can (v15).",
+        "v14: t\u00b7p and n\u00b7p fit under TARGET."
+      ],
+      "statement": "In a first-match ledger, pay cell C_A_SP with E \u2287 A_SP(z) for every z and bound |E|\u2264U_A_SP. The residual family after this cell may be taken as R \u2286 R_sing (supports not in A_SP). Then H_seam holds on R, |R|=N_can_prim(R), and\n  max |Fib residual| \u2264 U_A_SP + max |R_sing|.\nIf U_A_SP \u2264 t\u00b7p and max |R_sing| \u2264 t\u00b7p (or n\u00b7p), residual-scale mass fits E2/E5 budgets (whether or not the full Q residual equals R_sing).",
+      "status": "PROVED"
+    },
+    "mark_bank": {
+      "name": "no_tested_E2_E5_mark_injective",
+      "proof": [
+        "Computational certificates in toy_suite mark_rows."
+      ],
+      "statement": "On A_SP residual R_sing (singleton top-seam pencils) for small dyadic rows, none of the following n\u00b7p-scale marks is injective on all tested rows: (min S, a_{w+1}), (min U, a_{w+1}), (min C, b1/c0/sum/prod), (sum S, a_{w+1}), (prod U, a_{w+1}), (min S, sum S). The n\u00b7p\u00b2 mark (min S, a_{w+1}, a_{w+2}) is injective on some but not all toys, and n\u00b7p\u00b2 is not an E2/E5 budget. Conclusion: plain local marks are unlikely to prove E2/E5; need ledger-specific pivots or a different label geometry.",
+      "status": "PROVED_NEGATIVE_TOY_BANK"
+    },
+    "partition": {
+      "name": "fiber_partition_A_SP_and_singleton",
+      "proof": [
+        "Every support has a unique lex can-core and lies in U(C,z) for that core.",
+        "Pencils partition the fiber. Multi vs singleton is a partition of pencils.",
+        "Singleton pencils have no internal top-seam edge."
+      ],
+      "statement": "For each z, partition Fib_w(z) by top-seam core pencils U(C,z):\n  A_SP(z)  = union of multi-member pencils (|U(C,z)|\u22652)\n  R_sing(z)= union of singleton pencils (|U(C,z)|=1)\nThese are disjoint and cover Fib_w(z). R_sing is matching-free (H_seam) by construction. A_SP is exactly the support set assigned by rule A_SP (v16).",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v17",
+  "status": "PARTIAL_A_SP_COST",
+  "title": "A_SP printed cost algebra; R_sing mark search bank",
+  "toy_suite": {
+    "cost_rows": [
+      {
+        "A_le_N_ord": true,
+        "frac_multi": 0.021678321678321677,
+        "j": 8,
+        "max_A_SP_fiber": 7,
+        "max_P_multi_fiber": 3,
+        "max_R_sing_fiber": 54,
+        "multi_P": 139,
+        "multi_S": 279,
+        "n": 16,
+        "n_ord": 282,
+        "p": 17,
+        "total_S": 12870,
+        "w": 2
+      },
+      {
+        "A_le_N_ord": true,
+        "frac_multi": 0.008216783216783216,
+        "j": 9,
+        "max_A_SP_fiber": 4,
+        "max_P_multi_fiber": 2,
+        "max_R_sing_fiber": 42,
+        "multi_P": 47,
+        "multi_S": 94,
+        "n": 16,
+        "n_ord": 94,
+        "p": 17,
+        "total_S": 11440,
+        "w": 2
+      },
+      {
+        "A_le_N_ord": true,
+        "frac_multi": 0.050699300699300696,
+        "j": 7,
+        "max_A_SP_fiber": 10,
+        "max_P_multi_fiber": 5,
+        "max_R_sing_fiber": 42,
+        "multi_P": 287,
+        "multi_S": 580,
+        "n": 16,
+        "n_ord": 598,
+        "p": 17,
+        "total_S": 11440,
+        "w": 2
+      },
+      {
+        "A_le_N_ord": true,
+        "frac_multi": 0.11013986013986014,
+        "j": 6,
+        "max_A_SP_fiber": 12,
+        "max_P_multi_fiber": 6,
+        "max_R_sing_fiber": 31,
+        "multi_P": 433,
+        "multi_S": 882,
+        "n": 16,
+        "n_ord": 930,
+        "p": 17,
+        "total_S": 8008,
+        "w": 2
+      },
+      {
+        "A_le_N_ord": true,
+        "frac_multi": 0.0,
+        "j": 10,
+        "max_A_SP_fiber": 0,
+        "max_P_multi_fiber": 0,
+        "max_R_sing_fiber": 5,
+        "multi_P": 0,
+        "multi_S": 0,
+        "n": 16,
+        "n_ord": 0,
+        "p": 17,
+        "total_S": 8008,
+        "w": 3
+      },
+      {
+        "A_le_N_ord": true,
+        "frac_multi": 0.2303113553113553,
+        "j": 5,
+        "max_A_SP_fiber": 10,
+        "max_P_multi_fiber": 5,
+        "max_R_sing_fiber": 17,
+        "multi_P": 489,
+        "multi_S": 1006,
+        "n": 16,
+        "n_ord": 1090,
+        "p": 17,
+        "total_S": 4368,
+        "w": 2
+      },
+      {
+        "A_le_N_ord": true,
+        "frac_multi": 0.00017482517482517483,
+        "j": 9,
+        "max_A_SP_fiber": 2,
+        "max_P_multi_fiber": 1,
+        "max_R_sing_fiber": 5,
+        "multi_P": 1,
+        "multi_S": 2,
+        "n": 16,
+        "n_ord": 2,
+        "p": 17,
+        "total_S": 11440,
+        "w": 3
+      }
+    ],
+    "mark_rows": [
+      {
+        "any_np_injective": false,
+        "aw1_aw2_injective": false,
+        "j": 8,
+        "n": 16,
+        "p": 17,
+        "w": 2,
+        "worst": {
+          "minC_b1": 4,
+          "minC_c0": 5,
+          "minC_sum": 4,
+          "minS_aw1": 5,
+          "minS_aw1_aw2": 2,
+          "minS_sum": 27,
+          "minU_aw1": 5,
+          "prodU_aw1": 3,
+          "sumS_aw1": 7
+        }
+      },
+      {
+        "any_np_injective": false,
+        "aw1_aw2_injective": false,
+        "j": 9,
+        "n": 16,
+        "p": 17,
+        "w": 2,
+        "worst": {
+          "minC_b1": 6,
+          "minC_c0": 5,
+          "minC_sum": 6,
+          "minS_aw1": 5,
+          "minS_aw1_aw2": 2,
+          "minS_sum": 27,
+          "minU_aw1": 5,
+          "prodU_aw1": 3,
+          "sumS_aw1": 5
+        }
+      },
+      {
+        "any_np_injective": false,
+        "aw1_aw2_injective": false,
+        "j": 7,
+        "n": 16,
+        "p": 17,
+        "w": 2,
+        "worst": {
+          "minC_b1": 4,
+          "minC_c0": 4,
+          "minC_sum": 4,
+          "minS_aw1": 4,
+          "minS_aw1_aw2": 2,
+          "minS_sum": 21,
+          "minU_aw1": 4,
+          "prodU_aw1": 3,
+          "sumS_aw1": 5
+        }
+      },
+      {
+        "any_np_injective": false,
+        "aw1_aw2_injective": true,
+        "j": 6,
+        "n": 16,
+        "p": 17,
+        "w": 2,
+        "worst": {
+          "minC_b1": 3,
+          "minC_c0": 3,
+          "minC_sum": 3,
+          "minS_aw1": 3,
+          "minS_aw1_aw2": 1,
+          "minS_sum": 13,
+          "minU_aw1": 3,
+          "prodU_aw1": 3,
+          "sumS_aw1": 5
+        }
+      },
+      {
+        "any_np_injective": false,
+        "aw1_aw2_injective": true,
+        "j": 10,
+        "n": 16,
+        "p": 17,
+        "w": 3,
+        "worst": {
+          "minC_b1": 2,
+          "minC_c0": 2,
+          "minC_sum": 2,
+          "minS_aw1": 2,
+          "minS_aw1_aw2": 1,
+          "minS_sum": 4,
+          "minU_aw1": 2,
+          "prodU_aw1": 2,
+          "sumS_aw1": 2
+        }
+      },
+      {
+        "any_np_injective": true,
+        "aw1_aw2_injective": true,
+        "j": 5,
+        "n": 16,
+        "p": 17,
+        "w": 2,
+        "worst": {
+          "minC_b1": 1,
+          "minC_c0": 1,
+          "minC_sum": 1,
+          "minS_aw1": 3,
+          "minS_aw1_aw2": 1,
+          "minS_sum": 7,
+          "minU_aw1": 3,
+          "prodU_aw1": 2,
+          "sumS_aw1": 3
+        }
+      },
+      {
+        "any_np_injective": false,
+        "aw1_aw2_injective": true,
+        "j": 9,
+        "n": 16,
+        "p": 17,
+        "w": 3,
+        "worst": {
+          "minC_b1": 2,
+          "minC_c0": 2,
+          "minC_sum": 2,
+          "minS_aw1": 2,
+          "minS_aw1_aw2": 1,
+          "minS_sum": 5,
+          "minU_aw1": 2,
+          "prodU_aw1": 2,
+          "sumS_aw1": 2
+        }
+      }
+    ],
+    "status": "PASS"
+  }
+}
