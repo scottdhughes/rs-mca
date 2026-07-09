@@ -1,5 +1,12 @@
 # Agents Log
 
+### 2026-07-09 - KB-MCA Route-D v53: C_unique PROVED (terminal core)
+
+- Proved: free-1 ⇒ e_k(C⊔U)=e_k(C⊔V) for k≤w=e−1 (fiber auto-match).
+- Proved: #cores(U,V)=binom(n−1−max(U∪V),m_c); untyped ⇔ max=n'−1 ⇔ C_*=terminal block.
+- C_unique PROVED; N_C=1; |H_unt|≤H_*^pre(n',e) (drops N_C factor from v47).
+- OPEN: H_*^pre(n',e)≤H2 for deployed e>2.
+
 ### 2026-07-09 - KB-MCA Route-D v52: residual t-gate vs multipad windows
 
 - Hierarchy: H_*^pre ≤ min(p^{e-1}, C(t,2e), ⌊C(t,e)/2⌋).
