@@ -4,7 +4,7 @@
 **Goal:** residual free-1 / A_SP card toward `A_SP ≤ t·p` on KoalaBear MCA `a+=1116048`.
 **Does NOT claim** `U ≤ B*` or full MCA close.
 
-Last tip packet: **v54** on `main`; local attack **v55–v75** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
+Last tip packet: **v54** on `main`; local attack **v55–v76** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
 `experimental/scripts/verify_kb_qatom_route_d_v{N}.py` with matching
 notes, certificates, and scanner reports.
 
@@ -120,8 +120,8 @@ Certificates: `experimental/data/certificates/kb-qatom-route-d-v{N}/`.
 
 ## Next session entry
 
-**Primary:** large-t multipad ban or SoftB. Board: t<=2e inj (v74); multipad
-=> span>=2e, non-AP union (v75). Deployed n'~17.5e. PR only for CLOSED hits.
+**Primary:** large-t multipad ban or SoftB. Board: coll<=min((K-1)C, 2 C(t,2e))
+(v76). Deployed still >>H2. PR only for residual CLOSED hits.
 
 ---
 
@@ -215,3 +215,7 @@ Deployed n'~17.5e still open. OPEN: large-t ban / SoftB.
 **v75**: BOARD — multipad => t≥2e+1; **span≥2e** (strengthens span≥e); union W
 not contiguous / not AP of length 2e with ord(ρ)>2e (rescale to v74). Hole in
 [min,max]. Necessary only; large-t ban still OPEN.
+
+**v76**: BOARD — **coll ≤ 2 C(t,2e)** (one multipad pair per 2e-set W);
+coll ≤ min((K−1)C, 2 C(t,2e)). Near t~2e union wins; large t packing may win.
+Deployed both ≫ H2. OPEN: coll=0 or SoftB.
