@@ -7,6 +7,25 @@
 
 
 
+### 2026-07-08 - KB-MCA Route-D v13: block factorization of multi-mates
+
+- **Agent/model:** Grok + Scott Hughes (`scottdhughes`).
+- **Files added or changed:**
+  `experimental/scripts/verify_kb_qatom_route_d_v13.py`,
+  `experimental/notes/thresholds/kb_qatom_route_d_v13.md`,
+  `experimental/data/certificates/kb-qatom-route-d-v13/`,
+  `experimental/notes/certificate_scanner/outputs/kb_qatom_route_d_v13.report.md`,
+  `experimental/agents-log.md`.
+- **Status:** PARTIAL_SCALE_RECURSION — factorization PROVED; residual long ban OPEN.
+- **Proved:** Every multi-mate factors as pad R + blocks U,V of size s≥w+1 with
+  Phi_w(U)=Phi_w(V). s=w+1 ⇔ tight; s≥w+2 ⇔ long. Long at (m,w) ⇔ multi-mate
+  at some long scale s. Conditional: no multi-mates on s∈[w+2,m] ⇒ only tight
+  at m ⇒ K_res≤18 with clique hyp. v8 is long (s=131072).
+- **Toys:** residual aperiodic still has long trades at low w; some higher-w
+  residual rows have long=0.
+- **What to do next:** Forbid residual multi-mates at long scales; or U_phi;
+  or M_m^res≤1.
+
 ### 2026-07-08 - KB-MCA Route-D v12: trade-weight law + min-weight criterion
 
 - **Agent/model:** Grok + Scott Hughes (`scottdhughes`).

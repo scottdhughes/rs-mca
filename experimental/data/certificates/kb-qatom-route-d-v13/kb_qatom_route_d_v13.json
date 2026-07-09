@@ -1,0 +1,286 @@
+{
+  "claims": {
+    "proves_Mm_res_le_1": false,
+    "proves_block_factorization": true,
+    "proves_long_free_criterion": true,
+    "proves_no_residual_long_trades": false,
+    "proves_scale_dictionary": true,
+    "proves_scale_recursion": true,
+    "proves_tight_scale_free1": true,
+    "proves_unconditional_atom": false
+  },
+  "deployed": {
+    "U_res_if_Kres_18": 898159922521970,
+    "k_coset_lower": 10,
+    "k_tight": 18,
+    "log2_U_res_K18": 49.67396567638247,
+    "m": 913632,
+    "min_trade": 134944,
+    "n": 2097152,
+    "n_long_scales": 846160,
+    "s_long_max": 913632,
+    "s_long_min": 67473,
+    "s_tight": 67472,
+    "v8_long": true,
+    "v8_s": 131072,
+    "w": 67471
+  },
+  "impact_on_program": {
+    "next": "Forbid/pay multi-mates at long scales inside residual, then tight-clique \u226418; or M_m^res\u22641; or U_phi",
+    "reduction": "Long multi-mates at deployed m \u21d4 multi-mates at some s in [67473, 913632] at same depth w"
+  },
+  "lemmas": {
+    "atomic_scale": {
+      "deployed": {
+        "e0_coset_divides": true,
+        "floor_n_over_s": 31,
+        "note": "Deployed tight scale e=w+1 does not divide n; pure cosets use e0=2^17 > e.",
+        "s": 67472
+      },
+      "name": "tight_scale_is_atomic_free1",
+      "proof": [
+        "free = s \u2212 w = 1 at s = w+1; apply free-1 packing (v6).",
+        "Cosets when e0 = w+1 divides n: pencil size n/e0 (v8)."
+      ],
+      "statement": "The minimal multi-mate scale s = w+1 is exactly the free-1 regime for block size s: M_{w+1}^{max}(w) \u2264 floor(n/(w+1)), achieved by full free-1 CS pencils (e.g. pure cosets when (w+1)|n).",
+      "status": "PROVED"
+    },
+    "block_factorization": {
+      "name": "multimate_block_factorization",
+      "proof": [
+        "From v9/v12: |R| = |C \u2229 C'| \u2264 m\u2212w\u22121, so s = m\u2212|R| \u2265 w+1.",
+        "Disjoint unions C = R \u2294 U, C' = R \u2294 V give the locator factorizations.",
+        "Phi_w(C)=Phi_w(C') means deg(\u039b_C \u2212 \u039b_{C'}) \u2264 m\u2212w\u22121. But \u039b_C \u2212 \u039b_{C'} = \u039b_R (\u039b_U \u2212 \u039b_V), so deg = |R| + deg(\u039b_U \u2212 \u039b_V) \u2264 m\u2212w\u22121, hence deg(\u039b_U \u2212 \u039b_V) \u2264 m\u2212w\u22121\u2212(m\u2212s) = s\u2212w\u22121.",
+        "For monic degree-s locators, deg(difference) \u2264 s\u2212w\u22121 means the first w high monic coefficients agree, i.e. Phi_w(U)=Phi_w(V).",
+        "|C \u25b3 C'| = |U| + |V| = 2s."
+      ],
+      "statement": "Let C \u2260 C' be m-subsets of D with Phi_w(C)=Phi_w(C'). Set R = C \u2229 C', U = C \\\\ C', V = C' \\\\ C, and s = |U| = |V|. Then:\n  (i)   s \u2265 w+1 and |R| = m\u2212s \u2264 m\u2212w\u22121;\n  (ii)  \u039b_C = \u039b_R \u039b_U, \u039b_{C'} = \u039b_R \u039b_V, and \u039b_C \u2212 \u039b_{C'} = \u039b_R (\u039b_U \u2212 \u039b_V);\n  (iii) deg(\u039b_U \u2212 \u039b_V) \u2264 s \u2212 w \u2212 1, hence Phi_w(U)=Phi_w(V);\n  (iv)  |C \u25b3 C'| = 2s.",
+      "status": "PROVED"
+    },
+    "long_free_criterion": {
+      "budgets_if_Kres_18": {
+        "U_res": 898159922521970,
+        "log2": 49.67396567638247
+      },
+      "deployed_long_scales": {
+        "count_inclusive": 846160,
+        "count_of_scales": 846160,
+        "s_max": 913632,
+        "s_min": 67473
+      },
+      "name": "no_long_scales_implies_only_tight",
+      "note": "Still a large family of scales. The point is reduction: residual uniqueness at ALL free\u22652 scales of depth w implies only tight multi-mates at deployed m. Entropy at each scale with C(n,s)/p^w \u226a 1 is the same style of claim.",
+      "proof": [
+        "If a multi-mate had s \u2265 w+2 then M_s^{max}(w) \u2265 2, contradiction.",
+        "Hence only s = w+1 multi-mates remain (or no multi-mates).",
+        "Apply v12 min-weight pairwise-tight criterion."
+      ],
+      "statement": "If M_s^{max}(w) \u2264 1 for every s \u2208 [w+2, m], then every multi-mate pair at (m,w) has block size s = w+1 (tight only). If moreover every residual multi-mate fiber is a pairwise-tight clique, then M_m^{res,phi} \u2264 k_tight = 18, and U_res \u2264 floor(target/(17*18)) closes the residual atom.",
+      "status": "PROVED_CONDITIONAL"
+    },
+    "program": {
+      "name": "v13_reduction",
+      "not_proved": [
+        "no residual long-scale multi-mates",
+        "residual tight fibers are cliques",
+        "M_m^{res} \u2264 1",
+        "U_phi atom bound"
+      ],
+      "statement": "Residual atom after v12\u2013v13 reduces to forbidding multi-mates at long scales s \u2208 [w+2, m] inside residual can-cores (or paying them), then applying tight-clique packing \u2264 18; or proving residual M_m^{res} \u2264 1 directly; or bounding U_phi.",
+      "status": "PROVED_AS_PROGRAM_LAW"
+    },
+    "recursion": {
+      "name": "multimate_scale_recursion",
+      "proof": [
+        "(A) Block factorization produces U \u2260 V with Phi_w(U)=Phi_w(V), |U|=s.",
+        "(B) v9 padding reduction / v8 coset case.",
+        "(C) Long means s \u2265 w+2; apply (A)."
+      ],
+      "statement": "Let M_m^{max}(w) be the max Phi_w fiber size among m-subsets of D. (A) If there exists a multi-mate pair at (m,w) with block size s, then M_s^{max}(w) \u2265 2. (B) Conversely, if M_s^{max}(w) \u2265 2 and n \u2212 s \u2265 m \u2212 s (i.e. n \u2265 m) with room for a common pad R of size m\u2212s disjoint from two disjoint s-blocks in one fiber, then M_m^{max}(w) \u2265 2 (padding reduction, v8/v9). (C) Therefore long multi-mates at (m,w) exist only if multi-mates exist at some scale s \u2208 [w+2, m].",
+      "status": "PROVED"
+    },
+    "scale_dictionary": {
+      "deployed": {
+        "s_long_max": 913632,
+        "s_long_min": 67473,
+        "s_tight": 67472,
+        "v8_is_long": true,
+        "v8_s": 131072
+      },
+      "name": "scale_dictionary_tight_vs_long",
+      "proof": [
+        "Immediate from block factorization + trade-weight law (v12) + tight-pair law (v9).",
+        "free_s = s \u2212 w: when s = w+1, free_s = 1; when s \u2265 w+2, free_s \u2265 2."
+      ],
+      "statement": "Under block factorization, s = |C \\\\ C'| satisfies:\n  s = w+1  \u21d4  |C \u25b3 C'| = 2(w+1)  \u21d4  tight / min-weight (free-1 CS of (w+1)-blocks on core R);\n  s \u2265 w+2  \u21d4  |C \u25b3 C'| \u2265 2(w+2)  \u21d4  long trade / non-tight, and (U,V) is a multi-mate pair at parameters (s,w) with free_s = s\u2212w \u2265 2.",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v13",
+  "status": "PARTIAL_SCALE_RECURSION",
+  "title": "Recursive block factorization of Phi_w multi-mates",
+  "toy_suite": {
+    "full_rows": [
+      {
+        "Mm": 8,
+        "free": 2,
+        "kind": "full",
+        "m": 4,
+        "n_long_s": 1494,
+        "n_pairs": 5014,
+        "n_tight_s": 3520,
+        "s_hist": {
+          "3": 3520,
+          "4": 1494
+        },
+        "w": 2
+      },
+      {
+        "Mm": 17,
+        "free": 3,
+        "kind": "full",
+        "m": 5,
+        "n_long_s": 15312,
+        "n_pairs": 31152,
+        "n_tight_s": 15840,
+        "s_hist": {
+          "3": 15840,
+          "4": 11952,
+          "5": 3360
+        },
+        "w": 2
+      },
+      {
+        "Mm": 3,
+        "free": 2,
+        "kind": "full",
+        "m": 5,
+        "n_long_s": 112,
+        "n_pairs": 1120,
+        "n_tight_s": 1008,
+        "s_hist": {
+          "4": 1008,
+          "5": 112
+        },
+        "w": 3
+      },
+      {
+        "Mm": 32,
+        "free": 4,
+        "kind": "full",
+        "m": 6,
+        "n_long_s": 65112,
+        "n_pairs": 107352,
+        "n_tight_s": 42240,
+        "s_hist": {
+          "3": 42240,
+          "4": 41832,
+          "5": 20160,
+          "6": 3120
+        },
+        "w": 2
+      },
+      {
+        "Mm": 5,
+        "free": 3,
+        "kind": "full",
+        "m": 6,
+        "n_long_s": 952,
+        "n_pairs": 4480,
+        "n_tight_s": 3528,
+        "s_hist": {
+          "4": 3528,
+          "5": 672,
+          "6": 280
+        },
+        "w": 3
+      },
+      {
+        "Mm": 2,
+        "free": 2,
+        "kind": "full",
+        "m": 6,
+        "n_long_s": 40,
+        "n_pairs": 40,
+        "n_tight_s": 0,
+        "s_hist": {
+          "6": 40
+        },
+        "w": 4
+      }
+    ],
+    "residual_rows": [
+      {
+        "Mm_res": 10,
+        "j": 9,
+        "kind": "residual_proxy",
+        "m": 6,
+        "n_long_s": 1949,
+        "n_tight_s": 2555,
+        "s_hist": {
+          "3": 2555,
+          "4": 1550,
+          "5": 378,
+          "6": 21
+        },
+        "w": 2
+      },
+      {
+        "Mm_res": 5,
+        "j": 7,
+        "kind": "residual_proxy",
+        "m": 4,
+        "n_long_s": 155,
+        "n_tight_s": 511,
+        "s_hist": {
+          "3": 511,
+          "4": 155
+        },
+        "w": 2
+      },
+      {
+        "Mm_res": 2,
+        "j": 10,
+        "kind": "residual_proxy",
+        "m": 6,
+        "n_long_s": 0,
+        "n_tight_s": 30,
+        "s_hist": {
+          "4": 30
+        },
+        "w": 3
+      },
+      {
+        "Mm_res": 3,
+        "j": 6,
+        "kind": "residual_proxy",
+        "m": 3,
+        "n_long_s": 0,
+        "n_tight_s": 73,
+        "s_hist": {
+          "3": 73
+        },
+        "w": 2
+      },
+      {
+        "Mm_res": 2,
+        "j": 9,
+        "kind": "residual_proxy",
+        "m": 5,
+        "n_long_s": 0,
+        "n_tight_s": 20,
+        "s_hist": {
+          "4": 20
+        },
+        "w": 3
+      }
+    ],
+    "status": "PASS",
+    "unit_long_factor": {
+      "block_phi_match": true,
+      "e0": 4,
+      "long": true,
+      "s": 4
+    }
+  }
+}
