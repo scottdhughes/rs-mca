@@ -1,0 +1,319 @@
+{
+  "claims": {
+    "proves_A_SP_le_tp": false,
+    "proves_fc1_only_type_D": true,
+    "proves_residual_multipad_emptiness": true,
+    "proves_type_D_Mpad_le_2_deployed": true,
+    "proves_type_D_S_classification": true,
+    "proves_type_S_Mpad_bound_deployed": false,
+    "proves_type_S_needs_fc_ge_2": true,
+    "toy_confirms_residual_empty_and_DS": true
+  },
+  "deployed": {
+    "K_max": 2176,
+    "allows_type_S": true,
+    "e": 67472,
+    "e_p": 143763024447376,
+    "free_core": 846161,
+    "j": 981104,
+    "m_c": 913632,
+    "t_p": 143763024447376,
+    "type_D_Mpad_bound": 2,
+    "w": 67471
+  },
+  "impact_on_program": {
+    "A_SP": "Type D multipads: M_pad\u22642 deployed. Type S (shared-root, free_core\u22652) is the live multipad gap.",
+    "next": "Pay or kill Type S multipads (shared-root first-match / free_core reduction); high tag \u03ba\u2192[K_max] for sides",
+    "residual": "Residual multipad t=1 is VACUOUS \u2014 residual has no multipads after A_SP payment (R_sing only)"
+  },
+  "lemmas": {
+    "OPEN": {
+      "name": "OPEN_type_S_Mpad_and_high_tag",
+      "statement": "(1) Bound Type S multipads at free_core=846161: shared-root A_SP multipads with t\u22652 \u2014 e.g. reduce free_core along common roots, or first-match shared-root cell.\n(2) Residual/A_SP free-1 highs \u21aa [2176] for (\u03ba,\u03b9,\u03b4) side marks.\nResidual multipad t=1 is settled vacuously (no residual multipads).",
+      "status": "OPEN"
+    },
+    "payment": {
+      "name": "payment_path_after_residual_emptiness",
+      "program": "Kill or pay Type S multipads at free_core\u226b1; compress residual highs to [2176] for side marks under M_pad\u22641 or \u22642.",
+      "proof": [
+        "Residual emptiness (lemma 1) + Type D packing + v20 N_ord bound."
+      ],
+      "statement": "First-match residual mass after paying A_SP is pure R_sing (no multipad). A_SP payment still needs N_ord \u2264 M_pad \u00b7 N_side on A_SP multipads, with Type D contributing M_pad \u2264 2 deployed and Type S open. Side injection (\u03b9,\u03b4)+high tag (v25\u2013v28) remains the other half.",
+      "status": "PROVED"
+    },
+    "residual_empty": {
+      "consequence": "The slogan 'residual multipad t=1' is vacuously true: residual multipads do not exist. The live M_pad problem is entirely inside the A_SP payment cell.",
+      "name": "residual_multipad_emptiness_after_A_SP",
+      "proof": [
+        "Multipad side key (high,c0U,c0V) is populated only from ordered CS pairs (U,V) drawn from a free-1 pencil of size \u22652 on a common core (top-seam normal form v15\u2013v20).",
+        "Multi-member free-1 pencils are exactly the A_SP assignment set (v17).",
+        "R_sing := Fib \\ A_SP has only singleton pencils \u21d2 no CS ordered pair of that form \u21d2 no multipad side key \u21d2 M_pad:=1, N_ord=0.",
+        "First-match form (v17): pay A_SP cell; residual \u2286 R_sing."
+      ],
+      "statement": "Under the first-match fiber partition Fib_w(z) = A_SP(z) \u2294 R_sing(z) (v17), where A_SP is the set of j-supports in multi-member top-seam core pencils and R_sing is the complementary singleton-pencil residual: every multipad event is supported on a free-1 CS ordered pair arising from a multi-member pencil, hence only on A_SP. Consequently R_sing has N_ord=0 and M_pad=1 vacuously. After the A_SP first-match cell is paid, the residual carries no multipad term.",
+      "status": "PROVED"
+    },
+    "type_DS": {
+      "name": "A_SP_multipad_type_D_vs_S",
+      "proof": [
+        "Definition from v28 point-multiplicity."
+      ],
+      "statement": "For each A_SP multipad side key (U,V) with core set Cores, define t = max_r |{C \u2208 Cores : r \u2208 C}| over r \u2208 D\\(U\u222aV). Type D: t=1 (pairwise disjoint cores). Type S: t\u22652 (shared-root multipad).",
+      "status": "PROVED"
+    },
+    "type_D_pack": {
+      "deployed_bound": 2,
+      "name": "type_D_Mpad_packing_deployed_2",
+      "proof": [
+        "v28: M_pad \u2264 \u230at(n\u22122e)/m_c\u230b; t=1 \u21d2 packing.",
+        "v27: free_core=1 \u21d2 |C\u2229C'|\u22640 \u21d2 t=1 \u21d2 Type D.",
+        "Deployed \u230a(n\u22122e)/m_c\u230b = 2."
+      ],
+      "statement": "Type D multipads have t=1, hence M_pad \u2264 \u230a(n\u22122e)/m_c\u230b = 2 at deployed parameters (v28). free_core=1 multipads are always Type D (v27 |C\u2229C'|=0), so free_core=1 \u21d2 M_pad \u2264 2 deployed as well.",
+      "status": "PROVED"
+    },
+    "type_S_fc": {
+      "deployed_note": "Deployed free_core=846161 \u2265 2, so Type S is not ruled out by degree; it is the remaining A_SP multipad gap.",
+      "name": "type_S_requires_free_core_ge_2",
+      "proof": [
+        "Type S \u21d2 t\u22652 \u21d2 some r in two cores \u21d2 |C\u2229C'|\u22651.",
+        "v27: |C\u2229C'| \u2264 free_core\u22121, so free_core\u22121 \u2265 1 \u21d2 free_core \u2265 2."
+      ],
+      "statement": "Type S multipads can occur only when free_core \u2265 2. Equivalently free_core=1 \u21d2 no Type S.",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v29",
+  "status": "PARTIAL_RESIDUAL_EMPTY_TYPE_DS",
+  "title": "Residual multipad emptiness + Type D/S A_SP multipad split",
+  "toy_suite": {
+    "census": {
+      "n_asp_fibers": 1002,
+      "n_fc1_type_S": 0,
+      "n_rsing_fibers": 19487,
+      "n_rsing_multipads": 0,
+      "n_type_D_events": 606,
+      "n_type_D_pack_ok": 606,
+      "n_type_S_events": 1818
+    },
+    "rows": [
+      {
+        "e": 2,
+        "free_core": 1,
+        "j": 4,
+        "m_c": 2,
+        "max_Mpad": 4,
+        "max_Mpad_type_D": 4,
+        "max_Mpad_type_S": 1,
+        "max_t": 1,
+        "n": 16,
+        "n_asp_fibers": 17,
+        "n_rsing_fibers": 0,
+        "n_type_D_events": 540,
+        "n_type_S_events": 0,
+        "p": 17,
+        "pack_type_D": 6,
+        "w": 1
+      },
+      {
+        "e": 2,
+        "free_core": 2,
+        "j": 5,
+        "m_c": 3,
+        "max_Mpad": 9,
+        "max_Mpad_type_D": 2,
+        "max_Mpad_type_S": 9,
+        "max_t": 4,
+        "n": 16,
+        "n_asp_fibers": 17,
+        "n_rsing_fibers": 0,
+        "n_type_D_events": 64,
+        "n_type_S_events": 908,
+        "p": 17,
+        "pack_type_D": 4,
+        "w": 1
+      },
+      {
+        "e": 3,
+        "free_core": 0,
+        "j": 5,
+        "m_c": 2,
+        "max_Mpad": 1,
+        "max_Mpad_type_D": 1,
+        "max_Mpad_type_S": 1,
+        "max_t": 0,
+        "n": 16,
+        "n_asp_fibers": 261,
+        "n_rsing_fibers": 28,
+        "n_type_D_events": 0,
+        "n_type_S_events": 0,
+        "p": 17,
+        "pack_type_D": 5,
+        "w": 2
+      },
+      {
+        "e": 2,
+        "free_core": 3,
+        "j": 6,
+        "m_c": 4,
+        "max_Mpad": 14,
+        "max_Mpad_type_D": 1,
+        "max_Mpad_type_S": 14,
+        "max_t": 7,
+        "n": 16,
+        "n_asp_fibers": 17,
+        "n_rsing_fibers": 0,
+        "n_type_D_events": 0,
+        "n_type_S_events": 904,
+        "p": 17,
+        "pack_type_D": 3,
+        "w": 1
+      },
+      {
+        "e": 3,
+        "free_core": 1,
+        "j": 6,
+        "m_c": 3,
+        "max_Mpad": 2,
+        "max_Mpad_type_D": 2,
+        "max_Mpad_type_S": 1,
+        "max_t": 1,
+        "n": 16,
+        "n_asp_fibers": 235,
+        "n_rsing_fibers": 54,
+        "n_type_D_events": 2,
+        "n_type_S_events": 0,
+        "p": 17,
+        "pack_type_D": 3,
+        "w": 2
+      },
+      {
+        "e": 4,
+        "free_core": -1,
+        "j": 6,
+        "m_c": 2,
+        "max_Mpad": 1,
+        "max_Mpad_type_D": 1,
+        "max_Mpad_type_S": 1,
+        "max_t": 0,
+        "n": 16,
+        "n_asp_fibers": 75,
+        "n_rsing_fibers": 4405,
+        "n_type_D_events": 0,
+        "n_type_S_events": 0,
+        "p": 17,
+        "pack_type_D": 4,
+        "w": 3
+      },
+      {
+        "e": 3,
+        "free_core": 2,
+        "j": 7,
+        "m_c": 4,
+        "max_Mpad": 2,
+        "max_Mpad_type_D": 1,
+        "max_Mpad_type_S": 2,
+        "max_t": 2,
+        "n": 16,
+        "n_asp_fibers": 184,
+        "n_rsing_fibers": 105,
+        "n_type_D_events": 0,
+        "n_type_S_events": 4,
+        "p": 17,
+        "pack_type_D": 2,
+        "w": 2
+      },
+      {
+        "e": 4,
+        "free_core": 0,
+        "j": 7,
+        "m_c": 3,
+        "max_Mpad": 1,
+        "max_Mpad_type_D": 1,
+        "max_Mpad_type_S": 1,
+        "max_t": 0,
+        "n": 16,
+        "n_asp_fibers": 34,
+        "n_rsing_fibers": 4782,
+        "n_type_D_events": 0,
+        "n_type_S_events": 0,
+        "p": 17,
+        "pack_type_D": 2,
+        "w": 3
+      },
+      {
+        "e": 3,
+        "free_core": 3,
+        "j": 8,
+        "m_c": 5,
+        "max_Mpad": 2,
+        "max_Mpad_type_D": 1,
+        "max_Mpad_type_S": 2,
+        "max_t": 2,
+        "n": 16,
+        "n_asp_fibers": 108,
+        "n_rsing_fibers": 181,
+        "n_type_D_events": 0,
+        "n_type_S_events": 2,
+        "p": 17,
+        "pack_type_D": 2,
+        "w": 2
+      },
+      {
+        "e": 4,
+        "free_core": 1,
+        "j": 8,
+        "m_c": 4,
+        "max_Mpad": 1,
+        "max_Mpad_type_D": 1,
+        "max_Mpad_type_S": 1,
+        "max_t": 0,
+        "n": 16,
+        "n_asp_fibers": 9,
+        "n_rsing_fibers": 4872,
+        "n_type_D_events": 0,
+        "n_type_S_events": 0,
+        "p": 17,
+        "pack_type_D": 2,
+        "w": 3
+      },
+      {
+        "e": 3,
+        "free_core": 4,
+        "j": 9,
+        "m_c": 6,
+        "max_Mpad": 1,
+        "max_Mpad_type_D": 1,
+        "max_Mpad_type_S": 1,
+        "max_t": 0,
+        "n": 16,
+        "n_asp_fibers": 44,
+        "n_rsing_fibers": 245,
+        "n_type_D_events": 0,
+        "n_type_S_events": 0,
+        "p": 17,
+        "pack_type_D": 1,
+        "w": 2
+      },
+      {
+        "e": 4,
+        "free_core": 2,
+        "j": 9,
+        "m_c": 5,
+        "max_Mpad": 1,
+        "max_Mpad_type_D": 1,
+        "max_Mpad_type_S": 1,
+        "max_t": 0,
+        "n": 16,
+        "n_asp_fibers": 1,
+        "n_rsing_fibers": 4815,
+        "n_type_D_events": 0,
+        "n_type_S_events": 0,
+        "p": 17,
+        "pack_type_D": 1,
+        "w": 3
+      }
+    ],
+    "status": "PASS"
+  }
+}

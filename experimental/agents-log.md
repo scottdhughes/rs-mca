@@ -7,6 +7,14 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v29: residual multipad emptiness + Type D/S split
+
+- Proved: after A_SP first-match payment, residual ⊆ R_sing has no multipads
+  (N_ord=0, M_pad vacuous); A_SP multipads split Type D (t=1, M_pad≤2 deployed)
+  vs Type S (t≥2, only free_core≥2); free_core=1 ⇒ only Type D.
+- Toys: 19487 R_sing fibers, 0 multipads; Type D=606 pack OK; Type S=1818.
+- Open: Type S M_pad at free_core=846161; high tag κ→[2176].
+
 ### 2026-07-09 - KB-MCA Route-D v28: ledger-native κ + multipad locus (t-packing)
 
 - Proved: free-1 Newton high[0]=−p_1 constant on F_H; e=2 high↔p_1 bijective;
