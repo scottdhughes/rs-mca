@@ -1,0 +1,533 @@
+{
+  "claims": {
+    "G_bound_implies_sqrt_cancel": false,
+    "proves_A_SP_le_tp": false,
+    "proves_G_max_le_sqrt_pt_minus_t2": true,
+    "proves_T_le_H2_deployed_e_gt_2": false,
+    "proves_e2_S_bound_from_G": true,
+    "proves_full_star_G_eq_1": true,
+    "proves_sqrt_cancellation": false
+  },
+  "deployed": {
+    "G_bound_deployed_e2": 1260166504098339.0,
+    "H2": 77291948627,
+    "e": 67472,
+    "n_prime": 1183520,
+    "p": 2130706433
+  },
+  "impact_on_program": {
+    "closed": "sharp L2->Linf for arc additive sums G; e=2 S via G",
+    "wall": "sqrt-cancel for S (e>=3 especially); G-bound too coarse for S"
+  },
+  "lemmas": {
+    "G_plancherel": {
+      "name": "arc_additive_sum_L2_to_Linf",
+      "proof": [
+        "Let 1_S be the indicator of S_arc on F_p. Fourier transform on F_p:",
+        "sum_a |hat 1_S(a)|^2 = p sum_x 1_S(x)^2 = p t  (Plancherel).",
+        "hat 1_S(0) = t, so sum_{a!=0}|G(a)|^2 = p t - t^2.",
+        "Therefore some/max |G(a)|^2 <= p t - t^2."
+      ],
+      "statement": "For any S_arc subset F_p with |S_arc|=t and nontrivial additive psi, G(a)=sum_{x in S_arc} psi(a x) satisfies sum_{a!=0}|G(a)|^2 = p t - t^2, hence max_{a!=0}|G(a)| <= sqrt(p t - t^2) <= sqrt(p t).",
+      "status": "PROVED"
+    },
+    "OPEN": {
+      "name": "OPEN_S_sqrtC_for_e_ge_3_and_sharp_e2",
+      "statement": "Prove |S(lambda)| <= sqrt(C) for free-1 high sums on GP arcs (especially e>=3, deployed e=67472). The G-Plancherel bound gives only |S|=O(p t) for e=2 composition, which does not imply sqrt-cancel.",
+      "status": "OPEN"
+    },
+    "e2_S": {
+      "name": "e2_S_bound_from_G_plancherel",
+      "proof": [
+        "S(lam)=(1/2)(G(lam)^2 - G(2 lam)) (v58).",
+        "|S| <= (1/2)(|G(lam)|^2 + |G(2lam)|) <= (1/2)(M^2 + M)",
+        "with M=sqrt(p t - t^2) from previous lemma."
+      ],
+      "statement": "For e=2 free-1 highs on an arc of t values in F_p, max_{lam!=0}|S(lam)| <= (1/2)(p t - t^2 + sqrt(p t - t^2)).",
+      "status": "PROVED"
+    },
+    "full_star": {
+      "name": "full_multiplicative_group_G_eq_minus_one",
+      "proof": [
+        "sum_{x in F_p} psi(a x) = 0 for a!=0, and the x=0 term is 1, so sum_{x!=0}=-1.",
+        "S=(1/2)(G^2 - G(2lam)) = (1/2)(1 - (-1)) = 1."
+      ],
+      "statement": "If S_arc = F_p^x (e.g. t=n=p-1 with omega primitive), then G(a) = sum_{x!=0} psi(a x) = -1 for a != 0, hence for e=2, |S(lam)|=1.",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v59",
+  "status": "G_PLANCHEREL_PROVED_SQRT_CANCEL_OPEN",
+  "title": "Plancherel bound on arc G-sums; e=2 S from G; sqrt-cancel still open",
+  "tools": {
+    "numpy_fft": "G and S via FFT",
+    "python_nt": "GP domain"
+  },
+  "toy_suite": {
+    "census": {
+      "G_bound_not_sqrt_cancel_sparse": true,
+      "all_G_plancherel": true,
+      "all_S_le_G_bound": true,
+      "full_star_G_S_unit": true,
+      "max_e2_S_over_sqrtC": 8.239388118906293,
+      "max_e3_S_over_sqrtC": 2.9382563337218373,
+      "n_e2": 9,
+      "n_e3": 6,
+      "n_g": 18
+    },
+    "deployed": {
+      "G_bound_deployed_e2": 1260166504098339.0,
+      "H2": 77291948627,
+      "e": 67472,
+      "n_prime": 1183520,
+      "p": 2130706433
+    },
+    "e2_rows": [
+      {
+        "B_S_thm": 424.31782106327637,
+        "C": 190,
+        "S_le_B_thm": true,
+        "S_over_sqrtC": 1.2804875210252245,
+        "coll_bound_thm": 180637.41655057514,
+        "maxG": 5.901167779728036,
+        "maxS": 17.650302416254846,
+        "p": 61,
+        "sqrtC": 13.784048752090222,
+        "t": 20,
+        "thm_implies_sqrt_cancel": false
+      },
+      {
+        "B_S_thm": 474.1492574075431,
+        "C": 561,
+        "S_le_B_thm": true,
+        "S_over_sqrtC": 0.8538908100453323,
+        "coll_bound_thm": 229976.87895586222,
+        "maxG": 6.227378596845236,
+        "maxS": 20.224778322251375,
+        "p": 61,
+        "sqrtC": 23.68543856465402,
+        "t": 34,
+        "thm_implies_sqrt_cancel": false
+      },
+      {
+        "B_S_thm": 286.72603939955866,
+        "C": 1225,
+        "S_le_B_thm": true,
+        "S_over_sqrtC": 0.7069577454640626,
+        "coll_bound_thm": 106812.23150582284,
+        "maxG": 6.75272762004226,
+        "maxS": 24.743521091242194,
+        "p": 61,
+        "sqrtC": 35.0,
+        "t": 50,
+        "thm_implies_sqrt_cancel": false
+      },
+      {
+        "B_S_thm": 830.1246117974982,
+        "C": 190,
+        "S_le_B_thm": true,
+        "S_over_sqrtC": 1.9104386665751891,
+        "coll_bound_thm": 689464.2968545214,
+        "maxG": 7.269346681265035,
+        "maxS": 26.33357971795064,
+        "p": 101,
+        "sqrtC": 13.784048752090222,
+        "t": 20,
+        "thm_implies_sqrt_cancel": false
+      },
+      {
+        "B_S_thm": 1162.8641991275638,
+        "C": 561,
+        "S_le_B_thm": true,
+        "S_over_sqrtC": 1.6358910368299717,
+        "coll_bound_thm": 1355369.1951175407,
+        "maxG": 8.639719558826243,
+        "maxS": 38.746796651304464,
+        "p": 101,
+        "sqrtC": 23.68543856465402,
+        "t": 34,
+        "thm_implies_sqrt_cancel": false
+      },
+      {
+        "B_S_thm": 1300.248762345905,
+        "C": 1225,
+        "S_le_B_thm": true,
+        "S_over_sqrtC": 1.3207001052489302,
+        "coll_bound_thm": 1705504.517249385,
+        "maxG": 9.578205325060123,
+        "maxS": 46.224503683712555,
+        "p": 101,
+        "sqrtC": 35.0,
+        "t": 50,
+        "thm_implies_sqrt_cancel": false
+      },
+      {
+        "B_S_thm": 100093.46140606378,
+        "C": 190,
+        "S_le_B_thm": true,
+        "S_over_sqrtC": 6.367908411664798,
+        "coll_bound_thm": 10018701019.854656,
+        "maxG": 13.562280873345086,
+        "maxS": 87.77555999523298,
+        "p": 10007,
+        "sqrtC": 13.784048752090222,
+        "t": 20,
+        "thm_implies_sqrt_cancel": false
+      },
+      {
+        "B_S_thm": 169832.15373945737,
+        "C": 561,
+        "S_le_B_thm": true,
+        "S_over_sqrtC": 8.239388118906293,
+        "coll_bound_thm": 28842960475.23277,
+        "maxG": 19.851378788315984,
+        "maxS": 195.15352110069526,
+        "p": 10007,
+        "sqrtC": 23.68543856465402,
+        "t": 34,
+        "thm_implies_sqrt_cancel": false
+      },
+      {
+        "B_S_thm": 249277.79243189158,
+        "C": 1225,
+        "S_le_B_thm": true,
+        "S_over_sqrtC": 5.622524286992935,
+        "coll_bound_thm": 62139417949.67475,
+        "maxG": 20.0732171073503,
+        "maxS": 196.78835004475272,
+        "p": 10007,
+        "sqrtC": 35.0,
+        "t": 50,
+        "thm_implies_sqrt_cancel": false
+      }
+    ],
+    "e3_rows": [
+      {
+        "C": 816,
+        "S_over_sqrtC": 2.490148212230846,
+        "maxS": 71.13286093644207,
+        "p": 61,
+        "sqrtC": 28.5657137141714,
+        "t": 18
+      },
+      {
+        "C": 4060,
+        "S_over_sqrtC": 2.2597176751437384,
+        "maxS": 143.9849829798563,
+        "p": 61,
+        "sqrtC": 63.71812928829596,
+        "t": 30
+      },
+      {
+        "C": 20825,
+        "S_over_sqrtC": 1.6975733142699696,
+        "maxS": 244.9745928687725,
+        "p": 61,
+        "sqrtC": 144.30869689661813,
+        "t": 51
+      },
+      {
+        "C": 816,
+        "S_over_sqrtC": 2.9382563337218373,
+        "maxS": 83.93338924794887,
+        "p": 101,
+        "sqrtC": 28.5657137141714,
+        "t": 18
+      },
+      {
+        "C": 4060,
+        "S_over_sqrtC": 2.852324596423485,
+        "maxS": 181.74478740709822,
+        "p": 101,
+        "sqrtC": 63.71812928829596,
+        "t": 30
+      },
+      {
+        "C": 20825,
+        "S_over_sqrtC": 2.1616088132640927,
+        "maxS": 311.93895104238635,
+        "p": 101,
+        "sqrtC": 144.30869689661813,
+        "t": 51
+      }
+    ],
+    "full_rows": [
+      {
+        "B_S_thm": 33.87298334620742,
+        "C": 1770,
+        "S_le_B_thm": true,
+        "S_over_sqrtC": 0.02376913442707646,
+        "coll_bound_thm": 52506.39539421507,
+        "maxG": 1.0000000000000013,
+        "maxS": 1.0000000000000018,
+        "p": 61,
+        "sqrtC": 42.07136793592526,
+        "t": 60,
+        "thm_implies_sqrt_cancel": true
+      },
+      {
+        "B_S_thm": 55.0,
+        "C": 4950,
+        "S_le_B_thm": true,
+        "S_over_sqrtC": 0.01421338109037413,
+        "coll_bound_thm": 245624.0099009901,
+        "maxG": 1.0000000000000062,
+        "maxS": 1.000000000000007,
+        "p": 101,
+        "sqrtC": 70.35623639735144,
+        "t": 100,
+        "thm_implies_sqrt_cancel": true
+      },
+      {
+        "B_S_thm": 68.6124860801609,
+        "C": 7875,
+        "S_le_B_thm": true,
+        "S_over_sqrtC": 0.011268723396380312,
+        "coll_bound_thm": 493019.68112011603,
+        "maxG": 1.0000000000000073,
+        "maxS": 1.000000000000008,
+        "p": 127,
+        "sqrtC": 88.74119674649424,
+        "t": 126,
+        "thm_implies_sqrt_cancel": true
+      }
+    ],
+    "g_rows": [
+      {
+        "bound": 28.635642126552707,
+        "maxG": 5.901167779728036,
+        "maxG_le_bound": true,
+        "p": 61,
+        "plancherel_err": 0.0,
+        "sqrt_p": 7.810249675906654,
+        "sqrt_pt": 34.92849839314596,
+        "sqrt_t": 4.47213595499958,
+        "sumG2": 820.0,
+        "sumG2_expected": 820,
+        "t": 20
+      },
+      {
+        "bound": 28.982753492378876,
+        "maxG": 6.104794167705413,
+        "maxG_le_bound": true,
+        "p": 61,
+        "plancherel_err": 2.2737367544323206e-13,
+        "sqrt_p": 7.810249675906654,
+        "sqrt_pt": 49.39635614091387,
+        "sqrt_t": 6.324555320336759,
+        "sumG2": 840.0000000000002,
+        "sumG2_expected": 840,
+        "t": 40
+      },
+      {
+        "bound": 23.45207879911715,
+        "maxG": 6.75272762004226,
+        "maxG_le_bound": true,
+        "p": 61,
+        "plancherel_err": 0.0,
+        "sqrt_p": 7.810249675906654,
+        "sqrt_pt": 55.226805085936306,
+        "sqrt_t": 7.0710678118654755,
+        "sumG2": 550.0,
+        "sumG2_expected": 550,
+        "t": 50
+      },
+      {
+        "bound": 40.24922359499622,
+        "maxG": 7.269346681265035,
+        "maxG_le_bound": true,
+        "p": 101,
+        "plancherel_err": 2.2737367544323206e-13,
+        "sqrt_p": 10.04987562112089,
+        "sqrt_pt": 44.94441010848846,
+        "sqrt_t": 4.47213595499958,
+        "sumG2": 1619.9999999999998,
+        "sumG2_expected": 1620,
+        "t": 20
+      },
+      {
+        "bound": 49.39635614091387,
+        "maxG": 7.430845928450819,
+        "maxG_le_bound": true,
+        "p": 101,
+        "plancherel_err": 4.547473508864641e-13,
+        "sqrt_p": 10.04987562112089,
+        "sqrt_pt": 63.56099432828282,
+        "sqrt_t": 6.324555320336759,
+        "sumG2": 2439.9999999999995,
+        "sumG2_expected": 2440,
+        "t": 40
+      },
+      {
+        "bound": 50.49752469181039,
+        "maxG": 9.578205325060123,
+        "maxG_le_bound": true,
+        "p": 101,
+        "plancherel_err": 4.547473508864641e-13,
+        "sqrt_p": 10.04987562112089,
+        "sqrt_pt": 71.06335201775947,
+        "sqrt_t": 7.0710678118654755,
+        "sumG2": 2549.9999999999995,
+        "sumG2_expected": 2550,
+        "t": 50
+      },
+      {
+        "bound": 46.26013402488151,
+        "maxG": 8.0908527423718,
+        "maxG_le_bound": true,
+        "p": 127,
+        "plancherel_err": 4.547473508864641e-13,
+        "sqrt_p": 11.269427669584644,
+        "sqrt_pt": 50.39841267341661,
+        "sqrt_t": 4.47213595499958,
+        "sumG2": 2140.0000000000005,
+        "sumG2_expected": 2140,
+        "t": 20
+      },
+      {
+        "bound": 58.9915248150105,
+        "maxG": 9.990939046723986,
+        "maxG_le_bound": true,
+        "p": 127,
+        "plancherel_err": 9.094947017729282e-13,
+        "sqrt_p": 11.269427669584644,
+        "sqrt_pt": 71.27411872482185,
+        "sqrt_t": 6.324555320336759,
+        "sumG2": 3480.000000000001,
+        "sumG2_expected": 3480,
+        "t": 40
+      },
+      {
+        "bound": 62.048368229954285,
+        "maxG": 8.852715676883776,
+        "maxG_le_bound": true,
+        "p": 127,
+        "plancherel_err": 9.094947017729282e-13,
+        "sqrt_p": 11.269427669584644,
+        "sqrt_pt": 79.68688725254614,
+        "sqrt_t": 7.0710678118654755,
+        "sumG2": 3850.000000000001,
+        "sumG2_expected": 3850,
+        "t": 50
+      },
+      {
+        "bound": 51.96152422706632,
+        "maxG": 8.48151503805198,
+        "maxG_le_bound": true,
+        "p": 127,
+        "plancherel_err": 9.094947017729282e-13,
+        "sqrt_p": 11.269427669584644,
+        "sqrt_pt": 112.69427669584645,
+        "sqrt_t": 10.0,
+        "sumG2": 2700.000000000001,
+        "sumG2_expected": 2700,
+        "t": 100
+      },
+      {
+        "bound": 446.92281212755296,
+        "maxG": 13.562280873345086,
+        "maxG_le_bound": true,
+        "p": 10007,
+        "plancherel_err": 5.820766091346741e-11,
+        "sqrt_p": 100.03499387714281,
+        "sqrt_pt": 447.3700928761331,
+        "sqrt_t": 4.47213595499958,
+        "sumG2": 199740.00000000006,
+        "sumG2_expected": 199740,
+        "t": 20
+      },
+      {
+        "bound": 631.411118052256,
+        "maxG": 18.89305964017128,
+        "maxG_le_bound": true,
+        "p": 10007,
+        "plancherel_err": 1.1641532182693481e-10,
+        "sqrt_p": 100.03499387714281,
+        "sqrt_pt": 632.6768527455387,
+        "sqrt_t": 6.324555320336759,
+        "sumG2": 398680.0000000001,
+        "sumG2_expected": 398680,
+        "t": 40
+      },
+      {
+        "bound": 705.5848637832305,
+        "maxG": 20.0732171073503,
+        "maxG_le_bound": true,
+        "p": 10007,
+        "plancherel_err": 1.1641532182693481e-10,
+        "sqrt_p": 100.03499387714281,
+        "sqrt_pt": 707.3542252648244,
+        "sqrt_t": 7.0710678118654755,
+        "sumG2": 497850.0000000001,
+        "sumG2_expected": 497850,
+        "t": 50
+      },
+      {
+        "bound": 995.339138183564,
+        "maxG": 25.255999427986655,
+        "maxG_le_bound": true,
+        "p": 10007,
+        "plancherel_err": 2.3283064365386963e-10,
+        "sqrt_p": 100.03499387714281,
+        "sqrt_pt": 1000.3499387714281,
+        "sqrt_t": 10.0,
+        "sumG2": 990700.0000000002,
+        "sumG2_expected": 990700,
+        "t": 100
+      },
+      {
+        "bound": 632.3132135263346,
+        "maxG": 12.335473975270485,
+        "maxG_le_bound": true,
+        "p": 20011,
+        "plancherel_err": 1.7462298274040222e-10,
+        "sqrt_p": 141.4602417642498,
+        "sqrt_pt": 632.6294333968347,
+        "sqrt_t": 4.47213595499958,
+        "sumG2": 399819.9999999998,
+        "sumG2_expected": 399820,
+        "t": 20
+      },
+      {
+        "bound": 893.7784960492169,
+        "maxG": 17.046085919619784,
+        "maxG_le_bound": true,
+        "p": 20011,
+        "plancherel_err": 3.4924596548080444e-10,
+        "sqrt_p": 141.4602417642498,
+        "sqrt_pt": 894.6731246662101,
+        "sqrt_t": 6.324555320336759,
+        "sumG2": 798839.9999999997,
+        "sumG2_expected": 798840,
+        "t": 40
+      },
+      {
+        "bound": 999.0245242235047,
+        "maxG": 20.619665168746128,
+        "maxG_le_bound": true,
+        "p": 20011,
+        "plancherel_err": 2.3283064365386963e-10,
+        "sqrt_p": 141.4602417642498,
+        "sqrt_pt": 1000.2749621978949,
+        "sqrt_t": 7.0710678118654755,
+        "sumG2": 998049.9999999998,
+        "sumG2_expected": 998050,
+        "t": 50
+      },
+      {
+        "bound": 1411.063428765695,
+        "maxG": 26.98795283296292,
+        "maxG_le_bound": true,
+        "p": 20011,
+        "plancherel_err": 6.984919309616089e-10,
+        "sqrt_p": 141.4602417642498,
+        "sqrt_pt": 1414.6024176424978,
+        "sqrt_t": 10.0,
+        "sumG2": 1991099.9999999993,
+        "sumG2_expected": 1991100,
+        "t": 100
+      }
+    ],
+    "status": "PASS"
+  }
+}

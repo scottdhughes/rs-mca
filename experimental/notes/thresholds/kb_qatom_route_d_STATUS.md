@@ -4,7 +4,7 @@
 **Goal:** residual free-1 / A_SP card toward `A_SP ≤ t·p` on KoalaBear MCA `a+=1116048`.
 **Does NOT claim** `U ≤ B*` or full MCA close.
 
-Last tip packet: **v54** on `main`; local attack **v55–v58** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
+Last tip packet: **v54** on `main`; local attack **v55–v59** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
 `experimental/scripts/verify_kb_qatom_route_d_v{N}.py` with matching
 notes, certificates, and scanner reports.
 
@@ -135,3 +135,5 @@ sparse. OPEN: prove sparse `|T|≤H2`.
 gap remains bounding coll << p^(e-1) on GP.
 
 **v58**: Plancherel coll identity; coll <= C^2/p^(e-1)+B^2; sqrt-cancel => T=0 deployed (conditional). OPEN: prove |S|<=sqrt(C).
+
+**v59**: Plancherel max|G|<=sqrt(pt-t^2) PROVED; e=2 S from G; that bound does not yield sqrt-cancel when t<<p. Full F_p^*: |S|=1.
