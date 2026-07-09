@@ -109,11 +109,11 @@ All scanned packets: **no false claim** of `|T|≤H2` or `A_SP≤t·p`.
 
 ## Path to completion
 
-1. **Residual PR (v77 criterion PROVED):** multipad-free on length-`n'` GP  
-   ⇒ `|T|=0 ≤ H2`. Hypothesis still OPEN (primary). SoftB alternate.  
-2. Infrastructure CLOSED: packing, `t≤2e`, span≥2e, coll bounds, `P_e` algebra.  
-3. **PR policy:** residual PR only when multipad-free (or SoftB) is PROVED.  
-4. A_SP only after `|T|≤H2`. Lean phase 1 done; AXLE for later.
+1. **Residual PR (v77–v78):** prove no 2e-set `R` on the `n'`-arc admits  
+   `(φ−α)(φ−β)=Π_R` (φ monic deg e, φ(0)=0) ⇒ multipad-free ⇒ `|T|=0`.  
+2. Infrastructure CLOSED: packing, `t≤2e`, span≥2e, coll bounds, factorization form.  
+3. **PR only when that nonexistence is PROVED.**  
+4. A_SP after `|T|≤H2`. Lean phase 1 done; AXLE for later.
 
 ### Lean roadmap
 

@@ -1,0 +1,191 @@
+{
+  "claims": {
+    "proves_A_SP_le_tp": false,
+    "proves_T_le_H2_deployed": false,
+    "proves_alpha_beta_eq_prod_R": true,
+    "proves_linear_coeff_relation": true,
+    "proves_multipad_Pi_R_factorization": true,
+    "proves_no_factorization_at_deployed": false,
+    "proves_residual_via_no_factorization": true
+  },
+  "deployed": {
+    "B_star": 393171.5875467097,
+    "H2": 77291948627,
+    "criterion": "no multipad factorization on arc => |T|=0",
+    "e": 67472,
+    "n_prime": 1183520,
+    "note": "Identity PROVED; deployed nonexistence OPEN (residual PR)",
+    "p": 2130706433,
+    "residual_closed": false
+  },
+  "impact_on_program": {
+    "closed": "BOARD form: multipad <=> Pi_R=(phi-a)(phi-b) with phi(0)=0 monic deg e",
+    "residual_PR": "prove wall => |T|=0 certificate",
+    "wall": "no such R on deployed arc"
+  },
+  "lemmas": {
+    "OPEN": {
+      "name": "OPEN_no_factorization_on_deployed_arc",
+      "statement": "No 2e-set R of the n'=1183520-arc admits (phi-alpha)(phi-beta)=Pi_R with phi monic deg e={E}, phi(0)=0.",
+      "status": "OPEN"
+    },
+    "factorization": {
+      "name": "multipad_Pi_R_factorization",
+      "proof": [
+        "f=m+c0, g=m+c0', m has zero constant, phi:=m.",
+        "Roots of f: phi=alpha:=-c0; roots of g: phi=beta:=-c0'.",
+        "phi monic deg e (as m is), phi(0)=0.",
+        "Pi_R=(phi-alpha)(phi-beta) as monic polys of deg 2e with same roots."
+      ],
+      "statement": "Multipad => (phi-alpha)(phi-beta)=Pi_R with phi monic deg e, phi(0)=0, alpha!=beta, |R|=2e subset of arc values.",
+      "status": "PROVED"
+    },
+    "linear": {
+      "name": "c_em1_eq_minus_half_sum_R",
+      "proof": [
+        "Expand phi^2 - (alpha+beta) phi + alpha beta and Pi_R.",
+        "Coeff of X^{2e-1}: 2 c_{e-1} on left, -sum r on right."
+      ],
+      "statement": "With phi=X^e + c_{e-1} X^{e-1}+... and p odd: 2 c_{e-1} = -sum_{r in R} r.",
+      "status": "PROVED"
+    },
+    "product": {
+      "name": "alpha_beta_eq_prod_R",
+      "proof": [
+        "Evaluate (phi-alpha)(phi-beta)=Pi_R at X=0: alpha beta = Pi_R(0).",
+        "Pi_R(0)=(-1)^{2e} prod r = prod r."
+      ],
+      "statement": "alpha * beta = prod_{r in R} r.",
+      "status": "PROVED"
+    },
+    "residual": {
+      "name": "residual_via_no_factorization",
+      "proof": [
+        "Every multipad produces such an R and factorization (1)."
+      ],
+      "statement": "If no arc 2e-set R admits factorization (1), then multipad-free => |T|=0 at deployed.",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v78",
+  "status": "FACTORIZATION_IDENTITY_PROVED_DEPLOYED_OPEN",
+  "title": "Multipad factorization (phi-a)(phi-b)=Pi_R; residual PR form",
+  "tools": {
+    "python_nt": "multipad poly identity check"
+  },
+  "toy_suite": {
+    "deployed": {
+      "B_star": 393171.5875467097,
+      "H2": 77291948627,
+      "criterion": "no multipad factorization on arc => |T|=0",
+      "e": 67472,
+      "n_prime": 1183520,
+      "note": "Identity PROVED; deployed nonexistence OPEN (residual PR)",
+      "p": 2130706433,
+      "residual_closed": false
+    },
+    "rows": [
+      {
+        "all_ok": true,
+        "e": 3,
+        "n_checked": 2,
+        "n_mp_highs": 2,
+        "n_ok": 2,
+        "p": 61,
+        "t": 13
+      },
+      {
+        "all_ok": true,
+        "e": 3,
+        "n_checked": 25,
+        "n_mp_highs": 29,
+        "n_ok": 25,
+        "p": 61,
+        "t": 17
+      },
+      {
+        "all_ok": true,
+        "e": 3,
+        "n_checked": 25,
+        "n_mp_highs": 326,
+        "n_ok": 25,
+        "p": 61,
+        "t": 24
+      },
+      {
+        "all_ok": true,
+        "e": 3,
+        "n_checked": 1,
+        "n_mp_highs": 1,
+        "n_ok": 1,
+        "p": 101,
+        "t": 9
+      },
+      {
+        "all_ok": true,
+        "e": 3,
+        "n_checked": 17,
+        "n_mp_highs": 17,
+        "n_ok": 17,
+        "p": 101,
+        "t": 17
+      },
+      {
+        "all_ok": true,
+        "e": 4,
+        "n_checked": 3,
+        "n_mp_highs": 3,
+        "n_ok": 3,
+        "p": 101,
+        "t": 21
+      },
+      {
+        "all_ok": true,
+        "e": 3,
+        "n_checked": 1,
+        "n_mp_highs": 1,
+        "n_ok": 1,
+        "p": 127,
+        "t": 16
+      },
+      {
+        "all_ok": true,
+        "e": 4,
+        "n_checked": 1,
+        "n_mp_highs": 1,
+        "n_ok": 1,
+        "p": 127,
+        "t": 21
+      },
+      {
+        "all_ok": true,
+        "e": 3,
+        "n_checked": 7,
+        "n_mp_highs": 7,
+        "n_ok": 7,
+        "p": 43,
+        "t": 12
+      },
+      {
+        "all_ok": true,
+        "e": 4,
+        "n_checked": 1,
+        "n_mp_highs": 1,
+        "n_ok": 1,
+        "p": 73,
+        "t": 14
+      }
+    ],
+    "status": "PASS",
+    "summary": {
+      "B_star": 393171.5875467097,
+      "H2": 77291948627,
+      "all_identities_ok": true,
+      "deployed_e": 67472,
+      "deployed_n_prime": 1183520,
+      "n_rows": 10,
+      "n_with_checks": 10,
+      "residual_hypothesis": "no factorization (1) on deployed arc"
+    }
+  }
+}

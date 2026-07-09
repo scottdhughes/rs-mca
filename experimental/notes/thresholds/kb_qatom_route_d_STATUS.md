@@ -4,7 +4,7 @@
 **Goal:** residual free-1 / A_SP card toward `A_SP ≤ t·p` on KoalaBear MCA `a+=1116048`.
 **Does NOT claim** `U ≤ B*` or full MCA close.
 
-Last tip packet: **v54** on `main`; local attack **v55–v77** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
+Last tip packet: **v54** on `main`; local attack **v55–v78** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
 `experimental/scripts/verify_kb_qatom_route_d_v{N}.py` with matching
 notes, certificates, and scanner reports.
 
@@ -120,8 +120,8 @@ Certificates: `experimental/data/certificates/kb-qatom-route-d-v{N}/`.
 
 ## Next session entry
 
-**Primary residual PR target (v77):** prove multipad-free on length-n' GP
-⇒ |T|=0. SoftB alternate (likely harder). E[coll] log2~-1.34e6.
+**Primary residual PR target (v77–v78):** no arc 2e-set R admits
+(φ−α)(φ−β)=Π_R with φ monic deg e, φ(0)=0 ⇒ multipad-free ⇒ |T|=0.
 
 ---
 
@@ -224,3 +224,6 @@ Deployed both ≫ H2. OPEN: coll=0 or SoftB.
 path). SoftB alternate PROVED as criterion; primary = injectivity. Two-value
 phi form of multipads PROVED. E[coll] tiny. OPEN: multipad-free at deployed
 (then residual PR).
+
+**v78**: BOARD form — multipad ⇔ (φ−α)(φ−β)=Π_R with φ monic deg e, φ(0)=0;
+αβ=∏R; 2c_{e−1}=−∑R. Residual PR = prove no such R on deployed arc.
