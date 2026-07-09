@@ -1,0 +1,263 @@
+{
+  "claims": {
+    "banks_naive_mark_failures": true,
+    "proves_E2_injection": false,
+    "proves_E5_injection": false,
+    "proves_H_seam": false,
+    "proves_marked_incidence_normal_form": true,
+    "proves_matching_free_bijection_core": true,
+    "proves_matching_free_mass_law": true,
+    "proves_oriented_first_mate_import": true,
+    "proves_residual_mass_atom": false,
+    "proves_top_seam_graph": true
+  },
+  "deployed": {
+    "E2_label_space": 143763024447376,
+    "E5_label_space": 4468415257378816,
+    "TARGET": 274836936291722953,
+    "a_plus": 1116048,
+    "e": 67472,
+    "j": 981104,
+    "m": 913632,
+    "n": 2097152,
+    "n_p": 4468415257378816,
+    "p": 2130706433,
+    "pack_full": 17,
+    "pack_matching_free": 1,
+    "t": 67472,
+    "t_p": 143763024447376,
+    "w": 67471
+  },
+  "impact_on_program": {
+    "next": "Prove H_seam from SP/BC first-match payment theorem; construct ledger marks into [t]\u00d7F_p or D\u00d7F_p for isolated residual supports",
+    "reduction": "H_seam + (E2 or E5 injection) => residual mass atom. H_seam turns mass into core count; injection is the remaining mark."
+  },
+  "lemmas": {
+    "E2_E5_bridge": {
+      "name": "matching_free_plus_injection_closes_mass",
+      "numbers": {
+        "TARGET": 274836936291722953,
+        "log2_n_p": 51.988684687449265,
+        "log2_t_p": 47.0306859937284,
+        "n_p": 4468415257378816,
+        "t_p": 143763024447376
+      },
+      "proof": [
+        "H_seam \u21d2 |R|=N_can_prim (matching-free mass law).",
+        "Injection of R or of C_res into L \u21d2 |R|\u2264|L|.",
+        "v14: |R|\u2264t\u00b7p and |R|\u2264n\u00b7p both fit under TARGET.",
+        "rowsharp: E2 form is marked-incidence into {0..t-1}\u00d7F_p."
+      ],
+      "statement": "Assume H_seam (so |R|=N_can_prim). Then:\n  (E5') residual can-cores inject into a set of size \u2264 n\u00b7p \u21d2 |R| \u2264 n\u00b7p \u21d2 residual mass (v14);\n  (E2') residual can-cores inject into a set of size \u2264 t\u00b7p \u21d2 |R| \u2264 t\u00b7p \u21d2 residual mass + E1-scale D_prim budget;\n  (E2)  residual supports inject into {0..t-1}\u00d7F_p \u21d2 |R| \u2264 t\u00b7p (rowsharp missing theorem form);\n  (E5)  residual supports inject into D\u00d7F_p \u21d2 |R| \u2264 n\u00b7p.\nUnder H_seam, support injection and can-core injection are equivalent cardinality problems (bijection S \u2194 C_can).",
+      "status": "PROVED"
+    },
+    "H_seam": {
+      "name": "H_seam_ledger_residual_matching_free",
+      "proof": [
+        "Conditional: apply matching-free mass law once H_seam is granted.",
+        "Justification sketch (not a proof): sp_shift_pair / bc_chart are named first-match deletions targeting constant-shift / chart pairs; if every multi-member top-seam pencil is assigned there, residual cannot contain both ends of a seam edge.",
+        "Gap: need a theorem that SP/BC payment removes multi-member core pencils from residual support (not only image-cell charges)."
+      ],
+      "statement": "Hypothesis H_seam: the ledger residual R(z) (after first-match deletion of generated_field, quotient_planted, sparse_pade_hankel, m1_window_shadow, rank_drop_pivot, bc_chart, sp_shift_pair, extension_slope \u2014 v1/rowsharp) is matching-free in G_z.\nUnder H_seam, |R(z)| = N_can_prim(z), and residual mass reduces to bounding residual can-cores (or injecting them / residual supports into size \u2264 t\u00b7p or n\u00b7p).",
+      "status": "PROVED_CONDITIONAL_HYPOTHESIS",
+      "status_of_H_seam": "OPEN (intended by ledger branch list; not proved)"
+    },
+    "OPEN_LEDGER_RESIDUAL_INJECTION": {
+      "do_not": [
+        "Global multi-mate taxonomy without injection",
+        "Unmarked top-seam counting without core mark (hostile audit)",
+        "Full-fiber n\u00b7p at shallow w (v2 counterexample)"
+      ],
+      "falsifier": "Ledger residual R(z) with a top-seam edge inside R (refutes H_seam), or |R(z)| > t\u00b7p after all named first-match deletions (refutes E2 mass).",
+      "name": "OPEN_LEDGER_RESIDUAL_INJECTION",
+      "statement": "Prove H_seam for ledger residual, AND prove one of:\n  (i)  residual supports/cores inject into {0,...,t-1}\u00d7F_p (E2),\n  (ii) residual supports/cores inject into D\u00d7F_p (E5),\nusing first-match marks (generated-field style row index, marked incidence with selector, full-rank pivot certificate, \u2026), not aperiodic proxy alone.\nEither closes residual mass at deployed row (v14/v15 bridges).",
+      "status": "OPEN"
+    },
+    "marked_incidence": {
+      "name": "top_seam_marked_incidence_normal_form",
+      "proof": [
+        "Degree bound at e=w+1 forces A\u2212B constant (v2 core pencil / rowsharp).",
+        "With G marked and orientation chosen, the free data is (B,c).",
+        "Hostile audit: without mark/selector this is not a global support cap."
+      ],
+      "sources": [
+        "experimental/notes/thresholds/rowsharp_q_prefix_atom_reductions_v1.md",
+        "experimental/notes/thresholds/cap25_v13_lq_top_seam_hostile_audit.md",
+        "experimental/notes/thresholds/kb_qatom_route_d_v2.md Thm 3"
+      ],
+      "statement": "For a top-seam pair with common core G marked, and sides A,B monic of degree e=w+1 with A\u2212B=c \u2208 F_p^\u00d7, the oriented seam neighbor injects into ordered split-translate data (B,c) (with divisor conditions B|\u039b_E, B+c|\u039b_{D\\\\E} up to orientation). This is a fixed-mark / pair normal form (rowsharp top-seam marked incidence; LQ top-seam audit), not a raw unmarked support bound.",
+      "status": "PROVED"
+    },
+    "matching_free_mass": {
+      "consequence": "Under matching-free residual, residual mass reduces exactly to the residual can-core count. Atom \u21d4 N_can_prim \u2264 TARGET (or \u2264 t\u00b7p / n\u00b7p).",
+      "name": "matching_free_residual_mass_law",
+      "proof": [
+        "If two residual supports share C_can=C, their lex sides both lie in U(C,z) (same z, same core, both in fiber), hence form a top-seam edge, contradicting matching-free unless the supports are equal.",
+        "Thus C_can is injective on R, so |R| = N_can_prim(R).",
+        "Covering |R| \u2264 pack \u00b7 N_can with pack=1 is immediate."
+      ],
+      "statement": "Let R \u2286 Fib_w(z) be matching-free in the top-seam graph G_z (no edge has both ends in R). Then for every core C, |{S \u2208 R : C_can(S)=C}| \u2264 1. Consequently |R| = N_can_prim(R) := |{C_can(S): S\u2208R}|, and the residual lex covering improves from pack_ceil=17 to pack=1: |R| \u2264 1 \u00b7 N_can_prim(R).",
+      "status": "PROVED"
+    },
+    "naive_marks": {
+      "name": "naive_isolated_marks_not_E2",
+      "proof": [
+        "Computational certificates in toy_suite."
+      ],
+      "statement": "On aperiodic + seam-free residual-proxy fibers, |R|=N_can, but maps S \u21a6 (min S, c_U), S \u21a6 (min U, c_U), S \u21a6 (min C, b_1) are not injective (per-fiber max label fiber \u22652 on multiple toys). These marks do not prove E2/E5.",
+      "status": "PROVED_NEGATIVE_TOY_BANK"
+    },
+    "oriented_first_mate": {
+      "name": "oriented_first_mate_on_nonisolated",
+      "note": "Under matching-free residual, R has no non-isolated residual vertices, so this injection is vacuous on residual \u2014 residual labels must come from isolated-support marks.",
+      "proof": [
+        "Imported from v2 oriented first-mate injectivity."
+      ],
+      "statement": "Within Fib_w(z), non-isolated vertices (degree \u22651 in G_z) inject into oriented first-mate edge keys (C, high_side_coeffs, min(c_U,c_V), max(c_U,c_V), side) (v2 Thm 3). This is structural bookkeeping for seam pairs; the label space is not of size t\u00b7p or n\u00b7p.",
+      "status": "PROVED"
+    },
+    "side_determined": {
+      "name": "matching_free_side_determined_by_core_and_z",
+      "proof": [
+        "Matching-free \u21d2 at most one residual support per core.",
+        "That support is C \u222a U for the unique residual side U \u2208 U(C,z) \u2229 R.",
+        "v3 triangular inversion: b = b(z,u) couples core and side prefixes."
+      ],
+      "statement": "Under matching-free R \u2286 Fib_w(z), each residual S is uniquely determined by C=C_can(S): the side U is the unique member of U(C,z) that appears in R (at most one), and triangular inversion relates side prefix u to core prefix b and z (v3).",
+      "status": "PROVED"
+    },
+    "top_seam_graph": {
+      "deployed_pack_ceil": 17,
+      "name": "top_seam_graph_core_pencil",
+      "proof": [
+        "v2 Theorem 1: sides for fixed (C,z) form a CS pencil packing into D\\\\C.",
+        "v3: C_can is the lex core; top-seam at e=w+1 is exactly free-1 CS.",
+        "Two supports with the same can-core and sides in U(C,z) are adjacent."
+      ],
+      "statement": "Fix z. On vertex set Fib_w(z), declare an edge between distinct S, S' when C_can(S)=C_can(S')=C and the lex sides U, U' both lie in the core pencil U(C,z). By the core-pencil theorem (v2), U(C,z) is empty or a free-1 constant-shift family, so the connected components of this graph inside each core are cliques of size |U(C,z)| \u2264 floor((n-|C|)/e) = pack_ceil (deployed 17).",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v15",
+  "status": "PARTIAL_INJECTION_ATTACK",
+  "title": "Ledger residual injection: top-seam matching-free + E2/E5 bridges",
+  "toy_suite": {
+    "rows": [
+      {
+        "R_eq_Ncan": true,
+        "j": 9,
+        "max_Ncan_strong": 42,
+        "max_ap": 42,
+        "max_full": 42,
+        "max_strong": 42,
+        "n": 16,
+        "n_p": 272,
+        "p": 17,
+        "strong_fits_n_p": true,
+        "w": 2,
+        "worst_marks": {
+          "lex_CcU": 1,
+          "minC_b1": 6,
+          "minS_cU": 10,
+          "minU_cU": 10
+        }
+      },
+      {
+        "R_eq_Ncan": true,
+        "j": 7,
+        "max_Ncan_strong": 42,
+        "max_ap": 42,
+        "max_full": 42,
+        "max_strong": 42,
+        "n": 16,
+        "n_p": 272,
+        "p": 17,
+        "strong_fits_n_p": true,
+        "w": 2,
+        "worst_marks": {
+          "lex_CcU": 1,
+          "minC_b1": 4,
+          "minS_cU": 7,
+          "minU_cU": 7
+        }
+      },
+      {
+        "R_eq_Ncan": true,
+        "j": 10,
+        "max_Ncan_strong": 4,
+        "max_ap": 4,
+        "max_full": 5,
+        "max_strong": 4,
+        "n": 16,
+        "n_p": 272,
+        "p": 17,
+        "strong_fits_n_p": true,
+        "w": 3,
+        "worst_marks": {
+          "lex_CcU": 1,
+          "minC_b1": 2,
+          "minS_cU": 2,
+          "minU_cU": 2
+        }
+      },
+      {
+        "R_eq_Ncan": true,
+        "j": 6,
+        "max_Ncan_strong": 31,
+        "max_ap": 32,
+        "max_full": 32,
+        "max_strong": 31,
+        "n": 16,
+        "n_p": 272,
+        "p": 17,
+        "strong_fits_n_p": true,
+        "w": 2,
+        "worst_marks": {
+          "lex_CcU": 1,
+          "minC_b1": 3,
+          "minS_cU": 5,
+          "minU_cU": 5
+        }
+      },
+      {
+        "R_eq_Ncan": true,
+        "j": 9,
+        "max_Ncan_strong": 5,
+        "max_ap": 5,
+        "max_full": 5,
+        "max_strong": 5,
+        "n": 16,
+        "n_p": 272,
+        "p": 17,
+        "strong_fits_n_p": true,
+        "w": 3,
+        "worst_marks": {
+          "lex_CcU": 1,
+          "minC_b1": 2,
+          "minS_cU": 2,
+          "minU_cU": 2
+        }
+      },
+      {
+        "R_eq_Ncan": true,
+        "j": 5,
+        "max_Ncan_strong": 17,
+        "max_ap": 17,
+        "max_full": 17,
+        "max_strong": 17,
+        "n": 16,
+        "n_p": 272,
+        "p": 17,
+        "strong_fits_n_p": true,
+        "w": 2,
+        "worst_marks": {
+          "lex_CcU": 1,
+          "minC_b1": 1,
+          "minS_cU": 2,
+          "minU_cU": 2
+        }
+      }
+    ],
+    "status": "PASS"
+  }
+}

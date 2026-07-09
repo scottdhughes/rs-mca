@@ -7,6 +7,24 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v15: ledger residual injection (top-seam / E2)
+
+- **Agent/model:** Grok + Scott Hughes (`scottdhughes`).
+- **Files added or changed:**
+  `experimental/scripts/verify_kb_qatom_route_d_v15.py`,
+  `experimental/notes/thresholds/kb_qatom_route_d_v15.md`,
+  `experimental/data/certificates/kb-qatom-route-d-v15/`,
+  `experimental/notes/certificate_scanner/outputs/kb_qatom_route_d_v15.report.md`,
+  `experimental/agents-log.md`.
+- **Status:** PARTIAL_INJECTION_ATTACK — matching-free mass law PROVED; H_seam+E2 OPEN.
+- **Proved:** Top-seam graph = core pencils. Matching-free R ⇒ |R|=N_can (pack=1).
+  Under H_seam, mass = core count; E2/E5 injection closes residual mass (v14 budgets).
+  Marked-incidence normal form for pairs (marked G); oriented first-mate on non-isolated.
+- **Open:** H_seam (ledger residual matching-free via SP/BC payment); actual
+  injection of isolated residual into [t]×F_p or D×F_p.
+- **Toys:** seam-free proxy |R|=N_can; naive (min,c_U) marks still collide.
+- **What to do next:** Prove H_seam from SP/BC first-match; construct ledger marks.
+
 ### 2026-07-09 - KB-MCA Route-D v14: residual mass re-anchor (on-track)
 
 - **Agent/model:** Grok + Scott Hughes (`scottdhughes`).
