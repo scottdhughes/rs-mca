@@ -1,7 +1,18 @@
 # Agents Log
 
 
+### 2026-07-09 - KB-MCA Route-D v39: H_core ≤K_cap ledger + overflow pair enum
 
+- Proved (ledger): H_core = multi-tier FM highs with tier < R_max=70 satisfies
+  |H_core| ≤ R_max·⌊n/e⌋ = 2170 = K_cap by construction.
+- Proved: overflow pairs (high ∉ H_core) pay with μ_over=(i mod e, ⌊i/e⌋);
+  injective; size e·p when N_over≤e·p (e.g. |H_over|≤K_cap ⇒ N_over≪e·p).
+- Restated: load |H|≤(n/e)L; L≤70 ⇒ |H|≤2170 still ambient OPEN.
+- Toys: core≤cap all rows; overflow enum inj 13/13; max L=51; core mark
+  (τ,local,min U,δ) inj on core pairs.
+- Path: fix H^{≤R_max} + pay overflow separately (user option 2). Full A_SP
+  still needs N_over≤e·p or H_over=∅ (multi-tier covers all under |H|≤K_cap).
+- Open: L≤70 deployed; show R≤R_max matches all A_SP highs or bound N_over.
 
 
 
