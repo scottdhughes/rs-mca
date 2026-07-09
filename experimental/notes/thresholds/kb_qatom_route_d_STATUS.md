@@ -4,7 +4,7 @@
 **Goal:** residual free-1 / A_SP card toward `A_SP ≤ t·p` on KoalaBear MCA `a+=1116048`.
 **Does NOT claim** `U ≤ B*` or full MCA close.
 
-Last tip packet: **v54** on `main`; local attack **v55–v76** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
+Last tip packet: **v54** on `main`; local attack **v55–v77** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
 `experimental/scripts/verify_kb_qatom_route_d_v{N}.py` with matching
 notes, certificates, and scanner reports.
 
@@ -120,8 +120,8 @@ Certificates: `experimental/data/certificates/kb-qatom-route-d-v{N}/`.
 
 ## Next session entry
 
-**Primary:** large-t multipad ban or SoftB. Board: coll<=min((K-1)C, 2 C(t,2e))
-(v76). Deployed still >>H2. PR only for residual CLOSED hits.
+**Primary residual PR target (v77):** prove multipad-free on length-n' GP
+⇒ |T|=0. SoftB alternate (likely harder). E[coll] log2~-1.34e6.
 
 ---
 
@@ -219,3 +219,8 @@ not contiguous / not AP of length 2e with ord(ρ)>2e (rescale to v74). Hole in
 **v76**: BOARD — **coll ≤ 2 C(t,2e)** (one multipad pair per 2e-set W);
 coll ≤ min((K−1)C, 2 C(t,2e)). Near t~2e union wins; large t packing may win.
 Deployed both ≫ H2. OPEN: coll=0 or SoftB.
+
+**v77**: BOARD criterion — **multipad-free ⇒ |T|=0** PROVED (residual close
+path). SoftB alternate PROVED as criterion; primary = injectivity. Two-value
+phi form of multipads PROVED. E[coll] tiny. OPEN: multipad-free at deployed
+(then residual PR).

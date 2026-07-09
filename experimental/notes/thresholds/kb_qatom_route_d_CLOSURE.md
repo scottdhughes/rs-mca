@@ -109,12 +109,11 @@ All scanned packets: **no false claim** of `|T|≤H2` or `A_SP≤t·p`.
 
 ## Path to completion
 
-1. **Preferred:** ban multipads on `{0..n'−1}` (or SoftB).  
-   - CLOSED: packing; `t≤2e` inj; span≥2e; **coll ≤ min((K−1)C, 2 C(t,2e))**.  
-   - OPEN residual: coll→0 / SoftB ⇒ `|T|≤H2`.  
-2. **PR policy:** only frozen CLOSED board rows.  
-3. A_SP only after `|T|≤H2`.  
-4. Lean phase 1 done; phase 2 + [AXLE](https://axle.axiommath.ai/v1/docs/).
+1. **Residual PR (v77 criterion PROVED):** multipad-free on length-`n'` GP  
+   ⇒ `|T|=0 ≤ H2`. Hypothesis still OPEN (primary). SoftB alternate.  
+2. Infrastructure CLOSED: packing, `t≤2e`, span≥2e, coll bounds, `P_e` algebra.  
+3. **PR policy:** residual PR only when multipad-free (or SoftB) is PROVED.  
+4. A_SP only after `|T|≤H2`. Lean phase 1 done; AXLE for later.
 
 ### Lean roadmap
 

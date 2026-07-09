@@ -1,0 +1,229 @@
+{
+  "claims": {
+    "proves_A_SP_le_tp": false,
+    "proves_T_le_H2_deployed": false,
+    "proves_deployed_expected_coll_tiny": true,
+    "proves_multipad_free_at_deployed": false,
+    "proves_multipad_two_value_phi": true,
+    "proves_residual_close_by_multipad_free": true,
+    "proves_softB_alternate_path": true
+  },
+  "deployed": {
+    "B_star": 393171.5875467097,
+    "H2": 77291948627,
+    "e": 67472,
+    "n_prime": 1183520,
+    "note": "PROVED criterion; OPEN hypothesis multipad_free at deployed",
+    "p": 2130706433,
+    "residual_closed": false,
+    "residual_criterion": "multipad_free => |T|=0"
+  },
+  "impact_on_program": {
+    "closed": "BOARD criterion: multipad-free => residual |T|=0; two-value phi form of multipads",
+    "wall": "prove multipad-free at deployed (primary residual PR)"
+  },
+  "lemmas": {
+    "OPEN": {
+      "name": "OPEN_deployed_multipad_free",
+      "statement": "Prove free-1 multipad-free (injective high) on GP prefix length n', or SoftB. Either => residual |T|<=H2 board close / PR.",
+      "status": "OPEN"
+    },
+    "expectation": {
+      "name": "deployed_expected_coll_negligible",
+      "numbers": {
+        "log2_C": 373341.4820927906,
+        "log2_E_coll": -1344154.580361308
+      },
+      "proof": [
+        "E[coll] ~ C(C-1)/p^{e-1}; take log2.",
+        "Does not prove coll=0; supports targeting multipad-freeness."
+      ],
+      "statement": "Random-model log2 E[coll] ~ -1344154.6 (multipad-free expected).",
+      "status": "PROVED"
+    },
+    "residual_injectivity": {
+      "name": "residual_close_by_multipad_free",
+      "proof": [
+        "Injective free-1 high => m_h <= 1 => coll = sum m(m-1) = 0.",
+        "v57: |T| <= coll/2 = 0.",
+        "Deployed H2 > 0 so |T| <= H2."
+      ],
+      "statement": "No free-1 multipad on the deployed arc => coll=0 => |T|=0 <= H2.",
+      "status": "PROVED"
+    },
+    "softB": {
+      "name": "softB_alternate_path",
+      "proof": [
+        "v58: coll <= C^2/p^{e-1} + B^2.",
+        "v64: C^2/p^{e-1} negligible; B=B_* => coll <= 2 H2 => |T|<=H2."
+      ],
+      "statement": "If max_{\u03bb\u22600} |S(\u03bb)| <= B_*=393171.6, then |T|<=H2 at deployed (v58+v64). Primary path is multipad-freeness; SoftB is alternate.",
+      "status": "PROVED"
+    },
+    "two_value": {
+      "name": "multipad_two_value_phi",
+      "proof": [
+        "f = m + c0, g = m + c0' with m having zero constant term (free-1).",
+        "m = X m1, monic m1 of deg e-1.",
+        "Roots of f: m(r)=-c0; roots of g: m(r)=-c0'.",
+        "On R = root values of f and g, m takes {-c0,-c0'} each e times."
+      ],
+      "statement": "A free-1 multipad yields monic phi(X)=X*m1(X) (deg e, phi(0)=0) taking exactly two values on the 2e root-values, each e times.",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v77",
+  "status": "RESIDUAL_CRITERION_PROVED_HYPOTHESIS_OPEN",
+  "title": "Residual close criterion: multipad-free => |T|=0",
+  "tools": {
+    "numpy_fft": "max|S| e=3",
+    "python_nt": "two-value multipad check"
+  },
+  "toy_suite": {
+    "deployed": {
+      "B_star": 393171.5875467097,
+      "H2": 77291948627,
+      "e": 67472,
+      "n_prime": 1183520,
+      "note": "PROVED criterion; OPEN hypothesis multipad_free at deployed",
+      "p": 2130706433,
+      "residual_closed": false,
+      "residual_criterion": "multipad_free => |T|=0"
+    },
+    "deployed_model": {
+      "B_star": 393171.5875467097,
+      "H2": 77291948627,
+      "alternate_path": "SoftB",
+      "e": 67472,
+      "log2_C": 373341.4820927906,
+      "log2_E_coll": -1344154.580361308,
+      "n_prime": 1183520,
+      "primary_path": "multipad_free"
+    },
+    "s_rows": [
+      {
+        "B_star": 393171.5875467097,
+        "C": 220,
+        "S_over_sqrtC": 2.7668950329091393,
+        "coll": 0,
+        "maxS": 41.03968551402653,
+        "maxS_le_Bstar": true,
+        "maxS_le_sqrtC": false,
+        "p": 61,
+        "sqrtC": 14.832396974191326,
+        "t": 12
+      },
+      {
+        "B_star": 393171.5875467097,
+        "C": 680,
+        "S_over_sqrtC": 2.672557882895511,
+        "coll": 58,
+        "maxS": 69.69178311286286,
+        "maxS_le_Bstar": true,
+        "maxS_le_sqrtC": false,
+        "p": 61,
+        "sqrtC": 26.076809620810597,
+        "t": 17
+      },
+      {
+        "B_star": 393171.5875467097,
+        "C": 2024,
+        "S_over_sqrtC": 2.1568458430778032,
+        "coll": 766,
+        "maxS": 97.03409502532215,
+        "maxS_le_Bstar": true,
+        "maxS_le_sqrtC": false,
+        "p": 61,
+        "sqrtC": 44.98888751680797,
+        "t": 24
+      },
+      {
+        "B_star": 393171.5875467097,
+        "C": 455,
+        "S_over_sqrtC": 2.682671915749517,
+        "coll": 22,
+        "maxS": 57.2233476514245,
+        "maxS_le_Bstar": true,
+        "maxS_le_sqrtC": false,
+        "p": 101,
+        "sqrtC": 21.330729007701542,
+        "t": 15
+      },
+      {
+        "B_star": 393171.5875467097,
+        "C": 1140,
+        "S_over_sqrtC": 2.94476152105253,
+        "coll": 72,
+        "maxS": 99.42659238902658,
+        "maxS_le_Bstar": true,
+        "maxS_le_sqrtC": false,
+        "p": 101,
+        "sqrtC": 33.76388603226827,
+        "t": 20
+      },
+      {
+        "B_star": 393171.5875467097,
+        "C": 816,
+        "S_over_sqrtC": 3.164996371059207,
+        "coll": 10,
+        "maxS": 90.4103802420687,
+        "maxS_le_Bstar": true,
+        "maxS_le_sqrtC": false,
+        "p": 127,
+        "sqrtC": 28.5657137141714,
+        "t": 18
+      }
+    ],
+    "status": "PASS",
+    "summary": {
+      "all_two_value_ok": true,
+      "log2_E_coll": -1344154.580361308,
+      "max_S_over_sqrtC": 3.164996371059207,
+      "min_S_over_sqrtC": 2.1568458430778032,
+      "n_S": 6,
+      "n_tv": 5
+    },
+    "tv_rows": [
+      {
+        "all_ok": true,
+        "checked": 20,
+        "e": 3,
+        "p": 61,
+        "t": 17,
+        "two_value_ok": 20
+      },
+      {
+        "all_ok": true,
+        "checked": 20,
+        "e": 3,
+        "p": 61,
+        "t": 24,
+        "two_value_ok": 20
+      },
+      {
+        "all_ok": true,
+        "checked": 17,
+        "e": 3,
+        "p": 101,
+        "t": 17,
+        "two_value_ok": 17
+      },
+      {
+        "all_ok": true,
+        "checked": 3,
+        "e": 4,
+        "p": 101,
+        "t": 21,
+        "two_value_ok": 3
+      },
+      {
+        "all_ok": true,
+        "checked": 1,
+        "e": 4,
+        "p": 127,
+        "t": 21,
+        "two_value_ok": 1
+      }
+    ]
+  }
+}
