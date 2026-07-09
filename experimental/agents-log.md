@@ -7,6 +7,28 @@
 
 
 
+### 2026-07-08 - KB-MCA Route-D v11: residual can-core family + multi-mate partition
+
+- **Agent/model:** Grok + Scott Hughes (`scottdhughes`).
+- **Files added or changed:**
+  `experimental/scripts/verify_kb_qatom_route_d_v11.py`,
+  `experimental/notes/thresholds/kb_qatom_route_d_v11.md`,
+  `experimental/data/certificates/kb-qatom-route-d-v11/`,
+  `experimental/notes/certificate_scanner/outputs/kb_qatom_route_d_v11.report.md`,
+  `experimental/agents-log.md`.
+- **Status:** PARTIAL_RESIDUAL_STRUCTURE — definitions/routing/partition/criterion PROVED; M_m^res<=1 OPEN.
+- **Proved:**
+  1. Formal C_res, U_res, U_phi, M_m^{res,side}, M_m^{res,phi}, N_can_prim.
+  2. Routing: N_can_prim <= U_res * M_m^{res,side} and <= U_phi * M_m^{res,phi}.
+  3. Multi-mate dichotomy + tight residual clique <= k_tight=18.
+  4. Payment partition: (i) tight CS seam (ii) partial-plant (iii) coset-free non-tight.
+  5. Atom criterion with K_res only (primary K_res=1).
+- **Toys (aperiodic residual proxy):** residual multi-mates still occur; class (iii)
+  coset-free non-tight is abundant (e.g. j=8,w=2: 940 pairs). Mm_res_side up to 10
+  on toys — aperiodicity alone does not give K_res=1.
+- **What to do next:** Kill class (iii) in true residual, or pay (i)+(ii) and bound
+  (iii), or residual Phi_w injectivity on C_res, or B2 U_phi bound.
+
 ### 2026-07-08 - KB-MCA Route-D v10: residual M_m law + partial-plant gap
 
 - **Agent/model:** Grok + Scott Hughes (`scottdhughes`).

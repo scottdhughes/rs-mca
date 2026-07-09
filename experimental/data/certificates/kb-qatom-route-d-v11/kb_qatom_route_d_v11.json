@@ -1,0 +1,353 @@
+{
+  "claims": {
+    "proves_C_res_definitions": true,
+    "proves_Mm_res_le_1": false,
+    "proves_U_res_atom": false,
+    "proves_class_iii_empty": false,
+    "proves_criterion_Kres_only": true,
+    "proves_multimate_dichotomy_on_C_res": true,
+    "proves_partial_plant_class": true,
+    "proves_payment_law_partition": true,
+    "proves_residual_routing_side_and_phi": true,
+    "proves_tight_clique_on_C_res": true
+  },
+  "deployed": {
+    "U_res_if_Kres_1": 16166878605395467,
+    "U_res_if_Kres_10": 1616687860539546,
+    "e": 67472,
+    "free": 846161,
+    "j": 981104,
+    "k_coset_global": 10,
+    "k_tight": 18,
+    "log2_U_res_K1": 53.84389067782479,
+    "log2_U_res_K10": 50.52196258293743,
+    "m": 913632,
+    "n": 2097152,
+    "pack": 17,
+    "w": 67471
+  },
+  "impact_on_program": {
+    "alt_B2": "bound U_phi = residual can-core Phi_w-image",
+    "next": "Prove class (iii) empty in true residual, or pay (i)+(ii) and bound (iii); or prove residual Phi_w injectivity on C_res.",
+    "payment_split": "tight seam | partial plant | coset-free non-tight",
+    "primary_target": "M_m^{res,side} <= 1 (or small K_res)"
+  },
+  "lemmas": {
+    "criterion": {
+      "budgets": {
+        "K_res_1": {
+          "K_res": 1,
+          "U_res_atom": 16166878605395467,
+          "U_res_tp": 8456648496904,
+          "log2_atom": 53.84389067782479
+        },
+        "K_res_10": {
+          "K_res": 10,
+          "U_res_atom": 1616687860539546,
+          "U_res_tp": 845664849690,
+          "log2_atom": 50.52196258293743
+        },
+        "K_res_18": {
+          "K_res": 18,
+          "U_res_atom": 898159922521970,
+          "U_res_tp": 469813805383,
+          "log2_atom": 49.67396567638247
+        },
+        "K_res_2": {
+          "K_res": 2,
+          "U_res_atom": 8083439302697733,
+          "U_res_tp": 4228324248452,
+          "log2_atom": 52.84389067782479
+        }
+      },
+      "name": "atom_criterion_Kres_only",
+      "note": "Do not substitute global M_m lower bounds for K_res (v10). Primary target K_res=1 restores U_res <= target/17.",
+      "proof": [
+        "N_can_prim <= U_res * M_m^{res,side} <= target/pack.",
+        "|R| <= pack * N_can_prim <= target."
+      ],
+      "statement": "If max_z M_m^{res,side}(z) <= K_res and max_z U_res(z) <= floor(target/(pack * K_res)), then max_z |R(z)| <= target (residual lex covering, v4).",
+      "status": "PROVED_CONDITIONAL"
+    },
+    "definitions": {
+      "deployed": {
+        "e": 67472,
+        "j": 981104,
+        "m": 913632,
+        "w": 67471
+      },
+      "name": "residual_can_core_definitions",
+      "proof": [
+        "All maps are well-defined from the v3 lex-split and monic locator maps.",
+        "C_res is the residual can-core family; N_can_prim is its cardinality."
+      ],
+      "statement": "Fix residual family R(z) subset Fib_w^{(j)}(z). For S in R(z) let U(S) be the e=w+1 lex-smallest elements of S, C_can(S)=S\\\\U(S), u(S)=Phi_w(Lambda_{U(S)}), b(S)=Phi_w(Lambda_{C_can(S)}). Define:\n  C_res(z) = { C_can(S) : S in R(z) }\n  U_res(z) = |{ u(S) : S in R(z) }|\n  N_can_prim(z) = |C_res(z)|\n  M_m^{res,side}(z) = max_u |{ C_can(S) : S in R(z), u(S)=u }|\n  M_m^{res,phi}(z) = max_b |{ C in C_res(z) : Phi_w(C)=b }|\n  M_m^{res,max} = max_z M_m^{res,side}(z)  (routing K_res; also M_m^{res,phi} <= M_m^{res,side} is false in general, but both are <= global M_m).",
+      "status": "PROVED"
+    },
+    "multimate_dichotomy": {
+      "deployed_k_tight": 18,
+      "name": "residual_multimate_dichotomy",
+      "proof": [
+        "v9 intersection law and tight-pair characterization apply to any m-subsets in a common Phi_w fiber; restrict to C_res.",
+        "v9 tight-clique packing: free-1 CS (w+1)-blocks are pairwise disjoint, so at most 1+floor((n\u2212m)/(w+1)) pad onto one core R0."
+      ],
+      "statement": "Let C \u2260 C' be in C_res(z) with Phi_w(C)=Phi_w(C'). Then |C \u2229 C'| <= m \u2212 w \u2212 1. Moreover:\n  TIGHT: |C \u2229 C'| = m \u2212 w \u2212 1  \u21d4  R0=C\u2229C' has size m\u2212(w+1) and U=C\\\\C', V=C'\\\\C form a free-1 constant-shift pair of (w+1)-sets;\n  NON-TIGHT: |C \u2229 C'| < m \u2212 w \u2212 1.\nAny pairwise-tight subfamily of C_res(z) has size <= k_tight = 1+floor((n\u2212m)/(w+1)) = 18.",
+      "status": "PROVED",
+      "warning": "k_tight bounds only pairwise-tight residual subfamilies, not full M_m^{res} (non-tight multi-mates can be larger \u2014 v9 toys)."
+    },
+    "partial_plant_class": {
+      "name": "partial_plant_multimate_class",
+      "open": "No proved first-match payment yet deletes all partial-plant can-cores from residual. Coset-free multi-mates remain even after such a payment.",
+      "proof": [
+        "Definitional classification of multi-mates.",
+        "v8: each pad mate is R cup U with U a full c-coset => max_Q >= 1.",
+        "v10: maximal terminal planted j-supports excluded from R(z); single-fiber pads are not maximal.",
+        "If every residual can-core is fiber-free for all c >= w+1, then partial-plant type multi-mates cannot occur in C_res."
+      ],
+      "statement": "Call a residual multi-mate pair (C,C') partial-plant type if at least one of C,C' has max_Q >= 1 for some c|n with c >= w+1. The v8 coset-pad global multi-mates are partial-plant type with c=131072, |Q|=1. Maximal terminal plants are already non-residual (v10). A first-match cell that pays all j-supports whose can-core is partial-plant type would force every residual multi-mate pair to be coset-free (no full c-fiber factor on either core).",
+      "status": "PROVED"
+    },
+    "payment_law": {
+      "name": "residual_multimate_payment_law",
+      "program": "Pay (i) and (ii) by first-match cells; prove (iii) cannot occur in true residual (or is size-1) to get M_m^{res}<=1.",
+      "proof": [
+        "Dichotomy (i) vs not-(i) is the tight/non-tight split (lemma multimate).",
+        "Among non-tight (and also among tight) pairs, either some core has a c-fiber factor (ii) or both are fiber-free for all c>=w+1 (iii).",
+        "These three classes partition residual multi-mate pairs."
+      ],
+      "statement": "Suppose C \u2260 C' in C_res(z) share Phi_w. Then at least one of the following holds:\n  (i)   TIGHT: free-1 CS (w+1)-seam multi-mate (candidate top-seam / marked-incidence cell);\n  (ii)  PARTIAL-PLANT: some c|n, c>=w+1, max_Q(C or C')>=1 (candidate planted/partial-factor cell; v8 witnesses live here);\n  (iii) COSSET-FREE NON-TIGHT: neither core has a full c-fiber for any c>=w+1, and |C\u2229C'| < m\u2212w\u22121 (remaining geometric wall; null/sparse high-prefix fibers on toys).",
+      "status": "PROVED_CONDITIONAL_STRUCTURE"
+    },
+    "program": {
+      "name": "v11_program_reduction",
+      "not_proved": [
+        "M_m^{res} <= 1",
+        "class (iii) empty in true residual",
+        "U_res or U_phi atom bounds"
+      ],
+      "proof": [
+        "Routing + lex covering + residual criterion.",
+        "Global uniqueness dead; residual uniqueness open.",
+        "Multi-mate payment law partitions the obstruction."
+      ],
+      "statement": "After v8\u2013v10, the residual atom reduces to: prove M_m^{res,side} <= 1 (or small K_res), OR bound U_phi (residual can-core Phi_w-image) directly, OR pay all residual multi-mate classes (i)+(ii)+(iii) in first-match.",
+      "status": "PROVED_AS_PROGRAM_LAW"
+    },
+    "routing": {
+      "name": "residual_routing_side_and_phi",
+      "note": "v7 B2 bounds U_phi; residual uniqueness bounds M_m^{res,*}. Either route closes the atom with lex covering |R| <= pack * N_can_prim.",
+      "proof": [
+        "Side: partition C_res by u(S); each block size <= M_m^{res,side}; number of blocks <= U_res. (v5/v10 residual routing, residual-restricted.)",
+        "Phi: partition C_res by Phi_w(C); each block size <= M_m^{res,phi}; number of blocks = U_phi.",
+        "Global comparison: residual cores are a subfamily of all m-subsets."
+      ],
+      "statement": "N_can_prim(z) <= U_res(z) * M_m^{res,side}(z). Also N_can_prim(z) <= U_phi(z) * M_m^{res,phi}(z) where U_phi(z) = |{ Phi_w(C) : C in C_res(z) }| (residual can-core Phi_w-image size; the v7 B2 object). Always M_m^{res,side}(z) <= M_m^{max} and M_m^{res,phi}(z) <= M_m^{max}.",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v11",
+  "status": "PARTIAL_RESIDUAL_STRUCTURE",
+  "title": "Residual can-core family, multi-mate classes, K_res criterion",
+  "toy_suite": {
+    "rows": [
+      {
+        "Mm_global": 17,
+        "Mm_res_phi_all": 7,
+        "Mm_res_phi_per_z": 7,
+        "Mm_res_side": 7,
+        "class_counts": {
+          "cosetfree_nontight": 940,
+          "nontight_plant": 4,
+          "tight": 1789,
+          "tight_and_plant": 11
+        },
+        "e": 3,
+        "j": 8,
+        "k_tight": 4,
+        "m": 5,
+        "max_Ncan": 49,
+        "max_R": 49,
+        "max_U_phi": 34,
+        "max_U_res": 34,
+        "n": 16,
+        "n_residual_cores": 1286,
+        "p": 17,
+        "res_lt_global": true,
+        "res_side_le_1": false,
+        "routing_ok": true,
+        "w": 2
+      },
+      {
+        "Mm_global": 4,
+        "Mm_res_phi_all": 2,
+        "Mm_res_phi_per_z": 2,
+        "Mm_res_side": 2,
+        "class_counts": {
+          "tight": 9
+        },
+        "e": 4,
+        "j": 8,
+        "k_tight": 4,
+        "m": 4,
+        "max_Ncan": 5,
+        "max_R": 5,
+        "max_U_phi": 5,
+        "max_U_res": 5,
+        "n": 16,
+        "n_residual_cores": 495,
+        "p": 17,
+        "res_lt_global": true,
+        "res_side_le_1": false,
+        "routing_ok": true,
+        "w": 3
+      },
+      {
+        "Mm_global": 32,
+        "Mm_res_phi_all": 10,
+        "Mm_res_phi_per_z": 10,
+        "Mm_res_side": 10,
+        "class_counts": {
+          "cosetfree_nontight": 1912,
+          "nontight_plant": 69,
+          "tight": 2714,
+          "tight_and_plant": 88
+        },
+        "e": 3,
+        "j": 9,
+        "k_tight": 4,
+        "m": 6,
+        "max_Ncan": 42,
+        "max_R": 42,
+        "max_U_phi": 28,
+        "max_U_res": 28,
+        "n": 16,
+        "n_residual_cores": 1716,
+        "p": 17,
+        "res_lt_global": true,
+        "res_side_le_1": false,
+        "routing_ok": true,
+        "w": 2
+      },
+      {
+        "Mm_global": 3,
+        "Mm_res_phi_all": 2,
+        "Mm_res_phi_per_z": 2,
+        "Mm_res_side": 2,
+        "class_counts": {
+          "tight": 32
+        },
+        "e": 4,
+        "j": 9,
+        "k_tight": 3,
+        "m": 5,
+        "max_Ncan": 5,
+        "max_R": 5,
+        "max_U_phi": 5,
+        "max_U_res": 5,
+        "n": 16,
+        "n_residual_cores": 792,
+        "p": 17,
+        "res_lt_global": true,
+        "res_side_le_1": false,
+        "routing_ok": true,
+        "w": 3
+      },
+      {
+        "Mm_global": 5,
+        "Mm_res_phi_all": 2,
+        "Mm_res_phi_per_z": 2,
+        "Mm_res_side": 2,
+        "class_counts": {
+          "tight": 42
+        },
+        "e": 4,
+        "j": 10,
+        "k_tight": 3,
+        "m": 6,
+        "max_Ncan": 4,
+        "max_R": 4,
+        "max_U_phi": 4,
+        "max_U_res": 4,
+        "n": 16,
+        "n_residual_cores": 923,
+        "p": 17,
+        "res_lt_global": true,
+        "res_side_le_1": false,
+        "routing_ok": true,
+        "w": 3
+      },
+      {
+        "Mm_global": 8,
+        "Mm_res_phi_all": 5,
+        "Mm_res_phi_per_z": 5,
+        "Mm_res_side": 5,
+        "class_counts": {
+          "cosetfree_nontight": 169,
+          "tight": 817
+        },
+        "e": 3,
+        "j": 7,
+        "k_tight": 5,
+        "m": 4,
+        "max_Ncan": 42,
+        "max_R": 42,
+        "max_U_phi": 38,
+        "max_U_res": 38,
+        "n": 16,
+        "n_residual_cores": 715,
+        "p": 17,
+        "res_lt_global": true,
+        "res_side_le_1": false,
+        "routing_ok": true,
+        "w": 2
+      },
+      {
+        "Mm_global": 3,
+        "Mm_res_phi_all": 3,
+        "Mm_res_phi_per_z": 3,
+        "Mm_res_side": 3,
+        "class_counts": {
+          "tight": 278
+        },
+        "e": 3,
+        "j": 6,
+        "k_tight": 5,
+        "m": 3,
+        "max_Ncan": 31,
+        "max_R": 32,
+        "max_U_phi": 29,
+        "max_U_res": 29,
+        "n": 16,
+        "n_residual_cores": 286,
+        "p": 17,
+        "res_lt_global": false,
+        "res_side_le_1": false,
+        "routing_ok": true,
+        "w": 2
+      },
+      {
+        "j": 5,
+        "m": 2,
+        "n": 32,
+        "p": 97,
+        "skip": 201376,
+        "w": 2
+      },
+      {
+        "j": 5,
+        "m": 1,
+        "n": 32,
+        "p": 97,
+        "skip": 201376,
+        "w": 3
+      }
+    ],
+    "status": "PASS",
+    "unit_tight_plant_pad": {
+      "cap": 2,
+      "intersection": 2,
+      "partial_plant": true,
+      "tight_pad_phi_match": true
+    }
+  }
+}
