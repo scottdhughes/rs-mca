@@ -1,6 +1,14 @@
 # Agents Log
 
 
+### 2026-07-09 - KB-MCA Route-D v46: R2/H_R2 untyped+Type D structure
+
+- Proved: R2=R2_unt⊔R2_D; Type D cores pairwise disjoint, pack_D=2; |R2|≤930|H_R2|;
+  |R2_D|≤2·n_mpad_D; |H_R2|≤H2 ⇒ residual card.
+- Refuted on A_SP residual: |H_R2|≤⌊n/e⌋, ≤2⌊n/e⌋, ≤pack_D·⌊n/e⌋, **≤n**
+  (n=30 ⇒ |H_R2|=952). free_core≥1 residual ≈ pure untyped (avg 95%).
+- Open: deployed |H_R2|≤H2 or |R2|≤e·p (not ≤n).
+
 ### 2026-07-09 - KB-MCA Route-D v45: residual after SR + H_M (R2 / H_R2)
 
 - Defined double residual: R1 = free-1 pairs not Type-S multipad; R2 = R1 with
