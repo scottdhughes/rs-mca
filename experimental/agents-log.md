@@ -7,6 +7,15 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v23: free_core=1 multipads = free-1 CS cores
+
+- Proved: free_core=1 multipads are free-1 CS core pairs (same monic free-1 high,
+  distinct c0) + joint avoidance U,V ⊆ complement(C∪C'); side key recovers unique
+  fully-split (U,V); free_core stratification ≤0 / =1 / ≥2.
+- Toys: 818 fc1 pair-checks all free-1 CS; 34144 joint-avoid checks OK.
+- Deployed free_core=846161 ≥ 2 stratum — M_pad still OPEN.
+- Next: free_core≫1 multi-mates with joint complement CS-extension; or e·p marks.
+
 ### 2026-07-09 - KB-MCA Route-D v22: multipads = core multi-mates + e·p mark bank
 
 - Proved: multipad cores share Phi_w (depth-w multi-mates of size m_c=j−e);
