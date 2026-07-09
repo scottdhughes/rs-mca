@@ -1,0 +1,134 @@
+{
+  "claims": {
+    "proves_P_multi_bound": false,
+    "proves_R_sing_collision_diff_cores": true,
+    "proves_mark_injectivity": false,
+    "proves_mu_E5_degree_bound": true,
+    "proves_mu_E5_share_min": true,
+    "records_tool_routing": true
+  },
+  "deployed": {
+    "P_multi_budget": 8456648496904,
+    "j": 981104,
+    "mu_E5_deg_bound": 913631,
+    "t_p": 143763024447376,
+    "w": 67471
+  },
+  "lemmas": {
+    "OPEN": {
+      "name": "OPEN_after_collision_algebra",
+      "statement": "Collision algebra constrains \u03bc_E5 failures (deg\u2264j-w-2, share min, distinct cores on R_sing) but does not empty them. Still need:\n  (1) Bound P_multi or |A_SP| \u2264 printed cost;\n  (2) Mark whose collision variety is empty on ledger residual (possibly after further first-match deletions).",
+      "status": "OPEN"
+    },
+    "degree_bound": {
+      "deployed_bound": 913631,
+      "name": "mu_E5_collision_degree_bound",
+      "proof": [
+        "Agreeing monic leading 1 and the next w high monic coefficients gives deg(diff) \u2264 j\u2212w\u22121.",
+        "Additionally agreeing a_{w+1} kills the X^{j-w-1} coefficient of the difference, hence deg(diff) \u2264 j\u2212w\u22122."
+      ],
+      "statement": "If monic degree-j locators \u039b_S, \u039b_T satisfy Phi_w(S)=Phi_w(T) and a_{w+1}(\u039b_S)=a_{w+1}(\u039b_T) (coefficient of X^{j-w-1}), then deg(\u039b_S \u2212 \u039b_T) \u2264 j \u2212 w \u2212 2.",
+      "status": "PROVED"
+    },
+    "diff_cores": {
+      "name": "R_sing_mu_E5_collision_distinct_cores",
+      "proof": [
+        "On R_sing, C_can is bijective (v15/v16/v17).",
+        "S \u2260 T \u21d2 C_can(S) \u2260 C_can(T).",
+        "Thus any \u03bc_E5 collision is between distinct can-cores \u2014 not a within-pencil ambiguity (already removed by A_SP)."
+      ],
+      "statement": "On R_sing(z) (singleton top-seam pencils / A_SP residual), if S \u2260 T and \u03bc_E5(S)=\u03bc_E5(T), then C_can(S) \u2260 C_can(T).",
+      "status": "PROVED"
+    },
+    "share_min": {
+      "name": "mu_E5_collision_shares_min_root",
+      "proof": [
+        "By definition min_exp(S)=min_exp(T)=m0 means m0 \u2208 S and m0 \u2208 T."
+      ],
+      "statement": "If \u03bc_E5(S)=\u03bc_E5(T)=(m0, a) with m0 a domain exponent in S and T (as in the mark definition min_exp), then the corresponding domain value \u03b1 lies in S \u2229 T, so |S \u2229 T| \u2265 1 and (X\u2212\u03b1) divides both locators.",
+      "status": "PROVED"
+    },
+    "tool_routing": {
+      "name": "cas_tool_routing_for_open_problems",
+      "statement": "Open problem routing to local CAS (this machine):\n  P_multi / |A_SP| bounds:\n    - Sage/PARI: larger dyadic enumerations (n=32,64) for scaling\n    - Wolfram: asymptotics / generating functions for CS pencil counts\n    - Second-moment identities already in grande_finale (exact L2)\n  Injective residual marks / collision emptiness:\n    - Sage/Singular/M2/msolve: polynomial systems for mark collisions\n      (two monics, shared high coeffs, shared mark constraints)\n    - Sage: multiplicative coset arithmetic on mu_n\n    - PARI: fast finite-field poly gcd for collision audits\n  Not for this wall: raw Gr\u00f6bner at deployed (j,w) scale (infeasible).\nUse CAS to find structure and kill candidate marks; finite deployed proof must be human-checkable identities + first-match payment.",
+      "status": "PROVED_AS_PROGRAM_LAW",
+      "tools_available": [
+        "sage 10.9",
+        "wolframscript / local Engine",
+        "gp/PARI",
+        "msolve",
+        "M2",
+        "singular",
+        "python+sympy (math_code venv)"
+      ]
+    }
+  },
+  "packet": "kb_qatom_route_d_v18",
+  "status": "PARTIAL_CAS_ALGEBRA",
+  "title": "CAS tool routing + mu_E5 collision algebra",
+  "toy_suite": {
+    "rows": [
+      {
+        "all_deg_ok": true,
+        "all_diff_C": true,
+        "all_share_min": true,
+        "deg_bound": 4,
+        "j": 8,
+        "max_mu_E5": 5,
+        "n": 16,
+        "n_coll_pairs": 3576,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "all_deg_ok": true,
+        "all_diff_C": true,
+        "all_share_min": true,
+        "deg_bound": 5,
+        "j": 9,
+        "max_mu_E5": 5,
+        "n": 16,
+        "n_coll_pairs": 3386,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "all_deg_ok": true,
+        "all_diff_C": true,
+        "all_share_min": true,
+        "deg_bound": 2,
+        "j": 6,
+        "max_mu_E5": 3,
+        "n": 16,
+        "n_coll_pairs": 594,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "all_deg_ok": true,
+        "all_diff_C": true,
+        "all_share_min": true,
+        "deg_bound": 5,
+        "j": 10,
+        "max_mu_E5": 2,
+        "n": 16,
+        "n_coll_pairs": 10,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "all_deg_ok": true,
+        "all_diff_C": true,
+        "all_share_min": true,
+        "deg_bound": 1,
+        "j": 5,
+        "max_mu_E5": 3,
+        "n": 16,
+        "n_coll_pairs": 57,
+        "p": 17,
+        "w": 2
+      }
+    ],
+    "status": "PASS"
+  }
+}

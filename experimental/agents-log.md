@@ -7,6 +7,13 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v18: CAS tools + mu_E5 collision algebra
+
+- Tools: sage/pari/msolve/M2/singular/wolfram available; routing recorded.
+- Proved: mu_E5 collisions have deg(diff)<=j-w-2, share min root; on R_sing
+  distinct can-cores. Sage audit: collisions real, not within-pencil.
+- Still open: P_multi bound; injective mark.
+
 ### 2026-07-09 - KB-MCA Route-D v17: A_SP cost algebra + mark bank
 
 - **Proved:** Fib=A_SP⊔R_sing; |A_SP|≤17·P_multi and |A_SP|≤N_ord (ordered
