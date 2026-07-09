@@ -7,6 +7,14 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v25: free-1 high families disjoint + residual census
+
+- Proved: free-1 high families F_H pairwise disjoint (c0=−H(r) forces unique U);
+  |F_H|≤⌊n/e⌋; deployed ⌊n/e⌋=31≤e; within-family (ι,δ) injects CS pairs into e·p.
+- Payment if M_pad≤1 and residual pairs lie in a single high family.
+- Toys: 9976 families all disjoint; cross-high (ι,δ) collides (10 rows) — OPEN gap.
+- Next: residual high separation inside e·p, or single residual high for A_SP; M_pad.
+
 ### 2026-07-09 - KB-MCA Route-D v24: Newton multi-mates + (U,δ) CS-pair reduction
 
 - Proved: multipad product identity (Λ_C−Λ_C')Λ_U = Λ_{C∪U}−Λ_{C'∪U};
