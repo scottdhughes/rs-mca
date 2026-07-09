@@ -1,5 +1,12 @@
 # Agents Log
 
+### 2026-07-09 - KB-MCA Route-D wrap: STATUS index for PR handoff
+
+- Added experimental/notes/thresholds/kb_qatom_route_d_STATUS.md (v1–v54 map,
+  live reduction, proved/refuted/open, next-session entry).
+- Marked v47 draft note partially superseded by v53–v54.
+- PR body refreshed to current residual path (not stale v17 blurb).
+
 ### 2026-07-09 - KB-MCA Route-D v54: pack-k + pure-untyped terminal star
 
 - Refuted: pack k=17 alone as H2 strategy (e=3,k=17 nH~p² on toys).

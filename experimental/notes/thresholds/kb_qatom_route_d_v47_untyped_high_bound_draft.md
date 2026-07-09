@@ -1,11 +1,14 @@
 # Untyped residual high bound — draft from free-1 + free_core geometry
 
-Status: **DRAFT / PARTIAL** — reduction lemmas below are in good shape;
-the terminal sublemma `H_*(A+e,e) ≤ H2` is **not** proved. This is the
-intended primary-geometry attack on residual card (v45–v46), not a finished
-theorem.
+Status: **PARTIALLY SUPERSEDED** — C_unique and N_C=1 are now **theorems**
+(v53); pure-untyped is a **terminal star** with `|H_unt|=|T|` (v54).
+Terminal sublemma is now `|T|≤H2` (not ambient `H_*(A+e,e)`). Keep this
+note for dictionary / early reduction history.
 
-Companion verifier: `experimental/scripts/verify_kb_qatom_route_d_v47.py`.
+**Canonical status:** `experimental/notes/thresholds/kb_qatom_route_d_STATUS.md`.
+
+Companion verifier: `experimental/scripts/verify_kb_qatom_route_d_v47.py`
+(historical); tip verifiers v53–v54.
 
 ---
 
