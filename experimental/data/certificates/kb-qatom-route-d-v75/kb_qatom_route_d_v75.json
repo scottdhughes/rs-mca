@@ -1,0 +1,576 @@
+{
+  "claims": {
+    "proves_A_SP_le_tp": false,
+    "proves_T_le_H2_deployed": false,
+    "proves_deployed_injectivity": false,
+    "proves_multipad_t_ge_2e_plus_1": true,
+    "proves_span_ge_2e": true,
+    "proves_union_has_hole": true,
+    "proves_union_not_AP_length_2e": true
+  },
+  "deployed": {
+    "B_star": 393171.5875467097,
+    "H2": 77291948627,
+    "e": 67472,
+    "min_span_if_multipad": 134944,
+    "n_prime": 1183520,
+    "note": "multipad => span>=2e and non-AP union; still far from n'-scale ban",
+    "p": 2130706433,
+    "two_e": 134944
+  },
+  "impact_on_program": {
+    "closed": "BOARD: multipad => t>=2e+1, span>=2e, W not contiguous/long AP",
+    "wall": "large-t ban to n' or SoftB"
+  },
+  "lemmas": {
+    "OPEN": {
+      "name": "OPEN_large_t_multipad_ban",
+      "statement": "Ban multipads for t up to n'=1183520 (~17.5 e), or SoftB.",
+      "status": "OPEN"
+    },
+    "ap_ban": {
+      "name": "multipad_union_not_AP_of_length_2e",
+      "proof": [
+        "W={a0+jd}_{j=0}^{2e-1} => values alpha * {rho^j} with rho=omega^d.",
+        "Monic free-1 multipad scales: f-g constant iff the pure-rho multipad f0-g0 constant on {0..2e-1}.",
+        "v74 forbids pure GP multipads of length 2e when ord(rho)>2e.",
+        "d=1 => ord(omega)=n>2e => no contiguous W."
+      ],
+      "statement": "If n > 2e, multipad index union W is not an arithmetic progression of length 2e with difference d satisfying ord(omega^d) > 2e. In particular W is not a contiguous block of length 2e.",
+      "status": "PROVED"
+    },
+    "hole": {
+      "name": "multipad_union_has_a_hole",
+      "proof": [
+        "span >= 2e => max-min+1 >= 2e+1 > 2e."
+      ],
+      "statement": "W=A cup B has a hole in [min W, max W]: max-min+1 >= 2e+1 > |W|=2e.",
+      "status": "PROVED"
+    },
+    "span_2e": {
+      "name": "multipad_span_ge_2e",
+      "proof": [
+        "|W|=2e. If span=2e-1 then W is a contiguous interval of length 2e.",
+        "Forbidden by AP-ban with d=1. Hence span >= 2e."
+      ],
+      "statement": "For multipad G with n>2e: span(G)=max(supp)-min(supp) >= 2e.",
+      "status": "PROVED"
+    },
+    "t_ge_2e1": {
+      "name": "multipad_requires_t_ge_2e_plus_1",
+      "proof": [
+        "Two disjoint e-sets need t >= 2e.",
+        "v74: no multipad for t <= 2e. Hence t >= 2e+1."
+      ],
+      "statement": "Any free-1 multipad needs t >= 2e+1.",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v75",
+  "status": "SPAN_2E_PROVED_LARGE_T_BAN_OPEN",
+  "title": "Multipad span >= 2e; union not a 2e-AP",
+  "tools": {
+    "python_nt": "multipad geometry census"
+  },
+  "toy_suite": {
+    "deployed": {
+      "B_star": 393171.5875467097,
+      "H2": 77291948627,
+      "e": 67472,
+      "min_span_if_multipad": 134944,
+      "n_prime": 1183520,
+      "note": "multipad => span>=2e and non-AP union; still far from n'-scale ban",
+      "p": 2130706433,
+      "two_e": 134944
+    },
+    "first_rows": [
+      {
+        "e": 3,
+        "first_t": 13,
+        "p": 61,
+        "ratio": 4.333333333333333,
+        "two_e": 6
+      },
+      {
+        "e": 4,
+        "first_t": 16,
+        "p": 61,
+        "ratio": 4.0,
+        "two_e": 8
+      },
+      {
+        "e": 5,
+        "first_t": null,
+        "p": 61,
+        "ratio": null,
+        "two_e": 10
+      },
+      {
+        "e": 3,
+        "first_t": 11,
+        "p": 73,
+        "ratio": 3.6666666666666665,
+        "two_e": 6
+      },
+      {
+        "e": 4,
+        "first_t": 14,
+        "p": 73,
+        "ratio": 3.5,
+        "two_e": 8
+      },
+      {
+        "e": 5,
+        "first_t": null,
+        "p": 73,
+        "ratio": null,
+        "two_e": 10
+      },
+      {
+        "e": 3,
+        "first_t": 9,
+        "p": 101,
+        "ratio": 3.0,
+        "two_e": 6
+      },
+      {
+        "e": 4,
+        "first_t": 20,
+        "p": 101,
+        "ratio": 5.0,
+        "two_e": 8
+      },
+      {
+        "e": 5,
+        "first_t": null,
+        "p": 101,
+        "ratio": null,
+        "two_e": 10
+      },
+      {
+        "e": 3,
+        "first_t": 16,
+        "p": 127,
+        "ratio": 5.333333333333333,
+        "two_e": 6
+      },
+      {
+        "e": 4,
+        "first_t": 21,
+        "p": 127,
+        "ratio": 5.25,
+        "two_e": 8
+      },
+      {
+        "e": 5,
+        "first_t": null,
+        "p": 127,
+        "ratio": null,
+        "two_e": 10
+      },
+      {
+        "e": 3,
+        "first_t": 8,
+        "p": 43,
+        "ratio": 2.6666666666666665,
+        "two_e": 6
+      },
+      {
+        "e": 4,
+        "first_t": 16,
+        "p": 43,
+        "ratio": 4.0,
+        "two_e": 8
+      },
+      {
+        "e": 5,
+        "first_t": 17,
+        "p": 43,
+        "ratio": 3.4,
+        "two_e": 10
+      }
+    ],
+    "free_rows": [
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 3,
+        "forbidden_AP_count": 0,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 61,
+        "pairs": 0,
+        "t": 6,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 3,
+        "forbidden_AP_count": 0,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 61,
+        "pairs": 0,
+        "t": 7,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 4,
+        "forbidden_AP_count": 0,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 61,
+        "pairs": 0,
+        "t": 8,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 4,
+        "forbidden_AP_count": 0,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 61,
+        "pairs": 0,
+        "t": 9,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 5,
+        "forbidden_AP_count": 0,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 61,
+        "pairs": 0,
+        "t": 10,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 5,
+        "forbidden_AP_count": 0,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 61,
+        "pairs": 0,
+        "t": 11,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 3,
+        "forbidden_AP_count": 0,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 101,
+        "pairs": 0,
+        "t": 6,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 3,
+        "forbidden_AP_count": 0,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 101,
+        "pairs": 0,
+        "t": 7,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 4,
+        "forbidden_AP_count": 0,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 101,
+        "pairs": 0,
+        "t": 8,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 4,
+        "forbidden_AP_count": 0,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 101,
+        "pairs": 0,
+        "t": 9,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 5,
+        "forbidden_AP_count": 0,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 101,
+        "pairs": 0,
+        "t": 10,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 5,
+        "forbidden_AP_count": 0,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 101,
+        "pairs": 0,
+        "t": 11,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 3,
+        "forbidden_AP_count": 0,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 127,
+        "pairs": 0,
+        "t": 6,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 3,
+        "forbidden_AP_count": 0,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 127,
+        "pairs": 0,
+        "t": 7,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 4,
+        "forbidden_AP_count": 0,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 127,
+        "pairs": 0,
+        "t": 8,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 4,
+        "forbidden_AP_count": 0,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 127,
+        "pairs": 0,
+        "t": 9,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 5,
+        "forbidden_AP_count": 0,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 127,
+        "pairs": 0,
+        "t": 10,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 5,
+        "forbidden_AP_count": 0,
+        "injective": true,
+        "max_span": null,
+        "min_span": null,
+        "p": 127,
+        "pairs": 0,
+        "t": 11,
+        "t_ge_2e1_if_mp": true
+      }
+    ],
+    "mp_rows": [
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 3,
+        "forbidden_AP_count": 0,
+        "injective": false,
+        "max_span": 12,
+        "min_span": 12,
+        "p": 61,
+        "pairs": 2,
+        "t": 13,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 3,
+        "forbidden_AP_count": 0,
+        "injective": false,
+        "max_span": 16,
+        "min_span": 12,
+        "p": 61,
+        "pairs": 29,
+        "t": 17,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 3,
+        "forbidden_AP_count": 0,
+        "injective": false,
+        "max_span": 23,
+        "min_span": 12,
+        "p": 61,
+        "pairs": 383,
+        "t": 24,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 3,
+        "forbidden_AP_count": 0,
+        "injective": false,
+        "max_span": 8,
+        "min_span": 8,
+        "p": 101,
+        "pairs": 1,
+        "t": 9,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 3,
+        "forbidden_AP_count": 0,
+        "injective": false,
+        "max_span": 14,
+        "min_span": 8,
+        "p": 101,
+        "pairs": 17,
+        "t": 17,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 4,
+        "forbidden_AP_count": 0,
+        "injective": false,
+        "max_span": 20,
+        "min_span": 19,
+        "p": 101,
+        "pairs": 3,
+        "t": 21,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 3,
+        "forbidden_AP_count": 0,
+        "injective": false,
+        "max_span": 15,
+        "min_span": 15,
+        "p": 127,
+        "pairs": 1,
+        "t": 16,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 4,
+        "forbidden_AP_count": 0,
+        "injective": false,
+        "max_span": 20,
+        "min_span": 20,
+        "p": 127,
+        "pairs": 1,
+        "t": 21,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 3,
+        "forbidden_AP_count": 0,
+        "injective": false,
+        "max_span": 10,
+        "min_span": 7,
+        "p": 43,
+        "pairs": 7,
+        "t": 12,
+        "t_ge_2e1_if_mp": true
+      },
+      {
+        "all_span_ge_2e": true,
+        "contiguous_count": 0,
+        "e": 4,
+        "forbidden_AP_count": 0,
+        "injective": false,
+        "max_span": 13,
+        "min_span": 13,
+        "p": 73,
+        "pairs": 1,
+        "t": 14,
+        "t_ge_2e1_if_mp": true
+      }
+    ],
+    "status": "PASS",
+    "summary": {
+      "B_star": 393171.5875467097,
+      "H2": 77291948627,
+      "all_first_t_ge_2e1": true,
+      "all_no_contiguous_W": true,
+      "all_no_forbidden_AP": true,
+      "all_span_ge_2e": true,
+      "deployed_2e": 134944,
+      "deployed_n_prime": 1183520,
+      "deployed_ratio": 17.540905857244486,
+      "n_first": 15,
+      "n_mp": 10
+    }
+  }
+}

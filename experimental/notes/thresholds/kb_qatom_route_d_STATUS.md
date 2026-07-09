@@ -4,7 +4,7 @@
 **Goal:** residual free-1 / A_SP card toward `A_SP ≤ t·p` on KoalaBear MCA `a+=1116048`.
 **Does NOT claim** `U ≤ B*` or full MCA close.
 
-Last tip packet: **v54** on `main`; local attack **v55–v74** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
+Last tip packet: **v54** on `main`; local attack **v55–v75** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
 `experimental/scripts/verify_kb_qatom_route_d_v{N}.py` with matching
 notes, certificates, and scanner reports.
 
@@ -120,8 +120,8 @@ Certificates: `experimental/data/certificates/kb-qatom-route-d-v{N}/`.
 
 ## Next session entry
 
-**Primary:** large-t multipad ban (t>>2e) or SoftB. Board: injective for all
-t<=2e (v74). Deployed n'~17.5e. PR only for CLOSED residual/board rows.
+**Primary:** large-t multipad ban or SoftB. Board: t<=2e inj (v74); multipad
+=> span>=2e, non-AP union (v75). Deployed n'~17.5e. PR only for CLOSED hits.
 
 ---
 
@@ -211,3 +211,7 @@ disjoint multipads). coll <= (K-1)C. Recovers t<2e injectivity. Deployed K=17
 **v74**: BOARD — injectivity for **t≤2e** PROVED (extends t<2e). Span≥e;
 t=2e partition + f(f-δ)=P_{2e} classification; formal sqrt obstruction at t=2e.
 Deployed n'~17.5e still open. OPEN: large-t ban / SoftB.
+
+**v75**: BOARD — multipad => t≥2e+1; **span≥2e** (strengthens span≥e); union W
+not contiguous / not AP of length 2e with ord(ρ)>2e (rescale to v74). Hole in
+[min,max]. Necessary only; large-t ban still OPEN.

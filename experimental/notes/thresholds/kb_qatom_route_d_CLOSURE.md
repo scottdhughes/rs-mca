@@ -110,8 +110,8 @@ All scanned packets: **no false claim** of `|T|≤H2` or `A_SP≤t·p`.
 ## Path to completion
 
 1. **Preferred:** ban multipads on `{0..n'−1}` (or SoftB).  
-   - CLOSED board: packing; **injective for all `t≤2e` (v74)**; multipad algebra.  
-   - OPEN residual: large-t (`n'~17.5e`) ban / SoftB ⇒ `|T|≤H2`.  
+   - CLOSED: packing; **`t≤2e` inj**; multipad ⇒ **span≥2e**, non-AP union.  
+   - OPEN residual: large-t ban / SoftB ⇒ `|T|≤H2`.  
 2. **PR policy:** only frozen CLOSED board rows.  
 3. A_SP only after `|T|≤H2`.  
 4. Lean phase 1 done; phase 2 + [AXLE](https://axle.axiommath.ai/v1/docs/).
