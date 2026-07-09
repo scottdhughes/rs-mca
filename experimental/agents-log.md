@@ -1,5 +1,13 @@
 # Agents Log
 
+### 2026-07-09 - KB-MCA Route-D v51: U2e PROVED (char ≠ 2)
+
+- Proved: free-1 bipartition uniqueness for all e≥2 in char ≠ 2 via triangular
+  recovery of R from high half of P_W (R² + sR + p = P_W); ≤1 unordered bip.
+- Unconditional: H_*^pre(t,e) ≤ binom(t,2e). t≤2e+2 ⇒ ≤H2 (deployed arith).
+- Toys: 120 rows, 453 free-1 R-reconstructions verified; multi bip = 0.
+- OPEN: residual t=min(C)≤2e+2 or large-t GP bound ≪ C(t,2e).
+
 ### 2026-07-09 - KB-MCA Route-D v50: ★_pre free-1 bipartitions + C(t,2e)
 
 - Proved: e=2 equal-sum bipartition uniqueness on 4-sets (char≠2) ⇒ H_*^pre(t,2)≤p≤H2.
