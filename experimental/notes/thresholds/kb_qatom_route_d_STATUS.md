@@ -4,7 +4,7 @@
 **Goal:** residual free-1 / A_SP card toward `A_SP ≤ t·p` on KoalaBear MCA `a+=1116048`.
 **Does NOT claim** `U ≤ B*` or full MCA close.
 
-Last tip packet: **v54** on `main`; local attack **v55–v69** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
+Last tip packet: **v54** on `main`; local attack **v55–v70** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
 `experimental/scripts/verify_kb_qatom_route_d_v{N}.py` with matching
 notes, certificates, and scanner reports.
 
@@ -120,9 +120,8 @@ Certificates: `experimental/data/certificates/kb-qatom-route-d-v{N}/`.
 
 ## Next session entry
 
-**Primary:** ban GP multipads at deployed (disjoint index pairs with matching
-moments k=1..e-1; v69). Note t<2e injectivity CLOSED but n'>=2e. Fallback SoftB.
-Lean phase-1 built. No ambient L / pack-k / envelopes.
+**Primary:** ban sparse multipad G=P_e*H on {0..n'-1} (v70). t<2e inj CLOSED;
+n'>=2e. Fallback SoftB. Lean phase-1 + Mathlib/AXLE map. No ambient L/pack-k.
 
 ---
 
@@ -191,3 +190,8 @@ OPEN: deployed injectivity (preferred) or SoftB.
 **v69**: Multipads always disjoint (root/delta argument) PROVED; same derivative;
 **t<2e => injectivity => |T|=0** PROVED. GP index form p_k=sum omega^{ak}.
 Deployed n'>=2e so threshold misses; OPEN: no GP multipad on {0..n'-1}.
+
+**v70**: Multipad index poly G(X)=sum_A X^a-sum_B X^b vanishes at omega^k
+(k=0..e-1); P_e|G in F_p[X]; deg window [e,t-1]; support 2e. Mathlib map
+(AddChar/GaussSum/GeomSum/Cyclotomic) + AXLE docs for phase-2. OPEN: ban
+sparse G=P_e*H at deployed.

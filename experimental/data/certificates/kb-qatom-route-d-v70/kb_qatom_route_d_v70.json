@@ -1,0 +1,308 @@
+{
+  "claims": {
+    "proves_A_SP_le_tp": false,
+    "proves_G_vanishes_at_omega_powers": true,
+    "proves_Pe_divides_G": true,
+    "proves_SoftB_Deployed": false,
+    "proves_T_le_H2_deployed": false,
+    "proves_deg_window_and_support_2e": true,
+    "proves_deployed_injectivity": false,
+    "proves_mathlib_map_documented": true,
+    "proves_no_sparse_G_at_deployed": false
+  },
+  "deployed": {
+    "B_star": 393171.5875467097,
+    "H2": 77291948627,
+    "e": 67472,
+    "n": 2097152,
+    "n_prime": 1183520,
+    "note": "G=P_e*H with sparse +/-1 coeffs; ban such G at deployed OPEN",
+    "p": 2130706433
+  },
+  "impact_on_program": {
+    "closed": "Multipads <=> sparse G with P_e|G, deg in [e,t-1], supp=2e",
+    "wall": "ban such sparse G at deployed (n',e) or SoftB"
+  },
+  "lemmas": {
+    "G_vanishing": {
+      "name": "multipad_index_poly_vanishes_at_omega_powers",
+      "proof": [
+        "G(omega^k)=sum_A omega^{a k}-sum_B omega^{b k}=p_k(U)-p_k(V).",
+        "k=0: |A|-|B|=0; k=1..e-1: free-1/power-sum multipad match (char>e)."
+      ],
+      "statement": "For multipad index sets A,B: G(X)=sum_A X^a - sum_B X^b satisfies G(omega^k)=0 in F_p for all k=0..e-1.",
+      "status": "PROVED"
+    },
+    "OPEN": {
+      "name": "OPEN_no_sparse_G_equals_Pe_H_deployed",
+      "statement": "No G = sum_A X^a - sum_B X^b with A,B disjoint e-subsets of {0..n'-1} (n'=1183520, e=67472) equal to P_e * H for H in F_p[X].",
+      "status": "OPEN"
+    },
+    "Pe_divides": {
+      "name": "P_e_divides_G",
+      "proof": [
+        "omega has order n >= e => {1,omega,...,omega^{e-1}} distinct in F_p.",
+        "G vanishes at each => each (X-omega^k)|G; product monic of deg e divides G.",
+        "A!=B => G not zero poly => deg G >= e."
+      ],
+      "statement": "P_e(X)=prod_{k=0}^{e-1}(X-omega^k) divides G in F_p[X]; hence deg G >= e (G not ~ 0).",
+      "status": "PROVED"
+    },
+    "deg_window": {
+      "name": "multipad_G_degree_window",
+      "proof": [
+        "Support of A cup B in {0..t-1} => deg <= t-1.",
+        "Disjoint |A|=|B|=e => 2e nonzero coeffs +/-1 (v69).",
+        "Division by P_e of deg e gives deg H = deg G - e."
+      ],
+      "statement": "e <= deg G <= t-1 and G = P_e H with 0 <= deg H <= t-1-e; G has exactly 2e nonzero coefficients in {-1,+1}.",
+      "status": "PROVED"
+    },
+    "mathlib_map": {
+      "axle": "https://axle.axiommath.ai/v1/docs/",
+      "mathlib_paths": [
+        "Mathlib/Algebra/Field/GeomSum.lean",
+        "Mathlib/Algebra/Ring/GeomSum.lean",
+        "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
+        "Mathlib/NumberTheory/GaussSum.lean",
+        "Mathlib/NumberTheory/DirichletCharacter/GaussSum.lean",
+        "Mathlib/NumberTheory/Cyclotomic/",
+        "Mathlib/FieldTheory/Finite/",
+        "Mathlib/Data/ZMod/"
+      ],
+      "name": "mathlib_lean_phase2_map",
+      "proof": [
+        "Documented search paths under local Mathlib tree; no new math claim."
+      ],
+      "statement": "Phase-2 Lean targets map to Mathlib AddCharacter/GaussSum/GeomSum/Cyclotomic/ZMod; AXLE check/verify_proof for certs.",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v70",
+  "status": "VANISHING_POLY_PROVED_SPARSE_G_BAN_OPEN",
+  "title": "Multipad vanishing polynomial G; P_e|G; Mathlib map",
+  "tools": {
+    "axle": "https://axle.axiommath.ai/v1/docs/",
+    "mathlib": "/Users/scott/lean-verify/.lake/packages/mathlib",
+    "python_nt": "multipad G / P_e division"
+  },
+  "toy_suite": {
+    "deployed": {
+      "B_star": 393171.5875467097,
+      "H2": 77291948627,
+      "e": 67472,
+      "n": 2097152,
+      "n_prime": 1183520,
+      "note": "G=P_e*H with sparse +/-1 coeffs; ban such G at deployed OPEN",
+      "p": 2130706433
+    },
+    "mathlib_hits": {
+      "Algebra/Field/GeomSum.lean": true,
+      "NumberTheory/DirichletCharacter/GaussSum.lean": true,
+      "NumberTheory/GaussSum.lean": true,
+      "NumberTheory/LegendreSymbol/AddCharacter.lean": true
+    },
+    "rows": [
+      {
+        "deriv_checked": 0,
+        "e": 3,
+        "injective": true,
+        "max_deg_G": null,
+        "max_m": 1,
+        "min_deg_G": null,
+        "n": 60,
+        "n_distinct": 10,
+        "p": 61,
+        "pairs_checked": 0,
+        "same_deriv": 0,
+        "same_deriv_all": true,
+        "t": 5,
+        "t_lt_2e": true,
+        "vanishing_and_div_ok": true
+      },
+      {
+        "deriv_checked": 0,
+        "e": 4,
+        "injective": true,
+        "max_deg_G": null,
+        "max_m": 1,
+        "min_deg_G": null,
+        "n": 60,
+        "n_distinct": 35,
+        "p": 61,
+        "pairs_checked": 0,
+        "same_deriv": 0,
+        "same_deriv_all": true,
+        "t": 7,
+        "t_lt_2e": true,
+        "vanishing_and_div_ok": true
+      },
+      {
+        "deriv_checked": 0,
+        "e": 3,
+        "injective": true,
+        "max_deg_G": null,
+        "max_m": 1,
+        "min_deg_G": null,
+        "n": 100,
+        "n_distinct": 10,
+        "p": 101,
+        "pairs_checked": 0,
+        "same_deriv": 0,
+        "same_deriv_all": true,
+        "t": 5,
+        "t_lt_2e": true,
+        "vanishing_and_div_ok": true
+      },
+      {
+        "deriv_checked": 0,
+        "e": 4,
+        "injective": true,
+        "max_deg_G": null,
+        "max_m": 1,
+        "min_deg_G": null,
+        "n": 126,
+        "n_distinct": 35,
+        "p": 127,
+        "pairs_checked": 0,
+        "same_deriv": 0,
+        "same_deriv_all": true,
+        "t": 7,
+        "t_lt_2e": true,
+        "vanishing_and_div_ok": true
+      },
+      {
+        "deriv_checked": 29,
+        "e": 3,
+        "injective": false,
+        "max_deg_G": 16,
+        "max_m": 2,
+        "min_deg_G": 12,
+        "n": 60,
+        "n_distinct": 651,
+        "p": 61,
+        "pairs_checked": 29,
+        "same_deriv": 29,
+        "same_deriv_all": true,
+        "t": 17,
+        "t_lt_2e": false,
+        "vanishing_and_div_ok": true
+      },
+      {
+        "deriv_checked": 40,
+        "e": 3,
+        "injective": false,
+        "max_deg_G": 23,
+        "max_m": 4,
+        "min_deg_G": 12,
+        "n": 60,
+        "n_distinct": 1670,
+        "p": 61,
+        "pairs_checked": 40,
+        "same_deriv": 40,
+        "same_deriv_all": true,
+        "t": 24,
+        "t_lt_2e": false,
+        "vanishing_and_div_ok": true
+      },
+      {
+        "deriv_checked": 17,
+        "e": 3,
+        "injective": false,
+        "max_deg_G": 16,
+        "max_m": 2,
+        "min_deg_G": 8,
+        "n": 100,
+        "n_distinct": 663,
+        "p": 101,
+        "pairs_checked": 17,
+        "same_deriv": 17,
+        "same_deriv_all": true,
+        "t": 17,
+        "t_lt_2e": false,
+        "vanishing_and_div_ok": true
+      },
+      {
+        "deriv_checked": 3,
+        "e": 4,
+        "injective": false,
+        "max_deg_G": 20,
+        "max_m": 2,
+        "min_deg_G": 19,
+        "n": 100,
+        "n_distinct": 5982,
+        "p": 101,
+        "pairs_checked": 3,
+        "same_deriv": 3,
+        "same_deriv_all": true,
+        "t": 21,
+        "t_lt_2e": false,
+        "vanishing_and_div_ok": true
+      },
+      {
+        "deriv_checked": 5,
+        "e": 3,
+        "injective": false,
+        "max_deg_G": 17,
+        "max_m": 2,
+        "min_deg_G": 15,
+        "n": 126,
+        "n_distinct": 811,
+        "p": 127,
+        "pairs_checked": 5,
+        "same_deriv": 5,
+        "same_deriv_all": true,
+        "t": 18,
+        "t_lt_2e": false,
+        "vanishing_and_div_ok": true
+      },
+      {
+        "deriv_checked": 1,
+        "e": 4,
+        "injective": false,
+        "max_deg_G": 20,
+        "max_m": 2,
+        "min_deg_G": 20,
+        "n": 126,
+        "n_distinct": 5984,
+        "p": 127,
+        "pairs_checked": 1,
+        "same_deriv": 1,
+        "same_deriv_all": true,
+        "t": 21,
+        "t_lt_2e": false,
+        "vanishing_and_div_ok": true
+      },
+      {
+        "deriv_checked": 29,
+        "e": 4,
+        "injective": false,
+        "max_deg_G": 20,
+        "max_m": 2,
+        "min_deg_G": 15,
+        "n": 60,
+        "n_distinct": 5956,
+        "p": 61,
+        "pairs_checked": 29,
+        "same_deriv": 29,
+        "same_deriv_all": true,
+        "t": 21,
+        "t_lt_2e": false,
+        "vanishing_and_div_ok": true
+      }
+    ],
+    "status": "PASS",
+    "summary": {
+      "B_star": 393171.5875467097,
+      "all_pairs_vanish_and_div": true,
+      "all_same_deriv": true,
+      "deployed_2e": 134944,
+      "deployed_e": 67472,
+      "deployed_n_prime": 1183520,
+      "deployed_needs_Pe_H_ban": true,
+      "mathlib_files_found": 4,
+      "n_rows": 11,
+      "n_with_pairs": 7
+    }
+  }
+}
