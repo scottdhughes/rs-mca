@@ -109,14 +109,13 @@ All scanned packets: **no false claim** of `|T|≤H2` or `A_SP≤t·p`.
 
 ## Path to completion
 
-1. **Preferred (v68–v72):** ban multipads on `{0..n'−1}`.  
-   - CLOSED board rows: disjoint; `t<2e⇒|T|=0`; `G=P_e H`; `P_e` full support;
-     **H-support e-chained (gaps ≤ e)**.  
-   - OPEN: deployed multipad ban (next residual board hit).  
-2. **Fallback:** SoftB.  
-3. A_SP after `|T|≤H2`.  
-4. **PR policy:** only when a CLOSED board row is frozen (not open attacks).  
-5. **Lean:** phase 1 done; phase 2 + [AXLE](https://axle.axiommath.ai/v1/docs/).
+1. **Preferred:** ban multipads on `{0..n'−1}` (or SoftB).  
+   - CLOSED board rows include: disjoint multipads; `t<2e⇒|T|=0`; `G=P_e H`;
+     `P_e` full support; H gap law; **`m_h ≤ ⌊t/e⌋` packing (v73)**.  
+   - OPEN residual board hit: deployed ban / SoftB ⇒ `|T|≤H2`.  
+2. **PR policy:** only frozen CLOSED board rows (not open attacks).  
+3. A_SP only after `|T|≤H2`.  
+4. Lean phase 1 done; phase 2 + [AXLE](https://axle.axiommath.ai/v1/docs/).
 
 ### Lean roadmap
 

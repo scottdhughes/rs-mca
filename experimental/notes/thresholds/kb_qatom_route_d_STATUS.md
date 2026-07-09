@@ -4,7 +4,7 @@
 **Goal:** residual free-1 / A_SP card toward `A_SP ≤ t·p` on KoalaBear MCA `a+=1116048`.
 **Does NOT claim** `U ≤ B*` or full MCA close.
 
-Last tip packet: **v54** on `main`; local attack **v55–v72** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
+Last tip packet: **v54** on `main`; local attack **v55–v73** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
 `experimental/scripts/verify_kb_qatom_route_d_v{N}.py` with matching
 notes, certificates, and scanner reports.
 
@@ -120,8 +120,8 @@ Certificates: `experimental/data/certificates/kb-qatom-route-d-v{N}/`.
 
 ## Next session entry
 
-**Primary:** ban deployed multipads using H gap law (v72: all consecutive gaps
-of supp(H) <= e). Fallback SoftB. PR only for board CLOSED rows.
+**Primary:** deployed multipad ban or SoftB (packing v73: m_h<=17, coll<=16C
+insufficient alone). PR only for board CLOSED rows.
 
 ---
 
@@ -203,3 +203,7 @@ multipad target supp=134944. OPEN: ban cancelled supp(P_e H)=2e at deployed.
 **v72**: BOARD structure — multipad H-support gap law PROVED: every consecutive
 gap of supp(H) is <= e (else split => supp(G)>=2e+2). Uses min support e+1 for
 multiples with deg<n (Vandermonde). Diameter <= e(s-1). OPEN: deployed ban.
+
+**v73**: BOARD — free-1 fibre packing PROVED: m_h <= floor(t/e) (pairwise
+disjoint multipads). coll <= (K-1)C. Recovers t<2e injectivity. Deployed K=17
+=> coll <= 16C (not residual-final). OPEN: multipad ban / SoftB.
