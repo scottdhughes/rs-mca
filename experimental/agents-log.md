@@ -1,6 +1,16 @@
 # Agents Log
 
 
+### 2026-07-09 - KB-MCA Route-D v43: N_ord / |H|≤H2 at deployed free_core
+
+- Proved: free-1 CS degree on A_SP complements ≤16 (n'=A+e, pack=17).
+- Proved: |A_SP|≤N_ord≤16|A_SP|; card criteria C1–C5 (max N_ord≤e·p,
+  |A_SP|≤e·p/16, P_multi≤e·p/17, |H|≤H2 with M_pad≤2, M≤M_*≈4.8e12).
+- Proved: matching-supported H_M≤31≤H2 (M-cell card closed).
+- Banked: ambient |H|≰31n, n⌊n/e⌋, 31p, pack·n (refuted); those envelopes
+  fit under H2 arithmetically but are not theorems.
+- Open: deployed max N_ord≤e·p or residual |H|≤H2 (not K_cap).
+
 ### 2026-07-09 - KB-MCA Route-D v42: decouple K_cap multi-tier from card A_SP≤t·p
 
 - Proved: Gate A (multi-tier sides) needs |H|≤K_cap; Gate B (card |A_SP|≤t·p)
