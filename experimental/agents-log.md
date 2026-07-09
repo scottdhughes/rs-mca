@@ -7,6 +7,14 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v36: SR-cell e·p cardinality + M/R side split
+
+- Proved: N_S ≤ |H|·⌊n/e⌋·(⌊n/e⌋−1); if |H|≤2170 then N_S≤2.0e6≪e·p
+  (SR-cell cardinality); Type-D residual; M-cell/R-cell pair split.
+- Toys: (r*,c0U,c0V) injects Type S keys (n·p²); R-cell natural marks collide;
+  M-cell thin.
+- Open: constructive SR e·p mark; R-cell injection; |H|≤2170.
+
 ### 2026-07-09 - KB-MCA Route-D v35: SR-cell Type-D residual + matching highs
 
 - Proved: shared-root first-match cell pays all Type S ⇒ residual multipads are
