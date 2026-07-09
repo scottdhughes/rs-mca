@@ -1,0 +1,481 @@
+{
+  "claims": {
+    "banks_SR_pure_ep_negative": true,
+    "proves_A_SP_le_tp": false,
+    "proves_H_le_Kcap": false,
+    "proves_R_cell_ep": false,
+    "proves_SR_ep2_near_miss_structure": true,
+    "proves_SR_pure_ep_mark": false,
+    "proves_multitier_no_Mcell_under_Hcap": true,
+    "toy_confirms_SR_ep2_injection": true
+  },
+  "deployed": {
+    "K_cap": 2170,
+    "K_max": 2176,
+    "e_p": 143763024447376,
+    "e_p2": 306316801017560313169808,
+    "floor_n_over_e": 31,
+    "free_core": 846161,
+    "n_p2": 9520881134212393969123328,
+    "overshoot_p": 2130706433,
+    "t_p": 143763024447376
+  },
+  "impact_on_program": {
+    "SR": "Best constructive SR mark is \u03bc\u2082=(r_* mod e, c0U, \u03b4) size e\u00b7p\u00b2 (injective on toys); pure e\u00b7p still open",
+    "next": "Kill factor p in \u03bc\u2082; prove |H_A_SP|\u2264K_cap",
+    "sides": "If |H|\u22642170, multi-tier pays all sides (no R-cell). Otherwise R-cell e\u00b7p open"
+  },
+  "lemmas": {
+    "OPEN": {
+      "name": "OPEN_ep_SR_mark_and_Hcap",
+      "statement": "(1) Drop the extra F_p from \u03bc\u2082=(r_* mod e, c0U, \u03b4) to reach e\u00b7p, or find another e\u00b7p SR injection.\n(2) Prove |H_A_SP| \u2264 2170, or inject R-cell pairs into e\u00b7p.",
+      "status": "OPEN"
+    },
+    "ep_neg": {
+      "name": "SR_pure_ep_compressions_collide",
+      "proof": [
+        "Toy census in this packet."
+      ],
+      "statement": "Natural size-e\u00b7p compressions of (r_*,c0U,c0V) \u2014 including (r_* mod e, \u03b4), (r_* mod e, c0U), (\u03b9(U), \u03b4) alone \u2014 collide on toy Type S sets when n_S is large. No tested pure e\u00b7p SR mark is injective on all Type S rows.",
+      "status": "BANKED_NEGATIVE"
+    },
+    "multitier": {
+      "gap": "Ambient |H_A_SP| \u2264 2170 unproved.",
+      "name": "multitier_covers_all_sides_under_Hcap",
+      "proof": [
+        "v34 multi-tier tags every high with a U when enough tiers.",
+        "Every A_SP pair has a high among H_A_SP.",
+        "Capacity R_max\u00b7\u230an/e\u230b = 2170 \u2264 K_max = 2176."
+      ],
+      "statement": "If |H_A_SP| \u2264 K_cap = 2170, multi-tier FM (v34) injects all active highs into [K_cap] \u2286 [K_max], and every A_SP free-1 CS pair has its high tagged \u2014 no separate R-cell is required for side marks.",
+      "status": "PROVED"
+    },
+    "near_miss": {
+      "budget": {
+        "e_p": 143763024447376,
+        "e_p2": 306316801017560313169808,
+        "n_p2": 9520881134212393969123328,
+        "overshoot_factor_p": 2130706433
+      },
+      "name": "SR_mark_ep2_near_miss",
+      "proof": [
+        "c0U,\u03b4 recover (c0U,c0V). r_* mod e is the compressed shared-root witness from SR-cell.",
+        "Toy census: zero collisions of \u03bc\u2082 on unique Type S side keys.",
+        "Full (r_*,c0U,c0V) also injective (size n\u00b7p\u00b2) on toys."
+      ],
+      "statement": "Define for each Type S side key sk=(high,c0U,c0V) the root r_*=min{{r:mult(r)\u22652}} (min over multipad fibers; or per-fiber then min). The mark \u03bc\u2082(sk) = (r_* mod e, c0U, \u03b4) with \u03b4=c0U\u2212c0V has size e\u00b7p\u00b2 (= 306316801017560313169808 deployed). On all toy rows with Type S, \u03bc\u2082 is injective. Relative to e\u00b7p it overshoots by a factor p (\u22482130706433 deployed).",
+      "status": "PROVED_STRUCTURE_TOY_INJ"
+    }
+  },
+  "packet": "kb_qatom_route_d_v37",
+  "status": "PARTIAL_SR_EP2_H_PATH",
+  "title": "SR e\u00b7p\u00b2 near-miss mark + multi-tier full-side path under |H|\u2264K_cap",
+  "toy_suite": {
+    "census": {
+      "n_H_le_cap_rows": 14,
+      "n_S_rows": 6,
+      "n_ep2_inj": 6,
+      "n_ep_cand_coll_rows": 4,
+      "n_full_inj": 6
+    },
+    "rows": [
+      {
+        "H_le_Kcap": true,
+        "all_pairs_iota_delta_inj": false,
+        "e": 2,
+        "free_core": 1,
+        "j": 4,
+        "marks": {},
+        "multitier_covers_pairs": true,
+        "n": 16,
+        "n_S_keys": 0,
+        "n_highs": 17,
+        "n_pairs_unique": 400,
+        "p": 17,
+        "w": 1
+      },
+      {
+        "H_le_Kcap": true,
+        "all_pairs_iota_delta_inj": false,
+        "e": 2,
+        "free_core": 2,
+        "j": 5,
+        "marks": {
+          "iota_delta": {
+            "coll": 22,
+            "inj": false,
+            "nlab": 63,
+            "nuniq": 86
+          },
+          "r_c0U_c0V": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 86,
+            "nuniq": 86
+          },
+          "r_mod_e_c0U": {
+            "coll": 22,
+            "inj": false,
+            "nlab": 27,
+            "nuniq": 86
+          },
+          "r_mod_e_c0U_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 86,
+            "nuniq": 86
+          },
+          "r_mod_e_delta": {
+            "coll": 20,
+            "inj": false,
+            "nlab": 30,
+            "nuniq": 86
+          }
+        },
+        "multitier_covers_pairs": true,
+        "n": 16,
+        "n_S_keys": 86,
+        "n_highs": 17,
+        "n_pairs_unique": 286,
+        "p": 17,
+        "w": 1
+      },
+      {
+        "H_le_Kcap": true,
+        "all_pairs_iota_delta_inj": false,
+        "e": 3,
+        "free_core": 0,
+        "j": 5,
+        "marks": {},
+        "multitier_covers_pairs": true,
+        "n": 16,
+        "n_S_keys": 0,
+        "n_highs": 110,
+        "n_pairs_unique": 260,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "H_le_Kcap": true,
+        "all_pairs_iota_delta_inj": false,
+        "e": 2,
+        "free_core": 3,
+        "j": 6,
+        "marks": {
+          "iota_delta": {
+            "coll": 22,
+            "inj": false,
+            "nlab": 63,
+            "nuniq": 86
+          },
+          "r_c0U_c0V": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 86,
+            "nuniq": 86
+          },
+          "r_mod_e_c0U": {
+            "coll": 22,
+            "inj": false,
+            "nlab": 27,
+            "nuniq": 86
+          },
+          "r_mod_e_c0U_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 86,
+            "nuniq": 86
+          },
+          "r_mod_e_delta": {
+            "coll": 20,
+            "inj": false,
+            "nlab": 30,
+            "nuniq": 86
+          }
+        },
+        "multitier_covers_pairs": true,
+        "n": 16,
+        "n_S_keys": 86,
+        "n_highs": 17,
+        "n_pairs_unique": 200,
+        "p": 17,
+        "w": 1
+      },
+      {
+        "H_le_Kcap": true,
+        "all_pairs_iota_delta_inj": false,
+        "e": 3,
+        "free_core": 1,
+        "j": 6,
+        "marks": {},
+        "multitier_covers_pairs": true,
+        "n": 16,
+        "n_S_keys": 0,
+        "n_highs": 65,
+        "n_pairs_unique": 146,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "H_le_Kcap": true,
+        "all_pairs_iota_delta_inj": false,
+        "e": 4,
+        "free_core": -1,
+        "j": 6,
+        "marks": {},
+        "multitier_covers_pairs": true,
+        "n": 16,
+        "n_S_keys": 0,
+        "n_highs": 30,
+        "n_pairs_unique": 60,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "H_le_Kcap": true,
+        "all_pairs_iota_delta_inj": false,
+        "e": 2,
+        "free_core": 4,
+        "j": 7,
+        "marks": {
+          "iota_delta": {
+            "coll": 9,
+            "inj": false,
+            "nlab": 43,
+            "nuniq": 52
+          },
+          "r_c0U_c0V": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 52,
+            "nuniq": 52
+          },
+          "r_mod_e_c0U": {
+            "coll": 15,
+            "inj": false,
+            "nlab": 26,
+            "nuniq": 52
+          },
+          "r_mod_e_c0U_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 52,
+            "nuniq": 52
+          },
+          "r_mod_e_delta": {
+            "coll": 14,
+            "inj": false,
+            "nlab": 30,
+            "nuniq": 52
+          }
+        },
+        "multitier_covers_pairs": true,
+        "n": 16,
+        "n_S_keys": 52,
+        "n_highs": 17,
+        "n_pairs_unique": 132,
+        "p": 17,
+        "w": 1
+      },
+      {
+        "H_le_Kcap": true,
+        "all_pairs_iota_delta_inj": false,
+        "e": 3,
+        "free_core": 2,
+        "j": 7,
+        "marks": {
+          "iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "r_c0U_c0V": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "r_mod_e_c0U": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "r_mod_e_c0U_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "r_mod_e_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          }
+        },
+        "multitier_covers_pairs": true,
+        "n": 16,
+        "n_S_keys": 2,
+        "n_highs": 36,
+        "n_pairs_unique": 80,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "H_le_Kcap": true,
+        "all_pairs_iota_delta_inj": false,
+        "e": 4,
+        "free_core": 0,
+        "j": 7,
+        "marks": {},
+        "multitier_covers_pairs": true,
+        "n": 16,
+        "n_S_keys": 0,
+        "n_highs": 13,
+        "n_pairs_unique": 26,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "H_le_Kcap": true,
+        "all_pairs_iota_delta_inj": false,
+        "e": 2,
+        "free_core": 5,
+        "j": 8,
+        "marks": {
+          "iota_delta": {
+            "coll": 2,
+            "inj": false,
+            "nlab": 26,
+            "nuniq": 28
+          },
+          "r_c0U_c0V": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 28,
+            "nuniq": 28
+          },
+          "r_mod_e_c0U": {
+            "coll": 8,
+            "inj": false,
+            "nlab": 17,
+            "nuniq": 28
+          },
+          "r_mod_e_c0U_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 28,
+            "nuniq": 28
+          },
+          "r_mod_e_delta": {
+            "coll": 6,
+            "inj": false,
+            "nlab": 22,
+            "nuniq": 28
+          }
+        },
+        "multitier_covers_pairs": true,
+        "n": 16,
+        "n_S_keys": 28,
+        "n_highs": 16,
+        "n_pairs_unique": 86,
+        "p": 17,
+        "w": 1
+      },
+      {
+        "H_le_Kcap": true,
+        "all_pairs_iota_delta_inj": false,
+        "e": 3,
+        "free_core": 3,
+        "j": 8,
+        "marks": {
+          "iota_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "r_c0U_c0V": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "r_mod_e_c0U": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "r_mod_e_c0U_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          },
+          "r_mod_e_delta": {
+            "coll": 0,
+            "inj": true,
+            "nlab": 2,
+            "nuniq": 2
+          }
+        },
+        "multitier_covers_pairs": true,
+        "n": 16,
+        "n_S_keys": 2,
+        "n_highs": 19,
+        "n_pairs_unique": 42,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "H_le_Kcap": true,
+        "all_pairs_iota_delta_inj": false,
+        "e": 4,
+        "free_core": 1,
+        "j": 8,
+        "marks": {},
+        "multitier_covers_pairs": true,
+        "n": 16,
+        "n_S_keys": 0,
+        "n_highs": 5,
+        "n_pairs_unique": 10,
+        "p": 17,
+        "w": 3
+      },
+      {
+        "H_le_Kcap": true,
+        "all_pairs_iota_delta_inj": true,
+        "e": 3,
+        "free_core": 4,
+        "j": 9,
+        "marks": {},
+        "multitier_covers_pairs": true,
+        "n": 16,
+        "n_S_keys": 0,
+        "n_highs": 8,
+        "n_pairs_unique": 16,
+        "p": 17,
+        "w": 2
+      },
+      {
+        "H_le_Kcap": true,
+        "all_pairs_iota_delta_inj": true,
+        "e": 4,
+        "free_core": 2,
+        "j": 9,
+        "marks": {},
+        "multitier_covers_pairs": true,
+        "n": 16,
+        "n_S_keys": 0,
+        "n_highs": 1,
+        "n_pairs_unique": 2,
+        "p": 17,
+        "w": 3
+      }
+    ],
+    "status": "PASS"
+  }
+}

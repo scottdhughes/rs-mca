@@ -7,6 +7,13 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v37: SR e·p² near-miss + multi-tier under |H|≤K_cap
+
+- SR mark μ₂=(r_* mod e, c0U, δ) size e·p² injective on all toy Type S rows
+  (near-miss; overshoot factor p); pure e·p compressions banked negative.
+- Proved: multi-tier covers all A_SP sides if |H|≤2170 (no R-cell).
+- Open: kill factor p in μ₂; prove |H_A_SP|≤2170.
+
 ### 2026-07-09 - KB-MCA Route-D v36: SR-cell e·p cardinality + M/R side split
 
 - Proved: N_S ≤ |H|·⌊n/e⌋·(⌊n/e⌋−1); if |H|≤2170 then N_S≤2.0e6≪e·p
