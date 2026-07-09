@@ -25,6 +25,16 @@ lake build
 
 Toolchain: `leanprover/lean4:v4.31.0` (same pin as `experimental/lean/rs_mca_formalization`).
 
+## Verification workflow (Scott)
+
+| Layer | Tool |
+|---|---|
+| **External Lean cert check** | [AXLE](https://axle.axiommath.ai/v1/docs/) (Axiom Lean Engine) — `verify_proof`, `check`, `extract_theorems`, etc. Web UI / `axiom-axle` Python / CLI / HTTP |
+| **Local Mathlib search** | Mathlib trees on this machine, e.g. `~/lean-verify/.lake/packages/mathlib/Mathlib` (also other project `.lake/packages/mathlib`). Search there for finite fields, character sums, Gauss sums, geometric progressions before inventing lemmas. |
+| **Local build** | `lake build` in this package (phase 1 is stdlib-only; phase 2 will depend on Mathlib) |
+
+When adding theorems: prefer AXLE `check` / `verify_proof` on extracted statements; use local Mathlib for API names and existing lemmas (`Finset`, `ZMod`, `Cyclotomic`, additive characters, etc.).
+
 ## Sources of truth
 
 | Layer | Path |
