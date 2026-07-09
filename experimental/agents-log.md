@@ -7,6 +7,14 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v33: free_core=2 non-Helly bound + FM high matching
+
+- Proved: free_core=2 through-cliques + M_pad≤⌊T₂(n−2e)/m_c⌋ (Helly and non-Helly);
+  deployed-scale if fc=2 ⇒ M_pad≤4; FM high matching |H_FM|≤⌊n/e⌋=31≤K_max.
+- Banked: FM-match does not cover all A_SP pairs (two-tier highs needed).
+- Connectedness: toys universal; general proof still OPEN.
+- Open: connectedness theorem; non-Helly at free_core=846161; unmatched-high pairs.
+
 ### 2026-07-09 - KB-MCA Route-D v32: Helly refuted; high matching ≤⌊n/e⌋
 
 - Banked: Type S Helly REFUTED (780 clique non-star multipads); connectedness
