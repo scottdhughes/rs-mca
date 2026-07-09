@@ -1,0 +1,240 @@
+{
+  "claims": {
+    "proves_A_SP_le_tp": false,
+    "proves_M_pad_le_1_deployed": false,
+    "proves_pair_normal_form": true,
+    "proves_psi_definition": true,
+    "proves_psi_injective_general": false,
+    "proves_side_key_M_pad": true,
+    "proves_side_pair_injection_tp": false,
+    "toy_M_pad_drops_with_w": true,
+    "toy_psi_inj_w_ge_2": true
+  },
+  "deployed": {
+    "e": 67472,
+    "j": 981104,
+    "n": 2097152,
+    "n_p": 4468415257378816,
+    "pack": 17,
+    "psi_label_size_n_p2": 9520881134212393969123328,
+    "t": 67472,
+    "t_equals_e": true,
+    "t_p": 143763024447376,
+    "w": 67471
+  },
+  "impact_on_program": {
+    "next": "Prove M_pad<=1 at deployed w; inject free-1 CS pairs into e*p labels",
+    "not_circular": "does not use N_ord <= 16*N as the payment bound",
+    "path": "M_pad<=1 + CS side-pair mark into t*p (=e*p deployed) => A_SP<=t*p"
+  },
+  "lemmas": {
+    "OPEN": {
+      "name": "OPEN_M_pad_and_side_pair_injection",
+      "note": "Deployed coincidence: t = e = w+1 = 67472, so t\u00b7p = e\u00b7p. A mark using one side exponent index in {0..e\u22121} and one field element is the right size; none proved injective yet.",
+      "statement": "(1) Prove M_pad(z) \u2264 1 for deployed (or for residual after further deletions), or bound M_pad by a small constant.\n(2) Inject ordered free-1 CS e-set pairs (U,V) into a set of size \u2264 t\u00b7p (deployed t=e=w+1, so e\u00b7p labels \u2014 natural scale).\nTogether \u21d2 A_SP \u2264 t\u00b7p.",
+      "status": "OPEN"
+    },
+    "bridge": {
+      "name": "M_pad_one_plus_side_injection_pays_A_SP",
+      "open_inputs": [
+        "M_pad \u2264 1 at deployed w (toys: often true for w\u22653 on F_17)",
+        "Inject CS ordered side pairs into size \u2264 t\u00b7p (still open; (c0U,c0V) is p\u00b2 too big)"
+      ],
+      "proof": [
+        "M_pad\u22641 \u21d2 N_ord = N_side \u2264 |L_z| \u2264 t\u00b7p.",
+        "v19: |A_SP| \u2264 N_ord."
+      ],
+      "statement": "If max_z M_pad(z) \u2264 1 and, for every z, the ordered CS side pairs appearing in fiber z inject into a label set L_z with |L_z| \u2264 t\u00b7p, then max N_ord \u2264 t\u00b7p, hence max |A_SP| \u2264 t\u00b7p (v17/v19).",
+      "status": "PROVED"
+    },
+    "noncircular": {
+      "name": "pair_injection_avoids_16N_circularity",
+      "proof": [
+        "v19 recorded N_ord \u2264 (pack\u22121)N as circular with Q max-fiber.",
+        "This packet's bridge uses M_pad and side-pair injection instead."
+      ],
+      "statement": "Bounding N_ord via side-pair geometry + M_pad does not route through N_ord \u2264 (pack\u22121)N. That inequality remains true but is the circular path; the M_pad/side path is the intended non-circular alternative.",
+      "status": "PROVED_AS_PROGRAM_LAW"
+    },
+    "pair_nf": {
+      "name": "topseam_ordered_pair_normal_form",
+      "proof": [
+        "v2/v16: top-seam edge \u21d4 same can-core C and CS sides.",
+        "Ordered pair orients (U,V). Disjointness: free-1 CS root sets are pairwise disjoint (v2)."
+      ],
+      "statement": "Ordered top-seam pairs (S,T) in Fib_w(z) are in bijection with triples (C,U,V) where |C|=j\u2212e, |U|=|V|=e=w+1, U\u2229V=\u2205, C\u2229(U\u222aV)=\u2205, S=C\u2294U, T=C\u2294V, and \u039b_U\u2212\u039b_V is a nonzero constant (free-1 CS).",
+      "status": "PROVED"
+    },
+    "psi": {
+      "deployed_size_log2_approx": "log2(n p^2) \u2248 21+62 = 83",
+      "name": "core_augmented_pair_mark_psi",
+      "proof": [
+        "Definitional mark. Injectivity: computational certificate in toy_suite for listed rows with w\u22652; explicit failures at w=1.",
+        "Size n\u00b7p\u00b2 vs t\u00b7p: p/t \u2248 2^{31}/2^{16} \u226b 1 so n\u00b7p\u00b2 > t\u00b7p."
+      ],
+      "statement": "Define \u03c8(C,U,V) = (min_exp(C), c0(U), c0(V)) \u2208 {0..n\u22121}\u00d7F_p\u00d7F_p (size n\u00b7p\u00b2). This separates multi-pads that share (U,V) whenever those pads have distinct min exponents.\nToy bank: \u03c8 is injective on all tested (p,n,j,w) with w\u22652; fails at w=1.\nPayment: n\u00b7p\u00b2 \u226b t\u00b7p and \u226b n\u00b7p, so \u03c8 does not by itself give an E2/E5-scale bound on N_ord. It is a uniqueness normal form, not a budget.",
+      "status": "PROVED_AS_DEFINITION_PLUS_TOY",
+      "t_p_log2": 47.0306859937284
+    },
+    "side_key": {
+      "name": "side_key_phi_and_M_pad",
+      "note": "Codomain of \u03c6 is formally F_p^w \u00d7 F_p \u00d7 F_p (size p^{w+2}), too large for payment. The gain is structural: reduce pair injection to (a) M_pad=1 and (b) inject CS side pairs into \u2264t\u00b7p labels.",
+      "proof": [
+        "Free-1 monic degree e: coefficients (1, high_{e-1},...,high_1, c0) with high length e\u22121. Specifying high and c0 fixes the polynomial.",
+        "A monic split poly with distinct roots has unique root set.",
+        "(ii) both sides recovered \u21d2 (U,V) recovered.",
+        "(iii)\u2013(v) partition pairs by side key; count."
+      ],
+      "statement": "Define \u03c6(C,U,V) = (high(U), c0(U), c0(V)) where high=Phi_{e\u22121} monic high coeffs of the side (length e\u22121 = w for free-1) and c0 is the constant term. Then:\n  (i)  high+c0 determines the monic side locator, hence U (resp. V) as its root set when fully split with distinct roots;\n  (ii) \u03c6(C,U,V)=\u03c6(C',U',V') with fully split sides \u21d2 (U,V)=(U',V');\n  (iii) the fiber of \u03c6 over a side key is a set of pads C (multi-pad);\n  (iv) M_pad(z) := max fiber size of \u03c6 on ordered top-seam pairs in fiber z satisfies N_ord(z) \u2264 M_pad(z) \u00b7 N_side(z), with equality structure N_ord = sum_keys m_key where m_key = #pads for that side key;\n  (v) if M_pad(z)=1 then \u03c6 is injective on ordered pairs in the fiber and N_ord(z)=N_side(z).",
+      "status": "PROVED"
+    }
+  },
+  "packet": "kb_qatom_route_d_v20",
+  "status": "PARTIAL_PAIR_INJECTION",
+  "title": "Top-seam pair injection via side keys and M_pad",
+  "toy_suite": {
+    "rows": [
+      {
+        "j": 8,
+        "max_Mpad": 14,
+        "max_nord": 138,
+        "n": 16,
+        "p": 17,
+        "phi_side_inj": false,
+        "psi_minC_c0_inj": false,
+        "w": 1
+      },
+      {
+        "j": 8,
+        "max_Mpad": 2,
+        "max_nord": 10,
+        "n": 16,
+        "p": 17,
+        "phi_side_inj": false,
+        "psi_minC_c0_inj": true,
+        "w": 2
+      },
+      {
+        "j": 8,
+        "max_Mpad": 1,
+        "max_nord": 2,
+        "n": 16,
+        "p": 17,
+        "phi_side_inj": true,
+        "psi_minC_c0_inj": true,
+        "w": 3
+      },
+      {
+        "j": 7,
+        "max_Mpad": 17,
+        "max_nord": 230,
+        "n": 16,
+        "p": 17,
+        "phi_side_inj": false,
+        "psi_minC_c0_inj": false,
+        "w": 1
+      },
+      {
+        "j": 7,
+        "max_Mpad": 2,
+        "max_nord": 12,
+        "n": 16,
+        "p": 17,
+        "phi_side_inj": false,
+        "psi_minC_c0_inj": true,
+        "w": 2
+      },
+      {
+        "j": 7,
+        "max_Mpad": 1,
+        "max_nord": 2,
+        "n": 16,
+        "p": 17,
+        "phi_side_inj": true,
+        "psi_minC_c0_inj": true,
+        "w": 3
+      },
+      {
+        "j": 6,
+        "max_Mpad": 2,
+        "max_nord": 12,
+        "n": 16,
+        "p": 17,
+        "phi_side_inj": false,
+        "psi_minC_c0_inj": true,
+        "w": 2
+      },
+      {
+        "j": 6,
+        "max_Mpad": 1,
+        "max_nord": 2,
+        "n": 16,
+        "p": 17,
+        "phi_side_inj": true,
+        "psi_minC_c0_inj": true,
+        "w": 3
+      },
+      {
+        "j": 5,
+        "max_Mpad": 9,
+        "max_nord": 270,
+        "n": 16,
+        "p": 17,
+        "phi_side_inj": false,
+        "psi_minC_c0_inj": false,
+        "w": 1
+      },
+      {
+        "j": 5,
+        "max_Mpad": 1,
+        "max_nord": 10,
+        "n": 16,
+        "p": 17,
+        "phi_side_inj": true,
+        "psi_minC_c0_inj": true,
+        "w": 2
+      },
+      {
+        "j": 9,
+        "max_Mpad": 1,
+        "max_nord": 4,
+        "n": 16,
+        "p": 17,
+        "phi_side_inj": true,
+        "psi_minC_c0_inj": true,
+        "w": 2
+      },
+      {
+        "j": 9,
+        "max_Mpad": 1,
+        "max_nord": 2,
+        "n": 16,
+        "p": 17,
+        "phi_side_inj": true,
+        "psi_minC_c0_inj": true,
+        "w": 3
+      },
+      {
+        "j": 4,
+        "max_Mpad": 4,
+        "max_nord": 202,
+        "n": 16,
+        "p": 17,
+        "phi_side_inj": false,
+        "psi_minC_c0_inj": false,
+        "w": 1
+      },
+      {
+        "j": 4,
+        "max_Mpad": 1,
+        "max_nord": 12,
+        "n": 16,
+        "p": 17,
+        "phi_side_inj": true,
+        "psi_minC_c0_inj": true,
+        "w": 2
+      }
+    ],
+    "status": "PASS"
+  }
+}

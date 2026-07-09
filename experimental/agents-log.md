@@ -7,6 +7,14 @@
 
 
 
+### 2026-07-09 - KB-MCA Route-D v20: top-seam pair injection / M_pad
+
+- Proved: pair (C,U,V) normal form; side key φ=(high,c0U,c0V) with multi-pad
+  fibers M_pad; N_ord ≤ M_pad·N_side; M_pad=1 ⇒ φ injective.
+- ψ=(minC,c0U,c0V) size n·p²: injective w≥2 toys, not a budget mark.
+- Bridge: M_pad≤1 + side pairs inject into t·p (=e·p deployed) ⇒ A_SP≤t·p.
+- Non-circular vs N_ord≤16·N. Open: M_pad≤1 deployed; CS pair → e·p mark.
+
 ### 2026-07-09 - KB-MCA Route-D v19: P_multi / |A_SP| graph cost laws
 
 - Proved handshaking cost chain, global N_ord sum, ambient CS bound, payment criteria.
