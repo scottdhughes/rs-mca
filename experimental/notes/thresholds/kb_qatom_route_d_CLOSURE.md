@@ -109,12 +109,13 @@ All scanned packets: **no false claim** of `|T|≤H2` or `A_SP≤t·p`.
 
 ## Path to completion
 
-1. **Preferred (v68):** prove free-1 high **injectivity** on the deployed GP
-   prefix ⇒ `coll=0` ⇒ `|T|=0` (implication already CLOSED).  
-2. **Fallback:** prove `SoftB_Deployed` then compose with CONDITIONAL chain.  
-3. Feed residual card into A_SP pipeline ⇒ program goal (separate).  
-4. **Lean phase 1:** arithmetic + status ledger (stdlib) — done.  
-5. **Lean phase 2:** Mathlib FF + injectivity / SoftB.
+1. **Preferred (v68–v69):** prove **no GP multipad** on `{0..n'−1}` (disjoint
+   index pairs with equal power-sum moments `k=1..e−1`).  
+   - Already CLOSED: multipads disjoint; `t<2e ⇒` injectivity ⇒ `|T|=0`.  
+   - Deployed has `n'≥2e`, so need the GP moment obstruction.  
+2. **Fallback:** `SoftB_Deployed` then CONDITIONAL chain (v67).  
+3. Feed residual into A_SP pipeline (separate).  
+4. **Lean phase 1:** done. **Phase 2:** Mathlib + multipad ban / SoftB.
 
 ### Lean roadmap
 

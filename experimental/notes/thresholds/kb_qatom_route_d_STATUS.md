@@ -4,7 +4,7 @@
 **Goal:** residual free-1 / A_SP card toward `A_SP ≤ t·p` on KoalaBear MCA `a+=1116048`.
 **Does NOT claim** `U ≤ B*` or full MCA close.
 
-Last tip packet: **v54** on `main`; local attack **v55–v68** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
+Last tip packet: **v54** on `main`; local attack **v55–v69** on `scott/kb-route-d-T-bound` (not yet PR). Verifiers live under
 `experimental/scripts/verify_kb_qatom_route_d_v{N}.py` with matching
 notes, certificates, and scanner reports.
 
@@ -120,9 +120,9 @@ Certificates: `experimental/data/certificates/kb-qatom-route-d-v{N}/`.
 
 ## Next session entry
 
-**Primary:** prove free-1 high **injectivity** on deployed GP prefix (v68 ⇒ |T|=0)
-or SoftB_Deployed (v67). Random model E[coll] log2~-1.34e6. Lean phase-1
-built. Do not restart ambient L / pack-k / envelopes.
+**Primary:** ban GP multipads at deployed (disjoint index pairs with matching
+moments k=1..e-1; v69). Note t<2e injectivity CLOSED but n'>=2e. Fallback SoftB.
+Lean phase-1 built. No ambient L / pack-k / envelopes.
 
 ---
 
@@ -187,3 +187,7 @@ arithmetic + ledger). Honest: full residual NOT closed.
 S=e_e(u) identity PROVED; multipad monic poly criterion PROVED; deployed
 pigeonhole room + random E[coll]~0 certified. CAS sparse e=4 injective.
 OPEN: deployed injectivity (preferred) or SoftB.
+
+**v69**: Multipads always disjoint (root/delta argument) PROVED; same derivative;
+**t<2e => injectivity => |T|=0** PROVED. GP index form p_k=sum omega^{ak}.
+Deployed n'>=2e so threshold misses; OPEN: no GP multipad on {0..n'-1}.
