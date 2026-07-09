@@ -1,6 +1,14 @@
 # Agents Log
 
 
+### 2026-07-09 - KB-MCA Route-D v47: untyped high bound draft
+
+- Draft: pure-untyped free-1 highs reduce to free-1 multipad highs in complements
+  of size A+e under C_unique (toys universal multi_C=0).
+- Proved: untyped pair unique core; per-core free-1 deg≤16 on n'=A+e.
+- Refuted: |H_unt(C)|≤⌊n'/e⌋. OPEN ★: H_*(A+e,e)≤H2.
+- Note: experimental/notes/thresholds/kb_qatom_route_d_v47_untyped_high_bound_draft.md
+
 ### 2026-07-09 - KB-MCA Route-D v46: R2/H_R2 untyped+Type D structure
 
 - Proved: R2=R2_unt⊔R2_D; Type D cores pairwise disjoint, pack_D=2; |R2|≤930|H_R2|;
