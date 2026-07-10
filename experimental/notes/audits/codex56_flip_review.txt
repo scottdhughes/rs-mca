@@ -1,0 +1,988 @@
+OpenAI Codex v0.144.1
+--------
+workdir: /Users/scott/work/rs-mca-l1-e3-ceiling
+model: gpt-5.6-sol
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: high
+reasoning summaries: none
+session id: 019f4d9f-f34d-7622-bd08-a45257ef9d42
+--------
+user
+This is a self-contained mathematics problem in analytic number theory / additive combinatorics. Reason it through carefully and write your full analysis as your final message. You do NOT need to read or write any repository files; you may run python for small numerical sanity checks if useful, but the deliverable is the mathematical argument. Be a skeptical reviewer and show the single closing inequality or the exact obstruction.
+
+CONTINUATION (round 3). You reduced a fixed cyclic-RS zero-error list-recovery problem to a secant-shadow local variance; I verified it, then you correctly REFUTED the unconditional Poisson variance via a dyadic-coset block obstruction (I verified that too: n=16,p=257,w=2,m=8 gives Delta_sec/(n^2 mu)=12.77, matching your lower bound), and you gave the repaired PRIMITIVE-ONLY antipodal-flip target that dodges it. That repaired target is now the whole problem. Prove it, find its obstruction, or give a better route. Skeptical reviewer mode; show the one closing inequality or the mechanism.
+
+VERIFIED STATE.
+- mu_n = order-n subgroup of F_p^*, n=2^a, n|p-1, gamma=log_p(n)~0.68 (large subgroup). Phi(x)=(x,...,x^w),
+  F(S)=sum_{x in S}Phi(x), nu(v)=#{|S|=m, F(S)=v}, mu=C(n,m)/p^w. Deployed: n=2^21, w=67471 (w/n~0.03),
+  m~rho n, p~2^31, entropy gap theta=log_n(mu)~1.7. Goal E-b: N=nu(0) <= n^3.
+- Reformulation: indicator of S lies in the cyclic [n,n-w,w+1] MDS/RS code C = {x: prod_{j=1..w}(Z-zeta^j) | X_S(Z)}.
+- BLOCK OBSTRUCTION (verified): for q=2^s | n with q>w and q|m, every union of k=m/q cosets of mu_q is a zero
+  solution; cross-coset secant fibers inflate to nu(d_ab) >= C(n/q-2, m/q-1). These block solutions are
+  -1-INVARIANT (since -1 in mu_q), hence IMPRIMITIVE. Negligible at deployment (smallest q>w is 2^17, block
+  fiber <= C(14,7)=3432 << sqrt(mu)~2.4e5, needs 2^17|m), so the deployed crux is the PRIMITIVE count.
+
+THE REPAIRED TARGET (your antipodal-flip route, to be proved).
+- s = ceil(w/2) = #odd exponents in {1..w}. Every PRIMITIVE zero solution has >= s+1 broken antipodal pairs
+  {a,-a} occupied in exactly one point (Vandermonde on the odd moments: putting y_i=a_i^2, the map is
+  Vandermonde, so t(S) in {0} u [s+1, ...]).
+- For 2r <= s, flipping r broken pairs sends a primitive zero solution to D_r^- = {sum_{a in A}(Phi(-a)-Phi(a)):
+  |A|=r, A cap (-A)=empty}, |D_r^-| = 2^r C(n/2,r), injectively; hence
+      N_prim * C(s+1, r) <= sum_{v in D_r^-} nu(v).
+- At deployment r=2: |D_2^-| = n(n-2)/2, C(s+1,2) ~ s^2/2, K_2 = |D_2^-|/C(s+1,2) ~ n(n-2)/(s(s+1)) ~ 3864.
+  So N_prim <= n^3 FOLLOWS FROM the WEAK average bound
+      (T)   |D_2^-|^{-1} sum_{v in D_2^-} nu(v)  <=  4.3e4 * mu.
+- Fourier form: sum_{v in D_2^-} nu(v) = |D_2^-| mu + p^{-w} sum_{c!=0} nu-hat(c) * conj( (sigma(c)^2 - sigma(2c) - n)/2 ),
+  where sigma(c) = sum_{a in mu_n} e_p(-2 sum_{j odd, j<=w} c_j a^j), nu-hat(c) = [t^m] prod_x (1 + t e_p(f_c(x))).
+  MAJOR ARCS: c with all odd coefficients zero => sigma(c)=n => kernel = |D_2^-| (peel recursively via x->x^2,
+  the quotient mu_n -> mu_{n/2}). MINOR ARCS: c with nonzero odd part.
+
+WHAT I WANT:
+(1) Prove (T) -- i.e. bound the minor-arc contribution p^{-w} sum_{c: odd part != 0} nu-hat(c) K(c),
+    K(c)=(sigma(c)^2-sigma(2c)-n)/2, by O(n^2 mu) (a factor ~4e4 * n^2 * mu of slack is available), with the
+    even/major arcs peeled recursively. The averaged/one-sided nature (a weak average bound, not a per-c
+    absolute bound, and not Poisson variance) is the whole point -- exploit it.
+(2) If (T) fails, give the exact primitive obstruction (a structured primitive family inflating D_2^- fibers)
+    consistent with the verified small-instance concentration and with the block solutions being excluded.
+(3) Better route if you see one: a different flip kernel; a large-sieve/inequality over the odd-part minor arcs;
+    an inverse-Littlewood-Offord / list-recovery input for C; a discrete-entropy (Brascamp-Lieb) transfer. The
+    key uncomputable regime is deployed high w (w sqrt(p) >> n, so per-c Weil bounds are trivial and only
+    signed/averaged cancellation over the minor arcs can work). Open-ended -- your best independent theorem.
+
+Be concrete about the single minor-arc estimate that closes it, and whether the recursive major-arc peeling
+terminates (it descends mu_n -> mu_{n/2} -> ... ; does the w -> floor(w/2) halving keep q>w satisfiable?).
+
+codex
+I’ll attack the target at its weakest point first: rewrite the “major-arc peeling” exactly in physical space, then check whether it truly descends to the same subset problem. That determines whether a minor-arc inequality can actually close the argument.
+exec
+/bin/zsh -lc "python3 -c 'from itertools import combinations; from collections import Counter; import math
+p=257;n=16;m=8
+z=next(g for g in range(2,p) if pow(g,16,p)==1 and pow(g,8,p)"'!=1)
+G=[pow(z,i,p) for i in range(n)]
+for w in [4,5,6]:
+ c=Counter(tuple(sum(pow(G[i],j,p) for i in I)%p for j in range(1,w+1)) for I in combinations(range(n),m))
+ D={tuple((pow(-a,j,p)-pow(a,j,p)+pow(-b,j,p)-pow(b,j,p))%p for j in range(1,w+1)) for ia,ib in combinations(range(n//2),2) for ea in [0,1] for eb in [0,1] for a,b in [(G[ia+ea*n//2],G[ib+eb*n//2])]}
+ avg=sum(c[v] for v in D)/len(D); mu=math.comb(n,m)/(p**w)
+ print(w,len(D),sum(c[v] for v in D),avg,mu,avg/mu,max(c.values()))'"'" in /Users/scott/work/rs-mca-l1-e3-ceiling
+ succeeded in 0ms:
+4 112 0 0.0 2.950163282953126e-06 0.0 2
+5 112 0 0.0 1.1479234564019945e-08 0.0 2
+6 112 0 0.0 4.466628235027216e-11 0.0 2
+
+codex
+The repaired antipodal idea is sound, but the proposed proof of (T) does not close as stated. The exact obstruction is that the even-frequency major arc does not recurse to the same Boolean subset problem. It recurses to a binomially weighted multiset problem, and after further peeling the alphabet grows from \(\{0,1\}\) to \(\{0,1,2\}\), then \(\{0,\dots,4\}\), and so on.
+
+Thus an \(O(n^{2}\mu)\) estimate for the first minor arc alone is insufficient. What would close the argument is a signed large-sieve estimate for the entire multilevel minor-arc cascade. I derive the exact required inequality below.
+
+## 1. Exact evaluation of the first major arc
+
+Write
+
+\[
+B=\binom nm,\qquad
+s=\left\lceil\frac w2\right\rceil,\qquad
+e=\left\lfloor\frac w2\right\rfloor,
+\qquad
+d=|D_2^-|=\frac{n(n-2)}2.
+\]
+
+Let
+
+\[
+A_D=\frac1d\sum_{v\in D_2^-}\nu(v).
+\]
+
+The Fourier identity is
+
+\[
+A_D
+=
+\mu+
+\frac{p^{-w}}d
+\sum_{c\ne0}\widehat\nu(c)\overline{K(c)},
+\qquad
+\mu=\frac{B}{p^w},
+\]
+
+where \(K=\widehat{1_{D_2^-}}\).
+
+Let
+
+\[
+\mathfrak M_0
+=
+\{c:c_j=0\text{ for every odd }j\}.
+\]
+
+For every \(c\in\mathfrak M_0\),
+
+\[
+K(c)=d.
+\]
+
+Including \(c=0\) in the major arc and applying orthogonality over the even coefficients gives
+
+\[
+\frac{p^{-w}}d
+\sum_{c\in\mathfrak M_0}
+\widehat\nu(c)\overline{K(c)}
+=
+p^{-s}Z_1,
+\]
+
+where
+
+\[
+Z_1=
+\#\left\{
+S\subseteq\mu_n:
+|S|=m,\quad
+\sum_{x\in S}x^{2j}=0
+\quad(1\le j\le e)
+\right\}.
+\]
+
+Consequently the exact root-level decomposition is
+
+\[
+\boxed{
+A_D
+=
+p^{-s}Z_1+R_0,
+}
+\]
+
+with
+
+\[
+R_0=
+\frac{p^{-w}}d
+\sum_{\substack{c\\\text{odd part}(c)\ne0}}
+\widehat\nu(c)\overline{K(c)}.
+\]
+
+Therefore even the desired estimate
+
+\[
+R_0=O(\mu)
+\]
+
+does not prove (T). One still has to show
+
+\[
+p^{-s}Z_1\lesssim 4.3\cdot 10^4\,\mu.
+\]
+
+Trivially,
+
+\[
+p^{-s}Z_1\le p^{-s}B=p^e\mu,
+\]
+
+which is astronomically too large. Some genuine cancellation or equidistribution theorem is required inside \(Z_1\).
+
+## 2. Why this is not the original problem on \(\mu_{n/2}\)
+
+Put \(y=x^2\). Each \(y\in\mu_{n/2}\) has the two preimages \(\{x,-x\}\). If
+
+\[
+k_y=|S\cap\{x,-x\}|\in\{0,1,2\},
+\]
+
+then
+
+\[
+Z_1
+=
+\sum_{\substack{k_y\in\{0,1,2\}\\
+\sum_y k_y=m\\
+\sum_y k_y y^j=0,\ 1\le j\le e}}
+2^{\,|\{y:k_y=1\}|}.
+\]
+
+The factor \(2^{|\{k_y=1\}|}\) records the orientation of singly occupied antipodal pairs.
+
+Thus the descended object is not
+
+\[
+\#\{T\subseteq\mu_{n/2}:|T|=m/2,\ F(T)=0\}.
+\]
+
+It is a weighted ternary slice. In particular:
+
+- imprimitive original sets correspond only to the subfamily \(k_y\in\{0,2\}\);
+- primitive sets correspond to configurations with at least one \(k_y=1\);
+- the descended ensemble contains both;
+- the original primitive/imprimitive separation has been lost.
+
+So the statement “peel the major arc recursively via \(x\mapsto x^2\)” is algebraically correct but does not recurse to the same theorem.
+
+## 3. The full recursive cascade
+
+The loss of Boolean structure can be tracked exactly.
+
+For \(\ell\ge1\), define
+
+\[
+n_\ell=\frac{n}{2^\ell},\qquad
+b_\ell=2^\ell,\qquad
+w_\ell=\left\lfloor\frac{w}{2^\ell}\right\rfloor,
+\qquad
+G_\ell=\mu_{n_\ell}.
+\]
+
+For \(c=(c_1,\dots,c_{w_\ell})\), let
+
+\[
+P_\ell(c)
+=
+[t^m]\prod_{y\in G_\ell}
+\left(
+1+t\,e_p\!\left(\sum_{j=1}^{w_\ell}c_jy^j\right)
+\right)^{b_\ell}.
+\]
+
+Equivalently, \(P_\ell\) is the Fourier transform of the weighted slice with multiplicities
+
+\[
+k_y\in\{0,\dots,b_\ell\},
+\]
+
+weighted by
+
+\[
+\prod_y\binom{b_\ell}{k_y}.
+\]
+
+Let \(Z_\ell\) be the corresponding zero fiber:
+
+\[
+Z_\ell
+=
+p^{-w_\ell}\sum_{c\in\mathbb F_p^{w_\ell}}P_\ell(c).
+\]
+
+Split the frequencies into
+
+\[
+\mathfrak m_\ell
+=
+\{c:\text{some odd-indexed }c_j\ne0\}
+\]
+
+and the complementary major arc. Pairing \(y\) with \(-y\) gives the exact recursion
+
+\[
+Z_\ell
+=
+p^{-w_\ell}
+\sum_{c\in\mathfrak m_\ell}P_\ell(c)
++
+p^{-(w_\ell-w_{\ell+1})}Z_{\ell+1}.
+\]
+
+Multiplying by \(p^{-(w-w_\ell)}\) and iterating yields
+
+\[
+p^{-s}Z_1
+=
+\mu+
+p^{-w}
+\sum_{\ell=1}^{L-1}
+\sum_{c\in\mathfrak m_\ell}P_\ell(c),
+\]
+
+where \(L\) is the first integer with \(w_L=0\). At the terminal level,
+
+\[
+Z_L=[t^m](1+t)^n=B,
+\]
+
+so its normalized contribution is exactly \(B/p^w=\mu\).
+
+Combining this with the root decomposition gives the exact identity
+
+\[
+\boxed{
+A_D
+=
+\mu
++
+\frac{p^{-w}}d
+\sum_{c\in\mathfrak m_0}
+\widehat\nu(c)\overline{K(c)}
++
+p^{-w}
+\sum_{\ell=1}^{L-1}
+\sum_{c\in\mathfrak m_\ell}P_\ell(c).
+}
+\]
+
+Here \(\mathfrak m_0\) denotes the original frequencies with nonzero odd part.
+
+This is the correct recursively peeled formula.
+
+## 4. The single inequality that would close (T)
+
+Since \(p^w\mu=B\), the precise sufficient—and essentially necessary—estimate is
+
+\[
+\boxed{
+\operatorname{Re}\left[
+\frac1d
+\sum_{c\in\mathfrak m_0}
+\widehat\nu(c)\overline{K(c)}
++
+\sum_{\ell=1}^{L-1}
+\sum_{c\in\mathfrak m_\ell}P_\ell(c)
+\right]
+\le
+(4.3\cdot10^4-1)\binom nm.
+}
+\tag{LS}
+\]
+
+Indeed, substituting (LS) into the boxed identity gives
+
+\[
+A_D\le 4.3\cdot10^4\,\frac{\binom nm}{p^w}
+=4.3\cdot10^4\,\mu,
+\]
+
+which is exactly (T).
+
+So the true missing theorem is not merely
+
+\[
+\left|
+\sum_{c\in\mathfrak m_0}
+\widehat\nu(c)\overline{K(c)}
+\right|
+\ll dB.
+\]
+
+It is the one-sided, signed, multilevel estimate (LS), simultaneously covering all weighted alphabets
+
+\[
+\{0,\dots,2^\ell\}.
+\]
+
+A convenient stronger form would be numbers \(\varepsilon_\ell\ge0\) satisfying
+
+\[
+\operatorname{Re}
+\frac1d\sum_{c\in\mathfrak m_0}
+\widehat\nu(c)\overline{K(c)}
+\le \varepsilon_0B,
+\]
+
+\[
+\operatorname{Re}
+\sum_{c\in\mathfrak m_\ell}P_\ell(c)
+\le \varepsilon_\ell B
+\quad(1\le\ell<L),
+\]
+
+and
+
+\[
+\sum_{\ell=0}^{L-1}\varepsilon_\ell
+\le 4.3\cdot10^4-1.
+\]
+
+Even a crude allowance of about \(2{,}500B\) per level would suffice at deployment, because there are only \(17\) levels.
+
+## 5. Does the recursion terminate?
+
+Yes, algebraically it terminates cleanly.
+
+For
+
+\[
+n=2^{21},\qquad w=67471,
+\]
+
+we have
+
+\[
+2^{16}=65536\le w<2^{17}=131072.
+\]
+
+Thus
+
+\[
+w_{16}=1,\qquad n_{16}=32,
+\]
+
+and
+
+\[
+w_{17}=0,\qquad n_{17}=16.
+\]
+
+So there are \(17\) halvings before reaching the unconstrained binomial coefficient.
+
+The condition “there exists a dyadic \(q>w_\ell\) with \(q\mid n_\ell\)” also remains satisfiable at every nonterminal level: since \(w<n\),
+
+\[
+w_\ell<n_\ell,
+\]
+
+and one may choose
+
+\[
+q_\ell=2^{\lceil\log_2(w_\ell+1)\rceil}\le n_\ell.
+\]
+
+But this does not solve the analytic problem. The condition \(q\mid m\) from the original Boolean block obstruction is not stable under the weighted descent, and the descended configurations have multiplicities up to \(2^\ell\). The old “exclude \(-1\)-invariant block solutions” argument therefore does not remove all structured major-arc mass at later levels.
+
+## 6. Why standard Fourier inequalities do not give (LS)
+
+A Cauchy–Schwarz estimate at the root gives, schematically,
+
+\[
+\left|
+p^{-w}\sum_c\widehat\nu(c)\overline{K(c)}
+\right|
+\le
+\left(\sum_v\nu(v)^2\right)^{1/2}d^{1/2}.
+\]
+
+Thus one would need a collision-energy estimate of roughly
+
+\[
+\sum_v\nu(v)^2
+\lesssim d\,(4.3\cdot10^4)^2\mu^2.
+\]
+
+This is a global Poisson-type variance statement, precisely the kind already refuted by the dyadic-coset block construction. Restricting the Fourier sum to the root minor arcs does not automatically remove that obstruction because \(\widehat\nu\) is still the transform of all \(m\)-subsets, including the imprimitive block families.
+
+Likewise:
+
+- per-frequency Weil bounds fail because \(w\sqrt p\gg n\);
+- the triangle inequality loses a factor comparable to the number of frequencies;
+- Parseval returns to global fiber collision energy;
+- ordinary MDS/full-rank bounds only give something like \(2^{n-w}\), nowhere near the near-critical \(B/p^w\) scale.
+
+The needed phenomenon is genuinely signed cancellation across the minor frequencies and across the dyadic levels.
+
+## 7. Is (T) itself circular?
+
+Not logically, but it is quantitatively almost the desired theorem.
+
+For every primitive zero solution \(S\), let \(t(S)\) be its number of broken antipodal pairs. Flipping any two broken pairs gives a distinct incidence counted by
+
+\[
+I_D:=\sum_{v\in D_2^-}\nu(v).
+\]
+
+Therefore
+
+\[
+I_D
+\ge
+\sum_{\substack{S:F(S)=0\\S\ \mathrm{primitive}}}
+\binom{t(S)}2
+\ge
+N_{\mathrm{prim}}\binom{s+1}{2}.
+\]
+
+Hence
+
+\[
+N_{\mathrm{prim}}
+\le
+\frac{d}{\binom{s+1}{2}}A_D.
+\]
+
+So a proof of (T) is already a strong upper bound on essentially the same primitive zero family, expressed through its two-flip shadow. This explains why no soft Fourier argument seems to prove it: the shadow estimate contains nearly all the difficulty of the original theorem.
+
+## 8. Exact obstruction status
+
+I do not have a primitive counterexample to (T). The verified dyadic-coset family does not immediately inflate these antipodal two-flip fibers, because every such block is \(-1\)-invariant: replacing \(a\) by \(-a\) does nothing inside a full antipodal block.
+
+The precise possible obstruction after peeling would be a hierarchical Prouhet-type family:
+
+- at some level \(\ell\), choose multiplicities
+  \[
+  k_y\in\{0,\dots,2^\ell\};
+  \]
+- make the quotient moments vanish;
+- have many nontrivial lifts inside the fibers of
+  \[
+  x\mapsto x^{2^\ell};
+  \]
+- arrange the orientations so that all previously peeled odd moments also vanish.
+
+Such a family would be primitive whenever some fiber is only partially occupied. But constructing it is exactly a primitive cyclic-RS zero-word construction; the old block family supplies only fully occupied fibers and hence does not do it.
+
+## Verdict
+
+- The antipodal-flip reduction remains valid.
+- I do not find a primitive obstruction refuting (T).
+- The proposed “minor arc plus recursive major peeling” is incomplete because peeling leaves the Boolean category.
+- The exact missing statement is the signed multilevel large-sieve inequality (LS).
+- The recursion terminates after \(17\) levels at deployment, and \(q>w_\ell\) remains possible at every nonterminal level, but neither fact controls the weighted minor arcs.
+- Any claimed proof of (T) must control the entire cascade of binomially weighted minor sums, not only the original kernel \(K(c)\).
+
+Thus the single closing inequality is (LS); absent a new inverse theorem or signed large-sieve theorem for these weighted cyclic moment maps, the repaired primitive target remains open.
+tokens used
+31,353
+The repaired antipodal idea is sound, but the proposed proof of (T) does not close as stated. The exact obstruction is that the even-frequency major arc does not recurse to the same Boolean subset problem. It recurses to a binomially weighted multiset problem, and after further peeling the alphabet grows from \(\{0,1\}\) to \(\{0,1,2\}\), then \(\{0,\dots,4\}\), and so on.
+
+Thus an \(O(n^{2}\mu)\) estimate for the first minor arc alone is insufficient. What would close the argument is a signed large-sieve estimate for the entire multilevel minor-arc cascade. I derive the exact required inequality below.
+
+## 1. Exact evaluation of the first major arc
+
+Write
+
+\[
+B=\binom nm,\qquad
+s=\left\lceil\frac w2\right\rceil,\qquad
+e=\left\lfloor\frac w2\right\rfloor,
+\qquad
+d=|D_2^-|=\frac{n(n-2)}2.
+\]
+
+Let
+
+\[
+A_D=\frac1d\sum_{v\in D_2^-}\nu(v).
+\]
+
+The Fourier identity is
+
+\[
+A_D
+=
+\mu+
+\frac{p^{-w}}d
+\sum_{c\ne0}\widehat\nu(c)\overline{K(c)},
+\qquad
+\mu=\frac{B}{p^w},
+\]
+
+where \(K=\widehat{1_{D_2^-}}\).
+
+Let
+
+\[
+\mathfrak M_0
+=
+\{c:c_j=0\text{ for every odd }j\}.
+\]
+
+For every \(c\in\mathfrak M_0\),
+
+\[
+K(c)=d.
+\]
+
+Including \(c=0\) in the major arc and applying orthogonality over the even coefficients gives
+
+\[
+\frac{p^{-w}}d
+\sum_{c\in\mathfrak M_0}
+\widehat\nu(c)\overline{K(c)}
+=
+p^{-s}Z_1,
+\]
+
+where
+
+\[
+Z_1=
+\#\left\{
+S\subseteq\mu_n:
+|S|=m,\quad
+\sum_{x\in S}x^{2j}=0
+\quad(1\le j\le e)
+\right\}.
+\]
+
+Consequently the exact root-level decomposition is
+
+\[
+\boxed{
+A_D
+=
+p^{-s}Z_1+R_0,
+}
+\]
+
+with
+
+\[
+R_0=
+\frac{p^{-w}}d
+\sum_{\substack{c\\\text{odd part}(c)\ne0}}
+\widehat\nu(c)\overline{K(c)}.
+\]
+
+Therefore even the desired estimate
+
+\[
+R_0=O(\mu)
+\]
+
+does not prove (T). One still has to show
+
+\[
+p^{-s}Z_1\lesssim 4.3\cdot 10^4\,\mu.
+\]
+
+Trivially,
+
+\[
+p^{-s}Z_1\le p^{-s}B=p^e\mu,
+\]
+
+which is astronomically too large. Some genuine cancellation or equidistribution theorem is required inside \(Z_1\).
+
+## 2. Why this is not the original problem on \(\mu_{n/2}\)
+
+Put \(y=x^2\). Each \(y\in\mu_{n/2}\) has the two preimages \(\{x,-x\}\). If
+
+\[
+k_y=|S\cap\{x,-x\}|\in\{0,1,2\},
+\]
+
+then
+
+\[
+Z_1
+=
+\sum_{\substack{k_y\in\{0,1,2\}\\
+\sum_y k_y=m\\
+\sum_y k_y y^j=0,\ 1\le j\le e}}
+2^{\,|\{y:k_y=1\}|}.
+\]
+
+The factor \(2^{|\{k_y=1\}|}\) records the orientation of singly occupied antipodal pairs.
+
+Thus the descended object is not
+
+\[
+\#\{T\subseteq\mu_{n/2}:|T|=m/2,\ F(T)=0\}.
+\]
+
+It is a weighted ternary slice. In particular:
+
+- imprimitive original sets correspond only to the subfamily \(k_y\in\{0,2\}\);
+- primitive sets correspond to configurations with at least one \(k_y=1\);
+- the descended ensemble contains both;
+- the original primitive/imprimitive separation has been lost.
+
+So the statement “peel the major arc recursively via \(x\mapsto x^2\)” is algebraically correct but does not recurse to the same theorem.
+
+## 3. The full recursive cascade
+
+The loss of Boolean structure can be tracked exactly.
+
+For \(\ell\ge1\), define
+
+\[
+n_\ell=\frac{n}{2^\ell},\qquad
+b_\ell=2^\ell,\qquad
+w_\ell=\left\lfloor\frac{w}{2^\ell}\right\rfloor,
+\qquad
+G_\ell=\mu_{n_\ell}.
+\]
+
+For \(c=(c_1,\dots,c_{w_\ell})\), let
+
+\[
+P_\ell(c)
+=
+[t^m]\prod_{y\in G_\ell}
+\left(
+1+t\,e_p\!\left(\sum_{j=1}^{w_\ell}c_jy^j\right)
+\right)^{b_\ell}.
+\]
+
+Equivalently, \(P_\ell\) is the Fourier transform of the weighted slice with multiplicities
+
+\[
+k_y\in\{0,\dots,b_\ell\},
+\]
+
+weighted by
+
+\[
+\prod_y\binom{b_\ell}{k_y}.
+\]
+
+Let \(Z_\ell\) be the corresponding zero fiber:
+
+\[
+Z_\ell
+=
+p^{-w_\ell}\sum_{c\in\mathbb F_p^{w_\ell}}P_\ell(c).
+\]
+
+Split the frequencies into
+
+\[
+\mathfrak m_\ell
+=
+\{c:\text{some odd-indexed }c_j\ne0\}
+\]
+
+and the complementary major arc. Pairing \(y\) with \(-y\) gives the exact recursion
+
+\[
+Z_\ell
+=
+p^{-w_\ell}
+\sum_{c\in\mathfrak m_\ell}P_\ell(c)
++
+p^{-(w_\ell-w_{\ell+1})}Z_{\ell+1}.
+\]
+
+Multiplying by \(p^{-(w-w_\ell)}\) and iterating yields
+
+\[
+p^{-s}Z_1
+=
+\mu+
+p^{-w}
+\sum_{\ell=1}^{L-1}
+\sum_{c\in\mathfrak m_\ell}P_\ell(c),
+\]
+
+where \(L\) is the first integer with \(w_L=0\). At the terminal level,
+
+\[
+Z_L=[t^m](1+t)^n=B,
+\]
+
+so its normalized contribution is exactly \(B/p^w=\mu\).
+
+Combining this with the root decomposition gives the exact identity
+
+\[
+\boxed{
+A_D
+=
+\mu
++
+\frac{p^{-w}}d
+\sum_{c\in\mathfrak m_0}
+\widehat\nu(c)\overline{K(c)}
++
+p^{-w}
+\sum_{\ell=1}^{L-1}
+\sum_{c\in\mathfrak m_\ell}P_\ell(c).
+}
+\]
+
+Here \(\mathfrak m_0\) denotes the original frequencies with nonzero odd part.
+
+This is the correct recursively peeled formula.
+
+## 4. The single inequality that would close (T)
+
+Since \(p^w\mu=B\), the precise sufficient—and essentially necessary—estimate is
+
+\[
+\boxed{
+\operatorname{Re}\left[
+\frac1d
+\sum_{c\in\mathfrak m_0}
+\widehat\nu(c)\overline{K(c)}
++
+\sum_{\ell=1}^{L-1}
+\sum_{c\in\mathfrak m_\ell}P_\ell(c)
+\right]
+\le
+(4.3\cdot10^4-1)\binom nm.
+}
+\tag{LS}
+\]
+
+Indeed, substituting (LS) into the boxed identity gives
+
+\[
+A_D\le 4.3\cdot10^4\,\frac{\binom nm}{p^w}
+=4.3\cdot10^4\,\mu,
+\]
+
+which is exactly (T).
+
+So the true missing theorem is not merely
+
+\[
+\left|
+\sum_{c\in\mathfrak m_0}
+\widehat\nu(c)\overline{K(c)}
+\right|
+\ll dB.
+\]
+
+It is the one-sided, signed, multilevel estimate (LS), simultaneously covering all weighted alphabets
+
+\[
+\{0,\dots,2^\ell\}.
+\]
+
+A convenient stronger form would be numbers \(\varepsilon_\ell\ge0\) satisfying
+
+\[
+\operatorname{Re}
+\frac1d\sum_{c\in\mathfrak m_0}
+\widehat\nu(c)\overline{K(c)}
+\le \varepsilon_0B,
+\]
+
+\[
+\operatorname{Re}
+\sum_{c\in\mathfrak m_\ell}P_\ell(c)
+\le \varepsilon_\ell B
+\quad(1\le\ell<L),
+\]
+
+and
+
+\[
+\sum_{\ell=0}^{L-1}\varepsilon_\ell
+\le 4.3\cdot10^4-1.
+\]
+
+Even a crude allowance of about \(2{,}500B\) per level would suffice at deployment, because there are only \(17\) levels.
+
+## 5. Does the recursion terminate?
+
+Yes, algebraically it terminates cleanly.
+
+For
+
+\[
+n=2^{21},\qquad w=67471,
+\]
+
+we have
+
+\[
+2^{16}=65536\le w<2^{17}=131072.
+\]
+
+Thus
+
+\[
+w_{16}=1,\qquad n_{16}=32,
+\]
+
+and
+
+\[
+w_{17}=0,\qquad n_{17}=16.
+\]
+
+So there are \(17\) halvings before reaching the unconstrained binomial coefficient.
+
+The condition “there exists a dyadic \(q>w_\ell\) with \(q\mid n_\ell\)” also remains satisfiable at every nonterminal level: since \(w<n\),
+
+\[
+w_\ell<n_\ell,
+\]
+
+and one may choose
+
+\[
+q_\ell=2^{\lceil\log_2(w_\ell+1)\rceil}\le n_\ell.
+\]
+
+But this does not solve the analytic problem. The condition \(q\mid m\) from the original Boolean block obstruction is not stable under the weighted descent, and the descended configurations have multiplicities up to \(2^\ell\). The old “exclude \(-1\)-invariant block solutions” argument therefore does not remove all structured major-arc mass at later levels.
+
+## 6. Why standard Fourier inequalities do not give (LS)
+
+A Cauchy–Schwarz estimate at the root gives, schematically,
+
+\[
+\left|
+p^{-w}\sum_c\widehat\nu(c)\overline{K(c)}
+\right|
+\le
+\left(\sum_v\nu(v)^2\right)^{1/2}d^{1/2}.
+\]
+
+Thus one would need a collision-energy estimate of roughly
+
+\[
+\sum_v\nu(v)^2
+\lesssim d\,(4.3\cdot10^4)^2\mu^2.
+\]
+
+This is a global Poisson-type variance statement, precisely the kind already refuted by the dyadic-coset block construction. Restricting the Fourier sum to the root minor arcs does not automatically remove that obstruction because \(\widehat\nu\) is still the transform of all \(m\)-subsets, including the imprimitive block families.
+
+Likewise:
+
+- per-frequency Weil bounds fail because \(w\sqrt p\gg n\);
+- the triangle inequality loses a factor comparable to the number of frequencies;
+- Parseval returns to global fiber collision energy;
+- ordinary MDS/full-rank bounds only give something like \(2^{n-w}\), nowhere near the near-critical \(B/p^w\) scale.
+
+The needed phenomenon is genuinely signed cancellation across the minor frequencies and across the dyadic levels.
+
+## 7. Is (T) itself circular?
+
+Not logically, but it is quantitatively almost the desired theorem.
+
+For every primitive zero solution \(S\), let \(t(S)\) be its number of broken antipodal pairs. Flipping any two broken pairs gives a distinct incidence counted by
+
+\[
+I_D:=\sum_{v\in D_2^-}\nu(v).
+\]
+
+Therefore
+
+\[
+I_D
+\ge
+\sum_{\substack{S:F(S)=0\\S\ \mathrm{primitive}}}
+\binom{t(S)}2
+\ge
+N_{\mathrm{prim}}\binom{s+1}{2}.
+\]
+
+Hence
+
+\[
+N_{\mathrm{prim}}
+\le
+\frac{d}{\binom{s+1}{2}}A_D.
+\]
+
+So a proof of (T) is already a strong upper bound on essentially the same primitive zero family, expressed through its two-flip shadow. This explains why no soft Fourier argument seems to prove it: the shadow estimate contains nearly all the difficulty of the original theorem.
+
+## 8. Exact obstruction status
+
+I do not have a primitive counterexample to (T). The verified dyadic-coset family does not immediately inflate these antipodal two-flip fibers, because every such block is \(-1\)-invariant: replacing \(a\) by \(-a\) does nothing inside a full antipodal block.
+
+The precise possible obstruction after peeling would be a hierarchical Prouhet-type family:
+
+- at some level \(\ell\), choose multiplicities
+  \[
+  k_y\in\{0,\dots,2^\ell\};
+  \]
+- make the quotient moments vanish;
+- have many nontrivial lifts inside the fibers of
+  \[
+  x\mapsto x^{2^\ell};
+  \]
+- arrange the orientations so that all previously peeled odd moments also vanish.
+
+Such a family would be primitive whenever some fiber is only partially occupied. But constructing it is exactly a primitive cyclic-RS zero-word construction; the old block family supplies only fully occupied fibers and hence does not do it.
+
+## Verdict
+
+- The antipodal-flip reduction remains valid.
+- I do not find a primitive obstruction refuting (T).
+- The proposed “minor arc plus recursive major peeling” is incomplete because peeling leaves the Boolean category.
+- The exact missing statement is the signed multilevel large-sieve inequality (LS).
+- The recursion terminates after \(17\) levels at deployment, and \(q>w_\ell\) remains possible at every nonterminal level, but neither fact controls the weighted minor arcs.
+- Any claimed proof of (T) must control the entire cascade of binomially weighted minor sums, not only the original kernel \(K(c)\).
+
+Thus the single closing inequality is (LS); absent a new inverse theorem or signed large-sieve theorem for these weighted cyclic moment maps, the repaired primitive target remains open.

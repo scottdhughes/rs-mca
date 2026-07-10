@@ -1,0 +1,25 @@
+CONTINUATION (round 2). Previously you reduced a fixed-instance, zero-error, constant-weight list-recovery problem for a cyclic Reed–Solomon code to a LOCAL variance bound via a secant-shadow inequality. I verified that reduction numerically, verified your three corrections to my earlier reduction, and confirmed the local variance is Poisson-scale and regime-robust across a finite window. The local variance bound is now the whole problem. Prove it, or find the true obstruction, or give a better route. Be a skeptical reviewer; show the key inequality or obstruction explicitly.
+
+SETUP (verified). mu_n = order-n subgroup of F_p^*, n = 2^a, n | p-1, gamma = log_p(n) ~ 0.68 (LARGE subgroup, n > sqrt p). Phi(x) = (x, x^2, ..., x^w); F(S) = sum_{x in S} Phi(x) in F_p^w; nu(v) = #{S subset mu_n : |S| = m, F(S) = v}; mu = C(n,m)/p^w; N = nu(0). Deployed: n = 2^21, w = 67471 (w/n ~ 0.03), m ~ rho*n, p ~ 2^31; entropy gap theta = log_n(mu) ~ 1.7 -- a FINITE near-capacity window (fixed alpha=w/n, gamma force log_2 n <~ gamma H_2(rho)/alpha ~ 22.7), not a fixed-ratio asymptotic family. Reformulation: p_j(S) = X_S(zeta^j) with X_S = sum_k 1[zeta^k in S] Z^k, so the constraints = prod_{j=1..w}(Z - zeta^j) | X_S(Z), i.e. the binary indicator lies in the cyclic [n, n-w, w+1] MDS/RS code C; N = #{binary weight-m codewords of C}. Goal (E-b): N <= n^3; the secant route gives much more (N = O_rho(mu)).
+
+THE SECANT-SHADOW REDUCTION (your result, VERIFIED numerically). D_1 = {Phi(b)-Phi(a) : a != b in mu_n}; the map (a,b) -> Phi(b)-Phi(a) is injective (recover a+b = v2/v1 and b-a = v1 from the first two coords; needs w >= 2), so |D_1| = n(n-1). Each zero solution S, with a in S and b not in S, injects T = (S\{a}) u {b} with F(T) = Phi(b)-Phi(a) in D_1, injectively; hence N*m(n-m) <= sum_{v in D_1} nu(v), and by Cauchy-Schwarz on D_1,
+    N <= [n(n-1)/(m(n-m))] ( mu + sqrt( Delta_sec / (n(n-1)) ) ),   Delta_sec = sum_{v in D_1} (nu(v)-mu)^2.
+So E-b (indeed N = O_rho(mu)) FOLLOWS FROM the Poisson-scale local-variance bound
+    (*)   Delta_sec = O(n^2 mu).
+Equivalent first-moment handle (shadow count): with pi(c) = sum_{x in mu_n} e_p(c.Phi(x)), the exact identity
+    sum_{v in D_1} nu(v) = n(n-1) mu + p^{-w} sum_{c != 0} nu-hat(c) ( |pi(c)|^2 - n ),
+where nu-hat(c) = [t^m] prod_{x in mu_n}(1 + t e_p(f_c(x))), f_c(x) = sum_j c_j x^j. So it suffices to bound the SIGNED CORRELATION  p^{-w} sum_{c != 0} nu-hat(c)(|pi(c)|^2 - n) = O(n^2 mu)  (a correlation, not a marginal).
+
+r-SWAP AMPLIFICATION (your result). For 2r <= w, D_r = {F(B)-F(A) : |A|=|B|=r, A cap B = empty} has |D_r| = C(n,r)C(n-r,r) (injective by Newton/PTE), and the same argument gives an n^{-r} improvement in the transfer.
+
+NUMERICAL EVIDENCE I obtained (exact DP over F_p^2, w=2, gamma ~ 0.66-0.69):
+- Delta_sec/(n^2 mu) is BOUNDED and DECREASING: 0.32 (n=32), 0.11-0.23 (n=64), ~0 (n=128); N/mu -> 1.000.
+- The descent-carrier hypothesis is FALSE (n=64, p=449, m=7 odd: N=3584 all-primitive, energy near-random) -- so (*) is NOT reducible to the mu_2 descent; the excess is genuinely primitive.
+- Global Delta_2 alone cannot prove E-b (exact obstruction Delta_2 >= (Q/(Q-1))(N-mu)^2 + a spike countermodel): the secant's value is that D_1 is a small (n^2), structured target -- the secant variety of the moment curve -- not that its variance is numerically smaller.
+
+WHAT I WANT:
+(1) Prove (*): Delta_sec = O(n^2 mu) (equivalently the signed-correlation shadow-count bound), in the regime n=2^a, mu_n subset F_p, gamma ~ 0.68, w >= 2, entropy gap theta > 0. State it in terms of theta if that is natural. A proof at w = 2 alone (the base case, where I have evidence) is already very valuable; ideally uniform in w.
+(2) If (*) is false or has an obstruction, give a concrete counterexample or the exact mechanism (e.g. a structured family of secant fibers with anomalous nu). Note: it must be consistent with the verified n<=128, w=2 concentration.
+(3) Better route if you see one: the local variance as a second moment of nu restricted to the secant variety; an inverse-Littlewood-Offord / list-recovery input for the RS code C; the projective Radon identity N - mu = p^{-w} sum_{[c]} (p Z_[c] - M) with dyadic composition lines f_c(x)=g(x^{2^k}) as 2-adic major arcs and an averaged minor-arc bias estimate; a discrete Brascamp-Lieb / entropy transfer from coordinate structure to list size. Open-ended: I would rather have your best independent theorem than a patch.
+
+Think carefully and be concrete about the one inequality that closes it.

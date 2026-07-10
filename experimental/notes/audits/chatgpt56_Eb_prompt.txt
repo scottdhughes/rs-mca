@@ -1,0 +1,30 @@
+You are a research collaborator in analytic number theory / additive combinatorics. I have reduced a problem to a single concentration inequality and want (1) adversarial scrutiny of the reduction, (2) a proof or the true obstruction, and (3) if you see a better framing, your own method. Be a skeptical reviewer, not a cheerleader: if a step is wrong or a "rule-out" is escapable, say so with a concrete counterexample or mechanism. Think carefully; show the key inequality or the key obstruction explicitly.
+
+SETUP. Fix a prime p and n = 2^a with n | p-1, so the group mu_n of n-th roots of unity lies in F_p. We are in the LARGE-subgroup regime n = p^gamma, gamma ~ 0.68 (so n > sqrt p). For S subset mu_n write power sums p_j(S) = sum_{s in S} s^j in F_p. Fix integers m, w with w/n ~ 0.03 and m ~ rho n (constant rho in (0,1)). Define the fiber count
+    N = N(n,m,w) = #{ S subset mu_n : |S| = m, p_j(S) = 0 for all j = 1..w }.
+The random-model mean is mu = C(n,m) / p^w. The deployed regime has mu >> 1 but mu << n^3 (e.g. mu ~ 2^36, n^3 = 2^63).
+
+GOAL (Conjecture E-b). N <= n^3. Equivalently, with nu(v) = #{|S|=m : (p_1(S),...,p_w(S)) = v} for v in F_p^w (so N = nu(0)): the rotation-fixed value nu(0) is not atypically large, i.e. nu(0) <= poly(n) * mu.
+
+VERIFIED STRUCTURE (established; please still check):
+(A) Li-Wan cycle expansion. With pi(c) = sum_{a in mu_n} e_p( c . (a^j)_{j=1..w} ), c in F_p^w:
+    N = p^{-w} sum_c pi(c)^m = sum_{partitions lambda of m} ((-1)^{m-l(lambda)}/z_lambda) M_lambda,
+    M_lambda = p^{-w} sum_c prod_r pi(rc)^{m_r}   (m_r = multiplicity of part r, l = #parts).
+    Low-cycle vanishing: M_lambda = 0 if l(lambda) <= w (Vandermonde in distinct values). So ONLY partitions with > w cycles contribute.
+(B) Descent. A mu_2-symmetric S = -S bijects (via u = t^2, the 2:1 map mu_n -> mu_{n/2}) with U subset mu_{n/2}, |U| = m/2, p_i(U) = 0 for i <= floor(w/2); hence N_prim = N - 1[2|m] N(n/2, m/2, floor(w/2)) is the primitive (free-mu_2-orbit) count.
+(C) Rotation. p_j(zeta S) = zeta^j p_j(S), so v=0 is rotation-FIXED while every v != 0 sits in a size-n orbit of equal nu; thus N_prim = n * (#free mu_n-orbits), and the additive energy E = sum_v nu(v)^2 = nu(0)^2 + n * sum_{v != 0 reps} nu(v)^2.
+(D) p-sensitivity. For SMALL p at the same (n,m,w), N >> n^3; the conjecture holds only because deployed mu << n^3. So a proof MUST use mu small (p large); a p-blind structural bound is impossible.
+(E) Energy is near-random. E ~ C(n,m)^2/p^w. Its tail E - C(n,m) = sum_{d>w} C(n-2d,m-d) E_d, with E_d = #{disjoint A,B in mu_n, |A|=|B|=d, p_j(A)=p_j(B) for j<=w}; E_d = 0 for d <= w (PTE rigidity, Newton); the tail is bulk-dominated at d ~ 0.1-0.25 n.
+
+RULED OUT (please TRY to escape these; escaping any is valuable):
+1. Marginal / sup bounds on |pi(c)| or the linear-coefficient-averaged 4th moment: N depends on the JOINT M_lambda, not marginals. Insufficient.
+2. Subgroup graph-energy import E(f(G),g(G)) (Vyugin-Makarychev / Stepanov): the deg <= |G|^{1/3} cap is structural (Stepanov auxiliary-poly degree < root set); our effective degree ~ w >> n^{1/3}. Barred.
+3. PTE / vanishing-sums-of-roots-of-unity over Z/n: controls only the p-independent small-d edge of the tail, which is exponentially subdominant to the bulk.
+4. Bulk coupling of the dilates {pi(rc)}: numerically pairwise-exactly and typically-strongly independent; the whole difficulty is the c=0 main term (subtracted) plus a resonant/structured-c heavy tail.
+
+THE CRUX (E-b transfer). Transfer the L^2 energy bound (controls the AVERAGE nu(v)^2) to the specific rotation-FIXED nu(0). Naive Cauchy-Schwarz nu(0) <= sqrt(E) ~ sqrt(mu * C(n,m)) is exponentially too weak. Numerically nu(0)/mu has median ~ 1 (nu(0) is typical); and restricting the joint moment to the odd-frequency ("primitive") part of c makes the coupling sub-independent (decays), while the resonant excess lives in mixed-frequency c. Promising line: show the excess of nu(0) over the typical fiber is carried by mu_2-symmetric (descent-removed) configurations, reducing to the clean primitive part.
+
+WHAT I WANT:
+(1) Scrutinize (A)-(E) and the four rule-outs. Any wrong step, or any escapable rule-out? Give a concrete counterexample or mechanism.
+(2) Prove E-b (nu(0) <= poly(n) * mu when mu << n^3), or identify the EXACT true obstruction to the transfer.
+(3) If you see a fundamentally better framing -- a different exact identity, a large-sieve / spectral / entropy transfer, a decoupling that DOES apply here, an orbit-counting or geometry-of-numbers route, a circle-method treatment of the rotation-fixed fiber, etc. -- propose it and sketch how far it gets. Open-ended: I would rather have your best independent method than a patch of mine.

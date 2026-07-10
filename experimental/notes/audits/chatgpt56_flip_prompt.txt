@@ -1,0 +1,41 @@
+CONTINUATION (round 3). You reduced a fixed cyclic-RS zero-error list-recovery problem to a secant-shadow local variance; I verified it, then you correctly REFUTED the unconditional Poisson variance via a dyadic-coset block obstruction (I verified that too: n=16,p=257,w=2,m=8 gives Delta_sec/(n^2 mu)=12.77, matching your lower bound), and you gave the repaired PRIMITIVE-ONLY antipodal-flip target that dodges it. That repaired target is now the whole problem. Prove it, find its obstruction, or give a better route. Skeptical reviewer mode; show the one closing inequality or the mechanism.
+
+VERIFIED STATE.
+- mu_n = order-n subgroup of F_p^*, n=2^a, n|p-1, gamma=log_p(n)~0.68 (large subgroup). Phi(x)=(x,...,x^w),
+  F(S)=sum_{x in S}Phi(x), nu(v)=#{|S|=m, F(S)=v}, mu=C(n,m)/p^w. Deployed: n=2^21, w=67471 (w/n~0.03),
+  m~rho n, p~2^31, entropy gap theta=log_n(mu)~1.7. Goal E-b: N=nu(0) <= n^3.
+- Reformulation: indicator of S lies in the cyclic [n,n-w,w+1] MDS/RS code C = {x: prod_{j=1..w}(Z-zeta^j) | X_S(Z)}.
+- BLOCK OBSTRUCTION (verified): for q=2^s | n with q>w and q|m, every union of k=m/q cosets of mu_q is a zero
+  solution; cross-coset secant fibers inflate to nu(d_ab) >= C(n/q-2, m/q-1). These block solutions are
+  -1-INVARIANT (since -1 in mu_q), hence IMPRIMITIVE. Negligible at deployment (smallest q>w is 2^17, block
+  fiber <= C(14,7)=3432 << sqrt(mu)~2.4e5, needs 2^17|m), so the deployed crux is the PRIMITIVE count.
+
+THE REPAIRED TARGET (your antipodal-flip route, to be proved).
+- s = ceil(w/2) = #odd exponents in {1..w}. Every PRIMITIVE zero solution has >= s+1 broken antipodal pairs
+  {a,-a} occupied in exactly one point (Vandermonde on the odd moments: putting y_i=a_i^2, the map is
+  Vandermonde, so t(S) in {0} u [s+1, ...]).
+- For 2r <= s, flipping r broken pairs sends a primitive zero solution to D_r^- = {sum_{a in A}(Phi(-a)-Phi(a)):
+  |A|=r, A cap (-A)=empty}, |D_r^-| = 2^r C(n/2,r), injectively; hence
+      N_prim * C(s+1, r) <= sum_{v in D_r^-} nu(v).
+- At deployment r=2: |D_2^-| = n(n-2)/2, C(s+1,2) ~ s^2/2, K_2 = |D_2^-|/C(s+1,2) ~ n(n-2)/(s(s+1)) ~ 3864.
+  So N_prim <= n^3 FOLLOWS FROM the WEAK average bound
+      (T)   |D_2^-|^{-1} sum_{v in D_2^-} nu(v)  <=  4.3e4 * mu.
+- Fourier form: sum_{v in D_2^-} nu(v) = |D_2^-| mu + p^{-w} sum_{c!=0} nu-hat(c) * conj( (sigma(c)^2 - sigma(2c) - n)/2 ),
+  where sigma(c) = sum_{a in mu_n} e_p(-2 sum_{j odd, j<=w} c_j a^j), nu-hat(c) = [t^m] prod_x (1 + t e_p(f_c(x))).
+  MAJOR ARCS: c with all odd coefficients zero => sigma(c)=n => kernel = |D_2^-| (peel recursively via x->x^2,
+  the quotient mu_n -> mu_{n/2}). MINOR ARCS: c with nonzero odd part.
+
+WHAT I WANT:
+(1) Prove (T) -- i.e. bound the minor-arc contribution p^{-w} sum_{c: odd part != 0} nu-hat(c) K(c),
+    K(c)=(sigma(c)^2-sigma(2c)-n)/2, by O(n^2 mu) (a factor ~4e4 * n^2 * mu of slack is available), with the
+    even/major arcs peeled recursively. The averaged/one-sided nature (a weak average bound, not a per-c
+    absolute bound, and not Poisson variance) is the whole point -- exploit it.
+(2) If (T) fails, give the exact primitive obstruction (a structured primitive family inflating D_2^- fibers)
+    consistent with the verified small-instance concentration and with the block solutions being excluded.
+(3) Better route if you see one: a different flip kernel; a large-sieve/inequality over the odd-part minor arcs;
+    an inverse-Littlewood-Offord / list-recovery input for C; a discrete-entropy (Brascamp-Lieb) transfer. The
+    key uncomputable regime is deployed high w (w sqrt(p) >> n, so per-c Weil bounds are trivial and only
+    signed/averaged cancellation over the minor arcs can work). Open-ended -- your best independent theorem.
+
+Be concrete about the single minor-arc estimate that closes it, and whether the recursive major-arc peeling
+terminates (it descends mu_n -> mu_{n/2} -> ... ; does the w -> floor(w/2) halving keep q>w satisfiable?).

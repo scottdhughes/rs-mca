@@ -224,6 +224,185 @@ code structure may give the uniformity generic subgroups lack); (ii) targeted se
 Konyagin, Shkredov) or the geometric side (Sawin). Coordinated with holmbuar's `conj:Q` ledger.
 Deliverables banked: 4 validated scripts + 4 notes + this synthesis.
 
+## c1-averaging cross-check (2026-07-10): marginal L2 tool + the Stepanov IMPORT BARRIER
+
+Re-attacked the per-t/marginal side with a linear-coefficient average, then CROSS-CHECKED against
+this note's converged verdict (crux is JOINT, not marginal). Net: a clean verified marginal tool that
+does NOT advance the crux (reconciled below so future-me does not re-tread), plus ONE durable increment
+— a method-internal reason the graph-energy literature cannot be imported for the E-a energy tail.
+
+**The c1-averaging identity (exact).** Split the phase `c = c1*(linear) + g` (g = higher freqs). Then
+`sum_{c1 in F_p} |S(H; c1*a+g)|^4 = p * T1(g)`, where
+`T1(g) = sum_{h1+h2=h3+h4, hi in mu_n} e_p(g(h1)+g(h2)-g(h3)-g(h4)) = sum_s |F(s)|^2`,
+`F(s)=sum_{h1+h2=s} e_p(g(h1)+g(h2))` = the additive energy of the GRAPH `Gamma_g={(h,g(h))}`.
+Orthogonality in c1 collapses the 4th moment onto additive-energy quadruples; hence
+`max_{c1}|S| <= (p*T1(g))^{1/4}`.
+
+**RECONCILIATION with Thm 1 (no new content vs the marginal moment).** Averaging over g too,
+`E_c |pi(c)|^4 = E_g[T1(g)]`. Thm 1 (s=2) gives `E_c|pi|^4 <= 3n^2`; the 07-10 numerics give
+`T1(g) ~ 3n^2` PER primitive g (truncated block). So T1(g) is the per-g SLICE of the s=2 marginal
+moment — bounded pointwise in the truncated regime, consistent, but MARGINAL. Per this note's converged
+sufficiency verdict (ChatGPT+Claude+theorem-chase, lines above): the marginal 4th-moment / sup does NOT
+close the conjecture — N depends on the JOINT high-cycle averages `M_lambda = q^{-w} sum_c prod_r pi(rc)^{m_r}`
+(Thm 2/3), not marginals. So the c1-average is a TOOL, not an advance on the crux. (Route checked; marginal.)
+
+**Adversarial validity in the truncated regime (07-10 scripts).** `b2_c1avg_adversarial.py`:
+coordinate-ascent over coefficients (fixed generic exponents, deg << w) + resonant-g probe, p in
+{12289,40961}. `T1(g)/2n^2` stays 1.5-1.6 for primitive g, r to 256; the ONLY blow-up is g factoring
+through a sub-sqrt(p) subgroup (`d>=n/4`, quotient < sqrt p), which (i) is descent/first-match-removed
+and (ii) has SMALL max|S| (1.4-2.3 sqrt n) — NOT a counterexample to the sup, just where the 4th-moment
+PROXY overcounts. The refuted antisymmetric spike (sup-form disproof above) needs deg~n and is
+UNREALIZABLE in the truncated block (deg-<w poly vanishing on n-2>w pts is 0) — consistent with the
+ChatGPT "wrong-regime, moot" correction. Sharpened primitive condition: NOT "coprime exponents" but
+"does not concentrate on a sub-sqrt(p) subgroup" (the BGK/sqrt-p line) — g CAN factor through a size-256
+quotient and still collapse.
+
+**DURABLE INCREMENT — the Stepanov import barrier (kills the graph-energy hope for E-a).** The natural
+tool to bound the E-a additive-energy tail (E_d, and T1) is the subgroup graph-energy theorem
+`E(f(G),g(G)) <= 16 m n^2 (m+n) |G|^{8/3}` (Vyugin-Makarychev, arXiv:1504.01354 Cor 2; `b2_graphenergy_litmap.py`).
+PRIMARY-SOURCE READ: method is **STEPANOV's** (auxiliary polynomial + Bezout, eq. 11), and the degree
+restriction `100(mn)^{3/2} < |G|` is STRUCTURAL — Stepanov bounds root count by `N <= deg(Psi)/D`, so the
+auxiliary polynomial's degree must stay BELOW |G| (the root set) or the bound is trivial. Since our
+conditions run to j=w and (mod n) exponents reach ~n >> |G|^{1/3}=n^{1/3}, we are irreducibly OUTSIDE the
+window; the barrier is a METHOD-LIMIT, not a loose lemma. So the graph-energy literature CANNOT be imported
+for E-a — the specific method-internal reason behind this note's repeated "growing-#conditions
+equidistribution is genuinely NEW." (arXiv:2211.07739 Weil-sums-over-small-subgroups falls back on
+Bourgain's `eta_n -> 0` term-by-term induction for exactly this reason.) TheoremSearch confirms no
+r/degree-uniform graph-energy bound exists past `|G|^{1/3}`.
+
+**Scripts banked (07-10, verified p in {12289,40961}):** `experimental/scripts/b2_c1avg_adversarial.py`,
+`experimental/scripts/b2_graphenergy_litmap.py`. Net position UNCHANGED: crux = the JOINT high-cycle
+weighted-diagonal equidistribution (E-a) + v=0 fiber transfer (E-b); marginal/sup tools (incl. c1-average)
+are insufficient; Stepanov/graph-energy import is barred by a degree cap our regime exceeds.
+
+## E-a first-tail scout (2026-07-10): tail terms are p-INDEPENDENT char-0 PTE counts over Z/n
+
+Went at the ACTUAL crux (E-a additive-energy tail) instead of the marginal c1 route. Scripts:
+`experimental/scripts/b2_Ea_firsttail.py`, `experimental/scripts/b2_Ea_pindep.py`. Object:
+`E_d = #{disjoint A,B subset mu_n, |A|=|B|=d, p_j(A)=p_j(B) for j<=w}` (per-d additive-energy tail;
+`E = C(n,m) + sum_{d>w} C(n-2d,m-d) E_d`; PTE rigidity already proved: E_d=0 for d<=w).
+
+**FINDING (verified n=16, w in {2,3}, primes p=1 mod 16 up to 577).** For p above a TINY threshold,
+`E_{w+1}(p)` is EXACTLY p-INDEPENDENT:
+- w=3: E_4(p) = 12 for ALL p in {97,113,...,577}; only p=17 (near-full-group) inflates to 252.
+- w=2: E_3(p) = 0 for all p>=113; p=17->704, p=97->32 (collision excess draining out).
+Mechanism (clean, verified): at large p, `p_j(A)=p_j(B) mod p` (via the fixed zeta->z) forces equality
+in char 0 in Z[zeta_n] (a nonzero difference has bounded norm => divisible by only finitely many primes),
+so `E_d = ` a characteristic-0 PROUHET-TARRY-ESCOTT count over the roots of unity `mu_n ~ Z/n`; the mod-p
+collision excess vanishes for p above a small threshold. **Decomposition: E_d(p) = PTE_d(Z/n) [p-independent]
++ collision_excess_d(p).**
+
+**Why it matters + the caveat.** (+) For the terms where the char-0 baseline dominates, this converts the
+E-a tail from an ANALYTIC subgroup-equidistribution problem (BARRED by the Stepanov degree cap above) into
+a COMBINATORIAL PTE / vanishing-sums-of-roots-of-unity count over Z/n -- a different, possibly more
+tractable theory (Conway-Jones, Mann, cyclotomic vanishing) that the Stepanov cap does not touch. It also
+REFINES Thm D: the p-sensitivity is confined to the collision excess (+ the m-weighted assembly + the
+energy->max-fiber transfer E-b), NOT the individual small-d tail terms. (-) CAVEAT (load-bearing):
+verified only for the FIRST tail term at SMALL n (d=4). At deployment d=w+1 ~ 67471 is LARGE; the char-0
+threshold plausibly GROWS with d (power sums of ~d roots of unity have larger coordinates => more primes
+can divide a nonzero difference), so p-independence at deployed (n,w,p) is NOT established for large d.
+The sparsity (E_5=E_6=0 for w=3) is w/n-dependent (w=2, smaller w/n closer to deployed 0.032, has a
+FULLER tail) and must NOT be extrapolated. Promising LEAD, not a proof ingredient.
+
+**Next concrete step:** push n=32,64 and track where E_d(p) stabilizes vs d -- does the char-0 threshold
+grow with d? That tests the large-d caveat and tells us whether the PTE-over-Z/n reduction reaches the
+deployed tail band or only its small-d edge. If the threshold stays below deployed p even for large d,
+E-a becomes a cyclotomic-combinatorics problem, sidestepping the analytic barrier entirely.
+
+**UPDATE (threshold-vs-d, `b2_Ea_threshvsd.py`): CAVEAT CONFIRMED -- the char-0 threshold GROWS with d.**
+n=24,w=3: E_d stabilizes to its char-0 baseline at p>=193 (d=4), >=241 (d=5), but d=6,7 are STILL bouncing
+at p=409 (the largest prime tested -- likely NOT stabilized, e.g. d=7: [864,288,288,480,48]). n=32,w=3:
+p>=353 (d=4), >=641 (d=5, baseline 0 reached only at the last prime). So the threshold RISES with d
+(power sums of ~d roots of unity => larger nonzero-difference norms => divisible by more primes). At
+deployment d=w+1 ~ 67471, the threshold is plausibly ASTRONOMICAL, far above deployed p~2^31.
+**Consequence: the pure char-0 PTE reduction does NOT reach the deployed large-d tail bulk; it controls
+only the small-d EDGE (d just above w). The p-sensitivity (Thm D) reasserts in the bulk.** Lead #3
+DOWNGRADED: "sidesteps the barrier" -> "controls the small-d edge; the large-d bulk stays p-sensitive/
+analytic." (verify-first killed the strong form; the reduction survives only at the edge.)
+
+**RESOLVED (decisive computation, `b2_energy_domination.py`): the energy tail is BULK-DOMINATED; the edge
+is exponentially subdominant.** Log-space (lgamma) profile of the tail term `W_d * E_d`, W_d=C(n-2d,m-d),
+E_d~C(n,d)C(n-d,d)/p^w (random model, valid at deployed large p), at deployed n=2^21, w=67471, p~2^31:
+the argmax sits at `d* ~ 0.09-0.25 * n` (d*/w = 2.8 at rho=0.1, 6.5 at 0.3, 7.8 at 0.48) -- FAR above the
+edge d=w+1. The edge term is **374,000 to 1,372,000 BITS smaller** than the dominant bulk term. So the
+small-d edge (the ONLY place the char-0 PTE / vanishing-sums machinery applies) is ~2^{-10^6} below where
+the energy lives, and **contributes NOTHING to bounding E-a.** LEAD #3 CLOSED: the vanishing-sums route
+does not reach the deployed energy. The crux is entirely the large-d (d~0.1-0.25n) p-sensitive JOINT
+high-cycle equidistribution over mu_n -- reconfirmed from a third direction (marginal c1 / Stepanov-barred
+graph-energy / edge-subdominant PTE all point back to the same large-d bulk). Negative preserved
+(Hard rule #4); do NOT re-open the small-d/char-0/vanishing-sums angle for the energy bound.
+
+## Dilate-correlation probe (2026-07-10): bulk dilates DECORRELATE; moment is RESONANCE-dominated => E-b
+
+Ran the on-crux experiment: does the joint object `M_lambda = q^{-w} sum_c prod_r pi(rc)^{m_r}` FACTOR
+(dilates {pi(rc)} independent => product-structure proof route) or COUPLE? Scripts:
+`b2_dilate_correlation.py`, `b2_dilate_Kgrowth2.py` (pi-table over F_p^w, w in {2,3}, n=16, p<=401,
+dilates K to 40). Object: coupling `C^{(K)} = E_c[prod_{r=1}^K |pi(rc)|^2]/n^K` (=1 iff independent).
+
+- **PAIRWISE:** C[1,k]=1.000 exactly (all p,k). pi(c),pi(kc) pairwise UNCORRELATED.
+- **TYPICAL (median over c!=0):** C^{(K)}_med DECAYS to ~0 fast. For typical c the dilate product is
+  << n^K: the BULK dilates DECORRELATE STRONGLY (near-independence, better than the small-K mean suggested).
+- **full mean:** ~ e^{K log n} = n^K (EXP) -- but this is the c=0 MAIN TERM (pi(0)=n), which the conjecture
+  SUBTRACTS (N_prim - mean = q^{-w} sum_{c!=0} T(c)). NOT the obstruction. (First Kgrowth included c=0 and
+  was uninformative; corrected -- reviewer!=generator catch on my own probe.)
+- **c!=0 mean:** erratic/unstable across p (0.0099 to 124 at K=40) = dominated by a few RESONANT c!=0 spikes
+  (heavy tail); this is Thm D p-sensitivity surfacing in the joint object.
+
+**VERDICT: the product route does NOT open, for an INSTRUCTIVE reason.** M_lambda is NOT bulk-controlled --
+it is dominated by c=0 (main term, subtracted) + RESONANT c!=0 (heavy tail). The bulk dilates decorrelate;
+the ENTIRE difficulty is the resonant/structured-c contribution = exactly the E-b obstruction (v=0 fiber
+transfer / nu(0)=N hoarding) the note already named. So the joint-object attack REDUCES TO E-b with NO new
+leverage, and RULES OUT "generic bulk coupling" as the obstruction (a real narrowing: the wall is
+specifically the resonances, which the primitive descent must peel). 4th independent confirmation the crux
+is E-b/resonant-transfer.
+
+## Session 2026-07-10 net: crux = E-b (resonant/structured-c transfer); 4 approach-classes ruled out
+
+The wall is `sum_{c!=0, resonant} prod_r pi(rc)^{m_r}` -- the resonant/structured-c (v=0 fiber) transfer,
+after subtracting the c=0 main term. RULED OUT this session (all banked above): (1) marginal c1-average
+(= per-g slice of Thm 1; insufficient, needs joint not marginal); (2) graph-energy import
+(Vyugin-Makarychev/Stepanov, deg<=|G|^{1/3} cap, our w>>n^{1/3}); (3) PTE/vanishing-sums-over-Z/n
+(controls only the char-0 small-d EDGE, which is ~2^{-10^6} energy-subdominant); (4) joint-object bulk
+coupling (dilates decorrelate typically; moment is resonance-dominated). NEXT on-crux target: test whether
+the primitive descent (N_prim = N - 1[2|m] N(n/2, m/2, floor(w/2))) actually BOUNDS the resonant-c
+contribution -- i.e. recompute the c!=0 moment RESTRICTED to primitive (descent-peeled) c and check if THAT
+is bounded/polynomial. That is the one unexamined component of the E-b machine, and directly on the crux.
+
+## Primitive-resonance probe (2026-07-10): coupling is MIXED-c & p-sensitive; primitive slice is CLEAN
+
+Ran the above. Script `b2_primitive_resonance.py` (w=3, n=16, p in {97,193}): split c!=0 into PRIMITIVE
+(odd-freq support, c_2=0), STRUCTURED (even-freq only, c_1=c_3=0), and full; K-growth of the coupling
+`C^{(K)} = E_{c-class}[prod_{r=1}^K|pi(rc)|^2]/n^K` to K=40.
+
+**Analysis-error CORRECTED (reviewer!=generator on my own probe):** raw moment grows ~n^K even for
+INDEPENDENT dilates (n^K is exponential in K), so the right object is C^{(K)}=moment/n^K, NOT log(moment)
+vs K. Renormalized:
+- **PRIMITIVE slice: C^{(K)} DECAYS below 1** (5.7e-9 at p=97, 1.6e-3 at p=193, K=40). The odd-frequency
+  dilates are SUB-INDEPENDENT -- NO coupling/resonance on the primitive slice. (positive: if the descent
+  isolates the primitive part, E-b is controlled there.)
+- **STRUCTURED slice: also decays** (2.69 -> 6.3e-3). Bounded.
+- **FULL c!=0: p-SENSITIVE and erratic** -- C^{(40)}=0.055 at p=97 but 80 at p=193 -- driven by the
+  MIXED-frequency c (both odd and even support), since both pure slices decay. This is Thm-D p-sensitivity,
+  now LOCALIZED to mixed-frequency c.
+
+**VERDICT: refines E-b, does NOT close it.** The resonance/coupling obstruction lives in the MIXED-frequency
+c and is p-sensitive; the pure primitive slice is clean (sub-independent). CAVEAT (load-bearing): "primitive
+= c_2=0" is a PROXY for the descent-peeled part, NOT the actual set-descent; prior review flagged the
+set<->frequency map is subtle (truncated odd block != (-1)-invariance), so this does not certify the descent.
+Small-n (n=16) -- extrapolation to deployment is NOT justified (regime-representativeness). Net: E-b stands;
+sharpened to "does the descent remove the mixed-frequency p-sensitive coupling?" -- a THEORETICAL question
+now (the set-descent<->frequency map), beyond what small-n toy probes can resolve. STOP toy-probing here.
+
+**Machinery found (vanishing-sums-of-roots-of-unity theory, for the edge; `b2_find_pte_fp.py`).** The E-a
+small-d edge IS a simultaneous vanishing-sum-of-roots-of-unity system, controlled by classical structure
+theory: Conway-Jones 1976 (arXiv:0911.2594 Thm 2.3), Lam-Leung (via 2508.16732 Lem 1), Dvornicich-Zannier
+(vanishing-sum structure). Directly-relevant COUNTING results to chase: **arXiv:2108.10191** (Super Catalan
+/ Fourier summation over a cyclic subgroup of F_q, Prop 4 -- power sums over mu_n exactly);
+**arXiv:1702.02327** (counting n-subsets of F_q with PRESCRIBED POWER SUMS, Thm 4.1 -- the E_d-type count
+directly); arXiv:1602.06715 Thm 2 (Kos-Lovasz: exact N_k(G) for cyclic G). The observed sparsity (E_5=E_6=0
+for w=3) is EXPLAINED: minimal vanishing sums have constrained weights (2104.15057 Thm 8: minimal n-th-root
+vanishing sums are full prime-p sums or have >=(p-1)(q-1)+(r-1)>=6 terms).
+
 ## Convergence: 2nd external model (Claude subagent) + TheoremSearch (2026-07-07)
 
 **Claude attack CONVERGES with ChatGPT and adds results (all re-verified here):**
