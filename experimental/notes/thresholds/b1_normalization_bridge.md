@@ -58,6 +58,20 @@ NOT by itself supply the `exp(o(N))` tail bound (that is the remaining OPEN piec
 `prob:entropy-inverse-q` or any deployed-finite claim. Second-moment/energy route; complementary to the
 span-cell/defect route of `cap25_v13_entropy_inverse_fp_span_surjection.md`.
 
+## 3b. B1 in one line: the signed-`e_m` second moment (verified identity)
+
+Since `R_hat(c) = sum_{|S|=m} prod_{a in S} e_p(f_c(a)) = e_m(v_c)` (the SIGNED elementary symmetric of round o),
+Parseval on the moment map gives the EXACT identity
+    **`Gamma_2 / flat = 1 + (1 / C(N,m)^2) * sum_{c != 0} |e_m(v_c)|^2`**   (`flat = C(N,m)^2 / Q^w`),
+verified to machine precision (`b1_em_second_moment_identity` check: 3 configs, `match=True`). Hence
+    **B1  <=>  `sum_{c != 0} |e_m(v_c)|^2 <= C(N,m)^2 * exp(o(N))`.**
+This is a SECOND-moment statement at level `d = m` (full subsets), which is ALWAYS dense
+(`C(N,m) >> Q^w` in the deployed regime), so the sparse-diagonal pathology that defeats a per-`d` `|e_d|^2`
+bound at small `d` does not arise here. It is the `s = 1` rung of the signed-`e_m` ladder and is decoupled
+from the `s = infinity` (max-fiber / sup) crux and the `s = 2` (participation-ratio, #434) crux. The per-`d`
+disjoint decomposition below (Section 4) is the structural refinement of the SAME `Gamma_2`, indexed by
+symmetric-difference size, exposing the T6 (`d<=w`) and T12 (`d=w+1`) rigidity content.
+
 ## 4. The `d>w` tail: reduced to a per-`d` second-moment bound (2026-07-09 update)
 
 The tail bound reduces to a clean per-`d` estimate. Using the Vandermonde identity
