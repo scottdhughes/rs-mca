@@ -55,9 +55,18 @@ Two facts pin our position:
 `experimental/lean/powersum_rigidity/PowersumRigidity/`:
 `FrobeniusClosure` (#466, in main) — the Frobenius-closure primitive (step 3 / backs #451);
 `PrefixFlatness` (#498) — the Li–Wan payment kernel;
-`VandermondeRank` (#501) — the rank fact refuting the rank-defect alternative, and the Vandermonde-nonsingularity
-core that also backs holmbuar #476's Chebyshev-prefix rank step. All build under `lean4:v4.31.0`,
-`#print axioms = [propext, Classical.choice, Quot.sound]`.
+`VandermondeRank` (#501) — the rank fact refuting the rank-defect alternative.
+All build under `lean4:v4.31.0`, `#print axioms = [propext, Classical.choice, Quot.sound]`.
+
+**Our existing Lean already backs TWO of holmbuar #476's few-shell steps** (the concrete `#501`/`pte_rigidity` ↔
+`#476` bridge, no new Lean required):
+- **Chebyshev-prefix rank** (#476: the `(w+1)×n` evaluation matrix has rank `w+1`) ← `VandermondeRank`'s
+  Vandermonde-nonsingularity core (`columns_linearIndependent`, `det_vandermonde_ne_zero_iff`).
+- **Same-fiber exchange `≥ w+1`** (#476: via Newton identities) ← `PowersumRigidity.RigidityCorollaries.pte_rigidity`
+  (`D_d = 0` for `d ≤ w`, in main): disjoint size-`d` power-sum-matching families with `d ≤ w` cannot exist.
+
+The one un-backed step is the **affine few-inner-product lemma** (`|F| ≤ C(N+s,s)`, polynomial method) — not in
+Mathlib, a from-scratch formalization scoped below.
 
 ## What is proved vs open, and the honest bottom line
 
