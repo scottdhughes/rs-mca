@@ -1,0 +1,226 @@
+{
+  "schema": "asymptotic-proof-audit/v2",
+  "title": "In-paper proof audit (round 2) of experimental/asymptotic_rs_mca.tex: attacks the paper's OWN printed proofs, line by line",
+  "base_commit": "eb42b82",
+  "what_this_is": "An adversarial audit of the ten in-paper proofs of experimental/asymptotic_rs_mca.tex (lem:first-match, lem:moment-max, prop:energy-extract, thm:quasicube+prop:no-high-energy, thm:primitive-q, lem:addback, lem:q-sp, thm:upper, the lower-side pole construction, and thm:frontier). Each step is attacked with a mandated verdict NO ISSUE / FIXED / OPEN GAP / COUNTEREXAMPLE_NEW_FLOOR and exact file+line references; every numeric check is gated.",
+  "what_this_is_not": "NOT a re-proof of the imported closed-ledger package, BSG, or the quasicube theorem (their internal correctness is out of scope). NOT the citation audit: that is the complement packet #433 (thresholds-asymptotic-ledger-audit), which resolved the (C1)-(C9) bracket-citations and the four definitional joints. This packet attacks only the proofs the paper prints itself. It offers NO promotion verdict; the promotion/merge decision is the maintainer's.",
+  "complements": "#433 (branch thresholds-asymptotic-ledger-audit, note experimental/notes/asymptotic_rs_mca_closed_ledger_audit.md). #433 explicitly recorded that 'incorrect first-match disjointization' and 'entropy-frontier algebra error' were NOT attacked there (out of citation-audit scope; natural follow-up packets). This packet is those follow-ups plus the rest of the in-paper proof chain.",
+  "steering": "agents.md at eb42b82 makes adversarial proof audits priority 2 with the four-way mandated vocabulary and exact file/label references.",
+  "sources": {
+    "paper": "experimental/asymptotic_rs_mca.tex",
+    "Cho26CapV13": "experimental/cap25_cap_v13_raw.tex",
+    "Cho26Grande": "experimental/grande_finale.tex"
+  },
+  "verdict_totals": {
+    "NO_ISSUE": 8,
+    "FIXED": 0,
+    "OPEN_GAP": 2,
+    "COUNTEREXAMPLE_NEW_FLOOR": 0
+  },
+  "verdict_totals_scope": "Tallied over the ten attacks A1..A10, one verdict each. A9 carries a split reading (pole-line algebra NO ISSUE; collision caveat OPEN GAP); its headline verdict is OPEN GAP because the lower bound as printed depends on the unproven caveat.",
+  "attacks": [
+    {
+      "id": "A1",
+      "target": "lem:first-match (first-match disjointization)",
+      "target_lines": "81-87",
+      "steering_mode": "incorrect first-match disjointization",
+      "verdict": "NO_ISSUE",
+      "finding": "The disjointization is airtight. Under def:cells (L77-79) the budget U_j is by definition the count of slopes whose LEAST-indexed witness-cell is C_j; the first-match rule sends each covered slope to a unique cell, so the classes partition the covered slopes and sum_j U_j bounds the total EXACTLY (no per-cell double count). The 'projection of C_j after earlier cells removed' is precisely that first-match class. The classic failure (a slope with witnesses in several cells counted per-cell) is avoided because the lemma sums FIRST-MATCH budgets, not raw projection budgets; summing raw projections would only over-count (still a valid upper bound). Whether the imported budgets are genuine first-match budgets under the paper's cell order is the citation-layer question, which #433 B2 found structurally consistent.",
+      "quotes": [
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 82, "quote": "the covered slopes contribute at most"},
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 86, "quote": "assign each bad slope to the least-indexed cell containing a witness"},
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 86, "quote": "after earlier cells have been removed"}
+      ]
+    },
+    {
+      "id": "A2",
+      "target": "lem:moment-max (q->infinity moment/max equivalence)",
+      "target_lines": "165-178",
+      "steering_mode": "derived (moment-to-max equivalence)",
+      "verdict": "NO_ISSUE",
+      "finding": "Both inequalities are elementary and correct: the upper bound replaces every summand by the maximum ratio R (L terms, times L^{-1} = R^q); the lower bound keeps one maximal summand (L^{-1} R^q). Taking q-th roots gives R*L^{-1/q} <= Gamma_q^{1/q} <= R, so log Gamma_q / q and log R differ by <= (1/q)log L. The hypothesis log L = o(Nq) is automatic for any q->infinity because L = |im Phi| <= M <= 2^N gives log L = O(N); hence the L^{-1} factor is subexponential-in-N after the q-th root and the stated equivalence Gamma_q <= exp(o(Nq)) <=> max|F_s| <= exp(o(N))Nbar holds. Sanity: Gamma_1 == 1 identically.",
+      "quotes": [
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 177, "quote": "The upper bound replaces every summand by the maximum"},
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 177, "quote": "the lower bound keeps a maximum summand"}
+      ]
+    },
+    {
+      "id": "A3",
+      "target": "prop:energy-extract (energy extraction after the Sidon cut; the sigma-diagonalization)",
+      "target_lines": "202-208",
+      "steering_mode": "unsupported Fourier/Sidon payment (sigma-diagonalization)",
+      "verdict": "NO_ISSUE",
+      "finding": "The subtlest step, but the claim is correct and the sigma-diagonal is CONSTRUCTIBLE from the stated hypotheses. def:sidon-paid (L197) gives, per FIXED sigma, a null rate: eps_sigma(N)/N -> 0. There is a genuine non-uniformity (as sigma downto 0 the Sidon-heavy set grows toward all levels so Gamma^sid_{q,sigma} increases toward Gamma^ord_q >= e^{eta Nq}; hence sup_sigma eps_sigma(N)/N does NOT ->0). But a standard BLOCK-DIAGONAL repairs it: set sigma_N = 1/k on N-blocks [N_k, N_{k+1}) with N_k chosen so eps_{1/k}(N)/N <= 1/k for N >= N_k (exists by the per-sigma null rate). Then simultaneously eps_{sigma_N}(N)/N -> 0 (Gamma^sid stays subexponential at the moving sigma_N) AND sigma_N -> 0 (so sigma_N * N = o(N), giving e^{-sigma_N N} = e^{-o(N)}). The |F_s| >= e^{eta N - o(N)}Nbar bound is sigma-INDEPENDENT (its o(N) = (log2)/q). So no uniformity in sigma is required for the asymptotic o(N) conclusion. EXPOSITORY DEFECT ONLY: the one-line 'letting sigma downto 0 slowly along the sequence' elides this diagonal; a formalizer MUST supply the block-diagonal (it is not automatic from a naive reading).",
+      "quotes": [
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 197, "quote": "for every fixed"},
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 197, "quote": "and every logarithmic"},
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 207, "quote": "slowly along the sequence gives"}
+      ]
+    },
+    {
+      "id": "A4",
+      "target": "thm:quasicube + prop:no-high-energy (BSG with K=e^{o(N)})",
+      "target_lines": "220-234",
+      "steering_mode": "misuse of BSG or quasicube growth",
+      "verdict": "NO_ISSUE",
+      "finding": "The quasicube application is correct (U=A subset {0,1}^N, P=-A, Q={0}: P+Q+U = A-A, so |A-A| >= |A|^{1/2}*1*|A| = |A|^{3/2}). The BSG(K=e^{o(N)}) bookkeeping survives: C absolute => K^{+-C} = e^{+-o(N)}, so K^{-C} loss gives |F'| >= e^{cN-o(N)} (the linear e^{cN} dominates the o(N) loss) and K^{+C} gives |F'-F'| <= e^{o(N)}|F'|. Quasicube's |F'-F'| >= |F'|^{3/2} then forces |F'|^{1/2} <= e^{o(N)}, i.e. log|F'| <= o(N), contradicting |F'| >= e^{cN-o(N)} for fixed c>0 (cN <= o(N) is false). The ambient group is Z^N throughout and BSG's subset F' remains inside the Boolean cube {0,1}^N, so quasicube still applies.",
+      "quotes": [
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 225, "quote": "Apply the quasicube theorem with"},
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 221, "quote": "satisfies \\(|A-A|\\ge |A|^{3/2}\\)"},
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 229, "quote": "There is no sequence"},
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 233, "quote": "By \\cref{thm:bsg} with \\(K=e^{o(N)}\\)"}
+      ]
+    },
+    {
+      "id": "A5",
+      "target": "thm:primitive-q (assembly: negation -> moment-max -> energy-extract -> no-high-energy)",
+      "target_lines": "236-242",
+      "steering_mode": "derived (primitive Q assembly)",
+      "verdict": "NO_ISSUE",
+      "finding": "The assembly is valid. Negation of 'max|F_s| <= exp(o(N))Nbar' is 'max|F_s| >= e^{eta N}Nbar for fixed eta>0 along a subsequence'; lem:moment-max then gives Gamma_q >= L^{-1}e^{eta Nq} = e^{(eta - o(1))Nq} (log L = o(Nq)); prop:energy-extract extracts a fiber with |F_s| >= e^{eta N - o(N)}Nbar = e^{cN - o(N)} (uses log Nbar = o(N), the frontier condition) and E(F_s) >= |F_s|^3 e^{-o(N)}, with F_s subset {0,1}^T, |T|=N; prop:no-high-energy is contradicted. The subsequence is legitimately a sequence for prop:no-high-energy; the 'logarithmic q' is exactly the quantifier of def:sidon-paid, so prop:energy-extract's hypothesis is met.",
+      "quotes": [
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 241, "quote": "If not, \\cref{lem:moment-max} gives"},
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 241, "quote": "because \\(\\log\\barN=o(N)\\)"}
+      ]
+    },
+    {
+      "id": "A6",
+      "target": "lem:addback (first-match add-back)",
+      "target_lines": "246-252",
+      "steering_mode": "derived (compiler add-back; uncited decomposition)",
+      "verdict": "OPEN_GAP",
+      "finding": "The proof invokes 'the first-match profile decomposition' and 'the subexponential profile family' WITHOUT citation; neither is defined in the paper. They correspond to Grande's lem:subexponential-addback-closure (grande_finale.tex:2266), whose text the paper's proof paraphrases. But that Grande lemma is itself CONDITIONAL: it reads 'Suppose that, in every first-match leaf, the number of paid quotient/profile cells is exp(o(n)), each paid cell contributes at most exp(o(n))Nbar_n supports to any prefix syndrome, ...' and its proof merely multiplies the assumed subexponential factors. Grande's own combined closure theorem thm:asymptotic-rs-mca-closure-combined (L2298) again SUPPOSES these add-back hypotheses, and its rem:not-no-input-proof states the equality remains 'conditional'. So the paper presents as a PROVED lemma (with its own \\begin{proof}) what the source imports as a HYPOTHESIS. This is the in-paper reflection of the same import-as-hypothesis pattern #433 flagged for window-uniformity (B3).",
+      "missing_statement": "A proof (not an assumption) that the global first-match prefix count N(s) decomposes into a family of primitive-leaf profiles such that (i) the number of profiles / paid cells is exp(o(n)) [the 'subexponential profile family'] and (ii) each contributes at the global scale Nbar_{n,a_n}, so that the per-leaf Q bound of thm:primitive-q sums to max_s N(s) <= exp(o(n))Nbar_{n,a_n}. In Grande this is the HYPOTHESIS of lem:subexponential-addback-closure (grande_finale.tex:2266-2267), not a discharged result; the paper cites nothing and asserts it as proved.",
+      "quotes": [
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 247, "quote": "the full first-match prefix count after paid cells satisfies"},
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 251, "quote": "by the first-match profile decomposition"},
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 251, "quote": "Summing over the subexponential profile family preserves the same scale"},
+        {"file": "experimental/grande_finale.tex", "line": 2266, "quote": "\\begin{lemma}[subexponential add-back]\\label{lem:subexponential-addback-closure}"},
+        {"file": "experimental/grande_finale.tex", "line": 2267, "quote": "the number of paid quotient/profile cells is \\(\\exp(o(n))\\)"}
+      ]
+    },
+    {
+      "id": "A7",
+      "target": "lem:q-sp (Q pays shift pairs)",
+      "target_lines": "254-260",
+      "steering_mode": "derived (Q-to-SP inequality)",
+      "verdict": "NO_ISSUE",
+      "finding": "Elementary and correct. sum_s N(s)^2 <= (max_s N(s)) sum_s N(s) since N(s)^2 <= (max N)N(s) termwise; with max N(s) <= kappa Nbar and sum N(s) = M, this gives sum N(s)^2 <= kappa Nbar M, hence M^{-1} sum N(s)^2 <= kappa Nbar. (Not Cauchy-Schwarz, but the correct sum x^2 <= (max x)(sum x) bound.) Matches Grande prop:q-sp-frontier-closure verbatim.",
+      "quotes": [
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 259, "quote": "\\(\\sum_sN(s)^2\\le(\\max_sN(s))\\sum_sN(s)"}
+      ]
+    },
+    {
+      "id": "A8",
+      "target": "thm:upper (closed-ledger upper bound: compiler bookkeeping)",
+      "target_lines": "262-272",
+      "steering_mode": "wrong field denominator or base/extension-field ledger",
+      "verdict": "NO_ISSUE",
+      "finding": "The bookkeeping is dimensionally consistent. The displayed bound exp(o(n)) binom(n,a_n)|B_n|^{-(a_n-k_n-1)} is exactly exp(o(n))Nbar_{n,a_n} because w_n = a_n-k_n-1 (def L67-69); it matches the lower construction's scale exp(-o(n))binom(n,m)|B|^{-w} (L285), which is what makes the frontier sharp. q_line is correctly kept OUT of this numerator bound (the ep_mca = B^MCA / q_line normalization at L65 is deferred to thm:frontier), respecting the steering's field-ledger separation rule. The assembly (paid cells by closure + primitive by thm:primitive-q/lem:addback + SP by lem:q-sp + first-match disjointization) is logically valid. CAVEAT: thm:upper inherits the lem:addback OPEN GAP (A6); it is only as sound as the uncited subexponential-profile decomposition.",
+      "quotes": [
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 266, "quote": "|\\B_n|^{-(a_n-k_n-1)}"}
+      ]
+    },
+    {
+      "id": "A9",
+      "target": "lower-side identity-prefix pole construction",
+      "target_lines": "276-287",
+      "steering_mode": "mismatch between asymptotic proof and finite deployed rows (lower-side algebra + collision loss)",
+      "verdict": "OPEN_GAP",
+      "finding": "TWO parts. (algebra, NO ISSUE) The pole-line identity is verified by polynomial division: f_alpha + zeta g_alpha = (U_z(x)-zeta)/(x-alpha) on D; setting P(X)=(X-alpha)(Q(X)-h(X))+rho with rho=U_z(alpha)-zeta forces P = ell_S (both monic degree m, vanishing on S), and evaluating at alpha gives rho = ell_S(alpha); so 'code-explained on S <=> ell_S(alpha) = U_z(alpha)-zeta'. The explaining polynomial h = (U_z - ell_S - (U_z(alpha)-ell_S(alpha)))/(X-alpha) has degree <= k-1 < k BECAUSE z is the shared locator prefix (U_z and ell_S share their top w+1 coefficients, so deg(U_z - ell_S) <= m-w-1 = k, dropping to <=k-1 after dividing by (X-alpha)). And g_alpha = -1/(x-alpha) is genuinely not degree-<k on any k+1 positions ((X-alpha)h+1 would be a degree-<=k polynomial with k+1 roots). All confirmed numerically over F_p. (collision loss, OPEN GAP) The lower bound B^MCA(m) >= exp(-o(n))binom(n,m)|B|^{-w} requires the fibers of the evaluation map S -> ell_S(alpha) = prod_{t in S}(alpha - t) to be subexponential; the paper asserts this is 'subexponential in the standard pole-reservoir regime' with NO proof and NO citation, and the phrase 'pole-reservoir regime' appears in NO source file. This is the in-paper reflection of #433 B4 (FOUND-WEAKER): Grande prop:pole-line (L583) only flags the collision loss without bounding it, and the sound lower bound in fact comes from a DIFFERENT, collision-FREE injective construction (v13-raw lem:capff1-identity-prefix-floor, L6909, and the c_M = U_{z*} - Lambda_M injective maps).",
+      "missing_statement": "A printed subexponential bound on the fibers of the support-product map S |-> ell_S(alpha) = prod_{t in S}(alpha - t) at the frontier scale binom(n,m)|B|^{-w}, OR a citation redirect from the pole-map to the collision-free injective identity-prefix floor (cap25_cap_v13_raw.tex lem:capff1-identity-prefix-floor, L6909) as the actual origin of the exp(-o(n)) lower bound.",
+      "quotes": [
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 283, "quote": "code-explained on \\(S\\) exactly when \\(\\ell_S(\\alpha)=U_z(\\alpha)-\\zeta\\)"},
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 283, "quote": "not explained by a degree-\\(<k\\) polynomial on \\(k+1\\) positions"},
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 283, "quote": "subexponential in the standard pole-reservoir regime"},
+        {"file": "experimental/cap25_cap_v13_raw.tex", "line": 6909, "quote": "\\begin{lemma}[identity-scale prefix floor]\\label{lem:capff1-identity-prefix-floor}"},
+        {"file": "experimental/grande_finale.tex", "line": 583, "quote": "\\begin{proposition}[pole-line transport to MCA]\\label{prop:pole-line}"}
+      ]
+    },
+    {
+      "id": "A10",
+      "target": "thm:frontier proof (entropy-frontier algebra)",
+      "target_lines": "289-296",
+      "steering_mode": "entropy-frontier algebra error",
+      "verdict": "NO_ISSUE",
+      "finding": "The Stirling computation log2 Nbar_{n,a_n} = n(H2(rho+g) - beta g) + o(n) is EXACT: log2 binom(n,a_n) = n H2(rho+g) + o(n) (a_n/n -> rho+g, H2 Lipschitz on compacta), and -w_n beta_n = -beta g n + o(n) with w_n = a_n - k_n - 1 = g n + o(n). The rate phi(g) = H2(rho+g) - beta g is CONCAVE (H2 concave, beta g linear) with phi(0) = H2(rho) > 0 and phi(1-rho) = -beta(1-rho) <= 0, so it has a single crossing at g* = sup{g: phi(g) >= 0}; the superlevel set is [0,g*]. Hence g > g* => phi < 0 (safe: B^MCA <= exp(o(n))Nbar = 2^{-Omega(n)}) and g < g* => phi > 0 (unsafe: exponentially many bad slopes from the lower construction). The g -> g* two-sided limit gives delta* = 1 - rho - g*. All verified numerically (g* by bisection, phi(g*) ~ 0, single crossing, and (1/n)log2 Nbar -> phi(g)). The g<g* branch inherits the A9 lower-construction collision gap.",
+      "quotes": [
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 293, "quote": "n\\bigl(H_2(\\rho+g)-\\beta g\\bigr)+o(n)"},
+        {"file": "experimental/asymptotic_rs_mca.tex", "line": 295, "quote": "Letting \\(g\\) approach \\(g^*\\) from both sides"}
+      ]
+    }
+  ],
+  "open_gaps": [
+    {
+      "id": "A6",
+      "target": "lem:addback (experimental/asymptotic_rs_mca.tex:246-252)",
+      "missing_statement": "A proof that N(s) decomposes into an exp(o(n))-sized 'subexponential profile family', each profile at the global scale Nbar_{n,a_n}. Grande imports exactly this as the HYPOTHESIS of lem:subexponential-addback-closure (grande_finale.tex:2266); the paper states it as proved.",
+      "repair": "Either discharge the profile decomposition (bound the number of first-match profiles by exp(o(n)) and each at scale Nbar), or restate lem:addback as CONDITIONAL on the Grande add-back hypotheses, cited to lem:subexponential-addback-closure."
+    },
+    {
+      "id": "A9",
+      "target": "lower-side pole construction collision caveat (experimental/asymptotic_rs_mca.tex:283-285)",
+      "missing_statement": "A subexponential bound on the fibers of S |-> ell_S(alpha) = prod_{t in S}(alpha - t) at frontier scale; the paper's 'standard pole-reservoir regime' is undefined and appears in no source.",
+      "repair": "Redirect the lower bound to the collision-free injective identity-prefix floor cap25_cap_v13_raw.tex lem:capff1-identity-prefix-floor (L6909) + deep-point conversion, which reaches the same numerator binom(n,m)|B|^{-w} injectively (this is #433 B4's recommended fix, confirmed from the in-paper side)."
+    }
+  ],
+  "numeric_checks": {
+    "toy_first_match": {
+      "purpose": "A1: 3 ordered cells, overlapping witnesses, one fixed received line; recompute first-match classes.",
+      "incidence": {"g1": [0], "g2": [0, 1], "g3": [1, 2], "g4": [2], "g5": [0, 1, 2]},
+      "expected_first_match_budgets": {"0": 3, "1": 1, "2": 1},
+      "expected_total_slopes": 5,
+      "expected_firstmatch_sum": 5,
+      "expected_raw_projection_sum": 9,
+      "note": "first-match budgets sum EXACTLY to the total (disjoint partition); raw per-cell projection budgets sum to 9 (over-count, still a valid upper bound). The lemma sums first-match budgets, so no double count."
+    },
+    "moment_max": {
+      "purpose": "A2: both inequalities L^{-1}R^q <= Gamma_q <= R^q and the q-th-root squeeze on several fiber profiles.",
+      "profiles": [[10, 4, 4, 2], [7, 7, 7, 7], [50, 1, 1, 1, 1, 1], [3, 3, 3, 9, 3]],
+      "q_values": [1, 2, 5, 10, 25, 40],
+      "note": "Gamma_1 == 1 identically; (Gamma_q)^{1/q} is squeezed between R*L^{-1/q} and R."
+    },
+    "sigma_block_diagonal": {
+      "purpose": "A3: an adversarially non-uniform per-sigma null rate a(sigma,N)=C/(sigma*sqrt(N)); the block-diagonal sigma_N=1/k on N-blocks makes a(sigma_N,N)->0 AND sigma_N->0.",
+      "C": 1.0,
+      "N_values": [1000, 100000, 10000000, 1000000000, 100000000000],
+      "note": "Demonstrates the diagonal is constructible from per-sigma hypotheses (no uniformity needed for the o(N) claim)."
+    },
+    "bsg_quasicube": {
+      "purpose": "A4: BSG(K=e^{o(N)}) + quasicube contradiction arithmetic; quasicube lower bound on |F'-F'| exceeds BSG upper bound.",
+      "C_abs": 7.0,
+      "c": 0.3,
+      "N_values": [100000000, 10000000000, 1000000000000],
+      "oN_rate": "sqrt(N)*log(N)",
+      "note": "K^{+-C}=e^{+-o(N)} absorbed; |F'|>=e^{cN-o(N)} survives K^{-C}; 0.5 log|F'| > C*o(N) is impossible for fixed c>0."
+    },
+    "pole_line": {
+      "purpose": "A9 algebra: over F_p, verify ell_S(alpha)=U_z(alpha)-zeta characterizes code-explanation; deg(h)<k; g_alpha unexplained on k+1 positions.",
+      "instances": [
+        {"p": 101, "D": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], "S": [1, 2, 3, 4, 5, 6], "alpha": 0, "k": 3, "expected_zeta_star": 88, "expected_deg_h": 2},
+        {"p": 101, "D": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "S": [2, 3, 5, 7, 9, 11], "alpha": 0, "k": 3, "expected_zeta_star": 16, "expected_deg_h": 2},
+        {"p": 97, "D": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "S": [1, 2, 3, 4, 5, 6, 7, 8], "alpha": 0, "k": 4, "expected_zeta_star": 32, "expected_deg_h": 3}
+      ],
+      "note": "m=k+1+w; U_z shares the top w+1 coeffs of ell_S so deg(U_z-ell_S)<=k, and h drops to degree <=k-1<k after /(X-alpha)."
+    },
+    "stirling_gstar": {
+      "purpose": "A10: recompute g*(rho,beta), verify phi(g*)~0 (single crossing), delta*=1-rho-g*, and (1/n)log2 Nbar -> phi(g).",
+      "table": [
+        {"rho": 0.5, "beta": 1.0, "expected_gstar": 0.416027, "expected_delta_star": 0.083973},
+        {"rho": 0.5, "beta": 2.0, "expected_gstar": 0.329464, "expected_delta_star": 0.170536},
+        {"rho": 0.3, "beta": 1.0, "expected_gstar": 0.566624, "expected_delta_star": 0.133376},
+        {"rho": 0.7, "beta": 3.0, "expected_gstar": 0.178185, "expected_delta_star": 0.121815},
+        {"rho": 0.25, "beta": 0.5, "expected_gstar": 0.686028, "expected_delta_star": 0.063972},
+        {"rho": 0.5, "beta": 0.0, "expected_gstar": 0.5, "expected_delta_star": 0.0},
+        {"rho": 0.4, "beta": 1.5, "expected_gstar": 0.433339, "expected_delta_star": 0.166661}
+      ],
+      "note": "beta=0 is the boundary case g*=1-rho (phi>=0 on the whole interval); delta*=0 there."
+    }
+  },
+  "relation_to_433": {
+    "A1_first_match": "#433 left 'incorrect first-match disjointization' explicitly unattacked; this packet attacks it -> NO ISSUE.",
+    "A6_addback": "extends #433 B3 (window uniformity imported as a hypothesis): same import-as-hypothesis pattern, now for the add-back profile decomposition.",
+    "A9_collision": "in-paper reflection of #433 B4 (FOUND-WEAKER): 'pole-reservoir regime' uncited; injective floor is the real source. Confirmed here from the proof side, with the pole-line algebra itself verified NO ISSUE.",
+    "A10_frontier": "#433 left 'entropy-frontier algebra error' explicitly unattacked; this packet attacks it -> NO ISSUE."
+  }
+}

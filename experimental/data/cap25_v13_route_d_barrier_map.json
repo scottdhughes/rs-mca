@@ -1,0 +1,873 @@
+{
+  "schema": "route-d-barrier-map/v1",
+  "title": "CAP25 v13 Route-D shared barrier map",
+  "labels": [
+    "SYNTHESIS",
+    "REFERENCE",
+    "AUDIT"
+  ],
+  "base_commit": "84b393e",
+  "what_this_is": "A provenance-gated map of the integrated Route-D state at the two deployed rows (KoalaBear MCA a+=1116048, Mersenne-31 list a+=1116023) - no closure claimed, no new bounds, no row-sharp Q claim.",
+  "nonclaims": [
+    "does not close prob:row-sharp-q or def:q-row-atom",
+    "proves no deployed safe row (no U(a+)<=B* certificate)",
+    "derives no new mathematics; every node and edge is a citation",
+    "the speculative-edges section is ANALYSIS-CONJECTURAL",
+    "reflects the tree at 84b393e and decays as new work lands"
+  ],
+  "lineages": {
+    "scottdhughes": "KB-MCA Route-D residual free-1 / A_SP card (curated by the maintainer from PR #423)",
+    "avdeevvadim": "singleton-heavy top-seam Route-D compiler (PR #425)",
+    "DannyExperiments": "M31 moment-order and Chebyshev fixed-remainder floors (PRs #424/#426)",
+    "holmbuar": "row-sharp Q Fourier lineage (#407 kappa, #412 p^{w/2} floor, #414/#416 participation ratio, #417 lift-class refutation, KB/M31 rung audits)",
+    "AllenGrahamHart": "independent row-sharp Q calibration (#405); cited as consistency context in #407",
+    "maintainer": "grande_finale.tex steering objects (def:q-row-atom, prob:row-sharp-q, prop:q-exact-target)"
+  },
+  "totals": {
+    "nodes": 34,
+    "proved_edges": 16,
+    "speculative_edges": 3,
+    "dead_routes": 14,
+    "audit_nodes": 7
+  },
+  "nodes": [
+    {
+      "id": "H-DEPLOY",
+      "lineage": "scottdhughes",
+      "owner": "scottdhughes",
+      "source_file": "experimental/notes/thresholds/kb_qatom_route_d_STATUS.md",
+      "source_tag": "STATUS",
+      "section": "Deployed constants",
+      "status": "REFERENCE",
+      "statement": "KB-MCA Route-D deployed row: n=2^21, e=w+1=67472, core m_c=913632, free_core=846161, complement n'=A+e=1183520, pack ceiling floor(n'/e)=17, p=2130706433.",
+      "constants": [
+        "67472",
+        "913632",
+        "846161",
+        "1183520",
+        "17"
+      ],
+      "evidence_quote": "KoalaBear prime (odd)"
+    },
+    {
+      "id": "H-V25",
+      "lineage": "scottdhughes",
+      "owner": "scottdhughes",
+      "source_file": "experimental/notes/thresholds/kb_qatom_route_d_v25.md",
+      "source_tag": "H25",
+      "section": "Main theorem / Deployed",
+      "status": "PROVED",
+      "statement": "Free-1 high families F_H are pairwise disjoint; |F_H|<=floor(n/e)=31; e*p=t*p=143763024447376 is the pair budget. Cross-high (iota,delta) collision remains OPEN.",
+      "constants": [
+        "31",
+        "143763024447376",
+        "67472"
+      ],
+      "evidence_quote": "pairwise disjoint"
+    },
+    {
+      "id": "H-V45",
+      "lineage": "scottdhughes",
+      "owner": "scottdhughes",
+      "source_file": "experimental/notes/thresholds/kb_qatom_route_d_v45.md",
+      "source_tag": "H45",
+      "section": "Residual card criteria",
+      "status": "PARTIAL(criteria PROVED; deployed gates OPEN)",
+      "statement": "Residual R2 / H_R2 after SR+H_M; card closes if |R2|<=e*p or |H_R2|<=H2. H2=77291948627, e*p=143763024447376.",
+      "constants": [
+        "77291948627",
+        "143763024447376"
+      ],
+      "evidence_quote": "H2 = 77291948627; e·p = 143763024447376."
+    },
+    {
+      "id": "H-V46",
+      "lineage": "scottdhughes",
+      "owner": "scottdhughes",
+      "source_file": "experimental/notes/thresholds/kb_qatom_route_d_v46.md",
+      "source_tag": "H46",
+      "section": "Decomposition / False envelopes",
+      "status": "PARTIAL(decomp PROVED; |H_R2|<=n REFUTED)",
+      "statement": "R2 = R2_unt xor R2_D; packing |R2|<=930*|H_R2|; the envelope |H_R2|<=n is REFUTED on A_SP residual (max H_R2=952 toy).",
+      "constants": [
+        "930",
+        "952"
+      ],
+      "evidence_quote": "premise REFUTED"
+    },
+    {
+      "id": "H-V48",
+      "lineage": "scottdhughes",
+      "owner": "scottdhughes",
+      "source_file": "experimental/notes/thresholds/kb_qatom_route_d_v48.md",
+      "source_tag": "H48",
+      "section": "Proved bounds on H_*",
+      "status": "MIXED(e=2 CLOSED; unrestricted star e>=3 REFUTED)",
+      "statement": "|H|<=p^{e-1}; e=2 => |H|<=p<=H2 CLOSED; unrestricted star for e>=3 is REFUTED on cyclic domains (p^2>H2). Deployed e=67472.",
+      "constants": [
+        "67472"
+      ],
+      "evidence_quote": "unrestricted ★ for e≥3"
+    },
+    {
+      "id": "H-V49",
+      "lineage": "scottdhughes",
+      "owner": "scottdhughes",
+      "source_file": "experimental/notes/thresholds/kb_qatom_route_d_v49.md",
+      "source_tag": "H49",
+      "section": "Geometry / Bound",
+      "status": "PROVED(geometry); deployed bound OPEN",
+      "statement": "Co-extension free-1 = prefix free-1 multipads; |H_coext(C)|<=H_*^pre(min(C),e); multipad forces t in [2e,n']=[134944,1183520], floor(n'/e)=17.",
+      "constants": [
+        "134944",
+        "1183520",
+        "17"
+      ],
+      "evidence_quote": "co-extension free-1 = prefix free-1 multipads"
+    },
+    {
+      "id": "H-V51",
+      "lineage": "scottdhughes",
+      "owner": "scottdhughes",
+      "source_file": "experimental/notes/thresholds/kb_qatom_route_d_v51.md",
+      "source_tag": "H51",
+      "section": "Theorem U2e / Arithmetic gate",
+      "status": "PROVED(U2e); full window OPEN",
+      "statement": "U2e PROVED (char!=2): at most one free-1 bipartition of a 2e-set; hence H_*^pre(t,e)<=C(t,2e) unconditional. t<=2e+2 => <=H2 (C(2e+2,2)=9105143985<=H2 but C(2e+3,3)=409570621781265>H2).",
+      "constants": [
+        "9105143985",
+        "409570621781265"
+      ],
+      "evidence_quote": "at most one"
+    },
+    {
+      "id": "H-V53",
+      "lineage": "scottdhughes",
+      "owner": "scottdhughes",
+      "source_file": "experimental/notes/thresholds/kb_qatom_route_d_v53.md",
+      "source_tag": "H53",
+      "section": "Theorem C_unique",
+      "status": "PROVED",
+      "statement": "C_unique PROVED: every untyped free-1 CS pair has the terminal core C_*={n',...,n-1}; N_C=1; hence |H_unt|<=H_*^pre(n',e). Deployed n'=1183520.",
+      "constants": [
+        "1183520"
+      ],
+      "evidence_quote": "Every untyped free-1 CS pair has core"
+    },
+    {
+      "id": "H-V54",
+      "lineage": "scottdhughes",
+      "owner": "scottdhughes",
+      "source_file": "experimental/notes/thresholds/kb_qatom_route_d_v54.md",
+      "source_tag": "H54",
+      "section": "Terminal star / Injection into T",
+      "status": "PROVED(star); |T|>>H2 for e>2",
+      "statement": "Pure-untyped highs are terminal stars U_* containing index n'-1; |H_unt|=|T|<=C(n'-1,e-1); pack-k alone refuted as an H2 strategy; deployed n'-2e=1048576=2^20 so both binomials >> H2.",
+      "constants": [
+        "1048576"
+      ],
+      "evidence_quote": "|H_unt| = |T|"
+    },
+    {
+      "id": "H-WALL",
+      "lineage": "scottdhughes",
+      "owner": "scottdhughes",
+      "source_file": "experimental/notes/thresholds/kb_qatom_route_d_STATUS.md",
+      "source_tag": "STATUS",
+      "section": "Live residual reduction / OPEN",
+      "status": "OPEN wall",
+      "statement": "THE STANDING WALL: for e>2 the residual free-1 card needs |T|<=H2 (free-1 partner count for e-sets through terminal index n'-1); e=2 CLOSED; alternate open close is |R2|<=e*p. Deployed e=67472.",
+      "constants": [
+        "67472"
+      ],
+      "evidence_quote": "sole wall on this path"
+    },
+    {
+      "id": "A0",
+      "lineage": "avdeevvadim",
+      "owner": "avdeevvadim",
+      "source_file": "experimental/notes/thresholds/rowsharp_q_singleton_topseam_v1.md",
+      "source_tag": "TOPSEAM",
+      "section": "Conditional Counting Closure",
+      "status": "CONDITIONAL",
+      "statement": "If the four branch realizations hold and |R_D|<=t, the top-seam compiler concludes unpaid supports <= t*p = 143763024447376; against target_floor=274836936291722953 the paid+retained bound (t*p+11440) leaves integer slack 274693173267264137 (~57.9 bits, ~10.9 multiplicative bits). Deployed agreement a+=1116048, K_rem=4805007.",
+      "constants": [
+        "143763024447376",
+        "274836936291722953",
+        "274693173267264137",
+        "11440",
+        "1116048",
+        "4805007"
+      ],
+      "evidence_quote": "sum_B(outdeg_unpaid(B)-1) <= |R_D|*(p-1) <= t*(p-1)"
+    },
+    {
+      "id": "A1",
+      "lineage": "avdeevvadim",
+      "owner": "avdeevvadim",
+      "source_file": "experimental/notes/thresholds/rowsharp_q_singleton_topseam_v1.md",
+      "source_tag": "TOPSEAM",
+      "section": "planted_switch_core_fiber_cost",
+      "status": "CONDITIONAL obligation(Rule 1 descent PROVED; cost ledger OPEN)",
+      "statement": "Rule 1 is proved as an exact planted-switch core-fiber descent, but its printed support cost |G_{beta,A}|-1 must be accepted by a planted/core ledger; the deletion is not zero-cost.",
+      "constants": [],
+      "evidence_quote": "RULE_1_PROVED_AS_PLANTED_DESCENT_OPEN_REQUIRED_PLANTED_CORE_LEDGER"
+    },
+    {
+      "id": "A2",
+      "lineage": "avdeevvadim",
+      "owner": "avdeevvadim",
+      "source_file": "experimental/notes/thresholds/rowsharp_q_singleton_topseam_v1.md",
+      "source_tag": "TOPSEAM",
+      "section": "weighted_primitive_sp_pade_bound",
+      "status": "CONDITIONAL obligation",
+      "statement": "Rule 2 is realized as a marked multiplicity-aware SP/Pade certificate with exact support cost one; the full-rank primitive residual reduces to fixed-key split-shift sets X_{r,c,U0,H,beta}(z), still needing a printed finite bound N_WSP_full(z)<=B_WSP_full.",
+      "constants": [],
+      "evidence_quote": "RULE_2_MULTIPLICITY_AWARE_REALIZED_OPEN_REQUIRED_WEIGHTED_PRIMITIVE_SP_BOUND"
+    },
+    {
+      "id": "A3",
+      "lineage": "avdeevvadim",
+      "owner": "avdeevvadim",
+      "source_file": "experimental/notes/thresholds/rowsharp_q_singleton_topseam_v1.md",
+      "source_tag": "TOPSEAM",
+      "section": "strict_distance_child",
+      "status": "OPEN obligation(branch payment check)",
+      "statement": "A child separated by distance d(S,S')>=r+1 is paid only if a strict-distance Route-D/RIM/window-shadow payment theorem is imported; otherwise it is a new payment obligation.",
+      "constants": [],
+      "evidence_quote": "OPEN_REQUIRED_BRANCH_PAYMENT_CHECK"
+    },
+    {
+      "id": "A4",
+      "lineage": "avdeevvadim",
+      "owner": "avdeevvadim",
+      "source_file": "experimental/notes/thresholds/rowsharp_q_singleton_topseam_v1.md",
+      "source_tag": "TOPSEAM",
+      "section": "charged_row_budget",
+      "status": "OPEN obligation(scope check)",
+      "statement": "All charged top-seam rows must lie in a row set of size at most t (or the theorem is restricted to the first exposed seam); without |R_D|<=t the t*(p-1) cell count does not follow.",
+      "constants": [],
+      "evidence_quote": "OPEN_REQUIRED_SCOPE_CHECK"
+    },
+    {
+      "id": "A397",
+      "lineage": "avdeevvadim",
+      "owner": "avdeevvadim",
+      "source_file": "experimental/notes/thresholds/rowsharp_q_prefix_atom_reductions_v1.md",
+      "source_tag": "A397",
+      "section": "Additive stratum bound / E_ret",
+      "status": "REFERENCE(imported-PROVED input; full-rank cert OPEN)",
+      "statement": "The row-sharp Q prefix-atom reductions (was PR #397): additive stratum bound |R_prim|<=|G_gen_support|+|D_full_rank_prim|+|E_ret| with |E_ret(z)|<=binom(16,7)=11440 imported-PROVED; the open primitive full-rank signed-defect certificate is the primal side of the holmbuar Fourier crux.",
+      "constants": [
+        "11440"
+      ],
+      "evidence_quote": "|E_ret(z)| <= binom(16,7) = 11440."
+    },
+    {
+      "id": "D-MOM",
+      "lineage": "DannyExperiments",
+      "owner": "DannyExperiments",
+      "source_file": "experimental/notes/thresholds/20260709_q_moment_floor_route_cut/cap25_v13_q_moment_floor_note.md",
+      "source_tag": "DMOM",
+      "section": "Active-row arithmetic",
+      "status": "PROVED floor / ROUTE_CUT",
+      "statement": "Mass-sensitive moment/orbit floor: any moment-only proof of R(z)<=2^Delta needs order r>=(w log2|B|-log2 L)/(Delta-log2 theta). Deployed r floors 94196/94991/641593/680397; M31-list binding row 680397 has no theorem-facing orbit gain (L=1) and even a full 2097152 orbit only reaches 680390; a 100000-moment theorem needs residual mass below 2^-17.835570.",
+      "constants": [
+        "94196",
+        "641593",
+        "680397",
+        "2097152",
+        "17.835570427166"
+      ],
+      "evidence_quote": "orbit amplification is not a finite solution mechanism"
+    },
+    {
+      "id": "D-CHEB",
+      "lineage": "DannyExperiments",
+      "owner": "DannyExperiments",
+      "source_file": "experimental/notes/thresholds/20260709_m31_chebyshev_fixed_remainder_floor/cap25_v13_m31_chebyshev_fixed_remainder_floor.md",
+      "source_tag": "DCHEB",
+      "section": "Exact replay values",
+      "status": "PROVED floor / EXACT_NEW_WALL",
+      "statement": "M31-list c=2048 Chebyshev fixed-remainder quotient floor F_c=ceil(binom(1023,544)/p^32)=6796405 (exact lower floor, ~40.5% of budget); residual B*-F_2048=9980810 leaves 2.3237 bits above the identity average. Naive dyadic sum 16548620 (gap 228595) is NOT a counterpacket without a co-location theorem.",
+      "constants": [
+        "2048",
+        "6796405",
+        "9980810",
+        "1911",
+        "16777215"
+      ],
+      "evidence_quote": "exact lower floor of 6796405"
+    },
+    {
+      "id": "D-C1024",
+      "lineage": "DannyExperiments",
+      "owner": "DannyExperiments",
+      "source_file": "experimental/notes/thresholds/20260709_m31_chebyshev_fixed_remainder_floor/cap25_v13_m31_c1024_paired_prefix_audit.md",
+      "source_tag": "DC1024",
+      "section": "First unresolved defect size / surviving wall",
+      "status": "OPEN wall(refines M31 residual)",
+      "statement": "Follow-up on his own C1024 target: small-core (|core(S)|<=65) c=1024 defects collapse to the c=2048 factor-through floor; the first live non-factor-through wall is the m=67 even-defect divisor count (CAP25-V13-M31-T2048-EVEN-DEFECT-DIVISOR-COUNT), a degree-34 divisor count with a 32-even-completion layer choosing 511 of 956 antipodal pairs; NOT paid by cor:bc-one-pencil.",
+      "constants": [
+        "67",
+        "65",
+        "1024",
+        "511",
+        "956"
+      ],
+      "evidence_quote": "first live non-factor-through wall is the m=67 even-defect divisor count"
+    },
+    {
+      "id": "D-RECON",
+      "lineage": "DannyExperiments",
+      "owner": "DannyExperiments",
+      "source_file": "experimental/notes/thresholds/cap25_v13_q_moment_floor_reconciliation.md",
+      "source_tag": "RECON",
+      "section": "Exact table / attribution",
+      "status": "AUDIT(precision reconciliation)",
+      "statement": "Precision reconciliation of the finite-Q moment-order floor r0=ceil(w log2|B|/Delta_Q): confirms the maintainer's 94196/94991/641593/680397 exactly under the real-average convention and supersedes exactly two #384 entries (KB-list 94992->94991, M31-MCA 641584->641593).",
+      "constants": [
+        "94196",
+        "94991",
+        "641593",
+        "680397",
+        "641584",
+        "94992"
+      ],
+      "evidence_quote": "94196 / 94991 / 641593 / 680397"
+    },
+    {
+      "id": "O407",
+      "lineage": "holmbuar",
+      "owner": "holmbuar",
+      "source_file": "experimental/notes/thresholds/cap25_v13_q_atom_binding_row_calibration.md",
+      "source_tag": "O407",
+      "section": "Verdict and falsifier",
+      "status": "MEASUREMENT(enters no proof; atom SUPPORTED)",
+      "statement": "Binding-row kappa calibration: measured kappa = R_prim <= 1.221 on every heavy row vs the binding M31-list budget kappa <= 8.4152; heaviness crossover avg* ~ 1205 sits 3-7 orders below deployed heaviness; the atom is SUPPORTED within coverage.",
+      "constants": [
+        "1.221",
+        "8.4152",
+        "1205"
+      ],
+      "evidence_quote": "measured kappa `= R_prim <= 1.221`"
+    },
+    {
+      "id": "O412",
+      "lineage": "holmbuar",
+      "owner": "holmbuar",
+      "source_file": "experimental/notes/thresholds/cap25_v13_q_pw2_concentration_floor.md",
+      "source_tag": "O412",
+      "section": "Headline / route map",
+      "status": "PROVED floor(r=2 dead) / crux OPEN",
+      "statement": "The p^{w/2} concentration floor: every second-moment (r=2 / Cauchy-Schwarz / Fourier-Plancherel) route for the KB-MCA target is DEAD by 1,045,396.58 bits, global and per-stratum; the named crux is the signed-e_m inverse theorem. target_floor=274836936291722953=K_rem*avg (K_rem=4805007), reserving t*p=143763024447376.",
+      "constants": [
+        "1045396.58",
+        "274836936291722953",
+        "4805007",
+        "143763024447376"
+      ],
+      "evidence_quote": "1,045,396.58"
+    },
+    {
+      "id": "O414",
+      "lineage": "holmbuar",
+      "owner": "holmbuar",
+      "source_file": "experimental/notes/thresholds/cap25_v13_q_em_inverse_participation_ratio.md",
+      "source_tag": "O414",
+      "section": "Headline reduction",
+      "status": "REDUCED / crux OPEN",
+      "statement": "The signed-e_m L1 target (STAR) is exactly a Fourier participation-ratio bound PR(Rhat)<=nu*=(K_rem-1)^2/(Gamma2-1); nu*_ref=(K_rem-1)^2=23088082660036; the L-infinity per-direction route is separately dead by 2,090,815.35 bits; the binding M31-list target is effective support ~55.",
+      "constants": [
+        "23088082660036",
+        "2,090,815.35",
+        "4805007"
+      ],
+      "evidence_quote": "PR(Rhat)  <=  nu*"
+    },
+    {
+      "id": "O416",
+      "lineage": "holmbuar",
+      "owner": "holmbuar",
+      "source_file": "experimental/notes/thresholds/cap25_v13_q_eq_masked_participation_ratio.md",
+      "source_tag": "O416",
+      "section": "Headline / caveat",
+      "status": "REDUCED / CONDITIONAL / crux OPEN",
+      "statement": "The (STAR)<=>PR<=nu* equivalence transfers verbatim to the masked residual E_Q; support masking passes the M31-list budget at the #413 row (M_gen pulls the L1 triangle 10.472846->5.967<8.4152, tau=0.4107) but ONLY CONDITIONAL on the still-open lift-class support-removal cost model, and the win is a tau<1 raw-avg-units artifact.",
+      "constants": [
+        "10.472846",
+        "8.4152",
+        "0.4107"
+      ],
+      "evidence_quote": "support masking passes the"
+    },
+    {
+      "id": "O417",
+      "lineage": "holmbuar",
+      "owner": "holmbuar",
+      "source_file": "experimental/notes/thresholds/cap25_v13_liftclass_cost_model_refuted.md",
+      "source_tag": "O417",
+      "section": "Refutation",
+      "status": "REFUTED-DEAD(named model closed negatively)",
+      "statement": "The finite-field lift-class cost model is unpayable: keep-one-per-target lift-class removal at cost w*p is NOT a row-indexed payment (structural margin 2^2090779.6; removed classes/t*p=2^2090812.77, removed supports/B*=2^2090815.35). Resolves #416's condition negatively at deployment. K_raw=4807520, K_rem=4805007, retained=11440.",
+      "constants": [
+        "4807520",
+        "4805007",
+        "11440"
+      ],
+      "evidence_quote": "keep-one-per-target is not a row-indexed payment"
+    },
+    {
+      "id": "O-RUNGKB",
+      "lineage": "holmbuar",
+      "owner": "holmbuar",
+      "source_file": "experimental/notes/thresholds/cap25_v13_qfin_rung_audit.md",
+      "source_tag": "RUNGKB",
+      "section": "Aggregate / Frame verdict",
+      "status": "AUDIT / GREEN(descent D PROVED; L1..L4 OPEN)",
+      "statement": "conj:Q divisor-lattice rung audit at KB-MCA a0+1=1116048: descent identity (D) PROVED; charge=35624 of K_raw=4807520, residual primitive budget 4771896 (0.0107-bit loss); wall reduced to the primitive core maxPi_0 plus a budget-negligible 4-rung ladder L_1..L_4 (OPEN-REDUCTION). VERDICT GREEN.",
+      "constants": [
+        "4807520",
+        "35624",
+        "4771896"
+      ],
+      "evidence_quote": "VERDICT: GREEN"
+    },
+    {
+      "id": "O-RUNGM31",
+      "lineage": "holmbuar",
+      "owner": "holmbuar",
+      "source_file": "experimental/notes/thresholds/cap25_v13_qfin_rung_audit_m31.md",
+      "source_tag": "RUNGM31",
+      "section": "Aggregate / Frame verdict",
+      "status": "AUDIT / NOT-GREEN(TIGHT; not a refutation)",
+      "statement": "conj:Q rung audit at M31-MCA a0+1=1116024: same descent (D) PROVED, but the pessimistic same-bar 3-rung ladder EXCEEDS the tiny budget K_raw=9 by ~4.66x (charge=42, nominal residual -33); NOT a refutation and the edge does not move, but the row demands genuinely tighter row-specific quotient flatness than KB.",
+      "constants": [
+        "42",
+        "K_raw=9"
+      ],
+      "evidence_quote": "EXCEEDS K_raw by ~4.66x"
+    },
+    {
+      "id": "GF-ATOM",
+      "lineage": "maintainer",
+      "owner": "maintainer(grande_finale)",
+      "source_file": "experimental/grande_finale.tex",
+      "source_tag": "GF",
+      "section": "def:q-row-atom (L2043)",
+      "status": "OPEN(the missing theorem)",
+      "statement": "def:q-row-atom: R_Q^max = |B|^w max_z |P_Q(z)|/C(n,a_+) <= 2^{Delta_Q}; equivalently max_z|P_Q(z)|<=B*. This atom bound is the missing theorem the whole map is about. Deployed a+ 1116048 (KB-MCA) / 1116023 (M31-list).",
+      "constants": [
+        "1116048",
+        "1116023"
+      ],
+      "evidence_quote": "row-sharp Q atom bound"
+    },
+    {
+      "id": "GF-PROB",
+      "lineage": "maintainer",
+      "owner": "maintainer(grande_finale)",
+      "source_file": "experimental/grande_finale.tex",
+      "source_tag": "GF",
+      "section": "prob:row-sharp-q (L2177)",
+      "status": "OPEN(target)",
+      "statement": "prob:row-sharp-q: prove max_z|P_Q(z)|<=R_Q^row C(n,a_+)|B|^{-(a_+-K)} with the exact row overhead; a moment proof must satisfy log2 Gamma_r + (a_+-K)log2|B| <= r Delta_Q at the actual finite margin.",
+      "constants": [],
+      "evidence_quote": "row-sharp multilevel Q target"
+    },
+    {
+      "id": "GF-TARGET",
+      "lineage": "maintainer",
+      "owner": "maintainer(grande_finale)",
+      "source_file": "experimental/grande_finale.tex",
+      "source_tag": "GF",
+      "section": "prop:q-exact-target (L2061)",
+      "status": "REFERENCE(exact budgets)",
+      "statement": "prop:q-exact-target: full-budget Q atom target per row; B*_KB=274980728111395087, B*_M31=16777215; budget ratios 4807520.9295 / 4226236.5253 / 9.5722 / 8.4152; the binding Q problem is the Mersenne-31 list row (~8.42x).",
+      "constants": [
+        "274980728111395087",
+        "16777215",
+        "4807520.9295",
+        "8.4152"
+      ],
+      "evidence_quote": "exact finite Q atom target"
+    },
+    {
+      "id": "AUD-TARGETFLOOR",
+      "lineage": "cross-lineage",
+      "owner": "holmbuar(records)",
+      "source_file": "experimental/notes/thresholds/cap25_v13_q_pw2_concentration_floor.md",
+      "source_tag": "O412",
+      "section": "Section 0 (deployed ledger)",
+      "status": "AUDIT(clarification; cross-lineage AGREEMENT, not a contradiction)",
+      "statement": "target_floor=274836936291722953 (=K_rem*avg, the Q-actionable residual max-fiber target) is used identically by avdeevvadim (topseam) and holmbuar (#412/#414). It is a DISTINCT object from grande_finale B*=274980728111395087 (the full per-fiber budget); they differ by ~t*p=143763024447376. DO NOT CONFLATE target_floor with B*; the two Route-D lineages agree on target_floor to the digit.",
+      "constants": [
+        "274836936291722953",
+        "274980728111395087",
+        "143763024447376"
+      ],
+      "evidence_quote": "target_floor = 274836936291722953"
+    },
+    {
+      "id": "AUD-384",
+      "lineage": "DannyExperiments",
+      "owner": "DannyExperiments",
+      "source_file": "experimental/notes/thresholds/cap25_v13_q_moment_floor_reconciliation.md",
+      "source_tag": "RECON",
+      "section": "Superseded #384 entries",
+      "status": "AUDIT(resolved, not open)",
+      "statement": "The moment-order-floor entries KB-list 94992->94991 and M31-MCA 641584->641593 from #384 are SUPERSEDED by the reconciliation note (rounded 4-decimal margin input vs exact real-average Delta_Q); resolved in-tree, not an open contradiction.",
+      "constants": [
+        "94992",
+        "94991",
+        "641584",
+        "641593"
+      ],
+      "evidence_quote": "Supersedes exactly two Section-3 table"
+    },
+    {
+      "id": "AUD-M31MCA-CONV",
+      "lineage": "DannyExperiments",
+      "owner": "DannyExperiments",
+      "source_file": "experimental/notes/thresholds/cap25_v13_q_moment_floor_reconciliation.md",
+      "source_tag": "RECON",
+      "section": "M31-MCA convention pin",
+      "status": "AUDIT",
+      "statement": "M31-MCA is the unique convention-sensitive moment row: r_ceil=641594 vs r_real=641593 (the tiny margin amplifies the log2(ceil) vs log2(real) gap); the maintainer's table uses the real-average column.",
+      "constants": [
+        "641594",
+        "641593"
+      ],
+      "evidence_quote": "unique convention-sensitive row"
+    },
+    {
+      "id": "AUD-RUNGROUND",
+      "lineage": "holmbuar",
+      "owner": "holmbuar",
+      "source_file": "experimental/notes/thresholds/cap25_v13_qfin_rung_audit.md",
+      "source_tag": "RUNGKB",
+      "section": "Rounding reconciliation",
+      "status": "AUDIT(+/-1 convention)",
+      "statement": "KB rung-audit aggregate charge is a +/-1 convention: ceil 35624 (adopted, conservative) vs floor 35623 (Lane C's own script); every per-rung share and verdict is identical either way.",
+      "constants": [
+        "35624",
+        "35623"
+      ],
+      "evidence_quote": "aggregation-convention choice, not a new arithmetic error"
+    }
+  ],
+  "proved_edges": [
+    {
+      "id": "PE-A1",
+      "from": "A1",
+      "to": "A0",
+      "type": "precondition",
+      "source_file": "experimental/notes/thresholds/rowsharp_q_singleton_topseam_v1.md",
+      "source_tag": "TOPSEAM",
+      "quote": "If the branch-realization checks hold and `|R_D| <= t`, then:"
+    },
+    {
+      "id": "PE-A2",
+      "from": "A2",
+      "to": "A0",
+      "type": "precondition",
+      "source_file": "experimental/notes/thresholds/rowsharp_q_singleton_topseam_v1.md",
+      "source_tag": "TOPSEAM",
+      "quote": "If the branch-realization checks hold and `|R_D| <= t`, then:"
+    },
+    {
+      "id": "PE-A3",
+      "from": "A3",
+      "to": "A0",
+      "type": "precondition",
+      "source_file": "experimental/notes/thresholds/rowsharp_q_singleton_topseam_v1.md",
+      "source_tag": "TOPSEAM",
+      "quote": "If the branch-realization checks hold and `|R_D| <= t`, then:"
+    },
+    {
+      "id": "PE-A4",
+      "from": "A4",
+      "to": "A0",
+      "type": "precondition",
+      "source_file": "experimental/notes/thresholds/rowsharp_q_singleton_topseam_v1.md",
+      "source_tag": "TOPSEAM",
+      "quote": "If the branch-realization checks hold and `|R_D| <= t`, then:"
+    },
+    {
+      "id": "PE-V25-54",
+      "from": "H-V25",
+      "to": "H-V54",
+      "type": "used-in-proof",
+      "source_file": "experimental/notes/thresholds/kb_qatom_route_d_v54.md",
+      "source_tag": "H54",
+      "quote": "v25 disjointness"
+    },
+    {
+      "id": "PE-V53-54",
+      "from": "H-V53",
+      "to": "H-V54",
+      "type": "used-in-proof",
+      "source_file": "experimental/notes/thresholds/kb_qatom_route_d_v54.md",
+      "source_tag": "H54",
+      "quote": "v53 forces"
+    },
+    {
+      "id": "PE-V54-WALL",
+      "from": "H-V54",
+      "to": "H-WALL",
+      "type": "reduces-to",
+      "source_file": "experimental/notes/thresholds/kb_qatom_route_d_v54.md",
+      "source_tag": "H54",
+      "quote": "|H_unt| = |T|"
+    },
+    {
+      "id": "PE-V45-WALL",
+      "from": "H-V45",
+      "to": "H-WALL",
+      "type": "alternate-close",
+      "source_file": "experimental/notes/thresholds/kb_qatom_route_d_STATUS.md",
+      "source_tag": "STATUS",
+      "quote": "Alternate close (still open): `|R2| ≤ e·p`"
+    },
+    {
+      "id": "PE-412-414",
+      "from": "O412",
+      "to": "O414",
+      "type": "special-case-of",
+      "source_file": "experimental/notes/thresholds/cap25_v13_q_em_inverse_participation_ratio.md",
+      "source_tag": "O414",
+      "quote": "The parent packet's p^{w/2} floor is the trivial-support special case"
+    },
+    {
+      "id": "PE-414-416",
+      "from": "O414",
+      "to": "O416",
+      "type": "transfers-to",
+      "source_file": "experimental/notes/thresholds/cap25_v13_q_eq_masked_participation_ratio.md",
+      "source_tag": "O416",
+      "quote": "transfers **verbatim** to the masked"
+    },
+    {
+      "id": "PE-417-416",
+      "from": "O417",
+      "to": "O416",
+      "type": "resolves-condition-negatively",
+      "source_file": "experimental/notes/thresholds/cap25_v13_liftclass_cost_model_refuted.md",
+      "source_tag": "O417",
+      "quote": "resolves negatively at deployment"
+    },
+    {
+      "id": "PE-412-397",
+      "from": "O412",
+      "to": "A397",
+      "type": "same-object-dual-view",
+      "source_file": "experimental/notes/thresholds/cap25_v13_q_pw2_concentration_floor.md",
+      "source_tag": "O412",
+      "quote": "strictly the same content as PR #397's"
+    },
+    {
+      "id": "PE-414-397",
+      "from": "O414",
+      "to": "A397",
+      "type": "same-object-dual-view",
+      "source_file": "experimental/notes/thresholds/cap25_v13_q_em_inverse_participation_ratio.md",
+      "source_tag": "O414",
+      "quote": "is the **primal** side of the object §1 names on the Fourier side"
+    },
+    {
+      "id": "PE-CHEB-C1024",
+      "from": "D-CHEB",
+      "to": "D-C1024",
+      "type": "refines",
+      "source_file": "experimental/notes/thresholds/20260709_m31_chebyshev_fixed_remainder_floor/cap25_v13_m31_chebyshev_fixed_remainder_floor.md",
+      "source_tag": "DCHEB",
+      "quote": "refines this broad target to the"
+    },
+    {
+      "id": "PE-MOM-PROB",
+      "from": "D-MOM",
+      "to": "GF-PROB",
+      "type": "constrains",
+      "source_file": "experimental/notes/thresholds/20260709_q_moment_floor_route_cut/cap25_v13_q_moment_floor_note.md",
+      "source_tag": "DMOM",
+      "quote": "any moment-only proof of the row atom bound"
+    },
+    {
+      "id": "PE-TGT-ATOM",
+      "from": "GF-TARGET",
+      "to": "GF-ATOM",
+      "type": "provides-budget",
+      "source_file": "experimental/grande_finale.tex",
+      "source_tag": "GF",
+      "quote": "the binding Q problem is the Mersenne-31 list row"
+    }
+  ],
+  "speculative_edges": [
+    {
+      "id": "SE-WALL-A0",
+      "from": "H-WALL",
+      "to": "A0",
+      "type": "complementary-decomposition-of-same-A_SP-residual",
+      "label": "ANALYSIS-CONJECTURAL",
+      "rationale": "Hughes's |T|<=H2 free-1 high card and avdeev's charged-row R_D top-seam compiler both bound the KB-MCA Route-D residual toward A_SP<=t*p=e*p, but NO source identifies the free-1 high/|T| object with the charged-row object; the topseam explicitly states it 'does not supersede a full Route-D residual support certificate' (#423). The identification is plausible but unproven."
+    },
+    {
+      "id": "SE-SPPADE",
+      "from": "H-V25",
+      "to": "A2",
+      "type": "apparent-shift-pair-overlap",
+      "label": "ANALYSIS-CONJECTURAL",
+      "rationale": "Hughes's free-1 pairs (f_U-f_V constant) and avdeev's Rule-2 multiplicity-aware SP/Pade shift-pairs (U!=U0 same cell) are both shift-pair structures on the KB-MCA residual, but no source demonstrably identifies them; the overlap is conjectural."
+    },
+    {
+      "id": "SE-CROSSROW-SP",
+      "from": "D-C1024",
+      "to": "A2",
+      "type": "cross-row-planted-shift-pair-analogy",
+      "label": "ANALYSIS-CONJECTURAL",
+      "rationale": "Danny's M31 m=67 even-defect divisor wall has a named 'M31-PLANTED-RESIDUAL-SHIFT-PAIR-INVERSE' incidence route, structurally analogous to avdeev's KB weighted_primitive_sp_pade_bound; but they are different rows (M31 vs KB) and no source links them."
+    }
+  ],
+  "dead_routes": [
+    {
+      "id": "DR-O1",
+      "route": "Any second-moment / r=2 / Cauchy-Schwarz / Fourier-Plancherel bound on max_z (KB-MCA), global or per-stratum",
+      "owner": "holmbuar",
+      "killing_source": "experimental/notes/thresholds/cap25_v13_q_pw2_concentration_floor.md",
+      "source_tag": "O412",
+      "status": "PROVED-DEAD",
+      "margin": "1,045,396.58 bits (p^{w/2} floor)",
+      "quote": "every r=2 route is rigorously dead"
+    },
+    {
+      "id": "DR-O2",
+      "route": "Any uniform L-infinity per-direction bound |e_m(v_t)|<=beta*C (KB-MCA)",
+      "owner": "holmbuar",
+      "killing_source": "experimental/notes/thresholds/cap25_v13_q_em_inverse_participation_ratio.md",
+      "source_tag": "O414",
+      "status": "PROVED-DEAD",
+      "margin": "2,090,815.35 bits (energy dichotomy)",
+      "quote": "the L-infinity route contributes nothing"
+    },
+    {
+      "id": "DR-O3",
+      "route": "Row-indexed keep-one-per-target lift-class removal at cost w*p (the finite-field lift-class cost model)",
+      "owner": "holmbuar",
+      "killing_source": "experimental/notes/thresholds/cap25_v13_liftclass_cost_model_refuted.md",
+      "source_tag": "O417",
+      "status": "REFUTED",
+      "margin": "2^2090812.77 (classes vs t*p)",
+      "quote": "the finite-field lift-class cost model is unpayable"
+    },
+    {
+      "id": "DR-O4",
+      "route": "Anticode fiber cap N_w(z)<=C(n,m-w)/C(m,w) (KB-MCA)",
+      "owner": "holmbuar",
+      "killing_source": "experimental/notes/thresholds/cap25_v13_q_pw2_concentration_floor.md",
+      "source_tag": "O412",
+      "status": "PROVED-DEAD(separate, p-independent)",
+      "margin": "1,717,478.00 bits",
+      "quote": "DEAD (separately"
+    },
+    {
+      "id": "DR-O5",
+      "route": "Frequency-quotient mask (M_quot) alone to fit the masked E_Q budget",
+      "owner": "holmbuar",
+      "killing_source": "experimental/notes/thresholds/cap25_v13_q_eq_masked_participation_ratio.md",
+      "source_tag": "O416",
+      "status": "MEASURED-DEAD(worsens)",
+      "margin": "raises triangle 10.58->11.89",
+      "quote": "frequency-quotient mask alone WORSENS it"
+    },
+    {
+      "id": "DR-D1",
+      "route": "Moment-only / low-order moment proof below r=680397 (M31-list) / r=94196 (KB-MCA)",
+      "owner": "DannyExperiments",
+      "killing_source": "experimental/notes/thresholds/20260709_q_moment_floor_route_cut/cap25_v13_q_moment_floor_note.md",
+      "source_tag": "DMOM",
+      "status": "ROUTE-CUT",
+      "margin": "needs residual mass < 2^-17.835570 at r=100000",
+      "quote": "rules out a class of finite proof shortcuts"
+    },
+    {
+      "id": "DR-D2",
+      "route": "Additive stacking of dyadic Chebyshev fixed-remainder floors (M31-list) without a co-location theorem",
+      "owner": "DannyExperiments",
+      "killing_source": "experimental/notes/thresholds/20260709_m31_chebyshev_fixed_remainder_floor/cap25_v13_m31_chebyshev_fixed_remainder_floor.md",
+      "source_tag": "DCHEB",
+      "status": "ROUTE-CUT(not a counterpacket)",
+      "margin": "no additivity/stacking theorem",
+      "quote": "no additivity/stacking theorem is being"
+    },
+    {
+      "id": "DR-D3",
+      "route": "Multiplicative orbit amplification as a finite solution mechanism (M31-list, L=1)",
+      "owner": "DannyExperiments",
+      "killing_source": "experimental/notes/thresholds/20260709_q_moment_floor_route_cut/cap25_v13_q_moment_floor_note.md",
+      "source_tag": "DMOM",
+      "status": "DEAD",
+      "margin": "full 2^21 orbit only 680397->680390",
+      "quote": "orbit amplification is not a finite solution mechanism"
+    },
+    {
+      "id": "DR-H1",
+      "route": "Ambient L<=70 / small ambient cover (KB Route-D)",
+      "owner": "scottdhughes",
+      "killing_source": "experimental/notes/thresholds/kb_qatom_route_d_STATUS.md",
+      "source_tag": "STATUS",
+      "status": "REFUTED(v40)",
+      "margin": "-",
+      "quote": "small ambient cover"
+    },
+    {
+      "id": "DR-H2",
+      "route": "Small residual-high envelopes |H_R2|<=n / <=floor(n/e) / multi-tier",
+      "owner": "scottdhughes",
+      "killing_source": "experimental/notes/thresholds/kb_qatom_route_d_STATUS.md",
+      "source_tag": "STATUS",
+      "status": "REFUTED(v42-46)",
+      "margin": "max H_R2=952 toy",
+      "quote": "multi-tier confusions"
+    },
+    {
+      "id": "DR-H3",
+      "route": "Unrestricted H_* <= H2 for e>=3",
+      "owner": "scottdhughes",
+      "killing_source": "experimental/notes/thresholds/kb_qatom_route_d_STATUS.md",
+      "source_tag": "STATUS",
+      "status": "REFUTED(v48)",
+      "margin": "p^2 > H2",
+      "quote": "Unrestricted `H_*≤H2`"
+    },
+    {
+      "id": "DR-H4",
+      "route": "Ambient multipad t <= 2e+2",
+      "owner": "scottdhughes",
+      "killing_source": "experimental/notes/thresholds/kb_qatom_route_d_STATUS.md",
+      "source_tag": "STATUS",
+      "status": "REFUTED(v52)",
+      "margin": "-",
+      "quote": "Ambient multipad"
+    },
+    {
+      "id": "DR-H5",
+      "route": "Pack k=17 alone => H2",
+      "owner": "scottdhughes",
+      "killing_source": "experimental/notes/thresholds/kb_qatom_route_d_STATUS.md",
+      "source_tag": "STATUS",
+      "status": "REFUTED(v54)",
+      "margin": "e=3 toys ~ p^2",
+      "quote": "Pack `k=17` alone"
+    },
+    {
+      "id": "DR-H6",
+      "route": "Free-regime / M_m uniqueness tourism",
+      "owner": "scottdhughes",
+      "killing_source": "experimental/notes/thresholds/kb_qatom_route_d_STATUS.md",
+      "source_tag": "STATUS",
+      "status": "REFUTED-BANKED(v8+)",
+      "margin": "-",
+      "quote": "Free-regime / Mm uniqueness tourism"
+    }
+  ]
+}

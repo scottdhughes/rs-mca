@@ -76,3 +76,81 @@ preserved elsewhere, and next action.
   C9/primitive-residual discussion.  Do not promote them as a complete
   safe-side proof without a separate proof that the residual cells are
   exhausted and paid with constants.
+
+### 2026-07-10 - Closed-ledger citation and in-paper proof audits
+
+- **Source:** PRs `#433`, `#435`, `#436`, `#443`, `#449`, and `#450`.
+- **Status:** AUDIT.
+- **Paper impact:** These packets audit the compact asymptotic paper rather
+  than directly changing it.  The main record is:
+  `#433` finds the closed-ledger citations mostly exact but identifies C9
+  source material, B1 normalization, B3 window uniformity, and B4 lower-side
+  collision loss as gaps or bridge obligations; `#435` audits in-paper proofs
+  and reports `8 NO ISSUE / 2 OPEN GAP`; `#436` isolates the B1
+  image-vs-ambient normalization issue; `#443` discharges the window slide for
+  established cells down to single-point closure; `#449` records the
+  target-normalized frontier compiler caveat; `#450` compares the asymptotic
+  crossing against the finite deployed adjacent rows.
+- **Verdict to preserve:** These are promotion/audit inputs.  They support
+  rewriting the paper more carefully, but they do not by themselves prove the
+  remaining C9 / Q / safe-side obligations or any finite deployed adjacent row.
+- **Files preserved elsewhere:** Detailed notes and verifier scripts are under
+  `experimental/notes/`, `experimental/notes/audits/`, and
+  `experimental/scripts/`; JSON certificates live under `experimental/data/`.
+- **Next action:** When revising the paper, use these audits as a checklist:
+  all C9, B1, add-back, lower-side, and finite-vs-asymptotic status labels must
+  remain explicit.
+
+### 2026-07-10 - Proposed TeX repairs held as audit material
+
+- **Source:** PRs `#439`, `#441`, and `#442`.
+- **Status:** PROMOTION CANDIDATE / AUDIT; not applied directly.
+- **Paper impact:** These PRs proposed direct edits to
+  `experimental/asymptotic_rs_mca.tex` and, in `#439`, a regenerated PDF.  The
+  paper files were deliberately not imported.  Their proposed mathematical
+  changes are recorded as follows:
+
+  - `#439` proposes the image-normalized B1/C9 interface: use
+    `L=|im Phi|`, state the safe ambient-to-image moment direction, and keep
+    C9 as an explicit image-normalized input.
+  - `#441` proposes the add-back repair: introduce a profile non-degeneracy
+    condition and make the add-back lemma conditional on it, with a falsifier
+    showing the condition is load-bearing.
+  - `#442` proposes the lower-side reroute: avoid an unproved pole-reservoir
+    collision-loss assertion by routing through the collision-free
+    identity-prefix floor plus the existing list-to-agreement bridge.
+
+- **Verdict to preserve:** All three look useful and should inform the next
+  paper revision, but they must be reconciled with the current
+  `experimental/asymptotic_rs_mca.tex` state and with the later
+  `grande_finale` / v13 raw picture before promotion.
+- **Files preserved elsewhere:** Imported only their notes, data, and verifier
+  scripts:
+  `experimental/notes/audits/asymptotic_b1_image_scale_repair.md`,
+  `experimental/notes/audits/asymptotic_addback_profile_decomposition.md`,
+  `experimental/notes/audits/asymptotic_lowerside_collision_free_reroute.md`,
+  plus matching JSON/script artifacts where present.
+- **Next action:** Prepare a maintainer-authored TeX revision that combines
+  these three repairs coherently rather than applying their diffs piecemeal.
+
+### 2026-07-10 - Literal C9 counterexample and corrected residual target
+
+- **Source:** PR `#444` by avdeevvadim, with related support from `#451`,
+  `#448`, `#447`, and `#446`.
+- **Status:** COUNTEREXAMPLE / AUDIT / EXPERIMENTAL.
+- **Paper impact:** The literal quantitative C9 interface is too broad: `#444`
+  records a counterexample floor showing that the phrase "surviving C1--C8"
+  must be made into an exact residual predicate.  `#451` supplies a strict
+  Frobenius cyclotomic-defect subregime theorem; `#448` reduces the B1 bridge
+  to a signed-`e_m` second-moment problem and records a dead Newton--Girard
+  route; `#447` proves differential-locator/Frobenius-index cell laws; `#446`
+  records extension-field toy instrumentation for the `R>w` wall.
+- **Verdict to preserve:** Do not state a standalone literal C9 theorem in the
+  paper.  State the residual class and paid cells precisely, then use the
+  positive subregime/cell-law results only within their printed hypotheses.
+- **Files preserved elsewhere:** Notes under `experimental/notes/audits/` and
+  `experimental/notes/thresholds/`, with JSON/script artifacts under
+  `experimental/data/` and `experimental/scripts/`.
+- **Next action:** Any C9/Q section should cite this as a specification guard:
+  a corrected theorem must exclude or pay the counterexample family, not assume
+  it away.

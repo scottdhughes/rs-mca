@@ -30,6 +30,39 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-10 - Remaining PR integration: asymptotic audits and threshold packets
+
+- **Agent/model:** holmbuar via PRs #431, #433, #437, #443, #446, #447,
+  #479, and #480; LegaSage via PRs #450, #452, #453, #454, #455, #456,
+  #457, and #458; DannyExperiments via PRs #432, #449, and #451;
+  scottdhughes via PR #448; avdeevvadim via PR #444; latifkasuli via PR #436;
+  Codex for review, selective integration, audit-ledger synthesis, and
+  lightweight checks.
+- **Files added or changed:** Added audit and threshold notes under
+  `experimental/notes/`, `experimental/notes/audits/`,
+  `experimental/notes/m1/`, and `experimental/notes/thresholds/`; certificates
+  and data under `experimental/data/`; verifier scripts under
+  `experimental/scripts/`; updated the paper-audit companion
+  `experimental/asymptotic_rs_mca.md`.
+- **Status:** PROVED / CONDITIONAL / EXPERIMENTAL / AUDIT /
+  COUNTEREXAMPLE.
+- **What is being added:** Integrated the remaining non-paper artifacts around
+  the asymptotic proof audit, B1/image normalization, C9 specification and
+  subregimes, Route-D barrier map, M31/KoalaBear threshold walls, Q-to-SP,
+  BC/tangent/extension/SPI toy audits, L1 petal residuals, and finite-vs-
+  asymptotic frontier checks.
+- **How it is useful:** This batch preserves the proof-review trail without
+  directly editing `experimental/asymptotic_rs_mca.tex` or its PDF.  The
+  imported material identifies concrete paper-revision candidates, hard
+  residual cells, and several route cuts or toy confirmations while keeping
+  deployed adjacent safe rows unclaimed.
+- **What to do next:** Do not promote these notes by copy-paste.  First write a
+  maintainer-authored paper revision using `experimental/asymptotic_rs_mca.md`
+  as the checklist, reconcile the C9/Q residual predicate, and run selected
+  verifier scripts only when their cost is acceptable.  PRs #438, #440, #445,
+  and #434 were reviewed as superseded by later integrated material rather than
+  applied over the newer Lean/threshold files.
+
 ### 2026-07-10 - Asymptotic paper audit ledger and C9 support packets
 
 - **Agent/model:** DannyExperiments via PRs #463 and #464; scottdhughes via

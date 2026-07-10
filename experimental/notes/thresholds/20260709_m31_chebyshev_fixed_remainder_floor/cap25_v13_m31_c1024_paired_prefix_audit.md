@@ -74,10 +74,51 @@ D(eta^2) = 0,
 lambda != 0.
 ```
 
-This is only a necessary odd-core condition. It is not a full support count:
-the full paired-prefix support still has to satisfy the even completion
-equations, including the residual choice of `511` out of the `956` remaining
-antipodal pairs.
+The subsequent square-root audit repairs the orientation layer. Write
+
+```text
+W(Z) = T_1024(2Z - 1).
+```
+
+For the squarefree odd-core branch, the theorem-facing checker is
+
+```text
+D | W,
+D = E^2 - lambda^2 Z,
+deg(E) = 34,
+E monic,
+lambda != 0,
+E(eta^2) = lambda eta.
+```
+
+Equivalently, with `F(Y) = E(Y^2) + lambda Y`, the last condition is the
+oriented sign condition
+
+```text
+F(-eta) = 0.
+```
+
+The weaker condition `D(eta^2) = 0` is not orientation-complete by itself:
+it records that one of the two signs over `eta^2` is present, but it does not
+select the planted sign. Likewise, the congruence
+
+```text
+H^2 == Z D'^2 mod D
+```
+
+is a valid consequence/checker layer only after the degree, divisor,
+squarefree, and orientation hypotheses are imposed. It is not a standalone
+full certificate for an `m=67` support.
+
+The repaired packet convention must also keep the `{-eta, eta}` pair class
+reserved in the `m=67` accounting. Without that convention, a separate
+double-root/tangent branch `-eta in core(S)` is not covered by the squarefree
+divisor wall.
+
+This is an odd-core normal-form and checker statement. It is not a full
+support count: the full paired-prefix support still has to satisfy the even
+completion equations, including the residual choice of `511` out of the `956`
+remaining antipodal pairs.
 
 The surviving named wall is therefore
 
@@ -127,6 +168,10 @@ This note does not prove any of the following.
 - Emptiness of the `m=67` divisor wall.
 - A count of the 32-even-completion layer.
 - A payment of all `m >= 69` non-factor-through defects.
+- Sufficiency of `D(eta^2) = 0` without the oriented sign condition
+  `E(eta^2) = lambda eta`.
+- Sufficiency of the `H^2 == Z D'^2 mod D` congruence without the full
+  degree/divisor/squarefree/orientation hypotheses.
 
 ## Next exact checks
 
@@ -137,3 +182,6 @@ The next useful finite checks are:
    M31 list budget;
 3. extend the odd-core normal form to `m >= 69` and decide whether those
    defects have a common finite payment or need separate named cells.
+4. if the reserved-pair convention cannot be enforced from the source packet,
+   isolate the `-eta in core(S)` double-root/tangent branch as its own finite
+   residual cell.

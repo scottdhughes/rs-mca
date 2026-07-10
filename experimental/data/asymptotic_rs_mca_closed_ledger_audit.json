@@ -1,0 +1,852 @@
+{
+ "schema": "asymptotic-ledger-audit/v1",
+ "title": "Citation-resolution audit of experimental/asymptotic_rs_mca.tex thm:closed-ledger-package",
+ "base_commit": "7d72817",
+ "what_this_is": "A citation-resolution and statement-level-match audit. For each descriptive bracket-citation in the (C1)-(C9) cell paragraphs and the four definitional joints, the actual labeled result in the named source is located (file+line+verbatim head) and classified FOUND-EXACT / FOUND-WEAKER / FOUND-AMBIGUOUS / PHANTOM.",
+ "what_this_is_not": "NOT a re-proof. The internal correctness of the cited proofs is not re-verified. This is collaborative input to the maintainer's own promotion decision; it does not itself promote or block.",
+ "pattern_reference": "experimental/notes/audits/lean_grande_finale_correspondence_audit.md (the house #418 Lean-correspondence audit: FOUND/DIVERGENT/PHANTOM per claim).",
+ "sources": {
+  "paper": "experimental/asymptotic_rs_mca.tex",
+  "Cho26CapV13": "experimental/cap25_cap_v13_raw.tex",
+  "Cho26Grande": "experimental/grande_finale.tex",
+  "fp_span_note": "experimental/notes/thresholds/cap25_v13_entropy_inverse_fp_span_cell.md"
+ },
+ "moduli_manuscripts_absent": {
+  "finding": "FINDING-1",
+  "severity": "promotion-blocking",
+  "cited_bibkeys": [
+   "Cho26ModuliFinal",
+   "Cho26ModuliSelf"
+  ],
+  "cited_titles": [
+   "A Moduli Ledger for RS-MCA",
+   "The Moduli Ledger for the Asymptotic Reed-Solomon MCA Frontier"
+  ],
+  "statement": "No file named *moduli* exists in the tree; the manuscript titles and the distinctive C9 vocabulary appear only inside asymptotic_rs_mca.tex itself. As of eb42b82 the steering (agents.md) itself names experimental/rs_mca_moduli_ledger_final.tex, which is likewise absent.",
+  "distinctive_tokens_only_in_paper": [
+   "major arc",
+   "minor arc",
+   "operational cut",
+   "high-energy fiber",
+   "Moduli Ledger"
+  ],
+  "expected_sole_file": "experimental/asymptotic_rs_mca.tex",
+  "corroboration": "The #418 Lean audit independently flagged that QFourierTao.lean/QEntropyInverse.lean 'cite labels and a manuscript file that exist nowhere in the repo'.",
+  "confirmed_absent_at_base": true,
+  "steering_named_path": "experimental/rs_mca_moduli_ledger_final.tex",
+  "steering_named_path_absent_at": "eb42b82"
+ },
+ "verdict_totals": {
+  "FOUND-EXACT": 48,
+  "FOUND-WEAKER": 3,
+  "FOUND-AMBIGUOUS": 0,
+  "PHANTOM": 3
+ },
+ "verdict_totals_scope": "Tallied over all 54 citation-resolution entries: 51 cell citations (C1-C9) plus joints B1,B3,B4. B2 is a structural mapping (verdict field STRUCTURAL) and is excluded from the 4-way tally.",
+ "cells": [
+  {
+   "cell": "C1",
+   "item": "quotient-remainder lower/support ledger",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "quotient-remainder deep-point lower ledger",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 945,
+   "quote": "quotient-remainder deep-point lower ledger",
+   "verdict": "FOUND-EXACT",
+   "note": "companion floor at L766 'quotient-remainder locator-prefix lower floor'"
+  },
+  {
+   "cell": "C1",
+   "item": "divisor-union support ledger",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "divisor-union quotient support ledger",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 1346,
+   "quote": "divisor-union quotient support ledger",
+   "verdict": "FOUND-EXACT",
+   "note": "exact formula at L1474 'exact divisor-lattice support-union formula'"
+  },
+  {
+   "cell": "C1",
+   "item": "exact finite-parameter quotient-image ledger",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "exact finite-parameter quotient image ledger",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 1872,
+   "quote": "exact finite-parameter quotient image ledger",
+   "verdict": "FOUND-EXACT",
+   "note": "verbatim title match"
+  },
+  {
+   "cell": "C1",
+   "item": "affine/projective lcm ledgers",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "affine lines as the degree-one lcm ledger / exact projective quotient image ledger",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 1914,
+   "quote": "affine lines as the degree-one lcm ledger",
+   "verdict": "FOUND-EXACT",
+   "note": "projective sibling at L1955 'exact projective quotient image ledger'"
+  },
+  {
+   "cell": "C1",
+   "item": "quotient pullback recursion",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "quotient-pullback recursion",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 6684,
+   "quote": "quotient-pullback recursion",
+   "verdict": "FOUND-EXACT",
+   "note": "lem:capf-quot-pullback"
+  },
+  {
+   "cell": "C1",
+   "item": "bounded quotient census",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "bounded quotient census, exact arithmetic certificate",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 5970,
+   "quote": "bounded quotient census, exact arithmetic certificate",
+   "verdict": "FOUND-EXACT",
+   "note": "thm:capf-census"
+  },
+  {
+   "cell": "C1",
+   "item": "first-match convention (Grande)",
+   "cited_source": "Cho26Grande",
+   "resolved_label": "first-match upper ledger",
+   "file": "experimental/grande_finale.tex",
+   "line": 148,
+   "quote": "first-match upper ledger",
+   "verdict": "FOUND-EXACT",
+   "note": "def+lem:first-match-ledger L148/L152"
+  },
+  {
+   "cell": "C1",
+   "item": "quotient status cell (Grande)",
+   "cited_source": "Cho26Grande",
+   "resolved_label": "top-stratum quotient sieve",
+   "file": "experimental/grande_finale.tex",
+   "line": 1268,
+   "quote": "top-stratum quotient sieve",
+   "verdict": "FOUND-EXACT",
+   "note": "Grande isolates quotient status via prop:top-stratum-quotient-sieve + cor:primitive-coeff-exclusion (L1256); the literally-named label 'quotient paid status cell' is def:capf-quotient-status at CapV13 L5838 (provenance annotation, content sound)"
+  },
+  {
+   "cell": "C2",
+   "item": "exact Chebyshev fibers on circle twin-coset domains",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "exact Chebyshev fibers on $x$-coordinate twin-coset domains",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 3957,
+   "quote": "exact Chebyshev fibers on $x$-coordinate twin-coset domains",
+   "verdict": "FOUND-EXACT",
+   "note": "lem:cheb-fibers"
+  },
+  {
+   "cell": "C2",
+   "item": "circle quotient transport",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "torus uniformization of circle codes",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 4010,
+   "quote": "torus uniformization of circle codes",
+   "verdict": "FOUND-EXACT",
+   "note": "transport also at L5339 cor:circle-anyfield; dihedral cells carry no standalone label and are argued to reduce to the same quotient support/image ledgers (paper L114)"
+  },
+  {
+   "cell": "C2",
+   "item": "circle deployed ledgers",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "deployed circle parameters: Mersenne-31 with QM31",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 4083,
+   "quote": "deployed circle parameters: Mersenne-31 with QM31",
+   "verdict": "FOUND-EXACT",
+   "note": "cor:circle-deployed; universal cap at L4049"
+  },
+  {
+   "cell": "C3",
+   "item": "planted quotient profiles",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "dyadic planted quotient profile",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 6010,
+   "quote": "dyadic planted quotient profile",
+   "verdict": "FOUND-EXACT",
+   "note": "def:capf-qprofile"
+  },
+  {
+   "cell": "C3",
+   "item": "planted quotient-core lower counts",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "planted quotient-core lower count",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 6060,
+   "quote": "planted quotient-core lower count",
+   "verdict": "FOUND-EXACT",
+   "note": "thm:capf-planted; verbatim (singular)"
+  },
+  {
+   "cell": "C3",
+   "item": "planted list-budget windows",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "planted list budget windows",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 6207,
+   "quote": "planted list budget windows",
+   "verdict": "FOUND-EXACT",
+   "note": "cor:capf-list-windows; verbatim"
+  },
+  {
+   "cell": "C3",
+   "item": "bounded active quotient order",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "bounded active quotient order",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 6020,
+   "quote": "bounded active quotient order",
+   "verdict": "FOUND-EXACT",
+   "note": "prop:capf-qprofile; verbatim"
+  },
+  {
+   "cell": "C4",
+   "item": "exact high-agreement tangent cell (CapV13)",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "high-agreement tangent exact cell",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 5782,
+   "quote": "high-agreement tangent exact cell",
+   "verdict": "FOUND-EXACT",
+   "note": "def:capf-tangent-cell + prop:capf-tangent L5794"
+  },
+  {
+   "cell": "C4",
+   "item": "tangent-borne split-kernel sections",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "split kernel sections are tangent-borne",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 8902,
+   "quote": "split kernel sections are tangent-borne",
+   "verdict": "FOUND-EXACT",
+   "note": "thm:capg-tangentborne"
+  },
+  {
+   "cell": "C4",
+   "item": "exact high-agreement tangent cell (Grande refine)",
+   "cited_source": "Cho26Grande",
+   "resolved_label": "exact high-agreement tangent cell",
+   "file": "experimental/grande_finale.tex",
+   "line": 481,
+   "quote": "exact high-agreement tangent cell",
+   "verdict": "FOUND-EXACT",
+   "note": "prop:exact-tangent-cell"
+  },
+  {
+   "cell": "C5",
+   "item": "extension-pole deep-list floor",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "extension-pole deep-list floor",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 529,
+   "quote": "extension-pole deep-list floor",
+   "verdict": "FOUND-EXACT",
+   "note": "verbatim"
+  },
+  {
+   "cell": "C5",
+   "item": "quotient-remainder floor (extension)",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "extension-pole quotient-remainder floor",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 574,
+   "quote": "extension-pole quotient-remainder floor",
+   "verdict": "FOUND-EXACT",
+   "note": "verbatim"
+  },
+  {
+   "cell": "C5",
+   "item": "extension-line dimension-degree ledger",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "extension-line dimension--degree ledger",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 2855,
+   "quote": "extension-line dimension--degree ledger",
+   "verdict": "FOUND-EXACT",
+   "note": "verbatim (en-dash)"
+  },
+  {
+   "cell": "C5",
+   "item": "subfield confinement",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "subfield confinement; refines Cho26b",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 3727,
+   "quote": "subfield confinement; refines",
+   "verdict": "FOUND-EXACT",
+   "note": "lem:confine; itself refines Cho26b (Grande)"
+  },
+  {
+   "cell": "C5",
+   "item": "genuinely extension-valued line accounting",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "certifying lines over extensions are genuinely $\\F$-valued",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 3748,
+   "quote": "certifying lines over extensions are genuinely $\\F$-valued",
+   "verdict": "FOUND-EXACT",
+   "note": "cor:Fvalued + cor:circle-Fvalued L4113"
+  },
+  {
+   "cell": "C5",
+   "item": "full-extension cell target (Grande)",
+   "cited_source": "Cho26Grande",
+   "resolved_label": "full-extension cell target",
+   "file": "experimental/grande_finale.tex",
+   "line": 402,
+   "quote": "full-extension cell target",
+   "verdict": "FOUND-EXACT",
+   "note": "prop:extension-cell-target"
+  },
+  {
+   "cell": "C5",
+   "item": "extension-valued rank-one floor (Grande)",
+   "cited_source": "Cho26Grande",
+   "resolved_label": "extension-valued distinct-slope rank-one floor",
+   "file": "experimental/grande_finale.tex",
+   "line": 1546,
+   "quote": "extension-valued distinct-slope rank-one floor",
+   "verdict": "FOUND-EXACT",
+   "note": "prop:rank-one-distinct-slope-floor"
+  },
+  {
+   "cell": "C6",
+   "item": "regular Hankel minors",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "regular closed-range Hankel packing",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 2166,
+   "quote": "regular closed-range Hankel packing",
+   "verdict": "FOUND-EXACT",
+   "note": "certificate at L2131 'regular Hankel minor certificate'"
+  },
+  {
+   "cell": "C6",
+   "item": "canonical exact-agreement rank-drop ledgers",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "canonical exact-agreement rank-drop ledger",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 2240,
+   "quote": "canonical exact-agreement rank-drop ledger",
+   "verdict": "FOUND-EXACT",
+   "note": "verbatim"
+  },
+  {
+   "cell": "C6",
+   "item": "closed-ball rank-drop lcm ledgers",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "closed-ball rank-drop lcm",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 2280,
+   "quote": "closed-ball rank-drop lcm",
+   "verdict": "FOUND-EXACT",
+   "note": "packing at L2302"
+  },
+  {
+   "cell": "C6",
+   "item": "curve rank-drop ledgers",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "canonical curve rank-drop ledger",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 2383,
+   "quote": "canonical curve rank-drop ledger",
+   "verdict": "FOUND-EXACT",
+   "note": "thm; gcd def at L2358"
+  },
+  {
+   "cell": "C6",
+   "item": "arbitrary-residual image ledgers",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "exact arbitrary-residual image ledger",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 3194,
+   "quote": "exact arbitrary-residual image ledger",
+   "verdict": "FOUND-EXACT",
+   "note": "thm:exact-arbitrary-residual-image-ledger"
+  },
+  {
+   "cell": "C6",
+   "item": "scanner residual ledger",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "scanner-checkable residual aperiodic ledger",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 2912,
+   "quote": "scanner-checkable residual aperiodic ledger",
+   "verdict": "FOUND-EXACT",
+   "note": "scanner soundness thm:scanner-sound L4790"
+  },
+  {
+   "cell": "C7",
+   "item": "exact saturation identity",
+   "cited_source": "Cho26Grande",
+   "resolved_label": "exact saturation identity",
+   "file": "experimental/grande_finale.tex",
+   "line": 1811,
+   "quote": "exact saturation identity",
+   "verdict": "FOUND-EXACT",
+   "note": "thm:saturation; verbatim"
+  },
+  {
+   "cell": "C7",
+   "item": "line-ray saturation identity",
+   "cited_source": "Cho26Grande",
+   "resolved_label": "line-ray saturation identity",
+   "file": "experimental/grande_finale.tex",
+   "line": 1867,
+   "quote": "line-ray saturation identity",
+   "verdict": "FOUND-EXACT",
+   "note": "prop:line-ray-saturation; verbatim"
+  },
+  {
+   "cell": "C7",
+   "item": "exact arbitrary-residual image ledger",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "exact arbitrary-residual image ledger",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 3194,
+   "quote": "exact arbitrary-residual image ledger",
+   "verdict": "FOUND-EXACT",
+   "note": "shared with C6"
+  },
+  {
+   "cell": "C7",
+   "item": "closed-ball residual image ledger",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "closed-ball residual exact image after paid-branch removal",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 3231,
+   "quote": "closed-ball residual exact image after paid-branch removal",
+   "verdict": "FOUND-EXACT",
+   "note": "cor:residual-exact-image-after-paid-removal"
+  },
+  {
+   "cell": "C8",
+   "item": "interpolation-lattice split-pencil reduction",
+   "cited_source": "Cho26Grande",
+   "resolved_label": "interpolation-lattice split-pencil reduction",
+   "file": "experimental/grande_finale.tex",
+   "line": 1336,
+   "quote": "interpolation-lattice split-pencil reduction",
+   "verdict": "FOUND-EXACT",
+   "note": "prop:lattice-split; verbatim"
+  },
+  {
+   "cell": "C8",
+   "item": "near-rational payment",
+   "cited_source": "Cho26Grande",
+   "resolved_label": "near-rational lattice dichotomy",
+   "file": "experimental/grande_finale.tex",
+   "line": 1350,
+   "quote": "near-rational lattice dichotomy",
+   "verdict": "FOUND-EXACT",
+   "note": "thm:near-rational + cor:near-rational-line L1381"
+  },
+  {
+   "cell": "C8",
+   "item": "deficiency-one split-test eliminant",
+   "cited_source": "Cho26Grande",
+   "resolved_label": "deficiency-one split-test eliminant",
+   "file": "experimental/grande_finale.tex",
+   "line": 1393,
+   "quote": "deficiency-one split-test eliminant",
+   "verdict": "FOUND-EXACT",
+   "note": "thm:deficiency-one-eliminant; verbatim"
+  },
+  {
+   "cell": "C8",
+   "item": "split annihilator dictionary",
+   "cited_source": "Cho26Grande",
+   "resolved_label": "split annihilator dictionary",
+   "file": "experimental/grande_finale.tex",
+   "line": 1414,
+   "quote": "split annihilator dictionary",
+   "verdict": "FOUND-EXACT",
+   "note": "lem:split-annihilator; verbatim"
+  },
+  {
+   "cell": "C8",
+   "item": "tangent-borne split charts",
+   "cited_source": "Cho26Grande",
+   "resolved_label": "split charts are tangent-borne",
+   "file": "experimental/grande_finale.tex",
+   "line": 1452,
+   "quote": "split charts are tangent-borne",
+   "verdict": "FOUND-EXACT",
+   "note": "prop:split-chart-tangent"
+  },
+  {
+   "cell": "C8",
+   "item": "boundary-profile identification with Q",
+   "cited_source": "Cho26Grande",
+   "resolved_label": "the boundary profile is Q",
+   "file": "experimental/grande_finale.tex",
+   "line": 1475,
+   "quote": "the boundary profile is Q",
+   "verdict": "FOUND-EXACT",
+   "note": "prop:boundary-q"
+  },
+  {
+   "cell": "C8",
+   "item": "base-field split-pencil floor",
+   "cited_source": "Cho26Grande",
+   "resolved_label": "interior base-field split-pencil floor",
+   "file": "experimental/grande_finale.tex",
+   "line": 1494,
+   "quote": "interior base-field split-pencil floor",
+   "verdict": "FOUND-EXACT",
+   "note": "prop:base-field-floor"
+  },
+  {
+   "cell": "C8",
+   "item": "one-parameter moving-root theorem",
+   "cited_source": "Cho26Grande",
+   "resolved_label": "moving-root bound for one-parameter split pencils",
+   "file": "experimental/grande_finale.tex",
+   "line": 1735,
+   "quote": "moving-root bound for one-parameter split pencils",
+   "verdict": "FOUND-EXACT",
+   "note": "thm:bc-moving-root"
+  },
+  {
+   "cell": "C8",
+   "item": "primitive one-pencil corollary",
+   "cited_source": "Cho26Grande",
+   "resolved_label": "BC is settled on primitive one-parameter locator pencils",
+   "file": "experimental/grande_finale.tex",
+   "line": 1764,
+   "quote": "BC is settled on primitive one-parameter locator pencils",
+   "verdict": "FOUND-EXACT",
+   "note": "cor:bc-one-pencil"
+  },
+  {
+   "cell": "C8",
+   "item": "balanced-core reduction (CapV13)",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "Rank-one and split-pencil reduction of the safe side (section) / Split-pencil form of the balanced core",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 7627,
+   "quote": "Rank-one and split-pencil reduction of the safe side",
+   "verdict": "FOUND-EXACT",
+   "note": "sec:capfr1-programme; balanced-core subsection at L8401 'Split-pencil form of the balanced core'"
+  },
+  {
+   "cell": "C8",
+   "item": "split-pencil reduction (CapV13)",
+   "cited_source": "Cho26CapV13",
+   "resolved_label": "near-rational dichotomy / intermediate split-pencil package",
+   "file": "experimental/cap25_cap_v13_raw.tex",
+   "line": 7916,
+   "quote": "near-rational dichotomy",
+   "verdict": "FOUND-EXACT",
+   "note": "thm:capfr1-near-rational-dichotomy + cor:capfr1-terminal-package L8037"
+  },
+  {
+   "cell": "C9",
+   "item": "Fourier-flat leaves satisfy asymptotic Q",
+   "cited_source": "Cho26Grande",
+   "resolved_label": "Fourier-flat leaves satisfy asymptotic Q",
+   "file": "experimental/grande_finale.tex",
+   "line": 916,
+   "quote": "Fourier-flat leaves satisfy asymptotic Q",
+   "verdict": "FOUND-EXACT",
+   "note": "thm:fourier-flat-q; leaf def at L896. See joint B1 for the normalization gap."
+  },
+  {
+   "cell": "C9",
+   "item": "large-characteristic Fourier examples",
+   "cited_source": "Cho26Grande",
+   "resolved_label": "large-characteristic Fourier examples",
+   "file": "experimental/grande_finale.tex",
+   "line": 949,
+   "quote": "large-characteristic Fourier examples",
+   "verdict": "FOUND-EXACT",
+   "note": "cor:large-characteristic-fourier-examples; verbatim"
+  },
+  {
+   "cell": "C9",
+   "item": "Sidon/Fourier operational cut",
+   "cited_source": "Cho26ModuliFinal+Cho26ModuliSelf",
+   "resolved_label": "(no in-tree source)",
+   "file": null,
+   "line": null,
+   "quote": null,
+   "verdict": "PHANTOM",
+   "note": "Cited manuscripts absent from repository (FINDING-1). def:sidon-paid (paper L196) restates the cut in-paper, but the operational-cut result is attributed to the missing moduli notes."
+  },
+  {
+   "cell": "C9",
+   "item": "split between Sidon-heavy and high-energy fibers",
+   "cited_source": "Cho26ModuliFinal+Cho26ModuliSelf",
+   "resolved_label": "(no in-tree source)",
+   "file": null,
+   "line": null,
+   "quote": null,
+   "verdict": "PHANTOM",
+   "note": "Cited manuscripts absent. The in-paper prop:energy-extract (L202) performs the split, but the cited authority is missing."
+  },
+  {
+   "cell": "C9",
+   "item": "major arcs route to algebraic cells / minor arcs Fourier-flat",
+   "cited_source": "Cho26ModuliFinal+Cho26ModuliSelf",
+   "resolved_label": "(no in-tree source)",
+   "file": null,
+   "line": null,
+   "quote": null,
+   "verdict": "PHANTOM",
+   "note": "Cited manuscripts absent. This routing claim is the load-bearing payment of def:sidon-paid (which prop:energy-extract and thm:primitive-q depend on); it is asserted at paper L200 but proved nowhere in-tree."
+  }
+ ],
+ "joints": [
+  {
+   "joint": "B1",
+   "name": "NORMALIZATION",
+   "verdict": "FOUND-WEAKER",
+   "paper_object": {
+    "label": "def:primitive-leaf (barN=M/L, L=|im Phi|)",
+    "file": "experimental/asymptotic_rs_mca.tex",
+    "line": 157,
+    "quote": "\\barN=M/L"
+   },
+   "cited_source_object": {
+    "label": "thm:fourier-flat-q proves the bound normalized by Q^{-w} (ambient E^w)",
+    "file": "experimental/grande_finale.tex",
+    "line": 922,
+    "quote": "Q^{-w}\\binom Nm"
+   },
+   "companion": {
+    "label": "prob:entropy-inverse-q normalizes by |K|^R; def:primitive-logmoment by |B|^{-w}",
+    "file": "experimental/grande_finale.tex",
+    "line": 827,
+    "quote": "primitive entropic inverse theorem for Vandermonde slice sums"
+   },
+   "resolution": "The cited Fourier-flat Q section proves Q in the AMBIENT (Q^w = q^R-type) normalization, not the image normalization the paper's leaf uses.",
+   "missing_lemma": "A printed bridge: |im Phi| = |K|^R * exp(o(N)) uniformly in the frontier window (equivalently, log(M/L) and log(M/|K|^R) differ by o(N)). Not printed; implicit.",
+   "fp_span_corroboration": {
+    "file": "experimental/notes/thresholds/cap25_v13_entropy_inverse_fp_span_cell.md",
+    "line": 346,
+    "quote": "-Theta(N log N)"
+   }
+  },
+  {
+   "joint": "B2",
+   "name": "CELLS-vs-REMOVAL-LIST",
+   "verdict": "STRUCTURAL",
+   "removal_list_object": {
+    "label": "prob:entropy-inverse-q L839 removal list (7 items)",
+    "file": "experimental/grande_finale.tex",
+    "line": 839,
+    "quote": "quotient pullbacks, Chebyshev/dihedral pullbacks, planted common blocks, tangent cells, extension cells, differential-locator low-defect cells, and saturation cells"
+   },
+   "companion_list_object": {
+    "label": "def:frontier-mca-sequence residual-leaf list (adds split-pencil)",
+    "file": "experimental/grande_finale.tex",
+    "line": 2232,
+    "quote": "quotient, planted, tangent, extension, Chebyshev, differential-locator, saturation, and split-pencil"
+   },
+   "mapping": {
+    "quotient pullbacks": "C1",
+    "Chebyshev/dihedral pullbacks": "C2",
+    "planted common blocks": "C3",
+    "tangent cells": "C4",
+    "extension cells": "C5",
+    "differential-locator low-defect cells": "C6",
+    "saturation cells": "C7"
+   },
+   "new_top_level_cells": {
+    "C8": "balanced-core/split-pencil (absent from L839; present in def:frontier-mca-sequence L2232)",
+    "C9": "Fourier/Sidon (absent from BOTH grande removal lists; the moduli-manuscript cell)"
+   },
+   "orphan_removal_items": "none (all 7 L839 items map to C1-C7)"
+  },
+  {
+   "joint": "B3",
+   "name": "WINDOW-UNIFORMITY",
+   "verdict": "FOUND-WEAKER",
+   "paper_assumption": {
+    "label": "thm:frontier assumes ledger holds uniformly in every o(n)-window",
+    "file": "experimental/asymptotic_rs_mca.tex",
+    "line": 136,
+    "quote": "uniformly in every"
+   },
+   "cited_source_object": {
+    "label": "grande's own closure theorem makes window-uniformity an explicit hypothesis",
+    "file": "experimental/grande_finale.tex",
+    "line": 2302,
+    "quote": "if the same hypotheses hold uniformly for agreements"
+   },
+   "resolution": "Per-cell ledgers (e.g. thm:capf-census, thm:capf-planted, def:primitive-logmoment) are stated at a FIXED agreement m=k+1+w, not uniformly over an o(n)-window. Window-uniformity is an undischarged assumption -- carried identically in the paper and in grande's thm:asymptotic-rs-mca-closure-combined; neither discharges it.",
+   "missing_lemma": "A window-uniform restatement of the per-cell budgets (or explicit acknowledgement that the assumption is imported verbatim from grande, where it is equally a hypothesis)."
+  },
+  {
+   "joint": "B4",
+   "name": "LOWER-SIDE",
+   "verdict": "FOUND-WEAKER",
+   "paper_object": {
+    "label": "identity-prefix pole construction; 'subexponential in the standard pole-reservoir regime'",
+    "file": "experimental/asymptotic_rs_mca.tex",
+    "line": 283,
+    "quote": "the standard pole-reservoir regime"
+   },
+   "cited_source_object": {
+    "label": "grande prop:pole-line (same f_alpha,g_alpha,ell_S(alpha)) -- flags but does not bound the collision loss",
+    "file": "experimental/grande_finale.tex",
+    "line": 599,
+    "quote": "up to collisions in the displayed evaluation map"
+   },
+   "collision_free_alternative": {
+    "label": "cap_v13 lem:capff1-identity-prefix-floor achieves the SAME numerator via an injective (loss-free) map",
+    "file": "experimental/cap25_cap_v13_raw.tex",
+    "line": 6909,
+    "quote": "identity-scale prefix floor"
+   },
+   "reservoir_floor": {
+    "label": "grande thm:simple-pole-list-floor bounds collisions among L list codewords via the reservoir F\\D",
+    "file": "experimental/grande_finale.tex",
+    "line": 243,
+    "quote": "quantitative simple-pole list-to-MCA floor"
+   },
+   "resolution": "The construction is FOUND-EXACT (prop:pole-line, verbatim). But 'pole-reservoir regime' appears in NO source, and no source bounds the collision loss of the pole map S -> ell_S(alpha) at the frontier support-family scale; prop:pole-line explicitly defers it, and the collision-FREE route (lem:capff1-identity-prefix-floor + deep-point conversion) is a different, injective construction.",
+   "missing_lemma": "A printed subexponential bound on the fibers of S -> ell_S(alpha) for S in Fib_w(z) at the frontier scale, OR a citation redirect to the injective identity-prefix floor + deep-point conversion as the actual source of the exp(-o(n)) lower bound."
+  }
+ ],
+ "external_tools": [
+  {
+   "tool": "BSG",
+   "paper_statement": {
+    "file": "experimental/asymptotic_rs_mca.tex",
+    "line": 214,
+    "quote": "Balog--Szemeredi--Gowers"
+   },
+   "verdict": "MATCHES-STANDARD",
+   "note": "Energy form: E(A) >= |A|^3/K yields A' with |A'| >= K^{-C}|A|, |A'-A'| <= K^C|A'|, C absolute. Standard BSG/Gowers energy statement. Not re-proved."
+  },
+  {
+   "tool": "quasicube",
+   "paper_statement": {
+    "file": "experimental/asymptotic_rs_mca.tex",
+    "line": 218,
+    "quote": "|P|^{1/2}|Q|^{1/2}|U|"
+   },
+   "verdict": "MATCHES-STANDARD",
+   "note": "MRSZ2020/GMRSZ2020 form: U subset {0,1}^d gives |P+Q+U| >= |P|^{1/2}|Q|^{1/2}|U| for finite nonempty P,Q subset Z^d. Standard. Not re-proved."
+  },
+  {
+   "tool": "quasicube_derivation",
+   "paper_statement": {
+    "file": "experimental/asymptotic_rs_mca.tex",
+    "line": 225,
+    "quote": "with \\(U=A\\), \\(P=-A\\), and \\(Q=\\{0\\}\\)"
+   },
+   "verdict": "VALID",
+   "note": "Pure logic, verified here: P=-A (|P|=|A|), Q={0} (|Q|=1), U=A (|U|=|A|); P+Q+U = A-A; RHS = |A|^{1/2}*1^{1/2}*|A| = |A|^{3/2}. Hence |A-A| >= |A|^{3/2}. Hypotheses U subset {0,1}^N, P,Q subset Z^N finite nonempty all met."
+  }
+ ],
+ "quasicube_check": {
+  "a_values": [
+   1,
+   2,
+   4,
+   9,
+   16,
+   100,
+   1000
+  ],
+  "P_size_factor": 1.0,
+  "Q_size": 1,
+  "U_size_factor": 1.0,
+  "target_exponent": 1.5,
+  "witness": {
+   "A": [
+    0,
+    1
+   ],
+   "A_minus_A": [
+    -1,
+    0,
+    1
+   ],
+   "A_minus_A_size": 3,
+   "bound": 2.8284271247461903
+  }
+ },
+ "promotion_readiness": {
+  "C1": "CLEAN",
+  "C2": "CLEAN",
+  "C3": "CLEAN",
+  "C4": "CLEAN",
+  "C5": "CLEAN",
+  "C6": "CLEAN",
+  "C7": "CLEAN",
+  "C8": "CLEAN",
+  "C9": "BLOCKED-BY-MISSING-SOURCE",
+  "B1": "NEEDS: printed image=ambient(q^R) normalization bridge lemma (|im Phi| = |K|^R exp(o(N)) in-window)",
+  "B2": "CLEAN",
+  "B3": "NEEDS: window-uniform restatement of per-cell budgets, or explicit import of grande's uniform hypothesis",
+  "B4": "NEEDS: printed pole-map collision-loss bound at frontier scale, or citation redirect to the injective identity-prefix floor"
+ },
+ "nonclaims": [
+  "Internal correctness of any cited proof was NOT re-verified.",
+  "The BSG and quasicube literature theorems were NOT re-proved; only their stated forms were matched to standard statements (the quasicube boolean-difference derivation was verified as pure logic).",
+  "No judgement is made on whether the missing moduli manuscripts, if supplied, would close C9 -- only that they are absent from the tree.",
+  "This audit does not promote or block; it is collaborative input to the maintainer's promotion decision."
+ ],
+ "steering_alignment": {
+  "steering_commit": "eb42b82",
+  "mandate": "agents.md (eb42b82) priority 2 mandates adversarial proof audits ending in NO ISSUE / FIXED / OPEN GAP / COUNTEREXAMPLE_NEW_FLOOR with exact file/label references; this packet is that audit class for the citation layer.",
+  "mandated_vocab_totals": {
+   "NO_ISSUE": 51,
+   "FIXED": 0,
+   "OPEN_GAP": 6,
+   "COUNTEREXAMPLE_NEW_FLOOR": 0
+  },
+  "no_issue_composition": "48 FOUND-EXACT cell citations + B2 structural map + BSG statement match + quasicube statement-and-derivation check",
+  "open_gap_composition": "3 PHANTOM C9 citations (moduli manuscripts absent; steering-named experimental/rs_mca_moduli_ledger_final.tex not in tree at eb42b82) + B1 normalization bridge + B3 window uniformity + B4 lower-side collision loss",
+  "failure_mode_map": [
+   {
+    "mode": "missing cell in the bad-line classification",
+    "verdict": "NO ISSUE",
+    "where": "B2: L839 removal list maps onto C1-C8 with no orphan"
+   },
+   {
+    "mode": "incorrect first-match disjointization",
+    "verdict": "NOT ATTACKED HERE",
+    "where": "lem:first-match internal proof out of citation-audit scope"
+   },
+   {
+    "mode": "wrong field denominator or base/extension-field ledger",
+    "verdict": "OPEN GAP",
+    "where": "B1: image-normalized N-bar vs |K|^R-normalized def:primitive-logmoment; bridge lemma absent"
+   },
+   {
+    "mode": "unsupported Fourier/Sidon payment",
+    "verdict": "OPEN GAP",
+    "where": "FINDING-1: both cited moduli manuscripts absent from the tree"
+   },
+   {
+    "mode": "misuse of BSG or quasicube growth",
+    "verdict": "NO ISSUE",
+    "where": "statements match the literature; the boolean-difference derivation is verified"
+   },
+   {
+    "mode": "entropy-frontier algebra error",
+    "verdict": "NOT ATTACKED HERE",
+    "where": "Stirling/frontier algebra out of citation-audit scope"
+   },
+   {
+    "mode": "mismatch between asymptotic proof and finite deployed rows",
+    "verdict": "PARTIAL",
+    "where": "the paper's own Remark scopes finite rows out; nearest audited joint = B3 window uniformity (OPEN GAP)"
+   }
+  ]
+ }
+}
