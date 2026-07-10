@@ -65,20 +65,30 @@ The tail bound reduces to a clean per-`d` estimate. Using the Vandermonde identi
     **if `D_d <= C(N,d) C(N-d,d) Q^{-w} exp(o(N))` for every `d > w`, then `tail <= flat * exp(o(N))`** (B1).
 The per-`d` ratio `r_d := D_d / (C(N,d) C(N-d,d) Q^{-w})` is the object; `r_d = e^{o(N)}` for all `d>w` closes it.
 
-**Anchors and verification (`b1_tail_per_d.py`):**
-- **`d <= w`: `D_d = 0`** (machine-checked `pte_rigidity` / T6) — the tail starts at `d = w+1`.
-- **`d = w+1` (the smallest, hardest): `D_{w+1} <= 30 C(N,w+1)`** — the b2 result T12 (`E_{w+1} = 2*#{U:
-  |U|=2(w+1), Qhat^2-P_U perfect square}`, each degree-`(w+1)` locator has `<= n/(w+1)` full fibers).
-- **`r_d = O(1)` UNIFORMLY across `d > w`, `-> 1` in the dense window** (verified: at `mean = 18.1`,
-  `r_d in [0.33, 1.09]`; the dominant middle `d` sits at `r_d ~ 1.0`). `Gamma_2/flat = 2.09, 1.53, 1.06`
-  for `mean = 1.37, 3.2, 18.1` — converging to 1.
+**The object is the DISJOINT count, not the fiber energy.** `D_d` counts *ordered disjoint* PTE pairs
+`(A,B)`, `|A|=|B|=d`, `A cap B = empty`, matching `p_1..p_w`. This is NOT the diagonal-inclusive fiber
+energy `D_d^{all} = (1/Q^w)(C(N,d)^2 + sum_{c!=0}|e_d(v_c)|^2)`: the two differ by the `A=B` diagonal (and
+partial overlaps). The distinction is decisive in the SPARSE regime `Q^w > C(N,d)`, where `D_d^{all}` is
+diagonal-DOMINATED (`D_d^{all} ~ C(N,d) >> exp_d`) so a `sum_{c!=0}|e_d|^2 <= C(N,d)^2` bound is simply
+FALSE there. The disjoint `D_d` carries no diagonal and stays generic in both regimes.
 
-**The remaining rigorous step, in its cleanest form.** By Parseval on `d`-subsets,
-`D_d^{all} = (1/Q^w)(C(N,d)^2 + sum_{c!=0}|e_d(v_c)|^2)` and `D_d <= D_d^{all}`, so the per-`d` bound is
-    **`sum_{c != 0} |e_d(v_c)|^2 <= C(N,d)^2 exp(o(N))`  for every `d`**
-— the `s = 1` (second-moment) rung of the signed-`e_d` moment ladder, uniform in `d`. This is DECOUPLED from
-and strictly weaker than the `s = infinity` (max-fiber / sup) crux and the `s = 2` (participation-ratio,
-#434) crux: it asks only that the signed `e_d` spectrum has near-flat SECOND moment. It is the natural target
-for the moment law (b2 T5, `E_c|pi_r|^{2s} <= (2s-1)!! n^s`) fed through Newton-Girard, or a Lang-Weil count on
-the PTE variety with the coset stratum (which is `exp(o(N))`) removed. Base `d<=w` machine-checked; `d=w+1`
-anchored by T12; `r_d = O(1)` verified across the window; the general-`d` `s=1` rung is the concrete open piece.
+**Anchors and verification (`b1_tail_per_d.py`; interior-crossover run `p=101,n=20,m=10,w=2`, `Q^w=10201`):**
+- **`d <= w`: `D_d = 0`** (machine-checked `pte_rigidity` / T6) — the tail starts at `d = w+1`.
+- **`d = w+1` (the smallest): `D_{w+1} <= 30 C(N,w+1)`** — the b2 result T12, an ABSOLUTE ceiling
+  (`E_{w+1} = 2*#{U: |U|=2(w+1), Qhat^2-P_U perfect square}`, each degree-`(w+1)` locator has `<= n/(w+1)`
+  full fibers). It is generically LOOSE: measured `D_3 = 80` vs the T12 ceiling `30*C(20,3)=34200`.
+- **`r_d = D_d/exp_d ~ 1` UNIFORMLY across ALL `d>w`, sparse AND dense** — the key correction. Measured
+  `r_d`: `d=3` (sparse, `C=1140<Q^w`) `1.053`; `d=4` (sparse, `C=4845<Q^w`) `1.087`; `d=5..9` (dense)
+  `1.00, 0.97, 1.01, 1.04, 1.04`; `d=10` (extreme, `exp_d=18`) `0.33` (small-count noise). No sparse/dense
+  break — the disjoint count is generic throughout. `Gamma_2(tail)/flat = 1.0078`.
+
+**The remaining rigorous step, corrected.** The per-`d` target is the DISJOINT PTE-pair count law
+    **`D_d = C(N,d) C(N-d,d) Q^{-w} (1 + o(1))`  for every `d > w`**  (equivalently `r_d = e^{o(N)}`),
+which is a Lang–Weil / moment-map equidistribution for `w` power-sum constraints on *disjoint* `d`-subsets —
+the generic count `C(N,d)C(N-d,d)Q^{-w}` plus a coset-structured over-count that is lower order and absolutely
+capped by the T12 rigidity ceiling (`D_{w+1} <= 30 C(N,w+1)`, generalizing to `D_d <= (structured) C(N,d)`).
+Because the disjoint constraint removes the diagonal, this is a genuine variety count and holds UNIFORMLY in
+`d` (verified above), unlike the diagonal-contaminated `sum|e_d|^2`. It remains a SECOND-moment statement,
+decoupled from and strictly weaker than the `s=infinity` (max-fiber / sup) and `s=2` (participation-ratio,
+#434) cruxes. Base `d<=w` machine-checked; `d=w+1` ceiling from T12; `r_d ~ 1` verified across sparse+dense;
+the uniform-in-`d` disjoint-count equidistribution is the concrete open piece.

@@ -7,8 +7,11 @@ since sum_d C(N-2d,m-d) C(N,d) C(N-d,d) = C(N,m)^2 (Vandermonde). This script co
   D_d      = # ordered disjoint (A,B), |A|=|B|=d, p_j(A)=p_j(B) for j<=w   (the PTE-pair count),
   exp_d    = C(N,d) C(N-d,d) / Q^w   (expected),  ratio r_d = D_d / exp_d   (want bounded ~ 1),
   and the contribution share of C(N-2d,m-d) D_d to Gamma_2, confirming Gamma_2/flat ~ 1 with no anomalous d.
-T6 (pte_rigidity) => D_d = 0 for 1<=d<=w (shown). T12 (b2) => D_{w+1} <= 30 C(N,w+1). Here we check r_d
-stays O(1) across all d>w in the DENSE window -- the numerical content of the tail bound.
+T6 (pte_rigidity) => D_d = 0 for 1<=d<=w (shown). T12 (b2) => D_{w+1} <= 30 C(N,w+1) (an absolute, generically
+LOOSE, ceiling). KEY: D_d is the DISJOINT count (no A=B diagonal); it stays generic (r_d ~ 1) in BOTH the
+sparse regime Q^w > C(N,d) and the dense regime -- unlike the diagonal-inclusive fiber energy D_d^all, which
+is diagonal-DOMINATED when sparse (so a sum_{c!=0}|e_d|^2 <= C(N,d)^2 bound is false there). We tag each d
+sparse/dense and confirm r_d ~ 1 across all d>w -- the numerical content of the tail bound.
 """
 from __future__ import annotations
 import math
@@ -53,9 +56,10 @@ def run(p, n, m, w):
         contr = math.comb(n - 2 * d, m - d) * Dd
         G2 += contr
         contribs[d] = contr
-        tag = "  <- T6: D_d=0" if 1 <= d <= w and Dd == 0 else ("  <- T12 anchors" if d == w + 1 else "")
+        reg = "SPARSE" if math.comb(n, d) < Q ** w else "dense "
+        tag = "  <- T6: D_d=0" if 1 <= d <= w and Dd == 0 else ("  <- T12 ceiling" if d == w + 1 else "")
         if Dd > 0 or d <= w + 1:
-            print(f"    {d:2d}: {Dd:8d}   {expd:12.2f}          {rd:7.3f}       {contr:12d}{tag}")
+            print(f"    {d:2d}[{reg}]: {Dd:8d}   {expd:12.2f}          {rd:7.3f}       {contr:12d}{tag}")
     print(f"    => Gamma2={G2}, Gamma2/flat={G2/flat:.4f}; max_d>w r_d bounded => tail <= flat*e^o(N).")
     # dominant d
     dom = max(contribs, key=contribs.get)
@@ -67,9 +71,10 @@ def main():
     for (p, n, m, w) in [(97, 16, 8, 2), (241, 20, 10, 2), (101, 20, 10, 2), (61, 18, 9, 2)]:
         if (p - 1) % n or not sympy.isprime(p): continue
         run(p, n, m, w)
-    print("\n# T6 zeros the d<=w rows; T12 caps d=w+1; the r_d>w stay O(1) => the d>w tail is flat*e^{o(N)}.")
-    print("# The general-d bound D_d <= exp_d * e^{o(N)} is the remaining rigorous step (generic count +")
-    print("#   lower-order coset correction); this confirms its numerical content across the dense window.")
+    print("\n# T6 zeros the d<=w rows; T12 gives an absolute (loose) ceiling at d=w+1; the disjoint r_d stay")
+    print("#   ~1 across ALL d>w -- SPARSE and dense alike -- so the d>w tail is flat*e^{o(N)}. The remaining")
+    print("#   rigorous step is the uniform-in-d DISJOINT-count law D_d = C(N,d)C(N-d,d)Q^{-w}(1+o(1)) (Lang-")
+    print("#   Weil equidistribution of w power-sum constraints on disjoint d-subsets + T12-capped coset term).")
 
 
 if __name__ == "__main__":
