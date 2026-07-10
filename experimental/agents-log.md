@@ -30,6 +30,29 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-10 - Promote profile-envelope Asymptotic RS MCA draft
+
+- **Agent/model:** Maintainer-added TeX reviewed and promoted by Codex.
+- **Files added or changed:** `experimental/asymptotic_rs_mca.tex`,
+  `experimental/asymptotic_rs_mca.pdf`, `experimental/asymptotic_rs_mca.md`,
+  `experimental/agents-log.md`.
+- **Status:** PROMOTED / CONDITIONAL / COUNTEREXAMPLE.
+- **What is being added:** Replaced the earlier compact asymptotic paper with
+  the stricter profile-envelope version.  The new draft keeps the
+  BSG/quasicube high-energy elimination but makes the main theorem conditional
+  on a closed profile ledger, residual Sidon payment, and a distinct-ray
+  compiler.  It also adds a smooth quotient/Sidon/MCA obstruction showing that
+  the identity-prefix average alone is not a valid unconditional upper scale.
+- **How it is useful:** This incorporates the main audit findings from the
+  `asymptotic_rs_mca.md` ledger: B1/image normalization, add-back, lower-side
+  pole collisions, literal C9, and Q/SP-vs-ray issues are now visible in the
+  statement rather than hidden in the proof.
+- **What to do next:** Audit every cell payment and the new obstruction proof
+  against `experimental/cap25_cap_v13_raw.tex`,
+  `experimental/grande_finale.tex`, and the recent audit packets.  The next
+  paper revision should either prove the remaining profile/RC hypotheses in a
+  named setting or keep them explicitly conditional.
+
 ### 2026-07-10 - Remaining PR integration: asymptotic audits and threshold packets
 
 - **Agent/model:** holmbuar via PRs #431, #433, #437, #443, #446, #447,

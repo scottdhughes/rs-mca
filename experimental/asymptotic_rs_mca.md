@@ -18,6 +18,34 @@ preserved elsewhere, and next action.
 
 ## Entries
 
+### 2026-07-10 - Promoted profile-envelope replacement draft
+
+- **Source:** Maintainer-added `experimental/asymptotic_rs_mca (1).tex`,
+  reviewed against the audit findings below.
+- **Status:** PROMOTED / CONDITIONAL / COUNTEREXAMPLE.
+- **Paper impact:** The new draft was promoted to
+  `experimental/asymptotic_rs_mca.tex` and compiled to
+  `experimental/asymptotic_rs_mca.pdf`.  It supersedes the earlier compact
+  identity-frontier proof.  The replacement keeps the high-energy
+  BSG/quasicube elimination, but changes the main theorem to a conditional
+  profile-envelope compiler.
+- **What changed:** The paper now explicitly includes the profile envelope
+  `Eprof`, identity-dominance as a separate specialization, a direct ray
+  compiler condition `RC`, the image/Sidon residual payment, and the
+  collision-aware identity lower bound.  It also adds a smooth quotient /
+  Sidon / MCA obstruction showing that smoothness and `log |B| = o(n)` do not
+  imply an identity-normalized Sidon payment or identity-scale numerator bound.
+- **Audit resolution:** This directly addresses the audit ledger concerns from
+  PRs `#439`, `#441`, `#442`, and `#444`: B1/image normalization is no longer
+  hidden, add-back is stated through residual-to-full profile comparison,
+  lower-side pole collisions use the collision-aware identity lower bound, and
+  literal C9 is replaced by an explicitly routed Sidon/residual condition.
+- **Next action:** Audit the new obstruction proof and the profile-envelope
+  theorem statement line by line against `cap25_cap_v13_raw.tex`,
+  `grande_finale.tex`, and the imported audit packets.  In particular, check
+  that every claimed cell payment is cited at the right natural profile scale
+  and that `RC` is not silently inferred from support-pair estimates.
+
 ### 2026-07-10 - Initial audit policy for paper-level PR changes
 
 - **Source:** Maintainer instruction during open-PR integration.

@@ -36,17 +36,19 @@
 \newcommand{\Gord}{\Gamma^{\rm ord}}
 \newcommand{\Gsid}{\Gamma^{\rm sid}}
 \newcommand{\barN}{\overline N}
+\newcommand{\Eprof}{\mathfrak E}
 \newcommand{\eps}{\varepsilon}
 \newcommand{\abs}[1]{\lvert #1\rvert}
 \newcommand{\defeq}{\coloneqq}
 
 \title{Asymptotic RS MCA}
 \date{}
+\hypersetup{pdftitle={Asymptotic RS MCA}}
 
 \begin{document}
 
 \begin{abstract}
-We give a compact proof of the asymptotic Reed--Solomon mutual-correlated-agreement frontier from the paid ledger developed in the v13 raw and Grande Finale manuscripts.  The proof reduces the remaining primitive prefix problem to a fixed-density Boolean slice mapped by Vandermonde moments.  After the Fourier/Sidon cell is paid, any positive logarithmic moment excess gives a large high-energy Boolean fiber.  Balog--Szemeredi--Gowers and quasicube difference growth forbid such a fiber, so primitive Q holds with only \(\exp(o(n))\) loss.  Combined with the identity-prefix lower construction, every smooth row sequence covered by the closed ledger has threshold \(1-\rho-g^*(\rho,\log_2|\B|)+o(1)\).  The closed-ledger package is stated explicitly, with the individual cell payments cited to the existing ledgers.
+We give a conditional asymptotic Reed--Solomon mutual-correlated-agreement compiler from a first-match profile ledger.  After quotient, planted, and other algebraic profiles have been routed, Balog--Szemeredi--Gowers and quasicube growth eliminate the high-energy branch of the primitive prefix problem, provided its Sidon-heavy branch is paid separately.  We construct smooth rows with \(\log|\B_n|=O(\log n)=o(n)\) having an exponentially large Sidon-heavy square-quotient prefix fiber at the identity crossing and, after scalar extension, exponentially many distinct MCA-bad slopes.  The construction persists after stabilizer deletion, while its periodic form transfers to standard circle codes.  Consequently the frontier theorem must use the full profile envelope, a Sidon payment on the routed primitive residual, and a distinct-ray compiler; the identity formula is recovered only under explicit identity-dominance and target-reserve hypotheses.
 \end{abstract}
 
 \maketitle
@@ -62,20 +64,82 @@ For \(a\in\{0,\ldots,n\}\), a finite slope \(\gamma\in\F\) is support-wise MCA-b
         B_C^{\rm MCA}(a)
         =\max_{r_1,r_2}\#\{\gamma\in\F:\gamma\text{ is MCA-bad at agreement }a\}.
 \]
-Then \(\eps_{\rm mca}(C,1-a/n)=B_C^{\rm MCA}(a)/q_{\rm line}\), where \(q_{\rm line}\) is the line-slope field used by the MCA sampler.  This integer staircase convention is the one used in the v13 raw ledger \cite{Cho26CapV13} and in the Grande Finale reduction \cite{Cho26Grande}.
+We use the full slope field, so \(q_{\rm line}=|\F|\), and set
+\(\eps_{\rm mca}(C,1-a/n)=B_C^{\rm MCA}(a)/|\F|\).  Related finite-row
+normalizations appear in \cite{Cho26CapV13,Cho26Grande}.
 
-We consider smooth multiplicative or circle-type RS row sequences \(C_n=\RS_{\F_n}(D_n,k_n)\) with \(|D_n|=n\), \(k_n/n\to\rho\in(0,1)\), and a base/generated alphabet \(\B_n\) of bit-size \(\beta_n=\log_2|\B_n|\to\beta\).  For an agreement \(a_n=k_n+1+w_n\), define the prefix average
+We consider smooth multiplicative or circle-type RS row sequences
+\(C_n=\RS_{\F_n}(D_n,k_n)\) with \(|D_n|=n\),
+\(\rho_n=k_n/n\to\rho\in(0,1)\), and
+\(D_n\subseteq\B_n\subseteq\F_n\), where
+\(\beta_n=\log_2|\B_n|=o(n)\).  For an agreement
+\(a_n=k_n+1+w_n\), define the identity-prefix average
 \[
         \barN_{n,a_n}=\binom n{a_n}|\B_n|^{-w_n}.
 \]
-The entropy--subfield envelope is
+For \(r\in(0,1)\) and \(b\ge0\), put
 \[
-        g^*(\rho,\beta)=\sup\{g\in[0,1-\rho]:H_2(\rho+g)\ge \beta g\},
+        g^*(r,b)=\sup\{g\in[0,1-r]:H_2(r+g)\ge bg\},
 \]
-where \(H_2(x)=-x\log_2x-(1-x)\log_2(1-x)\).  The target threshold is \(\delta_C^*(\eps)=\sup\{\delta:\eps_{\rm mca}(C,\delta)\le\eps\}\).
+where \(H_2(x)=-x\log_2x-(1-x)\log_2(1-x)\), and write
+\(g_n^*=g^*(\rho_n,\beta_n)\).
+
+Here a multiplicatively smooth domain is a coset \(\theta H\) of a
+cyclic subgroup of \(\B_n^\times\), together with its uniform-fiber power
+quotients.  A circle-type domain is a Chebyshev image of a twin coset
+\(gH\cup g^{-1}H\) in a norm-one torus, or a circle evaluation set
+obtained from such a multiplicative set by diagonal uniformization or
+stereographic parametrization.  More generally, a polynomial map
+\(\varphi\) of degree \(d\) is a smooth quotient of \(D\) when every
+nonempty fiber \(\varphi^{-1}(y)\cap D\) has exactly \(d\) elements.  The
+quantitative assumptions used below are the stated profile-ledger and ray
+conditions; these geometric names specify the profile atlas to which they
+are applied.
+
+For a fixed row and agreement, a \emph{first-match profile atlas} is fixed
+before the received line is chosen.  It is an ordered finite collection of
+constructible witness charts.  A profile \(\lambda\) in the atlas specifies
+a full support slice
+\(\Omega^0_\lambda\), a coefficient field \(\B_\lambda\), and
+\(R_\lambda\) effective prefix equations; its natural average is
+\(\barN_\lambda=|\Omega^0_\lambda||\B_\lambda|^{-R_\lambda}\).  For a
+received line, \(\Lambda(r_1,r_2;a)\) is the subcollection of fixed atlas
+profiles that occur under first match.  Exhaustiveness of this atlas is an
+explicit ledger hypothesis, so profiles cannot be added or deleted after
+their sizes are known.  The identity profile is always included.  Define
+the profile envelope
+\[
+ \Eprof_n(a)=1+(n-a+1)+
+ \sup_{r_1,r_2}\sum_{\lambda\in\Lambda(r_1,r_2;a)}\barN_\lambda.
+ \tag{1.1}\label{eq:profile-envelope}
+\]
+The tangent term is displayed because it cannot be absorbed when the
+identity average is below one, and
+\(\Eprof_n(a)\ge1+(n-a+1)+\barN_{n,a}\).  A window is
+\emph{identity-dominant} if some \(\kappa_n=\exp(o(n))\), uniformly in the
+window, satisfies
+\[
+ \Eprof_n(a)\le
+ \kappa_n\bigl(1+(n-a+1)+\barN_{n,a}\bigr).
+\]
+On the agreement lattice the target threshold is
+\[
+ \delta_C^*(\eps)=\sup\left\{1-\frac an:
+ a\in\{k+1,\ldots,n\},\ \eps_{\rm mca}(C,1-a/n)\le\eps\right\},
+\]
+whenever this set is nonempty.
 
 \begin{definition}[Cells and first-match payment]\label{def:cells}
-A \emph{cell} is a constructible subfamily of the MCA witness incidence space, or a bounded-complexity family of such subfamilies, stable under extension of the ground field.  Cells are ordered.  A slope is assigned to the first cell containing one of its witnesses.  The cell is \emph{paid} at agreement \(a_n\) if the number of slopes assigned to it is at most its printed budget, and a family is paid if the sum of its first-match budgets is \(\exp(o(n))\barN_{n,a_n}\).
+A \emph{cell} is a constructible subfamily of the MCA witness incidence
+space, or a bounded-complexity family of such subfamilies, stable under
+extension of the ground field.  Cells are ordered.  A slope is assigned to
+the first cell containing one of its witnesses.  A nonprimitive algebraic
+cell is \emph{paid} at agreement \(a_n\) if its distinct-slope image is at
+most its printed natural-profile budget; a Fourier/Sidon cell is paid in
+the support statistic of \cref{def:sidon-paid}.  A profile family is paid
+if the sum of its first-match budgets is at most
+\(\exp(o(n))\Eprof_n(a_n)\).  Only in an identity-dominant window may this
+be specialized to the identity budget.
 \end{definition}
 
 \begin{lemma}[First-match disjointization]\label{lem:first-match}
@@ -87,7 +151,15 @@ For a fixed received line, assign each bad slope to the least-indexed cell conta
 \end{proof}
 
 \begin{definition}[Closed paid ledger]\label{def:closed-ledger}
-A smooth RS row sequence is \emph{closed-ledger} at agreements \(a_n\) if the following first-match cells cover all MCA-bad witnesses except the primitive leaves of \cref{def:primitive-leaf}, and if their total contribution is \(\exp(o(n))\barN_{n,a_n}\).
+A smooth or circle-type row sequence is \emph{closed-ledger} at agreements
+\(a_n\) if
+the following first-match cells cover all MCA-bad witnesses except the
+primitive leaves of \cref{def:primitive-leaf}, the number of profiles is
+\(\exp(o(n))\), their natural coefficient fields and prefix depths are
+retained in \eqref{eq:profile-envelope}, the algebraic cells have total
+distinct-slope contribution \(\exp(o(n))\Eprof_n(a_n)\), and the
+Fourier/Sidon and primitive support statistics are paid at their declared
+profile scales.
 \begin{enumerate}[label=\textup{(C\arabic*)},leftmargin=2.7em]
     \item \emph{Quotient-pullback cells.}  The support or locator descends along a nontrivial finite map \(D\to D'\).  These cells include quotient-remainder locators, divisor-block support ledgers, quotient-image lcm ledgers, and quotient pullback recursion.
     \item \emph{Chebyshev and dihedral cells.}  On multiplicative or circle rows, the support is invariant under the dihedral action, or the locator factors through a Chebyshev or circle quotient such as \(z+z^{-1}\).
@@ -96,24 +168,64 @@ A smooth RS row sequence is \emph{closed-ledger} at agreements \(a_n\) if the fo
     \item \emph{Extension and descent cells.}  The witness either descends to a smaller field or is controlled by a bounded extension-line or extension-pole parameter.
     \item \emph{Differential-locator and regular-rank cells.}  The locator map has a rank drop, a ramification defect, or an overdetermined Hankel minor.  These cells include regular closed-range Hankel packing, canonical rank-drop ledgers, and curve rank-drop ledgers.
     \item \emph{Saturation and effective-image-collapse cells.}  The apparent support count is larger than the actual line-ray or codeword-ray image.  The payment uses exact saturation identities and exact residual image ledgers.
-    \item \emph{Balanced-core and split-pencil cells.}  The residual witness lies in a balanced-core split-pencil chart.  One-parameter primitive locator pencils are paid by the moving-root theorem; deficiency-one and identically split top charts are tangent-borne or eliminated.
+    \item \emph{Balanced-core and split-pencil cells.}  The residual witness lies in a balanced-core split-pencil chart.  One-parameter primitive locator pencils are paid by the moving-root theorem; deficiency-one and identically split top charts are tangent-borne or eliminated.  Every higher-dimensional residual chart requires a direct distinct-ray estimate.
     \item \emph{Fourier/Sidon cells.}  In a primitive prefix leaf, a heavy fiber with exponentially small additive closure is cut as a Fourier/Sidon cell: major arcs are routed to \textup{(C1)--(C8)}, and minor arcs are paid by Fourier flatness.
 \end{enumerate}
-The remaining first-match complement is a disjoint union of primitive prefix leaves.  Every such leaf has the Boolean fixed-density Vandermonde form of \cref{def:primitive-leaf}.
+The remaining first-match complement is a disjoint union of primitive
+prefix leaves.  Every such leaf has the Boolean fixed-density Vandermonde
+form of \cref{def:primitive-leaf}.  If it is attached to profile
+\(\lambda\), with residual mass \(M_\lambda\), residual image size
+\(L_\lambda\), and active length \(N_\lambda\), closure requires
+\[
+ \log(M_\lambda/L_\lambda)=o(N_\lambda),\qquad
+ \frac{M_\lambda}{L_\lambda}
+ \le\exp(o(n))\barN_\lambda.
+\]
+The \(o\)-terms are uniform over the atlas.  Its Sidon payment is imposed
+only after all earlier profiles have been
+removed.  Thus a closed profile ledger includes the residual-to-full
+average comparison.  Conversion of the resulting support budgets into
+distinct MCA slopes is the separate RC condition of
+\cref{def:ray-compiler}.
 \end{definition}
 
-\begin{theorem}[Closed ledger package]\label{thm:closed-ledger-package}
-For the smooth multiplicative and circle-type RS row sequences treated in the v13 raw ledger and in the Grande Finale notes, the cells \textup{(C1)--(C9)} form a closed paid ledger in the asymptotic frontier window.
+\begin{definition}[Direct ray compiler]\label{def:ray-compiler}
+A row satisfies \emph{RC} at agreement \(a_n\) if the distinct slopes
+projected from every primitive residual profile are at most
+\(\exp(o(n))\) times that profile's paid budget, with total cost
+\(\exp(o(n))\Eprof_n(a_n)\).  A max-fiber or support-pair estimate alone
+is not RC: it counts supports or pairs, not the image of the witness
+incidence in slope space.
+\end{definition}
+
+\begin{theorem}[Cellwise ledger interface]\label{thm:closed-ledger-package}
+The results cited in \cite{Cho26CapV13,Cho26Grande} supply the cellwise
+constructions and estimates in \textup{(C1)--(C8)} and the Fourier-flat
+part of \textup{(C9)}.  For a given smooth or circle row they assemble to
+a closed profile ledger only when the atlas is exhaustive, every profile is
+charged at its natural scale in \eqref{eq:profile-envelope}, and the
+residual-to-full average comparison holds, and the Sidon-heavy part of the
+routed primitive residual is paid.  The full MCA compiler additionally
+requires RC.  None of these cellwise results implies identity dominance.
 \end{theorem}
 
 \begin{proof}
-We record the existing ledger package rather than reprove each algebro-geometric count.
+The cited cellwise estimates are as follows.
 
 For \textup{(C1)}, the quotient-remainder lower and support ledgers, divisor-union support ledger, exact finite-parameter quotient-image ledger, affine/projective lcm ledgers, quotient pullback recursion, and bounded quotient census are proved in \cite[quotient-remainder, quotient support, quotient-image, and bounded-census ledgers]{Cho26CapV13}.  The corresponding first-match convention and quotient status cell are isolated in \cite{Cho26Grande}.
 
-For \textup{(C2)}, exact Chebyshev fibers on circle twin-coset domains, circle quotient transport, and circle deployed ledgers are proved in \cite[Chebyshev and circle sections]{Cho26CapV13}.  Dihedral and Chebyshev cells are quotient cells with extra monodromy and are therefore paid by the same downstairs-support and image ledgers.
+For \textup{(C2)}, exact Chebyshev fibers on circle twin-coset domains,
+circle quotient transport, and circle profile estimates are proved in
+\cite[Chebyshev and circle sections]{Cho26CapV13}.  Dihedral and Chebyshev
+cells are routed as quotient cells with extra monodromy; their payment still
+uses the natural-profile comparison required in the theorem.
 
-For \textup{(C3)}, planted quotient profiles, planted quotient-core lower counts, planted list-budget windows, and bounded active quotient order are established in \cite[planted quotient profile and bounded quotient census]{Cho26CapV13}.  These supply the entropy payment for positive-density forced blocks.
+For \textup{(C3)}, planted quotient profiles, planted quotient-core lower
+counts, planted list-budget windows, and bounded active quotient order are
+established in \cite[planted quotient profile and bounded quotient
+census]{Cho26CapV13}.  They identify the relevant planted entropy scale;
+the corresponding upper payment remains part of the closed-ledger
+hypothesis.
 
 For \textup{(C4)}, the exact high-agreement tangent cell and tangent-borne split-kernel sections are proved in \cite[high-agreement tangent exact cell and split-kernel tangent-borne theorem]{Cho26CapV13} and refined in \cite[exact high-agreement tangent cell]{Cho26Grande}.
 
@@ -125,23 +237,97 @@ For \textup{(C7)}, the exact saturation identity and line-ray saturation identit
 
 For \textup{(C8)}, the interpolation-lattice split-pencil reduction, near-rational payment, deficiency-one split-test eliminant, split annihilator dictionary, tangent-borne split charts, boundary-profile identification with Q, base-field split-pencil floor, one-parameter moving-root theorem, and primitive one-pencil corollary are proved in \cite[split-pencil and BC sections]{Cho26Grande}, with the balanced-core and split-pencil reductions also developed in \cite[rank-one and split-pencil reductions]{Cho26CapV13}.
 
-For \textup{(C9)}, Fourier-flat leaves satisfy asymptotic Q and large-characteristic Fourier examples are proved in \cite[Fourier-flat Q section]{Cho26Grande}.  The Sidon/Fourier operational cut, the split between Sidon-heavy and high-energy fibers, and the fact that major arcs route to algebraic cells while minor arcs are Fourier-flat are the moduli-ledger results of \cite{Cho26ModuliFinal,Cho26ModuliSelf}.  They are restated and used below in \cref{def:sidon-paid,prop:energy-extract,thm:primitive-q}.
+For \textup{(C9)}, Fourier-flat leaves satisfy asymptotic Q and
+large-characteristic Fourier examples are proved in
+\cite[Fourier-flat Q section]{Cho26Grande}.  The Sidon cut and its
+high-energy alternative are stated and proved below.  Fourier flatness pays
+the minor-arc branch after algebraic major arcs have been routed; it does
+not give a uniform identity-normalized payment before quotient, subfield,
+planted, and remainder profiles are removed.
 
-Finally, first-match disjointization is \cref{lem:first-match} here and is also proved in the Grande Finale and moduli-ledger notes.  The listed cells exhaust the nonprimitive branches of the v13 first-match atlas; after removing them, the remaining leaf is the primitive Boolean prefix slice.  Summing the printed budgets gives \(\exp(o(n))\barN_{n,a_n}\), which is the closed paid ledger.
+Finally, first-match disjointization is \cref{lem:first-match}.  These
+results give the asserted cellwise interface.  Exhaustion, comparison at
+the natural profile scales, residual-to-full average comparison, residual
+Sidon payment, and projection from support statistics to distinct slopes
+are precisely the additional conditions in the statement.
 \end{proof}
 
-Thus the row-specific geometry is not an additional conjectural input to this paper: it is the imported closed ledger package.  The remaining work below is the uniform primitive count and the compiler from that count to the MCA staircase.
+Thus the cited geometry identifies and estimates the declared cells but
+does not unconditionally close an identity-scale ledger.  The argument
+below proves the analytic primitive implication and the target compiler
+once the printed profile, Sidon, and ray conditions have been verified.
 
-\begin{theorem}[Asymptotic RS--MCA frontier]\label{thm:frontier}
-Let \(C_n=\RS_{\F_n}(D_n,k_n)\) be a smooth RS row sequence as above.  Assume the closed paid ledger holds uniformly in every \(o(n)\)-window around the crossing \(a_n=(\rho+g^*)n+o(n)\).  Assume also the standard identity-prefix pole construction supplies the lower side below the crossing.  Then, for every target sequence with \(\log_2(1/\eps_n)=O(n)\) and fixed challenge normalization,
+\begin{theorem}[Conditional profile-envelope frontier]\label{thm:frontier}
+Let \(C_n=\RS_{\F_n}(D_n,k_n)\) be a smooth or circle-type row as above,
+let \(0\le\eps_n\le1\), put \(T_n=\lfloor\eps_n|\F_n|\rfloor\), and let
+\(\kappa_n=\exp(o(n))\) dominate the compiler losses uniformly in the
+window under consideration.  Define the first safe agreement
 \[
-        \delta_{C_n}^*(\eps_n)
-        =1-\rho-g^*(\rho,\beta)+o(1),
+ a_n^*=\min\{a\in\{k_n+1,\ldots,n\}:
+                 B_{C_n}^{\rm MCA}(a)\le T_n\},
+ \qquad \delta_n^*=1-a_n^*/n,
 \]
-with the evident replacement of \(\beta\) by \(\lim\log_2|\B_n|\) when the base alphabet varies.
+whenever the set is nonempty.  Suppose agreements
+\(a_{-,n}<a_{+,n}\) satisfy:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.4em]
+\item a closed profile ledger and RC hold at \(a_{+,n}\), and
+      \(\kappa_n\Eprof_n(a_{+,n})\le T_n\);
+\item a certified identity, quotient, planted, or remainder construction
+      gives \(U_n(a_{-,n})\) distinct MCA-bad slopes, where
+      \(U_n(a_{-,n})>T_n\).
+\end{enumerate}
+Then
+\[
+ a_{-,n}<a_n^*\le a_{+,n},\qquad
+ 1-\frac{a_{+,n}}n\le\delta_n^*<1-\frac{a_{-,n}}n.
+ \tag{1.2}\label{eq:threshold-bracket}
+\]
+If the two agreements are \(o(n)\) apart around
+\(a_n=k_n+1+g_n n\), then
+\(\delta_n^*=1-\rho_n-g_n+o(1)\).  For the identity construction, when
+\(|\F_n|>n\), one may take
+\[
+ U_n(a)=
+ \left\lceil
+ \frac{L_n(a)(|\F_n|-n)}
+      {|\F_n|-n+k_n(L_n(a)-1)}
+ \right\rceil,\qquad
+ L_n(a)=
+ \left\lceil\binom na|\B_n|^{-(a-k_n-1)}\right\rceil .
+\]
+
+For the identity-dominant specialization put
+\[
+ \tau_n=\frac1n\log_2(1+T_n),\qquad
+ F_n(g)=H_2(\rho_n+g)-\beta_ng,
+\]
+and define the target-adjusted right crossing by
+\[
+ g_{T,n}=\sup\bigl(\{g\in[0,1-\rho_n]:F_n(g)\ge\tau_n\}\cup\{0\}\bigr).
+ \tag{1.3}\label{eq:target-crossing}
+\]
+At an interior crossing,
+\[
+ H_2(\rho_n+g_{T,n})-\beta_ng_{T,n}
+   =\frac1n\log_2(1+T_n).
+\]
+If identity dominance and the collision-aware lower construction supply
+agreements satisfying \textup{(i)--(ii)} with
+\(a_{\pm,n}=k_n+1+g_{T,n}n+o(n)\), then
+\(\delta_n^*=1-\rho_n-g_{T,n}+o(1)\).  If additionally
+\(T_n=\exp(o(n))\), then \(g_{T,n}=g^*(\rho_n,\beta_n)+o(1)\), and hence
+\[
+ \delta_n^*=1-\rho_n-g^*(\rho_n,\beta_n)+o(1).
+ \tag{1.4}\label{eq:identity-frontier}
+\]
 \end{theorem}
 
-The rest of the paper proves \cref{thm:frontier}.  The proof is self-contained after the imported closed-ledger package and the standard external additive-combinatorics facts stated in \cref{sec:bsg}.
+The rest of the paper proves this conditional implication from the
+cellwise interface and the external additive-combinatorics facts stated in
+\cref{sec:bsg}.  The counterexample below shows that identity dominance and
+any pre-routing uniform Sidon payment cannot be assumed.  Residual Sidon
+payment remains a separate hypothesis, while
+\cref{rem:q-sp-no-ray} explains independently why RC is required.
 
 \section{Primitive leaves}
 
@@ -161,6 +347,9 @@ For \(q=q_N\to\infty\), define
 \[
         \Gord_q=L^{-1}\sum_{s\in\Scal}\left(\frac{|F_s|}{\barN}\right)^q .
 \]
+We call \(q\) \emph{logarithmic} if
+\(q_N\le(\log N)^A\) for some fixed \(A\); since every image fiber is
+nonempty, \(L\le M\le2^N\), so \(\log L=o(Nq)\) for every such \(q\).
 
 \begin{lemma}[Moment-max equivalence]\label{lem:moment-max}
 If \(q\to\infty\) and \(\log L=o(Nq)\), then
@@ -185,6 +374,9 @@ For a finite \(F\) in an abelian group, let
         \Delta(F)=E(F)/|F|^3.
 \]
 Thus \(\Delta(F)\) is the probability that \(a-b+c\in F\) for independent uniform \(a,b,c\in F\).
+Whenever supports are used as an additive set, we identify
+\(S\subseteq D\) with its incidence vector \(\mathbf1_S\in\Z^D\);
+all Boolean energies therefore lie in this torsion-free ambient group.
 
 For \(\sigma>0\), define the Sidon-heavy moment of a primitive leaf by
 \[
@@ -197,14 +389,26 @@ For \(\sigma>0\), define the Sidon-heavy moment of a primitive leaf by
 The Fourier/Sidon cell is paid if, for every fixed \(\sigma>0\) and every logarithmic \(q\), one has \(\Gsid_{q,\sigma}\le\exp(o(Nq))\).  Equivalently, no positive-rate heavy fiber with exponentially small additive closure remains in the primitive residual.
 \end{definition}
 
-In practice this cell is paid by Fourier flatness after major arcs have been routed to algebraic cells.  If \(\mu=\Phi_*\operatorname{Unif}(\OmegaC)\) and \(\sum_{\chi\ne1}|\widehat\mu(\chi)|\le\exp(o(N))\), Fourier inversion gives \(L\mu(s)\le\exp(o(N))\) for all \(s\), hence primitive Q.  In RS moment-curve leaves, large Fourier coefficients are algebraic major arcs: quotient, descent, dihedral, ramification, or effective-image-collapse phenomena.  These are exactly the earlier paid cells in \cref{def:closed-ledger}.
+In practice this cell is paid by Fourier flatness after major arcs have been routed to algebraic cells.  If \(\mu=\Phi_*\operatorname{Unif}(\OmegaC)\) and \(\sum_{\chi\ne1}|\widehat\mu(\chi)|\le\exp(o(N))\), Fourier inversion gives \(L\mu(s)\le\exp(o(N))\) for all \(s\), hence primitive Q.  Verification of a closed ledger must separately prove that every large Fourier coefficient is a quotient, descent, dihedral, ramification, or effective-image-collapse major arc; once verified, first match assigns it to the earlier cells in \cref{def:closed-ledger}.
 
 \begin{proposition}[Energy extraction after the Sidon cut]\label{prop:energy-extract}
 Assume the Fourier/Sidon cell is paid.  If \(\Gord_q\ge e^{\eta Nq}\) for some fixed \(\eta>0\), then some level \(s=s_N\) satisfies \(|F_s|\ge e^{\eta N-o(N)}\barN\) and \(E(F_s)\ge |F_s|^3e^{-o(N)}\).
 \end{proposition}
 
 \begin{proof}
-Fix \(\sigma>0\).  Split \(\Gord_q\) into terms with \(\Delta(F_s)\le e^{-\sigma N}\) and the complementary terms.  The first part is \(\Gsid_{q,\sigma}=\exp(o(Nq))\), so a complementary term has \((|F_s|/\barN)^q\ge e^{\eta Nq-o(Nq)}\).  Hence \(|F_s|\ge e^{\eta N-o(N)}\barN\) and \(\Delta(F_s)>e^{-\sigma N}\).  Letting \(\sigma\downarrow0\) slowly along the sequence gives \(E(F_s)\ge |F_s|^3e^{-o(N)}\).
+For a fixed \(\sigma>0\), split \(\Gord_q\) into terms with
+\(\Delta(F_s)\le e^{-\sigma N}\) and the complementary terms.  The first
+part is \(\Gsid_{q,\sigma}=\exp(o(Nq))\), so a complementary term has
+\((|F_s|/\barN)^q\ge e^{\eta Nq-o(Nq)}\).  Hence
+\(|F_s|\ge e^{\eta N-o(N)}\barN\) and
+\(\Delta(F_s)>e^{-\sigma N}\).
+
+For completeness, apply this assertion successively with
+\(\sigma_j=1/j\).  Along the subsequence on which the moment excess holds,
+choose the \(j\)-th index after the threshold at which the paid estimate
+for \(\sigma_j\) is valid.  The resulting diagonal subsequence has
+\(\sigma_j\downarrow0\), and therefore
+\(E(F_s)\ge |F_s|^3e^{-o(N)}\).
 \end{proof}
 
 \section{Boolean additive combinatorics}\label{sec:bsg}
@@ -233,22 +437,251 @@ There is no sequence \(F_N\subseteq\{0,1\}^{N}\) with \(|F_N|\ge e^{cN-o(N)}\) a
 By \cref{thm:bsg} with \(K=e^{o(N)}\), a subset \(F'_N\subseteq F_N\) has \(|F'_N|\ge e^{cN-o(N)}\) and \(|F'_N-F'_N|\le e^{o(N)}|F'_N|\).  But \cref{thm:quasicube} gives \(|F'_N-F'_N|\ge |F'_N|^{3/2}\), so \(|F'_N|^{1/2}\le e^{o(N)}\), a contradiction.
 \end{proof}
 
+\begin{corollary}[Quantitative Boolean energy bound]
+\label{cor:quantitative-boolean-energy}
+There is an absolute constant \(A>0\) such that, for every
+\(F\subseteq\{0,1\}^N\) and \(K\ge1\),
+\[
+ E(F)\ge |F|^3/K\qquad\Longrightarrow\qquad |F|\le K^A.
+\]
+\end{corollary}
+
+\begin{proof}
+Retain the polynomial dependence in \cref{thm:bsg}.  It gives
+\(F'\subseteq F\) with \(|F'|\ge K^{-C}|F|\) and
+\(|F'-F'|\le K^C|F'|\).  By \cref{thm:quasicube},
+\(|F'|^{3/2}\le K^C|F'|\), hence \(|F'|\le K^{2C}\) and
+\(|F|\le K^{3C}\).  Take \(A=3C\).
+\end{proof}
+
 \begin{theorem}[Primitive Q after the Sidon cut]\label{thm:primitive-q}
 In every frontier primitive leaf with paid Fourier/Sidon cell, \(\max_s|F_s|\le\exp(o(N))\barN\).
 \end{theorem}
 
 \begin{proof}
-If not, \cref{lem:moment-max} gives \(\Gord_q\ge e^{\eta Nq}\) for some fixed \(\eta>0\) along a subsequence and some logarithmic \(q\).  \Cref{prop:energy-extract} then gives a fiber \(F_s\subseteq\{0,1\}^{T}\) with \(|F_s|\ge e^{\eta N-o(N)}\barN=e^{cN-o(N)}\) and \(E(F_s)\ge |F_s|^3e^{-o(N)}\), because \(\log\barN=o(N)\).  This contradicts \cref{prop:no-high-energy}.
+If not, \cref{lem:moment-max} applies because
+\(L\le M\le2^N\), and gives \(\Gord_q\ge e^{\eta Nq}\) for some fixed
+\(\eta>0\) along a subsequence and some logarithmic \(q\).
+\Cref{prop:energy-extract} then gives a fiber
+\(F_s\subseteq\{0,1\}^{T}\) with
+\(|F_s|\ge e^{\eta N-o(N)}\barN=e^{cN-o(N)}\) and
+\(E(F_s)\ge |F_s|^3e^{-o(N)}\), because \(\log\barN=o(N)\).
+This contradicts \cref{prop:no-high-energy}.
 \end{proof}
+
+\section{A polynomial-field obstruction}\label{sec:quotient-obstruction}
+
+For \(S\in\binom Da\), write
+\[
+ Q_S(X)=\prod_{t\in S}(X-t)
+       =X^a+q_1(S)X^{a-1}+\cdots+q_a(S),
+ \qquad \Phi_w(S)=(q_1(S),\ldots,q_w(S)),
+\]
+and put \(\mathcal F_z=\Phi_w^{-1}(z)\) and
+\(\barN_1=\binom na|\B|^{-w}\).  To distinguish the unrestricted identity
+prefix from a routed primitive leaf, define
+\[
+ \widetilde\Gsid_{r,\sigma}
+ =|\B|^{-w}\!\sum_{\substack{z\in\B^w:\ \mathcal F_z\ne\varnothing\\
+                         \Delta(\mathcal F_z)\le e^{-\sigma n}}}
+       \left(\frac{|\mathcal F_z|}{\barN_1}\right)^r .
+ \tag{5.1}\label{eq:unrestricted-sidon-moment}
+\]
+
+\begin{theorem}[Smooth quotient, Sidon, and MCA obstruction]
+\label{thm:polynomial-obstruction}
+Fix \(0<\alpha<1/2\).  Let \(p\to\infty\) through odd primes, put
+\[
+ n=2(p-1),\qquad \B_0=\F_p,\qquad \B=\F_{p^2},
+\]
+let \(H\le\B^\times\) have order \(n\), choose a generator \(\theta\) of
+\(\B^\times\), and set \(D=\theta H\).  Choose even \(a=a_p\) with
+\(a/n\to\alpha\), let \(w\) be the largest even integer not exceeding
+\(\log_{|\B|}\binom na\), and put \(k=a-w-1\).  Then
+\[
+ \log|\B|=O(\log n)=o(n),\quad p>a,\quad
+ w=\Theta(n/\log n),\quad 1\le\barN_1<|\B|^2=e^{o(n)}.
+ \tag{5.2}\label{eq:counterexample-scale}
+\]
+For some \(z\in\B^w\),
+\[
+ |\mathcal F_z|\ge \binom{n/2}{a/2}p^{-w/2}
+ =\exp\left(\left(\frac14h(\alpha)+o(1)\right)n\right),
+ \qquad h(x)=-x\log x-(1-x)\log(1-x).
+ \tag{5.3}\label{eq:counterexample-fiber}
+\]
+The quantity before pigeonholing is the natural average
+\[
+ \barN_{\rm sq}=\binom{n/2}{a/2}|\B_0|^{-w/2}
+\]
+of the complete-square quotient profile.  Thus every exhaustive profile
+atlas containing this quotient has
+\(\Eprof_n(a)\ge\barN_{\rm sq}
+=\exp((h(\alpha)/4+o(1))n)\), whereas
+\(\barN_1=e^{o(n)}\); in particular the row is not identity-dominant
+there.
+There is \(\sigma=\sigma(\alpha)>0\) such that
+\(\Delta(\mathcal F_z)\le e^{-\sigma n}\), and every logarithmic
+\(r=r_n\to\infty\) satisfies
+\[
+ \liminf_{n\to\infty}\frac1{nr}
+       \log\widetilde\Gsid_{r,\sigma}
+ \ge\frac14h(\alpha)>0.
+ \tag{5.4}\label{eq:counterexample-sidon}
+\]
+Finally, every finite extension \(\F/\B\) with
+\[
+ |\F|-n>k\binom{|\mathcal F_z|}{2}
+ \tag{5.5}\label{eq:counterexample-extension}
+\]
+satisfies
+\[
+ B_{\RS_\F(D,k)}^{\rm MCA}(a)\ge|\mathcal F_z|
+ \ge\exp\left(\left(\frac14h(\alpha)+o(1)\right)n\right).
+ \tag{5.6}\label{eq:counterexample-mca}
+\]
+Such extensions exist with degree \(O(n/\log n)\).  Hence smoothness and
+\(\log|\B|=o(n)\) do not imply an identity-normalized Sidon payment or an
+identity-scale MCA numerator bound.  Indeed,
+\[
+        B_{\RS_\F(D,k)}^{\rm MCA}(a)=\exp(\Omega(n))
+        \qquad\text{while}\qquad
+        \barN_1=\exp(o(n)).
+\]
+\end{theorem}
+
+\begin{proof}
+The cyclic group \(\B^\times\) contains \(H\), and \(H^2\) has order
+\(p-1\); hence \(H^2=\B_0^\times\).  Thus
+\(D^2=\theta^2\B_0^\times\), and squaring is two-to-one on \(D\).  The
+roots of \(1+X^2\) have order four and lie in \(H\), whereas the proper
+coset \(D=\theta H\) is disjoint from \(H\).  Since
+\(a/n\to\alpha<1/2\), eventually \(a<p\).  Stirling's formula and the
+even rounding give
+\(w=nh(\alpha)/(2\log p)+o(n/\log n)\) and
+\(0\le\log_{|\B|}\binom na-w<2\), proving
+\eqref{eq:counterexample-scale}.
+
+For \(E\in\binom{D^2}{a/2}\), let
+\(S_E=\{x\in D:x^2\in E\}\).  Its locator is
+\[
+ Q_{S_E}(X)=\prod_{y\in E}(X^2-y)
+ =X^a-e_1(E)X^{a-2}+e_2(E)X^{a-4}-\cdots .
+\]
+The odd-gap coefficients vanish, while the coefficient in gap \(2j\)
+lies in \(\theta^{2j}\B_0\).  Hence these supports occupy at most
+\(p^{w/2}\) prefixes.  Pigeonholing gives the first inequality in
+\eqref{eq:counterexample-fiber}; moreover
+\(\log\binom{n/2}{a/2}=\tfrac12nh(\alpha)+o(n)\) and
+\((w/2)\log p=\tfrac14nh(\alpha)+o(n)\), proving the exponent.
+
+Let \(A\) be the constant in
+\cref{cor:quantitative-boolean-energy}, and choose
+\(0<\sigma<h(\alpha)/(8A)\).  If
+\(\Delta(\mathcal F_z)>e^{-\sigma n}\), that corollary with
+\(K=e^{\sigma n}\) gives \(|\mathcal F_z|\le e^{A\sigma n}\),
+contradicting \eqref{eq:counterexample-fiber}.  Keeping this single
+summand in \eqref{eq:unrestricted-sidon-moment} gives
+\[
+ \log\widetilde\Gsid_{r,\sigma}
+ \ge-w\log|\B|+r(\log|\mathcal F_z|-\log\barN_1)
+ =-nh(\alpha)+o(n)+r\left(\frac14h(\alpha)n+o(n)\right),
+\]
+which proves \eqref{eq:counterexample-sidon}.  Because \(w<a<p\),
+Newton identities give an invertible triangular change between these
+locator coefficients and the first \(w\) power sums.
+
+Set \(U_z=X^a+z_1X^{a-1}+\cdots+z_wX^{a-w}\) and
+\(P_S=U_z-Q_S\).  Then \(\deg P_S\le k\), and for distinct
+\(S,T\in\mathcal F_z\), the nonzero polynomial \(Q_S-Q_T\) has degree at
+most \(k\).  Condition \eqref{eq:counterexample-extension} leaves
+\(\lambda\in\F\setminus D\) at which all \(Q_S(\lambda)\) are distinct.
+On \(D\) put \(r_1(x)=U_z(x)/(x-\lambda)\) and
+\(r_2(x)=-1/(x-\lambda)\).  For
+\(\gamma_S=P_S(\lambda)\) and \(x\in S\),
+\[
+ r_1(x)+\gamma_Sr_2(x)
+ =\frac{P_S(x)-P_S(\lambda)}{x-\lambda},
+\]
+which is a polynomial of degree less than \(k\).  The slopes are distinct.
+Moreover \(r_2\) cannot agree with a degree-less-than-\(k\) polynomial
+on \(k+1\) points, since then \((X-\lambda)q(X)+1\) would have
+\(k+1\) roots, degree at most \(k\), and value one at \(\lambda\).
+Thus all \(\gamma_S\) are MCA-bad.  Finally
+\(\log|\mathcal F_z|=O(n)\) and \(\log|\B|=\Theta(\log n)\), so an
+extension of degree \(O(n/\log n)\) suffices.
+\end{proof}
+
+\begin{corollary}[Circle obstruction]\label{cor:circle-obstruction}
+In \cref{thm:polynomial-obstruction}, put
+\(u=(k-1)/2=(a-w-2)/2\) and take the inverse stereographic image of \(D\)
+on \(x^2+y^2=1\).  Let \(C_{\rm circ}(u)\) be the evaluation, over
+\(\F\), of
+\[
+ \{f_0(x)+yf_1(x):\deg f_0\le u,\ \deg f_1\le u-1\}
+\]
+on that circle set.  Then \(C_{\rm circ}(u)\) is diagonally equivalent to
+\(\RS_\F(D,k)\); hence it has the same MCA-bad slopes and the same lower
+bound.
+\end{corollary}
+
+\begin{proof}
+The inverse parametrization is
+\(x=(1-t^2)/(1+t^2)\), \(y=2t/(1+t^2)\).  Its denominator is nonzero on
+\(D\) by the order-four argument above.  Modulo \(x^2+y^2-1\), the
+degree-\(u\) space is
+\(\{f_0(x)+yf_1(x):\deg f_0\le u,\ \deg f_1\le u-1\}\).  After
+substitution and multiplication by \((1+t^2)^u\), it becomes exactly the
+polynomials in \(t\) of degree at most \(2u\): substitution is injective
+in the localized coordinate ring, and both spaces have dimension
+\(2u+1\).  This coordinatewise nonzero multiplier preserves all support
+equalities and slopes.  Finally, \(a,w\) are even, so
+\(k=a-w-1=2u+1\).
+\end{proof}
+
+\begin{remark}[Stabilizer deletion is insufficient]
+Fix \(x_0\in D\) and use
+\(S_E=\{x_0\}\cup\{x\in D:x^2\in E\}\), where
+\(E\in\binom{D^2\setminus\{x_0^2\}}{a/2}\).  At support size \(a+1\)
+and depth \(w\), some prefix \(z\) has a subfamily
+\[
+ \mathcal F_z^{\rm ap}\subseteq\Phi_w^{-1}(z),\qquad
+ |\mathcal F_z^{\rm ap}|
+ \ge\binom{n/2-1}{a/2}p^{-w/2}
+ =\exp\left(\left(\frac14h(\alpha)+o(1)\right)n\right).
+\]
+Here every member has trivial multiplicative stabilizer.  Indeed a
+stabilizer of a nonempty subset of \(D\) lies in
+\(DD^{-1}=H\), and each \(S_E\) has the unique incomplete orbit
+\(\{x_0,-x_0\}\) under \(-1\).  Its stabilizer must preserve this pair and
+is therefore \(\pm1\), while \(-1\) does not preserve \(S_E\).  Moreover
+\(\binom n{a+1}|\B|^{-w}=e^{o(n)}\), so
+\cref{cor:quantitative-boolean-energy} gives
+\(\Delta(\mathcal F_z^{\rm ap})\le e^{-\sigma n}\) for some fixed
+\(\sigma>0\).  This is a Sidon-heavy fiber inside the
+trivial-\(H\)-stabilizer residual.  It is a planted remainder profile, so
+aperiodicity alone does not make the unrestricted identity ledger valid.
+\end{remark}
 
 \section{MCA compiler}
 
-\begin{lemma}[First-match add-back]\label{lem:addback}
-For a closed-ledger row, the full first-match prefix count after paid cells satisfies \(\max_sN(s)\le\exp(o(n))\barN_{n,a_n}\).
+\begin{lemma}[Primitive add-back]\label{lem:addback}
+For a closed-ledger row, let \(N_\lambda(s)\) be the residual prefix
+fibers in the primitive profile \(\lambda\), after all algebraic cells have
+been removed.  Then
+\[
+ \sum_{\lambda\ {\rm primitive}}\max_sN_\lambda(s)
+ \le\exp(o(n))\Eprof_n(a_n).
+\]
 \end{lemma}
 
 \begin{proof}
-Paid cells contribute \(\exp(o(n))\barN_{n,a_n}\) by closure.  Primitive leaves satisfy \cref{thm:primitive-q}; their normalized averages sum to at most \(\exp(o(n))\barN_{n,a_n}\) by the first-match profile decomposition.  Summing over the subexponential profile family preserves the same scale.
+Primitive leaves satisfy \cref{thm:primitive-q}, so their maximal fibers are
+\(\exp(o(n))M_\lambda/L_\lambda\).  The residual-to-full comparison in
+\cref{def:closed-ledger} bounds this by
+\(\exp(o(n))\barN_\lambda\), which occurs in
+\eqref{eq:profile-envelope}.  Summing over the subexponential first-match
+profile family preserves the same scale.
 \end{proof}
 
 \begin{lemma}[Q pays shift pairs]\label{lem:q-sp}
@@ -259,46 +692,117 @@ If \(\sum_sN(s)=M\), \(\barN=M/L\), and \(\max_sN(s)\le \kappa\barN\), then \(M^
 \(\sum_sN(s)^2\le(\max_sN(s))\sum_sN(s)\le\kappa\barN M\).
 \end{proof}
 
+\begin{remark}[Q and SP do not count rays]\label{rem:q-sp-no-ray}
+The preceding lemma is a support-pair identity, not a ray compiler.  Keeping
+the same fibers \(N(s)\), an abstract incidence can assign distinct slopes
+to selected supports or assign one slope to all of them without changing
+\(\max_sN(s)\) or \(\sum_sN(s)^2\).  An RS numerator bound therefore
+requires the additional algebraic projection estimate RC.
+\end{remark}
+
 \begin{theorem}[Closed-ledger upper bound]\label{thm:upper}
-If a smooth RS row sequence is closed-ledger at \(a_n\), then
+If a smooth RS row sequence is closed-ledger and satisfies RC at \(a_n\),
+then
 \[
         B_{C_n}^{\rm MCA}(a_n)
-        \le \exp(o(n))\binom n{a_n}|\B_n|^{-(a_n-k_n-1)} .
+        \le \exp(o(n))\Eprof_n(a_n).
 \]
 \end{theorem}
 
 \begin{proof}
-The nonprimitive cells are paid by definition.  The primitive prefix leaves obey Q by \cref{thm:primitive-q} and add back by \cref{lem:addback}.  The shift-pair second-moment ledger is paid by \cref{lem:q-sp}.  First-match disjointization sums these disjoint slope classes, giving the displayed numerator bound.
+The nonprimitive cells are paid by definition.  The primitive prefix leaves
+obey Q by \cref{thm:primitive-q} and add back by \cref{lem:addback}; their
+support-pair second moment is bounded by \cref{lem:q-sp}.  By
+\cref{rem:q-sp-no-ray}, this does not itself bound slopes.  RC supplies the
+required slope-image estimate, and first-match disjointization sums the
+disjoint slope classes.
 \end{proof}
 
 \section{Lower side and frontier}
 
-We recall the identity-prefix pole construction in the form needed here.  Let \(m=k+1+w\), and for \(S\subseteq D\), \(|S|=m\), write \(\ell_S(X)=\prod_{t\in S}(X-t)\).  Pigeonholing the first \(w\) locator coefficients over \(\B^w\) gives a prefix vector \(z\) with at least \(\binom nm|\B|^{-w}\) supports.  Choose a pole \(\alpha\in\F\setminus D\), and set \(U_z(X)=X^m+z_1X^{m-1}+\cdots+z_wX^{m-w}\).  The line
+\begin{proposition}[Collision-aware identity lower bound]
+\label{prop:collision-aware-lower}
+Let \(D\subseteq\B\subseteq\F\), let \(C=\RS_\F(D,k)\),
+\(q=|\F|>n\), and \(k+1\le m\le n\).  Put
 \[
-        f_\alpha(x)=\frac{U_z(x)}{x-\alpha},
-        \qquad
-        g_\alpha(x)=\frac{-1}{x-\alpha},
-        \qquad x\in D,
+ w=m-k-1,
+ \qquad L=\left\lceil\binom nm|\B|^{-w}\right\rceil.
 \]
-has the property that \(f_\alpha+\zeta g_\alpha\) is code-explained on \(S\) exactly when \(\ell_S(\alpha)=U_z(\alpha)-\zeta\).  The word \(g_\alpha\) is not explained by a degree-\(<k\) polynomial on \(k+1\) positions, so the corresponding slopes are MCA-bad.  Except for the usual collision loss in evaluating \(\ell_S(\alpha)\), which is subexponential in the standard pole-reservoir regime, this gives
+Then
 \[
-        B_C^{\rm MCA}(m)\ge \exp(-o(n))\binom nm|\B|^{-w}.
+ B_C^{\rm MCA}(m)\ge
+ \left\lceil\frac{L(q-n)}{q-n+k(L-1)}\right\rceil.
+ \tag{7.1}\label{eq:collision-aware-lower}
 \]
-This is the lower construction used in \cite{Cho26CapV13,Cho26Grande}.
+\end{proposition}
 
-\begin{proof}[Proof of \cref{thm:frontier}]
-Take \(a_n=(\rho+g)n+o(n)\).  Stirling gives
+\begin{proof}
+Pigeonhole the first \(w\) locator coefficients to obtain \(L\) supports
+with common prefix \(z\).  If
+\(Q_S=\prod_{x\in S}(X-x)\) and
+\(U_z=X^m+z_1X^{m-1}+\cdots+z_wX^{m-w}\), then
+\(P_S=U_z-Q_S\) has degree at most \(k\).  At a pole
+\(\lambda\in\F\setminus D\), the simple-pole line used in the proof of
+\cref{thm:polynomial-obstruction} makes every distinct value
+\(P_S(\lambda)\) an MCA-bad slope.
+
+For \(S\ne T\), equality \(P_S(\lambda)=P_T(\lambda)\) occurs at at most
+\(k\) poles.  Averaging over the \(q-n\) poles gives one pole with at most
+\(k\binom L2/(q-n)\) colliding pairs.  If its value multiplicities are
+\(m_1,\ldots,m_M\), then
 \[
-        \log_2\barN_{n,a_n}
-        = n\bigl(H_2(\rho+g)-\beta g\bigr)+o(n).
+ \sum_i m_i^2\le L+\frac{kL(L-1)}{q-n}.
 \]
-If \(g>g^*(\rho,\beta)\) by a fixed amount, this exponent is negative by \(\Omega(n)\), so \cref{thm:upper} makes \(B_{C_n}^{\rm MCA}(a_n)\) smaller than any target with the prescribed normalization after moving \(o(n)\) agreements to absorb the \(\exp(o(n))\) ledger overhead.  Thus the safe radius reaches \(1-\rho-g^*(\rho,\beta)-o(1)\).  If \(g<g^*(\rho,\beta)\) by a fixed amount, the identity-prefix construction gives exponentially many bad slopes, so the target fails at radius \(1-\rho-g+o(1)\).  Letting \(g\) approach \(g^*\) from both sides proves the claimed equality.
+Cauchy--Schwarz, \(L^2\le M\sum_i m_i^2\), proves
+\eqref{eq:collision-aware-lower}.  This is the quantitative form of the
+prefix-pole construction in \cite{Cho26CapV13,Cho26Grande}.
 \end{proof}
 
-\begin{remark}[Finite adjacent rows]
-This is an asymptotic theorem.  It intentionally absorbs \(\exp(o(n))\) losses.  The finite deployed adjacent pairs in \cite{Cho26CapV13,Cho26Grande} require the same first-match ledger with printed constants for every paid cell, Fourier/Sidon tail, and add-back step; those constants are not supplied by the asymptotic argument alone.
+\begin{proof}[Proof of \cref{thm:frontier}]
+Condition \textup{(i)} and \cref{thm:upper} make \(a_{+,n}\) safe,
+while condition \textup{(ii)} makes \(a_{-,n}\) unsafe.  Since
+\(B_{C_n}^{\rm MCA}(a)\) is nonincreasing in \(a\), the first safe
+agreement satisfies \(a_{-,n}<a_n^*\le a_{+,n}\), proving
+\eqref{eq:threshold-bracket}.  If the endpoints are \(o(n)\) apart around
+\(k_n+1+g_nn\), division by \(n\) gives
+\(\delta_n^*=1-\rho_n-g_n+o(1)\).  The displayed identity choice of
+\(U_n(a)\) is \cref{prop:collision-aware-lower}.
+
+For \(a_n=k_n+1+gn+O(1)\), Stirling's formula gives
+\[
+        \log_2\barN_{n,a_n}
+        =nF_n(g)+o(n).
+\]
+Thus \(g_{T,n}\) is the exponential-scale right boundary at which the
+identity average has target rate \(\tau_n\).  The separate endpoint
+hypothesis converts this exponential comparison into the exact safe and
+unsafe inequalities, accounting for the tangent term, compiler loss,
+integer rounding, and pole collisions.  The preceding bracket gives the
+target-adjusted formula.  Finally, if \(\tau_n=o(1)\), concavity of
+\(F_n\), together with \(F_n(0)=H_2(\rho_n)\) bounded away from zero,
+shows that its right \(\tau_n\)-level boundary differs by \(o(1)\) from
+its right zero-level boundary \(g^*(\rho_n,\beta_n)\).  This proves
+\eqref{eq:identity-frontier}.
+\end{proof}
+
+\begin{remark}[Scope of the main statement]
+\Cref{thm:polynomial-obstruction} shows that smooth/circle geometry and
+\(\log|\B_n|=o(n)\) do not imply the identity-scale upper bound: a
+degree-two quotient over a proper subfield already has an exponentially
+larger natural prefix budget.  Thus the unconditional conclusions here are
+the obstruction and the high-energy elimination.  The frontier formula is
+the identity-dominant specialization of the profile-envelope compiler.  For
+unrestricted rows, the remaining requirements are exhaustive
+quotient/remainder routing with residual-to-full profile comparison, a
+Sidon payment on the resulting primitive residual, and a
+higher-dimensional transverse-ray compiler.
+Because the constructed depth satisfies \(w/n\to0\), the example alone
+does not disprove the coarse \(o(1)\)-radius formula for subexponential
+targets; it disproves the identity-scale numerator bound and hence any
+unconditional derivation of that formula from the identity prefix alone.
 \end{remark}
 
+\enlargethispage{4\baselineskip}
 \begin{thebibliography}{GMRSZ20}
 
 \bibitem[BS94]{BalogSzemeredi}
@@ -308,23 +812,15 @@ A. Balog and E. Szemeredi,
 
 \bibitem[Cho26a]{Cho26CapV13}
 P. Chojecki,
-\newblock \emph{CAP25 v13 raw ledger for smooth Reed--Solomon MCA},
-\newblock experimental manuscript, 2026.
+\newblock \emph{Universal Field-Size Caps and a Two-Sided Sandwich for
+Mutual Correlated Agreement on Smooth Reed--Solomon Domains},
+\newblock manuscript, July 2026.
 
 \bibitem[Cho26b]{Cho26Grande}
 P. Chojecki,
-\newblock \emph{Grande Finale: Q, BC, SP, and the final RS--MCA ledger},
-\newblock experimental manuscript, 2026.
-
-\bibitem[Cho26c]{Cho26ModuliSelf}
-P. Chojecki,
-\newblock \emph{The Moduli Ledger for the Asymptotic Reed--Solomon MCA Frontier},
-\newblock experimental manuscript, 2026.
-
-\bibitem[Cho26d]{Cho26ModuliFinal}
-P. Chojecki,
-\newblock \emph{A Moduli Ledger for RS--MCA},
-\newblock experimental manuscript, 2026.
+\newblock \emph{Proof-Audited and Expanded Bounds and Reductions for
+RS--MCA},
+\newblock manuscript, July 2026.
 
 \bibitem[GMRSZ20]{GMRSZ2020}
 B. Green, D. Matolcsi, I. Z. Ruzsa, G. Shakan, and D. Zhelezov,
