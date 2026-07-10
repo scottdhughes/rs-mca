@@ -1,0 +1,265 @@
+{
+  "absolute_value_dead": {
+    "rows": [
+      {
+        "n": 16,
+        "over_budget": "6.22789",
+        "p": 17,
+        "p_main": "5.42561",
+        "pointwise": "27.4849",
+        "pointwise_over_pmain": "5.06577",
+        "t": 9
+      },
+      {
+        "n": 32,
+        "over_budget": "28.7281",
+        "p": 97,
+        "p_main": "9.82889",
+        "pointwise": "229.676",
+        "pointwise_over_pmain": "23.3675",
+        "t": 18
+      },
+      {
+        "n": 64,
+        "over_budget": "67.1717",
+        "p": 257,
+        "p_main": "12.7935",
+        "pointwise": "699.006",
+        "pointwise_over_pmain": "54.6374",
+        "t": 27
+      }
+    ],
+    "status": "MEASURED_ABSOLUTE_VALUE_ROUTE_DEAD_AND_GROWING"
+  },
+  "claims": {
+    "absolute_value_route_dead_measured": true,
+    "closes_budget_via_L2": false,
+    "counterexample_found": false,
+    "cs_across_factors_equals_484_cut_a_proved": true,
+    "cs_floor_unconditional_5515_H2_proved": true,
+    "identities_verified_on_toys": true,
+    "phase_is_load_bearing_wall": true,
+    "proves_P_le_H2": false,
+    "proves_deployed_wall": false,
+    "proves_star3": false,
+    "pte_rigidity_gains_only_6pct": true,
+    "refutes_any_hughes_479_482_484_claim": false,
+    "t2_second_moment_closed_form_exact": true,
+    "t3_second_moment_equals_collision_energy_exact": true
+  },
+  "cs_equivalence": {
+    "rows": [
+      {
+        "cs_centered_highspace": "36.3341",
+        "cs_freq_nonprincipal": "34.5291",
+        "cs_uncentered_484": "40.2989",
+        "n": 16,
+        "p": 17,
+        "relation_factor_pred": "0.950323",
+        "relation_ok": true,
+        "t": 9
+      },
+      {
+        "cs_centered_highspace": "301.152",
+        "cs_freq_nonprincipal": "298.967",
+        "cs_uncentered_484": "312.051",
+        "n": 32,
+        "p": 97,
+        "relation_factor_pred": "0.992747",
+        "relation_ok": true,
+        "t": 18
+      },
+      {
+        "cs_centered_highspace": "912.791",
+        "cs_freq_nonprincipal": "910.542",
+        "cs_uncentered_484": "930.833",
+        "n": 64,
+        "p": 257,
+        "relation_factor_pred": "0.997537",
+        "relation_ok": true,
+        "t": 27
+      }
+    ],
+    "status": "CS_ROUTE_EQUALS_484_CUT_A_FOURIER_DUAL"
+  },
+  "date": "2026-07-10",
+  "deployed": {
+    "C2": 700358019921,
+    "C2_pin": true,
+    "C3": 276295207554280719,
+    "C3_pin": true,
+    "D2": 1400716039842,
+    "D2_is_2C2": true,
+    "H2": 77291948627,
+    "H2_formula_ok": true,
+    "P_main_floor": 42623216888,
+    "P_main_over_H2": "0.551457",
+    "cs_floor_over_H2": "5515.41",
+    "cs_floor_over_budget": "12296.3",
+    "cs_floor_unconditional": 426296814343656,
+    "cs_model_centered": 439892673815304,
+    "cs_model_over_H2": "5691.31",
+    "cs_uncentered_484_cut_a": 453080737874835,
+    "cs_uncentered_over_H2": "5861.94",
+    "e": 67472,
+    "err_budget_floor": 34668731738,
+    "err_budget_over_H2": "0.448543",
+    "m_arc": 1183519,
+    "modelled_offdiag": 16815100594059119,
+    "n": 2097152,
+    "n_prime": 1183520,
+    "needed_avg_T3T2_over_H2": "5.38251",
+    "offdiag_over_diag": "0.0608592",
+    "p": 2130706433,
+    "p_squared": 4539909903627583489,
+    "pte_rigidity_gain_pct": "5.91151",
+    "sum_T2_sq": 12718249242897409229416610737476,
+    "sum_T2_sq_formula": "2 p^2 (n'-1)(n'-2)",
+    "sum_T2_sq_np": 12718247280891984958761279352512,
+    "sum_T3_sq_floor": 45156792567618639236914376670556149276,
+    "sum_T3_sq_formula": "36 p^2 sum_h M(h)^2, with sum_h M(h)^2 >= C(n'-1,3)",
+    "sum_T3_sq_np_floor": 42408587065789969030414804538170498680,
+    "trivial_deficit_C2_over_H2": "9.0612"
+  },
+  "l2_identities": {
+    "rows": [
+      {
+        "L3": 1,
+        "S": 58,
+        "identity_ok": true,
+        "m": 8,
+        "n": 16,
+        "p": 17,
+        "q": 1,
+        "sum_T2_sq_complex": 32368,
+        "sum_T2_sq_formula": 32368,
+        "sum_T2_sq_np_complex": 29232,
+        "sum_T2_sq_np_formula": 29232,
+        "sum_T3_sq_complex": 603432,
+        "sum_T3_sq_formula": 603432,
+        "sum_T3_sq_np_complex": 490536,
+        "sum_T3_sq_np_formula": 490536,
+        "t": 9
+      },
+      {
+        "L3": 18,
+        "S": 716,
+        "identity_ok": true,
+        "m": 17,
+        "n": 32,
+        "p": 97,
+        "q": 3,
+        "sum_T2_sq_complex": 5118496,
+        "sum_T2_sq_formula": 5118496,
+        "sum_T2_sq_np_complex": 5044512,
+        "sum_T2_sq_np_formula": 5044512,
+        "sum_T3_sq_complex": 242526384,
+        "sum_T3_sq_formula": 242526384,
+        "sum_T3_sq_np_complex": 225879984,
+        "sum_T3_sq_np_formula": 225879984,
+        "t": 18
+      },
+      {
+        "L3": 33,
+        "S": 2666,
+        "identity_ok": true,
+        "m": 26,
+        "n": 64,
+        "p": 257,
+        "q": 4,
+        "sum_T2_sq_complex": 85863700,
+        "sum_T2_sq_formula": 85863700,
+        "sum_T2_sq_np_complex": 85441200,
+        "sum_T2_sq_np_formula": 85441200,
+        "sum_T3_sq_complex": 6339118824,
+        "sum_T3_sq_formula": 6339118824,
+        "sum_T3_sq_np_complex": 6095758824,
+        "sum_T3_sq_np_formula": 6095758824,
+        "t": 27
+      }
+    ],
+    "status": "EXACT_L2_PARSEVAL_IDENTITIES_VERIFIED"
+  },
+  "lineage": {
+    "continues_pr468_pr479_pr482_pr484": true,
+    "source": "Hughes Route-D v1-v54; PR #468, #479, #482, #484",
+    "supports_scott_hughes_route_d": true
+  },
+  "packet": "cap25_v13_star3_l2_second_moment",
+  "routes": {
+    "absolute_value_route_dead": {
+      "statement": "The phase-free sum_{(u,v)!=0}|T3||T2|/(12 p^2) overshoots the budget by a factor growing with arc size (6x, 29x, 60x over budget at t=9,18,27), reproducing #484's route-cut (c) growth.  So no bound on the absolute-value family sum |T3 T2| can reach 0.4485 H2.",
+      "status": "MEASURED (route dead)"
+    },
+    "cs_equals_484_cut_a": {
+      "statement": "Cauchy-Schwarz across the two factors over frequency space, |P_err| <= sqrt(sum_{!=0}|T3|^2) sqrt(sum_{!=0}|T2|^2)/(12 p^2), equals #484's cut (a) <tau,Phi_A> over high space by Fourier duality: it is sqrt(C2 (S - C3^2/p^2)) * sqrt(1 - D2/2p^2), and its uncentered form sqrt(C2 S) = 453080737874835 = 5862 H2 is #484's exact number.  This factorization does NOT escape the cut.",
+      "status": "PROVED"
+    },
+    "cs_floor_unconditional": {
+      "statement": "Because S >= C(n'-1,3) for every collision profile, the CS route outputs >= sqrt(C2 (C3 - C3^2/p^2)) = 426296814343656 = 5515 H2 = 12296 * budget, unconditionally.  Killing every off-diagonal (PTE-type rigidity, S -> C3) moves 5862 H2 -> 5515 H2, a ~6% gain; the barrier is the irreducible triple-count diagonal, not collision abundance.  The CS route is also worse than the trivial bound C2 = 9.06 H2.",
+      "status": "PROVED"
+    },
+    "levelset_dyadic": {
+      "statement": "T2_full(u,v) = sum_{x in A} psi(-w x) G(w + v x), w = u + v zeta, G(c) = sum_{y in A} psi(-c y) an incomplete arc sum; on v=0, T2(u,0) = G(u)^2 - G(2u).  The large-sieve refinement needs |T2| large on FEW frequencies -- but MEASURED, the |T2|^2 mass is quasi-equidistributed: half of it is spread over ~17% of ALL p^2 frequencies (stable with arc size), the axis-set share is small and SHRINKS (0.11 -> 0.029 -> 0.006 at t=9,18,27), and top-(2p) falls 0.31 -> 0.12 -> 0.06.  There is no sparse heavy set to isolate, so the dyadic 'few large x bounded + many small x cancellation' split has no small part; any reweighting of ABSOLUTE VALUES inherits the 5515 H2 diagonal floor.",
+      "status": "ANALYSIS + MEASURED (premise fails)"
+    },
+    "t2_second_moment": {
+      "statement": "sum_{u,v} |T2(u,v)|^2 = 2 p^2 (n'-1)(n'-2) EXACTLY.  Pairs have no nontrivial collision: (x+y, xy) determines the unordered pair, so the only frequency-Parseval matches are the 2 reorderings.  At the deployed row this is the exact integer 2 p^2 D2; verified to the integer against the direct complex sum on toys.",
+      "status": "PROVED"
+    },
+    "t3_second_moment": {
+      "statement": "sum_{u,v} |T3(u,v)|^2 = 36 p^2 sum_h M(h)^2, M(h) = #{arc 3-sets with high h}; sum_h M(h)^2 = C(n'-1,3) + 2 L3, L3 = # unordered equal-high 3-set pairs (a birthday-collision energy).  The diagonal C(n'-1,3) is an unconditional floor (M >= its own count).",
+      "status": "PROVED"
+    },
+    "wall_phase_load_bearing": {
+      "statement": "Both the second moment (floors at 5515 H2) and the phase-free sum (overshoots and grows) rule out every ABSOLUTE-VALUE second-moment / large-sieve bound.  The psi(-u zeta) twist is load-bearing: closing star3 requires SIGNED cancellation in sum_{(u,v)!=0} psi(-u zeta) T3(u,v) T2(u,v) = 12 p^2 P_err -- a Weil/Kloosterman-type estimate for the 2-parameter frequency family, the input pointwise and second-moment methods cannot supply.  This sharpens #484's cuts (a),(c) across the whole family.",
+      "status": "WALL (ANALYSIS)"
+    }
+  },
+  "status": "L2_PARSEVAL_IDENTITIES_EXACT_CS_FLOOR_PROVED_WALL_OPEN",
+  "t2_level_sets": {
+    "rows": [
+      {
+        "axis_frac": "0.111111",
+        "half_mass_freq_frac": "0.21875",
+        "n": 16,
+        "n_axis": 32,
+        "n_freq": 288,
+        "np_max_round": 356,
+        "np_total_formula": 29232,
+        "np_total_round": 29232,
+        "p": 17,
+        "t": 9,
+        "top2p_frac": "0.309207"
+      },
+      {
+        "axis_frac": "0.029277",
+        "half_mass_freq_frac": "0.166241",
+        "n": 32,
+        "n_axis": 192,
+        "n_freq": 9408,
+        "np_max_round": 5044,
+        "np_total_formula": 5044512,
+        "np_total_round": 5044512,
+        "p": 97,
+        "t": 18,
+        "top2p_frac": "0.117039"
+      },
+      {
+        "axis_frac": "0.00620853",
+        "half_mass_freq_frac": "0.167439",
+        "n": 64,
+        "n_axis": 512,
+        "n_freq": 66048,
+        "np_max_round": 29358,
+        "np_total_formula": 85441200,
+        "np_total_round": 85441200,
+        "p": 257,
+        "t": 27,
+        "top2p_frac": "0.0601386"
+      }
+    ],
+    "status": "MEASURED_T2_MASS_NOT_CONCENTRATED"
+  },
+  "wall_statement": "star3 (P <= H2 = 77291948627 at the KB row) cannot be closed by any bound on the absolute-value family sum |T3(u,v) T2(u,v)|.  Exact Parseval: sum|T2|^2 = 2 p^2 (n'-1)(n'-2), sum|T3|^2 = 36 p^2 sum_h M(h)^2 with sum_h M(h)^2 >= C(n'-1,3).  Cauchy-Schwarz across the factors is #484's cut (a) and outputs >= 5515 H2 = 12296*budget for every collision profile.  Closing star3 needs SIGNED cancellation in sum_{(u,v)!=0} psi(-u zeta) T3 T2 = 12 p^2 P_err, not a second moment.  P_main = C(n'-1,2)C(n'-1,3)/p^2 = 0.5515 H2 exactly; residual budget 0.4485 H2 (#484)."
+}

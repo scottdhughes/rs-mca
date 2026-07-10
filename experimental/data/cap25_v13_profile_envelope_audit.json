@@ -1,0 +1,329 @@
+{
+  "audit": "asymptotic_rs_mca profile-envelope draft (commit 2acc7be)",
+  "targets": [
+    "experimental/asymptotic_rs_mca.tex",
+    "experimental/cap25_cap_v13_raw.tex",
+    "experimental/grande_finale.tex"
+  ],
+  "gates": [
+    {
+      "name": "GA1 setup: |D|=20, squaring 2-to-1, D^2=theta^2 F_p^x, order-4 roots not in D",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "GA2 locator: odd coeffs vanish, gap-2j coeff in theta^{2j}F_p (all 210 supports)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "GA3 pigeonhole square-quotient fiber |F_z|>=ceil(barN_sq), #prefixes<=p^{w/2}",
+      "pass": true,
+      "detail": "(11,8,2)L=20 D=0.1275 AA=281>=90 (13,10,2)L=61 D=0.0542 AA=2363>=477 (17,12,2)L=472 D=0.0147 AA=107837>=10255 (23,14,4)L=327 D=0.0074 AA=92653>=5914 (23,18,4)L=946 D=0.0039 AA=630675>=29097"
+    },
+    {
+      "name": "GA4 Sidon-heavy: exact E/|A-A|, quasicube |A-A|>=|A|^{3/2}, Delta decreasing",
+      "pass": true,
+      "detail": "Delta 0.1275>0.0542>0.0147>0.0074>0.0039"
+    },
+    {
+      "name": "GA5 MCA lower bound: 20 distinct MCA-bad slopes over F_{11^4} (ext cond True)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "GA6 stabilizer deletion: trivial stabilizer, fiber 12>=ceil(11.45), Sidon-heavy persists",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "GA7 circle corollary: a,w even -> k=2u+1=5, dim{f0+y f1}=5=k, 1+t^2!=0 on D",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "GA8 asymptotic scales: (1/n)ln barN_sq->h(a)/4=0.1683, ln barN_1->0, ratio->inf, w even & Theta(n/log n)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "GB1 collision-aware eq(7.1): Cauchy-Schwarz identity holds; formula=20 matches GA5",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "GB2 frontier g*(rho,beta): single crossing, superlevel [0,g*], target-crossing->g* as tau->0",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "GB3 citations: 25/25 labels byte-match in source; no moduli file; phantom moduli absent; 6 bibitems",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "GB4 RC guard: def:ray-compiler + rem:q-sp-no-ray forbid inferring RC from support-pair/max-fiber",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "GB5 hypotheses: identity-dominant defined+used consistently; target-reserve ONLY in abstract (finding)",
+      "pass": true,
+      "detail": "tr_in_body=False (expected False)"
+    }
+  ],
+  "tamper": [
+    {
+      "name": "T1 wrong |F_z| rejected",
+      "pass": true
+    },
+    {
+      "name": "T2 corrupted E rejected",
+      "pass": true
+    },
+    {
+      "name": "T3 quasicube inequality real",
+      "pass": true
+    },
+    {
+      "name": "T4 fake label absent",
+      "pass": true
+    },
+    {
+      "name": "T5 real label present",
+      "pass": true
+    },
+    {
+      "name": "T6 moduli phantom absent",
+      "pass": true
+    },
+    {
+      "name": "T7 target-reserve absent from body",
+      "pass": true
+    },
+    {
+      "name": "T8 collision-aware sensitive to collision term (20 vs 11)",
+      "pass": true
+    },
+    {
+      "name": "T9 entropy scale distinct",
+      "pass": true
+    },
+    {
+      "name": "T10 wrong source line rejected",
+      "pass": true
+    },
+    {
+      "name": "T11 squaring is 2-to-1 not injective",
+      "pass": true
+    },
+    {
+      "name": "T12 -1 does not stabilize a deleted support",
+      "pass": true
+    }
+  ],
+  "fiber_instances": [
+    {
+      "p": 11,
+      "a": 8,
+      "w": 2,
+      "L": 20,
+      "nprefix": 11,
+      "E": 1020,
+      "AminusA": 281
+    },
+    {
+      "p": 13,
+      "a": 10,
+      "w": 2,
+      "L": 61,
+      "nprefix": 13,
+      "E": 12293,
+      "AminusA": 2363
+    },
+    {
+      "p": 17,
+      "a": 12,
+      "w": 2,
+      "L": 472,
+      "nprefix": 17,
+      "E": 1544424,
+      "AminusA": 107837
+    },
+    {
+      "p": 23,
+      "a": 14,
+      "w": 4,
+      "L": 327,
+      "nprefix": 529,
+      "E": 260467,
+      "AminusA": 92653
+    },
+    {
+      "p": 23,
+      "a": 18,
+      "w": 4,
+      "L": 946,
+      "nprefix": 529,
+      "E": 3280750,
+      "AminusA": 630675
+    }
+  ],
+  "citations": [
+    {
+      "source": "cap25_cap_v13_raw.tex",
+      "line": 945,
+      "label": "thm:quotient-remainder-deep-floor",
+      "head": "quotient-remainder deep-point lower ledger"
+    },
+    {
+      "source": "cap25_cap_v13_raw.tex",
+      "line": 1872,
+      "label": "thm:exact-quotient-image-lcm-ledger",
+      "head": "exact finite-parameter quotient image ledger"
+    },
+    {
+      "source": "cap25_cap_v13_raw.tex",
+      "line": 6684,
+      "label": "lem:capf-quot-pullback",
+      "head": "quotient-pullback recursion"
+    },
+    {
+      "source": "cap25_cap_v13_raw.tex",
+      "line": 5970,
+      "label": "thm:capf-census",
+      "head": "bounded quotient census"
+    },
+    {
+      "source": "cap25_cap_v13_raw.tex",
+      "line": 3957,
+      "label": "lem:cheb-fibers",
+      "head": "Chebyshev fibers"
+    },
+    {
+      "source": "cap25_cap_v13_raw.tex",
+      "line": 4010,
+      "label": "lem:circle-rs",
+      "head": "circle"
+    },
+    {
+      "source": "cap25_cap_v13_raw.tex",
+      "line": 6060,
+      "label": "thm:capf-planted",
+      "head": "planted quotient-core lower count"
+    },
+    {
+      "source": "cap25_cap_v13_raw.tex",
+      "line": 6020,
+      "label": "prop:capf-qprofile",
+      "head": "bounded active quotient order"
+    },
+    {
+      "source": "cap25_cap_v13_raw.tex",
+      "line": 5782,
+      "label": "def:capf-tangent-cell",
+      "head": "tangent"
+    },
+    {
+      "source": "grande_finale.tex",
+      "line": 481,
+      "label": "prop:exact-tangent-cell",
+      "head": "high-agreement tangent"
+    },
+    {
+      "source": "cap25_cap_v13_raw.tex",
+      "line": 2855,
+      "label": "thm:extension-line-dimension-degree-ledger",
+      "head": "extension-line dimension"
+    },
+    {
+      "source": "grande_finale.tex",
+      "line": 1546,
+      "label": "prop:rank-one-distinct-slope-floor",
+      "head": "distinct-slope rank-one floor"
+    },
+    {
+      "source": "cap25_cap_v13_raw.tex",
+      "line": 2240,
+      "label": "thm:canonical-affine-rankdrop-ledger",
+      "head": "rank-drop ledger"
+    },
+    {
+      "source": "cap25_cap_v13_raw.tex",
+      "line": 2912,
+      "label": "thm:scanner-checkable-residual-aperiodic-ledger",
+      "head": "scanner"
+    },
+    {
+      "source": "grande_finale.tex",
+      "line": 1811,
+      "label": "thm:saturation",
+      "head": "saturation identity"
+    },
+    {
+      "source": "grande_finale.tex",
+      "line": 1867,
+      "label": "prop:line-ray-saturation",
+      "head": "line-ray saturation identity"
+    },
+    {
+      "source": "grande_finale.tex",
+      "line": 1735,
+      "label": "thm:bc-moving-root",
+      "head": "moving-root"
+    },
+    {
+      "source": "grande_finale.tex",
+      "line": 1764,
+      "label": "cor:bc-one-pencil",
+      "head": "one-parameter"
+    },
+    {
+      "source": "grande_finale.tex",
+      "line": 1494,
+      "label": "prop:base-field-floor",
+      "head": "base-field"
+    },
+    {
+      "source": "cap25_cap_v13_raw.tex",
+      "line": 8433,
+      "label": "prob:capfp-split",
+      "head": "Primitive split-pencil"
+    },
+    {
+      "source": "grande_finale.tex",
+      "line": 916,
+      "label": "thm:fourier-flat-q",
+      "head": "Fourier-flat leaves satisfy asymptotic Q"
+    },
+    {
+      "source": "grande_finale.tex",
+      "line": 949,
+      "label": "cor:large-characteristic-fourier-examples",
+      "head": "large-characteristic Fourier examples"
+    },
+    {
+      "source": "grande_finale.tex",
+      "line": 243,
+      "label": "thm:simple-pole-list-floor",
+      "head": "simple-pole list-to-MCA floor"
+    },
+    {
+      "source": "grande_finale.tex",
+      "line": 583,
+      "label": "prop:pole-line",
+      "head": "pole-line transport to MCA"
+    },
+    {
+      "source": "cap25_cap_v13_raw.tex",
+      "line": 6909,
+      "label": "lem:capff1-identity-prefix-floor",
+      "head": "identity-scale prefix floor"
+    }
+  ],
+  "gates_pass": 13,
+  "gates_total": 13,
+  "tamper_pass": 12,
+  "tamper_total": 12,
+  "result": "PASS"
+}

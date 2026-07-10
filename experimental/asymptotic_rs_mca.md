@@ -18,6 +18,51 @@ preserved elsewhere, and next action.
 
 ## Entries
 
+### 2026-07-10 - Profile-envelope audit, C9 support, and threshold wall packets
+
+- **Source:** PRs `#481--#492`.
+- **Status:** PROVED / CONDITIONAL / EXPERIMENTAL / AUDIT, depending on the
+  packet.  No paper-level TeX/PDF changes were imported in this pass.
+- **Paper impact:** These PRs support the current profile-envelope version of
+  `experimental/asymptotic_rs_mca.tex`, but they do not yet justify promoting a
+  new theorem into the paper.  The strongest direct paper audit is PR `#483`:
+  it checks the promoted profile-envelope draft at commit `2acc7be`, reports
+  the obstruction construction as replicated, confirms that profile-scale
+  payments and the ray-compiler guard are handled explicitly, and leaves two
+  small open gaps plus the already-known imported window-uniformity gap.
+- **Numerical spine:** PR `#491` recomputes the four deployed
+  profile-envelope numerical rows and records exact integer values for
+  `U(a0)`, `U(a0+1)`, and `B*`.  It is an arithmetic audit of the displayed
+  profile-envelope spine, not a proof of the missing deployed upper ledger.
+- **C9 support packets:** PRs `#485--#489` add standalone C9-side notes and
+  scripts: coherent-phase Fourier subblock payment, low-complexity endpoint
+  cube exclusion, radial-shell route cut, near-norm-gate remainder packing, and
+  block-profile Plotkin bounds.  These are useful local tools and route cuts.
+  They should be cited as support for the C9/residual proof program only after
+  their hypotheses are matched; they do not close C1--C8 exhaustion, add-back,
+  the deployed adjacent rows, or the full residual theorem.
+- **Threshold wall packets:** PRs `#481`, `#482`, `#484`, and `#490` sharpen
+  current M31/KoalaBear threshold subwalls.  The M31 integral-ratio LP packet
+  eliminates 187 shell pairs but leaves 3,254,698 open.  The KoalaBear
+  Hughes-wall packets reduce the `star3` obstruction to a single point count,
+  identify the principal character frequency exactly, and prove that naive
+  second-moment / absolute-value large-sieve routes are too weak.  These are
+  valuable because they identify the next analytic target, not because they
+  close the target.
+- **Lean support:** PR `#492` adds a Lean package
+  `experimental/lean/m31_few_shell/` formalizing the M31 few-shell theorem
+  core.  The package was imported as a formalization artifact only; no local
+  Lake build was run in this integration pass.
+- **Files preserved elsewhere:** Detailed notes live under
+  `experimental/notes/audits/` and `experimental/notes/thresholds/`; JSON
+  artifacts under `experimental/data/`; scripts under `experimental/scripts/`;
+  Lean under `experimental/lean/m31_few_shell/`.
+- **Next action:** Use PR `#483` as the immediate checklist before touching
+  `asymptotic_rs_mca.tex`.  For C9, promote only statements whose hypotheses
+  match the residual class in the paper.  For the `star3` and M31 packets,
+  continue from the named open point-count / shell-pair targets rather than
+  re-running the route cuts they already rule out.
+
 ### 2026-07-10 - Promoted profile-envelope replacement draft
 
 - **Source:** Maintainer-added `experimental/asymptotic_rs_mca (1).tex`,

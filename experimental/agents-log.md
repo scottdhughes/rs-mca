@@ -30,6 +30,35 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-10 - Profile-envelope audits, C9 support, and threshold wall packets
+
+- **Agent/model:** holmbuar via PRs #481, #482, #483, #484, #490, and #492;
+  LegaSage via PR #491; DannyExperiments via PRs #485, #486, #487, #488, and
+  #489; Codex for selective integration, audit synthesis, and lightweight
+  checks.
+- **Files added or changed:** Added audit notes under
+  `experimental/notes/audits/`, threshold notes under
+  `experimental/notes/thresholds/`, JSON/data artifacts under
+  `experimental/data/`, verifier scripts under `experimental/scripts/`, a Lean
+  package under `experimental/lean/m31_few_shell/`, and a consolidated entry in
+  `experimental/asymptotic_rs_mca.md`.
+- **Status:** PROVED / CONDITIONAL / EXPERIMENTAL / AUDIT.
+- **What is being added:** Integrated the latest non-paper PR artifacts without
+  changing `experimental/asymptotic_rs_mca.tex` or its PDF.  The batch includes
+  a profile-envelope line-by-line audit, deployed-row numerical checks, five
+  C9 support/route-cut packets, KoalaBear `star3` point-count and second-moment
+  wall notes, an M31 shell-pair LP ruleout packet, and Lean formalization of
+  the M31 few-shell theorem core.
+- **How it is useful:** This preserves the new material in the right layer:
+  the profile-envelope paper gets an audit checklist first, C9 receives local
+  tools but not an overclaimed theorem, and the threshold notes identify
+  concrete next analytic targets rather than hiding them in prose.
+- **What to do next:** Audit PR #483's two open gaps before paper edits; use the
+  C9 packets only when their hypotheses match the residual class; continue the
+  `star3` work from the explicit point-count/signed-cancellation target; and
+  keep the Lean package under `experimental/lean/` until it is independently
+  built by a formalization contributor.
+
 ### 2026-07-10 - Promote profile-envelope Asymptotic RS MCA draft
 
 - **Agent/model:** Maintainer-added TeX reviewed and promoted by Codex.
