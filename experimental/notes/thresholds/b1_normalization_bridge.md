@@ -57,3 +57,28 @@ Reduces B1 to a named second-moment estimate with a machine-checked base and den
 NOT by itself supply the `exp(o(N))` tail bound (that is the remaining OPEN piece). Not a closure of
 `prob:entropy-inverse-q` or any deployed-finite claim. Second-moment/energy route; complementary to the
 span-cell/defect route of `cap25_v13_entropy_inverse_fp_span_surjection.md`.
+
+## 4. The `d>w` tail: reduced to a per-`d` second-moment bound (2026-07-09 update)
+
+The tail bound reduces to a clean per-`d` estimate. Using the Vandermonde identity
+`sum_d C(N-2d,m-d) C(N,d) C(N-d,d) = C(N,m)^2`:
+    **if `D_d <= C(N,d) C(N-d,d) Q^{-w} exp(o(N))` for every `d > w`, then `tail <= flat * exp(o(N))`** (B1).
+The per-`d` ratio `r_d := D_d / (C(N,d) C(N-d,d) Q^{-w})` is the object; `r_d = e^{o(N)}` for all `d>w` closes it.
+
+**Anchors and verification (`b1_tail_per_d.py`):**
+- **`d <= w`: `D_d = 0`** (machine-checked `pte_rigidity` / T6) — the tail starts at `d = w+1`.
+- **`d = w+1` (the smallest, hardest): `D_{w+1} <= 30 C(N,w+1)`** — the b2 result T12 (`E_{w+1} = 2*#{U:
+  |U|=2(w+1), Qhat^2-P_U perfect square}`, each degree-`(w+1)` locator has `<= n/(w+1)` full fibers).
+- **`r_d = O(1)` UNIFORMLY across `d > w`, `-> 1` in the dense window** (verified: at `mean = 18.1`,
+  `r_d in [0.33, 1.09]`; the dominant middle `d` sits at `r_d ~ 1.0`). `Gamma_2/flat = 2.09, 1.53, 1.06`
+  for `mean = 1.37, 3.2, 18.1` — converging to 1.
+
+**The remaining rigorous step, in its cleanest form.** By Parseval on `d`-subsets,
+`D_d^{all} = (1/Q^w)(C(N,d)^2 + sum_{c!=0}|e_d(v_c)|^2)` and `D_d <= D_d^{all}`, so the per-`d` bound is
+    **`sum_{c != 0} |e_d(v_c)|^2 <= C(N,d)^2 exp(o(N))`  for every `d`**
+— the `s = 1` (second-moment) rung of the signed-`e_d` moment ladder, uniform in `d`. This is DECOUPLED from
+and strictly weaker than the `s = infinity` (max-fiber / sup) crux and the `s = 2` (participation-ratio,
+#434) crux: it asks only that the signed `e_d` spectrum has near-flat SECOND moment. It is the natural target
+for the moment law (b2 T5, `E_c|pi_r|^{2s} <= (2s-1)!! n^s`) fed through Newton-Girard, or a Lang-Weil count on
+the PTE variety with the coset stratum (which is `exp(o(N))`) removed. Base `d<=w` machine-checked; `d=w+1`
+anchored by T12; `r_d = O(1)` verified across the window; the general-`d` `s=1` rung is the concrete open piece.
