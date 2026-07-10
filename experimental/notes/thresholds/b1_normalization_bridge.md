@@ -72,6 +72,21 @@ from the `s = infinity` (max-fiber / sup) crux and the `s = 2` (participation-ra
 disjoint decomposition below (Section 4) is the structural refinement of the SAME `Gamma_2`, indexed by
 symmetric-difference size, exposing the T6 (`d<=w`) and T12 (`d=w+1`) rigidity content.
 
+## 3c. Analytic path: the signed-`e_m` second moment is a Newton–Girard polynomial in DILATED character sums
+
+The remaining bound `sum_{c!=0}|e_m(v_c)|^2 <= C(N,m)^2 exp(o(N))` has a concrete character-sum route, not just
+a Lang–Weil hand-wave. The power sums of `v_c = e_p(f_c(.))` are dilates of the SAME sum `pi(c) := sum_{a in mu_n} e_p(f_c(a))`:
+    **`p_r(v_c) = sum_{a} v_a^r = sum_a e_p(r f_c(a)) = sum_a e_p(f_{rc}(a)) = pi(r c)`**   (verified exact, `b1_dilation_bridge.py`).
+By Newton–Girard, `e_m(v_c)` is therefore a FIXED universal polynomial in `pi(c), pi(2c), ..., pi(mc)`
+(verified: NG reconstruction from `{pi(rc)}` matches the direct `e_m(v_c)` to machine precision). Hence
+    **`sum_{c!=0}|e_m(v_c)|^2` is governed by the JOINT moments of `pi` at dilates `{rc}`,**
+and the b2 moment law T5, `E_c |pi(c)|^{2s} <= (2s-1)!! n^s`, is the direct analytic input (via Cauchy–Schwarz
+across the NG monomials). This unifies B1 with the b2 dilated-`pi` ladder: the dilates `rc` are exactly the
+resonance frequencies of the b2 subgroup-`4`-moment analysis. CAVEAT (honest scope): for deployed `m ~ n/2 ~ 10^6`
+the NG polynomial has degree `m`, so turning the joint-moment control into the `exp(o(N))` bound (managing the
+`m`-fold NG monomial sum, and the `r ≡ 0 mod p` trivial-dilate terms `pi(0)=n`) is the substantial remaining work.
+This is the concrete open problem: a second-moment bound for a degree-`m` symmetric function of dilated Weil sums.
+
 ## 4. The `d>w` tail: reduced to a per-`d` second-moment bound (2026-07-09 update)
 
 The tail bound reduces to a clean per-`d` estimate. Using the Vandermonde identity
