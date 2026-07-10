@@ -10,6 +10,30 @@ audit (PR #433/#435) — `thm:fourier-flat-q` pays fibers at the ambient `Q^w` s
 by the actual image `L = |im Phi|`; the bridge `|im Phi| = Q^w exp(o(N))` in-window was unprinted.
 Complementary to the F_p-span-cell surjection note (span/defect route); this is the second-moment/energy route.
 
+## 0. RECONCILIATION (2026-07-10): B1 is SUBSUMED by C9 (the Fourier/Sidon input), and where this packet sits
+
+After the community's B1 cluster (latifkasuli #436 diagnosed the ambient-vs-image mismatch; avdeevvadim #439
+repaired the CONVENTION by making the C9 interface image-normalized with `A/L = exp(o(N))` a hypothesis;
+holmbuar #440 Lean-formalized those identities), the correct placement of THIS packet is now clear, and it is
+NOT an independent gap. The paper's C9 cell (`def:sidon-paid`, L196-200) is paid iff the pushforward
+`mu = Phi_* Unif(Omega^circ)` has `sum_{chi != 1}|mu_hat(chi)| <= exp(o(N))`. But (verified exact,
+`b1_c9_subsumption.py`)
+    **`mu_hat(c) = (1/C) sum_{|S|=m} prod_{a in S} e_p(f_c(a)) = e_m(v_c)/C`**  (`C = C(N,m)`),
+so C9 is the `L^1` rung of the SAME signed-`e_m` functional whose `L^2` rung is this packet's B1:
+    C9  <=>  `sum_{c!=0}|e_m(v_c)|   <= C  exp(o(N))`   (r=1, Fourier/Sidon, the paper's IMPORTED input)
+    B1  <=>  `sum_{c!=0}|e_m(v_c)|^2 <= C^2 exp(o(N))`   (r=2, this packet).
+Since `|e_m(v_c)| <= C` for all `c`, `sum|e_m|^2 <= (max|e_m|) sum|e_m| <= C sum|e_m|`, hence **C9 => B1**
+(verified: `S2 <= C*S1` on every config). B1 is STRICTLY WEAKER (the reverse `S1 <= sqrt(Q^w * S2)` loses
+`sqrt(Q^w) = exp(Theta(N))`). **So B1 needs no separate argument beyond C9: it is a downstream consequence of
+the Fourier/Sidon input the paper already carries as a hypothesis (`Cho26ModuliFinal`).** This also explains
+the §3d route-cut: proving B1 unconditionally is essentially proving C9 unconditionally, so it necessarily
+hits C9's `sqrt(p)/BGK` barrier. **The signed-`e_m` functional `sum_c|e_m(v_c)|^r` is ONE LADDER** — C9 (r=1)
+/ B1 (r=2, this packet) / the M31 participation-ratio inverse (r~4, holmbuar #434) — and all rungs share the
+`sqrt(p)/BGK` barrier (our §3d route-cut at r=2; #434's dead-route margins at r=4; C9 imported as a hypothesis
+at r=1). **Net placement:** #436/#439/#440 fixed the B1 *bookkeeping* (ambient->image); this packet establishes
+the B1 *quantity* is subsumed by C9 and maps the shared-barrier ladder. Sections 1-4 below (the exact identity,
+the dilation bridge, the disjoint-count structure, the route-cut) stand as the r=2 rung of that ladder.
+
 ## 1. The bridge reduces to fiber-energy near-flatness (PROVED reduction)
 
 Let `Phi: Omega_m -> E^w` be the depth-`w` prefix (power-sum) map, `R(z) = |Phi^{-1}(z)|`, `Q = |E| = p`
