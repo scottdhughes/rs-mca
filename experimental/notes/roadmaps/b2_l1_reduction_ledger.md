@@ -274,6 +274,22 @@ p=97..1601 (r=1.6 down to 0.4, deep below equidist threshold): |P|/p stays ~cons
 whether it holds. Open target sharpened to: prove `|P(n,w)| <~ p^{w/2} poly(n)` for the B_w-Sidon moment curve
 over mu_n, in the regime w > sqrt(p) AND w >= 4 (past Weil AND incidences).
 
+## Characteristic-zero structure: CAS-verified, and DEPLOYED char-0 count = 0 (2026-07-10)
+
+Sage/CyclotomicField exact computation (`b2_char0.sage`), verified vs brute force in 12 cases (all match).
+For n=2^k, Lam-Leung (vanishing sums of 2^k-th roots of unity = antipodal pairs) gives: p_1(S)=0 forces
+S=-S (antipodal); then p_odd(S)=0 automatically and p_{2i}(S)=2 p_i(S^2), S^2 subset mu_{n/2}. Hence the
+char-0 count obeys the EXACT halving recursion
+   N_0^{(0)}(2^k, w, m) = [m even] * N_0^{(0)}(2^{k-1}, floor(w/2), m/2),   base N_0^{(0)}(.,0,m)=C(2^k,m).
+This IS the dyadic tower, now identified as the ALGEBRAIC (char-0) backbone = the coherent/provable part.
+
+**DEPLOYED: N_0^{(0)} = 0.** Tracing m: 981104 -> 490552 -> 245276 -> 122638 -> 61319 (ODD at level 5,
+before w=67471 exhausts). So there are NO characteristic-zero solutions at all: 100% of N_0(F_p) ~ n^1.7 is
+GENERIC mod-p vanishing (subsets S with Sum a^j == 0 mod p but the cyclotomic integer Sum a^j != 0).
+CONSEQUENCE: rules out any char-0 / variety-point-count / lifting approach (nothing to lift). The target
+N_0 <= n^3 is a PURELY ANALYTIC statement (a genuine large-sieve / signed cancellation), with zero algebraic
+shortcut. Confirms why the primitive residue P carries everything and the difficulty cannot be localized.
+
 **Consequence / consistency.** This EXACTLY matches and independently re-derives the `(LS)` target below: the
 missing tool is a one-sided multilevel LARGE-SIEVE / RESTRICTION estimate for the moment curve over mu_n
 (L^2-of-coefficients -> L^inf/L^q-of-the-sum), spanning the large-subgroup (n > sqrt(p)) and sub-sqrt(p)
