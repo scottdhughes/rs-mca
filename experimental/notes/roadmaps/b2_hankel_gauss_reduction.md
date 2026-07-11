@@ -69,3 +69,30 @@ VERIFIED structural facts (p=7/11/13, n=5/6):
    Hankel-Fourier formula; the det-character + Schur-phase twist is the open piece.
 
 STATUS: full-rank reduction verified; the sqrt-cancellation of S_v is the concrete open target = twisted Elkies.
+
+## UPDATE: Eq 29 / rank-by-rank CHG is FALSE (ChatGPT-5.6-Pro, INDEPENDENTLY VERIFIED 2026-07-11)
+
+CHG as a UNIFORM (all-w) statement is REFUTED. Counterexample family: n=2^k>=8, w=n-2, d=1, c=n-1 (so r_*=2-n<0).
+Key exact formula (I re-derived + brute-verified at (5,4,2,3): sum_{A_lam!=0} G_v(lam) = p^n N(v) - p^{n-1} R(v),
+R(v)=#{(s,t): g_v(a)^2-g_v(a)+s a^2+t(2g_v(a)-1)a=0 for all a in mu_n}). At (17,8,6,7): INDEPENDENTLY computed
+N(v_S)=1,R(v_S)=1,N(v_0)=0,R(v_0)=0 (v_S=syndrome of mu_8\{2}). => |T_1(v_S)-T_1(v_0)| = (p-1)p^{n-1} = 16*17^7
+= 6.57e9, exceeding the Eq 29 bound p^{n+2-c/2}=17^{6.5}=9.95e7 by 33x. (verify_eq29_counterex.py; ChatGPT's
+b2_eq29_counterexample_chatgpt.py cross-confirms, exact DP, ratio 32.98.)
+
+MECHANISM (ChatGPT, plausible/partially checked): the phase f_beta has c-dim Morse-Bott critical manifolds
+indexed by binary sign vectors eps_a=2*1_S(a)-1 (crit locus x_a=eps_a/(2 T_t(a)), constraint sum eps_a q(a)=2beta
+= a fiber subset); the critical value is IDENTICALLY 0 (no oscillation), Hessian rank = d, so the natural scale is
+p^{(n+c)/2} not p^{n/2}. The Kummer character chi does NOT cancel there. Via a Salie-completed twisted-Elkies
+identity, the correct Fourier-transformable measure is sum_{h=0}^c tau^h F_{beta,h} (couples ALL rank defects);
+the square-cone (Veronese P=-T^2) resonance carries a coherent term ~ p^{(n+c)/2} N(v). Isolating one rank layer
+destroys the cancellation.
+
+CONSEQUENCE / corrected status:
+- The Hankel-Gauss REDUCTION (steps 1-5, coherent-term cancellation) STILL HOLDS and is valuable.
+- The rank-by-rank CHG / Eq 29 that was to CLOSE it is FALSE uniformly => NO uniform twisted-Elkies or generic
+  Katz/Deligne route. The "attack Eq 29 full-rank" plan is DEAD as a uniform target.
+- BUT the counterexample is at w=n-2 (r_*<0), the OPPOSITE extreme from deployment (w/n~0.032, r_*~n). The
+  deployed instance is UNTOUCHED by it. Open question: does a DEPLOYMENT-SPECIFIC coupled-rank-and-boundary
+  bound hold using c/n~0.032? That needs the aspect ratio, not a generic theorem. This is the new (harder) frontier.
+- The correct general object = joint rank-and-boundary cancellation (Eq 39): sum_{Z<=w} sum_h tau^h S_{Z,h}^cent(v),
+  not each layer separately. "Hankel boundary-cancellation lemma" = the one hardest missing statement.
