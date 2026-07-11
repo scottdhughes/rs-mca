@@ -503,3 +503,21 @@ margin is a SHARP SIDON-DEFICIT (why the fiber can't be exactly Sidon), i.e. a C
 multiplicities = a character-sum / incidence count = the SAME generic signed-cancellation crux, NOT an
 additive-structure (BSG) statement. Net redirect: drop BSG; the razor needs a sharp deficit/cancellation bound
 on the fiber's kernel-trade collisions (the distributed-trade spectrum), which is the node's irreducible crux.
+
+### Razor is a POSITIVE count (no cancellation) -- 2026-07-11, b2_constructive.py
+
+THEOREM (verified 100.00% in n=20,24): the fiber's excess additive energy IS a non-negative combinatorial
+count, not a signed quantity. Every additive quadruple (S1,S2,S3,S4) with 1_S1+1_S4=1_S2+1_S3 in BOOLEAN
+vectors forces the trades S1^S2, S1^S3 to be disjoint-compatible (else S4=S2+S3-S1 has a coord -1 or 2, not
+Boolean). Hence E(F) - (2f^2 - f) = 2 * #{disjoint-trade triples} EXACTLY. Disjoint-trade construction yield =
+total excess quadruples, fraction 1.0000 (n=20: 1192=1192; n=24: 46344=46344).
+
+CONSEQUENCE (the hopeful reframe): the #582 razor / C9 max-fiber LOWER bound (E >= f^{2+eps}) is a POSITIVE
+count -- provable by CONSTRUCTION, with NO signed cancellation. This is structurally DIFFERENT from and easier
+than the max-fiber UPPER bound (N_0<=n^3), which is cancellation-hard (all session rule-outs: L^2/L^2k/
+restriction/Halasz/Weil/incidences/BSG). So the razor route to C9 avoids the sign wall. Remaining task: lower-
+bound #{disjoint-trade triples} >= f^{2+eps} -- a positive combinatorial problem over the LARGE (~half-subset,
+support ~n/2) trade spectrum where disjointness is TIGHT but empirically realized (excess ~ f^{2.14}, eps~0.14).
+Elementary (support-6/T_3) trades alone are too few (vanishing fraction); need the full distributed spectrum,
+but positively. This is the direction to push (and the one #582/LegaSage should aim at): a positive lower-bound
+count, not a cancellation.
