@@ -556,3 +556,14 @@ Cross-tool (b2_totalenergy_check.py + b2_cas_crosscheck.sage), both engines agre
   Reason: trade-realizers spread ACROSS fibers, so T = Sum_tau Sum_v r_v(tau)^2 (fiber-resolved), not
   Sum_tau w(tau)^2. So the razor "ceiling" input T is genuinely more complex than the 2nd moment -- the clean
   V(s) formula holds only for the 2nd moment (Sum f_v^2), not the 4th-order additive energy. Verify-first win.
+
+### Density-1/2 fixed point is FLAT (2026-07-11, b2_density_half.py) -- supports the inductive route
+
+The self-similar recursion feeds sub-fibers at DENSITY 1/2 (weight d/2 on d coords). Measured max-fiber
+inflation R(N,1/2)=f_max/mean for the w=2 problem at density 1/2, N=12..24: R = 1.28, 1.21, 1.21, 1.17
+(DECREASING toward ~1.1); logR/N = 0.021,0.012,0.0095,0.0064 -> 0 sharply. So the density-1/2 max fiber is
+essentially FLAT (R appears O(1), certainly e^{o(N)}). This is exactly the induction's key input: the sub-fibers
+the recursion produces are near-uniform. Density 1/2 also has complementation symmetry (S <-> mu_N\S sends the
+syndrome v -> -v), a candidate handle for a clean proof that R(N,1/2)=O(1). Empirically the inductive route's
+base input holds; PROVING R(N,1/2)=e^{o(N)} is the (cleaner, density-1/2) form of the crux. Codex 5.6 (session
+019f4f9d) attacking the induction closure in parallel.
