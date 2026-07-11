@@ -347,6 +347,41 @@ out by ONE unified mechanism (sign-blindness + p^w frequency count). The reframe
 inequality (Codex's (3)) = the same irreducible crux, now in inverse-LO language (needs a SIGNED inverse
 Littlewood-Offord / local-limit theorem at exponential scale exp(-Theta(n))).
 
+## PRIOR ART / connection to grande_finale (2026-07-11) -- honest repositioning
+
+Discovered on 07-11 (should have checked FIRST): the repo's `experimental/lean/grande_finale/` (this L1 lane's
+own formalization, 0 sorry / 0 axiom, builds) ALREADY formalizes the entire reduction chain of this node down
+to ONE explicitly-open crux, and names it. Mapping to my session's language:
+  - repo "conjecture Q / row-sharp Q atom / primitive q-collision moment Gamma_q^{prim} <= exp(o(n) q)"
+    == my "primitive residue P / signed cancellation at exponential scale". SAME object.
+  - `QFourierTao.lean`: proves the moment-to-max reduction `log max_s R(s) <= (w log|B| + log Gamma_q)/q`
+    and (with QEntropyInverse `collision_moment_le_of_max`) the two-sided equivalence
+    `Gamma_q^{prim} <= exp(o(n)q)  <=>  Q (prefix-flatness / max-fiber bound)`. Machine-checked.
+  - `QPrimitiveCollision.lean`: the moment=collision identity, the Vandermonde rigidity `|M Delta M'| >= w+2`
+    (== my B_w-Sidon symmetric-difference bound), prefix-injectivity on small sets. Machine-checked.
+  - `QFourierTao.lean` docstring states VERBATIM that the deep input `thm:primitive-log-collision` "rests on an
+    inverse Littlewood-Offord / Balog-Szemeredi-Gowers large-spectrum step ... a genuinely open ingredient and
+    is NOT discharged here." == the inverse-LO framing I banked this session (credited to Codex) -- it was
+    ALREADY the manuscript's blueprint.
+  - `Frontier.lean`, `BC.lean`, `SP.lean`, `QFiniteTables.lean`: honest finite/decidable kernels + the marked
+    open pieces (row-sharp Q atom, BC census). The crux is GENUINELY OPEN in the repo too.
+
+HONEST REPOSITIONING of this session's work: it INDEPENDENTLY RE-DERIVED the established frontier (the
+reduction, the inverse-LO framing, the Vandermonde rigidity) -- NOT novel. Per no-novelty-overclaim discipline,
+default to "confirms/sharpens the recorded frontier," not "discovered." Genuinely ADDITIVE (pending check vs
+the existing files, some may also be covered):
+  - unified rule-out: EVERY magnitude method (L^2, L^2k, restriction, Halasz/anti-concentration) blocked by ONE
+    mechanism (sign-blindness + p^w frequency count once w log p > rho(1-rho) 2n) -- a clean negative statement;
+  - quantitative thresholds n >~ w sqrt(p) and w log p <= rho(1-rho) 2n that deployment exceeds;
+  - char-0 N_0^{(0)} = 0 at deployment (Lam-Leung antipodal; may overlap slackMCA_v4/CharZeroFiber.lean);
+  - Aristotle `energy_bound` (E_d <= 2C(n,d)^2/p^w) reduced to the single d>w additive-energy sorry (= same Q
+    crux) WITH a Lean counterexample that the pointwise/max-fiber route CANNOT give the constant (p=13,n=12,w=2,
+    d=3 fiber=4) -- independently confirms cancellation is essential;
+  - Aristotle engine Lean proof (B_h-Sidon no-nontrivial-tuple) -- BUILDS clean (0 sorry); likely redundant with
+    QPrimitiveCollision rigidity but a clean standalone certification.
+NEXT: engage the EXISTING grande_finale frontier (the inverse-LO/BSG large-spectrum step for the primitive
+collision moment) directly, instead of re-deriving the scaffolding.
+
 ## Consequence / consistency
 
 This EXACTLY matches and independently re-derives the `(LS)` target below: the
