@@ -644,3 +644,25 @@ NET: the crux now has a precise literature home in TWO pieces -- (i) LCD/Littlew
 for the moment-curve linear map (max-fiber), (ii) near-Sidon inverse / spectral flattening (razor). Neither
 plugs in; both need the moment-curve-over-mu_n specifics built. Concrete next: adapt RV-LCD anti-concentration
 to the linear map [a;a^2] over mu_n (compute its LCD / non-degeneracy) -- that is the exact max-fiber tool.
+
+### RV-LCD adaptation worked out (2026-07-11): it REDUCES to the known Weil head-depth bound (w<=22)
+
+Adapted Rudelson-Vershynin LCD anti-concentration to the [a; a^2] (moment-curve) map over mu_n (b2_rvlcd.py,
+b2_emverify.py). Clean mechanism, VERIFIED for w=2:
+  max_v N_w(v) <= mean + max_{xi!=0} |e_m({chi_xi(a)})|,   chi_xi(a)=e_p(sum_j xi_j a^j), mean=C(n,m)/p^w.
+  - Weil per-frequency: pi_k = sum_a chi_xi(a)^k = tau_w(k xi), a degree-w subgroup character sum, so
+    |pi_k| <= (w-1) sqrt(p) for k xi != 0 (k<m<p). VERIFIED w=2: |tau_2(xi)| <= 2 sqrt(p) for all xi!=0
+    (5.12,9.74,10.59,9.68 vs 2sqrt(p)=8.25,12.8,17.1,18.9), NO resonant frequencies.
+  - Newton/gen. function: |e_m| = |[t^m] exp(sum_k (-1)^{k-1} pi_k t^k/k)| <= exp(O(w sqrt(p) log(m/(w sqrt p)))).
+    VERIFIED w=2: max_{xi!=0}|e_m| ~ e^{O(sqrt p)} << C(n,m) (|e_m|/C ~ 0.002-0.01, |e_m|/e^{2sqrt p} <= 1).
+  - Flat (max ~ mean) iff mean = C(n,m)/p^w >> e^{O(w sqrt p log)}, i.e. n H(m/n) >> w sqrt(p) polylog,
+    i.e. w <~ O(sqrt(p)/polylog).
+
+SCOPE / HONEST VERDICT: this is EXACTLY the manuscript's Weil head-depth bound (grande_finale Q5: Weil pays one
+sqrt(p) per prefix coordinate, stops at w<=21-22 for KoalaBear, w<=10-11 for Mersenne-31). Deployment w=67471
+is ~3000x past it -- w sqrt(p) = 3.1e9 >> n H = 1.4e6, Weil VACUOUS. So RV-LCD does NOT give a new deployment
+tool: worked out over F_p, "LCD" = per-frequency Weil, and the deployed resonances are HIGH-DEGREE Weil failures
+(degree w=67471 >> sqrt p), which have no Diophantine-LCD analog (RV-LCD's power over R is rational-approximation
+resistance; no F_p counterpart beats Weil). NET: RV-LCD = per-frequency Weil = the known w<=22 wall. Clean
+VERIFIED flatness proof for small w (incl. #582 w=2 max-fiber), but the deployed w>sqrt(p) regime is unchanged.
+(Nearly overclaimed "new result"; verify-first + the Q5 connection corrected it.)
