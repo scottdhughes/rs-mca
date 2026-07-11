@@ -5,6 +5,30 @@ every load-bearing claim re-verified numerically here). Full working log: `b2_l1
 prompts/reviews in `experimental/notes/audits/chatgpt56_*.txt`, `codex56_flip_review.txt`; verification
 scripts `experimental/scripts/b2_*verify*.py`, `b2_secant_*.py`, `b2_LS_levels.py`.
 
+## SESSION STATUS 2026-07-11 (read first — note-to-self)
+
+ONE crux, reached from ~8 independent angles (all converge, all open): a **sharp signed-cancellation / Sidon-
+deficit count at exponential scale** = repo's "conjecture Q / primitive q-collision moment Gamma_r" (grande_finale)
+= LegaSage #582 "large R=2 fiber can't be near-Sidon" = my "primitive residue P". Genuinely open in repo + here.
+
+VERIFIED ASSETS (don't re-derive): (1) engine identities Sum|tau_w|^2=p^w n, Sum|tau_w|^4=p^w(2n^2-n) PROVEN
+all w>=2 (Newton), Aristotle Lean proof BUILDS clean (0 sorry). (2) w<=3 is a numerically-validated SKELETON,
+NOT a theorem (deviation bound deferred). (3) char-0 N_0^{(0)}=0 at deployment (no algebraic backbone; purely
+analytic). (4) Bernoulli reformulation N_0<=Pr_rho/[...] cost<=sqrt(2n). (5) P=p^w N_0 - p^{w/2}N_0^even,
+sqrt-cancellation holds below threshold. RULED OUT (one mechanism = sign-blindness + p^w freq count): ALL
+magnitude methods (L^2, L^2k, restriction, Halasz), per-freq Weil (w>sqrt p), incidences (w>=4), Q3 twist-
+confinement (heavy fibers reach primitive part), BSG (fiber NEARLY-SIDON, doubling sigma->2 -> Freiman vacuous).
+Aristotle energy_bound reduced to the single d>w additive-energy sorry + a Lean counterexample that pointwise/
+max-fiber CAN'T give the constant.
+
+RAZOR EMPIRICS (#582): largest mu_n fiber energy C=E/f^2 ~ f^0.14 (R^2=0.94) => razor form(a) holds c~0.86;
+|F-F|~f^1.94 subquadratic, deficit 2-theta GROWS with n (safer). Excess energy DISTRIBUTED over trade supports
+6-14 (support-6/T_3 only 12-23%, fraction VANISHES) -- no cheap elementary-trade lower bound; needs full
+distributed spectrum. Crux is TRUE (all probes) but provably-hard, not a counterexample.
+
+Upstream: on origin/main e190193 (synced); 14 commits on scott/l1-node5-reduction (fork only, NOT upstream).
+Frontier actively worked: AllenGrahamHart (F3/row-sharp Q, #583-604), LegaSage (max-fiber/C9/Sidon, #565-589).
+
 ## Object and target
 
 `mu_n` = order-`n` subgroup of `F_p^*`, `n=2^a`, `n|p-1`, `gamma=log_p(n)~0.68` (large subgroup, `n>sqrt p`).
