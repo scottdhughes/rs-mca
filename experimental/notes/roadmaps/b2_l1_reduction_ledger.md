@@ -459,3 +459,23 @@ high count (r~1.3). So "beat Sidon" is a DISTRIBUTED additive-structure phenomen
 T_3. Consequence for a rigorous proof: an inverse-LO/BSG argument must control the full distributed trade
 spectrum, not a single elementary-trade census -- harder than the #599 route alone suggests. Net: razor
 empirically holds (supports C9), rigorous proof stays the open inverse-LO crux.
+
+### Pushing #582 razor toward BSG: BSG is the WRONG tool (nearly-Sidon fiber) — 2026-07-11, b2_razor_bsg.py
+
+CS reformulation of the razor: E(F) >= f^4/|F-F| => Delta >= f/|F-F|, so razor form (a) (Delta>=f^{-c})
+<=> |F-F| <= f^{1+c} (SUBQUADRATIC difference set). Also F-F subset Ker(Phi) (vanishing p_1,p_2 trades),
+F+F all share syndrome 2v -- the Plunnecke/BSG setting.
+
+Measured (max mu_n fiber, n=16..26):
+  difference-set exponent theta = log|F-F|/log f = 1.986, 1.971, 1.973, 1.960  (fit ~1.94)
+  sumset/doubling exponent  sigma = log|F+F|/log f = 1.807, 1.837, 1.872, 1.887  (climbing toward 2)
+=> theta < 2 SUBQUADRATIC (razor via CS holds, c=theta-1 ~ 0.94-0.96; the direct energy route c~0.86 is tighter).
+   Deficit 2-theta GROWS with n (0.014->0.040): fiber becomes MORE subquadratic => razor empirically safer.
+
+BUT the doubling K = |F+F|/f = f^{sigma-1} = f^{0.89} GROWS -> the fiber is NEARLY-SIDON (large doubling).
+BSG/Freiman/Plunnecke need SMALL doubling to extract structure; with K -> infinity their structural conclusion
+is VACUOUS. So BSG -- which #582 itself suggests -- is the WRONG tool here. The razor's thin subquadratic
+margin is a SHARP SIDON-DEFICIT (why the fiber can't be exactly Sidon), i.e. a COUNT of realized kernel-trade
+multiplicities = a character-sum / incidence count = the SAME generic signed-cancellation crux, NOT an
+additive-structure (BSG) statement. Net redirect: drop BSG; the razor needs a sharp deficit/cancellation bound
+on the fiber's kernel-trade collisions (the distributed-trade spectrum), which is the node's irreducible crux.
