@@ -183,10 +183,21 @@ requires point-plane/curve INCIDENCE bounds in F_p^w. Rudnev's incidence theorem
 so the method is UNCONDITIONAL for w<=3 and BLOCKED at w>=4 by the absence of high-dimensional finite-field
 incidence bounds -- a named frontier in incidence geometry. Deployed w=67471 sits far past the wall.
 
-**Net honest state:** E-b/SV* is a PROVABLE THEOREM for w<=3 (base cases, Shkredov-adapted recursion with
-Sidon-optimal moment-curve engines, all inputs verified); the method is validated; and the obstruction for
-the deployed row is now pinned to ONE precise, named external frontier -- high-dim (F_p^{>=4}) moment-curve
-incidence bounds. Any advance there unlocks the deployed case immediately.
+**Net honest state (CORRECTED 2026-07-10 after auditing the scripts -- prior "PROVABLE THEOREM for w<=3" was
+an OVERCLAIM).** Precise status of the w<=3 argument:
+  - RIGOROUSLY PROVEN (all w >= 2, not just w<=3): the engine identities  sum_c|tau_w(c)|^2 = p^w n  and
+    sum_c|tau_w(c)|^4 = p^w(2n^2-n)  -- Newton + orthogonality, exact integer counts verified. See
+    `b2_engine_identity_proof.md` / `verify_engine_exact.py`. The engine is NOT the wall (it holds at every w).
+  - NUMERICALLY VALIDATED ONLY (NOT rigorously carried out): the convolution recursion for the d-subset
+    syndrome energy E_d^{(2)} (ratios ~1.0-1.07 in `b2_w{2,3}_recursion.py`) and the equidistribution/
+    deviation bound (`b2_w2_basecase.py` literally says "Deviation = the proof's job"). The closure is
+    asserted "by the same skeleton as Shkredov Thm 3" + a Rudnev F_p^2/F_p^3 incidence application that is
+    NOT written out here.
+  So w<=3 is a NUMERICALLY-VALIDATED SKELETON with a proven engine, NOT a completed theorem: the deviation
+  bound is deferred (a "by the same X" deferral, which by our own discipline is not "complete"). To upgrade to
+  a theorem one must carry out the Rudnev application and the order-recursion termination rigorously (a real
+  task, not attempted under time pressure to avoid a self-blessed flawed proof). The deployed-row obstruction
+  is unchanged: high-dim (F_p^{>=4}) moment-curve incidence bounds / the signed cancellation.
 
 ## Sharpened wall map (2026-07-10): TWO thresholds, and the L^2-vs-L^inf gap is the real crux
 
