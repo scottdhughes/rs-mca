@@ -322,6 +322,20 @@ An adversarial Codex-5.6 pass produced two things worth keeping (each tagged ver
 NET: the live target is now equivalently an inverse-Littlewood-Offord / Halasz anti-concentration bound for
 the moment-curve vectors Phi(a) over mu_n at exponential scale -- a NEW toolbox for the same irreducible gap.
 
+**Halasz MAGNITUDE route is sign-blind and BLOCKED -- verified (b2_halasz.py).** The Bernoulli factor obeys
+|prod_a (1-rho+rho e_p(xi.Phi(a)))| <= exp(-rho(1-rho)(n - Re S(xi))), S(xi)=sum_{a in mu_n} e_p(xi.Phi(a)).
+A magnitude (Halasz/Esseen) bound on the shadow needs sum_{xi!=0} exp(-rho(1-rho)(n-Re S(xi))) small; union
+bound over the p^w frequencies requires n-Re S(xi) >= w log p / (rho(1-rho)) for the worst xi. Since
+n-Re S <= 2n always, this is feasible ONLY when  w log p <= rho(1-rho) 2n  (equivalently w <~ n/(2 log p)).
+Numerics: feasible at p=17 (6<8) but INFEASIBLE by p=97 (9>8, 14>8); deployment 1.45e6 > 1.04e6 (w=67471 >
+n/(2 log p) ~ 48800) is deep past it -- a THIRD threshold deployment exceeds. And directly measured: the
+magnitude sum overcounts the true SIGNED shadow deviation by 71x-500x (growing with w). CONCLUSION: taking
+|prod_a| discards exactly the p^{w/2} cancellation; the anti-concentration reframe RELOCATES the sign wall,
+it does not bypass it. Every magnitude-based tool (L^2, L^{2k}, restriction/extension, Halasz) is now ruled
+out by ONE unified mechanism (sign-blindness + p^w frequency count). The reframe pays off ONLY via the SIGNED
+inequality (Codex's (3)) = the same irreducible crux, now in inverse-LO language (needs a SIGNED inverse
+Littlewood-Offord / local-limit theorem at exponential scale exp(-Theta(n))).
+
 ## Consequence / consistency
 
 This EXACTLY matches and independently re-derives the `(LS)` target below: the
