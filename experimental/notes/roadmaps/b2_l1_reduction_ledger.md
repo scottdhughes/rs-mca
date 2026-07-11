@@ -423,3 +423,23 @@ there is no confinement to lean on at accessible scales. The irreducible content
 cancellation = Gamma_r (r>=3) = the inverse-LO/BSG large-spectrum step on the primitive collision moment. This
 is the same crux from the fiber side; the structural descent routes (Q3 twist, char-0 tower) handle only the
 periodic/quotient part, confirmed NOT to capture the heavy primitive fibers.
+
+## Engaging LegaSage's #582 C9 razor with the Bernoulli/inverse-LO angle (2026-07-11)
+
+#582 razor (REDUCED, closes C9 if proved): for T=mu_n, m=alpha n, Phi=(p_1,p_2), any fiber F of Boolean
+indicator vectors {1_S : Phi(S)=v} on the 2-constraint slice of {0,1}^n has additive energy
+E(F)=#{(S1,S2,S3,S4) in F^4 : 1_S1+1_S4 = 1_S2+1_S3}, Delta=E/|F|^3. Prove a large fiber cannot be near-Sidon:
+Delta >= f^{-c} (c<1) or (stronger) Delta >= exp(-o(n)) for f >= exp(eta n). The razor's OWN suggested tools are
+BSG / Fourier = our inverse-LO angle. Role in C9: per-fiber energy lower bound + a total-energy bound => max-fiber
+bound (via W50 Lemma II). Near-Sidon = quadratic energy E ~ 2f^2; the razor needs SUPERquadratic E >= f^{3-c}.
+
+**Probe (`b2_razor_probe.py`), largest mu_n fibers, energy exponent logE/logf** (extends LegaSage's N=14 toys):
+  n=16 f=32:  E/f^2=2.00  logE/logf=2.20  (c=0.80)
+  n=20 f=90:  E/f^2=2.28  logE/logf=2.18  (c=0.82)
+  n=24 f=420: E/f^2=2.52  logE/logf=2.15  (c=0.85)
+Largest fibers ARE above Sidon (form (a) holds with c~0.8-0.85), BUT the exponent DRIFTS DOWN toward 2 (c up
+toward 1). E/f^2 grows (2.0->2.52) yet the excess exponent log(E/f^2)/log f shrinks (0.20->0.18->0.15). WARNING
+SIGN: if the drift continues, the fixed-c razor (form a) fails asymptotically and the largest fibers approach
+near-Sidon -- the reduction's feared case. NOT conclusive (3 small-n points; fibers not yet exp-large). NEXT:
+Bernoulli/inverse-LO analysis of whether the moment-curve (Vandermonde) structure forces E/f^2 to keep growing
+(razor holds) or lets it plateau/grow only sub-polynomially (razor form (a) fails, only form (b) could survive).
