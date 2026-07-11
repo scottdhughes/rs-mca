@@ -12,6 +12,10 @@ The package root is `GrandeFinale`, with additional modules under
   translate--challenge intersection averaging, received-line shear invariance,
   the challenge-restricted MCA numerator, and the outer ceiling compiler used
   in the proper-challenge lower bound.
+- `GrandeFinale/CollisionAwarePole.lean` formalizes the exact full-field
+  collision-aware simple-pole floor from a supplied finite Reed--Solomon
+  codeword list, including polynomial representatives, the natural-number
+  ceiling in equation (4.2), and its direct proper-challenge composition.
 - `GrandeFinale/QFourierTao.lean` formalizes the log-moment-to-Q reduction.
 - `GrandeFinale/QEntropyInverse.lean` formalizes the deterministic atoms around
   the entropic inverse route.
@@ -31,15 +35,19 @@ The package root is `GrandeFinale`, with additional modules under
   `GrandeFinale/Frontier.lean` formalize theorem-level reductions around the
   BC, SP, and frontier ledgers.
 
-The theorem-by-theorem scopes of the challenge-intersection, syndrome-line,
-and profile-window modules are recorded in
+The theorem-by-theorem scopes of the collision-aware-pole,
+challenge-intersection, syndrome-line, and profile-window modules are recorded
+in `COLLISION_AWARE_POLE_CORRESPONDENCE.md`,
 `CHALLENGE_INTERSECTION_CORRESPONDENCE.md`, `SYNDROME_LINE_CORRESPONDENCE.md`,
 and `PROFILE_ENVELOPE_WINDOW_CORRESPONDENCE.md`.
 
-The challenge-intersection module proves the outer finite-group and linear-code
-reparameterization steps behind equation (13.3) of the frontiers paper. It does
-not prove the Reed--Solomon prefix-list input or the inner collision-aware
-simple-pole conversion.
+The collision-aware-pole and challenge-intersection modules formalize
+complementary steps behind equation (13.3) of the frontiers paper. The first
+proves the exact full-field simple-pole floor from a supplied finite codeword
+list; the second transfers a supplied full-field floor to a proper challenge
+set. `collisionAwarePole_challenge_of_codewordList` records their direct
+composition. The Reed--Solomon prefix-list construction and list-size floor
+remain separate upstream inputs.
 
 The profile-window module proves exponent-level dominance only after `h`, `s`,
 and every actual `(c,lambda)` pair are supplied. QR6/QR8 normalization,
@@ -56,6 +64,6 @@ rows or the full asymptotic closure by themselves.
 
 Do not run `lake build` casually in this repository. Build this package only
 with the pinned Lean/Mathlib versions and the matching precompiled Mathlib
-cache. Contributor audit notes report direct compilation of
-`GrandeFinale/ChallengeIntersection.lean` and a full pinned build on
-2026-07-11; this integration did not rerun Lake.
+cache. Contributor audit notes report a full pinned build on 2026-07-11 with
+8038 jobs, including `GrandeFinale.CollisionAwarePole`; this integration did
+not rerun Lake.

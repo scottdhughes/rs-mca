@@ -1,0 +1,3052 @@
+{
+  "all_pass": true,
+  "base_sha": "5091826cd6a91becda5e54393b209b9ccc7ffc89",
+  "checks": {
+    "PR_scope_631_634_636": true,
+    "conditional_supercritical_rows": true,
+    "cyclic_zero_run_implication_and_exact_counts": true,
+    "equal_prefix_Fourier_implication": true,
+    "exact_GF27_full_census": true,
+    "exact_GF9_full_census": true,
+    "exact_avoidance_and_Janson_samples": true,
+    "fixed_c_critical_window_rate_bracket": true,
+    "frontiers_hypotheses_pinned": true,
+    "high_depth_Plotkin": true,
+    "locator_factor_Hamming_floor": true,
+    "no_TeX_promotion": true,
+    "no_exact_image_or_endpoint_claim": true,
+    "parity_halved_Janson_gate": true,
+    "scope_boundary_nonclaims_live": true,
+    "sign_cube_information_set_fiber_bound": true,
+    "source_hypotheses_pinned": true
+  },
+  "exact_avoidance_Janson_samples": {
+    "all_pass": true,
+    "checks": {
+      "all_rows_meet_Janson_conditions": true,
+      "cyclic_zero_run_implication_and_exact_counts": true,
+      "every_sample_has_exact_avoidance_count": true,
+      "multiple_safe_depths_sampled": true,
+      "parity_halving_involution": true
+    },
+    "role": "finite exact avoidance checks of the proved conditional bound; not an empirical replacement for the Janson proof",
+    "rows": [
+      {
+        "L": 1,
+        "a": 4,
+        "all_pass": true,
+        "conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "cyclic_ternary_zero_run_ledger": {
+          "E_subset_size": 2,
+          "all_pass": true,
+          "checks": {
+            "E_frequencies_are_odd": true,
+            "E_subset_of_odd_zero_run_avoiders": true,
+            "all_zero_word_excluded": true,
+            "exact_E_not_above_odd_avoider_count": true,
+            "exact_odd_avoider_count_below_halved_Janson_upper": true,
+            "exact_raw_avoider_count_below_Janson_upper": true,
+            "parity_classes_exactly_halved": true,
+            "parity_map_flips_integer_parity": true,
+            "parity_map_is_involution": true,
+            "parity_map_preserves_avoider_set": true,
+            "window_implies_power_scale": true
+          },
+          "exact_even_avoidance_count": 2,
+          "exact_odd_avoidance_count": 2,
+          "exact_word_count_3_to_r": 9,
+          "exact_zero_run_avoidance_count": 4,
+          "parity_involution": "swap the first nonzero ternary digit 1<->2",
+          "run_length_L": 1
+        },
+        "exact_E_r_u": 2,
+        "exact_avoidance_orbit_ledger": {
+          "E_r_u": 2,
+          "avoiding_orbit_count": 1,
+          "hit_frequency_count": 2,
+          "hit_orbit_count": 1,
+          "orbit_size_histogram": {
+            "2": 2
+          },
+          "total_orbit_count": 2
+        },
+        "first_bound": {
+          "decimal_36_digits": "3.224390897582051626915218436164208504E+0",
+          "floor": 3,
+          "formula": "(q/2)*exp(-r/(2*3^L))"
+        },
+        "numeric_and_rational_checks": {
+          "exact_E_below_parity_halved_first_upper_when_counted": true,
+          "halved_first_upper_not_above_halved_second": true,
+          "rational_exponent_order": true,
+          "raw_first_upper_not_above_raw_second": true
+        },
+        "q": 9,
+        "r": 2,
+        "raw_zero_run_first_bound": {
+          "decimal_36_digits": "6.448781795164103253830436872328417007E+0",
+          "floor": 6,
+          "formula": "q*exp(-r/(2*3^L))"
+        },
+        "raw_zero_run_second_bound": {
+          "decimal_36_digits": "8.053553851329327971232955889433678752E+0",
+          "floor": 8,
+          "formula": "q*exp(-r*(u+1)/(6q))"
+        },
+        "second_bound": {
+          "decimal_36_digits": "4.026776925664663985616477944716839376E+0",
+          "floor": 4,
+          "formula": "(q/2)*exp(-r*(u+1)/(6q))"
+        },
+        "three_to_L": 3,
+        "u": 2
+      },
+      {
+        "L": 1,
+        "a": 13,
+        "all_pass": true,
+        "conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "cyclic_ternary_zero_run_ledger": {
+          "E_subset_size": 4,
+          "all_pass": true,
+          "checks": {
+            "E_frequencies_are_odd": true,
+            "E_subset_of_odd_zero_run_avoiders": true,
+            "all_zero_word_excluded": true,
+            "exact_E_not_above_odd_avoider_count": true,
+            "exact_odd_avoider_count_below_halved_Janson_upper": true,
+            "exact_raw_avoider_count_below_Janson_upper": true,
+            "parity_classes_exactly_halved": true,
+            "parity_map_flips_integer_parity": true,
+            "parity_map_is_involution": true,
+            "parity_map_preserves_avoider_set": true,
+            "window_implies_power_scale": true
+          },
+          "exact_even_avoidance_count": 4,
+          "exact_odd_avoidance_count": 4,
+          "exact_word_count_3_to_r": 27,
+          "exact_zero_run_avoidance_count": 8,
+          "parity_involution": "swap the first nonzero ternary digit 1<->2",
+          "run_length_L": 1
+        },
+        "exact_E_r_u": 4,
+        "exact_avoidance_orbit_ledger": {
+          "E_r_u": 4,
+          "avoiding_orbit_count": 2,
+          "hit_frequency_count": 9,
+          "hit_orbit_count": 3,
+          "orbit_size_histogram": {
+            "1": 1,
+            "3": 4
+          },
+          "total_orbit_count": 5
+        },
+        "first_bound": {
+          "decimal_36_digits": "8.188163906120551218651293722380936121E+0",
+          "floor": 8,
+          "formula": "(q/2)*exp(-r/(2*3^L))"
+        },
+        "numeric_and_rational_checks": {
+          "exact_E_below_parity_halved_first_upper_when_counted": true,
+          "halved_first_upper_not_above_halved_second": true,
+          "rational_exponent_order": true,
+          "raw_first_upper_not_above_raw_second": true
+        },
+        "q": 27,
+        "r": 3,
+        "raw_zero_run_first_bound": {
+          "decimal_36_digits": "1.637632781224110243730258744476187224E+1",
+          "floor": 16,
+          "formula": "q*exp(-r/(2*3^L))"
+        },
+        "raw_zero_run_second_bound": {
+          "decimal_36_digits": "2.243566052733488378423066395418070067E+1",
+          "floor": 22,
+          "formula": "q*exp(-r*(u+1)/(6q))"
+        },
+        "second_bound": {
+          "decimal_36_digits": "1.121783026366744189211533197709035034E+1",
+          "floor": 11,
+          "formula": "(q/2)*exp(-r*(u+1)/(6q))"
+        },
+        "three_to_L": 3,
+        "u": 9
+      },
+      {
+        "L": 2,
+        "a": 40,
+        "all_pass": true,
+        "conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "cyclic_ternary_zero_run_ledger": {
+          "E_subset_size": 16,
+          "all_pass": true,
+          "checks": {
+            "E_frequencies_are_odd": true,
+            "E_subset_of_odd_zero_run_avoiders": true,
+            "all_zero_word_excluded": true,
+            "exact_E_not_above_odd_avoider_count": true,
+            "exact_odd_avoider_count_below_halved_Janson_upper": true,
+            "exact_raw_avoider_count_below_Janson_upper": true,
+            "parity_classes_exactly_halved": true,
+            "parity_map_flips_integer_parity": true,
+            "parity_map_is_involution": true,
+            "parity_map_preserves_avoider_set": true,
+            "window_implies_power_scale": true
+          },
+          "exact_even_avoidance_count": 28,
+          "exact_odd_avoidance_count": 28,
+          "exact_word_count_3_to_r": 81,
+          "exact_zero_run_avoidance_count": 56,
+          "parity_involution": "swap the first nonzero ternary digit 1<->2",
+          "run_length_L": 2
+        },
+        "exact_E_r_u": 16,
+        "exact_avoidance_orbit_ledger": {
+          "E_r_u": 16,
+          "avoiding_orbit_count": 4,
+          "hit_frequency_count": 24,
+          "hit_orbit_count": 6,
+          "orbit_size_histogram": {
+            "4": 10
+          },
+          "total_orbit_count": 10
+        },
+        "first_bound": {
+          "decimal_36_digits": "3.242986481813072565151941757777994103E+1",
+          "floor": 32,
+          "formula": "(q/2)*exp(-r/(2*3^L))"
+        },
+        "numeric_and_rational_checks": {
+          "exact_E_below_parity_halved_first_upper_when_counted": true,
+          "halved_first_upper_not_above_halved_second": true,
+          "rational_exponent_order": true,
+          "raw_first_upper_not_above_raw_second": true
+        },
+        "q": 81,
+        "r": 4,
+        "raw_zero_run_first_bound": {
+          "decimal_36_digits": "6.485972963626145130303883515555988206E+1",
+          "floor": 64,
+          "formula": "q*exp(-r/(2*3^L))"
+        },
+        "raw_zero_run_second_bound": {
+          "decimal_36_digits": "6.814308246893747215985140469030992396E+1",
+          "floor": 68,
+          "formula": "q*exp(-r*(u+1)/(6q))"
+        },
+        "second_bound": {
+          "decimal_36_digits": "3.407154123446873607992570234515496198E+1",
+          "floor": 34,
+          "formula": "(q/2)*exp(-r*(u+1)/(6q))"
+        },
+        "three_to_L": 9,
+        "u": 20
+      },
+      {
+        "L": 2,
+        "a": 121,
+        "all_pass": true,
+        "conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "cyclic_ternary_zero_run_ledger": {
+          "E_subset_size": 46,
+          "all_pass": true,
+          "checks": {
+            "E_frequencies_are_odd": true,
+            "E_subset_of_odd_zero_run_avoiders": true,
+            "all_zero_word_excluded": true,
+            "exact_E_not_above_odd_avoider_count": true,
+            "exact_odd_avoider_count_below_halved_Janson_upper": true,
+            "exact_raw_avoider_count_below_Janson_upper": true,
+            "parity_classes_exactly_halved": true,
+            "parity_map_flips_integer_parity": true,
+            "parity_map_is_involution": true,
+            "parity_map_preserves_avoider_set": true,
+            "window_implies_power_scale": true
+          },
+          "exact_even_avoidance_count": 76,
+          "exact_odd_avoidance_count": 76,
+          "exact_word_count_3_to_r": 243,
+          "exact_zero_run_avoidance_count": 152,
+          "parity_involution": "swap the first nonzero ternary digit 1<->2",
+          "run_length_L": 2
+        },
+        "exact_E_r_u": 46,
+        "exact_avoidance_orbit_ledger": {
+          "E_r_u": 46,
+          "avoiding_orbit_count": 10,
+          "hit_frequency_count": 75,
+          "hit_orbit_count": 15,
+          "orbit_size_histogram": {
+            "1": 1,
+            "5": 24
+          },
+          "total_orbit_count": 25
+        },
+        "first_bound": {
+          "decimal_36_digits": "9.203201310023141812546377652002005209E+1",
+          "floor": 92,
+          "formula": "(q/2)*exp(-r/(2*3^L))"
+        },
+        "numeric_and_rational_checks": {
+          "exact_E_below_parity_halved_first_upper_when_counted": true,
+          "halved_first_upper_not_above_halved_second": true,
+          "rational_exponent_order": true,
+          "raw_first_upper_not_above_raw_second": true
+        },
+        "q": 243,
+        "r": 5,
+        "raw_zero_run_first_bound": {
+          "decimal_36_digits": "1.840640262004628362509275530400401042E+2",
+          "floor": 184,
+          "formula": "q*exp(-r/(2*3^L))"
+        },
+        "raw_zero_run_second_bound": {
+          "decimal_36_digits": "2.047098640373258129027407798674081929E+2",
+          "floor": 204,
+          "formula": "q*exp(-r*(u+1)/(6q))"
+        },
+        "second_bound": {
+          "decimal_36_digits": "1.023549320186629064513703899337040965E+2",
+          "floor": 102,
+          "formula": "(q/2)*exp(-r*(u+1)/(6q))"
+        },
+        "three_to_L": 9,
+        "u": 49
+      },
+      {
+        "L": 2,
+        "a": 121,
+        "all_pass": true,
+        "conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "cyclic_ternary_zero_run_ledger": {
+          "E_subset_size": 41,
+          "all_pass": true,
+          "checks": {
+            "E_frequencies_are_odd": true,
+            "E_subset_of_odd_zero_run_avoiders": true,
+            "all_zero_word_excluded": true,
+            "exact_E_not_above_odd_avoider_count": true,
+            "exact_odd_avoider_count_below_halved_Janson_upper": true,
+            "exact_raw_avoider_count_below_Janson_upper": true,
+            "parity_classes_exactly_halved": true,
+            "parity_map_flips_integer_parity": true,
+            "parity_map_is_involution": true,
+            "parity_map_preserves_avoider_set": true,
+            "window_implies_power_scale": true
+          },
+          "exact_even_avoidance_count": 76,
+          "exact_odd_avoidance_count": 76,
+          "exact_word_count_3_to_r": 243,
+          "exact_zero_run_avoidance_count": 152,
+          "parity_involution": "swap the first nonzero ternary digit 1<->2",
+          "run_length_L": 2
+        },
+        "exact_E_r_u": 41,
+        "exact_avoidance_orbit_ledger": {
+          "E_r_u": 41,
+          "avoiding_orbit_count": 9,
+          "hit_frequency_count": 80,
+          "hit_orbit_count": 16,
+          "orbit_size_histogram": {
+            "1": 1,
+            "5": 24
+          },
+          "total_orbit_count": 25
+        },
+        "first_bound": {
+          "decimal_36_digits": "9.203201310023141812546377652002005209E+1",
+          "floor": 92,
+          "formula": "(q/2)*exp(-r/(2*3^L))"
+        },
+        "numeric_and_rational_checks": {
+          "exact_E_below_parity_halved_first_upper_when_counted": true,
+          "halved_first_upper_not_above_halved_second": true,
+          "rational_exponent_order": true,
+          "raw_first_upper_not_above_raw_second": true
+        },
+        "q": 243,
+        "r": 5,
+        "raw_zero_run_first_bound": {
+          "decimal_36_digits": "1.840640262004628362509275530400401042E+2",
+          "floor": 184,
+          "formula": "q*exp(-r/(2*3^L))"
+        },
+        "raw_zero_run_second_bound": {
+          "decimal_36_digits": "1.971314511993290965047908871366291384E+2",
+          "floor": 197,
+          "formula": "q*exp(-r*(u+1)/(6q))"
+        },
+        "second_bound": {
+          "decimal_36_digits": "9.856572559966454825239544356831456922E+1",
+          "floor": 98,
+          "formula": "(q/2)*exp(-r*(u+1)/(6q))"
+        },
+        "three_to_L": 9,
+        "u": 60
+      },
+      {
+        "L": 2,
+        "a": 364,
+        "all_pass": true,
+        "conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "cyclic_ternary_zero_run_ledger": {
+          "E_subset_size": 152,
+          "all_pass": true,
+          "checks": {
+            "E_frequencies_are_odd": true,
+            "E_subset_of_odd_zero_run_avoiders": true,
+            "all_zero_word_excluded": true,
+            "exact_E_not_above_odd_avoider_count": true,
+            "exact_odd_avoider_count_below_halved_Janson_upper": true,
+            "exact_raw_avoider_count_below_Janson_upper": true,
+            "parity_classes_exactly_halved": true,
+            "parity_map_flips_integer_parity": true,
+            "parity_map_is_involution": true,
+            "parity_map_preserves_avoider_set": true,
+            "window_implies_power_scale": true
+          },
+          "exact_even_avoidance_count": 208,
+          "exact_odd_avoidance_count": 208,
+          "exact_word_count_3_to_r": 729,
+          "exact_zero_run_avoidance_count": 416,
+          "parity_involution": "swap the first nonzero ternary digit 1<->2",
+          "run_length_L": 2
+        },
+        "exact_E_r_u": 152,
+        "exact_avoidance_orbit_ledger": {
+          "E_r_u": 152,
+          "avoiding_orbit_count": 26,
+          "hit_frequency_count": 212,
+          "hit_orbit_count": 36,
+          "orbit_size_histogram": {
+            "2": 2,
+            "6": 60
+          },
+          "total_orbit_count": 62
+        },
+        "first_bound": {
+          "decimal_36_digits": "2.611756627041461817801326933293008888E+2",
+          "floor": 261,
+          "formula": "(q/2)*exp(-r/(2*3^L))"
+        },
+        "numeric_and_rational_checks": {
+          "exact_E_below_parity_halved_first_upper_when_counted": true,
+          "halved_first_upper_not_above_halved_second": true,
+          "rational_exponent_order": true,
+          "raw_first_upper_not_above_raw_second": true
+        },
+        "q": 729,
+        "r": 6,
+        "raw_zero_run_first_bound": {
+          "decimal_36_digits": "5.223513254082923635602653866586017776E+2",
+          "floor": 522,
+          "formula": "q*exp(-r/(2*3^L))"
+        },
+        "raw_zero_run_second_bound": {
+          "decimal_36_digits": "6.158167602613879485850987720563776701E+2",
+          "floor": 615,
+          "formula": "q*exp(-r*(u+1)/(6q))"
+        },
+        "second_bound": {
+          "decimal_36_digits": "3.079083801306939742925493860281888351E+2",
+          "floor": 307,
+          "formula": "(q/2)*exp(-r*(u+1)/(6q))"
+        },
+        "three_to_L": 9,
+        "u": 122
+      },
+      {
+        "L": 2,
+        "a": 364,
+        "all_pass": true,
+        "conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "cyclic_ternary_zero_run_ledger": {
+          "E_subset_size": 98,
+          "all_pass": true,
+          "checks": {
+            "E_frequencies_are_odd": true,
+            "E_subset_of_odd_zero_run_avoiders": true,
+            "all_zero_word_excluded": true,
+            "exact_E_not_above_odd_avoider_count": true,
+            "exact_odd_avoider_count_below_halved_Janson_upper": true,
+            "exact_raw_avoider_count_below_Janson_upper": true,
+            "parity_classes_exactly_halved": true,
+            "parity_map_flips_integer_parity": true,
+            "parity_map_is_involution": true,
+            "parity_map_preserves_avoider_set": true,
+            "window_implies_power_scale": true
+          },
+          "exact_even_avoidance_count": 208,
+          "exact_odd_avoidance_count": 208,
+          "exact_word_count_3_to_r": 729,
+          "exact_zero_run_avoidance_count": 416,
+          "parity_involution": "swap the first nonzero ternary digit 1<->2",
+          "run_length_L": 2
+        },
+        "exact_E_r_u": 98,
+        "exact_avoidance_orbit_ledger": {
+          "E_r_u": 98,
+          "avoiding_orbit_count": 17,
+          "hit_frequency_count": 266,
+          "hit_orbit_count": 45,
+          "orbit_size_histogram": {
+            "2": 2,
+            "6": 60
+          },
+          "total_orbit_count": 62
+        },
+        "first_bound": {
+          "decimal_36_digits": "2.611756627041461817801326933293008888E+2",
+          "floor": 261,
+          "formula": "(q/2)*exp(-r/(2*3^L))"
+        },
+        "numeric_and_rational_checks": {
+          "exact_E_below_parity_halved_first_upper_when_counted": true,
+          "halved_first_upper_not_above_halved_second": true,
+          "rational_exponent_order": true,
+          "raw_first_upper_not_above_raw_second": true
+        },
+        "q": 729,
+        "r": 6,
+        "raw_zero_run_first_bound": {
+          "decimal_36_digits": "5.223513254082923635602653866586017776E+2",
+          "floor": 522,
+          "formula": "q*exp(-r/(2*3^L))"
+        },
+        "raw_zero_run_second_bound": {
+          "decimal_36_digits": "5.671619706320026371392446182302990334E+2",
+          "floor": 567,
+          "formula": "q*exp(-r*(u+1)/(6q))"
+        },
+        "second_bound": {
+          "decimal_36_digits": "2.835809853160013185696223091151495167E+2",
+          "floor": 283,
+          "formula": "(q/2)*exp(-r*(u+1)/(6q))"
+        },
+        "three_to_L": 9,
+        "u": 182
+      },
+      {
+        "L": 2,
+        "a": 1093,
+        "all_pass": true,
+        "conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "cyclic_ternary_zero_run_ledger": {
+          "E_subset_size": 491,
+          "all_pass": true,
+          "checks": {
+            "E_frequencies_are_odd": true,
+            "E_subset_of_odd_zero_run_avoiders": true,
+            "all_zero_word_excluded": true,
+            "exact_E_not_above_odd_avoider_count": true,
+            "exact_odd_avoider_count_below_halved_Janson_upper": true,
+            "exact_raw_avoider_count_below_Janson_upper": true,
+            "parity_classes_exactly_halved": true,
+            "parity_map_flips_integer_parity": true,
+            "parity_map_is_involution": true,
+            "parity_map_preserves_avoider_set": true,
+            "window_implies_power_scale": true
+          },
+          "exact_even_avoidance_count": 568,
+          "exact_odd_avoidance_count": 568,
+          "exact_word_count_3_to_r": 2187,
+          "exact_zero_run_avoidance_count": 1136,
+          "parity_involution": "swap the first nonzero ternary digit 1<->2",
+          "run_length_L": 2
+        },
+        "exact_E_r_u": 491,
+        "exact_avoidance_orbit_ledger": {
+          "E_r_u": 491,
+          "avoiding_orbit_count": 71,
+          "hit_frequency_count": 602,
+          "hit_orbit_count": 86,
+          "orbit_size_histogram": {
+            "1": 1,
+            "7": 156
+          },
+          "total_orbit_count": 157
+        },
+        "first_bound": {
+          "decimal_36_digits": "7.411847735489599025983040305836588627E+2",
+          "floor": 741,
+          "formula": "(q/2)*exp(-r/(2*3^L))"
+        },
+        "numeric_and_rational_checks": {
+          "exact_E_below_parity_halved_first_upper_when_counted": true,
+          "halved_first_upper_not_above_halved_second": true,
+          "rational_exponent_order": true,
+          "raw_first_upper_not_above_raw_second": true
+        },
+        "q": 2187,
+        "r": 7,
+        "raw_zero_run_first_bound": {
+          "decimal_36_digits": "1.482369547097919805196608061167317725E+3",
+          "floor": 1482,
+          "formula": "q*exp(-r/(2*3^L))"
+        },
+        "raw_zero_run_second_bound": {
+          "decimal_36_digits": "1.849704299453374942307276427675219170E+3",
+          "floor": 1849,
+          "formula": "q*exp(-r*(u+1)/(6q))"
+        },
+        "second_bound": {
+          "decimal_36_digits": "9.248521497266874711536382138376095851E+2",
+          "floor": 924,
+          "formula": "(q/2)*exp(-r*(u+1)/(6q))"
+        },
+        "three_to_L": 9,
+        "u": 313
+      },
+      {
+        "L": 2,
+        "a": 1093,
+        "all_pass": true,
+        "conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "cyclic_ternary_zero_run_ledger": {
+          "E_subset_size": 239,
+          "all_pass": true,
+          "checks": {
+            "E_frequencies_are_odd": true,
+            "E_subset_of_odd_zero_run_avoiders": true,
+            "all_zero_word_excluded": true,
+            "exact_E_not_above_odd_avoider_count": true,
+            "exact_odd_avoider_count_below_halved_Janson_upper": true,
+            "exact_raw_avoider_count_below_Janson_upper": true,
+            "parity_classes_exactly_halved": true,
+            "parity_map_flips_integer_parity": true,
+            "parity_map_is_involution": true,
+            "parity_map_preserves_avoider_set": true,
+            "window_implies_power_scale": true
+          },
+          "exact_even_avoidance_count": 568,
+          "exact_odd_avoidance_count": 568,
+          "exact_word_count_3_to_r": 2187,
+          "exact_zero_run_avoidance_count": 1136,
+          "parity_involution": "swap the first nonzero ternary digit 1<->2",
+          "run_length_L": 2
+        },
+        "exact_E_r_u": 239,
+        "exact_avoidance_orbit_ledger": {
+          "E_r_u": 239,
+          "avoiding_orbit_count": 35,
+          "hit_frequency_count": 854,
+          "hit_orbit_count": 122,
+          "orbit_size_histogram": {
+            "1": 1,
+            "7": 156
+          },
+          "total_orbit_count": 157
+        },
+        "first_bound": {
+          "decimal_36_digits": "7.411847735489599025983040305836588627E+2",
+          "floor": 741,
+          "formula": "(q/2)*exp(-r/(2*3^L))"
+        },
+        "numeric_and_rational_checks": {
+          "exact_E_below_parity_halved_first_upper_when_counted": true,
+          "halved_first_upper_not_above_halved_second": true,
+          "rational_exponent_order": true,
+          "raw_first_upper_not_above_raw_second": true
+        },
+        "q": 2187,
+        "r": 7,
+        "raw_zero_run_first_bound": {
+          "decimal_36_digits": "1.482369547097919805196608061167317725E+3",
+          "floor": 1482,
+          "formula": "q*exp(-r/(2*3^L))"
+        },
+        "raw_zero_run_second_bound": {
+          "decimal_36_digits": "1.633509407602674019087816654922426913E+3",
+          "floor": 1633,
+          "formula": "q*exp(-r*(u+1)/(6q))"
+        },
+        "second_bound": {
+          "decimal_36_digits": "8.167547038013370095439083274612134565E+2",
+          "floor": 816,
+          "formula": "(q/2)*exp(-r*(u+1)/(6q))"
+        },
+        "three_to_L": 9,
+        "u": 546
+      },
+      {
+        "L": 2,
+        "a": 3280,
+        "all_pass": true,
+        "conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "cyclic_ternary_zero_run_ledger": {
+          "E_subset_size": 1552,
+          "all_pass": true,
+          "checks": {
+            "E_frequencies_are_odd": true,
+            "E_subset_of_odd_zero_run_avoiders": true,
+            "all_zero_word_excluded": true,
+            "exact_E_not_above_odd_avoider_count": true,
+            "exact_odd_avoider_count_below_halved_Janson_upper": true,
+            "exact_raw_avoider_count_below_Janson_upper": true,
+            "parity_classes_exactly_halved": true,
+            "parity_map_flips_integer_parity": true,
+            "parity_map_is_involution": true,
+            "parity_map_preserves_avoider_set": true,
+            "window_implies_power_scale": true
+          },
+          "exact_even_avoidance_count": 1552,
+          "exact_odd_avoidance_count": 1552,
+          "exact_word_count_3_to_r": 6561,
+          "exact_zero_run_avoidance_count": 3104,
+          "parity_involution": "swap the first nonzero ternary digit 1<->2",
+          "run_length_L": 2
+        },
+        "exact_E_r_u": 1552,
+        "exact_avoidance_orbit_ledger": {
+          "E_r_u": 1552,
+          "avoiding_orbit_count": 194,
+          "hit_frequency_count": 1728,
+          "hit_orbit_count": 216,
+          "orbit_size_histogram": {
+            "8": 410
+          },
+          "total_orbit_count": 410
+        },
+        "first_bound": {
+          "decimal_36_digits": "2.103392264244466007076112931789916305E+3",
+          "floor": 2103,
+          "formula": "(q/2)*exp(-r/(2*3^L))"
+        },
+        "numeric_and_rational_checks": {
+          "exact_E_below_parity_halved_first_upper_when_counted": true,
+          "halved_first_upper_not_above_halved_second": true,
+          "rational_exponent_order": true,
+          "raw_first_upper_not_above_raw_second": true
+        },
+        "q": 6561,
+        "r": 8,
+        "raw_zero_run_first_bound": {
+          "decimal_36_digits": "4.206784528488932014152225863579832610E+3",
+          "floor": 4206,
+          "formula": "q*exp(-r/(2*3^L))"
+        },
+        "raw_zero_run_second_bound": {
+          "decimal_36_digits": "5.552779122793101764402389110015350199E+3",
+          "floor": 5552,
+          "formula": "q*exp(-r*(u+1)/(6q))"
+        },
+        "second_bound": {
+          "decimal_36_digits": "2.776389561396550882201194555007675099E+3",
+          "floor": 2776,
+          "formula": "(q/2)*exp(-r*(u+1)/(6q))"
+        },
+        "three_to_L": 9,
+        "u": 820
+      },
+      {
+        "L": 2,
+        "a": 3280,
+        "all_pass": true,
+        "conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "cyclic_ternary_zero_run_ledger": {
+          "E_subset_size": 576,
+          "all_pass": true,
+          "checks": {
+            "E_frequencies_are_odd": true,
+            "E_subset_of_odd_zero_run_avoiders": true,
+            "all_zero_word_excluded": true,
+            "exact_E_not_above_odd_avoider_count": true,
+            "exact_odd_avoider_count_below_halved_Janson_upper": true,
+            "exact_raw_avoider_count_below_Janson_upper": true,
+            "parity_classes_exactly_halved": true,
+            "parity_map_flips_integer_parity": true,
+            "parity_map_is_involution": true,
+            "parity_map_preserves_avoider_set": true,
+            "window_implies_power_scale": true
+          },
+          "exact_even_avoidance_count": 1552,
+          "exact_odd_avoidance_count": 1552,
+          "exact_word_count_3_to_r": 6561,
+          "exact_zero_run_avoidance_count": 3104,
+          "parity_involution": "swap the first nonzero ternary digit 1<->2",
+          "run_length_L": 2
+        },
+        "exact_E_r_u": 576,
+        "exact_avoidance_orbit_ledger": {
+          "E_r_u": 576,
+          "avoiding_orbit_count": 72,
+          "hit_frequency_count": 2704,
+          "hit_orbit_count": 338,
+          "orbit_size_histogram": {
+            "8": 410
+          },
+          "total_orbit_count": 410
+        },
+        "first_bound": {
+          "decimal_36_digits": "2.103392264244466007076112931789916305E+3",
+          "floor": 2103,
+          "formula": "(q/2)*exp(-r/(2*3^L))"
+        },
+        "numeric_and_rational_checks": {
+          "exact_E_below_parity_halved_first_upper_when_counted": true,
+          "halved_first_upper_not_above_halved_second": true,
+          "rational_exponent_order": true,
+          "raw_first_upper_not_above_raw_second": true
+        },
+        "q": 6561,
+        "r": 8,
+        "raw_zero_run_first_bound": {
+          "decimal_36_digits": "4.206784528488932014152225863579832610E+3",
+          "floor": 4206,
+          "formula": "q*exp(-r/(2*3^L))"
+        },
+        "raw_zero_run_second_bound": {
+          "decimal_36_digits": "4.700445451966626328919094006970222758E+3",
+          "floor": 4700,
+          "formula": "q*exp(-r*(u+1)/(6q))"
+        },
+        "second_bound": {
+          "decimal_36_digits": "2.350222725983313164459547003485111379E+3",
+          "floor": 2350,
+          "formula": "(q/2)*exp(-r*(u+1)/(6q))"
+        },
+        "three_to_L": 9,
+        "u": 1640
+      },
+      {
+        "L": 2,
+        "a": 9841,
+        "all_pass": true,
+        "conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "cyclic_ternary_zero_run_ledger": {
+          "E_subset_size": 4240,
+          "all_pass": true,
+          "checks": {
+            "E_frequencies_are_odd": true,
+            "E_subset_of_odd_zero_run_avoiders": true,
+            "all_zero_word_excluded": true,
+            "exact_E_not_above_odd_avoider_count": true,
+            "exact_odd_avoider_count_below_halved_Janson_upper": true,
+            "exact_raw_avoider_count_below_Janson_upper": true,
+            "parity_classes_exactly_halved": true,
+            "parity_map_flips_integer_parity": true,
+            "parity_map_is_involution": true,
+            "parity_map_preserves_avoider_set": true,
+            "window_implies_power_scale": true
+          },
+          "exact_even_avoidance_count": 4240,
+          "exact_odd_avoidance_count": 4240,
+          "exact_word_count_3_to_r": 19683,
+          "exact_zero_run_avoidance_count": 8480,
+          "parity_involution": "swap the first nonzero ternary digit 1<->2",
+          "run_length_L": 2
+        },
+        "exact_E_r_u": 4240,
+        "exact_avoidance_orbit_ledger": {
+          "E_r_u": 4240,
+          "avoiding_orbit_count": 474,
+          "hit_frequency_count": 5601,
+          "hit_orbit_count": 623,
+          "orbit_size_histogram": {
+            "1": 1,
+            "3": 4,
+            "9": 1092
+          },
+          "total_orbit_count": 1097
+        },
+        "first_bound": {
+          "decimal_36_digits": "5.969171487561881838396793123615702433E+3",
+          "floor": 5969,
+          "formula": "(q/2)*exp(-r/(2*3^L))"
+        },
+        "numeric_and_rational_checks": {
+          "exact_E_below_parity_halved_first_upper_when_counted": true,
+          "halved_first_upper_not_above_halved_second": true,
+          "rational_exponent_order": true,
+          "raw_first_upper_not_above_raw_second": true
+        },
+        "q": 19683,
+        "r": 9,
+        "raw_zero_run_first_bound": {
+          "decimal_36_digits": "1.193834297512376367679358624723140487E+4",
+          "floor": 11938,
+          "formula": "q*exp(-r/(2*3^L))"
+        },
+        "raw_zero_run_second_bound": {
+          "decimal_36_digits": "1.666003011681483480073679196538533185E+4",
+          "floor": 16660,
+          "formula": "q*exp(-r*(u+1)/(6q))"
+        },
+        "second_bound": {
+          "decimal_36_digits": "8.330015058407417400368395982692665923E+3",
+          "floor": 8330,
+          "formula": "(q/2)*exp(-r*(u+1)/(6q))"
+        },
+        "three_to_L": 9,
+        "u": 2187
+      },
+      {
+        "L": 2,
+        "a": 9841,
+        "all_pass": true,
+        "conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "cyclic_ternary_zero_run_ledger": {
+          "E_subset_size": 1393,
+          "all_pass": true,
+          "checks": {
+            "E_frequencies_are_odd": true,
+            "E_subset_of_odd_zero_run_avoiders": true,
+            "all_zero_word_excluded": true,
+            "exact_E_not_above_odd_avoider_count": true,
+            "exact_odd_avoider_count_below_halved_Janson_upper": true,
+            "exact_raw_avoider_count_below_Janson_upper": true,
+            "parity_classes_exactly_halved": true,
+            "parity_map_flips_integer_parity": true,
+            "parity_map_is_involution": true,
+            "parity_map_preserves_avoider_set": true,
+            "window_implies_power_scale": true
+          },
+          "exact_even_avoidance_count": 4240,
+          "exact_odd_avoidance_count": 4240,
+          "exact_word_count_3_to_r": 19683,
+          "exact_zero_run_avoidance_count": 8480,
+          "parity_involution": "swap the first nonzero ternary digit 1<->2",
+          "run_length_L": 2
+        },
+        "exact_E_r_u": 1393,
+        "exact_avoidance_orbit_ledger": {
+          "E_r_u": 1393,
+          "avoiding_orbit_count": 157,
+          "hit_frequency_count": 8448,
+          "hit_orbit_count": 940,
+          "orbit_size_histogram": {
+            "1": 1,
+            "3": 4,
+            "9": 1092
+          },
+          "total_orbit_count": 1097
+        },
+        "first_bound": {
+          "decimal_36_digits": "5.969171487561881838396793123615702433E+3",
+          "floor": 5969,
+          "formula": "(q/2)*exp(-r/(2*3^L))"
+        },
+        "numeric_and_rational_checks": {
+          "exact_E_below_parity_halved_first_upper_when_counted": true,
+          "halved_first_upper_not_above_halved_second": true,
+          "rational_exponent_order": true,
+          "raw_first_upper_not_above_raw_second": true
+        },
+        "q": 19683,
+        "r": 9,
+        "raw_zero_run_first_bound": {
+          "decimal_36_digits": "1.193834297512376367679358624723140487E+4",
+          "floor": 11938,
+          "formula": "q*exp(-r/(2*3^L))"
+        },
+        "raw_zero_run_second_bound": {
+          "decimal_36_digits": "1.352765714341830932540018694777114270E+4",
+          "floor": 13527,
+          "formula": "q*exp(-r*(u+1)/(6q))"
+        },
+        "second_bound": {
+          "decimal_36_digits": "6.763828571709154662700093473885571348E+3",
+          "floor": 6763,
+          "formula": "(q/2)*exp(-r*(u+1)/(6q))"
+        },
+        "three_to_L": 9,
+        "u": 4920
+      },
+      {
+        "L": 3,
+        "a": 29524,
+        "all_pass": true,
+        "conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "cyclic_ternary_zero_run_ledger": {
+          "E_subset_size": 13254,
+          "all_pass": true,
+          "checks": {
+            "E_frequencies_are_odd": true,
+            "E_subset_of_odd_zero_run_avoiders": true,
+            "all_zero_word_excluded": true,
+            "exact_E_not_above_odd_avoider_count": true,
+            "exact_odd_avoider_count_below_halved_Janson_upper": true,
+            "exact_raw_avoider_count_below_Janson_upper": true,
+            "parity_classes_exactly_halved": true,
+            "parity_map_flips_integer_parity": true,
+            "parity_map_is_involution": true,
+            "parity_map_preserves_avoider_set": true,
+            "window_implies_power_scale": true
+          },
+          "exact_even_avoidance_count": 22504,
+          "exact_odd_avoidance_count": 22504,
+          "exact_word_count_3_to_r": 59049,
+          "exact_zero_run_avoidance_count": 45008,
+          "parity_involution": "swap the first nonzero ternary digit 1<->2",
+          "run_length_L": 3
+        },
+        "exact_E_r_u": 13254,
+        "exact_avoidance_orbit_ledger": {
+          "E_r_u": 13254,
+          "avoiding_orbit_count": 1327,
+          "hit_frequency_count": 16270,
+          "hit_orbit_count": 1627,
+          "orbit_size_histogram": {
+            "10": 2952,
+            "2": 2
+          },
+          "total_orbit_count": 2954
+        },
+        "first_bound": {
+          "decimal_36_digits": "2.453339478664069541805623103389659619E+4",
+          "floor": 24533,
+          "formula": "(q/2)*exp(-r/(2*3^L))"
+        },
+        "numeric_and_rational_checks": {
+          "exact_E_below_parity_halved_first_upper_when_counted": true,
+          "halved_first_upper_not_above_halved_second": true,
+          "rational_exponent_order": true,
+          "raw_first_upper_not_above_raw_second": true
+        },
+        "q": 59049,
+        "r": 10,
+        "raw_zero_run_first_bound": {
+          "decimal_36_digits": "4.906678957328139083611246206779319238E+4",
+          "floor": 49066,
+          "formula": "q*exp(-r/(2*3^L))"
+        },
+        "raw_zero_run_second_bound": {
+          "decimal_36_digits": "4.998234751399449282970825253948018325E+4",
+          "floor": 49982,
+          "formula": "q*exp(-r*(u+1)/(6q))"
+        },
+        "second_bound": {
+          "decimal_36_digits": "2.499117375699724641485412626974009163E+4",
+          "floor": 24991,
+          "formula": "(q/2)*exp(-r*(u+1)/(6q))"
+        },
+        "three_to_L": 27,
+        "u": 5905
+      },
+      {
+        "L": 2,
+        "a": 29524,
+        "all_pass": true,
+        "conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "cyclic_ternary_zero_run_ledger": {
+          "E_subset_size": 3362,
+          "all_pass": true,
+          "checks": {
+            "E_frequencies_are_odd": true,
+            "E_subset_of_odd_zero_run_avoiders": true,
+            "all_zero_word_excluded": true,
+            "exact_E_not_above_odd_avoider_count": true,
+            "exact_odd_avoider_count_below_halved_Janson_upper": true,
+            "exact_raw_avoider_count_below_Janson_upper": true,
+            "parity_classes_exactly_halved": true,
+            "parity_map_flips_integer_parity": true,
+            "parity_map_is_involution": true,
+            "parity_map_preserves_avoider_set": true,
+            "window_implies_power_scale": true
+          },
+          "exact_even_avoidance_count": 11584,
+          "exact_odd_avoidance_count": 11584,
+          "exact_word_count_3_to_r": 59049,
+          "exact_zero_run_avoidance_count": 23168,
+          "parity_involution": "swap the first nonzero ternary digit 1<->2",
+          "run_length_L": 2
+        },
+        "exact_E_r_u": 3362,
+        "exact_avoidance_orbit_ledger": {
+          "E_r_u": 3362,
+          "avoiding_orbit_count": 337,
+          "hit_frequency_count": 26162,
+          "hit_orbit_count": 2617,
+          "orbit_size_histogram": {
+            "10": 2952,
+            "2": 2
+          },
+          "total_orbit_count": 2954
+        },
+        "first_bound": {
+          "decimal_36_digits": "1.693978287056233472381714600576141772E+4",
+          "floor": 16939,
+          "formula": "(q/2)*exp(-r/(2*3^L))"
+        },
+        "numeric_and_rational_checks": {
+          "exact_E_below_parity_halved_first_upper_when_counted": true,
+          "halved_first_upper_not_above_halved_second": true,
+          "rational_exponent_order": true,
+          "raw_first_upper_not_above_raw_second": true
+        },
+        "q": 59049,
+        "r": 10,
+        "raw_zero_run_first_bound": {
+          "decimal_36_digits": "3.387956574112466944763429201152283544E+4",
+          "floor": 33879,
+          "formula": "q*exp(-r/(2*3^L))"
+        },
+        "raw_zero_run_second_bound": {
+          "decimal_36_digits": "3.892667593064029845327421883533004520E+4",
+          "floor": 38926,
+          "formula": "q*exp(-r*(u+1)/(6q))"
+        },
+        "second_bound": {
+          "decimal_36_digits": "1.946333796532014922663710941766502260E+4",
+          "floor": 19463,
+          "formula": "(q/2)*exp(-r*(u+1)/(6q))"
+        },
+        "three_to_L": 9,
+        "u": 14762
+      }
+    ]
+  },
+  "finite_full_orientation_censuses": [
+    {
+      "N": 8,
+      "a": 4,
+      "all_pass": true,
+      "checks": {
+        "all_depth_rows_pass": true,
+        "all_legal_depths_censused": true,
+        "endpoint_present_without_exact_claim": true,
+        "field_order": true,
+        "full_orientation_count": true
+      },
+      "depth_rows": [
+        {
+          "E_dimension_upper_bound": 4,
+          "E_r_u": 4,
+          "actual_F3_kernel_cardinality": 81,
+          "actual_F3_kernel_dimension": 4,
+          "all_pass": true,
+          "checks": {
+            "all_orientations_censused": true,
+            "all_prefix_fibers_injective_on_information_set": true,
+            "equal_prefix_implies_equal_active_fourier": true,
+            "fiber_below_2_to_E_bound": true,
+            "fourier_rank_matches_orbit_count": true,
+            "information_set_has_full_direction_rank": true,
+            "locator_factor_Hamming_floor": true,
+            "nullspace_dimension_matches_E": true,
+            "pair_histogram_mass": true,
+            "plotkin_gate_when_active": true
+          },
+          "exact_fourier_signature_image_size": 1,
+          "exact_prefix_image_size": 1,
+          "fiber_size_histogram": {
+            "16": 1
+          },
+          "fourier_constraint_rank_over_F3": 0,
+          "information_set_dimension": 4,
+          "information_set_positions": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "maximum_prefix_fiber": 16,
+          "minimum_nonsingleton_hamming_distance": 1,
+          "orientation_count": 16,
+          "plotkin_bound_when_d_u_gt_a_over_2": null,
+          "prefix_refines_fourier_partition": true,
+          "proved_hamming_floor_d_u": 1,
+          "sign_information_set_fiber_bound": 16,
+          "u": 0,
+          "within_fiber_hamming_histogram": {
+            "1": 32,
+            "2": 48,
+            "3": 32,
+            "4": 8
+          },
+          "within_fiber_pair_count": 120
+        },
+        {
+          "E_dimension_upper_bound": 2,
+          "E_r_u": 2,
+          "actual_F3_kernel_cardinality": 9,
+          "actual_F3_kernel_dimension": 2,
+          "all_pass": true,
+          "checks": {
+            "all_orientations_censused": true,
+            "all_prefix_fibers_injective_on_information_set": true,
+            "equal_prefix_implies_equal_active_fourier": true,
+            "fiber_below_2_to_E_bound": true,
+            "fourier_rank_matches_orbit_count": true,
+            "information_set_has_full_direction_rank": true,
+            "locator_factor_Hamming_floor": true,
+            "nullspace_dimension_matches_E": true,
+            "pair_histogram_mass": true,
+            "plotkin_gate_when_active": true
+          },
+          "exact_fourier_signature_image_size": 8,
+          "exact_prefix_image_size": 8,
+          "fiber_size_histogram": {
+            "2": 8
+          },
+          "fourier_constraint_rank_over_F3": 2,
+          "information_set_dimension": 2,
+          "information_set_positions": [
+            0,
+            1
+          ],
+          "maximum_prefix_fiber": 2,
+          "minimum_nonsingleton_hamming_distance": 3,
+          "orientation_count": 16,
+          "plotkin_bound_when_d_u_gt_a_over_2": 3,
+          "prefix_refines_fourier_partition": true,
+          "proved_hamming_floor_d_u": 3,
+          "sign_information_set_fiber_bound": 4,
+          "u": 1,
+          "within_fiber_hamming_histogram": {
+            "3": 8
+          },
+          "within_fiber_pair_count": 8
+        },
+        {
+          "E_dimension_upper_bound": 2,
+          "E_r_u": 2,
+          "actual_F3_kernel_cardinality": 9,
+          "actual_F3_kernel_dimension": 2,
+          "all_pass": true,
+          "checks": {
+            "all_orientations_censused": true,
+            "all_prefix_fibers_injective_on_information_set": true,
+            "equal_prefix_implies_equal_active_fourier": true,
+            "fiber_below_2_to_E_bound": true,
+            "fourier_rank_matches_orbit_count": true,
+            "information_set_has_full_direction_rank": true,
+            "locator_factor_Hamming_floor": true,
+            "nullspace_dimension_matches_E": true,
+            "pair_histogram_mass": true,
+            "plotkin_gate_when_active": true
+          },
+          "exact_fourier_signature_image_size": 8,
+          "exact_prefix_image_size": 8,
+          "fiber_size_histogram": {
+            "2": 8
+          },
+          "fourier_constraint_rank_over_F3": 2,
+          "information_set_dimension": 2,
+          "information_set_positions": [
+            0,
+            1
+          ],
+          "maximum_prefix_fiber": 2,
+          "minimum_nonsingleton_hamming_distance": 3,
+          "orientation_count": 16,
+          "plotkin_bound_when_d_u_gt_a_over_2": 3,
+          "prefix_refines_fourier_partition": true,
+          "proved_hamming_floor_d_u": 3,
+          "sign_information_set_fiber_bound": 4,
+          "u": 2,
+          "within_fiber_hamming_histogram": {
+            "3": 8
+          },
+          "within_fiber_pair_count": 8
+        }
+      ],
+      "field_model": "F_3[t]/([1, 0, 1]) in ascending coefficients",
+      "orientation_count": 16,
+      "primitive_element_encoding": 4,
+      "q": 9,
+      "r": 2,
+      "role": "complete finite census only; exact finite image statistics are not promoted to a general exact-image theorem"
+    },
+    {
+      "N": 26,
+      "a": 13,
+      "all_pass": true,
+      "checks": {
+        "all_depth_rows_pass": true,
+        "all_legal_depths_censused": true,
+        "endpoint_present_without_exact_claim": true,
+        "field_order": true,
+        "full_orientation_count": true
+      },
+      "depth_rows": [
+        {
+          "E_dimension_upper_bound": 13,
+          "E_r_u": 13,
+          "actual_F3_kernel_cardinality": 1594323,
+          "actual_F3_kernel_dimension": 13,
+          "all_pass": true,
+          "checks": {
+            "all_orientations_censused": true,
+            "all_prefix_fibers_injective_on_information_set": true,
+            "equal_prefix_implies_equal_active_fourier": true,
+            "fiber_below_2_to_E_bound": true,
+            "fourier_rank_matches_orbit_count": true,
+            "information_set_has_full_direction_rank": true,
+            "locator_factor_Hamming_floor": true,
+            "nullspace_dimension_matches_E": true,
+            "pair_histogram_mass": true,
+            "plotkin_gate_when_active": true
+          },
+          "exact_fourier_signature_image_size": 1,
+          "exact_prefix_image_size": 1,
+          "fiber_size_histogram": {
+            "8192": 1
+          },
+          "fourier_constraint_rank_over_F3": 0,
+          "information_set_dimension": 13,
+          "information_set_positions": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "maximum_prefix_fiber": 8192,
+          "minimum_nonsingleton_hamming_distance": 1,
+          "orientation_count": 8192,
+          "plotkin_bound_when_d_u_gt_a_over_2": null,
+          "prefix_refines_fourier_partition": true,
+          "proved_hamming_floor_d_u": 1,
+          "sign_information_set_fiber_bound": 8192,
+          "u": 0,
+          "within_fiber_hamming_histogram": {
+            "1": 53248,
+            "10": 1171456,
+            "11": 319488,
+            "12": 53248,
+            "13": 4096,
+            "2": 319488,
+            "3": 1171456,
+            "4": 2928640,
+            "5": 5271552,
+            "6": 7028736,
+            "7": 7028736,
+            "8": 5271552,
+            "9": 2928640
+          },
+          "within_fiber_pair_count": 33550336
+        },
+        {
+          "E_dimension_upper_bound": 10,
+          "E_r_u": 10,
+          "actual_F3_kernel_cardinality": 59049,
+          "actual_F3_kernel_dimension": 10,
+          "all_pass": true,
+          "checks": {
+            "all_orientations_censused": true,
+            "all_prefix_fibers_injective_on_information_set": true,
+            "equal_prefix_implies_equal_active_fourier": true,
+            "fiber_below_2_to_E_bound": true,
+            "fourier_rank_matches_orbit_count": true,
+            "information_set_has_full_direction_rank": true,
+            "locator_factor_Hamming_floor": true,
+            "nullspace_dimension_matches_E": true,
+            "pair_histogram_mass": true,
+            "plotkin_gate_when_active": true
+          },
+          "exact_fourier_signature_image_size": 27,
+          "exact_prefix_image_size": 27,
+          "fiber_size_histogram": {
+            "288": 1,
+            "304": 26
+          },
+          "fourier_constraint_rank_over_F3": 3,
+          "information_set_dimension": 10,
+          "information_set_positions": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "maximum_prefix_fiber": 304,
+          "minimum_nonsingleton_hamming_distance": 3,
+          "orientation_count": 8192,
+          "plotkin_bound_when_d_u_gt_a_over_2": null,
+          "prefix_refines_fourier_partition": true,
+          "proved_hamming_floor_d_u": 3,
+          "sign_information_set_fiber_bound": 1024,
+          "u": 1,
+          "within_fiber_hamming_histogram": {
+            "10": 44928,
+            "11": 11232,
+            "12": 2080,
+            "13": 144,
+            "3": 53248,
+            "4": 119808,
+            "5": 179712,
+            "6": 259584,
+            "7": 269568,
+            "8": 190944,
+            "9": 107536
+          },
+          "within_fiber_pair_count": 1238784
+        },
+        {
+          "E_dimension_upper_bound": 10,
+          "E_r_u": 10,
+          "actual_F3_kernel_cardinality": 59049,
+          "actual_F3_kernel_dimension": 10,
+          "all_pass": true,
+          "checks": {
+            "all_orientations_censused": true,
+            "all_prefix_fibers_injective_on_information_set": true,
+            "equal_prefix_implies_equal_active_fourier": true,
+            "fiber_below_2_to_E_bound": true,
+            "fourier_rank_matches_orbit_count": true,
+            "information_set_has_full_direction_rank": true,
+            "locator_factor_Hamming_floor": true,
+            "nullspace_dimension_matches_E": true,
+            "pair_histogram_mass": true,
+            "plotkin_gate_when_active": true
+          },
+          "exact_fourier_signature_image_size": 27,
+          "exact_prefix_image_size": 27,
+          "fiber_size_histogram": {
+            "288": 1,
+            "304": 26
+          },
+          "fourier_constraint_rank_over_F3": 3,
+          "information_set_dimension": 10,
+          "information_set_positions": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "maximum_prefix_fiber": 304,
+          "minimum_nonsingleton_hamming_distance": 3,
+          "orientation_count": 8192,
+          "plotkin_bound_when_d_u_gt_a_over_2": null,
+          "prefix_refines_fourier_partition": true,
+          "proved_hamming_floor_d_u": 3,
+          "sign_information_set_fiber_bound": 1024,
+          "u": 2,
+          "within_fiber_hamming_histogram": {
+            "10": 44928,
+            "11": 11232,
+            "12": 2080,
+            "13": 144,
+            "3": 53248,
+            "4": 119808,
+            "5": 179712,
+            "6": 259584,
+            "7": 269568,
+            "8": 190944,
+            "9": 107536
+          },
+          "within_fiber_pair_count": 1238784
+        },
+        {
+          "E_dimension_upper_bound": 10,
+          "E_r_u": 10,
+          "actual_F3_kernel_cardinality": 59049,
+          "actual_F3_kernel_dimension": 10,
+          "all_pass": true,
+          "checks": {
+            "all_orientations_censused": true,
+            "all_prefix_fibers_injective_on_information_set": true,
+            "equal_prefix_implies_equal_active_fourier": true,
+            "fiber_below_2_to_E_bound": true,
+            "fourier_rank_matches_orbit_count": true,
+            "information_set_has_full_direction_rank": true,
+            "locator_factor_Hamming_floor": true,
+            "nullspace_dimension_matches_E": true,
+            "pair_histogram_mass": true,
+            "plotkin_gate_when_active": true
+          },
+          "exact_fourier_signature_image_size": 27,
+          "exact_prefix_image_size": 729,
+          "fiber_size_histogram": {
+            "10": 182,
+            "11": 312,
+            "13": 156,
+            "16": 26,
+            "28": 1,
+            "9": 52
+          },
+          "fourier_constraint_rank_over_F3": 3,
+          "information_set_dimension": 10,
+          "information_set_positions": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "maximum_prefix_fiber": 28,
+          "minimum_nonsingleton_hamming_distance": 5,
+          "orientation_count": 8192,
+          "plotkin_bound_when_d_u_gt_a_over_2": null,
+          "prefix_refines_fourier_partition": true,
+          "proved_hamming_floor_d_u": 5,
+          "sign_information_set_fiber_bound": 1024,
+          "u": 3,
+          "within_fiber_hamming_histogram": {
+            "10": 1352,
+            "11": 468,
+            "12": 78,
+            "13": 14,
+            "5": 9984,
+            "6": 11648,
+            "7": 7488,
+            "8": 7488,
+            "9": 4368
+          },
+          "within_fiber_pair_count": 42888
+        },
+        {
+          "E_dimension_upper_bound": 10,
+          "E_r_u": 10,
+          "actual_F3_kernel_cardinality": 59049,
+          "actual_F3_kernel_dimension": 10,
+          "all_pass": true,
+          "checks": {
+            "all_orientations_censused": true,
+            "all_prefix_fibers_injective_on_information_set": true,
+            "equal_prefix_implies_equal_active_fourier": true,
+            "fiber_below_2_to_E_bound": true,
+            "fourier_rank_matches_orbit_count": true,
+            "information_set_has_full_direction_rank": true,
+            "locator_factor_Hamming_floor": true,
+            "nullspace_dimension_matches_E": true,
+            "pair_histogram_mass": true,
+            "plotkin_gate_when_active": true
+          },
+          "exact_fourier_signature_image_size": 27,
+          "exact_prefix_image_size": 729,
+          "fiber_size_histogram": {
+            "10": 182,
+            "11": 312,
+            "13": 156,
+            "16": 26,
+            "28": 1,
+            "9": 52
+          },
+          "fourier_constraint_rank_over_F3": 3,
+          "information_set_dimension": 10,
+          "information_set_positions": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "maximum_prefix_fiber": 28,
+          "minimum_nonsingleton_hamming_distance": 5,
+          "orientation_count": 8192,
+          "plotkin_bound_when_d_u_gt_a_over_2": null,
+          "prefix_refines_fourier_partition": true,
+          "proved_hamming_floor_d_u": 5,
+          "sign_information_set_fiber_bound": 1024,
+          "u": 4,
+          "within_fiber_hamming_histogram": {
+            "10": 1352,
+            "11": 468,
+            "12": 78,
+            "13": 14,
+            "5": 9984,
+            "6": 11648,
+            "7": 7488,
+            "8": 7488,
+            "9": 4368
+          },
+          "within_fiber_pair_count": 42888
+        },
+        {
+          "E_dimension_upper_bound": 7,
+          "E_r_u": 7,
+          "actual_F3_kernel_cardinality": 2187,
+          "actual_F3_kernel_dimension": 7,
+          "all_pass": true,
+          "checks": {
+            "all_orientations_censused": true,
+            "all_prefix_fibers_injective_on_information_set": true,
+            "equal_prefix_implies_equal_active_fourier": true,
+            "fiber_below_2_to_E_bound": true,
+            "fourier_rank_matches_orbit_count": true,
+            "information_set_has_full_direction_rank": true,
+            "locator_factor_Hamming_floor": true,
+            "nullspace_dimension_matches_E": true,
+            "pair_histogram_mass": true,
+            "plotkin_gate_when_active": true
+          },
+          "exact_fourier_signature_image_size": 729,
+          "exact_prefix_image_size": 6787,
+          "fiber_size_histogram": {
+            "1": 5434,
+            "2": 1301,
+            "3": 52
+          },
+          "fourier_constraint_rank_over_F3": 6,
+          "information_set_dimension": 7,
+          "information_set_positions": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "maximum_prefix_fiber": 3,
+          "minimum_nonsingleton_hamming_distance": 7,
+          "orientation_count": 8192,
+          "plotkin_bound_when_d_u_gt_a_over_2": 14,
+          "prefix_refines_fourier_partition": true,
+          "proved_hamming_floor_d_u": 7,
+          "sign_information_set_fiber_bound": 128,
+          "u": 5,
+          "within_fiber_hamming_histogram": {
+            "10": 208,
+            "13": 1,
+            "7": 832,
+            "9": 416
+          },
+          "within_fiber_pair_count": 1457
+        },
+        {
+          "E_dimension_upper_bound": 7,
+          "E_r_u": 7,
+          "actual_F3_kernel_cardinality": 2187,
+          "actual_F3_kernel_dimension": 7,
+          "all_pass": true,
+          "checks": {
+            "all_orientations_censused": true,
+            "all_prefix_fibers_injective_on_information_set": true,
+            "equal_prefix_implies_equal_active_fourier": true,
+            "fiber_below_2_to_E_bound": true,
+            "fourier_rank_matches_orbit_count": true,
+            "information_set_has_full_direction_rank": true,
+            "locator_factor_Hamming_floor": true,
+            "nullspace_dimension_matches_E": true,
+            "pair_histogram_mass": true,
+            "plotkin_gate_when_active": true
+          },
+          "exact_fourier_signature_image_size": 729,
+          "exact_prefix_image_size": 6787,
+          "fiber_size_histogram": {
+            "1": 5434,
+            "2": 1301,
+            "3": 52
+          },
+          "fourier_constraint_rank_over_F3": 6,
+          "information_set_dimension": 7,
+          "information_set_positions": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "maximum_prefix_fiber": 3,
+          "minimum_nonsingleton_hamming_distance": 7,
+          "orientation_count": 8192,
+          "plotkin_bound_when_d_u_gt_a_over_2": 14,
+          "prefix_refines_fourier_partition": true,
+          "proved_hamming_floor_d_u": 7,
+          "sign_information_set_fiber_bound": 128,
+          "u": 6,
+          "within_fiber_hamming_histogram": {
+            "10": 208,
+            "13": 1,
+            "7": 832,
+            "9": 416
+          },
+          "within_fiber_pair_count": 1457
+        },
+        {
+          "E_dimension_upper_bound": 4,
+          "E_r_u": 4,
+          "actual_F3_kernel_cardinality": 81,
+          "actual_F3_kernel_dimension": 4,
+          "all_pass": true,
+          "checks": {
+            "all_orientations_censused": true,
+            "all_prefix_fibers_injective_on_information_set": true,
+            "equal_prefix_implies_equal_active_fourier": true,
+            "fiber_below_2_to_E_bound": true,
+            "fourier_rank_matches_orbit_count": true,
+            "information_set_has_full_direction_rank": true,
+            "locator_factor_Hamming_floor": true,
+            "nullspace_dimension_matches_E": true,
+            "pair_histogram_mass": true,
+            "plotkin_gate_when_active": true
+          },
+          "exact_fourier_signature_image_size": 7073,
+          "exact_prefix_image_size": 7983,
+          "fiber_size_histogram": {
+            "1": 7774,
+            "2": 209
+          },
+          "fourier_constraint_rank_over_F3": 9,
+          "information_set_dimension": 4,
+          "information_set_positions": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "maximum_prefix_fiber": 2,
+          "minimum_nonsingleton_hamming_distance": 9,
+          "orientation_count": 8192,
+          "plotkin_bound_when_d_u_gt_a_over_2": 3,
+          "prefix_refines_fourier_partition": true,
+          "proved_hamming_floor_d_u": 9,
+          "sign_information_set_fiber_bound": 16,
+          "u": 7,
+          "within_fiber_hamming_histogram": {
+            "13": 1,
+            "9": 208
+          },
+          "within_fiber_pair_count": 209
+        },
+        {
+          "E_dimension_upper_bound": 4,
+          "E_r_u": 4,
+          "actual_F3_kernel_cardinality": 81,
+          "actual_F3_kernel_dimension": 4,
+          "all_pass": true,
+          "checks": {
+            "all_orientations_censused": true,
+            "all_prefix_fibers_injective_on_information_set": true,
+            "equal_prefix_implies_equal_active_fourier": true,
+            "fiber_below_2_to_E_bound": true,
+            "fourier_rank_matches_orbit_count": true,
+            "information_set_has_full_direction_rank": true,
+            "locator_factor_Hamming_floor": true,
+            "nullspace_dimension_matches_E": true,
+            "pair_histogram_mass": true,
+            "plotkin_gate_when_active": true
+          },
+          "exact_fourier_signature_image_size": 7073,
+          "exact_prefix_image_size": 7983,
+          "fiber_size_histogram": {
+            "1": 7774,
+            "2": 209
+          },
+          "fourier_constraint_rank_over_F3": 9,
+          "information_set_dimension": 4,
+          "information_set_positions": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "maximum_prefix_fiber": 2,
+          "minimum_nonsingleton_hamming_distance": 9,
+          "orientation_count": 8192,
+          "plotkin_bound_when_d_u_gt_a_over_2": 3,
+          "prefix_refines_fourier_partition": true,
+          "proved_hamming_floor_d_u": 9,
+          "sign_information_set_fiber_bound": 16,
+          "u": 8,
+          "within_fiber_hamming_histogram": {
+            "13": 1,
+            "9": 208
+          },
+          "within_fiber_pair_count": 209
+        },
+        {
+          "E_dimension_upper_bound": 4,
+          "E_r_u": 4,
+          "actual_F3_kernel_cardinality": 81,
+          "actual_F3_kernel_dimension": 4,
+          "all_pass": true,
+          "checks": {
+            "all_orientations_censused": true,
+            "all_prefix_fibers_injective_on_information_set": true,
+            "equal_prefix_implies_equal_active_fourier": true,
+            "fiber_below_2_to_E_bound": true,
+            "fourier_rank_matches_orbit_count": true,
+            "information_set_has_full_direction_rank": true,
+            "locator_factor_Hamming_floor": true,
+            "nullspace_dimension_matches_E": true,
+            "pair_histogram_mass": true,
+            "plotkin_gate_when_active": true
+          },
+          "exact_fourier_signature_image_size": 7073,
+          "exact_prefix_image_size": 8191,
+          "fiber_size_histogram": {
+            "1": 8190,
+            "2": 1
+          },
+          "fourier_constraint_rank_over_F3": 9,
+          "information_set_dimension": 4,
+          "information_set_positions": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "maximum_prefix_fiber": 2,
+          "minimum_nonsingleton_hamming_distance": 13,
+          "orientation_count": 8192,
+          "plotkin_bound_when_d_u_gt_a_over_2": 2,
+          "prefix_refines_fourier_partition": true,
+          "proved_hamming_floor_d_u": 11,
+          "sign_information_set_fiber_bound": 16,
+          "u": 9,
+          "within_fiber_hamming_histogram": {
+            "13": 1
+          },
+          "within_fiber_pair_count": 1
+        },
+        {
+          "E_dimension_upper_bound": 4,
+          "E_r_u": 4,
+          "actual_F3_kernel_cardinality": 81,
+          "actual_F3_kernel_dimension": 4,
+          "all_pass": true,
+          "checks": {
+            "all_orientations_censused": true,
+            "all_prefix_fibers_injective_on_information_set": true,
+            "equal_prefix_implies_equal_active_fourier": true,
+            "fiber_below_2_to_E_bound": true,
+            "fourier_rank_matches_orbit_count": true,
+            "information_set_has_full_direction_rank": true,
+            "locator_factor_Hamming_floor": true,
+            "nullspace_dimension_matches_E": true,
+            "pair_histogram_mass": true,
+            "plotkin_gate_when_active": true
+          },
+          "exact_fourier_signature_image_size": 7073,
+          "exact_prefix_image_size": 8191,
+          "fiber_size_histogram": {
+            "1": 8190,
+            "2": 1
+          },
+          "fourier_constraint_rank_over_F3": 9,
+          "information_set_dimension": 4,
+          "information_set_positions": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "maximum_prefix_fiber": 2,
+          "minimum_nonsingleton_hamming_distance": 13,
+          "orientation_count": 8192,
+          "plotkin_bound_when_d_u_gt_a_over_2": 2,
+          "prefix_refines_fourier_partition": true,
+          "proved_hamming_floor_d_u": 11,
+          "sign_information_set_fiber_bound": 16,
+          "u": 10,
+          "within_fiber_hamming_histogram": {
+            "13": 1
+          },
+          "within_fiber_pair_count": 1
+        },
+        {
+          "E_dimension_upper_bound": 4,
+          "E_r_u": 4,
+          "actual_F3_kernel_cardinality": 81,
+          "actual_F3_kernel_dimension": 4,
+          "all_pass": true,
+          "checks": {
+            "all_orientations_censused": true,
+            "all_prefix_fibers_injective_on_information_set": true,
+            "equal_prefix_implies_equal_active_fourier": true,
+            "fiber_below_2_to_E_bound": true,
+            "fourier_rank_matches_orbit_count": true,
+            "information_set_has_full_direction_rank": true,
+            "locator_factor_Hamming_floor": true,
+            "nullspace_dimension_matches_E": true,
+            "pair_histogram_mass": true,
+            "plotkin_gate_when_active": true
+          },
+          "exact_fourier_signature_image_size": 7073,
+          "exact_prefix_image_size": 8191,
+          "fiber_size_histogram": {
+            "1": 8190,
+            "2": 1
+          },
+          "fourier_constraint_rank_over_F3": 9,
+          "information_set_dimension": 4,
+          "information_set_positions": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "maximum_prefix_fiber": 2,
+          "minimum_nonsingleton_hamming_distance": 13,
+          "orientation_count": 8192,
+          "plotkin_bound_when_d_u_gt_a_over_2": 2,
+          "prefix_refines_fourier_partition": true,
+          "proved_hamming_floor_d_u": 13,
+          "sign_information_set_fiber_bound": 16,
+          "u": 11,
+          "within_fiber_hamming_histogram": {
+            "13": 1
+          },
+          "within_fiber_pair_count": 1
+        }
+      ],
+      "field_model": "F_3[t]/([1, 2, 0, 1]) in ascending coefficients",
+      "orientation_count": 8192,
+      "primitive_element_encoding": 3,
+      "q": 27,
+      "r": 3,
+      "role": "complete finite census only; exact finite image statistics are not promoted to a general exact-image theorem"
+    }
+  ],
+  "fixed_c_critical_window_bracket": {
+    "all_pass": true,
+    "checks": {
+      "all_fixed_c_rows_pass": true,
+      "all_limit_brackets_ordered": true,
+      "both_roundings_with_positive_lower_rate_exercised": true,
+      "ceil_half_rounding_exercised": true,
+      "floor_depth_rounding_exercised": true,
+      "full_c_by_r_grid": true,
+      "positive_fixed_c_values": true
+    },
+    "limit_rows": [
+      {
+        "c": 1,
+        "limits_ordered": true,
+        "lower_rate_limit": "1.438410362258904637196095029969137158E-1",
+        "upper_rate_limit": "6.377261919902407090127941636237754844E-1"
+      },
+      {
+        "c": 2,
+        "limits_ordered": true,
+        "lower_rate_limit": "0.000000000000000000000000000000000000E+36",
+        "upper_rate_limit": "5.867364210034484252524529437459569505E-1"
+      },
+      {
+        "c": 4,
+        "limits_ordered": true,
+        "lower_rate_limit": "0.000000000000000000000000000000000000E+36",
+        "upper_rate_limit": "4.966616577071445472531965475126265272E-1"
+      },
+      {
+        "c": 8,
+        "limits_ordered": true,
+        "lower_rate_limit": "0.000000000000000000000000000000000000E+36",
+        "upper_rate_limit": "3.558736285086509990936102495926120216E-1"
+      }
+    ],
+    "sample_rows": [
+      {
+        "Janson_conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "L": 3,
+        "a": 265720,
+        "actual_r_u_over_a_decimal": "9.999849465602890260424506999849E-1",
+        "all_pass": true,
+        "c": 1,
+        "c_times_a_mod_r": 4,
+        "ceil_u_over_2": 11072,
+        "checks": {
+          "Janson_conditions": true,
+          "critical_depth_is_floor_c_a_over_r": true,
+          "finite_rate_bounds_ordered": true,
+          "legal_depth": true,
+          "parity_halved_second_bound_present": true
+        },
+        "finite_normalized_lower_rate": "1.438244983320372632124381158941450491E-1",
+        "finite_normalized_upper_rate": "6.377258919928552982097737888056778322E-1",
+        "parity_halved_E_second_bound_floor": 244474,
+        "q": 531441,
+        "r": 12,
+        "u_floor_c_a_over_r": 22143,
+        "u_is_odd": true
+      },
+      {
+        "Janson_conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "L": 4,
+        "a": 21523360,
+        "actual_r_u_over_a_decimal": "1.000000000000000000000000000000E+0",
+        "all_pass": true,
+        "c": 1,
+        "c_times_a_mod_r": 0,
+        "ceil_u_over_2": 672605,
+        "checks": {
+          "Janson_conditions": true,
+          "critical_depth_is_floor_c_a_over_r": true,
+          "finite_rate_bounds_ordered": true,
+          "legal_depth": true,
+          "parity_halved_second_bound_present": true
+        },
+        "finite_normalized_lower_rate": "1.438410362258904637196095029969137158E-1",
+        "finite_normalized_upper_rate": "6.377261685335618288574907750204109335E-1",
+        "parity_halved_E_second_bound_floor": 19802446,
+        "q": 43046721,
+        "r": 16,
+        "u_floor_c_a_over_r": 1345210,
+        "u_is_odd": false
+      },
+      {
+        "Janson_conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "L": 4,
+        "a": 926510094425920,
+        "actual_r_u_over_a_decimal": "1.000000000000000000000000000000E+0",
+        "all_pass": true,
+        "c": 1,
+        "c_times_a_mod_r": 0,
+        "ceil_u_over_2": 14476720225405,
+        "checks": {
+          "Janson_conditions": true,
+          "critical_depth_is_floor_c_a_over_r": true,
+          "finite_rate_bounds_ordered": true,
+          "legal_depth": true,
+          "parity_halved_second_bound_present": true
+        },
+        "finite_normalized_lower_rate": "1.438410362258904637196095029969137158E-1",
+        "finite_normalized_upper_rate": "6.377261919902392463539778892664966727E-1",
+        "parity_halved_E_second_bound_floor": 852430437474252,
+        "q": 1853020188851841,
+        "r": 32,
+        "u_floor_c_a_over_r": 28953440450810,
+        "u_is_odd": false
+      },
+      {
+        "Janson_conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "L": 5,
+        "a": 1716841910146256242328924544640,
+        "actual_r_u_over_a_decimal": "1.000000000000000000000000000000E+0",
+        "all_pass": true,
+        "c": 1,
+        "c_times_a_mod_r": 0,
+        "ceil_u_over_2": 13412827423017626893194723005,
+        "checks": {
+          "Janson_conditions": true,
+          "critical_depth_is_floor_c_a_over_r": true,
+          "finite_rate_bounds_ordered": true,
+          "legal_depth": true,
+          "parity_halved_second_bound_present": true
+        },
+        "finite_normalized_lower_rate": "1.438410362258904637196095029969137158E-1",
+        "finite_normalized_upper_rate": "6.377261919902407090127941636219956052E-1",
+        "parity_halved_E_second_bound_floor": 1579570810231601505779688093841,
+        "q": 3433683820292512484657849089281,
+        "r": 64,
+        "u_floor_c_a_over_r": 26825654846035253786389446010,
+        "u_is_odd": false
+      },
+      {
+        "Janson_conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "L": 3,
+        "a": 265720,
+        "actual_r_u_over_a_decimal": "1.999969893120578052084901399970E+0",
+        "all_pass": true,
+        "c": 2,
+        "c_times_a_mod_r": 8,
+        "ceil_u_over_2": 22143,
+        "checks": {
+          "Janson_conditions": true,
+          "critical_depth_is_floor_c_a_over_r": true,
+          "finite_rate_bounds_ordered": true,
+          "legal_depth": true,
+          "parity_halved_second_bound_present": true
+        },
+        "finite_normalized_lower_rate": "0.000000000000000000000000000000000000E+36",
+        "finite_normalized_upper_rate": "5.867369730287918463200871976700616468E-1",
+        "parity_halved_E_second_bound_floor": 224927,
+        "q": 531441,
+        "r": 12,
+        "u_floor_c_a_over_r": 44286,
+        "u_is_odd": false
+      },
+      {
+        "Janson_conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "L": 3,
+        "a": 21523360,
+        "actual_r_u_over_a_decimal": "2.000000000000000000000000000000E+0",
+        "all_pass": true,
+        "c": 2,
+        "c_times_a_mod_r": 0,
+        "ceil_u_over_2": 1345210,
+        "checks": {
+          "Janson_conditions": true,
+          "critical_depth_is_floor_c_a_over_r": true,
+          "finite_rate_bounds_ordered": true,
+          "legal_depth": true,
+          "parity_halved_second_bound_present": true
+        },
+        "finite_normalized_lower_rate": "0.000000000000000000000000000000000000E+36",
+        "finite_normalized_upper_rate": "5.867364005581139395883757417703126016E-1",
+        "parity_halved_E_second_bound_floor": 18219130,
+        "q": 43046721,
+        "r": 16,
+        "u_floor_c_a_over_r": 2690420,
+        "u_is_odd": false
+      },
+      {
+        "Janson_conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "L": 4,
+        "a": 926510094425920,
+        "actual_r_u_over_a_decimal": "2.000000000000000000000000000000E+0",
+        "all_pass": true,
+        "c": 2,
+        "c_times_a_mod_r": 0,
+        "ceil_u_over_2": 28953440450810,
+        "checks": {
+          "Janson_conditions": true,
+          "critical_depth_is_floor_c_a_over_r": true,
+          "finite_rate_bounds_ordered": true,
+          "legal_depth": true,
+          "parity_halved_second_bound_present": true
+        },
+        "finite_normalized_lower_rate": "0.000000000000000000000000000000000000E+36",
+        "finite_normalized_upper_rate": "5.867364210034471059278701775107303045E-1",
+        "parity_halved_E_second_bound_floor": 784273862858216,
+        "q": 1853020188851841,
+        "r": 32,
+        "u_floor_c_a_over_r": 57906880901620,
+        "u_is_odd": false
+      },
+      {
+        "Janson_conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "L": 4,
+        "a": 1716841910146256242328924544640,
+        "actual_r_u_over_a_decimal": "2.000000000000000000000000000000E+0",
+        "all_pass": true,
+        "c": 2,
+        "c_times_a_mod_r": 0,
+        "ceil_u_over_2": 26825654846035253786389446010,
+        "checks": {
+          "Janson_conditions": true,
+          "critical_depth_is_floor_c_a_over_r": true,
+          "finite_rate_bounds_ordered": true,
+          "legal_depth": true,
+          "parity_halved_second_bound_present": true
+        },
+        "finite_normalized_lower_rate": "0.000000000000000000000000000000000000E+36",
+        "finite_normalized_upper_rate": "5.867364210034484252524529437443336223E-1",
+        "parity_halved_E_second_bound_floor": 1453275301465099644238765105906,
+        "q": 3433683820292512484657849089281,
+        "r": 64,
+        "u_floor_c_a_over_r": 53651309692070507572778892020,
+        "u_is_odd": false
+      },
+      {
+        "Janson_conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "L": 2,
+        "a": 265720,
+        "actual_r_u_over_a_decimal": "3.999984946560289026042450699985E+0",
+        "all_pass": true,
+        "c": 4,
+        "c_times_a_mod_r": 4,
+        "ceil_u_over_2": 44287,
+        "checks": {
+          "Janson_conditions": true,
+          "critical_depth_is_floor_c_a_over_r": true,
+          "finite_rate_bounds_ordered": true,
+          "legal_depth": true,
+          "parity_halved_second_bound_present": true
+        },
+        "finite_normalized_lower_rate": "0.000000000000000000000000000000000000E+36",
+        "finite_normalized_upper_rate": "4.966616577080238148520009015818134743E-1",
+        "parity_halved_E_second_bound_floor": 190396,
+        "q": 531441,
+        "r": 12,
+        "u_floor_c_a_over_r": 88573,
+        "u_is_odd": true
+      },
+      {
+        "Janson_conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "L": 2,
+        "a": 21523360,
+        "actual_r_u_over_a_decimal": "4.000000000000000000000000000000E+0",
+        "all_pass": true,
+        "c": 4,
+        "c_times_a_mod_r": 0,
+        "ceil_u_over_2": 2690420,
+        "checks": {
+          "Janson_conditions": true,
+          "critical_depth_is_floor_c_a_over_r": true,
+          "finite_rate_bounds_ordered": true,
+          "legal_depth": true,
+          "parity_halved_second_bound_present": true
+        },
+        "finite_normalized_lower_rate": "0.000000000000000000000000000000000000E+36",
+        "finite_normalized_upper_rate": "4.966616423234983089045341213420650006E-1",
+        "parity_halved_E_second_bound_floor": 15422160,
+        "q": 43046721,
+        "r": 16,
+        "u_floor_c_a_over_r": 5380840,
+        "u_is_odd": false
+      },
+      {
+        "Janson_conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "L": 3,
+        "a": 926510094425920,
+        "actual_r_u_over_a_decimal": "4.000000000000000000000000000000E+0",
+        "all_pass": true,
+        "c": 4,
+        "c_times_a_mod_r": 0,
+        "ceil_u_over_2": 57906880901620,
+        "checks": {
+          "Janson_conditions": true,
+          "critical_depth_is_floor_c_a_over_r": true,
+          "finite_rate_bounds_ordered": true,
+          "legal_depth": true,
+          "parity_halved_second_bound_present": true
+        },
+        "finite_normalized_lower_rate": "0.000000000000000000000000000000000000E+36",
+        "finite_normalized_upper_rate": "4.966616577071434751404139773821569310E-1",
+        "parity_halved_E_second_bound_floor": 663873492218848,
+        "q": 1853020188851841,
+        "r": 32,
+        "u_floor_c_a_over_r": 115813761803240,
+        "u_is_odd": false
+      },
+      {
+        "Janson_conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "L": 4,
+        "a": 1716841910146256242328924544640,
+        "actual_r_u_over_a_decimal": "4.000000000000000000000000000000E+0",
+        "all_pass": true,
+        "c": 4,
+        "c_times_a_mod_r": 0,
+        "ceil_u_over_2": 53651309692070507572778892020,
+        "checks": {
+          "Janson_conditions": true,
+          "critical_depth_is_floor_c_a_over_r": true,
+          "finite_rate_bounds_ordered": true,
+          "legal_depth": true,
+          "parity_halved_second_bound_present": true
+        },
+        "finite_normalized_lower_rate": "0.000000000000000000000000000000000000E+36",
+        "finite_normalized_upper_rate": "4.966616577071445472531965475112765169E-1",
+        "parity_halved_E_second_bound_floor": 1230170983925104709633704465183,
+        "q": 3433683820292512484657849089281,
+        "r": 64,
+        "u_floor_c_a_over_r": 107302619384141015145557784040,
+        "u_is_odd": false
+      },
+      {
+        "Janson_conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "L": 1,
+        "a": 265720,
+        "actual_r_u_over_a_decimal": "7.999969893120578052084901399970E+0",
+        "all_pass": true,
+        "c": 8,
+        "c_times_a_mod_r": 8,
+        "ceil_u_over_2": 88573,
+        "checks": {
+          "Janson_conditions": true,
+          "critical_depth_is_floor_c_a_over_r": true,
+          "finite_rate_bounds_ordered": true,
+          "legal_depth": true,
+          "parity_halved_second_bound_present": true
+        },
+        "finite_normalized_lower_rate": "0.000000000000000000000000000000000000E+36",
+        "finite_normalized_upper_rate": "3.558742981489274341587146708071415877E-1",
+        "parity_halved_E_second_bound_floor": 136425,
+        "q": 531441,
+        "r": 12,
+        "u_floor_c_a_over_r": 177146,
+        "u_is_odd": false
+      },
+      {
+        "Janson_conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "L": 2,
+        "a": 21523360,
+        "actual_r_u_over_a_decimal": "8.000000000000000000000000000000E+0",
+        "all_pass": true,
+        "c": 8,
+        "c_times_a_mod_r": 0,
+        "ceil_u_over_2": 5380840,
+        "checks": {
+          "Janson_conditions": true,
+          "critical_depth_is_floor_c_a_over_r": true,
+          "finite_rate_bounds_ordered": true,
+          "legal_depth": true,
+          "parity_halved_second_bound_present": true
+        },
+        "finite_normalized_lower_rate": "0.000000000000000000000000000000000000E+36",
+        "finite_normalized_upper_rate": "3.558736202415028406658704774473434471E-1",
+        "parity_halved_E_second_bound_floor": 11050461,
+        "q": 43046721,
+        "r": 16,
+        "u_floor_c_a_over_r": 10761680,
+        "u_is_odd": false
+      },
+      {
+        "Janson_conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "L": 2,
+        "a": 926510094425920,
+        "actual_r_u_over_a_decimal": "8.000000000000000000000000000000E+0",
+        "all_pass": true,
+        "c": 8,
+        "c_times_a_mod_r": 0,
+        "ceil_u_over_2": 115813761803240,
+        "checks": {
+          "Janson_conditions": true,
+          "critical_depth_is_floor_c_a_over_r": true,
+          "finite_rate_bounds_ordered": true,
+          "legal_depth": true,
+          "parity_halved_second_bound_present": true
+        },
+        "finite_normalized_lower_rate": "0.000000000000000000000000000000000000E+36",
+        "finite_normalized_upper_rate": "3.558736285086502949080978365289727144E-1",
+        "parity_halved_E_second_bound_floor": 475686143434769,
+        "q": 1853020188851841,
+        "r": 32,
+        "u_floor_c_a_over_r": 231627523606480,
+        "u_is_odd": false
+      },
+      {
+        "Janson_conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "L": 3,
+        "a": 1716841910146256242328924544640,
+        "actual_r_u_over_a_decimal": "8.000000000000000000000000000000E+0",
+        "all_pass": true,
+        "c": 8,
+        "c_times_a_mod_r": 0,
+        "ceil_u_over_2": 107302619384141015145557784040,
+        "checks": {
+          "Janson_conditions": true,
+          "critical_depth_is_floor_c_a_over_r": true,
+          "finite_rate_bounds_ordered": true,
+          "legal_depth": true,
+          "parity_halved_second_bound_present": true
+        },
+        "finite_normalized_lower_rate": "0.000000000000000000000000000000000000E+36",
+        "finite_normalized_upper_rate": "3.558736285086509990936102495916792442E-1",
+        "parity_halved_E_second_bound_floor": 881456027341703106242721578780,
+        "q": 3433683820292512484657849089281,
+        "r": 64,
+        "u_floor_c_a_over_r": 214605238768282030291115568080,
+        "u_is_odd": false
+      }
+    ],
+    "statement": {
+      "bracket": "lower_rate <= liminf log(M_r)/a <= limsup log(M_r)/a <= upper_rate",
+      "depth": "u_r=floor(c*a/r), fixed c>0",
+      "lower_input": "PR #634: M_r>=ceil(2^a/q^ceil(u_r/2))",
+      "lower_rate": "max(0,log(2)-c*log(3)/2)",
+      "maximum_fiber": "M_r(u)=max_z |O_r intersect Phi_u^(-1)(z)|",
+      "upper_input": "2^|E| information-set bound plus the parity-halved (q/2) Janson estimate",
+      "upper_rate": "exp(-c/12)*log(2)"
+    }
+  },
+  "frontiers_label_pins": {
+    "all_labels_found_and_audited": true,
+    "file_sha256": "0e3aa7b1ba79b1065439ae484f4cb989d80cabe18afb68ec63a6b21d1f3370fd",
+    "labels": {
+      "def:paid-cell": {
+        "all_hypothesis_tokens_found": true,
+        "environment": "definition",
+        "found_once": true,
+        "hypothesis_tokens": {
+          "actual first-match projection": true,
+          "scaled realized cell": true
+        },
+        "line": 2306,
+        "statement_sha256": "e166a87c4d644a77f7cc3537eed3847527bc1acb6753c583e79a334828eac0d4"
+      },
+      "def:profile-payment": {
+        "all_hypothesis_tokens_found": true,
+        "environment": "definition",
+        "found_once": true,
+        "hypothesis_tokens": {
+          "given first-match atlas": true,
+          "uniformly in the received line": true
+        },
+        "line": 1476,
+        "statement_sha256": "159abf19889df10c1451151164cedea3c8a77d711b62725eabe5e62fb08b3fcd"
+      },
+      "def:structured-folding": {
+        "all_hypothesis_tokens_found": true,
+        "environment": "definition",
+        "found_once": true,
+        "hypothesis_tokens": {
+          "complete-fiber folding map": true,
+          "multiplicative coset": true
+        },
+        "line": 2606,
+        "statement_sha256": "da8647c658563063e23c2431258bb9bdea934632c2ee8cae0b515834c26dd0bc"
+      },
+      "prop:exact-prefix-list": {
+        "all_hypothesis_tokens_found": true,
+        "environment": "proposition",
+        "found_once": true,
+        "hypothesis_tokens": {
+          "1\\le K\\le m\\le n": true,
+          "No such codeword agrees on more than": true,
+          "w=m-K": true
+        },
+        "line": 1965,
+        "statement_sha256": "eaa28b7936535328487ad8bfc0747121e6ac38415824b0f3fc918a2cd65c5dda"
+      }
+    },
+    "no_phase_packet_promoted": true,
+    "path": "experimental/asymptotic_rs_mca_frontiers.tex",
+    "phase_packet_marker_absent": true
+  },
+  "generated_by": "experimental/scripts/verify_orientation_prefix_phase_transition.py",
+  "high_depth_Plotkin": {
+    "all_pass": true,
+    "checks": {
+      "F9_raw_Plotkin_exception_is_three": true,
+      "all_rows_have_active_Plotkin_denominator": true,
+      "finite_censuses_respect_Plotkin": true,
+      "finite_endpoint_censuses_below_refined_bound": true,
+      "raw_Plotkin_endpoint_bound_at_most_two_for_r_at_least_three": true,
+      "separate_endpoint_refinement_is_two_for_all_rows": true
+    },
+    "endpoint_corollary": "at u=a-2, translating one binary word to zero makes every other word have at most one zero; two such words would have distance at most 2<a-1, so every endpoint fiber has size at most 2, not necessarily exactly 2",
+    "rows": [
+      {
+        "a": 4,
+        "condition_2d_u_gt_a": true,
+        "d_u_least_odd_greater_than_u": 3,
+        "fiber_bound_floor_2d_over_2d_minus_a": 3,
+        "label": "half-depth",
+        "q": 9,
+        "r": 2,
+        "u": 2
+      },
+      {
+        "a": 4,
+        "condition_2d_u_gt_a": true,
+        "d_u_least_odd_greater_than_u": 3,
+        "endpoint_refined_upper_bound": 2,
+        "endpoint_refinement_applicable": true,
+        "fiber_bound_floor_2d_over_2d_minus_a": 3,
+        "label": "endpoint-depth",
+        "q": 9,
+        "r": 2,
+        "u": 2
+      },
+      {
+        "a": 13,
+        "condition_2d_u_gt_a": true,
+        "d_u_least_odd_greater_than_u": 7,
+        "fiber_bound_floor_2d_over_2d_minus_a": 14,
+        "label": "half-depth",
+        "q": 27,
+        "r": 3,
+        "u": 6
+      },
+      {
+        "a": 13,
+        "condition_2d_u_gt_a": true,
+        "d_u_least_odd_greater_than_u": 13,
+        "endpoint_refined_upper_bound": 2,
+        "endpoint_refinement_applicable": true,
+        "fiber_bound_floor_2d_over_2d_minus_a": 2,
+        "label": "endpoint-depth",
+        "q": 27,
+        "r": 3,
+        "u": 11
+      },
+      {
+        "a": 40,
+        "condition_2d_u_gt_a": true,
+        "d_u_least_odd_greater_than_u": 21,
+        "fiber_bound_floor_2d_over_2d_minus_a": 21,
+        "label": "half-depth",
+        "q": 81,
+        "r": 4,
+        "u": 20
+      },
+      {
+        "a": 40,
+        "condition_2d_u_gt_a": true,
+        "d_u_least_odd_greater_than_u": 39,
+        "endpoint_refined_upper_bound": 2,
+        "endpoint_refinement_applicable": true,
+        "fiber_bound_floor_2d_over_2d_minus_a": 2,
+        "label": "endpoint-depth",
+        "q": 81,
+        "r": 4,
+        "u": 38
+      },
+      {
+        "a": 121,
+        "condition_2d_u_gt_a": true,
+        "d_u_least_odd_greater_than_u": 61,
+        "fiber_bound_floor_2d_over_2d_minus_a": 122,
+        "label": "half-depth",
+        "q": 243,
+        "r": 5,
+        "u": 60
+      },
+      {
+        "a": 121,
+        "condition_2d_u_gt_a": true,
+        "d_u_least_odd_greater_than_u": 121,
+        "endpoint_refined_upper_bound": 2,
+        "endpoint_refinement_applicable": true,
+        "fiber_bound_floor_2d_over_2d_minus_a": 2,
+        "label": "endpoint-depth",
+        "q": 243,
+        "r": 5,
+        "u": 119
+      },
+      {
+        "a": 364,
+        "condition_2d_u_gt_a": true,
+        "d_u_least_odd_greater_than_u": 183,
+        "fiber_bound_floor_2d_over_2d_minus_a": 183,
+        "label": "half-depth",
+        "q": 729,
+        "r": 6,
+        "u": 182
+      },
+      {
+        "a": 364,
+        "condition_2d_u_gt_a": true,
+        "d_u_least_odd_greater_than_u": 363,
+        "endpoint_refined_upper_bound": 2,
+        "endpoint_refinement_applicable": true,
+        "fiber_bound_floor_2d_over_2d_minus_a": 2,
+        "label": "endpoint-depth",
+        "q": 729,
+        "r": 6,
+        "u": 362
+      },
+      {
+        "a": 1093,
+        "condition_2d_u_gt_a": true,
+        "d_u_least_odd_greater_than_u": 547,
+        "fiber_bound_floor_2d_over_2d_minus_a": 1094,
+        "label": "half-depth",
+        "q": 2187,
+        "r": 7,
+        "u": 546
+      },
+      {
+        "a": 1093,
+        "condition_2d_u_gt_a": true,
+        "d_u_least_odd_greater_than_u": 1093,
+        "endpoint_refined_upper_bound": 2,
+        "endpoint_refinement_applicable": true,
+        "fiber_bound_floor_2d_over_2d_minus_a": 2,
+        "label": "endpoint-depth",
+        "q": 2187,
+        "r": 7,
+        "u": 1091
+      },
+      {
+        "a": 3280,
+        "condition_2d_u_gt_a": true,
+        "d_u_least_odd_greater_than_u": 1641,
+        "fiber_bound_floor_2d_over_2d_minus_a": 1641,
+        "label": "half-depth",
+        "q": 6561,
+        "r": 8,
+        "u": 1640
+      },
+      {
+        "a": 3280,
+        "condition_2d_u_gt_a": true,
+        "d_u_least_odd_greater_than_u": 3279,
+        "endpoint_refined_upper_bound": 2,
+        "endpoint_refinement_applicable": true,
+        "fiber_bound_floor_2d_over_2d_minus_a": 2,
+        "label": "endpoint-depth",
+        "q": 6561,
+        "r": 8,
+        "u": 3278
+      }
+    ],
+    "theorem": "equal depth-u prefixes have binary Hamming distance at least d_u, the least odd integer greater than u; if d_u>a/2, Plotkin gives M<=floor(2d_u/(2d_u-a))"
+  },
+  "integrated_source_pins": {
+    "all_sources_pinned": true,
+    "files": {
+      "experimental/notes/l1/l1_aperiodic_prefix_collision.md": {
+        "all_required_phrases_found": true,
+        "required_phrases": {
+          "Plotkin-type bound": true,
+          "constant-weight code": true,
+          "minimum Hamming distance": true
+        },
+        "sha256": "fd2ee763ed61aa430626b289bda2dac1becc291f564b5ccd808b3cd254025828"
+      },
+      "experimental/notes/thresholds/full_agreement_orientation_saturation.md": {
+        "all_required_phrases_found": true,
+        "required_phrases": {
+          "C_S(T)C_S(-T)=1-T^(2a)": true,
+          "No statement in this packet is": true,
+          "ceil(2^a/q^ceil(u/2))": true
+        },
+        "sha256": "7f0fb772d1025b1960e2c02792c66a26d373f3edb5647736db0f9429cef4244b"
+      },
+      "experimental/notes/thresholds/orientation_prefix_phase_transition.md": {
+        "all_required_phrases_found": true,
+        "required_phrases": {
+          "2^{|E_{r,u}|}": true,
+          "E_{r,u}": true,
+          "Janson": true,
+          "Plotkin": true,
+          "\\frac q2": true,
+          "\\tag{CW}": true,
+          "first nonzero digit": true
+        },
+        "sha256": "5764a829a360d751140571a8937ca12f7b6c01a4a24a37ec489870cbc58e3769"
+      }
+    }
+  },
+  "nonclaims": [
+    "No exact formula for the realized orientation-prefix image is claimed.",
+    "The information-set bound 2^E is an upper bound, not an exact orientation-fiber count.",
+    "No endpoint injectivity or exact endpoint multiplicity is claimed.",
+    "The endpoint Plotkin statement is only an upper bound.",
+    "The Janson estimate is used only under its printed 2L<=r condition.",
+    "No uniform bound is claimed for complete all-support prefix fibers or any family beyond O_r.",
+    "No Q_img=1 or exact G1=q^(u/2) stress equality is claimed.",
+    "No single received line or pole is claimed to work across distinct prefixes z.",
+    "No subexponential prefix-value or prefix-profile census is claimed.",
+    "Finite supercritical rows illustrate theorem bounds; no finite number is called o(a).",
+    "No fixed finite c is claimed to give subexponential fibers; that requires r*u/a->infinity.",
+    "No arbitrary augmented-atlas, primitive-residual, or global hard-input conclusion is claimed.",
+    "No statement is promoted into the frontiers TeX by this packet."
+  ],
+  "object": "orientation-prefix Fourier-avoidance phase transition",
+  "payload_sha256": "cb9771de62530a6281fb6bcf43da9dfc8297408aec05e7f57a2ead295f0ef5b9",
+  "schema": "orientation_prefix_phase_transition.v1",
+  "scope_and_pr_pins": {
+    "base_commit": "5091826cd6a91becda5e54393b209b9ccc7ffc89",
+    "pr_lineage_pins": [
+      {
+        "pr": 631,
+        "role": "profilewise pigeonhole and z-dependent fixed-prefix separating-pole transport"
+      },
+      {
+        "pr": 634,
+        "role": "antipodal general-depth lower floors and critical-scale positive-exponent specialization"
+      },
+      {
+        "pr": 636,
+        "role": "qualitative C7 geography only; exact flatness, Q_img=1, and G1 stress equalities are not consumed"
+      }
+    ],
+    "promotion_gate": "experimental packet only; hypotheses must be audited before any TeX promotion",
+    "scope": "coarse phase bracket for the canonical antipodal O_r family over q=3^r; uniformity is only over z inside O_r, with no all-support, cross-prefix-line, exact C7-stress, augmented-atlas, or post-router conclusion"
+  },
+  "status": "PROVED_SPECIAL_COARSE_PHASE_BRACKET",
+  "supercritical_theorem_bound_samples": {
+    "all_pass": true,
+    "checks": {
+      "all_rows_meet_conditional_gate": true,
+      "finite_rows_not_called_asymptotic_conclusions": true,
+      "target_scales_increase": true
+    },
+    "sample_rows": [
+      {
+        "Janson_E_over_a_upper_decimal": "7.165312883798791115698324463926E-1",
+        "L": 2,
+        "a": 21523360,
+        "actual_scale_ratio_r_times_u_over_a": "86093440/21523360",
+        "all_pass": true,
+        "conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "exact_E_r_u": null,
+        "first_bound": {
+          "decimal_36_digits": "8.848518034566923024498988056900554714E+6",
+          "floor": 8848518,
+          "formula": "(q/2)*exp(-r/(2*3^L))"
+        },
+        "interpretation": "illustrative theorem-bound row only; this finite row is not asserted to have E=o(a)",
+        "log_fiber_over_a_upper_decimal": "4.966616423234983089045341213421E-1",
+        "numeric_and_rational_checks": {
+          "exact_E_below_parity_halved_first_upper_when_counted": true,
+          "halved_first_upper_not_above_halved_second": true,
+          "rational_exponent_order": true,
+          "raw_first_upper_not_above_raw_second": true
+        },
+        "q": 43046721,
+        "r": 16,
+        "raw_zero_run_first_bound": {
+          "decimal_36_digits": "1.769703606913384604899797611380110943E+7",
+          "floor": 17697036,
+          "formula": "q*exp(-r/(2*3^L))"
+        },
+        "raw_zero_run_second_bound": {
+          "decimal_36_digits": "3.084432174212790974959533776677852740E+7",
+          "floor": 30844321,
+          "formula": "q*exp(-r*(u+1)/(6q))"
+        },
+        "second_bound": {
+          "decimal_36_digits": "1.542216087106395487479766888338926370E+7",
+          "floor": 15422160,
+          "formula": "(q/2)*exp(-r*(u+1)/(6q))"
+        },
+        "target_t": 4,
+        "three_to_L": 9,
+        "u": 5380840
+      },
+      {
+        "Janson_E_over_a_upper_decimal": "6.592406301957105532722563319652E-1",
+        "L": 3,
+        "a": 423644304721,
+        "actual_scale_ratio_r_times_u_over_a": "2118221523625/423644304721",
+        "all_pass": true,
+        "conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "exact_E_r_u": null,
+        "first_bound": {
+          "decimal_36_digits": "2.666484798824962796714510525025104317E+11",
+          "floor": 266648479882,
+          "formula": "(q/2)*exp(-r/(2*3^L))"
+        },
+        "interpretation": "illustrative theorem-bound row only; this finite row is not asserted to have E=o(a)",
+        "log_fiber_over_a_upper_decimal": "4.569507841307183167522524916534E-1",
+        "numeric_and_rational_checks": {
+          "exact_E_below_parity_halved_first_upper_when_counted": true,
+          "halved_first_upper_not_above_halved_second": true,
+          "rational_exponent_order": true,
+          "raw_first_upper_not_above_raw_second": true
+        },
+        "q": 847288609443,
+        "r": 25,
+        "raw_zero_run_first_bound": {
+          "decimal_36_digits": "5.332969597649925593429021050050208634E+11",
+          "floor": 533296959764,
+          "formula": "q*exp(-r/(2*3^L))"
+        },
+        "raw_zero_run_second_bound": {
+          "decimal_36_digits": "5.585670768461913509951745303485767292E+11",
+          "floor": 558567076846,
+          "formula": "q*exp(-r*(u+1)/(6q))"
+        },
+        "second_bound": {
+          "decimal_36_digits": "2.792835384230956754975872651742883646E+11",
+          "floor": 279283538423,
+          "formula": "(q/2)*exp(-r*(u+1)/(6q))"
+        },
+        "target_t": 5,
+        "three_to_L": 27,
+        "u": 84728860945
+      },
+      {
+        "Janson_E_over_a_upper_decimal": "6.065306597126333973373758195065E-1",
+        "L": 3,
+        "a": 75047317648499560,
+        "actual_scale_ratio_r_times_u_over_a": "450283905890997372/75047317648499560",
+        "all_pass": true,
+        "conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "exact_E_r_u": null,
+        "first_bound": {
+          "decimal_36_digits": "3.853057761821644321814659834350705486E+16",
+          "floor": 38530577618216443,
+          "formula": "(q/2)*exp(-r/(2*3^L))"
+        },
+        "interpretation": "illustrative theorem-bound row only; this finite row is not asserted to have E=o(a)",
+        "log_fiber_over_a_upper_decimal": "4.204150167029754476620499906483E-1",
+        "numeric_and_rational_checks": {
+          "exact_E_below_parity_halved_first_upper_when_counted": true,
+          "halved_first_upper_not_above_halved_second": true,
+          "rational_exponent_order": true,
+          "raw_first_upper_not_above_raw_second": true
+        },
+        "q": 150094635296999121,
+        "r": 36,
+        "raw_zero_run_first_bound": {
+          "decimal_36_digits": "7.706115523643288643629319668701410972E+16",
+          "floor": 77061155236432886,
+          "formula": "q*exp(-r/(2*3^L))"
+        },
+        "raw_zero_run_second_bound": {
+          "decimal_36_digits": "9.103699816601598684983496737846950916E+16",
+          "floor": 91036998166015986,
+          "formula": "q*exp(-r*(u+1)/(6q))"
+        },
+        "second_bound": {
+          "decimal_36_digits": "4.551849908300799342491748368923475458E+16",
+          "floor": 45518499083007993,
+          "formula": "(q/2)*exp(-r*(u+1)/(6q))"
+        },
+        "target_t": 6,
+        "three_to_L": 27,
+        "u": 12507886274749927
+      },
+      {
+        "Janson_E_over_a_upper_decimal": "5.580351457700470713334724766165E-1",
+        "L": 3,
+        "a": 119649664615308764795041,
+        "actual_scale_ratio_r_times_u_over_a": "837547652307161353565329/119649664615308764795041",
+        "all_pass": true,
+        "conditions": {
+          "L_at_least_one": true,
+          "ceil_log_lower_strict": true,
+          "ceil_log_upper": true,
+          "two_L_at_most_r": true
+        },
+        "exact_E_r_u": null,
+        "first_bound": {
+          "decimal_36_digits": "4.828691456119881030777748253581547800E+22",
+          "floor": 48286914561198810307777,
+          "formula": "(q/2)*exp(-r/(2*3^L))"
+        },
+        "interpretation": "illustrative theorem-bound row only; this finite row is not asserted to have E=o(a)",
+        "log_fiber_over_a_upper_decimal": "3.868004879438662183259545247945E-1",
+        "numeric_and_rational_checks": {
+          "exact_E_below_parity_halved_first_upper_when_counted": true,
+          "halved_first_upper_not_above_halved_second": true,
+          "rational_exponent_order": true,
+          "raw_first_upper_not_above_raw_second": true
+        },
+        "q": 239299329230617529590083,
+        "r": 49,
+        "raw_zero_run_first_bound": {
+          "decimal_36_digits": "9.657382912239762061555496507163095600E+22",
+          "floor": 96573829122397620615554,
+          "formula": "q*exp(-r/(2*3^L))"
+        },
+        "raw_zero_run_second_bound": {
+          "decimal_36_digits": "1.335374360698821392104446515851824192E+23",
+          "floor": 133537436069882139210444,
+          "formula": "q*exp(-r*(u+1)/(6q))"
+        },
+        "second_bound": {
+          "decimal_36_digits": "6.676871803494106960522232579259120960E+22",
+          "floor": 66768718034941069605222,
+          "formula": "(q/2)*exp(-r*(u+1)/(6q))"
+        },
+        "target_t": 7,
+        "three_to_L": 27,
+        "u": 17092809230758394970721
+      }
+    ],
+    "symbolic_implication": {
+      "avoidance_conclusion": "E_(r,u)/a <= (q/(2a)) exp(-r(u+1)/(6q)) = o(1)",
+      "eventual_Janson_condition": "q/(u+1)=O(r/t_r), so L=O(log r) and 2L<=r eventually",
+      "fiber_conclusion": "max_z |O_r intersect Phi_u^(-1)(z)| <= 2^E = exp(o(a))",
+      "hypotheses": "0<=u_r<=a_r-2 and r*u_r/a_r -> infinity",
+      "scope": "upper bound only; neither an exact image size nor an exact endpoint multiplicity"
+    }
+  },
+  "theorem": {
+    "Janson_bound": {
+      "L": "ceil(log_3(q/(u+1)))",
+      "conditions": "1<=L and 2L<=r",
+      "first": "|E_(r,u)|<=(q/2) exp(-r/(2*3^L))",
+      "parity_halving": "first-nonzero-digit 1<->2 pairs labelled zero-run avoiders and leaves exactly half at odd frequencies",
+      "second": "(q/2) exp(-r/(2*3^L))<=(q/2) exp(-r(u+1)/(6q))"
+    },
+    "ambient_linear_container": "the necessary Fourier constraints have an F3-linear direction space of dimension d<=|E_(r,u)|",
+    "avoidance_set": "E_(r,u)={odd m in [1,N-1]: [3^j m]_N>u for every 0<=j<r}",
+    "fixed_c_rate_bracket": "for u_r=floor(c*a/r), fixed c>0: max(0,log(2)-c*log(3)/2) <= liminf log(M_r)/a <= limsup log(M_r)/a <= exp(-c/12)*log(2)",
+    "fourier_implication": "equal locator prefixes imply that the ternary orientation-difference word has zero Fourier transform on every odd Frobenius orbit meeting [1,u]",
+    "hamming_bound": "distinct equal-prefix orientations have Hamming distance at least the least odd d_u>u",
+    "parameters": "q=3^r, N=q-1=2a, 0<=u<=a-2",
+    "sign_information_set_fiber_bound": "an injective d-coordinate information set maps the sign cube into {+1,-1}^d, so every fiber has size at most 2^d<=2^|E_(r,u)|",
+    "supercritical_corollary": "if r*u_r/a_r tends to infinity, the conditional bound is eventually available and every orientation-prefix fiber is exp(o(a_r))",
+    "supercritical_image_entropy": "log|Phi_u(O_r)|=a*log(2)-o(a); this is asymptotic entropy, not an exact image formula"
+  },
+  "verdict": "PROVED_SPECIAL_COARSE_PHASE_BRACKET: equal-prefix Fourier constraints plus an information set give 2^|E|; parity halves the printed Janson bound to q/2, yielding the fixed-c CW bracket and the supercritical restricted-family upper side",
+  "verification": {
+    "address_space_cap_bytes": 1073741824,
+    "artifact_path": "experimental/data/certificates/orientation-prefix-phase-transition/orientation_prefix_phase_transition.json",
+    "check": "python3 experimental/scripts/verify_orientation_prefix_phase_transition.py --check",
+    "data_dir_override_environment": "OPPT_DATA_DIR",
+    "exact_Janson_sample_r": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "finite_full_censuses": [
+      "F_9",
+      "F_27"
+    ],
+    "regeneration": "python3 experimental/scripts/verify_orientation_prefix_phase_transition.py --write",
+    "semantic_tamper_mutations": 17,
+    "stdlib_only": true,
+    "tamper_selftest": "python3 experimental/scripts/verify_orientation_prefix_phase_transition.py --tamper-selftest",
+    "zero_argument_mode": "--check"
+  }
+}

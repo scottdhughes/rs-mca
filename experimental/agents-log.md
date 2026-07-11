@@ -30,6 +30,36 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-11 - Routing, saturation, and M31 ADE PR wave
+
+- **Agent/model:** Codex integrating PRs #622--#646 from holmbuar,
+  DannyExperiments, and the `grande_finale` Lean formalization track.
+- **Files added or changed:** Added threshold and roadmap notes under
+  `experimental/notes/`, verifier/reproducer scripts under
+  `experimental/scripts/`, M31/orientation JSON certificates under
+  `experimental/data/`, and `GrandeFinale/CollisionAwarePole.lean` plus its
+  correspondence note under `experimental/lean/grande_finale/`.
+- **Status:** PROVED / COUNTEREXAMPLE / EXPERIMENTAL / AUDIT /
+  FORMALIZATION, as stated in the individual notes.  No main-paper theorem is
+  promoted by this entry.
+- **What is being added:** A routing/saturation batch for the active
+  frontiers program: C7 routing-spectrum and collapse-payment repairs,
+  orientation and thick-form comparisons, PTE/moment-map max-fiber results,
+  field-of-definition and FI-field discharge notes, simple-pole saturation
+  controls, and M31 finite-grid reductions.  PR #637 is integrated as a
+  genuine proved experimental theorem: the common-height ADE cut excludes
+  113,864 additional M31 `kappa=2` residual rows and reduces that two-shell
+  residual ledger to 2,987,412 rows.
+- **How it is useful:** The batch sharpens several previously vague hard-input
+  walls into specific route cuts or paid cells.  The M31 ADE cut is a concrete
+  finite improvement to the residual-row ledger, while #646 decides the
+  degree-2 moment-map max-fiber rate `phi* = log 2`, revising #643's earlier
+  conjectural constant.
+- **What to do next:** Audit #637's ADE/root-count argument and exact ledger
+  delta before citing it outside `experimental/`.  Continue treating the
+  remaining saturation/collapse/profile statements as input-specific until
+  their hypotheses are matched against `asymptotic_rs_mca_frontiers.tex`.
+
 ### 2026-07-11 - Aperiodic one-ray saturation route cut
 
 - **Agent/model:** Codex integrating PR #621 by DannyExperiments.

@@ -2,7 +2,8 @@
 
 ## Status
 
-`RUNG-1 CROSS-REFERENCE (PROVED) / MINIMAL S PINNED (PROVED) / CRUX MAP UPDATED`.
+`RUNG-1 CROSS-REFERENCE (PROVED) / ORIGINAL SET-DODGED SUPPLEMENT RETRACTED /
+MULTIPLICITY-THICK REPAIR PROVED`.
 
 Research packet answering the named question our packet **PR #609**
 (`frame_image_completion.md`) created: what is the **weakest phase-sensitive
@@ -25,6 +26,103 @@ magnitude-blindness theorem is our **PR #609**. **scottdhughes's** signed `(LS)`
 large sieve is **PR #564**; the **LegaSage** C9 max-fiber razor is the **#585**
 chain (`thresholds-c9-r2-near-sidon-razor`, Codex-team attack). **PR #539**
 (`fi_full_image_primitive.md`) is the Gap-1 split contrasted below.
+
+## 2026-07-11 correction: the difference-set supplement is insufficient
+
+The original Rung 2 incorrectly asserted that `(CF2)` controls the unweighted
+Fourier energy on `A-A`.  It controls a representation-weighted sum instead.
+The old implication
+
+```text
+(CF2) + sum_{chi outside A-A} |hat_mu(chi)|^2 <= exp(o(N))
+  => full exponential image
+```
+
+is retracted.  This section gives the exact replacement; the superseded
+historical discussion below is retained only to show where the normalization
+error entered.
+
+Let `G` be a finite abelian group of order `Q`, let `mu` be a probability
+measure with support size `L`, and let `A` have size `a`.  Write
+
+```text
+K_A(gamma,gamma')=hat_mu(gamma'-gamma),
+kappa=||K_A||_op,
+r_A(xi)=#{(gamma,gamma') in A^2: gamma'-gamma=xi}.
+```
+
+Then
+
+```text
+tr(K_A^2)=sum_xi r_A(xi)|hat_mu(xi)|^2 <= kappa*a.        (C1)
+```
+
+Consequently `(CF2)` gives only
+
+```text
+sum_{xi in A-A}|hat_mu(xi)|^2 <= kappa*a <= kappa^2*L.   (C2)
+```
+
+The last inequality uses `kappa>=a*max(mu)>=a/L`.  If the energy outside
+`A-A` is at most `sigma`, Parseval and support Cauchy-Schwarz yield only
+
+```text
+Q <= kappa^2*L^2+(1+sigma)*L,                            (C3)
+```
+
+which permits `L=Q^(1/2)exp(o(N))`.  It does not prove `(FI)`.
+
+The correct sufficient interface records multiplicity.  For `tau>=1`, put
+
+```text
+D_tau(A)={xi!=0:r_A(xi)>=a/tau},
+Sigma_tau=sum_{xi!=0, r_A(xi)<a/tau}|hat_mu(xi)|^2.
+```
+
+If `Sigma_tau<=sigma`, then (C1) gives
+
+```text
+E_nontrivial <= tau*kappa+sigma,
+L >= Q/(1+tau*kappa+sigma).                              (C4)
+```
+
+If also `a>=L/eta`, the frame bound `max(mu)<=kappa/a` gives
+
+```text
+max_z mu(z) <= eta*kappa*(1+tau*kappa+sigma)/Q.           (C5)
+```
+
+Thus `eta,tau,kappa,sigma=exp(o(N))` supplies both the full-image and ambient
+max-fiber outputs.  The live replacement wall is the multiplicity-dodged
+energy in (C4), not energy merely outside the set `A-A`.
+
+This is not a semantic primitive-leaf theorem.  It corrects the abstract
+frame interface.  Source-specific work must still produce `A,tau` on the
+actual first-match weighted-Vandermonde leaf.
+
+### Exact RS regression against the old implication
+
+Let `q=2^s` with odd prime `s`, `D=F_q^x`, `N=q-1`,
+`R=q/2-1`, and `m=q/4`.  Use the actual RS parity columns
+
+```text
+h_t=(t,t^2,...,t^R).
+```
+
+Frobenius closure of the exponent rows has binary rank `N-1`.  Its only
+binary kernel vector is the all-ones vector.  Since complementing an `m`-set
+does not preserve weight, the fixed-weight syndrome map is injective.  Hence
+
+```text
+L=binom(N,m),  Q=2^(N-1),
+log(L/Q)=-(log(2)-h(1/4))*N+O(log N).                     (C6)
+```
+
+The integrated support-dependent frame theorem supplies `A` with
+`A-A=G`, `L<=|A|<=3L`, and `||K_A||=O(log L)`.  Therefore the old
+set-dodged energy is exactly zero while `L/Q=exp(-Omega(N))`.  This is an
+actual full-slice RS regression against the formal implication, but no claim
+is made that the slice is a surviving primitive A4 cell.
 
 ---
 
@@ -93,7 +191,12 @@ route is silent and the minimal supplement below is the live object.
 
 ---
 
-## Rung 2 — the minimal supplement `(S_E)` (PROVED)
+## Rung 2 — superseded set-dodged analysis (RETRACTED)
+
+The labels in this historical rung that call energy outside `A-A` sufficient
+are superseded by (C1)-(C6).  Total energy `E<=exp(o(N))` remains sufficient
+by the master identity, but the frame does not turn set-dodged energy into
+that total-energy bound.
 
 ### 2.1 Master identity — one Cauchy-Schwarz line carries the whole rung
 
@@ -115,59 +218,50 @@ spectral energy**
 **Therefore the image clause `L ≥ e^{-o(N)} A_eff` holds whenever
 `E ≤ e^{o(N)}`.** This is the minimal supplement.
 
-> **(S_E) (PROVED sufficient).** *Aggregate dodged-band spectral energy is
-> subexponential:* `Σ_{χ ∈ V_g^ \ (A−A)} |hat_mu(χ)|^2 ≤ e^{o(N)}`. Equivalently
-> (given the frame controls the `A−A` band via `(CF2)`) the total `E ≤ e^{o(N)}`;
-> equivalently the collision probability `P_2 ≤ e^{o(N)}/A_eff`; equivalently
-> `mu` is image-normalized `L^2`-flat on `V_g`.
+> **Retracted implication.** Aggregate energy outside `A-A` does not imply
+> total `E<=exp(o(N))` from `(CF2)`.  Equations (C1)-(C3) give the exact loss.
 
 Verifier BLOCK 0 recomputes `E = A_eff·P_2 − 1` and `L ≥ A_eff/(1+E)` on random
 measures over `Z_5, Z_7, Z_3^2, Z_2^3, Z_5×Z_3`, with equality for the uniform
 measure.
 
-### 2.2 frame + `(S_E)` ⇒ `(EFP)` — both outputs, and neither alone (PROVED)
+### 2.2 frame + set-dodged energy does not imply `(EFP)` (CORRECTED)
 
-The frame and the supplement deliver **complementary** halves of `(EFP)`:
+The original complementary-halves argument is invalid at its second bullet:
 
 - **frame ⇒ `EF5`** (image-normalized max-fiber): `(CF1)` gives
   `max_s f_s ≤ ||K_A||·M/|A| ≤ e^{o(N)} M/L = e^{o(N)} barN^img`.
-- **`(S_E)` ⇒ image clause**: `L ≥ e^{-o(N)} A_eff` by (MASTER).
+- **set-dodged energy does not imply the image clause**: the missing
+  `A-A` energy can be as large as `kappa^2 L` by (C2).
 - **together ⇒ `EF4`** (span-normalized max-fiber): the image clause upgrades the
   image scale to the span scale, `barN^img = (A_eff/L) barN^amb ≤ e^{o(N)}
   barN^amb`, so `max_s f_s ≤ e^{o(N)} M/A_eff = EF4`. Both `(EFP)` outputs.
 
-**Neither alone suffices.** The frame lacks the image clause (#609, exactly).
-And `(S_E)` alone gives only `max_s f_s ≤ M·sqrt((1+E)/A_eff) = e^{o(N)}
-M/sqrt(A_eff)` (from `max mu ≤ sqrt(P_2)`), which is a `sqrt(A_eff)`-max-fiber
-bound, **weaker** than `EF4`'s `M/A_eff`. So the two are genuinely
-complementary — the frame supplies the max-fiber multiplier, `(S_E)` supplies the
-image size, and only the pair is the full interface. This is the **cheapest
-honest completion** #609 routed, now with `S` pinned. Verifier BLOCK 3
-(160 trials) recomputes both implications.
+The correct completion is (C4)-(C5).  Total-energy control alone still gives
+only the square-root max-fiber estimate; the frame supplies the sharp
+max-fiber multiplier after full image is certified.
 
-### 2.3 Minimality — the block-parabola calibration (PROVED / MEASURED)
+### 2.3 Block-parabola calibration (historical, not a minimality theorem)
 
 The candidate classes of increasing strength, and where the parabola kills them:
 
 | id | supplement | suffices? | parabola verdict |
 |----|------------|-----------|------------------|
 | (S1) | per-character `\|hat_mu(χ)\| ≤ e^{o(N)}` on the dodged band | **NO** | **SATISFIED** (max dodged `\|hat_mu\|=p^{-1/2}≤1`) yet `L/A_eff=p^{-k}` |
-| **(S_E)** | **aggregate** `Σ_{dodged}\|hat_mu\|^2 ≤ e^{o(N)}` | **YES** (MASTER) | **VIOLATED** exactly: `E=p^k−1=e^{Θ(N)}` |
+| **set-dodged energy** | `Σ_{dodged}\|hat_mu\|^2 ≤ e^{o(N)}` | **NO in general** | **VIOLATED** exactly: `E=p^k−1=e^{Θ(N)}` |
 | (S0) | support: `hat_mu≡0` off `(A−A)` | YES (`E_dodged=0`) | VIOLATED (all `E` is dodged) |
 | (S2) | hughes `(LS)` signed multilevel large sieve | YES | VIOLATED (signed sums exponential) |
 | (S3) | span-normalized `(EFP)`/`(FI)` itself | YES (target) | VIOLATED (`L<A_eff`) |
 
-**The key minimality fact (PROVED).** `(S1)`, the per-character relaxation, is
+**The surviving calibration fact.** `(S1)`, the per-character relaxation, is
 **insufficient**: the block-parabola has `max_{χ dodged} |hat_mu(χ)| = p^{-1/2}`,
 a fixed constant `≤ 1 = e^{o(N)}`, so it *satisfies* any per-character bound at
 the `e^{o(N)}` threshold — yet `L/A_eff = p^{-k} = e^{-Θ(N)}`. Aggregation cannot
 be dropped: there are `~p^{2k}` dodged characters and `E = Σ = p^k−1` even though
-each term is a constant. **`(S_E)` is the weakest natural (aggregate `L^2`)
-sufficient condition**, and it is *calibrated to the parabola*: the parabola sits
-exactly on its boundary because Cauchy-Schwarz is an **equality** there,
-`L = A_eff/(1+E) = p^{2k}/p^k = p^k` (verifier BLOCK 2). Weakening the norm past
-`L^2` (to `L^0`/per-character) provably fails; strengthening past `L^2` (`L^1`,
-signed `(LS)`, support `(S0)`) all suffice but overshoot.
+each term is a constant.  The parabola calibrates the total-energy master
+identity because Cauchy-Schwarz is an **equality** there,
+`L = A_eff/(1+E) = p^{2k}/p^k = p^k` (verifier BLOCK 2).  It does not establish
+that the set-dodged condition is sufficient with a frame.
 
 ### 2.4 The parabola kill-test table (MEASURED, exact — verifier BLOCK 2)
 
@@ -191,7 +285,7 @@ the dodged band the frame's packing avoids; `kappa_frame=1` (BLOCK 5, matches
 
 ---
 
-## Rung 3 — updated crux map (AUDIT)
+## Rung 3 — historical crux map (SUPERSEDED where it uses set-dodged sufficiency)
 
 With minimal-`S = (S_E)` pinned, its relation to the two live open objects of
 tex hard input 2:
@@ -248,10 +342,12 @@ are on the far side.**
 
 | item | verdict | label |
 |------|---------|-------|
+| original set-dodged `(S_E)` sufficiency | false by (C1)-(C3) and the RS regression (C6) | **RETRACTED** |
+| multiplicity-thick condition (C4)-(C5) | weighted trace + Parseval + support Cauchy-Schwarz | **PROVED** |
 | Rung-1: printed route span/ambient-normalized, delivers image clause | anchors tex L2822-2827 + `rem:flatness-certifies-image` L4900 | AUDIT / PROVED |
 | Rung-1: `(PF)+(MA)` is a replacement, not a frame supplement | never uses `(CF1)/(CF2)`; re-proves both `(EFP)` outputs | AUDIT |
 | master identity `L ≥ A_eff/(1+E)`, `E=A_eff·P_2−1` | Parseval + Cauchy-Schwarz | PROVED |
-| **minimal supplement `(S_E)`: `E ≤ e^{o(N)}`** | frame + `(S_E)` ⇒ `(EFP)` (both outputs); neither alone | **PROVED** |
+| total energy `E <= e^{o(N)}` | master identity gives full image; frame then gives ambient max fiber | **PROVED** |
 | per-character `(S1)` insufficient | parabola satisfies it (`p^{-1/2}`) yet collapses | PROVED / MEASURED |
 | parabola calibration: `E=p^k−1`, CS equality | kill test, exact | MEASURED |
 | `(S_E) < (LS)` strictly weaker | absolute `L^2` subexp vs signed sharp poly | AUDIT |
