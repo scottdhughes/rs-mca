@@ -614,3 +614,33 @@ force the razor; the moment-curve specifics must do the work. NET: the crux is n
 literature (dense-Sidon-equations + RV anti-concentration + Shkredov energy lower bounds), but nothing plugs in
 directly -- consistent with it being genuinely open. Best next lit step: read "Solving equations in dense Sidon
 sets" for whether its dense-Sidon-contains-solutions method adapts to our 2-constraint moment-curve fiber.
+
+### Literature map + method assessment (2026-07-11): read Prendiville 2005.03484 + 10-way TheoremSearch
+
+READ Prendiville "Solving equations in dense Sidon sets" (arXiv 2005.03484) method (ar5iv):
+- Skeleton: near-Sidon E(S)<=(2+eta)|S|^2 => bounded difference-multiplicity (Lem 5.1) => cardinality/Bohr
+  decay (Lem 5.2) => SPECTRAL FLATTENING (model f = N^{1/2} 1_S * mu_B on Spec(S,eps), a Bohr set) => f is a
+  spectrally-flat dense function => Bloom dense-set solution counting => telescoping transference.
+- ADAPTATION VERDICT: the MECHANISM adapts (if our fiber were near-Sidon it would be spectrally flat; but as
+  the solution set of Phi(S)=v it is spectrally STRUCTURED (transform on the 2-dim constraint directions) =>
+  contradiction = the razor). BUT his machinery is 1-DIMENSIONAL (Z/N, circle-method Bohr sets, ||n alpha||_T);
+  ours is the high-dim Boolean cube T^n + moment-curve constraint. Idea transfers; machinery must be rebuilt.
+  NOT a plug-in.
+
+KEY structural correction: our two constraints (Sum_{a in S} a, Sum a^2) are LINEAR in the indicator bits x
+(rank-2 Vandermonde coefficient matrix [a; a^2]), NOT quadratic forms in x. So:
+- MAX-FIBER (anti-concentration) EXACT match = Littlewood-Offord / RUDELSON-VERSHYNIN LCD small-ball (Investigate
+  Invertibility 2018 Thm 3.3/4.9/10.1; small ball keyed to coefficient-vector LCD). Over R; needs F_p version.
+- Higher-order-Fourier EQUIDISTRIBUTION of high-rank QUADRATIC forms ("Spherical higher order Fourier analysis
+  over finite fields" Thm 5.1 equidistribution on V(M); Green 2006 Lem 4.2 = "Popular differences for matrix
+  patterns" Prop 4.1, linear+quadratic systems) is a COUSIN (our system is linear-in-bits, rank 2) -- the a^2
+  coordinate enters via the additive ENERGY (quadruples), so relevant to the razor but not a direct fit.
+- RAZOR (near-Sidon inverse) home = Prendiville 2005.03484 + spectral flattening + Shkredov energy lower bounds.
+- Joint (sum, sum-of-squares) tail: "An Exponential Inequality for Symmetric Random Variables" (2014).
+- Restriction/extension for paraboloid over F_q^d (d>=4): several (endpoint restriction) -- max-fiber L^4 side.
+- Mathlib formalizes Finset.addEnergy, le_addEnergy_self, pluennecke_ruzsa_inequality.
+
+NET: the crux now has a precise literature home in TWO pieces -- (i) LCD/Littlewood-Offord anti-concentration
+for the moment-curve linear map (max-fiber), (ii) near-Sidon inverse / spectral flattening (razor). Neither
+plugs in; both need the moment-curve-over-mu_n specifics built. Concrete next: adapt RV-LCD anti-concentration
+to the linear map [a;a^2] over mu_n (compute its LCD / non-degeneracy) -- that is the exact max-fiber tool.
