@@ -263,6 +263,17 @@ So the tower ORGANIZES N_0 into 22 primitive residues P(n/2^i, w/2^i), each of w
 signed (Weil-type) cancellation. No tower-recursion shortcut. This SHARPENS (LS): it must be a GENERIC signed
 large-sieve, not a structural/tower identity -- consistent with the sign-barrier arithmetic above.
 
+**Primitive residue P has a closed form + square-root cancellation CONFIRMED (b2_P_scaling.py).** Swapping
+summation order: `Sum_{xi prim} e_p(xi.F(S)) = p^w 1_{F(S)=0} - p^{w/2} 1_{F(S)_even=0}`, so exactly
+`P(n,w) = p^w N_0 - p^{w/2} N_0^{even}`, where N_0^{even} = #{m-subsets with the w/2 EVEN power sums = 0}.
+Mean(P) = 0 (p^w mu = p^{w/2} mu_even = C(n,m)); |P| IS the joint fluctuation. Exact DP (n=32,w=2,m=6) over
+p=97..1601 (r=1.6 down to 0.4, deep below equidist threshold): |P|/p stays ~const (~4e3), |P|/p^2 decays
+38->2.4. So |P| ~ p^{w/2} * O(poly(n)) -- SQUARE-ROOT CANCELLATION HOLDS below threshold. The target
+`N_0 <= n^3` needs exactly `|P| <~ sqrt(p^w C(n,m)) * poly = p^{w/2} * poly`; numerics say this is TRUE.
+=> the direction is VIABLE; the obstruction is PROVING the square-root cancellation (the large-sieve), not
+whether it holds. Open target sharpened to: prove `|P(n,w)| <~ p^{w/2} poly(n)` for the B_w-Sidon moment curve
+over mu_n, in the regime w > sqrt(p) AND w >= 4 (past Weil AND incidences).
+
 **Consequence / consistency.** This EXACTLY matches and independently re-derives the `(LS)` target below: the
 missing tool is a one-sided multilevel LARGE-SIEVE / RESTRICTION estimate for the moment curve over mu_n
 (L^2-of-coefficients -> L^inf/L^q-of-the-sum), spanning the large-subgroup (n > sqrt(p)) and sub-sqrt(p)
