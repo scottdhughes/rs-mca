@@ -567,3 +567,24 @@ the recursion produces are near-uniform. Density 1/2 also has complementation sy
 syndrome v -> -v), a candidate handle for a clean proof that R(N,1/2)=O(1). Empirically the inductive route's
 base input holds; PROVING R(N,1/2)=e^{o(N)} is the (cleaner, density-1/2) form of the crux. Codex 5.6 (session
 019f4f9d) attacking the induction closure in parallel.
+
+### Codex 5.6 independent attack (2026-07-11) -- mass-capacity bound + central-fiber obstruction (VERIFIED)
+
+Codex attacked the positive lower bound in parallel; converged with my self-similar/density-1/2 finding.
+Contributions (all VERIFIED -- its checker b2_union_collision_codex.py + matches my independent data):
+- MASS-CAPACITY convexity bound: for the max fiber's disjoint pairs (union U, P=#disjoint pairs, H=#distinct
+  unions), r(r-1) convexity gives UNCONDITIONAL  G_0 >= P^2/H - 2P  (equiv B(P,H)=4(Ha(a-1)+2ab), P=2t=aH+b).
+  Verified TIGHT: n=24 exact_gain=15600=B(312,6). Sufficient condition for razor: P>=4H AND P^2>=2H f^{2+eps}.
+- INSUFFICIENT: P^2/H ~ 0.09 f^2 << f^2, and the disjoint-pair share of the excess SHRINKS with n
+  (1.0 -> 0.26 -> 0.17 at n=16,20,24). So strictly-disjoint pairs miss the (growing) bulk of the excess, which
+  sits in near-complementary (|x1∩x3|=1,2) pairs.
+- CENTRAL-FIBER OBSTRUCTION (exact): the 2nd-moment identity controls Sum_w g_U(w)^2 (all local targets w), but
+  the razor needs the CENTRAL fiber q_U=g_U(Phi(U)/2); collisions may sit in NONCENTRAL fibers. Verified
+  instance n=16,p=17,U=mu_12: central_q=2 while local 2nd-moment excess=2446. So the clean global identity does
+  NOT lower-bound the central fiber -- the missing lemma is fiber-resolved (P_v^2/H_{2v} >= 2 f_v^{2+eps} for the
+  MAXIMIZING v), which the global Sum_v P_v = V(m) does not ensure.
+
+CONVERGENCE: both attacks (my density-1/2 flatness needing R(N,1/2)=e^{o(N)} but 2nd-moment gives only R<=p;
+Codex's central-fiber q_U needing a fiber-resolved bound the global identity can't give) land on the SAME
+irreducible crux -- a fiber-resolved central lower bound = the density-1/2 max-fiber flatness = the signed
+cancellation. The positive-count reframe removes cancellation from the STATEMENT but not from the PROOF.
