@@ -443,3 +443,19 @@ SIGN: if the drift continues, the fixed-c razor (form a) fails asymptotically an
 near-Sidon -- the reduction's feared case. NOT conclusive (3 small-n points; fibers not yet exp-large). NEXT:
 Bernoulli/inverse-LO analysis of whether the moment-curve (Vandermonde) structure forces E/f^2 to keep growing
 (razor holds) or lets it plateau/grow only sub-polynomially (razor form (a) fails, only form (b) could survive).
+
+### Razor engagement CORRECTED + energy-structure (2026-07-11, b2_razor_fit.py + b2_razor_mechanism.py)
+
+CORRECTION to the "drift toward Sidon" alarm above: adding n=26 (f=2776, C=E/f^2=3.78) shows C KEEPS GROWING.
+4-point power-law fit `C = 1.21 * f^0.14` (R^2=0.94) => Delta ~ f^-0.86, so the largest mu_n fibers are ROBUSTLY
+above Sidon and #582 razor form (a) is EMPIRICALLY SUPPORTED with c ~ 0.86 (eps ~ 0.14 > 0). The naive per-point
+excess exponent decreasing (0.20->0.15) was just convergence to the positive power eps, not to 0. (Extends
+LegaSage #582 toys N=14 -> N=26.)
+
+MECHANISM (tested, my clean prediction REFUTED): the fiber excess energy is NOT dominated by minimal 3-for-3
+(support-6 = #599 T_3) trades. Support-6 is only 12-23% of the excess; energy is SPREAD over trade supports
+6-14, peaking at support ~10 (half-subset swaps). Low-support trades: high multiplicity (r~2.4); high-support:
+high count (r~1.3). So "beat Sidon" is a DISTRIBUTED additive-structure phenomenon, not reducible to counting
+T_3. Consequence for a rigorous proof: an inverse-LO/BSG argument must control the full distributed trade
+spectrum, not a single elementary-trade census -- harder than the #599 route alone suggests. Net: razor
+empirically holds (supports C9), rigorous proof stays the open inverse-LO crux.
