@@ -399,3 +399,27 @@ large-sieve / inverse theorem for binomially-weighted cyclic moment maps, spanni
 sub-`sqrt(p)` regimes over 17 levels. No existing tool provides it; no counterexample is known. This is the
 irreducible open theorem for the L1/b2 (max-fiber / entropy-inverse) lane = Route-D frontier node #5
 ("KB max-fiber signed-e_m inverse, the Fourier side of the closure"). NOT a proof.
+
+## Engaging the grande_finale frontier directly (2026-07-11): Γ_r for r>=3, and Q3 assessment
+
+Read the exact open target (`q_section.tex` conj:q-active + prop:q-moment-sandwich): with mu(z)=N_w(z)/C(n,m),
+`Gamma_r := |B|^{w(r-1)} sum_z mu(z)^r`, and moment sandwich `log Gamma_r/(r-1) <= log R <= (log Gamma_r +
+w log|B|)/r` (R = max/mean fiber ratio). r=2 is the proved exact second moment; the OPEN target is
+`Gamma_r <= e^{o(n)}` for a fixed r >= 3. The manuscript's own diagnosis (Q5) matches this session exactly:
+"the missing cancellation is JOINT cancellation across the whole character-tuple family," and per-frequency
+Weil "stops at w <= 21-22" (= our w > sqrt(p) threshold). Frontier depth ~6.7e4.
+
+**Tested the manuscript's proposed closing route Q3 (twist symmetry) -- `b2_Q3_twist.py` -- and it is NOT the
+operative mechanism.** Q3 hopes: moment bounds make heavy fibers few (< n) => a heavy z has nontrivial twist
+stabilizer (`z_j -> zeta^j z_j`) => quotient-pulled-back => already paid; primitive fibers stay light. Result
+at accessible scales: the MAX fiber over PRIMITIVE (trivial-stabilizer) z essentially equals the GLOBAL max
+(p=17,n=16,w=2,m=6: primitive-max 31 vs global 32; only the fully-stabilized z=0 is strictly larger), and the
+top fibers are almost all primitive, forming FULL primitive twist-orbits at the near-max. So heaviness reaches
+the primitive part -- it is NOT confined to stabilized/quotient fibers. Above collision the fibers are already
+flat (max/mean ~ 1.1) but flatness is GENERIC (primitive ~ imprimitive), not via Q3 confinement.
+
+CONSEQUENCE: Q3 is a conditional structural step (needs the moment bound Gamma_r first, somewhat circular) and
+there is no confinement to lean on at accessible scales. The irreducible content stays the GENERIC signed
+cancellation = Gamma_r (r>=3) = the inverse-LO/BSG large-spectrum step on the primitive collision moment. This
+is the same crux from the fiber side; the structural descent routes (Q3 twist, char-0 tower) handle only the
+periodic/quotient part, confirmed NOT to capture the heavy primitive fibers.
