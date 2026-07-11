@@ -96,3 +96,27 @@ CONSEQUENCE / corrected status:
   bound hold using c/n~0.032? That needs the aspect ratio, not a generic theorem. This is the new (harder) frontier.
 - The correct general object = joint rank-and-boundary cancellation (Eq 39): sum_{Z<=w} sum_h tau^h S_{Z,h}^cent(v),
   not each layer separately. "Hankel boundary-cancellation lemma" = the one hardest missing statement.
+
+## Sharpened position (2026-07-11): c/n sweep + lit sweep on the coupled-rank issue
+
+C/N SWEEP (our scanner): R_max (CHG ratio) grows MONOTONICALLY with c/n=(w+1)/n:
+   c/n=0.33 -> R_max~6.6-8.6 ; 0.40 -> 9.2 ; 0.50 -> 39.0 ; 0.83-0.875 -> VIOLATES (counterexample, 33x).
+The counterexample is at c/n~0.9 (w=n-2); DEPLOYMENT is c/n~0.032, far in the small-ratio (small R_max) regime.
+Suggestive that a deployment-specific bound survives; but extrapolating from c/n>=0.33 (n<=6 only) is a real gap.
+
+LIT SWEEP (TheoremSearch) -- where the coupled-rank object actually lives:
+- Generic Katz / Denef-Sperber nondegenerate exponential-sum bounds ("Igusa and Denef-Sperber Conjectures...")
+  REQUIRE Newton-polyhedron nondegeneracy, which FAILS here (Morse-Bott critical loci) -- confirms no generic route.
+- The COUPLED object (sum of Gauss sums of quadratic forms over rank strata) is EXACTLY the moment-of-L-functions
+  toolbox: "Explicit Evaluation of Certain Exponential Sums" Lem 2.1 (rank-r form: sum_x zeta^{F(x)} = t g_p^r
+  p^{n-r}); 4th/cubic moment of Dirichlet L papers (Lem 2.4/2.12/2.13: Gauss sums of forms with radical/rank).
+  => the right machinery is analytic (moment-method / quadratic-form Gauss-sum summation), not algebraic-geometric.
+- INDEPENDENT route: N(0) = # binary weight-m codewords of the cyclic RS/MDS code, so MacWilliams / dual-weight
+  distribution (exact min-weight-codeword formulas for MDS/NMDS/AG-dual codes exist -- "Near-MDS" Cor 2.9,
+  "dual AG codes" Thm 4.3). Folded-RS list-decoding (Guruswami; "Improved List Size for Folded RS") is closest
+  off-the-shelf but for random/folded, not deterministic mu_n.
+
+EXACT POSITION: reduction verified; rank-by-rank CHG false uniformly; the correct target = a DEPLOYMENT-SPECIFIC
+(c/n~0.032) coupled rank-and-boundary Gauss-sum cancellation, whose home is the moment-of-L-functions method
+(summing quadratic-form Gauss sums over rank strata) -- NOT generic Katz/Denef-Sperber. Alternatively the
+MacWilliams dual-weight route. This is the sharpened question for the next ChatGPT prompt.
