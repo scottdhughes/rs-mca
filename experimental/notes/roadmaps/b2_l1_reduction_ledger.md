@@ -188,6 +188,50 @@ Sidon-optimal moment-curve engines, all inputs verified); the method is validate
 the deployed row is now pinned to ONE precise, named external frontier -- high-dim (F_p^{>=4}) moment-curve
 incidence bounds. Any advance there unlocks the deployed case immediately.
 
+## Sharpened wall map (2026-07-10): TWO thresholds, and the L^2-vs-L^inf gap is the real crux
+
+Direct numerical mapping of the syndrome-energy landscape (`b2_saddle2.py`, `b2_threshold.py`,
+`b2_regime_rep.py`, `b2_decouple.py`), all at theta=1.7-reconciled deployment params (n=2^21, KoalaBear p,
+w=67471 -> m~0.468n; the summary's "m=0.33n" is inconsistent with theta=1.7 and was corrected):
+
+1. **Saddle localization.** The energy excess `Delta = Sum_{d>w} C(n-2d,m-d) E_d` is SHARPLY peaked at
+   `d* ~ 0.33n` (90% mass in a width-~1500 window), effective fiber dimension `d*-w ~ n/2 ~ 5x10^5`. So the
+   dominant layer is DENSE (a constant fraction of mu_n), NOT sparse. This KILLS the low-dim polynomial-fiber
+   escape (fiber dim of the dominant layer is Theta(n), not O(1)): incidence geometry is sparse-set tech and
+   cannot reach dimension Theta(n).
+
+2. **TWO thresholds, cleanly separated.**
+   - COLLISION threshold `C(n,d) = p^w`: below it syndromes are ~injective on d-subsets (diagonal-dominated);
+     above it (large d, the dominant layer) collisions are forced.
+   - EQUIDISTRIBUTION threshold `n = w*sqrt(p)` (Weil/completion cost): `b2_threshold.py` confirms
+     excess/main collapses super-exponentially (10^3 -> 10^-16) as `r = n/(w sqrt(p))` crosses 1, universal
+     across p=17,41,97. Deployed `r ~ 6.7x10^-4` -- ~1500x BELOW the equidistribution threshold.
+
+3. **Decoupled finding (the important one).** Holding `C/p^w ~ 100` fixed (above collision) and driving r
+   from 0.47 down to 0.0071 by growing n (`b2_decouple.py`), excess/main stays FLAT (~0.002-0.02, no growth).
+   => In the ABOVE-COLLISION regime (where d* lives), the L^2 energy is controlled by C/p^w and is INDEPENDENT
+   of r; the Weil/equidistribution wall does NOT bind the L^2 energy. The controlling mechanism is the Sidon
+   4th moment (holds for ALL w), i.e. combinatorial smoothing, not degree-w character-sum equidistribution.
+   The earlier "r<<1 -> catastrophe" is a BELOW-collision artifact (confounded: in a naive p-scan r and
+   C/p^w drop together; decoupling removes it).
+
+4. **The real wall = L^2 -> L^inf.** L^2 control is NECESSARY but NOT SUFFICIENT. Target is
+   `N_0 = #{m-subsets, syndrome 0} <= n^3`, with `N_0 - mu = p^{-w} Sum_{xi!=0} Nhat(xi)`,
+   `Nhat(xi) = e_m({chi_xi(a)})` (m-th elementary symmetric of the curve-exp-sum values). The energy bound
+   `N_0 <= sqrt(E)` is HOPELESS: `E = Sum_c N_c^2 >= C(n,m)^2/p^w >> n^6` unconditionally, so sqrt(E) >> n^3
+   always. The target genuinely needs an L^inf / per-frequency bound `max_{xi!=0} |e_m({chi_xi(a)})| <~ n^3`.
+   Crossing L^2 -> L^inf needs EITHER per-frequency Weil (blocked: degree w=67471 > sqrt(p) ~ 46340) OR a
+   higher-moment (2k-fold) energy bound (blocked: dimension w >= 4 high-dim incidences). Deployment is past
+   BOTH walls simultaneously -- degree AND dimension.
+
+**Consequence / consistency.** This EXACTLY matches and independently re-derives the `(LS)` target below: the
+missing tool is a one-sided multilevel LARGE-SIEVE / RESTRICTION estimate for the moment curve over mu_n
+(L^2-of-coefficients -> L^inf/L^q-of-the-sum), spanning the large-subgroup (n > sqrt(p)) and sub-sqrt(p)
+regimes. Tonight's two-threshold map says precisely WHY no single classical tool supplies it: any restriction
+estimate must be simultaneously degree-agnostic (w > sqrt(p)) and dimension-agnostic (w >> 3), and the two
+existing engines (Weil, Rudnev incidences) each require one of these small. The L^2 side is unconditional
+(Sidon, all w); the entire difficulty is the amplification to L^inf. That is the irreducible open theorem.
+
 ## Status (superseded above for the target; chain 1-6 unchanged)
 
 The L1/b2 prize crux is reduced by an EXACT, verified chain to `(LS)` -- a one-sided SIGNED multilevel
