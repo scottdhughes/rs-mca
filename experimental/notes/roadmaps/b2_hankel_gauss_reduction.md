@@ -120,3 +120,32 @@ EXACT POSITION: reduction verified; rank-by-rank CHG false uniformly; the correc
 (c/n~0.032) coupled rank-and-boundary Gauss-sum cancellation, whose home is the moment-of-L-functions method
 (summing quadratic-form Gauss sums over rank strata) -- NOT generic Katz/Denef-Sperber. Alternatively the
 MacWilliams dual-weight route. This is the sharpened question for the next ChatGPT prompt.
+
+## Round 3 (ChatGPT-5.6-Pro): SCALE CORRECTION (verified) -- not an obstruction to N<=n^3
+
+CORRECT arithmetic (verified): J(v):=p^n(N(v)-mu) = p^{n-w}(p^w N(v) - C(n,m)); since p>n, p|/C(n,m), so
+v_p(J)=n-w exactly => |J(v)| >= p^{n-w} pointwise; and max_v|N-mu|>=1/2 (rounding) => max|J|>=(1/2)p^n. So J
+lives at scale p^n (toy: alpha_max=log_p max|J|/n ~ 1, NOT 1/2).
+
+HONEST VERDICT: this refutes a target |J|<=p^{n/2+Cgn} -- which I MISTAKENLY put in my round-3 prompt (the
+"square-root cancellation of the centered sum" framing was wrong-scaled). It does NOT contradict N<=n^3:
+N<=n^3 <=> |J|<=p^n n^3, and p^{n-w} << p^n n^3 (no contradiction, verified). The toy is ENCOURAGING: N_max=1
+(fibers injective) for w>=4 while J~p^n -- N itself is tiny; the huge J is purely the p^n*mu centering artifact.
+So "route (D) wins / small gamma doesn't rescue" OVERSTATES; the real goal is untouched and N looks benign.
+
+VALUABLE takeaways (survive):
+- RIGHT TARGET = N(v) <= n^K max(1,mu) (multiplicative worst-case list size), NOT sqrt-cancellation of J. My
+  centered-cancellation framing was the wrong intermediate.
+- SHARP PARAMETER = bit deficit Delta_m = log2 C(n,m) - w log2 p (~ log mu), NOT c/n. Deployment is polynomial
+  because w log2 p / n ~ 0.997 -- a KNIFE EDGE: gamma=0.03217 vs gamma_cap=log_p 2=0.03227, diff ~9.7e-5, x n =
+  ~200 powers of p. mu_{n/2} ~ n^300 (info-theoretic cap), deployed mu ~ n^1.7 sits just under.
+- MacWilliams (Eq 8: N_m(v)=p^{-(w+1)} sum_{s,t} psi(-sm-t.v) prod_a(1+psi(s+Q_t(a)))) = complete weight
+  enumerator = the SAME exponential sum in another basis. Does NOT bypass the phase problem. No support-only
+  Fourier decay (|cos(pi y/p)|^n = 1-o(1) at deployment). Genuine phase cancellation required.
+- Hankel-Gauss reduction is EXACT but circular-in-scale (bounding J = bounding N-mu). The closing "square-root"
+  conjecture (CHG) is both false rank-by-rank (round 2) AND wrong-scaled (round 3).
+- Route (B) moment/radical calc could still prove N<=n^K mu, but must target the MULTIPLICATIVE bound.
+
+NET: back to the genuine target -- a worst-case multiplicative list-size bound N(v) <= n^K max(1,mu) for the
+deterministic RS code over mu_n, at the bit-deficit knife-edge. This IS the prize's list-decoding statement.
+The Hankel-Gauss stratification is a possible tool (moment method) but does not by itself reduce the difficulty.
