@@ -588,3 +588,29 @@ CONVERGENCE: both attacks (my density-1/2 flatness needing R(N,1/2)=e^{o(N)} but
 Codex's central-fiber q_U needing a fiber-resolved bound the global identity can't give) land on the SAME
 irreducible crux -- a fiber-resolved central lower bound = the density-1/2 max-fiber flatness = the signed
 cancellation. The positive-count reframe removes cancellation from the STATEMENT but not from the PROOF.
+
+### Literature connection via TheoremSearch (2026-07-11): the razor's home + why it doesn't plug in
+
+Targeted TheoremSearch (POST /search citation-weighted + /graph/embedding formal) surfaced the correct
+literature for the fiber near-Sidon razor -- not previously cited:
+- **"Solving equations in dense Sidon sets" (2020)** = the on-target paper (near-Sidon sets + linear equations).
+  - Lemma 5.2: E(S)<=(2+eta)|S|^2 (near-Sidon) => |S| <= 2 sqrt(N/(1-eta)) -- the "near-Sidon => small"
+    principle = the razor's logic.
+  - Lemma 5.1: near-Sidon => Sum_{r_S(n)>1, n!=0} r_S(n) <= eta|S|^2 + |S| -- reframes razor as: LOWER-bound
+    the popular-difference mass Sum_{r>1} r(n) (= our excess-energy source).
+  - Thm 1.1: dense (|S|>=delta N^{1/2}) near-Sidon sets CONTAIN a solution to a_1+..+a_s=0 (s>=5).
+- **Rudelson-Vershynin LCD small-ball** (Investigate Invertibility 2018, Thm 3.3/4.9/10.1): canonical anti-
+  concentration keyed to the coefficient-vector LCD -- the tool for the max-fiber UPPER bound (our vectors
+  Phi(a)=(a,a^2)). Cancellation-hard direction but the right machinery.
+- **Shkredov energy LOWER bounds** (E(A)E_3(A) >= |A|^2 (Sum_{d in D'}|A_d|^{3/2})^2) -- lower-bound E via
+  popular differences.
+- **Small-doubling-set counting** (Paley random model Thm 9: |{A:|A|=k,|A+^A|=m}|<=2^{(1-eps^3)m}; Local
+  Properties Thm 4.4). Mathlib HAS Finset.addEnergy, le_addEnergy_self, pluennecke_ruzsa_inequality.
+
+ASSESSMENT (verify-first): Lemma 5.2 does NOT close our razor. Our fiber's ambient difference space = vanishing-
+(p1,p2) trades, |D| ~ Sum_s V(s) = C(2n,n)/p^2 ~ 4^n/(sqrt(n) p^2); f^2 ~ 4^n/(n p^4) < D, so f <~ sqrt(D)
+(near-Sidon PERMITTED by counting -- Lemma 5.2 satisfied, not violated). So generic near-Sidon bounds don't
+force the razor; the moment-curve specifics must do the work. NET: the crux is now connected to its correct
+literature (dense-Sidon-equations + RV anti-concentration + Shkredov energy lower bounds), but nothing plugs in
+directly -- consistent with it being genuinely open. Best next lit step: read "Solving equations in dense Sidon
+sets" for whether its dense-Sidon-contains-solutions method adapts to our 2-constraint moment-curve fiber.
