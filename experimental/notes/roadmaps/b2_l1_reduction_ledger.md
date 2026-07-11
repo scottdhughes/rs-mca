@@ -541,3 +541,18 @@ energy at scale n (via razor + total-energy) to bound the max fiber at scale n. 
 (a) the sub-set (x1△x3) is an ARBITRARY subset of mu_n, not a subgroup -- need the fiber bound for generic
 subsets; (b) density shifts 0.42 -> 0.5; (c) the exact E <= total-energy T relation and T's own bound. This is
 a POSITIVE (no-cancellation) inductive route -- the most hopeful direction found. Codex 5.6 attacking in parallel.
+
+### CAS cross-check (Python + Sage, 2026-07-11): 2nd-moment trade identity VERIFIED; total-energy is NOT clean
+
+Cross-tool (b2_totalenergy_check.py + b2_cas_crosscheck.sage), both engines agree exactly on n=12,16:
+  VERIFIED clean identity for the SECOND MOMENT:
+     Sum_v f_v^2  =  C(n,m) + Sum_{s>=3} V(s) * C(n-2s, m-s),
+  where V(s) = #{ordered disjoint (A,B), |A|=|B|=s, p1(A)=p1(B), p2(A)=p2(B)} (s-for-s vanishing-(p1,p2)
+  trades). (n=12: 4020=4020, V(3,4,5)=168,150,108; n=16: 222712=222712, V=704,2988,6720.) This is the exact
+  trade decomposition of the L^2 syndrome energy (= the r=2 collision moment).
+
+  CORRECTION (caught by cross-check -- a chat-only claim, never committed): the TOTAL ADDITIVE ENERGY
+  T = Sum_v E(F_v) does NOT equal Sum_s V(s) C(n-2s,m-s)^2 (n=16: T=451656 vs 12728352; n=12: 7248 vs 40308).
+  Reason: trade-realizers spread ACROSS fibers, so T = Sum_tau Sum_v r_v(tau)^2 (fiber-resolved), not
+  Sum_tau w(tau)^2. So the razor "ceiling" input T is genuinely more complex than the 2nd moment -- the clean
+  V(s) formula holds only for the 2nd moment (Sum f_v^2), not the 4th-order additive energy. Verify-first win.
