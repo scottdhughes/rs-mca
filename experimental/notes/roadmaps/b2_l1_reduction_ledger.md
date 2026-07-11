@@ -215,14 +215,22 @@ w=67471 -> m~0.468n; the summary's "m=0.33n" is inconsistent with theta=1.7 and 
    The earlier "r<<1 -> catastrophe" is a BELOW-collision artifact (confounded: in a naive p-scan r and
    C/p^w drop together; decoupling removes it).
 
-4. **The real wall = L^2 -> L^inf.** L^2 control is NECESSARY but NOT SUFFICIENT. Target is
-   `N_0 = #{m-subsets, syndrome 0} <= n^3`, with `N_0 - mu = p^{-w} Sum_{xi!=0} Nhat(xi)`,
-   `Nhat(xi) = e_m({chi_xi(a)})` (m-th elementary symmetric of the curve-exp-sum values). The energy bound
-   `N_0 <= sqrt(E)` is HOPELESS: `E = Sum_c N_c^2 >= C(n,m)^2/p^w >> n^6` unconditionally, so sqrt(E) >> n^3
-   always. The target genuinely needs an L^inf / per-frequency bound `max_{xi!=0} |e_m({chi_xi(a)})| <~ n^3`.
-   Crossing L^2 -> L^inf needs EITHER per-frequency Weil (blocked: degree w=67471 > sqrt(p) ~ 46340) OR a
-   higher-moment (2k-fold) energy bound (blocked: dimension w >= 4 high-dim incidences). Deployment is past
-   BOTH walls simultaneously -- degree AND dimension.
+4. **The real wall = a SIGNED cancellation the L^2 energy cannot see.** L^2 control is NECESSARY but NOT
+   SUFFICIENT. Target is `N_0 = #{m-subsets, syndrome 0} <= n^3`, with `N_0 - mu = p^{-w} Sum_{xi!=0} Nhat(xi)`,
+   `Nhat(xi) = e_m({chi_xi(a)})` (m-th elementary symmetric of the curve-exp-sum values). EXPONENT ARITHMETIC
+   (log_n units at deployment): `p^w = n^{~99568}`, `C(n,m) = n^{~99570}`, `mu = n^1.7`, target slack = n^{1.3}.
+   - Energy bound `N_0 <= sqrt(E)` is HOPELESS: `E = Sum_c N_c^2 >= C(n,m)^2/p^w >> n^6` unconditionally.
+   - Cauchy-Schwarz on `Sum_{xi!=0}|Nhat(xi)|` loses a factor `p^{w/2} = n^{~49784}`; the target slack is only
+     n^{1.3}, so no L^2/energy bound (any rho) can be rescued by slack.
+   - In the RANDOM model `N_0-mu ~ sqrt(C(n,m)/p^w) = sqrt(mu) = n^0.85` -- TINY -- but ONLY via cancellation
+     among the p^w signed frequencies. Every ABSOLUTE-VALUE method (L^2, L^{2k}, restriction/extension) is
+     SIGN-BLIND and forfeits exactly that p^{w/2} cancellation. So a restriction/large-sieve estimate that is
+     merely an L^2->L^q amplification is NOT enough; the estimate must be SIGNED (one-sided inverse theorem).
+   The only sign-aware crossings are per-frequency Weil (blocked: degree w=67471 > sqrt(p) ~ 46340) or a signed
+   higher-moment cancellation (blocked: dimension w >= 4 incidences). Deployment is past BOTH -- degree AND
+   dimension -- and tonight's L^2 control, though unconditional (Sidon, all w), sits on the WRONG side of the
+   sign barrier: it certifies WHERE the difficulty is NOT (magnitude), leaving the signed cancellation as the
+   whole game.
 
 **Consequence / consistency.** This EXACTLY matches and independently re-derives the `(LS)` target below: the
 missing tool is a one-sided multilevel LARGE-SIEVE / RESTRICTION estimate for the moment curve over mu_n
