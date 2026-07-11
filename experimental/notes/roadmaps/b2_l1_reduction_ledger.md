@@ -521,3 +521,23 @@ support ~n/2) trade spectrum where disjointness is TIGHT but empirically realize
 Elementary (support-6/T_3) trades alone are too few (vanishing fraction); need the full distributed spectrum,
 but positively. This is the direction to push (and the one #582/LegaSage should aim at): a positive lower-bound
 count, not a cancellation.
+
+### Self-similar recursion for the razor (2026-07-11, b2_selfsimilar.py) -- promising positive route
+
+Since Phi is LINEAR in 1_S, E(F) = sum_{x1,x3 in F} N_sub(x1,x3), N_sub = #{S in F: x1∩x3 ⊆ S ⊆ x1∪x3} =
+a FIBER of the SAME 2-constraint (p1,p2) problem on the d=|x1△x3| free coords (weight d/2, density 1/2).
+Excess = sum_{x1!=x3}(N_sub - 2).
+
+MEASURED localization (n=20,24): the excess is carried ENTIRELY by LARGE symmetric differences. Small d (<=10)
+give N_sub=2 EXACTLY (no excess). Excess concentrates at d >= 16 (n=24), i.e. |x1∩x3| <= 2 (x1,x3 nearly
+COMPLEMENTARY), where the interval sub-fiber on the union (size ~2m, density 1/2) is ABOVE collision and has
+genuine extra elements. Inflation I(d)=avg N_sub * p^2 / C(d,d/2): huge for small d (168,532 -- but N_sub=2, no
+excess) and O(1) approaching 1.4-2 for large d where the real excess lives. excess/f^2 GROWS 0.29->0.53 with n.
+
+=> SELF-SIMILAR RECURSION: E(F_n)/f^2 ~ (fraction near-disjoint pairs) x (fiber inflation at scale ~2m,
+density 1/2). At deployment typical d ~ n/2, so the sub-fibers are at scale n/2, density 1/2, EXP-LARGE
+(above collision). Suggests an INDUCTION ON SCALE: a max-fiber bound at scale n/2 (density 1/2) feeds the
+energy at scale n (via razor + total-energy) to bound the max fiber at scale n. Caveats to make rigorous:
+(a) the sub-set (x1△x3) is an ARBITRARY subset of mu_n, not a subgroup -- need the fiber bound for generic
+subsets; (b) density shifts 0.42 -> 0.5; (c) the exact E <= total-energy T relation and T's own bound. This is
+a POSITIVE (no-cancellation) inductive route -- the most hopeful direction found. Codex 5.6 attacking in parallel.
