@@ -232,6 +232,37 @@ w=67471 -> m~0.468n; the summary's "m=0.33n" is inconsistent with theta=1.7 and 
    sign barrier: it certifies WHERE the difficulty is NOT (magnitude), leaving the signed cancellation as the
    whole game.
 
+## Signed higher-moment identity: exact, tower-structured, but the hard part does NOT localize (2026-07-10)
+
+Attack on the signed crux directly (`b2_signed_mech.py`, verified vs brute force in every case).
+
+**Exact identity (building block).** With curve sum `S(eta) = Sum_{a in mu_n} e_p(eta . Phi(a))`, orthogonality
+gives `(1/p^w) Sum_xi S(c_1 xi)...S(c_r xi) = #{(a_1..a_r) in mu_n^r : Sum_i c_i Phi(a_i) = 0}` =: M_{c_1..c_r}
+(a signed subgroup power-sum solution count). Via Newton-Girard `Nhat(xi) = e_m({chi_xi(a)}) = Sum_{lambda|-m}
+c_lambda Prod_i S(lambda_i xi)`, hence the TARGET is an exact signed sum
+`N_0 = Sum_{lambda |- m} c_lambda M(lambda)`. Verified: `N_0 = (1/p^w) Sum_xi e_m({chi_xi(a)})` matches brute
+force exactly (p=17/97, n=8/16, w=2/3). The SIGNS c_lambda carry the p^{w/2} cancellation; unsigned is the disaster.
+
+**Low-order moments are rigid (no info).** M_c = 0 (c!=0); M_{c1,c2} = n if c1+c2=0 else 0 (Sidon collapse).
+Information about N_0 lives only in HIGH order (large parts / many parts) -- not truncatable at low order.
+
+**Tower/Mobius decomposition (real, exact).** Split frequencies by conductor down the dyadic tower of n=2^21.
+Imprimitive xi (factors through a -> a^2, i.e. xi_j=0 for odd j) give `Nhat(xi) = e_m(doubled mu_{n/2} system)`
+via b=a^2 (each b hit twice) -> the (n/2, w/2) level with TERNARY occupation (0/1/2 copies) = the low-weight
+ternary-RS-codeword structure already in this ledger. So `p^w N_0^{(n,w)} = P(n,w) + T(n,w)`, T = tower term
+reducing to (n/2,w/2), P = primitive residue. Recursion is clean; 22 levels for n=2^21.
+
+**But the hard part does NOT localize (the negative result).** Numerically:
+- The "primitive signed sum = 0" hope is FALSE (a lucky n=8,m=3 coincidence only).
+- Imprimitive part is COHERENT (|sum|/abs ~ 0.98, ~no internal cancellation) -- tower-structured, small mass,
+  provable.
+- Primitive part is INCOHERENT: huge unsigned mass, STRONG internal (Weil-type) cancellation (|sum|/abs ~
+  0.06 at w=2, 0.0009 at w=3 -- strengthens with w), leaving a residue P that is STABLE in w (identical
+  -29488 at w=2 and w=3, p=97,n=16) -- it does NOT shrink into the tower.
+So the tower ORGANIZES N_0 into 22 primitive residues P(n/2^i, w/2^i), each of which still requires the generic
+signed (Weil-type) cancellation. No tower-recursion shortcut. This SHARPENS (LS): it must be a GENERIC signed
+large-sieve, not a structural/tower identity -- consistent with the sign-barrier arithmetic above.
+
 **Consequence / consistency.** This EXACTLY matches and independently re-derives the `(LS)` target below: the
 missing tool is a one-sided multilevel LARGE-SIEVE / RESTRICTION estimate for the moment curve over mu_n
 (L^2-of-coefficients -> L^inf/L^q-of-the-sum), spanning the large-subgroup (n > sqrt(p)) and sub-sqrt(p)
