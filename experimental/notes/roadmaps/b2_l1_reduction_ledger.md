@@ -290,7 +290,41 @@ CONSEQUENCE: rules out any char-0 / variety-point-count / lifting approach (noth
 N_0 <= n^3 is a PURELY ANALYTIC statement (a genuine large-sieve / signed cancellation), with zero algebraic
 shortcut. Confirms why the primitive residue P carries everything and the difficulty cannot be localized.
 
-**Consequence / consistency.** This EXACTLY matches and independently re-derives the `(LS)` target below: the
+## Bernoulli reformulation + inverse-Littlewood-Offord framing (Codex 5.6 attack, VERIFIED parts, 2026-07-10)
+
+An adversarial Codex-5.6 pass produced two things worth keeping (each tagged verified/unverified):
+
+- VERIFIED (I reproduced, `verify_codex_bernoulli.py`): the fixed-weight count can be traded for a BERNOULLI
+  product measure. With X ~ Bernoulli(rho), rho = m/n, and S_rho := Pr(F(X)=0),
+      N_0 <= S_rho / [ rho^m (1-rho)^{n-m} ],   and the cost ratio is <= sqrt(2n)  (binomial concentration).
+  Confirmed in all tested cases (cost 2.7-7.2 vs sqrt(2n)=5.7-8.0). Since sqrt(2n) << n^3 slack, this is FREE.
+  KEY GAIN: the Bernoulli characteristic function  prod_{a in mu_n} (1 - rho + rho e_p(xi.Phi(a)))  FACTORS
+  over a (the elementary symmetric e_m does NOT). Hence |prod|^2 = prod_a [1 - 2 rho(1-rho)(1 - cos(2 pi
+  xi.Phi(a)/p))]. This is exactly an ANTI-CONCENTRATION / inverse-Littlewood-Offord object for the vectors
+  Phi(a) in F_p^w.
+
+- NEW FRAMING (conceptual): the crux = "how concentrated can sum_a eps_a Phi(a) be at a single point of
+  F_p^w?" at scale p^{-w} = exp(-Theta(n)). This connects to a MATURE toolbox unreachable from e_m: Halasz's
+  inequality, Esseen concentration, Tao-Vu / Nguyen-Vu inverse theorems. Honest gap (Codex's and mine): those
+  theorems detect atoms of POLYNOMIAL size; we need EXPONENTIAL scale exp(-Theta(n)). No off-the-shelf theorem
+  (Codex found none; capacity-level RS results -- Doron-Venkitesh 2404.00206, Alrabiah-Guruswami-Li 2304.09445
+  -- assume random evaluation points / larger fields, not the deterministic mu_n).
+
+- Antipodal (C_y, eps_y) decoupling (matches our char-0 analysis): for pair {a,-a}, C_y=X_a+X_{-a} in {0,1,2}
+  drives EVEN power sums, eps_y=X_a-X_{-a} in {-1,0,1} drives ODD ones; a (-1)-invariant config has eps_y=0
+  hence zero odd syndrome, so the coset/antipodal obstruction is genuinely absent from the odd-syndrome part.
+
+- UNVERIFIED / FLAGGED: Codex's numerical "falsifier" table (constant ~20) did NOT reproduce -- its (17,16,3,1)
+  entry claims 176 hits; exhaustive recount gives 3840 (definitional mismatch). NOT trusted; not load-bearing
+  (Codex also dismissed those toys). Cross-check that DID hold: Codex independently concluded uniform sqrt-
+  cancellation for P is FALSE without hypotheses (matches our confounded-prefactor finding).
+
+NET: the live target is now equivalently an inverse-Littlewood-Offord / Halasz anti-concentration bound for
+the moment-curve vectors Phi(a) over mu_n at exponential scale -- a NEW toolbox for the same irreducible gap.
+
+## Consequence / consistency
+
+This EXACTLY matches and independently re-derives the `(LS)` target below: the
 missing tool is a one-sided multilevel LARGE-SIEVE / RESTRICTION estimate for the moment curve over mu_n
 (L^2-of-coefficients -> L^inf/L^q-of-the-sum), spanning the large-subgroup (n > sqrt(p)) and sub-sqrt(p)
 regimes. Tonight's two-threshold map says precisely WHY no single classical tool supplies it: any restriction
