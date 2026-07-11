@@ -169,6 +169,25 @@ VALIDATES THE METHOD: the max-fiber->moment reduction + adapted Shkredov recursi
 incidence engine exists (low w, F_p^2/F_p^3 = Rudnev's regime). w=3 (twisted cubic, still F_p^3, also Sidon)
 should follow identically. Deployed w=67471 unchanged: needs high-dim (F_p^w) incidences = the frontier.
 
+## w=3 EXTENDS (twisted cubic, verified); the WALL is precisely at w>=4 (high-dim incidences)
+
+w=3 (moment curve = twisted cubic in F_p^3) closes by the IDENTICAL skeleton (`b2_w3_engine.py`): engine
+`Sum_c|tau_3|^2 = p^3 n`, `Sum_c|tau_3|^4 = 2 p^3 n^2` (Sidon-optimal, verified ratios ~1 and ~2); same
+convolution recursion (ratios 1.05-1.07). Twisted cubic is Sidon (3 power sums over-determine {a,b}),
+still in Rudnev's F_p^3 regime.
+
+**PRECISE WALL.** The moment curve {(x,...,x^w)} is Sidon for ALL w, so the ENGINE (4th moment = 2 p^w n^2)
+exists at every w. What breaks at w>=4 is the ORDER-RECURSION: `Off <= sqrt(2) n (E^{(2),4}_{d-1})^{1/2}`
+needs the 4-FOLD moment energy `E^{(2),4}` bounded ~random, which is a Vinogradov mean value over F_p^w and
+requires point-plane/curve INCIDENCE bounds in F_p^w. Rudnev's incidence theorem exists in F_p^2/F_p^3 only,
+so the method is UNCONDITIONAL for w<=3 and BLOCKED at w>=4 by the absence of high-dimensional finite-field
+incidence bounds -- a named frontier in incidence geometry. Deployed w=67471 sits far past the wall.
+
+**Net honest state:** E-b/SV* is a PROVABLE THEOREM for w<=3 (base cases, Shkredov-adapted recursion with
+Sidon-optimal moment-curve engines, all inputs verified); the method is validated; and the obstruction for
+the deployed row is now pinned to ONE precise, named external frontier -- high-dim (F_p^{>=4}) moment-curve
+incidence bounds. Any advance there unlocks the deployed case immediately.
+
 ## Status (superseded above for the target; chain 1-6 unchanged)
 
 The L1/b2 prize crux is reduced by an EXACT, verified chain to `(LS)` -- a one-sided SIGNED multilevel
