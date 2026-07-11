@@ -49,3 +49,23 @@ General resultant character-sum bounds lose 2^{2a+2b} (unusable at a,b~w) -- so 
 2. Read Elkies math/0105007 + the twisted-determinant obstruction; is the twisted Elkies formula within reach?
 3. Push the scanner to the largest feasible n (n=7,8 with careful memory) to stress-test CHG's n-scaling.
 4. Check whether CHG's rank strata connect to the finite-field decoupling / discrete Brascamp-Lieb literature.
+
+## Full-rank case Eq 29 — progress (2026-07-11, b2_fullrank.py)
+
+VERIFIED structural facts (p=7/11/13, n=5/6):
+- full-rank Gauss evaluation: |G_v(lambda)| = p^{d/2} exactly (=49, 11^1.5). So for full-rank lambda,
+  G_v(lambda) = p^{d/2} * chi(det A_lambda) * eps * e_p(Phi_v(lambda)), Phi_v = gamma - (1/4) l^T A^{-1} l
+  (Schur phase, quadratic in v).
+- Hankel DUALITY (Eq 27): chi(det A_lambda) * chi(det B_lambda) = chi(prod_a lambda_a), where
+  B_{uv} = n^{-2} sum_{a in H} lambda_a^{-1} a^{u+v} is a (w+1) x (w+1) HANKEL. VERIFIED all trials.
+  => chi(det A) = chi(prod lambda_a) * chi(det B), moving the d x d determinant to order w+1.
+
+=> Eq 29 IS EQUIVALENT to sqrt-cancellation (<= p^{n/2+2}) in the mixed character sum
+   S_v = sum_{lambda in (F_p^*)^n} [ prod_a chi(lambda_a) ] * chi(det B_lambda) * e_p(Phi_v(lambda)),  centered over v.
+   The summand: a SEPARABLE product of quadratic characters prod chi(lambda_a), twisted by (i) chi of a low-order
+   (w+1)-Hankel determinant det B (degree w+1 in lambda^{-1}), and (ii) a B^{-1}-Schur phase (partial: det B
+   depends on the lambda^{-1}-moments sum_a lambda_a^{-1} a^k, k=0..2w; the phase brings in lambda-moments too).
+   This is the exact object for the "twisted Elkies" lemma. Untwisted (chi=1, no phase) is Elkies's known
+   Hankel-Fourier formula; the det-character + Schur-phase twist is the open piece.
+
+STATUS: full-rank reduction verified; the sqrt-cancellation of S_v is the concrete open target = twisted Elkies.
