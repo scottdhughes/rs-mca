@@ -1,0 +1,16 @@
+{
+  "packet": "b2_b53_refutation_v1",
+  "claim": "PR #662 open target B53 |H_d(v)| <= p^{n/2+2} is false by exact computation at reachable rows",
+  "normalization": "A_d(v):=T_d(v)/p^d = chi((-1)^d) g^d p^{-d} H_d(v); |A_d|=p^{-d/2}|H_d|; B53 <=> |A_d(v)|<=p^{c/2+2} (d=n-c)",
+  "refutation_rows_full_aggregate": {
+    "97,32,2,3": {"A_d0_num": -731704492880832, "A_d0_den": 912673, "ratio_over_target": 89.1906746519, "dp_cross_check_gpu_over_pred": 0.99001},
+    "97,48,1,2": {"ratio_over_target": 26.82301},
+    "97,96,2,3": {"A_d0_num": -2804335939511319360, "A_d0_den": 912673, "ratio_over_target": 341832.825723, "dp_cross_check_gpu_over_pred": 0.99002}
+  },
+  "q1_component_ray_finite_rows_only": {"primes": [65089,130817,260609,520193], "n": [64,128,256,512],
+    "q1_over_p3": ["2.16693645","27096.7424","1.009318899e13","1.590650200e27"],
+    "note": "q=1 stratum only; NOT a test of full B53; no deployment/asymptotic claim"},
+  "anchors": {"7,6,1,2_T_d0": -95256, "7,6,1,2_A_d0": "-1944/49"},
+  "verify": "python3 experimental/scripts/verify_b2_b53_refutation_v1.py --check | --tamper-selftest  (stdlib only)",
+  "non_claims": ["no N(0)<=n^3", "no deployment-row claim", "no asymptotic claim", "B53 was sufficient not necessary", "no novelty of the decomposition (credited to #662)"]
+}
