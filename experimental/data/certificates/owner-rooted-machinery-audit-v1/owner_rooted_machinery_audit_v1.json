@@ -1,0 +1,289 @@
+{
+  "all_checks_pass": true,
+  "audit_id": "owner-rooted-machinery-audit-v1",
+  "chain_regression": {
+    "all_pass": true,
+    "checks": {
+      "chain_all_instances_pass": true,
+      "enough_trials": true
+    },
+    "trial_count": 120
+  },
+  "guardrail_replay_regression": {
+    "checks": {
+      "all_planted_cases_pass": true,
+      "default_matches_shipped_certificate": true
+    },
+    "f7_infeasibility": {
+      "checks": {
+        "F11_is_smallest_feasible": true,
+        "F17_feasible": true,
+        "F7_infeasible": true
+      },
+      "domain": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "per_prime": {
+        "11": {
+          "all_distinct": true,
+          "residues": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        "13": {
+          "all_distinct": true,
+          "residues": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        "17": {
+          "all_distinct": true,
+          "residues": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        "7": {
+          "all_distinct": false,
+          "residues": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    "planted_cases": [
+      {
+        "b_pairs": 4,
+        "checks": {
+          "layer_meets_floor": true,
+          "rim_packing": true,
+          "single_common_sum": true,
+          "trades_exact": true
+        },
+        "incidence_floor": 1.666666667,
+        "layer_size": 4,
+        "n": 6,
+        "qbase": 7,
+        "r_star": 2
+      },
+      {
+        "b_pairs": 6,
+        "checks": {
+          "layer_meets_floor": true,
+          "rim_packing": true,
+          "single_common_sum": true,
+          "trades_exact": true
+        },
+        "incidence_floor": 3.8,
+        "layer_size": 9,
+        "n": 20,
+        "qbase": 7,
+        "r_star": 2
+      },
+      {
+        "b_pairs": 8,
+        "checks": {
+          "layer_meets_floor": true,
+          "rim_packing": true,
+          "single_common_sum": true,
+          "trades_exact": true
+        },
+        "incidence_floor": 9.857142857,
+        "layer_size": 36,
+        "n": 70,
+        "qbase": 7,
+        "r_star": 4
+      }
+    ]
+  },
+  "kappa_gap_check": {
+    "L": 200,
+    "N": 12,
+    "a": 6,
+    "checks": {
+      "kappa_strictly_greater_than_one": true,
+      "ratio_equals_kappa": true,
+      "witness_fails_general_bound": true,
+      "witness_satisfies_stated_bound": true
+    },
+    "full_slice_C_N_a": 924,
+    "general_kappa_corrected_threshold": 3.498363791,
+    "kappa": "2",
+    "q": 4,
+    "ratio_general_over_stated": 2.0,
+    "stated_eq_5_6_threshold": 1.749181895,
+    "sub_slice_M": 462,
+    "witness_R_A_squared": 2.623772843
+  },
+  "payload_sha256": "b91e147003c6d37858a5f5a856aca42f381f688ab4cb5e228188b30ecd66da2c",
+  "section6_regression": {
+    "cases": [
+      {
+        "B": 2,
+        "L": 5,
+        "M": 6,
+        "N": 4,
+        "W": 2,
+        "WL_over_M": "5/3",
+        "a": 2,
+        "checks": {
+          "L_formula": true,
+          "W_formula": true,
+          "planted_relation": true,
+          "rim_packing": true
+        },
+        "expected_L": 5,
+        "expected_W": 2,
+        "max_intersection": 0,
+        "planted_ok": true,
+        "s0": 61
+      },
+      {
+        "B": 4,
+        "L": 41,
+        "M": 70,
+        "N": 8,
+        "W": 6,
+        "WL_over_M": "123/35",
+        "a": 4,
+        "checks": {
+          "L_formula": true,
+          "W_formula": true,
+          "planted_relation": true,
+          "rim_packing": true
+        },
+        "expected_L": 41,
+        "expected_W": 6,
+        "max_intersection": 2,
+        "planted_ok": true,
+        "s0": 3122
+      },
+      {
+        "B": 6,
+        "L": 365,
+        "M": 924,
+        "N": 12,
+        "W": 20,
+        "WL_over_M": "1825/231",
+        "a": 6,
+        "checks": {
+          "L_formula": true,
+          "W_formula": true,
+          "planted_relation": true,
+          "rim_packing": true
+        },
+        "expected_L": 365,
+        "expected_W": 20,
+        "max_intersection": 4,
+        "planted_ok": true,
+        "s0": 117183
+      }
+    ],
+    "checks": {
+      "all_cases_pass": true,
+      "rate_converges_toward_log_1_5_over_2": true
+    },
+    "rates": [
+      0.127706,
+      0.157105,
+      0.172243
+    ],
+    "target_rate": 0.202733
+  },
+  "self_adjoint_control": {
+    "asymmetric": {
+      "band": [
+        1,
+        2
+      ],
+      "equal": false,
+      "lhs_re": 0.133883476,
+      "rhs_re": 0.133883476,
+      "symmetric_by_definition": false
+    },
+    "checks": {
+      "asymmetric_band_breaks_self_adjointness": true,
+      "symmetric_band_preserves_self_adjointness": true
+    },
+    "symmetric": {
+      "band": [
+        1,
+        7
+      ],
+      "equal": true,
+      "lhs_re": 2.267766953,
+      "rhs_re": 2.267766953,
+      "symmetric_by_definition": true
+    }
+  },
+  "status": "AUDIT: six of seven attacks NO ISSUE, one OPEN GAP (FIXED-proposal) in eq (5.6)",
+  "text_grounding": {
+    "dense_band_required": {
+      "A=-A\\subseteq\\widehat G": true,
+      "After removing common-line supports": true,
+      "Assume the semantic compiler has removed": true,
+      "The cleaner bound": true,
+      "every repeated cross-slope rim": true,
+      "must not be inferred from the weaker inclusion": true,
+      "on the full slice, Corollary 5.1 pays the band": true
+    },
+    "positive_support_forbidden_absent": {
+      "\\kappa": true,
+      "full slice": true,
+      "kappa": true,
+      "sub-slice": true
+    },
+    "positive_support_required": {
+      "A sufficient condition in the original parameters is": true,
+      "\\mathcal R_A^2": true,
+      "high \\(\\mathcal Y_A\\) does not imply high \\(\\mathcal R_A\\)": true
+    },
+    "secant_required": {
+      "A=-A\\subseteq \\widehat G\\setminus\\{0\\}": true,
+      "and their negatives": true
+    }
+  },
+  "verdicts": {
+    "A_image_scale_normalization": "OPEN GAP (FIXED-proposal) -- eq (5.6) missing kappa factor",
+    "B_self_adjointness": "NO ISSUE",
+    "C_slope_rooting_hidden_hypotheses": "NO ISSUE (hypothesis-visibility FIXED-proposal for Thm 4.2)",
+    "D_rim_packing": "NO ISSUE",
+    "E_projected_energy_gate_one_way": "NO ISSUE",
+    "F_section6_replay": "NO ISSUE (reproduced exactly)",
+    "G_prop41_and_guardrail_replay": "NO ISSUE (reproduced exactly; field is F_17 not F_7)"
+  }
+}

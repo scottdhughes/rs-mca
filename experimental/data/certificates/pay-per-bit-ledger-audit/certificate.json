@@ -1,0 +1,516 @@
+{
+  "audit": "pay-per-bit ledger audit",
+  "part1_records": {
+    "cycle116_119_row": {
+      "anchors": [
+        "site/data/rate-leaderboards.json:574-576",
+        "site/data/rate-leaderboards.json:620-622",
+        "site/data/frontier.json:40",
+        "site/data/frontier.json:69",
+        "experimental/notes/m1/m1_cycle119_strict263_admissibility_review.md"
+      ],
+      "bad_slopes": 52747567092,
+      "bits_above_target_50dp": "32.8195745819195342305351687379000018999410243003337574068198",
+      "bits_above_target_rounded_2dp": 32.82,
+      "claim": "52747567092/17^32 > 2^-128, about +32.82 bits above target",
+      "conditionality_note": "printed nonclaims in-tree already flag this numerator as importing the Cycle84 finite count",
+      "cross_multiplication_check_bad_times_2pow128_gt_q": true,
+      "field": "17^32",
+      "fraction_reduced": "52747567092/2367911594760467245844106297320951247361",
+      "gcd_bad_q": 1,
+      "log2_epsilon_50dp": "-95.1804254180804657694648312620999981000589756996662425931802",
+      "printed_value": 32.82,
+      "q": "2367911594760467245844106297320951247361",
+      "verdict": "MATCHES"
+    },
+    "paperD_v12_cap": {
+      "anchor_file": "tex/cs25_cap_v12.tex",
+      "anchor_label": "cor:grand",
+      "anchor_lines": "3542-3573",
+      "bits_gap": 42,
+      "claim": "epsilon_mca > 2^-86, i.e. >=42 bits above the 2^-128 target, throughout the prize field envelope",
+      "envelope_definition_line": 78,
+      "integer_inequality": {
+        "description": "2*k*(n+1) < 2^86 at worst case k=2^40, n=16k=2^44",
+        "holds": true,
+        "lhs": 38685626227670332613853184,
+        "rhs": 77371252455336267181195264
+      },
+      "numerics_line": 3582,
+      "sharper_conditional_note": {
+        "bits_gap": 86,
+        "bound": "2^-42",
+        "condition": "q >= 2n"
+      },
+      "verdict": "MATCHES"
+    },
+    "tangent_staircase_gate": {
+      "LD_sw_506": 7,
+      "LD_sw_507": 6,
+      "anchors": [
+        "experimental/data/tangent/tangent_staircase_summary.md:34-70",
+        "experimental/notes/high_agreement/tangent_staircase.tex",
+        "site/data/rate-leaderboards.json (id: tangent506-exact-gate)"
+      ],
+      "claim": "narrow but fully structural 6/7 transition",
+      "exact_range_start_ceil_2n_plus_k_over_3": 427,
+      "exactness_condition_506": true,
+      "exactness_condition_507": true,
+      "field": "17^32",
+      "k": 256,
+      "n": 512,
+      "no_cycle84_import": true,
+      "target_budget_floor_q_over_2pow128": 6,
+      "verdict": "MATCHES"
+    }
+  },
+  "part2_board_to_bits": {
+    "board": [
+      {
+        "author": "ours",
+        "category": "iii",
+        "hard_input": 5,
+        "head_sha": null,
+        "line": "O5c list route PAID (quotient/Euclidean-remainder/Chebyshev); coupling lemma: no profile-list reaches O7; deep-remainder OPEN",
+        "note_path": "experimental/notes/thresholds/lower_reserve_o5c_profile_lists.md",
+        "ours": true,
+        "pr": 699
+      },
+      {
+        "author": "ours",
+        "category": "iv",
+        "hard_input": null,
+        "head_sha": null,
+        "line": "repairs own #691 T1 (refuted-as-printed, corrected T1'); defends the rho* program; no bit/radius movement",
+        "note_path": "experimental/notes/thresholds/fenced_resonance_window_repair.md",
+        "ours": true,
+        "pr": 700
+      },
+      {
+        "author": "ours",
+        "category": "iii",
+        "hard_input": 2,
+        "head_sha": null,
+        "line": "proves #696's energy lift is denominator-blind -- route-cut, no pincer exists",
+        "note_path": "experimental/notes/thresholds/fenced_energy_pincer.md",
+        "ours": true,
+        "pr": 701
+      },
+      {
+        "author": "external:DannyExperiments",
+        "category": "iv",
+        "hard_input": null,
+        "head_sha": null,
+        "line": "interleaved-list shell compression, one-row max -- Grand List row bound, not delta*_C",
+        "note_path": "experimental/notes/l2/affine_interleaved_shell_compression.md",
+        "ours": false,
+        "pr": 702
+      },
+      {
+        "author": "external:DannyExperiments",
+        "category": "iv",
+        "hard_input": null,
+        "head_sha": null,
+        "line": "excludes affine rank<=14 from the Grand List one-row wall -- same sub-problem as #702",
+        "note_path": "experimental/notes/l2/affine_section_one_row_rank_reduction.md",
+        "ours": false,
+        "pr": 703
+      },
+      {
+        "author": "external:DannyExperiments",
+        "category": "iii",
+        "hard_input": 3,
+        "head_sha": null,
+        "line": "transverse all-parameter extension of the A6 line-section compiler (one line/one chart)",
+        "note_path": "experimental/notes/thresholds/a6_all_witness_line_section_compiler.md",
+        "ours": false,
+        "pr": 704
+      },
+      {
+        "author": "ours",
+        "category": "iv",
+        "hard_input": null,
+        "head_sha": null,
+        "line": "stacked-trade census hardens the rho* lower end to a k<=5 family ceiling -- bracket-hardening, no tex consumer yet",
+        "note_path": "experimental/notes/thresholds/comb_trade_champion_k5.md",
+        "ours": true,
+        "pr": 705
+      },
+      {
+        "author": "ours",
+        "category": "iv",
+        "hard_input": null,
+        "head_sha": null,
+        "line": "AUDIT: 42 atlas anchors verified current, NO PRINT CHANGE -- A6 wave does not touch hard input 1's (A2) coverage obligation",
+        "note_path": "experimental/notes/thresholds/a6_atlas_print_audit.md",
+        "ours": true,
+        "pr": 706
+      },
+      {
+        "author": "ours",
+        "category": "iii",
+        "hard_input": 5,
+        "head_sha": null,
+        "line": "fixed-rate identity crossings are o(n) from k+1; upper-half secant ceiling is one -- localizes O7",
+        "note_path": "experimental/notes/thresholds/identity_crossing_upper_half_route_cut.md",
+        "ours": true,
+        "pr": 707
+      },
+      {
+        "author": "ours",
+        "category": "iii",
+        "hard_input": 2,
+        "head_sha": null,
+        "line": "roots order-two Fourier-band failures in a heavy realized boundary fiber; owner payment left open",
+        "note_path": "experimental/notes/thresholds/rooted_order_two_band_reduction.md",
+        "ours": true,
+        "pr": 708
+      },
+      {
+        "author": "ours",
+        "category": "iv",
+        "hard_input": null,
+        "head_sha": null,
+        "line": "reconciliation note recording the rho* bracket + supersession map (superseded same day by #727)",
+        "note_path": "experimental/notes/thresholds/post_sweep_bracket_reconciliation.md",
+        "ours": true,
+        "pr": 709
+      },
+      {
+        "author": "ours",
+        "category": "iii",
+        "hard_input": 5,
+        "head_sha": null,
+        "line": "proves the combined two-regime lower reserve max{P,E}",
+        "note_path": "experimental/notes/thresholds/two_regime_lower_reserve_frontiers_packet.md",
+        "ours": true,
+        "pr": 710
+      },
+      {
+        "author": "ours",
+        "category": "iii",
+        "hard_input": 2,
+        "head_sha": null,
+        "line": "Theorem H: the two-band habitat is denominator-blind -- route-cut, decided-negative",
+        "note_path": "experimental/notes/thresholds/exp_ilo_habitat_restriction.md",
+        "ours": true,
+        "pr": 711
+      },
+      {
+        "author": "ours",
+        "category": "iii",
+        "hard_input": 5,
+        "head_sha": null,
+        "line": "builds the deep-remainder partial-occupancy atlas; field-drop route DECIDED NEGATIVE (Theorem DR); corrected same evening by #714",
+        "note_path": "experimental/notes/thresholds/lower_reserve_deep_remainder_atlas.md",
+        "ours": true,
+        "pr": 712
+      },
+      {
+        "author": "ours",
+        "category": "iii",
+        "hard_input": 1,
+        "head_sha": null,
+        "line": "(CAT) atlas ledger: exhaustion composes (PROVED unconditional); full summation blocked at {C3,C7,C8,C9}",
+        "note_path": "experimental/notes/thresholds/atlas_cat_cell_ledger.md",
+        "ours": true,
+        "pr": 713
+      },
+      {
+        "author": "external:DannyExperiments",
+        "category": "iii",
+        "hard_input": 5,
+        "head_sha": null,
+        "line": "COUNTEREXAMPLE to #712's instance-level no-list verdict; deep-remainder REOPENS as payable",
+        "note_path": "experimental/notes/thresholds/deep_remainder_partial_occupancy_counterexample.md",
+        "ours": false,
+        "pr": 714
+      },
+      {
+        "author": "external:latifkasuli",
+        "category": "iii",
+        "hard_input": 3,
+        "head_sha": null,
+        "line": "re-records the tier-4 census target on the deduplicated |LineRay| count; proves free parts + a model correction; target stays OPEN",
+        "note_path": "experimental/notes/thresholds/lineray_census_rerecording.md",
+        "ours": false,
+        "pr": 715
+      },
+      {
+        "author": "external:avdeevvadim",
+        "category": "iii",
+        "hard_input": 2,
+        "head_sha": null,
+        "line": "owner-rooted dense-band localization: banks 7 finite reductions, states the charge-preserving dichotomy; primitive Sidon payment OPEN",
+        "note_path": "experimental/notes/audits/owner_rooted_dense_band_localization_v1.md",
+        "ours": false,
+        "pr": 716
+      },
+      {
+        "author": "ours",
+        "category": "iii",
+        "hard_input": 2,
+        "head_sha": null,
+        "line": "heavy syndrome fibers are admissible rooted packets on the locator-prefix chart -- #716's hereditary hypothesis drops there (CONDITIONAL)",
+        "note_path": "experimental/notes/thresholds/heavy_fiber_admissibility_transfer.md",
+        "ours": true,
+        "pr": 717
+      },
+      {
+        "author": "ours",
+        "category": "iii",
+        "hard_input": 2,
+        "head_sha": null,
+        "line": "extends R=2 image-scale flatness to growing characteristic; conditional only on a classical mixed-Weil import",
+        "note_path": "experimental/notes/thresholds/r2_growing_characteristic_cycle_flatness.md",
+        "ours": true,
+        "pr": 718
+      },
+      {
+        "author": "external:DannyExperiments",
+        "category": "iii",
+        "hard_input": 5,
+        "head_sha": null,
+        "line": "signed local-minority fixed-composition Q: pays exact equal-block profiles; declares the exact next mixed-sign wall",
+        "note_path": "experimental/notes/thresholds/signed_local_minority_fixed_composition.md",
+        "ours": false,
+        "pr": 719
+      },
+      {
+        "author": "external:DannyExperiments",
+        "category": "iv",
+        "hard_input": null,
+        "head_sha": null,
+        "line": "Grand List projective-line lift wall -- different prize sub-problem, isolates the exact remaining object",
+        "note_path": "experimental/notes/thresholds/projective_line_lift_feasibility_wall.md",
+        "ours": false,
+        "pr": 720
+      },
+      {
+        "author": "external:DannyExperiments",
+        "category": "iii",
+        "hard_input": 3,
+        "head_sha": null,
+        "line": "canonical reduced rational-host compiler: witness-exhaustive incidence bijection for denominator degree d>1 (score 0/2 globally)",
+        "note_path": "experimental/notes/thresholds/canonical_reduced_rational_host_compiler.md",
+        "ours": false,
+        "pr": 721
+      },
+      {
+        "author": "external:DannyExperiments",
+        "category": "iv",
+        "hard_input": null,
+        "head_sha": null,
+        "line": "rank-15 locator-saturation normal form for the Grand List row; eliminates no M",
+        "note_path": "experimental/notes/thresholds/rank15_locator_saturation_normal_form.md",
+        "ours": false,
+        "pr": 722
+      },
+      {
+        "author": "ours",
+        "category": "iii",
+        "hard_input": 2,
+        "head_sha": "95a1902",
+        "line": "two-regime census of #716's four clauses: ablating clause (iii) alone restores absolute q-gain growth (EXPERIMENTAL)",
+        "note_path": "experimental/notes/thresholds/signed_minor_payment_clause_census_v1.md",
+        "ours": true,
+        "pr": 723
+      },
+      {
+        "author": "ours",
+        "category": "iii",
+        "hard_input": 1,
+        "head_sha": "4bffb1d",
+        "line": "C3 planted census PAID (row-independent) / PAID-negative (row-dependent); (CAT) blocked set shrinks to {C7,C8,C9}; first Lean stub",
+        "note_path": "experimental/notes/thresholds/c3_planted_divisor_census.md",
+        "ours": true,
+        "pr": 725
+      },
+      {
+        "author": "ours",
+        "category": "iv",
+        "hard_input": null,
+        "head_sha": "c6d09ae",
+        "line": "reconciliation of all five hard inputs after the c23dcaa wave; rho* bracket survives unmoved (cross-check source, credited)",
+        "note_path": "experimental/notes/thresholds/post_sweep_reconciliation_c23dcaa.md",
+        "ours": true,
+        "pr": 727
+      },
+      {
+        "author": "ours",
+        "category": "iii",
+        "hard_input": 2,
+        "head_sha": "837054d",
+        "line": "PROVES first-match pruning bounds the signed band-excess on one family; integer window {3,4} exact",
+        "note_path": "experimental/notes/thresholds/first_match_signed_gain.md",
+        "ours": true,
+        "pr": 728
+      },
+      {
+        "author": "ours",
+        "category": "iii",
+        "hard_input": 2,
+        "head_sha": "cb9993b",
+        "line": "PROVES a chart-free pruned signed bound on every finite abelian group/chart/band/q>=2; closes dictionary to #716 for pruned packets",
+        "note_path": "experimental/notes/thresholds/general_pruned_signed_bound.md",
+        "ours": true,
+        "pr": 729
+      },
+      {
+        "author": "ours",
+        "category": "iii",
+        "hard_input": 3,
+        "head_sha": "539d8f0",
+        "line": "COUNTEREXAMPLE: general section-nonpositive rational-host extraction is FALSE; exact iff criterion + thin non-host stratum",
+        "note_path": "experimental/notes/thresholds/section_nonpositive_extraction_counterexample.md",
+        "ours": true,
+        "pr": 730
+      },
+      {
+        "author": "ours",
+        "category": "iv",
+        "hard_input": null,
+        "head_sha": "6032044",
+        "line": "AUDIT of avdeevvadim's owner-rooted machinery: one local gap (kappa factor, Cor 5.1), FIXED-proposal; five attacks NO ISSUE",
+        "note_path": "experimental/notes/audits/owner_rooted_machinery_audit_v1.md",
+        "ours": true,
+        "pr": 731
+      },
+      {
+        "author": "ours",
+        "category": "iii",
+        "hard_input": 2,
+        "head_sha": "c5d1ede",
+        "line": "PROVES #716's charge conditions are free for positive-rooted packets; reduces decomposition to a cardinality/concentration question",
+        "note_path": "experimental/notes/thresholds/charge_preserving_split_decomposition.md",
+        "ours": true,
+        "pr": 732
+      },
+      {
+        "author": "external:DannyExperiments",
+        "category": "iv",
+        "hard_input": null,
+        "head_sha": "a744375",
+        "line": "raises the M=218 rank-15 degree floor 4792->4828 for the Grand List row",
+        "note_path": "experimental/notes/l2/rank15_locator_incidence_capacity_degree_floor.md",
+        "ours": false,
+        "pr": 733
+      },
+      {
+        "author": "external:DannyExperiments",
+        "category": "iii",
+        "hard_input": 3,
+        "head_sha": "abec030",
+        "line": "anti-host prefix compiler: explicitly constructs slope-rich lines with no rational-host presentation -- positive complement to #730",
+        "note_path": "experimental/notes/thresholds/one_deeper_prefix_anti_host_compiler.md",
+        "ours": false,
+        "pr": 734
+      },
+      {
+        "author": "ours",
+        "category": "iii",
+        "hard_input": 2,
+        "head_sha": "f94d870",
+        "line": "PROVES heavy prefix fibers emit #716's semantic precursors on three classes, plus a 17609-fiber zero-counterexample census",
+        "note_path": "experimental/notes/thresholds/heavy_fiber_planted_emission.md",
+        "ours": true,
+        "pr": 735
+      }
+    ],
+    "by_hard_input": {
+      "1": [
+        713,
+        725
+      ],
+      "2": [
+        701,
+        708,
+        711,
+        716,
+        717,
+        718,
+        723,
+        728,
+        729,
+        732,
+        735
+      ],
+      "3": [
+        704,
+        715,
+        721,
+        730,
+        734
+      ],
+      "5": [
+        699,
+        707,
+        710,
+        712,
+        714,
+        719
+      ]
+    },
+    "c23dcaa_integrated_range": "699-722",
+    "c23dcaa_integration_commit": "c23dcaa0514c72d195f1c5eb163500150ff637bd",
+    "open_wave": [
+      723,
+      725,
+      727,
+      728,
+      729,
+      730,
+      731,
+      732,
+      733,
+      734,
+      735
+    ],
+    "totals": {
+      "count": 35,
+      "external": 12,
+      "i": 0,
+      "ii": 0,
+      "iii": 24,
+      "iv": 11,
+      "ours": 23
+    }
+  },
+  "part3_interval": {
+    "asymptotic_relation": {
+      "anchor": "experimental/asymptotic_rs_mca_frontiers.tex:1038-1046 (eq. 1.10)",
+      "formula": "delta_n* = 1 - rho_n - g*(rho_n, beta_n) + o(1)",
+      "g_star": "g*(r,b) = sup{g in [0,1-r] : H_2(r+g) >= b g}",
+      "status": "conditional identity, not an unconditional numeric bracket; hypotheses = agents.md's five hard inputs"
+    },
+    "deployed_bracket": {
+      "anchor": "tex/cs25_cap_v12.tex:95-102 (thm:informal-sandwich)",
+      "modulo_BCIKS20_import": {
+        "lower": "1/4",
+        "ratio": 1.8714599609375,
+        "upper": "15331/32768"
+      },
+      "row": "KoalaBear-sextic, rho=1/2, target 2^-128",
+      "unconditional": {
+        "lower": "1/6",
+        "ratio": 2.80718994140625,
+        "upper": "15331/32768"
+      },
+      "upper_equals_2pow15_denominator": true
+    },
+    "rho_star_image_face_bracket": {
+      "anchor": "experimental/notes/thresholds/post_sweep_bracket_reconciliation.md section 1; confirmed unmoved by post_sweep_reconciliation_c23dcaa.md section 6 (PR #727)",
+      "tex_consumer": false,
+      "tex_consumer_note": "experimental/notes/thresholds/image_face_print_audit.md:1-26 -- note-level abstraction, no tex consumer",
+      "value": [
+        0.160847,
+        0.405465
+      ]
+    }
+  },
+  "result": {
+    "checks_summarized": true,
+    "ok": true
+  },
+  "steering_commit": "fe93bb59dff3d022f66a097208e17c27e1e0deb4"
+}

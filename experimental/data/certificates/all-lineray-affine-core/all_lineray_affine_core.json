@@ -1,0 +1,207 @@
+{
+  "schema": 1,
+  "status": "PROVED",
+  "lean_status": "UNPROVED STATEMENT TARGET",
+  "hard_input": 3,
+  "theorem": "all-LineRay affine-core set-pair",
+  "formula": "sum 1/binom(s+wt(e),s) <= 1",
+  "two_level_formula": "sum 1/(selector_binom*fiber_binom) <= 1",
+  "sources": {
+    "base": "fe93bb5",
+    "selected_witness_predecessor": 681,
+    "all_pair_target": 715,
+    "lineray_identity": 721
+  },
+  "computed_summary": {
+    "schema": 1,
+    "theorem": "all-LineRay affine-core set-pair",
+    "formula": "sum 1/binom(s+wt(e),s) <= 1",
+    "two_level_formula": "sum 1/(selector_binom*fiber_binom) <= 1",
+    "sharp_families": [
+      {
+        "field": 2,
+        "pairs": 2,
+        "affine_dimension": 1,
+        "weight": 1,
+        "charge": "1",
+        "agreement": 2,
+        "all_threshold_two_rays": true,
+        "common_two_supports": 0,
+        "representative_dimension": 0,
+        "max_fiber_dimension": 1,
+        "nested_charge": "1",
+        "two_level_product_bound": 2
+      },
+      {
+        "field": 3,
+        "pairs": 3,
+        "affine_dimension": 1,
+        "weight": 2,
+        "charge": "1",
+        "agreement": 2,
+        "all_threshold_two_rays": true,
+        "common_two_supports": 0,
+        "representative_dimension": 0,
+        "max_fiber_dimension": 1,
+        "nested_charge": "1",
+        "two_level_product_bound": 3
+      },
+      {
+        "field": 5,
+        "pairs": 5,
+        "affine_dimension": 1,
+        "weight": 4,
+        "charge": "1",
+        "agreement": 2,
+        "all_threshold_two_rays": true,
+        "common_two_supports": 0,
+        "representative_dimension": 0,
+        "max_fiber_dimension": 1,
+        "nested_charge": "1",
+        "two_level_product_bound": 5
+      },
+      {
+        "field": 7,
+        "pairs": 7,
+        "affine_dimension": 1,
+        "weight": 6,
+        "charge": "1",
+        "agreement": 2,
+        "all_threshold_two_rays": true,
+        "common_two_supports": 0,
+        "representative_dimension": 0,
+        "max_fiber_dimension": 1,
+        "nested_charge": "1",
+        "two_level_product_bound": 7
+      }
+    ],
+    "split_hierarchy_families": [
+      {
+        "field": 2,
+        "pairs": 4,
+        "global_dimension": 3,
+        "representative_dimension": 1,
+        "max_fiber_dimension": 1,
+        "nested_charge": "1",
+        "two_level_product_bound": 4,
+        "global_rank_bound": 4,
+        "strict_improvement": false
+      },
+      {
+        "field": 3,
+        "pairs": 6,
+        "global_dimension": 3,
+        "representative_dimension": 1,
+        "max_fiber_dimension": 1,
+        "nested_charge": "2/3",
+        "two_level_product_bound": 9,
+        "global_rank_bound": 10,
+        "strict_improvement": true
+      },
+      {
+        "field": 5,
+        "pairs": 10,
+        "global_dimension": 3,
+        "representative_dimension": 1,
+        "max_fiber_dimension": 1,
+        "nested_charge": "2/5",
+        "two_level_product_bound": 25,
+        "global_rank_bound": 35,
+        "strict_improvement": true
+      },
+      {
+        "field": 7,
+        "pairs": 14,
+        "global_dimension": 3,
+        "representative_dimension": 1,
+        "max_fiber_dimension": 1,
+        "nested_charge": "2/7",
+        "two_level_product_bound": 49,
+        "global_rank_bound": 84,
+        "strict_improvement": true
+      }
+    ],
+    "small_sweeps": {
+      "totals": {
+        "parameter_rows": 2130,
+        "nonempty_complete_families": 1320,
+        "complete_pairs": 2706,
+        "deletion_families": 700,
+        "slope_slice_families": 436,
+        "verified_pairs": 4904,
+        "verified_minors": 4904,
+        "ordered_crossings": 7252,
+        "two_level_families": 2456,
+        "two_level_charge_equalities": 1264,
+        "two_level_bound_improvements": 0,
+        "two_level_rank_separations": 0
+      },
+      "by_field": [
+        {
+          "field": 2,
+          "parameter_rows": 24,
+          "nonempty_complete_families": 18,
+          "complete_pairs": 24,
+          "deletion_families": 4,
+          "slope_slice_families": 4,
+          "verified_pairs": 38,
+          "verified_minors": 38,
+          "ordered_crossings": 28,
+          "two_level_families": 26,
+          "two_level_charge_equalities": 26,
+          "two_level_bound_improvements": 0,
+          "two_level_rank_separations": 0
+        },
+        {
+          "field": 3,
+          "parameter_rows": 2106,
+          "nonempty_complete_families": 1302,
+          "complete_pairs": 2682,
+          "deletion_families": 696,
+          "slope_slice_families": 432,
+          "verified_pairs": 4866,
+          "verified_minors": 4866,
+          "ordered_crossings": 7224,
+          "two_level_families": 2430,
+          "two_level_charge_equalities": 1238,
+          "two_level_bound_improvements": 0,
+          "two_level_rank_separations": 0
+        }
+      ]
+    },
+    "finite_rows": [
+      {
+        "name": "KoalaBear",
+        "n": 2097152,
+        "m": 1116046,
+        "s": 1,
+        "stripped_first_interior_floor": 65065153468,
+        "residual_weight": 981106,
+        "lineray_bound": 981107,
+        "conditional_on_affine_dimension": 1,
+        "conditional_branch_paid": true,
+        "deployed_residual_dimension_certified": false
+      },
+      {
+        "name": "Mersenne-31",
+        "n": 2097152,
+        "m": 1116022,
+        "s": 1,
+        "stripped_first_interior_floor": 1993678,
+        "residual_weight": 981130,
+        "lineray_bound": 981131,
+        "conditional_on_affine_dimension": 1,
+        "conditional_branch_paid": true,
+        "deployed_residual_dimension_certified": false
+      }
+    ]
+  },
+  "nonclaims": [
+    "no general payment for a linear-rank same-slope affine list",
+    "no theorem forcing sublinear selector and local ranks",
+    "no raw-LineRay transversality before common-support removal",
+    "no deployed residual affine-dimension certificate",
+    "no general rational-host extraction",
+    "no Grand MCA/List theorem or prize threshold"
+  ]
+}

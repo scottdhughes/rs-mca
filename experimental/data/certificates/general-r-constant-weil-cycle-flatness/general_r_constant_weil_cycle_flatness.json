@@ -1,0 +1,92 @@
+{
+  "schema": "rs-mca.general-r-constant-weil-cycle-flatness.v1",
+  "status": "PROVED",
+  "hard_input": 2,
+  "lean_target": "experimental/lean/grande_finale/GrandeFinale/GeneralRConstantWeilCycleFlatness.lean",
+  "lean_status": "UNPROVED_STATEMENT_TARGET",
+  "claim": "For unweighted multiplicative-coset polynomial prefixes with 1<=R<p, the exact characteristic-cycle factor gives full B^R Fourier flatness under the explicit entropy gate, including fixed-characteristic extension towers.",
+  "source": {
+    "integrated_file": "experimental/notes/thresholds/r2_constant_weil_cycle_flatness.md",
+    "integrated_commit": "6588d8d6c393df81642dafafc82c70f565d009cf",
+    "r2_followup_pr": 718,
+    "r2_followup_integrated_by": "c23dcaa",
+    "shallow_label": "thm:unconditional-shallow-mi-ma",
+    "cycle_label": "rem:small-characteristic-cycles"
+  },
+  "parameters": {
+    "prefix_guard": "1<=R<p",
+    "weil_parameter": "Lambda=C_0*(R+1)*sqrt(Q)+|P|",
+    "density": "alpha<=m/N<=1-alpha with 0<alpha<1/2",
+    "effective_target": "B^R",
+    "target_size": "Q^R"
+  },
+  "finite_bound": {
+    "r": "min(m,N-m)",
+    "beta": "(N-Lambda)/p",
+    "level": "floor(r/p)",
+    "base_factor": "binom(Lambda+r-1,r)",
+    "cycle_penalty": "binom((N-Lambda)/p+floor(r/p),floor(r/p))",
+    "fourier_multiplier": "Q^R-1",
+    "relative_error": "epsilon_R=(Q^R-1)*base_factor*cycle_penalty/binom(N,r)",
+    "full_image_predicate": "epsilon_R<1"
+  },
+  "asymptotic_gate": {
+    "entropy_gap": "delta=min_{alpha<=x<=1/2}[h(x)-(x+lambda)h(x/(x+lambda))]",
+    "field_penalty": "R*log(Q)/N",
+    "characteristic_penalty": "3*log(2)/(2*p)",
+    "predicate": "limsup(field_penalty+characteristic_penalty)<delta",
+    "simple_corollary": "p->infinity and R*log(Q)=o(N)"
+  },
+  "fixed_characteristic_family": {
+    "field": "F_(p^(2e))",
+    "subgroup_order": "d*(p^e+1)",
+    "symbolic_margin": "d>2*C_0*(R+1)",
+    "prime_conditions": "p>R, p=1 mod d, 3*log(2)/(2*p)<delta",
+    "old_cycle_hypothesis": "N/p is unbounded",
+    "old_shallow_hypothesis": "R*sqrt(Q)/N tends to R/d, not zero",
+    "proper_subfield_guard": "N>p^e-1",
+    "arithmetic_towers": [
+      {
+        "R": 3,
+        "d": 5,
+        "p": 11,
+        "exponents": [1, 2, 3, 4]
+      },
+      {
+        "R": 4,
+        "d": 7,
+        "p": 29,
+        "exponents": [1, 2, 3]
+      },
+      {
+        "R": 5,
+        "d": 8,
+        "p": 17,
+        "exponents": [1, 2, 3]
+      }
+    ],
+    "sample_scope": "arithmetic only; C_0 is symbolic"
+  },
+  "entropy_samples": [
+    {
+      "alpha": 0.05,
+      "lambda": 0.1
+    },
+    {
+      "alpha": 0.1,
+      "lambda": 0.25
+    },
+    {
+      "alpha": 0.2,
+      "lambda": 0.49
+    }
+  ],
+  "nonclaims": [
+    "weighted rational charts",
+    "circle twin-cosets",
+    "R>=p",
+    "deployed finite leaves",
+    "power-of-two prize rows",
+    "global closure of hard input 2"
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "certificate_id": "deployed-c9-odd-monomial-fourier-budget-v1",
+  "status": "PROVED_EXACT_FINITE_FULL_SLICE_AUDIT",
+  "base_commit": "fe93bb59dff3d022f66a097208e17c27e1e0deb4",
+  "provenance": {
+    "round": "RS_MCA_HOMERUN_9PRO_20260713_R14",
+    "role": "08_C9_WEIGHTED_CIRCLE_SIGNED_PAYMENT",
+    "worker_return": "ROLE_08_20260713T120834Z_final_response.md",
+    "model_effort": "native gpt-5.6-sol ultra hostile integration worker",
+    "hostile_audit_scope": "finite full-slice odd single-monomial Fourier budget and quadratic-method route cut only"
+  },
+  "claim_scope": {
+    "object": "complete fixed-composition 16-block full-slice absolute Fourier ledger",
+    "paid_stratum": "odd single-monomial modes",
+    "route_cut": "absolute Gauss-period plus uniform cycle-index majorant is nonpaying at the quadratic mode",
+    "novelty": "exact q=2^17 fixed-composition 16-block instantiation only",
+    "supporting_known_machinery": [
+      "experimental/notes/thresholds/signed_local_minority_fixed_composition.md",
+      "experimental/asymptotic_rs_mca_frontiers.tex#thm:prefix-flatness-power-sum",
+      "experimental/notes/roadmaps/b2_conjq_partial_results.md#round-f"
+    ]
+  },
+  "parameters": {
+    "p": 2130706433,
+    "q": 131072,
+    "w": 67471,
+    "negative_blocks": 8,
+    "positive_blocks": 8,
+    "t_minus": 60000,
+    "t_plus": 51566
+  },
+  "expected": {
+    "p_minus_1_factorization": {
+      "2": 24,
+      "127": 1
+    },
+    "q_power_of_two_exponent": 17,
+    "coset_index": 16256,
+    "n": 2097152,
+    "support_size": 981104,
+    "minority_total": 892528,
+    "dense_occupancy": 71072,
+    "positive_complement": 79506,
+    "delta": 67472,
+    "delta_q": 8843689984,
+    "pair_variance": 8364126396,
+    "pair_gap": 479563588,
+    "pair_cap": 18,
+    "odd_degree_count": 33736,
+    "odd_mode_count": 71881512189952,
+    "period_index": 16256,
+    "lambda": 46160,
+    "lambda_lower_margin": 53152,
+    "lambda_upper_margin": 39167,
+    "gauss_period_square_margin": 79620071001856,
+    "quadratic_lambda": 92320,
+    "d2_max_strict_exponent": 472028,
+    "d3_max_strict_exponent": 438163,
+    "d4_max_strict_exponent": 33865,
+    "d5_max_strict_exponent": 33820,
+    "quadratic_minus_excess_floor_bits": 16937,
+    "quadratic_plus_excess_floor_bits": 8701,
+    "large_integer_fingerprints": {
+      "zero_minus": {
+        "bit_length": 130388,
+        "sha256_unsigned_be": "04f698d9586919f5fd85c724dcca371fac552732878ca2c37cd057adb8422c3e"
+      },
+      "zero_plus": {
+        "bit_length": 126734,
+        "sha256_unsigned_be": "71242f2079af2a8fb3ae012ab553b1725737e723e45d5cefdb8037725a0a7e9e"
+      },
+      "full_slice": {
+        "bit_length": 2056973,
+        "sha256_unsigned_be": "6a02a31e79a5ce258043adcff32cc62010ec581b0f155aa5d5b149d7e8037091"
+      },
+      "ambient_target": {
+        "bit_length": 2090838,
+        "sha256_unsigned_be": "838116a47315bdd38d9faa37ab1069b5fd3cd6caccbb9c7584f5caab8317468f"
+      },
+      "cycle_minus": {
+        "bit_length": 104845,
+        "sha256_unsigned_be": "2e80e179c02e5fbb6cbc552a7e186867cb7397df705cb954c77a8d6a93213e56"
+      },
+      "cycle_plus": {
+        "bit_length": 97501,
+        "sha256_unsigned_be": "3f2ce4537bd057a378e6ba213db43e65db4eacffa59389e3527535b72d8d32ae"
+      },
+      "odd_per_mode": {
+        "bit_length": 1618763,
+        "sha256_unsigned_be": "3ce5a48dc4ae0975cd8f139e417b66920f229546d479017c9292504418f68a5a"
+      },
+      "odd_budget": {
+        "bit_length": 1618809,
+        "sha256_unsigned_be": "96f36559e3a1b2baf470d500e53f78f537211f592b4be0787a1615ab45f79ca4"
+      },
+      "quadratic_minus_majorant": {
+        "bit_length": 147326,
+        "sha256_unsigned_be": "ce52bf4fc7c32f1e916603e45e810f88b4de8c15773b491e8c240e7552970eb2"
+      },
+      "quadratic_plus_majorant": {
+        "bit_length": 135435,
+        "sha256_unsigned_be": "ed50e043c5faa8f1a9678d9fd3ba4ee63fc153e74bee8863ce393bd49c9ad079"
+      }
+    }
+  },
+  "publication_gate": {
+    "rule": "narrow, source-valid, nonduplicative, theorem-facing, replayable, and explicit about the remaining wall",
+    "overlap_checked_through_pr": 739,
+    "newer_pr_seen": true,
+    "decision": "PRZ_CANDIDATE_NARROW_SCOPE_ONLY",
+    "refuse_if": [
+      "framed as C9 or hard-input-2 payment",
+      "framed as a first-match or arbitrary weighted-circle theorem",
+      "framed as payment of even or multimonomial modes",
+      "framed as a global max-fiber, Q-to-RC, image-scale add-back, or score improvement"
+    ]
+  },
+  "nonclaims": [
+    "no C9 or hard-input-2 payment",
+    "no first-match Fourier factorization or survival",
+    "no arbitrary weighted circle",
+    "no even-mode or multimonomial payment",
+    "no global max-fiber bound",
+    "no Q-to-RC implication",
+    "no image-scale add-back",
+    "no official score movement",
+    "odd axes are paid only in the complete full-slice absolute Fourier ledger"
+  ]
+}

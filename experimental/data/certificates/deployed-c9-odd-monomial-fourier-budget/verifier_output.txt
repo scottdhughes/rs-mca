@@ -1,0 +1,16 @@
+CERTIFICATE: deployed-c9-odd-monomial-fourier-budget-v1
+BASE_COMMIT: fe93bb59dff3d022f66a097208e17c27e1e0deb4
+SCOPE: complete fixed-composition 16-block full slice; odd single-monomial absolute Fourier ledger only
+PRIME_GATE: p=2130706433 prime; p-1=2^24*127; q=2^17 divides p-1; index=16256
+PROFILE: n=2097152 support=981104 minority_total=892528 blocks=8+8 t_minus=60000 t_plus=51566
+PAIR_CAP_SUPPORT: delta*q=8843689984 B_pair=8364126396 gap=479563588 cap=18
+ODD_INPUTS: odd_degrees=33736 modes=71881512189952 lambda=46160 cycle_bits=104845,97501
+D2: odd_budget/p^w < 2^-472028 (maximal strict exponent) PASS
+D3: odd_budget/M < 2^-438163 (maximal strict exponent) PASS
+D4: M/p^w < 2^-33865 (maximal strict exponent) PASS
+D5: 16!*(M+odd_budget)/p^w < 2^-33820 (maximal strict exponent) PASS
+QUADRATIC_METHOD_FLOOR: lambda2=92320 majorant/zero floor bits=16937,8701 PASS
+OVERLAP_GATE: checked through PR #739; decision=PRZ_CANDIDATE_NARROW_SCOPE_ONLY
+NOVELTY: exact q=2^17 fixed-composition 16-block instantiation only
+NONCLAIMS: no C9 or hard-input-2 payment; no first-match Fourier factorization or survival; no arbitrary weighted circle; no even-mode or multimonomial payment; no global max-fiber bound; no Q-to-RC implication; no image-scale add-back; no official score movement; odd axes are paid only in the complete full-slice absolute Fourier ledger
+RESULT: PASS

@@ -1,0 +1,203 @@
+{
+  "note": "experimental/notes/thresholds/charge_preserving_split_decomposition.md",
+  "result": "PASS",
+  "checks_passed": 57,
+  "checks_total": 57,
+  "failures": [],
+  "verdict": {
+    "fourth_condition_free_with_band_A": true,
+    "per_piece_KN_pigeonhole_needed": false,
+    "genuine_obstruction": "cardinality (piece count), not the fourth condition",
+    "split_suffices_for_prop61_iff": "number of heavy(semantic) fibers is e^{o(N)}"
+  },
+  "data": {
+    "A": {
+      "H": 64,
+      "M": 3876,
+      "L": 32,
+      "band_size": 20,
+      "n_pieces": 135,
+      "n_heavy": 13,
+      "n_layers": 122,
+      "threshold": 123,
+      "min_slack_sq": 237343.1875,
+      "normPAf2_sq": 235285.0
+    },
+    "B": {
+      "q2": {
+        "n_pieces": 135,
+        "min_slack": 0.6268595145005595,
+        "charge_sum": 485.06185172615005,
+        "Omega_plus": 485.06185172614846
+      },
+      "q3": {
+        "n_pieces": 135,
+        "min_slack": 0.399918112373582,
+        "charge_sum": 242.81688848326905,
+        "Omega_plus": 242.81688848326777
+      },
+      "q4": {
+        "n_pieces": 135,
+        "min_slack": 0.3341931357862534,
+        "charge_sum": 171.90329771096793,
+        "Omega_plus": 171.9032977109674
+      }
+    },
+    "C": {
+      "B2": {
+        "N": 4,
+        "C": 61,
+        "M": 6,
+        "L": 5,
+        "W": 2,
+        "maxoverlap": 0,
+        "a_minus_2": 0,
+        "min_pieces": 2,
+        "second_heaviest": 1,
+        "all_twin_template": true
+      },
+      "B4": {
+        "N": 8,
+        "C": 1561,
+        "M": 70,
+        "L": 41,
+        "W": 6,
+        "maxoverlap": 2,
+        "a_minus_2": 2,
+        "min_pieces": 3,
+        "second_heaviest": 2,
+        "all_twin_template": true
+      },
+      "B6": {
+        "N": 12,
+        "C": 39061,
+        "M": 924,
+        "L": 365,
+        "W": 20,
+        "maxoverlap": 4,
+        "a_minus_2": 4,
+        "min_pieces": 7,
+        "second_heaviest": 6,
+        "all_twin_template": true
+      },
+      "B8": {
+        "N": 16,
+        "C": 976561,
+        "M": 12870,
+        "L": 3281,
+        "W": 70,
+        "maxoverlap": 6,
+        "a_minus_2": 6,
+        "min_pieces": 21,
+        "second_heaviest": 20,
+        "all_twin_template": true
+      }
+    },
+    "D": {
+      "synthetic": [
+        {
+          "m": 4,
+          "W": 256,
+          "K": 16,
+          "D": 16,
+          "L": 17,
+          "M": 512,
+          "minLMoverL": 17,
+          "min_pieces": 17
+        },
+        {
+          "m": 5,
+          "W": 1024,
+          "K": 32,
+          "D": 32,
+          "L": 33,
+          "M": 2048,
+          "minLMoverL": 33,
+          "min_pieces": 33
+        },
+        {
+          "m": 6,
+          "W": 4096,
+          "K": 64,
+          "D": 64,
+          "L": 65,
+          "M": 8192,
+          "minLMoverL": 65,
+          "min_pieces": 65
+        },
+        {
+          "m": 7,
+          "W": 16384,
+          "K": 128,
+          "D": 128,
+          "L": 129,
+          "M": 32768,
+          "minLMoverL": 129,
+          "min_pieces": 129
+        }
+      ],
+      "f2chart": {
+        "M": 3876,
+        "L": 32,
+        "n_pieces": 135,
+        "n_heavy": 13,
+        "n_layers": 122
+      }
+    },
+    "F": {
+      "B4": {
+        "M": 70,
+        "L": 41,
+        "band_size": 254,
+        "n_pieces": 3,
+        "n_heavy": 1,
+        "n_layers": 2,
+        "threshold": 6,
+        "min_slack": 0.016880012542103806,
+        "charge_sum": 11.181694017619307,
+        "Omega_plus": 11.181694017619307,
+        "RA_f2": 1.0228253711396582
+      },
+      "B6": {
+        "M": 924,
+        "L": 365,
+        "band_size": 698,
+        "n_pieces": 7,
+        "n_heavy": 1,
+        "n_layers": 6,
+        "threshold": 20,
+        "min_slack": 0.07218794189497935,
+        "charge_sum": 45.8933819058095,
+        "Omega_plus": 45.893381905809505,
+        "RA_f2": 0.9489089071423578
+      }
+    },
+    "E": {
+      "f2_k6": {
+        "M": 3876,
+        "L": 32,
+        "logM_over_logL": 2.3840705710830163,
+        "q_plus": Infinity
+      },
+      "super_B2": {
+        "M": 6,
+        "L": 5,
+        "logM_over_logL": 1.1132827525593785,
+        "q_plus": 2.5858686330082676
+      },
+      "super_B4": {
+        "M": 70,
+        "L": 41,
+        "logM_over_logL": 1.1440454542786835,
+        "q_plus": 2.809347463096928
+      },
+      "super_B6": {
+        "M": 924,
+        "L": 365,
+        "logM_over_logL": 1.1574289623013874,
+        "q_plus": 2.919102580060433
+      },
+      "super_rate_limit": 4.199201857703923
+    }
+  }
+}

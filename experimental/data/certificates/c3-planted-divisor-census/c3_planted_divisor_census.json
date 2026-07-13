@@ -1,0 +1,98 @@
+{
+  "checks_total": 81,
+  "failures": [],
+  "parameters": {
+    "neg_cal_instances": [
+      [
+        10,
+        3,
+        2
+      ],
+      [
+        12,
+        4,
+        2
+      ],
+      [
+        16,
+        6,
+        3
+      ],
+      [
+        20,
+        8,
+        4
+      ]
+    ],
+    "tier_a_max": 600,
+    "tier_b_max": 50000
+  },
+  "pr_interface": {
+    "cell": "C3 planted-block, catalogue L2399-2407",
+    "consumes": "#713 atlas_cat_cell_ledger.md (integrated at upstream c23dcaa; branch base ea4eb07 predates integration)",
+    "manuscript": "experimental/asymptotic_rs_mca_frontiers.tex"
+  },
+  "results": {
+    "classical_sharper_bound_cited_not_reverified": "sigma(N) = O(N log log N) (Groenwall 1913 / Wigert)",
+    "elementary_bound": "sigma(N) <= N*(1+ln N) for all N (divisors(N) subset {1,...,N})",
+    "gap_at_N30": {
+      "binom_mid": 155117520,
+      "coset_total": 72
+    },
+    "negative_calibration": [
+      {
+        "achieved": 120,
+        "b": 3,
+        "binom_n_b": 120,
+        "match": true,
+        "n": 10,
+        "r": 2,
+        "support_size": 5
+      },
+      {
+        "achieved": 495,
+        "b": 4,
+        "binom_n_b": 495,
+        "match": true,
+        "n": 12,
+        "r": 2,
+        "support_size": 6
+      },
+      {
+        "achieved": 8008,
+        "b": 6,
+        "binom_n_b": 8008,
+        "match": true,
+        "n": 16,
+        "r": 3,
+        "support_size": 9
+      },
+      {
+        "achieved": 125970,
+        "b": 8,
+        "binom_n_b": 125970,
+        "match": true,
+        "n": 20,
+        "r": 4,
+        "support_size": 12
+      }
+    ],
+    "sigma_spot_values": {
+      "1": 1,
+      "6": 12,
+      "12": 28,
+      "30": 72,
+      "360": 1170,
+      "5040": 19344,
+      "20000": 49203
+    },
+    "tier_a_grand_total_candidates": 296729
+  },
+  "schema": "c3_planted_divisor_census.v1",
+  "verdict": {
+    "C3": "PARTIAL",
+    "ledger_note": "removes C3 as an independent (CAT) full-catalogue summation blocker on the row-independent reading; residual blockers are C7/C8 (hard input 3) and C9 (hard input 4/5), matching #713's own predicted collapse",
+    "open_subcase": "unrestricted common-factor / received-line-resultant readings: PROVED to be exactly binom(n,b) (exponential) when not tied to row data; not independently censusable in general",
+    "paid_subcase": "quotient-fiber (multiplicative-coset) and automorphism-fixed-point (ramification) planted divisors: exact closed form sigma(N), PROVED subexponential (O(N log N)) for all N, exhaustively brute-force verified for N=1..600 (Tier A) and by independent sieve+trial-division for N=1..50000 (Tier B)"
+  }
+}

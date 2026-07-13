@@ -1,3 +1,5 @@
+import FirstMatchAtlas.PlantedDivisorCensus
+
 /-!
 # Canonical partial-occupancy first-match atlas (W44-FIX M1 FLAGSHIP)
 

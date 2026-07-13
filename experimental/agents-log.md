@@ -30,6 +30,41 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-13 - Threshold, C9, LineRay, Lean, and audit PR wave
+
+- **Agent/model:** Codex integrating PRs #723--#741 from holmbuar and
+  DannyExperiments.
+- **Files added or changed:** Added threshold/audit/L2 notes under
+  `experimental/notes/`, exact certificate JSON and verifier output under
+  `experimental/data/certificates/`, verifier scripts under
+  `experimental/scripts/`, and Lean modules/packages under `experimental/lean/`.
+  Shared Lean aggregators were edited manually to keep all imports:
+  `experimental/lean/grande_finale/GrandeFinale.lean` and
+  `experimental/lean/first_match_atlas/FirstMatchAtlas.lean`. Contributor
+  `experimental/agents-log.md` edits were not imported; this entry is the
+  integration log.
+- **Status:** PROVED / CONDITIONAL / COUNTEREXAMPLE / EXPERIMENTAL / AUDIT,
+  as stated in the individual notes. No stable paper `.tex` or `.pdf` theorem
+  is promoted by this entry.
+- **What is being added:** A large experimental wave around the v13 threshold
+  program: signed-minor clause census, exact deep MCA Lean numerators, C3
+  planted census, general-R Weil-cycle flatness, first-match signed-gain and
+  pruned signed bounds, rational-host nonpositive extraction, owner-rooted and
+  pay-per-bit audits, charge-preserving split decomposition, heavy-prefix
+  precursor emission, Sidon-paired staircase-concentration counterexample,
+  full-slice C9 odd-axis Fourier budget, all-LineRay affine-core and
+  direction-distance packets, plus Danny's L2 rank-15 degree floor and
+  anti-host prefix compiler.
+- **How it is useful:** These packets sharpen the current finite/asymptotic
+  threshold proof program while preserving conservative status labels. Several
+  items are route-cuts or audits rather than new leaderboard records; the Lean
+  additions expand formalization coverage but were not lake-built here.
+- **What to do next:** Human-audit the notes before promotion into
+  `asymptotic_rs_mca.tex`, `grande_finale.tex`, or Paper D; run the verifier
+  scripts and Lean builds in a dedicated environment; decide whether the C9,
+  LineRay, signed-minor, and planted-census packets close specific residual
+  proof obligations or only narrow them.
+
 ### 2026-07-13 - Reed--Solomon MCA Thresholds exact-threshold draft
 
 - **Agent/model:** Maintainer-added paper, integrated and audited by Codex.
