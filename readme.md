@@ -9,6 +9,18 @@ The central theme is simple:
 
 > Smooth multiplicative Reed--Solomon domains do **not** appear to have a clean “up to capacity with negligible error” theorem. They have a corrected reserve theory. Any near-capacity theorem must clear explicit entropy, quotient, field-accounting, list-size, and MCA/line-decoding floors.
 
+**Pay-per-bit framing.** If the Proximity Prize is allocated pro-rata by
+soundness-gap bits, our current results are naturally scored by certified bits
+above the `2^-128` target at an audited radius and denominator. Paper D v12 gives
+the cleanest broad record: in its cap range it proves `epsilon_mca > 2^-86`,
+which is at least **42 bits above** the target throughout the full prize field
+envelope. The strongest finite numerator record on the site is the
+Cycle116/119 `F_17^32` row, about **32.82 bits above** target, while the exact
+tangent-staircase gate gives a narrow but fully structural 6/7 transition. A
+pay-per-bit rule would therefore reward both kinds of progress: larger certified
+bit margins and, more importantly, certificates that push the unsafe radius
+lower or close the interval for `delta*_C(2^-128)`.
+
 The repo is meant for people and AI agents who want to help turn that corrected theory into proofs, counterexamples, parameter certificates, and eventually protocol-grade statements.
 
 ## Repository contents
