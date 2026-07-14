@@ -76,12 +76,15 @@ ladder (`g = 1,2,4` at `p = 61441` give `-22.50, -35.33, -60.36`, confirming the
 head-depth `kappa^2` is independently reproduced by a PARI character-route
 (`[x^m] prod(1 + x psi(sb))^g`) matching the CRT integer DP to 4 decimals.
 
-**Lean.** The one elementary analytic step — `1 - cos(2 pi u) >= 8 u^2` for `|u| <= 1/2`,
-used to reduce the character gap to the lattice minimum — is formalized 0-sorry in
-`experimental/lean/grande_finale/GrandeFinale/AxisGdampingCosGap.lean` (Mathlib `v4.28.0`).
-The exact lattice minima `M_+`, `M_-` are supplied by the Sage/fplll + PARI certificate above
-(Mathlib has no shortest-vector infrastructure); the Cauchy-saddle coefficient estimate is
-outside current Mathlib.  A full 0-sorry Lean proof is therefore not attempted here.
+**Lean.** Two finite pieces are formalized 0-sorry in
+`experimental/lean/grande_finale/GrandeFinale/AxisGdampingCosGap.lean` (Mathlib `v4.28.0`):
+`cos_lower_bound` (`1 - cos(2 pi u) >= 8 u^2` for `|u| <= 1/2`, the character-gap-to-lattice reduction)
+and `axis_kappa_arith` (the arithmetic assembly `2 logB - lam 2^16 delta/(2 log 2) <= -76842.7`, given
+the certified `delta`, `logB` as hypotheses).  `axis_kappa_arith` uses decimal-rounded hypotheses so it
+proves the robust `-76842.7`; the exact certified constants give `-76842.78` (verifier, cross-checked
+mpmath = Sage).  The exact lattice minima `M_+`, `M_-` are supplied by the Sage/fplll + PARI certificate
+above (Mathlib has no shortest-vector infrastructure) and the Cauchy-saddle coefficient estimate is
+outside current Mathlib, so a full 0-sorry Lean proof is not attempted.
 
 ## Consumers
 
