@@ -1,6 +1,7 @@
 import Mathlib
 import GrandeFinale.AllLineRayAffineCore
 import GrandeFinale.AntiHostPrefixCompiler
+import GrandeFinale.AxisGdampingCosGap
 import GrandeFinale.DeployedC9OddMonomialFourierBudget
 import GrandeFinale.DirectionDistanceAllPairs
 import GrandeFinale.GeneralRConstantWeilCycleFlatness
