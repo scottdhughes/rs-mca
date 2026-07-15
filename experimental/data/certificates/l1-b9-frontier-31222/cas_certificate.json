@@ -1,0 +1,678 @@
+{
+  "certificate": {
+    "engines": {
+      "Macaulay2": "/opt/homebrew/bin/M2",
+      "Singular": "/opt/homebrew/bin/Singular"
+    },
+    "matrix_payload_sha256": "5ced317b377cb36e8fd8c82ad6589b7d2b33686fba8c6e1ac36d500656ab1722"
+  },
+  "input": {
+    "field": "GF(19)",
+    "fixed_matrix_shape": [
+      12,
+      9
+    ],
+    "moving_matrix_shape": [
+      12,
+      12
+    ],
+    "patterns": [
+      {
+        "background_support": [
+          16
+        ],
+        "kind": "compatible",
+        "name": "compatible-background-16",
+        "petal_supports": [
+          [
+            4,
+            6
+          ],
+          [
+            8,
+            11
+          ],
+          [
+            13,
+            14
+          ]
+        ]
+      },
+      {
+        "background_support": [
+          17
+        ],
+        "kind": "compatible",
+        "name": "compatible-background-17",
+        "petal_supports": [
+          [
+            4,
+            7
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            12,
+            15
+          ]
+        ]
+      },
+      {
+        "background_support": [
+          16
+        ],
+        "kind": "inconsistent",
+        "name": "inconsistent-background-16",
+        "petal_supports": [
+          [
+            4,
+            5
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            13,
+            14
+          ]
+        ]
+      },
+      {
+        "background_support": [
+          17
+        ],
+        "kind": "inconsistent",
+        "name": "inconsistent-background-17",
+        "petal_supports": [
+          [
+            4,
+            5
+          ],
+          [
+            8,
+            10
+          ],
+          [
+            12,
+            14
+          ]
+        ]
+      }
+    ]
+  },
+  "proof_status": {
+    "exact": "three independent exact engines agree on the representative ranks and minors",
+    "uniform": "unproved; the two compatible rank-drop lines remain UNPAID_RANKDROP_TEMPLATE"
+  },
+  "results": {
+    "macaulay2": [
+      {
+        "fixed": {
+          "augmented_rank": 10,
+          "rank": 9
+        },
+        "moving": {
+          "augmented_rank": 11,
+          "rank": 11
+        },
+        "representative_minor": {
+          "columns_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "factorization": "11",
+          "identity_verified": true,
+          "kind": "nonzero_11x11_C_minor",
+          "rows_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "unit_coefficient_mod_19": 11
+        }
+      },
+      {
+        "fixed": {
+          "augmented_rank": 10,
+          "rank": 9
+        },
+        "moving": {
+          "augmented_rank": 11,
+          "rank": 11
+        },
+        "representative_minor": {
+          "columns_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "factorization": "16",
+          "identity_verified": true,
+          "kind": "nonzero_11x11_C_minor",
+          "rows_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "unit_coefficient_mod_19": 16
+        }
+      },
+      {
+        "fixed": {
+          "augmented_rank": 10,
+          "rank": 9
+        },
+        "moving": {
+          "augmented_rank": 12,
+          "rank": 11
+        },
+        "representative_minor": {
+          "columns_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12
+          ],
+          "factorization": "18*t",
+          "identity_verified": true,
+          "kind": "nonzero_12x12_augmented_minor",
+          "rows_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "unit_coefficient_mod_19": 18
+        }
+      },
+      {
+        "fixed": {
+          "augmented_rank": 10,
+          "rank": 9
+        },
+        "moving": {
+          "augmented_rank": 12,
+          "rank": 11
+        },
+        "representative_minor": {
+          "columns_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12
+          ],
+          "factorization": "18*t",
+          "identity_verified": true,
+          "kind": "nonzero_12x12_augmented_minor",
+          "rows_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "unit_coefficient_mod_19": 18
+        }
+      }
+    ],
+    "python_affine_lower_coefficient_lines": [
+      {
+        "line": {
+          "base": [
+            0,
+            4,
+            4
+          ],
+          "direction": [
+            1,
+            1,
+            5
+          ]
+        },
+        "name": "compatible-background-16"
+      },
+      {
+        "line": {
+          "base": [
+            0,
+            17,
+            0
+          ],
+          "direction": [
+            1,
+            0,
+            9
+          ]
+        },
+        "name": "compatible-background-17"
+      },
+      {
+        "line": null,
+        "name": "inconsistent-background-16"
+      },
+      {
+        "line": null,
+        "name": "inconsistent-background-17"
+      }
+    ],
+    "python_modular_elimination": [
+      {
+        "fixed": {
+          "augmented_rank": 10,
+          "rank": 9
+        },
+        "moving": {
+          "augmented_rank": 11,
+          "rank": 11
+        },
+        "representative_minor": {
+          "columns_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "factorization": "11",
+          "identity_verified": true,
+          "kind": "nonzero_11x11_C_minor",
+          "rows_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "unit_coefficient_mod_19": 11
+        }
+      },
+      {
+        "fixed": {
+          "augmented_rank": 10,
+          "rank": 9
+        },
+        "moving": {
+          "augmented_rank": 11,
+          "rank": 11
+        },
+        "representative_minor": {
+          "columns_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "factorization": "16",
+          "identity_verified": true,
+          "kind": "nonzero_11x11_C_minor",
+          "rows_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "unit_coefficient_mod_19": 16
+        }
+      },
+      {
+        "fixed": {
+          "augmented_rank": 10,
+          "rank": 9
+        },
+        "moving": {
+          "augmented_rank": 12,
+          "rank": 11
+        },
+        "representative_minor": {
+          "columns_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12
+          ],
+          "factorization": "18*t",
+          "identity_verified": true,
+          "kind": "nonzero_12x12_augmented_minor",
+          "rows_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "unit_coefficient_mod_19": 18
+        }
+      },
+      {
+        "fixed": {
+          "augmented_rank": 10,
+          "rank": 9
+        },
+        "moving": {
+          "augmented_rank": 12,
+          "rank": 11
+        },
+        "representative_minor": {
+          "columns_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12
+          ],
+          "factorization": "18*t",
+          "identity_verified": true,
+          "kind": "nonzero_12x12_augmented_minor",
+          "rows_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "unit_coefficient_mod_19": 18
+        }
+      }
+    ],
+    "singular": [
+      {
+        "fixed": {
+          "augmented_rank": 10,
+          "rank": 9
+        },
+        "moving": {
+          "augmented_rank": 11,
+          "rank": 11
+        },
+        "representative_minor": {
+          "columns_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "factorization": "11",
+          "identity_verified": true,
+          "kind": "nonzero_11x11_C_minor",
+          "rows_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "unit_coefficient_mod_19": 11
+        }
+      },
+      {
+        "fixed": {
+          "augmented_rank": 10,
+          "rank": 9
+        },
+        "moving": {
+          "augmented_rank": 11,
+          "rank": 11
+        },
+        "representative_minor": {
+          "columns_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "factorization": "16",
+          "identity_verified": true,
+          "kind": "nonzero_11x11_C_minor",
+          "rows_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "unit_coefficient_mod_19": 16
+        }
+      },
+      {
+        "fixed": {
+          "augmented_rank": 10,
+          "rank": 9
+        },
+        "moving": {
+          "augmented_rank": 12,
+          "rank": 11
+        },
+        "representative_minor": {
+          "columns_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12
+          ],
+          "factorization": "18*t",
+          "identity_verified": true,
+          "kind": "nonzero_12x12_augmented_minor",
+          "rows_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "unit_coefficient_mod_19": 18
+        }
+      },
+      {
+        "fixed": {
+          "augmented_rank": 10,
+          "rank": 9
+        },
+        "moving": {
+          "augmented_rank": 12,
+          "rank": 11
+        },
+        "representative_minor": {
+          "columns_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12
+          ],
+          "factorization": "18*t",
+          "identity_verified": true,
+          "kind": "nonzero_12x12_augmented_minor",
+          "rows_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "unit_coefficient_mod_19": 18
+        }
+      }
+    ]
+  },
+  "schema": "rs-mca-l1-b9-frontier-31222-cas-v1",
+  "statement": "independently verify the two compatible and two affine-inconsistent GF(19) moving-cubic rank drops without generic saturation",
+  "status": "AUDIT/EXACT_REPRESENTATIVE_CAS_REPLAY",
+  "verdict": "YELLOW_REPRESENTATIVE_CONTROL_ONLY"
+}
