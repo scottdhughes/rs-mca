@@ -30,6 +30,41 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-15 - L1 mixed-petal m=2 reduced-CRT frontier packet
+
+- **Agent/model:** Codex, with independent proof, dependency, hash-chain, and
+  clean-worktree review passes.
+- **Files added or changed:** Added exact mixed-petal notes, Sage/Python/CAS
+  analyzers, and 19 JSON certificates under `experimental/notes/l1/`,
+  `experimental/scripts/`, and `experimental/data/certificates/`; extended
+  the full-list scanner and auxiliary-Johnson note.
+- **Status:** PROVED-LOCAL / EXACT for the printed `m=2`, GF(19),
+  block-disjoint 31222 and 32221 profiles. Global mixed-petal closure remains
+  YELLOW.
+- **What is being added:** A mutation-tested B7--B11 residual ledger, exact
+  211/221 and boundary-222/321 rank packets, a content-addressed full-rank
+  `m=2` ledger, and reduced-CRT pointwise bridges for the two largest frozen
+  rows. Large Macaulay2 programs use temporary `M2 --script` files to avoid
+  Python stdin-pipe deadlock without changing the checked payload.
+- **Ledger impact:** The local add-back improves
+  `3,490,288 -> 1,503,967 -> 1,348,447 -> 1,192,927`; unresolved mass
+  improves `668,803 -> 513,283 -> 357,763`. The next largest row is
+  `(ell,d,r,t,a_i)=(4,4,1,3,(3,3,1))`, charge `138,624`.
+- **Validation:** Sage, Python, Singular, and Macaulay2 normal replays pass;
+  every mutation battery passes; the boundary-222 -> `m=2` -> 31222 -> 32221
+  SHA-256 chain, Python compilation, JSON parsing, and `git diff --check`
+  were independently replayed. The four 432-row transcripts retain every
+  record but serialize one canonical record per line; round-trip checks guard
+  the formatting, while owner and ledger validators require exact equality
+  with the deterministic support enumeration.
+- **How it is useful:** Banks two disjoint local row payments while preserving
+  exact hypotheses and leaving compatible primitive components explicitly
+  unpaid.
+- **What to do next:** Review this experimental packet, then run the frozen
+  existing-owner partition for the new largest row. Do not generalize to
+  `m>2`, apply the result to PR `#763`, or claim a global theorem or score
+  consequence.
+
 ### 2026-07-15 - L1/L2, LineRay, circle, and charge-obstruction PR wave
 
 - **Agent/model:** Codex integrating non-draft PRs #755--#774 and #776 from
