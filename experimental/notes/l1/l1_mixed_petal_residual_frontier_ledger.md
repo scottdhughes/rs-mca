@@ -1071,6 +1071,48 @@ The next largest unchanged row is
 payment of the `r=0` row, are deliberately not used without a separate frozen
 lemma and review.
 
+## Exact `d=4,r=0` shared auxiliary-owner scope
+
+The separate frozen audit supplies that next lemma without combining residual
+layers.  On the concrete partition
+
+```text
+Omega = Y disjoint-union {16,17} disjoint-union T,
+Y = {0,1,2,3},        D_0=Y,        R_0=empty,
+```
+
+exact `d=4,r=0` excludes every core and background agreement.  Thus all
+agreements lie on the common twelve-point petal domain, and the concrete
+sunflower map is `G_P=P-P_star` with degree at most four and at least eight
+agreements with the single auxiliary word `U_D0`.  The sharp Johnson audit is
+
+```text
+|T|=12, a=8, d=4, a^2-d|T|=16,
+floor(|T|(a-d)/(a^2-d|T|))=3.
+```
+
+The exact profile generator gives eleven disjoint cells: the sole `t=2` cell
+`(4,4)` and the ten nonincreasing `t=3` triples with entries at most four and
+sum at least eight.  Their aggregate support-pattern multiplicity is `794`,
+their post-41331 charge is `135,470`, and their unresolved-route subtotal is
+`107,844`.  The multiplicity is not a realized-codeword census.
+
+One bookkeeping carrier on the original unresolved `(3,3,2)` row charges the
+common envelope once; the other ten zeroes are only incremental allocations.
+Fresh independent and cross-model reviews are GREEN, and the mutation-tested
+content-addressed replay banks
+
+```text
+11-profile shared scope: 135,470 -> 3,
+all-profile add-back:     776,979 -> 641,512,
+unresolved mass:          212,755 -> 104,914.
+```
+
+The separately banked `r=1` charge `72` remains unchanged; no cross-`r`
+`72+3 -> 36` saving is used.  The next largest unresolved row is
+`(ell,d,r,t,a_i)=(4,3,1,3,(3,2,1))`, `(G2,GR)=(3,4)`, with 1,152 aggregate
+patterns and charge `1,152*19=21,888`.  Its auxiliary margin is zero.
+
 ## Proof status and stop condition
 
 - **Rigorous for the frozen finite rows:** profile enumeration, support-pattern
@@ -1112,8 +1154,9 @@ lemma and review.
   first to `1,348,447` and `513,283`, then the reviewed 32221 replay improves
   them to `1,192,927` and `357,763`. The fresh independent and cross-model
   GREEN 41331 review then authorizes the shared `d=4,r=1` auxiliary envelope,
-  giving banked values `776,979` and `212,755`, respectively. Positive
-  unresolved mass remains.
+  giving banked values `776,979` and `212,755`. A separate pair of GREEN
+  reviews authorizes the one-layer `d=4,r=0` envelope, giving banked values
+  `641,512` and `104,914`, respectively. Positive unresolved mass remains.
 - **Empirical/exact finite evidence:** the 19-codeword list and seven surviving
   template solutions, the `GF(11)`/`GF(13)` structural censuses, the empty
   216-fibre `p=19` control, and the 576-pattern `(3,2,1)` census with its
@@ -1145,12 +1188,13 @@ leaves all 432 aggregate keys unpaid, but its independently reviewed
 degree-five reduced-CRT lemma now banks the further `432` charge and resulting
 `1,192,927`/`357,763` totals. The exact 41331 owner partition leaves no unpaid
 support, and its reviewed shared-layer replay banks the further
-`776,979`/`212,755` totals. The next gate is the existing-owner partition for
-`(ell,d,r,t,a_i)=(4,4,0,3,(3,3,2))`, `(G2,GR)=(2,5)`, charge `103,968`. The
-stronger cross-`R_0` observation and any payment of that next row remain
-unbanked. The global theorem remains out of scope until the remaining profiles
-have named payments and the whole implication chain survives independent
-review.
+`776,979`/`212,755` totals. The separately reviewed `d=4,r=0` layer replay then
+banks `641,512`/`104,914` without combining it with `r=1`. The next gate is the
+existing-owner partition for
+`(ell,d,r,t,a_i)=(4,3,1,3,(3,2,1))`, `(G2,GR)=(3,4)`, charge `21,888`.
+Cross-`r` aggregation remains unbanked. The global theorem remains out of scope
+until the remaining profiles have named payments and the whole implication
+chain survives independent review.
 
 ## Reproduction
 
@@ -1205,4 +1249,6 @@ python3 experimental/scripts/verify_l1_b9_frontier_41331_owner_partition.py
 python3 experimental/scripts/verify_l1_b9_frontier_41331_owner_partition.py --tamper-selftest
 python3 experimental/scripts/verify_l1_b9_frontier_41331_shared_auxiliary_ledger.py
 python3 experimental/scripts/verify_l1_b9_frontier_41331_shared_auxiliary_ledger.py --tamper-selftest
+python3 experimental/scripts/verify_l1_b9_d4r0_shared_auxiliary_ledger.py
+python3 experimental/scripts/verify_l1_b9_d4r0_shared_auxiliary_ledger.py --tamper-selftest
 ```

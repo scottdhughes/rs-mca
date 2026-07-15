@@ -80,6 +80,13 @@ conservative envelope is therefore `72` once.  The exact regrouping and
 mutation tests are in
 `experimental/scripts/verify_l1_b9_frontier_41331_shared_auxiliary_ledger.py`.
 
+The next frozen layer, `d=4,r=0`, has the same full-core miss and the unique
+empty retained-background set.  Exactness excludes both background
+agreements, so all eleven occupancy cells lie in one concrete auxiliary layer
+with `a=8`.  The sharp bound is `3`, charged once across the whole layer.  The
+content-addressed replay and its no-cross-`r` guard are in
+`experimental/scripts/verify_l1_b9_d4r0_shared_auxiliary_ledger.py`.
+
 ## Johnson Regime
 
 The auxiliary petal domain has size

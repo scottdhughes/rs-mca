@@ -30,6 +30,26 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-15 - L1 B9 `d=4,r=0` shared auxiliary owner
+
+- **Agent/model:** Codex, with a fresh independent theorem-scope audit and a
+  fresh Claude cross-model proof/certificate review.
+- **Files added or changed:** Added a focused scope note, independent and
+  cross-model reviews, an exact ledger verifier, and its JSON certificate;
+  updated the mixed-petal ledger and auxiliary-Johnson notes.
+- **Status:** PROVED-LOCAL / exact frozen-layer ledger; both reviews GREEN with
+  ledger authorization YES. Global closure remains YELLOW.
+- **What is being added:** All eleven disjoint exact `d=4,r=0` cells share the
+  unique full-core-miss, empty-background auxiliary layer. The sharp Johnson
+  cap `3` replaces their combined post-41331 charge `135,470` once. The
+  certificate replays 75 rows and catches 22 semantic/hash mutations.
+- **How it is useful:** Banks the frozen all-profile value `641,512` and the
+  existing-convention unresolved subtotal `104,914`, while explicitly leaving
+  the separately banked `r=1` cap `72` untouched.
+- **What to do next:** Package this as a small PR stacked on #799, then run the
+  existing-owner partition for `(ell,d,r,t,a_i)=(4,3,1,3,(3,2,1))`, charge
+  `21,888`. Do not bank cross-`r` aggregation.
+
 ### 2026-07-15 - L1 B9 41331 shared auxiliary-owner audit
 
 - **Agent/model:** Codex, with independent theorem-scope and exact-census
