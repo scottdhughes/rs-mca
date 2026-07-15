@@ -1,0 +1,212 @@
+{
+  "mutation_control_statuses": {
+    "budget_missing": "UNPAID_QUOTIENT_BUDGET_MISSING",
+    "domain_noninvariant": "UNPAID_NONINVARIANT",
+    "explainer_nondescending": "UNPAID_EXPLAINER_NONDESCENT",
+    "fold_undeclared": "UNPAID_UNDECLARED_DOMAIN_SYMMETRY",
+    "invalid_template": "INVALID_PGL2_TEMPLATE",
+    "no_domain": "NO_RS_DOMAIN_SUPPLIED",
+    "rational_only": "UNPAID_RATIONAL_INVOLUTION_ONLY",
+    "received_nondescending": "UNPAID_DATA_NONDESCENT",
+    "support_nondescending": "UNPAID_SUPPORT_NONDESCENT"
+  },
+  "nonclaims": [
+    "toy structural charts are not asymptotic evidence",
+    "an arbitrary rational involution is not a paid quotient owner",
+    "no m>2 statement is tested or asserted",
+    "no global mixed-petal theorem is closed"
+  ],
+  "paid_positive_control": {
+    "gates": {
+      "affine_compatible": true,
+      "both_received_words_descend": true,
+      "chebyshev_geometry_certified": false,
+      "declared_power_or_chebyshev_fold": true,
+      "domain_poles": [],
+      "domain_supplied": true,
+      "explainer_degree_lt_K_le_n": true,
+      "explainer_descends": true,
+      "fold_fibres_match_tau_orbits": true,
+      "fold_kind": "POWER_C2",
+      "orbit_count": 6,
+      "quotient_profile_budget_certified": true,
+      "rank_two": true,
+      "received_word_checks": [
+        {
+          "descends": true,
+          "name": "y0"
+        },
+        {
+          "descends": true,
+          "name": "y1"
+        }
+      ],
+      "scale_two_retained": true,
+      "support_descends": true,
+      "tau_preserves_domain": true,
+      "uniform_two_fibres": true,
+      "valid_pgl2_involution": true
+    },
+    "induced_tau": {
+      "determinant": 4,
+      "formula": "(a*x+b)/(c*x+d)",
+      "matrix_abcd": [
+        1,
+        0,
+        0,
+        12
+      ],
+      "pair_checks": [
+        {
+          "pair": [
+            1,
+            12
+          ],
+          "swapped": true
+        },
+        {
+          "pair": [
+            2,
+            11
+          ],
+          "swapped": true
+        },
+        {
+          "pair": [
+            3,
+            10
+          ],
+          "swapped": true
+        },
+        {
+          "pair": [
+            4,
+            9
+          ],
+          "swapped": true
+        }
+      ],
+      "reason": "OK",
+      "square_scalar": true,
+      "trace": 0,
+      "valid": true
+    },
+    "named_owner": [
+      "prop:quotient-descent",
+      "prop:stabilizer-payment"
+    ],
+    "quotient_polynomial": [
+      1,
+      2,
+      1
+    ],
+    "quotient_support_size": 4,
+    "reason": "uniform declared fold and every witness datum descend to a budgeted quotient cell",
+    "status": "PAID_BY_THEOREM"
+  },
+  "parameters": {
+    "fold_scale": 2,
+    "labels": [
+      1,
+      2,
+      3
+    ],
+    "m": 2
+  },
+  "proof_status": {
+    "proved_or_exact": [
+      "all enumerated m=2 compatible structural charts emit a canonical PGL2 involution",
+      "the classifier never pays a chart without domain, fold, witness-data, and budget gates",
+      "the positive power-fold control reaches the named existing owner"
+    ],
+    "unproved": [
+      "that any non-exact frontier rank-two template satisfies these gates",
+      "the complete m=2 moving-support add-back against the full profile envelope",
+      "any higher-m analogue"
+    ]
+  },
+  "schema": "rs-mca-l1-b9-rank2-owner-classifier-v1",
+  "sequential_p19": {
+    "chart_count": 216,
+    "compatible_rank2_charts": [],
+    "compatible_rank2_count": 0,
+    "domain": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      13,
+      7,
+      14,
+      9,
+      18,
+      17,
+      15,
+      11,
+      3,
+      6,
+      12,
+      5,
+      10
+    ],
+    "p": 19,
+    "rank_partition": {
+      "rankC=2,rankAug=3": 1,
+      "rankC=3,rankAug=3": 215
+    }
+  },
+  "status": "EXPERIMENTAL/EXACT_M2_DOMAIN_CLASSIFIER",
+  "structural_fields": [
+    {
+      "compatible_chart_sha256": "9acbcd0950560e3785f01f6cf647eaa6b8294c40c57bff2ce86b0ca0ec32b12c",
+      "compatible_rank2_count": 18,
+      "owner_status_counts": {
+        "NO_RS_DOMAIN_SUPPLIED": 18
+      },
+      "p": 11,
+      "rank_partition": {
+        "rankC=1,rankAug=2": 2,
+        "rankC=2,rankAug=2": 18,
+        "rankC=2,rankAug=3": 64,
+        "rankC=3,rankAug=3": 7476
+      },
+      "total_charts": 7560
+    },
+    {
+      "compatible_chart_sha256": "830aa22b68b1c2fa13d7a1f9656d550b411d67b049ea65303d314f8adba04435",
+      "compatible_rank2_count": 49,
+      "owner_status_counts": {
+        "NO_RS_DOMAIN_SUPPLIED": 49
+      },
+      "p": 13,
+      "rank_partition": {
+        "rankC=1,rankAug=2": 5,
+        "rankC=2,rankAug=2": 49,
+        "rankC=2,rankAug=3": 334,
+        "rankC=3,rankAug=3": 41192
+      },
+      "total_charts": 41580
+    }
+  ],
+  "summary": {
+    "compatible_structural_charts_classified": 67,
+    "p19_compatible_rank2_charts": 0,
+    "paid_structural_charts_without_declared_domain": 0,
+    "partition_frozen": true
+  },
+  "theorem_interface": {
+    "paid_owner": "prop:stabilizer-payment",
+    "required_data": [
+      "declared RS domain",
+      "tau(D)=D with uniform two-point fibres",
+      "declared retained power/Chebyshev scale two",
+      "support descends",
+      "both received words descend",
+      "explaining polynomial descends",
+      "natural quotient profile term certified"
+    ],
+    "structural_descent": "prop:quotient-descent"
+  },
+  "transcript_sha256": "e3234bb7bcb4f7aedef6df8e918bbb744ababac5cd7b72aac68b5a4f1bc94fce"
+}

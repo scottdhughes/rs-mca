@@ -13,6 +13,10 @@ Two modes are available:
   low-weight error ball is small;
 * random/adversarial received-word sampling using k-subset interpolation near
   the entropy boundary, including glued-codeword sunflower attacks.
+
+Sunflower rows additionally expose exact finite B11 coordinates and the
+fixed-layer auxiliary-Johnson owner.  These are row diagnostics; they do not
+turn a finite escape into an asymptotic frontier sequence.
 """
 
 from __future__ import annotations
@@ -304,6 +308,140 @@ def johnson_slack_needed(n: int, k: int, s: int) -> int:
     if s * s > threshold:
         return 0
     return isqrt(threshold) + 1 - s
+
+
+def b11_frontier_record(
+    *,
+    ell: int,
+    petal_count: int,
+    d: int,
+    r: int,
+    a_i: list[int],
+    agreement_slack: int,
+    lambda_j: int,
+    maximal: bool,
+) -> dict[str, object]:
+    """Return exact finite coordinates used by Theorem B11.
+
+    This is a one-row diagnostic.  In particular, it does not interpret a
+    positive coordinate as a sequence tending to infinity.
+    """
+    if ell <= 0:
+        raise ValueError("ell must be positive")
+    if petal_count <= 0:
+        raise ValueError("petal_count must be positive")
+    if d < 0 or r < 0 or agreement_slack < 0 or lambda_j < 0:
+        raise ValueError("B11 coordinates must be nonnegative")
+    if maximal and r >= ell:
+        raise ValueError("a maximal sunflower requires r < ell")
+    if any(hit <= 0 or hit > ell for hit in a_i):
+        raise ValueError("a_i must contain positive petal hits at most ell")
+    if any(hit > d for hit in a_i):
+        raise ValueError("a non-planted petal support must satisfy a_i <= d")
+    if a_i != sorted(a_i, reverse=True):
+        raise ValueError("a_i must be nonincreasing")
+    if len(a_i) > petal_count:
+        raise ValueError("touched-petal count exceeds the sunflower petal count")
+    implied_slack = r + sum(a_i) - (ell + d)
+    if agreement_slack != implied_slack:
+        raise ValueError(
+            "lambda must equal r + sum(a_i) - (ell + d) for a sunflower record"
+        )
+
+    t = len(a_i)
+    all_full = bool(a_i) and all(hit == ell for hit in a_i)
+    auxiliary_agreement = ell + d - r
+    auxiliary_domain_size = petal_count * ell
+    auxiliary_johnson_margin = (
+        auxiliary_agreement * auxiliary_agreement - auxiliary_domain_size * d
+    )
+    auxiliary_johnson_paid = auxiliary_johnson_margin > 0
+    auxiliary_unique = (
+        auxiliary_johnson_paid
+        and 2 * auxiliary_agreement > auxiliary_domain_size + d
+    )
+    auxiliary_bound = None
+    if auxiliary_johnson_paid:
+        auxiliary_numerator = auxiliary_domain_size * (auxiliary_agreement - d)
+        auxiliary_bound = (
+            1
+            if auxiliary_unique
+            else auxiliary_numerator // auxiliary_johnson_margin
+        )
+    record: dict[str, object] = {
+        "d_minus_ell": d - ell,
+        "G2": None,
+        "GR": None,
+        "t": t,
+        "r": r,
+        "a_i": list(a_i),
+        "lambda": agreement_slack,
+        "lambda_J": lambda_j,
+        "lambda_minus_lambda_J": agreement_slack - lambda_j,
+        "maximal_sunflower": maximal,
+        "b11_two_gate_defined": t >= 2,
+        "johnson_paid": agreement_slack >= lambda_j,
+        "all_full": all_full,
+        "mixed_partial_target": t >= 2 and not all_full,
+        "auxiliary_johnson": {
+            "petal_count": petal_count,
+            "petal_domain_size": auxiliary_domain_size,
+            "required_agreement": auxiliary_agreement,
+            "effective_degree_bound": d,
+            "margin": auxiliary_johnson_margin,
+            "paid": auxiliary_johnson_paid,
+            "unique": auxiliary_unique,
+            "integer_floor_bound_per_fixed_D_R0": auxiliary_bound,
+        },
+    }
+    if not maximal:
+        record["status"] = "OUTSIDE_B11_MAXIMAL_DOMAIN"
+        return record
+    if t < 2:
+        record["status"] = "OUTSIDE_B11_TWO_GATE_DOMAIN"
+        return record
+
+    record["G2"] = 2 * ell - a_i[0] - a_i[1]
+    record["GR"] = 2 * ell - r - a_i[0]
+    if all_full:
+        record["status"] = "FULL_PETAL_SEPARATE"
+    elif bool(record["johnson_paid"]):
+        record["status"] = "JOHNSON_PAID"
+    else:
+        record["status"] = "B11_LOW_OVERAGREEMENT_COORDINATE"
+    return record
+
+
+def classify_b11_box(
+    record: dict[str, object],
+    *,
+    E: int,
+    V2: int,
+    VR: int,
+) -> str:
+    """Classify one finite coordinate relative to fixed B11 cutoffs."""
+    if min(E, V2, VR) < 0:
+        raise ValueError("B11 cutoffs E, V2, and VR must be nonnegative")
+    status = str(record["status"])
+    if status in {
+        "OUTSIDE_B11_MAXIMAL_DOMAIN",
+        "OUTSIDE_B11_TWO_GATE_DOMAIN",
+        "FULL_PETAL_SEPARATE",
+    }:
+        return status
+    if bool(record["johnson_paid"]):
+        return "PAID_JOHNSON"
+    if int(record["d_minus_ell"]) > E:
+        return "ESCAPES_BY_COFACTOR_EXCESS"
+    G2 = record["G2"]
+    GR = record["GR"]
+    if not isinstance(G2, int) or not isinstance(GR, int):
+        raise ValueError("B11 two-gate coordinates are undefined")
+    if G2 <= V2:
+        return "PAID_G2"
+    if GR <= VR:
+        return "PAID_GR"
+    return "ESCAPES_BOUNDED_EXCESS_BOX"
 
 
 def johnson_bound_report(
@@ -665,6 +803,10 @@ def classify_sunflower_listing(
     sunflower: dict[str, object],
     n: int,
     max_extra_examples: int,
+    *,
+    frontier_E: int = 0,
+    frontier_V2: int = 0,
+    frontier_VR: int = 0,
 ) -> dict[str, object]:
     core = set(sunflower["core"])
     petals = [set(petal) for petal in sunflower["petals"]]
@@ -674,6 +816,7 @@ def classify_sunflower_listing(
     johnson_slack = johnson_slack_needed(n, k, s)
     petal_union = set().union(*petals) if petals else set()
     background = set(range(n)) - core - petal_union
+    maximal_sunflower = len(background) < petal_size if petal_size else False
     intended_masks = {
         mask_from_indices(intended)
         for intended in sunflower["intended_agreement_sets"]
@@ -689,10 +832,16 @@ def classify_sunflower_listing(
             int, int, int, int, int, int, int, int,
         ]
     ] = Counter()
+    b11_box_histogram: Counter[str] = Counter()
+    b11_known_owner_histogram: Counter[str] = Counter()
+    b11_coordinate_histogram: Counter[
+        tuple[int, int, int, int, tuple[int, ...], int, int, int, int, str]
+    ] = Counter()
     extra_examples: list[dict[str, object]] = []
     johnson_covered_extras = 0
     for mask in extra_masks:
         agreement = set(mask_to_exponents(mask, n))
+        agreement_stabilizer = stabilizer_order(mask, n)
         agreement_size = len(agreement)
         agreement_slack = agreement_size - s
         johnson_covered = agreement_slack >= johnson_slack
@@ -789,6 +938,67 @@ def classify_sunflower_listing(
         list_condition_slack = (
             background_hits + sum(petal_hits) - (petal_size + core_defect)
         )
+        b11_record = b11_frontier_record(
+            ell=petal_size,
+            petal_count=len(petals),
+            d=core_defect,
+            r=background_hits,
+            a_i=positive_petal_hits_desc,
+            agreement_slack=agreement_slack,
+            lambda_j=johnson_slack,
+            maximal=maximal_sunflower,
+        )
+        b11_box_class = classify_b11_box(
+            b11_record,
+            E=frontier_E,
+            V2=frontier_V2,
+            VR=frontier_VR,
+        )
+        b11_record["finite_box"] = {
+            "E": frontier_E,
+            "V2": frontier_V2,
+            "VR": frontier_VR,
+            "classification": b11_box_class,
+        }
+        b11_record["agreement_stabilizer_order"] = agreement_stabilizer
+        if b11_box_class in {
+            "FULL_PETAL_SEPARATE",
+            "OUTSIDE_B11_MAXIMAL_DOMAIN",
+            "OUTSIDE_B11_TWO_GATE_DOMAIN",
+        }:
+            known_owner = b11_box_class
+        elif b11_box_class == "PAID_JOHNSON":
+            known_owner = "PAID_GLOBAL_JOHNSON"
+        elif agreement_stabilizer > 1:
+            known_owner = "PAID_PERIODIC_QUOTIENT"
+        elif bool(b11_record["auxiliary_johnson"]["paid"]):
+            known_owner = "PAID_AUXILIARY_JOHNSON"
+        elif b11_box_class == "PAID_G2":
+            known_owner = "PAID_B11_G2"
+        elif b11_box_class == "PAID_GR":
+            known_owner = "PAID_B11_GR"
+        else:
+            known_owner = "UNPAID_B11_RESIDUAL"
+        b11_record["known_owner"] = known_owner
+        b11_record["genuine_frontier_after_known_owners"] = (
+            known_owner == "UNPAID_B11_RESIDUAL"
+        )
+        b11_box_histogram[b11_box_class] += 1
+        b11_known_owner_histogram[known_owner] += 1
+        b11_coordinate_histogram[
+            (
+                int(b11_record["d_minus_ell"]),
+                int(b11_record["G2"]) if isinstance(b11_record["G2"], int) else -1,
+                int(b11_record["GR"]) if isinstance(b11_record["GR"], int) else -1,
+                int(b11_record["t"]),
+                tuple(int(hit) for hit in b11_record["a_i"]),
+                int(b11_record["r"]),
+                int(b11_record["lambda"]),
+                int(b11_record["lambda_J"]),
+                int(b11_record["lambda_minus_lambda_J"]),
+                b11_box_class,
+            )
+        ] += 1
         profile = (
             agreement_size,
             core_hits,
@@ -875,6 +1085,7 @@ def classify_sunflower_listing(
                 "petal_cofactor_exponent": petal_cofactor_exponent,
                 "background_quotient_exponent": background_quotient_exponent,
                 "list_condition_slack": list_condition_slack,
+                "b11_frontier": b11_record,
                 "full_petals": [
                     index for index, (hit, petal) in enumerate(
                         zip(petal_hits, petals, strict=True),
@@ -889,6 +1100,28 @@ def classify_sunflower_listing(
         "extra_count": len(extra_masks),
         "johnson_slack_needed": johnson_slack,
         "johnson_covered_extra_count": johnson_covered_extras,
+        "b11_finite_box": {
+            "E": frontier_E,
+            "V2": frontier_V2,
+            "VR": frontier_VR,
+        },
+        "b11_box_histogram": dict(sorted(b11_box_histogram.items())),
+        "b11_box_histogram_count": sum(b11_box_histogram.values()),
+        "b11_known_owner_histogram": dict(
+            sorted(b11_known_owner_histogram.items())
+        ),
+        "b11_known_owner_histogram_count": sum(
+            b11_known_owner_histogram.values()
+        ),
+        "b11_coordinate_histogram": {
+            (
+                f"excess={profile[0]},G2={profile[1]},GR={profile[2]},"
+                f"t={profile[3]},a_i={list(profile[4])},r={profile[5]},"
+                f"lambda={profile[6]},lambdaJ={profile[7]},"
+                f"lambda_minus_lambdaJ={profile[8]},class={profile[9]}"
+            ): count
+            for profile, count in sorted(b11_coordinate_histogram.items())
+        },
         "extra_profile_histogram": {
             (
                 f"agreement={profile[0]},core={profile[1]},"
@@ -977,6 +1210,9 @@ def sample_scan(
     sunflower_count: int,
     decoder: str,
     max_examples: int,
+    frontier_E: int = 0,
+    frontier_V2: int = 0,
+    frontier_VR: int = 0,
 ) -> dict[str, object]:
     domain = subgroup(p, n)
     entropy = entropy_report(p, n, k, s, epsilon)
@@ -993,6 +1229,9 @@ def sample_scan(
     sunflower_johnson_covered_extras = 0
     sunflower_extra_profile_summary: Counter[str] = Counter()
     sunflower_extra_parameter_summary: Counter[str] = Counter()
+    sunflower_b11_box_summary: Counter[str] = Counter()
+    sunflower_b11_known_owner_summary: Counter[str] = Counter()
+    sunflower_b11_coordinate_summary: Counter[str] = Counter()
 
     for word in sampled_words(p, n, k, s, samples, seed, sunflower_count):
         values = word["values"]
@@ -1034,6 +1273,9 @@ def sample_scan(
                 sunflower,
                 n,
                 max_examples,
+                frontier_E=frontier_E,
+                frontier_V2=frontier_V2,
+                frontier_VR=frontier_VR,
             )
             row["sunflower_listing_classification"] = classification
             extra_count = int(classification["extra_count"])
@@ -1047,6 +1289,12 @@ def sample_scan(
                 sunflower_extra_profile_summary[profile] += int(count)
             for profile, count in classification["extra_parameter_histogram"].items():
                 sunflower_extra_parameter_summary[profile] += int(count)
+            for route, count in classification["b11_box_histogram"].items():
+                sunflower_b11_box_summary[route] += int(count)
+            for owner, count in classification["b11_known_owner_histogram"].items():
+                sunflower_b11_known_owner_summary[owner] += int(count)
+            for profile, count in classification["b11_coordinate_histogram"].items():
+                sunflower_b11_coordinate_summary[profile] += int(count)
         rows.append(row)
         max_quotient = max(max_quotient, quotient)
         if primitive > max_primitive or total > max_total:
@@ -1068,7 +1316,15 @@ def sample_scan(
     return {
         "status": "EXPERIMENTAL/FULL_LIST_SAMPLE_SCAN",
         "mode": "sample",
-        "params": {"p": p, "n": n, "k": k, "s": s, "decoder": decoder, **entropy},
+        "params": {
+            "p": p,
+            "n": n,
+            "k": k,
+            "s": s,
+            "decoder": decoder,
+            "b11_finite_box": {"E": frontier_E, "V2": frontier_V2, "VR": frontier_VR},
+            **entropy,
+        },
         "johnson_full_list_profile": johnson_profile,
         "words_scanned": len(rows),
         "max_list_size": max_total,
@@ -1088,6 +1344,17 @@ def sample_scan(
             "extra_parameter_summary": dict(
                 sorted(sunflower_extra_parameter_summary.items())
             ),
+            "b11_box_summary": dict(sorted(sunflower_b11_box_summary.items())),
+            "b11_box_summary_count": sum(sunflower_b11_box_summary.values()),
+            "b11_known_owner_summary": dict(
+                sorted(sunflower_b11_known_owner_summary.items())
+            ),
+            "b11_known_owner_summary_count": sum(
+                sunflower_b11_known_owner_summary.values()
+            ),
+            "b11_coordinate_summary": dict(
+                sorted(sunflower_b11_coordinate_summary.items())
+            ),
         },
     }
 
@@ -1105,6 +1372,9 @@ def seed_sweep_scan(
     sunflower_count: int,
     decoder: str,
     max_examples: int,
+    frontier_E: int = 0,
+    frontier_V2: int = 0,
+    frontier_VR: int = 0,
 ) -> dict[str, object]:
     seed_results = [
         sample_scan(
@@ -1119,6 +1389,9 @@ def seed_sweep_scan(
             sunflower_count,
             decoder,
             max_examples,
+            frontier_E,
+            frontier_V2,
+            frontier_VR,
         )
         for seed in range(seed_start, seed_start + seed_count)
     ]
@@ -1137,6 +1410,9 @@ def seed_sweep_scan(
     sunflower_johnson_covered_extras = 0
     profile_summary: Counter[str] = Counter()
     parameter_summary: Counter[str] = Counter()
+    b11_box_summary: Counter[str] = Counter()
+    b11_known_owner_summary: Counter[str] = Counter()
+    b11_coordinate_summary: Counter[str] = Counter()
     top_seed_rows: list[dict[str, object]] = []
     for seed, result in zip(range(seed_start, seed_start + seed_count), seed_results, strict=True):
         sunflower_summary = result["sunflower_summary"]
@@ -1154,6 +1430,12 @@ def seed_sweep_scan(
             profile_summary[str(profile)] += int(count)
         for profile, count in sunflower_summary["extra_parameter_summary"].items():
             parameter_summary[str(profile)] += int(count)
+        for route, count in sunflower_summary["b11_box_summary"].items():
+            b11_box_summary[str(route)] += int(count)
+        for owner, count in sunflower_summary["b11_known_owner_summary"].items():
+            b11_known_owner_summary[str(owner)] += int(count)
+        for profile, count in sunflower_summary["b11_coordinate_summary"].items():
+            b11_coordinate_summary[str(profile)] += int(count)
         top_rows = result["top_rows"]
         assert isinstance(top_rows, list)
         top_seed_rows.append({
@@ -1183,6 +1465,7 @@ def seed_sweep_scan(
             "seed_start": seed_start,
             "seed_count": seed_count,
             "sunflowers_per_seed": sunflower_count,
+            "b11_finite_box": {"E": frontier_E, "V2": frontier_V2, "VR": frontier_VR},
             **entropy,
         },
         "johnson_full_list_profile": johnson_profile,
@@ -1201,6 +1484,11 @@ def seed_sweep_scan(
             "johnson_covered_extra_count": sunflower_johnson_covered_extras,
             "extra_profile_summary": dict(sorted(profile_summary.items())),
             "extra_parameter_summary": dict(sorted(parameter_summary.items())),
+            "b11_box_summary": dict(sorted(b11_box_summary.items())),
+            "b11_box_summary_count": sum(b11_box_summary.values()),
+            "b11_known_owner_summary": dict(sorted(b11_known_owner_summary.items())),
+            "b11_known_owner_summary_count": sum(b11_known_owner_summary.values()),
+            "b11_coordinate_summary": dict(sorted(b11_coordinate_summary.items())),
         },
     }
 
@@ -1284,8 +1572,28 @@ def main(argv: list[str]) -> int:
     parser.add_argument("--epsilon", type=float, default=0.0)
     parser.add_argument("--alert-power", type=float, default=1.0)
     parser.add_argument("--max-examples", type=int, default=2)
+    parser.add_argument(
+        "--frontier-E",
+        type=int,
+        default=0,
+        help="fixed cofactor-excess cutoff for finite B11 classification",
+    )
+    parser.add_argument(
+        "--frontier-V2",
+        type=int,
+        default=0,
+        help="fixed G2 cutoff for finite B11 classification",
+    )
+    parser.add_argument(
+        "--frontier-VR",
+        type=int,
+        default=0,
+        help="fixed GR cutoff for finite B11 classification",
+    )
     parser.add_argument("--json", action="store_true")
     args = parser.parse_args(argv)
+    if min(args.frontier_E, args.frontier_V2, args.frontier_VR) < 0:
+        parser.error("--frontier-E, --frontier-V2, and --frontier-VR must be nonnegative")
 
     results: list[dict[str, object]] = []
     if not args.skip_exact:
@@ -1319,6 +1627,9 @@ def main(argv: list[str]) -> int:
                         args.sunflowers,
                         args.decoder,
                         args.max_examples,
+                        args.frontier_E,
+                        args.frontier_V2,
+                        args.frontier_VR,
                     )
                 )
             else:
@@ -1335,6 +1646,9 @@ def main(argv: list[str]) -> int:
                         args.sunflowers,
                         args.decoder,
                         args.max_examples,
+                        args.frontier_E,
+                        args.frontier_V2,
+                        args.frontier_VR,
                     )
                 )
 

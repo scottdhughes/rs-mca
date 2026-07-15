@@ -1,0 +1,249 @@
+{
+  "compatibility_equations": {
+    "B": "B1*B2*B3, degree 6",
+    "G": "G == c_i*R^(-1) mod B_i",
+    "equations": "coefficients X^3,X^4,X^5 of (F*G mod B) vanish",
+    "lower_coefficient_map_shape": [
+      3,
+      4
+    ],
+    "monic_column": "the X^4 column of the full 3x5 map",
+    "original_rank_relation": "rank(C_15x16)=rank(A_15x12)+rank(reduced_3x4)=12+rank(reduced_3x4)"
+  },
+  "exact_controls": {
+    "all_pass": true,
+    "normalized_structural": [
+      {
+        "chart_count": 5040,
+        "compatible_rank_drop_count": 0,
+        "compatible_rank_drops": [],
+        "field": 11,
+        "normalization": "R=X(X-1), labels=(1,2,3), degrees=(3,2,1)",
+        "rank_drop_inverse_degree_histogram": {
+          "5": 46
+        },
+        "rank_histogram": {
+          "lowerRank=2,fullRank=3": 46,
+          "lowerRank=3,fullRank=3": 4994
+        },
+        "transcript_sha256": "0ea7de402333980d90fd5d80a7e9ee956feb567e462a374e7893a97a533a2c32"
+      },
+      {
+        "chart_count": 27720,
+        "compatible_rank_drop_count": 0,
+        "compatible_rank_drops": [],
+        "field": 13,
+        "normalization": "R=X(X-1), labels=(1,2,3), degrees=(3,2,1)",
+        "rank_drop_inverse_degree_histogram": {
+          "5": 154
+        },
+        "rank_histogram": {
+          "lowerRank=2,fullRank=3": 154,
+          "lowerRank=3,fullRank=3": 27566
+        },
+        "transcript_sha256": "6cdb409aed56b4472cdcd4eae4c785bd9b74f27ce3fa62b92ae0f520589a83e5"
+      }
+    ],
+    "sequential_GF19": {
+      "chart_count": 576,
+      "compatible_rank_drop_count": 0,
+      "field": 19,
+      "inverse_degree_histogram": {
+        "3": 8,
+        "4": 27,
+        "5": 541
+      },
+      "layout": "sequential (19,18,5,8), all six size assignments",
+      "rank_drop_patterns": [
+        {
+          "record": {
+            "B_coefficients_low_to_high": [
+              12,
+              7,
+              1,
+              3,
+              2,
+              16,
+              1
+            ],
+            "G_coefficients_low_to_high": [
+              9,
+              1,
+              17,
+              16,
+              8,
+              15
+            ],
+            "J_coefficients_low_to_high": [
+              6,
+              16,
+              14,
+              10,
+              6,
+              8
+            ],
+            "affine_monic_compatible": false,
+            "compatible_rank_drop": false,
+            "full_rank": 3,
+            "inverse_degree": 5,
+            "lower_rank": 2
+          },
+          "sizes_by_labelled_petal": [
+            3,
+            1,
+            2
+          ],
+          "supports": [
+            [
+              4,
+              5,
+              6
+            ],
+            [
+              8
+            ],
+            [
+              13,
+              15
+            ]
+          ]
+        },
+        {
+          "record": {
+            "B_coefficients_low_to_high": [
+              4,
+              5,
+              0,
+              11,
+              13,
+              2,
+              1
+            ],
+            "G_coefficients_low_to_high": [
+              12,
+              8,
+              6,
+              11,
+              12,
+              15
+            ],
+            "J_coefficients_low_to_high": [
+              0,
+              5,
+              10,
+              0,
+              3,
+              13
+            ],
+            "affine_monic_compatible": false,
+            "compatible_rank_drop": false,
+            "full_rank": 3,
+            "inverse_degree": 5,
+            "lower_rank": 2
+          },
+          "sizes_by_labelled_petal": [
+            1,
+            3,
+            2
+          ],
+          "supports": [
+            [
+              4
+            ],
+            [
+              8,
+              9,
+              10
+            ],
+            [
+              12,
+              13
+            ]
+          ]
+        }
+      ],
+      "rank_histogram": {
+        "lowerRank=2,fullRank=3": 2,
+        "lowerRank=3,fullRank=3": 574
+      },
+      "transcript_sha256": "f0426fb66c375f10646253e3c5468feccf93af989e0720be67fda3925a56723a"
+    }
+  },
+  "independent_review": {
+    "path": "experimental/notes/l1/l1_b9_boundary_321_independent_review.md",
+    "sha256": "742c630f2dbecb7fd0f329923b488f9e98393ee4f0cf059722c057f26d33ae07",
+    "verdict": "GREEN"
+  },
+  "ledger_consequence": {
+    "at_q_19": 10887,
+    "conservative_primitive_charge": "573*q",
+    "full_rank_charge_per_support_pattern": "q",
+    "periodic_patterns_removed_in_frozen_GF19_layout": 3,
+    "rank_drop_charge": 0,
+    "standalone_profile_charge_including_periodic_bucket": 10890
+  },
+  "nonclaims": [
+    "repeated or zero labels are not covered",
+    "overlapping support or background locators are not covered",
+    "no m>2 profile is covered",
+    "no statement about PR #763 is made",
+    "the global mixed-petal theorem is not closed"
+  ],
+  "parameters": {
+    "deg_F": 4,
+    "deg_R": 2,
+    "deg_V_max": 2,
+    "label_hypothesis": "pairwise distinct and nonzero",
+    "locator_hypothesis": "R,B1,B2,B3 pairwise coprime and monic",
+    "support_locator_degrees": [
+      3,
+      2,
+      1
+    ]
+  },
+  "proof_certificate": {
+    "steps": [
+      "CRT converts the three divisibility equations to V=F*G mod B with deg(V)<=2",
+      "rank below three plus monic compatibility makes the full 3x5 map have rank at most two",
+      "with J=G^(-1) mod B, this forces J*P_2 to be contained in P_4",
+      "the symbolic triangular coefficients force deg(J)<=2",
+      "a monic quartic in J*P_2 forces deg(J)=2",
+      "the cubic B_j then forces J=c_j^(-1)R as polynomials",
+      "any other positive-degree B_i and c_i!=c_j contradict gcd(R,B_i)=1"
+    ],
+    "symbolic_inverse_triangle": {
+      "coefficient_X5_of_J_xJ_x2J_mod_B": [
+        "j5",
+        "-b5*j5 + j4",
+        "b5^2*j5 - b5*j4 - b4*j5 + j3"
+      ],
+      "consequence": "if J*P_2 is contained in P_4, then j5=j4=j3=0 and deg(J)<=2",
+      "passed": true,
+      "triangular_expected": [
+        "j5",
+        "-b5*j5 + j4",
+        "b5^2*j5 - b5*j4 - b4*j5 + j3"
+      ]
+    }
+  },
+  "proof_status": {
+    "independently_reviewed": [
+      "the CRT kernel argument and all locator/label hypotheses",
+      "the exact count of three separately-paid periodic support patterns",
+      "the post-periodic primitive residual charge 573*q"
+    ],
+    "proved_locally": [
+      "the CRT equivalence and inverse-degree contradiction under the printed hypotheses",
+      "the q bound on every full-rank support chart",
+      "zero monic contribution from every rank-drop chart under the printed hypotheses"
+    ],
+    "still_required": [
+      "classification of the next remaining profile"
+    ]
+  },
+  "schema": "rs-mca-l1-b9-boundary-321-dichotomy-v2",
+  "statement": "for disjoint degree-(2;3,2,1) locators and distinct nonzero labels, every moving-monic-F rank drop is affine-inconsistent; full-rank charts contain at most q monic quartics",
+  "status": "PROVED_LOCAL_CRT_LEMMA_INDEPENDENTLY_REVIEWED",
+  "theorem_problem_id": "L1 B9 fixed-syndrome (3,2,1) moving-quartic rank dichotomy",
+  "verdict": "GREEN_LOCAL_LEMMA_INDEPENDENTLY_REVIEWED"
+}

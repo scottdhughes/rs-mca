@@ -1,0 +1,1039 @@
+{
+  "coefficient_systems": {
+    "full_system": {
+      "equations": 15,
+      "generic_rank": 12,
+      "structural_open_chart": "R,B1,B2,B3 pairwise coprime; all locators split with distinct roots; the three petal labels are nonzero and distinct",
+      "uniform_rank_proof": "a homogeneous solution gives one polynomial H=RV=B_iA_i of degree at most 4; pairwise coprimality makes the degree-8 product R*B1*B2*B3 divide H, hence H=0",
+      "unknowns": 12
+    },
+    "pairwise_diagnostic": {
+      "equations": 10,
+      "generic_rank": 9,
+      "nonclaim": "this system omits R|W and is not load-bearing",
+      "uniform_rank_proof": "B1*A1=B2*A2=B3*A3 has degree at most 4 but is divisible by the degree-6 product B1*B2*B3",
+      "unknowns": 9
+    }
+  },
+  "exact_rs_control": {
+    "exact_list_decoder": {
+      "decoded_sha256": "ebd81eaf44744378302452e55669b1cc658c64b4a7e8731e36b759279edbdf71",
+      "extras": 1,
+      "list_size": 4,
+      "planted_words": 3,
+      "target_profile_count": 0
+    },
+    "fixed_support_census": {
+      "consistent_systems": 0,
+      "rank_histogram": {
+        "rankA=12,rankAug=13": 216
+      },
+      "systems": 216,
+      "transcript_sha256": "1bd3fb37cf31ecafeccdd79f38eef7044daab6bb2fb9e60695106ae9ffa414ce"
+    },
+    "layout": {
+      "background": [
+        16,
+        17
+      ],
+      "core": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "domain": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        13,
+        7,
+        14,
+        9,
+        18,
+        17,
+        15,
+        11,
+        3,
+        6,
+        12,
+        5,
+        10
+      ],
+      "labels": [
+        1,
+        2,
+        3
+      ],
+      "petals": [
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          12,
+          13,
+          14,
+          15
+        ]
+      ]
+    },
+    "row": {
+      "ell": 4,
+      "k": 5,
+      "n": 18,
+      "p": 19,
+      "s": 8,
+      "sigma": 3
+    }
+  },
+  "moving_support_ledger": {
+    "chart": {
+      "a_i": [
+        2,
+        2,
+        2
+      ],
+      "d": 4,
+      "ell": 4,
+      "feasibility": [
+        "K>=4",
+        "M>=3",
+        "2<=b<4"
+      ],
+      "m": 2,
+      "r": 2,
+      "t": 3
+    },
+    "exact_d4_upper_bound_formula": "binom(b,2)*binom(M,3)*216*q",
+    "finite_rows": [
+      {
+        "K": 4,
+        "M": 3,
+        "b": 2,
+        "improvement_factor": 361,
+        "k": 5,
+        "n": 18,
+        "previous_fixed-pattern_cofactor_upper_bound": 1481544,
+        "q": 19,
+        "rank2_exact_d4_charge": 0,
+        "rank3_ambient_monic_F_charge": 4104,
+        "rank_at_most_1_exact_d4_charge": 0,
+        "s": 8,
+        "selected_support_charts": 216,
+        "total_exact_d4_upper_bound": 4104
+      },
+      {
+        "K": 4,
+        "M": 4,
+        "b": 2,
+        "improvement_factor": 529,
+        "k": 5,
+        "n": 22,
+        "previous_fixed-pattern_cofactor_upper_bound": 10512288,
+        "q": 23,
+        "rank2_exact_d4_charge": 0,
+        "rank3_ambient_monic_F_charge": 19872,
+        "rank_at_most_1_exact_d4_charge": 0,
+        "s": 8,
+        "selected_support_charts": 864,
+        "total_exact_d4_upper_bound": 19872
+      },
+      {
+        "K": 4,
+        "M": 10,
+        "b": 2,
+        "improvement_factor": 2209,
+        "k": 5,
+        "n": 46,
+        "previous_fixed-pattern_cofactor_upper_bound": 2691092160,
+        "q": 47,
+        "rank2_exact_d4_charge": 0,
+        "rank3_ambient_monic_F_charge": 1218240,
+        "rank_at_most_1_exact_d4_charge": 0,
+        "s": 8,
+        "selected_support_charts": 25920,
+        "total_exact_d4_upper_bound": 1218240
+      }
+    ],
+    "fixed_m2_polynomial_consequence": "because b<4 and M<=n/4, the exact target is O(n^3*q); if q<=n^A this is O(n^(A+3))",
+    "no_extra_core_choice_reason": "the affine monic-F fibre already ranges over all quartics; valid split missed-core locators form a subset of those q ambient points",
+    "nonclaim": "this fixed m=2 calculation does not close the complete mixed-petal profile envelope",
+    "old_cofactor_upper_bound_formula": "binom(b,2)*binom(M,3)*216*q^3",
+    "rank_partition": {
+      "affine_incompatible": "rank([C|u])>rank(C); charge zero and stop before migration",
+      "compatible_rank2": "PROFILE_MIGRATION_CORE_RECOVERY from d=4 to d=2",
+      "rank3": "exactly q ambient monic quartics per selected-support chart",
+      "rank_at_most_1": "incompatible, or removed by the same rank-drop core-recovery lemma if compatible"
+    },
+    "status": "RIGOROUS_M2_CHART_BOUND",
+    "support_chart_formula": "binom(b,2)*binom(M,3)*binom(4,2)^3"
+  },
+  "nonclaims": [
+    "does not infer a theorem from the empty minimal p=19 fixture",
+    "does not claim a generic Groebner saturation was completed",
+    "does not use the pairwise-only 10x9 system as the full compatibility test",
+    "does not promote exact tiny-field evidence into an asymptotic bound",
+    "does not use arbitrary rational quotient ownership to remove the exact rank-two chart",
+    "does not prove that arbitrary non-exact rational fibre templates are paid by the existing quotient ledger",
+    "does not close B11 or the full mixed-petal bucket"
+  ],
+  "profile": {
+    "m2": {
+      "B8_widths": [
+        3,
+        3
+      ],
+      "B9_left": 16,
+      "B9_right": 16,
+      "G2": 4,
+      "GR": 4,
+      "a_i": [
+        2,
+        2,
+        2
+      ],
+      "d": 4,
+      "ell": 4,
+      "lambda": 0,
+      "minimal_layout": {
+        "K": 4,
+        "M": 3,
+        "auxiliary_N": 12,
+        "auxiliary_a": 6,
+        "auxiliary_margin": -12,
+        "b": 2,
+        "k": 5,
+        "n": 18,
+        "nK_minus_s2": 8,
+        "p": 19,
+        "s": 8
+      },
+      "r": 2,
+      "t": 3
+    }
+  },
+  "proof_status": {
+    "exact_finite_evidence": [
+      "GF(11) and GF(13) structural rank distributions",
+      "p=19 sequential sunflower has no compatible (2,2,2) support fibre"
+    ],
+    "rigorous": [
+      "B8 and B9 arithmetic for the fixed m=2 profile",
+      "uniform coefficient rank on the pairwise-coprime m=2 chart",
+      "evaluation-matrix compatibility reduction",
+      "compatible low-rank implies degree-two complete-fibre quotient",
+      "compatible rank-two split witnesses recover exactly two missed-core points and cannot realize exact d=4",
+      "the exact m=2 moving-support target has certified upper charge 216*binom(b,2)*binom(M,3)*q"
+    ],
+    "unproved": [
+      "domain-compatible quotient ownership for non-exact rational fibre templates",
+      "comparison of the complete m=2 moving-support add-back with the profile envelope",
+      "any higher-m fixed-syndrome Pade dichotomy"
+    ]
+  },
+  "schema": "rs-mca-l1-b9-boundary-222-v2",
+  "status": "EXPERIMENTAL/LOCAL_LEMMA",
+  "structural_censuses": [
+    {
+      "affine_rank_histogram": {
+        "rankC=1,rankAug=2": 2,
+        "rankC=2,rankAug=2": 18,
+        "rankC=2,rankAug=3": 64,
+        "rankC=3,rankAug=3": 7476
+      },
+      "configuration_transcript_sha256": "b0a648bf869f0dc08a8bb9bd9aec305d7ffba91663239a2ab675cfbf7d01ca4c",
+      "normalization": {
+        "background_pair": [
+          0,
+          1
+        ],
+        "labels": [
+          1,
+          2,
+          3
+        ],
+        "support_pairs_labeled_and_internally_unordered": true
+      },
+      "p": 11,
+      "rank_histogram": {
+        "1": 2,
+        "2": 82,
+        "3": 7476
+      },
+      "rank_involution_histogram": {
+        "rankC=1,rankAug=2,backgroundInvolutionPairs=4": 2,
+        "rankC=2,rankAug=2,backgroundInvolutionPairs=4": 18,
+        "rankC=2,rankAug=3,backgroundInvolutionPairs=2": 12,
+        "rankC=2,rankAug=3,backgroundInvolutionPairs=3": 52,
+        "rankC=3,rankAug=3,backgroundInvolutionPairs=2": 5004,
+        "rankC=3,rankAug=3,backgroundInvolutionPairs=3": 2324,
+        "rankC=3,rankAug=3,backgroundInvolutionPairs=4": 148
+      },
+      "representatives": {
+        "rankC=1,rankAug=2": {
+          "involution_gammas": [
+            1,
+            1,
+            1
+          ],
+          "max_pairs_swapped_by_an_involution_that_swaps_background": 4,
+          "pairs": [
+            [
+              4,
+              6
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              8,
+              9
+            ]
+          ],
+          "residual_matrix_columns_f0_f1_f2_f3_x4": [
+            [
+              5,
+              6,
+              5,
+              6,
+              7
+            ],
+            [
+              4,
+              7,
+              4,
+              7,
+              2
+            ],
+            [
+              9,
+              2,
+              9,
+              2,
+              4
+            ]
+          ]
+        },
+        "rankC=2,rankAug=2": {
+          "involution_gammas": [
+            3,
+            3,
+            3
+          ],
+          "max_pairs_swapped_by_an_involution_that_swaps_background": 4,
+          "pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              9
+            ]
+          ],
+          "residual_matrix_columns_f0_f1_f2_f3_x4": [
+            [
+              5,
+              9,
+              2,
+              8,
+              3
+            ],
+            [
+              8,
+              1,
+              1,
+              7,
+              7
+            ],
+            [
+              9,
+              0,
+              8,
+              0,
+              1
+            ]
+          ]
+        },
+        "rankC=2,rankAug=3": {
+          "involution_gammas": [
+            3,
+            6,
+            3
+          ],
+          "max_pairs_swapped_by_an_involution_that_swaps_background": 3,
+          "pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              5,
+              8
+            ]
+          ],
+          "residual_matrix_columns_f0_f1_f2_f3_x4": [
+            [
+              5,
+              4,
+              3,
+              9,
+              1
+            ],
+            [
+              7,
+              4,
+              2,
+              9,
+              2
+            ],
+            [
+              6,
+              6,
+              8,
+              8,
+              10
+            ]
+          ]
+        },
+        "rankC=3,rankAug=3": {
+          "involution_gammas": [
+            3,
+            4,
+            6
+          ],
+          "max_pairs_swapped_by_an_involution_that_swaps_background": 2,
+          "pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "residual_matrix_columns_f0_f1_f2_f3_x4": [
+            [
+              8,
+              9,
+              5,
+              2,
+              0
+            ],
+            [
+              10,
+              6,
+              5,
+              2,
+              7
+            ],
+            [
+              0,
+              9,
+              4,
+              7,
+              4
+            ]
+          ]
+        }
+      },
+      "total": 7560
+    },
+    {
+      "affine_rank_histogram": {
+        "rankC=1,rankAug=2": 5,
+        "rankC=2,rankAug=2": 49,
+        "rankC=2,rankAug=3": 334,
+        "rankC=3,rankAug=3": 41192
+      },
+      "configuration_transcript_sha256": "bf8ff0e59eacb46b8b77536333ac5ab18d6d113509118696d66de8a84e686cf7",
+      "normalization": {
+        "background_pair": [
+          0,
+          1
+        ],
+        "labels": [
+          1,
+          2,
+          3
+        ],
+        "support_pairs_labeled_and_internally_unordered": true
+      },
+      "p": 13,
+      "rank2_exact_profile_migration": {
+        "exact_d4_survivors": 0,
+        "migrated_defect_histogram": {
+          "2": 24
+        },
+        "representative": {
+          "pairs": [
+            [
+              2,
+              6
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              4,
+              12
+            ]
+          ],
+          "recovery": {
+            "F_new_coefficients": [
+              8,
+              3,
+              1
+            ],
+            "W_new_coefficients": [
+              0,
+              4,
+              9
+            ],
+            "gcd_F_W_coefficients": [
+              11,
+              11,
+              1
+            ],
+            "migrated_exact_defect": 2,
+            "migrated_missed_core_roots": [
+              3,
+              7
+            ],
+            "original_F_roots": [
+              3,
+              5,
+              7,
+              10
+            ],
+            "original_defect": 4,
+            "recovered_core_roots": [
+              5,
+              10
+            ],
+            "route": "PROFILE_MIGRATION_CORE_RECOVERY"
+          }
+        },
+        "route_histogram": {
+          "PROFILE_MIGRATION_CORE_RECOVERY": 24
+        },
+        "split_compatible_locators": 24,
+        "transcript_sha256": "f964739fe0b0bb3443ff312fb33d66ed3625515b311ca8de0ef6408f44f0b18d"
+      },
+      "rank_histogram": {
+        "1": 5,
+        "2": 383,
+        "3": 41192
+      },
+      "rank_involution_histogram": {
+        "rankC=1,rankAug=2,backgroundInvolutionPairs=4": 5,
+        "rankC=2,rankAug=2,backgroundInvolutionPairs=4": 49,
+        "rankC=2,rankAug=3,backgroundInvolutionPairs=2": 172,
+        "rankC=2,rankAug=3,backgroundInvolutionPairs=3": 162,
+        "rankC=3,rankAug=3,backgroundInvolutionPairs=2": 29888,
+        "rankC=3,rankAug=3,backgroundInvolutionPairs=3": 10818,
+        "rankC=3,rankAug=3,backgroundInvolutionPairs=4": 486
+      },
+      "representatives": {
+        "rankC=1,rankAug=2": {
+          "involution_gammas": [
+            0,
+            0,
+            0
+          ],
+          "max_pairs_swapped_by_an_involution_that_swaps_background": 4,
+          "pairs": [
+            [
+              2,
+              12
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              3,
+              11
+            ]
+          ],
+          "residual_matrix_columns_f0_f1_f2_f3_x4": [
+            [
+              0,
+              0,
+              0,
+              5,
+              10
+            ],
+            [
+              0,
+              0,
+              0,
+              10,
+              9
+            ],
+            [
+              0,
+              0,
+              0,
+              5,
+              12
+            ]
+          ]
+        },
+        "rankC=2,rankAug=2": {
+          "involution_gammas": [
+            8,
+            8,
+            8
+          ],
+          "max_pairs_swapped_by_an_involution_that_swaps_background": 4,
+          "pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              9,
+              12
+            ]
+          ],
+          "residual_matrix_columns_f0_f1_f2_f3_x4": [
+            [
+              11,
+              8,
+              9,
+              4,
+              12
+            ],
+            [
+              5,
+              8,
+              11,
+              5,
+              1
+            ],
+            [
+              4,
+              3,
+              11,
+              11,
+              4
+            ]
+          ]
+        },
+        "rankC=2,rankAug=3": {
+          "involution_gammas": [
+            8,
+            7,
+            3
+          ],
+          "max_pairs_swapped_by_an_involution_that_swaps_background": 2,
+          "pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              6,
+              10
+            ]
+          ],
+          "residual_matrix_columns_f0_f1_f2_f3_x4": [
+            [
+              0,
+              9,
+              4,
+              9,
+              12
+            ],
+            [
+              9,
+              11,
+              2,
+              11,
+              10
+            ],
+            [
+              8,
+              6,
+              7,
+              6,
+              12
+            ]
+          ]
+        },
+        "rankC=3,rankAug=3": {
+          "involution_gammas": [
+            8,
+            10,
+            9
+          ],
+          "max_pairs_swapped_by_an_involution_that_swaps_background": 2,
+          "pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "residual_matrix_columns_f0_f1_f2_f3_x4": [
+            [
+              8,
+              7,
+              8,
+              5,
+              10
+            ],
+            [
+              6,
+              7,
+              10,
+              6,
+              11
+            ],
+            [
+              10,
+              1,
+              12,
+              12,
+              3
+            ]
+          ]
+        }
+      },
+      "split_quartic_locator_examples": {
+        "rankC=2,rankAug=2": {
+          "hits": [
+            {
+              "coefficients": [
+                10,
+                4,
+                0,
+                1,
+                1
+              ],
+              "roots": [
+                3,
+                5,
+                7,
+                10
+              ]
+            },
+            {
+              "coefficients": [
+                11,
+                11,
+                2,
+                0,
+                1
+              ],
+              "roots": [
+                3,
+                5,
+                7,
+                11
+              ]
+            },
+            {
+              "coefficients": [
+                9,
+                6,
+                3,
+                8,
+                1
+              ],
+              "roots": [
+                3,
+                7,
+                10,
+                11
+              ]
+            }
+          ],
+          "involution_gammas": [
+            7,
+            7,
+            7
+          ],
+          "pairs": [
+            [
+              2,
+              6
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              4,
+              12
+            ]
+          ],
+          "residual_matrix_columns_f0_f1_f2_f3_x4": [
+            [
+              1,
+              4,
+              6,
+              2,
+              11
+            ],
+            [
+              0,
+              7,
+              5,
+              7,
+              4
+            ],
+            [
+              7,
+              4,
+              10,
+              3,
+              2
+            ]
+          ]
+        },
+        "rankC=3,rankAug=3": {
+          "hits": [
+            {
+              "coefficients": [
+                12,
+                3,
+                5,
+                2,
+                1
+              ],
+              "roots": [
+                5,
+                9,
+                11,
+                12
+              ]
+            }
+          ],
+          "involution_gammas": [
+            8,
+            8,
+            11
+          ],
+          "pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              8,
+              10
+            ]
+          ],
+          "residual_matrix_columns_f0_f1_f2_f3_x4": [
+            [
+              11,
+              8,
+              9,
+              4,
+              12
+            ],
+            [
+              11,
+              8,
+              8,
+              2,
+              8
+            ],
+            [
+              5,
+              2,
+              2,
+              1,
+              0
+            ]
+          ]
+        }
+      },
+      "split_quartic_locator_histogram": {
+        "rankC=1,rankAug=2,hits=0": 5,
+        "rankC=2,rankAug=2,hits=0": 41,
+        "rankC=2,rankAug=2,hits=3": 8,
+        "rankC=2,rankAug=3,hits=0": 334,
+        "rankC=3,rankAug=3,hits=0": 41090,
+        "rankC=3,rankAug=3,hits=1": 102
+      },
+      "split_quartic_locator_hits": 126,
+      "total": 41580
+    }
+  ],
+  "symbolic_compatibility": {
+    "anchor_residuals": [
+      {
+        "sha256": "b66656ac84dbfdc021611c0144f5c1bce3d6874efc830660dc219e8ba3ce2e81",
+        "term_count": 1132,
+        "total_degree": 11
+      },
+      {
+        "sha256": "4059e83eb2d7c747d716bbc628c0605b822f3bbe39cfc1600dbf0071523bfa2e",
+        "term_count": 1458,
+        "total_degree": 12
+      },
+      {
+        "sha256": "9d4c03f883a3c996c5c2f5490fb6f26977dec0e77fccc8880c4935498bbcae67",
+        "term_count": 1458,
+        "total_degree": 12
+      }
+    ],
+    "coefficient_rank_matrix": {
+      "generic_rank": 3,
+      "localization_statement": "after inverting the displayed common structural factor, rank(C)<=2 is generated by the four localized residuals",
+      "localized_rank_drop_generators": [
+        {
+          "deleted_coefficient": "f0",
+          "localized_residual": {
+            "sha256": "f948b32cf9e2e4edf231aa1262b2e5a017f6a47f30fa59ec59b5c6ea1e5201fa",
+            "term_count": 1212,
+            "total_degree": 12
+          },
+          "raw": {
+            "sha256": "71aedc9eddfc9ae4378dd1f6f3ed7809f1a2b95ccb302a0183d0b1ac74ef93c7",
+            "term_count": 198244,
+            "total_degree": 29
+          }
+        },
+        {
+          "deleted_coefficient": "f1",
+          "localized_residual": {
+            "sha256": "6a5c1aaf2c048fceefae5d2ec41b37520e72c7272b9fe5eae7b2960cc70cca4e",
+            "term_count": 2060,
+            "total_degree": 11
+          },
+          "raw": {
+            "sha256": "b39dedf164922d170beb7470b40b8924684e1e2a8c85c56ab8169cd55240d025",
+            "term_count": 264598,
+            "total_degree": 28
+          }
+        },
+        {
+          "deleted_coefficient": "f2",
+          "localized_residual": {
+            "sha256": "f84840bc827a0e7c4b815e0feb6457e584a434d7897e0443662bba2ecc471272",
+            "term_count": 2446,
+            "total_degree": 10
+          },
+          "raw": {
+            "sha256": "fbdd2afb55130622d29452ff8a22497fd17153f45a74eb42337c811777c46e10",
+            "term_count": 276036,
+            "total_degree": 27
+          }
+        },
+        {
+          "deleted_coefficient": "f3",
+          "localized_residual": {
+            "sha256": "127af149c30841b24115aa9faac2a0be3337d1597a4cdb1d1fb1d8dc9eb42ede",
+            "term_count": 1632,
+            "total_degree": 9
+          },
+          "raw": {
+            "sha256": "1859ed6d20b477ea43372c98a777dea176a6b3800c00a36ee7e9133a7e1e8e48",
+            "term_count": 231526,
+            "total_degree": 26
+          }
+        }
+      ],
+      "shape": [
+        3,
+        4
+      ],
+      "structural_factor": {
+        "sha256": "d32451cf1fe2b047a7cd99bc02829036080f89c4600ae36f03009a7fdd001fca",
+        "term_count": 2370,
+        "total_degree": 17
+      }
+    },
+    "evaluation_matrix": {
+      "anchor_minor_identity": "R(x11)R(x12)R(x21)(x12-x11)(x21-x11)(x21-x12)",
+      "anchor_rows": [
+        "x11",
+        "x12",
+        "x21"
+      ],
+      "columns": [
+        "R(z)",
+        "zR(z)",
+        "z^2R(z)",
+        "c(z)F(z)"
+      ],
+      "compatibility": "rank at most 3, equivalently all 4x4 minors vanish",
+      "shape": [
+        6,
+        4
+      ]
+    },
+    "low_rank_dichotomy": {
+      "characteristic_note": "the complete-fibre conclusion is characteristic-free; when the degree-two rational map is separable, its nontrivial deck transformation is the corresponding PGL2 involution",
+      "consequences": [
+        "rank(C)=1 is affine-inconsistent for monic quartics",
+        "every compatible rank(C)=2 stratum has a degree-two complete-fibre quotient template",
+        "for an exact sunflower witness, compatible rank(C)=2 recovers exactly two roots of F inside the missed core and therefore exits the d=4 profile",
+        "rank(C)=3 leaves an affine one-dimensional monic-F fibre"
+      ],
+      "exactness_boundary": "write F=B*H and V=A*H as above.  Since W=R*V=A*R*H, gcd(F,W)=H has degree two on the disjoint split chart.  The sunflower word is zero on the core and P=L_(C\\D)*W, so the two roots of H are agreements, not missed-core points.  The canonical exact profile has F_new=B, W_new=A*R and d_new=2.",
+      "owner_boundary": "quotient ownership is secondary on this exact m=2 component: the compatible rank-two chart has already migrated out of d=4.  For a non-exact or generalized chart, an arbitrary rational involution still is not a paid power/Chebyshev owner without the declared-domain and data-descent hypotheses",
+      "proof_steps": [
+        "rank(C)<=2 gives two independent kernel pairs (Q_j,G_j) with deg(Q_j)<=2 and deg(G_j)<=3",
+        "Q1*G2-Q2*G1 has degree at most 5 and six support roots, so it is zero",
+        "write every kernel pair as h*(A,B) with gcd(A,B)=1; the only possible base-point case has deg(A)=0, deg(B)<=1",
+        "for the bad support set T and h_max=min(2-deg(A),3-deg(B)), dimension at least two gives 2<=h_max+1-|T|",
+        "a compatible monic quartic makes V*B-A*F vanish at at least five roots in that base-point case, forcing an impossible degree comparison",
+        "otherwise R*A=c_i*B at all six roots and V*B=A*F identically",
+        "B divides F and deg(V)<=2 forces deg(A)=0 and deg(B)=2"
+      ],
+      "statement": "on the disjoint split chart with pairwise-distinct nonzero petal labels, if rank(C)<=2 and a monic quartic F is compatible, then there are a nonzero constant a and a quadratic divisor B of F such that R*a-c_i*B vanishes on both roots of every support locator B_i; hence all four pairs are complete fibres of the degree-two map R*a/B",
+      "status": "RIGOROUS_LOCAL_LEMMA"
+    }
+  },
+  "verdict": "YELLOW - promising but unresolved; do not authorize global proof."
+}
