@@ -30,6 +30,34 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-15 - L1 B9 `31321` total-degree-six reduced CRT
+
+- **Agent/model:** Codex, with a fresh independent proof/certificate review
+  and a fresh Claude Fable 5 cross-model replay.
+- **Files added or changed:** Added the exact existing-owner partition, the
+  total-degree-six Sage verifier, the complete 75-row ledger replay, three
+  JSON certificates, the local lemma note, GREEN review notes, and retained
+  YELLOW/turn-limit audit history; updated the mixed-petal ledger.
+- **Status:** PROVED-LOCAL / EXACT frozen-row ledger; both final reviews GREEN
+  with ledger authorization YES. Global closure remains YELLOW.
+- **What is being added:** For
+  `(ell,d,r,t,a_i)=(4,3,1,3,(3,2,1))`, the 1,152 existing-owner keys all reach
+  a total-degree-six CRT system. The fixed map is `12 x 9` of rank nine, the
+  moving compatibility quotient is `3 x 3`, full rank costs one monic cubic,
+  and compatible rank drop forces common-factor core migration. The exact
+  `GF(19)` census has 1,108 full-rank and 44 affine-inconsistent keys.
+- **Ledger impact:** Banks `21,888 -> 1,152`, improving the complete add-back
+  `641,512 -> 620,776` and unresolved subtotal `104,914 -> 84,178`. The next
+  largest row is `(4,4,2,2,(3,3))`, charge `17,328`.
+- **Validation:** Owner CPython/Sage replays and 16 mutations pass; the banked
+  Sage CRT replay and 39 mutations pass; the banked ledger replay and 20
+  mutations pass. Both review files are hash-linked directly, and forged bank
+  flags or review hashes fail closed.
+- **What to do next:** Package this as a small PR stacked on #801, then begin
+  the existing-owner partition for the new `17328` row. Do not subtract the
+  twelve periodic refinements, combine cross-`r` envelopes, generalize to
+  `m>2`, or apply the result to PR #763.
+
 ### 2026-07-15 - L1 B9 `d=4,r=0` shared auxiliary owner
 
 - **Agent/model:** Codex, with a fresh independent theorem-scope audit and a

@@ -1,0 +1,363 @@
+{
+  "exact_GF19": {
+    "actual_rankdrop_bridge_failure_count": 0,
+    "actual_rankdrop_incidence_count": 0,
+    "actual_split_core_incidence_count": 1,
+    "canonical_assignment_count": 1152,
+    "canonical_assignment_order_sha256": "314b4052c07e3e19fd803e04487f80f823470d77a1240db21b6f9f5fefada4be",
+    "canonical_assignment_set_sha256": "2f76b435d74bf50a6a904da9fb1df58a09bdd02c07fd7f973e27fe142933c565",
+    "compatible_rankdrop_gcd_degree_histogram": {},
+    "compatible_rankdrop_monic_solution_count": 0,
+    "compatible_rankdrop_pattern_count": 0,
+    "compatible_rankdrop_patterns": [],
+    "compatible_rankdrop_zero_gcd_count": 0,
+    "compatible_rankdrop_zero_gcd_examples": [],
+    "domain": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      13,
+      7,
+      14,
+      9,
+      18,
+      17,
+      15,
+      11,
+      3,
+      6,
+      12,
+      5,
+      10
+    ],
+    "field": 19,
+    "fixed_actual_augmented_rank_histogram": {
+      "rankA=9,rankAug=10": 4607,
+      "rankA=9,rankAug=9": 1
+    },
+    "fixed_matrix_rank_histogram": {
+      "9": 1152
+    },
+    "full_rank_monic_solution_count": 1108,
+    "full_rank_pattern_count": 1108,
+    "monic_solution_count_histogram": {
+      "0": 44,
+      "1": 1108
+    },
+    "moving_rank_histogram": {
+      "rankC=11,rankAug=12": 44,
+      "rankC=12,rankAug=12": 1108
+    },
+    "rankdrop_implication_GF19_status": "VACUOUS_ALL_44_RANK_DROPS_ARE_AFFINE_INCONSISTENT",
+    "reduced_rank_histogram": {
+      "rankM=2,rankAug=3": 44,
+      "rankM=3,rankAug=3": 1108
+    },
+    "support_degree_order_histogram": {
+      "123": 192,
+      "132": 192,
+      "213": 192,
+      "231": 192,
+      "312": 192,
+      "321": 192
+    },
+    "support_pattern_count": 1152,
+    "support_pattern_formula": "binom(2,1)*3!*binom(4,3)*binom(4,2)*binom(4,1)=1152",
+    "transcript_sha256": "2256ea69620c10d5c15012df4ebce046babaaa3e314b948221eeb3107ad80972"
+  },
+  "fresh_review_gate": {
+    "required_review_count": 2,
+    "reviews": {
+      "cross_model_review": {
+        "exists": true,
+        "ledger_authorization_yes": true,
+        "path": "experimental/notes/l1/reviews/l1_b9_frontier_31321_total_degree_crt_final_package_cross_model_review.md",
+        "sha256": "ed189d933c069ead37ad85aee01d7414ac07ae2a44b8c4326052d195bba9024c",
+        "verdict_green": true
+      },
+      "independent_review": {
+        "exists": true,
+        "ledger_authorization_yes": true,
+        "path": "experimental/notes/l1/reviews/l1_b9_frontier_31321_total_degree_crt_final_package_independent_review.md",
+        "sha256": "4c4480a09c062f7b7edb5486e3af7f27235cee78a39c2ed64699f1ba8006ca7c",
+        "verdict_green": true
+      }
+    },
+    "satisfied": true,
+    "status": "SATISFIED_TWO_HASH_LINKED_GREEN_REVIEWS"
+  },
+  "frozen_system": {
+    "augmented_rank_relation": "rank([C|b])=9+rank([M|-u])",
+    "compatibility_degrees": [
+      3,
+      4,
+      5
+    ],
+    "equations": "R*V-c_i*F=B_i*A_i",
+    "fixed_F_matrix_shape": [
+      12,
+      9
+    ],
+    "left_kernel_dimension": 3,
+    "moving_monic_F_matrix_shape": [
+      12,
+      12
+    ],
+    "rank_relation": "rank(C_12x12)=9+rank(M_3x3)",
+    "reduced_affine_map_shape": [
+      3,
+      3
+    ],
+    "symbolic_total_degree_map": {
+      "B": "X^6 + b5*X^5 + b4*X^4 + b3*X^3 + b2*X^2 + b1*X + b0",
+      "F": "X^3 + f2*X^2 + f1*X + f0",
+      "G": "g5*X^5 + g4*X^4 + g3*X^3 + g2*X^2 + g1*X + g0",
+      "M_rows": [
+        [
+          "g3",
+          "-b3*g5 + g2",
+          "b3*b5*g5 - b3*g4 - b2*g5 + g1"
+        ],
+        [
+          "g4",
+          "-b4*g5 + g3",
+          "b4*b5*g5 - b4*g4 - b3*g5 + g2"
+        ],
+        [
+          "g5",
+          "-b5*g5 + g4",
+          "b5^2*g5 - b5*g4 - b4*g5 + g3"
+        ]
+      ],
+      "affine_identity_verified": true,
+      "affine_map_shape": [
+        3,
+        3
+      ],
+      "compatibility_degrees": [
+        3,
+        4,
+        5
+      ],
+      "cross_polynomial_degree_bound": 5,
+      "cross_polynomial_sha256": "5ff447deae8aabca74092fe1c216e0925f342894c2b3bef5a1c27a452d4357bb",
+      "degree_gap": "deg(F0*V1-F1*V0)<=5<deg(B)=6",
+      "det_M": "b5^2*g3^2*g5 - b5^2*g2*g4*g5 - b4*b5*g3*g4*g5 + b3*b5*g4^2*g5 + b4*b5*g2*g5^2 + b4^2*g3*g5^2 - 2*b3*b5*g3*g5^2 - b3*b4*g4*g5^2 + b2*b5*g4*g5^2 + b3^2*g5^3 - b2*b4*g5^3 - b5*g3^2*g4 + b5*g2*g4^2 + b4*g3*g4^2 - b3*g4^3 + b5*g2*g3*g5 - 2*b4*g3^2*g5 - b5*g1*g4*g5 + 3*b3*g3*g4*g5 - b2*g4^2*g5 + b4*g1*g5^2 - 2*b3*g2*g5^2 + b2*g3*g5^2 + g3^3 - 2*g2*g3*g4 + g1*g4^2 + g2^2*g5 - g1*g3*g5",
+      "det_M_sha256": "6260f3a156dac040d9b78d22f2a4e3252b9125cb176f5de58bed6227f55df89b",
+      "distribution_independence": "the reduced map and cross-degree argument use deg(B)=6, not the individual positive degrees of B1,B2,B3",
+      "u": [
+        "-b3*b5^2*g5 + b3*b5*g4 + b3*b4*g5 + b2*b5*g5 - b3*g3 - b2*g4 - b1*g5 + g0",
+        "-b4*b5^2*g5 + b4*b5*g4 + b4^2*g5 + b3*b5*g5 - b4*g3 - b3*g4 - b2*g5 + g1",
+        "-b5^3*g5 + b5^2*g4 + 2*b4*b5*g5 - b5*g3 - b4*g4 - b3*g5 + g2"
+      ]
+    },
+    "universal_fixed_rank": 9
+  },
+  "ledger_consequence": {
+    "authorization": "YES_TWO_HASH_LINKED_GREEN_REVIEWS",
+    "banked": true,
+    "candidate_prior_charge": 21888,
+    "candidate_replacement_charge_after_fresh_green_review": 1152,
+    "candidate_support_pattern_count": 1152
+  },
+  "linked_inputs": {
+    "current_31321_cross_model_attempt1": {
+      "path": "experimental/notes/l1/reviews/l1_b9_frontier_31321_total_degree_crt_cross_model_attempt1.md",
+      "sha256": "f13076185f3e80f56870d50ede4bdf5243c0f8448599d203a283994bc39f76b9"
+    },
+    "current_31321_independent_yellow": {
+      "path": "experimental/notes/l1/reviews/l1_b9_frontier_31321_total_degree_crt_independent_review_yellow.md",
+      "sha256": "2ff8cd055aa024c4c94b742036be54e8953a429be64b8082854c49e4a6695abb"
+    },
+    "prior_31222_certificate": {
+      "path": "experimental/data/certificates/l1-b9-frontier-31222-reduced-crt/certificate.json",
+      "sha256": "401f947260ab5010bcd6daefa0f52d2d2904ac90de83f135171150baa4206e55"
+    },
+    "prior_31222_cross_model_green": {
+      "path": "experimental/notes/l1/l1_b9_frontier_31222_reduced_crt_cross_model_review_v2.md",
+      "sha256": "9013a4d810a3114d3001c09993a4e5a5e4b3a303a7a3b2a266b60fc7079a08fa"
+    },
+    "prior_31222_cross_model_yellow": {
+      "path": "experimental/notes/l1/l1_b9_frontier_31222_reduced_crt_cross_model_review.md",
+      "sha256": "4515a04af9397ff5c7b9653cbc7b547df9f4246640163fa77892491fe271ee62"
+    },
+    "prior_31222_independent_review": {
+      "path": "experimental/notes/l1/l1_b9_frontier_31222_independent_review.md",
+      "sha256": "adbff7de29c5fb92779d1b8960ee18a2ab8f5f500a60210aaa3445b234e39346"
+    },
+    "prior_31222_lemma": {
+      "path": "experimental/notes/l1/l1_b9_frontier_31222_reduced_crt_lemma.md",
+      "sha256": "5638d0b2598abb1f0486db37c543a5b72245afaa75222d1754e7cc089a1a11a9"
+    },
+    "prior_31222_sage_verifier": {
+      "path": "experimental/scripts/verify_l1_b9_frontier_31222_reduced_crt_lemma.sage",
+      "sha256": "a96a91492e74dfa13c934aa2f50198df0568a96a7fd98d10328c13cbbef2231e"
+    }
+  },
+  "nonclaims": [
+    "the certificate banks only the reviewed 21,888 to 1,152 local replacement",
+    "the prior 31222 reviews are imported as algebraic provenance, not as review of this specialization",
+    "no m>2 statement is made",
+    "no PR #763 application is made",
+    "no Lean formalization is claimed",
+    "no global mixed-petal theorem is proved"
+  ],
+  "numerical_evidence_limit": "the frozen GF19 census is exact but its 44 reduced rank drops are all affine-inconsistent; the compatible-rankdrop implication is proved algebraically and is not observed nonvacuously in this row",
+  "parameters": {
+    "bridge_hypotheses": [
+      "C consists of four distinct field points",
+      "h is in C and D=C\\{h}",
+      "F=L_D is monic, split, and squarefree",
+      "gcd(R,L_C)=1",
+      "the received word is zero on C and at the root of R",
+      "H=L_C/F=X-h and W=R*H*V"
+    ],
+    "core_size": 4,
+    "deg_B": 6,
+    "deg_F": 3,
+    "deg_R": 1,
+    "deg_V_max": 2,
+    "label_hypothesis": "pairwise distinct and nonzero",
+    "labels": [
+      1,
+      2,
+      3
+    ],
+    "profile": {
+      "a_i": [
+        3,
+        2,
+        1
+      ],
+      "d": 3,
+      "ell": 4,
+      "r": 1,
+      "t": 3
+    },
+    "profile_bridge_hypotheses": [
+      "the core, background, and labelled selected petal supports are pairwise disjoint",
+      "the received word is zero on the core and retained background point",
+      "the received word on labelled petal i is c_i*L_C",
+      "the exact profile has one restored core agreement and one retained background agreement"
+    ],
+    "quotient_degrees_for_sorted_supports": [
+      0,
+      1,
+      2
+    ],
+    "support_locator_degrees_sorted": [
+      3,
+      2,
+      1
+    ],
+    "support_locator_hypotheses": "B1,B2,B3 are monic, positive-degree, pairwise coprime, and each is coprime to R"
+  },
+  "pointwise_bridge_certificate": {
+    "exact_missed_core_formula": "D\\Z(V)",
+    "positive_control": {
+      "F_coefficients_low_to_high": [
+        5,
+        0,
+        5,
+        1
+      ],
+      "V_coefficients_low_to_high": [
+        10,
+        1,
+        0
+      ],
+      "actual_core_agreement_roots": [
+        1,
+        4
+      ],
+      "actual_missed_core_roots": [
+        2,
+        3
+      ],
+      "background_roots": [
+        0
+      ],
+      "common_root_alpha": 1,
+      "core_roots": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "exact_d3_excluded": true,
+      "field": 11,
+      "missed_core_roots": [
+        1,
+        2,
+        3
+      ],
+      "pointwise_bridge_verified": true,
+      "received_background_values": [
+        0
+      ],
+      "received_core_values": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "restored_core_root": 4
+    },
+    "validator_accepts_positive_control": true
+  },
+  "prior_nonvacuous_total_degree_control": {
+    "compatible_rankdrop_monic_cubic_count": 38,
+    "compatible_rankdrop_pattern_count": 2,
+    "compatible_rankdrop_zero_gcd_count": 0,
+    "deg_B": 6,
+    "deg_F": 3,
+    "deg_R": 1,
+    "deg_V_max": 2,
+    "reviewed_verdict": "GREEN_LOCAL_LEMMA_LEDGER_AUTHORIZED",
+    "role": "NONVACUOUS_TOTAL_DEGREE_SIX_CONTROL_ONLY; no theorem is imported from this prior row",
+    "schema": "rs-mca-l1-b9-frontier-31222-reduced-crt-lemma-v3",
+    "status": "PROVED_LOCAL_REDUCED_CRT_POINTWISE_BRIDGE_CROSS_MODEL_GREEN",
+    "support_locator_degrees": [
+      2,
+      2,
+      2
+    ]
+  },
+  "proof_certificate": {
+    "compatible_rankdrop_gcd_positive": true,
+    "distribution_independent_core": "the common-factor proof uses only deg(B)=6 and deg(F)+deg(V)<=5",
+    "exact_d3_migration_under_bridge": true,
+    "fixed_rank_nine": true,
+    "full_rank_bound_per_key": 1,
+    "specialized_degree_partition": [
+      3,
+      2,
+      1
+    ],
+    "specialized_quotient_degrees": [
+      0,
+      1,
+      2
+    ],
+    "steps": [
+      "a homogeneous fixed-F solution has B_i dividing R*V for every i",
+      "coprimality with R gives B=B1*B2*B3 dividing V",
+      "deg(B)=6>deg(V)<=2 forces V=0 and then every A_i=0, so the 12x9 map has rank nine",
+      "CRT gives V=F*G mod B and compatibility is K(F)=M*(f0,f1,f2)^t+u=0 in degrees 3,4,5",
+      "the moving and reduced ranks differ by the fixed rank nine",
+      "rank(M)=3 gives at most one monic cubic for a canonical support key",
+      "a compatible rank drop supplies two independent degree-at-most-three kernel pairs",
+      "B divides F0*V1-F1*V0, whose degree is at most five, so the cross-polynomial vanishes",
+      "if gcd(F0,V0)=1 then Euclid's lemma gives F0|F1; since F0 is cubic and deg(F1)<=3, the two pairs are dependent, a contradiction",
+      "for split F=L_(C\\{h}), a common root alpha lies in C\\{h}",
+      "W(alpha)=R(alpha)*(alpha-h)*V(alpha)=0 equals the zero received core datum",
+      "the missed core is exactly D\\Z(V), hence has size at most two"
+    ]
+  },
+  "schema": "rs-mca-l1-b9-frontier-31321-total-degree-crt-v1",
+  "statement": "for deg(R)=1 and pairwise-coprime positive B_i of degrees (3,2,1), the fixed-F 12x9 system has rank nine; the moving 12x12 system reduces to the 3x3 affine high-coefficient map for F*G mod B; full rank gives at most one monic cubic, while every compatible rank drop forces gcd(F,V) to have positive degree and, under the explicit split-core/zero-data/disjointness bridge, migrates exact d=3 to d<=2",
+  "status": "PROVED_LOCAL_ALGEBRA_EXACT_GF19_CONTROL_FRESH_REVIEWS_GREEN",
+  "verdict": "GREEN_LOCAL_31321_LEMMA_LEDGER_AUTHORIZED"
+}
