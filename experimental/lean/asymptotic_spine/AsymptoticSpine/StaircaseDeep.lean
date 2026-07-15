@@ -36,6 +36,70 @@ def staircaseBinom : Nat → Nat → Nat
   | 0, _ + 1 => 0
   | n + 1, k + 1 => staircaseBinom n k + staircaseBinom n (k + 1)
 
+/-- Pascal recursion at two positive indices. -/
+@[simp] theorem staircaseBinom_succ_succ (n k : Nat) :
+    staircaseBinom (n + 1) (k + 1) =
+      staircaseBinom n k + staircaseBinom n (k + 1) := rfl
+
+/-- The first nontrivial column of the Pascal triangle. -/
+@[simp] theorem staircaseBinom_one : ∀ n, staircaseBinom n 1 = n
+  | 0 => rfl
+  | n + 1 => by
+      rw [staircaseBinom_succ_succ, staircaseBinom_one]
+      simp [staircaseBinom, Nat.add_comm]
+
+/-- Cancellation-free multiplication form of the adjacent binomial identity. -/
+theorem staircaseBinom_add_one_mul : ∀ n k,
+    (n + 1) * staircaseBinom n k =
+      staircaseBinom (n + 1) (k + 1) * (k + 1)
+  | 0, 0 => by decide
+  | 0, k + 1 => by simp [staircaseBinom]
+  | n + 1, 0 => by
+      simp [staircaseBinom, staircaseBinom_one, Nat.mul_succ, Nat.add_comm]
+  | n + 1, k + 1 => by
+      rw [staircaseBinom_succ_succ (n + 1) (k + 1),
+        staircaseBinom_succ_succ n k]
+      calc
+        (n + 1 + 1) *
+              (staircaseBinom n k + staircaseBinom n (k + 1)) =
+            (n + 1) * staircaseBinom n k + staircaseBinom n k +
+              ((n + 1) * staircaseBinom n (k + 1) +
+                staircaseBinom n (k + 1)) := by
+          simp only [Nat.add_mul, Nat.mul_add, Nat.one_mul]
+        _ =
+            staircaseBinom (n + 1) (k + 1) * (k + 1) +
+              staircaseBinom n k +
+                (staircaseBinom (n + 1) (k + 1 + 1) * (k + 1 + 1) +
+                  staircaseBinom n (k + 1)) := by
+          rw [staircaseBinom_add_one_mul n k,
+            staircaseBinom_add_one_mul n (k + 1)]
+        _ =
+            staircaseBinom (n + 1) (k + 1) * (k + 1) +
+              staircaseBinom (n + 1) (k + 1) +
+                staircaseBinom (n + 1) (k + 1 + 1) * (k + 1 + 1) := by
+          rw [staircaseBinom_succ_succ n k]
+          ac_rfl
+        _ =
+            (staircaseBinom (n + 1) (k + 1) +
+                staircaseBinom (n + 1) (k + 1 + 1)) *
+              (k + 1 + 1) := by
+          simp only [Nat.add_mul, Nat.mul_add, Nat.mul_one]
+          ac_rfl
+
+/-- Exact adjacent-row identity
+`binom(n,k+1) * (k+1) = binom(n,k) * (n-k)`. -/
+theorem staircaseBinom_succ_right_eq (n k : Nat) :
+    staircaseBinom n (k + 1) * (k + 1) =
+      staircaseBinom n k * (n - k) := by
+  have e : (n + 1) * staircaseBinom n k =
+      staircaseBinom n (k + 1) * (k + 1) +
+        staircaseBinom n k * (k + 1) := by
+    rw [← Nat.add_mul,
+      Nat.add_comm (staircaseBinom n (k + 1)) (staircaseBinom n k),
+      ← staircaseBinom_succ_succ, staircaseBinom_add_one_mul]
+  rw [← Nat.sub_eq_of_eq_add e, Nat.mul_comm,
+    ← Nat.mul_sub_left_distrib, Nat.add_sub_add_right]
+
 /-- The literal identity-profile scale at agreement `a=K+w` from
 `def:integer-staircase-detail`.  The unrounded scale
 `binom(n,K+w) / |B|^w` is kept as an exact numerator/denominator pair. -/
@@ -101,6 +165,58 @@ rounding argument. -/
 theorem ratio_wellDefined (S : IdentityRawScale) :
     S.agreement ≤ S.n ∧ 0 < S.numerator ∧ 0 < S.denominator :=
   ⟨S.agreement_le, S.numerator_pos, S.denominator_pos⟩
+
+/-- The adjacent identity scale at agreement `K + (w + 1)`. -/
+def next (S : IdentityRawScale) (hnext : S.agreement + 1 ≤ S.n) :
+    IdentityRawScale where
+  n := S.n
+  K := S.K
+  w := S.w + 1
+  baseCard := S.baseCard
+  agreement_le := by simpa [agreement, Nat.add_assoc] using hnext
+  baseCard_pos := S.baseCard_pos
+
+/-- Advancing the weight increases agreement by exactly one. -/
+@[simp] theorem next_agreement (S : IdentityRawScale)
+    (hnext : S.agreement + 1 ≤ S.n) :
+    (S.next hnext).agreement = S.agreement + 1 := by
+  simp [next, agreement, Nat.add_assoc]
+
+/-- Advancing the weight multiplies the exact denominator by `|B|`. -/
+@[simp] theorem next_denominator (S : IdentityRawScale)
+    (hnext : S.agreement + 1 ≤ S.n) :
+    (S.next hnext).denominator = S.denominator * S.baseCard := by
+  simp [next, denominator, Nat.pow_succ]
+
+/-- The adjacent numerator step, stated without division or cancellation. -/
+theorem next_numerator_step (S : IdentityRawScale)
+    (hnext : S.agreement + 1 ≤ S.n) :
+    (S.next hnext).numerator * (S.agreement + 1) =
+      S.numerator * (S.n - S.agreement) := by
+  simpa [next, numerator, agreement, Nat.add_assoc] using
+    staircaseBinom_succ_right_eq S.n S.agreement
+
+/-- Exact adjacent identity-scale ratio in cross-multiplied form:
+`I(a+1) / I(a) = (n-a) / ((a+1)|B|)`.
+
+The cross product avoids any divisibility or rational coercion assumptions. -/
+theorem adjacent_ratio_cross (S : IdentityRawScale)
+    (hnext : S.agreement + 1 ≤ S.n) :
+    ((S.next hnext).numerator * S.denominator) *
+        ((S.agreement + 1) * S.baseCard) =
+      (S.numerator * (S.next hnext).denominator) *
+        (S.n - S.agreement) := by
+  rw [next_denominator]
+  calc
+    ((S.next hnext).numerator * S.denominator) *
+          ((S.agreement + 1) * S.baseCard) =
+        ((S.next hnext).numerator * (S.agreement + 1)) *
+          (S.denominator * S.baseCard) := by ac_rfl
+    _ = (S.numerator * (S.n - S.agreement)) *
+          (S.denominator * S.baseCard) := by
+      rw [next_numerator_step]
+    _ = (S.numerator * (S.denominator * S.baseCard)) *
+          (S.n - S.agreement) := by ac_rfl
 
 end IdentityRawScale
 
@@ -274,6 +390,26 @@ theorem adjacent_isFirstSafe (S : FrontiersStaircase) (budget a0 : Nat)
     (hunsafe : S.Unsafe budget a0) (hsafe : S.safe budget (a0 + 1)) :
     S.IsFirstSafe budget (a0 + 1) :=
   (S.toCore budget).oneStep_isFirstSafe a0 h0 h1 hunsafe hsafe
+
+/-- At an adjacent unsafe/safe identity-profile pair, the exact scale ratio
+holds and the right endpoint is the unique first-safe agreement. -/
+theorem adjacent_identity_ratio_pins_threshold
+    (S : FrontiersStaircase) (I : IdentityRawScale) (budget : Nat)
+    (hblock : I.n = S.n)
+    (hleft : S.k + 1 ≤ I.agreement)
+    (hnext : I.agreement + 1 ≤ I.n)
+    (hunsafe : S.Unsafe budget I.agreement)
+    (hsafe : S.safe budget (I.agreement + 1)) :
+    (((I.next hnext).numerator * I.denominator) *
+          ((I.agreement + 1) * I.baseCard) =
+        (I.numerator * (I.next hnext).denominator) *
+          (I.n - I.agreement)) ∧
+      S.IsFirstSafe budget (I.agreement + 1) := by
+  refine ⟨I.adjacent_ratio_cross hnext, ?_⟩
+  apply S.adjacent_isFirstSafe budget I.agreement hleft
+  · simpa [hblock] using hnext
+  · exact hunsafe
+  · exact hsafe
 
 end FrontiersStaircase
 
@@ -482,6 +618,9 @@ theorem tangent_root_toy_exact :
 #print axioms IdentityRawScale.numerator_pos
 #print axioms IdentityRawScale.denominator_pos
 #print axioms IdentityRawScale.ratio_wellDefined
+#print axioms staircaseBinom_succ_right_eq
+#print axioms IdentityRawScale.next_numerator_step
+#print axioms IdentityRawScale.adjacent_ratio_cross
 #print axioms FrontiersStaircase.safe_up
 #print axioms FrontiersStaircase.firstSafe_unique
 #print axioms FrontiersStaircase.exists_firstSafe_of_safe
@@ -492,6 +631,7 @@ theorem tangent_root_toy_exact :
 #print axioms FrontiersStaircase.firstSafe_antitone_budget
 #print axioms FrontiersStaircase.closedRadius_monotone_budget
 #print axioms FrontiersStaircase.adjacent_isFirstSafe
+#print axioms FrontiersStaircase.adjacent_identity_ratio_pins_threshold
 #print axioms nodup_lt_length_deep
 #print axioms transverse_root_double_count
 #print axioms card_le_radius_succ_of_mul_gap_le

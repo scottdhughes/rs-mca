@@ -1,27 +1,25 @@
+import SyndromeSecant.BalancedCoreTransverseSecant
+
 /-!
-# Exact syndrome–secant compiler instance (W43 M2)
+# Exact syndrome–secant compiler instance and balanced-core theorem
 
-Maps to **hard input (a)** first-match atlas / **(c)** ray compiler.
+The package exports the general field-independent fixed-chart theorem from
+`SyndromeSecant.BalancedCoreTransverseSecant`. This root file also retains the
+original finite executable regression instance for hard inputs (a)/(c).
 
-Source labels (frontiers draft — grepped before writing):
+Legacy source labels (frontiers draft):
 - thm:syndrome-secant-exact L1607
 - eq:transverse-secant-count L1615 (tag 3.3)
 - eq:exact-secant-numerator L1621 (tag 3.4)
 
-Finite conclusions instantiated:
-1. For each fixed E, at most one transverse intersection parameter γ
-2. Exact Θ_t count for a concrete (y0,y1): number of γ that hit some
-   V_E with |E|≤t and transverse non-containment
+Finite regression instance:
+- t=1 over F_5², with parity columns (1,x);
+- per-E uniqueness for empty and singleton supports;
+- exact Θ count 5 for the displayed line;
+- dual `native_decide` / `decide` checks.
 
-Explicit toy (same F_5² as M1):
-- t=1, D-points {0,1,2,3,4}, columns h_x=(1,x)
-- V_∅ = {0}; V_{{x}} = span{(1,x)} = {(a, a·x)}
-- y0=(1,1), y1=(0,1)
-- Per-E uniqueness: each E contributes ≤1 γ
-- Global Θ: γ∈{0,1,2,3,4} each hits a distinct singleton E
-  ⇒ Θ_1(y0,y1) = 5
-
-No `sorry`. No mathlib. Dual `native_decide` / `decide`.
+No `sorry`. The general theorem uses Mathlib; the executable instance remains
+an isolated finite regression fixture.
 -/
 
 namespace SyndromeSecant

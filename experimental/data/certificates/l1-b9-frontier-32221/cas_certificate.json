@@ -1,0 +1,292 @@
+{
+  "cases": [
+    {
+      "M": [
+        [
+          7,
+          3,
+          7
+        ],
+        [
+          10,
+          17,
+          12
+        ],
+        [
+          7,
+          12,
+          15
+        ]
+      ],
+      "canonical_assignment": [
+        [
+          16,
+          17
+        ],
+        [
+          4
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          12,
+          14
+        ]
+      ],
+      "kind": "full_rank",
+      "localization_product": 11,
+      "representative_minor": {
+        "columns": [
+          0,
+          1,
+          2
+        ],
+        "kind": "det_M",
+        "rows": [
+          0,
+          1,
+          2
+        ],
+        "unit": 16
+      },
+      "results": {
+        "macaulay2": {
+          "compatible_line_factorization_verified": true,
+          "compatible_line_incidence_verified": true,
+          "localization_nonzero": true,
+          "minor_verified": true,
+          "rank_M": 3,
+          "rank_augmented": 3
+        },
+        "python_modular_elimination": {
+          "compatible_line": null,
+          "compatible_line_factorization_verified": true,
+          "compatible_line_incidence_verified": true,
+          "localization_nonzero": true,
+          "minor_verified": true,
+          "rank_M": 3,
+          "rank_augmented": 3
+        },
+        "singular": {
+          "compatible_line_factorization_verified": true,
+          "compatible_line_incidence_verified": true,
+          "localization_nonzero": true,
+          "minor_verified": true,
+          "rank_M": 3,
+          "rank_augmented": 3
+        }
+      },
+      "u": [
+        3,
+        4,
+        0
+      ]
+    },
+    {
+      "M": [
+        [
+          3,
+          4,
+          16
+        ],
+        [
+          6,
+          18,
+          2
+        ],
+        [
+          12,
+          6,
+          18
+        ]
+      ],
+      "canonical_assignment": [
+        [
+          16,
+          17
+        ],
+        [
+          4
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          12,
+          13
+        ]
+      ],
+      "kind": "affine_inconsistent",
+      "localization_product": 16,
+      "representative_minor": {
+        "columns": [
+          0,
+          1,
+          3
+        ],
+        "kind": "augmented_minor",
+        "rows": [
+          0,
+          1,
+          2
+        ],
+        "unit": 13
+      },
+      "results": {
+        "macaulay2": {
+          "compatible_line_factorization_verified": true,
+          "compatible_line_incidence_verified": true,
+          "localization_nonzero": true,
+          "minor_verified": true,
+          "rank_M": 2,
+          "rank_augmented": 3
+        },
+        "python_modular_elimination": {
+          "compatible_line": null,
+          "compatible_line_factorization_verified": true,
+          "compatible_line_incidence_verified": true,
+          "localization_nonzero": true,
+          "minor_verified": true,
+          "rank_M": 2,
+          "rank_augmented": 3
+        },
+        "singular": {
+          "compatible_line_factorization_verified": true,
+          "compatible_line_incidence_verified": true,
+          "localization_nonzero": true,
+          "minor_verified": true,
+          "rank_M": 2,
+          "rank_augmented": 3
+        }
+      },
+      "u": [
+        9,
+        10,
+        2
+      ]
+    },
+    {
+      "M": [
+        [
+          8,
+          0,
+          5
+        ],
+        [
+          3,
+          12,
+          9
+        ],
+        [
+          13,
+          15,
+          1
+        ]
+      ],
+      "canonical_assignment": [
+        [
+          16,
+          17
+        ],
+        [
+          5
+        ],
+        [
+          8,
+          11
+        ],
+        [
+          14,
+          15
+        ]
+      ],
+      "kind": "compatible_rankdrop",
+      "localization_product": 15,
+      "representative_minor": {
+        "columns": [
+          0,
+          1
+        ],
+        "kind": "rank_two_minor",
+        "rows": [
+          0,
+          1
+        ],
+        "unit": 1
+      },
+      "results": {
+        "macaulay2": {
+          "compatible_line_factorization_verified": true,
+          "compatible_line_incidence_verified": true,
+          "localization_nonzero": true,
+          "minor_verified": true,
+          "rank_M": 2,
+          "rank_augmented": 2
+        },
+        "python_modular_elimination": {
+          "compatible_line": {
+            "all_points_verified": true,
+            "formula": {
+              "F": "(X+t)*(X^2+16)",
+              "V": "18*(X+t)",
+              "gcd": "X+t"
+            },
+            "points_sha256": "54d7dca89964d52172df1e52b66a66dec2ae4489341c16f16c520ba4e86f3331",
+            "solution_count": 19
+          },
+          "compatible_line_factorization_verified": true,
+          "compatible_line_incidence_verified": true,
+          "localization_nonzero": true,
+          "minor_verified": true,
+          "rank_M": 2,
+          "rank_augmented": 2
+        },
+        "singular": {
+          "compatible_line_factorization_verified": true,
+          "compatible_line_incidence_verified": true,
+          "localization_nonzero": true,
+          "minor_verified": true,
+          "rank_M": 2,
+          "rank_augmented": 2
+        }
+      },
+      "u": [
+        0,
+        17,
+        7
+      ]
+    }
+  ],
+  "certificate": {
+    "engines": {
+      "Macaulay2": "/opt/homebrew/bin/M2",
+      "Singular": "/opt/homebrew/bin/Singular"
+    },
+    "generic_saturation_used": false,
+    "localization": "explicit nonzero product of core/background/support root differences and nonzero distinct-label factors"
+  },
+  "linked_sage_certificate": {
+    "path": "experimental/data/certificates/l1-b9-frontier-32221/certificate.json",
+    "sha256": "0185178c00337461fe82703cac9a262e5ba9b1c2ad4e48975f05231f0c4fa55d"
+  },
+  "proof_status": {
+    "exact": "Python independently checks all 432 maps; Python, Singular, and Macaulay2 agree on representative ranks, minors, and the compatible common-factor line",
+    "uniform": "the separate degree-gap/UFD proof, not these representatives, must supply the uniform rank-drop implication"
+  },
+  "rank_census": {
+    "histogram": {
+      "rankM=2,rankAug=2": 1,
+      "rankM=2,rankAug=3": 23,
+      "rankM=3,rankAug=3": 408
+    },
+    "matrix_payload_sha256": "07e0273e85b2aec2215de0daa9b32d820b92089dc4a5e7c2fbe1b2f3d3c4d2af",
+    "support_pattern_count": 432
+  },
+  "schema": "rs-mca-l1-b9-frontier-32221-reduced-crt-cas-v1",
+  "statement": "independently reproduce the full GF(19) reduced-rank census and verify representative full, inconsistent, and compatible strata",
+  "status": "AUDIT/EXACT_REPRESENTATIVE_LOCALIZED_CAS_REPLAY",
+  "verdict": "GREEN_REPRESENTATIVE_CONTROL_ONLY"
+}

@@ -24,8 +24,10 @@ codeword, proves that these representatives form an equally large finite set,
 and applies the polynomial-family core `collisionAwarePole_le_B_MCA`.
 
 Thus the module proves the source theorem for a supplied codeword list and
-exports its direct proper-challenge composition. It does not construct that
-list or assign it a prefix-fiber size.
+exports its direct proper-challenge composition. This module itself does not
+construct that list or assign it a prefix-fiber size; the downstream
+`IdentityPrefixCollisionFloor.lean` module supplies the exact prefix-list
+specialization in equation (4.3).
 
 ## Manuscript correspondence
 
@@ -191,8 +193,9 @@ ceilDiv (Gamma.card * M) (Fintype.card F)
 inequality for `C = rsEval ev k`, and
 `collisionAwarePole_challenge_of_codewordList` records the direct composition.
 The declarations keep the inner polynomial-collision argument and outer
-finite-group averaging argument separate; the prefix-list construction remains
-a distinct upstream input to the composed route.
+finite-group averaging argument separate. `IdentityPrefixCollisionFloor`
+connects the distinct upstream prefix-list construction to this route using an
+exact-size selected sublist.
 
 ### `TowardsPrize.lean`
 

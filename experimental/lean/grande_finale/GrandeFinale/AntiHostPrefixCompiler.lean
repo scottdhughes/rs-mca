@@ -109,7 +109,7 @@ noncomputable def B_MCA_challenge (D : Finset B) (C : Set (D -> F))
 /-! ## Exact displayed witnesses -/
 
 /-- A slope, exact support, and explaining polynomial. -/
-structure WitnessData (B : Type u) (F : Type v) where
+structure WitnessData (B : Type u) (F : Type v) [Semiring F] where
   slope : F
   support : Finset B
   explanation : F[X]

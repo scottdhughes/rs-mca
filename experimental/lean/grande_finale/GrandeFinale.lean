@@ -3,6 +3,7 @@ import GrandeFinale.AllDepthSparseSplitSharpness
 import GrandeFinale.AllLineRayAffineCore
 import GrandeFinale.AntiHostPrefixCompiler
 import GrandeFinale.AxisGdampingCosGap
+import GrandeFinale.BCFirstInteriorGeneralLine
 import GrandeFinale.CanonicalLagrangeCurveCompiler
 import GrandeFinale.DeployedC9OddMonomialFourierBudget
 import GrandeFinale.DepthZeroIdentityLineRayOwner

@@ -81,6 +81,7 @@ profile-envelope comparison.
    ```text
    experimental/rs_mca_thresholds.tex
    experimental/asymptotic_rs_mca_frontiers.tex
+   experimental/lean/rs_mca_thresholds/
    experimental/lean/grande_finale/
    experimental/lean/cap25_cap_v13_raw_compact/
    ```

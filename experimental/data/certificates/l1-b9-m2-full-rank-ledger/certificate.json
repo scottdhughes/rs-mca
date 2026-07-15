@@ -1,0 +1,605 @@
+{
+  "cases": [
+    {
+      "auxiliary_owner_target": {
+        "audit": {
+          "aggregate_owner_bound": 72,
+          "effective_degree_bound": 4,
+          "fixed_D_count": 1,
+          "fixed_R0_count": 2,
+          "fixed_layer_count": 2,
+          "integer_floor_bound_per_fixed_D_R0": 36,
+          "johnson_numerator": 36,
+          "paid": true,
+          "petal_domain_size": 12,
+          "required_agreement": 7,
+          "strict_johnson_margin": 1,
+          "unique": false
+        },
+        "b11_box_route": "ESCAPES_BOUNDED_EXCESS_BOX",
+        "coordinates": {
+          "a_i": [
+            3,
+            2,
+            2
+          ],
+          "d": 4,
+          "ell": 4,
+          "r": 1,
+          "t": 3
+        },
+        "new_owner_charge": 72,
+        "old_b3_charge": 311904,
+        "owner": "PAID_AUXILIARY_JOHNSON",
+        "saved_mass": 311832,
+        "support_pattern_count": 864
+      },
+      "boundary_321_target": {
+        "applicable_to_frozen_layout": true,
+        "b11_box_route": "ESCAPES_BOUNDED_EXCESS_BOX",
+        "coordinates": {
+          "a_i": [
+            3,
+            2,
+            1
+          ],
+          "d": 4,
+          "ell": 4,
+          "r": 2,
+          "t": 3
+        },
+        "new_q_charge": 10887,
+        "old_q2_charge": 207936,
+        "owner": "B9_BOUNDARY_321_CRT_RANK_DICHOTOMY",
+        "periodic_bucket_charge_paid_elsewhere": 3,
+        "periodic_support_patterns_paid_elsewhere": 3,
+        "primitive_support_patterns_charged": 573,
+        "proof_certificate_link": {
+          "census_schema": "rs-mca-l1-b9-boundary-321-v1",
+          "census_sha256": "113c34af8644f22c038b03ca8eabc808869201a21ec709ee7466cbc8303a32d6",
+          "dichotomy_schema": "rs-mca-l1-b9-boundary-321-dichotomy-v2",
+          "dichotomy_sha256": "2c874bc5672a8f5521e40273e2475e1d0e9384b22a5f96738817c2e6580e80a7",
+          "independent_review": {
+            "path": "experimental/notes/l1/l1_b9_boundary_321_independent_review.md",
+            "sha256": "742c630f2dbecb7fd0f329923b488f9e98393ee4f0cf059722c057f26d33ae07",
+            "verdict": "GREEN"
+          },
+          "periodic_support_patterns": 3,
+          "primitive_support_patterns": 573,
+          "support_patterns": 576
+        },
+        "review_status": "INDEPENDENT_PROOF_REVIEW_GREEN",
+        "saved_mass": 197049,
+        "standalone_profile_charge_including_periodic_bucket": 10890,
+        "support_pattern_count": 576,
+        "support_pattern_formula": "576*binom(b,2)*binom(M,3)"
+      },
+      "case": {
+        "E": 0,
+        "V2": 0,
+        "VR": 0,
+        "k": 5,
+        "n": 18,
+        "q": 19,
+        "sigma": 3
+      },
+      "complete_finite_addback": {
+        "after_existing_owner_all_profile_bound": 1701016,
+        "after_existing_owner_unresolved_bound": 865852,
+        "after_m2_all_profile_bound": 2012848,
+        "after_m2_unresolved_bound": 1177684,
+        "closure_verdict": "NOT_CLOSED_BY_LOCAL_M2_PROFILE_REFINEMENTS",
+        "new_all_profile_bound": 1503967,
+        "new_unresolved_bound": 668803,
+        "old_all_profile_bound": 3490288,
+        "old_unresolved_bound": 2655124,
+        "profile_count": 75,
+        "refined_profile_sha256": "68fdd8f7c458f08d12971a3e337e82c99016ae7b17a20abe9ccf78b5487cc316",
+        "remaining_unresolved_mass": true
+      },
+      "largest_remaining_unresolved_profile": {
+        "G2": 4,
+        "GR": 5,
+        "a_i": [
+          2,
+          2,
+          2
+        ],
+        "b11_box_route": "ESCAPES_BOUNDED_EXCESS_BOX",
+        "d": 3,
+        "d_minus_ell": -1,
+        "lambda": 0,
+        "lambda_J": 1,
+        "lambda_minus_lambda_J": -1,
+        "r": 1,
+        "selected_injection_bound": 155952,
+        "selected_injection_exponent": 2,
+        "support_pattern_count": 432,
+        "t": 3
+      },
+      "layout": {
+        "M": 3,
+        "b": 2,
+        "core_size": 4,
+        "ell": 4,
+        "k": 5,
+        "maximal": true,
+        "n": 18,
+        "q": 19,
+        "s": 8,
+        "sigma": 3
+      },
+      "m2_target": {
+        "b11_box_route": "ESCAPES_BOUNDED_EXCESS_BOX",
+        "coordinates": {
+          "a_i": [
+            2,
+            2,
+            2
+          ],
+          "d": 4,
+          "ell": 4,
+          "r": 2,
+          "t": 3
+        },
+        "exact_rank_at_most_2_charge": 0,
+        "improvement_factor": 361,
+        "new_q_charge": 4104,
+        "old_q3_charge": 1481544,
+        "proof_certificate_link": {
+          "exact_d4_upper_bound_formula": "binom(b,2)*binom(M,3)*216*q",
+          "finite_rows": [
+            {
+              "exact_d4_upper_bound": 4104,
+              "n": 18,
+              "old_cofactor_upper_bound": 1481544,
+              "q": 19,
+              "selected_support_charts": 216
+            },
+            {
+              "exact_d4_upper_bound": 19872,
+              "n": 22,
+              "old_cofactor_upper_bound": 10512288,
+              "q": 23,
+              "selected_support_charts": 864
+            },
+            {
+              "exact_d4_upper_bound": 1218240,
+              "n": 46,
+              "old_cofactor_upper_bound": 2691092160,
+              "q": 47,
+              "selected_support_charts": 25920
+            }
+          ],
+          "global_verdict": "YELLOW - promising but unresolved; do not authorize global proof.",
+          "local_status": "RIGOROUS_M2_CHART_BOUND",
+          "schema": "rs-mca-l1-b9-boundary-222-v2",
+          "sha256": "845d5a0206db7cca2fa2b359773b85e30ef01b1f6b05b55ad090639eb01c20bb"
+        },
+        "saved_mass": 1477440,
+        "support_pattern_count": 216,
+        "support_pattern_formula": "216*binom(b,2)*binom(M,3)"
+      }
+    },
+    {
+      "auxiliary_owner_target": {
+        "audit": {
+          "aggregate_owner_bound": null,
+          "effective_degree_bound": 4,
+          "fixed_D_count": 1,
+          "fixed_R0_count": 2,
+          "fixed_layer_count": 2,
+          "integer_floor_bound_per_fixed_D_R0": null,
+          "johnson_numerator": 48,
+          "paid": false,
+          "petal_domain_size": 16,
+          "required_agreement": 7,
+          "strict_johnson_margin": -15,
+          "unique": false
+        },
+        "b11_box_route": "ESCAPES_BOUNDED_EXCESS_BOX",
+        "coordinates": {
+          "a_i": [
+            3,
+            2,
+            2
+          ],
+          "d": 4,
+          "ell": 4,
+          "r": 1,
+          "t": 3
+        },
+        "new_owner_charge": 1828224,
+        "old_b3_charge": 1828224,
+        "owner": "UNPAID_AUXILIARY_JOHNSON_MARGIN",
+        "saved_mass": 0,
+        "support_pattern_count": 3456
+      },
+      "boundary_321_target": {
+        "applicable_to_frozen_layout": false,
+        "b11_box_route": "ESCAPES_BOUNDED_EXCESS_BOX",
+        "coordinates": {
+          "a_i": [
+            3,
+            2,
+            1
+          ],
+          "d": 4,
+          "ell": 4,
+          "r": 2,
+          "t": 3
+        },
+        "new_q_charge": 1218816,
+        "old_q2_charge": 1218816,
+        "owner": "NOT_APPLIED_OUTSIDE_FROZEN_GF19_LAYOUT",
+        "periodic_bucket_charge_paid_elsewhere": 0,
+        "periodic_support_patterns_paid_elsewhere": 0,
+        "primitive_support_patterns_charged": 2304,
+        "proof_certificate_link": null,
+        "review_status": "NOT_APPLICABLE",
+        "saved_mass": 0,
+        "standalone_profile_charge_including_periodic_bucket": 1218816,
+        "support_pattern_count": 2304,
+        "support_pattern_formula": "576*binom(b,2)*binom(M,3)"
+      },
+      "case": {
+        "E": 0,
+        "V2": 0,
+        "VR": 0,
+        "k": 5,
+        "n": 22,
+        "q": 23,
+        "sigma": 3
+      },
+      "complete_finite_addback": {
+        "after_existing_owner_all_profile_bound": 319781380,
+        "after_existing_owner_unresolved_bound": 264893536,
+        "after_m2_all_profile_bound": 319781380,
+        "after_m2_unresolved_bound": 264893536,
+        "closure_verdict": "NOT_CLOSED_BY_LOCAL_M2_PROFILE_REFINEMENTS",
+        "new_all_profile_bound": 319781380,
+        "new_unresolved_bound": 264893536,
+        "old_all_profile_bound": 330273796,
+        "old_unresolved_bound": 275385952,
+        "profile_count": 219,
+        "refined_profile_sha256": "3437ec1ff3224bec678edc88f339c61f6a30c5a176223362da3b9023b806ba50",
+        "remaining_unresolved_mass": true
+      },
+      "largest_remaining_unresolved_profile": {
+        "G2": 4,
+        "GR": 5,
+        "a_i": [
+          2,
+          2,
+          2,
+          1
+        ],
+        "b11_box_route": "ESCAPES_BOUNDED_EXCESS_BOX",
+        "d": 4,
+        "d_minus_ell": 0,
+        "lambda": 0,
+        "lambda_J": 2,
+        "lambda_minus_lambda_J": -2,
+        "r": 1,
+        "selected_injection_bound": 84098304,
+        "selected_injection_exponent": 3,
+        "support_pattern_count": 6912,
+        "t": 4
+      },
+      "layout": {
+        "M": 4,
+        "b": 2,
+        "core_size": 4,
+        "ell": 4,
+        "k": 5,
+        "maximal": true,
+        "n": 22,
+        "q": 23,
+        "s": 8,
+        "sigma": 3
+      },
+      "m2_target": {
+        "b11_box_route": "ESCAPES_BOUNDED_EXCESS_BOX",
+        "coordinates": {
+          "a_i": [
+            2,
+            2,
+            2
+          ],
+          "d": 4,
+          "ell": 4,
+          "r": 2,
+          "t": 3
+        },
+        "exact_rank_at_most_2_charge": 0,
+        "improvement_factor": 529,
+        "new_q_charge": 19872,
+        "old_q3_charge": 10512288,
+        "proof_certificate_link": {
+          "exact_d4_upper_bound_formula": "binom(b,2)*binom(M,3)*216*q",
+          "finite_rows": [
+            {
+              "exact_d4_upper_bound": 4104,
+              "n": 18,
+              "old_cofactor_upper_bound": 1481544,
+              "q": 19,
+              "selected_support_charts": 216
+            },
+            {
+              "exact_d4_upper_bound": 19872,
+              "n": 22,
+              "old_cofactor_upper_bound": 10512288,
+              "q": 23,
+              "selected_support_charts": 864
+            },
+            {
+              "exact_d4_upper_bound": 1218240,
+              "n": 46,
+              "old_cofactor_upper_bound": 2691092160,
+              "q": 47,
+              "selected_support_charts": 25920
+            }
+          ],
+          "global_verdict": "YELLOW - promising but unresolved; do not authorize global proof.",
+          "local_status": "RIGOROUS_M2_CHART_BOUND",
+          "schema": "rs-mca-l1-b9-boundary-222-v2",
+          "sha256": "845d5a0206db7cca2fa2b359773b85e30ef01b1f6b05b55ad090639eb01c20bb"
+        },
+        "saved_mass": 10492416,
+        "support_pattern_count": 864,
+        "support_pattern_formula": "216*binom(b,2)*binom(M,3)"
+      }
+    },
+    {
+      "auxiliary_owner_target": {
+        "audit": {
+          "aggregate_owner_bound": null,
+          "effective_degree_bound": 4,
+          "fixed_D_count": 1,
+          "fixed_R0_count": 2,
+          "fixed_layer_count": 2,
+          "integer_floor_bound_per_fixed_D_R0": null,
+          "johnson_numerator": 120,
+          "paid": false,
+          "petal_domain_size": 40,
+          "required_agreement": 7,
+          "strict_johnson_margin": -111,
+          "unique": false
+        },
+        "b11_box_route": "ESCAPES_BOUNDED_EXCESS_BOX",
+        "coordinates": {
+          "a_i": [
+            3,
+            2,
+            2
+          ],
+          "d": 4,
+          "ell": 4,
+          "r": 1,
+          "t": 3
+        },
+        "new_owner_charge": 229029120,
+        "old_b3_charge": 229029120,
+        "owner": "UNPAID_AUXILIARY_JOHNSON_MARGIN",
+        "saved_mass": 0,
+        "support_pattern_count": 103680
+      },
+      "boundary_321_target": {
+        "applicable_to_frozen_layout": false,
+        "b11_box_route": "ESCAPES_BOUNDED_EXCESS_BOX",
+        "coordinates": {
+          "a_i": [
+            3,
+            2,
+            1
+          ],
+          "d": 4,
+          "ell": 4,
+          "r": 2,
+          "t": 3
+        },
+        "new_q_charge": 152686080,
+        "old_q2_charge": 152686080,
+        "owner": "NOT_APPLIED_OUTSIDE_FROZEN_GF19_LAYOUT",
+        "periodic_bucket_charge_paid_elsewhere": 0,
+        "periodic_support_patterns_paid_elsewhere": 0,
+        "primitive_support_patterns_charged": 69120,
+        "proof_certificate_link": null,
+        "review_status": "NOT_APPLICABLE",
+        "saved_mass": 0,
+        "standalone_profile_charge_including_periodic_bucket": 152686080,
+        "support_pattern_count": 69120,
+        "support_pattern_formula": "576*binom(b,2)*binom(M,3)"
+      },
+      "case": {
+        "E": 0,
+        "V2": 0,
+        "VR": 0,
+        "k": 5,
+        "n": 46,
+        "q": 47,
+        "sigma": 3
+      },
+      "complete_finite_addback": {
+        "after_existing_owner_all_profile_bound": 16186949038331748,
+        "after_existing_owner_unresolved_bound": 2057753055668744,
+        "after_m2_all_profile_bound": 16186949038331748,
+        "after_m2_unresolved_bound": 2057753055668744,
+        "closure_verdict": "NOT_CLOSED_BY_LOCAL_M2_PROFILE_REFINEMENTS",
+        "new_all_profile_bound": 16186949038331748,
+        "new_unresolved_bound": 2057753055668744,
+        "old_all_profile_bound": 16186951728205668,
+        "old_unresolved_bound": 2057755745542664,
+        "profile_count": 3920,
+        "refined_profile_sha256": "3191a61b81d4a3bc5f479c59f8940196f673e1aaefd216a35ee089c6b34ea9f3",
+        "remaining_unresolved_mass": true
+      },
+      "largest_remaining_unresolved_profile": {
+        "G2": 4,
+        "GR": 5,
+        "a_i": [
+          2,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        "b11_box_route": "ESCAPES_BOUNDED_EXCESS_BOX",
+        "d": 4,
+        "d_minus_ell": 0,
+        "lambda": 5,
+        "lambda_J": 6,
+        "lambda_minus_lambda_J": -1,
+        "r": 1,
+        "selected_injection_bound": 217009671782400,
+        "selected_injection_exponent": 3,
+        "support_pattern_count": 2090188800,
+        "t": 8
+      },
+      "layout": {
+        "M": 10,
+        "b": 2,
+        "core_size": 4,
+        "ell": 4,
+        "k": 5,
+        "maximal": true,
+        "n": 46,
+        "q": 47,
+        "s": 8,
+        "sigma": 3
+      },
+      "m2_target": {
+        "b11_box_route": "ESCAPES_BOUNDED_EXCESS_BOX",
+        "coordinates": {
+          "a_i": [
+            2,
+            2,
+            2
+          ],
+          "d": 4,
+          "ell": 4,
+          "r": 2,
+          "t": 3
+        },
+        "exact_rank_at_most_2_charge": 0,
+        "improvement_factor": 2209,
+        "new_q_charge": 1218240,
+        "old_q3_charge": 2691092160,
+        "proof_certificate_link": {
+          "exact_d4_upper_bound_formula": "binom(b,2)*binom(M,3)*216*q",
+          "finite_rows": [
+            {
+              "exact_d4_upper_bound": 4104,
+              "n": 18,
+              "old_cofactor_upper_bound": 1481544,
+              "q": 19,
+              "selected_support_charts": 216
+            },
+            {
+              "exact_d4_upper_bound": 19872,
+              "n": 22,
+              "old_cofactor_upper_bound": 10512288,
+              "q": 23,
+              "selected_support_charts": 864
+            },
+            {
+              "exact_d4_upper_bound": 1218240,
+              "n": 46,
+              "old_cofactor_upper_bound": 2691092160,
+              "q": 47,
+              "selected_support_charts": 25920
+            }
+          ],
+          "global_verdict": "YELLOW - promising but unresolved; do not authorize global proof.",
+          "local_status": "RIGOROUS_M2_CHART_BOUND",
+          "schema": "rs-mca-l1-b9-boundary-222-v2",
+          "sha256": "845d5a0206db7cca2fa2b359773b85e30ef01b1f6b05b55ad090639eb01c20bb"
+        },
+        "saved_mass": 2689873920,
+        "support_pattern_count": 25920,
+        "support_pattern_formula": "216*binom(b,2)*binom(M,3)"
+      }
+    }
+  ],
+  "minimal_next_attack": {
+    "action": "check existing owners for the recomputed largest profile before building another fixed-support rank system",
+    "profile": {
+      "G2": 4,
+      "GR": 5,
+      "a_i": [
+        2,
+        2,
+        2
+      ],
+      "b11_box_route": "ESCAPES_BOUNDED_EXCESS_BOX",
+      "d": 3,
+      "d_minus_ell": -1,
+      "lambda": 0,
+      "lambda_J": 1,
+      "lambda_minus_lambda_J": -1,
+      "r": 1,
+      "selected_injection_bound": 155952,
+      "selected_injection_exponent": 2,
+      "support_pattern_count": 432,
+      "t": 3
+    },
+    "row": {
+      "E": 0,
+      "V2": 0,
+      "VR": 0,
+      "k": 5,
+      "n": 18,
+      "q": 19,
+      "sigma": 3
+    }
+  },
+  "nonclaims": [
+    "the PR #763 per-profile cap is not applied to a sigma-incompatible chart",
+    "finite upper-bound mass is not a realizability count",
+    "no global mixed-petal or Grand List theorem is closed",
+    "no m>2 profile is refined"
+  ],
+  "pr763_crosswalk": {
+    "closing_margin": 992,
+    "comparison_status": "INAPPLICABLE_TO_LOCAL_M2_CHART",
+    "complete_pr763_addback_under_unproved_cap": 274854110496186600,
+    "deployed_row": {
+      "K": 1048576,
+      "m": 1116047,
+      "n": 2097152,
+      "p": 2130706433,
+      "sigma": 67471
+    },
+    "m2_chart_applicable": false,
+    "m2_chart_required_sigma": 3,
+    "paid_dyadic_mass": 57121027290597096,
+    "reason": "the local chart has ell=sigma+1=4; PR #763 has ell=67472",
+    "residual_profile_count": 1792,
+    "source": "origin/pr-763",
+    "target_T": 274854110496187592,
+    "uniform_per_profile_cap_sufficient": 121502836610262
+  },
+  "proof_status": {
+    "proved_or_exact": [
+      "rank at most two contributes zero to exact d=4",
+      "rank three contributes at most q monic quartics per selected support chart",
+      "the q-for-q^3 substitution is linked to the boundary-222 theorem certificate",
+      "the q-for-q^3 substitution and complete finite add-backs use exact integers",
+      "the auxiliary Johnson owner is summed only over fixed (D,R0) layer indices",
+      "the independently reviewed frozen GF19 (3,2,1) primitive residual costs at most 573*q"
+    ],
+    "unproved": [
+      "the remaining non-m2 finite unresolved profile mass",
+      "identification of this finite sum with a closed asymptotic profile envelope",
+      "the fixed-profile cap required by PR #763",
+      "any higher-m rank dichotomy"
+    ]
+  },
+  "schema": "rs-mca-l1-b9-m2-full-rank-ledger-v5",
+  "statement": "replace q^3 by q only for the exact m=2 B9 target, audit the next profile against the fixed-(D,R0) auxiliary Johnson owner, apply the content-addressed boundary-222 theorem and the local (3,2,1) CRT rank dichotomy on the frozen GF19 layout, then recompute the complete finite B7-B11 add-back",
+  "status": "AUDIT/EXACT_FINITE_M2_PROFILE_ADDBACK_222_LINKED_321_REVIEWED",
+  "verdict": "YELLOW - promising but unresolved; do not authorize global proof."
+}

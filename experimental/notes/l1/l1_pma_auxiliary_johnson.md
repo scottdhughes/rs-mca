@@ -2,9 +2,12 @@
 
 ## Status
 
-PROVED-COMPILER, citing Lemma 2 (`Sunflower Core-Defect Reduction`) and
-Theorem J (`Full-List Johnson Region`) in
-`experimental/notes/l1/l1_full_list_quotient_proof_program.md`.
+PROVED-COMPILER.  The reduction cites Lemma 2 (`Sunflower Core-Defect
+Reduction`) in `experimental/notes/l1/l1_full_list_quotient_proof_program.md`.
+The coarse Johnson payment cites Theorem J there; the sharper payment used by
+the current frontier scanner and add-back ledger is
+`thm:capf-johnson-list` / `cor:capf-pma-johnson` in
+`experimental/cap25_cap_v13_raw.tex`.
 
 This note packages two roadmap nodes:
 
@@ -88,6 +91,22 @@ Equivalently, for `d>0`, the few-petal Johnson-covered region is
 M <= floor((a^2-1)/(d(sigma+1))).
 ```
 
+Theorem J gives the valid coarse bound
+
+```text
+|T|(|T|-d) / (a^2-|T|d).
+```
+
+The later proved `kappa`-intersecting agreement bound
+`thm:capf-johnson-list` sharpens the numerator, giving
+
+```text
+|T|(a-d) / (a^2-|T|d).
+```
+
+The strict Johnson region is the same for both bounds.  The scanner and the
+`m=2` full-rank ledger use the sharper bound and take its integer floor.
+
 Thus the mixed-petal amplification problem only starts after this
 sub-Johnson boundary.  Below the boundary, the ordinary list-decoding packing
 theorem handles the fixed `D,R_0` layer before any sunflower-specific
@@ -108,5 +127,7 @@ python3 experimental/scripts/verify_l1_pma_auxiliary_johnson.py \
   --check experimental/data/certificates/l1-pma-auxiliary-johnson/l1_pma_auxiliary_johnson.json
 ```
 
-The verifier records exact parameter translations, Johnson denominators, the
-few-petal threshold table, and a small finite-field toy replay.
+The legacy verifier records exact parameter translations, the coarse Theorem
+J bound, the few-petal threshold table, and a small finite-field toy replay.
+The sharp numerator and fixed-layer add-back are independently replayed by
+`experimental/scripts/verify_l1_b9_m2_full_rank_ledger.py`.

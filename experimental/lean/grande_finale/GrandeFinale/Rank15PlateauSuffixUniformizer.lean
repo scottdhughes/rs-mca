@@ -148,8 +148,8 @@ def leftBoundaryTarget : Prop :=
       [-8_054, -8_054, -3_249, -3_249, -1_705, -6_510, -6_510,
         -1_705, 1_403] ∧
     (∀ i : Nat, i < 8 →
-      ∃ x : Int, leftBoundaryMargins.get? i = some x ∧ x < 0) ∧
-    leftBoundaryMargins.get? 8 = some 1_403
+      ∃ x : Int, leftBoundaryMargins[i]? = some x ∧ x < 0) ∧
+    leftBoundaryMargins[8]? = some 1_403
 
 end Rank15PlateauSuffixUniformizer
 end GrandeFinale

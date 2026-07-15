@@ -30,6 +30,40 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-15 - L1/BC/L2 threshold and Lean PR wave
+
+- **Agent/model:** Codex integrating non-draft PRs #775, #777, #779--#792,
+  #794--#798, #800, and #802 from Scott Hughes, Latif Kasuli, holmbuar,
+  and DannyExperiments. Draft PRs #799 and #801 were intentionally not
+  integrated.
+- **Files added or changed:** Added L1 mixed-petal and B9 reduced-CRT
+  certificates, BC chart-typing and first-interior modular-fiber notes,
+  resonant/fold/cylinder/band-uniform threshold reductions, L2 c=0 periodic,
+  rank-16 active-pencil, Profile1792, and rank-15 double-count exclusion
+  packets under `experimental/data/certificates/`, `experimental/notes/`, and
+  `experimental/scripts/`. Added and extended Lean formalization packages under
+  `experimental/lean/`, including Grande Finale finite compilers, RS-MCA
+  threshold compilers, asymptotic-spine interfaces, moment-to-max,
+  syndrome-line/secant, integer-staircase, and regression-lock packages.
+  Contributor `experimental/agents-log.md` edits were not imported.
+- **Status:** PROVED / CONDITIONAL / COUNTEREXAMPLE / EXPERIMENTAL / AUDIT,
+  as stated in the individual notes. No stable paper `.tex` or `.pdf` theorem
+  is promoted by this entry.
+- **What is being added:** This wave banks local finite proof packets and
+  formalization scaffolding for the current final-resolution path: mixed-petal
+  L1 frontier payments, BC/saturated-chart typing, Sidon-paired folding and
+  cylinder reductions, c=0 and Profile1792 L2 payments, rank-15/16 route cuts,
+  and Lean compilers/locks for exact thresholds and asymptotic interfaces.
+- **How it is useful:** The additions make several residual cells more
+  auditable and move more of the threshold infrastructure into replayable
+  certificate files or Lean statements. They do not by themselves close Q, BC,
+  SP, the finite adjacent safe ledgers, or the asymptotic RS-MCA theorem.
+- **What to do next:** Independently replay the frozen verifier packets in a
+  dedicated environment, decide which notes deserve promotion into
+  `asymptotic_rs_mca.tex` or `grande_finale.tex`, and continue the finite
+  adjacent-row audit with exact constants. Run Lean builds only in a dedicated
+  formalization environment.
+
 ### 2026-07-15 - L1/L2, LineRay, circle, and charge-obstruction PR wave
 
 - **Agent/model:** Codex integrating non-draft PRs #755--#774 and #776 from

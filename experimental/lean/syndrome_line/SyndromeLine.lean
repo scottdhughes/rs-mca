@@ -1,3 +1,6 @@
+import SyndromeLine.ExchangeExcessPoleSeparation
+import SyndromeLine.InteriorChartCopyDecomposition
+
 /-!
 # Syndrome-line normal form uniqueness (W43 M1)
 
@@ -18,7 +21,9 @@ Explicit toy (F_5, R=2):
 - Enumerate γ∈{0,1,2,3,4}: unique bad slope γ=4
   (s0+4·s1 = (1,0) ∈ V_E)
 
-No `sorry`. No mathlib. Dual `native_decide` / `decide`.
+No `sorry`. The enumerated declarations remain stdlib-style; the package now
+imports the Mathlib-backed exchange-excess and interior-chart theorems. Dual `native_decide` /
+`decide`.
 -/
 
 namespace SyndromeLine

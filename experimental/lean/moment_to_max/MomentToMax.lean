@@ -1,3 +1,8 @@
+import MomentToMax.MomentMapMaxFiber
+import MomentToMax.PowerWeightedConcentrationFloor
+import MomentToMax.PTEClusterPacking
+import MomentToMax.CombTradeChampion
+
 /-!
 # Q-to-SP moment-to-max transfer (W42 M2)
 
@@ -21,7 +26,8 @@ Explicit toy:
 
 Tight case: N=[8], M=8, N̄=8, κ=1 ⇒ ∑N²=64 = κ·N̄·M.
 
-No `sorry`. No mathlib. Dual `native_decide` / `decide`.
+No `sorry`. The finite declarations below remain Nat-only; the package also
+imports the Mathlib-backed moment-map rate and concentration-floor theorems.
 Weave-cite grande_finale/QEntropyInverse + #548/#551.
 -/
 

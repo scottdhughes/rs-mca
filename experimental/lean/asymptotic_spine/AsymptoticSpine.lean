@@ -1,5 +1,6 @@
 import AsymptoticSpine.Util
 import AsymptoticSpine.FirstMatch
+import AsymptoticSpine.PrefixAtlas
 import AsymptoticSpine.Moment
 import AsymptoticSpine.Normalization
 import AsymptoticSpine.AddBack
@@ -9,8 +10,12 @@ import AsymptoticSpine.SigmaDiagonal
 import AsymptoticSpine.Averaging
 import AsymptoticSpine.Reroute
 import AsymptoticSpine.Window
+import AsymptoticSpine.WindowCells
 import AsymptoticSpine.ProfileEnvelope
 import AsymptoticSpine.StaircaseDeep
 import AsymptoticSpine.EffectiveClosure
+import AsymptoticSpine.HighKappaCoverage
+import AsymptoticSpine.FullImageIdentityWindow
 import AsymptoticSpine.PrimitiveBoolean
 import AsymptoticSpine.BooleanDifferenceGrowth
+import AsymptoticSpine.RegressionLocks

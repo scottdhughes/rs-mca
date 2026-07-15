@@ -86,7 +86,7 @@ variable {V : Type v} [AddCommGroup V] [Module F V]
 
 /-- The actual post-selection common-syndrome premise: one nonzero functional
 annihilates one specified shortened span. No codimension is inferred here. -/
-def CommonSyndromePremise (phi : V ->ₗ[F] F)
+def CommonSyndromePremise (phi : V →ₗ[F] F)
     (shortenedSpan : Submodule F V) : Prop :=
   phi ≠ 0 ∧ ∀ z ∈ shortenedSpan, phi z = 0
 

@@ -1,0 +1,283 @@
+{
+  "certificate": {
+    "engines": {
+      "Macaulay2": "/opt/homebrew/bin/M2",
+      "Singular": "/opt/homebrew/bin/Singular"
+    },
+    "matrix_payload_sha256": "cb3799ea76741a18d922bd551f103c2e1c3b60419bed78b878d250ec9607a3e8"
+  },
+  "expected": {
+    "fixed": {
+      "augmented_rank": 13,
+      "rank": 12
+    },
+    "moving": {
+      "augmented_rank": 15,
+      "rank": 14
+    }
+  },
+  "input": {
+    "field": "GF(19)",
+    "fixed_matrix_shape": [
+      15,
+      12
+    ],
+    "moving_matrix_shape": [
+      15,
+      16
+    ],
+    "patterns": [
+      {
+        "sizes_by_labelled_petal": [
+          3,
+          1,
+          2
+        ],
+        "supports": [
+          [
+            4,
+            5,
+            6
+          ],
+          [
+            8
+          ],
+          [
+            13,
+            15
+          ]
+        ]
+      },
+      {
+        "sizes_by_labelled_petal": [
+          1,
+          3,
+          2
+        ],
+        "supports": [
+          [
+            4
+          ],
+          [
+            8,
+            9,
+            10
+          ],
+          [
+            12,
+            13
+          ]
+        ]
+      }
+    ]
+  },
+  "proof_status": {
+    "exact": "three independent exact engines agree on both representative rank pairs and unit*t augmented-minor factorizations",
+    "uniform": "the separate CRT inverse lemma supplies the uniform rank-drop implication without generic saturation"
+  },
+  "results": {
+    "macaulay2": [
+      {
+        "augmented_minor_factorization": {
+          "factorization": "10*t",
+          "identity_verified": true,
+          "pivot_columns_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            16
+          ],
+          "unit_coefficient_mod_19": 10
+        },
+        "fixed": {
+          "augmented_rank": 13,
+          "rank": 12
+        },
+        "moving": {
+          "augmented_rank": 15,
+          "rank": 14
+        }
+      },
+      {
+        "augmented_minor_factorization": {
+          "factorization": "16*t",
+          "identity_verified": true,
+          "pivot_columns_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            16
+          ],
+          "unit_coefficient_mod_19": 16
+        },
+        "fixed": {
+          "augmented_rank": 13,
+          "rank": 12
+        },
+        "moving": {
+          "augmented_rank": 15,
+          "rank": 14
+        }
+      }
+    ],
+    "python_modular_elimination": [
+      {
+        "augmented_minor_factorization": {
+          "factorization": "10*t",
+          "identity_verified": true,
+          "pivot_columns_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            16
+          ],
+          "unit_coefficient_mod_19": 10
+        },
+        "fixed": {
+          "augmented_rank": 13,
+          "rank": 12
+        },
+        "moving": {
+          "augmented_rank": 15,
+          "rank": 14
+        }
+      },
+      {
+        "augmented_minor_factorization": {
+          "factorization": "16*t",
+          "identity_verified": true,
+          "pivot_columns_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            16
+          ],
+          "unit_coefficient_mod_19": 16
+        },
+        "fixed": {
+          "augmented_rank": 13,
+          "rank": 12
+        },
+        "moving": {
+          "augmented_rank": 15,
+          "rank": 14
+        }
+      }
+    ],
+    "singular": [
+      {
+        "augmented_minor_factorization": {
+          "factorization": "10*t",
+          "identity_verified": true,
+          "pivot_columns_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            16
+          ],
+          "unit_coefficient_mod_19": 10
+        },
+        "fixed": {
+          "augmented_rank": 13,
+          "rank": 12
+        },
+        "moving": {
+          "augmented_rank": 15,
+          "rank": 14
+        }
+      },
+      {
+        "augmented_minor_factorization": {
+          "factorization": "16*t",
+          "identity_verified": true,
+          "pivot_columns_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            16
+          ],
+          "unit_coefficient_mod_19": 16
+        },
+        "fixed": {
+          "augmented_rank": 13,
+          "rank": 12
+        },
+        "moving": {
+          "augmented_rank": 15,
+          "rank": 14
+        }
+      }
+    ]
+  },
+  "schema": "rs-mca-l1-b9-boundary-321-cas-v2",
+  "statement": "independently verify the two GF(19) moving-F rank drops are affine-inconsistent and their representative augmented minors factor as unit*t",
+  "status": "AUDIT/EXACT_REPRESENTATIVE_CAS_REPLAY",
+  "theorem_problem_id": "L1 B9 residual frontier; local moving-F rank-drop audit",
+  "verdict": "GREEN_REPRESENTATIVE_CONTROL - the reviewed CRT lemma, not this specialization, supplies uniformity."
+}

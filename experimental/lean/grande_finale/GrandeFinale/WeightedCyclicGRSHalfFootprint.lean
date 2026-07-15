@@ -130,7 +130,8 @@ def compilerTarget (model : QuotientModel F H Q q L) : Prop :=
 /-- `q_{J,y}(Z)=prod_{z in J\{y}}(Z-y_z)`. -/
 def footprintLocator (model : QuotientModel F H Q q L)
     (J : Finset Q) (y : Q) : Polynomial F :=
-  ∏ z in J.erase y, (Polynomial.X - Polynomial.C (model.yCoord z : F))
+  (J.erase y).prod fun z =>
+    Polynomial.X - Polynomial.C (model.yCoord z : F)
 
 /-- Value on one outer point of a coefficientwise degree-`<k` interpolant. -/
 def outerValue (model : QuotientModel F H Q q L)
@@ -206,11 +207,11 @@ def linearFactor (a : F) : Polynomial F :=
 
 /-- `L_A`. -/
 def setLocator (A : Finset F) : Polynomial F :=
-  ∏ a in A, linearFactor a
+  A.prod linearFactor
 
 /-- `A_a=L_A/(Z-a)`, written as the product over `A\{a}`. -/
 def ownerFactor (A : Finset F) (a : F) : Polynomial F :=
-  ∏ b in A.erase a, linearFactor b
+  (A.erase a).prod linearFactor
 
 /-- Literal common roots for owner `a` and polynomial subspace `U`. -/
 noncomputable def commonRoots (fiber : F → Finset F)
@@ -247,7 +248,7 @@ def coreRootBudgetTarget (L : ℕ) (fiber : F → Finset F)
       (Phi P).natDegree < L) →
     (∀ a ∈ S, linearFactor a * T ∈ U) →
     Phi (setLocator A * T) ≠ 0 →
-    ∑ a in S, (commonRoots fiber Phi A a U).card ≤ L - 1
+    S.sum (fun a => (commonRoots fiber Phi A a U).card) ≤ L - 1
 
 end CoreRoot
 

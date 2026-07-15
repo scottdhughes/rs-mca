@@ -73,20 +73,20 @@ def pavingCharge (N kappa d weight : Nat) : Nat :=
   max (Nat.choose (N - weight - 1) kappa)
     (directionCharge N kappa d weight)
 
-def HostedLifts (H : (D -> F) ->ₗ[F] W) (y0 y1 : W)
+def HostedLifts (H : (D -> F) →ₗ[F] W) (y0 y1 : W)
     (b0 b1 : D -> F) : Prop :=
   H b0 = y0 ∧ H b1 = y1
 
-def DirectionDistance (H : (D -> F) ->ₗ[F] W) (y1 : W) (d : Nat) : Prop :=
+def DirectionDistance (H : (D -> F) →ₗ[F] W) (y1 : W) (d : Nat) : Prop :=
   ∃ v : D -> F, H v = y1 ∧ weight v = d ∧
     ∀ z : D -> F, H z = y1 -> d ≤ weight z
 
-def KernelBasis (H : (D -> F) ->ₗ[F] W)
+def KernelBasis (H : (D -> F) →ₗ[F] W)
     (g : Fin kappa -> D -> F) : Prop :=
   LinearIndependent F g ∧
     ∀ z : D -> F, H z = 0 ↔ z ∈ Submodule.span F (Set.range g)
 
-def PavingBasisHypotheses (H : (D -> F) ->ₗ[F] W) (y0 y1 : W)
+def PavingBasisHypotheses (H : (D -> F) →ₗ[F] W) (y0 y1 : W)
     (b0 b1 : D -> F) (g : Fin kappa -> D -> F)
     (P : Finset (Pair D F)) (R t d : Nat) : Prop :=
   Fintype.card D = R + kappa ∧
@@ -146,7 +146,7 @@ def DeepHoleConclusion (A : D -> AugmentedCoordinate kappa -> F)
 
 /-- **UNPROVED STATEMENT TARGET (transversality forces local rank).** -/
 def localRankFromTransversalityTarget
-    (H : (D -> F) ->ₗ[F] W) (y0 y1 : W)
+    (H : (D -> F) →ₗ[F] W) (y0 y1 : W)
     (b0 b1 : D -> F) (g : Fin kappa -> D -> F)
     (P : Finset (Pair D F)) (R t d : Nat) : Prop :=
   PavingBasisHypotheses H y0 y1 b0 b1 g P R t d ->
@@ -154,7 +154,7 @@ def localRankFromTransversalityTarget
 
 /-- **UNPROVED STATEMENT TARGET (paving and direction local charges).** -/
 def localPavingChargeTarget
-    (H : (D -> F) ->ₗ[F] W) (y0 y1 : W)
+    (H : (D -> F) →ₗ[F] W) (y0 y1 : W)
     (b0 b1 : D -> F) (g : Fin kappa -> D -> F)
     (P : Finset (Pair D F)) (R t d : Nat) : Prop :=
   PavingBasisHypotheses H y0 y1 b0 b1 g P R t d ->
@@ -162,7 +162,7 @@ def localPavingChargeTarget
 
 /-- **UNPROVED STATEMENT TARGET (one normalized pair-owner per basis).** -/
 def onePairPerBasisTarget
-    (H : (D -> F) ->ₗ[F] W) (y0 y1 : W)
+    (H : (D -> F) →ₗ[F] W) (y0 y1 : W)
     (b0 b1 : D -> F) (g : Fin kappa -> D -> F)
     (P : Finset (Pair D F)) (R t d : Nat) : Prop :=
   PavingBasisHypotheses H y0 y1 b0 b1 g P R t d ->
@@ -172,7 +172,7 @@ def onePairPerBasisTarget
 
 /-- **UNPROVED STATEMENT TARGET (PB1--PB3, complete pair set).** -/
 def allPairPavingBasisTarget
-    (H : (D -> F) ->ₗ[F] W) (y0 y1 : W)
+    (H : (D -> F) →ₗ[F] W) (y0 y1 : W)
     (b0 b1 : D -> F) (g : Fin kappa -> D -> F)
     (P : Finset (Pair D F)) (R t d : Nat) : Prop :=
   PavingBasisHypotheses H y0 y1 b0 b1 g P R t d ->
@@ -180,7 +180,7 @@ def allPairPavingBasisTarget
 
 /-- **UNPROVED STATEMENT TARGET (PB4--PB5, `d=R`).** -/
 def deepHoleAllPairPavingBasisTarget
-    (H : (D -> F) ->ₗ[F] W) (y0 y1 : W)
+    (H : (D -> F) →ₗ[F] W) (y0 y1 : W)
     (b0 b1 : D -> F) (g : Fin kappa -> D -> F)
     (P : Finset (Pair D F)) (R t d : Nat) : Prop :=
   PavingBasisHypotheses H y0 y1 b0 b1 g P R t d ->
@@ -193,7 +193,7 @@ def pavingChargeMonotonicityTarget (N kappa d t : Nat) : Prop :=
 
 /-- **UNPROVED STATEMENT TARGET (choice invariance of the basis census).** -/
 def basisCensusChoiceInvariantTarget
-    (H : (D -> F) ->ₗ[F] W) (y0 y1 : W)
+    (H : (D -> F) →ₗ[F] W) (y0 y1 : W)
     (b0 b1 b0' b1' : D -> F)
     (g g' : Fin kappa -> D -> F) : Prop :=
   HostedLifts H y0 y1 b0 b1 -> KernelBasis H g ->
@@ -203,7 +203,7 @@ def basisCensusChoiceInvariantTarget
 
 /-- **UNPROVED STATEMENT TARGET (PB6, all pairs for `kappa=1`).** -/
 def oneCircuitAllPairTarget
-    (H : (D -> F) ->ₗ[F] W) (y0 y1 : W)
+    (H : (D -> F) →ₗ[F] W) (y0 y1 : W)
     (b0 b1 : D -> F) (g : Fin 1 -> D -> F)
     (P : Finset (Pair D F)) (R t d : Nat) : Prop :=
   PavingBasisHypotheses H y0 y1 b0 b1 g P R t d ->

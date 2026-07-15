@@ -17,6 +17,8 @@ the official score `0/2`.
 -/
 
 open scoped Classical
+open Polynomial
+
 noncomputable section
 
 namespace GrandeFinale

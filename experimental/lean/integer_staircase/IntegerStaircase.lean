@@ -1,3 +1,5 @@
+import IntegerStaircase.F17AdjacentList
+
 /-!
 # Integer staircase / identity-profile scale (W42 M1)
 

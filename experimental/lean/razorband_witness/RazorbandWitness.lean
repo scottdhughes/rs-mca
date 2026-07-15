@@ -1,24 +1,19 @@
+import RazorbandWitness.NearSidonRazor
+
 /-!
-# Universal tangent floor instance (W41 M3)
+# Razor-band witness package
 
-Serves **K5 razor-band witness kernel** (proved sub-fact; band closure
-open). K5 prices deficit-side witnesses through the rate-1/2 band; an
-upper-bound kernel cannot serve that node. The proved finite floor used
-here is the elementary MCA lower bound:
+The package exports the exact two-moment near-Sidon counterexample and repaired
+finite razor from `RazorbandWitness.NearSidonRazor`. This root file retains the
+legacy universal tangent-floor executable instances.
 
-Source label: prop:universal-tangent-floor / eq:tangent-floor (frontiers):
-  B_{C,Γ}^{MCA}(a) ≥ min{|Γ|, n−a+1}
+Legacy source label: `prop:universal-tangent-floor` /
+`eq:tangent-floor`, with finite lower bound
+`B_{C,Γ}^{MCA}(a) ≥ min{|Γ|, n-a+1}`.
 
-for every RS code, every a ≥ k+1, every nonempty Γ ⊆ F.
-
-Explicit toys:
-1. n=7, a=4, |Γ|=5 → min(5, 7−4+1)=min(5,4)=4
-2. n=6, a=5, |Γ|=2 → min(2, 6−5+1)=min(2,2)=2
-3. n=8, a=6, |Γ|=10 → min(10, 3)=3
-
-No `sorry`. No mathlib. Dual `native_decide` / `decide`.
-Nonclaim: does NOT close the rate-1/2 razor band; only anchors the
-proved tangent-floor lower bound used on the deficit side.
+No `sorry`. The general razor module uses Mathlib; the tangent-floor examples
+remain dual `native_decide` / `decide` regression fixtures. Neither component
+closes the smooth/circle primitive razor band.
 -/
 
 namespace RazorbandWitness
