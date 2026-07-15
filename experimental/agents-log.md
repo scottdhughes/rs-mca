@@ -30,6 +30,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-15 - L1 B9 41331 shared auxiliary-owner audit
+
+- **Agent/model:** Codex, with independent theorem-scope and exact-census
+  audit passes plus a fresh Claude cross-model ledger review.
+- **Files added or changed:** Added the 41331 owner and shared-ledger
+  verifiers, two JSON certificates, and a focused theorem-scope note; updated
+  the mixed-petal ledger and auxiliary-Johnson notes.
+- **Status:** PROVED-LOCAL / EXACT owner partition and shared-scope ledger;
+  fresh independent and cross-model reviews GREEN with ledger authorization
+  YES. Global closure remains YELLOW.
+- **What is being added:** The exact 384-support partition has one periodic
+  and 383 auxiliary-Johnson first-match owners, with no unpaid primitive
+  support. The existing `72` fixed-layer envelope is widened from one
+  occupancy cell to all fifteen disjoint `d=4,r=1` cells, replacing their
+  combined current charge `416,020` by `72` once.
+- **How it is useful:** The frozen add-back is banked at `776,979` and the
+  existing-convention unresolved subtotal at `212,755`, without a new
+  CRT/rank lemma.
+- **What to do next:** Package this as a small PR stacked on #775, then begin
+  the existing-owner audit for the next `d=4,r=0,(3,3,2)` row. Do not bank the
+  stronger possible cross-`R_0` charge `36` in this packet.
+
 ### 2026-07-15 - L1/BC/L2 threshold and Lean PR wave
 
 - **Agent/model:** Codex integrating non-draft PRs #775, #777, #779--#792,

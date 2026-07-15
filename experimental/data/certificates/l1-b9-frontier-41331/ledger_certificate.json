@@ -1,0 +1,181 @@
+{
+  "ledger_consequence": {
+    "banked": true,
+    "candidate_result": {
+      "all_profile_bound": 776979,
+      "largest_remaining_unresolved_profile": {
+        "G2": 2,
+        "GR": 5,
+        "a_i": [
+          3,
+          3,
+          2
+        ],
+        "b11_box_route": "ESCAPES_BOUNDED_EXCESS_BOX",
+        "d": 4,
+        "d_minus_ell": 0,
+        "ell": 4,
+        "lambda": 0,
+        "lambda_J": 1,
+        "lambda_minus_lambda_J": -1,
+        "r": 0,
+        "refined_injection_bound": 103968,
+        "refined_injection_exponent": 2,
+        "support_pattern_count": 288,
+        "t": 3
+      },
+      "profile_sha256": "08f4edd675047f867c706c4486d6634fa3b5ef41f9146f2a10b1d2049ac88bf3",
+      "unresolved_bound": 212755
+    },
+    "closure_verdict": "POSITIVE_UNRESOLVED_MASS_REMAINS",
+    "prior_all_profile_bound": 1192927,
+    "prior_profile_sha256": "d257c06172bbfc8ffda7b89a878259459fb83b11cea1df949c8b52ec12014d8b",
+    "prior_unresolved_bound": 357763
+  },
+  "linked_inputs": {
+    "common_fixed_layer_cap": {
+      "path": "experimental/data/certificates/l1-b9-m2-full-rank-ledger/certificate.json",
+      "schema": "rs-mca-l1-b9-m2-full-rank-ledger-v5",
+      "sha256": "607aafc5298260285b7240171d4c092cd382bc596b0b3d97b4806a9653479240"
+    },
+    "cross_model_review": {
+      "path": "experimental/notes/l1/l1_b9_frontier_41331_shared_auxiliary_cross_model_review.md",
+      "schema": "markdown",
+      "sha256": "e5bd29f6fca9c73fc6e49696916ca47f8e9c6b1cf391d56c64e1d6df58ee977a"
+    },
+    "independent_review": {
+      "path": "experimental/notes/l1/l1_b9_frontier_41331_shared_auxiliary_independent_review.md",
+      "schema": "markdown",
+      "sha256": "147df1672957994dfd177d8489f1fd057a44f8e57899f3d0b62097d62c2e0768"
+    },
+    "owner_partition": {
+      "path": "experimental/data/certificates/l1-b9-frontier-41331-owner-partition/certificate.json",
+      "schema": "rs-mca-l1-b9-frontier-41331-owner-partition-v1",
+      "sha256": "971d4a1c6820483f64b64e91ca7857e7e35176997de0e88d7b3f39d11307d10b"
+    },
+    "prior_banked_ledger": {
+      "path": "experimental/data/certificates/l1-b9-frontier-32221/ledger_certificate.json",
+      "schema": "rs-mca-l1-b9-frontier-32221-reduced-crt-ledger-v1",
+      "sha256": "0184aa9662cb2b243ad19e6dc451734681cef3e9c4427b8bbe93867f3b99dc91"
+    },
+    "scope_note": {
+      "path": "experimental/notes/l1/l1_b9_frontier_41331_shared_auxiliary_johnson.md",
+      "schema": "markdown",
+      "sha256": "cede6d5cac962701ea029603d751a1e8d7af5fb144ef2634e5d7bed490d8b57b"
+    },
+    "sharp_theorem_source": {
+      "path": "experimental/cap25_cap_v13_raw.tex",
+      "schema": "latex-source",
+      "sha256": "d0a9a766c4218b3faa355fd4da9ebb4937dcd3c9bbf7b94cecc273c5e502d746"
+    }
+  },
+  "nonclaims": [
+    "zero incremental charge is not a standalone zero bound for any profile",
+    "the stronger possible cross-R0 charge 36 is not used",
+    "no d=4,r=0 payment is included",
+    "no global mixed-petal theorem, m>2, PR #763, or Lean claim is made"
+  ],
+  "proof_status": {
+    "exact": [
+      "the post-32221 75-row ledger and profile hash are replayed",
+      "all fifteen and only d=4,r=1 profile cells are selected",
+      "the theorem bounds their disjoint union by 72 once",
+      "one carrier receives 72 and fourteen cells receive zero incremental charge",
+      "the all-profile and unresolved totals are recomputed from all 75 rows",
+      "the next largest row is selected dynamically",
+      "the prior ledger, owner partition, common cap, theorem source, and note are hash-linked"
+    ],
+    "review_gate": "fresh independent and Claude cross-model reviews GREEN; ledger authorization YES"
+  },
+  "result": {
+    "incremental_saved_mass": 415948,
+    "post_32221_scope_charge": 416020,
+    "post_32221_scope_unresolved_charge": 145080,
+    "shared_charge_count": 1,
+    "shared_envelope_charge": 72,
+    "unresolved_saved_mass": 145008,
+    "zero_increment_profile_count": 14
+  },
+  "schema": "rs-mca-l1-b9-frontier-41331-shared-auxiliary-ledger-v1",
+  "shared_scope": {
+    "carrier_profile": {
+      "a_i": [
+        3,
+        2,
+        2
+      ],
+      "carrier_is_bookkeeping_only": true,
+      "charge": 72,
+      "t": 3
+    },
+    "envelope_id": "GF19_D4_R1_FIXED_LAYER_AUXILIARY_JOHNSON",
+    "fixed_layers": [
+      {
+        "D0": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "R0": [
+          16
+        ],
+        "bound": 36,
+        "layer_id": "D=0.1.2.3;R0=16"
+      },
+      {
+        "D0": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "R0": [
+          17
+        ],
+        "bound": 36,
+        "layer_id": "D=0.1.2.3;R0=17"
+      }
+    ],
+    "profile_count": 15,
+    "profile_sha256": "f47fc3bf50740f03ed05b1bb0bb5950ef1532eafc6910659b5ac09cc0db2a038",
+    "profiles": [
+      {"coordinates":{"G2":0,"GR":3,"a_i":[4,4],"d":4,"ell":4,"lambda":1,"r":1,"t":2},"incremental_charge_after_regrouping":0,"original_B3_charge":114,"post_32221_charge":114,"post_32221_owner":"UNCHANGED_EXISTING_B7_B11_LEDGER","prior_route":"FULL_PETAL_SEPARATE","shared_envelope_carrier":false,"shared_envelope_id":"GF19_D4_R1_FIXED_LAYER_AUXILIARY_JOHNSON","support_pattern_count":6,"zero_charge_semantics":"COVERED_BY_COMMON_LAYER_ENVELOPE_NOT_STANDALONE_ZERO_BOUND"},
+      {"coordinates":{"G2":1,"GR":3,"a_i":[4,3],"d":4,"ell":4,"lambda":0,"r":1,"t":2},"incremental_charge_after_regrouping":0,"original_B3_charge":912,"post_32221_charge":912,"post_32221_owner":"UNCHANGED_EXISTING_B7_B11_LEDGER","prior_route":"ESCAPES_BOUNDED_EXCESS_BOX","shared_envelope_carrier":false,"shared_envelope_id":"GF19_D4_R1_FIXED_LAYER_AUXILIARY_JOHNSON","support_pattern_count":48,"zero_charge_semantics":"COVERED_BY_COMMON_LAYER_ENVELOPE_NOT_STANDALONE_ZERO_BOUND"},
+      {"coordinates":{"G2":0,"GR":3,"a_i":[4,4,4],"d":4,"ell":4,"lambda":5,"r":1,"t":3},"incremental_charge_after_regrouping":0,"original_B3_charge":38,"post_32221_charge":38,"post_32221_owner":"UNCHANGED_EXISTING_B7_B11_LEDGER","prior_route":"FULL_PETAL_SEPARATE","shared_envelope_carrier":false,"shared_envelope_id":"GF19_D4_R1_FIXED_LAYER_AUXILIARY_JOHNSON","support_pattern_count":2,"zero_charge_semantics":"COVERED_BY_COMMON_LAYER_ENVELOPE_NOT_STANDALONE_ZERO_BOUND"},
+      {"coordinates":{"G2":0,"GR":3,"a_i":[4,4,3],"d":4,"ell":4,"lambda":4,"r":1,"t":3},"incremental_charge_after_regrouping":0,"original_B3_charge":456,"post_32221_charge":456,"post_32221_owner":"UNCHANGED_EXISTING_B7_B11_LEDGER","prior_route":"PAID_JOHNSON","shared_envelope_carrier":false,"shared_envelope_id":"GF19_D4_R1_FIXED_LAYER_AUXILIARY_JOHNSON","support_pattern_count":24,"zero_charge_semantics":"COVERED_BY_COMMON_LAYER_ENVELOPE_NOT_STANDALONE_ZERO_BOUND"},
+      {"coordinates":{"G2":0,"GR":3,"a_i":[4,4,2],"d":4,"ell":4,"lambda":3,"r":1,"t":3},"incremental_charge_after_regrouping":0,"original_B3_charge":684,"post_32221_charge":684,"post_32221_owner":"UNCHANGED_EXISTING_B7_B11_LEDGER","prior_route":"PAID_JOHNSON","shared_envelope_carrier":false,"shared_envelope_id":"GF19_D4_R1_FIXED_LAYER_AUXILIARY_JOHNSON","support_pattern_count":36,"zero_charge_semantics":"COVERED_BY_COMMON_LAYER_ENVELOPE_NOT_STANDALONE_ZERO_BOUND"},
+      {"coordinates":{"G2":0,"GR":3,"a_i":[4,4,1],"d":4,"ell":4,"lambda":2,"r":1,"t":3},"incremental_charge_after_regrouping":0,"original_B3_charge":456,"post_32221_charge":456,"post_32221_owner":"UNCHANGED_EXISTING_B7_B11_LEDGER","prior_route":"PAID_JOHNSON","shared_envelope_carrier":false,"shared_envelope_id":"GF19_D4_R1_FIXED_LAYER_AUXILIARY_JOHNSON","support_pattern_count":24,"zero_charge_semantics":"COVERED_BY_COMMON_LAYER_ENVELOPE_NOT_STANDALONE_ZERO_BOUND"},
+      {"coordinates":{"G2":1,"GR":3,"a_i":[4,3,3],"d":4,"ell":4,"lambda":3,"r":1,"t":3},"incremental_charge_after_regrouping":0,"original_B3_charge":1824,"post_32221_charge":1824,"post_32221_owner":"UNCHANGED_EXISTING_B7_B11_LEDGER","prior_route":"PAID_JOHNSON","shared_envelope_carrier":false,"shared_envelope_id":"GF19_D4_R1_FIXED_LAYER_AUXILIARY_JOHNSON","support_pattern_count":96,"zero_charge_semantics":"COVERED_BY_COMMON_LAYER_ENVELOPE_NOT_STANDALONE_ZERO_BOUND"},
+      {"coordinates":{"G2":1,"GR":3,"a_i":[4,3,2],"d":4,"ell":4,"lambda":2,"r":1,"t":3},"incremental_charge_after_regrouping":0,"original_B3_charge":5472,"post_32221_charge":5472,"post_32221_owner":"UNCHANGED_EXISTING_B7_B11_LEDGER","prior_route":"PAID_JOHNSON","shared_envelope_carrier":false,"shared_envelope_id":"GF19_D4_R1_FIXED_LAYER_AUXILIARY_JOHNSON","support_pattern_count":288,"zero_charge_semantics":"COVERED_BY_COMMON_LAYER_ENVELOPE_NOT_STANDALONE_ZERO_BOUND"},
+      {"coordinates":{"G2":1,"GR":3,"a_i":[4,3,1],"d":4,"ell":4,"lambda":1,"r":1,"t":3},"incremental_charge_after_regrouping":0,"original_B3_charge":3648,"post_32221_charge":3648,"post_32221_owner":"UNCHANGED_EXISTING_B7_B11_LEDGER","prior_route":"PAID_JOHNSON","shared_envelope_carrier":false,"shared_envelope_id":"GF19_D4_R1_FIXED_LAYER_AUXILIARY_JOHNSON","support_pattern_count":192,"zero_charge_semantics":"COVERED_BY_COMMON_LAYER_ENVELOPE_NOT_STANDALONE_ZERO_BOUND"},
+      {"coordinates":{"G2":2,"GR":3,"a_i":[4,2,2],"d":4,"ell":4,"lambda":1,"r":1,"t":3},"incremental_charge_after_regrouping":0,"original_B3_charge":4104,"post_32221_charge":4104,"post_32221_owner":"UNCHANGED_EXISTING_B7_B11_LEDGER","prior_route":"PAID_JOHNSON","shared_envelope_carrier":false,"shared_envelope_id":"GF19_D4_R1_FIXED_LAYER_AUXILIARY_JOHNSON","support_pattern_count":216,"zero_charge_semantics":"COVERED_BY_COMMON_LAYER_ENVELOPE_NOT_STANDALONE_ZERO_BOUND"},
+      {"coordinates":{"G2":2,"GR":3,"a_i":[4,2,1],"d":4,"ell":4,"lambda":0,"r":1,"t":3},"incremental_charge_after_regrouping":0,"original_B3_charge":5472,"post_32221_charge":5472,"post_32221_owner":"UNCHANGED_EXISTING_B7_B11_LEDGER","prior_route":"ESCAPES_BOUNDED_EXCESS_BOX","shared_envelope_carrier":false,"shared_envelope_id":"GF19_D4_R1_FIXED_LAYER_AUXILIARY_JOHNSON","support_pattern_count":288,"zero_charge_semantics":"COVERED_BY_COMMON_LAYER_ENVELOPE_NOT_STANDALONE_ZERO_BOUND"},
+      {"coordinates":{"G2":2,"GR":4,"a_i":[3,3,3],"d":4,"ell":4,"lambda":2,"r":1,"t":3},"incremental_charge_after_regrouping":0,"original_B3_charge":46208,"post_32221_charge":46208,"post_32221_owner":"UNCHANGED_EXISTING_B7_B11_LEDGER","prior_route":"PAID_JOHNSON","shared_envelope_carrier":false,"shared_envelope_id":"GF19_D4_R1_FIXED_LAYER_AUXILIARY_JOHNSON","support_pattern_count":128,"zero_charge_semantics":"COVERED_BY_COMMON_LAYER_ENVELOPE_NOT_STANDALONE_ZERO_BOUND"},
+      {"coordinates":{"G2":2,"GR":4,"a_i":[3,3,2],"d":4,"ell":4,"lambda":1,"r":1,"t":3},"incremental_charge_after_regrouping":0,"original_B3_charge":207936,"post_32221_charge":207936,"post_32221_owner":"UNCHANGED_EXISTING_B7_B11_LEDGER","prior_route":"PAID_JOHNSON","shared_envelope_carrier":false,"shared_envelope_id":"GF19_D4_R1_FIXED_LAYER_AUXILIARY_JOHNSON","support_pattern_count":576,"zero_charge_semantics":"COVERED_BY_COMMON_LAYER_ENVELOPE_NOT_STANDALONE_ZERO_BOUND"},
+      {"coordinates":{"G2":2,"GR":4,"a_i":[3,3,1],"d":4,"ell":4,"lambda":0,"r":1,"t":3},"incremental_charge_after_regrouping":0,"original_B3_charge":138624,"post_32221_charge":138624,"post_32221_owner":"UNCHANGED_EXISTING_B7_B11_LEDGER","prior_route":"ESCAPES_BOUNDED_EXCESS_BOX","shared_envelope_carrier":false,"shared_envelope_id":"GF19_D4_R1_FIXED_LAYER_AUXILIARY_JOHNSON","support_pattern_count":384,"zero_charge_semantics":"COVERED_BY_COMMON_LAYER_ENVELOPE_NOT_STANDALONE_ZERO_BOUND"},
+      {"coordinates":{"G2":3,"GR":4,"a_i":[3,2,2],"d":4,"ell":4,"lambda":0,"r":1,"t":3},"incremental_charge_after_regrouping":72,"original_B3_charge":311904,"post_32221_charge":72,"post_32221_owner":"PAID_AUXILIARY_JOHNSON","prior_route":"ESCAPES_BOUNDED_EXCESS_BOX","shared_envelope_carrier":true,"shared_envelope_id":"GF19_D4_R1_FIXED_LAYER_AUXILIARY_JOHNSON","support_pattern_count":864,"zero_charge_semantics":null}
+    ],
+    "route_profile_histogram": {
+      "ESCAPES_BOUNDED_EXCESS_BOX": 4,
+      "FULL_PETAL_SEPARATE": 2,
+      "PAID_JOHNSON": 9
+    },
+    "selection_rule": "d=4 and r=1 in the frozen GF(19) profile ledger",
+    "strict_johnson_audit": {
+      "effective_degree_bound": 4,
+      "fixed_D_count": 1,
+      "fixed_R0_count": 2,
+      "integer_floor_bound_per_fixed_D_R0": 36,
+      "margin": 1,
+      "numerator": 36,
+      "petal_domain_size": 12,
+      "required_agreement": 7,
+      "shared_envelope_charge": 72
+    },
+    "support_pattern_count": 3172
+  },
+  "statement": "the fixed-layer auxiliary Johnson cap 72 replaces the combined post-32221 charge of all fifteen d=4,r=1 profile cells",
+  "status": "EXACT_SHARED_ENVELOPE_REPLAY_FRESH_REVIEWS_GREEN",
+  "verdict": "GREEN_LOCAL_SHARED_AUXILIARY_LEDGER_BANKED"
+}

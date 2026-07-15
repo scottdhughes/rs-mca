@@ -65,6 +65,21 @@ a = sigma + d + 1 - r.
 Dropping the extra constraints `W_P=0` on `R_0` and exact nonagreement on `D`
 only enlarges this auxiliary list, so it is safe for upper bounds.
 
+### Layer scope is not profile scope
+
+For fixed exact `(D,R_0)`, the injection is defined on the union of all
+petal-support and occupancy profiles in that layer.  Consequently a Johnson
+bound for the auxiliary list is charged once to that union.  It must not be
+multiplied by the number of support patterns or attached independently to
+several disjoint `t,(a_i)` cells and then added.
+
+The frozen `GF(19)` coordinates `d=4,r=1` provide the first load-bearing
+ledger use of this distinction.  Fifteen profile cells share one missed-core
+choice and two retained-background layers, each bounded by `36`; their common
+conservative envelope is therefore `72` once.  The exact regrouping and
+mutation tests are in
+`experimental/scripts/verify_l1_b9_frontier_41331_shared_auxiliary_ledger.py`.
+
 ## Johnson Regime
 
 The auxiliary petal domain has size

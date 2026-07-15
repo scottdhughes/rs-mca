@@ -1032,6 +1032,45 @@ The new largest unresolved row is
 charge `384*19^2=138,624`. TheoremSearch returned rational-interpolation and
 syzygy analogues only; no literature theorem is imported into the proof.
 
+## Exact `d=4,r=1` shared auxiliary-owner scope
+
+The existing-owner audit for the new 41331 row finds 384 canonical full
+supports. Since `d=ell`, there is no restored-core refinement. Exactly one
+support is fixed by shift nine and first-matches to periodic support; the
+other 383 first-match to auxiliary Johnson. No `UNPAID_PRIMITIVE` pattern
+survives.
+
+More importantly, the sharp auxiliary theorem used earlier is layer-level,
+not profile-level. For every fixed `(D_0,R_0)` with `d=4,r=1`,
+
+```text
+|T|=12, a=7, d=4, a^2-d|T|=1,
+floor(|T|(a-d)/(a^2-d|T|))=36.
+```
+
+There is one `D_0` and two `R_0` choices, so `72` bounds the union of all
+fifteen exact profile cells with `d=4,r=1`. Their post-32221 charges total
+`416,020`; the earlier ledger attached the same `72` envelope only to the
+`(3,2,2)` cell and conservatively retained the other fourteen charges. The
+correct shared-envelope bookkeeping is therefore
+
+```text
+15-profile shared scope: 416,020 -> 72,
+all-profile add-back:   1,192,927 -> 776,979,
+unresolved mass:          357,763 -> 212,755.
+```
+
+The unresolved subtotal follows the existing convention and retains the one
+`72` carrier charge. The fourteen zero allocations are incremental ledger
+charges, not standalone zero bounds. The unique periodic support is already
+inside the common auxiliary envelope and adds no extra `+1`.
+
+The next largest unchanged row is
+`(ell,d,r,t,a_i)=(4,4,0,3,(3,3,2))`, `(G2,GR)=(2,5)`, with charge
+`288*19^2=103,968`. The stronger possible cross-`R_0` charge `36`, and any
+payment of the `r=0` row, are deliberately not used without a separate frozen
+lemma and review.
+
 ## Proof status and stop condition
 
 - **Rigorous for the frozen finite rows:** profile enumeration, support-pattern
@@ -1071,7 +1110,9 @@ syzygy analogues only; no literature theorem is imported into the proof.
   complete add-back `1,503,967` and unresolved mass `668,803` on the
   frozen GF(19) layout. The reviewed reduced-CRT replay further improves these
   first to `1,348,447` and `513,283`, then the reviewed 32221 replay improves
-  them to banked values `1,192,927` and `357,763`, respectively. Positive
+  them to `1,192,927` and `357,763`. The fresh independent and cross-model
+  GREEN 41331 review then authorizes the shared `d=4,r=1` auxiliary envelope,
+  giving banked values `776,979` and `212,755`, respectively. Positive
   unresolved mass remains.
 - **Empirical/exact finite evidence:** the 19-codeword list and seven surviving
   template solutions, the `GF(11)`/`GF(13)` structural censuses, the empty
@@ -1102,10 +1143,14 @@ both from exact `d=3`. The `432` charge and resulting `1,348,447`/`513,283`
 totals were banked after GREEN cross-model review. The 32221 owner partition
 leaves all 432 aggregate keys unpaid, but its independently reviewed
 degree-five reduced-CRT lemma now banks the further `432` charge and resulting
-`1,192,927`/`357,763` totals. The next gate is the existing-owner partition for
-`(ell,d,r,t,a_i)=(4,4,1,3,(3,3,1))`, `(G2,GR)=(2,4)`, charge `138,624`. The
-global theorem remains out of scope until the remaining profiles have named
-payments and the whole implication chain survives independent review.
+`1,192,927`/`357,763` totals. The exact 41331 owner partition leaves no unpaid
+support, and its reviewed shared-layer replay banks the further
+`776,979`/`212,755` totals. The next gate is the existing-owner partition for
+`(ell,d,r,t,a_i)=(4,4,0,3,(3,3,2))`, `(G2,GR)=(2,5)`, charge `103,968`. The
+stronger cross-`R_0` observation and any payment of that next row remain
+unbanked. The global theorem remains out of scope until the remaining profiles
+have named payments and the whole implication chain survives independent
+review.
 
 ## Reproduction
 
@@ -1156,4 +1201,8 @@ python3 experimental/scripts/verify_l1_b9_frontier_32221_reduced_crt_cas.py
 python3 experimental/scripts/verify_l1_b9_frontier_32221_reduced_crt_cas.py --tamper-selftest
 PYTHONPATH=experimental/scripts python3 experimental/scripts/verify_l1_b9_frontier_32221_reduced_crt_ledger.py
 PYTHONPATH=experimental/scripts python3 experimental/scripts/verify_l1_b9_frontier_32221_reduced_crt_ledger.py --tamper-selftest
+python3 experimental/scripts/verify_l1_b9_frontier_41331_owner_partition.py
+python3 experimental/scripts/verify_l1_b9_frontier_41331_owner_partition.py --tamper-selftest
+python3 experimental/scripts/verify_l1_b9_frontier_41331_shared_auxiliary_ledger.py
+python3 experimental/scripts/verify_l1_b9_frontier_41331_shared_auxiliary_ledger.py --tamper-selftest
 ```
