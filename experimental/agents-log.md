@@ -30,6 +30,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-15 - KoalaBear A1116048 residual base-slope universe
+
+- **Agent/model:** Codex, following independent source, falsification,
+  mathematical, and hostile certificate audits.
+- **Files added or changed:**
+  `experimental/notes/thresholds/kb_mca_1116048_base_slope_universe_v2.md`;
+  `experimental/scripts/verify_kb_mca_1116048_base_slope_universe_v2.py`;
+  `experimental/data/certificates/kb-mca-1116048-base-slope-universe-v2/`;
+  `experimental/agents-log.md`.
+- **Status:** PROVED upper-numerator replacement / PARTIAL ledger; final
+  mathematical and hostile certificate reviews GREEN.  No KoalaBear frontier
+  row is promoted.
+- **What is being added:** Since the MCA numerator counts distinct slopes,
+  the residual slopes in `F_p` cost at most `p` globally once, for arbitrary
+  `F_(p^6)`-valued received lines.  This replaces the older `t*p` image-cell
+  charge and leaves the extension-valued complement open.
+- **How it is useful:** The proved paid baseline drops from
+  `143763495894416` to `2602153473`; the base-slope lane no longer needs an
+  SPI-to-affine-row adapter.
+- **What to do next:** Aim the deployed SPI atlas only at residual slopes in
+  `F_(p^6)\F_p`; compute `U_Q` and `U_A` before testing the full inequality.
+
 ### 2026-07-15 - L1/BC/L2 threshold and Lean PR wave
 
 - **Agent/model:** Codex integrating non-draft PRs #775, #777, #779--#792,
