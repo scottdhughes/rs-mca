@@ -1,0 +1,5001 @@
+{
+  "schema": "rs-mca-m1-a4-spi-atlas-manifest-v1",
+  "artifact_kind": "CONTROL_FIXTURE",
+  "status": "AUDIT",
+  "quantifier_scope": {
+    "scope_id": "GF19_L1_CONTROL_442233",
+    "received_lines": "one frozen sequential GF(19) toy layout",
+    "slopes": "not enumerated; support-owner machinery only",
+    "supports": "all 48 canonical labelled support patterns",
+    "uniformity": "EXACT_FINITE_CONTROL_ONLY",
+    "excluded_scopes": [
+      "deployed M1 rows",
+      "slope eliminants",
+      "asymptotic conclusions"
+    ]
+  },
+  "row": {
+    "row_id": "gf19-l1-442233-control",
+    "field": {
+      "characteristic_p": 19,
+      "extension_degree": 1,
+      "q_base": "19",
+      "q_line": "19",
+      "sampling_denominator": "340282366920938463463374607431768211456",
+      "target_bits": 128,
+      "B_star_q": "0",
+      "B_star_q_minus_1": "0",
+      "budget_floors_coincide": true,
+      "domain": "frozen sequential evaluation domain 0..17"
+    },
+    "n": 18,
+    "k": 5,
+    "agreement_A": 8,
+    "error_count_j": 10,
+    "syndrome_depth_t": 3,
+    "prefix_depth_w": 2,
+    "kernel_dimension_lower_bound": 8,
+    "deficiency_one": false,
+    "profile": {
+      "profile_id": "L1_ELL4_D4_R2_T2_A33",
+      "ell": 4,
+      "d": 4,
+      "r": 2,
+      "t": 2,
+      "a_i": [
+        3,
+        3
+      ],
+      "G2": 2,
+      "GR": 3
+    }
+  },
+  "owner_policy": {
+    "policy_id": "L1_FROZEN_FIRST_MATCH_V1",
+    "order": [
+      "PERIODIC_SUPPORT",
+      "INVARIANT_QUOTIENT_DESCENT",
+      "AUXILIARY_JOHNSON",
+      "GLOBAL_JOHNSON",
+      "B11_G2",
+      "B11_GR",
+      "UNPAID_PRIMITIVE"
+    ],
+    "fallback_unpaid_owner_id": "UNPAID_PRIMITIVE",
+    "terminal_order_frozen": true,
+    "unpaid_semantics": "unpaid under this owner stack, not algebraically primitive"
+  },
+  "coverage": {
+    "scope_complete": true,
+    "row_complete": false,
+    "unit_kind": "EXPLICIT_CHART",
+    "expected_units": 48,
+    "represented_units": 48,
+    "missing_units": 0,
+    "paid_count": 0,
+    "eliminant_count": 0,
+    "unpaid_count": 48,
+    "canonical_assignment_sha256": "03d00b8d225d5af19ed74f105895d31aa738abb50dc3111e65f4bb90be387644",
+    "mask_list_sha256": "49bf3c30e5139c61638b8917e298ddc7d0f36418ccce13d202968adace871fd2",
+    "coverage_status": "CONTROL_SCOPE_ENUMERATED",
+    "uncovered_scopes": [
+      "slope equations and eliminants",
+      "deployed-row chart adapter"
+    ]
+  },
+  "source_bindings": [
+    {
+      "binding_id": "atlas-schema",
+      "path": "experimental/data/schemas/m1_a4_spi_atlas_manifest_v1.schema.json",
+      "sha256": "9a657f90607022f71252c8402b7056df333beb2b4a5a7364c4efa1c59d5ff84c",
+      "role": "closed manifest contract"
+    },
+    {
+      "binding_id": "atlas-verifier",
+      "path": "experimental/scripts/verify_m1_a4_spi_atlas_manifest_v1.py",
+      "sha256": "aea20003eec1181e1a5a5c9c70f29cef8729055c11bab6dcb2183263f8b7ebb0",
+      "role": "semantic and mutation verifier"
+    },
+    {
+      "binding_id": "l1-owner-helpers",
+      "path": "experimental/scripts/scan_l1_full_list_quotient_conjecture.py",
+      "sha256": "9de51dc4060ed687c47e22431bd5e9565274e00dc8f91d6c26aee19a305b716c",
+      "role": "cyclic stabilizer and Johnson/B11 helpers"
+    },
+    {
+      "binding_id": "eliminant-control-equations",
+      "path": "experimental/data/certificates/m1-a4-spi-atlas-manifest-v1/eliminant_identity_control.json",
+      "sha256": "c1b00ece12b18e52841b2324be0667af3dd6fcc38cd12de099241a36e5759079",
+      "role": "synthetic ideal-identity positive control"
+    },
+    {
+      "binding_id": "gf19-ledger-note",
+      "path": "experimental/notes/l1/l1_mixed_petal_residual_frontier_ledger.md",
+      "sha256": "be0ced96721071cd5b30c0e451f7aacf9b9a05b9c6c8fb7ec2e271947d302813",
+      "role": "aggregate profile definitions"
+    },
+    {
+      "binding_id": "gf19-ledger-scanner",
+      "path": "experimental/scripts/verify_l1_mixed_petal_frontier_ledger.py",
+      "sha256": "b747f35f6fafe01cc2b15fda132dc125acce27f5c269b17751faed09a6e2f96a",
+      "role": "exact profile enumerator"
+    },
+    {
+      "binding_id": "gf19-profile-verifier",
+      "path": "experimental/scripts/verify_l1_b9_m2_full_rank_ledger.py",
+      "sha256": "59987efb7e69168ae5987afc40e9fba2c60b50865521fc068c90d421f1d38f13",
+      "role": "frozen GF(19) case and profile coordinates"
+    }
+  ],
+  "charts": [
+    {
+      "chart_id": "gf19-442233-000",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-1",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 0
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          1
+        ],
+        "petal_supports": [
+          [
+            4,
+            5,
+            6
+          ],
+          [
+            8,
+            9,
+            10
+          ],
+          []
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          5,
+          6,
+          8,
+          9,
+          10,
+          16,
+          17
+        ],
+        "selected_support_mask": 198512,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-001",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-1",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 1
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          1
+        ],
+        "petal_supports": [
+          [
+            4,
+            5,
+            6
+          ],
+          [
+            8,
+            9,
+            11
+          ],
+          []
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          5,
+          6,
+          8,
+          9,
+          11,
+          16,
+          17
+        ],
+        "selected_support_mask": 199536,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-002",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-1",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 2
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          1
+        ],
+        "petal_supports": [
+          [
+            4,
+            5,
+            6
+          ],
+          [
+            8,
+            10,
+            11
+          ],
+          []
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          5,
+          6,
+          8,
+          10,
+          11,
+          16,
+          17
+        ],
+        "selected_support_mask": 200048,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-003",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-1",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 3
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          1
+        ],
+        "petal_supports": [
+          [
+            4,
+            5,
+            6
+          ],
+          [
+            9,
+            10,
+            11
+          ],
+          []
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          5,
+          6,
+          9,
+          10,
+          11,
+          16,
+          17
+        ],
+        "selected_support_mask": 200304,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-004",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-1",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 4
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          1
+        ],
+        "petal_supports": [
+          [
+            4,
+            5,
+            7
+          ],
+          [
+            8,
+            9,
+            10
+          ],
+          []
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          5,
+          7,
+          8,
+          9,
+          10,
+          16,
+          17
+        ],
+        "selected_support_mask": 198576,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-005",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-1",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 5
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          1
+        ],
+        "petal_supports": [
+          [
+            4,
+            5,
+            7
+          ],
+          [
+            8,
+            9,
+            11
+          ],
+          []
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          5,
+          7,
+          8,
+          9,
+          11,
+          16,
+          17
+        ],
+        "selected_support_mask": 199600,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-006",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-1",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 6
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          1
+        ],
+        "petal_supports": [
+          [
+            4,
+            5,
+            7
+          ],
+          [
+            8,
+            10,
+            11
+          ],
+          []
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          5,
+          7,
+          8,
+          10,
+          11,
+          16,
+          17
+        ],
+        "selected_support_mask": 200112,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-007",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-1",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 7
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          1
+        ],
+        "petal_supports": [
+          [
+            4,
+            5,
+            7
+          ],
+          [
+            9,
+            10,
+            11
+          ],
+          []
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          5,
+          7,
+          9,
+          10,
+          11,
+          16,
+          17
+        ],
+        "selected_support_mask": 200368,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-008",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-1",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 8
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          1
+        ],
+        "petal_supports": [
+          [
+            4,
+            6,
+            7
+          ],
+          [
+            8,
+            9,
+            10
+          ],
+          []
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          16,
+          17
+        ],
+        "selected_support_mask": 198608,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-009",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-1",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 9
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          1
+        ],
+        "petal_supports": [
+          [
+            4,
+            6,
+            7
+          ],
+          [
+            8,
+            9,
+            11
+          ],
+          []
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          6,
+          7,
+          8,
+          9,
+          11,
+          16,
+          17
+        ],
+        "selected_support_mask": 199632,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-010",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-1",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 10
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          1
+        ],
+        "petal_supports": [
+          [
+            4,
+            6,
+            7
+          ],
+          [
+            8,
+            10,
+            11
+          ],
+          []
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          6,
+          7,
+          8,
+          10,
+          11,
+          16,
+          17
+        ],
+        "selected_support_mask": 200144,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-011",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-1",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 11
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          1
+        ],
+        "petal_supports": [
+          [
+            4,
+            6,
+            7
+          ],
+          [
+            9,
+            10,
+            11
+          ],
+          []
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          6,
+          7,
+          9,
+          10,
+          11,
+          16,
+          17
+        ],
+        "selected_support_mask": 200400,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-012",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-1",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 12
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          1
+        ],
+        "petal_supports": [
+          [
+            5,
+            6,
+            7
+          ],
+          [
+            8,
+            9,
+            10
+          ],
+          []
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          16,
+          17
+        ],
+        "selected_support_mask": 198624,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-013",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-1",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 13
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          1
+        ],
+        "petal_supports": [
+          [
+            5,
+            6,
+            7
+          ],
+          [
+            8,
+            9,
+            11
+          ],
+          []
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          11,
+          16,
+          17
+        ],
+        "selected_support_mask": 199648,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-014",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-1",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 14
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          1
+        ],
+        "petal_supports": [
+          [
+            5,
+            6,
+            7
+          ],
+          [
+            8,
+            10,
+            11
+          ],
+          []
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          5,
+          6,
+          7,
+          8,
+          10,
+          11,
+          16,
+          17
+        ],
+        "selected_support_mask": 200160,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-015",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-1",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 15
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          1
+        ],
+        "petal_supports": [
+          [
+            5,
+            6,
+            7
+          ],
+          [
+            9,
+            10,
+            11
+          ],
+          []
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          5,
+          6,
+          7,
+          9,
+          10,
+          11,
+          16,
+          17
+        ],
+        "selected_support_mask": 200416,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-016",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 16
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          2
+        ],
+        "petal_supports": [
+          [
+            4,
+            5,
+            6
+          ],
+          [],
+          [
+            12,
+            13,
+            14
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          5,
+          6,
+          12,
+          13,
+          14,
+          16,
+          17
+        ],
+        "selected_support_mask": 225392,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-017",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 17
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          2
+        ],
+        "petal_supports": [
+          [
+            4,
+            5,
+            6
+          ],
+          [],
+          [
+            12,
+            13,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          5,
+          6,
+          12,
+          13,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 241776,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-018",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 18
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          2
+        ],
+        "petal_supports": [
+          [
+            4,
+            5,
+            6
+          ],
+          [],
+          [
+            12,
+            14,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          5,
+          6,
+          12,
+          14,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 249968,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-019",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 19
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          2
+        ],
+        "petal_supports": [
+          [
+            4,
+            5,
+            6
+          ],
+          [],
+          [
+            13,
+            14,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          5,
+          6,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 254064,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-020",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 20
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          2
+        ],
+        "petal_supports": [
+          [
+            4,
+            5,
+            7
+          ],
+          [],
+          [
+            12,
+            13,
+            14
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          5,
+          7,
+          12,
+          13,
+          14,
+          16,
+          17
+        ],
+        "selected_support_mask": 225456,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-021",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 21
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          2
+        ],
+        "petal_supports": [
+          [
+            4,
+            5,
+            7
+          ],
+          [],
+          [
+            12,
+            13,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          5,
+          7,
+          12,
+          13,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 241840,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-022",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 22
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          2
+        ],
+        "petal_supports": [
+          [
+            4,
+            5,
+            7
+          ],
+          [],
+          [
+            12,
+            14,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          5,
+          7,
+          12,
+          14,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 250032,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-023",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 23
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          2
+        ],
+        "petal_supports": [
+          [
+            4,
+            5,
+            7
+          ],
+          [],
+          [
+            13,
+            14,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          5,
+          7,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 254128,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-024",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 24
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          2
+        ],
+        "petal_supports": [
+          [
+            4,
+            6,
+            7
+          ],
+          [],
+          [
+            12,
+            13,
+            14
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          6,
+          7,
+          12,
+          13,
+          14,
+          16,
+          17
+        ],
+        "selected_support_mask": 225488,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-025",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 25
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          2
+        ],
+        "petal_supports": [
+          [
+            4,
+            6,
+            7
+          ],
+          [],
+          [
+            12,
+            13,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          6,
+          7,
+          12,
+          13,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 241872,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-026",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 26
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          2
+        ],
+        "petal_supports": [
+          [
+            4,
+            6,
+            7
+          ],
+          [],
+          [
+            12,
+            14,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          6,
+          7,
+          12,
+          14,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 250064,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-027",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 27
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          2
+        ],
+        "petal_supports": [
+          [
+            4,
+            6,
+            7
+          ],
+          [],
+          [
+            13,
+            14,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          4,
+          6,
+          7,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 254160,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-028",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 28
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          2
+        ],
+        "petal_supports": [
+          [
+            5,
+            6,
+            7
+          ],
+          [],
+          [
+            12,
+            13,
+            14
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          5,
+          6,
+          7,
+          12,
+          13,
+          14,
+          16,
+          17
+        ],
+        "selected_support_mask": 225504,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-029",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 29
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          2
+        ],
+        "petal_supports": [
+          [
+            5,
+            6,
+            7
+          ],
+          [],
+          [
+            12,
+            13,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          5,
+          6,
+          7,
+          12,
+          13,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 241888,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-030",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 30
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          2
+        ],
+        "petal_supports": [
+          [
+            5,
+            6,
+            7
+          ],
+          [],
+          [
+            12,
+            14,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          5,
+          6,
+          7,
+          12,
+          14,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 250080,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-031",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-0-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 31
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          0,
+          2
+        ],
+        "petal_supports": [
+          [
+            5,
+            6,
+            7
+          ],
+          [],
+          [
+            13,
+            14,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          5,
+          6,
+          7,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 254176,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-032",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-1-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 32
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          1,
+          2
+        ],
+        "petal_supports": [
+          [],
+          [
+            8,
+            9,
+            10
+          ],
+          [
+            12,
+            13,
+            14
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          8,
+          9,
+          10,
+          12,
+          13,
+          14,
+          16,
+          17
+        ],
+        "selected_support_mask": 227072,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-033",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-1-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 33
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          1,
+          2
+        ],
+        "petal_supports": [
+          [],
+          [
+            8,
+            9,
+            10
+          ],
+          [
+            12,
+            13,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          8,
+          9,
+          10,
+          12,
+          13,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 243456,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-034",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-1-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 34
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          1,
+          2
+        ],
+        "petal_supports": [
+          [],
+          [
+            8,
+            9,
+            10
+          ],
+          [
+            12,
+            14,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          8,
+          9,
+          10,
+          12,
+          14,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 251648,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-035",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-1-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 35
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          1,
+          2
+        ],
+        "petal_supports": [
+          [],
+          [
+            8,
+            9,
+            10
+          ],
+          [
+            13,
+            14,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          8,
+          9,
+          10,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 255744,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-036",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-1-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 36
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          1,
+          2
+        ],
+        "petal_supports": [
+          [],
+          [
+            8,
+            9,
+            11
+          ],
+          [
+            12,
+            13,
+            14
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          8,
+          9,
+          11,
+          12,
+          13,
+          14,
+          16,
+          17
+        ],
+        "selected_support_mask": 228096,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-037",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-1-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 37
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          1,
+          2
+        ],
+        "petal_supports": [
+          [],
+          [
+            8,
+            9,
+            11
+          ],
+          [
+            12,
+            13,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          8,
+          9,
+          11,
+          12,
+          13,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 244480,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-038",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-1-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 38
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          1,
+          2
+        ],
+        "petal_supports": [
+          [],
+          [
+            8,
+            9,
+            11
+          ],
+          [
+            12,
+            14,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          8,
+          9,
+          11,
+          12,
+          14,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 252672,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-039",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-1-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 39
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          1,
+          2
+        ],
+        "petal_supports": [
+          [],
+          [
+            8,
+            9,
+            11
+          ],
+          [
+            13,
+            14,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          8,
+          9,
+          11,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 256768,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-040",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-1-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 40
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          1,
+          2
+        ],
+        "petal_supports": [
+          [],
+          [
+            8,
+            10,
+            11
+          ],
+          [
+            12,
+            13,
+            14
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          8,
+          10,
+          11,
+          12,
+          13,
+          14,
+          16,
+          17
+        ],
+        "selected_support_mask": 228608,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-041",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-1-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 41
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          1,
+          2
+        ],
+        "petal_supports": [
+          [],
+          [
+            8,
+            10,
+            11
+          ],
+          [
+            12,
+            13,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          8,
+          10,
+          11,
+          12,
+          13,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 244992,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-042",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-1-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 42
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          1,
+          2
+        ],
+        "petal_supports": [
+          [],
+          [
+            8,
+            10,
+            11
+          ],
+          [
+            12,
+            14,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          8,
+          10,
+          11,
+          12,
+          14,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 253184,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-043",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-1-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 43
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          1,
+          2
+        ],
+        "petal_supports": [
+          [],
+          [
+            8,
+            10,
+            11
+          ],
+          [
+            13,
+            14,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          8,
+          10,
+          11,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 257280,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-044",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-1-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 44
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          1,
+          2
+        ],
+        "petal_supports": [
+          [],
+          [
+            9,
+            10,
+            11
+          ],
+          [
+            12,
+            13,
+            14
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          16,
+          17
+        ],
+        "selected_support_mask": 228864,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-045",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-1-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 45
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          1,
+          2
+        ],
+        "petal_supports": [
+          [],
+          [
+            9,
+            10,
+            11
+          ],
+          [
+            12,
+            13,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          9,
+          10,
+          11,
+          12,
+          13,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 245248,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-046",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-1-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 46
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          1,
+          2
+        ],
+        "petal_supports": [
+          [],
+          [
+            9,
+            10,
+            11
+          ],
+          [
+            12,
+            14,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          9,
+          10,
+          11,
+          12,
+          14,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 253440,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    },
+    {
+      "chart_id": "gf19-442233-047",
+      "canonical_key": {
+        "A": 8,
+        "quantifier_scope": "GF19_L1_CONTROL_442233",
+        "locator_chart_id": "petals-1-2",
+        "patch": "full-agreement-cofactor-support",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "CONTROL_NOT_COMPUTED",
+        "h": 47
+      },
+      "support_pattern": {
+        "active_petal_labels": [
+          1,
+          2
+        ],
+        "petal_supports": [
+          [],
+          [
+            9,
+            10,
+            11
+          ],
+          [
+            13,
+            14,
+            15
+          ]
+        ],
+        "background_support": [
+          16,
+          17
+        ],
+        "selected_support": [
+          9,
+          10,
+          11,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "selected_support_mask": 257536,
+        "stabilizer_order": 1,
+        "complete_fibre_scales": []
+      },
+      "gates": [
+        {
+          "owner_id": "PERIODIC_SUPPORT",
+          "eligible": false,
+          "evidence": "cyclic exponent-shift stabilizer order is 1"
+        },
+        {
+          "owner_id": "INVARIANT_QUOTIENT_DESCENT",
+          "eligible": false,
+          "evidence": "complete cyclic fibre scales are []; no all-data descent certificate"
+        },
+        {
+          "owner_id": "AUXILIARY_JOHNSON",
+          "eligible": false,
+          "evidence": "required=6 domain=12 degree=4 margin=-12"
+        },
+        {
+          "owner_id": "GLOBAL_JOHNSON",
+          "eligible": false,
+          "evidence": "lambda=0 is below lambda_J=1"
+        },
+        {
+          "owner_id": "B11_G2",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "B11_GR",
+          "eligible": false,
+          "evidence": "classification=ESCAPES_BOUNDED_EXCESS_BOX at (d-ell,G2,GR)=(0,2,3)"
+        },
+        {
+          "owner_id": "UNPAID_PRIMITIVE",
+          "eligible": true,
+          "evidence": "no earlier frozen owner is eligible"
+        }
+      ],
+      "localization": {
+        "split_support": true,
+        "distinct_labels": true,
+        "noncontainment": true,
+        "finite_pivot": false,
+        "earlier_pivots_zero": false
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      }
+    }
+  ],
+  "compressed_chart_families": [],
+  "ledger": {
+    "ledger_consequence": false,
+    "charges": [],
+    "U_paid": "0",
+    "U_Q": null,
+    "U_A": "17328",
+    "lhs": null,
+    "B_star": "0",
+    "inequality_status": "CONTROL_ONLY_NO_LEDGER_CONSEQUENCE",
+    "eliminant_aggregation_mode": "NONE_CONTROL",
+    "eliminant_charge": "0",
+    "charge_ids_unique": true
+  },
+  "nonclaims": [
+    "The 48-pattern control is not a deployed M1 atlas.",
+    "UNPAID_PRIMITIVE means unpaid under the frozen owner order only.",
+    "The control has no ledger consequence and does not bank 17,328.",
+    "No slope eliminant or fixed-syndrome rank theorem is asserted."
+  ],
+  "payload_sha256": "299ac8157b50ea5e5a25654e74495dcbe9271698ead09550fffc95856dce6ed2"
+}

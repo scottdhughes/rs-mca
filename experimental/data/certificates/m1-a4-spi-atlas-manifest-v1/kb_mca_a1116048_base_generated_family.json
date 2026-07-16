@@ -1,0 +1,205 @@
+{
+  "schema": "rs-mca-m1-a4-spi-atlas-manifest-v1",
+  "artifact_kind": "DEPLOYED_PARTIAL_MANIFEST",
+  "status": "PARTIAL",
+  "quantifier_scope": {
+    "scope_id": "KB_MCA_A1116048_BASE_FINITE_SLOPE_CANDIDATES",
+    "received_lines": "all received lines only after the source packet's prior buckets",
+    "slopes": "finite base-valued slopes in F_p only",
+    "supports": "not enumerated by the source affine-row packet",
+    "uniformity": "CANDIDATE_CAPACITY_NAMESPACE_WITH_UNPROVEN_SPI_ADAPTER",
+    "excluded_scopes": [
+      "extension-valued slopes in F_(p^6) minus F_p",
+      "raw support multiplicity",
+      "all SPI charts not mapped to affine rows"
+    ]
+  },
+  "row": {
+    "row_id": "koalabear-mca-A1116048",
+    "field": {
+      "characteristic_p": 2130706433,
+      "extension_degree": 6,
+      "q_base": "2130706433",
+      "q_line": "93571093019388561295270373781649880353786165192103559169",
+      "sampling_denominator": "340282366920938463463374607431768211456",
+      "target_bits": 128,
+      "B_star_q": "274980728111395087",
+      "B_star_q_minus_1": "274980728111395087",
+      "budget_floors_coincide": true,
+      "domain": "KoalaBear multiplicative subgroup of F_(p^6)^*"
+    },
+    "n": 2097152,
+    "k": 1048576,
+    "agreement_A": 1116048,
+    "error_count_j": 981104,
+    "syndrome_depth_t": 67472,
+    "prefix_depth_w": 67471,
+    "kernel_dimension_lower_bound": 913633,
+    "deficiency_one": false,
+    "profile": {
+      "profile_id": "M1_A4_FULL_ROW_UNRESOLVED",
+      "ell": null,
+      "d": null,
+      "r": null,
+      "t": null,
+      "a_i": [],
+      "G2": null,
+      "GR": null
+    }
+  },
+  "owner_policy": {
+    "policy_id": "KB_MCA_1116048_FIRST_MATCH_LEDGER_V1",
+    "order": [
+      "contained_or_noncontained_failure",
+      "rank_drop_or_pivot_failure",
+      "tangent_common_line_residue",
+      "quotient_periodic_or_divisor_stabilized",
+      "planted_prefix_structured",
+      "extension_valued_slope",
+      "base_generated_field_collision",
+      "sparse_sigma_or_sparse_support",
+      "m1_half_turn_or_coefficient_shadow",
+      "primitive_qfin_residual"
+    ],
+    "fallback_unpaid_owner_id": "primitive_qfin_residual",
+    "terminal_order_frozen": true,
+    "unpaid_semantics": "unmapped capacity indices remain unpaid until the SPI-to-affine-row adapter is proved"
+  },
+  "coverage": {
+    "scope_complete": false,
+    "row_complete": false,
+    "unit_kind": "CAPACITY_INDEX_NOT_CHART",
+    "expected_units": 67472,
+    "represented_units": 0,
+    "missing_units": 67472,
+    "paid_count": 0,
+    "eliminant_count": 0,
+    "unpaid_count": 0,
+    "canonical_assignment_sha256": null,
+    "mask_list_sha256": null,
+    "coverage_status": "BOUNDED_FAMILY_ONLY",
+    "uncovered_scopes": [
+      "SPI chart to affine-row index adapter",
+      "extension-valued slopes",
+      "primitive q-finite residual",
+      "U_Q and U_A"
+    ]
+  },
+  "source_bindings": [
+    {
+      "binding_id": "atlas-schema",
+      "path": "experimental/data/schemas/m1_a4_spi_atlas_manifest_v1.schema.json",
+      "sha256": "9a657f90607022f71252c8402b7056df333beb2b4a5a7364c4efa1c59d5ff84c",
+      "role": "closed manifest contract"
+    },
+    {
+      "binding_id": "atlas-verifier",
+      "path": "experimental/scripts/verify_m1_a4_spi_atlas_manifest_v1.py",
+      "sha256": "aea20003eec1181e1a5a5c9c70f29cef8729055c11bab6dcb2183263f8b7ebb0",
+      "role": "semantic and mutation verifier"
+    },
+    {
+      "binding_id": "kb-first-match-note",
+      "path": "experimental/notes/thresholds/kb_mca_1116048_first_match_ledger_v1.md",
+      "sha256": "34c5aa072783f39c94885b36b810f35a2bb8109eb5f6045aa4cf22fd5c2fb117",
+      "role": "proved ledger statement"
+    },
+    {
+      "binding_id": "kb-first-match-packet",
+      "path": "experimental/data/certificates/kb-mca-1116048-first-match-ledger-v1/kb_mca_1116048_first_match_ledger_v1.json",
+      "sha256": "46b87bc887489d153b52634516eeed9727340dee434664781754b3101fbd42a4",
+      "role": "machine-readable owner charge"
+    },
+    {
+      "binding_id": "kb-first-match-verifier",
+      "path": "experimental/scripts/verify_kb_mca_1116048_first_match_ledger_v1.py",
+      "sha256": "72e0d7652d1815ebe57426e6832d7fe94838f6e8cb9d0e1ae3e1d5988b5b3bf6",
+      "role": "exact and tamper replay"
+    }
+  ],
+  "charts": [],
+  "compressed_chart_families": [
+    {
+      "family_id": "kb-a1116048-affine-row-capacity-namespace",
+      "canonical_key_prefix": {
+        "A": 1116048,
+        "quantifier_scope": "KB_MCA_A1116048_BASE_FINITE_SLOPE_CANDIDATES",
+        "locator_chart_id": "UNMAPPED_SPI_CHART",
+        "patch": "candidate-base-finite-slope",
+        "rank_s": null,
+        "pivot_rows": [],
+        "pivot_cols": [],
+        "pivot_kind": "SOURCE_AFFINE_ROW_INDEX_NOT_SPI_PIVOT"
+      },
+      "h_start": 0,
+      "h_end": 67471,
+      "index_count": 67472,
+      "index_semantics": "capacity labels only; h is not yet proved equal to the source affine-row index i",
+      "candidate_owner_id": "base_generated_field_collision",
+      "chart_adapter_status": "UNPROVEN",
+      "per_index_image_cap": "2130706433",
+      "family_image_cap": "143763024447376",
+      "source_claim_pointer": "/generated_field_collision_charge",
+      "earlier_pivots_zero_by_definition": true,
+      "finite_pivot_nonzero": true,
+      "noncontainment_localized": true,
+      "split_support_localized": false,
+      "gate_scope": {
+        "base_valued": true,
+        "finite_affine": true,
+        "prior_buckets_removed": true,
+        "extension_valued_excluded": true
+      },
+      "terminal": {
+        "kind": "UNPAID_PRIMITIVE",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "eliminant": null
+      },
+      "source_binding_ids": [
+        "kb-first-match-note",
+        "kb-first-match-packet",
+        "kb-first-match-verifier"
+      ]
+    }
+  ],
+  "ledger": {
+    "ledger_consequence": false,
+    "charges": [
+      {
+        "charge_id": "kb-base-generated-image-cell-cover",
+        "owner_id": "base_generated_field_collision",
+        "amount": "143763024447376",
+        "scope": "IMPORTED_GLOBAL_ONCE",
+        "source_binding_id": "kb-first-match-packet",
+        "source_claim_pointer": "/deployed_arithmetic/B_gen_t_times_p"
+      },
+      {
+        "charge_id": "kb-terminal-quotient-raw",
+        "owner_id": "quotient_periodic_or_divisor_stabilized",
+        "amount": "471447040",
+        "scope": "IMPORTED_GLOBAL_ONCE",
+        "source_binding_id": "kb-first-match-packet",
+        "source_claim_pointer": "/deployed_arithmetic/terminal_quotient_raw_paid_cost"
+      }
+    ],
+    "U_paid": "143763495894416",
+    "U_Q": null,
+    "U_A": null,
+    "lhs": null,
+    "B_star": "274980728111395087",
+    "inequality_status": "UNDECIDED_OPEN_COMPONENTS",
+    "eliminant_aggregation_mode": "NOT_COMPUTED",
+    "eliminant_charge": null,
+    "charge_ids_unique": true
+  },
+  "nonclaims": [
+    "The h namespace is not an enumeration of deployed SPI charts.",
+    "The tp cap is an image-cell cover, not a support multiplicity bound.",
+    "Extension-valued slopes remain unpaid.",
+    "U_Q, U_A, and the target inequality remain undecided.",
+    "This artifact does not improve the KoalaBear frontier."
+  ],
+  "payload_sha256": "60727958cc2f673937dec001c6b374c9f05a726845e0c54016a4652ba7f748f4"
+}

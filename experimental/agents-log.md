@@ -30,6 +30,35 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-15 - M1 A4 fail-closed SPI atlas manifest
+
+- **Agent/model:** Codex, with two fresh independent hostile-review agents.
+- **Files added or changed:**
+  `experimental/data/schemas/m1_a4_spi_atlas_manifest_v1.schema.json`;
+  `experimental/data/certificates/m1-a4-spi-atlas-manifest-v1/`;
+  `experimental/notes/m1/m1_a4_spi_atlas_manifest_v1.md`;
+  `experimental/scripts/verify_m1_a4_spi_atlas_manifest_v1.py`;
+  `experimental/agents-log.md`.
+- **Status:** AUDIT / PARTIAL.  No KoalaBear frontier row or theorem is
+  promoted.
+- **What is being added:** A closed manifest grammar and mutation-tested
+  verifier for explicit first-match SPI charts, a deployed
+  `A=1,116,048` capacity-only partial manifest, and an exhaustive non-banking
+  48-pattern GF(19) machinery control.  Hostile review corrections prevent
+  capacity indices from being called charts, reject incomplete large-field
+  root lists and self-asserted ideal membership, derive the L1 gates under the
+  cyclic exponent-shift action, bind paid terminals to same-owner registered
+  charges, distinguish the M1 fallback owner from the terminal kind, and block
+  same-owner and cross-owner global-charge aliases through an exact registry.
+- **How it is useful:** The packet freezes the exact M1 row arithmetic and
+  imported paid baseline while leaving the SPI-to-affine-row adapter,
+  extension-valued slopes, `U_Q`, `U_A`, and the final inequality explicitly
+  open.  It gives the next adapter proof a deterministic fail-closed consumer.
+- **What to do next:** Prove the explicit SPI-chart to normalized affine-row
+  adapter under the frozen pivot, denominator, noncontainment, and first-match
+  hypotheses; emit every failure as `UNPAID_PRIMITIVE`; then recompute the
+  complete nonnegative ledger before any frontier claim.
+
 ### 2026-07-15 - L1/BC/L2 threshold and Lean PR wave
 
 - **Agent/model:** Codex integrating non-draft PRs #775, #777, #779--#792,

@@ -1,0 +1,528 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/przchojecki/rs-mca/experimental/data/schemas/m1_a4_spi_atlas_manifest_v1.schema.json",
+  "title": "M1 A4 fail-closed SPI atlas manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "artifact_kind",
+    "status",
+    "quantifier_scope",
+    "row",
+    "owner_policy",
+    "coverage",
+    "source_bindings",
+    "charts",
+    "compressed_chart_families",
+    "ledger",
+    "nonclaims",
+    "payload_sha256"
+  ],
+  "properties": {
+    "schema": {"const": "rs-mca-m1-a4-spi-atlas-manifest-v1"},
+    "artifact_kind": {"enum": ["CONTROL_FIXTURE", "DEPLOYED_PARTIAL_MANIFEST", "DEPLOYED_COMPLETE_MANIFEST"]},
+    "status": {"enum": ["AUDIT", "PARTIAL", "COMPLETE"]},
+    "quantifier_scope": {"$ref": "#/$defs/quantifierScope"},
+    "row": {"$ref": "#/$defs/row"},
+    "owner_policy": {"$ref": "#/$defs/ownerPolicy"},
+    "coverage": {"$ref": "#/$defs/coverage"},
+    "source_bindings": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/sourceBinding"},
+      "minItems": 1
+    },
+    "charts": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/chart"}
+    },
+    "compressed_chart_families": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/compressedFamily"}
+    },
+    "ledger": {"$ref": "#/$defs/ledger"},
+    "nonclaims": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "payload_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  },
+  "$defs": {
+    "nullableString": {
+      "anyOf": [
+        {"type": "string"},
+        {"type": "null"}
+      ]
+    },
+    "nullableInteger": {
+      "anyOf": [
+        {"type": "integer"},
+        {"type": "null"}
+      ]
+    },
+    "nullableCountString": {
+      "anyOf": [
+        {"type": "string", "pattern": "^[0-9]+$"},
+        {"type": "null"}
+      ]
+    },
+    "quantifierScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scope_id", "received_lines", "slopes", "supports", "uniformity", "excluded_scopes"],
+      "properties": {
+        "scope_id": {"type": "string", "minLength": 1},
+        "received_lines": {"type": "string", "minLength": 1},
+        "slopes": {"type": "string", "minLength": 1},
+        "supports": {"type": "string", "minLength": 1},
+        "uniformity": {"type": "string", "minLength": 1},
+        "excluded_scopes": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        }
+      }
+    },
+    "field": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "characteristic_p",
+        "extension_degree",
+        "q_base",
+        "q_line",
+        "sampling_denominator",
+        "target_bits",
+        "B_star_q",
+        "B_star_q_minus_1",
+        "budget_floors_coincide",
+        "domain"
+      ],
+      "properties": {
+        "characteristic_p": {"type": "integer", "minimum": 2},
+        "extension_degree": {"type": "integer", "minimum": 1},
+        "q_base": {"type": "string", "pattern": "^[0-9]+$"},
+        "q_line": {"type": "string", "pattern": "^[0-9]+$"},
+        "sampling_denominator": {"type": "string", "pattern": "^[0-9]+$"},
+        "target_bits": {"type": "integer", "minimum": 1},
+        "B_star_q": {"type": "string", "pattern": "^[0-9]+$"},
+        "B_star_q_minus_1": {"type": "string", "pattern": "^[0-9]+$"},
+        "budget_floors_coincide": {"type": "boolean"},
+        "domain": {"type": "string", "minLength": 1}
+      }
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profile_id", "ell", "d", "r", "t", "a_i", "G2", "GR"],
+      "properties": {
+        "profile_id": {"type": "string", "minLength": 1},
+        "ell": {"$ref": "#/$defs/nullableInteger"},
+        "d": {"$ref": "#/$defs/nullableInteger"},
+        "r": {"$ref": "#/$defs/nullableInteger"},
+        "t": {"$ref": "#/$defs/nullableInteger"},
+        "a_i": {"type": "array", "items": {"type": "integer", "minimum": 0}},
+        "G2": {"$ref": "#/$defs/nullableInteger"},
+        "GR": {"$ref": "#/$defs/nullableInteger"}
+      }
+    },
+    "row": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "row_id",
+        "field",
+        "n",
+        "k",
+        "agreement_A",
+        "error_count_j",
+        "syndrome_depth_t",
+        "prefix_depth_w",
+        "kernel_dimension_lower_bound",
+        "deficiency_one",
+        "profile"
+      ],
+      "properties": {
+        "row_id": {"type": "string", "minLength": 1},
+        "field": {"$ref": "#/$defs/field"},
+        "n": {"type": "integer", "minimum": 1},
+        "k": {"type": "integer", "minimum": 1},
+        "agreement_A": {"type": "integer", "minimum": 0},
+        "error_count_j": {"type": "integer", "minimum": 0},
+        "syndrome_depth_t": {"type": "integer", "minimum": 1},
+        "prefix_depth_w": {"type": "integer", "minimum": 0},
+        "kernel_dimension_lower_bound": {"type": "integer", "minimum": 0},
+        "deficiency_one": {"type": "boolean"},
+        "profile": {"$ref": "#/$defs/profile"}
+      }
+    },
+    "ownerPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy_id",
+        "order",
+        "fallback_unpaid_owner_id",
+        "terminal_order_frozen",
+        "unpaid_semantics"
+      ],
+      "properties": {
+        "policy_id": {"type": "string", "minLength": 1},
+        "order": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "fallback_unpaid_owner_id": {"type": "string", "minLength": 1},
+        "terminal_order_frozen": {"type": "boolean"},
+        "unpaid_semantics": {"type": "string", "minLength": 1}
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scope_complete",
+        "row_complete",
+        "unit_kind",
+        "expected_units",
+        "represented_units",
+        "missing_units",
+        "paid_count",
+        "eliminant_count",
+        "unpaid_count",
+        "canonical_assignment_sha256",
+        "mask_list_sha256",
+        "coverage_status",
+        "uncovered_scopes"
+      ],
+      "properties": {
+        "scope_complete": {"type": "boolean"},
+        "row_complete": {"type": "boolean"},
+        "unit_kind": {"enum": ["EXPLICIT_CHART", "CAPACITY_INDEX_NOT_CHART"]},
+        "expected_units": {"type": "integer", "minimum": 0},
+        "represented_units": {"type": "integer", "minimum": 0},
+        "missing_units": {"type": "integer", "minimum": 0},
+        "paid_count": {"type": "integer", "minimum": 0},
+        "eliminant_count": {"type": "integer", "minimum": 0},
+        "unpaid_count": {"type": "integer", "minimum": 0},
+        "canonical_assignment_sha256": {
+          "anyOf": [
+            {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+            {"type": "null"}
+          ]
+        },
+        "mask_list_sha256": {
+          "anyOf": [
+            {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+            {"type": "null"}
+          ]
+        },
+        "coverage_status": {"enum": ["CONTROL_SCOPE_ENUMERATED", "BOUNDED_FAMILY_ONLY", "ROW_COMPLETE"]},
+        "uncovered_scopes": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        }
+      }
+    },
+    "sourceBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["binding_id", "path", "sha256", "role"],
+      "properties": {
+        "binding_id": {"type": "string", "minLength": 1},
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "role": {"type": "string", "minLength": 1}
+      }
+    },
+    "canonicalKey": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "A",
+        "quantifier_scope",
+        "locator_chart_id",
+        "patch",
+        "rank_s",
+        "pivot_rows",
+        "pivot_cols",
+        "pivot_kind",
+        "h"
+      ],
+      "properties": {
+        "A": {"type": "integer", "minimum": 0},
+        "quantifier_scope": {"type": "string", "minLength": 1},
+        "locator_chart_id": {"type": "string", "minLength": 1},
+        "patch": {"type": "string", "minLength": 1},
+        "rank_s": {"$ref": "#/$defs/nullableInteger"},
+        "pivot_rows": {"type": "array", "items": {"type": "integer", "minimum": 0}, "uniqueItems": true},
+        "pivot_cols": {"type": "array", "items": {"type": "integer", "minimum": 0}, "uniqueItems": true},
+        "pivot_kind": {"type": "string", "minLength": 1},
+        "h": {"type": "integer", "minimum": 0}
+      }
+    },
+    "supportPattern": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "active_petal_labels",
+        "petal_supports",
+        "background_support",
+        "selected_support",
+        "selected_support_mask",
+        "stabilizer_order",
+        "complete_fibre_scales"
+      ],
+      "properties": {
+        "active_petal_labels": {"type": "array", "items": {"type": "integer", "minimum": 0}, "uniqueItems": true},
+        "petal_supports": {
+          "type": "array",
+          "items": {"type": "array", "items": {"type": "integer", "minimum": 0}, "uniqueItems": true}
+        },
+        "background_support": {"type": "array", "items": {"type": "integer", "minimum": 0}, "uniqueItems": true},
+        "selected_support": {"type": "array", "items": {"type": "integer", "minimum": 0}, "uniqueItems": true},
+        "selected_support_mask": {"type": "integer", "minimum": 0},
+        "stabilizer_order": {"type": "integer", "minimum": 1},
+        "complete_fibre_scales": {
+          "type": "array",
+          "items": {"type": "integer", "minimum": 2},
+          "uniqueItems": true
+        }
+      }
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owner_id", "eligible", "evidence"],
+      "properties": {
+        "owner_id": {"type": "string", "minLength": 1},
+        "eligible": {"type": "boolean"},
+        "evidence": {"type": "string", "minLength": 1}
+      }
+    },
+    "localization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["split_support", "distinct_labels", "noncontainment", "finite_pivot", "earlier_pivots_zero"],
+      "properties": {
+        "split_support": {"type": "boolean"},
+        "distinct_labels": {"type": "boolean"},
+        "noncontainment": {"type": "boolean"},
+        "finite_pivot": {"type": "boolean"},
+        "earlier_pivots_zero": {"type": "boolean"}
+      }
+    },
+    "coefficientArray": {
+      "type": "array",
+      "items": {"type": "integer"},
+      "minItems": 1
+    },
+    "idealCombination": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "equation_source_binding_id",
+        "equation_source_pointer",
+        "equation_variable_pointer",
+        "equation_chart_key_sha256_allowlist_pointer",
+        "generators_low_to_high",
+        "multipliers_low_to_high"
+      ],
+      "properties": {
+        "equation_source_binding_id": {"type": "string", "minLength": 1},
+        "equation_source_pointer": {"type": "string", "pattern": "^/.*$"},
+        "equation_variable_pointer": {"type": "string", "pattern": "^/.*$"},
+        "equation_chart_key_sha256_allowlist_pointer": {"type": "string", "pattern": "^/.*$"},
+        "generators_low_to_high": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/coefficientArray"},
+          "minItems": 1
+        },
+        "multipliers_low_to_high": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/coefficientArray"},
+          "minItems": 1
+        }
+      }
+    },
+    "eliminant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "variable",
+        "root_space_id",
+        "certificate_mode",
+        "coefficients_low_to_high",
+        "degree",
+        "nonzero",
+        "ideal_combination",
+        "root_set",
+        "root_count"
+      ],
+      "properties": {
+        "variable": {"type": "string", "minLength": 1},
+        "root_space_id": {"type": "string", "minLength": 1},
+        "certificate_mode": {"enum": ["EXACT_BASE_FIELD_ENUMERATION", "SAFE_DEGREE_BOUND"]},
+        "coefficients_low_to_high": {"$ref": "#/$defs/coefficientArray"},
+        "degree": {"type": "integer", "minimum": 0},
+        "nonzero": {"type": "boolean"},
+        "ideal_combination": {"$ref": "#/$defs/idealCombination"},
+        "root_set": {"type": "array", "items": {"type": "integer"}, "uniqueItems": true},
+        "root_count": {"type": "integer", "minimum": 0}
+      }
+    },
+    "terminal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "owner_id", "charge_id", "numeric_charge", "eliminant"],
+      "properties": {
+        "kind": {"enum": ["CERTIFIED_SLOPE_ELIMINANT", "NAMED_PAID_OWNER", "UNPAID_PRIMITIVE"]},
+        "owner_id": {"$ref": "#/$defs/nullableString"},
+        "charge_id": {"$ref": "#/$defs/nullableString"},
+        "numeric_charge": {"$ref": "#/$defs/nullableInteger"},
+        "eliminant": {
+          "anyOf": [
+            {"$ref": "#/$defs/eliminant"},
+            {"type": "null"}
+          ]
+        }
+      }
+    },
+    "chart": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["chart_id", "canonical_key", "support_pattern", "gates", "localization", "terminal"],
+      "properties": {
+        "chart_id": {"type": "string", "minLength": 1},
+        "canonical_key": {"$ref": "#/$defs/canonicalKey"},
+        "support_pattern": {"$ref": "#/$defs/supportPattern"},
+        "gates": {"type": "array", "items": {"$ref": "#/$defs/gate"}},
+        "localization": {"$ref": "#/$defs/localization"},
+        "terminal": {"$ref": "#/$defs/terminal"}
+      }
+    },
+    "canonicalKeyPrefix": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["A", "quantifier_scope", "locator_chart_id", "patch", "rank_s", "pivot_rows", "pivot_cols", "pivot_kind"],
+      "properties": {
+        "A": {"type": "integer", "minimum": 0},
+        "quantifier_scope": {"type": "string", "minLength": 1},
+        "locator_chart_id": {"type": "string", "minLength": 1},
+        "patch": {"type": "string", "minLength": 1},
+        "rank_s": {"$ref": "#/$defs/nullableInteger"},
+        "pivot_rows": {"type": "array", "items": {"type": "integer", "minimum": 0}, "uniqueItems": true},
+        "pivot_cols": {"type": "array", "items": {"type": "integer", "minimum": 0}, "uniqueItems": true},
+        "pivot_kind": {"type": "string", "minLength": 1}
+      }
+    },
+    "gateScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["base_valued", "finite_affine", "prior_buckets_removed", "extension_valued_excluded"],
+      "properties": {
+        "base_valued": {"type": "boolean"},
+        "finite_affine": {"type": "boolean"},
+        "prior_buckets_removed": {"type": "boolean"},
+        "extension_valued_excluded": {"type": "boolean"}
+      }
+    },
+    "compressedFamily": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "family_id",
+        "canonical_key_prefix",
+        "h_start",
+        "h_end",
+        "index_count",
+        "index_semantics",
+        "candidate_owner_id",
+        "chart_adapter_status",
+        "per_index_image_cap",
+        "family_image_cap",
+        "source_claim_pointer",
+        "earlier_pivots_zero_by_definition",
+        "finite_pivot_nonzero",
+        "noncontainment_localized",
+        "split_support_localized",
+        "gate_scope",
+        "terminal",
+        "source_binding_ids"
+      ],
+      "properties": {
+        "family_id": {"type": "string", "minLength": 1},
+        "canonical_key_prefix": {"$ref": "#/$defs/canonicalKeyPrefix"},
+        "h_start": {"type": "integer", "minimum": 0},
+        "h_end": {"type": "integer", "minimum": 0},
+        "index_count": {"type": "integer", "minimum": 1},
+        "index_semantics": {"type": "string", "minLength": 1},
+        "candidate_owner_id": {"$ref": "#/$defs/nullableString"},
+        "chart_adapter_status": {"const": "UNPROVEN"},
+        "per_index_image_cap": {"$ref": "#/$defs/nullableCountString"},
+        "family_image_cap": {"$ref": "#/$defs/nullableCountString"},
+        "source_claim_pointer": {"type": "string", "minLength": 1},
+        "earlier_pivots_zero_by_definition": {"type": "boolean"},
+        "finite_pivot_nonzero": {"type": "boolean"},
+        "noncontainment_localized": {"type": "boolean"},
+        "split_support_localized": {"type": "boolean"},
+        "gate_scope": {"$ref": "#/$defs/gateScope"},
+        "terminal": {"$ref": "#/$defs/terminal"},
+        "source_binding_ids": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    },
+    "charge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["charge_id", "owner_id", "amount", "scope", "source_binding_id", "source_claim_pointer"],
+      "properties": {
+        "charge_id": {"type": "string", "minLength": 1},
+        "owner_id": {"type": "string", "minLength": 1},
+        "amount": {"type": "string", "pattern": "^[0-9]+$"},
+        "scope": {"enum": ["GLOBAL_ONCE", "IMPORTED_GLOBAL_ONCE"]},
+        "source_binding_id": {"type": "string", "minLength": 1},
+        "source_claim_pointer": {"type": "string", "pattern": "^/.*$"}
+      }
+    },
+    "ledger": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ledger_consequence",
+        "charges",
+        "U_paid",
+        "U_Q",
+        "U_A",
+        "lhs",
+        "B_star",
+        "inequality_status",
+        "eliminant_aggregation_mode",
+        "eliminant_charge",
+        "charge_ids_unique"
+      ],
+      "properties": {
+        "ledger_consequence": {"type": "boolean"},
+        "charges": {"type": "array", "items": {"$ref": "#/$defs/charge"}},
+        "U_paid": {"$ref": "#/$defs/nullableCountString"},
+        "U_Q": {"$ref": "#/$defs/nullableCountString"},
+        "U_A": {"$ref": "#/$defs/nullableCountString"},
+        "lhs": {"$ref": "#/$defs/nullableCountString"},
+        "B_star": {"type": "string", "pattern": "^[0-9]+$"},
+        "inequality_status": {"enum": ["CONTROL_ONLY_NO_LEDGER_CONSEQUENCE", "UNDECIDED_OPEN_COMPONENTS", "PROVED_PASS", "PROVED_FAIL"]},
+        "eliminant_aggregation_mode": {"enum": ["NONE_CONTROL", "NOT_COMPUTED", "DISJOINT_CHART_SUM"]},
+        "eliminant_charge": {"$ref": "#/$defs/nullableCountString"},
+        "charge_ids_unique": {"type": "boolean"}
+      }
+    }
+  }
+}
