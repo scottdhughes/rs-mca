@@ -163,7 +163,7 @@
         },
         {
           "id": "cap25-v13-identity-kb-mca-edge",
-          "title": "CAP25 v13 experimental KoalaBear identity-prefix edge",
+          "title": "CAP25 v13 raw KoalaBear identity-prefix edge",
           "rho": "1/2",
           "track": "mca",
           "trackLabel": "support-wise MCA",
@@ -174,18 +174,18 @@
           "fieldSizeLog2": 185.93,
           "domainKind": "multiplicative-subgroup",
           "smoothPowerOfTwo": true,
-          "agreementA": "1116043",
-          "sigma": "67467",
-          "deltaExact": "981109/2097152",
-          "deltaApprox": 0.4678292,
-          "etaExact": "67467/2097152",
-          "etaApprox": 0.03217077,
+          "agreementA": "1116047 unsafe / 1116048 open",
+          "sigma": "67471 / 67472",
+          "deltaExact": "981105/2097152",
+          "deltaApprox": 0.46782732009887695,
+          "etaExact": "67471/2097152",
+          "etaApprox": 0.03217267990112305,
           "qGen": "2130706433",
           "qLine": "2130706433^6",
           "qChal": "protocol-dependent",
-          "bound": "epsilon_mca > 2^-128",
-          "failureMarginBits": 25.7,
-          "marginLabel": "+25.7 bits",
+          "bound": "epsilon_mca > 2^-128 at a=1116047",
+          "failureMarginBits": 8.9777,
+          "marginLabel": "+8.98 bits at a=1116047",
           "prizeBox": {
             "rate": true,
             "smoothDomain": true,
@@ -201,12 +201,13 @@
           },
           "status": "EXPERIMENTAL_V13_IDENTITY_FRONTIER",
           "statusLabel": "experimental v13 identity frontier",
-          "source": "CAP25 v13 experimental identity frontier",
-          "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/cap25_v13_experimental.tex",
+          "source": "CAP25 v13 raw corrected identity frontier",
+          "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/cap25_cap_v13_raw.tex",
           "nonClaims": [
-            "Experimental v13 source only; not promoted to the active Paper D v12 submission draft.",
-            "This supersedes the c=2 addendum edge 490557/1048576 and narrows the deployed KoalaBear unsafe edge from 15331/32768 to 981109/2097152, but it does not close the safe-side threshold band.",
-            "The conjectured adjacent safe agreement is 1116044 and still needs an exact upper ledger; the companion checker verifies the displayed lower edge, not the safe side."
+            "The exact v13 raw proposition proves the MCA unsafe edge at agreement 1116047; this is a delta* upper cap, not an exact threshold.",
+            "The identity-prefix lower comparison fails at 1116048 by 22.20 bits, but that only leaves 1116048 open; it does not prove safety there.",
+            "The KoalaBear list row is separate and remains at 1116046 unsafe / 1116047 open.",
+            "This v13 raw result is not promoted here into the active exact-threshold manuscript."
           ],
           "authors": "Przemek Chojecki / Codex audit"
         },
@@ -782,6 +783,56 @@
           "authors": "Vadim Avdeev / AllenGrahamHart / Codex audit"
         },
         {
+          "id": "prime-a406-a407-adjacent-gate",
+          "title": "Prime-field A406/A407 adjacent finite-slope gate",
+          "rho": "1/2",
+          "track": "mca",
+          "trackLabel": "support-wise MCA",
+          "direction": "exact-finite-slope-gate",
+          "n": "512",
+          "k": "256",
+          "field": "F_p, p=27168*2^120+1",
+          "fieldSizeLog2": 134.7296,
+          "domainKind": "multiplicative-subgroup",
+          "smoothPowerOfTwo": true,
+          "agreementA": "406 unsafe / 407 safe",
+          "sigma": "150 / 151",
+          "deltaExact": "53/256",
+          "deltaApprox": 0.20703125,
+          "etaExact": "75/256",
+          "etaApprox": 0.29296875,
+          "qGen": "36112466189484594435050630213696401440769",
+          "qLine": "36112466189484594435050630213696401440769",
+          "qChal": "not protocol-bound",
+          "nBad": ">=107 at a=406; =106 at a=407",
+          "failureMarginBits": 0.011846,
+          "marginLabel": "exact 106/107 budget gate",
+          "prizeBox": {
+            "rate": true,
+            "smoothDomain": true,
+            "kBound": true,
+            "fieldBound": true,
+            "denominatorAudited": true,
+            "endpointConvention": true,
+            "publicSource": true,
+            "conditionalImport": false,
+            "rhoNIntegral": true,
+            "powerOfTwoQuotient": true,
+            "quotientDivisor": "p == 1 mod 512, so F_p^* has an order-512 subgroup"
+          },
+          "status": "exact-gate",
+          "statusLabel": "exact finite-slope gate",
+          "source": "A407/A408 residual-design threshold packet",
+          "sourceHref": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_a407_a408_residual_design_threshold_v1.md",
+          "nonClaims": [
+            "Finite-slope support-wise MCA / LD_sw only.",
+            "LD_sw(C,406) is not classified exactly; only the tangent lower floor >=107 is used at the unsafe endpoint.",
+            "This is a separate engineered prime-field row, not the F_17^32 or KoalaBear row.",
+            "Not ordinary list decoding, interleaved-list safety, protocol soundness, or full M1 closure."
+          ],
+          "authors": "Vadim Avdeev / Codex audit"
+        },
+        {
           "id": "strict352-quotient-core",
           "title": "Strict352 quotient-core proof record",
           "rho": "1/2",
@@ -871,7 +922,7 @@
           "authors": "DannyExperiments / Codex audit"
         }
       ],
-      "missingPiece": "L1 / M1 / F1"
+      "missingPiece": "L1 / M1 (including F1 via exact restriction of scalars to base-field interleaved samplers)"
     },
     {
       "rho": "1/4",
@@ -1131,7 +1182,7 @@
           "authors": "leaderboard_sweep_192 scanner / Codex audit"
         }
       ],
-      "missingPiece": "L1 / M1 / F1"
+      "missingPiece": "L1 / M1 (including F1 via exact restriction of scalars to base-field interleaved samplers)"
     },
     {
       "rho": "1/8",
@@ -1391,7 +1442,7 @@
           "authors": "leaderboard_sweep_192 scanner / Codex audit"
         }
       ],
-      "missingPiece": "L1 / M1 / F1"
+      "missingPiece": "L1 / M1 (including F1 via exact restriction of scalars to base-field interleaved samplers)"
     },
     {
       "rho": "1/16",
@@ -1651,7 +1702,7 @@
           "authors": "leaderboard_sweep_192 scanner / Codex audit"
         }
       ],
-      "missingPiece": "L1 / M1 / F1"
+      "missingPiece": "L1 / M1 (including F1 via exact restriction of scalars to base-field interleaved samplers)"
     }
   ]
 }

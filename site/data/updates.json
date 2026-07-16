@@ -1,5 +1,14 @@
 [
   {
+    "date": "2026-07-15",
+    "status": "board reconciliation / no new theorem",
+    "author": "Scott Hughes / board audit",
+    "title": "Rate board reconciled with integrated exact frontiers",
+    "summary": "The rate-half board now records the corrected KoalaBear MCA unsafe edge at agreement 1116047 with 1116048 open, and mirrors the proved A406/A407 prime-field gate already present on the frontier board. The missing-piece labels now record that restriction of scalars absorbs the independent F1 lift into the base-field interleaved M1 ledger.",
+    "impact": "This is source and status hygiene, not a new theorem: it does not certify the KoalaBear safe side, promote the four Proth rows, merge MCA with list decoding, or remove the remaining L1/M1 work.",
+    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/audits/audit_koalabear_frontier_adjacent_ledger.md"
+  },
+  {
     "date": "2026-07-05",
     "status": "PR integration / conditional imports and finite anchors",
     "author": "Vadim Avdeev, latifkasuli, DannyExperiments, LegaSage/Ken Webster / Codex audit",
@@ -9,13 +18,13 @@
     "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/agents-log.md"
   },
   {
-    "date": "2026-07-04",
-    "status": "experimental v13 identity frontier",
+    "date": "2026-07-05",
+    "status": "experimental v13 corrected identity frontier",
     "author": "Przemek Chojecki / Codex audit",
-    "title": "Identity-prefix KoalaBear frontier edge added",
-    "summary": "The CAP25 v13 experimental source now uses the c=1 identity-prefix floor, superseding the c=2 addendum. The deployed KoalaBear sextic MCA unsafe edge improves from 15331/32768 to 981109/2097152, with the exact checker reporting a +25.7 bit margin over the 2^-128 target.",
-    "impact": "This appears on the rho=1/2 MCA board as experimental v13 material. It is not promoted to the active Paper D v12 draft; the adjacent safe-side agreement 1116044 still needs an exact upper ledger.",
-    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/cap25_v13_experimental.tex"
+    "title": "Identity-prefix KoalaBear frontier edge corrected",
+    "summary": "The direct composition of the merged identity-prefix floor and quantitative deep-list floor proves the deployed KoalaBear sextic MCA row unsafe through agreement 1116047. The certified unsafe edge is 981105/2097152 with a +8.9777-bit margin, and agreement 1116048 is the new open step.",
+    "impact": "This remains experimental v13 raw material and is not promoted to Paper D v12. The correction strengthens only the unsafe side; agreement 1116048 still needs an exact complete upper ledger.",
+    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/cap25_cap_v13_raw.tex"
   },
   {
     "date": "2026-07-03",
@@ -25,6 +34,15 @@
     "summary": "PR #204 adds a two-core upper bound proving LD_sw(RS[F,D,256],426)=87 for every 512-point domain, and PR #208 records the direct A=425 unsafe witness. For p=22275*2^120+1, p is 1 mod 512 and 87*2^128 < p < 88*2^128, giving an adjacent finite-slope support-wise MCA gate for the smooth prime-field row.",
     "impact": "This is a new exact finite-slope threshold row on the public frontier. It does not claim ordinary list decoding, protocol soundness, or anything about the F_17^32 denominator row. Allen authored most of the surrounding batch: DAG maintenance, quotient-census and compiler infrastructure, Conjecture F/M1/L1/F1/M5 proof-program packets, Lean certification-map updates, and the A425 unsafe fallback. The CAP25 sparse-sigma audit is from DannyExperiments/Gia.",
     "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/certificate_scanner/a426_two_core_exact_threshold_v26.md"
+  },
+  {
+    "author": "Vadim Avdeev / Codex audit",
+    "date": "2026-07-03",
+    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_a407_a408_residual_design_threshold_v1.md",
+    "impact": "Moves the prime-field rate-1/2 finite-slope MCA gate from A425/A426 down to A406/A407 for a smooth budget-106 prime row; deliberately does not claim A406 exactness or M1 closure.",
+    "status": "proved threshold row / M1 residual design",
+    "summary": "The A409 residual-design method proves exact support-wise finite-slope numerators LD_sw(408)=105 and LD_sw(407)=106 for every 512-point rate-half RS domain. For the prime p=27168*2^120+1, this pins a new adjacent finite-slope MCA gate: A=407 is safe and A=406 is unsafe.",
+    "title": "A407/A408 residual-design exact rows and budget-106 gate"
   },
   {
     "date": "2026-07-02",
@@ -41,7 +59,7 @@
     "author": "Przemek Chojecki / Codex audit",
     "title": "Paper D v12 is the main submission reference",
     "summary": "Paper D v12 supersedes v10/v11 as the active cap draft and is now the main Proximity Prize submission reference. It keeps the self-contained cap route and adds the safe-side pincer, deployed-row two-sided intervals, map/rational smooth extensions, circle/genus-one transports, explicit witness machinery, optimized failure profile, and certificate grammar v2.",
-    "impact": "The current project focus is auditing v12: direct conversion and radius conventions, optional BCIKS half-distance import, exact-integer certificate replay, and deployed model transfers.",
+    "impact": "The current project focus is auditing v12: direct conversion and radius conventions, optional BCIKS half-distance import, exact-integer certificate replay, and deployed model transfers. Its exact restriction-of-scalars theorem also shows that F1 extension lines are not an independent board bucket but route to base-field interleaved ledgers; the resulting M1/interleaved residual band remains open.",
     "href": "https://github.com/przchojecki/rs-mca/blob/main/tex/cs25_cap_v12.tex"
   },
   {
@@ -404,14 +422,5 @@
     "summary": "PR #101 adds deep-point/interleaved bridge notes, quotient-reduction notes, prize-path maps, and a small Lean scaffold.",
     "impact": "This gives future agents a cleaner path from experimental notes toward mechanized statements.",
     "href": "https://github.com/przchojecki/rs-mca/tree/main/experimental/lean/rs_mca_formalization"
-  },
-  {
-    "author": "Vadim Avdeev / Codex audit",
-    "date": "2026-07-03",
-    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/notes/m1/m1_a407_a408_residual_design_threshold_v1.md",
-    "impact": "Moves the prime-field rate-1/2 finite-slope MCA gate from A425/A426 down to A406/A407 for a smooth budget-106 prime row; deliberately does not claim A406 exactness or M1 closure.",
-    "status": "proved threshold row / M1 residual design",
-    "summary": "The A409 residual-design method proves exact support-wise finite-slope numerators LD_sw(408)=105 and LD_sw(407)=106 for every 512-point rate-half RS domain. For the prime p=27168*2^120+1, this pins a new adjacent finite-slope MCA gate: A=407 is safe and A=406 is unsafe.",
-    "title": "A407/A408 residual-design exact rows and budget-106 gate"
   }
 ]
