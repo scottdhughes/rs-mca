@@ -1,0 +1,422 @@
+{
+  "schema": "rs-mca-m1-kb-branch2-hankel-pivot-adapter-v1",
+  "artifact_kind": "M1_KB_BRANCH2_HANKEL_PIVOT_ADAPTER",
+  "status": "PROVED_PAPER_D_IMPLICIT_FINITE_PIVOT_ADAPTER_PIVOT_FAILURE_EMPTY_RANK_POLICY_AND_LEGACY_BRIDGE_OPEN_NO_LEDGER_EFFECT",
+  "source_bindings": [
+    {
+      "binding_id": "packet-note",
+      "path": "experimental/notes/m1/m1_kb_branch2_hankel_pivot_adapter_v1.md",
+      "sha256": "c36ff2ef963793df4af7d8122b29b455dbfb03b61c42d1104072a84f40471a66",
+      "role": "human-readable proof audit"
+    },
+    {
+      "binding_id": "python-verifier",
+      "path": "experimental/scripts/verify_m1_kb_branch2_hankel_pivot_adapter_v1.py",
+      "sha256": "efa8f97ea8bacd8e21c1c8eba1c62240c6bbcc40dd5ea84b93c997887e348eaa",
+      "role": "deterministic builder and mutation verifier"
+    },
+    {
+      "binding_id": "sage-control",
+      "path": "experimental/scripts/verify_m1_kb_branch2_hankel_pivot_adapter_v1.sage",
+      "sha256": "3980158cb9fc8bbb3313adfce300a57a0069dfe5e283dbf4d59f4cc4a5a0c51e",
+      "role": "two-root exact control and scalarization rank guardrails"
+    },
+    {
+      "binding_id": "paper-d-v12",
+      "path": "tex/cs25_cap_v12.tex",
+      "sha256": "8b988dd2091b46ab37b5c8c78735369e3e7849a8f89fb6739480b7b0d4859dc5",
+      "role": "authoritative syndrome locator and exact support-image theorem"
+    },
+    {
+      "binding_id": "kb-first-match-note",
+      "path": "experimental/notes/thresholds/kb_mca_1116048_first_match_ledger_v1.md",
+      "sha256": "34c5aa072783f39c94885b36b810f35a2bb8109eb5f6045aa4cf22fd5c2fb117",
+      "role": "frozen branch order and legacy cyclotomic row packet"
+    },
+    {
+      "binding_id": "kb-first-match-certificate",
+      "path": "experimental/data/certificates/kb-mca-1116048-first-match-ledger-v1/kb_mca_1116048_first_match_ledger_v1.json",
+      "sha256": "46b87bc887489d153b52634516eeed9727340dee434664781754b3101fbd42a4",
+      "role": "machine-readable branch-2 open status"
+    },
+    {
+      "binding_id": "post-c5-note",
+      "path": "experimental/notes/m1/m1_fp2_post_c5_mask_incidence_v1.md",
+      "sha256": "f6db5c9d764edad0357e5bc62967fff89e35c82f96409351a67b0ae56b6c4553",
+      "role": "predecessor mask inventory and quadratic residual"
+    },
+    {
+      "binding_id": "post-c5-certificate",
+      "path": "experimental/data/certificates/m1-fp2-post-c5-mask-incidence-v1/m1_fp2_post_c5_mask_incidence_v1.json",
+      "sha256": "4f73fd717a79a3d8546101cc7e219b9b4cbfdd1fa2d4f8e1ac6af8057691eb55",
+      "role": "machine-readable predecessor route cut"
+    },
+    {
+      "binding_id": "post-c5-verifier",
+      "path": "experimental/scripts/verify_m1_fp2_post_c5_mask_incidence_v1.py",
+      "sha256": "58f1d9c35f8e342e6e6aaec47a20a2701f1dd888d3cccc0482ccba4f6313aa9a",
+      "role": "predecessor semantic replay"
+    },
+    {
+      "binding_id": "quadratic-route-cut-note",
+      "path": "experimental/notes/m1/m1_fp2_residual_route_cut_v1.md",
+      "sha256": "e6a2ca0307c5ed1891951f2aceb9220571d831f3405647eb1133f6b82656ceda",
+      "role": "exact F over K restriction and fixed-support incidence"
+    },
+    {
+      "binding_id": "quadratic-route-cut-certificate",
+      "path": "experimental/data/certificates/m1-fp2-residual-route-cut-v1/m1_fp2_residual_route_cut_v1.json",
+      "sha256": "568947ff3a8d43babb407d86d010ae77ea24917b6fe27794fa9dc6bde7b320c9",
+      "role": "machine-readable scalarization contract"
+    },
+    {
+      "binding_id": "coordinate-transfer",
+      "path": "experimental/notes/f1/f1_extension_coordinate_transfer.md",
+      "sha256": "838652277949d8370d726ca6540fd0984f4e7d3c98bbcc7ca55fb65197ceaac7",
+      "role": "support-wise restriction of scalars"
+    },
+    {
+      "binding_id": "hankel-extractor",
+      "path": "experimental/scripts/extract_regular_hankel_minors.py",
+      "sha256": "574cf9cfac08b293c7325c4786472868bbcdead052c261e2d3fbf775ef5ac7f5",
+      "role": "existing locator and Hankel recurrence helpers"
+    },
+    {
+      "binding_id": "base-ledger",
+      "path": "experimental/data/certificates/kb-mca-1116048-base-slope-universe-v2/kb_mca_1116048_base_slope_universe_v2.json",
+      "sha256": "ffefb3aa56645d06fa14c805c9d8e9b503359fe2e094566b5fb209e8cbe8bece",
+      "role": "current paid baseline and null open terms"
+    }
+  ],
+  "row": {
+    "row_id": "koalabear-mca-A1116048",
+    "p": 2130706433,
+    "ambient_extension_degree": 6,
+    "quadratic_parameter_extension_degree": 2,
+    "n": 2097152,
+    "k": 1048576,
+    "agreement_A": 1116048,
+    "redundancy_r": 1048576,
+    "co_support_size_j": 981104,
+    "hankel_depth_t": 67472,
+    "locator_coordinate_count": 981105,
+    "ambient_hankel_shape": [
+      67472,
+      981105
+    ],
+    "ambient_hankel_entry_count": 66197116560,
+    "ambient_kernel_dimension_lower_bound": 913633,
+    "scalarized_row_count": 202416,
+    "scalarized_kernel_dimension_lower_bound": 778689,
+    "B_star": "274980728111395087",
+    "U_paid": "2602153473",
+    "B_remaining": "274980725509241614"
+  },
+  "paper_d_adapter": {
+    "agreement_support_symbol": "S",
+    "agreement_support_cardinality": 1116048,
+    "co_support_definition": "T=D_MINUS_S",
+    "co_support_cardinality": 981104,
+    "locator": "L_T(X)=prod_{x_in_T}(X-x)=sum_{b=0}^j ell_b X^b",
+    "locator_coefficient_order": "LOW_TO_HIGH_WITH_MONIC_TOP",
+    "locator_top_coefficient": 1,
+    "dual_weight_formula": "lambda_x=(prod_{y_in_D,y!=x}(x-y))^(-1)",
+    "syndrome_formula": "Syn(Y)_m=sum_{x_in_D} lambda_x*x^m*Y(x)",
+    "syndrome_moment_range": "0<=m<r",
+    "U_definition": "H_(t,j)(Syn_F(f))",
+    "V_definition": "H_(t,j)(Syn_F(g))",
+    "matrix_entry_formula": "H(w)[h,b]=w[h+b]",
+    "matrix_materialization_required": false,
+    "evaluation_mode": "IMPLICIT_TRUNCATED_CONVOLUTION",
+    "A_Han_definition": "A_Han(T)=U*ell_T",
+    "B_Han_definition": "B_Han(T)=V*ell_T",
+    "quotient_map": "Phi_T^F(w)=H_(t,j)(w)*ell_T",
+    "quotient_map_kernel": "W_T(F)",
+    "quotient_map_isomorphism": "F^r/W_T(F)_TO_F^t",
+    "finite_noncontained_equivalence": "f+gamma*g_EXPLAINED_ON_S_AND_NOT_JOINTLY_CONTAINED_IFF_A_Han+gamma*B_Han=0_AND_B_Han!=0",
+    "source_status": "IMPORTED_PROVED_PAPER_D_V12"
+  },
+  "branch2_refinement": {
+    "predecessor_machine_status": "UNBOUND_SOURCE_SYMBOL",
+    "corrected_pivot_status": "FIELD_NATIVE_HANKEL_PIVOT_DEFINED",
+    "pivot_adapter_complete": true,
+    "scope": "ACTUAL_FINITE_SUPPORT_WISE_NONCONTAINED_INCIDENCE_AFTER_CONTAINED_AND_INCONSISTENT_CASES",
+    "branch1_projector_complete": false,
+    "rank_policy_status": "UNSPECIFIED",
+    "legacy_O_lift_red_p_bridge_status": "UNPROVEN",
+    "least_pivot_rule": "h_star=MIN_h_WITH_B_Han(T)[h]!=0",
+    "earlier_pivot_equations": "B_Han(T)[h]=0_FOR_h<h_star",
+    "pivot_inequation": "B_Han(T)[h_star]!=0",
+    "cross_equations": "A_Han(T)[m]*B_Han(T)[h_star]-A_Han(T)[h_star]*B_Han(T)[m]=0_FOR_ALL_m",
+    "slope_formula": "gamma=-A_Han(T)[h_star]/B_Han(T)[h_star]",
+    "pivot_labels": 67472,
+    "pivot_labels_are_hankel_rows_not_supports": true,
+    "pivot_failure_empty_after_branch1": true,
+    "pivot_failure_actual_witness_count": 0,
+    "reason_pivot_failure_empty": "FINITE_NONCONTAINED_INCIDENCE_REQUIRES_B_Han_NOT_ZERO",
+    "rank_policy_complete": false,
+    "deployed_rank_drop_predicate_complete": false,
+    "rank_drop_owner": null,
+    "rank_drop_charge": null,
+    "legacy_red_p_bridge": false,
+    "legacy_paper_d_symbol": "B_Han(T)[h]",
+    "legacy_kb_symbol": "red_p(B_0(S))",
+    "legacy_identification_proved": false,
+    "cyclotomic_lift_map": null,
+    "branch2_complete": false,
+    "paid_owner": null,
+    "charge": null
+  },
+  "scalarization_replay": {
+    "tower": "F_p_SUBSET_F_(p^2)_SUBSET_F_(p^6)",
+    "F_over_K_basis_size": 3,
+    "domain_and_dual_weights_lie_in": "F_p_SUBSET_K",
+    "ambient_recurrence_decomposes_coordinatewise": true,
+    "ambient_zero_iff_all_three_K_coordinate_blocks_zero": true,
+    "ambient_B_nonzero_iff_some_K_coordinate_is_nonzero": true,
+    "scalarized_equation_count": 202416,
+    "scalarized_pivot_labels_identical_to_ambient_labels": false,
+    "reason_labels_differ": "AMBIENT_LABEL_h_HAS_THREE_K_COORDINATES_AFTER_BASIS_EXPANSION",
+    "ambient_adapter_is_canonical_branch2_label_set": true,
+    "canonical_label_set": "AMBIENT_HANKEL_ROWS_h=0_TO_t-1",
+    "scalar_replay_scan_order": "ROW_h_FIRST_THEN_BASIS_COMPONENT_i",
+    "flattened_scalar_least_coordinate_is_canonical": false,
+    "scalarization_defines_branch2_labels": false,
+    "equivalence_scope": "COMMON_K_VALUED_LOCATOR_SLICE_ONLY",
+    "full_restriction_of_scalars_column_count": 2943315,
+    "simple_scalar_stack_column_count": 981105,
+    "scalar_stack_rank_equivalent_to_ambient_matrix": false,
+    "rank_falsifier": "M_F=[1,beta]_HAS_F_RANK_1_WHILE_ITS_K_COEFFICIENT_STACK_HAS_K_RANK_2_FOR_beta_IN_F_MINUS_K",
+    "scalarization_is_equivalence_replay_only": true
+  },
+  "prime_field_control": {
+    "status": "EXACT_FINITE_CONTROL_NOT_DEPLOYED_EVIDENCE",
+    "p": 17,
+    "n": 6,
+    "k": 2,
+    "agreement_A": 4,
+    "j": 2,
+    "t": 2,
+    "domain": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "dual_weights": [
+      16,
+      5,
+      7,
+      10,
+      12,
+      1
+    ],
+    "f": [
+      0,
+      14,
+      5,
+      7,
+      3,
+      10
+    ],
+    "g": [
+      0,
+      1,
+      4,
+      9,
+      16,
+      8
+    ],
+    "designed_bad_slope": 3,
+    "designed_agreement_support_indices": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "designed_co_support_indices": [
+      4,
+      5
+    ],
+    "designed_locator_coefficients_low_to_high": [
+      3,
+      8,
+      1
+    ],
+    "designed_A_Han": [
+      0,
+      14
+    ],
+    "designed_B_Han": [
+      0,
+      1
+    ],
+    "designed_least_pivot_h": 1,
+    "supports_enumerated": 15,
+    "slopes_per_support": 17,
+    "direct_checks": 255,
+    "recurrence_checks": 255,
+    "contained_incidence_checks": 0,
+    "bad_record_count": 15,
+    "distinct_bad_slopes": [
+      3
+    ],
+    "records_sha256": "a2239292ad4b83d0c14a078b4a463fc7c0190785c0cadfe80b8dcd12654cc4be",
+    "all_bad_records_have_least_pivot": true,
+    "non_first_pivot_exercised": true,
+    "B_zero_positive_control": {
+      "agreement_support_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "co_support_indices": [
+        4,
+        5
+      ],
+      "locator_coefficients_low_to_high": [
+        3,
+        8,
+        1
+      ],
+      "A_Han": [
+        0,
+        0
+      ],
+      "B_Han": [
+        0,
+        0
+      ],
+      "test_slope": 11,
+      "joint_containment_directly_checked": true,
+      "affine_incidence_directly_checked": true
+    },
+    "direct_interpolation_equals_hankel_adapter": true,
+    "B_zero_incidence_implies_joint_containment": true
+  },
+  "two_root_control": {
+    "status": "EXACT_SMALL_TOWER_ROUTE_CUT_CONTROL",
+    "base_field": "F_7",
+    "parameter_field": "F_(7^2)",
+    "ambient_field": "F_(7^6)",
+    "domain": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "n": 6,
+    "k": 2,
+    "agreement_A": 4,
+    "j": 2,
+    "t": 2,
+    "supports_enumerated": 15,
+    "co_supports": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        4
+      ]
+    ],
+    "co_supports_disjoint": true,
+    "agreement_supports": [
+      [
+        2,
+        3,
+        4,
+        5
+      ],
+      [
+        0,
+        1,
+        3,
+        5
+      ]
+    ],
+    "gamma_1": "eta",
+    "gamma_2": "eta+1",
+    "gamma_values_distinct": true,
+    "both_gammas_in_parameter_field": true,
+    "both_gammas_outside_base_field": true,
+    "global_syndrome_rank": 2,
+    "projective_syndrome_field_full": true,
+    "both_support_equations_hold": true,
+    "both_supports_noncontained": true,
+    "both_least_pivot_equations_hold": true,
+    "least_pivots": [
+      0,
+      1
+    ],
+    "distinct_support_roots_proved": true,
+    "exact_support_root_count": 2,
+    "frobenius_augmented_ranks": {
+      "1": 3,
+      "2": 3,
+      "3": 3
+    },
+    "survives_rank_policy_proved": false,
+    "survives_branches_3_to_5_proved": false,
+    "route_cut": "BRANCH1_PLUS_FIELD_NATIVE_PIVOT_PLUS_POST_C5_FULL_FIELD_RANK2_DOES_NOT_IMPLY_GLOBAL_ONE_ROOT",
+    "evidence_scope": "EXACT_TOY_CONTROL_NOT_DEPLOYED_ASYMPTOTIC_BOUND"
+  },
+  "ledger": {
+    "pivot_subgate_closed": true,
+    "pivot_failure_actual_witness_count": 0,
+    "rank_subgate_closed": false,
+    "branch2_closed": false,
+    "legacy_red_p_bridge_closed": false,
+    "field_full_rank_two_support_union_closed": false,
+    "pivot_adapter_charge": null,
+    "branch2_charge": null,
+    "rank_drop_charge": null,
+    "U_2": null,
+    "U_Q": null,
+    "U_A": null,
+    "ledger_consequence": false,
+    "row_complete": false,
+    "inequality_status": "UNDECIDED_OPEN_COMPONENTS",
+    "next_attack": "FREEZE_THE_RANK_DROP_THRESHOLD_OWNER_AND_ITS_RELATION_TO_THE_FIELD_NATIVE_HANKEL_PENCIL"
+  },
+  "audit_sections": {
+    "parameter_dependence": "FORMULA_UNIFORM_OVER_FINITE_RS_DOMAINS_DIMENSIONS_AND_LEDGER_KOALABEAR_SPECIFIC",
+    "layer_cake_dyadic_summability": "NOT_APPLICABLE",
+    "moment_markov_chebyshev": "NOT_APPLICABLE",
+    "numerical_evidence": "EXACT_FINITE_CONTROLS_ONLY_NO_ASYMPTOTIC_INFERENCE",
+    "edge_cases": [
+      "S denotes the agreement support and T=D minus S denotes the co-support.",
+      "Locator coefficients are ordered low-to-high and include the monic top coefficient.",
+      "The syndrome uses the exact dual weights lambda_x.",
+      "The ambient F-valued Hankel rows are canonical; scalarized K rows are only an equivalence replay.",
+      "Under finite incidence, B_T=0 forces A_T=0 and therefore joint containment.",
+      "The least nonzero B_T coordinate is a deterministic pivot but not a rank owner.",
+      "The underdetermined Hankel matrix has a large kernel; kernel nonemptiness is not payment.",
+      "Null is not zero."
+    ],
+    "remaining_risks": [
+      "The KoalaBear rank_drop policy and its paid owner remain unspecified.",
+      "No theorem identifies the field-native Hankel pivot with the legacy O-valued cyclotomic B_0 row.",
+      "Branches 3 through 5 still lack complete executable row-specific projectors.",
+      "Field-full rank-two roots may vary across supports.",
+      "The exact two-root control is not proved to survive the unresolved rank policy or branches 3 through 5.",
+      "U_2, U_Q, and U_A remain open."
+    ]
+  },
+  "nonclaims": [
+    "This packet does not complete KoalaBear branch 2.",
+    "This packet does not define or pay a rank-drop owner.",
+    "This packet does not identify B_Han with the legacy cyclotomic B_0.",
+    "This packet does not bound the union of roots over supports.",
+    "This packet does not claim the two-root control survives branches 2 through 5.",
+    "This packet does not change the ledger or set U_2, U_Q, or U_A.",
+    "This packet does not begin the degree-three parameter class."
+  ],
+  "payload_sha256": "2605839368a33d0e03823be9cf0ee61d32e3c14c2fcc95a514c6a37f0994ab55"
+}

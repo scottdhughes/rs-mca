@@ -30,6 +30,39 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-16 - M1 KoalaBear branch-2 Hankel pivot adapter
+
+- **Agent/model:** Codex, with independent theorem, schema, and exact
+  extension-field reviewers.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_kb_branch2_hankel_pivot_adapter_v1.md`;
+  `experimental/scripts/verify_m1_kb_branch2_hankel_pivot_adapter_v1.py`;
+  `experimental/scripts/verify_m1_kb_branch2_hankel_pivot_adapter_v1.sage`;
+  `experimental/data/certificates/m1-kb-branch2-hankel-pivot-adapter-v1/`;
+  `experimental/agents-log.md`.
+- **Status:** PROVED PAPER-D IMPLICIT FINITE-PIVOT ADAPTER / PROVED PIVOT
+  FAILURE EMPTY ON ACTUAL NONCONTAINED INCIDENCES / EXACT TWO-ROOT ROUTE CUT /
+  AUDIT.  The rank policy, legacy cyclotomic bridge, branch 2, ledger, and row
+  remain open.
+- **What is being added:** Paper D supplies the missing field-native
+  support-to-Hankel pivot adapter: for `T=D-S`, the implicit recurrence vectors
+  `A_T,B_T` give the exact finite noncontained incidence
+  `A_T+gamma*B_T=0, B_T!=0`, so the least nonzero ambient Hankel row is a
+  canonical pivot and the actual pivot-failure residual is empty.  The packet
+  also records the exact three-coordinate `F_(p^6)/F_(p^2)` replay without
+  transferring rank strata, an exhaustive `F_17` convention control, and an
+  exact `F_(7^6)` rank-two/full-field pair with two distinct quadratic
+  support roots.
+- **How it is useful:** It narrows the predecessor
+  `UNBOUND_SOURCE_SYMBOL` diagnosis to the genuine missing rank-drop and
+  legacy-bridge halves, supplies the first executable row-specific branch-2
+  pivot interface, and cuts the shortcut from deterministic support pivots to
+  a global one-root union.
+- **What to do next:** Freeze the exact field-native rank-drop matrix,
+  threshold, first-match order, and named owner; prove or formally retire the
+  legacy `red_p(B_0(S))` bridge.  Keep branch 2, `U_2`, `U_Q`, and `U_A`
+  open, and do not move to degree three.
+
 ### 2026-07-16 - M1 quadratic post-C5 mask audit and incidence split
 
 - **Agent/model:** Codex, with independent source-interface, incidence-algebra,
