@@ -30,6 +30,15 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-16 - KoalaBear branch-3 deep-owner extension and CCL/TDD cut
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_kb_branch3_deep_ccl_tdd_v1.md`, `experimental/data/certificates/m1-kb-branch3-deep-ccl-tdd-v1/`, and `experimental/scripts/verify_m1_kb_branch3_deep_ccl_tdd_v1.py`.
+- **Status:** PROVED / AUDIT / PARTIAL LEDGER / ROUTE CUT.
+- **What is being added:** The branch-2 deep-MCA owner is extended through actual error weight `349525`, producing an exact shared-envelope accounting increment of `282054`.  For the surviving selected branch-3 family, the integrated excess-10 carrier owner is applied first; its high-union complement has at most 15 slopes or an explicit nonzero triple-distance defect.
+- **How it is useful:** This makes the first bankable branch-3 ledger movement after the rank-drop packet and replaces a broad uncertified carrier fallback by the named `UNPAID_HIGH_UNION_TRIPLE_DISTANCE_DEFECT` route.
+- **What to do next:** Independently audit the composite-charge semantics and actual-witness quantifiers, then attack only the TDD residual.  Do not claim branch-3 or row closure.
+
 ### 2026-07-16 - KoalaBear branch-3 low-excess carrier cut
 
 - **Agent/model:** Codex integrating Scott Hughes PR #849.
