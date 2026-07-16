@@ -1,0 +1,148 @@
+{
+  "schema": "rs-mca-kb-1116048-base-slope-universe-v2",
+  "status": "PROVED_UPPER_NUMERATOR_REPLACEMENT",
+  "row": {
+    "row_id": "koalabear-mca-A1116048",
+    "p": 2130706433,
+    "extension_degree": 6,
+    "q_line": "93571093019388561295270373781649880353786165192103559169",
+    "n": 2097152,
+    "k": 1048576,
+    "agreement_A": 1116048,
+    "j": 981104,
+    "t": 67472,
+    "w": 67471,
+    "B_star": "274980728111395087",
+    "challenge_scope": "all finite slopes in F_(p^6)"
+  },
+  "source_bindings": [
+    {
+      "binding_id": "mca-definition",
+      "path": "experimental/rs_mca_thresholds.tex",
+      "sha256": "ae662448b90d4db365feed6d8e826a5f7e7cc752b787ae7dc94af41c7c1d0a1e",
+      "role": "distinct-slope numerator and fixed-support injection"
+    },
+    {
+      "binding_id": "first-match-ledger",
+      "path": "experimental/grande_finale.tex",
+      "sha256": "4e3c3f6a898969e5fad70cd09bf354c6a2a12d54bf94525fb62f457dd17ddbc8",
+      "role": "slope-level disjoint first-match assignment"
+    },
+    {
+      "binding_id": "v1-note",
+      "path": "experimental/notes/thresholds/kb_mca_1116048_first_match_ledger_v1.md",
+      "sha256": "34c5aa072783f39c94885b36b810f35a2bb8109eb5f6045aa4cf22fd5c2fb117",
+      "role": "predecessor first-match statement"
+    },
+    {
+      "binding_id": "v1-packet",
+      "path": "experimental/data/certificates/kb-mca-1116048-first-match-ledger-v1/kb_mca_1116048_first_match_ledger_v1.json",
+      "sha256": "46b87bc887489d153b52634516eeed9727340dee434664781754b3101fbd42a4",
+      "role": "predecessor exact charges and branch order"
+    },
+    {
+      "binding_id": "v1-verifier",
+      "path": "experimental/scripts/verify_kb_mca_1116048_first_match_ledger_v1.py",
+      "sha256": "72e0d7652d1815ebe57426e6832d7fe94838f6e8cb9d0e1ae3e1d5988b5b3bf6",
+      "role": "predecessor arithmetic replay"
+    },
+    {
+      "binding_id": "v2-note",
+      "path": "experimental/notes/thresholds/kb_mca_1116048_base_slope_universe_v2.md",
+      "sha256": "265d2fcfc5a55dc7c0e7e6bed5f0f32b6b2ab86638441dbed09b2641cec6b14c",
+      "role": "proof and nonclaims"
+    },
+    {
+      "binding_id": "v2-verifier",
+      "path": "experimental/scripts/verify_kb_mca_1116048_base_slope_universe_v2.py",
+      "sha256": "a860cbd3bd48466ae1ce61e3668ac8aaf2b4453f89731c6c6ab5e5de41ebb579",
+      "role": "exact arithmetic and tamper replay"
+    }
+  ],
+  "theorem": {
+    "name": "residual base-slope universe bound",
+    "counted_object": "distinct support-wise MCA-bad finite slopes of one received line",
+    "first_match_input": "remove branches 1 through 6 before assigning branch 7",
+    "residual_set": "Bad_A(r0,r1) intersect F_p minus all earlier first-match assignments",
+    "set_inclusion": "residual_set subseteq F_p",
+    "global_once_bound": "2130706433",
+    "uniform_in_received_line": true,
+    "infinity_included": false,
+    "requires_affine_row_adapter": false,
+    "requires_base_valued_received_words": false,
+    "requires_honest_lift_classifier": false,
+    "terminal_quotient_support_to_slope_bound": "each noncommon support contributes at most one finite bad slope",
+    "does_not_bound": "slopes in F_(p^6) minus F_p"
+  },
+  "first_match": {
+    "v1_order": [
+      "contained_or_noncontained_failure",
+      "rank_drop_or_pivot_failure",
+      "tangent_common_line_residue",
+      "quotient_periodic_or_divisor_stabilized",
+      "planted_prefix_structured",
+      "extension_valued_slope",
+      "base_generated_field_collision",
+      "sparse_sigma_or_sparse_support",
+      "m1_half_turn_or_coefficient_shadow",
+      "primitive_qfin_residual"
+    ],
+    "v2_order": [
+      "contained_or_noncontained_failure",
+      "rank_drop_or_pivot_failure",
+      "tangent_common_line_residue",
+      "quotient_periodic_or_divisor_stabilized",
+      "planted_prefix_structured",
+      "extension_valued_slope",
+      "residual_base_slope_universe",
+      "sparse_sigma_or_sparse_support",
+      "m1_half_turn_or_coefficient_shadow",
+      "primitive_qfin_residual"
+    ],
+    "replacement_index_one_based": 7,
+    "replacement_owner": "residual_base_slope_universe",
+    "earlier_owner_disjointness_required": true,
+    "old_generated_collision_owner_retained_as_optional_refinement": true
+  },
+  "charges": [
+    {
+      "charge_id": "kb-terminal-quotient-raw",
+      "owner_id": "quotient_periodic_or_divisor_stabilized",
+      "amount": "471447040",
+      "scope": "FIRST_MATCH_GLOBAL_ONCE",
+      "source_binding_id": "v1-packet",
+      "source_pointer": "/deployed_arithmetic/terminal_quotient_raw_paid_cost"
+    },
+    {
+      "charge_id": "kb-residual-base-slope-universe",
+      "owner_id": "residual_base_slope_universe",
+      "amount": "2130706433",
+      "scope": "FIRST_MATCH_GLOBAL_ONCE",
+      "source_binding_id": "v1-packet",
+      "source_pointer": "/deployed_arithmetic/p"
+    }
+  ],
+  "arithmetic": {
+    "old_t_p_charge": "143763024447376",
+    "old_U_paid": "143763495894416",
+    "new_base_slope_charge": "2130706433",
+    "terminal_quotient_charge": "471447040",
+    "new_U_paid": "2602153473",
+    "charge_reduction": "143760893740943",
+    "B_rem": "274980725509241614",
+    "K_rem": 4807520,
+    "old_charge_is_replaced_not_added": true,
+    "U_Q": null,
+    "U_A": null,
+    "lhs": null,
+    "inequality_status": "UNDECIDED_OPEN_COMPONENTS"
+  },
+  "nonclaims": [
+    "This packet does not prove the KoalaBear A=1116048 row safe.",
+    "This packet does not bound extension-valued residual slopes.",
+    "This packet does not determine U_Q or U_A.",
+    "This packet replaces the t*p charge; it must never be added to it.",
+    "This packet does not turn supports, witnesses, or SPI charts into counted numerator units."
+  ],
+  "payload_sha256": "6ea64d19ecd298fb5be1bff9b17e7c41d3239553e0aa9ebfd7c9ff9d17896a56"
+}
