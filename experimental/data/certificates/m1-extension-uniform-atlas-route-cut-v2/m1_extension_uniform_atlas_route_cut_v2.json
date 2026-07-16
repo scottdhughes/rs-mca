@@ -1,0 +1,304 @@
+{
+  "schema_version": 2,
+  "artifact_kind": "M1_EXTENSION_UNIFORM_ATLAS_ROUTE_CUT_V2",
+  "status": "PROVED_ROUTE_CUT_ROW_OPEN",
+  "statement_audited": "FIXED_OR_SAMPLED_PAIR_ATLAS_AND_UNREFINED_COMPLETE_ABSORPTION_AS_DEPLOYED_U_A_CERTIFICATES",
+  "row": {
+    "row_id": "koalabear-mca-A1116048",
+    "p": 2130706433,
+    "extension_degree": 6,
+    "q": "93571093019388561295270373781649880353786165192103559169",
+    "n": 2097152,
+    "k": 1048576,
+    "agreement_A": 1116048,
+    "error_count_j": 981104,
+    "syndrome_depth_t": 67472,
+    "prefix_depth_w": 67471,
+    "kernel_dimension_lower_bound": 913633,
+    "B_star": "274980728111395087",
+    "U_paid": "2602153473",
+    "B_remaining": "274980725509241614"
+  },
+  "source_bindings": [
+    {
+      "binding_id": "first-match-uniform-contract",
+      "path": "experimental/grande_finale.tex",
+      "sha256": "4e3c3f6a898969e5fad70cd09bf354c6a2a12d54bf94525fb62f457dd17ddbc8",
+      "anchors": [
+        "\\label{lem:first-match-ledger}",
+        "If every received line admits a first-match upper ledger",
+        "Taking the maximum over received lines gives"
+      ]
+    },
+    {
+      "binding_id": "capf-a4-and-active-contracts",
+      "path": "experimental/cap25_cap_v13_raw.tex",
+      "sha256": "d0a9a766c4218b3faa355fd4da9ebb4937dcd3c9bbf7b94cecc273c5e502d746",
+      "anchors": [
+        "\\label{thm:capf-spi}",
+        "and assume $t=j$",
+        "\\sup_{f,g}\\bigl|\\Bad_{\\rm ap}^{\\rm M1}(f,g;a_0+1)\\bigr|",
+        "A4. Finite SPI atlas route.",
+        "The theorem does not classify higher-deficiency SPI charts",
+        "\\label{prob:capg-active-BC}",
+        "Prove, for every line at band agreements"
+      ]
+    },
+    {
+      "binding_id": "paper-d-chart-status",
+      "path": "tex/cs25_cap_v12.tex",
+      "sha256": "8b988dd2091b46ab37b5c8c78735369e3e7849a8f89fb6739480b7b0d4859dc5",
+      "anchors": [
+        "It does not claim",
+        "Assume that the chart families $\\mathfrak R_A$, for $A\\ge a$, cover every",
+        "for this row, uniformly in the received line",
+        "It does not prove the aperiodic upper input",
+        "What separates the sandwich from a one-step determination is precisely Open Problem"
+      ]
+    },
+    {
+      "binding_id": "fixed-deficiency-theorem",
+      "path": "experimental/notes/thresholds/fixed_deficiency_complete_absorption.md",
+      "sha256": "d096a7f5e6399a51132d404347bbb4e8ab992fce53387c1dd407e4dd263b8403",
+      "anchors": [
+        "|P|<=binom(N,d+1)",
+        "B_C^MCA(a)<=binom(N,d+1)",
+        "d=2t-R=n+K-2a",
+        "survives arbitrary first-match",
+        "When `d` grows linearly"
+      ]
+    },
+    {
+      "binding_id": "fixed-deficiency-verifier",
+      "path": "experimental/scripts/verify_fixed_deficiency_complete_absorption.py",
+      "sha256": "d8893de74f9a05eab38e8f5c2ae3bd6390236ad61eb0e76007a3adc4efbba616",
+      "anchors": [
+        "complete_all_pair_bound",
+        "mca_ca_numerator_bound",
+        "tamper-selftest"
+      ]
+    },
+    {
+      "binding_id": "fixed-deficiency-certificate",
+      "path": "experimental/data/certificates/fixed-deficiency-complete-absorption/fixed_deficiency_complete_absorption.json",
+      "sha256": "85ae5257bb861e31b9ec4f197df13476cd56b29e068c806c37cac40c4914c3e9",
+      "anchors": [
+        "\"complete_all_pair_bound\": \"|P|<=binom(N,d+1)\"",
+        "\"mca_ca_numerator_bound\": \"B_MCA,B_CA<=binom(N,d+1)\""
+      ]
+    },
+    {
+      "binding_id": "current-base-slope-ledger-note",
+      "path": "experimental/notes/thresholds/kb_mca_1116048_base_slope_universe_v2.md",
+      "sha256": "265d2fcfc5a55dc7c0e7e6bed5f0f32b6b2ab86638441dbed09b2641cec6b14c",
+      "anchors": [
+        "corrected proved paid baseline",
+        "p + 471447040 = 2602153473",
+        "B_rem             = 274980725509241614"
+      ]
+    },
+    {
+      "binding_id": "current-base-slope-ledger-verifier",
+      "path": "experimental/scripts/verify_kb_mca_1116048_base_slope_universe_v2.py",
+      "sha256": "a860cbd3bd48466ae1ce61e3668ac8aaf2b4453f89731c6c6ab5e5de41ebb579",
+      "anchors": [
+        "OLD_U_PAID",
+        "\"new_U_paid\"",
+        "\"B_rem\""
+      ]
+    },
+    {
+      "binding_id": "current-base-slope-ledger-certificate",
+      "path": "experimental/data/certificates/kb-mca-1116048-base-slope-universe-v2/kb_mca_1116048_base_slope_universe_v2.json",
+      "sha256": "ffefb3aa56645d06fa14c805c9d8e9b503359fe2e094566b5fb209e8cbe8bece",
+      "anchors": [
+        "\"new_U_paid\": \"2602153473\"",
+        "\"B_rem\": \"274980725509241614\"",
+        "\"U_A\": null"
+      ]
+    },
+    {
+      "binding_id": "prior-saturated-bc-budget-note",
+      "path": "experimental/notes/thresholds/cap25_v13_saturated_bc_budget_fit.md",
+      "sha256": "bfb53b596c44ee867b7ab77454c784ef7db412980675c613ee8133ea6a56e4d4",
+      "anchors": [
+        "fits iff `d<=2`",
+        "`C(n,omega-w)`",
+        "`2^2072017.7` does not fit",
+        "only the interior `d1 >= w+2` growing-deficiency class"
+      ]
+    },
+    {
+      "binding_id": "prior-saturated-bc-budget-verifier",
+      "path": "experimental/scripts/verify_saturated_bc_budget_fit.py",
+      "sha256": "c005d381514ef328977ac6de8a9fd6efff5bd27ea44c2c4bd994acdece355544",
+      "anchors": [
+        "math.comb(2^21, 913633)",
+        "gate ii -- P2 fixed-deficiency arithmetic + growing-deficiency miss",
+        "log2_fixeddim=2072017.7"
+      ]
+    },
+    {
+      "binding_id": "prior-saturated-bc-budget-certificate",
+      "path": "experimental/data/certificates/frontier-adjacent/saturated_bc_budget_fit_v1.json",
+      "sha256": "f6b1cec423f18c05651eb4a2e057e2d660b0a6f1374e59243477b714b380c036",
+      "anchors": [
+        "\"thm:capf-fixeddim (raw L6735)\": \"C(n, omega-w)\"",
+        "\"dim_W\": 913634, \"log2_fixeddim_bound\": 2072017.7",
+        "\"miss_fixeddim_bits\": 2072018"
+      ]
+    },
+    {
+      "binding_id": "route-cut-human-note",
+      "path": "experimental/notes/m1/m1_extension_uniform_atlas_route_cut_v2.md",
+      "sha256": "0684ce6302f4e56eb7968bff772cf66994bcc9ad03baed750c64ef9f74ab793e",
+      "anchors": [
+        "U_{\\mathrm{paid}}=2{,}602{,}153{,}473",
+        "=274{,}980{,}725{,}509{,}241{,}614.",
+        "1\\le d_{\\mathrm{eff}}<\\tau=981{,}104<\\frac n2=1{,}048{,}576,",
+        "INHERITED_ROUTE_CUT_UNREFINED_COMPLETE_ABSORPTION_ENVELOPE_AT_LINEAR_DEFICIENCY."
+      ]
+    }
+  ],
+  "predecessor_guard": {
+    "path": "experimental/data/certificates/m1-a4-spi-atlas-manifest-v1/kb_mca_a1116048_base_generated_family.json",
+    "sha256": "a12ac8940574beeb5da09cf177ed57401d2ff754edb3729f3ebe67744dc303cf",
+    "artifact_kind": "DEPLOYED_PARTIAL_MANIFEST",
+    "status": "PARTIAL",
+    "represented_units": 0,
+    "row_complete": false,
+    "uniformity": "CANDIDATE_CAPACITY_NAMESPACE_WITH_UNPROVEN_SPI_ADAPTER",
+    "excluded_scope_count": 3,
+    "historical_U_paid": "143763495894416",
+    "paid_baseline_status": "SUPERSEDED_BY_KB_BASE_SLOPE_UNIVERSE_V2",
+    "U_Q": null,
+    "U_A": null
+  },
+  "current_ledger_guard": {
+    "path": "experimental/data/certificates/kb-mca-1116048-base-slope-universe-v2/kb_mca_1116048_base_slope_universe_v2.json",
+    "sha256": "ffefb3aa56645d06fa14c805c9d8e9b503359fe2e094566b5fb209e8cbe8bece",
+    "status": "PROVED_UPPER_NUMERATOR_REPLACEMENT",
+    "new_U_paid": "2602153473",
+    "B_rem": "274980725509241614",
+    "U_Q": null,
+    "U_A": null,
+    "inequality_status": "UNDECIDED_OPEN_COMPONENTS"
+  },
+  "quantifier_cut": {
+    "row_contract": "SUPREMUM_OVER_ALL_ADMISSIBLE_RECEIVED_PAIRS",
+    "local_atlas_scope": "ONE_FIXED_OR_FINITE_SAMPLED_PAIR_SET",
+    "within_pair_aggregation": "DISJOINT_FIRST_MATCH_SUM_OR_EXACT_ROOT_UNION",
+    "across_pair_aggregation": "SUPREMUM_OR_MAXIMUM",
+    "bridge_kind": "ABSENT",
+    "bridge_status": "NOT_SUPPLIED_IN_AUDITED_SOURCES",
+    "bridge_theorem_binding_id": null,
+    "all_pairs_covered": false,
+    "all_supports_covered": false,
+    "base_and_extension_slopes_covered": false,
+    "earlier_owner_complement_preserved": false,
+    "first_match_disjointness_preserved": false,
+    "uniform_bound": null,
+    "bankable_as_U_A": false,
+    "logical_countermodel": {
+      "degree_bound_D": 1,
+      "sampled_pair_bad_set": [0],
+      "unseen_pair_bad_set": [0, 1],
+      "sampled_bound_holds": true,
+      "row_supremum": 2,
+      "row_bound_conclusion_holds": false,
+      "semantics": "ABSTRACT_QUANTIFIER_COUNTERMODEL_NOT_AN_RS_COUNTEREXAMPLE"
+    },
+    "sufficient_bridge_alternatives": [
+      "UNIFORM_BOUND_FOR_A_COMPLETE_PAIR_DEPENDENT_ATLAS_FOR_EVERY_PAIR",
+      "EXHAUSTIVE_CANONICAL_REDUCTION_WITH_MAXIMUM_TYPE_BOUND"
+    ],
+    "decision": "ROUTE_CUT_FIXED_OR_SAMPLED_PAIR_AS_U_A_CERTIFICATE"
+  },
+  "shape_cut": {
+    "capf_spi_shape_assumption": "t_equals_j_DEFICIENCY_ONE",
+    "deployed_matrix_rows": 67472,
+    "deployed_matrix_columns": 981105,
+    "deployed_generic_kernel_lower_bound": 913633,
+    "direct_capf_spi_applicable": false,
+    "higher_deficiency_adapter_binding_id": null,
+    "deep_uniform_condition": "3(n-A)_less_than_or_equal_to_n-k",
+    "deep_uniform_lhs": 2943312,
+    "deep_uniform_rhs": 1048576,
+    "deep_uniform_applicable": false,
+    "decision": "DIRECT_DEFICIENCY_ONE_AND_DEEP_UNIFORM_IMPORTS_INAPPLICABLE"
+  },
+  "coarse_uniform_cut": {
+    "source_status": "CONSUMED_AT_REPOSITORY_STATUS_PROVED_AUDIT",
+    "all_line_all_field_bound": "B_MCA(A)_less_than_or_equal_to_binom(n,d+1)",
+    "survives_arbitrary_first_match_deletion": true,
+    "error_budget_tau": 981104,
+    "deficiency_d": 913632,
+    "binomial_index_d_plus_1": 913633,
+    "compiler_hypotheses_hold": true,
+    "unimodality_lower_index": 3,
+    "unimodality_lower_bound": "1537226473786572800",
+    "binom_n_2": "2199022206976",
+    "binom_n_2_fits_remaining_budget": true,
+    "B_star": "274980728111395087",
+    "B_remaining_after_U_paid": "274980725509241614",
+    "lower_bound_excess_over_B_star": "1262245745675177713",
+    "unrefined_bound_fits_B_star": false,
+    "unrefined_bound_fits_remaining_budget": false,
+    "effective_deficiency_range": "1_le_d_eff_lt_tau_equals_981104_lt_n_over_2",
+    "tau_strictly_below_n_over_2": true,
+    "binom_n_2_le_B_remaining_lt_binom_n_3": true,
+    "max_unrefined_effective_deficiency_in_compiler_range_that_can_fit": 1,
+    "required_effective_deficiency_collapse": "913632_to_at_most_1",
+    "prior_budget_wall_binding_ids": [
+      "prior-saturated-bc-budget-note",
+      "prior-saturated-bc-budget-verifier",
+      "prior-saturated-bc-budget-certificate"
+    ],
+    "index_translation": "complete_absorption_d_plus_1_equals_prior_BC_omega_minus_w_equals_913633",
+    "novelty_scope": "INHERITED_BUDGET_MISS_WITH_EXACT_D_EFF_LE_1_COROLLARY",
+    "decision": "INHERITED_ROUTE_CUT_UNREFINED_COMPLETE_ABSORPTION_ENVELOPE_AT_LINEAR_DEFICIENCY",
+    "live_refinements": [
+      "PROVE_FIRST_MATCH_EFFECTIVE_DEFICIENCY_COLLAPSE",
+      "COMPUTE_A_SOURCE_PROVED_EXACT_ROOT_UNION_SMALLER_THAN_THE_BINOMIAL_ENVELOPE",
+      "PROVE_THE_ACTIVE_BASE_FIELD_NORMALIZED_SPLIT_PENCIL_CENSUS"
+    ]
+  },
+  "route_decision": {
+    "route_status": "PROVED_QUANTIFIER_ROUTE_CUT_PLUS_INHERITED_BUDGET_WALL",
+    "full_A4_status": "OPEN_ONLY_WITH_A_ROW_UNIFORM_STRUCTURAL_REFINEMENT",
+    "closure_status": "ROW_OPEN",
+    "U_A": null,
+    "row_complete": false,
+    "ledger_consequence": false,
+    "next_attack": "EFFECTIVE_DEFICIENCY_OR_OWNER_COLLAPSE_THEN_UNIFORM_MAX_BOUND",
+    "pr_worthy_if_independently_reviewed": true
+  },
+  "audit_sections": {
+    "parameter_dependence": "QUANTIFIER_CUT_PARAMETER_FREE_COARSE_CUT_ROW_SPECIFIC",
+    "layer_cake_dyadic_summability": "NOT_APPLICABLE",
+    "moment_markov_chebyshev": "NOT_APPLICABLE",
+    "edge_cases": [
+      "A common pair-independent atlas is sufficient but not necessary; pair-dependent atlases with one uniform maximum are allowed.",
+      "A first-match deletion may make the actual residual much smaller than the complete-absorption envelope.",
+      "The two symbols called t in the SPI and fixed-deficiency sources are separated here as syndrome_depth_t and error_budget_tau.",
+      "The d_eff<=1 conclusion is restricted to 1<=d_eff<tau=981104<n/2, where the relevant binomial indices are increasing.",
+      "Extension-valued slopes and raw support coverage remain outside the predecessor manifest."
+    ],
+    "numerical_evidence": "NONE_EXACT_INTEGER_AND_LOGICAL_CHECKS_ONLY",
+    "remaining_risks": [
+      "The fixed-deficiency theorem is consumed at its repository status PROVED / AUDIT and remains subject to independent proof review.",
+      "A row-sharp exact root union or effective-deficiency theorem could revive the atlas route without contradicting this cut.",
+      "The quotient term U_Q is still null, so closing U_A alone would not finish the adjacent row."
+    ]
+  },
+  "nonclaims": [
+    "The abstract two-pair countermodel is not a Reed-Solomon counterexample.",
+    "The coarse budget miss is inherited from the prior saturated-BC packet and is not claimed as new here.",
+    "The packet does not prove that the actual KoalaBear residual numerator exceeds B_star.",
+    "The packet does not cut a complete pair-dependent atlas with a proved row-uniform maximum.",
+    "The packet does not prove an effective-deficiency collapse or a base-field-normalized split-pencil census.",
+    "The packet does not assign a numeric U_A, change the ledger, close the row, or improve the public frontier.",
+    "The GF(19) atlas remains machinery control only."
+  ],
+  "payload_sha256": "0fa56764f8671ac6504c20081cbd18d5de77f03bd3563177c331dc59ff3826b5"
+}

@@ -30,6 +30,40 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-16 - M1 A4 uniform-atlas route cut and inherited budget wall
+
+- **Agent/model:** Codex, with independent quantifier, repository-source, and
+  certificate-design audit agents.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_extension_uniform_atlas_route_cut_v2.md`;
+  `experimental/notes/m1/m1_a4_spi_atlas_manifest_v1.md`;
+  `experimental/scripts/verify_m1_extension_uniform_atlas_route_cut_v2.py`;
+  `experimental/data/certificates/m1-extension-uniform-atlas-route-cut-v2/`;
+  `experimental/data/certificates/m1-a4-spi-atlas-manifest-v1/gf19_442233_machinery_control.json`;
+  `experimental/agents-log.md`.
+- **Status:** PROVED ROUTE CUT / AUDIT; independent mathematical and hostile
+  certificate reviews GREEN.  The KoalaBear row remains open and no ledger
+  term is changed.
+- **What is being added:** A source-bound proof that a fixed or finitely sampled
+  received-pair atlas cannot certify the row-uniform `U_A` supremum.  The packet
+  also binds Holm Buar's manually integrated PR #383 saturated-BC budget wall
+  at binomial index `913,633` and translates it to complete absorption: in the
+  declared compiler range `1 <= d_eff < 981104 < n/2`, a bare binomial charge fits the current
+  remaining budget only for `d_eff <= 1`.  The current paid baseline is
+  `2602153473`, not the superseded v1 value.  The post-integration restack also
+  refreshes only the content-addressed source and payload hashes in the GF(19)
+  machinery control after the bound L1 ledger note gained later reviewed rows;
+  no chart, owner, charge, or control semantics change.
+- **How it is useful:** It stops two non-closing lanes without cutting a genuine
+  pair-dependent atlas with one proved uniform maximum.  The packet redirects
+  M1 A4 to an effective-deficiency/owner collapse, a source-proved exact root
+  union, or the active base-field-normalized split-pencil census.
+- **What to do next:** Integrate this packet only after stacked PRs #810, #812,
+  and #813.  Market only the new quantifier cut and exact effective-deficiency
+  corollary—not the inherited coarse miss—then freeze one exhaustive
+  first-match residual class and prove its uniform maximum; keep `U_Q` and
+  `U_A` null until then.
+
 ### 2026-07-16 - RS-MCA paving ePrint submission package
 
 - **Agent/model:** Codex logging a human-added ePrint submission candidate by

@@ -79,7 +79,7 @@ B_*=\left\lfloor\frac{q}{2^{128}}\right\rfloor
 The two floors coincide here because `q` is odd and no multiple of `2^128`
 lies between `q-1` and `q`.
 
-## Imported paid baseline
+## Historical imported paid baseline (superseded)
 
 The prior exact first-match packet proves the following base-generated-field
 image-cell charge after its earlier gates:
@@ -95,7 +95,7 @@ It also records the terminal quotient charge
 U_{\rm quot,terminal}=471{,}447{,}040.
 \]
 
-Thus the imported global-once baseline is
+Thus the baseline imported into this frozen v1 manifest was
 
 \[
 U_{\rm paid}=143{,}763{,}495{,}894{,}416,
@@ -108,7 +108,18 @@ B_*-U_{\rm paid}
 =274{,}836{,}964{,}615{,}500{,}671.
 \]
 
-These are exact integer identities.  They do not decide the target inequality
+These are exact integer identities for the predecessor artifact, not the live
+ledger.  The later proved base-slope-universe packet supersedes them with
+
+\[
+U_{\rm paid}=2{,}602{,}153{,}473,
+\qquad
+B_*-U_{\rm paid}=274{,}980{,}725{,}509{,}241{,}614.
+\]
+
+See
+`experimental/notes/thresholds/kb_mca_1116048_base_slope_universe_v2.md`.
+Neither the historical nor current identities decide the target inequality
 
 \[
 U_{\rm paid}+U_Q+U_A\le B_*,
@@ -116,7 +127,7 @@ U_{\rm paid}+U_Q+U_A\le B_*,
 
 because `U_Q` and `U_A` are still unknown.
 
-The imported source packet is pinned to integration commit
+The historical imported source packet is pinned to integration commit
 `0955594bf354b6a396574b65fbb242715edd3267`.  The manifest also pins the live
 SHA-256 hashes of its note, JSON packet, and verifier and replays the printed
 first-match order and generated-collision branch fields.
@@ -293,21 +304,37 @@ status difference.  This v1 manifest therefore pins and consumes only the
 committed packet's exact load-bearing fields; it does not treat byte-for-byte
 reproduction of those non-load-bearing floats as a theorem gate.
 
-## Verdict and next lemma
+## Verdict and v2 route-cut correction
 
 **YELLOW.**  The manifest contract and finite control are exact.  The deployed
 row remains open because the SPI-to-affine-row adapter is unproved and the
 extension-valued and primitive residuals are unbounded.
 
-The next mathematical lemma is narrow:
+The v2 audit in
+`experimental/notes/m1/m1_extension_uniform_atlas_route_cut_v2.md` makes an
+important correction to the former “next lemma.”  Proving only a specialized
+or sampled fixed-pair adapter cannot certify the row-uniform quantity
 
-> After the frozen earlier M1 gates, map every admitted base-valued finite SPI
-> chart to one unique normalized affine row in the existing generated-field
-> packet, preserving the pivot, denominator, noncontainment, and first-match
-> hypotheses; otherwise emit the chart explicitly as `UNPAID_PRIMITIVE`.
+\[
+U_A(A)\ge\sup_{f,g}
+|\operatorname{Bad}^{\mathrm{M1}}_{\mathrm{ap}}(f,g;A)|.
+\]
 
-After that adapter is proved, the capacity namespace must be expanded into
-explicit charts (or a separately reviewed v2 compressed-chart schema) before
-it can become a represented paid atlas component.  The exact inequality must
-then be rerun with explicit nonnegative `U_Q` and `U_A`; no null term may be
-promoted to zero.
+The adapter is therefore a local machinery task, not a closure target, unless
+it is part of a theorem covering every admissible received pair with one
+uniform maximum.  The existing uniform fixed-deficiency fallback also cannot
+be the final charge: at this row its bare binomial envelope has index
+`913,633`, while already `binom(n,3)>B_star`.  This coarse miss is inherited
+from `experimental/notes/thresholds/cap25_v13_saturated_bc_budget_fit.md`, not
+new to the v2 audit.  The exact complete-absorption translation is that, in the
+compiler range `1 <= d_eff < 981104 < n/2`, a binomial-envelope strategy would
+have to collapse the effective deficiency from `913,632` to at most one, or
+replace the envelope by a sharper source-proved exact root union.
+
+Thus the next mathematical lemma must be row-uniform: after the frozen earlier
+M1 gates, prove an exhaustive pair classification with a uniform charge,
+preserving support coverage, extension slopes, pivots, denominators,
+noncontainment, and first-match hypotheses.  Pair-dependent atlases are allowed,
+but the aggregate across pairs is a supremum/maximum.  The exact inequality
+must then be rerun with explicit nonnegative `U_Q` and `U_A`; no null term may
+be promoted to zero.
