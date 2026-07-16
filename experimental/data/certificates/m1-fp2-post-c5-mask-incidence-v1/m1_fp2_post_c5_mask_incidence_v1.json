@@ -1,0 +1,434 @@
+{
+  "schema": "rs-mca-m1-fp2-post-c5-mask-incidence-v1",
+  "artifact_kind": "M1_FP2_POST_C5_MASK_INCIDENCE_ROUTE_CUT",
+  "status": "PROVED_NEW_POLICY_AND_TWO_COLUMN_SPLIT_IMPORTED_C5_RANK_CLOSURES_APPLIED_ROW_OPEN",
+  "provenance": {
+    "integrated_imports": [
+      {
+        "source_pr": 660,
+        "source_commit": "0be98005cc5055ff34fd73c6c9c222ba4377a604",
+        "integration_commit": "ea4eb0784417ca5ab503a3c31a7eef6464ad100a",
+        "applied_results": [
+          "CANONICAL_PROPER_FIELD_C5_COVERAGE",
+          "GLOBAL_SYNDROME_RANK_ZERO_EMPTINESS",
+          "POST_C5_NONEMPTY_IMPLIES_FULL_PROJECTIVE_FIELD"
+        ]
+      },
+      {
+        "source_pr": 670,
+        "source_commits": [
+          "19c28c758abed1813b79e67ca996fb18392240a1",
+          "3a35278f81b63e6247dd660fc147d2a87fc89ba5",
+          "08198f1b7c116710f3b0ba80d4bc00427ed0fe7a"
+        ],
+        "integration_commit": "ea4eb0784417ca5ab503a3c31a7eef6464ad100a",
+        "applied_results": [
+          "GLOBAL_SYNDROME_RANK_ONE_AT_MOST_ONE_SLOPE",
+          "FIXED_LOW_EXCESS_U_CAP_84416263"
+        ]
+      }
+    ],
+    "new_in_this_packet": [
+      "KB_VS_PROJECTIVE_POLICY_MISMATCH",
+      "FROZEN_SOURCE_STATUS_INVENTORY",
+      "EXACT_QUOTIENT_PAIR_CENSUS",
+      "BASIS_RELATIVE_DISJOINT_PIVOT_ATLAS",
+      "FULL_FIELD_QUADRATIC_COMPATIBILITY_CONTROL",
+      "FIELD_FULL_RANK_TWO_UNPAID_ROUTE_CUT"
+    ]
+  },
+  "source_bindings": [
+    {
+      "binding_id": "packet-note",
+      "path": "experimental/notes/m1/m1_fp2_post_c5_mask_incidence_v1.md",
+      "sha256": "f6db5c9d764edad0357e5bc62967fff89e35c82f96409351a67b0ae56b6c4553",
+      "role": "human-readable proof audit"
+    },
+    {
+      "binding_id": "python-verifier",
+      "path": "experimental/scripts/verify_m1_fp2_post_c5_mask_incidence_v1.py",
+      "sha256": "58f1d9c35f8e342e6e6aaec47a20a2701f1dd888d3cccc0482ccba4f6313aa9a",
+      "role": "builder and mutation verifier"
+    },
+    {
+      "binding_id": "sage-control",
+      "path": "experimental/scripts/verify_m1_fp2_post_c5_mask_incidence_v1.sage",
+      "sha256": "8a4965c12926d2542e1120bafa7e51db4edd57c0fabbbf5d396112b52a278e19",
+      "role": "independent full-field rank-two control"
+    },
+    {
+      "binding_id": "fp2-predecessor-note",
+      "path": "experimental/notes/m1/m1_fp2_residual_route_cut_v1.md",
+      "sha256": "e6a2ca0307c5ed1891951f2aceb9220571d831f3405647eb1133f6b82656ceda",
+      "role": "scalarization and open mask interface"
+    },
+    {
+      "binding_id": "fp2-predecessor-certificate",
+      "path": "experimental/data/certificates/m1-fp2-residual-route-cut-v1/m1_fp2_residual_route_cut_v1.json",
+      "sha256": "568947ff3a8d43babb407d86d010ae77ea24917b6fe27794fa9dc6bde7b320c9",
+      "role": "machine-readable predecessor"
+    },
+    {
+      "binding_id": "fp2-predecessor-verifier",
+      "path": "experimental/scripts/verify_m1_fp2_residual_route_cut_v1.py",
+      "sha256": "e38fb3ea5a24ab9b42d5ce223386d9df1f60dc810fc5ba5d3e173cc879c1f41a",
+      "role": "predecessor semantic replay"
+    },
+    {
+      "binding_id": "kb-first-match-note",
+      "path": "experimental/notes/thresholds/kb_mca_1116048_first_match_ledger_v1.md",
+      "sha256": "34c5aa072783f39c94885b36b810f35a2bb8109eb5f6045aa4cf22fd5c2fb117",
+      "role": "frozen branch order and source statuses"
+    },
+    {
+      "binding_id": "kb-first-match-certificate",
+      "path": "experimental/data/certificates/kb-mca-1116048-first-match-ledger-v1/kb_mca_1116048_first_match_ledger_v1.json",
+      "sha256": "46b87bc887489d153b52634516eeed9727340dee434664781754b3101fbd42a4",
+      "role": "machine-readable branch metadata"
+    },
+    {
+      "binding_id": "projective-c5",
+      "path": "experimental/notes/thresholds/projective_syndrome_c5_first_match.md",
+      "sha256": "6affa2701d4ba901ee5c0321fd8512cb8ceb09200ad9a239cc0a65515cf2e0f2",
+      "role": "integrated #660 canonical proper-field coverage and post-C5 theorem"
+    },
+    {
+      "binding_id": "frontiers-cells",
+      "path": "experimental/asymptotic_rs_mca_frontiers.tex",
+      "sha256": "0e3aa7b1ba79b1065439ae484f4cb989d80cabe18afb68ec63a6b21d1f3370fd",
+      "role": "profile cells and first-match definitions"
+    },
+    {
+      "binding_id": "compact-catalogue",
+      "path": "experimental/asymptotic_rs_mca.tex",
+      "sha256": "c8d1fb7a4462d46dbd66228adbc55d391c3a72b4c7948cc0e1450b9d81686ed4",
+      "role": "C1-C5 catalogue order"
+    },
+    {
+      "binding_id": "rank-one-source",
+      "path": "experimental/notes/thresholds/agreement_weighted_transverse_secant.md",
+      "sha256": "75cb8733caf153c379336bb9ec672e9c0de1c20f6da2a70bf94a5adb92862fa9",
+      "role": "integrated #670 rank-one and fixed-low-excess owner"
+    },
+    {
+      "binding_id": "base-ledger",
+      "path": "experimental/data/certificates/kb-mca-1116048-base-slope-universe-v2/kb_mca_1116048_base_slope_universe_v2.json",
+      "sha256": "ffefb3aa56645d06fa14c805c9d8e9b503359fe2e094566b5fb209e8cbe8bece",
+      "role": "current paid baseline and first-match order"
+    }
+  ],
+  "row": {
+    "row_id": "koalabear-mca-A1116048",
+    "p": 2130706433,
+    "ambient_extension_degree": 6,
+    "parameter_extension_degree": 2,
+    "q_line": "93571093019388561295270373781649880353786165192103559169",
+    "parameter_field_order": "4539909903627583489",
+    "n": 2097152,
+    "k": 1048576,
+    "agreement_A": 1116048,
+    "error_count_j": 981104,
+    "syndrome_depth_t": 67472,
+    "prefix_depth_w": 67471,
+    "B_star": "274980728111395087",
+    "U_paid": "2602153473",
+    "B_remaining": "274980725509241614",
+    "U_Q": null,
+    "U_A": null
+  },
+  "policy_compatibility": {
+    "kb_first_five": [
+      "contained_or_noncontained_failure",
+      "rank_drop_or_pivot_failure",
+      "tangent_common_line_residue",
+      "quotient_periodic_or_divisor_stabilized",
+      "planted_prefix_structured"
+    ],
+    "projective_first_five": [
+      "quotient_pullback",
+      "chebyshev_dihedral",
+      "planted_block",
+      "tangent_deep_common_line",
+      "extension_proper_field_descent"
+    ],
+    "orders_identical": false,
+    "kb_branch_5": "planted_prefix_structured",
+    "projective_c5": "extension_proper_field_descent",
+    "kb_branch_5_equals_projective_c5": false,
+    "literal_adapter_proved": false,
+    "current_fp2_post5_implies_full_projective_field": false,
+    "reason": "THE_PREDECESSOR_SUBTRACTS_KB_BRANCHES_1_TO_5_BUT_NOT_THE_SEPARATE_CANONICAL_PROPER_FIELD_C5_CELL",
+    "required_branch_6_refinement": [
+      "6a_projective_proper_field_C5",
+      "6b_extension_slope_pair_field_full"
+    ]
+  },
+  "mask_inventory": {
+    "records": [
+      {
+        "order": 1,
+        "branch": "contained_or_noncontained_failure",
+        "machine_status": "MACHINE_EXACT_GATE_ONLY",
+        "executable_predicate": "ALL_SIX_SCALARIZED_SUPPORT_QUOTIENT_SYNDROMES_ZERO",
+        "actual_slope_projector_complete": false,
+        "paid_owner": false,
+        "source_status": "INTERFACE_BUCKET_NOT_A_DEDUCTED_SAFE_CELL",
+        "blocker": "GATE_IS_EXACT_BUT_SOURCE_DOES_NOT_DEFINE_A_PAID_BRANCH_PROJECTOR"
+      },
+      {
+        "order": 2,
+        "branch": "rank_drop_or_pivot_failure",
+        "machine_status": "UNBOUND_SOURCE_SYMBOL",
+        "executable_predicate": null,
+        "actual_slope_projector_complete": false,
+        "paid_owner": false,
+        "source_status": "OPEN_EXACT_MINOR_OR_PIVOT_BUCKET_REQUIRED",
+        "blocker": "NO_DEPLOYED_SUPPORT_TO_B0_BUILDER_OR_COMPLETE_PIVOT_ORDER"
+      },
+      {
+        "order": 3,
+        "branch": "tangent_common_line_residue",
+        "machine_status": "SOURCE_STATUS_ONLY",
+        "executable_predicate": null,
+        "actual_slope_projector_complete": false,
+        "paid_owner": false,
+        "source_status": "OPEN_FOR_THIS_ROW",
+        "blocker": "NO_ROW_SPECIFIC_MATRIX_INDEPENDENT_MINORS_OR_SLOPE_PROJECTOR"
+      },
+      {
+        "order": 4,
+        "branch": "quotient_periodic_or_divisor_stabilized",
+        "machine_status": "PARTIAL_FAMILY_NO_COMPLETE_PROJECTOR",
+        "executable_predicate": "DECLARED_Q0_DYADIC_RUNG_PREDICATES_ONLY",
+        "actual_slope_projector_complete": false,
+        "paid_owner": false,
+        "source_status": "PARTIAL_PROVED_DESCENT_WITH_TERMINAL_RAW_PAID",
+        "blocker": "LOWER_RUNG_OBLIGATIONS_AND_LARGE_PLANTED_TAILS_REMAIN_OPEN"
+      },
+      {
+        "order": 5,
+        "branch": "planted_prefix_structured",
+        "machine_status": "SOURCE_STATUS_ONLY",
+        "executable_predicate": null,
+        "actual_slope_projector_complete": false,
+        "paid_owner": false,
+        "source_status": "OPEN_EXACT_IMAGE_COST_REQUIRED",
+        "blocker": "NO_EXHAUSTIVE_ALGEBRAICALLY_PLANTED_FAMILY_OR_PROJECTOR"
+      }
+    ],
+    "record_count": 5,
+    "canonical_sha256": "111f6d537180b11f292eb4abbb2b04a765ef29fe58762d2b372f41f346cf4c42",
+    "complete_executable_adapter": false,
+    "first_missing_executable_branch": 2,
+    "machine_exact_gate_count": 1,
+    "complete_slope_projector_count": 0,
+    "verdict": "UNPAID_MASK_ADAPTER_MISSING"
+  },
+  "projective_c5_refinement": {
+    "provenance": "IMPORTED_FROM_INTEGRATED_PR_660_AND_APPLIED_IN_NEW_PARTITION",
+    "global_syndrome_matrix": "Y_R=[y_0 y_1]",
+    "positive_rank_values": [
+      1,
+      2
+    ],
+    "proper_intermediate_degrees": [
+      1,
+      2,
+      3
+    ],
+    "proper_intermediate_orders": [
+      "2130706433",
+      "4539909903627583489",
+      "9673215236899702176256884737"
+    ],
+    "field_definition_test": "rank([Y_R|Y_R^(p^e)])=rank(Y_R)",
+    "full_field_test": "rank([Y_R|Y_R^(p^e)])>rank(Y_R)_FOR_e_IN_1_2_3",
+    "support_quotient_substitution_allowed": false,
+    "proper_field_cell_witness_exhaustive": true,
+    "proper_field_cell_paid_in_this_packet": false,
+    "post_c5_nonempty_implies_full_projective_field": true,
+    "refined_components": {
+      "6a_projective_proper_field_C5": "ROUTED_UNPAID_COVERAGE_NOT_PAYMENT",
+      "6b_extension_slope_pair_field_full": "ACTIVE_INCIDENCE_CLASSIFICATION"
+    }
+  },
+  "incidence_classification": {
+    "ambient_quotient": "Q_E=(K^(n-k)/V_E(K))^3",
+    "equation": "ybar_0+gamma*ybar_1=0",
+    "nonbase_condition": "gamma^p-gamma!=0",
+    "cases": [
+      {
+        "case_id": "ZERO_ZERO",
+        "predicate": "ybar_0=0_AND_ybar_1=0",
+        "terminal": "CONTAINED_BRANCH_1_INTERFACE",
+        "root_count": null,
+        "retained_noncontained": false
+      },
+      {
+        "case_id": "ZERO_SECOND_NONZERO_FIRST",
+        "predicate": "ybar_1=0_AND_ybar_0!=0",
+        "terminal": "AFFINE_INCONSISTENT",
+        "root_count": 0,
+        "retained_noncontained": false
+      },
+      {
+        "case_id": "NONPROPORTIONAL",
+        "predicate": "rank_K([ybar_0 ybar_1])=2",
+        "terminal": "AFFINE_INCONSISTENT",
+        "root_count": 0,
+        "retained_noncontained": false
+      },
+      {
+        "case_id": "PROPORTIONAL_NONZERO_SECOND",
+        "predicate": "ybar_1!=0_AND_ybar_0=c*ybar_1",
+        "terminal": "UNIQUE_ROOT_gamma=-c",
+        "root_count": 1,
+        "retained_noncontained": true
+      }
+    ],
+    "unique_root_subroutes": [
+      "gamma_in_F_p_TO_RESIDUAL_BASE_SLOPE_UNIVERSE_OUTSIDE_R2",
+      "gamma_in_F_(p^2)_MINUS_F_p_AND_PAIR_FIELD_PROPER_TO_6a",
+      "gamma_in_F_(p^2)_MINUS_F_p_AND_PAIR_FIELD_FULL_TO_6b"
+    ],
+    "fixed_support_root_cap": 1,
+    "fixed_support_cap_extends_to_support_union": false,
+    "basis_relative_pivot_atlas": {
+      "coordinate_dimension": 202416,
+      "pivot_labels_per_support": 202416,
+      "coordinate_model": "FIX_ANY_ORDERED_K_BASIS_OF_Q_E_PER_SUPPORT",
+      "deterministic_support_to_basis_adapter_deployed": false,
+      "pivot_rule": "j=FIRST_NONZERO_COORDINATE_OF_v_E",
+      "earlier_zero_equations": "v_E[i]=0_FOR_i<j",
+      "pivot_inequation": "v_E[j]!=0",
+      "proportionality_equations": "v_E[j]*u_E[l]-u_E[j]*v_E[l]=0_FOR_l!=j",
+      "root_formula": "gamma=-u_E[j]/v_E[j]",
+      "nonbase_inequation": "gamma^p-gamma!=0",
+      "charts_disjoint": true,
+      "charts_exhaust_unique_nonbase_root_locus": true,
+      "is_kb_branch_1_to_5_mask_atlas": false
+    },
+    "symbolic_census": {
+      "contained": "1",
+      "zero_second_inconsistent": "q^m-1",
+      "unique_root_pairs": "q*(q^m-1)",
+      "nonproportional_inconsistent": "q^(2m)-(q+1)*q^m+q"
+    },
+    "exact_control_q4_m2": {
+      "q": 4,
+      "m": 2,
+      "quotient_space_size": 16,
+      "ordered_pair_total": 256,
+      "contained_zero_zero": 1,
+      "zero_second_inconsistent": 15,
+      "unique_root_pairs": 60,
+      "nonproportional_inconsistent": 180
+    },
+    "control_partition_sums_to_total": true
+  },
+  "global_rank_components": [
+    {
+      "component_id": "GLOBAL_SYNDROME_RANK_0",
+      "condition": "rank(Y_R)=0",
+      "provenance": "IMPORTED_FROM_INTEGRATED_PR_660_AND_APPLIED_HERE",
+      "terminal": "EMPTY_NONCONTAINED_WITNESS_INCIDENCE",
+      "uniform_slope_cap": 0,
+      "closed": true
+    },
+    {
+      "component_id": "POST_C5_FULL_FIELD_GLOBAL_SYNDROME_RANK_1",
+      "condition": "F_proj(R)=F_(p^6)_AND_rank(Y_R)=1",
+      "provenance": "IMPORTED_FROM_INTEGRATED_PR_670_AND_APPLIED_HERE",
+      "terminal": "BUDGET_FITTING_EXACT_ROOT_UNION_DEGREE_AT_MOST_1",
+      "uniform_slope_cap": 1,
+      "closed": true
+    },
+    {
+      "component_id": "POST_C5_FULL_FIELD_GLOBAL_SYNDROME_RANK_2",
+      "condition": "F_proj(R)=F_(p^6)_AND_rank(Y_R)=2",
+      "provenance": "NEW_ROUTE_CUT_IN_THIS_PACKET",
+      "terminal": "UNPAID_SUPPORT_TO_SLOPE_UNION",
+      "uniform_slope_cap": null,
+      "closed": false,
+      "existing_owner_subroute": {
+        "owner": "AGREEMENT_WEIGHTED_TRANSVERSE_SECANT_FIXED_LOW_EXCESS_U",
+        "provenance": "IMPORTED_FROM_INTEGRATED_PR_670_AND_APPLIED_CONDITIONALLY",
+        "hypothesis": "|U|=(n-k)+2_AND_ALL_SELECTED_DISCREPANCIES_SUBSET_U",
+        "uniform_slope_cap": 84416263,
+        "fits_current_remainder": true,
+        "exhaustive_low_excess_shadow_cover_proved": false
+      }
+    }
+  ],
+  "full_field_control": {
+    "purpose": "REFUTE_FULL_PAIR_FIELD_IMPLIES_NO_QUADRATIC_PARAMETER_ROOT",
+    "base_field": "F_7",
+    "parameter_field": "F_(7^2)",
+    "ambient_field": "F_(7^6)",
+    "code": "weighted_RS_F(D={0,1,2,3},k=1)",
+    "discrepancy_support": [
+      0,
+      1
+    ],
+    "agreement_support": [
+      2,
+      3
+    ],
+    "global_syndrome_rank": 2,
+    "gamma_in_parameter_field": true,
+    "gamma_in_base_field": false,
+    "projective_field_full": true,
+    "fixed_support_equation_holds": true,
+    "support_noncontained": true,
+    "received_pair_realizable": true,
+    "survives_deployed_kb_branches_1_to_5_proved": false,
+    "verdict": "FULL_FIELD_RANK2_K_MINUS_B_ROOT_IS_COMPATIBLE"
+  },
+  "ledger": {
+    "rank_zero_component_closed": true,
+    "rank_one_component_closed": true,
+    "rank_one_uniform_cap": 1,
+    "pair_rank_cases_combine_by": "MAXIMUM_NOT_SUM",
+    "proper_field_c5_charge": null,
+    "field_full_rank_two_charge": null,
+    "U_2": null,
+    "U_Q": null,
+    "U_A": null,
+    "ledger_consequence": false,
+    "row_complete": false,
+    "inequality_status": "UNDECIDED_OPEN_COMPONENTS",
+    "next_attack": "ROW_SPECIFIC_BRANCH_2_PIVOT_MATRIX_AND_SUPPORT_TO_ROW_ADAPTER"
+  },
+  "audit_sections": {
+    "parameter_dependence": "FIELD_TEST_UNIFORM_TOWER_AND_MASK_AUDIT_REPOSITORY_SPECIFIC_ROW_LEDGER_KOALABEAR_SPECIFIC",
+    "layer_cake_dyadic_summability": "NOT_APPLICABLE",
+    "moment_markov_chebyshev": "NOT_APPLICABLE",
+    "numerical_evidence": "EXACT_IDENTITIES_AND_EXACT_SAGE_CONTROL_ONLY",
+    "edge_cases": [
+      "After KoalaBear branch 5 and post-projective-C5 are different predicates.",
+      "The proper intermediate fields of F_(p^6)/F_p have degrees 1, 2, and 3.",
+      "The projective-field test belongs to the global pair syndrome, not a support quotient.",
+      "Canonical C5 coverage is not a finite KoalaBear payment.",
+      "Zero/zero quotient columns are contained and cannot be retained as a noncontained witness.",
+      "Fixed-support uniqueness does not imply d_eff<=1 or a support-union bound.",
+      "Within-line roots are deduplicated; across lines the operation is a supremum or maximum.",
+      "Null is not zero."
+    ],
+    "remaining_risks": [
+      "KoalaBear branches 2 through 5 do not have a complete executable predicate adapter.",
+      "The canonical proper-field C5 refinement is routed but not assigned a finite KoalaBear charge.",
+      "Field-full syndrome-rank-two roots may vary over exponentially many supports.",
+      "The exact full-field control is not proved to survive the deployed KoalaBear branch-1-through-5 masks.",
+      "U_Q and U_A remain open, so no adjacent-row inequality is decided."
+    ]
+  },
+  "nonclaims": [
+    "This packet does not identify KoalaBear branch 5 with projective C5.",
+    "This packet does not claim a complete branch-1-through-5 mask replay.",
+    "This packet does not pay the proper-field C5 cell or the field-full rank-two residual.",
+    "This packet does not promote fixed-support uniqueness to a support-union bound.",
+    "This packet does not set U_2, U_Q, or U_A, change the ledger, or improve the public frontier.",
+    "This packet does not begin the degree-three parameter-field class."
+  ],
+  "payload_sha256": "1925171dce23cee6dd7e5088bb6774580dd362bd8dbd794cea1c5883456baabc"
+}

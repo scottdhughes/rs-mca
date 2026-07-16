@@ -30,6 +30,39 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-16 - M1 quadratic post-C5 mask audit and incidence split
+
+- **Agent/model:** Codex, with independent source-interface, incidence-algebra,
+  and hostile certificate-design reviewers.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_fp2_post_c5_mask_incidence_v1.md`;
+  `experimental/scripts/verify_m1_fp2_post_c5_mask_incidence_v1.py`;
+  `experimental/scripts/verify_m1_fp2_post_c5_mask_incidence_v1.sage`;
+  `experimental/data/certificates/m1-fp2-post-c5-mask-incidence-v1/`;
+  `experimental/agents-log.md`.
+- **Status:** PROVED NEW POLICY-INCOMPATIBILITY ROUTE CUT / CERTIFIED
+  APPLICATION OF INTEGRATED #660/#670 LEMMAS / PROVED NEW TWO-COLUMN SPLIT /
+  AUDIT.  The row and field-full rank-two support union remain open.
+- **What is being added:** The frozen KoalaBear branches 1--5 are not the
+  projective catalogue cells C1--C5: in particular, KoalaBear branch 5 is
+  planted/prefix while projective C5 is proper-field descent.  The packet
+  checks the frozen source-status inventory, applies the canonical
+  proper-field C5 cell from integrated #660 as a separate branch-6 refinement,
+  and classifies `ybar_0+gamma*ybar_1=0` into contained, inconsistent, and
+  unique-root cases.  Integrated #660/#670 supply the applied rank-zero and
+  rank-one closures and the fixed-low-excess owner.  New here are the policy
+  mismatch, exact quotient census and basis-relative pivot atlas, exact
+  `F_(7^6)` compatibility control, and refined field-full rank-two route cut.
+- **How it is useful:** It prevents the unsafe inference that the predecessor
+  “post-5” residual is already post-projective-C5, applies the imported rank
+  closures to the corrected partition, and isolates the first genuine
+  algebraic residual without forcing it into an owner or a deficiency
+  collapse.
+- **What to do next:** Supply one row-specific branch-2 pivot matrix and its
+  support-to-row adapter, then replay the ordered mask inventory.  Keep the
+  field-full rank-two support union, `U_2`, `U_Q`, and `U_A` unpaid; do not move
+  to degree three.
+
 ### 2026-07-16 - M1 quadratic-parameter scalarization and route cut
 
 - **Agent/model:** Codex, with independent algebra, proof-audit,
