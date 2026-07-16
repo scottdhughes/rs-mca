@@ -1,0 +1,526 @@
+{
+  "schema": "rs-mca-m1-fp2-residual-route-cut-v1",
+  "artifact_kind": "M1_FP2_RESIDUAL_ROUTE_CUT",
+  "status": "PROVED_SCALARIZATION_MASK_RELATIVE_CLASS_EXHAUSTIVE_UNPAID_ROW_OPEN",
+  "source_bindings": [
+    {
+      "binding_id": "route-cut-note",
+      "path": "experimental/notes/m1/m1_fp2_residual_route_cut_v1.md",
+      "sha256": "e6a2ca0307c5ed1891951f2aceb9220571d831f3405647eb1133f6b82656ceda",
+      "role": "human-readable theorem and audit"
+    },
+    {
+      "binding_id": "python-verifier",
+      "path": "experimental/scripts/verify_m1_fp2_residual_route_cut_v1.py",
+      "sha256": "e38fb3ea5a24ab9b42d5ce223386d9df1f60dc810fc5ba5d3e173cc879c1f41a",
+      "role": "exact builder and mutation verifier"
+    },
+    {
+      "binding_id": "sage-replay",
+      "path": "experimental/scripts/verify_m1_fp2_residual_route_cut_v1.sage",
+      "sha256": "d6020ff4c7fb0891ebec57cd2d949b40d2eec01b5ceb8eb8f2df04d3b6dc3c50",
+      "role": "independent F_49 replay"
+    },
+    {
+      "binding_id": "first-match-ledger",
+      "path": "experimental/notes/thresholds/kb_mca_1116048_first_match_ledger_v1.md",
+      "sha256": "34c5aa072783f39c94885b36b810f35a2bb8109eb5f6045aa4cf22fd5c2fb117",
+      "role": "frozen owner order and open branch 6"
+    },
+    {
+      "binding_id": "base-slope-note",
+      "path": "experimental/notes/thresholds/kb_mca_1116048_base_slope_universe_v2.md",
+      "sha256": "265d2fcfc5a55dc7c0e7e6bed5f0f32b6b2ab86638441dbed09b2641cec6b14c",
+      "role": "current paid baseline and open complement"
+    },
+    {
+      "binding_id": "base-slope-certificate",
+      "path": "experimental/data/certificates/kb-mca-1116048-base-slope-universe-v2/kb_mca_1116048_base_slope_universe_v2.json",
+      "sha256": "ffefb3aa56645d06fa14c805c9d8e9b503359fe2e094566b5fb209e8cbe8bece",
+      "role": "machine-readable current ledger"
+    },
+    {
+      "binding_id": "uniform-atlas-route-cut",
+      "path": "experimental/notes/m1/m1_extension_uniform_atlas_route_cut_v2.md",
+      "sha256": "0684ce6302f4e56eb7968bff772cf66994bcc9ad03baed750c64ef9f74ab793e",
+      "role": "row-uniform quantifier and d_eff wall"
+    },
+    {
+      "binding_id": "uniform-atlas-certificate",
+      "path": "experimental/data/certificates/m1-extension-uniform-atlas-route-cut-v2/m1_extension_uniform_atlas_route_cut_v2.json",
+      "sha256": "396f0d9946797d521baea04e166fd0015ed218a1b106da79edea417fcbbf65a1",
+      "role": "machine-readable predecessor cut"
+    },
+    {
+      "binding_id": "fixed-line-correction",
+      "path": "experimental/notes/frontier-adjacent/frontier_extension_fixed_line_audit_v1.md",
+      "sha256": "7759aec851d87b5599efb6f3d501424b26dfa3d5df17972f850c70d8e150548c",
+      "role": "Frobenius and dimension-degree correction"
+    },
+    {
+      "binding_id": "fixed-line-certificate",
+      "path": "experimental/data/certificates/frontier-extension-fixed-line-audit-v1/frontier_extension_fixed_line_audit_v1.json",
+      "sha256": "19f6b953918a3745853e26d520e9231f59a159f8c21232821959c158888be404",
+      "role": "machine-readable correction packet"
+    },
+    {
+      "binding_id": "coordinate-transfer",
+      "path": "experimental/notes/f1/f1_extension_coordinate_transfer.md",
+      "sha256": "838652277949d8370d726ca6540fd0984f4e7d3c98bbcc7ca55fb65197ceaac7",
+      "role": "exact support-wise restriction of scalars"
+    },
+    {
+      "binding_id": "projective-field-descent",
+      "path": "experimental/notes/thresholds/projective_syndrome_c5_first_match.md",
+      "sha256": "6affa2701d4ba901ee5c0321fd8512cb8ceb09200ad9a239cc0a65515cf2e0f2",
+      "role": "pair-field versus parameter-field guard"
+    },
+    {
+      "binding_id": "complete-absorption",
+      "path": "experimental/notes/thresholds/fixed_deficiency_complete_absorption.md",
+      "sha256": "d096a7f5e6399a51132d404347bbb4e8ab992fce53387c1dd407e4dd263b8403",
+      "role": "uniform fixed-deficiency envelope"
+    },
+    {
+      "binding_id": "paper-d",
+      "path": "tex/cs25_cap_v12.tex",
+      "sha256": "8b988dd2091b46ab37b5c8c78735369e3e7849a8f89fb6739480b7b0d4859dc5",
+      "role": "restriction-of-scalars and dimension-degree theorems"
+    },
+    {
+      "binding_id": "thresholds",
+      "path": "experimental/rs_mca_thresholds.tex",
+      "sha256": "ae662448b90d4db365feed6d8e826a5f7e7cc752b787ae7dc94af41c7c1d0a1e",
+      "role": "MCA and Johnson/deep gate statements"
+    }
+  ],
+  "row": {
+    "row_id": "koalabear-mca-A1116048",
+    "p": 2130706433,
+    "ambient_extension_degree": 6,
+    "q": "93571093019388561295270373781649880353786165192103559169",
+    "n": 2097152,
+    "k": 1048576,
+    "agreement_A": 1116048,
+    "error_count_j": 981104,
+    "syndrome_depth_t": 67472,
+    "prefix_depth_w": 67471,
+    "deficiency_d": 913632,
+    "B_star": "274980728111395087",
+    "U_paid": "2602153473",
+    "B_remaining": "274980725509241614",
+    "U_Q": null,
+    "U_A": null
+  },
+  "first_match_scope": {
+    "policy_id": "KB_MCA_1116048_FIRST_MATCH_LEDGER_V2_BASE_SLOPE_REPLACEMENT",
+    "order": [
+      "contained_or_noncontained_failure",
+      "rank_drop_or_pivot_failure",
+      "tangent_common_line_residue",
+      "quotient_periodic_or_divisor_stabilized",
+      "planted_prefix_structured",
+      "extension_valued_slope",
+      "residual_base_slope_universe",
+      "sparse_sigma_or_sparse_support",
+      "m1_half_turn_or_coefficient_shadow",
+      "primitive_qfin_residual"
+    ],
+    "active_branch_number": 6,
+    "active_branch": "extension_valued_slope",
+    "earlier_branch_count": 5,
+    "earlier_assignments_removed_by_actual_slope_projection": true,
+    "earlier_branches_all_paid_claimed": false,
+    "post5_residual_definition": "Z_a(f,g)_MINUS_UNION_OF_ACTUAL_BRANCH_1_THROUGH_5_SLOPE_PROJECTIONS",
+    "mask_predicates_machine_encoded": false,
+    "mask_adapter_status": "NOT_SUPPLIED_IN_THIS_PACKET",
+    "received_pairs": "ALL_ADMISSIBLE_F_(p^6)_VALUED_PAIRS",
+    "supports": "ALL_SURVIVING_SUPPORT_WITNESSES_OF_SIZE_AT_LEAST_A_REDUCED_TO_EXACT_A",
+    "slopes": "ALL_FINITE_GAMMA_IN_F_(p^2)_MINUS_F_p",
+    "within_line_aggregation": "DISJOINT_FIRST_MATCH_THEN_EXACT_ROOT_UNION_DEDUPLICATION",
+    "across_line_aggregation": "SUPREMUM_OR_MAXIMUM",
+    "sampled_atlas": false
+  },
+  "field_tower": {
+    "base_field": "F_p",
+    "parameter_field": "F_(p^2)",
+    "ambient_value_field": "F_(p^6)",
+    "degrees": {
+      "parameter_over_base": 2,
+      "ambient_over_parameter": 3,
+      "ambient_over_base": 6
+    },
+    "parameter_field_order": "4539909903627583489",
+    "proper_degree_two_stratum_size": "4539909901496877056",
+    "membership_equation": "gamma^(p^2)-gamma=0",
+    "nonbase_inequation": "gamma^p-gamma!=0",
+    "minimal_extension_degree_partition": [
+      2,
+      3,
+      6
+    ],
+    "unique_degree_two_intermediate_field": true,
+    "parameter_field_only": true,
+    "received_pair_descent_inferred": false,
+    "projective_syndrome_descent_inferred": false
+  },
+  "coordinate_transfer": {
+    "basis_field": "F_(p^2)",
+    "basis_length": 3,
+    "interleaving_arity": 3,
+    "multiplication_matrix_for_gamma_in_parameter_field": "gamma*I_3",
+    "line_formula": "Psi_K(f+gamma*g)=(f_i+gamma*g_i)_(i=0,1,2)",
+    "code_formula": "Psi_K(RS_F(D,k))=RS_K(D,k)^3",
+    "support_and_noncontainment_preserved": true,
+    "canonical_witness_leaf_rule": "WITHIN_EACH_WITNESS_LEAST_NONCONTAINED_K_COORDINATE",
+    "slope_leaf_disjointness_proved": false,
+    "slope_leaf_aggregation": "EXACT_WITHIN_LINE_UNION_DEDUPLICATION_REQUIRED",
+    "leaf_indices": [
+      0,
+      1,
+      2
+    ],
+    "raw_equation_rows": 3348144,
+    "raw_equation_columns": 3145729,
+    "reduced_syndrome_equations": 202416,
+    "reduced_affine_parameter_columns": 2,
+    "fixed_support_root_cap": 1,
+    "fixed_support_cap_extends_to_support_union": false,
+    "is_positive_MCA_bound": false
+  },
+  "route_tests": {
+    "deep_gate": {
+      "lhs_3j": 2943312,
+      "rhs_n_minus_k": 1048576,
+      "holds": false
+    },
+    "half_distance_gate": {
+      "lhs_2j": 1962208,
+      "rhs_n_minus_k": 1048576,
+      "holds": false
+    },
+    "johnson_gate": {
+      "A_squared": "1245563138304",
+      "k_minus_1_times_n": "2199021158400",
+      "holds": false
+    },
+    "complete_absorption": {
+      "original_deficiency": 913632,
+      "required_effective_deficiency_for_bare_binomial": 1,
+      "effective_deficiency_collapse_proved": false
+    },
+    "raw_parameter_universe": {
+      "size": "4539909901496877056",
+      "B_remaining": "274980725509241614",
+      "excess": "4264929175987635442",
+      "fits": false,
+      "coarse_exact_root_polynomial": "(Z^(p^2)-Z)/(Z^p-Z)",
+      "coarse_exact_root_degree": "4539909901496877056",
+      "coarse_exact_root_union_fits": false
+    },
+    "hypothetical_frobenius_orbit_relaxation": {
+      "valid_for_arbitrary_fixed_lines": false,
+      "orbit_count": "2269954950748438528",
+      "orbit_count_excess_over_B_remaining": "1994974225239196914",
+      "even_one_unit_per_orbit_fits": false,
+      "actual_root_degree_if_orbit_union": "4539909901496877056"
+    },
+    "dimension_degree": {
+      "p_squared": "4539909903627583489",
+      "positive_degree_e_Y_ge_2_fits": false,
+      "provisional_max_Delta_if_e_Y_1": 129056129,
+      "allocation_assumption": "U_Q=U_A_other=0_PROVISIONAL_ONLY"
+    },
+    "decision": "NO_EXISTING_ROUTE_PAYS_R2"
+  },
+  "toy_control": {
+    "purpose": "FIXED_LINE_FROBENIUS_CLOSURE_FALSIFIER_ONLY",
+    "field": {
+      "base_order": 7,
+      "extension_degree": 2,
+      "order": 49,
+      "modulus_coefficients_low_to_high": [
+        1,
+        0,
+        1
+      ],
+      "modulus_irreducible": true,
+      "basis": [
+        "1",
+        "a"
+      ]
+    },
+    "code": {
+      "domain": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "n": 6,
+      "k": 3,
+      "agreement_A": 5
+    },
+    "received_line": {
+      "f_values_encoded": [
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "g_values_encoded": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "formula": "f=(-a,0,0,0,0,1), g=(1,0,0,0,0,0)"
+    },
+    "exact_census": {
+      "slopes_enumerated": 49,
+      "supports_per_slope": 6,
+      "bad_records": [
+        {
+          "slope_encoded": [
+            0,
+            1
+          ],
+          "support_indices": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "support_domain_points": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        }
+      ],
+      "bad_slope_count": 1,
+      "a_frobenius_encoded": [
+        0,
+        6
+      ],
+      "a_frobenius_equals_minus_a": true,
+      "bad_set_frobenius_stable": false
+    },
+    "support_checks": {
+      "f_restriction_is_codeword": false,
+      "g_restriction_is_codeword": false,
+      "simultaneously_explained": false,
+      "deployed_first_match_survival_proved": false
+    },
+    "verdict": "BAD_SET_EQUALS_SINGLETON_A_NOT_FIXED_BY_FROBENIUS"
+  },
+  "classification": {
+    "class_id": "KB_MCA_A1116048_BRANCH6_MINIMAL_SLOPE_FIELD_DEGREE_2",
+    "declared_post5_residual_class_complete": true,
+    "deployed_mask_replay_complete": false,
+    "coverage_scope": "RELATIVE_TO_ABSTRACT_POST5_RESIDUAL_PREDICATE",
+    "class_closed": false,
+    "leaf_count": 3,
+    "leaf_ids_sha256": "d09bf7c8440723556562013bfbb06098fe9d1d69aa7da6f2a121a049de1e9da3",
+    "all_leaves_have_exact_scalarization_equation_family": true,
+    "all_leaves_have_machine_encoded_first_match_masks": false,
+    "all_leaves_have_exactly_one_terminal": true,
+    "all_terminals": "UNPAID_TOWER_DEGREE_2",
+    "terminal_reason": "EXACT_ARITY3_DIAGONAL_RETYPE_NO_EXISTING_BAND_OWNER"
+  },
+  "leaves": [
+    {
+      "leaf_id": "R2_FIRST_NONCONTAINED_COORDINATE_0",
+      "first_noncontained_coordinate": 0,
+      "witness_assignment_rule": "WITHIN_EACH_WITNESS_LEAST_NONCONTAINED_K_COORDINATE",
+      "slope_leaf_disjointness_proved": false,
+      "equation_family": {
+        "quantifiers": "FOR_ALL_F_G_FOR_ALL_SURVIVING_A_SUPPORTS_EXISTS_P0_P1_P2",
+        "slope_equations": [
+          "gamma^(p^2)-gamma=0",
+          "gamma^p-gamma!=0"
+        ],
+        "product_explanation": "f_j+gamma*g_j=P_j_on_S_for_j=0,1,2_deg(P_j)<k",
+        "earlier_coordinate_containment": "VACUOUS",
+        "selected_coordinate_noncontainment": "(f_0,g_0)_not_simultaneously_explained_on_S",
+        "original_first_match_mask_interface": "ABSTRACT_Z_LT_6_SET_DIFFERENCE_FROM_BOUND_FIRST_MATCH_POLICY",
+        "first_match_mask_predicates_machine_encoded": false,
+        "fixed_support_quotient_equation": "ybar_0+gamma*ybar_1=0_with_pair_not_both_zero",
+        "fixed_support_root_cap": 1,
+        "source_binding_ids": [
+          "coordinate-transfer",
+          "thresholds",
+          "first-match-ledger"
+        ]
+      },
+      "terminal": {
+        "kind": "UNPAID_TOWER_DEGREE_2",
+        "reason": "EXACT_ARITY3_DIAGONAL_RETYPE_NO_EXISTING_BAND_OWNER",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "missing_lemma": "ROW_UNIFORM_DEDUPLICATED_SUPPORT_TO_SLOPE_UNION_BOUND",
+        "scalarization_and_incidence_equations_bound": true,
+        "first_match_mask_equations_bound": false
+      }
+    },
+    {
+      "leaf_id": "R2_FIRST_NONCONTAINED_COORDINATE_1",
+      "first_noncontained_coordinate": 1,
+      "witness_assignment_rule": "WITHIN_EACH_WITNESS_LEAST_NONCONTAINED_K_COORDINATE",
+      "slope_leaf_disjointness_proved": false,
+      "equation_family": {
+        "quantifiers": "FOR_ALL_F_G_FOR_ALL_SURVIVING_A_SUPPORTS_EXISTS_P0_P1_P2",
+        "slope_equations": [
+          "gamma^(p^2)-gamma=0",
+          "gamma^p-gamma!=0"
+        ],
+        "product_explanation": "f_j+gamma*g_j=P_j_on_S_for_j=0,1,2_deg(P_j)<k",
+        "earlier_coordinate_containment": "coordinates_0_through_0_contained_on_S",
+        "selected_coordinate_noncontainment": "(f_1,g_1)_not_simultaneously_explained_on_S",
+        "original_first_match_mask_interface": "ABSTRACT_Z_LT_6_SET_DIFFERENCE_FROM_BOUND_FIRST_MATCH_POLICY",
+        "first_match_mask_predicates_machine_encoded": false,
+        "fixed_support_quotient_equation": "ybar_0+gamma*ybar_1=0_with_pair_not_both_zero",
+        "fixed_support_root_cap": 1,
+        "source_binding_ids": [
+          "coordinate-transfer",
+          "thresholds",
+          "first-match-ledger"
+        ]
+      },
+      "terminal": {
+        "kind": "UNPAID_TOWER_DEGREE_2",
+        "reason": "EXACT_ARITY3_DIAGONAL_RETYPE_NO_EXISTING_BAND_OWNER",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "missing_lemma": "ROW_UNIFORM_DEDUPLICATED_SUPPORT_TO_SLOPE_UNION_BOUND",
+        "scalarization_and_incidence_equations_bound": true,
+        "first_match_mask_equations_bound": false
+      }
+    },
+    {
+      "leaf_id": "R2_FIRST_NONCONTAINED_COORDINATE_2",
+      "first_noncontained_coordinate": 2,
+      "witness_assignment_rule": "WITHIN_EACH_WITNESS_LEAST_NONCONTAINED_K_COORDINATE",
+      "slope_leaf_disjointness_proved": false,
+      "equation_family": {
+        "quantifiers": "FOR_ALL_F_G_FOR_ALL_SURVIVING_A_SUPPORTS_EXISTS_P0_P1_P2",
+        "slope_equations": [
+          "gamma^(p^2)-gamma=0",
+          "gamma^p-gamma!=0"
+        ],
+        "product_explanation": "f_j+gamma*g_j=P_j_on_S_for_j=0,1,2_deg(P_j)<k",
+        "earlier_coordinate_containment": "coordinates_0_through_1_contained_on_S",
+        "selected_coordinate_noncontainment": "(f_2,g_2)_not_simultaneously_explained_on_S",
+        "original_first_match_mask_interface": "ABSTRACT_Z_LT_6_SET_DIFFERENCE_FROM_BOUND_FIRST_MATCH_POLICY",
+        "first_match_mask_predicates_machine_encoded": false,
+        "fixed_support_quotient_equation": "ybar_0+gamma*ybar_1=0_with_pair_not_both_zero",
+        "fixed_support_root_cap": 1,
+        "source_binding_ids": [
+          "coordinate-transfer",
+          "thresholds",
+          "first-match-ledger"
+        ]
+      },
+      "terminal": {
+        "kind": "UNPAID_TOWER_DEGREE_2",
+        "reason": "EXACT_ARITY3_DIAGONAL_RETYPE_NO_EXISTING_BAND_OWNER",
+        "owner_id": null,
+        "charge_id": null,
+        "numeric_charge": null,
+        "missing_lemma": "ROW_UNIFORM_DEDUPLICATED_SUPPORT_TO_SLOPE_UNION_BOUND",
+        "scalarization_and_incidence_equations_bound": true,
+        "first_match_mask_equations_bound": false
+      }
+    }
+  ],
+  "ledger": {
+    "U_2": null,
+    "U_Q": null,
+    "U_A": null,
+    "class_charge": null,
+    "class_charge_bankable": false,
+    "row_complete": false,
+    "ledger_consequence": false,
+    "inequality_status": "UNDECIDED_OPEN_COMPONENTS",
+    "next_attack": "ROW_UNIFORM_DEDUPLICATED_TWO_COLUMN_SUPPORT_TO_SLOPE_UNION"
+  },
+  "audit_sections": {
+    "parameter_dependence": "STRUCTURAL_TRANSFER_UNIFORM_BUDGET_TESTS_ROW_SPECIFIC",
+    "layer_cake_dyadic_summability": "NOT_APPLICABLE",
+    "moment_markov_chebyshev": "NOT_APPLICABLE",
+    "numerical_evidence": "EXACT_INTEGER_ARITHMETIC_AND_EXHAUSTIVE_TOY_CONTROL_ONLY",
+    "edge_cases": [
+      "Slope field, pair projective-syndrome field, and eliminant coefficient field are distinct.",
+      "The first five branch masks are carried literally and are not declared paid by this packet.",
+      "The least-coordinate witness assignment is disjoint, but projected scalar bad-slope sets may overlap.",
+      "Class exhaustivity is relative to the declared post-5 residual predicate; this packet does not replay branch-1-through-5 mask equations.",
+      "Root deduplication is within one received line; across lines the operation is a supremum or maximum.",
+      "The F_49 singleton has not been proved to survive the deployed earlier first-match branches.",
+      "The two-column fixed-support system does not imply d_eff<=1 after unioning supports.",
+      "Finite infinity is excluded and null is not zero."
+    ],
+    "remaining_risks": [
+      "The branch-1-through-5 mask adapter is set-theoretic rather than machine-encoded in this packet.",
+      "No source-derived deployed eliminant or support-to-slope union bound exists for this class.",
+      "Coordinate projection does not automatically preserve an earlier paid-owner label.",
+      "A future small exact-root union or structural owner could close R2 without contradicting this route cut.",
+      "U_Q and the rest of U_A remain open, so even an R2 payment would not close the row."
+    ]
+  },
+  "nonclaims": [
+    "The packet does not prove that every received pair or witness descends to F_(p^2).",
+    "The packet does not pay a three-interleaved or scalar F_(p^2) MCA owner.",
+    "The packet does not prove d_eff<=1 or a budget-fitting exact-root union.",
+    "The F_49 control is not a deployed KoalaBear witness or first-match survivor.",
+    "The raw universe and hypothetical orbit counts are route cuts, not lower bounds on the actual residual.",
+    "The packet does not assign U_2, U_Q, or U_A, change the ledger, or improve the public frontier."
+  ],
+  "payload_sha256": "9642e9a67b0a0f4481d1a7625b32278f6c491230b9e120244513eb5db4daf76d"
+}

@@ -30,6 +30,40 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-16 - M1 quadratic-parameter scalarization and route cut
+
+- **Agent/model:** Codex, with independent algebra, proof-audit,
+  duplicate-search, and hostile certificate-review agents.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_fp2_residual_route_cut_v1.md`;
+  `experimental/scripts/verify_m1_fp2_residual_route_cut_v1.py`;
+  `experimental/scripts/verify_m1_fp2_residual_route_cut_v1.sage`;
+  `experimental/data/certificates/m1-fp2-residual-route-cut-v1/`;
+  `experimental/agents-log.md`.
+- **Status:** PROVED SCALARIZATION / MASK-RELATIVE ROUTE CUT / AUDIT.  The
+  declared degree-two residual class is exhaustive relative to the post-5
+  predicate but unpaid; the deployed branch-1--5 mask replay and row remain
+  open.
+- **What is being added:** For
+  `F_p subset F_(p^2) subset F_(p^6)`, every degree-two parameter slope is
+  retyped exactly as a diagonal scalar line in a three-interleaved RS code
+  over `F_(p^2)`.  Least-noncontained-coordinate assignment gives three
+  exhaustive witness-incidence leaves, and each fixed support contributes at
+  most one slope.  The raw field universe, the hypothetical Frobenius-pair
+  relaxation, and all currently available deep/half-distance/Johnson/bare
+  complete-absorption gates fail the exact row budget.  Every leaf therefore
+  remains `UNPAID_TOWER_DEGREE_2`; `U_2`, `U_Q`, and `U_A` stay null.
+- **How it is useful:** It is the first exhaustive row-uniform extension
+  parameter class after the uniform-atlas route cut.  It replaces sampled
+  atlas work by an exact two-column support-to-slope incidence and names the
+  missing within-line deduplicated union theorem.  The `F_49` singleton is
+  retained only as a fixed-line Frobenius-closure falsifier.
+- **What to do next:** Keep this packet stacked on the reviewed #814 restack
+  until #814 integrates.  Encode the actual branch-1--5 masks in the
+  scalarized coordinates and classify the two-column rank components; stop at
+  any compatible unpaid component.  Do not bank a charge or move to degree
+  three while this class remains open.
+
 ### 2026-07-16 - M1 A4 uniform-atlas route cut and inherited budget wall
 
 - **Agent/model:** Codex, with independent quantifier, repository-source, and
