@@ -1,5 +1,14 @@
 [
   {
+    "date": "2026-07-15",
+    "status": "proved exact MCA thresholds / independently audited",
+    "author": "Przemek Chojecki / independent theorem-chain and certificate audits",
+    "title": "Certified Proth rows solve the MCA target at all four official rates",
+    "summary": "For rho in {1/2,1/4,1/8,1/16}, k=2^40 and explicit Proth primes p<2^256, the full-field affine MCA safe sets are exactly [0,B/n), with B values 389500552609, 1210584858040, 2879806199253, and 6233898019554. The endpoint B/n is unsafe in every row.",
+    "impact": "One exact support-wise MCA row is added to each official-rate leaderboard. The audit checks the mean-overlap staircase, tangent floor, target-window compiler, and half-open endpoint conversion; the arithmetic packet passes 143/143 checks and all 12 mutation tests. This does not prove list decoding or protocol soundness, promote the result into Paper D, or make a priority claim.",
+    "href": "https://github.com/przchojecki/rs-mca/blob/main/experimental/rs_mca_thresholds.tex#L409-L463"
+  },
+  {
     "date": "2026-07-05",
     "status": "PR integration / conditional imports and finite anchors",
     "author": "Vadim Avdeev, latifkasuli, DannyExperiments, LegaSage/Ken Webster / Codex audit",
