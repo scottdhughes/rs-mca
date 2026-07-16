@@ -30,6 +30,15 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-16 - KoalaBear branch-3 TDD excess and defect-span route cut
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_kb_branch3_tdd_excess_v1.md`, `experimental/data/certificates/m1-kb-branch3-tdd-excess-v1/`, `experimental/scripts/verify_m1_kb_branch3_tdd_excess_v1.py`, and `experimental/scripts/verify_m1_kb_branch3_tdd_excess_v1.sage`.
+- **Status:** PROVED / COUNTERCONTROL / AUDIT / ROUTE CUT / NO LEDGER MOVEMENT.
+- **What is being added:** An exact TDD shortening lemma, silent-shell and overlap identities, the minimum-complete-selector identity `intrinsic affine rank = 1 + residual-codeword rank`, and a basis-carrier compression.  The packet applies the carrier owner existentially over selectors, regenerates the TDD on a rank minimizer, proves that intrinsic affine rank at most three fits the remaining KoalaBear budget, and includes an exact `e=1` fixture showing that low local excess does not force the displayed TDD supports themselves to have pairwise common-GCD or cyclic-shift symmetry.
+- **How it is useful:** It removes invalid selector transfer, per-triple carrier, local-rank, and raw-union counting routes and freezes the first unresolved intrinsic-rank stratum as five actual slopes carrying three independent TDD residual codewords at rank four.
+- **What to do next:** Independently review the intrinsic selector quantifiers and rank bridge, then attack only the first rank-four five-slope stratum.  Do not bank a charge or claim branch-3 closure without a global owner or proved bounded-multiplicity injection.
+
 ### 2026-07-16 - KoalaBear branch-3 deep-owner extension and CCL/TDD cut
 
 - **Agent/model:** Codex.

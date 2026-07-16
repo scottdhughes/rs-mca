@@ -1,0 +1,617 @@
+{
+  "schema": "rs-mca-m1-kb-branch3-tdd-excess-v1",
+  "artifact_kind": "M1_KB_BRANCH3_TDD_EXCESS_DEFECT_SPAN_ROUTE_CUT",
+  "status": "PROVED_EXACT_TDD_SHORTENING_DEFECT_SPAN_BRIDGE_RANK3_GLOBAL_TERMINAL_FAIL_CLOSED_NO_LEDGER_MOVEMENT",
+  "source_bindings": [
+    {
+      "binding_id": "packet-note",
+      "path": "experimental/notes/m1/m1_kb_branch3_tdd_excess_v1.md",
+      "sha256": "4f91457c704d937dbadb180cbbe75c1d175c4340e27864b1baa7f0a81318e2db",
+      "role": "human-readable proof and route cut"
+    },
+    {
+      "binding_id": "certificate-readme",
+      "path": "experimental/data/certificates/m1-kb-branch3-tdd-excess-v1/README.md",
+      "sha256": "0aabcb73f1a0553852eb79a0af778ec66b80569989ccf50802bacbc38297bbad",
+      "role": "replay commands and scope summary"
+    },
+    {
+      "binding_id": "python-verifier",
+      "path": "experimental/scripts/verify_m1_kb_branch3_tdd_excess_v1.py",
+      "sha256": "debffa28160d5c8aa3ba1bb1d46f337276a10440eb58bdd0256a092632dc6fe1",
+      "role": "exact arithmetic, finite controls, schema, and mutations"
+    },
+    {
+      "binding_id": "sage-replay",
+      "path": "experimental/scripts/verify_m1_kb_branch3_tdd_excess_v1.sage",
+      "sha256": "6ea0e3b89caa0ceb291a7fe7348fdfbc0c1ef877c40ec09a49f387c4e8604946",
+      "role": "independent GF(17) shortening and TDD replay"
+    },
+    {
+      "binding_id": "predecessor-note",
+      "path": "experimental/notes/m1/m1_kb_branch3_deep_ccl_tdd_v1.md",
+      "sha256": "07bb3f9bbb4918301205cc2f348ac1de496bee36de22a6d440b410e9d0906755",
+      "role": "deep-owner, carrier-first, and TDD predecessor theorem"
+    },
+    {
+      "binding_id": "predecessor-certificate",
+      "path": "experimental/data/certificates/m1-kb-branch3-deep-ccl-tdd-v1/m1_kb_branch3_deep_ccl_tdd_v1.json",
+      "sha256": "cd9772984a75c5c13cf979185cdd4f0911ff1a38287452eb63ad263bf2f7cbb2",
+      "role": "machine-readable predecessor ledger"
+    },
+    {
+      "binding_id": "predecessor-verifier",
+      "path": "experimental/scripts/verify_m1_kb_branch3_deep_ccl_tdd_v1.py",
+      "sha256": "c9343df2a1b677a18c12e1f48ac338b49e481d2af5e526a3dc57e752e2475725",
+      "role": "predecessor semantic and mutation replay"
+    },
+    {
+      "binding_id": "global-carrier-note",
+      "path": "experimental/notes/m1/m1_kb_branch3_low_excess_carrier_cut_v1.md",
+      "sha256": "82b6cd709b6831e6e1685a7db5f4b8ee7824a56516b38ff195ce4b6a2be393b5",
+      "role": "one-global-carrier owner and excess-ten cutoff"
+    },
+    {
+      "binding_id": "global-carrier-certificate",
+      "path": "experimental/data/certificates/m1-kb-branch3-low-excess-carrier-cut-v1/m1_kb_branch3_low_excess_carrier_cut_v1.json",
+      "sha256": "2230ed5f84c62b2e379525f59a740d3872d9ed9310ae9a773227663bf0ae43a9",
+      "role": "machine-readable carrier contract"
+    },
+    {
+      "binding_id": "selected-rank-theorem",
+      "path": "experimental/notes/thresholds/a6_actual_witness_core_rank_preflight.md",
+      "sha256": "40a847b7e0e425d952868cd2f4bfe8db27639051754edbd518754c25d68929a6",
+      "role": "complete selected-witness affine-core set-pair bound"
+    },
+    {
+      "binding_id": "selected-rank-verifier",
+      "path": "experimental/scripts/verify_a6_actual_witness_core_rank_preflight.py",
+      "sha256": "5a18e26803eb1dbc5b43ff65c82d939eac4bf9402040245f5ca412da98052053",
+      "role": "selected-witness theorem replay"
+    },
+    {
+      "binding_id": "all-lineray-theorem",
+      "path": "experimental/notes/thresholds/all_lineray_affine_core_set_pair.md",
+      "sha256": "b69eaeebff0e535936f145dbea0f2ef00dd8a5a3171d46a7f5dbb7cd2d77d60a",
+      "role": "stronger complete-pair affine-core cross-check"
+    },
+    {
+      "binding_id": "all-lineray-certificate",
+      "path": "experimental/data/certificates/all-lineray-affine-core/all_lineray_affine_core.json",
+      "sha256": "e9d26abad7d07a487d5df01195e72865d8cfdf51b7367f62d08461094d7adfc7",
+      "role": "machine-readable complete-pair theorem status"
+    },
+    {
+      "binding_id": "all-lineray-verifier",
+      "path": "experimental/scripts/verify_all_lineray_affine_core.py",
+      "sha256": "9c09559c571e656de5c9cc49539ea4018bfa046d8897e509755ace311fdc6b6a",
+      "role": "complete-pair theorem finite replay"
+    },
+    {
+      "binding_id": "first-match-ledger",
+      "path": "experimental/notes/thresholds/kb_mca_1116048_first_match_ledger_v1.md",
+      "sha256": "34c5aa072783f39c94885b36b810f35a2bb8109eb5f6045aa4cf22fd5c2fb117",
+      "role": "frozen KoalaBear owner ordering and numerator scope"
+    },
+    {
+      "binding_id": "exact-thresholds",
+      "path": "experimental/rs_mca_thresholds.tex",
+      "sha256": "ae662448b90d4db365feed6d8e826a5f7e7cc752b787ae7dc94af41c7c1d0a1e",
+      "role": "RS distance and syndrome-line interfaces"
+    }
+  ],
+  "row": {
+    "row_id": "koalabear-mca-A1116048",
+    "p": 2130706433,
+    "ambient_extension_degree": 6,
+    "q_line": "93571093019388561295270373781649880353786165192103559169",
+    "n": 2097152,
+    "k": 1048576,
+    "agreement_A": 1116048,
+    "redundancy_R": 1048576,
+    "error_cap_j": 981104,
+    "full_row_rank_threshold_t": 67472,
+    "minimum_distance": 1048577,
+    "deep_error_cutoff_r_star": 349525,
+    "surviving_error_weight_floor_L": 349526,
+    "three_times_L": 1048578,
+    "B_star": "274980728111395087",
+    "U_paid": "2602502999",
+    "B_remaining": "274980725508892088"
+  },
+  "predecessor_state": {
+    "source_terminal": "UNPAID_HIGH_UNION_TRIPLE_DISTANCE_DEFECT",
+    "deep_owner_extension_banked": true,
+    "deep_owner_increment": "282054",
+    "global_carrier_checked_first": true,
+    "predecessor_tdd_uses_one_fixed_selector": true,
+    "predecessor_high_union_does_not_transfer_between_selectors": true,
+    "current_packet_reapplies_carrier_existentially": true,
+    "predecessor_tdd_theorem_uniform_over_complete_selectors": true,
+    "rank_minimizing_selector_gets_fresh_tdd_when_family_gt_15": true,
+    "global_carrier_paid_through_excess": 10,
+    "small_family_cap": 15,
+    "tdd_requires_nonzero_defect": true,
+    "tdd_triple_union_lower_bound": 1048577,
+    "branch3_closed_before": false,
+    "branch3_closed_after": false
+  },
+  "tdd_object": {
+    "slopes": "alpha,beta,gamma finite pairwise distinct",
+    "selected_codewords": "c_alpha,c_beta,c_gamma in RS_F(D,k)",
+    "selected_errors": "e_eta=f+eta*g-c_eta",
+    "selected_supports": "E_eta=supp(e_eta)",
+    "defect_formula": "Delta=(beta-gamma)c_alpha+(gamma-alpha)c_beta+(alpha-beta)c_gamma",
+    "error_formula": "Delta=-((beta-gamma)e_alpha+(gamma-alpha)e_beta+(alpha-beta)e_gamma)",
+    "support_union": "U=E_alpha UNION E_beta UNION E_gamma",
+    "support_containment": "supp(Delta) SUBSET U",
+    "nonzero_required": true,
+    "minimum_union_size": 1048577,
+    "triple_excess": "e=|U|-(R+1)",
+    "triple_excess_minimum": 0,
+    "triple_excess_maximum": 1048575,
+    "carrier_excess": "kappa(U)=|U|-R=e+1",
+    "local_e_le_9_implies_global_carrier_payment": false
+  },
+  "excess_factorization": {
+    "complement_locator": "M_U=PRODUCT_(x in D_MINUS_U)(X-x)",
+    "locator_degree": "deg(M_U)=k-1-e",
+    "factorization": "Delta=M_U*Q",
+    "Q_degree_bound": "deg(Q)<=e",
+    "shortened_space_dimension": "e+1",
+    "silent_shell": "U_MINUS_supp(Delta)=U INTERSECT Z(Q)",
+    "silent_shell_bound": "|U_MINUS_supp(Delta)|<=e",
+    "e_zero_projective_multiplicity": 1,
+    "projective_multiplicity": "(q^(e+1)-1)/(q-1)",
+    "projective_multiplicity_is_payment": false,
+    "compressed_records": [
+      {
+        "e": 0,
+        "union_size": 1048577,
+        "complement_size": 1048575,
+        "locator_degree": 1048575,
+        "Q_degree_cap": 0,
+        "shortened_dimension": 1,
+        "carrier_excess": 1
+      },
+      {
+        "e": 1,
+        "union_size": 1048578,
+        "complement_size": 1048574,
+        "locator_degree": 1048574,
+        "Q_degree_cap": 1,
+        "shortened_dimension": 2,
+        "carrier_excess": 2
+      },
+      {
+        "e": 2,
+        "union_size": 1048579,
+        "complement_size": 1048573,
+        "locator_degree": 1048573,
+        "Q_degree_cap": 2,
+        "shortened_dimension": 3,
+        "carrier_excess": 3
+      },
+      {
+        "e": 9,
+        "union_size": 1048586,
+        "complement_size": 1048566,
+        "locator_degree": 1048566,
+        "Q_degree_cap": 9,
+        "shortened_dimension": 10,
+        "carrier_excess": 10
+      },
+      {
+        "e": 10,
+        "union_size": 1048587,
+        "complement_size": 1048565,
+        "locator_degree": 1048565,
+        "Q_degree_cap": 10,
+        "shortened_dimension": 11,
+        "carrier_excess": 11
+      },
+      {
+        "e": 1048573,
+        "union_size": 2097150,
+        "complement_size": 2,
+        "locator_degree": 2,
+        "Q_degree_cap": 1048573,
+        "shortened_dimension": 1048574,
+        "carrier_excess": 1048574
+      },
+      {
+        "e": 1048574,
+        "union_size": 2097151,
+        "complement_size": 1,
+        "locator_degree": 1,
+        "Q_degree_cap": 1048574,
+        "shortened_dimension": 1048575,
+        "carrier_excess": 1048575
+      },
+      {
+        "e": 1048575,
+        "union_size": 2097152,
+        "complement_size": 0,
+        "locator_degree": 0,
+        "Q_degree_cap": 1048575,
+        "shortened_dimension": 1048576,
+        "carrier_excess": 1048576
+      }
+    ]
+  },
+  "overlap_control": {
+    "pair_intersection_sum": "P=SUM_(eta<theta)|E_eta INTERSECT E_theta|",
+    "triple_intersection": "T=|E_alpha INTERSECT E_beta INTERSECT E_gamma|",
+    "identity": "P-T=a_alpha+a_beta+a_gamma-|U|",
+    "maximum_pair_lower_bound": "ceil(max(0,a_alpha+a_beta+a_gamma-R-1-e)/3)",
+    "silent_shell_membership_floor": 2,
+    "deployed_heavy_floor": 349526,
+    "deployed_three_heavy_floor": 1048578,
+    "deployed_R_plus_two": 1048578,
+    "e_zero_forced_P_minus_T": 1,
+    "e_ge_one_forced_P_minus_T": 0,
+    "complete_family_common_gcd_forced": false
+  },
+  "defect_span_bridge": {
+    "selector_scope": "ONE_MINIMUM_AFFINE_RANK_COMPLETE_ACTUAL_WITNESS_SELECTOR",
+    "numerator_scope": "DISTINCT_FINITE_BAD_SLOPES",
+    "one_witness_per_retained_slope_is_complete_for_numerator": true,
+    "all_codewords_at_each_slope_required": false,
+    "selector_set": "Sel(Gamma)=ALL_COMPLETE_VALID_ACTUAL_WITNESS_SELECTORS",
+    "intrinsic_rank": "s_star=MIN_(sigma in Sel(Gamma)) s(sigma)",
+    "intrinsic_global_carrier_excess": "kappa_star=MIN_(sigma in Sel(Gamma)) MAX(0,|UNION E_gamma^sigma|-R)",
+    "selector_set_finite_nonempty_deployed": true,
+    "intrinsic_minimum_attained_deployed": true,
+    "carrier_owner_existential_over_complete_selectors": true,
+    "kappa_star_ge_11_implies_every_selector_high_union": true,
+    "carrier_and_rank_minimizers_may_differ": true,
+    "chosen_selector_attains_intrinsic_minimum": true,
+    "tdd_regenerated_on_chosen_rank_minimizer": true,
+    "tdd_regeneration_family_size_floor": 16,
+    "syndrome_direction_y1_nonzero_from_transversality": true,
+    "anchors": "alpha,beta distinct retained slopes",
+    "code_line": "p+alpha*q=c_alpha AND p+beta*q=c_beta",
+    "received_residuals": "a=f-p,b=g-q",
+    "code_residuals": "r_gamma=c_gamma-(p+gamma*q)",
+    "error_decomposition": "e_gamma=a+gamma*b-r_gamma",
+    "tdd_residual_identity": "Delta_(alpha,beta,gamma)=(alpha-beta)r_gamma",
+    "selected_error_difference_space": "D_sel=span{e_gamma-e_alpha}",
+    "residual_codeword_space": "R_sel=span{r_gamma}",
+    "direct_sum": "D_sel=<b> DIRECT_SUM R_sel",
+    "rank_identity": "s_star=1+dim(R_sel)_FOR_MINIMIZING_SELECTOR",
+    "rank_computed_on_local_triple_only": false,
+    "arbitrary_nonminimizing_selector_certifies_exact_intrinsic_rank": false,
+    "any_complete_selector_rank_le_3_certifies_payment": true,
+    "basis_carrier_support_count": "s_star+1",
+    "basis_carrier_equals_complete_selected_union": true,
+    "basis_carrier_is_canonical": false,
+    "rank_caps": [
+      {
+        "affine_rank_s": 0,
+        "cap": "1",
+        "budget_fits": true
+      },
+      {
+        "affine_rank_s": 1,
+        "cap": "981105",
+        "budget_fits": true
+      },
+      {
+        "affine_rank_s": 2,
+        "cap": "481284001065",
+        "budget_fits": true
+      },
+      {
+        "affine_rank_s": 3,
+        "cap": "157397034144292985",
+        "budget_fits": true
+      },
+      {
+        "affine_rank_s": 4,
+        "cap": "38605872343809750481845",
+        "budget_fits": false
+      }
+    ],
+    "largest_budget_fitting_affine_rank": 3,
+    "rank3_cap": "157397034144292985",
+    "rank4_min_postdeep_cap": "621897958437476295030",
+    "rank4_cap": "38605872343809750481845",
+    "rank3_fits": true,
+    "rank4_min_postdeep_fits": false,
+    "rank4_fits": false,
+    "first_unpaid_intrinsic_affine_rank_stratum": 4,
+    "first_unpaid_defect_span_rank": 3,
+    "first_unpaid_basis_carrier_slopes": 5
+  },
+  "owner_registry": {
+    "first_match_order": [
+      "NAMED_ALREADY_PAID_QUOTIENT_PERIODIC_JOHNSON_COMMON_SUPPORT",
+      "ONE_GLOBAL_CARRIER_EXCESS_LE_10",
+      "COMPLETE_SELECTOR_AFFINE_RANK_LE_3",
+      "FUTURE_DEDUPLICATED_TDD_ROOT_UNION_WITH_PROVED_MULTIPLICITY",
+      "UNPAID_PRIMITIVE_INTRINSIC_RANK3_TDD_SPREAD"
+    ],
+    "global_carrier_requires_complete_union": true,
+    "global_carrier_owner_uses_minimum_over_complete_selectors": true,
+    "carrier_complement_makes_every_complete_selector_high_union": true,
+    "rank_terminal_requires_complete_selector": true,
+    "rank_terminal_charge_once_globally": true,
+    "future_union_owner_proved": false,
+    "forbidden_inferences": [
+      "LOCAL_TRIPLE_e_LE_9_IMPLIES_GLOBAL_CARRIER",
+      "LOCAL_TRIPLE_RANK_IMPLIES_COMPLETE_SELECTOR_RANK",
+      "REPEATED_RANK3_CAP_WITHOUT_BOUNDED_COVER",
+      "TRIPLE_EXCESS_EQUALS_CARRIER_EXCESS",
+      "ONE_KEY_PER_UNION_WITHOUT_INJECTION",
+      "FORCED_OWNER_FOR_COMPATIBLE_PRIMITIVE_COMPONENT"
+    ]
+  },
+  "classifier_contract": {
+    "required_global_inputs": [
+      "ONE_COMPLETE_ACTUAL_WITNESS_SELECTOR",
+      "ACTUAL_NONZERO_ERROR_SUPPORTS",
+      "DECLARED_NONCONTAINMENT_AND_TRANSVERSALITY",
+      "GLOBAL_CARRIER_COMPLETENESS_IF_USED",
+      "MINIMUM_GLOBAL_CARRIER_EXCESS_OVER_ALL_COMPLETE_SELECTORS",
+      "COMPLETE_SELECTOR_AFFINE_RANK_IF_USED",
+      "CERTIFICATE_THAT_THE_RANK_SELECTOR_ATTAINS_s_star",
+      "CERTIFICATE_THAT_THE_RETAINED_FAMILY_HAS_MORE_THAN_15_SLOPES"
+    ],
+    "controls": {
+      "named_owner": {
+        "terminal": "PAID_NAMED_PREDECESSOR_OWNER",
+        "owner": "INVARIANT_QUOTIENT_DESCENT",
+        "cap": null,
+        "ledger_charge_banked_by_this_packet": false
+      },
+      "global_carrier_10": {
+        "terminal": "PAID_GLOBAL_CARRIER_EXCESS_LE_10",
+        "owner": "INTEGRATED_GLOBAL_CARRIER",
+        "cap": "PREDECESSOR_CARRIER_CAP",
+        "ledger_charge_banked_by_this_packet": false
+      },
+      "global_carrier_11": {
+        "terminal": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED",
+        "owner": null,
+        "cap": null,
+        "ledger_charge_banked_by_this_packet": false
+      },
+      "complete_rank_3": {
+        "terminal": "PAID_SELECTED_AFFINE_CORE_RANK_LE_3",
+        "owner": "ACTUAL_SELECTED_WITNESS_CORE_RANK",
+        "cap": "157397034144292985",
+        "ledger_charge_banked_by_this_packet": false
+      },
+      "complete_rank_4": {
+        "terminal": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED",
+        "owner": null,
+        "cap": null,
+        "ledger_charge_banked_by_this_packet": false
+      },
+      "certified_primitive_rank_4": {
+        "terminal": "UNPAID_PRIMITIVE_INTRINSIC_RANK3_TDD_SPREAD",
+        "owner": null,
+        "cap": null,
+        "ledger_charge_banked_by_this_packet": false
+      },
+      "local_triple_rank_2_only": {
+        "terminal": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED",
+        "owner": null,
+        "cap": null,
+        "ledger_charge_banked_by_this_packet": false
+      },
+      "nonminimizing_complete_rank_3": {
+        "terminal": "PAID_SELECTED_AFFINE_CORE_RANK_LE_3",
+        "owner": "ACTUAL_SELECTED_WITNESS_CORE_RANK",
+        "cap": "157397034144292985",
+        "ledger_charge_banked_by_this_packet": false
+      },
+      "nonminimizing_complete_rank_4": {
+        "terminal": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED",
+        "owner": null,
+        "cap": null,
+        "ledger_charge_banked_by_this_packet": false
+      },
+      "small_family_rank_4": {
+        "terminal": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED",
+        "owner": null,
+        "cap": null,
+        "ledger_charge_banked_by_this_packet": false
+      },
+      "missing_witness_contract": {
+        "terminal": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED",
+        "owner": null,
+        "cap": null,
+        "ledger_charge_banked_by_this_packet": false
+      },
+      "undeclared_future_union": {
+        "terminal": "REJECTED_UNDECLARED_FUTURE_OWNER",
+        "owner": null,
+        "cap": null,
+        "ledger_charge_banked_by_this_packet": false
+      },
+      "primitive_default": {
+        "terminal": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED",
+        "owner": null,
+        "cap": null,
+        "ledger_charge_banked_by_this_packet": false
+      }
+    },
+    "deployed_complete_selector_certificate_present": false,
+    "deployed_retained_family_size_gt_15_from_predecessor": true,
+    "deployed_intrinsic_affine_rank_known": false,
+    "deployed_terminal": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED",
+    "classifier_banks_charge": false
+  },
+  "exact_controls": {
+    "big_integer_boundaries": {
+      "rank3_cap": "157397034144292985",
+      "rank3_cap_fits": true,
+      "rank3_remaining": "117583691364599103",
+      "rank4_min_postdeep_cap": "621897958437476295030",
+      "rank4_min_postdeep_cap_fits": false,
+      "rank4_min_postdeep_shortfall": "621622977711967402942",
+      "rank4_cap": "38605872343809750481845",
+      "rank4_cap_fits": false,
+      "rank4_shortfall": "38605597363084241589757",
+      "union_keys_complement_size_at_most_2": "2199024304129",
+      "union_c_le_2_fits": true,
+      "union_keys_complement_size_at_most_3": "1537228672810876929",
+      "union_c_le_3_fits": false,
+      "hypothetical_union_tail_starts_at_e": 1048573,
+      "projective_minimum_for_e_ge_1": "93571093019388561295270373781649880353786165192103559170",
+      "projective_minimum_fits": false,
+      "central_e0_union_log2_lower_bound": 1048575,
+      "central_e0_union_lower_bound_reason": "C(2R,R+1)=C(2R,R)*R/(R+1)>2^(R-1)",
+      "central_e0_union_lower_bound_exceeds_budget": true,
+      "raw_union_or_projective_enumeration_pays": false
+    },
+    "deployed_e1_fixture_arithmetic": {
+      "R_plus_2": 1048578,
+      "three_times_L": 1048578,
+      "identity_R_plus_2_equals_3L": true,
+      "triple_excess": 1,
+      "carrier_excess": 2,
+      "support_weights": [
+        349526,
+        349526,
+        349526
+      ],
+      "pairwise_disjoint_supports": true,
+      "pair_locator_gcd_degree": 0,
+      "displayed_weight_plus_r_star": 699051,
+      "minimum_distance": 1048577,
+      "alternate_deep_witness_excluded": true,
+      "full_row_rank_weight_gate": true,
+      "common_zero_locus_size": 1398100,
+      "common_zero_locus_has_k_points": true,
+      "each_error_zero_mask_size": 1747626,
+      "each_error_zero_mask_contains_A_points": true,
+      "noncontained_exact_A_witness_argument": "K_COMMON_ZEROS_PLUS_OPPOSITE_BLOCK_FOR_SLOPES_0_1_AND_M_U_LINEAR_QUOTIENT_CONTRADICTION_FOR_SLOPE_a",
+      "fixture_is_branch3_counterexample": false,
+      "fixture_paid_by_global_carrier": true,
+      "fixture_paid_by_small_family_predecessor": true,
+      "fixture_purpose": "REJECT_LOW_e_FORCES_DISPLAYED_TDD_SUPPORT_COMMON_GCD_OR_CYCLIC_SHIFT_SYMMETRY",
+      "other_heavy_witnesses_for_same_slopes_classified": false
+    },
+    "python_GF17_control": {
+      "field": 17,
+      "code": {
+        "n": 8,
+        "k": 4,
+        "R": 4,
+        "minimum_distance": 5
+      },
+      "shortened_spaces": [
+        {
+          "excess": 0,
+          "union_size": 5,
+          "locator_degree": 3,
+          "shortened_dimension": 1
+        },
+        {
+          "excess": 1,
+          "union_size": 6,
+          "locator_degree": 2,
+          "shortened_dimension": 2
+        },
+        {
+          "excess": 2,
+          "union_size": 7,
+          "locator_degree": 1,
+          "shortened_dimension": 3
+        }
+      ],
+      "e1_fixture": {
+        "slopes": [
+          0,
+          1,
+          2
+        ],
+        "support_weights": [
+          2,
+          2,
+          2
+        ],
+        "supports_pairwise_disjoint": true,
+        "triple_excess": 1,
+        "carrier_excess": 2,
+        "silent_shell_size": 0,
+        "selected_affine_rank": 2,
+        "residual_codeword_rank": 1,
+        "rank_bridge": true,
+        "post_deep_uniqueness_inequality": true
+      }
+    },
+    "sage_replay_expected_schema": "rs-mca-m1-kb-branch3-tdd-excess-v1-sage-control",
+    "sage_replay_is_deployed_enumeration": false
+  },
+  "charges": [],
+  "ledger": {
+    "U_paid_before": "2602502999",
+    "B_remaining_before": "274980725508892088",
+    "conditional_rank3_cap": "157397034144292985",
+    "conditional_rank3_remaining": "117583691364599103",
+    "conditional_terminal_proved": true,
+    "conditional_terminal_exhaustive_for_deployed_residual": false,
+    "packet_banked_charge": "0",
+    "tdd_charge": null,
+    "affine_core_charge": null,
+    "union_charge": null,
+    "U_paid_after": "2602502999",
+    "B_remaining_after": "274980725508892088",
+    "K_rem": 4807520,
+    "ledger_consequence": false,
+    "branch3_closed": false,
+    "U_2": null,
+    "U_Q": null,
+    "U_A": null,
+    "lhs": null,
+    "row_complete": false,
+    "inequality_status": "UNDECIDED_OPEN_COMPONENTS",
+    "next_attack": "FIRST_INTRINSIC_AFFINE_RANK4_FIVE_SLOPE_THREE_RESIDUAL_TDD_SPREAD"
+  },
+  "audit_sections": {
+    "parameter_dependence": "SHORTENING_OVERLAP_AND_DEFECT_SPAN_FIELD_GENERAL_RANK_CUTOFF_AND_BUDGET_KOALABEAR_SPECIFIC",
+    "layer_cake_dyadic_summability": "NOT_APPLICABLE",
+    "moment_markov_chebyshev": "NOT_APPLICABLE",
+    "numerical_evidence": "EXACT_BIG_INTEGER_AND_GF17_CONTROLS_ONLY_NO_DEPLOYED_FIELD_ENUMERATION_NO_ASYMPTOTIC_EXTRAPOLATION",
+    "edge_cases": [
+      "The TDD must be nonzero; the zero-defect common-code-line family was routed earlier.",
+      "The three slopes are finite and pairwise distinct.",
+      "The triple excess e=|U|-(R+1) lies in [0,k-1].",
+      "The carrier excess of the same union is kappa=e+1.",
+      "M_U is the locator of D minus U, not the locator of U.",
+      "The silent-shell bound uses that M_U is nonzero at every point of U.",
+      "Every silent-shell point has membership in at least two error supports.",
+      "A pair-specific common root is not a complete-family common-GCD owner.",
+      "Affine rank is computed on one complete actual-witness selector.",
+      "The rank-three cap is global once, not a per-triple or per-chart cap.",
+      "Null ledger entries are not zero."
+    ],
+    "remaining_risks": [
+      "The first unpaid affine layer s=4 has no proved global owner.",
+      "High selected-union excess and defect-span rank at least three remain compatible.",
+      "No canonical slope injection or bounded multiplicity theorem for TDD unions is proved.",
+      "The frozen tangent/common-line/residue branch is not globally closed.",
+      "Branches 4 and 5, U_2, U_Q, and U_A remain open.",
+      "The complete KoalaBear row inequality remains undecided."
+    ],
+    "verdict": "GREEN_LOCAL_LEMMAS_RED_LOW_EXCESS_CLOSURE_YELLOW_BRANCH3_AND_ROW"
+  },
+  "nonclaims": [
+    "This packet does not prove the KoalaBear row safe.",
+    "This packet does not close branch 3.",
+    "This packet does not bank a TDD, affine-core, or union charge.",
+    "This packet does not infer a global carrier from one local TDD triple.",
+    "This packet does not infer complete-selector affine rank from three anchors.",
+    "This packet does not sum rank-three caps over an unproved subfamily cover.",
+    "This packet does not identify triple excess e with carrier excess e+1.",
+    "This packet does not treat raw support-union enumeration as an injection.",
+    "This packet does not force a primitive residual into a named owner.",
+    "This packet does not determine U_2, U_Q, or U_A.",
+    "This packet does not begin the degree-three parameter class.",
+    "This packet does not authorize Lean or Paper-D theorem promotion."
+  ],
+  "payload_sha256": "ec23b516a2d816d7435e1e91bf8503b2c25c35f4121e11a7ef58181e5441ea4a"
+}
