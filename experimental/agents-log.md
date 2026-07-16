@@ -30,6 +30,36 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-16 - M1 KoalaBear branch-2 rank/deep owner
+
+- **Agent/model:** Codex, with independent proof, falsification, and
+  certificate-design reviewers.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_kb_branch2_rank_deep_owner_v1.md`;
+  `experimental/scripts/verify_m1_kb_branch2_rank_deep_owner_v1.py`;
+  `experimental/scripts/verify_m1_kb_branch2_rank_deep_owner_v1.sage`;
+  `experimental/data/certificates/m1-kb-branch2-rank-deep-owner-v1/`;
+  `experimental/agents-log.md`.
+- **Status:** PROVED FIELD-NATIVE RANK-DROP POLICY / PROVED SHARP DEEP-MCA
+  OWNER / PROVED DEPLOYED BRANCH-2 CLOSURE / PARTIAL UPPER LEDGER.  The
+  complete KoalaBear row remains open.
+- **What is being added:** On an actual exact-\(A\) bad incidence, the ambient
+  Hankel matrix factors through the actual nonzero error support and has rank
+  `min(t,error_weight)`.  Rank drop therefore lifts the same noncontained
+  witness to agreement `n-t+1`, where Paper D gives the sharp global
+  distinct-slope charge `t=67,472`.  Together with the predecessor's empty
+  finite pivot-failure locus this closes branch 2; the old cyclotomic bridge
+  is retired as unnecessary for the deployed base-slope-v2 ledger, not
+  asserted equivalent.
+- **How it is useful:** It replaces the last undefined branch-2 symbol by a
+  support-independent ambient-rank predicate and named paid owner, updates the
+  proved paid baseline to `2,602,220,945`, and leaves all later owners
+  disjoint by restricting them to the full-row-rank complement.
+- **What to do next:** Build an executable branch-3
+  tangent/common-line/residue-line projector on the branch-2 complement.
+  Keep branches 4--5, the field-full quadratic support union, `U_2`, `U_Q`,
+  `U_A`, and the final row inequality open; do not move to degree three.
+
 ### 2026-07-16 - M1 KoalaBear branch-2 Hankel pivot adapter
 
 - **Agent/model:** Codex, with independent theorem, schema, and exact
