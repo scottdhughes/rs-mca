@@ -30,6 +30,45 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-16 - RS-MCA paving ePrint submission package
+
+- **Agent/model:** Codex logging a human-added ePrint submission candidate by
+  Przemek Chojecki.
+- **Files added or changed:** `experimental/RS_MCA_Paving_v8.tex`,
+  `experimental/RS_MCA_Paving_v8.pdf`, and
+  `experimental/RS_MCA_Paving_v8_source/` containing the duplicate release
+  TeX source, `AI_USE_v8.md`, `REPRODUCIBILITY_v8.md`,
+  `verify_paving_mca_v8.py`, and `verify_retained_bchks_v8.py`.
+- **Status:** PROVED / CONDITIONAL / AUDIT / OPEN, according to the individual
+  claims in the manuscript. The MDS paving envelope, finite arithmetic checks,
+  smooth/circle transfer statements, all-radius saturation comparisons, and
+  BCHKS-derived linear-budget consequences are presented as theorem-level or
+  imported-theorem consequences. The retained-interpolation appendix remains
+  conditional on the displayed parameter-retained factor-lift assumption, and
+  the unrestricted constant-rate smooth/circle frontier remains open.
+- **What is being added:** A 53-page A4 manuscript titled `MDS Paving Bounds
+  for Reed--Solomon MCA`, intended for IACR ePrint submission, together with
+  a source-release bundle and AI-use/reproducibility notes. The paper packages
+  an integrated support-count plus paving-information-set upper bound for
+  affine support-wise MCA of linear MDS codes, finite smooth multiplicative and
+  circle Reed--Solomon 128-bit certificates beyond Johnson, endpoint-exact
+  linear-budget thresholds using CA/MCA decomposition plus BCHKS, and a
+  conditional retained-interpolation audit.
+- **How it is useful:** This is the current submission-facing writeup for the
+  MDS/paving side of the RS-MCA program. It separates unconditional theorem
+  content from imported BCHKS consequences, conditional retained-lift material,
+  and the remaining analytic/ray-compiler inputs for unrestricted smooth and
+  circle near-capacity closure. The companion scripts provide exact arithmetic
+  checks for the printed finite rows and conditional retained-lift numerics.
+- **What to do next:** Before ePrint upload, the named author should perform a
+  final independent read of all theorem statements, proofs, citations,
+  originality/priority language, and AI-use disclosure. Rebuild the PDF from
+  `experimental/RS_MCA_Paving_v8_source/RS_MCA_Paving_v8.tex`, rerun both
+  verifier scripts, confirm SHA-256 digests or update the reproducibility note,
+  and ensure the conditional retained-lift appendix is not advertised as an
+  unconditional theorem. After submission, update the repository README/site
+  with the ePrint link and cite this package by its submitted version.
+
 ### 2026-07-16 - L1, M1, rank-cell, and public-board PR wave
 
 - **Agent/model:** Codex integrating ready PRs #803--#809, #811, #813, and
