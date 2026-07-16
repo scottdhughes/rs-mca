@@ -30,6 +30,15 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-16 - KoalaBear branch-3 actual-core MDS rank ladder
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_kb_branch3_actual_core_mds_rank_ladder_v1.md`, `experimental/data/certificates/m1-kb-branch3-actual-core-mds-v1/`, `experimental/scripts/verify_m1_kb_branch3_actual_core_mds_v1.py`, and `experimental/scripts/verify_m1_kb_branch3_actual_core_mds_v1.sage`.
+- **Status:** PROVED / IMPORTED-THEOREM SPLICE / AUDIT / ROUTE CUT / NO UNCONDITIONAL LEDGER MOVEMENT.
+- **What is being added:** The predecessor's exact complete basis carrier is restricted to a weighted-RS MDS kernel and fed into the integrated actual-core basis-multiplicity theorem.  Exact big-integer caps pay intrinsic selected-witness affine ranks four through eight uniformly; rank nine is paid outside a certified coarse-uniform carrier-size/extension-factor failure region, with larger actual masks and the nonuniform theorem retained as possible further payments.
+- **How it is useful:** It moves the first nonuniform intrinsic-rank wall from four to nine without support-union enumeration or symbolic elimination, while retaining the deployed selector, additive-charge, and ledger hypotheses fail-closed.
+- **What to do next:** Independently review the theorem splice and mutation packet, then apply the nonuniform actual-mask sum inside the coarse rank-nine failure region before attacking any surviving residual or intrinsic rank at least ten.  Do not move the shared ledger, claim branch-3 closure, or promote to Paper D.
+
 ### 2026-07-16 - KoalaBear branch-3 TDD excess and defect-span route cut
 
 - **Agent/model:** Codex.

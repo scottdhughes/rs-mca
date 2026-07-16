@@ -1,0 +1,470 @@
+{
+  "schema": "rs-mca-m1-kb-branch3-actual-core-mds-v1",
+  "artifact_kind": "M1_KB_BRANCH3_ACTUAL_CORE_MDS_RANK_LADDER",
+  "status": "PROVED_IMPORTED_ACTUAL_CORE_MDS_SPLICE_RANKS_4_TO_8_UNIFORM_RANK9_JOINT_CUT_NO_LEDGER_MOVEMENT",
+  "source_bindings": [
+    {
+      "binding_id": "packet-note",
+      "path": "experimental/notes/m1/m1_kb_branch3_actual_core_mds_rank_ladder_v1.md",
+      "sha256": "c56bcafd7d6ffb1c4b8c65ed13b1d7dcb16a7888955de2cfdfc9bd8cc203f0f0",
+      "role": "load-bearing theorem splice"
+    },
+    {
+      "binding_id": "packet-readme",
+      "path": "experimental/data/certificates/m1-kb-branch3-actual-core-mds-v1/README.md",
+      "sha256": "e27f26ba93dc44a6c37c9ac88858464a7935ca8317b227cf10263c6abd1e66af",
+      "role": "replay instructions"
+    },
+    {
+      "binding_id": "packet-verifier",
+      "path": "experimental/scripts/verify_m1_kb_branch3_actual_core_mds_v1.py",
+      "sha256": "67f2cf1a4a61c0746ffffe17d413f9edcd371caa49a21a1262dec277365851a4",
+      "role": "exact certificate verifier"
+    },
+    {
+      "binding_id": "sage-control",
+      "path": "experimental/scripts/verify_m1_kb_branch3_actual_core_mds_v1.sage",
+      "sha256": "8f42fcc92df9738d433f3a159fcb01892b5012af74949b68eee7c58e2672b005",
+      "role": "independent tiny MDS control"
+    },
+    {
+      "binding_id": "predecessor-note",
+      "path": "experimental/notes/m1/m1_kb_branch3_tdd_excess_v1.md",
+      "sha256": "4f91457c704d937dbadb180cbbe75c1d175c4340e27864b1baa7f0a81318e2db",
+      "role": "complete-selector rank and basis-carrier bridge"
+    },
+    {
+      "binding_id": "predecessor-certificate",
+      "path": "experimental/data/certificates/m1-kb-branch3-tdd-excess-v1/m1_kb_branch3_tdd_excess_v1.json",
+      "sha256": "811f425310f2dc43f27995edde8ebf8dd5603fc80dd83bbf84d1ea11ae27550d",
+      "role": "frozen KoalaBear TDD predecessor state"
+    },
+    {
+      "binding_id": "predecessor-verifier",
+      "path": "experimental/scripts/verify_m1_kb_branch3_tdd_excess_v1.py",
+      "sha256": "debffa28160d5c8aa3ba1bb1d46f337276a10440eb58bdd0256a092632dc6fe1",
+      "role": "predecessor replay"
+    },
+    {
+      "binding_id": "actual-core-theorem",
+      "path": "experimental/notes/thresholds/a6_actual_witness_core_rank_preflight.md",
+      "sha256": "40a847b7e0e425d952868cd2f4bfe8db27639051754edbd518754c25d68929a6",
+      "role": "imported actual-core basis-multiplicity theorem"
+    },
+    {
+      "binding_id": "actual-core-verifier",
+      "path": "experimental/scripts/verify_a6_actual_witness_core_rank_preflight.py",
+      "sha256": "5a18e26803eb1dbc5b43ff65c82d939eac4bf9402040245f5ca412da98052053",
+      "role": "imported theorem replay"
+    }
+  ],
+  "row": {
+    "row_id": "koalabear-mca-A1116048",
+    "p": 2130706433,
+    "ambient_extension_degree": 6,
+    "q_line": "93571093019388561295270373781649880353786165192103559169",
+    "n": 2097152,
+    "k": 1048576,
+    "agreement_A": 1116048,
+    "redundancy_R": 1048576,
+    "error_cap_j": 981104,
+    "zero_mask_surplus_Delta0": 67472,
+    "minimum_distance": 1048577,
+    "B_star": "274980728111395087",
+    "U_paid": "2602502999",
+    "B_remaining": "274980725508892088"
+  },
+  "predecessor_contract": {
+    "predecessor_schema": "rs-mca-m1-kb-branch3-tdd-excess-v1",
+    "retained_family_size_gt_15": true,
+    "selector_set": "ALL_COMPLETE_VALID_ACTUAL_WITNESS_SELECTORS",
+    "rank_minimizing_complete_selector_fixed_before_anchors": true,
+    "global_carrier_owner_existential_over_complete_selectors": true,
+    "carrier_complement_kappa_star_minimum": 11,
+    "kappa_star_ge_11_makes_every_complete_selector_high_union": true,
+    "syndrome_line": "H e_eta = y0 + eta*y1 WITH y1 != 0",
+    "selected_error_weight_cap": 981104,
+    "transverse_actual_witness_contract": true,
+    "selected_difference_space": "D_sel=span{e_eta-e_alpha}",
+    "residual_codeword_space": "R_sel=span{r_eta}",
+    "rank_identity": "s_star=1+dim(R_sel)",
+    "basis_carrier_support_count": "s_star+1",
+    "basis_carrier_equals_complete_selected_union": true,
+    "predecessor_first_unpaid_rank": 4,
+    "predecessor_first_unpaid_residual_rank": 3,
+    "predecessor_first_unpaid_basis_supports": 5
+  },
+  "restricted_mds_splice": {
+    "carrier_notation": "N_V=|V|=R+nu",
+    "carrier_excess_range": [
+      11,
+      1048576
+    ],
+    "restriction_preserves_all_selected_weights": true,
+    "restriction_preserves_transversality_support_images": true,
+    "parity_check_dimensions": "R BY (R+nu)",
+    "every_R_columns_independent": true,
+    "restricted_kernel": "[R+nu,nu,R+1]_F_MDS",
+    "restricted_kernel_dimension": "nu",
+    "restricted_kernel_distance": 1048577,
+    "actual_core": "K0=D_sel INTERSECT K_V=R_sel",
+    "actual_core_rank": "r=s_star-1",
+    "imported_witness_budget_t": 981104,
+    "witness_budget_below_redundancy_R": true,
+    "complete_zero_mask_floor": "q=N_V-j=nu+Delta0",
+    "q_minus_kappa_plus_r": "Delta0+s_star-1",
+    "q_at_least_kappa_plus_1": true,
+    "source_minimum_lift": "d_V=MIN{wt(z):H_V z=y1}",
+    "extension_factor": "ell_q=MAX(1,d_V-j)",
+    "only_extension_lower_bound_used": 1,
+    "uniform_mu_formula": "CEIL(BINOM(Delta0+s-1,s-1)/s)",
+    "uniform_cap_formula": "FLOOR(BINOM(n,s)/mu_s)",
+    "carrier_excess_cancels_from_mu": true,
+    "rank_carrier_lift_values_from_same_selector_and_restriction": true,
+    "matched_extension_factor_certificate_required_above_one": true,
+    "cap_applied_once_to_complete_retained_family": true
+  },
+  "rank_ladder": {
+    "scan_range": [
+      4,
+      9
+    ],
+    "rows": [
+      {
+        "intrinsic_affine_rank_s": 4,
+        "residual_core_rank_r": 3,
+        "basis_carrier_supports": 5,
+        "multiplicity_binomial": "51198604050825",
+        "mu_s": "12799651012707",
+        "ambient_binomial": "805948240568759340236800",
+        "cap_B_s": "62966423050",
+        "conditional_total_with_paid_baseline": "65568926049",
+        "margin_to_B_star": "274980662542469038",
+        "fits_remaining_budget": true,
+        "terminal": "PAID_ACTUAL_CORE_MDS_INTRINSIC_RANK_4_TO_8"
+      },
+      {
+        "intrinsic_affine_rank_s": 5,
+        "residual_core_rank_r": 4,
+        "basis_carrier_supports": 6,
+        "multiplicity_binomial": "863669251733366925",
+        "mu_s": "172733850346673385",
+        "ambient_binomial": "338038548162458502571784929280",
+        "cap_B_s": "1956990754759",
+        "conditional_total_with_paid_baseline": "1959593257758",
+        "margin_to_B_star": "274978768518137329",
+        "fits_remaining_budget": true,
+        "terminal": "PAID_ACTUAL_CORE_MDS_INTRINSIC_RANK_4_TO_8"
+      },
+      {
+        "intrinsic_affine_rank_s": 6,
+        "residual_core_rank_r": 5,
+        "basis_carrier_supports": 7,
+        "multiplicity_binomial": "11655562019842479999645",
+        "mu_s": "1942593669973746666608",
+        "ambient_binomial": "118152754527209226882151841514127360",
+        "cap_B_s": "60822165928712",
+        "conditional_total_with_paid_baseline": "60824768431711",
+        "margin_to_B_star": "274919903342963376",
+        "fits_remaining_budget": true,
+        "terminal": "PAID_ACTUAL_CORE_MDS_INTRINSIC_RANK_4_TO_8"
+      },
+      {
+        "intrinsic_affine_rank_s": 7,
+        "residual_core_rank_r": 6,
+        "basis_carrier_supports": 8,
+        "multiplicity_binomial": "131082335662488477569340885",
+        "mu_s": "18726047951784068224191555",
+        "ambient_binomial": "35397653792245531616999600831998019502080",
+        "cap_B_s": "1890289605334110",
+        "conditional_total_with_paid_baseline": "1890292207837109",
+        "margin_to_B_star": "273090435903557978",
+        "fits_remaining_budget": true,
+        "terminal": "PAID_ACTUAL_CORE_MDS_INTRINSIC_RANK_4_TO_8"
+      },
+      {
+        "intrinsic_affine_rank_s": 8,
+        "residual_core_rank_r": 7,
+        "basis_carrier_supports": 9,
+        "multiplicity_binomial": "1263614989738437139700221939845",
+        "mu_s": "157951873717304642462527742481",
+        "ambient_binomial": "9279251582767344425366578485852560826086195200",
+        "cap_B_s": "58747334643050472",
+        "conditional_total_with_paid_baseline": "58747337245553471",
+        "margin_to_B_star": "216233390865841616",
+        "fits_remaining_budget": true,
+        "terminal": "PAID_ACTUAL_CORE_MDS_INTRINSIC_RANK_4_TO_8"
+      },
+      {
+        "intrinsic_affine_rank_s": 9,
+        "residual_core_rank_r": 8,
+        "basis_carrier_supports": 10,
+        "multiplicity_binomial": "10658592438443717273371372062592575",
+        "mu_s": "1184288048715968585930152451399175",
+        "ambient_binomial": "2162214086810115528621218652459420313451300860723200",
+        "cap_B_s": "1825750153566470657",
+        "conditional_total_with_paid_baseline": "1825750156168973656",
+        "margin_to_B_star": "-1550769428057578569",
+        "fits_remaining_budget": false,
+        "terminal": "UNPAID_UNIFORM_WORST_CASE_REQUIRES_RANK9_JOINT_BOUNDARY"
+      }
+    ],
+    "caps_strictly_increasing_on_scan": true,
+    "paid_intrinsic_rank_range": [
+      4,
+      8
+    ],
+    "first_rank_not_uniformly_paid": 9,
+    "rank9_residual_core_rank": 8,
+    "rank9_basis_carrier_supports": 10,
+    "rank9_joint_boundary": [
+      {
+        "extension_factor_ell_q": 1,
+        "mu_9": "1184288048715968585930152451399175",
+        "largest_paid_carrier_size": 1699344,
+        "cap_at_largest_paid_carrier": "274980655093567589",
+        "all_carriers_through_n_paid": false,
+        "first_unpaid_carrier_size": 1699345,
+        "cap_at_first_unpaid_carrier": "274982111442339016"
+      },
+      {
+        "extension_factor_ell_q": 2,
+        "mu_9": "2368576097431937171860304902798350",
+        "largest_paid_carrier_size": 1835392,
+        "cap_at_largest_paid_carrier": "274979688716481326",
+        "all_carriers_through_n_paid": false,
+        "first_unpaid_carrier_size": 1835393,
+        "cap_at_first_unpaid_carrier": "274981037108533587"
+      },
+      {
+        "extension_factor_ell_q": 3,
+        "mu_9": "3552864146147905757790457354197525",
+        "largest_paid_carrier_size": 1919971,
+        "cap_at_largest_paid_carrier": "274980719272689521",
+        "all_carriers_through_n_paid": false,
+        "first_unpaid_carrier_size": 1919972,
+        "cap_at_first_unpaid_carrier": "274982008269651157"
+      },
+      {
+        "extension_factor_ell_q": 4,
+        "mu_9": "4737152194863874343720609805596700",
+        "largest_paid_carrier_size": 1982333,
+        "cap_at_largest_paid_carrier": "274980083166409157",
+        "all_carriers_through_n_paid": false,
+        "first_unpaid_carrier_size": 1982334,
+        "cap_at_first_unpaid_carrier": "274981331609902781"
+      },
+      {
+        "extension_factor_ell_q": 5,
+        "mu_9": "5921440243579842929650762256995875",
+        "largest_paid_carrier_size": 2032097,
+        "cap_at_largest_paid_carrier": "274980460289420065",
+        "all_carriers_through_n_paid": false,
+        "first_unpaid_carrier_size": 2032098,
+        "cap_at_first_unpaid_carrier": "274981678161345263"
+      },
+      {
+        "extension_factor_ell_q": 6,
+        "mu_9": "7105728292295811515580914708395050",
+        "largest_paid_carrier_size": 2073683,
+        "cap_at_largest_paid_carrier": "274980651602358698",
+        "all_carriers_through_n_paid": false,
+        "first_unpaid_carrier_size": 2073684,
+        "cap_at_first_unpaid_carrier": "274981845051604323"
+      },
+      {
+        "extension_factor_ell_q": 7,
+        "mu_9": "8290016341011780101511067159794225",
+        "largest_paid_carrier_size": 2097152,
+        "cap_at_largest_paid_carrier": "260821450509495808",
+        "all_carriers_through_n_paid": true,
+        "first_unpaid_carrier_size": null,
+        "cap_at_first_unpaid_carrier": null
+      }
+    ],
+    "rank9_all_carriers_paid_extension_floor": 7,
+    "rank9_coarse_uniform_failure_predicate": "ell_q_IN_1_TO_6_AND_N_V_GT_N_MAX(ell_q)",
+    "larger_actual_masks_or_nonuniform_sum_may_pay_inside_failure_region": true,
+    "worst_paid_rank": 8,
+    "worst_paid_cap": "58747334643050472",
+    "worst_paid_conditional_total": "58747337245553471",
+    "worst_paid_margin": "216233390865841616",
+    "paid_row_count": 5,
+    "unpaid_row_count": 1,
+    "rank_caps_are_alternatives_not_a_sum": true
+  },
+  "owner_registry": {
+    "first_match_order": [
+      "NAMED_ALREADY_PAID_QUOTIENT_PERIODIC_JOHNSON_COMMON_SUPPORT",
+      "ONE_GLOBAL_CARRIER_EXCESS_LE_10",
+      "COMPLETE_SELECTOR_AFFINE_RANK_LE_3",
+      "ACTUAL_CORE_MDS_INTRINSIC_RANK_4_TO_8",
+      "ACTUAL_CORE_MDS_INTRINSIC_RANK9_JOINT_BOUNDARY",
+      "FUTURE_DEDUPLICATED_TDD_ROOT_UNION_WITH_PROVED_MULTIPLICITY",
+      "UNPAID_BY_COARSE_RANK9_JOINT_OR_RANK_AT_LEAST_10_TDD_SPREAD"
+    ],
+    "actual_core_owner_requires_complete_selector": true,
+    "paid_actual_core_owner_requires_rank_minimizing_selector": false,
+    "unpaid_intrinsic_residual_requires_rank_minimizing_selector": true,
+    "actual_core_owner_applies_once_globally": true,
+    "actual_core_owner_is_not_per_triple": true,
+    "actual_core_owner_is_not_per_rank_sum": true,
+    "future_union_owner_proved": false,
+    "forbidden_inferences": [
+      "ARBITRARY_SELECTOR_RANK_EQUALS_INTRINSIC_RANK",
+      "LOCAL_TRIPLE_RANK_IMPLIES_COMPLETE_SELECTOR_RANK",
+      "REPEATED_ACTUAL_CORE_CAP_WITHOUT_BOUNDED_COVER",
+      "SUM_MUTUALLY_EXCLUSIVE_INTRINSIC_RANK_CAPS",
+      "ELL_Q_EXCEEDS_ONE_WITHOUT_SOURCE_DISTANCE_PROOF",
+      "FORCE_ALL_RANK9_INTO_UNIFORM_RANK8_OWNER",
+      "DISCARD_ACTUAL_RANK9_CARRIER_SIZE_OR_EXTENSION_FACTOR"
+    ]
+  },
+  "classifier_contract": {
+    "cases": {
+      "named_owner": "PAID_NAMED_PREDECESSOR_OWNER",
+      "global_carrier_10": "PAID_ONE_GLOBAL_CARRIER_EXCESS_LE_10",
+      "uncertified_global_carrier_10": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED",
+      "rank_3": "PAID_COMPLETE_SELECTOR_AFFINE_RANK_LE_3",
+      "rank_4": "PAID_ACTUAL_CORE_MDS_INTRINSIC_RANK_4_TO_8",
+      "rank_8": "PAID_ACTUAL_CORE_MDS_INTRINSIC_RANK_4_TO_8",
+      "rank_9": "UNPAID_BY_COARSE_UNIFORM_RANK9_MDS_JOINT_BOUND",
+      "rank_9_boundary_plus_1": "UNPAID_BY_COARSE_UNIFORM_RANK9_MDS_JOINT_BOUND",
+      "rank_9_small_carrier": "PAID_ACTUAL_CORE_MDS_INTRINSIC_RANK9_JOINT_BOUNDARY",
+      "rank_9_extension_7": "PAID_ACTUAL_CORE_MDS_INTRINSIC_RANK9_JOINT_BOUNDARY",
+      "rank_10": "UNPAID_PRIMITIVE_INTRINSIC_RANK_AT_LEAST_10_TDD_SPREAD",
+      "noncomplete_rank_4": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED",
+      "nonminimizing_rank_4": "PAID_ACTUAL_CORE_MDS_INTRINSIC_RANK_4_TO_8",
+      "nonminimizing_rank_9_failure": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED",
+      "nonminimizing_rank_10": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED",
+      "missing_complete_union": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED",
+      "missing_transversality": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED",
+      "missing_weight_contract": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED",
+      "incoherent_selector_data": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED",
+      "unmatched_extension_7": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED",
+      "missing_rank9_carrier": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED",
+      "missing_rank9_extension": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED",
+      "minimal_rank4_call": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED",
+      "unknown_rank": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED",
+      "unknown_carrier_minimum": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED"
+    },
+    "deployed_complete_selector_certificate_present": false,
+    "deployed_intrinsic_affine_rank_known": false,
+    "deployed_terminal": "UNPAID_INTRINSIC_SELECTOR_CLASSIFICATION_NOT_CERTIFIED",
+    "mathematical_dichotomy": "s_star_LE_8_PAID_OR_RANK9_JOINT_TEST_OR_s_star_GE_10_RESIDUAL",
+    "classifier_banks_unconditional_charge": false
+  },
+  "exact_controls": {
+    "derived_arithmetic": {
+      "R_equals_n_minus_k": true,
+      "j_equals_n_minus_A": true,
+      "Delta0_equals_R_minus_j_equals_A_minus_k": true,
+      "B_star_equals_U_paid_plus_B_remaining": true,
+      "carrier_minimum_excess": 11,
+      "carrier_minimum_size": 1048587,
+      "carrier_maximum_size": 2097152
+    },
+    "rank4_anchor": {
+      "binom_67475_3": "51198604050825",
+      "mu_4": "12799651012707",
+      "cap_4": "62966423050",
+      "cap_4_less_than_2_pow_36": true,
+      "cap_4_fits": true
+    },
+    "rank8_boundary": {
+      "cap_8": "58747334643050472",
+      "conditional_total": "58747337245553471",
+      "margin": "216233390865841616",
+      "fits": true
+    },
+    "rank9_boundary": {
+      "cap_9": "1825750153566470657",
+      "shortfall": "1550769428057578569",
+      "uniform_worst_case_fits": false,
+      "ell_1_largest_paid_carrier": 1699344,
+      "ell_1_cap_at_boundary": "274980655093567589",
+      "ell_1_cap_after_boundary": "274982111442339016",
+      "ell_7_cap_at_full_domain": "260821450509495808",
+      "ell_7_pays_full_domain": true
+    },
+    "integer_arithmetic_only": true,
+    "deployed_field_enumeration": false,
+    "sage_control_expected_schema": "rs-mca-m1-kb-branch3-actual-core-mds-v1-sage-control"
+  },
+  "charges": [],
+  "ledger": {
+    "U_paid_before": "2602502999",
+    "B_remaining_before": "274980725508892088",
+    "conditional_paid_rank_range": [
+      4,
+      8
+    ],
+    "conditional_worst_rank_cap": "58747334643050472",
+    "conditional_worst_total": "58747337245553471",
+    "conditional_worst_margin": "216233390865841616",
+    "conditional_terminal_proved": true,
+    "rank9_joint_terminal_proved": true,
+    "rank9_all_carriers_paid_extension_floor": 7,
+    "rank9_ell1_largest_paid_carrier": 1699344,
+    "conditional_terminal_exhaustive_for_deployed_residual": false,
+    "packet_banked_charge": "0",
+    "actual_core_mds_charge": null,
+    "U_paid_after": "2602502999",
+    "B_remaining_after": "274980725508892088",
+    "K_rem": 4807520,
+    "ledger_consequence": false,
+    "branch3_closed": false,
+    "U_2": null,
+    "U_Q": null,
+    "U_A": null,
+    "lhs": null,
+    "row_complete": false,
+    "inequality_status": "UNDECIDED_OPEN_COMPONENTS",
+    "next_attack": "COARSE_UNIFORM_INTRINSIC_RANK9_MDS_JOINT_FAILURE_OR_RANK_AT_LEAST_10_TDD_SPREAD"
+  },
+  "audit_sections": {
+    "statement_audited": "PREDECESSOR_COMPLETE_BASIS_CARRIER_IMPLIES_IMPORTED_ACTUAL_CORE_MDS_CAP_FOR_RANKS_4_TO_8_AND_RANK9_JOINT_CUT",
+    "dependency_status": {
+      "complete_selector_and_basis_carrier": "PROVEN_PREDECESSOR",
+      "restricted_weighted_RS_MDS_kernel": "PROVEN_DIRECT",
+      "actual_core_basis_multiplicity": "IMPORTED_PROVEN_LOCAL_THEOREM",
+      "rank_ladder_arithmetic": "PROVEN_EXACT_BIG_INTEGERS",
+      "deployed_intrinsic_rank": "UNVERIFIED_NOT_NEEDED_FOR_DICHOTOMY",
+      "complete_rank9_payment": "UNPROVEN_PARTIAL_JOINT_CUT_ONLY"
+    },
+    "parameter_dependence": "FIELD_GENERAL_SPLICE_THEN_EXACT_KOALABEAR_N_R_J_DELTA0_AND_BUDGET",
+    "layer_cake_dyadic_summability": "NOT_APPLICABLE",
+    "moment_markov_chebyshev": "NOT_APPLICABLE",
+    "edge_cases": [
+      "ONE_COMPLETE_RANK_MINIMIZING_SELECTOR_ONLY",
+      "BASIS_CARRIER_IS_EXACT_COMPLETE_UNION_NOT_LOCAL_TRIPLE_UNION",
+      "GLOBAL_CARRIER_AND_RANK_MINIMIZERS_NEED_NOT_COINCIDE",
+      "TRANSVERSALITY_SUPPORT_IMAGE_PRESERVED_UNDER_RESTRICTION",
+      "ELL_Q_LOWER_BOUND_ONE_ONLY",
+      "RANK_CAPS_ARE_MUTUALLY_EXCLUSIVE_NOT_ADDITIVE",
+      "RANK9_UNIFORM_FAILURE_DOES_NOT_MEAN_EVERY_RANK9_CASE_FAILS"
+    ],
+    "numerical_evidence": "EXACT_BIG_INTEGER_CERTIFICATE_AND_TINY_GF17_CONTROL_ONLY_NO_DEPLOYED_FIELD_CENSUS_NO_ASYMPTOTIC_EXTRAPOLATION",
+    "verdict": "GREEN_IMPORTED_SPLICE_RANK4_TO_8_AND_RANK9_JOINT_CUT_YELLOW_BRANCH3_AND_ROW",
+    "remaining_risks": [
+      "RANK9_JOINT_FAILURE_REGION_AND_RANK_AT_LEAST_10_REMAIN_OPEN",
+      "NO_DEPLOYED_SELECTOR_CLASSIFICATION_CERTIFICATE",
+      "NO_PROVED_EXTENSION_FACTOR_GAIN_BEYOND_ONE",
+      "BRANCHES_4_AND_5_U2_UQ_UA_AND_ROW_REMAIN_OPEN"
+    ]
+  },
+  "nonclaims": [
+    "This packet does not prove branch 3 closed.",
+    "This packet does not prove the KoalaBear row safe.",
+    "This packet does not bank an unconditional charge.",
+    "This packet does not determine the deployed intrinsic selector rank.",
+    "This packet does not add rank caps or charge them per subfamily.",
+    "This packet does not claim an extension factor ell_q larger than one.",
+    "This packet does not pay the entire intrinsic affine-rank-nine stratum.",
+    "This packet does not prove a canonical TDD-union injection.",
+    "This packet does not determine U_2, U_Q, or U_A.",
+    "This packet does not begin a higher-m or degree-three parameter class.",
+    "This packet does not authorize Lean or Paper-D theorem promotion."
+  ],
+  "payload_sha256": "692c4ad8203b23cd37a2f4f363c103f97eb7959cd5a1d5a7aeb426b48f7a87f3"
+}
