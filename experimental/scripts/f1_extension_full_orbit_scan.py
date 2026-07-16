@@ -3,6 +3,13 @@
 
 Proof status: EXPERIMENTAL / falsifier hunt (CONJECTURAL_WITH_FALSIFIER test).
 
+CORRECTION (2026-07-15): this scanner remains a useful boundedness experiment,
+but the fixed-line complete-Frobenius-orbit parenthetical and the claim that the
+old 4,807,520 prefix-relative floor forces e_Y=0 are withdrawn.  A fixed
+F-valued received line need not be Frobenius-stable; only the aggregate over
+its conjugate received lines or a base-defined eliminant envelope is.  See
+experimental/notes/frontier-adjacent/frontier_extension_fixed_line_audit_v1.md.
+
 Follow-up of PR #343 ("v13 raw: extension-cell targets",
 experimental/notes/frontier-adjacent/frontier_extension_cell_targets_v1.md, S:5,
 "Q4"), named next step in that note and in the wave9_E1.json packet ("Write the
@@ -17,21 +24,20 @@ WHAT THIS TESTS
 paid_extension(a) (agents.md L104-118, note S:0) must upper-bound the
 genuinely-F-valued ("K=F", full Galois orbit) MCA-bad slopes of a fixed
 received F-valued line f_1 + gamma*f_2, gamma in F, after the K=B and B<K<F
-slope-strata are routed away to lower-arity base cells (note S:2). Bit-budget
-analysis (note S:3) forces the target: the K=F locus must be
-*zero-dimensional* (e_Y=0), i.e. its size Delta_ext must be a FIELD-SIZE
-INDEPENDENT CONSTANT, not growing with the base-field size. This script tests
-that prediction directly on toy towers:
+slope-strata are classified separately (note S:2).  The historical packet
+targeted a zero-dimensional, field-size-independent K=F locus.  The correction
+packet shows that this does not follow from its prefix-relative floor, and that
+routing is not yet a disjoint finite payment.  This script still tests the
+boundedness prediction directly on toy towers:
 
     Prediction P  (CONJECTURAL_WITH_FALSIFIER): the K=F bad-slope count for a
     fixed genuinely-F-valued received pair stays BOUNDED as the base prime p0
-    grows (a finite union of complete size-e Frobenius orbits, count O(1)).
+    grows (count O(1)); no fixed-line Frobenius divisibility is assumed.
 
     Falsifier (COUNTEREXAMPLE_NEW_FLOOR): that count GROWS with p0 (e.g.
-    proportionally), which would mean a positive-dimensional (e_Y>=1) chart
-    and (by the note S:3 bit-budget) an unpayable `paid_extension` cell at the
-    deployed margins -- refuting the extension side of the adjacent-pair
-    frontier (agents.md F1, "lift or counterexample").
+    proportionally).  That would refute this boundedness prediction, but the
+    corrected deployed budget must then be assessed by the direct
+    Delta*p^e_Y ledger rather than by the historical prefix-relative floor.
 
 --------------------------------------------------------------------------
 THE OBJECT SCANNED (agents.md "MCA bad slopes" + "Extension-line witnesses"
@@ -1010,7 +1016,8 @@ def run_menu() -> Dict[str, object]:
             "requested menu, negligible collapsing) -- a COUNTEREXAMPLE_NEW_FLOOR-grade growing "
             "count for the f_beta=1/(x-beta), g=x^k pencil at t=1. At slack t>=2 the SAME pencil "
             "gives full_count=0 (in fact aggregate_full_count=0, i.e. NO bad slope of any field at "
-            "all) at every p0 tested, matching Prediction P (e_Y=0) with room to spare. Mechanism "
+            "all) at every p0 tested, matching the boundedness-only Prediction P with room to spare. "
+            "This makes no deployed e_Y or Delta_ext inference. Mechanism "
             "(explains, does not explain away, the split): g=x^k is a single monomial, so a support "
             "of size k+t supplies t linear constraints in the one unknown gamma but g's own "
             "interpolation coefficients can only ever cancel ONE of them; the other t-1 constraints "
@@ -1027,12 +1034,15 @@ def run_menu() -> Dict[str, object]:
     else:
         overall_verdict = (
             "PREDICTION_P_SURVIVES: every scanned (shape,t) growth table is CONSTANT (bounded, "
-            "not tracking p0) on this toy menu -- evidence for e_Y=0 / field-size-independent Delta_ext, "
-            "not a proof"
+            "not tracking p0) on this toy menu -- boundedness evidence only, not a proof and not "
+            "a deployed e_Y / Delta_ext inference"
         )
 
     return {
         "proof_status": "EXPERIMENTAL / falsifier hunt (CONJECTURAL_WITH_FALSIFIER test)",
+        "correction_status": "SUPERSEDED_IN_PART / BOUNDEDNESS_EXPERIMENT_ONLY",
+        "boundedness_only": True,
+        "deployed_dimension_inference": None,
         "theorem_problem_id": "F1 extension-line MCA lift or counterexample (agents.md F1); "
         "paid_extension K=F cell (PR #343 frontier_extension_cell_targets_v1.md S:5 Q4)",
         "determinism": "deterministic exhaustive finite-field sweep; no random seed; stdlib only",

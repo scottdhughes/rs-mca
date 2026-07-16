@@ -1,5 +1,16 @@
 # Frontier-extension-cell targets: naming the `paid_extension` open cell for the four deployed v13 raw rows
 
+> **Material correction (2026-07-15).**  The fixed-line slope-field and budget
+> conclusions in this v1 packet are superseded by
+> `frontier_extension_fixed_line_audit_v1.md`.  For an arbitrary fixed
+> `F`-valued received line, the bad-slope set need not be Frobenius-stable; the
+> full-field count is therefore not automatically a multiple of the extension
+> degree.  Also, `4,807,520` is the primitive Q-fin multiplier `K_rem`, not the
+> direct extension degree ceiling, and the proper-subfield cells are routed but
+> not yet exactly paid.  The exact field arithmetic below remains useful as a
+> historical target calculation, but its fixed-line orbit/payment interpretation
+> must not be consumed as a theorem.
+
 **Repo head this note was audited against:** `5e50037` (upstream `main`).
 **Data:** `experimental/data/certificates/frontier-adjacent/extension_cell_targets_v1.json`.
 **Verifier:** `experimental/scripts/verify_frontier_extension_cell_targets.py` (zero-arg,

@@ -7,7 +7,8 @@
   "topic": "paid_extension cell targets for the U(a0+1) ledger, four deployed v13 raw rows",
   "date": "2026-07-05",
   "repo_head": "5e50037",
-  "status": "CONDITIONAL / AUDIT-derived (exact integer margins; open-part target is a named-input specification, not a proof)",
+  "status": "SUPERSEDED_IN_PART / historical arithmetic target only; do not consume the fixed-line orbit, tower-payment, or direct-extension-ceiling interpretations",
+  "original_status": "CONDITIONAL / AUDIT-derived (exact integer margins; open-part target is a named-input specification, not a proof)",
   "n": 2097152,
   "k": 1048576,
   "rate": "1/2",
@@ -15,6 +16,22 @@
   "scanner_api": "extension_chart_upper(q_gen, charts=[(Delta,e),...]) = sum Delta*q_gen^e  (experimental/scripts/verify_paid_ledger_functions.py L122)",
   "extends_packet_family": "experimental/data/certificates/frontier-adjacent/ -- introduced by PR #329 (frontier-adjacent-v13-rows, an OPEN sibling PR at the time this branch was cut). This file is new (the directory does not exist on this branch's base commit) and uses a filename distinct from all four of #329's packet JSONs, so the two branches merge with no path collisions -- see the companion note's Merge hygiene section.",
   "does_not_pay_the_cell": "This artifact and its companion note record TARGETS and a per-branch PAID/OPEN ledger for paid_extension. They do not certify U(a0+1) <= B_star and do not close the K=F (full-orbit) cell; that cell remains OPEN / CONDITIONAL_ON_NAMED_INPUT."
+ },
+ "supersession": {
+  "status": "SUPERSEDED_IN_PART",
+  "superseded_by_note": "experimental/notes/frontier-adjacent/frontier_extension_fixed_line_audit_v1.md",
+  "superseded_by_certificate": "experimental/data/certificates/frontier-extension-fixed-line-audit-v1/frontier_extension_fixed_line_audit_v1.json",
+  "invalidated_interpretations": [
+   "bad slopes of one arbitrary fixed F-valued line automatically form complete Frobenius orbits",
+   "proper-subfield strata are exactly paid merely because they route to lower arity",
+   "Delta_ext_ceiling_int is a direct extension-chart degree ceiling"
+  ],
+  "retained_as_historical_arithmetic": [
+   "field orders",
+   "challenge budgets",
+   "prefix-relative exact integer floors"
+  ],
+  "acceptance_gate": false
  },
  "fields": {
   "KB": {

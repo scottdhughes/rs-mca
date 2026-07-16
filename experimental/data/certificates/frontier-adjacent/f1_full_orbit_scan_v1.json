@@ -1,4 +1,7 @@
 {
+  "boundedness_only": true,
+  "correction_status": "SUPERSEDED_IN_PART / BOUNDEDNESS_EXPERIMENT_ONLY",
+  "deployed_dimension_inference": null,
   "determinism": "deterministic exhaustive finite-field sweep; no random seed; stdlib only",
   "growth_tables": {
     "chain_t1": {
@@ -185,7 +188,7 @@
       "t": 2
     }
   },
-  "overall_verdict": "SLACK-DEPENDENT SPLIT (flag loudly, scoped to this toy pencil): at slack t=1 (minimal agreement beyond k) full_count == supports_scanned = C(n,k+1) essentially exactly at every p0 tested (verified to p0=13 in follow-up spot checks beyond the requested menu, negligible collapsing) -- a COUNTEREXAMPLE_NEW_FLOOR-grade growing count for the f_beta=1/(x-beta), g=x^k pencil at t=1. At slack t>=2 the SAME pencil gives full_count=0 (in fact aggregate_full_count=0, i.e. NO bad slope of any field at all) at every p0 tested, matching Prediction P (e_Y=0) with room to spare. Mechanism (explains, does not explain away, the split): g=x^k is a single monomial, so a support of size k+t supplies t linear constraints in the one unknown gamma but g's own interpolation coefficients can only ever cancel ONE of them; the other t-1 constraints are then gamma-free conditions purely on f_beta and the support, and for the simple-pole family f_beta=1/(x-beta) those extra conditions are classically nonvanishing divided differences (t=1: no extra condition, so a solution always exists; t>=2: an extra nonvanishing condition kills every candidate). SCOPE CAVEAT: this is a toy pencil (the pre-existing audited f1_extension_slope_sweep.py shape, generalized), not the deployed witness; whether the deployed regime's effective slack sits at this toy family's t=1 or t>=2 analogue is not established here.",
+  "overall_verdict": "SLACK-DEPENDENT SPLIT (flag loudly, scoped to this toy pencil): at slack t=1 (minimal agreement beyond k) full_count == supports_scanned = C(n,k+1) essentially exactly at every p0 tested (verified to p0=13 in follow-up spot checks beyond the requested menu, negligible collapsing) -- a COUNTEREXAMPLE_NEW_FLOOR-grade growing count for the f_beta=1/(x-beta), g=x^k pencil at t=1. At slack t>=2 the SAME pencil gives full_count=0 (in fact aggregate_full_count=0, i.e. NO bad slope of any field at all) at every p0 tested, matching the boundedness-only Prediction P with room to spare. This makes no deployed e_Y or Delta_ext inference. Mechanism (explains, does not explain away, the split): g=x^k is a single monomial, so a support of size k+t supplies t linear constraints in the one unknown gamma but g's own interpolation coefficients can only ever cancel ONE of them; the other t-1 constraints are then gamma-free conditions purely on f_beta and the support, and for the simple-pole family f_beta=1/(x-beta) those extra conditions are classically nonvanishing divided differences (t=1: no extra condition, so a solution always exists; t>=2: an extra nonvanishing condition kills every candidate). SCOPE CAVEAT: this is a toy pencil (the pre-existing audited f1_extension_slope_sweep.py shape, generalized), not the deployed witness; whether the deployed regime's effective slack sits at this toy family's t=1 or t>=2 analogue is not established here.",
   "proof_status": "EXPERIMENTAL / falsifier hunt (CONJECTURAL_WITH_FALSIFIER test)",
   "script": "f1_extension_full_orbit_scan.py",
   "selftests": {

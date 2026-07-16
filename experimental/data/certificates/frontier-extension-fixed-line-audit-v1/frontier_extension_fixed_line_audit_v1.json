@@ -1,0 +1,392 @@
+{
+  "schema": "rs-mca-frontier-extension-fixed-line-audit-v1",
+  "status": "COUNTEREXAMPLE_AND_CONTRACT_CORRECTION",
+  "artifact_kind": "FIXED_LINE_FROBENIUS_AND_EXTENSION_BUDGET_AUDIT",
+  "source_bindings": [
+    {
+      "binding_id": "audit-note",
+      "path": "experimental/notes/frontier-adjacent/frontier_extension_fixed_line_audit_v1.md",
+      "sha256": "7759aec851d87b5599efb6f3d501424b26dfa3d5df17972f850c70d8e150548c",
+      "role": "corrected fixed-line and budget audit"
+    },
+    {
+      "binding_id": "python-verifier",
+      "path": "experimental/scripts/verify_frontier_extension_fixed_line_audit_v1.py",
+      "sha256": "38bdae976bddf11810373726ea827b39fbc2a83b1ff4666ce377154d179192d7",
+      "role": "exact census and mutation verifier"
+    },
+    {
+      "binding_id": "sage-replay",
+      "path": "experimental/scripts/verify_frontier_extension_fixed_line_audit_v1.sage",
+      "sha256": "8c7655c6ca370556e5a3d73345d628a6ae47f377dcd3f362b450baee5233d155",
+      "role": "independent finite-field replay"
+    },
+    {
+      "binding_id": "v1-extension-target-note",
+      "path": "experimental/notes/frontier-adjacent/frontier_extension_cell_targets_v1.md",
+      "sha256": "6f8303566f88168c5cae4621994e03666e5ceff2cb96df64587e9089b81af76a",
+      "role": "superseded target claims"
+    },
+    {
+      "binding_id": "v1-extension-target-packet",
+      "path": "experimental/data/certificates/frontier-adjacent/extension_cell_targets_v1.json",
+      "sha256": "2ce815180c4902939177bae75ba9d29ca9c9714bb52433016e6faab0bc5fd383",
+      "role": "superseded machine target"
+    },
+    {
+      "binding_id": "v1-extension-target-verifier",
+      "path": "experimental/scripts/verify_frontier_extension_cell_targets.py",
+      "sha256": "9a7caec8f9a1f49153d3f4a37f12ae011e5b05338affa5bb45fe03b28e9c7a32",
+      "role": "historical non-gating verifier with stale G8 source path"
+    },
+    {
+      "binding_id": "v1-extension-toy-scanner",
+      "path": "experimental/scripts/f1_extension_full_orbit_scan.py",
+      "sha256": "f542c97233ae10b85c12c92b0022f373552e05c66dc53b5156d7435560adf8e5",
+      "role": "historical boundedness scanner with correction banner"
+    },
+    {
+      "binding_id": "v1-extension-toy-scan-packet",
+      "path": "experimental/data/certificates/frontier-adjacent/f1_full_orbit_scan_v1.json",
+      "sha256": "446056f2d95652135c9701a600d8d9ff0c2151ab2132371bc2684b17693cf7dc",
+      "role": "historical boundedness-only scan output"
+    },
+    {
+      "binding_id": "base-slope-note",
+      "path": "experimental/notes/thresholds/kb_mca_1116048_base_slope_universe_v2.md",
+      "sha256": "265d2fcfc5a55dc7c0e7e6bed5f0f32b6b2ab86638441dbed09b2641cec6b14c",
+      "role": "corrected deployed paid baseline"
+    },
+    {
+      "binding_id": "base-slope-packet",
+      "path": "experimental/data/certificates/kb-mca-1116048-base-slope-universe-v2/kb_mca_1116048_base_slope_universe_v2.json",
+      "sha256": "ffefb3aa56645d06fa14c805c9d8e9b503359fe2e094566b5fb209e8cbe8bece",
+      "role": "machine-readable deployed baseline"
+    },
+    {
+      "binding_id": "base-slope-verifier",
+      "path": "experimental/scripts/verify_kb_mca_1116048_base_slope_universe_v2.py",
+      "sha256": "a860cbd3bd48466ae1ce61e3668ac8aaf2b4453f89731c6c6ab5e5de41ebb579",
+      "role": "exact K_rem replay"
+    },
+    {
+      "binding_id": "minimal-field-descent",
+      "path": "experimental/notes/f1/f1_minimal_field_descent.md",
+      "sha256": "0d3990ae19a8d49f68e1230dc20b618a4fa770b25a9de4c2b2c2a64c0c17fba5",
+      "role": "projective datum field bookkeeping"
+    },
+    {
+      "binding_id": "galois-stabilizer-descent",
+      "path": "experimental/notes/ef/ef_galois_stabilizer_descent.md",
+      "sha256": "a107aa1eec18c38a0965f0487aae3bee10f56477dbfe32fe37223a543837b14a",
+      "role": "component routing only"
+    },
+    {
+      "binding_id": "full-orbit-cycle-descent",
+      "path": "experimental/notes/ef/ef_full_orbit_cycle_descent.md",
+      "sha256": "a678d56f2e77455f83a59814c11dce7f34df053c2bb1fa947c32be6e12e33bcb",
+      "role": "base-defined orbit-union descent"
+    },
+    {
+      "binding_id": "extension-coordinate-transfer",
+      "path": "experimental/notes/f1/f1_extension_coordinate_transfer.md",
+      "sha256": "838652277949d8370d726ca6540fd0984f4e7d3c98bbcc7ca55fb65197ceaac7",
+      "role": "multiplication-slice coordinate model"
+    },
+    {
+      "binding_id": "atlas-zero-chart-packet",
+      "path": "experimental/data/certificates/m1-a4-spi-atlas-manifest-v1/kb_mca_a1116048_base_generated_family.json",
+      "sha256": "a12ac8940574beeb5da09cf177ed57401d2ff754edb3729f3ebe67744dc303cf",
+      "role": "deployed chart provenance gate"
+    },
+    {
+      "binding_id": "dimension-degree-theorem",
+      "path": "tex/cs25_cap_v12.tex",
+      "sha256": "8b988dd2091b46ab37b5c8c78735369e3e7849a8f89fb6739480b7b0d4859dc5",
+      "role": "direct Delta*p^e_Y charge"
+    },
+    {
+      "binding_id": "first-form-aperiodic-ledger",
+      "path": "experimental/cap25_cap_v13_raw.tex",
+      "sha256": "d0a9a766c4218b3faa355fd4da9ebb4937dcd3c9bbf7b94cecc273c5e502d746",
+      "role": "U_A definition and U_paid+U_Q+U_A staircase inequality"
+    }
+  ],
+  "fixed_line_counterexample": {
+    "claim_refuted": "For an arbitrary fixed genuinely F-valued received line, the minimal-field-F bad slopes form complete Frobenius orbits.",
+    "field": {
+      "p": 7,
+      "extension_degree": 6,
+      "order": 117649,
+      "modulus_coefficients_low_to_high": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "modulus_irreducible": true,
+      "basis": [
+        "1",
+        "a",
+        "a^2",
+        "a^3",
+        "a^4",
+        "a^5"
+      ],
+      "generator_encoded": 7,
+      "generator_minimal_field_degree": 6
+    },
+    "code": {
+      "object": "RS[F_(7^6), D=F_7^x, k=3] support-wise finite-slope MCA",
+      "domain_in_base_field": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "n": 6,
+      "k": 3,
+      "agreement_A": 5,
+      "slack_t": 2,
+      "codewords": "evaluations of polynomials of degree less than three"
+    },
+    "received_line": {
+      "f_values_encoded": [
+        42,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "g_values_encoded": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "formula": "f=(-a,0,0,0,0,1), g=(1,0,0,0,0,0)",
+      "pair_minimal_field_degree": 6,
+      "pair_is_base_valued": false,
+      "pair_descends_to_base_after_common_nonzero_scaling": false
+    },
+    "exact_census": {
+      "slopes_enumerated": 117649,
+      "bad_records": [
+        {
+          "slope_encoded": 7,
+          "slope_coefficients_low_to_high": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "minimal_field_degree": 6,
+          "max_agreement": 5,
+          "agreeing_supports_of_size_A": [
+            [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          ],
+          "maximal_agreeing_supports": [
+            [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          ],
+          "word_values_encoded": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "bad_slope_set_encoded": [
+        7
+      ],
+      "full_degree_bad_slope_count": 1,
+      "full_degree_count_divisible_by_six": false,
+      "frobenius_conjugates_of_a_encoded": [
+        7,
+        35,
+        28,
+        42,
+        14,
+        21
+      ],
+      "bad_set_frobenius_stable": false,
+      "a_pth_power_is_bad": false
+    },
+    "local_support_checks_for_the_unique_bad_slope": {
+      "support_indices": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "support_domain_points": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "exact_agreement_not_global_codeword": true,
+      "f_restriction_is_codeword": false,
+      "g_restriction_is_codeword": false,
+      "simultaneously_explained_on_support": false,
+      "earlier_owner_partition_complete": false,
+      "use_of_counterexample": "refutes automatic fixed-line Frobenius closure only"
+    },
+    "verdict": "COUNTEREXAMPLE_TO_FIXED_LINE_FROBENIUS_ORBIT_CLAIM"
+  },
+  "koalabear_budget_audit": {
+    "row": {
+      "p": 2130706433,
+      "extension_degree": 6,
+      "q_line": "93571093019388561295270373781649880353786165192103559169",
+      "n": 2097152,
+      "k": 1048576,
+      "agreement_A": 1116048,
+      "j": 981104,
+      "t": 67472,
+      "w": 67471,
+      "B_star": "274980728111395087"
+    },
+    "baseline": {
+      "residual_base_slope_charge": "2130706433",
+      "terminal_quotient_charge": "471447040",
+      "U_paid": "2602153473",
+      "B_rem": "274980725509241614",
+      "U_Q": null,
+      "U_A": null
+    },
+    "K_rem_qfin": {
+      "value": 4807520,
+      "formula": "floor(B_rem*p^w/binom(n,j))",
+      "role": "primitive Q-fin max-fiber multiplier relative to the prefix-fiber average",
+      "is_direct_extension_degree_ceiling": false,
+      "binom_bit_length": 2090874,
+      "p_to_w_bit_length": 2090838,
+      "computed_K_rem": 4807520
+    },
+    "direct_extension_dimension_degree_ledger": {
+      "charge_formula": "Delta*p^e_Y",
+      "total_open_inequality": "U_Q+U_A<=B_rem",
+      "extension_charge_is_component_of": "U_A",
+      "required_disjoint_decomposition": "U_A=U_ext+U_A_other",
+      "component_available_reserve_formula": "B_rem-U_Q-U_A_other",
+      "U_A_other": null,
+      "all_remainder_allocation_is_provisional": true,
+      "provisional_allocation_assumption": "U_Q=U_A_other=0",
+      "max_Delta_if_e_Y_0_and_U_Q_U_A_other_zero": "274980725509241614",
+      "max_Delta_if_e_Y_1_and_U_Q_U_A_other_zero": 129056129,
+      "p_squared": "4539909903627583489",
+      "e_Y_1_forced_out_by_direct_budget": false,
+      "positive_degree_e_Y_ge_2_forced_out_by_direct_budget": true
+    },
+    "verdict": "K_REM_IS_NOT_THE_DIRECT_EXTENSION_CEILING"
+  },
+  "routing_audit": {
+    "base_slope_stratum": {
+      "status": "PAID_BY_GLOBAL_BASE_SLOPE_UNIVERSE",
+      "charge": "2130706433"
+    },
+    "proper_subfield_strata": {
+      "degrees": [
+        2,
+        3
+      ],
+      "status": "ROUTED_NOT_EXACTLY_PAID",
+      "reason": "minimal-field and stabilizer descent identify lower-arity targets but do not supply disjoint finite charges for the deployed row",
+      "may_be_subtracted_from_extension_numerator_now": false
+    },
+    "full_field_stratum": {
+      "degree": 6,
+      "fixed_line_bad_set_need_not_be_frobenius_stable": true,
+      "base_defined_eliminant_root_envelope_is_frobenius_stable": true,
+      "inclusion_exclusion_formula_for_base_defined_eliminant": "deg(g6)-deg(g3)-deg(g2)+deg(g1)",
+      "formula_counts_only_minimal_degree_six_roots": true,
+      "formula_is_not_the_whole_extension_charge_until_tower_strata_paid": true
+    },
+    "verdict": "ROUTING_IS_NOT_PAYMENT"
+  },
+  "supersession_gate": {
+    "machine_artifact": "experimental/data/certificates/frontier-adjacent/extension_cell_targets_v1.json",
+    "scanner": "experimental/scripts/f1_extension_full_orbit_scan.py",
+    "scanner_packet": "experimental/data/certificates/frontier-adjacent/f1_full_orbit_scan_v1.json",
+    "status": "SUPERSEDED_IN_PART",
+    "invalidated_interpretations": [
+      "bad slopes of one arbitrary fixed F-valued line automatically form complete Frobenius orbits",
+      "proper-subfield strata are exactly paid merely because they route to lower arity",
+      "Delta_ext_ceiling_int is a direct extension-chart degree ceiling"
+    ],
+    "historical_acceptance_gate": false,
+    "reverse_link_verified": true,
+    "scanner_banner_verified": true,
+    "scanner_output_boundedness_only": true
+  },
+  "deployed_chart_gate": {
+    "source_packet_charts_count": 0,
+    "represented_units": 0,
+    "locator_chart_id": "UNMAPPED_SPI_CHART",
+    "rank_s": null,
+    "pivot_rows": [],
+    "pivot_cols": [],
+    "extension_valued_excluded": true,
+    "source_derived_deployed_extension_chart_exists": false,
+    "missing_inputs": [
+      "fixed deployed received pair or uniform symbolic received-pair chart",
+      "locator patch equations and localization",
+      "pinned F_(p^6) modulus and basis",
+      "rank and pivot witnesses",
+      "branch-1-through-5 complement equations",
+      "localized eliminant or dimension-degree projection certificate"
+    ],
+    "terminal": "UNPAID_PRIMITIVE",
+    "verdict": "RED_NO_SOURCE_DERIVED_DEPLOYED_CHART"
+  },
+  "corrected_contract": {
+    "actual_fixed_line_bad_count": "count directly or by an eliminant over F; no Frobenius divisibility assumed",
+    "base_eliminant_root_envelope": "if E is in F_p[Z], minimal-degree-six roots use inclusion-exclusion and occur in six-orbits",
+    "arbitrary_F_coefficient_eliminant": "a coefficient norm may give an F_p envelope with degree at most six times larger",
+    "tower_strata": "UNPAID_TOWER until exact disjoint lower-arity charges are cited",
+    "extension_charge": "sum Delta*p^e_Y directly",
+    "total_open_inequality": "U_Q+U_A<=B_rem",
+    "extension_component_accounting": "after a disjoint U_A=U_ext+U_A_other partition, U_ext<=B_rem-U_Q-U_A_other",
+    "chart_terminal_without_source_binding": "UNPAID_PRIMITIVE",
+    "historical_v1_verifier_is_acceptance_gate": false,
+    "historical_v1_verifier_non_gating_reason": "it verifies the superseded ceiling semantics and currently fails only its stale G8 source path",
+    "superseded_v1_machine_artifact": "experimental/data/certificates/frontier-adjacent/extension_cell_targets_v1.json",
+    "no_row_claim": true
+  },
+  "nonclaims": [
+    "The counterexample does not refute zero-dimensionality or a field-size-independent extension bound.",
+    "The counterexample is an exact rate-1/2 t=2 toy, not a deployed KoalaBear received line.",
+    "The packet does not pay the F_(p^2) or F_(p^3) tower strata.",
+    "The packet does not supply a source-derived deployed SPI chart or eliminant.",
+    "The packet does not determine U_Q, U_A, U_A_other, or the final KoalaBear inequality.",
+    "The all-remainder dimension caps are provisional allocations, not banked charges."
+  ],
+  "payload_sha256": "f6747d646c459f5829ea624f54f8c2e73632a4892bc8e33e3aa09d4c532dcfc5"
+}

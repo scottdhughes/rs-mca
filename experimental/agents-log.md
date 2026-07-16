@@ -30,6 +30,32 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-15 - Fixed-line extension Frobenius and budget correction
+
+- **Agent/model:** Codex, with independent source, certificate-design, and
+  mathematical proof-audit agents.
+- **Files added or changed:**
+  `experimental/notes/frontier-adjacent/frontier_extension_fixed_line_audit_v1.md`;
+  `experimental/notes/frontier-adjacent/frontier_extension_cell_targets_v1.md`;
+  `experimental/data/certificates/frontier-adjacent/extension_cell_targets_v1.json`;
+  `experimental/scripts/f1_extension_full_orbit_scan.py`;
+  `experimental/data/certificates/frontier-adjacent/f1_full_orbit_scan_v1.json`;
+  `experimental/scripts/verify_frontier_extension_fixed_line_audit_v1.py`;
+  `experimental/scripts/verify_frontier_extension_fixed_line_audit_v1.sage`;
+  `experimental/data/certificates/frontier-extension-fixed-line-audit-v1/`;
+  `experimental/agents-log.md`.
+- **Status:** COUNTEREXAMPLE / AUDIT.  No deployed row is promoted.
+- **What is being added:** An exact rate-`1/2`, `t=2` `F_(7^6)/F_7` RS-MCA line whose
+  unique full-degree bad slope is not Frobenius-stable, plus a corrected
+  KoalaBear ledger separating the direct `Delta*p^e_Y` extension charge from
+  the Q-fin multiplier `K_rem=4,807,520`.
+- **How it is useful:** It blocks fixed-line orbit divisibility, prevents
+  routed proper-subfield cells from being called paid, and records that #810
+  still supplies no source-derived deployed extension chart.
+- **What to do next:** Add a v2 chart-binding contract and derive one chart
+  from a hash-bound received pair or uniform symbolic source; otherwise retain
+  `UNPAID_PRIMITIVE` with the exact obstruction equations.
+
 ### 2026-07-15 - M1 A4 fail-closed SPI atlas manifest
 
 - **Agent/model:** Codex, with two fresh independent hostile-review agents.
