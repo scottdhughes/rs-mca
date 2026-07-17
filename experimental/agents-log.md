@@ -39,6 +39,36 @@ Keep entries concise and link to the relevant files.
 - **How it is useful:** Triage can promote only the bounded route-cut conclusions while refusing a paid predecessor cell at the one-cut interface and refusing to consume the unpaid sparse terminal as an owner; the repaired guard is at `experimental/notes/m1/m1_kb_branch3_rank9_mask_deficit_route_cut_v1.md:355-365 @ 633ceb10` and `experimental/scripts/verify_m1_kb_branch3_rank9_mask_deficit_v1.py:477-486,1176-1182 @ a1eada87`, and the neutral terminal schema is at `experimental/scripts/verify_m1_kb_branch3_rank9_syndrome_rank_reduction_v1.py:548-550,574-590,776-797 @ 2a2e1510`. The breaking schema/hash repair affects open PR #883 head `9810a7b4`, PR #886 head `7b3177c2`, PR #887 head `8904b7af`, PR #889 head `6c268b57`, PR #895 head `34e08af5`, PR #896 head `aa66f483`, PR #898 head `7a20a509`, PR #899 head `c68f673c`, PR #901 head `1e37d22f`, PR #906 head `bb5e2fff`, PR #907 head `aa0fe903`, PR #908 head `1ead0a7b`, and PR #909 head `aec5127e`, as recorded in `experimental/notes/audits/m1_kb_branch3_route_cut_stack_audit.md:91-104 @ 941a6c4f`; each must migrate and regenerate before rebase.
 - **What to do next:** Run `python3 experimental/scripts/verify_m1_kb_branch3_route_cut_stack_audit.py --check` (`experimental/scripts/verify_m1_kb_branch3_route_cut_stack_audit.py @ 85179694`), expecting final line `STATUS: AUDIT`, and its `--tamper-selftest`, expecting `PASS tamper-selftest: 14/14 mutations rejected`; then run `python3 experimental/scripts/verify_m1_kb_branch3_actual_core_mds_v1.py --check` (`experimental/scripts/verify_m1_kb_branch3_actual_core_mds_v1.py @ ca8e6771`), `python3 experimental/scripts/verify_m1_kb_branch3_rank9_mask_deficit_v1.py --check` (`experimental/scripts/verify_m1_kb_branch3_rank9_mask_deficit_v1.py @ a1eada87`), and `python3 experimental/scripts/verify_m1_kb_branch3_rank9_syndrome_rank_reduction_v1.py --check` (`experimental/scripts/verify_m1_kb_branch3_rank9_syndrome_rank_reduction_v1.py @ 2a2e1510`), expecting respectively `PASS m1-kb-branch3-actual-core-mds-v1`, `PASS rs-mca-m1-kb-branch3-rank9-mask-deficit-v1`, and `PASS rs-mca-m1-kb-branch3-rank9-syndrome-rank-reduction-v1`; their `--tamper-selftest` runs must reject `58/58`, `67/67`, and `68/68` mutations, and all eight commands must repeat unchanged with `python3 -O`. Migrate the listed open consumers to `terminals` and `sparse_route_paid_here`, regenerate their frozen hashes, and keep every unpaid boundary explicit pending a proved cumulative-tail or sparse-sigma input.
 
+### 2026-07-17 - Rank-nine t=2 source-compatible cyclic controls
+
+- **Agent/model:** Codex, with independent cap-arithmetic and note audits.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_kb_branch3_rank9_t2_source_compatible_control_v1.md`,
+  `experimental/data/certificates/m1-kb-branch3-rank9-t2-source-compatible-control-v1/`,
+  `experimental/scripts/verify_m1_kb_branch3_rank9_t2_source_compatible_control_v1.py`,
+  `experimental/scripts/verify_m1_kb_branch3_rank9_t2_source_compatible_control_v1.sage`,
+  and `experimental/agents-log.md`.
+- **Status:** PROVED exact toy source-compatibility controls / PROVED exact
+  two-slope deep exits and complete-selector post-deep low-carrier exits /
+  deployed implication OPEN / no ledger movement.
+- **What is being added:** Two exact cyclic extension-field controls for the
+  three-coordinate, `t=2` source equation.  In each row the full finite
+  frontier is all field slopes: two weight-two zero-polynomial exceptions are
+  paid by the extended deep owner, while the remaining `q-2` nonzero-locator
+  slopes form the exhaustive post-deep inventories.  The order-35 row has an
+  exact 21-plus-8 affine-rank-nine local family and post-deep structural excess
+  at most ten.  The minimal post-deep high-carrier-capable order-36 row has a
+  local excess-eleven family, while an exhaustive fixed-root selector has
+  excess five.
+- **How it is useful:** It tests source compatibility, exact full-selector
+  quantifiers, ranks, Hankel/Frobenius controls, and the existing low-carrier
+  owner beyond the earlier `t=1` toy.  Both received pairs exit through deep
+  or at-or-before low carrier; neither supplies a deployed rank-nine residual.
+- **What to do next:** Use these as exact controls when deriving the deployed
+  source-compatible selector incidence.  Do not infer KoalaBear closure,
+  move the deployed ledger, promote the selected local families, or start
+  rank at least ten from this packet.
+
 ### 2026-07-17 - Rank-nine cyclic rich-pencil complete-selector toy closure
 
 - **Agent/model:** Codex with independent complete-selector and quantifier
