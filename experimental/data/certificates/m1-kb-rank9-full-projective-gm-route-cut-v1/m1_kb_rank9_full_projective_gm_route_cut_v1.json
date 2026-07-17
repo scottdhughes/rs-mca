@@ -1,0 +1,445 @@
+{
+  "artifact_kind": "M1_RANK9_FULL_PROJECTIVE_EXTENSION_SLOPE_GENERIC_LOCAL_ROUTE_CUT",
+  "audit_sections": {
+    "dependencies": "PROVED predecessors plus exact new scalar extension/twist",
+    "deployed_payment_verdict": "YELLOW",
+    "layer_cake_dyadic_summability": "NOT_APPLICABLE",
+    "local_verdict": "GREEN",
+    "moment_markov_chebyshev": "NOT_APPLICABLE",
+    "numerical_evidence": "exact finite-field identities, not a deployed census",
+    "parameter_dependence": "exact finite control over GF((2^23)^6); not asymptotic"
+  },
+  "exact_control": {
+    "carrier": {
+      "N_V": 23,
+      "R": 12,
+      "kappa_star_on_declared_selector": 11,
+      "nu": 11,
+      "restricted_MDS_distance": 13,
+      "restricted_kernel_dimension": 11
+    },
+    "construction": {
+      "all_eta_degree_six_over_base": true,
+      "all_eta_outside_base": true,
+      "code_polynomials_sha256": "69a20d5ed4c73a5e519bf7741cbb2a1cc0cd0d457a8f7dd85722e6d11d72246b",
+      "declared_slope_count": 55,
+      "distinct_base_gamma_count": 55,
+      "distinct_extension_eta_count": 55,
+      "errors_sha256": "a5294fc46631197cd0097377d54faa1b55a156200d51315274eb9ec02c667675",
+      "eta_sha256": "2bf1e5e42f7e2f8b288885d3460d0a700c8474bd82e180182b529cfbef88c0c2",
+      "five_cores": [
+        [
+          3,
+          5,
+          6,
+          7,
+          9,
+          11,
+          13,
+          16,
+          17,
+          20,
+          21
+        ],
+        [
+          0,
+          2,
+          3,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          13,
+          19
+        ],
+        [
+          1,
+          2,
+          4,
+          6,
+          7,
+          8,
+          10,
+          15,
+          17,
+          20,
+          21
+        ],
+        [
+          2,
+          3,
+          5,
+          9,
+          11,
+          12,
+          13,
+          14,
+          19,
+          20,
+          21
+        ],
+        [
+          0,
+          1,
+          2,
+          5,
+          6,
+          12,
+          14,
+          15,
+          18,
+          20,
+          21
+        ]
+      ],
+      "gamma_sha256": "50bb23abae76b045ec1c485e533640dd3e7df79c9204179b4cde5f580dc9faeb",
+      "locators_sha256": "ca4c89100108c2877a0ebf1b538b76bfad481f88ad1413e042f688256e54ed34",
+      "root_set_count": 55,
+      "root_sets_sha256": "6d22947d8b923618ed0d731fc63746614a48ce1ae634e74101bed0f266b6bb40"
+    },
+    "domain": {
+      "a_integer_encoding": 0,
+      "all_distinct": true,
+      "b_integer_encoding": 1,
+      "c_integer_encoding": 39185290820365042914290453534896981221090,
+      "contained_in_base_field": true,
+      "domain_sha256": "deb5d152639c27b90561707ab1b630c12cb09c2b515a601693f0910245749ddf",
+      "dual_weights_sha256": "3f50a6aa0788eec7768ed228d93b150a745f4323da6fd4c359f857d9493b29d6",
+      "formula": "z_i=(1-v^(2^i))^(-1), 0<=i<22",
+      "moving_point_count": 22
+    },
+    "field_tower": {
+      "absolute_degree": 138,
+      "alpha_has_degree_six_over_base": true,
+      "alpha_integer_encoding": 2,
+      "ambient_cardinality": 348449143727040986586495598010130648530944,
+      "ambient_modulus": "x^138 + x^8 + x^7 + x + 1",
+      "ambient_modulus_irreducible": true,
+      "base_cardinality": 8388608,
+      "base_degree": 23,
+      "base_generator_exponent": 41538379820039368465645797688475649,
+      "base_generator_integer_encoding": 39185290820365042914290453534896981221090,
+      "base_generator_order": 8388607,
+      "base_generator_order_prime_factors": [
+        47,
+        178481
+      ],
+      "characteristic": 2,
+      "extension_degree_over_base": 6
+    },
+    "gm_fixed_domain_subtuple": {
+      "all_intersection_inequalities_hold": true,
+      "coefficient_width_K": 12,
+      "fixed_domain_locator_rank": 11,
+      "indices": [
+        0,
+        1,
+        2,
+        11,
+        12,
+        22,
+        23,
+        33,
+        34,
+        44,
+        45
+      ],
+      "inequality_count": 2047,
+      "locator_degree_j": 11,
+      "minimum_slack_by_subset_size": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1,
+        0
+      ],
+      "nonzero_minor": {
+        "columns": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "determinant_integer_encoding": 250042709456247231481868269153072877194850
+      },
+      "support_count": 11,
+      "tight_inequality_count": 20
+    },
+    "projective_syndrome_field": {
+      "absolute_frobenius_augmented_ranks": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "global_syndrome_rank": 2,
+      "intrinsic_projective_field_is_full_ambient": true,
+      "relative_frobenius_augmented_ranks": [
+        3,
+        3,
+        3
+      ],
+      "test_applied_to_global_pair_not_support_quotient": true,
+      "tested_absolute_proper_subfield_degrees": [
+        1,
+        2,
+        3,
+        6,
+        23,
+        46,
+        69
+      ],
+      "tested_relative_intermediate_degrees_over_base": [
+        1,
+        2,
+        3
+      ]
+    },
+    "row": {
+      "R_minus_j": 1,
+      "agreement_A": 14,
+      "k": 13,
+      "n": 25,
+      "radius_j": 11,
+      "redundancy_R": 12,
+      "sparse_support_size": 3
+    },
+    "selector": {
+      "affine_difference_rank_s_star": 9,
+      "all_full_weight": true,
+      "all_non_tangent": true,
+      "all_regular_on_t1_chart": true,
+      "all_squarefree_base_split_locators": true,
+      "all_transverse": true,
+      "basis_indices": [
+        0,
+        1,
+        11,
+        12,
+        22,
+        23,
+        33,
+        34,
+        44,
+        45
+      ],
+      "basis_supports_recover_carrier": true,
+      "complete_on_declared_Gamma": true,
+      "declared_Gamma_exhausts_full_bad_set": false,
+      "declared_Gamma_is_proper_subfamily": true,
+      "locator_vector_rank": 11,
+      "rank_minimizing_on_declared_Gamma_because_unique": true,
+      "raw_witness_rank_t": 10,
+      "unique_noncontained_witness_per_declared_slope": true
+    },
+    "unique_witness_proof": {
+      "ambient_twelve_subset_count": 646646,
+      "canonical_padded_H2_locator_zero": true,
+      "canonical_padded_support_indices": [
+        0,
+        1,
+        24,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "every_size_j_padding_contains_b": true,
+      "g_support_indices": [
+        1
+      ],
+      "possible_nonzero_agreement_profiles_before_base_separation": [
+        [
+          11,
+          3
+        ],
+        [
+          12,
+          2
+        ],
+        [
+          12,
+          3
+        ]
+      ],
+      "profiles_involving_c_eliminated_by_alpha_not_in_base": [
+        [
+          11,
+          3
+        ],
+        [
+          12,
+          2
+        ],
+        [
+          12,
+          3
+        ]
+      ],
+      "remaining_E_agreements": [
+        "a",
+        "b"
+      ],
+      "remaining_noncontained_profile": [
+        12,
+        2
+      ],
+      "twelve_subset_product_map_injective": true,
+      "zero_codeword_discrepancy_support_indices": [
+        0,
+        1,
+        24
+      ],
+      "zero_codeword_witness_is_same_support_contained": true
+    }
+  },
+  "nonclaims": [
+    "This packet does not instantiate the deployed KoalaBear subgroup domain.",
+    "This packet does not assert that declared Gamma exhausts the full bad-slope set.",
+    "This packet does not prove that the declared slopes survive the deployed first-match order.",
+    "This packet does not execute periodic, quotient, Johnson, B11, C5-payment, or sparse-sigma owners.",
+    "This packet does not convert one GM-admissible tuple into a count for the complete retained family.",
+    "This packet does not move U_paid or B_remaining.",
+    "This packet does not close rank nine, branch 3, sparse sigma, or the KoalaBear row.",
+    "This packet does not attack intrinsic rank at least ten.",
+    "This packet does not authorize Lean or stable-paper promotion."
+  ],
+  "payload_sha256": "ed3bd0e05d448b9c2fb0c15d1d9a300c93499596c42f0bdaedc7bcc15db05f5c",
+  "route_cut": {
+    "full_bad_family_or_deployed_first_match_strengthened_statement_refuted": false,
+    "generic_local_strengthened_shortcut_refuted": true,
+    "ledger_movement": 0,
+    "missing_load_bearing_inputs": [
+      "deployed KoalaBear subgroup domain",
+      "complete retained-family exhaustion",
+      "deployed first-match survival",
+      "a theorem converting the local tuple into a complete-family count"
+    ],
+    "owner_assignment": "NOT_CLASSIFIED_LOCAL_COMPATIBILITY_CONTROL_ONLY",
+    "refuted_implication": "base-domain + extension-valued slopes + full projective syndrome field + regular rank-nine selector + GM-admissible fixed-domain rank-eleven subtuple does not force emptiness, GM failure, fixed-domain rank drop, or selector rank above nine"
+  },
+  "schema": "rs-mca-m1-kb-rank9-full-projective-gm-route-cut-v1",
+  "scope_guards": {
+    "branch_three_closed": false,
+    "complete_retained_family_bound_claimed": false,
+    "control_only_n25_j11": true,
+    "declared_Gamma_exhausts_full_bad_set": false,
+    "deployed_first_match_masks_checked": false,
+    "koalabear_domain_instantiated": false,
+    "koalabear_row_closed": false,
+    "lean_authorized": false,
+    "ledger_movement": 0,
+    "periodic_quotient_Johnson_B11_owner_claimed": false,
+    "proper_field_C5_payment_claimed": false,
+    "rank_nine_closed": false
+  },
+  "source_bindings": [
+    {
+      "binding_id": "packet-note",
+      "path": "experimental/notes/m1/m1_kb_rank9_full_projective_gm_route_cut_v1.md",
+      "role": "exact theorem, uniqueness proof, and scope",
+      "sha256": "e3c1b0ddd057074902e945f8c8dfb9460725a7c2d24f569833ced95c85186d1f"
+    },
+    {
+      "binding_id": "packet-readme",
+      "path": "experimental/data/certificates/m1-kb-rank9-full-projective-gm-route-cut-v1/README.md",
+      "role": "replay and fail-closed contract",
+      "sha256": "000103d078c50e03d824b82f31b12e9b9805e4c1b23bbb9f72a9b403cb0692d8"
+    },
+    {
+      "binding_id": "packet-python",
+      "path": "experimental/scripts/verify_m1_kb_rank9_full_projective_gm_route_cut_v1.py",
+      "role": "bit-packed independent GF(2^138) verifier",
+      "sha256": "43880c09a628bfa53583487d0f6cda3774b9f9bbbf4d33f7b9e1a65054ab40e8"
+    },
+    {
+      "binding_id": "packet-sage",
+      "path": "experimental/scripts/verify_m1_kb_rank9_full_projective_gm_route_cut_v1.sage",
+      "role": "independent Sage finite-field replay",
+      "sha256": "652a7daca80abfd67a5e48ce17de19b386a62be5ad29f3caec6d7468545f4731"
+    },
+    {
+      "binding_id": "locator-span-note",
+      "path": "experimental/notes/m1/m1_rank9_regular_locator_span_shortcut_refuted_v1.md",
+      "role": "five-pencil predecessor construction",
+      "sha256": "0e4270df2e0ccad0c64832271bc4d8e7fe34d10ae6dabbc83a7f0a74aef8a1bf"
+    },
+    {
+      "binding_id": "locator-span-certificate",
+      "path": "experimental/data/certificates/m1-rank9-regular-locator-span-shortcut-refuted-v1/m1_rank9_regular_locator_span_shortcut_refuted_v1.json",
+      "role": "frozen predecessor ranks and scope",
+      "sha256": "15516aa807319147513285749e74f96cab894dfc8598fd05733f0a6d6ef9c277"
+    },
+    {
+      "binding_id": "locator-span-python",
+      "path": "experimental/scripts/verify_m1_rank9_regular_locator_span_shortcut_refuted_v1.py",
+      "role": "predecessor Python replay",
+      "sha256": "1df5db06a004c4beb2d7c1c505f8ecd3705352c6d9f687669fd665b864782663"
+    },
+    {
+      "binding_id": "locator-span-sage",
+      "path": "experimental/scripts/verify_m1_rank9_regular_locator_span_shortcut_refuted_v1.sage",
+      "role": "predecessor Sage replay",
+      "sha256": "2676cc525e198e2ae9a85acf9676b5b95034f7977640702ef2dbaf9b08cca589"
+    },
+    {
+      "binding_id": "gm-gate-note",
+      "path": "experimental/notes/m1/m1_kb_rank9_gm_mds_fixed_domain_gate_v1.md",
+      "role": "declared-tuple GM--MDS/fixed-domain interface",
+      "sha256": "7eade16992504e282f759d9a22c04d3d0df8a6bfba4fa4b17b047cfb8aca1ed1"
+    },
+    {
+      "binding_id": "gm-gate-certificate",
+      "path": "experimental/data/certificates/m1-kb-rank9-gm-mds-fixed-domain-gate-v1/m1_kb_rank9_gm_mds_fixed_domain_gate_v1.json",
+      "role": "frozen GM trichotomy",
+      "sha256": "c59376fd705fe327b80cd6bd67d30143b2d44b56f5ec388209ed28084e97f041"
+    },
+    {
+      "binding_id": "gm-gate-python",
+      "path": "experimental/scripts/verify_m1_kb_rank9_gm_mds_fixed_domain_gate_v1.py",
+      "role": "GM gate Python verifier",
+      "sha256": "e8e6a6c42781530a0a03eedefdc74648c7481fd4dbfe50c861ab90ee267ad413"
+    },
+    {
+      "binding_id": "gm-gate-sage",
+      "path": "experimental/scripts/verify_m1_kb_rank9_gm_mds_fixed_domain_gate_v1.sage",
+      "role": "GM gate Sage replay",
+      "sha256": "3b50b583f2230c8445c2db6767757ce2c9cb4db7c654636b432438c46acf2956"
+    },
+    {
+      "binding_id": "sparse-chart-note",
+      "path": "experimental/notes/m1/m1_kb_branch3_rank9_sparse_chart_boundary_v1.md",
+      "role": "regular rank-nine residual producer",
+      "sha256": "2ec53b07a87976919c7d9192560d838abac976d429853ac3fb93c66ce9fb6dd8"
+    },
+    {
+      "binding_id": "projective-field-note",
+      "path": "experimental/notes/thresholds/projective_syndrome_c5_first_match.md",
+      "role": "intrinsic projective syndrome field test",
+      "sha256": "6affa2701d4ba901ee5c0321fd8512cb8ceb09200ad9a239cc0a65515cf2e0f2"
+    }
+  ],
+  "status": "PROVED_EXACT_GENERIC_LOCAL_STRENGTHENED_SHORTCUT_FALSE"
+}
