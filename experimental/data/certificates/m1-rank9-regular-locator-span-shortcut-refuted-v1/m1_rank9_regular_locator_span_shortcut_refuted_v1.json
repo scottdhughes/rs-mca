@@ -1,0 +1,428 @@
+{
+  "schema": "rs-mca-m1-rank9-regular-locator-span-shortcut-refuted-v1",
+  "artifact_kind": "M1_RANK9_GENERIC_LOCAL_LOCATOR_SPAN_ROUTE_CUT",
+  "status": "PROVED_GENERIC_LOCAL_RANK_TO_LOCATOR_SPAN_SHORTCUT_FALSE",
+  "source_bindings": [
+    {
+      "binding_id": "packet-note",
+      "path": "experimental/notes/m1/m1_rank9_regular_locator_span_shortcut_refuted_v1.md",
+      "sha256": "0e4270df2e0ccad0c64832271bc4d8e7fe34d10ae6dabbc83a7f0a74aef8a1bf",
+      "role": "parametric route-cut statement and proof"
+    },
+    {
+      "binding_id": "packet-readme",
+      "path": "experimental/data/certificates/m1-rank9-regular-locator-span-shortcut-refuted-v1/README.md",
+      "sha256": "4022ba87d39c60fd032293160cf56d55710c12c658a6c09986cf0b30d47312df",
+      "role": "replay and scope contract"
+    },
+    {
+      "binding_id": "packet-python",
+      "path": "experimental/scripts/verify_m1_rank9_regular_locator_span_shortcut_refuted_v1.py",
+      "sha256": "1df5db06a004c4beb2d7c1c505f8ecd3705352c6d9f687669fd665b864782663",
+      "role": "independent exact GF(2^23) verifier"
+    },
+    {
+      "binding_id": "packet-sage",
+      "path": "experimental/scripts/verify_m1_rank9_regular_locator_span_shortcut_refuted_v1.sage",
+      "sha256": "2676cc525e198e2ae9a85acf9676b5b95034f7977640702ef2dbaf9b08cca589",
+      "role": "independent Sage finite-field replay"
+    },
+    {
+      "binding_id": "sparse-boundary-note",
+      "path": "experimental/notes/m1/m1_kb_branch3_rank9_sparse_chart_boundary_v1.md",
+      "sha256": "2ec53b07a87976919c7d9192560d838abac976d429853ac3fb93c66ce9fb6dd8",
+      "role": "regular residual (6.1) producer"
+    },
+    {
+      "binding_id": "sparse-boundary-certificate",
+      "path": "experimental/data/certificates/m1-kb-branch3-rank9-sparse-chart-boundary-v1/m1_kb_branch3_rank9_sparse_chart_boundary_v1.json",
+      "sha256": "a952ad41ca662392be740982772d9c70760da344d0a356efc09f743ad3640136",
+      "role": "frozen regular-route predecessor"
+    },
+    {
+      "binding_id": "sparse-boundary-verifier",
+      "path": "experimental/scripts/verify_m1_kb_branch3_rank9_sparse_chart_boundary_v1.py",
+      "sha256": "4425f4d57a1f2508b702cb70fd983491750053c9b2c63418c6e061737bc82b86",
+      "role": "predecessor fail-closed replay"
+    },
+    {
+      "binding_id": "sparse-boundary-sage",
+      "path": "experimental/scripts/verify_m1_kb_branch3_rank9_sparse_chart_boundary_v1.sage",
+      "sha256": "8974214ebeeb8bc5539b5904cd8013d809448ffbe4bf8fbc5b3786971c67625f",
+      "role": "predecessor Sage control"
+    },
+    {
+      "binding_id": "actual-core-note",
+      "path": "experimental/notes/m1/m1_kb_branch3_actual_core_mds_rank_ladder_v1.md",
+      "sha256": "c56bcafd7d6ffb1c4b8c65ed13b1d7dcb16a7888955de2cfdfc9bd8cc203f0f0",
+      "role": "s_star and kappa_star selector contract"
+    },
+    {
+      "binding_id": "actual-core-certificate",
+      "path": "experimental/data/certificates/m1-kb-branch3-actual-core-mds-v1/m1_kb_branch3_actual_core_mds_v1.json",
+      "sha256": "750d2ff597730fcf47b3867f08bbf34bce613ab7aca2746bee923b1f9d585eca",
+      "role": "frozen rank-nine carrier state"
+    },
+    {
+      "binding_id": "actual-core-verifier",
+      "path": "experimental/scripts/verify_m1_kb_branch3_actual_core_mds_v1.py",
+      "sha256": "67f2cf1a4a61c0746ffffe17d413f9edcd371caa49a21a1262dec277365851a4",
+      "role": "actual-core exact replay"
+    },
+    {
+      "binding_id": "low-excess-note",
+      "path": "experimental/notes/m1/m1_kb_branch3_low_excess_carrier_cut_v1.md",
+      "sha256": "82b6cd709b6831e6e1685a7db5f4b8ee7824a56516b38ff195ce4b6a2be393b5",
+      "role": "kappa_star<=10 owner boundary"
+    },
+    {
+      "binding_id": "low-excess-certificate",
+      "path": "experimental/data/certificates/m1-kb-branch3-low-excess-carrier-cut-v1/m1_kb_branch3_low_excess_carrier_cut_v1.json",
+      "sha256": "2230ed5f84c62b2e379525f59a740d3872d9ed9310ae9a773227663bf0ae43a9",
+      "role": "frozen low-excess owner"
+    },
+    {
+      "binding_id": "low-excess-verifier",
+      "path": "experimental/scripts/verify_m1_kb_branch3_low_excess_carrier_cut_v1.py",
+      "sha256": "e59a09f1091ba1e4468a0d44c1e351147ccdcfad80fb7591bcf9c6c561efb36c",
+      "role": "low-excess exact replay"
+    },
+    {
+      "binding_id": "fixed-excess-proof",
+      "path": "experimental/notes/thresholds/cap25_v12_fixed_residual_excess_audit.md",
+      "sha256": "311f91171621bf9e021575f0588e8b59edb0e79ee3e8c1d5d89f6bb5552f47cd",
+      "role": "generic Padé-Hankel chart argument"
+    },
+    {
+      "binding_id": "closed-ball-proof",
+      "path": "experimental/notes/thresholds/cap25_v12_sparse_sigma_first_layer_audit.md",
+      "sha256": "56f176d994e5015b796584105fb33980d5edacb2c3ab7176922ac56612d892b8",
+      "role": "exact split-locator equivalence"
+    }
+  ],
+  "exact_control": {
+    "carrier": {
+      "N_V": 22,
+      "R": 11,
+      "carrier_is_B": true,
+      "kappa_star": 11,
+      "kappa_star_exact_because_selector_unique": true,
+      "nu": 11,
+      "restricted_MDS_distance": 12,
+      "restricted_kernel_dimension": 11
+    },
+    "domain": {
+      "B_integer_encoding": [
+        8388576,
+        2796192,
+        6151626,
+        2598830,
+        1589150,
+        507934,
+        360436,
+        5321338,
+        6706950,
+        3681596,
+        754714,
+        121796,
+        4523762,
+        3159564,
+        6160728,
+        7780424,
+        3090624,
+        6142794,
+        3400326,
+        5185534,
+        6340126,
+        8131028
+      ],
+      "B_sha256": "81ff7e10f4652d646a15ec079892ed656ff4fb0418ae369a70d544e8c99c0fbf",
+      "a": 0,
+      "all_distinct": true,
+      "b": 1,
+      "formula": "z_i=(1-u^(2^i))^(-1), 0<=i<22"
+    },
+    "field": {
+      "cardinality": 8388608,
+      "characteristic": 2,
+      "extension_degree": 23,
+      "generator_integer_encoding": 2,
+      "generator_order": 8388607,
+      "generator_order_prime_factors": [
+        47,
+        178481
+      ],
+      "modulus": "u^23 + u^5 + 1"
+    },
+    "five_pencils": {
+      "common_core_intersection_empty": true,
+      "cores": [
+        [
+          3,
+          5,
+          6,
+          7,
+          9,
+          11,
+          13,
+          16,
+          17,
+          20,
+          21
+        ],
+        [
+          0,
+          2,
+          3,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          13,
+          19
+        ],
+        [
+          1,
+          2,
+          4,
+          6,
+          7,
+          8,
+          10,
+          15,
+          17,
+          20,
+          21
+        ],
+        [
+          2,
+          3,
+          5,
+          9,
+          11,
+          12,
+          13,
+          14,
+          19,
+          20,
+          21
+        ],
+        [
+          0,
+          1,
+          2,
+          5,
+          6,
+          12,
+          14,
+          15,
+          18,
+          20,
+          21
+        ]
+      ],
+      "distinct_slopes": 55,
+      "minimum_pairwise_symmetric_difference": 8,
+      "root_set_count": 55,
+      "root_sets_sha256": "6d22947d8b923618ed0d731fc63746614a48ce1ae634e74101bed0f266b6bb40",
+      "slope_count": 55,
+      "slopes_integer_encoding_sha256": "e1343f28e1e24db07ee133d9cdd17d6581986e39fde575b3998195aaee1651fa"
+    },
+    "injectivity_and_uniqueness": {
+      "all_12_subset_count": 646646,
+      "all_12_subset_products_distinct": true,
+      "maximum_below_generator_order": true,
+      "maximum_binary_subset_exponent": 4194303,
+      "nonzero_witness_agreement_pairs": [
+        [
+          12,
+          2
+        ]
+      ],
+      "zero_codeword_error_weight": 2,
+      "zero_codeword_witness_contained_and_H2_rejected": true
+    },
+    "rank_witnesses": {
+      "affine_difference_minor": {
+        "columns": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "determinant": 4316389
+      },
+      "code_polynomial_minor": {
+        "columns": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "determinant": 4316389
+      },
+      "code_polynomial_minor_as_field_polynomial": "u^22 + u^16 + u^15 + u^14 + u^12 + u^11 + u^10 + u^7 + u^6 + u^5 + u^2 + 1",
+      "one_pencil_locator_minor": {
+        "columns": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "determinant": 6717975
+      },
+      "ten_basis_indices": [
+        0,
+        1,
+        11,
+        12,
+        22,
+        23,
+        33,
+        34,
+        44,
+        45
+      ],
+      "ten_basis_supports_recover_carrier": true
+    },
+    "row": {
+      "R_minus_j": 1,
+      "agreement_A": 14,
+      "k": 13,
+      "n": 24,
+      "radius_j": 10,
+      "redundancy_R": 11,
+      "sparse_support_size": 2
+    },
+    "selector": {
+      "affine_difference_rank_s_star": 9,
+      "all_H2_ell_nonzero": true,
+      "all_M_ell_zero": true,
+      "all_full_weight": true,
+      "all_non_tangent": true,
+      "all_regular_on_fixed_column_1_chart": true,
+      "all_squarefree_D_split_locators": true,
+      "all_transverse": true,
+      "ambient_noncontained_bad_slope_count": 646646,
+      "chosen_minor_formula": "Delta(gamma)=lambda_b*gamma",
+      "complete_on_declared_Gamma": true,
+      "declared_Gamma_exhausts_full_bad_set": false,
+      "declared_Gamma_is_proper_subfamily": true,
+      "errors_sha256": "07950151eeb864c45ef240036e03bb4e8c2b23492ba3f846865c233c377dce9a",
+      "locator_vector_rank": 11,
+      "locators_sha256": "d04da2ced410a7942dadf6ae998fb7b3fdfa62064c15b002de94c4cefcca8593",
+      "rank_minimizing_because_unique": true,
+      "raw_witness_rank_t": 10,
+      "unique_noncontained_witness_per_slope": true
+    }
+  },
+  "parametric_route_cut": {
+    "quantifier": "FOR_EVERY_INTEGER_j_AT_LEAST_10_THERE_EXISTS_A_FINITE_EXTENSION_RS_INSTANCE_AND_DECLARED_RETAINED_Gamma",
+    "Gamma_scope": {
+      "explicitly_declared_retained_family": true,
+      "full_bad_slope_set_exhaustion_assumed": false,
+      "deployed_first_match_survival_assumed": false
+    },
+    "row_family": {
+      "n": "j+14",
+      "k": 13,
+      "R": "j+1",
+      "radius": "j",
+      "agreement": 14,
+      "sparse_support_size": 2,
+      "declared_Gamma_size": "5*(j+1)"
+    },
+    "fixed_invariants": {
+      "affine_rank_s_star": 9,
+      "raw_rank_t": 10,
+      "carrier_excess_nu": 11,
+      "kappa_star": 11,
+      "ten_basis_supports_recover_carrier": true,
+      "selector_unique_and_rank_minimizing": true
+    },
+    "growing_invariant": {
+      "locator_vector_rank": "j+1",
+      "one_pencil_is_a_Lagrange_basis_of": "F[X]_{<=j}",
+      "unbounded_with_j": true
+    },
+    "finite_field_existence": {
+      "base_field": "GF(2^23)",
+      "old_22_ratios_have_all_subset_products_distinct": true,
+      "new_ratios": "chosen over algebraic closure outside finitely many nonzero Laurent hypersurfaces",
+      "finite_extension_exists": true,
+      "reason": "a finite product of nonzero Laurent polynomials is nonzero; a finite chosen tuple is contained in one finite extension"
+    },
+    "witness_proof": {
+      "five_pencil_polynomial_span_dimension": 10,
+      "normalization_q_at_a": 1,
+      "affine_difference_kernel_dimension": 9,
+      "nonzero_radius_witness_agreement_pair": [
+        12,
+        2
+      ],
+      "subset_product_slope_map_injective": true,
+      "zero_codeword_witness_rejected_by_H2": true,
+      "all_regular_residual_6_1_gates": true
+    },
+    "cover_obstruction": {
+      "single_vector_span_bound_depending_only_on_s_t_nu": false,
+      "B_vector_subspaces_dimension_C_requires": "B*C>=j+1",
+      "B_projective_subspaces_dimension_c_requires": "B*(c+1)>=j+1",
+      "fixed_B_C_cover_possible_for_all_j": false
+    },
+    "terminal": "GENERIC_LOCAL_RANK_TO_LOCATOR_SPAN_SHORTCUT_REFUTED"
+  },
+  "scope_guards": {
+    "generic_local_implication_refuted": true,
+    "declared_Gamma_exhausts_full_bad_set": false,
+    "full_bad_family_or_deployed_first_match_strengthened_statement_refuted": false,
+    "koalabear_domain_instantiated": false,
+    "project_owner_masks_checked": false,
+    "actual_first_match_survival_proved": false,
+    "koalabear_rank9_residual_refuted": false,
+    "branch3_closed": false,
+    "ledger_movement": 0,
+    "next_required_structure": "DEPLOYED_DOMAIN_OR_EXECUTABLE_OWNER_MASK_HYPOTHESIS"
+  },
+  "audit_sections": {
+    "statement": "generic local rank/carrier/regularity hypotheses without Gamma exhaustion imply bounded locator span or bounded cover",
+    "dependencies": "PROVED exact base control plus symbolic scalar-extension and finite-hypersurface-avoidance argument",
+    "parameter_dependence": "s=9, t=10, nu=11 fixed; locator rank=j+1 unbounded",
+    "layer_cake_dyadic_summability": "NOT_APPLICABLE",
+    "moment_markov_chebyshev": "NOT_APPLICABLE",
+    "numerical_evidence": "EXACT_FINITE_FIELD_CONTROL_NOT_DEPLOYED_DOMAIN_CENSUS",
+    "generic_local_verdict": "RED_FALSE_AS_STATED",
+    "koalabear_owner_strengthened_verdict": "YELLOW_OPEN"
+  },
+  "nonclaims": [
+    "This packet does not assert that declared Gamma exhausts the full bad-slope set.",
+    "This packet does not instantiate the deployed KoalaBear evaluation domain or row.",
+    "This packet does not execute periodic, quotient, Johnson, or B11 first-match masks.",
+    "This packet does not prove that the declared slopes survive the deployed first-match order.",
+    "This packet does not move U_paid or B_remaining.",
+    "This packet does not close rank nine, branch 3, or the KoalaBear row.",
+    "This packet does not attack intrinsic rank at least ten.",
+    "This packet does not authorize Lean or stable-paper promotion."
+  ],
+  "payload_sha256": "14d99a05a3dcaa407994b94e72c8ece1b9fa4052ab985570aa6f637c08d5e1ac"
+}

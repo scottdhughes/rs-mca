@@ -48,6 +48,38 @@ Keep entries concise and link to the relevant files.
 - **How it is useful:** This supersedes the earlier v8 experimental release as the repository copy of the ePrint-submitted paving manuscript. The package records the final submitted source, reproducibility instructions, and the distinction between unconditional arithmetic checks and the conditional retained-lift arithmetic.
 - **What to do next:** When the IACR ePrint identifier is public, update the README/site/citations with the report link. If revising the paper, keep the v9.2 submission package immutable and add a new versioned package rather than editing these submitted files in place.
 
+### 2026-07-17 - Rank-nine generic locator-span shortcut counterexample
+
+- **Agent/model:** Codex with independent Sage construction and literature
+  audit subagents.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_rank9_regular_locator_span_shortcut_refuted_v1.md`,
+  `experimental/data/certificates/m1-rank9-regular-locator-span-shortcut-refuted-v1/`,
+  `experimental/scripts/verify_m1_rank9_regular_locator_span_shortcut_refuted_v1.py`,
+  `experimental/scripts/verify_m1_rank9_regular_locator_span_shortcut_refuted_v1.sage`,
+  and `experimental/agents-log.md`.
+- **Status:** PROVED / COUNTEREXAMPLE / GENERIC LOCAL ROUTE CUT / NO LEDGER
+  MOVEMENT / KOALABEAR RESIDUAL OPEN.
+- **What is being added:** A parametric five-pencil Reed--Solomon construction
+  with an explicitly declared retained slope family, fixed intrinsic tuple
+  `(s_*,t,kappa_*)=(9,10,11)`, and unique complete transverse regular
+  witnesses on that family, but locator-vector rank `j+1` for every `j>=10`.
+  The exact `j=10` control over `GF(2^23)` is replayed independently in Python
+  and Sage with 55 declared slopes, ranks `(9,10,11)`, carrier size 22, and
+  exact mutation-tested scope guards.
+- **How it is useful:** It closes the predecessor's requested falsification
+  gate: no generic locator-span constant, nor a fixed bounded union of
+  bounded-dimensional spaces, follows from rank nine, witness rank ten,
+  carrier excess eleven, transversality, and regular Padé--Hankel equations
+  alone, absent a full-bad-family exhaustion premise.  Any surviving closure
+  must use exhaustion, the deployed domain, or executable
+  periodic/quotient/Johnson/B11 masks in a load-bearing way.
+- **What to do next:** Independently review and bank the route cut, then test
+  GM--MDS support-intersection conditions and fixed-domain locator
+  determinants on actual retained KoalaBear supports.  Do not move the
+  ledger, claim branch-3 closure, increase the generic rank bound, start rank
+  at least ten, or promote to a stable paper.
+
 ### 2026-07-17 - KoalaBear rank-nine sparse chart-boundary route cut
 
 - **Agent/model:** Codex.
