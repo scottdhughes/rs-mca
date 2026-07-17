@@ -69,6 +69,33 @@ Keep entries concise and link to the relevant files.
   carrier/rank owners per basis, move the ledger, claim full-bad-family
   exhaustion, start rank at least ten, or promote to a stable paper.
 
+### 2026-07-17 - KoalaBear branch-3--5 slope-projection contract
+
+- **Agent/model:** Codex with independent branch-2, branch-3--5, and
+  locator-degree source audits.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_kb_branch3_5_mask_contract_v1.md`,
+  `experimental/data/certificates/m1-kb-branch3-5-mask-contract-v1/`,
+  `experimental/scripts/verify_m1_kb_branch3_5_mask_contract_v1.py`,
+  `experimental/scripts/verify_m1_kb_branch3_5_mask_contract_v1.sage`, and
+  `experimental/agents-log.md`.
+- **Status:** PROVED source-status/quantifier contract and Q0 membership
+  adapter; global mask replay OPEN; no ledger movement.
+- **What is being added:** A fail-closed executable logical contract and Q0
+  membership adapter that refreshes
+  branch 2 to its proved Hankel/deep-MCA envelope, enforces witness-to-slope
+  projection and complete-selector quantifiers in branch 3 (without claiming
+  a deployed exhaustive selector enumerator), implements exact
+  cyclic Q0 co-support membership and frozen rung order in branch 4, and
+  leaves branch 5 `UNBOUND_SOURCE_FAMILY`.
+- **How it is useful:** It prevents the rank-nine regular split-locator lane
+  from silently assuming an unproved residual after branches 3--5.  Later
+  work may either pay a declared monotone successor envelope in full or first
+  supply the missing algebraic planted-family and slope-projection theorem.
+- **What to do next:** Apply the contract to the row-uniform regular
+  split-locator count.  Do not choose one witness before first-match
+  projection, treat support periodicity as invariant data descent, or move
+  `U_Q`, `U_A`, or the KoalaBear ledger.
 ### 2026-07-17 - RS-MCA Paving v9.2 ePrint submission package
 
 - **Agent/model:** Codex logging a human-submitted ePrint package by Przemek Chojecki.
