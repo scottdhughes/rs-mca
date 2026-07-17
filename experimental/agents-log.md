@@ -39,6 +39,34 @@ Keep entries concise and link to the relevant files.
 - **How it is useful:** Triage can promote only the bounded route-cut conclusions while refusing a paid predecessor cell at the one-cut interface and refusing to consume the unpaid sparse terminal as an owner; the repaired guard is at `experimental/notes/m1/m1_kb_branch3_rank9_mask_deficit_route_cut_v1.md:355-365 @ 633ceb10` and `experimental/scripts/verify_m1_kb_branch3_rank9_mask_deficit_v1.py:477-486,1176-1182 @ a1eada87`, and the neutral terminal schema is at `experimental/scripts/verify_m1_kb_branch3_rank9_syndrome_rank_reduction_v1.py:548-550,574-590,776-797 @ 2a2e1510`. The breaking schema/hash repair affects open PR #883 head `9810a7b4`, PR #886 head `7b3177c2`, PR #887 head `8904b7af`, PR #889 head `6c268b57`, PR #895 head `34e08af5`, PR #896 head `aa66f483`, PR #898 head `7a20a509`, PR #899 head `c68f673c`, PR #901 head `1e37d22f`, PR #906 head `bb5e2fff`, PR #907 head `aa0fe903`, PR #908 head `1ead0a7b`, and PR #909 head `aec5127e`, as recorded in `experimental/notes/audits/m1_kb_branch3_route_cut_stack_audit.md:91-104 @ 941a6c4f`; each must migrate and regenerate before rebase.
 - **What to do next:** Run `python3 experimental/scripts/verify_m1_kb_branch3_route_cut_stack_audit.py --check` (`experimental/scripts/verify_m1_kb_branch3_route_cut_stack_audit.py @ 85179694`), expecting final line `STATUS: AUDIT`, and its `--tamper-selftest`, expecting `PASS tamper-selftest: 14/14 mutations rejected`; then run `python3 experimental/scripts/verify_m1_kb_branch3_actual_core_mds_v1.py --check` (`experimental/scripts/verify_m1_kb_branch3_actual_core_mds_v1.py @ ca8e6771`), `python3 experimental/scripts/verify_m1_kb_branch3_rank9_mask_deficit_v1.py --check` (`experimental/scripts/verify_m1_kb_branch3_rank9_mask_deficit_v1.py @ a1eada87`), and `python3 experimental/scripts/verify_m1_kb_branch3_rank9_syndrome_rank_reduction_v1.py --check` (`experimental/scripts/verify_m1_kb_branch3_rank9_syndrome_rank_reduction_v1.py @ 2a2e1510`), expecting respectively `PASS m1-kb-branch3-actual-core-mds-v1`, `PASS rs-mca-m1-kb-branch3-rank9-mask-deficit-v1`, and `PASS rs-mca-m1-kb-branch3-rank9-syndrome-rank-reduction-v1`; their `--tamper-selftest` runs must reject `58/58`, `67/67`, and `68/68` mutations, and all eight commands must repeat unchanged with `python3 -O`. Migrate the listed open consumers to `terminals` and `sparse_route_paid_here`, regenerate their frozen hashes, and keep every unpaid boundary explicit pending a proved cumulative-tail or sparse-sigma input.
 
+### 2026-07-17 - KoalaBear branch-3--5 slope-projection contract
+
+- **Agent/model:** Codex with independent branch-2, branch-3--5, and
+  locator-degree source audits.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_kb_branch3_5_mask_contract_v1.md`,
+  `experimental/data/certificates/m1-kb-branch3-5-mask-contract-v1/`,
+  `experimental/scripts/verify_m1_kb_branch3_5_mask_contract_v1.py`,
+  `experimental/scripts/verify_m1_kb_branch3_5_mask_contract_v1.sage`, and
+  `experimental/agents-log.md`.
+- **Status:** PROVED source-status/quantifier contract and Q0 membership
+  adapter; global mask replay OPEN; no ledger movement.
+- **What is being added:** A fail-closed executable logical contract and Q0
+  membership adapter that refreshes
+  branch 2 to its proved Hankel/deep-MCA envelope, enforces witness-to-slope
+  projection and complete-selector quantifiers in branch 3 (without claiming
+  a deployed exhaustive selector enumerator), implements exact
+  cyclic Q0 co-support membership and frozen rung order in branch 4, and
+  leaves branch 5 `UNBOUND_SOURCE_FAMILY`.
+- **How it is useful:** It prevents the rank-nine regular split-locator lane
+  from silently assuming an unproved residual after branches 3--5.  Later
+  work may either pay a declared monotone successor envelope in full or first
+  supply the missing algebraic planted-family and slope-projection theorem.
+- **What to do next:** Apply the contract to the row-uniform regular
+  split-locator count.  Do not choose one witness before first-match
+  projection, treat support periodicity as invariant data descent, or move
+  `U_Q`, `U_A`, or the KoalaBear ledger.
+
 ### 2026-07-17 - RS-MCA Paving v9.2 ePrint submission package
 
 - **Agent/model:** Codex logging a human-submitted ePrint package by Przemek Chojecki.
