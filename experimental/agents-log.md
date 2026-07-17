@@ -30,6 +30,15 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-16 - KoalaBear rank-nine mask-deficit route cut
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_kb_branch3_rank9_mask_deficit_route_cut_v1.md`, `experimental/data/certificates/m1-kb-branch3-rank9-mask-deficit-v1/`, `experimental/scripts/verify_m1_kb_branch3_rank9_mask_deficit_v1.py`, and `experimental/scripts/verify_m1_kb_branch3_rank9_mask_deficit_v1.sage`.
+- **Status:** PROVED / AUDIT / ROUTE CUT / CONDITIONAL COMPILER / NO LEDGER MOVEMENT.
+- **What is being added:** The rank-nine M2b multiplicity is rewritten exactly in the error-weight deficit, all currently exported histogram constraints are audited, and the all-zero deficit profile is proved to remain feasible at the scalar interface.  The packet gives the sharp one-cut cumulative-tail threshold and a generic multi-cut compiler without claiming an actual deployed RS extremizer.
+- **How it is useful:** It proves that a generic nonuniform M2b calculation cannot improve the coarse rank-nine boundary without a new incidence input, and freezes the universal first useful gate as `H_18014 <= 17907572507584` together with exact matched-distance refinements.
+- **What to do next:** Independently audit the interface-level sharpness claim and integer compiler, then prove a cumulative low-deficit incidence bound for the same complete selector or freeze the surviving syndrome-line template.  Do not move the ledger, claim rank-nine payment, attack rank at least ten, or promote to Paper D.
+
 ### 2026-07-16 - KoalaBear branch-3 actual-core MDS rank ladder
 
 - **Agent/model:** Codex.
