@@ -48,6 +48,38 @@ Keep entries concise and link to the relevant files.
 - **How it is useful:** This supersedes the earlier v8 experimental release as the repository copy of the ePrint-submitted paving manuscript. The package records the final submitted source, reproducibility instructions, and the distinction between unconditional arithmetic checks and the conditional retained-lift arithmetic.
 - **What to do next:** When the IACR ePrint identifier is public, update the README/site/citations with the report link. If revising the paper, keep the v9.2 submission package immutable and add a new versioned package rather than editing these submitted files in place.
 
+### 2026-07-17 - KoalaBear rank-nine GM--MDS fixed-domain gate
+
+- **Agent/model:** Codex with independent owner-interface, literature, and
+  finite-field control subagents.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_kb_rank9_gm_mds_fixed_domain_gate_v1.md`,
+  `experimental/data/certificates/m1-kb-rank9-gm-mds-fixed-domain-gate-v1/`,
+  `experimental/scripts/verify_m1_kb_rank9_gm_mds_fixed_domain_gate_v1.py`,
+  `experimental/scripts/verify_m1_kb_rank9_gm_mds_fixed_domain_gate_v1.sage`,
+  and `experimental/agents-log.md`.
+- **Status:** PROVED UNIVERSAL GATE / EXACT SPECIALIZATION COUNTERCONTROL /
+  INDEPENDENT REVIEW GREEN / DEPLOYED INPUT AND EXECUTOR MISSING / NO LEDGER
+  MOVEMENT.
+- **What is being added:** A fail-closed trichotomy for one declared tuple of
+  eleven regular degree-`j` split locators: a failed GM--MDS intersection
+  inequality emits only a Johnson/common-core candidate; a passing family is
+  classified by its exact fixed-domain coefficient rank.  Exact `j=10`
+  controls over `GF(127)` realize all three terminals, including a
+  GM--MDS-admissible rank-ten specialization exception inside the usual
+  field-size envelope.  The committed implementations are explicitly
+  `CONTROL_ONLY_J10`; no deployed-scale coefficient/rank executor is claimed.
+- **How it is useful:** It closes the proposed generic GM--MDS shortcut after
+  the rank-to-locator-span shortcut was refuted.  The packet proves that the
+  next KoalaBear step must supply actual retained supports with first-match
+  provenance and must test the deployed specialization; generic support
+  admissibility alone cannot bank a rank-nine payment.
+- **What to do next:** Produce one actual extension-valued retained
+  eleven-support record and a fast product-tree/NTT or streamed-minor backend.
+  Run the 2,047 intersection tests and either the deployed Johnson predicate
+  or an exact fixed-domain minor.  Do not move the ledger, call the KoalaBear
+  row closed, start rank at least ten, or promote to a stable paper.
+
 ### 2026-07-17 - Rank-nine generic locator-span shortcut counterexample
 
 - **Agent/model:** Codex with independent Sage construction and literature
