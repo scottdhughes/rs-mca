@@ -39,6 +39,35 @@ Keep entries concise and link to the relevant files.
 - **How it is useful:** Triage can promote only the bounded route-cut conclusions while refusing a paid predecessor cell at the one-cut interface and refusing to consume the unpaid sparse terminal as an owner; the repaired guard is at `experimental/notes/m1/m1_kb_branch3_rank9_mask_deficit_route_cut_v1.md:355-365 @ 633ceb10` and `experimental/scripts/verify_m1_kb_branch3_rank9_mask_deficit_v1.py:477-486,1176-1182 @ a1eada87`, and the neutral terminal schema is at `experimental/scripts/verify_m1_kb_branch3_rank9_syndrome_rank_reduction_v1.py:548-550,574-590,776-797 @ 2a2e1510`. The breaking schema/hash repair affects open PR #883 head `9810a7b4`, PR #886 head `7b3177c2`, PR #887 head `8904b7af`, PR #889 head `6c268b57`, PR #895 head `34e08af5`, PR #896 head `aa66f483`, PR #898 head `7a20a509`, PR #899 head `c68f673c`, PR #901 head `1e37d22f`, PR #906 head `bb5e2fff`, PR #907 head `aa0fe903`, PR #908 head `1ead0a7b`, and PR #909 head `aec5127e`, as recorded in `experimental/notes/audits/m1_kb_branch3_route_cut_stack_audit.md:91-104 @ 941a6c4f`; each must migrate and regenerate before rebase.
 - **What to do next:** Run `python3 experimental/scripts/verify_m1_kb_branch3_route_cut_stack_audit.py --check` (`experimental/scripts/verify_m1_kb_branch3_route_cut_stack_audit.py @ 85179694`), expecting final line `STATUS: AUDIT`, and its `--tamper-selftest`, expecting `PASS tamper-selftest: 14/14 mutations rejected`; then run `python3 experimental/scripts/verify_m1_kb_branch3_actual_core_mds_v1.py --check` (`experimental/scripts/verify_m1_kb_branch3_actual_core_mds_v1.py @ ca8e6771`), `python3 experimental/scripts/verify_m1_kb_branch3_rank9_mask_deficit_v1.py --check` (`experimental/scripts/verify_m1_kb_branch3_rank9_mask_deficit_v1.py @ a1eada87`), and `python3 experimental/scripts/verify_m1_kb_branch3_rank9_syndrome_rank_reduction_v1.py --check` (`experimental/scripts/verify_m1_kb_branch3_rank9_syndrome_rank_reduction_v1.py @ 2a2e1510`), expecting respectively `PASS m1-kb-branch3-actual-core-mds-v1`, `PASS rs-mca-m1-kb-branch3-rank9-mask-deficit-v1`, and `PASS rs-mca-m1-kb-branch3-rank9-syndrome-rank-reduction-v1`; their `--tamper-selftest` runs must reject `58/58`, `67/67`, and `68/68` mutations, and all eight commands must repeat unchanged with `python3 -O`. Migrate the listed open consumers to `terminals` and `sparse_route_paid_here`, regenerate their frozen hashes, and keep every unpaid boundary explicit pending a proved cumulative-tail or sparse-sigma input.
 
+### 2026-07-17 - KoalaBear rank-nine rich-pencil aggregate route cut
+
+- **Agent/model:** Codex with independent next-lemma and source-contract
+  audits.
+- **Files added or changed:**
+  experimental/notes/m1/m1_kb_branch3_rank9_rich_pencil_atlas_v1.md,
+  experimental/data/certificates/m1-kb-branch3-rank9-rich-pencil-atlas-v1/,
+  experimental/scripts/verify_m1_kb_branch3_rank9_rich_pencil_atlas_v1.py,
+  experimental/scripts/verify_m1_kb_branch3_rank9_rich_pencil_atlas_v1.sage,
+  and experimental/agents-log.md.
+- **Status:** PROVED canonical compiler / exact scalar route cut / exact
+  generic-local control / deployed rich-pencil incidence OPEN / no ledger
+  movement.
+- **What is being added:** An exact decomposition of the fixed-basis excess
+  into canonically deduplicated affine graph-line/codeword-pencil components,
+  plus a deployed-integer \(x=1,J=109\) relaxation showing the existing local
+  constraints still permit one component to exceed the aggregate allowance.
+  An exact \(\mathbb F_{2^{37}}\) replay verifies direct excess equals the
+  five-line atlas sum \(817\).
+- **How it is useful:** It replaces overlapping basis fibres by the precise
+  weighted rich-pencil incidence theorem the sparse rank-nine route needs,
+  identifies the forced common GCD and source-bound plant, and prevents the
+  incomplete branches 4--5 interface from being treated as a paid residual.
+- **What to do next:** Search exact cyclic \(\mathbb F_{p^6}/\mathbb F_p\)
+  controls for a rich pencil plus eight rank-nine outlier directions.  Stop
+  at the first source-bound countertemplate; otherwise freeze the surviving
+  determinant/GCD support equations.  Do not move the ledger, start rank at
+  least ten, determine \(U_Q/U_A\), or use Lean.
+
 ### 2026-07-17 - KoalaBear rank-nine fixed-basis fibre route cut
 
 - **Agent/model:** Codex with independent proof-audit and literature-search
