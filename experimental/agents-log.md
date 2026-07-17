@@ -30,6 +30,15 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-16 - KoalaBear rank-nine syndrome-rank route cut
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_kb_branch3_rank9_syndrome_rank_reduction_v1.md`, `experimental/data/certificates/m1-kb-branch3-rank9-syndrome-rank-reduction-v1/`, `experimental/scripts/verify_m1_kb_branch3_rank9_syndrome_rank_reduction_v1.py`, and `experimental/scripts/verify_m1_kb_branch3_rank9_syndrome_rank_reduction_v1.sage`.
+- **Status:** PROVED / AUDIT / ROUTE CUT / NO LEDGER MOVEMENT.
+- **What is being added:** A self-contained deterministic witness-rank reduction pays the column-far side of the fixed complete affine-rank-nine selector by the exact cap `3337935545766696`.  Challenge-restricted exact sparsification routes the complementary non-column-far side to the open sparse mutual numerator instead of treating correlated agreement as a paid owner.
+- **How it is useful:** It removes generic M2b deficit-histogram optimization as the remaining rank-nine lane, records the exact nondegeneracy and `t=s+1` bridges, and leaves one named sparse-sigma obligation without changing the KoalaBear ledger.
+- **What to do next:** Independently review the proof and fail-closed classifier, then audit the sparse-sigma first-match owners.  Do not resume generic rank-nine deficit optimization, attack intrinsic rank at least ten, move the ledger, claim branch-3 closure, or promote to Paper D.
+
 ### 2026-07-16 - KoalaBear rank-nine mask-deficit route cut
 
 - **Agent/model:** Codex.
