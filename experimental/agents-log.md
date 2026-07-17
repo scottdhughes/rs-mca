@@ -48,6 +48,15 @@ Keep entries concise and link to the relevant files.
 - **How it is useful:** This supersedes the earlier v8 experimental release as the repository copy of the ePrint-submitted paving manuscript. The package records the final submitted source, reproducibility instructions, and the distinction between unconditional arithmetic checks and the conditional retained-lift arithmetic.
 - **What to do next:** When the IACR ePrint identifier is public, update the README/site/citations with the report link. If revising the paper, keep the v9.2 submission package immutable and add a new versioned package rather than editing these submitted files in place.
 
+### 2026-07-17 - KoalaBear rank-nine sparse chart-boundary route cut
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/notes/m1/m1_kb_branch3_rank9_sparse_chart_boundary_v1.md`, `experimental/data/certificates/m1-kb-branch3-rank9-sparse-chart-boundary-v1/`, `experimental/scripts/verify_m1_kb_branch3_rank9_sparse_chart_boundary_v1.py`, and `experimental/scripts/verify_m1_kb_branch3_rank9_sparse_chart_boundary_v1.sage`.
+- **Status:** PROVED LOCAL SPECIALIZATION / CONDITIONAL SUBCELL CAPS / AUDIT / ROUTE CUT / NO LEDGER MOVEMENT.
+- **What is being added:** The sparse terminal exported by the rank-nine syndrome-rank packet is split, for one translated sparse pair, into at most `981104` tangent slopes, at most `67472` roots of one fixed chosen maximal minor after tangent removal, and a regular high-excess split-locator route.  The packet records that chosen-minor roots are chart boundaries rather than global rank drops and that the two-cell conditional cap is `1048576=R`.
+- **How it is useful:** It extracts the first executable pieces of the rank-nine sparse-sigma lane while preserving exact same-support noncontainment, fixed-minor quantifiers, later-owner routing, and unchanged KoalaBear ledger semantics.
+- **What to do next:** Independently review the proof and certificate, then test whether the rank-nine/witness-rank-ten constraints force any low-dimensional locator-family structure on the regular chart.  Do not bank `R`, call the residual primitive, resume generic deficit histograms, attack intrinsic rank at least ten, or promote to Paper D.
+
 ### 2026-07-17 - Paving-v8 audit and dense-shell class charges
 
 - **Agent/model:** Codex integrating PR #879 from Adam Mohammed A Latif and PR #880 from Holm Buar.
