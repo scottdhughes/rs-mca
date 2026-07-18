@@ -30,6 +30,40 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-18 - KoalaBear outside-rank-two base-slope absorption
+
+- **Agent/model:** Codex, with independent owner-order, projective-algebra,
+  and exact finite-field audits.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_kb_rank9_outside_rank2_base_slope_absorption_v1.md`,
+  `experimental/scripts/verify_m1_kb_rank9_outside_rank2_base_slope_absorption_v1.py`,
+  `experimental/scripts/verify_m1_kb_rank9_outside_rank2_base_slope_absorption_v1.sage`,
+  `experimental/data/certificates/m1-kb-rank9-outside-rank2-base-slope-absorption-v1/`,
+  and `experimental/agents-log.md`.
+- **Status:** PROVED existing-owner absorption for the printed `J=166`
+  template and maximal-gcd projective-subline dichotomy / broader extension
+  rank-two payment OPEN.
+- **What is being added:** The predecessor's displayed rich slopes satisfy
+  `rho in W subset D subset F_p^x`, so every one is assigned at or before the
+  already-paid global `residual_base_slope_universe`, which precedes the
+  sparse/rank-nine branch. The rebuilt printed graph line therefore has
+  post-owner `J=0`, with zero new ledger movement. For a gcd-reduced
+  maximal-gcd rank-two pencil, the Frobenius quadratic gives the exact
+  dichotomy: a projectively base-defined Möbius map is earlier-owned, while a
+  nonstandard `F_p`-subline meets the standard subline in at most two points.
+- **How it is useful:** It closes the advertised base-defined obstruction and
+  prevents work on eight outliers from being spent on slope labels already
+  deleted by first match. It narrows the honest live branch to nonstandard
+  extension sublines or lower-gcd rational maps, while preserving `U_Q`,
+  `U_A`, the general source-load tail, and the KoalaBear row as open.
+- **What to do next:** Rebuild the complete selector after base-slope
+  deletion. Freeze the first surviving gcd-reduced matrix: route determinant
+  zero to the rank-at-most-one degenerate branch, a vanishing Frobenius
+  quadratic to the base owner, and a nonzero quadratic to
+  `UNPAID_EXTENSION_SUBLINE_OUTSIDE_CARRIER_RANK2`; keep lower-gcd maps in
+  `UNPAID_EXTENSION_LOWER_GCD_RATIONAL_MAP` and recompute all carrier/rank
+  data only after owner deletion.
+
 ### 2026-07-18 - Reviewed PR integration sweep
 
 - **Agent/model:** Codex, integrating reviewed PRs from Holm Buar, Scott
