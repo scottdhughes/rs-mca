@@ -30,6 +30,41 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-18 - KoalaBear full-outside maximal-gcd synchronization route cut
+
+- **Agent/model:** Codex, with independent proof/falsification, artifact,
+  provenance, and upstream-stack audits.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_kb_rank9_full_outside_maximal_gcd_synchronization_v1.md`,
+  `experimental/scripts/verify_m1_kb_rank9_full_outside_maximal_gcd_synchronization_v1.py`,
+  `experimental/scripts/verify_m1_kb_rank9_full_outside_maximal_gcd_synchronization_v1.sage`,
+  `experimental/data/certificates/m1-kb-rank9-full-outside-maximal-gcd-synchronization-v1/`,
+  and `experimental/agents-log.md`.
+- **Status:** PROVED conditional three-point synchronization / AUDIT route
+  cut for missing deployed complete-selector provenance / no ledger movement.
+- **What is being added:** On one fixed full-outside source-bound selector,
+  every contributing rank-two line with full gcd degree `k-2` has the same
+  gcd-reduced Möbius map: its projective values agree with the fixed source
+  pair at at least 18,419 base inputs, hence three-point rigidity applies.
+  Rich-line transversality supplies a non-common base-domain moving root for
+  every selected slope, so the deduplicated union lies in one projective
+  base subline and has conditional cap `p+1`.  The packet records that no
+  deployed terminal-record inventory or complete-selector producer exists,
+  and therefore retains
+  `UNBOUND_COMPLETE_SELECTOR_MAXIMAL_GCD_PROVENANCE` with ledger movement
+  zero.
+- **Exact controls:** Sage uses two distinct nonbase degree-four gcd factors
+  over `GF(5^6)` which agree at three source anchors, checks a common
+  six-point projective subline with a pole, and exhibits two maps agreeing at
+  only two anchors whose subline union has size ten.
+- **How it is useful:** It removes nonsplit common-factor algebra as the
+  obstruction and isolates the exact remaining input: Route S, U, or C must
+  bind one complete deployed selector/source family and executable
+  first-match deletion before the prospective `p+1` owner can be banked.
+- **What to do next:** Prove the uniform Route-U selector/source contract or
+  print the first compatible primitive record that violates it.  Do not move
+  the ledger by setting a readiness flag.
+
 ### 2026-07-18 - KoalaBear projective-base-pair C5 owner
 
 - **Agent/model:** Codex, with independent first-match, source-factorization,
