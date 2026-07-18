@@ -30,6 +30,40 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-18 - KoalaBear rank-nine projective source-load route cut
+
+- **Agent/model:** Codex, with independent predecessor-schema, algebra, and
+  proof audits.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_kb_rank9_projective_source_load_v1.md`,
+  `experimental/scripts/verify_m1_kb_rank9_projective_source_load_v1.py`,
+  `experimental/scripts/verify_m1_kb_rank9_projective_source_load_v1.sage`,
+  `experimental/data/certificates/m1-kb-rank9-projective-source-load-v1/`,
+  and `experimental/agents-log.md`.
+- **Status:** PROVED exact normalized source-load identity, positive plant
+  floor, and reduced projective rank dichotomy / deployed
+  weighted incidence and rank-nine payment OPEN.
+- **What is being added:** The post-tangent nonzero atlas is disintegrated
+  exactly as `E_20^nz=sum_L w_L=sum_h Lambda_h`, with rational allocation
+  `w_L/|S_L|`. The packet separates finite/infinity and rank-one/rank-two
+  source fibers, factors all forced outside-source common roots, and proves
+  the reduced cap `|S_L intersect Sigma_theta|<=s_L+x_L-t-1` in rank two.
+  Four exact GF(11) controls, including finite-only and mixed-infinity
+  forced-factor rank-two cases, show why tangent deletion and the local degree
+  cut do not alone pay the remaining positive determinant load.
+- **How it is useful:** It replaces a raw-incidence overcount by the correct
+  normalized double count and exposes the precise next weighted source-fiber
+  theorem. It also records the fail-closed deployed terminal
+  `UNBOUND_POST_TANGENT_SOURCE_LOAD` without moving the ledger or manufacturing
+  a primitive deployed component. It explicitly rejects the invalid inference
+  `x_L>=1` from nontriviality on a different selected witness support.
+- **What to do next:** Rebuild one source-bound post-tangent selector and
+  compute the four finite/infinity by rank-one/rank-two load cells. Apply the
+  reduced `d_proj` cut first; any surviving heavy compatible component must
+  receive an executable owner, a budget-fitting exact count, or its own frozen
+  primitive equations. Do not begin rank at least ten or determine `U_Q` or
+  `U_A` from this packet.
+
 ### 2026-07-18 - KoalaBear branch-3 rank-nine route-cut stack audit
 
 - **Agent/model:** Codex.
