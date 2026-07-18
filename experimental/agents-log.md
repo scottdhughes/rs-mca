@@ -39,6 +39,35 @@ Keep entries concise and link to the relevant files.
 - **How it is useful:** Triage can promote only the bounded route-cut conclusions while refusing a paid predecessor cell at the one-cut interface and refusing to consume the unpaid sparse terminal as an owner; the repaired guard is at `experimental/notes/m1/m1_kb_branch3_rank9_mask_deficit_route_cut_v1.md:355-365 @ 633ceb10` and `experimental/scripts/verify_m1_kb_branch3_rank9_mask_deficit_v1.py:477-486,1176-1182 @ a1eada87`, and the neutral terminal schema is at `experimental/scripts/verify_m1_kb_branch3_rank9_syndrome_rank_reduction_v1.py:548-550,574-590,776-797 @ 2a2e1510`. The breaking schema/hash repair affects open PR #883 head `9810a7b4`, PR #886 head `7b3177c2`, PR #887 head `8904b7af`, PR #889 head `6c268b57`, PR #895 head `34e08af5`, PR #896 head `aa66f483`, PR #898 head `7a20a509`, PR #899 head `c68f673c`, PR #901 head `1e37d22f`, PR #906 head `bb5e2fff`, PR #907 head `aa0fe903`, PR #908 head `1ead0a7b`, and PR #909 head `aec5127e`, as recorded in `experimental/notes/audits/m1_kb_branch3_route_cut_stack_audit.md:91-104 @ 941a6c4f`; each must migrate and regenerate before rebase.
 - **What to do next:** Run `python3 experimental/scripts/verify_m1_kb_branch3_route_cut_stack_audit.py --check` (`experimental/scripts/verify_m1_kb_branch3_route_cut_stack_audit.py @ 85179694`), expecting final line `STATUS: AUDIT`, and its `--tamper-selftest`, expecting `PASS tamper-selftest: 14/14 mutations rejected`; then run `python3 experimental/scripts/verify_m1_kb_branch3_actual_core_mds_v1.py --check` (`experimental/scripts/verify_m1_kb_branch3_actual_core_mds_v1.py @ ca8e6771`), `python3 experimental/scripts/verify_m1_kb_branch3_rank9_mask_deficit_v1.py --check` (`experimental/scripts/verify_m1_kb_branch3_rank9_mask_deficit_v1.py @ a1eada87`), and `python3 experimental/scripts/verify_m1_kb_branch3_rank9_syndrome_rank_reduction_v1.py --check` (`experimental/scripts/verify_m1_kb_branch3_rank9_syndrome_rank_reduction_v1.py @ 2a2e1510`), expecting respectively `PASS m1-kb-branch3-actual-core-mds-v1`, `PASS rs-mca-m1-kb-branch3-rank9-mask-deficit-v1`, and `PASS rs-mca-m1-kb-branch3-rank9-syndrome-rank-reduction-v1`; their `--tamper-selftest` runs must reject `58/58`, `67/67`, and `68/68` mutations, and all eight commands must repeat unchanged with `python3 -O`. Migrate the listed open consumers to `terminals` and `sparse_route_paid_here`, regenerate their frozen hashes, and keep every unpaid boundary explicit pending a proved cumulative-tail or sparse-sigma input.
 
+### 2026-07-18 - KoalaBear tangent first-match owner splice
+
+- **Agent/model:** Codex, with independent pair-level quantifier and exact
+  post-charge arithmetic audits.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_kb_rank9_tangent_owner_splice_v1.md`,
+  `experimental/data/certificates/m1-kb-rank9-tangent-owner-splice-v1/`,
+  `experimental/scripts/verify_m1_kb_rank9_tangent_owner_splice_v1.py`,
+  `experimental/scripts/verify_m1_kb_rank9_tangent_owner_splice_v1.sage`, and
+  `experimental/agents-log.md`.
+- **Status:** PROVED global fixed-translation tangent first-match owner and
+  selector restart / exact ledger movement / nonzero rank-nine incidence OPEN.
+- **What is being added:** For one SP3 translation fixed across a received
+  pair, the deduplicated tangent image has at most `j=981104` slopes and is
+  charged once before later owners.  The exact residual selector ladder is
+  restarted in the predecessor's carrier-before-small-family order (including
+  the high-union cap at `15`), zero pencils are absorbed, and the post-charge
+  M2b and rich-atlas thresholds are recomputed rather than obtained by naive
+  subtraction.
+- **How it is useful:** It converts the prior conditional tangent cap into an
+  executable global first-match payment, moves
+  `U_paid: 2602502999 -> 2603484103`, and reduces the remaining rank-nine
+  problem to nonzero codeword pencils without claiming determinant-weighted
+  incidence or row closure.
+- **What to do next:** On the rebuilt rank-nine residual, freeze the exact
+  source-point allocation for the nonzero rich-pencil load and prove a paying
+  incidence bound or emit the first compatible primitive load profile.  Do not
+  reuse pre-deletion selector data or begin rank at least ten.
+
 ### 2026-07-18 - Deployed rank-nine source-incidence readiness contract
 
 - **Agent/model:** Codex, with an independent read-only recovery of the
