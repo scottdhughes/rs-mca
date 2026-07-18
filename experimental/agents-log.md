@@ -30,6 +30,42 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-18 - KoalaBear projective-base-pair C5 owner
+
+- **Agent/model:** Codex, with independent first-match, source-factorization,
+  exact-ledger, and finite-field audits.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_kb_projective_base_pair_c5_owner_v1.md`,
+  `experimental/scripts/verify_m1_kb_projective_base_pair_c5_owner_v1.py`,
+  `experimental/scripts/verify_m1_kb_projective_base_pair_c5_owner_v1.sage`,
+  `experimental/data/certificates/m1-kb-projective-base-pair-c5-owner-v1/`,
+  and `experimental/agents-log.md`.
+- **Status:** PROVED joint projective-base C5/base-slope owner and
+  full-outside split-maximal-gcd absorption / general maximal-gcd,
+  field-full, and lower-gcd routes OPEN.
+- **What is being added:** For each fixed received pair, the
+  \(F_{\rm proj}=\mathbf F_p\) C5 stratum owns all post-branch-5 finite
+  slopes and has cap \(p+1\); otherwise the later residual base bucket has
+  cap \(p\).  These pair-global cases combine by a maximum, so the old
+  \(p\) block is replaced by \(p+1\), moving the exact ledger by one.
+  On the additional \(c_L=k-2\) subcell, the full-outside common factor is
+  the base-domain locator \(G=L_C\); its source factors as a base-valued
+  sparse pair times one invertible coefficient matrix, so that split
+  subline is intrinsically C5-owned.  Merely knowing
+  \(\deg\gcd(P,Q)=k-2\) is explicitly left open.
+- **Exact controls:** A sharp \(\mathbf F_{5^6}\) projective-base example has
+  all \(p+1\) directions finite.  A separate \(\mathbf F_{11^2}\)
+  \([9,3,7]\) countercontrol has \(\deg\gcd(P,Q)=k-2\), \(c_L=0\), rank-two
+  source syndrome, and full projective field, guarding the nonsplit route.
+- **How it is useful:** It banks a previously unpriced C5 cell, closes the
+  coefficient-deformation endpoint of the predecessor's rank-two route, and
+  updates the rank-nine tail threshold and excess exactly while keeping the
+  row status honest.
+- **What to do next:** Rebuild only the nonsplit/nonbase maximal-gcd,
+  globally field-full, and lower-gcd residuals.  Freeze one such component
+  and terminate it in an existing owner, a budget-fitting deduplicated union,
+  or an explicit primitive route cut.
+
 ### 2026-07-18 - KoalaBear outside-rank-two base-slope absorption
 
 - **Agent/model:** Codex, with independent owner-order, projective-algebra,
