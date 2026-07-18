@@ -71,6 +71,31 @@ Keep entries concise and link to the relevant files.
   infer a post-branches-3--5 residual, or begin rank at least ten from this
   contract.
 
+### 2026-07-18 - KoalaBear rank-nine zero-pencil tangent projection
+
+- **Agent/model:** Codex, with independent zero-pencil owner and load-split
+  audits.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_kb_rank9_zero_pencil_tangent_projection_v1.md`,
+  `experimental/data/certificates/m1-kb-rank9-zero-pencil-tangent-projection-v1/`,
+  `experimental/scripts/verify_m1_kb_rank9_zero_pencil_tangent_projection_v1.py`,
+  and `experimental/agents-log.md`.
+- **Status:** PROVED fixed-translation projection lemma / global first-match
+  payment OPEN / no ledger movement.
+- **What is being added:** Exact support-wise noncontainment forces every
+  eligible zero-codeword-pencil slope into the fixed sparse-tangent image
+  `{-epsilon_0(x)/epsilon_1(x)}`, giving at most `|Sigma|<=j=981104` slopes
+  for one SP3 translation.  The packet includes an exact `GF(11)` logical
+  replay and fail-closed selector-rebuild contract.
+- **How it is useful:** Removes the zero pencil as a primitive algebraic
+  possibility and identifies the exact source-bound projector needed before
+  the determinant-weighted nonzero rich-line load can be attacked.  It does
+  not bank the globally unpaid tangent cap.
+- **What to do next:** Deduplicate and bank the fixed-translation tangent
+  image after earlier owners, rebuild the complete residual selector, and
+  then prove or route-cut the nonzero source-point load.  Do not drop the
+  zero-pencil atlas term before that integration.
+
 ### 2026-07-17 - t=2 core-source coordinate-cover census
 
 - **Agent/model:** Codex, with independent selector-quantifier, source-map,

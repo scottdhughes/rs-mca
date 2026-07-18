@@ -1,0 +1,236 @@
+{
+  "artifact_kind": "M1_KB_RANK9_ZERO_PENCIL_TANGENT_PROJECTION",
+  "deployed_row": {
+    "A": 1116048,
+    "R": 1048576,
+    "extension_degree": 6,
+    "j": 981104,
+    "k": 1048576,
+    "n": 2097152,
+    "p": 2130706433,
+    "q_line": 93571093019388561295270373781649880353786165192103559169,
+    "t": 67472
+  },
+  "first_match_integration": {
+    "delete_zero_pencil_slopes_before_rich_selector": true,
+    "earlier_owner_dedup_required": true,
+    "existing_route": "SPARSE_TANGENT_RANK9_CONDITIONAL_CAP",
+    "global_tangent_projector_banked": false,
+    "lower_rank_must_route_to_declared_predecessor": true,
+    "residual_complete_selector_must_be_rebuilt": true,
+    "residual_intrinsic_rank_must_be_recomputed": true,
+    "unpaid_primitive": false,
+    "zero_pencil_atlas_term_may_be_dropped_before_global_payment": false
+  },
+  "ledger": {
+    "B_remaining_after": 274980725508892088,
+    "B_remaining_before": 274980725508892088,
+    "U_A": null,
+    "U_Q": null,
+    "U_paid_after": 2602502999,
+    "U_paid_before": 2602502999,
+    "ledger_movement": 0
+  },
+  "nonclaims": [
+    "This packet does not promote the tangent cap to a globally paid owner.",
+    "This packet does not replace existential slope projection by one chosen witness.",
+    "This packet does not assume rank nine survives slope deletion.",
+    "This packet does not bound the determinant-weighted nonzero rich-line sum.",
+    "This packet does not move U_paid or B_remaining.",
+    "This packet does not determine U_Q or U_A.",
+    "This packet does not authorize rank at least ten, Lean, or stable-paper promotion."
+  ],
+  "payload_sha256": "50a80bcdcdcf7a38b49174d3c7107ff417c1bb4c24b94546eee93251a463c4b5",
+  "projection_lemma": {
+    "W_L_equals_Sigma_alone_is_insufficient": true,
+    "cap": "|Z_0|<=|tangent_image|<=|Sigma|<=j",
+    "deployed_cap": 981104,
+    "fixed_sp3_translation_required": true,
+    "inclusion": "Z_0(epsilon_0,epsilon_1) subset tangent_image",
+    "rich_zero_pencil_implication": "P_L=Q_L=0 implies Gamma_L subset Z_0",
+    "slope_projection_existential_over_all_eligible_witnesses": true,
+    "support_wise_noncontainment_required": true,
+    "tangent_image": "{-epsilon_0(x)/epsilon_1(x):x in Sigma,epsilon_1(x)!=0}",
+    "translated_explaining_codeword": "0",
+    "zero_witness_condition": "translated explaining codeword h=0",
+    "zero_word_pencil_unique_for_fixed_translation": true
+  },
+  "schema": "rs-mca-m1-kb-rank9-zero-pencil-tangent-projection-v1",
+  "scope_guards": {
+    "deployed_source_family_census_present": false,
+    "global_first_match_payment_proved": false,
+    "koalabear_row_closed": false,
+    "lean_authorized": false,
+    "local_projection_lemma_proved": true,
+    "nonzero_plant_load_bound_proved": false,
+    "rank_at_least_ten_authorized": false,
+    "stable_paper_promotion_authorized": false
+  },
+  "source_bindings": [
+    {
+      "binding_id": "packet-note",
+      "path": "experimental/notes/m1/m1_kb_rank9_zero_pencil_tangent_projection_v1.md",
+      "role": "statement, proof, and scope",
+      "sha256": "df4d595330e4982f65332fcd4e0b4a4ed6f4f897f1541c3e954b1b046f0d79b3"
+    },
+    {
+      "binding_id": "packet-python",
+      "path": "experimental/scripts/verify_m1_kb_rank9_zero_pencil_tangent_projection_v1.py",
+      "role": "strict checker and toy replay",
+      "sha256": "072b89a503ae21bdecae47c4d5bc743a9712edf69125394ac20a10a2d74c3766"
+    },
+    {
+      "binding_id": "rich-pencil-note",
+      "path": "experimental/notes/m1/m1_kb_branch3_rank9_rich_pencil_atlas_v1.md",
+      "role": "zero/nonzero pencil split",
+      "sha256": "b5e1b60d087ca3d74ff6dbfc1d7a6b1fd70c4f90df99d350c8b717a3e19f3de7"
+    },
+    {
+      "binding_id": "rich-pencil-checker",
+      "path": "experimental/scripts/verify_m1_kb_branch3_rank9_rich_pencil_atlas_v1.py",
+      "role": "atlas contract",
+      "sha256": "826e52fb97ea0456b0d5bb333e4f44042a358b01b269beac3af3a17bef46e6c2"
+    },
+    {
+      "binding_id": "sparse-note",
+      "path": "experimental/notes/m1/m1_kb_branch3_rank9_sparse_chart_boundary_v1.md",
+      "role": "tangent slope cap",
+      "sha256": "2ec53b07a87976919c7d9192560d838abac976d429853ac3fb93c66ce9fb6dd8"
+    },
+    {
+      "binding_id": "sparse-checker",
+      "path": "experimental/scripts/verify_m1_kb_branch3_rank9_sparse_chart_boundary_v1.py",
+      "role": "tangent classifier",
+      "sha256": "4425f4d57a1f2508b702cb70fd983491750053c9b2c63418c6e061737bc82b86"
+    },
+    {
+      "binding_id": "mask-contract",
+      "path": "experimental/notes/m1/m1_kb_branch3_5_mask_contract_v1.md",
+      "role": "first-match quantifiers",
+      "sha256": "88d31311505a8fd520505ede2b286b6c4cd4fb6bbe993071c0491ee0c5239507"
+    }
+  ],
+  "status": "PROVED_FIXED_TRANSLATION_ZERO_PENCIL_TANGENT_PROJECTION",
+  "toy_fixture": {
+    "A": 3,
+    "domain": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "epsilon_0": [
+      10,
+      9,
+      8,
+      9,
+      7,
+      5,
+      0,
+      0,
+      0
+    ],
+    "epsilon_1": [
+      1,
+      2,
+      3,
+      1,
+      2,
+      3,
+      0,
+      0,
+      0
+    ],
+    "j": 6,
+    "k": 1,
+    "prime": 11,
+    "zero_pencil_witnesses": [
+      {
+        "eta": 1,
+        "support": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "eta": 2,
+        "support": [
+          3,
+          4,
+          5
+        ]
+      }
+    ]
+  },
+  "toy_replay": {
+    "cap_chain": [
+      2,
+      2,
+      6,
+      6
+    ],
+    "inclusion_verified": true,
+    "sigma": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "sigma_size": 6,
+    "tangent_image": [
+      1,
+      2
+    ],
+    "tangent_ratio_histogram": {
+      "1": 3,
+      "2": 3
+    },
+    "witness_records": [
+      {
+        "epsilon_0_code_fit_exists": false,
+        "epsilon_1_code_fit_exists": false,
+        "eta": 1,
+        "forced_source_points": [
+          0,
+          1,
+          2
+        ],
+        "support": [
+          0,
+          1,
+          2
+        ],
+        "support_wise_noncontained": true
+      },
+      {
+        "epsilon_0_code_fit_exists": false,
+        "epsilon_1_code_fit_exists": false,
+        "eta": 2,
+        "forced_source_points": [
+          3,
+          4,
+          5
+        ],
+        "support": [
+          3,
+          4,
+          5
+        ],
+        "support_wise_noncontained": true
+      }
+    ],
+    "zero_pencil_slope_count": 2,
+    "zero_pencil_slope_projection": [
+      1,
+      2
+    ]
+  }
+}
