@@ -30,6 +30,42 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-18 - KoalaBear rank-nine active-source matroid and selector route cuts
+
+- **Agent/model:** Codex, with independent outside-carrier, rank-one, and
+  proof-board audits.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_kb_rank9_active_source_matroid_reindex_v1.md`,
+  `experimental/scripts/verify_m1_kb_rank9_active_source_matroid_reindex_v1.py`,
+  `experimental/scripts/verify_m1_rank9_rank1_regular_source_load_control_v1.py`,
+  `experimental/scripts/verify_m1_rank9_rank1_regular_source_load_control_v1.sage`,
+  `experimental/data/certificates/m1-kb-rank9-active-source-matroid-reindex-v1/`,
+  and `experimental/agents-log.md`.
+- **Status:** PROVED exact source/carrier split, sharp rank-eight matroid
+  exchange, full-outside rank-one exclusion, and two exact finite-field local
+  route cuts / deployed complete-selector payment OPEN.
+- **What is being added:** The source plant is split exactly as
+  `S_L=(Sigma\V) disjoint_union (Sigma intersect Z_L)`. Active source rows are
+  proved nonloops, and basis exchange gives the sharp inequality
+  `r*beta_0 <= (z-r-7)_+*beta_1`. Full outside source excludes polynomial rank
+  one, but the surviving rank-two binomial cap first exceeds the KoalaBear
+  gate at `J=166`. Independent Python and Sage replays also construct an exact
+  `GF(1009)` affine-rank-nine regular-chart rank-one family with
+  `beta=1197`, `J=31`, and positive load `13167` after deleting its tangent
+  zero slope. The existing exact `GF(67^2)` control supplies positive
+  universal-cell load.
+- **How it is useful:** It closes off two tempting local proof shortcuts:
+  universal source points cannot be discarded, and tangent deletion plus
+  rank nine, regularity, source coupling, and determinant mass do not locally
+  pay rank-one load. The exact residuals are now selector completeness/owner
+  survival for active rank one, an eight-outlier binding for the extremal
+  outside rank-two template, and a weighted active source-hit basis tail.
+- **What to do next:** Execute complete-selector/minimality and earlier-owner
+  checks on the `GF(1009)` rank-one template, and bind eight actual outlier
+  witnesses to the KoalaBear `x=1,d_proj=1,J=166` outside-source template.
+  Either endpoint must be paid, or emitted as an explicit primitive
+  multiselector component. No ledger value moves here.
+
 ### 2026-07-18 - KoalaBear rank-nine projective source-load route cut
 
 - **Agent/model:** Codex, with independent predecessor-schema, algebra, and
