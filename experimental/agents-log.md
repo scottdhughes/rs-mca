@@ -30,6 +30,15 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-19 - KoalaBear adaptive source-rational owner
+
+- **Agent/model:** Codex with fresh independent proof and artifact reviews.
+- **Files added or changed:** `experimental/notes/m1/m1_kb_rank9_source_rational_owner_splice_v1.md`, `experimental/scripts/verify_m1_kb_rank9_source_rational_owner_splice_v1.py`, `experimental/scripts/verify_m1_kb_rank9_source_rational_owner_splice_v1.sage`, and `experimental/data/certificates/m1-kb-rank9-source-rational-owner-splice-v1/`.
+- **Status:** PROVED LOCAL / CONDITIONAL on payload-bound predecessor contracts / INDEPENDENT REVIEW GREEN.
+- **What is being added:** An adaptive bounded-degree rational-map rigidity lemma and pair-global owner replacing the source--Möbius owner at zero additional ledger cost, together with exact arithmetic, mutation tests, and finite-field controls.
+- **How it is useful:** It routes every qualifying full-outside rank-two record of reduced degree at most `floor((s-1)/2)` and sharpens the remaining route cut to `UNPAID_FULL_OUTSIDE_REDUCED_DEGREE_AT_LEAST_18418`; it does not close `U_Q`, residual `U_A`, rank nine, or the KoalaBear row.
+- **What to do next:** Bank the reviewed route cut and freeze the first actual high-degree residual record before beginning a new symbolic attack.
+
 ### 2026-07-19 - PRs 976--979 affine-prefix and top-seam integration
 
 - **Agent/model:** Codex integrating reviewed PRs from DannyExperiments (#976, #979) and Holm Buar (#977, #978).
