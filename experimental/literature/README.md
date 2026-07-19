@@ -101,14 +101,20 @@ Bound the r-fold coincidence count M_r past the sqrt(p) barrier via the *index/c
   https://eprint.iacr.org/2026/782 . The other near-capacity-failure result in ABF's refs.
 - `[BROWSER]` **CS25** Crites–Stewart, *On Reed–Solomon Proximity Gaps Conjectures* —
   https://eprint.iacr.org/2025/2046 . Impossibility results; the CA/list conversion route.
-- `[BROWSER]` **BCHKS25** Ben-Sasson–Carmon–Haböck–Kopparty–Saraf, *Proximity Gaps for RS Codes* —
-  https://eprint.iacr.org/2025/2055 . Johnson-radius positive bound (ABF Table 1).
+- `[LOCAL]` **BCHKS25** Ben-Sasson–Carmon–Haböck–Kopparty–Saraf, *Proximity Gaps for RS Codes* —
+  `proximity-gaps-mca/BCHKS25-TR25-169.pdf` (ECCC TR25-169; SHA-256
+  `f1be50e43e26809f868c7d042104063a4f7353a7923f68b98ba8a6912e500206`, the pin used by the
+  Paving v9.2 retained-factor audits, fetched+verified 2026-07-19). Johnson-radius positive
+  bound (ABF Table 1). ePrint 2025/2055 is a *different* artifact (kept in the queue below).
 - `[BROWSER]` **Hab25** Haböck, *A note on mutual correlated agreement for RS codes* —
   https://eprint.iacr.org/2025/2110 . Generalizes Guruswami–Sudan to get MCA. Defines our object.
 - `[BROWSER]` **BCGM25** Bordage–Chiesa–Guan–Manzur, *All Polynomial Generators Preserve Distance
   with MCA* — https://eprint.iacr.org/2025/2051 . MCA positive direction.
-- `[BROWSER]` **BCIKS20** Ben-Sasson–Carmon–Ishai–Kopparty–Saraf, *Proximity Gaps for RS Codes*,
-  FOCS 2020 — https://eprint.iacr.org/2020/654 . The foundational proximity-gap paper.
+- `[LOCAL]` **BCIKS20** Ben-Sasson–Carmon–Ishai–Kopparty–Saraf, *Proximity Gaps for RS Codes*,
+  FOCS 2020 — `proximity-gaps-mca/BCIKS20-TR20-083-rev3.pdf` (ECCC TR20-083 revision 3; SHA-256
+  `84264f52e16dc40108321c8d5b33ac3a03392fc0a9326fd49a229f7e30b804b1`, the pin used by the
+  Paving v9.2 retained-factor audits, fetched+verified 2026-07-19). The foundational
+  proximity-gap paper. ePrint 2020/654 is a *different* artifact (kept in the queue below).
 - `[BROWSER]` **GG25** Goyal–Guruswami, *Optimal Proximity Gaps for Subspace-Design & (Random) RS* —
   https://eprint.iacr.org/2025/2054 .
 

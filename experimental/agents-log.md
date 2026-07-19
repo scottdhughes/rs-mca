@@ -37,7 +37,7 @@ Keep entries concise and link to the relevant files.
 - **Files added or changed:** Integrated scoped experimental notes,
   certificates, verifier scripts, and Lean formalization artifacts from PRs
   #951, #953, #954, #957, #958, #959, #961, #962, #963, #964, #965, #966,
-  #967, #968, #969, #970, #971, #972, and #973.  PR #952 was rejected as a
+  #967, #968, #969, #970, #971, #972, #973, #974, and #975.  PR #952 was rejected as a
   broad rollback/deletion patch relative to the current integration state.
   PRs #955, #956, and #960 were treated as superseded by the stronger #962
   pair-global source--Mobius packet.
@@ -49,7 +49,9 @@ Keep entries concise and link to the relevant files.
   and fixed-27 local eliminant/envelope packets, affine-prefix obstruction
   audits, dense-shell algebraic identities and certificate-binding audits,
   and Lean repairs for `cs25_cap_v12`, planted-divisor sigma bounds,
-  fixed-basis compilers, and dyadic complete-fiber intersections.
+  fixed-basis compilers, dyadic complete-fiber intersections, affine-line
+  Steiner quotient ownership, and an ordinary audit of the Paving v9.2 RF3
+  bridge.
 - **How it is useful:** The most useful mathematical movement is #962, which
   removes a selector-provenance gate for one M1 full-outside maximal-gcd cell
   and gives exact first-match ledger movement while leaving `U_Q`, residual
@@ -58,8 +60,12 @@ Keep entries concise and link to the relevant files.
   because the shipped certificate is stale/not source-bound.  The most useful
   formalization movement is #961, which machine-refutes five false
   `cs25_cap_v12` Lean skeleton statements, repairs their formulations, and
-  proves the `c=1` first-grid cap chain.  The other accepted packets are
-  useful local route cuts, exact finite compilers, or regression guards; none
+  proves the `c=1` first-grid cap chain.  PR #974 usefully routes the
+  affine-line Steiner saturation fixture to an earlier C1 quotient owner, and
+  PR #975 gives an ordinary audit pass for the RF3 bridge with minor
+  punch-list items for a future Paving revision.  The other accepted packets
+  are useful local route cuts, exact finite compilers, or regression guards;
+  none
   is promoted here to a main-paper theorem, leaderboard row, or official
   prize claim.
 - **What to do next:** Audit #962 against the current M1/KoalaBear safe-side
@@ -67,7 +73,9 @@ Keep entries concise and link to the relevant files.
   flagged by #965, and build the Lean packages only when formalization replay
   is explicitly requested.  For L2 fixed-26/fixed-27 packets, require a global
   owner/add-back theorem before treating the local eliminants or branch
-  envelopes as threshold progress.
+  envelopes as threshold progress.  For #974, keep the result as a quotient-
+  ownership regression test, not as a smooth/circle-domain theorem.  For #975,
+  use the punch-list when preparing the next Paving revision.
 
 ### 2026-07-18 - Reviewed PR integration sweep
 
