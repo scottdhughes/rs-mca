@@ -30,6 +30,15 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-19 - KoalaBear moving-root slack and C5 boundary
+
+- **Agent/model:** Codex with fresh independent mathematical and artifact review.
+- **Files added or changed:** `experimental/notes/m1/m1_kb_rank9_moving_root_slack_c5_boundary_v1.md`, `experimental/scripts/verify_m1_kb_rank9_moving_root_slack_c5_boundary_v1.py`, `experimental/scripts/verify_m1_kb_rank9_moving_root_slack_c5_boundary_v1.sage`, and `experimental/data/certificates/m1-kb-rank9-moving-root-slack-c5-boundary-v1/`.
+- **Status:** PROVED LOCAL / CONDITIONAL on payload-bound predecessor contracts / KOALABEAR ROW OPEN.
+- **What is being added:** The whole-moving-set divisibility `L_F_eta | Pbar+eta*Qbar`, the exact slack identity `h+u+ell=s-t-1`, and a projective-base C5 absorption theorem for the zero-slack source boundary, with exact certificates, 100 mutation rejections, and finite-field controls.
+- **How it is useful:** It replaces the predecessor's nominal residual floor by `s>=67474`, `e>=33737`, and `deg(H)<=1014838`, eliminating 33,736 top gcd degrees in total (15,319 additional) at zero ledger movement.  It isolates one nonbase common-linear-gcd twist and one nonbase linear moving-cofactor component at the first one-slack frontier.
+- **What to do next:** Classify only those two one-slack components against the eight outlier directions and regular locator equations; stop at the first compatible primitive component and do not start generic high-degree elimination.
+
 ### 2026-07-19 - KoalaBear adaptive source-rational owner
 
 - **Agent/model:** Codex with fresh independent proof and artifact reviews.
