@@ -2,7 +2,7 @@
 
 Claim: For every field, finite multiplicative subgroup, admissible `K,m`, arbitrary received word, and divisor `c` of the subgroup order, distinct list polynomials have at most `floor((K-1)/c)` common canonical complete `c`-fibers; the deployed dyadic specialization pays `57121027290597096` elements.
 Status: PROVED theorem and finite ROUTE_CUT; the official score remains `0/2`.
-Verifier: `experimental/data/certificates/dyadic-complete-fiber-slicing/verify_role07_dyadic_full_fiber_cut.py` replays the deployed integer ledger; `verifier_output.txt` is canonical and `SHA256SUMS` binds both files.
+Verifier: `experimental/data/certificates/dyadic-complete-fiber-slicing/verify_role07_dyadic_full_fiber_cut.py` replays the deployed integer ledger; `verifier_output.txt` is canonical and `SHA256SUMS` binds both files. `experimental/scripts/verify_dyadic_complete_fiber_intersection_formalization.py` fail-closes the source/Lean correspondence and package locks and includes a tamper self-test.
 Consumers: It remains to prove, for each of the `1792` residual nested profiles, a uniform first-match sublist cap of `121502836610262`; a violator forces one profile to contain at least `121502836610263` elements.
 Risk-limits: The verifier checks arithmetic, not the field-theoretic proof; no Grand List closure, Grand MCA result, extension-field list theorem, rank-cell closure, or unpublished recurrence is consumed or claimed.
 
@@ -167,11 +167,15 @@ The literal Grand List theorem remains open, and the official score remains
 closure, universal extra Forney defect, Fourier maximum-from-average step,
 Grand MCA theorem, asymptotic theorem, or recurrence claim is included.
 
-The Lean file
-`experimental/lean/dyadic_complete_fiber_slicing/DyadicCompleteFiberSlicingTarget.lean`
-records the general implication with its field, subgroup, order, degree,
-agreement, divisor, received-word, and distinctness hypotheses. It contains
-one explicit `sorry`: it is a statement target, not a formal proof artifact.
+The standalone Lean 4.28 / Mathlib package at
+`experimental/lean/dyadic_complete_fiber_slicing/` now proves equation (1) as
+`DyadicCompleteFiberSlicing.completeFiberIntersection`, with the field,
+subgroup, order, degree, agreement, divisor, received-word, and distinctness
+hypotheses printed above.  Its local classical `DecidableEq F` is an
+elaboration instance and does not add a public theorem parameter.  The Lean
+result does not certify the packing consequences (2)--(3), the deployed
+integer ledger, the residual `1792`-profile cap, the GRS/syndrome transport,
+Grand List, Grand MCA, or an exact-threshold conclusion.
 
 ## Artifact audit
 

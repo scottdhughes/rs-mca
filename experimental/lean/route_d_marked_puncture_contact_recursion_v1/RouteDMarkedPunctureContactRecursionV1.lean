@@ -4,10 +4,10 @@ import Std
 # Route-D marked-puncture contact recursion v1
 
 This standalone module records the theorem interfaces isolated by the Route-D
-research packet.  The three declarations marked `sorry` are intentional:
-they expose the exact carried-Q recursion, first-match partition, and hereditary
-cardinality bridge still required by the global CAP25-v13 proof.  The finite
-F_7/F_11 arithmetic and obstruction pins below them are kernel checked.
+research packet.  It proves the exact carried-Q recursion, first-match
+partition, and hereditary cardinality bridge from their explicit structural
+hypotheses.  The finite F_7/F_11 arithmetic and obstruction pins below them are
+also kernel checked.
 
 Exact source provenance (Git object identities):
 
@@ -74,8 +74,8 @@ the signed locator deconvolution, punctured domain, weight drop, and exclusion
 of earlier boundary roots.  `backwardStructural` is its marked insertion
 converse.  The inverse laws require the mark to be preserved explicitly.
 
-Intentional research stub: the packet supplies the finite verifier evidence,
-but the global algebraic structural hypotheses are not yet discharged in Lean.
+The global algebraic structural hypotheses remain explicit inputs: this theorem
+only packages them into the carried-key equivalence.
 -/
 theorem carriedQ_leastContact_erase_insert_equiv
     (parentGood : Parent → Prop) (childGood : Root → Child → Prop)
@@ -92,7 +92,34 @@ theorem carriedQ_leastContact_erase_insert_equiv
     Nonempty (ExactEquiv
       {S : Parent // LeastContactParent parentGood Q leastContact b S}
       {P : Child // CarriedQChild childGood Q insert b P}) := by
-  sorry
+  let toChild :
+      {S : Parent // LeastContactParent parentGood Q leastContact b S} →
+        {P : Child // CarriedQChild childGood Q insert b P} :=
+    fun S => ⟨erase b S.1, by
+      rcases S.2 with ⟨hParent, hQ, hLeast⟩
+      refine ⟨forwardStructural S.1 hParent hLeast, ?_⟩
+      simpa only [insertErase S.1 hParent hLeast] using hQ⟩
+  let toParent :
+      {P : Child // CarriedQChild childGood Q insert b P} →
+        {S : Parent // LeastContactParent parentGood Q leastContact b S} :=
+    fun P => ⟨insert b P.1, by
+      rcases P.2 with ⟨hChild, hQ⟩
+      rcases backwardStructural P.1 hChild with ⟨hParent, hLeast⟩
+      exact ⟨hParent, hQ, hLeast⟩⟩
+  refine ⟨{
+    toFun := toChild
+    invFun := toParent
+    leftInv := ?_
+    rightInv := ?_
+  }⟩
+  · intro S
+    apply Subtype.ext
+    change insert b (erase b S.1) = S.1
+    exact insertErase S.1 S.2.1 S.2.2.2
+  · intro P
+    apply Subtype.ext
+    change erase b (insert b P.1) = P.1
+    exact eraseInsert P.1 P.2.1
 
 def HasBoundaryContact
     (allowed : Root → Prop) (touches : Root → Parent → Prop) (S : Parent) : Prop :=
@@ -114,8 +141,8 @@ def HasUniqueLeastContact
 existence supplies a least marked root and uniqueness makes distinct cells
 disjoint.  This statement deliberately keeps the common-core mark `b`.
 
-Intentional research stub: the global ordered boundary and support family must
-be instantiated by the Route-D owner.
+The global ordered boundary and support family remain explicit inputs and must
+still be instantiated by the Route-D owner.
 -/
 theorem least_contact_partition
     (parentGood : Parent → Prop) (allowed : Root → Prop)
@@ -128,7 +155,15 @@ theorem least_contact_partition
     ∀ S, parentGood S →
       (HasBoundaryContact allowed touches S ↔
         HasUniqueLeastContact allowed precedes touches S) := by
-  sorry
+  intro S hParent
+  constructor
+  · intro hContact
+    obtain ⟨b, hb⟩ := firstExists S hParent hContact
+    refine ⟨b, hb, ?_⟩
+    intro c hc
+    exact firstUnique S c b hc hb
+  · rintro ⟨b, hb, _⟩
+    exact ⟨b, hb.1, hb.2.1⟩
 
 /-- Summed hereditary cardinality transfer.  `cellCard = carriedCard` is the
 cardinality shadow of `carriedQ_leastContact_erase_insert_equiv`.
@@ -137,9 +172,8 @@ the inclusion from the carried child family into the coarse hereditary family;
 `inclusionCardBound` consumes that inclusion.  Invariance or child freeness is
 not assumed.
 
-Intentional research stub: producing `localHeredityBound` for every nonvanishing
-pivot, or routing a vanishing pivot to the existing rank-drop owner, is the
-remaining global obligation.
+Producing the concrete local bound for every nonvanishing pivot, or routing a
+vanishing pivot to the existing rank-drop owner, remains a global obligation.
 -/
 theorem hereditary_cardinality_bound
     (roots : List Root) (cellCard carriedCard coarseChildCard : Root → Nat)
@@ -155,7 +189,17 @@ theorem hereditary_cardinality_bound
       (∀ P, carriedMember b P → coarseMember b P) →
       carriedCard b ≤ coarseChildCard b) :
     (roots.map cellCard).sum ≤ (roots.map coarseChildCard).sum := by
-  sorry
+  have pointwise (b : Root) : cellCard b ≤ coarseChildCard b := by
+    rw [exactCarriedCard b]
+    apply inclusionCardBound b
+    intro P hCarried
+    apply coarseAccepts b P
+    · exact carriedHasStructure b P hCarried
+    · exact deletionHereditary b P (carriedHasQ b P hCarried)
+  induction roots with
+  | nil => simp
+  | cons b roots ih =>
+      simpa using Nat.add_le_add (pointwise b) ih
 
 end GenericInterfaces
 
@@ -299,5 +343,9 @@ theorem f7_root_blind_nonfree_orbit_pin :
 theorem exhaustive_control_counts_pin :
     2 ^ f7Parents.length = 8 ∧ 3 ^ f7Parents.length = 27 ∧ 27 - 2 ^ 3 = 19 := by
   native_decide
+
+#print axioms carriedQ_leastContact_erase_insert_equiv
+#print axioms least_contact_partition
+#print axioms hereditary_cardinality_bound
 
 end RouteDMarkedPunctureContactRecursionV1

@@ -328,6 +328,9 @@ lists, the 24-element choose-seven padding fiber and its exact reconstruction
 as the full-target supports containing `16`, `24>17`, and rank one of the full
 `3 x 9` owner matrix via one nonzero entry and all vanishing `2 x 2` minors.
 The semantic bad-slope/root-bound census and the seven marked top-seam packets
-remain Python checks. The rooted-emission theorem remains the package's sole
-explicit unproved bookkeeping target, not a formalization of actual MCA
-incidence.
+remain Python checks. The Lean package now also proves only the final finite-
+envelope consequence of the minimal viable lemma: an exact duplicate-free
+fixed-line residual with an already supplied injection into `Fin t × Fin p`
+has length at most `t*p`. It does not construct or validate that injection,
+the rooted MCA incidence, the rank-drop slope bound, executable first-match
+coverage, or a global Route-D payment.

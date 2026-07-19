@@ -1,0 +1,16 @@
+INPUT: decorated B<=8; class split B<=10; exact rational/integer arithmetic
+OBJECT: all-K root toggle, prefix partition, top-support pairing
+THEOREM: dense-shell-general-k-root-anchor
+STATUS: PROVED (finite replay is regression only)
+[PASS] G1 exact root state and q1=1/4
+[PASS] G2 coefficientwise root-toggle for every K through B=8 (cases=255)
+[PASS] G3 C3b root-anchor prefix partition for every K through B=8 (cases=247)
+[PASS] G4 explicit boundary domain: empty V, B=2/3/4, reject top in V (valid_cases=14; B4_V0=[-1, 1])
+[PASS] G5 no-carry top-support class decomposition through B=10 (cases=1022)
+[PASS] G6 B=2 Fourier-sign literal chi_4(-3),chi_4(0),chi_4(3) (atoms=(0, 1),(1, 0),(-1, -1))
+[PASS] G7 C1 class-sum antisymmetry and sign-margin preservation (cases=254)
+[PASS] G8 B=4 exact-model singleton boundary, #914-analogue V={0} (singletons=3 nonzero; model_Sigma_V0=-132592192/4782969)
+[PASS] G9 repaired charge pair; |Sigma| only on sign-aligned fixtures (supports=254; aligned/opposed_fixtures=508)
+[PASS] G10 required source markers present in note and Lean declarations
+CERTIFICATE: exact checks=10/10; deterministic seed=none
+RESULT: PASS (10/10)

@@ -491,9 +491,12 @@ cd experimental/lean/route_d_marked_puncture_contact_recursion_v1
 lake build
 ```
 
-It provides theorem-shaped generic least-contact/deconvolution stubs plus
-kernel-checked finite-fixture pins.  The generic declarations are explicit
-unproved interfaces; only the finite-fixture pins are kernel checked.  No
+It provides theorem-shaped generic carried-`Q`, least-contact, and hereditary
+sum interfaces plus kernel-checked finite-fixture pins.  The three generic
+logical/cardinality wrappers are now proved from their explicit structural,
+existence/uniqueness, heredity, and inclusion-cardinality hypotheses; see the
+package `README.md` for the exact theorem map.  Those hypotheses do not
+instantiate the signed locator recursion or a deployed residual.  No
 GrandeFinale module is claimed here.
 
 ## Nonclaims

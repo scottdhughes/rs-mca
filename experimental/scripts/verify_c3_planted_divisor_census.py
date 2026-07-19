@@ -59,11 +59,11 @@ Seven blocks.
            checked on small (n,b) instances.
 
   BLOCK G  Ledger arithmetic: recompute the note's headline counts (total
-           Tier-A/Tier-B cardinalities, the gap ratio at a sample N) and an
-           optional soft check of PR #713's own integrated note text, which
-           does not fail the run if that file is absent from this branch's
-           base commit (this branch predates the maintainer's integration of
-           #713; see the note's Interfaces section).
+           Tier-A/Tier-B cardinalities, the gap ratio at a sample N) and a
+           soft presence-plus-substring check of PR #713's integrated note.
+           The current tree contains that note; the check remains soft so the
+           historical packet can still be replayed at its pre-integration
+           base commit (see the note's Interfaces section).
 
 No .tex/.pdf is modified.  Writes the JSON certificate.
 """
@@ -438,22 +438,17 @@ def block_g() -> None:
     check(set(censused_paid) <= set(generator_types), "the paid sub-case is drawn from the named generator types")
     check(len(censused_paid) == 2 and len(censused_open) == 3, "census verdict split: 2 generator types PAID (this packet) / 3 OPEN or row-dependent")
 
-    # Soft check: does PR #713's own integrated note exist in this branch's
-    # file tree?  This branch is based on a commit that predates the
-    # maintainer's integration of #713 (upstream main advanced
-    # ea4eb07 -> c23dcaa, integrating #713, after this branch was created).
-    # This branch is not rebased onto that integration here, so the file may
-    # legitimately be absent; that is not a failure of this packet.
-    # The audit-before-consume rerun of #713's verifier was performed
-    # separately, out-of-tree, against the integrated commit c23dcaa (see
-    # the note's Interfaces section) and is not repeated by this script.
+    # Soft check for PR #713's integrated note.  It is present on the current
+    # base.  Absence remains non-fatal only so the original pre-integration
+    # packet can still be replayed; the historical out-of-tree #713 audit is
+    # documented in the note's Interfaces section and is not repeated here.
     if ATLAS_LEDGER_NOTE.exists():
         txt = ATLAS_LEDGER_NOTE.read_text(encoding="utf-8")
         found = "C3" in txt and "planted" in txt.lower()
-        check(found, "PR #713 note present in-tree and mentions C3/planted (post-rebase live check)")
+        check(found, "PR #713 note present in-tree and mentions C3/planted (current live check)")
     else:
-        print("  SKIP  PR #713 note (atlas_cat_cell_ledger.md) not present on this branch's base commit"
-              " (expected pre-rebase; audited separately out-of-tree against c23dcaa -- see Interfaces).")
+        print("  SKIP  PR #713 note (atlas_cat_cell_ledger.md) absent"
+              " (supported only for historical pre-integration replay; see Interfaces).")
 
 
 # ---------------------------------------------------------------------------
@@ -465,7 +460,7 @@ def write_certificate() -> dict:
     cert = {
         "schema": "c3_planted_divisor_census.v1",
         "pr_interface": {
-            "consumes": "#713 atlas_cat_cell_ledger.md (integrated at upstream c23dcaa; branch base ea4eb07 predates integration)",
+            "consumes": "#713 atlas_cat_cell_ledger.md (integrated at upstream c23dcaa; present on current base 3404d21)",
             "manuscript": "experimental/asymptotic_rs_mca_frontiers.tex",
             "cell": "C3 planted-block, catalogue L2399-2407",
         },

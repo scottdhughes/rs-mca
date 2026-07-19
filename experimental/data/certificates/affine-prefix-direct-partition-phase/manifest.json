@@ -1,0 +1,41 @@
+{
+  "schema": "rs-mca.affine-prefix-direct-partition-phase.v1",
+  "source_base": "3404d21b64c876c6d9b995ad3e29d7120ab27a54",
+  "claim_level": "finite_line_local_zero_ledger_route_cut",
+  "claim": "For the characteristic-five affine-square family and received line R_gamma=X^(2B)+gamma X^(2B-1), the exact 2B-support MCA witness incidence has the audited pairwise slope-disjoint j-partition, exact census and representation moments, reciprocal per-slope covering optimum, phase root, inclusive 500j>=447B band, and conditional direct-partition lower bounds.",
+  "proof_audit_packet_sha256": "042fea916cc584c4c54c534142e3bedf1a14df31380a430b1268d5fb6e02f3e1",
+  "proof_audit_response_sha256": "f029f6cfdcd2da3c2e368af988790cc5aae17a6ede3be9d104b9ccd698e059c1",
+  "source_contract": {
+    "field": "F_(5^(3B))",
+    "quantifiers": "B>=2, 0<=j<=B, gamma in F_B, |S|=2B",
+    "parameters": "n=4B, k=2B-1, m=2B=k+1",
+    "moment_scope": "ordinary q>0; representation-weighted q=2h",
+    "finite_band": "500j>=447B inclusive"
+  },
+  "replay": {
+    "normal": "PASS_EXACT_EXPECTED",
+    "optimized": "PASS_EXACT_EXPECTED",
+    "dependency_normal": "PASS_PR903_EXACT_EXPECTED",
+    "dependency_optimized": "PASS_PR903_EXACT_EXPECTED",
+    "source_pins": "PASS_4_OF_4",
+    "semantic_mutations": "PASS_10_OF_10",
+    "finite_band_cells": 4935
+  },
+  "artifacts": {
+    "experimental/notes/thresholds/affine_prefix_direct_partition_phase.md": "5fff814d53c3c0db963af012d13f8ea53b70f41bb5f01a712b5f792964b8c5bd",
+    "experimental/scripts/verify_affine_prefix_direct_partition_phase.py": "7a9337e2a717ff64f0843dd7c7e34285df904a316cfb9b61a5f66a5d8b4be28f",
+    "source_pins.json": "3b27f7bac1fd570dadb08fbf70d8ad09c2dd995e38e2771556518b793d41ef55",
+    "verify_affine_prefix_direct_partition_phase.expected.txt": "4cb942ad17c95145ac911ba417de2589040eb91ec77cdd156a34fc50914e7341"
+  },
+  "nonclaims": [
+    "no semantic C1-C9 primitive or survival theorem",
+    "no row-uniform theorem over arbitrary received lines",
+    "no C8 source-incidence theorem",
+    "no universal direct or semantic weighting impossibility",
+    "no finite or asymptotic ledger payment",
+    "no Grand MCA hard input, Grand MCA, or Grand List theorem",
+    "no official-score movement"
+  ],
+  "remaining_wall": "Prove a source-valid image-scale theorem for every actual primitive semantic first-match cell, then add the same-line budgets disjointly without interchanging sup_line sum_lambda with sum_lambda sup_line.",
+  "official_score": "0/2"
+}

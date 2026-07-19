@@ -30,7 +30,8 @@ degree-`<n` interpolant of the vector `(L(x) r1(x))_{x∈D}` to have degree
 denominator degree `d ∈ [1, a-k]`, so no presentation exists for ANY `r0`.
 
 No `sorry`.  No mathlib.  `omega` for the general degree facts, `decide` for the
-concrete section-nonpositive rows.
+concrete section-nonpositive rows, and `native_decide` for retained finite
+regressions.
 -/
 
 namespace SectionNonpositiveExtraction
@@ -76,6 +77,46 @@ theorem rows_are_valid :
        ∧ 2 ≤ 3 ∧ 3 ≤ 9 - 1 - (3 - 2)) := by
   decide
 
+private theorem double_sq (a : Nat) :
+    (2 * a) * (2 * a) = 4 * (a * a) := by
+  rw [Nat.mul_assoc 2 a (2 * a), Nat.mul_comm a (2 * a),
+    Nat.mul_assoc 2 a a]
+  omega
+
+private theorem section_nonpositive_gap
+    (n k : Nat) (hk : 1 ≤ k) (hkn : k < n) :
+    4 * (n * (k - 1)) < (n + k) * (n + k) := by
+  obtain ⟨p, rfl⟩ : ∃ p, k = p + 1 := ⟨k - 1, by omega⟩
+  obtain ⟨q, rfl⟩ : ∃ q, n = (p + 1) + q + 1 :=
+    ⟨n - (p + 1) - 1, by omega⟩
+  have hp : p + 1 - 1 = p := by omega
+  rw [hp]
+  simp only [Nat.add_mul, Nat.mul_add, Nat.one_mul, Nat.mul_one, Nat.mul_comm]
+  omega
+
+/-- #721 section 4.1, universal degree gate.  In the printed compiler regime
+`1 ≤ k < n` and `k+1 ≤ a ≤ n`, section-nonpositivity forces the exact
+integer room `2a-k ≤ n-1`.  The proof avoids unrestricted Nat subtraction:
+`hk` and `hkn` control the two predecessor terms. -/
+theorem degree_gate
+    (n k a : Nat)
+    (hk : 1 ≤ k)
+    (hkn : k < n)
+    (_hka : k + 1 ≤ a)
+    (_ha : a ≤ n)
+    (hJ : SectionNonpositive n k a) :
+    2 * a - k ≤ n - 1 := by
+  have hJ4 : 4 * (a * a) ≤ 4 * (n * (k - 1)) :=
+    Nat.mul_le_mul_left 4 hJ
+  have hgap := section_nonpositive_gap n k hk hkn
+  have hlt : 2 * a < n + k := by
+    rcases Nat.lt_or_ge (2 * a) (n + k) with h | h
+    · exact h
+    · have hs := Nat.mul_le_mul h h
+      rw [double_sq] at hs
+      omega
+  omega
+
 /-- #721 §4.1 degree gate, boolean form: on every row with `1 ≤ k < n`,
 `k+1 ≤ a ≤ n`, the section-nonpositive gate `a² ≤ n(k-1)` forces
 `2a - k ≤ n-1`. -/
@@ -86,7 +127,8 @@ def gateHoldsUpTo (N : Nat) : Bool :=
         !(decide (1 ≤ k ∧ k + 1 ≤ a ∧ a * a ≤ n * (k - 1)))
           || decide (2 * a - k ≤ n - 1)
 
-/-- The degree gate holds on every section-nonpositive row with `n ≤ 40`. -/
+/-- Finite regression: the degree gate holds on every section-nonpositive row
+with `n ≤ 40`.  The universal mathematical statement is `degree_gate`. -/
 theorem degree_gate_n_le_40 : gateHoldsUpTo 40 = true := by native_decide
 
 /-- Regime floor: no section-nonpositive row with `a ≤ n-1` exists below `n = 8`

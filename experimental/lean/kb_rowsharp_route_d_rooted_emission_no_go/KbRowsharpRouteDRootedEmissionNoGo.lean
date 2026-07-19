@@ -16,10 +16,11 @@ the Route-D rooted-emission no-go packet.  It kernel-checks only:
 * the repaired deep-gate arithmetic `3(t-1)=6 <= n-k=11` and the strict
   arithmetic obstructions `19 > 17` and `24 > 17`.
 
-The final rooted-emission statement is deliberately theorem-shaped but
-UNPROVED.  It is scoped to one fixed line and an exact residual after the
-eight named first-match deletions.  No global Route-D support certificate is
-claimed here.
+The final rooted-emission statement is proved only as a conditional finite-
+cardinality wrapper.  It is scoped to one fixed line and an exact residual
+after the eight named first-match deletions, and assumes the required injective
+emission into `Fin t × Fin p`.  It does not construct that emission or claim a
+global Route-D support certificate.
 -/
 
 namespace KbRowsharpRouteDRootedEmissionNoGo
@@ -296,7 +297,7 @@ theorem punctured_padding_obstruction_fixture :
 theorem nineteen_exceeds_seventeen : 19 > 17 := by
   native_decide
 
-/-! ## Scoped theorem-shaped target (intentionally unproved) -/
+/-! ## Scoped conditional cardinality wrapper -/
 
 /-- A marked Route-D support.  `commonCore` is the mark that emission must
 preserve; it is not projected away by this interface. -/
@@ -349,15 +350,107 @@ def InjectiveOnResidual
   ∀ ⦃x⦄, x ∈ residual → ∀ ⦃y⦄, y ∈ residual → emit x = emit y → x = y
 
 /--
-**UNPROVED rooted-emission target, scoped to the fixed line `g = X^5`.**
+**Conditional rooted-emission cardinality wrapper, scoped to `g = X^5`.**
 
 `Fin t` is only an indexing envelope for the at-most-`t` rank-drop slopes in
 `Z_rankdrop(f_z,g_z)`, and `Fin p` models `F_p`.  Mark preservation is decoded
-from the full pair, not from its slope coordinate.  This stub is bookkeeping
-only, not a formalization of rooted incidence.  The desired conclusion is
+from the full pair, not from its slope coordinate.  The proof consumes only
+duplicate-freeness from `hExact` and the supplied `hInjective`; the exact
+residual characterization and mark-preservation hypothesis are retained for
+integrated-stub interface continuity and boundary visibility.  This is
+bookkeeping only, not a construction of rooted incidence.  The conclusion is
 only the local cardinality bound `|V_z| ≤ t*p`; it does not assert the deployed
 global support certificate.
 -/
+theorem rootedEmission_fixedLine_cardinality_of_injective
+    (p t : Nat) (z : Nat × Nat)
+    (deletions : NamedFirstMatchDeletions)
+    (lineOf : MarkedSupport → Nat)
+    (targetOf : MarkedSupport → Nat × Nat)
+    (ambient residual : List MarkedSupport)
+    (hExact : IsExactFixedLineResidual deletions lineOf targetOf
+      fixedGExponent z ambient residual)
+    (emit : MarkedSupport → Fin t × Fin p)
+    (markDecoder : Fin t × Fin p → List Nat)
+    (hMarkPreserving : ∀ x ∈ residual, markDecoder (emit x) = x.commonCore)
+    (hInjective : InjectiveOnResidual residual emit) :
+    residual.length ≤ t * p := by
+  let code : MarkedSupport → Nat := fun x =>
+    p * (emit x).1.val + (emit x).2.val
+  have code_lt (x : MarkedSupport) : code x < t * p := by
+    have hstep :
+        p * (emit x).1.val + (emit x).2.val <
+          p * (emit x).1.val + p :=
+      Nat.add_lt_add_left (emit x).2.isLt _
+    have hfirst : (emit x).1.val + 1 ≤ t :=
+      Nat.succ_le_of_lt (emit x).1.isLt
+    dsimp [code]
+    calc
+      p * (emit x).1.val + (emit x).2.val <
+          p * (emit x).1.val + p := hstep
+      _ = p * ((emit x).1.val + 1) := by
+        rw [Nat.mul_add, Nat.mul_one]
+      _ ≤ p * t := Nat.mul_le_mul_left p hfirst
+      _ = t * p := Nat.mul_comm p t
+  have code_eq_emit_eq {x y : MarkedSupport}
+      (h : code x = code y) : emit x = emit y := by
+    have hp : 0 < p :=
+      Nat.lt_of_le_of_lt (Nat.zero_le _) (emit x).2.isLt
+    have hsnd : (emit x).2.val = (emit y).2.val := by
+      have hm := congrArg (fun n => n % p) h
+      dsimp [code] at hm
+      rw [Nat.mul_add_mod, Nat.mod_eq_of_lt (emit x).2.isLt,
+        Nat.mul_add_mod, Nat.mod_eq_of_lt (emit y).2.isLt] at hm
+      exact hm
+    have hfst : (emit x).1.val = (emit y).1.val := by
+      have hmul : p * (emit x).1.val = p * (emit y).1.val := by
+        dsimp [code] at h
+        rw [hsnd] at h
+        exact Nat.add_right_cancel h
+      exact Nat.mul_left_cancel hp hmul
+    exact Prod.ext (Fin.eq_of_val_eq hfst) (Fin.eq_of_val_eq hsnd)
+  have codesNodup : (residual.map code).Nodup := by
+    rw [List.Nodup, List.pairwise_map]
+    exact hExact.1.imp_of_mem fun hx hy hxy hcode =>
+      hxy (hInjective hx hy (code_eq_emit_eq hcode))
+  have nodup_length_le_of_subset :
+      ∀ (xs ys : List Nat), xs.Nodup → xs ⊆ ys → xs.length ≤ ys.length := by
+    intro xs
+    induction xs with
+    | nil => simp
+    | cons x xs ih =>
+        intro ys hNodup hSubset
+        have hx : x ∈ ys := hSubset (List.mem_cons_self x xs)
+        have hTail : xs ⊆ ys.eraseP (fun a => a == x) := by
+          intro a ha
+          rw [List.mem_eraseP_of_neg]
+          · exact hSubset (List.mem_cons_of_mem x ha)
+          · intro hax
+            have : a = x := eq_of_beq hax
+            subst a
+            exact (List.nodup_cons.mp hNodup).1 ha
+        have hle := ih (ys.eraseP (fun a => a == x))
+          (List.nodup_cons.mp hNodup).2 hTail
+        cases ys with
+        | nil => simp at hx
+        | cons y ys =>
+            have hpx : (fun a : Nat => a == x) x = true :=
+              beq_self_eq_true x
+            rw [List.length_eraseP_of_mem
+              (p := fun a : Nat => a == x) hx hpx] at hle
+            simp only [List.length_cons, Nat.add_one_sub_one] at hle ⊢
+            exact Nat.succ_le_succ hle
+  have codesSubset : residual.map code ⊆ List.range (t * p) := by
+    intro n hn
+    obtain ⟨x, _, rfl⟩ := List.mem_map.mp hn
+    exact List.mem_range.mpr (code_lt x)
+  have hle := nodup_length_le_of_subset
+    (residual.map code) (List.range (t * p)) codesNodup codesSubset
+  simpa using hle
+
+/-- Compatibility alias for the original statement-target name.  Despite the
+historical `_unproved` suffix, this declaration is a proved forwarding theorem.
+New consumers should use `rootedEmission_fixedLine_cardinality_of_injective`. -/
 theorem rootedEmission_fixedLine_target_unproved
     (p t : Nat) (z : Nat × Nat)
     (deletions : NamedFirstMatchDeletions)
@@ -371,6 +464,11 @@ theorem rootedEmission_fixedLine_target_unproved
     (hMarkPreserving : ∀ x ∈ residual, markDecoder (emit x) = x.commonCore)
     (hInjective : InjectiveOnResidual residual emit) :
     residual.length ≤ t * p := by
-  sorry
+  exact rootedEmission_fixedLine_cardinality_of_injective
+    p t z deletions lineOf targetOf ambient residual hExact emit markDecoder
+      hMarkPreserving hInjective
+
+#print axioms rootedEmission_fixedLine_cardinality_of_injective
+#print axioms rootedEmission_fixedLine_target_unproved
 
 end KbRowsharpRouteDRootedEmissionNoGo

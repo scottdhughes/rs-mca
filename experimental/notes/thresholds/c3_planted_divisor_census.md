@@ -19,15 +19,17 @@ received-line-resultant) sub-case.`
 
 **Verifier.** `experimental/scripts/verify_c3_planted_divisor_census.py`
 (stdlib-only, no numpy/sympy, deterministic, `--tamper-selftest` flag,
-`RESULT: PASS (81/81)` in ~5 s). Recomputes every number below: an
+`RESULT: PASS (82/82)` in ~5 s). Recomputes every number below: an
 independent brute-force coset partition (not the formula) for every `N` up
 to 600 and every divisor of it, an independent sieve-based `sigma(N)` for
 every `N` up to 50000, and an exhaustive small-instance proof of the
 negative calibration. JSON certificate at
 `experimental/data/certificates/c3-planted-divisor-census/c3_planted_divisor_census.json`.
-Lean statement stub at
+Lean proof at
 `experimental/lean/first_match_atlas/FirstMatchAtlas/PlantedDivisorCensus.lean`
-(package builds; see §7).
+(clean package build; see §12).  Its discrete `Nat.log2` theorem is proved
+directly by dyadic denominator blocks; it is not inferred from the real
+`ln` bound.
 
 **Credit.** The printed C3 definition and its census obligation are the
 manuscript's own. The `(CAT)` ledger that names this obligation is **#713**.
@@ -139,7 +141,7 @@ divisor `c` of `N`, the verifier builds the actual partition of `{0,...,N-1}`
 into residue classes mod `N/c` (**not** via the `N/c` formula), confirms
 there are exactly `N/c` classes each of exact size `c`, that they cover
 `{0,...,N-1}` exactly once, and that the total over all `c ∣ N` matches
-`σ(N)` computed independently. Zero exceptions in `81` checks over this
+`σ(N)` computed independently. Zero exceptions in `82` checks over this
 range. Spot values: `σ(12)=28`, `σ(30)=72`, `σ(60)=168`, `σ(360)=1170`.
 
 ## 4. Claim 2 — `σ(N)` is subexponential for every `N` (elementary, proved)
@@ -319,36 +321,32 @@ missing census for the maintainer to fold in.
 - No claim that the sharper classical `σ(N)=O(N \log\log N)` bound is proved
   or numerically re-verified by this packet; only the elementary
   `O(N\log N)` bound is (Claim 2).
-- No claim that the general Lean statement target
-  (`sigmaOf_subexponential_STATEMENT_TARGET_UNPROVED`) is proved; it
-  carries an explicit `sorry` and a compiler warning (§12).
+- No claim that the Lean theorem proves the real-valued formula
+  `σ(N) ≤ N(1+ln N)` itself.  Lean proves the separate integer inequality
+  `sigmaOf N ≤ N * (1 + Nat.log2 N)` by a direct dyadic argument (§12).
+  Since `Nat.log2` is floored, neither statement is presented as a formal
+  consequence of the other.
 - No deployed finite-row, Grand MCA/List, or prize-threshold claim of any
   kind.
 
 ## 11. Interfaces
 
 **Consumes #713** (`atlas_cat_cell_ledger.md`, PR #713, integrated at
-upstream `c23dcaa`; anchors quoted in §1). **Audit-before-consume:** this
-branch's base commit (`ea4eb07`) predates the maintainer's integration of
-#713 (upstream advanced `ea4eb07 → c23dcaa` integrating PRs #699–#722,
-including #713, on 2026-07-13, *after* this branch was created), so
-`atlas_cat_cell_ledger.md` and its verifier are not present in this branch's
-file tree; per instruction, this branch is not rebased onto that
-integration. Instead, `#713`'s verifier was extracted and rerun **out of
-tree** directly against the integrated commit:
+upstream `c23dcaa`; anchors quoted in §1).  The current base
+`3404d21b64c876c6d9b995ad3e29d7120ab27a54` contains that integration, so
+`atlas_cat_cell_ledger.md` and its verifier are present in-tree.  The
+original packet was created before #713 landed and recorded this historical
+out-of-tree audit against the integrated commit:
 ```
 git archive c23dcaa experimental | tar -x -C <tmpdir>
 python3 <tmpdir>/experimental/scripts/verify_atlas_cat_ledger.py --check
 # -> RESULT: PASS (219/219)
 ```
-confirming byte-identity of the branch and integrated copies of both
-`atlas_cat_cell_ledger.md` and `verify_atlas_cat_ledger.py`, and a clean
-rerun, before this packet cites its text. This packet's own verifier
-(BLOCK G) performs a **soft**, non-fatal check for
-`experimental/notes/thresholds/atlas_cat_cell_ledger.md` in-tree: a light
-presence-plus-substring check if the file is present (post-rebase; not a
-re-audit of its content), and a printed `SKIP` with an explanation
-otherwise — exactly the present case.
+That transcript remains provenance, not a current rerun.  The present C3
+verifier replay instead takes BLOCK G's live in-tree branch and confirms that
+`experimental/notes/thresholds/atlas_cat_cell_ledger.md` is present and
+mentions C3/planted.  This remains a light presence-plus-substring interface
+check, not a re-audit of #713's content.
 
 **Consumes** (cited, not re-derived): `atlas_missing_witness.md` (#536, C3
 routing precedent), `routing_exhaustiveness.md` (#627) +
@@ -370,22 +368,38 @@ divisor remark (L4561–4583).
 `atlas_cat_cell_ledger.md`'s own per-cell table is the natural promotion
 path, not attempted here.
 
-## 12. Lean statement stub
+## 12. Lean formalization
 
-Per the 2026-07-13 Shipping rule (theorem-shaped claims ship a Lean
-statement stub): `experimental/lean/first_match_atlas/FirstMatchAtlas/
+Per the 2026-07-13 Shipping rule (theorem-shaped claims ship Lean material):
+`experimental/lean/first_match_atlas/FirstMatchAtlas/
 PlantedDivisorCensus.lean`, reached by `import` from the package root
 `FirstMatchAtlas.lean` (no lakefile change needed). Contents: exact
 `native_decide`-proved instances of Claims 1, 3, and 5 at concrete `N`
 (matching this note's spot values `σ(12)=28`, `σ(30)=72`, `σ(360)=1170`,
 the inversion fixed-set `{0,15}` at `N=30`, and the gap `28 < 924 =
-\binom{12}{6}`), plus **one honestly unproved general target**,
-`sigmaOf_subexponential_STATEMENT_TARGET_UNPROVED`, carrying an explicit
-`sorry` and hypotheses matching Claim 2 exactly (`Nat.log2`-based Nat
-rendering of `σ(N) ≤ N(1+\ln N)`, since `\ln N ≤ \log_2 N`). `lake build`
-in `experimental/lean/first_match_atlas/` succeeds with exactly one warning
-("declaration uses 'sorry'") at that one theorem and no errors, confirming
-every `native_decide` claim actually checks out.
+\binom{12}{6}`), plus the proved theorem
+`sigmaOf_le_mul_one_add_log2`:
+```
+∀ N : Nat, N ≥ 1 → sigmaOf N ≤ N * (1 + Nat.log2 N).
+```
+The proof complements each divisor `d` to `N/d`, injects the complement
+list into the denominators `1,...,N`, and partitions those denominators into
+the blocks `[2^j,2^(j+1))`.  A block has `2^j` terms, each at most
+`N/2^j`, so its total is at most `N`; `Nat.lt_log2_self` supplies exactly
+`1 + Nat.log2 N` blocks.  The source's printed `N ≥ 1` wrapper is retained,
+although the Lean proof also covers `N=0`.  The earlier asymptotic-facing
+name `sigmaOf_subexponential` and the historical declaration
+`sigmaOf_subexponential_STATEMENT_TARGET_UNPROVED` remain as proved
+compatibility aliases.  A clean `lake build` has no `sorry` warning, and
+`#print axioms` reports exactly `[propext, Classical.choice, Quot.sound]`
+for all three public declarations.
+
+This is the discrete inequality needed for the elementary `O(N log N)` census
+consequence, not a formalization of the source note's real-analysis formula,
+asymptotic notation, or the bridge to `e^{o(N)}`.
+The previously stated shortcut “`ln N ≤ log₂ N`, therefore the floored
+`Nat.log2` bound” was invalid: the floor matters (already at `N=3`).  The
+direct dyadic proof removes that dependency rather than using it.
 
 ## 13. Per-claim label ledger
 
@@ -405,9 +419,11 @@ every `native_decide` claim actually checks out.
 
 ```bash
 python3 experimental/scripts/verify_c3_planted_divisor_census.py
-# -> RESULT: PASS (81/81)
+# -> RESULT: PASS (82/82)
 python3 experimental/scripts/verify_c3_planted_divisor_census.py --tamper-selftest
 # -> confirms a corrupted anchor and a dropped coset are both detected, then RESULT: PASS
-cd experimental/lean/first_match_atlas && lake build
-# -> Build completed successfully (one 'sorry' warning, by design)
+python3 experimental/scripts/verify_c3_planted_divisor_sigma_formalization.py --check --tamper-selftest
+# -> RESULT: PASS; every mutation rejected
+cd experimental/lean/first_match_atlas && lake clean && lake build
+# -> Build completed successfully (no warnings)
 ```

@@ -1,0 +1,63 @@
+{
+  "schema": "rs-mca.rank16-fixed26-bezout-rectangle-conductor.v1",
+  "deployed": {
+    "p": 2130706433,
+    "n": 2097152,
+    "B": 32768,
+    "a": 67472,
+    "r": 63601,
+    "d": 28897,
+    "L3": 59730,
+    "quadratic_J0": 30831,
+    "cubic_J0": 57794
+  },
+  "theorem": {
+    "joint_coefficient_primitivity": true,
+    "polynomial_interpolation": true,
+    "distinct_field_labels": true,
+    "common_unscaled_normalization": true,
+    "nonzero_inherited_cross_minor": true,
+    "rectangle_sign": -1,
+    "omitted_indices": [3, 6, 7],
+    "official_score": "0/2"
+  },
+  "audit": {
+    "packet_sha256": "16f814dbc226e0f9cb84b2a093473beb7551f16b261ab963611c148d10126a7a",
+    "response_sha256": "ae3f898ccf445060dbdb2d77dd8de7e2f4a8919bbe45baa8f66cd72e946f0e7d",
+    "verdict": "ACCEPT_NARROWED"
+  },
+  "source_pins": [
+    {
+      "path": "experimental/notes/l2/rank16_fixed26_divided_difference_source_compiler.md",
+      "sha256": "e508b1847228475e5a71ab12df15d69d4091e7558a91f53e68261f06c42205ab"
+    },
+    {
+      "path": "experimental/notes/l2/rank16_fixed26_global_spectral_rank_gap.md",
+      "sha256": "4d212b4dd1821cefb3866f67a6303e034be88e7ade3b57bd941aedb93e32dcdb"
+    },
+    {
+      "path": "experimental/notes/l2/rank16_fixed26_polynomial_cross_minor_lift.md",
+      "sha256": "a8828bffa507b56ebc9795d9c2badc904a24df02ecbbd980faef1eafa28b81ea"
+    },
+    {
+      "path": "experimental/notes/l2/rank16_fixed26_spectral_resolvent.md",
+      "sha256": "3c8aaddaa9993cb486d918c62101938f9c7bf4604a852863778f0ccd6886f0cd"
+    },
+    {
+      "path": "experimental/scripts/verify_rank16_fixed26_divided_difference_source_compiler.py",
+      "sha256": "2dd8cd4d2df24510a4faa57d4ad70feda1b4505814233547f06dea7293afc744"
+    },
+    {
+      "path": "experimental/scripts/verify_rank16_fixed26_global_spectral_rank_gap.py",
+      "sha256": "37a26c742f09b271f567c2a000810e15cd904ad7f301ff538679766980e0a53d"
+    },
+    {
+      "path": "experimental/scripts/verify_rank16_fixed26_polynomial_cross_minor_lift.py",
+      "sha256": "1a5bec7dd8aefb8079c7cfa5e9d5b732c57e2365adfa94a8e5e28e12c6d2a86e"
+    },
+    {
+      "path": "experimental/scripts/verify_rank16_fixed26_spectral_resolvent.py",
+      "sha256": "1327c517be7d87050785980b2780bbd99862e6de71e50d188b2a353706336014"
+    }
+  ]
+}

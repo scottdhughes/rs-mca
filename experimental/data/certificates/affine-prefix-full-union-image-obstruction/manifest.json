@@ -1,0 +1,55 @@
+{
+  "schema": "rs-mca.affine-prefix-full-union-image-obstruction.v1",
+  "source_base": "3404d21b64c876c6d9b995ad3e29d7120ab27a54",
+  "claim_level": "conditional_one_row_full_union_zero_ledger_route_cut",
+  "claim": "For every B>=2 in the literal characteristic-five affine-prefix row with T_B=D_B and N=4B, the complete full c1 profile requires effective-Fourier multipliers at least (1/5)(25/3)^B and (1/5)(125/8)^B, and its image-normalized Sidon-heavy moment at sigma=(1/4)log(4/3) has positive normalized rate (1/4)log(15/8). The retained-slice mean consequence is conditional on the same boundary, full support slice, and intact all-diagonal fibre.",
+  "proof_audit": {
+    "packet_sha256": "f02f072c82a85e8c1919a1edc514b0a84a43471a251632572cc00e71a076b0fc",
+    "response_sha256": "6167ed7d87147fe6a3ed602432372d5cad326a839fe8136c53df48b7fe06dc0b"
+  },
+  "source_compiler_audit": {
+    "packet_sha256": "f57b0463e95221cf252f33d5488088b65e42cde2ee19575f3425d697513042eb",
+    "response_sha256": "ba3a28388656dbee7c36d189dce2155d0bcf177a23274e9fd02b0a317d607235",
+    "director_replay_sha256": "dc78cbc2afb515546b788f0009b69121f5d26ca37e6a6787e85b77ef9620c935"
+  },
+  "dependencies": {
+    "pr_903_head": "7a216f1617d2cde1f0e5e52d39379664c6522b10",
+    "pr_959_pre_repair_head": "f1be6aae8d5122826c353c7c8418e1044954e754",
+    "pr_903_relevant_bytes_already_on_source_base": true
+  },
+  "source_contract": {
+    "field": "F_(5^(3B))",
+    "quantifiers": "B>=2, gamma in F_B, S subset D_B, |S|=2B",
+    "parameters": "n=N=4B, k=2B-1, m=2B=k+1",
+    "active_set": "T_B=D_B exactly",
+    "boundary": "c1(S)=-sum_(x in S)x",
+    "retention_scope": "same boundary, full support slice inside Omega_B, intact all-diagonal gamma_B fibre H_B"
+  },
+  "replay": {
+    "normal": "PASS_EXACT_EXPECTED",
+    "optimized": "PASS_EXACT_EXPECTED",
+    "dependency_pr_903_normal_optimized": "PASS_EXACT_EXPECTED",
+    "dependency_pr_959_normal_optimized": "PASS_EXACT_EXPECTED",
+    "source_pins": "PASS_7_OF_7",
+    "semantic_mutations": "PASS_7_OF_7",
+    "finite_field_supports": 70,
+    "integer_ledger_range": "2<=B<=64"
+  },
+  "artifacts": {
+    "experimental/notes/thresholds/affine_prefix_full_union_image_obstruction.md": "2efd1a6c941a375c3b06f873647613eb78337a51fda5b0619cc0dbce03b2a1c4",
+    "experimental/scripts/verify_affine_prefix_full_union_image_obstruction.py": "16815974e29d6199e41d1fd66ae5f1b4a66d26da70267650c9fef18cecbf5567",
+    "source_pins.json": "f7bc751c9593a6f36bab6a4d983ac6475bce6edc8e45021c7f097f54b1c4a6c6",
+    "verify_affine_prefix_full_union_image_obstruction.expected.txt": "2dfb8c3a7c543c410bfbd71ca9ee186fef725ad50da766bb99ad502d57f0fd43"
+  },
+  "nonclaims": [
+    "no actual C1-C9 semantic owner, primitive cell, or survival theorem",
+    "no implication from analytic nonpayment to semantic non-primitivity",
+    "no row-uniform, larger-active-set, or other-field theorem",
+    "no unconditional routing, refinement, or recurrence",
+    "no finite or asymptotic ledger payment",
+    "no Grand MCA hard input, Grand MCA, or Grand List theorem",
+    "no official-score movement"
+  ],
+  "remaining_wall": "Compile every actual primitive semantic first-match cell, prove a source-valid image-scale or replacement-incidence theorem for every retained cell, and aggregate disjoint same-line budgets without interchanging sup_line sum_lambda with sum_lambda sup_line.",
+  "official_score": "0/2"
+}

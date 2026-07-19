@@ -1,0 +1,80 @@
+{
+  "schema": "rs-mca.rank16-fixed26-direct-eliminant.v1",
+  "base": "3404d21b64c876c6d9b995ad3e29d7120ab27a54",
+  "audit_packet_sha256": "d981b84c7c7e3f82ee1abb4e1fd3458b3fcd0e3d2027f312f9986600022cf28f",
+  "audit_clean_sha256": "72b65f8a994668699bcc87c97fbdf35db8d9b0ee8a93df0a470c43335810f947",
+  "source_pins": {
+    "experimental/notes/l2/rank16_fixed26_divided_difference_source_compiler.md": "e508b1847228475e5a71ab12df15d69d4091e7558a91f53e68261f06c42205ab",
+    "experimental/scripts/verify_rank16_fixed26_divided_difference_source_compiler.py": "2dd8cd4d2df24510a4faa57d4ad70feda1b4505814233547f06dea7293afc744",
+    "experimental/notes/l2/rank16_fixed26_polynomial_cross_minor_lift.md": "a8828bffa507b56ebc9795d9c2badc904a24df02ecbbd980faef1eafa28b81ea",
+    "experimental/scripts/verify_rank16_fixed26_polynomial_cross_minor_lift.py": "1a5bec7dd8aefb8079c7cfa5e9d5b732c57e2365adfa94a8e5e28e12c6d2a86e",
+    "experimental/notes/l2/rank16_fixed26_spectral_resolvent.md": "3c8aaddaa9993cb486d918c62101938f9c7bf4604a852863778f0ccd6886f0cd",
+    "experimental/scripts/verify_rank16_fixed26_spectral_resolvent.py": "1327c517be7d87050785980b2780bbd99862e6de71e50d188b2a353706336014",
+    "experimental/notes/l2/rank16_fixed26_global_spectral_rank_gap.md": "4d212b4dd1821cefb3866f67a6303e034be88e7ade3b57bd941aedb93e32dcdb",
+    "experimental/scripts/verify_rank16_fixed26_global_spectral_rank_gap.py": "37a26c742f09b271f567c2a000810e15cd904ad7f301ff538679766980e0a53d"
+  },
+  "field_and_parameters": {
+    "field_prime": 2130706433,
+    "domain_order": 2097152,
+    "block_size_b": 32768,
+    "generator_degree_a": 67472,
+    "residual_degree_r": 63601,
+    "adjacent_gcd_degree_d": 28897,
+    "cofactor_quotient_degree_L3": 59730,
+    "scalar_group_order": 64
+  },
+  "source_contract": {
+    "fixed_received_word_and_first_match_owner": true,
+    "nonzero_eta_then_canonical_xi": true,
+    "fixed_core_labels": 26,
+    "external_labels": 8,
+    "actual_valid_cross_edges": 16,
+    "source_normalized_entries": true,
+    "rank_field": "F_p(X)",
+    "all_3x3_cross_minors_zero": true,
+    "nonzero_2x2_gap": 5807
+  },
+  "sylvester_convention": {
+    "first_block": "v shifted descending-coefficient rows of P",
+    "second_block": "u shifted descending-coefficient rows of Q",
+    "columns": "descending powers Z^(u+v-1) through 1",
+    "formal_degree_zero_padding": true,
+    "resultant_uses_same_exact_degree_convention": true
+  },
+  "theorem": {
+    "transfer_degrees": [2, 3],
+    "A_degree": "m-1",
+    "E_degree_at_most": "m",
+    "J_degree_caps": {"2": 30831, "3": 57794},
+    "M_may_be_zero": true,
+    "repeated_generator_factors_allowed": true,
+    "M_degree_caps_when_nonzero": {"2": 100237, "3": 133003},
+    "quadratic_scalar_roots": 0,
+    "cubic_scalar_roots_at_most": 1,
+    "cubic_scalar_root_simple": true,
+    "valuation_zero_convention": "v_pi(0)=+infinity"
+  },
+  "nonclaims": {
+    "terminal_closure": false,
+    "M_nonzero": false,
+    "source_locator_divides_M": false,
+    "strict_valuation_excess": false,
+    "owner_payment": false,
+    "finite_payment": false,
+    "asymptotic_payment": false,
+    "grand_list": false,
+    "grand_mca": false,
+    "score_movement": false
+  },
+  "remaining_wall": "derive a source-incidence divisor of M or classify M=0 strongly enough to exclude both transfer degrees",
+  "expected_output": {
+    "path": "experimental/data/certificates/rank16-fixed26-direct-eliminant/verify_rank16_fixed26_direct_eliminant.expected.txt",
+    "sha256": "d32c20fbaa7623de6d78f84055e667feae430598f8cf984739e7a445f888dfcb"
+  },
+  "artifacts": [
+    "experimental/notes/l2/rank16_fixed26_direct_eliminant.md",
+    "experimental/scripts/verify_rank16_fixed26_direct_eliminant.py",
+    "experimental/data/certificates/rank16-fixed26-direct-eliminant/manifest.json",
+    "experimental/data/certificates/rank16-fixed26-direct-eliminant/verify_rank16_fixed26_direct_eliminant.expected.txt"
+  ]
+}
