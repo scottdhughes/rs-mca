@@ -30,6 +30,41 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-19 - KoalaBear pair-global source--Möbius owner splice
+
+- **Agent/model:** Codex, with independent theorem, Python-contract, artifact,
+  and exact-control reviews.
+- **Files added or changed:**
+  `experimental/notes/m1/m1_kb_rank9_source_mobius_owner_splice_v1.md`,
+  `experimental/scripts/verify_m1_kb_rank9_source_mobius_owner_splice_v1.py`,
+  `experimental/scripts/verify_m1_kb_rank9_source_mobius_owner_splice_v1.sage`,
+  `experimental/data/certificates/m1-kb-rank9-source-mobius-owner-splice-v1/`,
+  and `experimental/agents-log.md`.
+- **Status:** PROVED pair-global source--Möbius owner and exact first-match
+  splice / full-outside maximal-gcd cell PAID / broader rank-nine and row
+  OPEN.
+- **What is being added:** The fixed SP3 source labels synchronize every
+  qualifying full-outside maximal-gcd reduced map across all selectors, not
+  only inside one selector.  Every selected finite slope is the common
+  Möbius image of a moving root in `D \ Sigma`, giving a global-once cap
+  `n-18,419 = 2,078,733` without a deployed selector inventory.  The exact
+  C5/source--Möbius/base block is a casewise maximum and replaces the old
+  `p+1` block, moving the ledger by `2,078,732`.
+- **Exact controls:** Python binds predecessor payloads, recomputes the
+  ledger and rank-nine gate, and rejects semantic/parser/hash mutations.
+  Sage uses two distinct selector-carrier proxies over `GF(5^6)/GF(5)` and
+  checks a different-source-map proxy for the forbidden cross-translation
+  union, two-affine-anchor, incompatible-label, source-root, and
+  projective-pole guards; it does not claim a complete selector fixture.
+- **How it is useful:** It removes
+  `UNBOUND_COMPLETE_SELECTOR_MAXIMAL_GCD_PROVENANCE` as the blocker for this
+  one cell and replaces it by an intrinsic pair-global owner.  It records the
+  exact surviving primitive cut rather than forcing lower-gcd or
+  non-full-outside records into the owner.
+- **What to do next:** After the reviewed packet integrates, restart on
+  `UNPAID_NO_COMPATIBLE_SOURCE_MOBIUS_RECORD`; do not infer payment of
+  lower-gcd maps, non-full-outside load, `U_Q`, residual `U_A`, or the row.
+
 ### 2026-07-18 - KoalaBear full-outside maximal-gcd synchronization route cut
 
 - **Agent/model:** Codex, with independent proof/falsification, artifact,
