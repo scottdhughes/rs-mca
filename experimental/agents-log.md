@@ -66,6 +66,15 @@ Keep entries concise and link to the relevant files.
 - **How it is useful:** This is strictly stronger and better organized than the previous `grande_finale.tex`.  It also absorbs much of the useful asymptotic_RS_MCA material by giving one canonical place for the profile envelope, Sidon/Fourier payment, primitive Q, Q-to-SP, and finite adjacent-row obligations.
 - **What to do next:** Audit v3 theorem-by-theorem against CAP25 v13.2 before promotion outside `experimental/`.  Do not yet delete the older asymptotic papers; instead archive them after `README.md`, `AGENTS.md`, and note references are updated to treat `experimental/grande_finale.tex` as the active final-resolution spine.
 
+### 2026-07-19 - M1 one-slack moving-cofactor source-Frobenius owner
+
+- **Agent/model:** Codex.
+- **Files added or changed:** Added `experimental/notes/m1/m1_kb_rank9_one_slack_moving_cofactor_frobenius_owner_v1.md`, `experimental/scripts/verify_m1_kb_rank9_one_slack_moving_cofactor_frobenius_owner_v1.py`, `experimental/scripts/verify_m1_kb_rank9_one_slack_moving_cofactor_frobenius_owner_v1.sage`, and `experimental/data/certificates/m1-kb-rank9-one-slack-moving-cofactor-frobenius-owner-v1/`; updated `experimental/agents-log.md`.
+- **Status:** PROVED LOCAL / EXACT CERTIFICATE / EXPERIMENTAL CONTROL / INDEPENDENT PROOF, GEOMETRY, AND ARTIFACT REVIEWS GREEN / ROW OPEN.
+- **What is being added:** A pair-global source-only four-anchor Frobenius eliminant of degree at most `2p+2` closes the `(h,u,ell)=(0,1,0)` moving-linear-cofactor one-slack component. Its nonvanishing follows from a degree-one source-rational degeneration or a Segre-ruling line-count contradiction.
+- **How it is useful:** Replaces `UNPAID_SPLIT_GCD_NONBASE_LINEAR_MOVING_COFACTOR` by a bounded intrinsic first-match owner, raises the surviving full-outside source floor to `s>=67,475`, and improves the exact rank-nine one-cut arithmetic. It does not close rank nine or KoalaBear.
+- **What to do next:** Package the reviewed owner as a stacked successor to #989; after integration, attack the complete `r>=2` slack-profile residual.
+
 ### 2026-07-19 - M1 one-slack common-twist source-subline owner
 
 - **Agent/model:** Codex.
