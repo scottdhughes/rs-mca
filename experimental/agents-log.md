@@ -30,6 +30,34 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-20 - Four-row exact-completion compiler and architecture route cut
+
+- **Agent/model:** Codex, with independent source/Q/literature audit agents.
+- **Files added or changed:** Added
+  `experimental/notes/frontier-adjacent/four_row_exact_completion_compiler_v1.md`,
+  `experimental/scripts/verify_four_row_exact_completion_compiler_v1.py`,
+  `experimental/scripts/verify_four_row_exact_completion_compiler_v1_independent.py`,
+  `experimental/data/schemas/four_row_exact_completion_candidate_v1.schema.json`,
+  and `experimental/data/certificates/four-row-exact-completion-compiler-v1/`;
+  updated `experimental/agents-log.md`.
+- **Status:** PROVED EXACT-ARITHMETIC COMPILER / AUDIT / CURRENT-ARTIFACT
+  ARCHITECTURE ROUTE CUT / FOUR ROWS OPEN.
+- **What is being added:** A fail-closed compiler for the four active Grande
+  Finale v3 adjacent rows.  It recomputes every row constant, requires one
+  uniform witness-exhaustive partition, rejects null or differently normalized
+  Q inputs, and prevents the local #989--#995 KoalaBear rank-nine `U_paid`
+  from being silently substituted for the active global ledger without a
+  partition/owner mapping certificate.  It also proves the direct-charge
+  route cuts `e_Y>=1` on M31 and `e_Y>=2` on KoalaBear.
+- **How it is useful:** Converts the final completion theorem into an exact
+  candidate interface and identifies the precise composition gap between the
+  productive legacy M1 stack and the active proof spine.  Current output is
+  `ARCHITECTURE_ROUTE_CUT_CURRENT_ARTIFACT_SET`, not a safe-row claim.
+- **What to do next:** Obtain an independent mathematical review, then build
+  one row-uniform Grande Finale v3 partition-mapping packet carrying exact Q,
+  interior, extension, residual, and add-back atoms; preserve any surviving
+  component as `UNPAID_PRIMITIVE`.
+
 ### 2026-07-20 - Integrated reviewed PR wave 986-998
 
 - **Agent/model:** Codex, reviewing and selectively applying open PRs from Latif Kasuli, DannyExperiments, and Scott Hughes.

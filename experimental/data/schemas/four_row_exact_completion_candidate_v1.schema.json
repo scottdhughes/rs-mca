@@ -1,0 +1,293 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rsmca.xyz/schemas/four_row_exact_completion_candidate_v1.schema.json",
+  "title": "RS-MCA Grande Finale v3 four-row exact completion candidate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "payload_sha256",
+    "row_id",
+    "architecture_id",
+    "row_parameters",
+    "partition",
+    "atoms",
+    "claim",
+    "source_bindings",
+    "architecture_mapping"
+  ],
+  "properties": {
+    "schema": {"const": "rs-mca-four-row-exact-completion-candidate-v1"},
+    "payload_sha256": {"$ref": "#/$defs/sha256"},
+    "row_id": {"$ref": "#/$defs/rowId"},
+    "architecture_id": {"const": "GRANDE_FINALE_V3_EXACT_COMPLETION"},
+    "row_parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["n", "K", "a_plus", "w", "p", "object_kind"],
+      "properties": {
+        "n": {"type": "integer", "const": 2097152},
+        "K": {"type": "integer", "minimum": 1},
+        "a_plus": {"type": "integer", "minimum": 1},
+        "w": {"type": "integer", "minimum": 0},
+        "p": {"type": "integer", "minimum": 2},
+        "object_kind": {"enum": ["MCA", "LIST"]}
+      }
+    },
+    "partition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "partition_sha256",
+        "source_binding",
+        "witness_exhaustive",
+        "uniform_over_received_lines",
+        "same_partition_for_all_atoms",
+        "addback_complete",
+        "owner_order",
+        "unresolved_cells"
+      ],
+      "properties": {
+        "partition_sha256": {"$ref": "#/$defs/sha256"},
+        "source_binding": {"$ref": "#/$defs/sourcePath"},
+        "witness_exhaustive": {"const": true},
+        "uniform_over_received_lines": {"const": true},
+        "same_partition_for_all_atoms": {"const": true},
+        "addback_complete": {"const": true},
+        "owner_order": {"$ref": "#/$defs/ownerIds"},
+        "unresolved_cells": {"type": "array", "maxItems": 0}
+      }
+    },
+    "atoms": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "prefixItems": [
+        {"allOf": [{"$ref": "#/$defs/nonQAtom"}, {"properties": {"atom_id": {"const": "U_paid"}}}]},
+        {"$ref": "#/$defs/qAtom"},
+        {"allOf": [{"$ref": "#/$defs/nonQAtom"}, {"properties": {"atom_id": {"enum": ["U_BC", "U_list_int"]}}}]},
+        {"allOf": [{"$ref": "#/$defs/nonQAtom"}, {"properties": {"atom_id": {"const": "U_new"}}}]}
+      ],
+      "items": false
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["closed", "total_charge", "B_star"],
+      "properties": {
+        "closed": {"const": true},
+        "total_charge": {"$ref": "#/$defs/decimal"},
+        "B_star": {"type": "string", "pattern": "^[1-9][0-9]*$", "maxLength": 18}
+      }
+    },
+    "source_bindings": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 100000,
+      "propertyNames": {"$ref": "#/$defs/sourcePath"},
+      "additionalProperties": {"$ref": "#/$defs/sha256"}
+    },
+    "architecture_mapping": {
+      "oneOf": [
+        {"type": "null"},
+        {"$ref": "#/$defs/architectureMapping"}
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"row_id": {"enum": ["kb_mca", "m31_mca"]}}},
+      "then": {
+        "properties": {
+          "row_parameters": {"properties": {"object_kind": {"const": "MCA"}}},
+          "atoms": {"prefixItems": [{}, {}, {"properties": {"atom_id": {"const": "U_BC"}}}, {}]}
+        }
+      },
+      "else": {
+        "properties": {
+          "row_parameters": {"properties": {"object_kind": {"const": "LIST"}}},
+          "atoms": {"prefixItems": [{}, {}, {"properties": {"atom_id": {"const": "U_list_int"}}}, {}]}
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "decimal": {"type": "string", "pattern": "^(0|[1-9][0-9]*)$", "maxLength": 18},
+    "rowId": {"enum": ["kb_mca", "kb_list", "m31_mca", "m31_list"]},
+    "sourcePath": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096,
+      "pattern": "^(archived|docs|experimental|site|tex)/[^.][^/]*(/[^.][^/]*)*$"
+    },
+    "ownerIds": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 100000,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1, "maxLength": 1024}
+    },
+    "atomBase": {
+      "type": "object",
+      "required": [
+        "atom_id",
+        "row_id",
+        "architecture_id",
+        "partition_sha256",
+        "value",
+        "status",
+        "unit",
+        "quantifier",
+        "owner_ids",
+        "source_binding",
+        "source_statement",
+        "dependency_architecture_ids",
+        "unresolved_hypotheses"
+      ],
+      "properties": {
+        "atom_id": {"enum": ["U_paid", "U_Q", "U_BC", "U_list_int", "U_new"]},
+        "row_id": {"$ref": "#/$defs/rowId"},
+        "architecture_id": {"const": "GRANDE_FINALE_V3_EXACT_COMPLETION"},
+        "partition_sha256": {"$ref": "#/$defs/sha256"},
+        "value": {"$ref": "#/$defs/decimal"},
+        "status": {"enum": ["PAID_BY_THEOREM", "PAID_BY_EXACT_CERTIFICATE"]},
+        "unit": {"const": "DISTINCT_BAD_SLOPES_PER_RECEIVED_LINE"},
+        "quantifier": {"const": "UNIFORM_OVER_ALL_ADMISSIBLE_RECEIVED_LINES"},
+        "owner_ids": {"$ref": "#/$defs/ownerIds"},
+        "source_binding": {"$ref": "#/$defs/sourcePath"},
+        "source_statement": {"type": "string", "minLength": 1, "maxLength": 8192},
+        "dependency_architecture_ids": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {"enum": ["GRANDE_FINALE_V3_EXACT_COMPLETION", "LEGACY_KB_M1_FIRST_MATCH_V2"]}
+        },
+        "unresolved_hypotheses": {"type": "array", "maxItems": 0}
+      }
+    },
+    "nonQAtom": {
+      "allOf": [
+        {"$ref": "#/$defs/atomBase"},
+        {"not": {"required": ["q_contract"]}}
+      ],
+      "unevaluatedProperties": false
+    },
+    "qAtom": {
+      "allOf": [
+        {"$ref": "#/$defs/atomBase"},
+        {
+          "type": "object",
+          "required": ["q_contract"],
+          "properties": {
+            "atom_id": {"const": "U_Q"},
+            "q_contract": {"$ref": "#/$defs/qContract"}
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "qContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ledger_generation_id", "n", "K", "a_plus", "w", "p",
+        "evaluation_domain_source_binding", "evaluation_domain_sha256",
+        "priority_map_source_binding", "priority_map_sha256",
+        "residual_predicate_source_binding", "residual_predicate_sha256",
+        "target_map_source_binding", "target_map_sha256",
+        "support_to_parameter_coalescing_source_binding", "support_to_parameter_coalescing_sha256",
+        "support_orientation", "support_transport_binding", "support_transport_sha256",
+        "normalization", "full_image_certificate_binding", "full_image_certificate_sha256",
+        "effective_image_cardinality", "aggregation_mode", "separate_suprema_forbidden",
+        "joint_max_certificate_binding", "joint_max_certificate_sha256", "upper_integer"
+      ],
+      "properties": {
+        "ledger_generation_id": {"const": "GRANDE_FINALE_V3_EXACT_COMPLETION"},
+        "n": {"type": "integer", "const": 2097152},
+        "K": {"type": "integer", "minimum": 1},
+        "a_plus": {"type": "integer", "minimum": 1},
+        "w": {"type": "integer", "minimum": 0},
+        "p": {"type": "integer", "minimum": 2},
+        "evaluation_domain_source_binding": {"$ref": "#/$defs/sourcePath"},
+        "evaluation_domain_sha256": {"$ref": "#/$defs/sha256"},
+        "priority_map_source_binding": {"$ref": "#/$defs/sourcePath"},
+        "priority_map_sha256": {"$ref": "#/$defs/sha256"},
+        "residual_predicate_source_binding": {"$ref": "#/$defs/sourcePath"},
+        "residual_predicate_sha256": {"$ref": "#/$defs/sha256"},
+        "target_map_source_binding": {"$ref": "#/$defs/sourcePath"},
+        "target_map_sha256": {"$ref": "#/$defs/sha256"},
+        "support_to_parameter_coalescing_source_binding": {"$ref": "#/$defs/sourcePath"},
+        "support_to_parameter_coalescing_sha256": {"$ref": "#/$defs/sha256"},
+        "support_orientation": {"enum": ["AGREEMENT", "COMPLEMENT_WITH_PROVED_TRANSPORT"]},
+        "support_transport_binding": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/sourcePath"}]},
+        "support_transport_sha256": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]},
+        "normalization": {"enum": ["EFFECTIVE_IMAGE", "AMBIENT_WITH_FULL_IMAGE_CERTIFICATE"]},
+        "full_image_certificate_binding": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/sourcePath"}]},
+        "full_image_certificate_sha256": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]},
+        "effective_image_cardinality": {"type": "string", "pattern": "^[1-9][0-9]*$", "maxLength": 10},
+        "aggregation_mode": {"const": "JOINT_MAX_ON_FROZEN_RESIDUAL"},
+        "separate_suprema_forbidden": {"const": true},
+        "joint_max_certificate_binding": {"$ref": "#/$defs/sourcePath"},
+        "joint_max_certificate_sha256": {"$ref": "#/$defs/sha256"},
+        "upper_integer": {"$ref": "#/$defs/decimal"}
+      }
+    },
+    "architectureMapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "from_architecture", "to_architecture", "row_id", "source_binding",
+        "legacy_source_binding", "active_source_binding", "legacy_payload_sha256",
+        "target_partition_sha256", "owner_map_source_binding", "owner_map_sha256",
+        "target_atom_id", "legacy_charge_value", "mapped_charge_value",
+        "target_atom_charge_includes_mapped_value",
+        "legacy_owner_ids", "mapped_active_owner_ids", "owner_mapping",
+        "unit", "quantifier", "uniform_over_received_lines", "complete_owner_map",
+        "proof_source_bindings", "unresolved_hypotheses"
+      ],
+      "properties": {
+        "from_architecture": {"const": "LEGACY_KB_M1_FIRST_MATCH_V2"},
+        "to_architecture": {"const": "GRANDE_FINALE_V3_EXACT_COMPLETION"},
+        "row_id": {"const": "kb_mca"},
+        "source_binding": {"$ref": "#/$defs/sourcePath"},
+        "legacy_source_binding": {"$ref": "#/$defs/sourcePath"},
+        "active_source_binding": {"$ref": "#/$defs/sourcePath"},
+        "legacy_payload_sha256": {"$ref": "#/$defs/sha256"},
+        "target_partition_sha256": {"$ref": "#/$defs/sha256"},
+        "owner_map_source_binding": {"$ref": "#/$defs/sourcePath"},
+        "owner_map_sha256": {"$ref": "#/$defs/sha256"},
+        "target_atom_id": {"const": "U_paid"},
+        "legacy_charge_value": {"$ref": "#/$defs/decimal"},
+        "mapped_charge_value": {"$ref": "#/$defs/decimal"},
+        "target_atom_charge_includes_mapped_value": {"const": true},
+        "legacy_owner_ids": {"$ref": "#/$defs/ownerIds"},
+        "mapped_active_owner_ids": {"$ref": "#/$defs/ownerIds"},
+        "owner_mapping": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 100000,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["legacy_owner_id", "active_owner_ids"],
+            "properties": {
+              "legacy_owner_id": {"type": "string", "minLength": 1, "maxLength": 1024},
+              "active_owner_ids": {"$ref": "#/$defs/ownerIds"}
+            }
+          }
+        },
+        "unit": {"const": "DISTINCT_BAD_SLOPES_PER_RECEIVED_LINE"},
+        "quantifier": {"const": "UNIFORM_OVER_ALL_ADMISSIBLE_RECEIVED_LINES"},
+        "uniform_over_received_lines": {"const": true},
+        "complete_owner_map": {"const": true},
+        "proof_source_bindings": {
+          "type": "array", "minItems": 2, "maxItems": 100000, "uniqueItems": true,
+          "items": {"$ref": "#/$defs/sourcePath"}
+        },
+        "unresolved_hypotheses": {"type": "array", "maxItems": 0}
+      }
+    }
+  }
+}

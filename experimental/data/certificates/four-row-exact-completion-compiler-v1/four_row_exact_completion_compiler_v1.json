@@ -1,0 +1,456 @@
+{
+  "active_ledger_contract": {
+    "LIST": "U_total=U_paid+U_Q+U_list_int+U_new",
+    "MCA": "U_total=U_paid+U_Q+U_BC+U_new",
+    "complete_addback_required": true,
+    "integer_gate": "U_total<=B_star",
+    "one_partition_required": true,
+    "quantifier": "UNIFORM_OVER_ALL_ADMISSIBLE_RECEIVED_LINES",
+    "unit": "DISTINCT_BAD_SLOPES_PER_RECEIVED_LINE",
+    "unresolved_cells_allowed_for_closure": false,
+    "witness_exhaustive_required": true
+  },
+  "architecture_route_cut": {
+    "active_rows_closed": [],
+    "all_four_rows_open": true,
+    "current_hypotheses_can_close_any_row": false,
+    "future_theorems_cut": false,
+    "legacy_charge_consumed_by_active_ledger": false,
+    "legacy_kb_m1_payload": "62a929dfc3936da808031926b0964ec68a19f5672fb72b2661def1b45da50cc7",
+    "legacy_to_active_mapping_certificate": null,
+    "reason": "The current exact KB M1 stack is source-bound to the legacy archived-v2 first-match architecture, while the active completion theorem is Grande Finale v3. No source-bound partition/owner mapping joins them, and every row also lacks an exhaustive row-sharp U_Q atom.",
+    "terminal": "ARCHITECTURE_ROUTE_CUT_CURRENT_ARTIFACT_SET"
+  },
+  "artifact_kind": "FOUR_ROW_EXACT_COMPLETION_COMPILER",
+  "candidate_interface": {
+    "audit_flag": "--audit-candidate",
+    "candidate_audit_can_close_row": false,
+    "candidate_audit_is_structural_preflight_only": true,
+    "candidate_payload_identity_required": true,
+    "canonical_contained_source_paths_required": true,
+    "exact_owner_order_coverage_required": true,
+    "mechanical_validation_replaces_proof_review": false,
+    "provenance_transform_detection_complete": false,
+    "recognized_legacy_input_requires_explicit_architecture_mapping": true,
+    "reviewed_source_registry_entry_required_for_banking": true,
+    "runtime_schema_shape_enforced": true,
+    "schema_id": "rs-mca-four-row-exact-completion-candidate-v1",
+    "schema_path": "experimental/data/schemas/four_row_exact_completion_candidate_v1.schema.json",
+    "trusted_review_registry_entries": 0,
+    "typed_partition_atom_q_and_mapping_adapters_required": true
+  },
+  "extension_route_cut": {
+    "KB_dimension_at_least_two_direct_charge_can_fit": false,
+    "M31_positive_dimensional_direct_charge_can_fit": false,
+    "all_remainder_capacities_are_banked_charges": false,
+    "corrected_source_payload": "f6747d646c459f5829ea624f54f8c2e73632a4892bc8e33e3aa09d4c532dcfc5",
+    "correction_core_python_and_sage_replay_status": "PASS",
+    "correction_full_python_acceptance_status": "STALE_SOURCE_PIN_AFTER_PROMOTION",
+    "correction_stale_paths": [
+      "tex/cs25_cap_v12.tex",
+      "experimental/cap25_cap_v13_raw.tex"
+    ],
+    "current_dimension_degree_source": "tex/cs25_cap_v13_2.tex",
+    "current_dimension_degree_source_bound_directly": true,
+    "proper_subfield_routing_is_not_payment": true,
+    "source_free_chart_terminal": "UNPAID_PRIMITIVE",
+    "superseded_multiplier_interpretation_rejected": true
+  },
+  "nonclaims": [
+    "does not prove any deployed adjacent row safe",
+    "does not construct a Reed-Solomon counterexample",
+    "does not supply U_Q on any row",
+    "does not supply exhaustive balanced-core or list-interior coverage",
+    "does not invalidate the exact local results in the KoalaBear M1 stack",
+    "does not infer mathematical truth merely from a future manifest passing structural checks",
+    "does not authorize theorem promotion or Lean formalization"
+  ],
+  "payload_sha256": "8e1811e91f2b58f2c7497e419047c3e260ef20cdcfef448dc8df0109704797b0",
+  "q_inventory": {
+    "conditional_allocations_are_not_upper_bounds": true,
+    "deployed_exact_U_Q_by_row": {
+      "kb_list": null,
+      "kb_mca": null,
+      "m31_list": null,
+      "m31_mca": null
+    },
+    "exact_calibration_consumable": true,
+    "johnson_anticode_status": "PROVED_BOUND_TOO_LARGE",
+    "lower_floors_are_not_upper_bounds": true,
+    "m31_one_shell_status": "PAID_SCOPED_SUBCELL_NOT_EXHAUSTIVE",
+    "moment_route_status": "OPEN_AT_REQUIRED_ORDERS",
+    "shallow_fourier_depth_status": "PROVED_OUT_OF_DEPLOYED_RANGE",
+    "small_row_scans_status": "EMPIRICAL_ONLY",
+    "targets_are_not_upper_bounds": true
+  },
+  "rows": [
+    {
+      "active_architecture_id": "GRANDE_FINALE_V3_EXACT_COMPLETION",
+      "active_completion": {
+        "closed": false,
+        "complete_atom_values": {
+          "U_BC": null,
+          "U_Q": null,
+          "U_new": null,
+          "U_paid": null
+        },
+        "required_atoms": [
+          "U_paid",
+          "U_Q",
+          "U_BC",
+          "U_new"
+        ],
+        "terminal": "ARCHITECTURE_ROUTE_CUT_CURRENT_ARTIFACT_SET",
+        "total_charge": null,
+        "unresolved_cells": [
+          "U_PAID_COMPLETE_NOT_INSTANTIATED",
+          "UNPAID_ROW_SHARP_Q",
+          "UNPAID_EXHAUSTIVE_BALANCED_CORE",
+          "UNPAID_EXTENSION_SUBCELLS",
+          "UNPAID_COMPLETE_ADDBACK_AND_ZERO_RESIDUAL"
+        ],
+        "witness_exhaustive_partition_sha256": null
+      },
+      "direct_extension_Delta_p_power_e_route_cut": {
+        "assumption": "Delta>=1 and every other charge is nonnegative",
+        "available_integer": "274980728111395087",
+        "capacities_are_allocations": false,
+        "charge_formula": "Delta*p^e_Y",
+        "first_forbidden_e_Y": 2,
+        "first_forbidden_power_minus_budget": "4264929175516188402",
+        "max_Delta_at_max_e_Y": 129056130,
+        "max_e_Y": 1
+      },
+      "exact_calibration": {
+        "B_star": "274980728111395087",
+        "all_gates_exact_integer": true,
+        "average_ceiling": "57198030366",
+        "binomial_bit_length": 2090874,
+        "full_budget_Q_multiplier_floor": 4807520,
+        "full_budget_Q_multiplier_via_ceiling": 4807520,
+        "prefix_denominator_bit_length": 2090838
+      },
+      "legacy_stack_local_progress": {
+        "B_remaining": "274980305756664755",
+        "Q_multiplier_capacity": 4807513,
+        "U_Q": null,
+        "U_paid": "422354730332",
+        "active_architecture_mapping": null,
+        "architecture_id": "LEGACY_KB_M1_FIRST_MATCH_V2",
+        "complete_rank9_payment": false,
+        "consumed_by_active_ledger": false,
+        "direct_extension_all_remainder_capacity": {
+          "first_forbidden_e_Y": 2,
+          "max_Delta_at_max_e_Y": 129055932,
+          "max_e_Y": 1
+        },
+        "fixed_pair_scope_alone_is_not_route_cut": true,
+        "inherited_ledger_scope": "LEGACY_FIRST_MATCH_LEDGER_WITH_EARLIER_GLOBAL_OWNERS",
+        "packet_scope": "FULL_OUTSIDE_COEFFICIENT_RANK_TWO_SUBPROGRAM",
+        "received_pair_quantifier": "ARBITRARY_FIXED_PAIR_POINTWISE_UNIFORM_CAP",
+        "residual_U_A": null,
+        "residual_interval": [
+          67471,
+          209552
+        ],
+        "row_closed": false,
+        "source_payload_sha256": "62a929dfc3936da808031926b0964ec68a19f5672fb72b2661def1b45da50cc7",
+        "translation_scope": "ONE_SP3_NORMALIZATION_PER_ARBITRARY_FIXED_PAIR",
+        "union_over_received_pairs_translations_selectors_sources_or_r_forbidden": true
+      },
+      "name": "KoalaBear MCA",
+      "object_kind": "MCA",
+      "parameters": {
+        "K": 1048577,
+        "a0": 1116047,
+        "a_plus": 1116048,
+        "extension_degree": 6,
+        "k": 1048576,
+        "n": 2097152,
+        "p": 2130706433,
+        "security_bits": 128,
+        "w": 67471
+      },
+      "q_contract": {
+        "ambient_normalization_requires_full_image_certificate": true,
+        "quantity": "MAX_OVER_ONE_FROZEN_FIRST_MATCH_RESIDUAL",
+        "row_and_domain_transport_required": true,
+        "scoped_partial_subcell": null,
+        "separate_ledger_generations_may_be_mixed": false,
+        "status": "UNPAID_ROW_SHARP_Q",
+        "targets_or_averages_are_upper_bounds": false,
+        "upper_integer": null
+      },
+      "row_id": "kb_mca",
+      "verdict": "RED_OPEN_EXACT_INPUTS_MISSING"
+    },
+    {
+      "active_architecture_id": "GRANDE_FINALE_V3_EXACT_COMPLETION",
+      "active_completion": {
+        "closed": false,
+        "complete_atom_values": {
+          "U_Q": null,
+          "U_list_int": null,
+          "U_new": null,
+          "U_paid": null
+        },
+        "required_atoms": [
+          "U_paid",
+          "U_Q",
+          "U_list_int",
+          "U_new"
+        ],
+        "terminal": "ARCHITECTURE_ROUTE_CUT_CURRENT_ARTIFACT_SET",
+        "total_charge": null,
+        "unresolved_cells": [
+          "U_PAID_COMPLETE_NOT_INSTANTIATED",
+          "UNPAID_ROW_SHARP_Q",
+          "UNPAID_EXHAUSTIVE_LIST_INTERIOR",
+          "UNPAID_EXTENSION_SUBCELLS",
+          "UNPAID_COMPLETE_ADDBACK_AND_ZERO_RESIDUAL"
+        ],
+        "witness_exhaustive_partition_sha256": null
+      },
+      "direct_extension_Delta_p_power_e_route_cut": {
+        "assumption": "Delta>=1 and every other charge is nonnegative",
+        "available_integer": "274980728111395087",
+        "capacities_are_allocations": false,
+        "charge_formula": "Delta*p^e_Y",
+        "first_forbidden_e_Y": 2,
+        "first_forbidden_power_minus_budget": "4264929175516188402",
+        "max_Delta_at_max_e_Y": 129056130,
+        "max_e_Y": 1
+      },
+      "exact_calibration": {
+        "B_star": "274980728111395087",
+        "all_gates_exact_integer": true,
+        "average_ceiling": "65065153468",
+        "binomial_bit_length": 2090874,
+        "full_budget_Q_multiplier_floor": 4226236,
+        "full_budget_Q_multiplier_via_ceiling": 4226236,
+        "prefix_denominator_bit_length": 2090838
+      },
+      "legacy_stack_local_progress": null,
+      "name": "KoalaBear list",
+      "object_kind": "LIST",
+      "parameters": {
+        "K": 1048576,
+        "a0": 1116046,
+        "a_plus": 1116047,
+        "extension_degree": 6,
+        "k": 1048576,
+        "n": 2097152,
+        "p": 2130706433,
+        "security_bits": 128,
+        "w": 67471
+      },
+      "q_contract": {
+        "ambient_normalization_requires_full_image_certificate": true,
+        "quantity": "MAX_OVER_ONE_FROZEN_FIRST_MATCH_RESIDUAL",
+        "row_and_domain_transport_required": true,
+        "scoped_partial_subcell": null,
+        "separate_ledger_generations_may_be_mixed": false,
+        "status": "UNPAID_ROW_SHARP_Q",
+        "targets_or_averages_are_upper_bounds": false,
+        "upper_integer": null
+      },
+      "row_id": "kb_list",
+      "verdict": "RED_OPEN_EXACT_INPUTS_MISSING"
+    },
+    {
+      "active_architecture_id": "GRANDE_FINALE_V3_EXACT_COMPLETION",
+      "active_completion": {
+        "closed": false,
+        "complete_atom_values": {
+          "U_BC": null,
+          "U_Q": null,
+          "U_new": null,
+          "U_paid": null
+        },
+        "required_atoms": [
+          "U_paid",
+          "U_Q",
+          "U_BC",
+          "U_new"
+        ],
+        "terminal": "ARCHITECTURE_ROUTE_CUT_CURRENT_ARTIFACT_SET",
+        "total_charge": null,
+        "unresolved_cells": [
+          "U_PAID_COMPLETE_NOT_INSTANTIATED",
+          "UNPAID_ROW_SHARP_Q",
+          "UNPAID_EXHAUSTIVE_BALANCED_CORE",
+          "UNPAID_EXTENSION_SUBCELLS",
+          "UNPAID_COMPLETE_ADDBACK_AND_ZERO_RESIDUAL"
+        ],
+        "witness_exhaustive_partition_sha256": null
+      },
+      "direct_extension_Delta_p_power_e_route_cut": {
+        "assumption": "Delta>=1 and every other charge is nonnegative",
+        "available_integer": "16777215",
+        "capacities_are_allocations": false,
+        "charge_formula": "Delta*p^e_Y",
+        "first_forbidden_e_Y": 1,
+        "first_forbidden_power_minus_budget": "2130706432",
+        "max_Delta_at_max_e_Y": 16777215,
+        "max_e_Y": 0
+      },
+      "exact_calibration": {
+        "B_star": "16777215",
+        "all_gates_exact_integer": true,
+        "average_ceiling": "1752700",
+        "binomial_bit_length": 2090878,
+        "full_budget_Q_multiplier_floor": 9,
+        "full_budget_Q_multiplier_via_ceiling": 9,
+        "prefix_denominator_bit_length": 2090857
+      },
+      "legacy_stack_local_progress": null,
+      "name": "Mersenne-31 MCA",
+      "object_kind": "MCA",
+      "parameters": {
+        "K": 1048577,
+        "a0": 1116023,
+        "a_plus": 1116024,
+        "extension_degree": 4,
+        "k": 1048576,
+        "n": 2097152,
+        "p": 2147483647,
+        "security_bits": 100,
+        "w": 67447
+      },
+      "q_contract": {
+        "ambient_normalization_requires_full_image_certificate": true,
+        "quantity": "MAX_OVER_ONE_FROZEN_FIRST_MATCH_RESIDUAL",
+        "row_and_domain_transport_required": true,
+        "scoped_partial_subcell": null,
+        "separate_ledger_generations_may_be_mixed": false,
+        "status": "UNPAID_ROW_SHARP_Q",
+        "targets_or_averages_are_upper_bounds": false,
+        "upper_integer": null
+      },
+      "row_id": "m31_mca",
+      "verdict": "RED_OPEN_EXACT_INPUTS_MISSING"
+    },
+    {
+      "active_architecture_id": "GRANDE_FINALE_V3_EXACT_COMPLETION",
+      "active_completion": {
+        "closed": false,
+        "complete_atom_values": {
+          "U_Q": null,
+          "U_list_int": null,
+          "U_new": null,
+          "U_paid": null
+        },
+        "required_atoms": [
+          "U_paid",
+          "U_Q",
+          "U_list_int",
+          "U_new"
+        ],
+        "terminal": "ARCHITECTURE_ROUTE_CUT_CURRENT_ARTIFACT_SET",
+        "total_charge": null,
+        "unresolved_cells": [
+          "U_PAID_COMPLETE_NOT_INSTANTIATED",
+          "UNPAID_ROW_SHARP_Q",
+          "UNPAID_EXHAUSTIVE_LIST_INTERIOR",
+          "UNPAID_EXTENSION_SUBCELLS",
+          "UNPAID_COMPLETE_ADDBACK_AND_ZERO_RESIDUAL"
+        ],
+        "witness_exhaustive_partition_sha256": null
+      },
+      "direct_extension_Delta_p_power_e_route_cut": {
+        "assumption": "Delta>=1 and every other charge is nonnegative",
+        "available_integer": "16777215",
+        "capacities_are_allocations": false,
+        "charge_formula": "Delta*p^e_Y",
+        "first_forbidden_e_Y": 1,
+        "first_forbidden_power_minus_budget": "2130706432",
+        "max_Delta_at_max_e_Y": 16777215,
+        "max_e_Y": 0
+      },
+      "exact_calibration": {
+        "B_star": "16777215",
+        "all_gates_exact_integer": true,
+        "average_ceiling": "1993678",
+        "binomial_bit_length": 2090878,
+        "full_budget_Q_multiplier_floor": 8,
+        "full_budget_Q_multiplier_via_ceiling": 8,
+        "prefix_denominator_bit_length": 2090857
+      },
+      "legacy_stack_local_progress": null,
+      "name": "Mersenne-31 list",
+      "object_kind": "LIST",
+      "parameters": {
+        "K": 1048576,
+        "a0": 1116022,
+        "a_plus": 1116023,
+        "extension_degree": 4,
+        "k": 1048576,
+        "n": 2097152,
+        "p": 2147483647,
+        "security_bits": 100,
+        "w": 67447
+      },
+      "q_contract": {
+        "ambient_normalization_requires_full_image_certificate": true,
+        "quantity": "MAX_OVER_ONE_FROZEN_FIRST_MATCH_RESIDUAL",
+        "row_and_domain_transport_required": true,
+        "scoped_partial_subcell": {
+          "B_star": "16777215",
+          "exhaustive_for_U_Q": false,
+          "ledger_movement": "0",
+          "status": "PAID_BY_THEOREM_SCOPED_SUBCELL",
+          "subcell": "M31_CHEBYSHEV_ONE_SHELL_ONLY",
+          "unrestricted_multishell_status": "OPEN",
+          "upper_integer": "2029705"
+        },
+        "separate_ledger_generations_may_be_mixed": false,
+        "status": "UNPAID_ROW_SHARP_Q",
+        "targets_or_averages_are_upper_bounds": false,
+        "upper_integer": null
+      },
+      "row_id": "m31_list",
+      "verdict": "RED_OPEN_EXACT_INPUTS_MISSING"
+    }
+  ],
+  "schema": "rs-mca-four-row-exact-completion-compiler-v1",
+  "scope_guards": {
+    "M31_one_shell_promoted_to_multishell": false,
+    "lean_authorized": false,
+    "legacy_M1_result_invalidated": false,
+    "mathematical_row_closure_claimed": false,
+    "new_U_Q_bound_claimed": false,
+    "new_balanced_core_or_list_interior_bound_claimed": false,
+    "scalar_route_cut_promoted_to_counterexample": false,
+    "superseded_extension_target_consumed": false
+  },
+  "source_bindings": {
+    "experimental/Conjectures_and_Barriers_RS_MCA_v4_1_source/experimental/data/certificates/frontier-adjacent/kb_list_v1.packet.json": "b75320ae964da6ee7c99473f71522e651ef40f4288e37d4c377a05a9c00567ef",
+    "experimental/Conjectures_and_Barriers_RS_MCA_v4_1_source/experimental/data/certificates/frontier-adjacent/kb_mca_v1.packet.json": "01f30a34e475e6e3d471083cb398fce1d1ca806e3218c4b867b8aa6e70a8b832",
+    "experimental/Conjectures_and_Barriers_RS_MCA_v4_1_source/experimental/data/certificates/frontier-adjacent/m31_list_v1.packet.json": "85691ffbb6d16fc54686cdb4d7eb886a81f90564565339cafe3c2569b9ada4cf",
+    "experimental/Conjectures_and_Barriers_RS_MCA_v4_1_source/experimental/data/certificates/frontier-adjacent/m31_mca_v1.packet.json": "853eb00d9f1845f6535cb9392e8e54213d1a25ef1af7fe0c085433dd52fed14e",
+    "experimental/data/cap25_v13_m31_chebyshev_entropy_inverse_shells.json": "6066fd95dc0879604240d697818922be083289f293568b0d6fcb637c2b2d5ef2",
+    "experimental/data/certificates/four-row-exact-completion-compiler-v1/README.md": "56c2bb0831222272693f83efc573d67a967f1845d1dac9a258387abf2b34bb46",
+    "experimental/data/certificates/frontier-extension-fixed-line-audit-v1/frontier_extension_fixed_line_audit_v1.json": "19f6b953918a3745853e26d520e9231f59a159f8c21232821959c158888be404",
+    "experimental/data/certificates/m1-kb-rank9-full-histogram-incidence-closure-v1/m1_kb_rank9_full_histogram_incidence_closure_v1.json": "85e8c98edde0d258a80b4012fd8d5d1a2e451358d097b33a8ac8a3d1ad402f39",
+    "experimental/data/certificates/upaid-ledger/upaid_ledger.json": "6e7dd9d92b3c09db0967d564fd51a74b13087f46f473666cd4f506c37ed41d01",
+    "experimental/data/schemas/four_row_exact_completion_candidate_v1.schema.json": "4de86d47eacaf8d831834c755a1e4fdfec24da78eb15aa4f65fba0187547a166",
+    "experimental/grande_finale.tex": "f419d3307bf0292c855a9cb5602ea55d101a9c20bdb88f5af8bcbca56a8be986",
+    "experimental/lean/m31_few_shell/M31FewShell/ChebyshevPrefix.lean": "bab5936b96a35d8aafcd5e50cf68389032aac971a13d7043e790419ba2019b66",
+    "experimental/notes/frontier-adjacent/four_row_exact_completion_compiler_v1.md": "a3ac0f003846ed7335c8f9c819fcc285a110527fd260fad1e6d43c8f929279bf",
+    "experimental/notes/frontier-adjacent/frontier_extension_fixed_line_audit_v1.md": "7759aec851d87b5599efb6f3d501424b26dfa3d5df17972f850c70d8e150548c",
+    "experimental/notes/m1/m1_kb_rank9_full_histogram_incidence_closure_v1.md": "43e3a4f63fe576283f7dba5360c0b06dbae3ae9818f062bb1a55c80f8b6c0a44",
+    "experimental/notes/thresholds/cap25_v13_m31_chebyshev_entropy_inverse_shells.md": "8a1f3deae6d37e807b4f73977b686884daefdbdc1d56734a958a30047ecebd53",
+    "experimental/scripts/verify_four_row_exact_completion_compiler_v1.py": "41188769cea167c3cfae8f0212226d3bee690e72b4a7e1885310dd0271b50af7",
+    "experimental/scripts/verify_four_row_exact_completion_compiler_v1_independent.py": "e1359be48eb26c6637f50f447aeb77f15d3a3605a6f1898564f6618f50cab263",
+    "tex/cs25_cap_v13_2.tex": "356f1ad4b972746b664260191387b25a89a2e10fcc61962a49dc8282412f93ce"
+  },
+  "stack": {
+    "active_architecture_id": "GRANDE_FINALE_V3_EXACT_COMPLETION",
+    "active_spine": "experimental/grande_finale.tex",
+    "base_commit": "4106fc84b7d78d72f68a61398cd04ea260f53df4",
+    "base_role": "HEAD_OF_PR_995_LEGACY_KB_M1_STACK",
+    "legacy_architecture_id": "LEGACY_KB_M1_FIRST_MATCH_V2"
+  },
+  "statement_audited": "Whether the exact current artifact set instantiates the Grande Finale v3 four-row completion theorem without mixing ledger generations, units, partitions, or received-line quantifiers.",
+  "status": "PROVED_EXACT_COMPILER_CURRENT_ARTIFACT_ARCHITECTURE_ROUTE_CUT_ROWS_OPEN"
+}
