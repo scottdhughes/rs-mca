@@ -50,7 +50,7 @@ SAGE_REL = Path(
 )
 
 THRESHOLDS_REL = Path("experimental/rs_mca_thresholds.tex")
-GRANDE_REL = Path("experimental/grande_finale.tex")
+GRANDE_REL = Path("archived/grande_finale_v2.tex")
 ZERO_NOTE_REL = Path(
     "experimental/notes/m1/m1_kb_rank9_zero_pencil_tangent_projection_v1.md"
 )
@@ -1078,11 +1078,17 @@ def main() -> None:
     group.add_argument("--check", action="store_true")
     group.add_argument("--tamper-selftest", action="store_true")
     group.add_argument("--print-certificate", action="store_true")
+    group.add_argument("--write", action="store_true")
     args = parser.parse_args()
     if args.check:
         run_check()
     elif args.tamper_selftest:
         run_tamper_selftest()
+    elif args.write:
+        CERT_PATH.write_text(
+            json.dumps(expected_certificate(), sort_keys=True, indent=2) + "\n",
+            encoding="utf-8",
+        )
     else:
         print(json.dumps(expected_certificate(), sort_keys=True, indent=2))
 

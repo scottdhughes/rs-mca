@@ -30,6 +30,15 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-20 - Archived-source verifier pin migration
+
+- **Agent/model:** Codex.
+- **Files added or changed:** Updated the legacy KoalaBear base, post-C5, tangent, projective-source, active-source, outside-rank-two, projective-C5, maximal-GCD, and source-Mobius verifier/certificate chain; updated `experimental/agents-log.md`.
+- **Status:** AUDIT / EXACT PROVENANCE MIGRATION / NO MATHEMATICAL OR LEDGER CHANGE.
+- **What is being added:** Repoints legacy source bindings from the newly promoted live manuscript paths to the byte-identical archived v2/frontiers/compact sources and deterministically propagates the resulting verifier, predecessor, and payload hashes.  The active Grande Finale v3 manuscript is not substituted for v2 because it does not contain the literal first-match anchors guarded by the legacy base-owner verifier.
+- **How it is useful:** Restores fail-closed replay of the open KoalaBear rank-nine stack after the upstream archive and Grande Finale v3 promotion, while preserving the exact historical theorem inputs and all owner, arithmetic, status, and ledger fields.
+- **What to do next:** Run normal and optimized checks and mutation tests across the migrated dependency chain, verify a provenance-only semantic diff, and integrate this compatibility packet before restacking the open rank-nine PRs.
+
 ### 2026-07-20 - Conjectures and Barriers ePrint package
 
 - **Agent/model:** Codex, reviewing maintainer-added `Conjectures_and_Barriers_RS_MCA_v4_1` paper and source package.

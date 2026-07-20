@@ -50,9 +50,9 @@ SAGE_REL = Path(
     "experimental/scripts/verify_m1_kb_rank9_source_mobius_owner_splice_v1.sage"
 )
 
-SYNC_PAYLOAD = "62a42b283457f2f198e5c2968b2e82de87fde35421f2289b074f7b60c1b7d76b"
-C5_PAYLOAD = "14e7112a3cc8aafce591d1962543c1e8789b7815c333ef4cd4f3b12279b5c6bb"
-TANGENT_PAYLOAD = "0d5753ae6055d6f1dc0edb49f0e0322596da8a70b68b113993dcec11934e7eed"
+SYNC_PAYLOAD = "227cabf1c23e402d76eb7eccc81a89388f11c5259fdbd79129d108c8b5f2d489"
+C5_PAYLOAD = "9ed24d23e8c72e230a35f9b7b1360853bfc62f7bd1bd8aec70cd14552f1aafcc"
+TANGENT_PAYLOAD = "d58ce9b4f9eba2edc0c060f1e97c74077385685bd87955055cc98cda1ae49d07"
 
 tangent = c5_owner.tangent
 P = sync.P

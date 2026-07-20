@@ -28,7 +28,7 @@ CERT_PATH = CERT_DIR / "kb_mca_1116048_base_slope_universe_v2.json"
 NOTE_REL = Path("experimental/notes/thresholds/kb_mca_1116048_base_slope_universe_v2.md")
 VERIFIER_REL = Path("experimental/scripts/verify_kb_mca_1116048_base_slope_universe_v2.py")
 DEFINITION_REL = Path("experimental/rs_mca_thresholds.tex")
-FIRST_MATCH_REL = Path("experimental/grande_finale.tex")
+FIRST_MATCH_REL = Path("archived/grande_finale_v2.tex")
 V1_NOTE_REL = Path("experimental/notes/thresholds/kb_mca_1116048_first_match_ledger_v1.md")
 V1_PACKET_REL = Path(
     "experimental/data/certificates/kb-mca-1116048-first-match-ledger-v1/"

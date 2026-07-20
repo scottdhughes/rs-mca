@@ -47,8 +47,8 @@ KB_CERT_REL = Path(
 PROJECTIVE_REL = Path(
     "experimental/notes/thresholds/projective_syndrome_c5_first_match.md"
 )
-FRONTIERS_REL = Path("experimental/asymptotic_rs_mca_frontiers.tex")
-COMPACT_REL = Path("experimental/asymptotic_rs_mca.tex")
+FRONTIERS_REL = Path("archived/asymptotic_rs_mca_frontiers.tex")
+COMPACT_REL = Path("archived/asymptotic_rs_mca.tex")
 TRANSVERSE_REL = Path(
     "experimental/notes/thresholds/agreement_weighted_transverse_secant.md"
 )
