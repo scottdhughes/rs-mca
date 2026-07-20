@@ -30,6 +30,31 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-20 - M31 rho-nine ADE architecture wall and binary rectangle cut
+
+- **Agent/model:** Codex, with an independent combinatorial audit agent.
+- **Files added or changed:** Added
+  `experimental/notes/thresholds/m31_ade_rho9_architecture_wall.md`,
+  `experimental/scripts/verify_m31_ade_rho9_architecture_wall.py`,
+  `experimental/scripts/verify_m31_ade_rho9_architecture_wall.sage`, and
+  `experimental/data/certificates/m31-ade-rho9-architecture-wall/`; updated
+  `experimental/agents-log.md`.
+- **Status:** PROVED LOCAL ROUTE CUT / PROVED BINARY-RECTANGLE LEMMA / M31
+  LIST ROW OPEN.
+- **What is being added:** An exact `A_{1864144}` model with `2^24` selected
+  roots satisfies every frozen common-height ADE and modular-rank hypothesis
+  at the first residual `rho>9` row, proving that architecture sharp.  A new
+  binary-rectangle lemma independently rules out the model's canonical
+  complete `9 x 1864135` subrectangle as an actual support family.
+- **How it is useful:** It terminates further threshold tuning of the same
+  ADE/rank method and isolates the necessary new input: classify dense
+  height-one `A`-component graphs using binary realizability and the full
+  prefix equations.
+- **What to do next:** Prove a row-uniform dense-`A` binary-realization
+  dichotomy; route every graph to a rectangle obstruction, an existing paid
+  owner, or an explicit primitive residual.  Do not move `U_Q`, claim the
+  boundary row excluded, or promote a deployed safe row from this packet.
+
 ### 2026-07-20 - Four-row exact-completion compiler and architecture route cut
 
 - **Agent/model:** Codex, with independent source/Q/literature audit agents.
