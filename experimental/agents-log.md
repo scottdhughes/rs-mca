@@ -30,6 +30,42 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-20 - M31 shortened-flat compiler and global projective-line wall
+
+- **Agent/model:** Codex, with independent exact-formulation and reuse-audit
+  agents.
+- **Files added or changed:** Added
+  `experimental/notes/thresholds/m31_shortened_flat_hyperplane_wall.md`,
+  `experimental/scripts/verify_m31_shortened_flat_hyperplane_wall.py`,
+  `experimental/scripts/verify_m31_shortened_flat_hyperplane_wall.sage`, and
+  `experimental/data/certificates/m31-shortened-flat-hyperplane-wall/`;
+  updated `experimental/agents-log.md`.
+- **Status:** PROVED EXACT BRIDGE / PROVED SCALAR-AND-LOCAL ROUTE CUT / M31
+  LIST ROW OPEN.
+- **What is being added:** A duplicate-free arbitrary-center list formula in
+  terms of shortened dual flats inside a syndrome hyperplane, including the
+  required one-point escape guards, its exact shifted-locator
+  syndrome/Hankel bridge,
+  and the full projective-line characterization.  The packet transfers the
+  scalar MacWilliams pseudo-profile to the M31 forbidden size and constructs
+  an exact `[981129,24,67584]_2` support model with `2^24` blocks satisfying
+  every pairwise and coordinate-shortened `K+2` line law.  The generic line
+  and scalar machinery is explicitly reused from #720/#748/#993; the new
+  material is the M31 all-escape specialization, scope regression, and binary
+  local model.
+- **How it is useful:** It proves that scalar shells, support packing, the
+  exact `K+2` shadow, and all local `K+2` projective lines cannot close the
+  M31 row.  It unifies the arbitrary-center list problem with the existing
+  fixed-syndrome Hankel equations and isolates full cross-support line closure
+  as the first information not defeated by an exact countermodel.  The bridge
+  is not the deployed weight--power-sum prefix fiber and pays no `U_Q`.
+- **What to do next:** Derive a Chebyshev-domain-preserving global separator
+  for the literal line/flat system.  Any compressed relaxation must reject
+  both this packet's local model and PR #1000's rho-nine ADE pseudomodel, and
+  must end in an exact dual certificate, an actual hyperplane counterexample,
+  or a rigorous pseudo-hyperplane route cut.  Do not move `U_Q`, `U_A`, or a
+  deployed row from this packet.
+
 ### 2026-07-20 - M31 rho-nine ADE architecture wall and binary rectangle cut
 
 - **Agent/model:** Codex, with an independent combinatorial audit agent.
