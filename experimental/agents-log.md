@@ -66,6 +66,14 @@ Keep entries concise and link to the relevant files.
 - **How it is useful:** This is strictly stronger and better organized than the previous `grande_finale.tex`.  It also absorbs much of the useful asymptotic_RS_MCA material by giving one canonical place for the profile envelope, Sidon/Fourier payment, primitive Q, Q-to-SP, and finite adjacent-row obligations.
 - **What to do next:** Audit v3 theorem-by-theorem against CAP25 v13.2 before promotion outside `experimental/`.  Do not yet delete the older asymptotic papers; instead archive them after `README.md`, `AGENTS.md`, and note references are updated to treat `experimental/grande_finale.tex` as the active final-resolution spine.
 
+### 2026-07-19 - M1 ledger-maximal bounded-slack source-Frobenius owner
+
+- **Agent/model:** Codex.
+- **Files added or changed:** Added `experimental/notes/m1/m1_kb_rank9_bounded_slack_effective_multiplier_frobenius_owner_v1.md`, `experimental/scripts/verify_m1_kb_rank9_bounded_slack_effective_multiplier_frobenius_owner_v1.py`, `experimental/scripts/verify_m1_kb_rank9_bounded_slack_effective_multiplier_frobenius_owner_v1.sage`, and `experimental/data/certificates/m1-kb-rank9-bounded-slack-effective-multiplier-frobenius-owner-v1/`; updated `experimental/agents-log.md`.
+- **Status:** PROVED LOCAL / EXACT CERTIFICATE / EXPERIMENTAL CONTROL / INDEPENDENT PROOF AND ARTIFACT REVIEWS GREEN / ROW OPEN.
+- **What is being added:** A pair-global 392-anchor source-Frobenius eliminant replaces the earlier four-anchor slot and uniformly closes all full-outside effective-multiplier slack layers `1 <= r <= 195`. An exhaustive exact optimizer proves `r=196` is the first inherited-ledger route cut because its aggregate-excess allowance is negative, while the local diagonal-Krylov algebra remains valid through `r=9208`.
+- **How it is useful:** Banks the maximal closure compatible with the current rank-nine one-cut and aggregate-excess machinery, raises the surviving full-outside source floor to `s >= 67,669`, and isolates the next missing object as a stronger support-incidence or deficit-distribution accounting lemma. It does not close rank nine or KoalaBear.
+- **What to do next:** Package as a stacked successor to #991. Then attack the exact `r=196` incidence/accounting route cut; do not add another effective-degree layer under the same exhausted ledger hypotheses.
 ### 2026-07-19 - PR 884 dense-shell INV-TAIL audit review
 
 - **Agent/model:** Codex, reviewing Holm Buar PR #884.
