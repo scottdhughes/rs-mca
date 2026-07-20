@@ -66,6 +66,15 @@ Keep entries concise and link to the relevant files.
 - **How it is useful:** This is strictly stronger and better organized than the previous `grande_finale.tex`.  It also absorbs much of the useful asymptotic_RS_MCA material by giving one canonical place for the profile envelope, Sidon/Fourier payment, primitive Q, Q-to-SP, and finite adjacent-row obligations.
 - **What to do next:** Audit v3 theorem-by-theorem against CAP25 v13.2 before promotion outside `experimental/`.  Do not yet delete the older asymptotic papers; instead archive them after `README.md`, `AGENTS.md`, and note references are updated to treat `experimental/grande_finale.tex` as the active final-resolution spine.
 
+### 2026-07-20 - M1 full-outside carrier-incidence splice
+
+- **Agent/model:** Codex.
+- **Files added or changed:** Added `experimental/notes/m1/m1_kb_rank9_full_outside_carrier_incidence_splice_v1.md`, `experimental/scripts/verify_m1_kb_rank9_full_outside_carrier_incidence_splice_v1.py`, `experimental/scripts/verify_m1_kb_rank9_full_outside_carrier_incidence_splice_v1.sage`, and `experimental/data/certificates/m1-kb-rank9-full-outside-carrier-incidence-splice-v1/`; updated `experimental/agents-log.md`.
+- **Status:** PROVED LOCAL / EXACT CERTIFICATE / SCALAR ROUTE CUT / INDEPENDENT REVIEW PENDING / ROW OPEN.
+- **What is being added:** A zero-charge composition of the source-slack floor, rich-line moving-zero inequality, canonical basis atlas, full-outside carrier shrink, and exact rank-nine one-cut compiler.  It pays full-outside slack `196 <= r <= 67,466` and `236,098 <= r <= 913,631`, with the coarse carrier exit beginning at `r=330,336`, and isolates the only remaining interval `67,467 <= r <= 236,097`.
+- **How it is useful:** Replaces the predecessor's undifferentiated `r>=196` residual by one finite low-`x` determinant-packing route.  Exact abstract scalar packings at every remaining integer prove that the current scalar inequalities cannot close the gap; deployed determinant/source coupling or a disjoint owner must be load-bearing.  The ledger does not move, and rank nine and KoalaBear remain open.
+- **What to do next:** Obtain fresh proof and artifact reviews.  If GREEN, publish as a stacked successor to #992, then freeze the `r=67,467`, `x_0=3` boundary and attack only its determinant/source packing deficit.
+
 ### 2026-07-19 - M1 ledger-maximal bounded-slack source-Frobenius owner
 
 - **Agent/model:** Codex.
