@@ -1,0 +1,310 @@
+{
+  "artifact_kind": "M1_KB_RANK9_FULL_HISTOGRAM_INCIDENCE_CLOSURE",
+  "exact_scan": {
+    "endpoints": [
+      {
+        "budget_minus_cap": "274960215835812067",
+        "full_histogram_cap": "20089920852688",
+        "line_multiplicity_cap": 30,
+        "maximal_full_outside_carrier": 2029483,
+        "r": 196,
+        "source_size": 67669,
+        "terminal": "PAID_FULL_OUTSIDE_FULL_HISTOGRAM_CARRIER_INCIDENCE",
+        "x_floor": 33639
+      },
+      {
+        "budget_minus_cap": "149550878764116709",
+        "full_histogram_cap": "125429426992548046",
+        "line_multiplicity_cap": 245277,
+        "maximal_full_outside_carrier": 1962213,
+        "r": 67466,
+        "source_size": 134939,
+        "terminal": "PAID_FULL_OUTSIDE_FULL_HISTOGRAM_CARRIER_INCIDENCE",
+        "x_floor": 4
+      },
+      {
+        "budget_minus_cap": "107742262982463953",
+        "full_histogram_cap": "167238042774200802",
+        "line_multiplicity_cap": 327035,
+        "maximal_full_outside_carrier": 1962212,
+        "r": 67467,
+        "source_size": 134940,
+        "terminal": "PAID_FULL_OUTSIDE_FULL_HISTOGRAM_CARRIER_INCIDENCE",
+        "x_floor": 3
+      },
+      {
+        "budget_minus_cap": "24126054155657182",
+        "full_histogram_cap": "250854251601007573",
+        "line_multiplicity_cap": 490553,
+        "maximal_full_outside_carrier": 1962209,
+        "r": 67470,
+        "source_size": 134943,
+        "terminal": "PAID_FULL_OUTSIDE_FULL_HISTOGRAM_CARRIER_INCIDENCE",
+        "x_floor": 2
+      },
+      {
+        "budget_minus_cap": "-226725640592636461",
+        "full_histogram_cap": "501705946349301216",
+        "line_multiplicity_cap": 981105,
+        "maximal_full_outside_carrier": 1962208,
+        "r": 67471,
+        "source_size": 134944,
+        "terminal": "UNPAID_FULL_OUTSIDE_X1_DETERMINANT_SOURCE_PACKING_SLACK_67471_TO_209552",
+        "x_floor": 1
+      },
+      {
+        "budget_minus_cap": "-237273154024",
+        "full_histogram_cap": "274980543029818779",
+        "line_multiplicity_cap": 981105,
+        "maximal_full_outside_carrier": 1820127,
+        "r": 209552,
+        "source_size": 277025,
+        "terminal": "UNPAID_FULL_OUTSIDE_X1_DETERMINANT_SOURCE_PACKING_SLACK_67471_TO_209552",
+        "x_floor": -71039
+      },
+      {
+        "budget_minus_cap": "971348191761",
+        "full_histogram_cap": "274979334408472994",
+        "line_multiplicity_cap": 981105,
+        "maximal_full_outside_carrier": 1820126,
+        "r": 209553,
+        "source_size": 277026,
+        "terminal": "PAID_FULL_OUTSIDE_FULL_HISTOGRAM_CARRIER_INCIDENCE",
+        "x_floor": -71040
+      },
+      {
+        "budget_minus_cap": "30491925151149383",
+        "full_histogram_cap": "244488380605515372",
+        "line_multiplicity_cap": 981105,
+        "maximal_full_outside_carrier": 1793582,
+        "r": 236097,
+        "source_size": 303570,
+        "terminal": "PAID_FULL_OUTSIDE_FULL_HISTOGRAM_CARRIER_INCIDENCE",
+        "x_floor": -84312
+      },
+      {
+        "budget_minus_cap": "269485565065241976",
+        "full_histogram_cap": "5494740691422779",
+        "line_multiplicity_cap": 981105,
+        "maximal_full_outside_carrier": 1116048,
+        "r": 913631,
+        "source_size": 981104,
+        "terminal": "PAID_FULL_OUTSIDE_FULL_HISTOGRAM_CARRIER_INCIDENCE",
+        "x_floor": -423079
+      }
+    ],
+    "intervals": [
+      [
+        196,
+        67470,
+        "PAID_FULL_OUTSIDE_FULL_HISTOGRAM_CARRIER_INCIDENCE"
+      ],
+      [
+        67471,
+        209552,
+        "UNPAID_FULL_OUTSIDE_X1_DETERMINANT_SOURCE_PACKING_SLACK_67471_TO_209552"
+      ],
+      [
+        209553,
+        913631,
+        "PAID_FULL_OUTSIDE_FULL_HISTOGRAM_CARRIER_INCIDENCE"
+      ]
+    ],
+    "newly_closed_layer_count": 26549,
+    "newly_closed_lower_layers": [
+      67467,
+      67470
+    ],
+    "newly_closed_upper_layers": [
+      209553,
+      236097
+    ],
+    "scan_count": 913436,
+    "scan_r_max": 913631,
+    "scan_r_min": 196,
+    "scan_sha256": "3d4aa95eedd837899bdeb2206ec03602f43b507ad4619f24b1fcadd548e3a91d",
+    "terminal_counts": {
+      "PAID_FULL_OUTSIDE_FULL_HISTOGRAM_CARRIER_INCIDENCE": 771354,
+      "UNPAID_FULL_OUTSIDE_X1_DETERMINANT_SOURCE_PACKING_SLACK_67471_TO_209552": 142082
+    }
+  },
+  "first_match_and_restart": {
+    "later_terminals_receive_exact_residual": true,
+    "new_charge_added": false,
+    "new_root_owner_added": false,
+    "one_fixed_r_per_received_pair": true,
+    "predecessor_owner_order_unchanged": true,
+    "stale_pre_deletion_selector_fields_forbidden": true,
+    "union_over_r_forbidden": true
+  },
+  "full_histogram_lemma": {
+    "all_selected_deficits_nonnegative": true,
+    "all_slope_mds_basis_floor": "C(t+8+delta_eta,8)>=C(t+8,8)",
+    "compiled_total_bound": "|Gamma|<=floor(J_star(r)*C(N_V,8)/C(t+8,8))",
+    "core_basis_count": "10658592438443717273371372062592575",
+    "fixed_basis_graph_line_argument_is_subset_uniform": true,
+    "full_outside_carrier_formula": "N_V<=n-s",
+    "full_selector_atlas_replayed_without_numeric_cutoff": true,
+    "line_cap_nonpositive_floor": 981105,
+    "line_cap_positive_x": "1+floor(j/x_floor)",
+    "moving_zero_formula": "J_L*x_L+sum_eta(delta_eta,L)<=j+x_L",
+    "moving_zero_nonempty_formula": "x_L+delta_eta,L>=1",
+    "rich_line_coverage_of_all_slopes_claimed": false,
+    "rich_line_deficit_bound": "0<=delta_eta,L<=u_L<=r",
+    "rich_line_slack_simplex": "h_L+u_L+ell_L=r with h_L,u_L,ell_L>=0",
+    "same_selector_provenance_required": true,
+    "source_size_formula": "s=t+r+1",
+    "x_floor_formula": "x_L>=ceil((t-r+1)/2)"
+  },
+  "ledger": {
+    "B_remaining_after": "274980305756664755",
+    "B_remaining_before": "274980305756664755",
+    "B_star": "274980728111395087",
+    "K_remaining": 4807513,
+    "U_Q": null,
+    "U_paid_after": "422354730332",
+    "U_paid_before": "422354730332",
+    "complete_upper_inequality_status": "UNDECIDED_OPEN_COMPONENTS",
+    "ledger_movement": "0",
+    "residual_U_A": null
+  },
+  "nonclaims": [
+    "does not construct a deployed Reed-Solomon selector or counterexample",
+    "does not promote the abstract scalar packing to realizability",
+    "does not sum over source sizes, selectors, graph lines, or received pairs",
+    "does not introduce or charge a new owner",
+    "does not pay non-full-outside source load",
+    "does not determine U_Q or residual U_A",
+    "does not close rank nine, KoalaBear, or the complete theorem",
+    "does not authorize rank at least ten, Lean, or stable-paper promotion"
+  ],
+  "payload_sha256": "62a929dfc3936da808031926b0964ec68a19f5672fb72b2661def1b45da50cc7",
+  "predecessor": {
+    "exact_deletion_and_selector_restart_precede_this_packet": true,
+    "payload_sha256": "92bf739436b713d8c759209f2ceb1d105c2bf0f09fa73934464222af386230b8",
+    "schema": "rs-mca-m1-kb-rank9-full-outside-carrier-incidence-splice-v1",
+    "stacked_on_commit": "99fd355d7f25afff471d1a6bdf5977c447c5d037"
+  },
+  "revised_residual": {
+    "degree_195_owner_owns_r_1_through_195": true,
+    "full_histogram_paid_intervals": [
+      [
+        196,
+        67470
+      ],
+      [
+        209553,
+        913631
+      ]
+    ],
+    "next_exact_boundary": {
+      "r": 67471,
+      "x_floor": 1
+    },
+    "only_remaining_full_outside_slack_interval": [
+      67471,
+      209552
+    ],
+    "terminal": "UNPAID_FULL_OUTSIDE_X1_DETERMINANT_SOURCE_PACKING_SLACK_67471_TO_209552",
+    "upstream_C5_owns_r_zero": true
+  },
+  "row": {
+    "agreement_A": 1116048,
+    "core_rank": 8,
+    "error_count_j": 981104,
+    "extension_degree": 6,
+    "k": 1048576,
+    "n": 2097152,
+    "p": 2130706433,
+    "row_id": "koalabear-mca-A1116048",
+    "selector_rank": 9,
+    "syndrome_depth_t": 67472
+  },
+  "scalar_route_cut": {
+    "actual_selector_or_counterexample_claimed": false,
+    "all_zero_deficits_defeat_every_nonnegative_cutoff": true,
+    "cutoff_optimization_can_close_gap": false,
+    "first_gap_control": {
+      "abstract_line_count": "280276123103",
+      "actual_RS_selector_constructed": false,
+      "all_deficits_zero": true,
+      "bases_per_line": "10658592438443717273371372062592575",
+      "carrier_size": 1962208,
+      "chosen_deficit": 0,
+      "chosen_e": 67472,
+      "chosen_ell": 0,
+      "chosen_h": 0,
+      "chosen_u": 67471,
+      "chosen_x": 1,
+      "common_zero_size_per_line": 981103,
+      "global_basis_margin": "2463116790168985034614201267312489378894656291",
+      "line_slope_cap": 981105,
+      "local_basis_margin": "21290404433608922511447759768398167865425920",
+      "r": 67471,
+      "rank9_capacity_margin": "862666766649480960575314819776481566949948488656500",
+      "slope_count": "274980305756664756",
+      "source_size": 134944,
+      "survives_degree_195_owner_scalar_guard": true,
+      "x_floor": 1
+    },
+    "gap_r_max": 209552,
+    "gap_r_min": 67471,
+    "last_gap_control": {
+      "abstract_line_count": "280276123103",
+      "actual_RS_selector_constructed": false,
+      "all_deficits_zero": true,
+      "bases_per_line": "10658592438443717273371372062592575",
+      "carrier_size": 1820127,
+      "chosen_deficit": 0,
+      "chosen_e": 138513,
+      "chosen_ell": 0,
+      "chosen_h": 71040,
+      "chosen_u": 138512,
+      "chosen_x": 1,
+      "common_zero_size_per_line": 839022,
+      "global_basis_margin": "2577700250714186088081437187324862173900",
+      "line_slope_cap": 981105,
+      "local_basis_margin": "6090483505083391560362880461341367491591320",
+      "r": 209552,
+      "rank9_capacity_margin": "278492477489381568181757395229031467606347581541575",
+      "slope_count": "274980305756664756",
+      "source_size": 277025,
+      "survives_degree_195_owner_scalar_guard": true,
+      "x_floor": -71039
+    },
+    "missing_object": "deployed determinant/source packing or disjoint named owner",
+    "route_relaxation_count": 142082,
+    "route_sha256": "4b3b7eaa50eaf65bc510db346f3d99ce4f575e41fc52287bb6b09831aa40b6a3",
+    "target_slope_count": "274980305756664756"
+  },
+  "schema": "rs-mca-m1-kb-rank9-full-histogram-incidence-closure-v1",
+  "scope_guards": {
+    "U_Q_determined": false,
+    "coefficient_rank_two_only": true,
+    "complete_rank9_payment_proved": false,
+    "complete_rebuilt_rank9_selector_required": true,
+    "deployed_determinant_source_packing_proved": false,
+    "full_outside_only": true,
+    "koalabear_row_closed": false,
+    "lean_authorized": false,
+    "non_full_outside_paid": false,
+    "rank_at_least_ten_authorized": false,
+    "residual_U_A_determined": false
+  },
+  "source_bindings": {
+    "experimental/data/certificates/m1-kb-rank9-full-histogram-incidence-closure-v1/README.md": "15341c0318811628ff401df8b9b7f2024dfd6ed7b1b42710b37f2d19560ade31",
+    "experimental/data/certificates/m1-kb-rank9-full-outside-carrier-incidence-splice-v1/README.md": "3b5a97b43a352bb58b79085fff270e9660ecae5110642b2bf86752f98cf023fe",
+    "experimental/data/certificates/m1-kb-rank9-full-outside-carrier-incidence-splice-v1/m1_kb_rank9_full_outside_carrier_incidence_splice_v1.json": "d38c76c8429f95e917323b070e9dba72841bf44c50fefadf8de16a476f97c892",
+    "experimental/notes/m1/m1_kb_branch3_rank9_fixed_basis_fibre_route_cut_v1.md": "066ebeff9e738a1462ad351edada78c47b4b5a53f926929d98eecb12dee42528",
+    "experimental/notes/m1/m1_kb_branch3_rank9_rich_pencil_atlas_v1.md": "b5e1b60d087ca3d74ff6dbfc1d7a6b1fd70c4f90df99d350c8b717a3e19f3de7",
+    "experimental/notes/m1/m1_kb_rank9_bounded_slack_effective_multiplier_frobenius_owner_v1.md": "e06f91ad6f69a8c7effced2857be906435571393d0c5076692efb7d20509010e",
+    "experimental/notes/m1/m1_kb_rank9_full_histogram_incidence_closure_v1.md": "43e3a4f63fe576283f7dba5360c0b06dbae3ae9818f062bb1a55c80f8b6c0a44",
+    "experimental/notes/m1/m1_kb_rank9_full_outside_carrier_incidence_splice_v1.md": "185e82a89adc22ae026161d85aef546f5d3b43747988a8c8c6688d89b2c0a744",
+    "experimental/notes/m1/m1_kb_rank9_moving_root_slack_c5_boundary_v1.md": "a34a6e1945f1f7ec7f05b66f366fc5cb1c0f7786c91d377d05ef60feced9824f",
+    "experimental/scripts/verify_m1_kb_rank9_full_histogram_incidence_closure_v1.py": "1c71f9d7ec899e0f1ca0bc65566fbb04242116cfcfa6f086993a69e2bdef9bc4",
+    "experimental/scripts/verify_m1_kb_rank9_full_histogram_incidence_closure_v1.sage": "962684f3c9ab786b0f84066bad75c07bca791f41347fca2c84e0194091236735",
+    "experimental/scripts/verify_m1_kb_rank9_full_outside_carrier_incidence_splice_v1.py": "381a538ee90f1260db49a2aaf12b848cfff2ed4690c8f95c364e197d5b8099eb",
+    "experimental/scripts/verify_m1_kb_rank9_full_outside_carrier_incidence_splice_v1.sage": "626b3a2bf57972fda835c3946cefb6ae1f54e5af51f9063adde87bb776f51ba9"
+  },
+  "status": "PROVED_LOCAL_FULL_HISTOGRAM_TWO_RANGE_CLOSURE_EXACT_142082_LAYER_SCALAR_ROUTE_CUT_REVIEW_PENDING_ROW_OPEN"
+}

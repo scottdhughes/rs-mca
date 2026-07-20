@@ -66,6 +66,15 @@ Keep entries concise and link to the relevant files.
 - **How it is useful:** This is strictly stronger and better organized than the previous `grande_finale.tex`.  It also absorbs much of the useful asymptotic_RS_MCA material by giving one canonical place for the profile envelope, Sidon/Fourier payment, primitive Q, Q-to-SP, and finite adjacent-row obligations.
 - **What to do next:** Audit v3 theorem-by-theorem against CAP25 v13.2 before promotion outside `experimental/`.  Do not yet delete the older asymptotic papers; instead archive them after `README.md`, `AGENTS.md`, and note references are updated to treat `experimental/grande_finale.tex` as the active final-resolution spine.
 
+### 2026-07-20 - M1 full-histogram incidence closure
+
+- **Agent/model:** Codex.
+- **Files added or changed:** Added `experimental/notes/m1/m1_kb_rank9_full_histogram_incidence_closure_v1.md`, `experimental/scripts/verify_m1_kb_rank9_full_histogram_incidence_closure_v1.py`, `experimental/scripts/verify_m1_kb_rank9_full_histogram_incidence_closure_v1.sage`, and `experimental/data/certificates/m1-kb-rank9-full-histogram-incidence-closure-v1/`; updated `experimental/agents-log.md`.
+- **Status:** PROVED LOCAL / EXACT TWO-RANGE CERTIFICATE / 142,082-LAYER SCALAR ROUTE CUT / INDEPENDENT REVIEW PENDING / ROW OPEN.
+- **What is being added:** The all-slope MDS basis floor and subset-uniform affine graph-line atlas count the complete selected set, while the source slack simplex caps only contributing rich lines.  Exact big-integer replay pays `196 <= r <= 67,470` and `209,553 <= r <= 913,631`, leaving only `67,471 <= r <= 209,552`.
+- **How it is useful:** Closes 26,549 layers left open by the fixed-cutoff predecessor and proves with an all-zero-deficit packing at every residual integer that no fixed, maximal, or source-adaptive scalar cutoff can finish the full-outside cell.  The ledger does not move; deployed determinant/source coupling is now provably load-bearing.
+- **What to do next:** Obtain fresh proof and artifact reviews.  If GREEN, publish as a direct stacked successor to #994, then freeze only `r=67,471`, `x_0=1` and classify its source cross-determinant equality component.
+
 ### 2026-07-20 - M1 full-outside carrier-incidence splice
 
 - **Agent/model:** Codex.
