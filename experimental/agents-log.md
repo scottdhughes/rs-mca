@@ -30,6 +30,15 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-21 - M31 full-span forced-collision classification and route cut
+
+- **Agent/model:** Codex, with a fresh-context symbolic derivation, an independent chronology audit, a standard-library exact verifier, and an independent Sage replay.
+- **Files added or changed:** `agents.md`; `experimental/notes/thresholds/m31_full_span_forced_collision_route_cut.md`; `experimental/data/schemas/m31_full_span_forced_collision_route_cut_v1.schema.json`; `experimental/data/certificates/m31-full-span-forced-collision-route-cut-v1/`; `experimental/scripts/verify_m31_full_span_forced_collision_route_cut_v1.py`; `experimental/scripts/verify_m31_full_span_forced_collision_route_cut_v1.sage`; and this log.
+- **Status:** PROVED ABSTRACT CLASSIFIER / PROVED GRAPH-TO-COMMON-ZERO INTERFACE / EXACT UNIVERSAL-CLAIM FALSIFIER / ROUTE CUT / ROW OPEN.
+- **What is being added:** The packet proves that an identically forced collision is exactly equality of normalized escape columns modulo the complete containment-row span, equivalently scaled-column equality in an evaluated low-degree Popov syzygy code.  It also proves the pair common-locator factor and graph-to-common-zero adapter.  The complete `GF(17)` regression and every individual 46-column marked key have locator-span rank `K-1`; there are 1326 identically forced collision incidences and a forced collision on all 92 marked keys, while the natural anchor-extra forced-root unions have packing optimum five and root-transversal number six.
+- **How it is useful:** This closes the symbolic meaning of the first branch in the target-field deformation dichotomy while cutting off the inference that forcedness itself makes the natural anchor-extra collision-root unions have packing at most four or a four-point transversal.  It does not rule out arbitrary four-polynomial grouping or a non-root v4 owner.  It moves no atom: `U_paid` remains `3730`, the other four LIST atoms remain null.  The global terminal is `UNPAID_CROSS_WEIGHT_EXCESS_DEFICIT_Q_OWNER`; `UNPAID_SPLIT_LOCATOR_HYPERPLANE_OWNER_REFUND` remains its local forced-column subterminal.
+- **What to do next:** Route exact degree-`a` boundary centers to the row-sharp `U_Q` maximum before any scaled-column `U_new` attack, then prove a joint nonnegative first-match payment or a direct uniform list theorem.  The identity-prefix center is boundary-only and has `Xi46=M_R-16517335`, so `Xi46<=259880` is exactly `M_R<=B*`.  Its proved `T46>=1993633` refutes the formerly proposed raw cap by `1733753`.  Do not return to pairwise membership tests, representative minors, or fixed-width keys.
+
 ### 2026-07-21 - M31 canonical masked Popov--Padé bridge and global route cuts
 
 - **Agent/model:** Codex, with two fresh symbolic proof audits, a standard-library exact verifier, and an independent Sage finite-field replay.

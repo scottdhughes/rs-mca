@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.rsmca.xyz/schemas/m31_full_span_forced_collision_route_cut_v1.schema.json",
+  "title": "M31 full-span forced-collision route-cut certificate v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "abstract_theorem",
+    "architecture_id",
+    "deployed_context",
+    "forced_key_noncoalescence",
+    "full_span_fixture",
+    "payload_sha256",
+    "route_cut",
+    "schema",
+    "scope",
+    "source_bindings",
+    "status",
+    "toy_parameters"
+  ],
+  "properties": {
+    "schema": {"const": "rs-mca-m31-full-span-forced-collision-route-cut-v1"},
+    "architecture_id": {"const": "M31_FULL_SPAN_FORCED_COLLISION_ROUTE_CUT_V1"},
+    "status": {"const": "PROVED_ANNIHILATOR_CRITERION_EXACT_FULL_SPAN_ROUTE_CUT_ROW_OPEN"},
+    "payload_sha256": {"$ref": "#/$defs/hash"},
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["deployed_row_closed", "impact", "is_m31_counterexample", "ledger_movement", "object", "row", "toy_falsifier_scale", "unit", "workboard_item"],
+      "properties": {
+        "workboard_item": {"const": "M1"},
+        "row": {"const": "Mersenne-31 list at 2^-100"},
+        "object": {"const": "LIST"},
+        "unit": {"const": "DISTINCT_CODEWORDS_PER_RECEIVED_WORD"},
+        "impact": {"const": "ROUTE_CUT"},
+        "deployed_row_closed": {"const": false},
+        "ledger_movement": {"const": 0},
+        "is_m31_counterexample": {"const": false},
+        "toy_falsifier_scale": {"const": true}
+      }
+    },
+    "abstract_theorem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ambient_space", "bounded_syzygy_criterion", "classification_is_semantic_owner", "collision_polynomial", "common_functional_space", "containment_span", "forced_criterion", "full_common_locator_divides_collision_polynomial", "graph_to_common_zero_adapter", "maximum_rank_consequence", "maximum_rank_for_nonzero_exact_functional", "pair_factorization", "popov_evaluation_criterion", "quotient_column_criterion", "same_layer_theta_criterion"],
+      "properties": {
+        "ambient_space": {"type": "string", "minLength": 1},
+        "containment_span": {"type": "string", "minLength": 1},
+        "common_functional_space": {"type": "string", "minLength": 1},
+        "collision_polynomial": {"type": "string", "minLength": 1},
+        "forced_criterion": {"type": "string", "minLength": 1},
+        "quotient_column_criterion": {"type": "string", "minLength": 1},
+        "pair_factorization": {"type": "string", "minLength": 1},
+        "full_common_locator_divides_collision_polynomial": {"const": true},
+        "same_layer_theta_criterion": {"type": "string", "minLength": 1},
+        "bounded_syzygy_criterion": {"type": "string", "minLength": 1},
+        "popov_evaluation_criterion": {"type": "string", "minLength": 1},
+        "graph_to_common_zero_adapter": {"type": "string", "minLength": 1},
+        "maximum_rank_consequence": {"type": "string", "minLength": 1},
+        "maximum_rank_for_nonzero_exact_functional": {"type": "string", "minLength": 1},
+        "classification_is_semantic_owner": {"const": false}
+      }
+    },
+    "deployed_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["B_star", "U_Q", "U_ext", "U_list_int", "annihilator_membership_is_payment", "banked_U_paid", "deployed_full_span_is_proved", "exact_mass_base_with_low_cap", "forbidden_size", "high_U_new", "high_baseline_45H", "high_weight_layer_count", "identity_prefix_T46_floor", "identity_prefix_T46_margin_over_signed_allowance", "identity_prefix_boundary_layer_floor", "identity_prefix_boundary_only", "identity_prefix_complete_list_budget_status", "identity_prefix_delta46", "identity_prefix_signed_target_is_Q_cap", "low_weight_cutoff", "predecessor_terminal", "raw_T46_cap_refuted", "required_next_input", "safe_signed_occupancy_max", "signed_Xi46_cap_required", "signed_refund_is_proved", "successor_terminal", "v4_negative_refund_interface_exists"],
+      "properties": {
+        "B_star": {"const": 16777215},
+        "forbidden_size": {"const": 16777216},
+        "banked_U_paid": {"const": 3730},
+        "low_weight_cutoff": {"const": 614160},
+        "high_weight_layer_count": {"const": 366969},
+        "high_baseline_45H": {"const": 16513605},
+        "exact_mass_base_with_low_cap": {"const": 16517335},
+        "safe_signed_occupancy_max": {"const": 259880},
+        "identity_prefix_boundary_layer_floor": {"const": 1993678},
+        "identity_prefix_T46_floor": {"const": 1993633},
+        "identity_prefix_T46_margin_over_signed_allowance": {"const": 1733753},
+        "raw_T46_cap_refuted": {"const": true},
+        "identity_prefix_boundary_only": {"const": true},
+        "identity_prefix_delta46": {"const": 16517290},
+        "identity_prefix_signed_target_is_Q_cap": {"const": true},
+        "identity_prefix_complete_list_budget_status": {"const": "UNKNOWN"},
+        "signed_Xi46_cap_required": {"const": 259880},
+        "signed_refund_is_proved": {"const": false},
+        "v4_negative_refund_interface_exists": {"const": false},
+        "U_Q": {"type": "null"},
+        "U_list_int": {"type": "null"},
+        "U_ext": {"type": "null"},
+        "high_U_new": {"type": "null"},
+        "predecessor_terminal": {"const": "UNPAID_CANONICAL_MASKED_COLLISION_OWNER_REFUND"},
+        "successor_terminal": {"const": "UNPAID_CROSS_WEIGHT_EXCESS_DEFICIT_Q_OWNER"},
+        "deployed_full_span_is_proved": {"const": false},
+        "annihilator_membership_is_payment": {"const": false},
+        "required_next_input": {"type": "string", "minLength": 1}
+      }
+    },
+    "toy_parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["K", "agreement", "domain", "field", "moments", "n", "prime", "radius", "received_word", "weight"],
+      "properties": {
+        "field": {"const": "GF(17)"},
+        "prime": {"const": 17},
+        "domain": {"type": "array", "minItems": 14, "maxItems": 14, "items": {"type": "integer", "minimum": 0, "maximum": 13}, "uniqueItems": true},
+        "n": {"const": 14},
+        "K": {"const": 7},
+        "weight": {"const": 6},
+        "radius": {"const": 6},
+        "agreement": {"const": 8},
+        "moments": {"type": "array", "minItems": 7, "maxItems": 7, "items": {"type": "integer", "minimum": 0, "maximum": 16}},
+        "received_word": {"type": "array", "minItems": 14, "maxItems": 14, "items": {"type": "integer", "minimum": 0, "maximum": 16}}
+      }
+    },
+    "full_span_fixture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["actual_collision_incidences", "all_actual_collisions_identically_forced", "all_noncollisions_proper_on_common_functional_space", "all_pair_common_locator_factorizations_verified", "common_containment_functional_dimension", "common_point_incidences", "complete_exact_layer_size", "containment_generator_count", "containment_generator_rank", "distinct_codeword_count", "distinct_forced_collision_polynomials", "forced_collision_polynomial_span_rank", "forced_collision_table_sha256", "incidence_table_sha256", "ordered_layer_sha256", "proper_noncollision_incidences", "span_equals_original_syndrome_kernel", "support_universe_size", "syndrome_hyperplane_dimension"],
+      "properties": {
+        "support_universe_size": {"const": 3003},
+        "complete_exact_layer_size": {"const": 137},
+        "ordered_layer_sha256": {"$ref": "#/$defs/hash"},
+        "containment_generator_count": {"const": 137},
+        "containment_generator_rank": {"const": 6},
+        "syndrome_hyperplane_dimension": {"const": 6},
+        "common_containment_functional_dimension": {"const": 1},
+        "span_equals_original_syndrome_kernel": {"const": true},
+        "distinct_codeword_count": {"const": 137},
+        "common_point_incidences": {"const": 23813},
+        "actual_collision_incidences": {"const": 1326},
+        "proper_noncollision_incidences": {"const": 22487},
+        "distinct_forced_collision_polynomials": {"const": 1219},
+        "forced_collision_polynomial_span_rank": {"const": 4},
+        "all_actual_collisions_identically_forced": {"const": true},
+        "all_noncollisions_proper_on_common_functional_space": {"const": true},
+        "all_pair_common_locator_factorizations_verified": {"const": true},
+        "incidence_table_sha256": {"$ref": "#/$defs/hash"},
+        "forced_collision_table_sha256": {"$ref": "#/$defs/hash"}
+      }
+    },
+    "forced_key_noncoalescence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["anchor_containment_generator_rank", "anchor_count", "anchor_extra_forced_collision_incidences", "deduplicated_forced_root_mass", "every_key_has_identically_forced_collision", "every_marked_key_spans_syndrome_hyperplane", "exact_disjoint_nonempty_union_optimum", "exact_root_transversal_minimum", "five_union_witness", "forced_key_table_sha256", "marked_key_count", "maximum_marked_key_containment_rank", "minimum_marked_key_containment_rank", "minimum_root_transversals", "no_four_point_root_transversal"],
+      "properties": {
+        "anchor_count": {"const": 45},
+        "anchor_containment_generator_rank": {"const": 6},
+        "marked_key_count": {"const": 92},
+        "minimum_marked_key_containment_rank": {"const": 6},
+        "maximum_marked_key_containment_rank": {"const": 6},
+        "every_marked_key_spans_syndrome_hyperplane": {"const": true},
+        "every_key_has_identically_forced_collision": {"const": true},
+        "anchor_extra_forced_collision_incidences": {"const": 597},
+        "deduplicated_forced_root_mass": {"const": 357},
+        "forced_key_table_sha256": {"$ref": "#/$defs/hash"},
+        "exact_disjoint_nonempty_union_optimum": {"const": 5},
+        "five_union_witness": {"type": "array", "minItems": 5, "maxItems": 5, "items": {"$ref": "#/$defs/keyWitness"}},
+        "exact_root_transversal_minimum": {"const": 6},
+        "minimum_root_transversals": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "array", "minItems": 6, "maxItems": 6, "items": {"type": "integer", "minimum": 0, "maximum": 13}, "uniqueItems": true}},
+        "no_four_point_root_transversal": {"const": true}
+      }
+    },
+    "route_cut": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["does_not_falsify", "falsified_parameter_uniform_implication", "falsifier", "payment_status", "raw_T46_cap_refuted", "raw_T46_counterexample", "row_status", "signed_target_specializes_to_Q_cap"],
+      "properties": {
+        "falsified_parameter_uniform_implication": {"type": "string", "minLength": 1},
+        "falsifier": {"type": "string", "minLength": 1},
+        "does_not_falsify": {"type": "string", "minLength": 1},
+        "raw_T46_cap_refuted": {"const": true},
+        "raw_T46_counterexample": {"type": "string", "minLength": 1},
+        "signed_target_specializes_to_Q_cap": {"const": true},
+        "payment_status": {"const": "NONE"},
+        "row_status": {"const": "OPEN"}
+      }
+    },
+    "source_bindings": {
+      "type": "array",
+      "minItems": 14,
+      "maxItems": 14,
+      "items": {"$ref": "#/$defs/sourceBinding"}
+    }
+  },
+  "$defs": {
+    "hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "keyWitness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["extra_index_one_based", "forced_collision_roots", "global_index_one_based", "support"],
+      "properties": {
+        "extra_index_one_based": {"type": "integer", "minimum": 1, "maximum": 92},
+        "global_index_one_based": {"type": "integer", "minimum": 46, "maximum": 137},
+        "support": {"type": "array", "minItems": 6, "maxItems": 6, "items": {"type": "integer", "minimum": 0, "maximum": 13}, "uniqueItems": true},
+        "forced_collision_roots": {"type": "array", "minItems": 1, "maxItems": 6, "items": {"type": "integer", "minimum": 0, "maximum": 13}, "uniqueItems": true}
+      }
+    },
+    "sourceBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["binding_id", "internal_payload_sha256", "path", "role", "scope", "sha256"],
+      "properties": {
+        "binding_id": {"type": "string", "pattern": "^M31_FULL_SPAN_FORCED_COLLISION::[a-z0-9_]+$"},
+        "role": {"type": "string", "minLength": 1},
+        "path": {"type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9._/-]+$"},
+        "sha256": {"$ref": "#/$defs/hash"},
+        "internal_payload_sha256": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/hash"}]},
+        "scope": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

@@ -73,9 +73,15 @@ At this snapshot:
 - The M31 LIST algebraic padding bridge and distinguished-column coloop are
   closed: the canonical Popov and masked Padé pairs have the same polynomial
   right kernel, the padding mask is recovered by a monic gcd, and every
-  forced key has a simultaneous canonical rank-three frame.  The global
-  common-core owner/refund, complete-list incidence, residual, and final
-  finite-ledger terminals remain open.
+  forced key has a simultaneous canonical rank-three frame.  Identically
+  forced collision forms are now classified exactly as membership in the
+  complete containment-row span, or equivalently as scaled-column equality
+  in an evaluated low-degree Popov syzygy code.  A complete `GF(17)` layer
+  and every 46-column marked key realize the maximum-rank
+  syndrome-hyperplane branch while the natural anchor-extra forced-root
+  unions retain packing five and transversal six, so forcedness alone does
+  not establish a semantic owner.  The global complete-class incidence/owner refund,
+  residual, and final finite-ledger terminals remain open.
 - A schema/hash pass is structural preflight only. The legacy four-row compiler trusted-source registry is empty; the new M31 adapter hash-binds its theorem sources, but parsing either manifest does not itself prove an atom.
 
 ## 3. Document authority
@@ -87,6 +93,7 @@ At this snapshot:
 | `experimental/grande_finale.tex` | **Active conditional completion architecture:** proved local theorems, order-32/rational-atom reductions, owner localization, spread-core incidence bounds, and exact completion problems. Hypotheses/problems are not row bounds. |
 | `experimental/notes/thresholds/m31_list_v4_source_adapter_global_coupled_residual.md` and `experimental/data/certificates/m31-list-v4-source-adapter-v1/manifest.json` | **M1 target-source adapter authority:** direct quartic exact-layer lift, bankable low-weight cell, exact global occupancy, coupled rank-46 diagnostic, and explicit unpaid high residual. It does not close the row. |
 | `experimental/notes/thresholds/m31_canonical_masked_pade_global_route_cut.md` and `experimental/data/certificates/m31-canonical-masked-pade-global-route-cut-v1/manifest.json` | **M1 canonical-mask authority:** target-field Popov–Padé right-kernel bridge, exact padding/error classifier, simultaneous rank-three/no-coloop theorem, conditional target-field deformation dichotomy, and exhaustive natural-collision regression. It moves no atom and leaves the row open. |
+| `experimental/notes/thresholds/m31_full_span_forced_collision_route_cut.md` and `experimental/data/certificates/m31-full-span-forced-collision-route-cut-v1/manifest.json` | **M1 forced-collision authority:** exact annihilator/quotient-column/Popov evaluation criterion, graph-to-common-zero interface, maximum-rank syndrome-hyperplane route cut, and exhaustive full-span regression. It moves no atom and leaves the row open. |
 | `tex/cs25_cap_v13_2.tex` | **Foundation/unsafe authority:** exact unsafe endpoints, field/domain conventions, reductions, and certificate grammar. |
 | `RS_MCA_Paving_v9.2.tex` | **Fixed ePrint basis for unconditional paving results:** shortening, MDS circuit, exact finite, exponential-budget, and conditional Sidon-to-flatness results from ePrint 2026/1463. It does not solve the subexponential near-capacity frontier. |
 | `experimental/rs_mca_thresholds.tex` | **Exact-regime/exposition source:** staircases, below-half-distance results, syndrome geometry, and examples; not unrestricted near-capacity closure authority. |
@@ -179,14 +186,34 @@ that selected-family cardinality cannot force a collision unless a collision
 form is identically zero on the common containment space.  An exhaustive
 same-received-word `GF(17)` layer has disjoint-packing optimum five and
 natural collision-root transversal number six, so the local coupled data do
-not force four-root overlap coalescence.
+not force packing at most four or a four-point transversal for those natural
+unions.  The exact forced-form classifier is
+now proved: a collision form is identically zero exactly when its normalized
+escape columns agree modulo the complete containment-row span, equivalently
+when a two-column vector lies in the evaluated low-degree Popov syzygy code.
+At maximum containment rank, this says only that the original codewords
+collide.  The same complete `GF(17)` layer and all 92 individual 46-column
+marked keys have locator-span rank `K-1`; all marked keys have identically
+forced collisions, and the exact natural-union packing/transversal
+obstruction persists.  Complete-class connectivity can legally feed
+common-zero/rank-flat/puncturing owners, but no current theorem forces enough
+connectivity or supplies a chronology-valid codeword charge/refund.
 `U_Q`, `U_list-int`, `U_ext`, and the high `U_new` value remain null.  The
-exact terminal is `UNPAID_CANONICAL_MASKED_COLLISION_OWNER_REFUND`.  The next
-M1 theorem must classify every identically forced component and route it with
-chronology-correct refunds, prove an M31-specific complete-list/cross-weight
-incidence theorem, eliminate the primitive masked component, or bound the
-complete distinguished-codeword projection by `259880`; another standalone
-fixed-width computation cannot close the row.
+global terminal is `UNPAID_CROSS_WEIGHT_EXCESS_DEFICIT_Q_OWNER`; its local
+scaled-column subterminal is `UNPAID_SPLIT_LOCATOR_HYPERPLANE_OWNER_REFUND`,
+with primitive subterminal `UNPAID_PRIMITIVE_FORCED_ESCAPE_COLUMN_COLLISION`.
+The next M1 theorem must globally partition complete scaled-column classes
+into chronology-valid owners/refunds and prove the signed bound
+`Xi46<=259880`.  The raw substitute `T46<=259880` is impossible: the proved
+deployed identity-prefix boundary source has `M_R>=1993678`, hence
+`T46>=1993633`, exceeding the raw cap by `1733753`.  The successor must route
+that boundary cell and retain every missing-layer/missing-anchor credit.  On
+the identity-prefix center the complete ball is boundary-only and
+`Xi46=M_R-16517335`, so the signed target is exactly the row-sharp Q bound
+`M_R<=B*`; it is not a cheaper occupancy lemma.  The v4 grammar currently has
+no negative-refund interface.  Another standalone membership, minor, or
+fixed-width computation cannot
+close the row.
 
 #### M2. Transfer the theorem or record a new floor
 
