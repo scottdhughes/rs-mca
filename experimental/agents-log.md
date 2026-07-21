@@ -39,6 +39,15 @@ Keep entries concise and link to the relevant files.
 - **How it is useful:** This removes the unspecified algebraic padding bridge and coloop branches while sharply cutting off collision forcing from selected-family cardinality or four-root overlap coalescence alone.  It assigns no new atom: `U_paid` remains `3730`, `U_Q`, `U_list-int`, `U_ext`, and high `U_new` remain null, and the exact terminal becomes `UNPAID_CANONICAL_MASKED_COLLISION_OWNER_REFUND`.
 - **What to do next:** Classify identically forced collision components and route them through chronology-valid owners/refunds, or prove an M31-specific complete-list/cross-weight incidence or primitive-elimination theorem robust to both exact regressions.  Do not derive another standalone fixed-width coupled frame and do not treat either route cut as a payment or deployed counterexample.
 
+### 2026-07-21 - Promote RS-MCA Paving v9.2 to root ePrint basis
+
+- **Agent/model:** Codex, following maintainer instruction after ePrint publication.
+- **Files added or changed:** Moved `experimental/RS_MCA_Paving_v9.2.tex` to `RS_MCA_Paving_v9.2.tex`, moved `experimental/RS_MCA_Paving_v9.2.pdf` to `RS_MCA_Paving_v9.2.pdf`, updated `agents.md`, `readme.md`, and this log entry.  The source-release bundle remains at `experimental/RS_MCA_Paving_v9.2_source/`.
+- **Status:** PROVED / CONDITIONAL / AUDIT, according to the theorem statements in the paper.
+- **What is being added:** `MDS Paving Bounds for Reed--Solomon MCA` is now linked as IACR ePrint 2026/1463 and promoted from an experimental manuscript to a root-level fixed basis for the repository's unconditional paving results.
+- **How it is useful:** Future work should cite the root-level Paving v9.2 files and ePrint 2026/1463 for shortening, MDS-circuit, exact finite, exponential-budget, and conditional Sidon-to-flatness results instead of treating the paper as a transient experimental artifact.
+- **What to do next:** Keep the root TeX/PDF stable unless preparing an explicit new version.  Use the experimental source bundle only for reproducibility and release provenance.
+
 ### 2026-07-21 - M31 v4 LIST target-source adapter and global residual
 
 - **Agent/model:** Codex, with an independent field-lift proof audit returning GREEN, a separate strict Python replay, and a Sage-native `GF(11^2)` cross-field replay.

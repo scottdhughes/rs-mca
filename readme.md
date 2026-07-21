@@ -3,6 +3,8 @@
 This repository is a working research package for settling the smooth-domain Reed--Solomon **mutual correlated agreement (MCA)** and proximity-list questions that arise in the [Proximity Prize program](https://proximityprize.org/).
 
 See the related [IACR ePrint paper](https://eprint.iacr.org/2026/680.pdf).
+
+MDS Paving Bounds for Reed--Solomon MCA is now [IACR ePrint 2026/1463](https://eprint.iacr.org/2026/1463); the root-level `RS_MCA_Paving_v9.2.tex` and `.pdf` are the fixed basis for those unconditional results going forward.
 Visit the [project's website](https://www.rsmca.xyz/).
 
 The central theme is simple:
@@ -40,6 +42,7 @@ of the main papers are in `tex/`, experimental manuscripts are in
 | `towards-prize.tex` | **Towards Prize: sparse threshold note** | Compact prize-facing note. It packages the `delta^*` staircase viewpoint, deployed KoalaBear pincer, and the new sparse residual reduction `emca = max(eca, sigma_C/q)` into the current execution target. |
 | `experimental/rs_mca_thresholds.tex` | **Reed--Solomon MCA Thresholds** | Current coherent exact-threshold draft. It packages exact deep/quadratic MCA staircases, CA/sparse decomposition, certified Proth prime rows at all four official rates, smooth/circle transports, and target-aware certificate formulas. |
 | `experimental/grande_finale.tex` | **Grande Finale v4** | Active experimental final-resolution spine. It keeps the profile/Q/Sidon/Fourier compiler material and adds the order-32 rank route, rational-atom extraction/coherence, owner localization, spread-core incidence bounds, and the current row-sharp completion problems. |
+| `RS_MCA_Paving_v9.2.tex` / `RS_MCA_Paving_v9.2.pdf` | **MDS Paving Bounds for Reed--Solomon MCA** | Root-level fixed basis for unconditional paving results; this is [IACR ePrint 2026/1463](https://eprint.iacr.org/2026/1463). Use it as a stable source for shortening, MDS-circuit, exact finite, exponential-budget, and conditional Sidon-to-flatness results. |
 | `archived/asymptotic_rs_mca*.tex` | **Archived asymptotic predecessors** | Historical provenance for the compact/frontiers asymptotic drafts. Use for comparison only; new proof work should cite Grande Finale v4 or the exact-threshold draft. |
 | `README.md` | Repo overview | Explains what the papers do, how they depend on each other, and what the project is trying to prove. |
 | `AGENTS.md` | Research-agent guide | Gives AI agents and new contributors a prioritized list of proof targets, toy cases, scripts, and “do not confuse these” rules. |

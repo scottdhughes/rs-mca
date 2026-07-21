@@ -1,7 +1,7 @@
 # AGENTS.md — RS–MCA Resolution Protocol
 
 > **Updated:** 2026-07-21
-> **State snapshot:** `main@a3017697ad1594521d2779fe1d83bccd45d4c06e`
+> **State snapshot:** `main@32a41660e3088eeeb15a16645330856794302ff0`
 > **Supersedes:** all older priority lists in this file.
 
 Edit this workboard in place. Never append another “current focus”, “highest priority”, or competing task list.
@@ -88,7 +88,7 @@ At this snapshot:
 | `experimental/notes/thresholds/m31_list_v4_source_adapter_global_coupled_residual.md` and `experimental/data/certificates/m31-list-v4-source-adapter-v1/manifest.json` | **M1 target-source adapter authority:** direct quartic exact-layer lift, bankable low-weight cell, exact global occupancy, coupled rank-46 diagnostic, and explicit unpaid high residual. It does not close the row. |
 | `experimental/notes/thresholds/m31_canonical_masked_pade_global_route_cut.md` and `experimental/data/certificates/m31-canonical-masked-pade-global-route-cut-v1/manifest.json` | **M1 canonical-mask authority:** target-field Popov–Padé right-kernel bridge, exact padding/error classifier, simultaneous rank-three/no-coloop theorem, conditional target-field deformation dichotomy, and exhaustive natural-collision regression. It moves no atom and leaves the row open. |
 | `tex/cs25_cap_v13_2.tex` | **Foundation/unsafe authority:** exact unsafe endpoints, field/domain conventions, reductions, and certificate grammar. |
-| `experimental/RS_MCA_Paving_v9.2.tex` | **Proved safe-bound toolbox:** shortening, MDS circuit, exact finite, exponential-budget, and conditional Sidon-to-flatness results. It does not solve the subexponential near-capacity frontier. |
+| `RS_MCA_Paving_v9.2.tex` | **Fixed ePrint basis for unconditional paving results:** shortening, MDS circuit, exact finite, exponential-budget, and conditional Sidon-to-flatness results from ePrint 2026/1463. It does not solve the subexponential near-capacity frontier. |
 | `experimental/rs_mca_thresholds.tex` | **Exact-regime/exposition source:** staircases, below-half-distance results, syndrome geometry, and examples; not unrestricted near-capacity closure authority. |
 | `tex/RS_disproof_v3.tex`, `tex/slackMCA_v4.tex`, `tex/snarks_v5.tex` | Stable background for no-slack obstructions, reserve/quotient theory, and later protocol accounting. |
 | `archived/` predecessors | Provenance only. Never bank an archived owner or charge without an explicit source-bound bridge. |
@@ -310,7 +310,7 @@ A declaration is certified only after the package builds and its statement is ma
 2. Introduction, exact compiler, finite benchmark, and finite-closure problem in `Conjectures_and_Barriers_RS_MCA_v4_1.tex`.
 3. Audited-status, finite-Q barrier, and exact-completion sections of `grande_finale.tex`.
 4. Exact unsafe-row/certificate sections of `cs25_cap_v13_2.tex`.
-5. Main theorem/status sections of `RS_MCA_Paving_v9.2.tex`.
+5. Main theorem/status sections of root-level `RS_MCA_Paving_v9.2.tex` (ePrint 2026/1463).
 6. Only then, row-specific notes and scripts named by the live compiler.
 7. Use `rs_mca_thresholds.tex` for solved exact regimes; use archives only for provenance.
 
