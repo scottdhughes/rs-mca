@@ -30,6 +30,15 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-21 - M31 masked diagonal-saturation exact sequence
+
+- **Agent/model:** GPT-5.5 Pro theorem author and hostile auditor, integrated by Codex.
+- **Files added or changed:** `experimental/notes/thresholds/m31_masked_diagonal_saturation_exact_sequence.md`, `experimental/data/certificates/m31-masked-diagonal-saturation/r37_role01_publication.json`, and `experimental/agents-log.md`.
+- **Status:** PROVED LOCAL / CONDITIONAL / INDEPENDENT HOSTILE AUDIT ACCEPT / EXPERIMENTAL, with zero ledger movement and official score `0/2`.
+- **What is being added:** Adds the exact saturation-quotient sequence and colength, successive-index monotonicity, primitive-row degree sums, an RS exceptional-index lemma, and the conditional per-packet M31 bound `lambda_1+lambda_2+lambda_3 <= 62,295 < 67,447`, plus the noncoloop residual-gcd consequence. The basic diagonal-saturation isomorphism and equal-degree shift overlap live PR #1014 and are identified as overlap rather than claimed as new.
+- **How it is useful:** Supplies the missing algebraic comparison needed to transfer the deployed rank-46 actual-error information into a narrow canonical padded rank-three index bound for every marked packet forced by a hypothetical forbidden list.
+- **What to do next:** Prove the typed common-core add-back or pay the rank-two coloop branch, then supply cross-key ownership or deduplication. Do not treat this local bridge as a forbidden-list exclusion, full upper ledger, endpoint theorem, recurrence, payment, or official score.
+
 ### 2026-07-21 - M31 route-cut and Lean compiler PR wave
 
 - **Agent/model:** Codex, selectively integrating reviewed PRs from Scott Hughes (#992, #994, #995, #999, #1000, #1001, #1002, #1003, #1004, #1007, #1008) and holmbuar (#987, #997, #1005).
@@ -3506,12 +3515,3 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Run verifiers and audits on the integrated material,
   review mathematical notes before promotion, and close the original PRs as
   manually integrated once the integration commit is pushed.
-### 2026-07-21 - M31 masked diagonal-saturation exact sequence
-
-- **Agent/model:** GPT-5.5 Pro theorem author and hostile auditor, integrated by Codex.
-- **Files added or changed:** `experimental/notes/thresholds/m31_masked_diagonal_saturation_exact_sequence.md`, `experimental/data/certificates/m31-masked-diagonal-saturation/r37_role01_publication.json`, and `experimental/agents-log.md`.
-- **Status:** PROVED LOCAL / CONDITIONAL / INDEPENDENT HOSTILE AUDIT ACCEPT / EXPERIMENTAL, with zero ledger movement and official score `0/2`.
-- **What is being added:** Adds the exact saturation-quotient sequence and colength, successive-index monotonicity, primitive-row degree sums, an RS exceptional-index lemma, and the conditional per-packet M31 bound `lambda_1+lambda_2+lambda_3 <= 62,295 < 67,447`, plus the noncoloop residual-gcd consequence. The basic diagonal-saturation isomorphism and equal-degree shift overlap live PR #1014 and are identified as overlap rather than claimed as new.
-- **How it is useful:** Supplies the missing algebraic comparison needed to transfer the deployed rank-46 actual-error information into a narrow canonical padded rank-three index bound for every marked packet forced by a hypothetical forbidden list.
-- **What to do next:** Prove the typed common-core add-back or pay the rank-two coloop branch, then supply cross-key ownership or deduplication. Do not treat this local bridge as a forbidden-list exclusion, full upper ledger, endpoint theorem, recurrence, payment, or official score.
-
