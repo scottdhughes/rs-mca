@@ -1,7 +1,7 @@
 # AGENTS.md — RS–MCA Resolution Protocol
 
 > **Updated:** 2026-07-21
-> **State snapshot:** `main@18cfc199d4612f5dfc01bf6c0155a65a1eaa3832`
+> **State snapshot:** `main@a3017697ad1594521d2779fe1d83bccd45d4c06e`
 > **Supersedes:** all older priority lists in this file.
 
 Edit this workboard in place. Never append another “current focus”, “highest priority”, or competing task list.
@@ -153,6 +153,17 @@ This is a codeword-count statement; the MCA ray compiler is inapplicable.
 #### M1. Resolve the binding primitive-fiber/list-interior problem
 
 The full-budget target is only about `8.4152` times the full-slice average, and the true allowance is smaller after other payments. Prove a realized-image, frozen-residual maximum or construct a received word exceeding the budget. Existing one-shell and rooted-shell packets are local reductions, not exhaustive row bounds.
+
+Current source-local status: PR #1023 extracts the complete maximizing exact
+layer under a hypothetical above-budget received word.  The stacked coupled
+escape--Forney packet proves uniform 16- and 30-column joint-kernel bounds and
+an exact pair-collision factorization, but its finite controls and 67-support
+hyperplane theorem show that low coupled rank alone does not force a collision
+owner.  This remains `LOCAL_ONLY`: no source-bound adapter maps the complete
+layer into the v4 list chronology, and `U_Q`, `U_list-int`, `U_ext`, and
+`U_new` remain null.  The next M1 theorem is that full-layer adapter followed
+by exhaustive global residual classification, not another standalone
+16-column computation.
 
 #### M2. Transfer the theorem or record a new floor
 

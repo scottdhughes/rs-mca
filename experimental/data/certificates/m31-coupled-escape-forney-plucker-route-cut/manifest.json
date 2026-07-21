@@ -1,0 +1,112 @@
+{
+  "schema": "rs-mca-m31-coupled-escape-forney-plucker-route-cut-v1",
+  "status": "proved_local_conditional_packet_route_cut_unpaid_zero_payment",
+  "workboard_contract": {
+    "workboard_item": "M1",
+    "row": "Mersenne-31 list at 2^-100",
+    "object": "LIST",
+    "target_epsilon": "2^-100",
+    "agreement": 1116023,
+    "B_star": 16777215,
+    "architecture": "DIRECT",
+    "partition_digest": "NOT_APPLICABLE_DIRECT",
+    "atom_or_cell": "DIRECT",
+    "projection_and_unit": "EXACT_CODEWORDS_ERROR_SUPPORTS_SYZYGIES_AND_PAIR_COLLISIONS_NO_CHARGE",
+    "impact": "LOCAL_ONLY"
+  },
+  "source": {
+    "upstream_main_commit": "a3017697ad1594521d2779fe1d83bccd45d4c06e",
+    "parent_pr": 1023,
+    "parent_commit": "895d15ee9a67fee0fff9c3098306d5f93ca3bcbd",
+    "field": "F_p",
+    "quartic_transfer": "UNCLAIMED"
+  },
+  "theorem_scope": {
+    "p": 2147483647,
+    "n": 2097152,
+    "K": 1048576,
+    "R": 981129,
+    "D0_min": 67447,
+    "global_joint_index_sum_max": 913681,
+    "complete_layer_size_min": 36,
+    "width16_one_row_degree_max": 65262,
+    "width15_one_row_average_bound": 70283,
+    "width30_two_row_combined_degree_max": 65262,
+    "width29_two_row_average_bound": 67680,
+    "width16_low_degree_space_min": 30591,
+    "generic_collision_avoidance_packet_max": 67,
+    "packet67_union_bound_margin": 61599313,
+    "packet68_union_bound_excess": 598443,
+    "terminal": "UNPAID_UNCLASSIFIED_16_COLUMN_COUPLED_PADE_FRAME",
+    "ledger_movement": 0
+  },
+  "active_v4_list_atoms_unchanged": {
+    "U_Q": null,
+    "U_list_int": null,
+    "U_ext": null,
+    "U_new": null
+  },
+  "independent_review": {
+    "verdict": "GREEN_NARROW_LOCAL_ONLY",
+    "scope": "COUPLED_SOURCE_THEOREM_PACKET_ROUTE_CUT_ZERO_LEDGER",
+    "row_closure_authorized": false,
+    "pr_worthy_as_local_packet": true,
+    "gamma_sign_repair_verified": true,
+    "unclassified_terminal_verified": true,
+    "v4_list_interface_verified": true
+  },
+  "exact_controls": [
+    {
+      "field": "F_11",
+      "K": 4,
+      "domain": "0..7",
+      "moments": [0, 0, 1, 0],
+      "weight": 3,
+      "complete_layer_size": 6,
+      "forney_indices": [0, 0, 0, 1, 2],
+      "constant_joint_rows": 3,
+      "pair_collision_energy": 0,
+      "pair_collision_allowance": 3
+    },
+    {
+      "field": "F_11",
+      "K": 4,
+      "domain": "0..7",
+      "moments": [1, 0, 1, 4],
+      "weight": 3,
+      "complete_layer_size": 3,
+      "common_core": [1],
+      "pair_count": 3,
+      "global_pair_factor_scalar": 10
+    }
+  ],
+  "replay": {
+    "python_check": "PASS",
+    "python_optimized_check": "PASS",
+    "python_tamper_selftest": "PASS_11_OF_11",
+    "python_optimized_tamper_selftest": "PASS_11_OF_11",
+    "sage_native_replay": "PASS",
+    "parent_check": "PASS",
+    "parent_optimized_check": "PASS",
+    "parent_tamper_selftest": "PASS_8_OF_8",
+    "parent_optimized_tamper_selftest": "PASS_8_OF_8",
+    "expected_stdout_sha256": "b2587cb6edd4f03fbbbbe81feddf6bd57a8ec6239c1dd977ece3952090189750",
+    "sage_expected_stdout_sha256": "e765a5f8ce7e3a226b69e25c4a6c7e44aaeaef5f63ba8b8ab10822440769ee9e",
+    "note_sha256": "3bdc280bf0011764d6ee9e6b0697b015f0389d650c9cceb9d9dadc198bb85f2d",
+    "python_sha256": "098a45873cdc6d4d322bb880f4c0ee5485ca82099b5e7b93a6ac57eec5064e74",
+    "sage_sha256": "9a36c7592bb91126260733c55d8a5d033bbba18943367404e3fa6d675f41c016",
+    "readme_sha256": "89c932203536d1d759e17b39923e21396e5ec51bb22551837f3b5a246c154726"
+  },
+  "nonclaims": [
+    "no M31 whole-ball upper bound",
+    "no adjacent safe endpoint",
+    "no first-match owner",
+    "no active U_ext payment",
+    "no common-core combinatorial add-back",
+    "no ledger payment",
+    "no scalar descent",
+    "no F_p4 transfer",
+    "no full-list upper bound",
+    "no official theorem"
+  ]
+}

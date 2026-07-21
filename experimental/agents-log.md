@@ -30,6 +30,15 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-21 - M31 coupled escape--Forney--Plucker route cut
+
+- **Agent/model:** Codex, with an independent Sage-native replay and a fresh hostile proof audit returning GREEN for the narrow local theorem and packet route cut.
+- **Files added or changed:** agents.md; experimental/notes/thresholds/m31_coupled_escape_forney_plucker_route_cut.md; experimental/scripts/verify_m31_coupled_escape_forney_plucker_route_cut.py; experimental/scripts/verify_m31_coupled_escape_forney_plucker_route_cut.sage; experimental/data/certificates/m31-coupled-escape-forney-plucker-route-cut/.
+- **Status:** PROVED LOCAL / CONDITIONAL / COUNTEREXAMPLE / PACKET ROUTE CUT / UNPAID.
+- **What is being added:** Continuing the exact PR #1023 source packet, the note proves the inclusive locator-to-numerator syzygy cutoff, identifies every pair minor with the actual codeword collision quotient, computes the exact joint-kernel indices, extracts uniform 16- and 30-column coupled frames, and proves a sharp 67/68 bounded-packet hyperplane-avoidance cut.  An exhaustive \(F_{11}\) full-layer fixture has three degree-zero coupled rows but no collision.
+- **How it is useful:** The packet upgrades the M31 source theorem from locator-only rank to an actual escape-numerator incidence theorem while rigorously cutting off the unsupported inference that low coupled rank alone yields a paid collision face.  It records the packet-local diagnostic UNPAID_UNCLASSIFIED_16_COLUMN_COUPLED_PADE_FRAME and moves no active Grande Finale v4 ledger mass; \(U_Q\), \(U_{\rm list-int}\), \(U_{\rm ext}\), and \(U_{\rm new}\) remain null.
+- **What to do next:** Build a source-bound adapter from the entire complete exact layer into the active v4 list chronology, then exhaust the residual globally using the coupled invariants.  A standalone 16-column classification is insufficient.  Do not claim the M31 endpoint, scalar descent, or payment from this packet alone.
+
 ### 2026-07-21 - Grande Finale v4 promotion
 
 - **Agent/model:** Codex, reviewing maintainer-added `experimental/grande_finale_v4.tex` and `.pdf`.
