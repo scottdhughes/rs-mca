@@ -30,6 +30,37 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-20 - M31 Chebyshev stabilizer and four-flat global separator
+
+- **Agent/model:** Codex, with independent stabilizer, cross-support, and
+  compressed-Macaulay review agents.
+- **Files added or changed:** Added
+  `experimental/notes/thresholds/m31_chebyshev_global_separator.md`,
+  `experimental/scripts/verify_m31_chebyshev_global_separator.py`,
+  `experimental/scripts/verify_m31_chebyshev_global_separator.sage`, and
+  `experimental/data/certificates/m31-chebyshev-global-separator/`; updated
+  `experimental/agents-log.md`.
+- **Status:** PROVED EXACT STABILIZER / PROVED PAIRWISE SURVIVOR AND RANK-16
+  BOUNDARY / PROVED SCOPED FOUR-FLAT SEPARATOR / M31 LIST ROW OPEN.
+- **What is being added:** The standard-position M31 domain is proved to be
+  the zero set of `T_(2^21)`, with exact projective/permutation symmetry `C2`
+  and monomial group `F_p^* x C2`; all shortened-flat containments and escapes
+  are equivariant.  Pairwise exact-support incidence is proved literally
+  feasible, while a complete-`T_1024`-fibre embedding of four blocks from
+  #1001 is rejected by a nonzero `132 x 132` quotient Macaulay determinant,
+  which lifts to Forney profile `(33792,33792,33792)`.
+- **How it is useful:** It closes the proposed large-symmetry compression
+  route, proves pairwise separators cannot work, identifies rank 16 as the
+  first containment-only gate, and demonstrates an exact global cross-support
+  separator at deployed parameters.  The separator covers one declared
+  fibre-aligned embedding, not every binary coordinate pairing.
+- **What to do next:** Classify the determinant-zero locus across all
+  two-dimensional simplex restrictions and arbitrary embeddings.  Prove that
+  every above-budget family exposes a surjective four-flat minor, or freeze
+  the surviving determinant-zero components as explicit primitives feeding
+  the complete rank-16 `h=1` Macaulay/Forney classification.  Do not move
+  `U_Q`, `U_A`, or a deployed row from this packet.
+
 ### 2026-07-20 - M31 shortened-flat compiler and global projective-line wall
 
 - **Agent/model:** Codex, with independent exact-formulation and reuse-audit
