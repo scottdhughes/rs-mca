@@ -30,6 +30,15 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-21 - M31 Chebyshev fixed-remainder exact C1 boundary source and raw route cut
+
+- **Agent/model:** Codex, with a fresh independent theorem audit, a standard-library exact verifier, an exhaustive `GF(17)` control, and an independent Sage replay.
+- **Files added or changed:** `agents.md`; `experimental/notes/thresholds/m31_chebyshev_fixed_remainder_c1_boundary_source_route_cut.md`; `experimental/data/schemas/m31_chebyshev_fixed_remainder_c1_boundary_source_route_cut_v1.schema.json`; `experimental/data/certificates/m31-chebyshev-fixed-remainder-c1-boundary-source-route-cut-v1/`; `experimental/scripts/verify_m31_chebyshev_fixed_remainder_c1_boundary_source_route_cut_v1.py`; `experimental/scripts/verify_m31_chebyshev_fixed_remainder_c1_boundary_source_route_cut_v1.sage`; and this log.
+- **Status:** PROVED EXACT C1-BOUNDARY SOURCE / PROVED UNQUALIFIED FLAT-BASELINE-PLUS-FORNEY ROUTE CUT / C1 AND Q UPPER PAYMENTS OPEN / ROW OPEN.
+- **What is being added:** A field-generic fixed-remainder polynomial-fold lemma upgrades the deployed `c=2048` arithmetic floor to one actual base-field received word whose complete quartic-field ball is boundary-only and has at least `6796405` distinct codewords.  The exact chronology gives `T46>=6796360`, and the full moving-cutoff scan proves that `b=27` is the largest source-compatible flat baseline while two-row aggregate Forney control first occurs at `b=29`.
+- **How it is useful:** It refutes the unqualified raw `T46<=259880` route by `6536480` and proves that no flat raw baseline simultaneously survives this exact source and obtains the current two-row Forney consequence.  The upstream PR #1032 audit forced a chronology correction before publication: the structured family has complement profile `981129=479*2048+137` and, under #1032's declared first-match convention, is removed by or at C1 and contributes zero to post-C1 primitive Q.  The packet moves no atom and does not classify arbitrary supports in the complete prefix fiber.
+- **What to do next:** Prove an exact numerical codeword payment for C1 that accommodates the realized `6796405` floor, and exhaust `M31_VARIABLE_REMAINDER_ORIENTATION_RESIDUAL`.  Under the same declared first-match convention, fixed-remainder `c=1024` paired-prefix families are also removed by or at C1.  Route every genuine variable-remainder, large-partial-occupancy, transversal, or local-coset component to a chronology-valid payment, a budget-fitting attained-image bound, or an explicit route cut.
+
 ### 2026-07-21 - M31 full-span forced-collision classification and route cut
 
 - **Agent/model:** Codex, with a fresh-context symbolic derivation, an independent chronology audit, a standard-library exact verifier, and an independent Sage replay.

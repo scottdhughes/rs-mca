@@ -1,0 +1,279 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rs-mca-chebyshev-fixed-remainder-c1-boundary-source-route-cut-v1",
+  "title": "M31 Chebyshev fixed-remainder C1 boundary-source route-cut certificate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "architecture_id",
+    "c1_owner_classification",
+    "chronology_specialization",
+    "deployed_parameters",
+    "general_theorem",
+    "nonclaims",
+    "payload_sha256",
+    "flat_baseline_forney_route_cut",
+    "raw_baseline_optimizer",
+    "schema",
+    "scope",
+    "source_bindings",
+    "status",
+    "toy_control"
+  ],
+  "properties": {
+    "schema": {"const": "rs-mca-chebyshev-fixed-remainder-c1-boundary-source-route-cut-v1"},
+    "architecture_id": {"const": "M31_CHEBYSHEV_FIXED_REMAINDER_C1_BOUNDARY_SOURCE_ROUTE_CUT_V1"},
+    "status": {"const": "PROVED_FIXED_REMAINDER_EXACT_C1_BOUNDARY_SOURCE_RAW_ROUTE_CUT_ROW_OPEN"},
+    "payload_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["deployed_row_closed", "impact", "is_m31_counterexample", "lean_used", "ledger_movement", "object", "row", "stable_paper_modified", "unit", "workboard_item"],
+      "properties": {
+        "workboard_item": {"const": "M1"},
+        "row": {"const": "Mersenne-31 list at 2^-100"},
+        "object": {"const": "LIST"},
+        "unit": {"const": "DISTINCT_CODEWORDS_PER_RECEIVED_WORD"},
+        "impact": {"const": "PROVED_C1_BOUNDARY_SOURCE_AND_RAW_ARCHITECTURE_ROUTE_CUT"},
+        "deployed_row_closed": {"const": false},
+        "ledger_movement": {"const": 0},
+        "is_m31_counterexample": {"const": false},
+        "stable_paper_modified": {"const": false},
+        "lean_used": {"const": false}
+      }
+    },
+    "general_theorem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["codeword", "complete_list_is_global_locator_prefix_fiber", "degree_A_center_makes_complete_ball_boundary_only", "extension_field_list_descends_to_base_field", "hypotheses", "locator", "name", "agreement_support", "structured_codewords_distinct", "structured_floor"],
+      "properties": {
+        "name": {"const": "FIXED_REMAINDER_POLYNOMIAL_FOLD_EXACT_BOUNDARY_LIST"},
+        "hypotheses": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["degree_gate", "fixed_remainder", "fold", "moving_quotient_support", "prefix_depth"],
+          "properties": {
+            "degree_gate": {"type": "string", "minLength": 1},
+            "fixed_remainder": {"type": "string", "minLength": 1},
+            "fold": {"type": "string", "minLength": 1},
+            "moving_quotient_support": {"type": "string", "minLength": 1},
+            "prefix_depth": {"type": "string", "minLength": 1}
+          }
+        },
+        "structured_floor": {"type": "string", "minLength": 1},
+        "locator": {"type": "string", "minLength": 1},
+        "codeword": {"type": "string", "minLength": 1},
+        "agreement_support": {"type": "string", "minLength": 1},
+        "structured_codewords_distinct": {"const": true},
+        "complete_list_is_global_locator_prefix_fiber": {"const": true},
+        "degree_A_center_makes_complete_ball_boundary_only": {"const": true},
+        "extension_field_list_descends_to_base_field": {"const": true}
+      }
+    },
+    "deployed_parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["B_star", "K", "agreement", "budget_status", "candidate_quotient_supports", "code_field_cardinality", "codeword_degree_upper", "complete_ball_base_field_valued", "complete_ball_boundary_only", "complete_list_cardinality_known_exactly", "degree_headroom_below_K", "fixed_remainder_size", "fold", "fold_degree", "forbidden_size", "n", "p", "prefix_box_size", "quotient_prefix_depth", "quotient_size", "quotient_support_size", "radius", "shift", "structured_list_floor"],
+      "properties": {
+        "p": {"const": 2147483647},
+        "code_field_cardinality": {"const": "21267647892944572736998860269687930881"},
+        "n": {"const": 2097152},
+        "K": {"const": 1048576},
+        "agreement": {"const": 1116023},
+        "radius": {"const": 981129},
+        "shift": {"const": 67447},
+        "B_star": {"const": 16777215},
+        "forbidden_size": {"const": 16777216},
+        "fold": {"const": "monic normalization of T_2048"},
+        "fold_degree": {"const": 2048},
+        "quotient_size": {"const": 1024},
+        "fixed_remainder_size": {"const": 1911},
+        "quotient_support_size": {"const": 544},
+        "quotient_prefix_depth": {"const": 32},
+        "candidate_quotient_supports": {"type": "string", "pattern": "^[1-9][0-9]+$"},
+        "prefix_box_size": {"type": "string", "pattern": "^[1-9][0-9]+$"},
+        "structured_list_floor": {"const": 6796405},
+        "codeword_degree_upper": {"const": 1048439},
+        "degree_headroom_below_K": {"const": 137},
+        "complete_ball_boundary_only": {"const": true},
+        "complete_ball_base_field_valued": {"const": true},
+        "complete_list_cardinality_known_exactly": {"const": false},
+        "budget_status": {"const": "UNKNOWN"}
+      }
+    },
+    "c1_owner_classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["C1_numerical_upper_payment_proved", "agreement_QR2_visible", "agreement_complete_fibers", "agreement_remainder_size", "classification_scope", "complement_QR2_visible", "complement_complete_fibers", "complement_identity", "complement_remainder_size", "complement_size", "complete_prefix_fiber_post_C1_residual_known", "declared_first_match_route", "fixed_remainder_across_structured_family", "fold_scale_exponent", "owner_order_is_declared_hypothesis", "under_declared_C1_order_structured_family_post_C1_primitive_Q_residual"],
+      "properties": {
+        "fold_scale_exponent": {"const": 11},
+        "agreement_complete_fibers": {"const": 544},
+        "agreement_remainder_size": {"const": 1911},
+        "agreement_QR2_visible": {"const": true},
+        "complement_complete_fibers": {"const": 479},
+        "complement_remainder_size": {"const": 137},
+        "complement_size": {"const": 981129},
+        "complement_identity": {"const": "981129=479*2048+137"},
+        "complement_QR2_visible": {"const": true},
+        "fixed_remainder_across_structured_family": {"const": true},
+        "declared_first_match_route": {"const": "AT_OR_BEFORE_C1_QUOTIENT_REMAINDER"},
+        "owner_order_is_declared_hypothesis": {"const": true},
+        "under_declared_C1_order_structured_family_post_C1_primitive_Q_residual": {"const": 0},
+        "complete_prefix_fiber_post_C1_residual_known": {"const": false},
+        "C1_numerical_upper_payment_proved": {"const": false},
+        "classification_scope": {"type": "string", "minLength": 1}
+      }
+    },
+    "chronology_specialization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["Delta46", "N_low", "T46_floor", "arbitrary_boundary_to_Q_adapter_proved", "boundary_layer_floor", "complete_list_is_global_boundary_prefix_fiber", "interior_layers_empty", "is_U_Q_upper_payment", "next_exact_target", "raw_T46_cap_violation_margin", "raw_T46_proposed_cap", "raw_quantities_are_ledger_payments", "route_terminal", "signed_Xi46_cap", "signed_target_equivalent_to", "structured_floor_is_pre_first_match_raw_source", "v4_negative_refund_interface_exists", "Xi46_formula"],
+      "properties": {
+        "N_low": {"const": 0},
+        "interior_layers_empty": {"const": true},
+        "boundary_layer_floor": {"const": 6796405},
+        "T46_floor": {"const": 6796360},
+        "raw_T46_proposed_cap": {"const": 259880},
+        "raw_T46_cap_violation_margin": {"const": 6536480},
+        "Delta46": {"const": 16517290},
+        "Xi46_formula": {"const": "M_R-16517335"},
+        "signed_Xi46_cap": {"const": 259880},
+        "signed_target_equivalent_to": {"const": "M_R<=16777215=B_star"},
+        "complete_list_is_global_boundary_prefix_fiber": {"const": true},
+        "structured_floor_is_pre_first_match_raw_source": {"const": true},
+        "raw_quantities_are_ledger_payments": {"const": false},
+        "is_U_Q_upper_payment": {"const": false},
+        "arbitrary_boundary_to_Q_adapter_proved": {"const": false},
+        "v4_negative_refund_interface_exists": {"const": false},
+        "route_terminal": {"const": "M31_VARIABLE_REMAINDER_ORIENTATION_RESIDUAL"},
+        "next_exact_target": {"const": "C1_NUMERICAL_CODEWORD_PAYMENT_AND_VARIABLE_REMAINDER_ORIENTATION_RESIDUAL"}
+      }
+    },
+    "raw_baseline_optimizer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["all_baselines_at_least_28_source_incompatible", "baseline_27", "baseline_28", "baseline_29", "cutoff_scan_interval", "largest_source_compatible_baseline", "monotone_incompatibility", "rows_scanned", "rows_sha256", "safe_cap_formula", "source_floor_formula"],
+      "properties": {
+        "cutoff_scan_interval": {"const": [524288, 614242]},
+        "rows_scanned": {"const": 89955},
+        "rows_sha256": {"const": "bed6d505904de120e76e7e4b5464b9682756a015dec8c993e4ed4c8d11815763"},
+        "safe_cap_formula": {"type": "string", "minLength": 1},
+        "source_floor_formula": {"type": "string", "minLength": 1},
+        "monotone_incompatibility": {"type": "string", "minLength": 1},
+        "largest_source_compatible_baseline": {"const": 27},
+        "baseline_27": {"$ref": "#/$defs/baselineRow"},
+        "baseline_28": {"$ref": "#/$defs/baselineRow"},
+        "baseline_29": {"$ref": "#/$defs/baselineRow"},
+        "all_baselines_at_least_28_source_incompatible": {"const": true}
+      }
+    },
+    "flat_baseline_forney_route_cut": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["baseline_28_first_two_ordered_partial_sum_upper", "baseline_28_packet_columns", "baseline_28_two_row_below_cutoff", "baseline_29_first_two_ordered_partial_sum_upper", "baseline_29_packet_columns", "baseline_29_two_row_below_cutoff", "baseline_scan_interval", "first_baseline_with_two_row_below_cutoff", "first_ordered_partial_sum_upper", "first_two_ordered_partial_sum_upper", "interpretation", "joint_index_sum_upper", "joint_kernel_rank", "no_flat_baseline_survives_source_and_two_row_forney", "packet_columns", "rank_one_partial_degree_below_cutoff", "rank_two_minor_degree_below_cutoff_certified", "simultaneously_admissible_baselines", "source_compatible_baseline_interval", "source_cutoff_min", "two_row_forney_baseline_interval"],
+      "properties": {
+        "baseline_scan_interval": {"const": [2, 45]},
+        "source_compatible_baseline_interval": {"const": [2, 27]},
+        "two_row_forney_baseline_interval": {"const": [29, 45]},
+        "simultaneously_admissible_baselines": {"const": []},
+        "packet_columns": {"const": 28},
+        "joint_kernel_rank": {"const": 26},
+        "joint_index_sum_upper": {"const": 913681},
+        "source_cutoff_min": {"const": 67447},
+        "first_ordered_partial_sum_upper": {"const": 35141},
+        "first_two_ordered_partial_sum_upper": {"const": 70282},
+        "rank_one_partial_degree_below_cutoff": {"const": true},
+        "rank_two_minor_degree_below_cutoff_certified": {"const": false},
+        "baseline_28_packet_columns": {"const": 29},
+        "baseline_28_first_two_ordered_partial_sum_upper": {"const": 67680},
+        "baseline_28_two_row_below_cutoff": {"const": false},
+        "baseline_29_packet_columns": {"const": 30},
+        "baseline_29_first_two_ordered_partial_sum_upper": {"const": 65262},
+        "baseline_29_two_row_below_cutoff": {"const": true},
+        "first_baseline_with_two_row_below_cutoff": {"const": 29},
+        "no_flat_baseline_survives_source_and_two_row_forney": {"const": true},
+        "interpretation": {"type": "string", "minLength": 1}
+      }
+    },
+    "toy_control": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["agreement", "attained_quotient_prefixes", "candidate_quotient_supports", "complete_global_prefix_fiber_size", "dimension", "distinct_codewords", "domain", "exact_boundary_agreement", "fixed_remainder", "fold", "fold_degree", "global_locator_prefix", "heavy_quotient_prefix", "heavy_structured_bucket_size", "prime", "quotient_image", "quotient_prefix_depth", "quotient_size", "quotient_support_size", "structured_supports"],
+      "properties": {
+        "prime": {"const": 17},
+        "domain": {"type": "array", "minItems": 16, "maxItems": 16, "items": {"type": "integer"}},
+        "fold": {"const": "phi(X)=X^2 on GF(17)^*"},
+        "fold_degree": {"const": 2},
+        "quotient_image": {"const": [1, 2, 4, 8, 9, 13, 15, 16]},
+        "quotient_size": {"const": 8},
+        "fixed_remainder": {"const": [1]},
+        "quotient_support_size": {"const": 3},
+        "quotient_prefix_depth": {"const": 1},
+        "agreement": {"const": 7},
+        "dimension": {"const": 4},
+        "candidate_quotient_supports": {"const": 35},
+        "attained_quotient_prefixes": {"const": 16},
+        "heavy_quotient_prefix": {"const": [1]},
+        "heavy_structured_bucket_size": {"const": 3},
+        "global_locator_prefix": {"const": [16, 1, 16]},
+        "complete_global_prefix_fiber_size": {"const": 3},
+        "exact_boundary_agreement": {"const": true},
+        "distinct_codewords": {"const": true},
+        "structured_supports": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "array", "minItems": 7, "maxItems": 7, "items": {"type": "integer"}}}
+      }
+    },
+    "nonclaims": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["C1_numerical_upper_payment_proved", "M31_list_row_closed", "adverse_forney_sequence_geometrically_realized", "official_endpoint_or_score_changed", "raw_baseline_27_closes_row", "row_sharp_Q_upper_bound_proved", "structured_floor_is_complete_list_size", "variable_remainder_orientation_residual_paid"],
+      "properties": {
+        "structured_floor_is_complete_list_size": {"const": false},
+        "row_sharp_Q_upper_bound_proved": {"const": false},
+        "C1_numerical_upper_payment_proved": {"const": false},
+        "variable_remainder_orientation_residual_paid": {"const": false},
+        "raw_baseline_27_closes_row": {"const": false},
+        "adverse_forney_sequence_geometrically_realized": {"const": false},
+        "M31_list_row_closed": {"const": false},
+        "official_endpoint_or_score_changed": {"const": false}
+      }
+    },
+    "source_bindings": {
+      "type": "array",
+      "minItems": 16,
+      "maxItems": 16,
+      "items": {"$ref": "#/$defs/sourceBinding"}
+    }
+  },
+  "$defs": {
+    "baselineRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["all_optimal_cutoff_cap_pairs", "baseline", "canonical_first_optimal_cutoff", "canonical_first_optimal_low_cap", "fixed_remainder_raw_tail_floor", "forced_packet_rank", "forbidden_raw_tail_floor", "safe_raw_tail_cap", "source_compatibility_margin", "source_compatible"],
+      "properties": {
+        "baseline": {"type": "integer", "minimum": 1},
+        "forced_packet_rank": {"type": "integer", "minimum": 2},
+        "safe_raw_tail_cap": {"type": "integer"},
+        "forbidden_raw_tail_floor": {"type": "integer"},
+        "canonical_first_optimal_cutoff": {"type": "integer"},
+        "canonical_first_optimal_low_cap": {"type": "integer"},
+        "all_optimal_cutoff_cap_pairs": {"type": "array", "minItems": 1, "items": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "integer"}}},
+        "fixed_remainder_raw_tail_floor": {"type": "integer"},
+        "source_compatibility_margin": {"type": "integer"},
+        "source_compatible": {"type": "boolean"}
+      }
+    },
+    "sourceBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["binding_id", "internal_payload_sha256", "path", "role", "scope", "sha256"],
+      "properties": {
+        "binding_id": {"type": "string", "pattern": "^M31_CHEB_FIXED_REMAINDER_C1::[a-z0-9_]+$"},
+        "role": {"type": "string", "minLength": 1},
+        "path": {"type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "internal_payload_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "scope": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}
