@@ -30,6 +30,15 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-21 - M31 canonical masked Popov--Padé bridge and global route cuts
+
+- **Agent/model:** Codex, with two fresh symbolic proof audits, a standard-library exact verifier, and an independent Sage finite-field replay.
+- **Files added or changed:** `agents.md`; `experimental/notes/thresholds/m31_canonical_masked_pade_global_route_cut.md`; `experimental/data/schemas/m31_canonical_masked_pade_global_route_cut_v1.schema.json`; `experimental/data/certificates/m31-canonical-masked-pade-global-route-cut-v1/`; `experimental/scripts/verify_m31_canonical_masked_pade_global_route_cut_v1.py`; `experimental/scripts/verify_m31_canonical_masked_pade_global_route_cut_v1.sage`; and this log.
+- **Status:** PROVED TARGET-FIELD BRIDGE / PROVED CONDITIONAL DEFORMATION DICHOTOMY / EXACT UNIVERSAL-CLAIM FALSIFIER / ROUTE CUT / ROW OPEN.
+- **What is being added:** The packet proves that the canonical Popov pair and the masked divided-difference pair have the same polynomial right kernel, recovers every discarded-agreement mask by a monic gcd, gives the exact fixed-layer diagonal-saturation law, and upgrades every forced key to a simultaneous target-field rank-three frame with no distinguished coloop.  It also proves a forbidden-size target-field hyperplane dichotomy and exhausts a same-received-word `GF(17)` layer whose 92 natural key collision unions have disjoint-packing optimum five and root-transversal number six.
+- **How it is useful:** This removes the unspecified algebraic padding bridge and coloop branches while sharply cutting off collision forcing from selected-family cardinality or four-root overlap coalescence alone.  It assigns no new atom: `U_paid` remains `3730`, `U_Q`, `U_list-int`, `U_ext`, and high `U_new` remain null, and the exact terminal becomes `UNPAID_CANONICAL_MASKED_COLLISION_OWNER_REFUND`.
+- **What to do next:** Classify identically forced collision components and route them through chronology-valid owners/refunds, or prove an M31-specific complete-list/cross-weight incidence or primitive-elimination theorem robust to both exact regressions.  Do not derive another standalone fixed-width coupled frame and do not treat either route cut as a payment or deployed counterexample.
+
 ### 2026-07-21 - M31 v4 LIST target-source adapter and global residual
 
 - **Agent/model:** Codex, with an independent field-lift proof audit returning GREEN, a separate strict Python replay, and a Sage-native `GF(11^2)` cross-field replay.

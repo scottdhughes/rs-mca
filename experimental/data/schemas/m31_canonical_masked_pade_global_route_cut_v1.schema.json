@@ -1,0 +1,595 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rsmca.xyz/schemas/m31_canonical_masked_pade_global_route_cut_v1.schema.json",
+  "title": "M31 canonical-masked Pade global route-cut certificate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "architecture_id",
+    "status",
+    "payload_sha256",
+    "scope",
+    "deployed_context",
+    "canonical_masked_bridge",
+    "toy_parameters",
+    "exact_source",
+    "coupled_keys",
+    "noncoalescence",
+    "route_cut",
+    "source_bindings"
+  ],
+  "properties": {
+    "schema": {
+      "const": "rs-mca-m31-canonical-masked-pade-global-route-cut-v1"
+    },
+    "architecture_id": {
+      "const": "M31_CANONICAL_MASKED_PADE_GLOBAL_ROUTE_CUT_V1"
+    },
+    "status": {
+      "const": "PROVED_DEPLOYED_SYMBOLIC_BRIDGE_TOY_COALESCENCE_ROUTE_CUT_ROW_OPEN"
+    },
+    "payload_sha256": {
+      "$ref": "#/$defs/sha256"
+    },
+    "scope": {
+      "$ref": "#/$defs/scope"
+    },
+    "deployed_context": {
+      "$ref": "#/$defs/deployedContext"
+    },
+    "canonical_masked_bridge": {
+      "$ref": "#/$defs/canonicalMaskedBridge"
+    },
+    "toy_parameters": {
+      "$ref": "#/$defs/toyParameters"
+    },
+    "exact_source": {
+      "$ref": "#/$defs/exactSource"
+    },
+    "coupled_keys": {
+      "$ref": "#/$defs/coupledKeys"
+    },
+    "noncoalescence": {
+      "$ref": "#/$defs/noncoalescence"
+    },
+    "route_cut": {
+      "$ref": "#/$defs/routeCut"
+    },
+    "source_bindings": {
+      "type": "array",
+      "minItems": 15,
+      "maxItems": 15,
+      "items": {
+        "$ref": "#/$defs/sourceBinding"
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "support": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "uniqueItems": true,
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 13
+      }
+    },
+    "roots": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 6,
+      "uniqueItems": true,
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 13
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "workboard_item",
+        "row",
+        "object",
+        "unit",
+        "impact",
+        "deployed_symbolic_bridge_proved",
+        "toy_falsifier_scale",
+        "deployed_row_closed",
+        "ledger_movement",
+        "is_m31_counterexample"
+      ],
+      "properties": {
+        "workboard_item": {"const": "M1"},
+        "row": {"const": "Mersenne-31 list at 2^-100"},
+        "object": {"const": "LIST"},
+        "unit": {"const": "DISTINCT_CODEWORDS_PER_RECEIVED_WORD"},
+        "impact": {"const": "ROUTE_CUT"},
+        "deployed_symbolic_bridge_proved": {"const": true},
+        "toy_falsifier_scale": {"const": true},
+        "deployed_row_closed": {"const": false},
+        "ledger_movement": {"const": 0},
+        "is_m31_counterexample": {"const": false}
+      }
+    },
+    "deployedContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "B_star",
+        "forbidden_size",
+        "forced_marked_keys",
+        "safe_signed_allowance",
+        "local_rank3_degree",
+        "independent_rank3_unions_fitting_allowance",
+        "four_union_mass",
+        "remainder_after_four",
+        "all_high_atoms_remain_null",
+        "coupled_sigma",
+        "selected_support_count",
+        "escape_and_collision_form_upper",
+        "two_to_67",
+        "two_to_68",
+        "margin_below_two_to_67",
+        "quartic_field_cardinality",
+        "form_upper_below_two_to_67_below_field",
+        "hyperplane_dichotomy_is_conditional",
+        "proper_form_branch",
+        "extra_full_list_supports_may_appear",
+        "hyperplane_branch_is_row_counterexample_or_payment"
+      ],
+      "properties": {
+        "B_star": {"const": 16777215},
+        "forbidden_size": {"const": 16777216},
+        "forced_marked_keys": {"const": 259881},
+        "safe_signed_allowance": {"const": 259880},
+        "local_rank3_degree": {"const": 62295},
+        "independent_rank3_unions_fitting_allowance": {"const": 4},
+        "four_union_mass": {"const": 249180},
+        "remainder_after_four": {"const": 10700},
+        "all_high_atoms_remain_null": {"const": true},
+        "coupled_sigma": {"const": 913681},
+        "selected_support_count": {"const": 16777216},
+        "escape_and_collision_form_upper": {"const": 128589177894085853184},
+        "two_to_67": {"const": 147573952589676412928},
+        "two_to_68": {"const": 295147905179352825856},
+        "margin_below_two_to_67": {"const": 18984774695590559744},
+        "quartic_field_cardinality": {
+          "const": 21267647892944572736998860269687930881
+        },
+        "form_upper_below_two_to_67_below_field": {"const": true},
+        "hyperplane_dichotomy_is_conditional": {"const": true},
+        "proper_form_branch": {
+          "const": "one functional in the common containment space preserves every selected support and escape while avoiding every selected common-error collision"
+        },
+        "extra_full_list_supports_may_appear": {"const": true},
+        "hyperplane_branch_is_row_counterexample_or_payment": {"const": false}
+      }
+    },
+    "fieldPolynomial": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 20,
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 16
+      }
+    },
+    "paddingRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "support",
+        "selected_agreements",
+        "discarded_agreements",
+        "L_coefficients",
+        "Q_coefficients",
+        "W_coefficients",
+        "B_L_coefficients",
+        "B_W_coefficients",
+        "codeword_coefficients",
+        "interpolation_numerator_coefficients"
+      ],
+      "properties": {
+        "support": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "uniqueItems": true,
+          "items": {"type": "integer", "minimum": 0, "maximum": 13}
+        },
+        "selected_agreements": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8,
+          "uniqueItems": true,
+          "items": {"type": "integer", "minimum": 0, "maximum": 13}
+        },
+        "discarded_agreements": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": {"type": "integer", "minimum": 0, "maximum": 13}
+        },
+        "L_coefficients": {"$ref": "#/$defs/fieldPolynomial"},
+        "Q_coefficients": {"$ref": "#/$defs/fieldPolynomial"},
+        "W_coefficients": {"$ref": "#/$defs/fieldPolynomial"},
+        "B_L_coefficients": {"$ref": "#/$defs/fieldPolynomial"},
+        "B_W_coefficients": {"$ref": "#/$defs/fieldPolynomial"},
+        "codeword_coefficients": {"$ref": "#/$defs/fieldPolynomial"},
+        "interpolation_numerator_coefficients": {"$ref": "#/$defs/fieldPolynomial"}
+      }
+    },
+    "kernelDimensionRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "multiplier_width",
+        "masked_pair_nullity",
+        "interpolation_pair_nullity",
+        "combined_relation_rank"
+      ],
+      "properties": {
+        "multiplier_width": {"type": "integer", "minimum": 1, "maximum": 6},
+        "masked_pair_nullity": {"type": "integer", "minimum": 0},
+        "interpolation_pair_nullity": {"type": "integer", "minimum": 0},
+        "combined_relation_rank": {"type": "integer", "minimum": 0}
+      }
+    },
+    "canonicalMaskedBridge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fixed_depth_product_identity",
+        "saturation_identity",
+        "diagonal_saturation_identity",
+        "codeword_reconstruction_identity",
+        "interpolation_transform_identity",
+        "right_kernel_identity",
+        "nontrivial_padding",
+        "interior_weight",
+        "padding_degree",
+        "gamma",
+        "received_polynomial_coefficients",
+        "domain_locator_coefficients",
+        "complete_interior_exact_layer_size",
+        "records",
+        "canonical_pair_factor_checks",
+        "kernel_dimension_replay",
+        "all_identities_verified"
+      ],
+      "properties": {
+        "fixed_depth_product_identity": {"const": "B(LQ)=Q*B(L)"},
+        "saturation_identity": {
+          "const": "gcd(W,B(W))=Q and W/gcd(W,B(W))=L"
+        },
+        "diagonal_saturation_identity": {
+          "const": "ker(H_W)=Delta_Q^-1*ker(H_L) intersect GF(17)[X]^M"
+        },
+        "codeword_reconstruction_identity": {
+          "const": "c=Y+gamma^-1*(Lambda_D/W)*B(W)"
+        },
+        "interpolation_transform_identity": {
+          "const": "N=Y*W+gamma^-1*Lambda_D*B(W)"
+        },
+        "right_kernel_identity": {"const": "ker(W,B(W))=ker(W,N)"},
+        "nontrivial_padding": {"const": true},
+        "interior_weight": {"const": 5},
+        "padding_degree": {"const": 1},
+        "gamma": {"const": 16},
+        "received_polynomial_coefficients": {"$ref": "#/$defs/fieldPolynomial"},
+        "domain_locator_coefficients": {"$ref": "#/$defs/fieldPolynomial"},
+        "complete_interior_exact_layer_size": {"const": 4},
+        "records": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {"$ref": "#/$defs/paddingRecord"}
+        },
+        "canonical_pair_factor_checks": {"const": 6},
+        "kernel_dimension_replay": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {"$ref": "#/$defs/kernelDimensionRecord"}
+        },
+        "all_identities_verified": {"const": true}
+      }
+    },
+    "toyParameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "field",
+        "prime",
+        "domain",
+        "n",
+        "K",
+        "radius",
+        "agreement",
+        "weight",
+        "D0",
+        "sigma",
+        "moments",
+        "functional_formula",
+        "received_word",
+        "dual_weight_normalization"
+      ],
+      "properties": {
+        "field": {"const": "GF(17)"},
+        "prime": {"const": 17},
+        "domain": {
+          "const": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+        },
+        "n": {"const": 14},
+        "K": {"const": 7},
+        "radius": {"const": 6},
+        "agreement": {"const": 8},
+        "weight": {"const": 6},
+        "D0": {"const": 1},
+        "sigma": {"const": 4},
+        "moments": {"const": [4, 0, 1, 3, 4, 10, 8]},
+        "functional_formula": {
+          "const": "4*q0+q2+3*q3+4*q4+10*q5+8*q6 mod 17"
+        },
+        "received_word": {
+          "const": [4, 3, 11, 5, 13, 6, 9, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "dual_weight_normalization": {"const": "u_x=1/L_D'(x)"}
+      }
+    },
+    "exactSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "support_universe_size",
+        "support_order",
+        "ordered_exact_supports",
+        "ordered_layer_sha256",
+        "full_layer_complete",
+        "full_layer_size",
+        "common_core",
+        "distinct_codewords",
+        "same_received_word",
+        "containment_equations_per_support",
+        "all_one_point_escapes_nonzero"
+      ],
+      "properties": {
+        "support_universe_size": {"const": 3003},
+        "support_order": {"const": "ASCENDING_LEX_INCIDENCE_VECTOR_0_BEFORE_1"},
+        "ordered_exact_supports": {
+          "type": "array",
+          "minItems": 137,
+          "maxItems": 137,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/support"}
+        },
+        "ordered_layer_sha256": {"$ref": "#/$defs/sha256"},
+        "full_layer_complete": {"const": true},
+        "full_layer_size": {"const": 137},
+        "common_core": {"const": []},
+        "distinct_codewords": {"const": 137},
+        "same_received_word": {"const": true},
+        "containment_equations_per_support": {"const": 1},
+        "all_one_point_escapes_nonzero": {"const": true}
+      }
+    },
+    "keyRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "extra_index_one_based",
+        "global_index_one_based",
+        "support",
+        "collision_roots"
+      ],
+      "properties": {
+        "extra_index_one_based": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 92
+        },
+        "global_index_one_based": {
+          "type": "integer",
+          "minimum": 46,
+          "maximum": 137
+        },
+        "support": {"$ref": "#/$defs/support"},
+        "collision_roots": {"$ref": "#/$defs/roots"}
+      }
+    },
+    "coupledKeys": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "anchor_count",
+        "marked_key_count",
+        "packet_width",
+        "key_collision_unions",
+        "collision_table_sha256",
+        "each_key_polynomial_row_rank",
+        "all_pair_minors_nonzero",
+        "pair_minor_checks",
+        "anchor_extra_factor_checks",
+        "common_point_collision_checks",
+        "minimum_constant_joint_kernel_nullity",
+        "constant_joint_kernel_nullity_histogram",
+        "every_key_has_at_least_three_degree_zero_rows",
+        "collision_union_size_histogram"
+      ],
+      "properties": {
+        "anchor_count": {"const": 45},
+        "marked_key_count": {"const": 92},
+        "packet_width": {"const": 46},
+        "key_collision_unions": {
+          "type": "array",
+          "minItems": 92,
+          "maxItems": 92,
+          "items": {"$ref": "#/$defs/keyRecord"}
+        },
+        "collision_table_sha256": {"$ref": "#/$defs/sha256"},
+        "each_key_polynomial_row_rank": {"const": 2},
+        "all_pair_minors_nonzero": {"const": true},
+        "pair_minor_checks": {"const": 95220},
+        "anchor_extra_factor_checks": {"const": 4140},
+        "common_point_collision_checks": {"const": 9914},
+        "minimum_constant_joint_kernel_nullity": {"const": 40},
+        "constant_joint_kernel_nullity_histogram": {
+          "type": "object",
+          "additionalProperties": false,
+          "minProperties": 1,
+          "patternProperties": {
+            "^[0-9]+$": {"type": "integer", "minimum": 1}
+          }
+        },
+        "every_key_has_at_least_three_degree_zero_rows": {"const": true},
+        "collision_union_size_histogram": {
+          "type": "object",
+          "additionalProperties": false,
+          "minProperties": 1,
+          "patternProperties": {
+            "^[1-6]$": {"type": "integer", "minimum": 1}
+          }
+        }
+      }
+    },
+    "noncoalescence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "collision_union_definition",
+        "exact_set_packing_universe_size",
+        "exact_disjoint_nonempty_union_optimum",
+        "five_union_witness",
+        "witness_pairwise_disjoint",
+        "exact_root_transversal_minimum",
+        "minimum_root_transversals",
+        "no_four_point_root_transversal"
+      ],
+      "properties": {
+        "collision_union_definition": {
+          "const": "J(E*)={x in E*: exists canonical anchor E_i containing x with c_Ei(x)=c_E*(x)}"
+        },
+        "exact_set_packing_universe_size": {"const": 14},
+        "exact_disjoint_nonempty_union_optimum": {"const": 5},
+        "five_union_witness": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {"$ref": "#/$defs/keyRecord"}
+        },
+        "witness_pairwise_disjoint": {"const": true},
+        "exact_root_transversal_minimum": {"const": 6},
+        "minimum_root_transversals": {
+          "const": [
+            [3, 5, 6, 7, 8, 9],
+            [3, 5, 7, 8, 9, 13],
+            [3, 6, 7, 8, 9, 12],
+            [6, 7, 8, 9, 11, 12]
+          ]
+        },
+        "no_four_point_root_transversal": {"const": true}
+      }
+    },
+    "routeCut": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "falsified_parameter_uniform_implication",
+        "falsifier",
+        "does_not_falsify",
+        "required_next_input",
+        "payment_status",
+        "deployed_terminal"
+      ],
+      "properties": {
+        "falsified_parameter_uniform_implication": {
+          "type": "string",
+          "minLength": 100,
+          "maxLength": 1024
+        },
+        "falsifier": {
+          "const": "natural collision-root unions have exact disjoint packing optimum five and exact root-transversal minimum six"
+        },
+        "does_not_falsify": {
+          "type": "string",
+          "minLength": 50,
+          "maxLength": 512
+        },
+        "required_next_input": {
+          "type": "string",
+          "minLength": 50,
+          "maxLength": 512
+        },
+        "payment_status": {"const": "NONE"},
+        "deployed_terminal": {
+          "const": "UNPAID_CANONICAL_MASKED_COLLISION_OWNER_REFUND"
+        }
+      }
+    },
+    "sourceRole": {
+      "enum": [
+        "route_cut_schema",
+        "route_cut_verifier",
+        "route_cut_sage",
+        "route_cut_note",
+        "route_cut_readme",
+        "source_adapter_note",
+        "source_adapter_verifier",
+        "source_adapter_manifest",
+        "coupled_source_note",
+        "coupled_source_verifier",
+        "coupled_source_manifest",
+        "full_layer_source",
+        "rank46_source",
+        "rank46_verifier",
+        "active_v4_ledger"
+      ]
+    },
+    "sourceBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "binding_id",
+        "role",
+        "path",
+        "sha256",
+        "internal_payload_sha256",
+        "scope"
+      ],
+      "properties": {
+        "binding_id": {
+          "type": "string",
+          "pattern": "^M31_CANONICAL_MASKED_PADE::[a-z0-9_]+$"
+        },
+        "role": {"$ref": "#/$defs/sourceRole"},
+        "path": {
+          "type": "string",
+          "pattern": "^(experimental|tex)/[^/]+(/[^/]+)*$",
+          "maxLength": 4096
+        },
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "internal_payload_sha256": {
+          "oneOf": [
+            {"type": "null"},
+            {"$ref": "#/$defs/sha256"}
+          ]
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        }
+      }
+    }
+  }
+}

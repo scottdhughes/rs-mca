@@ -70,7 +70,12 @@ At this snapshot:
 - No row has complete active-architecture `U_paid`, exhaustive MCA balanced-core or list-interior payment, zero/exact residual, and chronology-correct add-back.
 - The KoalaBear legacy M1 stack records local `U_paid=422354730332` and local remainder `274980305756664755`, but neither is banked in Grande Finale v4 because the source-bound owner/partition bridge is missing.
 - Under the latest corrected direct extension charge, positive extension dimension is excluded on Mersenne-31 and dimension at least two is excluded on KoalaBear. These are route cuts, not payments or nonexistence theorems.
-- Padding, common-core add-back, rank-two/coloop, rooted-shell, residual, and final finite-ledger terminals remain open.
+- The M31 LIST algebraic padding bridge and distinguished-column coloop are
+  closed: the canonical Popov and masked Padé pairs have the same polynomial
+  right kernel, the padding mask is recovered by a monic gcd, and every
+  forced key has a simultaneous canonical rank-three frame.  The global
+  common-core owner/refund, complete-list incidence, residual, and final
+  finite-ledger terminals remain open.
 - A schema/hash pass is structural preflight only. The legacy four-row compiler trusted-source registry is empty; the new M31 adapter hash-binds its theorem sources, but parsing either manifest does not itself prove an atom.
 
 ## 3. Document authority
@@ -81,6 +86,7 @@ At this snapshot:
 | `experimental/Conjectures_and_Barriers_RS_MCA_v4_1.tex` | **Direct problem/falsifier authority:** benchmark conjectures, exact compiler requirements, finite barriers, and separation of finite from conjectural asymptotic claims. |
 | `experimental/grande_finale.tex` | **Active conditional completion architecture:** proved local theorems, order-32/rational-atom reductions, owner localization, spread-core incidence bounds, and exact completion problems. Hypotheses/problems are not row bounds. |
 | `experimental/notes/thresholds/m31_list_v4_source_adapter_global_coupled_residual.md` and `experimental/data/certificates/m31-list-v4-source-adapter-v1/manifest.json` | **M1 target-source adapter authority:** direct quartic exact-layer lift, bankable low-weight cell, exact global occupancy, coupled rank-46 diagnostic, and explicit unpaid high residual. It does not close the row. |
+| `experimental/notes/thresholds/m31_canonical_masked_pade_global_route_cut.md` and `experimental/data/certificates/m31-canonical-masked-pade-global-route-cut-v1/manifest.json` | **M1 canonical-mask authority:** target-field Popov–Padé right-kernel bridge, exact padding/error classifier, simultaneous rank-three/no-coloop theorem, conditional target-field deformation dichotomy, and exhaustive natural-collision regression. It moves no atom and leaves the row open. |
 | `tex/cs25_cap_v13_2.tex` | **Foundation/unsafe authority:** exact unsafe endpoints, field/domain conventions, reductions, and certificate grammar. |
 | `experimental/RS_MCA_Paving_v9.2.tex` | **Proved safe-bound toolbox:** shortening, MDS circuit, exact finite, exponential-budget, and conditional Sidon-to-flatness results. It does not solve the subexponential near-capacity frontier. |
 | `experimental/rs_mca_thresholds.tex` | **Exact-regime/exposition source:** staircases, below-half-distance results, syndrome geometry, and examples; not unrestricted near-capacity closure authority. |
@@ -164,14 +170,23 @@ quartic field.  The fixed low-weight predicate is bankable as
 `U_paid<=3730`.  Every remaining target codeword lies in one explicit
 boundary or interior `U_new` residual.  Any hypothetical forbidden list
 forces at least `259881` distinct marked target-codeword keys, and every key
-has three independent coupled locator--numerator rows of combined degree at
-most `62295<67447`.  The finite controls and target-field hyperplane argument
-show that bounded local rank alone does not force a collision owner.
+has three independent simultaneous canonical Popov--Padé rows of combined
+degree at most `62295<67447`.  The discarded-agreement mask and actual error
+locator are recovered exactly by a monic gcd; fixed-layer transport obeys an
+exact diagonal-saturation law; and deleting the distinguished column cannot
+drop the rank.  The conditional target-field deformation dichotomy proves
+that selected-family cardinality cannot force a collision unless a collision
+form is identically zero on the common containment space.  An exhaustive
+same-received-word `GF(17)` layer has disjoint-packing optimum five and
+natural collision-root transversal number six, so the local coupled data do
+not force four-root overlap coalescence.
 `U_Q`, `U_list-int`, `U_ext`, and the high `U_new` value remain null.  The
-next M1 theorem must coalesce the global marked-key family, route it with
-chronology-correct refunds, eliminate its primitive component, or bound the
+exact terminal is `UNPAID_CANONICAL_MASKED_COLLISION_OWNER_REFUND`.  The next
+M1 theorem must classify every identically forced component and route it with
+chronology-correct refunds, prove an M31-specific complete-list/cross-weight
+incidence theorem, eliminate the primitive masked component, or bound the
 complete distinguished-codeword projection by `259880`; another standalone
-16-, 30-, or 46-column computation cannot close the row.
+fixed-width computation cannot close the row.
 
 #### M2. Transfer the theorem or record a new floor
 
