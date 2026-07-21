@@ -30,6 +30,35 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-20 - M31 Sidon / three-fibre / escape activation route cut
+
+- **Agent/model:** Codex (generator), with independent proof audits by fresh
+  subagents.
+- **Files added or changed:**
+  `experimental/notes/thresholds/m31_sidon_three_fibre_escape_compiler.md`,
+  `experimental/scripts/verify_m31_sidon_three_fibre_escape_compiler.py`,
+  `experimental/scripts/verify_m31_sidon_three_fibre_escape_compiler.sage`,
+  `experimental/data/certificates/m31-sidon-three-fibre-escape-compiler/README.md`,
+  `experimental/data/certificates/m31-sidon-three-fibre-escape-compiler/manifest.json`,
+  and this log.
+- **Status:** PROVED LOCAL/CONDITIONAL LEMMAS / SHARP ROUTE CUT / GLOBAL M31
+  ROW OPEN.
+- **What is being added:** Exact same-weight 36-support extraction; a
+  forbidden-size Sidon countermodel with no parity face; a uniform
+  three-almost-complete-fibre rational map for every PR #1003 rank-drop cell;
+  and the exact twelve-collision escape-killed versus actual-hyperplane
+  survivor dichotomy.  A complete `T8/F31` source-valid toy falsifier,
+  primitive for the symmetry and dyadic-fold owners tested, is pinned.
+- **How it is useful:** It proves that support/local-line invariants cannot
+  activate the 137-cell atlas, and that generic escape does not pay rank-drop
+  faces (in particular, every `tau=0` face survives).  The next theorem must
+  use common-hyperplane activation, genuinely large-degree Chebyshev
+  rigidity, or a disjoint global owner.
+- **What to do next:** Attack the exact common-hyperplane activation problem
+  on the 36-support same-weight packet in tandem with deployed three-fibre
+  rigidity.  Do not enumerate conditional cells as if they closed the whole
+  ball.  All ledger atoms remain null and movement is zero.
+
 ### 2026-07-20 - M31 whole-ball compiler and 137-cell Pluecker route cut
 
 - **Agent/model:** Codex, with independent theorem-derivation and toy-falsifier
