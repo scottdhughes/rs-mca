@@ -30,6 +30,15 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-21 - M31 coloop elimination and locator-only route cut
+
+- **Agent/model:** Codex (GPT-5.6), with independent subagent proof and route-cut audits.
+- **Files added or changed:** `experimental/notes/thresholds/m31_direct_padded_forney_frame_route_cut.md`; `experimental/scripts/verify_m31_direct_padded_forney_frame_route_cut.py`; `experimental/scripts/verify_m31_direct_padded_forney_frame_route_cut.sage`; `experimental/data/certificates/m31-direct-padded-forney-frame-route-cut/README.md`; `experimental/data/certificates/m31-direct-padded-forney-frame-route-cut/manifest.json`; `experimental/agents-log.md`.
+- **Status:** PROVED LOCAL / COUNTEREXAMPLE ROUTE CUT / AUDIT / M31 ROW OPEN.
+- **What is being added:** Consuming PR #1021's padded `62,295<67,447` frame, the packet independently cross-checks that endpoint through the direct canonical common-syndrome module.  Single-coordinate injectivity newly eliminates #1021's still-open rank-two-coloop branch.  An exact M31-scale support-only family then realizes signed excess `259,881` with valid pairwise MDS overlap and empty complementary gcd after every anchor-triple deletion.
+- **How it is useful:** It removes `UNPAID_RANK2_COLOOP` and proves that further locator-only/common-core algebra cannot close the signed ledger, even after the masked-saturation frame supplied by #1021.  The active floor is `UNPAID_CANONICAL_LOCATOR_NUMERATOR_ESCAPE_OWNER_REFUND`; ledger movement remains zero.
+- **What to do next:** Audit the packet independently, then attack one row-uniform theorem on the actual same-received-word canonical pairs `(W_i,N_i)`, retaining one-point escapes and the signed credits, and terminating in a typed semantic owner/refund or a primitive locator--numerator route cut.
+
 ### 2026-07-21 - M31 masked diagonal-saturation exact sequence
 
 - **Agent/model:** GPT-5.5 Pro theorem author and hostile auditor, integrated by Codex.
