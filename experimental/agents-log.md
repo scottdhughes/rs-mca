@@ -30,6 +30,15 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-21 - M31 v4 LIST target-source adapter and global residual
+
+- **Agent/model:** Codex, with an independent field-lift proof audit returning GREEN, a separate strict Python replay, and a Sage-native `GF(11^2)` cross-field replay.
+- **Files added or changed:** `agents.md`; `experimental/notes/thresholds/m31_list_v4_source_adapter_global_coupled_residual.md`; `experimental/data/schemas/m31_list_v4_source_adapter_v1.schema.json`; `experimental/data/certificates/m31-list-v4-source-adapter-v1/`; `experimental/scripts/verify_m31_list_v4_source_adapter_v1.py`; `experimental/scripts/verify_m31_list_v4_source_adapter_v1_independent.py`; `experimental/scripts/verify_m31_list_v4_source_adapter_v1.sage`; and this log.
+- **Status:** PROVED / BANKABLE ATOM / SOURCE-BOUND ARCHITECTURE BRIDGE / GLOBAL ROUTE CUT / ROW OPEN.
+- **What is being added:** The adapter reruns the exact-support, common-core, Padé, polynomial-kernel, and collision chain directly over the deployed coefficient field `F_(p^4)` while keeping the archived domain in `F_p`.  It freezes an exhaustive low/boundary/interior codeword partition, proves `LOW_EXACT_WEIGHT_PACKING -> U_paid<=3730`, and shows that every forbidden list forces at least `259881` distinct marked target-codeword keys, each carrying three independent coupled locator--numerator rows of combined degree at most `62295<67447`.
+- **How it is useful:** This supplies the previously missing target-field source bridge and one bankable v4 LIST cell.  It also exhausts the remaining target codewords into explicit unpaid boundary/interior `U_new` cells and proves that another independent 16-, 30-, or 46-column root-union charge cannot close the row.  `U_Q`, `U_list-int`, `U_ext`, and the high `U_new` value remain null; no adjacent endpoint or official-score movement is claimed.
+- **What to do next:** Prove one theorem acting across the complete marked-key family: coalesce it into a global root union of total degree at most `259880`, route every key to disjoint v4 owners with chronology-correct refunds, eliminate the primitive coupled component, or directly bound the distinguished-codeword projection by `259880`.  Do not copy the prime-field literal 68-support cutoff to the quartic field and do not treat the lexicographic first-45/excess diagnostic as an owner.
+
 ### 2026-07-21 - M31 coupled escape--Forney--Plucker route cut
 
 - **Agent/model:** Codex, with an independent Sage-native replay and a fresh hostile proof audit returning GREEN for the narrow local theorem and packet route cut.

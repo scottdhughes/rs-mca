@@ -1,0 +1,993 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rsmca.xyz/schemas/m31_list_v4_source_adapter_v1.schema.json",
+  "title": "RS-MCA M31 LIST Grande Finale v4 source adapter open route cut",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "architecture_id",
+    "status",
+    "payload_sha256",
+    "row_contract",
+    "source_transport",
+    "source_universe",
+    "partition",
+    "coupled_rank46",
+    "atoms",
+    "closure_state",
+    "source_bindings"
+  ],
+  "properties": {
+    "schema": {
+      "const": "rs-mca-m31-list-v4-source-adapter-v1"
+    },
+    "architecture_id": {
+      "const": "GRANDE_FINALE_V4_M31_LIST_SOURCE_ADAPTER_V1"
+    },
+    "status": {
+      "const": "OPEN_ROUTE_CUT_UNPAID_GLOBAL_COUPLED_RANK46_RESIDUAL"
+    },
+    "payload_sha256": {
+      "$ref": "#/$defs/sha256"
+    },
+    "row_contract": {
+      "$ref": "#/$defs/rowContract"
+    },
+    "source_transport": {
+      "$ref": "#/$defs/sourceTransport"
+    },
+    "source_universe": {
+      "$ref": "#/$defs/sourceUniverse"
+    },
+    "partition": {
+      "$ref": "#/$defs/partition"
+    },
+    "coupled_rank46": {
+      "$ref": "#/$defs/coupledRank46"
+    },
+    "atoms": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "prefixItems": [
+        {
+          "allOf": [
+            {"$ref": "#/$defs/atom"},
+            {
+              "properties": {
+                "atom_id": {"const": "U_paid"},
+                "value": {"const": 3730},
+                "status": {"const": "BANKABLE_SOURCE_BOUND_EXACT_UPPER"},
+                "bankable": {"const": true}
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {"$ref": "#/$defs/atom"},
+            {
+              "properties": {
+                "atom_id": {"const": "U_Q"},
+                "value": {"type": "null"},
+                "status": {"const": "OPEN_UNPAID"},
+                "bankable": {"const": false}
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {"$ref": "#/$defs/atom"},
+            {
+              "properties": {
+                "atom_id": {"const": "U_list_int"},
+                "value": {"type": "null"},
+                "status": {"const": "OPEN_UNPAID"},
+                "bankable": {"const": false}
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {"$ref": "#/$defs/atom"},
+            {
+              "properties": {
+                "atom_id": {"const": "U_ext"},
+                "value": {"type": "null"},
+                "status": {"const": "OPEN_UNPAID"},
+                "bankable": {"const": false},
+                "transport_role": {
+                  "const": "SCALAR_DESCENT_IS_PREPROCESSING_NOT_EXTENSION_PAYMENT"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {"$ref": "#/$defs/atom"},
+            {
+              "properties": {
+                "atom_id": {"const": "U_new"},
+                "value": {"type": "null"},
+                "status": {"const": "OPEN_UNPAID"},
+                "bankable": {"const": false}
+              }
+            }
+          ]
+        }
+      ],
+      "items": false
+    },
+    "closure_state": {
+      "$ref": "#/$defs/closureState"
+    },
+    "source_bindings": {
+      "type": "array",
+      "minItems": 16,
+      "maxItems": 18,
+      "items": {
+        "$ref": "#/$defs/sourceBinding"
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "decimal": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)$",
+      "maxLength": 96
+    },
+    "sourcePath": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096,
+      "pattern": "^(archived|docs|experimental|site|tex)/[^./][^/]*(/[^./][^/]*)*$"
+    },
+    "sourceRole": {
+      "enum": [
+        "adapter_schema",
+        "adapter_verifier",
+        "adapter_note",
+        "adapter_independent_verifier",
+        "adapter_sage_verifier",
+        "active_v4_ledger",
+        "admissibility_authority",
+        "deployed_row_packet",
+        "scalar_descent_theorem",
+        "scalar_descent_verifier",
+        "full_layer_source",
+        "full_layer_verifier",
+        "rank46_source",
+        "rank46_verifier",
+        "rank46_manifest",
+        "coupled_source",
+        "coupled_verifier",
+        "coupled_manifest"
+      ]
+    },
+    "sourceBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "binding_id",
+        "role",
+        "path",
+        "sha256",
+        "internal_payload_sha256",
+        "scope"
+      ],
+      "properties": {
+        "binding_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^M31_LIST_V4_SOURCE::[a-z0-9_]+$"
+        },
+        "role": {"$ref": "#/$defs/sourceRole"},
+        "path": {"$ref": "#/$defs/sourcePath"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "internal_payload_sha256": {
+          "oneOf": [
+            {"type": "null"},
+            {"$ref": "#/$defs/sha256"}
+          ]
+        },
+        "scope": {"type": "string", "minLength": 1, "maxLength": 512}
+      }
+    },
+    "rowContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "row_id",
+        "object_kind",
+        "base_prime",
+        "extension_degree",
+        "code_field_cardinality",
+        "q_gen",
+        "q_line",
+        "q_chal",
+        "q_list",
+        "n",
+        "K",
+        "agreement",
+        "shift",
+        "radius",
+        "target_exponent",
+        "B_star",
+        "forbidden_size",
+        "endpoint",
+        "domain_in_base_field",
+        "unit",
+        "quantifier"
+      ],
+      "properties": {
+        "row_id": {"const": "m31_list"},
+        "object_kind": {"const": "LIST"},
+        "base_prime": {"const": 2147483647},
+        "extension_degree": {"const": 4},
+        "code_field_cardinality": {
+          "const": "21267647892944572736998860269687930881"
+        },
+        "q_gen": {"const": 2147483647},
+        "q_line": {"const": "21267647892944572736998860269687930881"},
+        "q_chal": {"const": "21267647892944572736998860269687930881"},
+        "q_list": {"const": "21267647892944572736998860269687930881"},
+        "n": {"const": 2097152},
+        "K": {"const": 1048576},
+        "agreement": {"const": 1116023},
+        "shift": {"const": 67447},
+        "radius": {"const": 981129},
+        "target_exponent": {"const": 100},
+        "B_star": {"const": 16777215},
+        "forbidden_size": {"const": 16777216},
+        "endpoint": {"const": "CLOSED_RADIUS"},
+        "domain_in_base_field": {"const": true},
+        "unit": {"const": "DISTINCT_CODEWORDS_PER_RECEIVED_WORD"},
+        "quantifier": {"const": "UNIFORM_OVER_ALL_RECEIVED_WORDS"}
+      }
+    },
+    "sourceTransport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "direct_target_field_lift",
+        "scalar_descent_crosscheck",
+        "scalar_descent_is_sole_transport",
+        "U_ext_zero_claimed"
+      ],
+      "properties": {
+        "kind": {"const": "DIRECT_TARGET_FIELD_LIFT"},
+        "direct_target_field_lift": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "transport_id",
+            "kind",
+            "field",
+            "evaluation_domain_subfield",
+            "field_generic",
+            "full_target_list_objectwise",
+            "exact_supports_objectwise",
+            "one_point_escapes_objectwise",
+            "full_layer_common_core_objectwise",
+            "pade_and_coupled_kernel_objectwise",
+            "low_weight_packing_field_independent",
+            "uniform_over_all_received_words",
+            "ledger_atom",
+            "theorem_pointer",
+            "source_binding_roles"
+          ],
+          "properties": {
+            "transport_id": {"const": "M31_DIRECT_TARGET_FIELD_SOURCE_LIFT"},
+            "kind": {"const": "DIRECT_TARGET_FIELD_LIFT"},
+            "field": {"const": "F_(p^4)"},
+            "evaluation_domain_subfield": {"const": "F_p"},
+            "field_generic": {"const": true},
+            "full_target_list_objectwise": {"const": true},
+            "exact_supports_objectwise": {"const": true},
+            "one_point_escapes_objectwise": {"const": true},
+            "full_layer_common_core_objectwise": {"const": true},
+            "pade_and_coupled_kernel_objectwise": {"const": true},
+            "low_weight_packing_field_independent": {"const": true},
+            "uniform_over_all_received_words": {"const": true},
+            "ledger_atom": {"type": "null"},
+            "theorem_pointer": {"const": "m31_list_v4_source_adapter_global_coupled_residual.md#lemma-2.1"},
+            "source_binding_roles": {
+              "const": [
+                "adapter_note",
+                "admissibility_authority",
+                "full_layer_source",
+                "coupled_source"
+              ]
+            }
+          }
+        },
+        "scalar_descent_crosscheck": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "transport_id",
+            "kind",
+            "role",
+            "from_field",
+            "to_field",
+            "extension_degree",
+            "threshold_L",
+            "t",
+            "g",
+            "projective_functionals",
+            "functionals_killing_fixed_nonzero",
+            "left_LtH",
+            "right_gN",
+            "strict_margin",
+            "strict_inequality",
+            "domain_in_base_field",
+            "agreement_preserved",
+            "new_agreements_may_appear",
+            "exact_error_supports_preserved",
+            "selected_codewords_injective",
+            "selected_L_sublist_only",
+            "public_objectwise_partition_map",
+            "uniform_over_all_received_words",
+            "threshold_predicates_equivalent",
+            "full_list_cardinality_bijection_claimed",
+            "ledger_atom",
+            "source_binding_roles"
+          ],
+          "properties": {
+            "transport_id": {"const": "M31_SCALAR_DESCENT_THRESHOLD_L"},
+            "kind": {"const": "THRESHOLD_L_INJECTION_NOT_FULL_LIST_BIJECTION"},
+            "role": {"const": "INDEPENDENT_THRESHOLD_CROSSCHECK_ONLY"},
+            "from_field": {"const": "F_(p^4)"},
+            "to_field": {"const": "F_p"},
+            "extension_degree": {"const": 4},
+            "threshold_L": {"const": 16777216},
+            "t": {"const": 981129},
+            "g": {"const": 67448},
+            "projective_functionals": {"const": "9903520305059670166633185280"},
+            "functionals_killing_fixed_nonzero": {"const": "4611686016279904257"},
+            "left_LtH": {"const": "75911179514902718909260442370048"},
+            "right_gN": {"const": "667972637535664633399075080765440"},
+            "strict_margin": {"const": "592061458020761914489814638395392"},
+            "strict_inequality": {"const": true},
+            "domain_in_base_field": {"const": true},
+            "agreement_preserved": {"const": true},
+            "new_agreements_may_appear": {"const": true},
+            "exact_error_supports_preserved": {"const": false},
+            "selected_codewords_injective": {"const": true},
+            "selected_L_sublist_only": {"const": true},
+            "public_objectwise_partition_map": {"const": false},
+            "uniform_over_all_received_words": {"const": true},
+            "threshold_predicates_equivalent": {"const": true},
+            "full_list_cardinality_bijection_claimed": {"const": false},
+            "ledger_atom": {"type": "null"},
+            "source_binding_roles": {
+              "const": ["scalar_descent_theorem", "scalar_descent_verifier"]
+            }
+          }
+        }
+        ,
+        "scalar_descent_is_sole_transport": {"const": false},
+        "U_ext_zero_claimed": {"const": false}
+      }
+    },
+    "extremizerBlock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "weight_start",
+        "weight_end",
+        "multiplicity_per_weight",
+        "layer_class",
+        "rank46_keys_per_weight"
+      ],
+      "properties": {
+        "weight_start": {"type": "integer", "minimum": 0, "maximum": 981129},
+        "weight_end": {"type": "integer", "minimum": 0, "maximum": 981129},
+        "multiplicity_per_weight": {"type": "integer", "minimum": 1, "maximum": 16777216},
+        "layer_class": {"enum": ["LOW_PREFIX", "HIGH_INTERIOR", "BOUNDARY"]},
+        "rank46_keys_per_weight": {"type": "integer", "minimum": 0, "maximum": 16777216}
+      }
+    },
+    "occupancyLevel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "occupied_high_layers"],
+      "properties": {
+        "level": {"type": "integer", "minimum": 1, "maximum": 46},
+        "occupied_high_layers": {"type": "integer", "minimum": 0, "maximum": 366969}
+      }
+    },
+    "occupancyIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "N_low_definition",
+        "T46_definition",
+        "H_r_definition",
+        "C_low_definition",
+        "C_r_definition",
+        "Xi46_definition",
+        "exact_mass_identity",
+        "base_mass",
+        "safe_signed_occupancy_max",
+        "forbidden_signed_occupancy_min",
+        "forbidden_forces_T46_at_least"
+      ],
+      "properties": {
+        "N_low_definition": {"const": "sum_(0<=j<=J0) M_j"},
+        "T46_definition": {"const": "sum_(J0<j<=R) max(M_j-45,0)"},
+        "H_r_definition": {"const": "#(j in [J0+1,R] with M_j>=r)"},
+        "C_low_definition": {"const": "3730-N_low"},
+        "C_r_definition": {"const": "366969-H_r for 1<=r<=45"},
+        "Xi46_definition": {"const": "T46-C_low-sum_(r=1)^45 C_r"},
+        "exact_mass_identity": {
+          "const": "sum_(j=0)^R M_j=16517335+Xi46"
+        },
+        "base_mass": {"const": 16517335},
+        "safe_signed_occupancy_max": {"const": 259880},
+        "forbidden_signed_occupancy_min": {"const": 259881},
+        "forbidden_forces_T46_at_least": {"const": 259881}
+      }
+    },
+    "arithmeticExtremizer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "role",
+        "source_realized",
+        "zero_multiplicity_weights_omitted",
+        "blocks_are_maximal_run_length_encoding",
+        "weight_blocks",
+        "occupancy_level_counts",
+        "occupied_weight_count",
+        "total_mass",
+        "low_mass",
+        "high_mass",
+        "base_mass",
+        "raw_rank46_tail",
+        "low_credit",
+        "level_credit_sum",
+        "signed_occupancy",
+        "safe_signed_occupancy_max",
+        "forbidden_signed_occupancy_min",
+        "interior_rank46_keys",
+        "boundary_rank46_keys",
+        "all_rank46_keys",
+        "exact_mass_identity"
+      ],
+      "properties": {
+        "role": {"const": "SHARP_ARITHMETIC_RELAXATION_ONLY"},
+        "source_realized": {"const": false},
+        "zero_multiplicity_weights_omitted": {"const": true},
+        "blocks_are_maximal_run_length_encoding": {"const": true},
+        "weight_blocks": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 981130,
+          "items": {"$ref": "#/$defs/extremizerBlock"}
+        },
+        "occupancy_level_counts": {
+          "type": "array",
+          "minItems": 46,
+          "maxItems": 46,
+          "items": {"$ref": "#/$defs/occupancyLevel"}
+        },
+        "occupied_weight_count": {"type": "integer", "minimum": 1, "maximum": 981130},
+        "total_mass": {"const": 16777216},
+        "low_mass": {"type": "integer", "minimum": 0, "maximum": 3730},
+        "high_mass": {"type": "integer", "minimum": 0, "maximum": 16777216},
+        "base_mass": {"const": 16517335},
+        "raw_rank46_tail": {"type": "integer", "minimum": 0, "maximum": 16777216},
+        "low_credit": {"type": "integer", "minimum": 0, "maximum": 3730},
+        "level_credit_sum": {"type": "integer", "minimum": 0, "maximum": 16513605},
+        "signed_occupancy": {"type": "integer"},
+        "safe_signed_occupancy_max": {"const": 259880},
+        "forbidden_signed_occupancy_min": {"const": 259881},
+        "interior_rank46_keys": {"type": "integer", "minimum": 0, "maximum": 16777216},
+        "boundary_rank46_keys": {"type": "integer", "minimum": 0, "maximum": 16777216},
+        "all_rank46_keys": {"type": "integer", "minimum": 0, "maximum": 16777216},
+        "exact_mass_identity": {
+          "const": "total_mass=3730+45*366969+signed_occupancy"
+        }
+      }
+    },
+    "markedKeyContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "canonical_order",
+        "anchor_count",
+        "full_same_weight_layer_loaded_as_context",
+        "key_count_definition",
+        "keys_have_distinct_distinguished_codewords",
+        "anchors_charged_as_owners",
+        "signed_credits_retained",
+        "forced_key_count_lower_bound",
+        "lexicographic_keying_is_payment_owner"
+      ],
+      "properties": {
+        "canonical_order": {"const": "LEXICOGRAPHIC_EXACT_SUPPORT_INCIDENCE_VECTOR"},
+        "anchor_count": {"const": 45},
+        "full_same_weight_layer_loaded_as_context": {"const": true},
+        "key_count_definition": {"const": "T46"},
+        "keys_have_distinct_distinguished_codewords": {"const": true},
+        "anchors_charged_as_owners": {"const": false},
+        "signed_credits_retained": {"const": true},
+        "forced_key_count_lower_bound": {"const": 259881},
+        "lexicographic_keying_is_payment_owner": {"const": false}
+      }
+    },
+    "sourceUniverse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "object",
+        "full_target_list_used",
+        "projected_list_used",
+        "selected_L_sublist_used_for_histogram",
+        "source_realized_counterexample_constructed",
+        "full_list_mass_lower_bound",
+        "support_weight_interval",
+        "weight_layer_count",
+        "M_j_definition",
+        "nonzero_syndrome",
+        "exact_containment_retained",
+        "every_one_point_escape_retained",
+        "support_to_codeword_injective",
+        "small_ball_weight_interval",
+        "small_ball_total_mass_cap",
+        "large_layer_weight_interval",
+        "large_layer_count",
+        "same_weight_layer_forced_lower",
+        "low_weight_cutoff",
+        "low_weight_cap",
+        "low_weight_packing",
+        "high_weight_interval",
+        "high_weight_layer_count",
+        "free_baseline",
+        "high_baseline_is_owner",
+        "occupancy_identity",
+        "marked_key_contract",
+        "sharp_arithmetic_extremizer"
+      ],
+      "properties": {
+        "object": {"const": "FULL_TARGET_QUARTIC_FIELD_LIST_EXACT_WEIGHT_HISTOGRAM"},
+        "full_target_list_used": {"const": true},
+        "projected_list_used": {"const": false},
+        "selected_L_sublist_used_for_histogram": {"const": false},
+        "source_realized_counterexample_constructed": {"const": false},
+        "full_list_mass_lower_bound": {"const": 16777216},
+        "support_weight_interval": {"const": [0, 981129]},
+        "weight_layer_count": {"const": 981130},
+        "M_j_definition": {"const": "# distinct target-field codewords c with |E(c)|=j"},
+        "nonzero_syndrome": {"const": true},
+        "exact_containment_retained": {"const": true},
+        "every_one_point_escape_retained": {"const": true},
+        "support_to_codeword_injective": {"const": true},
+        "small_ball_weight_interval": {"const": [0, 524288]},
+        "small_ball_total_mass_cap": {"const": 1},
+        "large_layer_weight_interval": {"const": [524289, 981129]},
+        "large_layer_count": {"const": 456841},
+        "same_weight_layer_forced_lower": {"const": 37},
+        "low_weight_cutoff": {"const": 614160},
+        "low_weight_cap": {"const": 3730},
+        "low_weight_packing": {
+          "const": {
+            "selected_agreement_subset_size": 1482992,
+            "pair_intersection_upper": 1048575,
+            "feasible_count": 3730,
+            "feasible_margin": 202311,
+            "first_excluded_count": 3731,
+            "first_excluded_contradiction_margin": 19019,
+            "integer_rounding_is_load_bearing": true,
+            "codeword_to_selected_subset_injective": true
+          }
+        },
+        "high_weight_interval": {"const": [614161, 981129]},
+        "high_weight_layer_count": {"const": 366969},
+        "free_baseline": {"const": 45},
+        "high_baseline_is_owner": {"const": false},
+        "occupancy_identity": {"$ref": "#/$defs/occupancyIdentity"},
+        "marked_key_contract": {"$ref": "#/$defs/markedKeyContract"},
+        "sharp_arithmetic_extremizer": {"$ref": "#/$defs/arithmeticExtremizer"}
+      }
+    },
+    "partition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "partition_sha256",
+        "partition_digest_method",
+        "architecture_id",
+        "preprocess",
+        "object_kind",
+        "unit",
+        "quantifier",
+        "atom_order",
+        "chronology_stages",
+        "owner_order",
+        "first_match",
+        "first_match_disjoint",
+        "uniform_over_all_received_words",
+        "same_partition_for_all_atoms",
+        "source_codeword_partition_exhaustive",
+        "source_codeword_partition_disjoint",
+        "source_codeword_addback_complete",
+        "payment_partition_complete",
+        "global_closure_addback_complete",
+        "low_weight_owner",
+        "residual_terminals",
+        "diagnostic_key_subterminals",
+        "unresolved_cells"
+      ],
+      "properties": {
+        "partition_sha256": {"$ref": "#/$defs/sha256"},
+        "partition_digest_method": {
+          "const": "SHA256_CANONICAL_JSON_WITHOUT_PARTITION_SHA256"
+        },
+        "architecture_id": {"const": "GRANDE_FINALE_V4_M31_LIST_SOURCE_ADAPTER_V1"},
+        "preprocess": {"const": "DIRECT_TARGET_FIELD_LIFT_WITH_SCALAR_DESCENT_CROSSCHECK"},
+        "object_kind": {"const": "LIST"},
+        "unit": {"const": "DISTINCT_CODEWORDS_PER_RECEIVED_WORD"},
+        "quantifier": {"const": "UNIFORM_OVER_ALL_RECEIVED_WORDS"},
+        "atom_order": {
+          "const": ["U_paid", "U_Q", "U_list_int", "U_ext", "U_new"]
+        },
+        "chronology_stages": {
+          "const": [
+            {
+              "atom_id": "U_paid",
+              "declared_predicate": "EXACT_ERROR_WEIGHT_AT_MOST_J0",
+              "predicate_available": true,
+              "assigns_codewords": true
+            },
+            {
+              "atom_id": "U_Q",
+              "declared_predicate": "CERTIFIED_BOUNDARY_PREFIX_OWNER",
+              "predicate_available": false,
+              "assigns_codewords": false
+            },
+            {
+              "atom_id": "U_list_int",
+              "declared_predicate": "CERTIFIED_ARBITRARY_WORD_INTERIOR_OWNER",
+              "predicate_available": false,
+              "assigns_codewords": false
+            },
+            {
+              "atom_id": "U_ext",
+              "declared_predicate": "CERTIFIED_ADDITIVE_EXTENSION_PROJECTION_OWNER",
+              "predicate_available": false,
+              "assigns_codewords": false
+            },
+            {
+              "atom_id": "U_new",
+              "declared_predicate": "FIXED_HIGH_WEIGHT_BOUNDARY_OR_INTERIOR_RESIDUAL",
+              "predicate_available": true,
+              "assigns_codewords": true
+            }
+          ]
+        },
+        "owner_order": {
+          "const": [
+            "LOW_EXACT_WEIGHT_PACKING",
+            "HIGH_BOUNDARY_EXACT_CODEWORD",
+            "HIGH_INTERIOR_EXACT_CODEWORD"
+          ]
+        },
+        "first_match": {"const": true},
+        "first_match_disjoint": {"const": true},
+        "uniform_over_all_received_words": {"const": true},
+        "same_partition_for_all_atoms": {"const": true},
+        "source_codeword_partition_exhaustive": {"const": true},
+        "source_codeword_partition_disjoint": {"const": true},
+        "source_codeword_addback_complete": {"const": true},
+        "payment_partition_complete": {"const": false},
+        "global_closure_addback_complete": {"const": false},
+        "low_weight_owner": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "owner_id",
+            "atom_id",
+            "priority",
+            "predicate",
+            "weight_interval",
+            "exact_upper",
+            "charge_mode",
+            "bankable",
+            "source_binding_roles"
+          ],
+          "properties": {
+            "owner_id": {"const": "LOW_EXACT_WEIGHT_PACKING"},
+            "atom_id": {"const": "U_paid"},
+            "priority": {"const": 0},
+            "predicate": {"const": "EXACT_ERROR_WEIGHT_AT_MOST_J0"},
+            "weight_interval": {"const": [0, 614160]},
+            "exact_upper": {"const": 3730},
+            "charge_mode": {"const": "UNIFORM_GLOBAL_UPPER_NOT_OBSERVED_MASS"},
+            "bankable": {"const": true},
+            "source_binding_roles": {
+              "const": ["adapter_note", "rank46_source", "rank46_verifier", "rank46_manifest"]
+            }
+          }
+        },
+        "residual_terminals": {
+          "const": [
+            {
+              "cell_id": "HIGH_BOUNDARY_EXACT_CODEWORD",
+              "terminal_id": "UNPAID_BOUNDARY_CODEWORD_RESIDUAL",
+              "atom_id": "U_new",
+              "priority": 1,
+              "weight_predicate": "j=R",
+              "automatically_owned_by_U_Q": false,
+              "paid": false
+            },
+            {
+              "cell_id": "HIGH_INTERIOR_EXACT_CODEWORD",
+              "terminal_id": "UNPAID_INTERIOR_CODEWORD_RESIDUAL",
+              "atom_id": "U_new",
+              "priority": 2,
+              "weight_predicate": "J0<j<R",
+              "automatically_owned_by_U_list_int": false,
+              "paid": false
+            }
+          ]
+        },
+        "diagnostic_key_subterminals": {
+          "const": [
+            "UNPAID_BOUNDARY_COUPLED_RANK46_KEY",
+            "UNPAID_INTERIOR_COUPLED_RANK46_KEY"
+          ]
+        },
+        "unresolved_cells": {
+          "const": [
+            "UNPAID_BOUNDARY_CODEWORD_RESIDUAL",
+            "UNPAID_INTERIOR_CODEWORD_RESIDUAL"
+          ]
+        }
+      }
+    },
+    "coupledRank46": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "packet_columns",
+        "anchor_columns",
+        "small_forney_indices",
+        "small_index_sum_uniform_max",
+        "cutoff_uniform_min",
+        "ordered_partial_sum_max",
+        "one_row_key_bound",
+        "rank2_key_bound",
+        "rank3_key_bound",
+        "rank3_strictly_below_cutoff",
+        "rank4_certified_by_aggregate_bound",
+        "global_safe_key_allowance",
+        "boundary_vs_interior",
+        "hyperplane_nonforcing_certified_at_most",
+        "literal_prime_field_68_cutoff_transferred",
+        "high_baseline_is_owner",
+        "independent_per_layer_root_unions_close_row",
+        "global_terminal"
+      ],
+      "properties": {
+        "packet_columns": {"const": 46},
+        "anchor_columns": {"const": 45},
+        "small_forney_indices": {"const": 44},
+        "small_index_sum_uniform_max": {"const": 913681},
+        "cutoff_uniform_min": {"const": 67447},
+        "ordered_partial_sum_max": {
+          "const": {"1": 20765, "2": 41530, "3": 62295}
+        },
+        "one_row_key_bound": {"const": 20765},
+        "rank2_key_bound": {"const": 41530},
+        "rank3_key_bound": {"const": 62295},
+        "rank3_strictly_below_cutoff": {"const": true},
+        "rank4_certified_by_aggregate_bound": {"const": false},
+        "global_safe_key_allowance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "signed_occupancy_budget",
+            "rank2_distinct_keys",
+            "rank3_distinct_keys",
+            "rank2_charged",
+            "rank3_charged",
+            "residual_after_rank2_max",
+            "residual_after_rank3_max"
+          ],
+          "properties": {
+            "signed_occupancy_budget": {"const": 259880},
+            "rank2_distinct_keys": {"const": 6},
+            "rank3_distinct_keys": {"const": 4},
+            "rank2_charged": {"const": 249180},
+            "rank3_charged": {"const": 249180},
+            "residual_after_rank2_max": {"const": 10700},
+            "residual_after_rank3_max": {"const": 10700}
+          }
+        },
+        "boundary_vs_interior": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "boundary_weight",
+            "boundary_locator_is_actual_error_locator",
+            "actual_error_locator_coupled_frame_has_agreement_padding",
+            "canonical_padded_v4_adapter_bridge",
+            "interior_automatically_owned_by_U_list_int",
+            "boundary_terminals",
+            "all_source_keys_classified_by_weight",
+            "exact_boundary_interior_split_claimed",
+            "combined_key_count_lower_bound",
+            "interior_key_count",
+            "boundary_key_count"
+          ],
+          "properties": {
+            "boundary_weight": {"const": 981129},
+            "boundary_locator_is_actual_error_locator": {"const": true},
+            "actual_error_locator_coupled_frame_has_agreement_padding": {"const": false},
+            "canonical_padded_v4_adapter_bridge": {"const": "UNPAID_PADDING_BRIDGE"},
+            "interior_automatically_owned_by_U_list_int": {"const": false},
+            "boundary_terminals": {
+              "const": ["UNPAID_COMMON_CORE_ADD_BACK", "UNPAID_RANK2_COLOOP"]
+            },
+            "all_source_keys_classified_by_weight": {"const": true},
+            "exact_boundary_interior_split_claimed": {"const": false},
+            "combined_key_count_lower_bound": {"const": 259881},
+            "interior_key_count": {"type": "null"},
+            "boundary_key_count": {"type": "null"}
+          }
+        },
+        "hyperplane_nonforcing_certified_at_most": {"const": 67},
+        "literal_prime_field_68_cutoff_transferred": {"const": false},
+        "high_baseline_is_owner": {"const": false},
+        "independent_per_layer_root_unions_close_row": {"const": false},
+        "global_terminal": {"const": "UNPAID_GLOBAL_COUPLED_RANK46_RESIDUAL"}
+      }
+    },
+    "atom": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "atom_id",
+        "architecture_id",
+        "partition_sha256",
+        "value",
+        "status",
+        "bankable",
+        "bankability_gate",
+        "unit",
+        "quantifier",
+        "owner_ids",
+        "source_binding_roles",
+        "predicate_source_role",
+        "theorem_pointer",
+        "source_statement",
+        "transport_role",
+        "unresolved_hypotheses"
+      ],
+      "properties": {
+        "atom_id": {"enum": ["U_paid", "U_Q", "U_list_int", "U_ext", "U_new"]},
+        "architecture_id": {"const": "GRANDE_FINALE_V4_M31_LIST_SOURCE_ADAPTER_V1"},
+        "partition_sha256": {"$ref": "#/$defs/sha256"},
+        "value": {
+          "oneOf": [
+            {"type": "null"},
+            {"type": "integer", "minimum": 0, "maximum": 16777215}
+          ]
+        },
+        "status": {"enum": ["BANKABLE_SOURCE_BOUND_EXACT_UPPER", "OPEN_UNPAID"]},
+        "bankable": {"type": "boolean"},
+        "bankability_gate": {
+          "enum": [
+            "PARTITION_DIGEST_UNIT_QUANTIFIER_AND_SOURCE_HASHES_VERIFIED",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "unit": {"const": "DISTINCT_CODEWORDS_PER_RECEIVED_WORD"},
+        "quantifier": {"const": "UNIFORM_OVER_ALL_RECEIVED_WORDS"},
+        "owner_ids": {
+          "type": "array",
+          "maxItems": 1000,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1, "maxLength": 256}
+        },
+        "source_binding_roles": {
+          "type": "array",
+          "maxItems": 18,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/sourceRole"}
+        },
+        "predicate_source_role": {"$ref": "#/$defs/sourceRole"},
+        "theorem_pointer": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "source_statement": {"type": "string", "minLength": 1, "maxLength": 2048},
+        "transport_role": {
+          "enum": ["NOT_APPLICABLE", "SCALAR_DESCENT_IS_PREPROCESSING_NOT_EXTENSION_PAYMENT"]
+        },
+        "unresolved_hypotheses": {
+          "type": "array",
+          "maxItems": 1000,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1, "maxLength": 256}
+        }
+      }
+    },
+    "closureState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "closed",
+        "row_closed",
+        "banked_atoms",
+        "banked_atom_count",
+        "known_sum",
+        "high_residual_payment_movement",
+        "official_row_score_movement",
+        "closed_total",
+        "B_star",
+        "unresolved_atom_ids",
+        "unpaid_global_residual",
+        "official_theorem_claimed"
+      ],
+      "properties": {
+        "closed": {"const": false},
+        "row_closed": {"const": false},
+        "banked_atoms": {"const": ["U_paid"]},
+        "banked_atom_count": {"const": 1},
+        "known_sum": {"const": 3730},
+        "high_residual_payment_movement": {"const": 0},
+        "official_row_score_movement": {"const": 0},
+        "closed_total": {"type": "null"},
+        "B_star": {"const": 16777215},
+        "unresolved_atom_ids": {
+          "const": ["U_Q", "U_list_int", "U_ext", "U_new"]
+        },
+        "unpaid_global_residual": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "terminal",
+            "high_weight_codeword_mass_lower_bound",
+            "baseline_high_codeword_mass",
+            "marked_key_count_lower_bound",
+            "exact_boundary_interior_key_split_claimed",
+            "interior_rank46_key_count",
+            "boundary_rank46_key_count",
+            "exact_owner_charge",
+            "residual_atom",
+            "forced_into_existing_owner",
+            "source_realized_counterexample_constructed"
+          ],
+          "properties": {
+            "terminal": {"const": "UNPAID_GLOBAL_COUPLED_RANK46_RESIDUAL"},
+            "high_weight_codeword_mass_lower_bound": {"const": 16773486},
+            "baseline_high_codeword_mass": {"const": 16513605},
+            "marked_key_count_lower_bound": {"const": 259881},
+            "exact_boundary_interior_key_split_claimed": {"const": false},
+            "interior_rank46_key_count": {"type": "null"},
+            "boundary_rank46_key_count": {"type": "null"},
+            "exact_owner_charge": {"type": "null"},
+            "residual_atom": {"const": "U_new"},
+            "forced_into_existing_owner": {"const": false},
+            "source_realized_counterexample_constructed": {"const": false}
+          }
+        },
+        "official_theorem_claimed": {"const": false}
+      }
+    }
+  }
+}
