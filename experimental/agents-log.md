@@ -30,6 +30,15 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-21 - Grande Finale v4 promotion
+
+- **Agent/model:** Codex, reviewing maintainer-added `experimental/grande_finale_v4.tex` and `.pdf`.
+- **Files added or changed:** Promoted `experimental/grande_finale_v4.tex` to `experimental/grande_finale.tex`, promoted `experimental/grande_finale_v4.pdf` to `experimental/grande_finale.pdf`, archived the previous active Grande Finale as `archived/grande_finale_v3.tex` and `archived/grande_finale_v3.pdf`, and updated `agents.md`, `README.md`, and `readme.md` to point agents to Grande Finale v4.
+- **Status:** PROVED / CONDITIONAL / AUDIT, according to the individual theorem and problem statements in the paper.
+- **What is being added:** Grande Finale v4 becomes the canonical experimental completion manuscript.  Compared with v3, it keeps the exact support/Q/Sidon/Fourier/profile compiler material and adds the order-32 rank dictionary, dyadic descent, rational-atom extraction/coherence, owner localization, seven-point owner-pencil bound, core-compatible `58`-slope bound, complete correction-ray bound, and proper/clone-tolerant spread-core payments.
+- **How it is useful:** The active MCA endgame is now reduced to the three row-sharp inputs stated in v4: spread-component routing, the large-owner atom image bound, and finite MCA exception routing.  The active list endgame is the row-sharp high-nullity prefix/interior/extension sum.  No adjacent safe row is promoted as proved.
+- **What to do next:** Audit v4 theorem-by-theorem against CAP25 v13.2 and the live four-row completion packet.  For Lane K, prioritize the positive-dimensional correction-component routing and large-owner image bound; for Lane M, prioritize the Mersenne-31 list row-sharp high-nullity/interior bound.  Update any future PR notes to cite Grande Finale v4, not the archived v3.
+
 ### 2026-07-21 - M31 route-cut and Lean compiler PR wave
 
 - **Agent/model:** Codex, selectively integrating reviewed PRs from Scott Hughes (#992, #994, #995, #999, #1000, #1001, #1002, #1003, #1004, #1007, #1008) and holmbuar (#987, #997, #1005).

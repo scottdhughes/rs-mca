@@ -60,63 +60,71 @@
 \newcommand{\norm}[1]{\lVert #1\rVert}\newcommand{\floor}[1]{\left\lfloor #1\right\rfloor}
 \newcommand{\ceil}[1]{\left\lceil #1\right\rceil}\newcommand{\defeq}{\coloneqq}
 \newcommand{\one}{\mathbf 1}\newcommand{\Fq}{\mathbb F_q}
+\newcommand{\cA}{\mathcal A}\newcommand{\cB}{\mathcal B}\newcommand{\cC}{\mathcal C}
+\newcommand{\cE}{\mathcal E}\newcommand{\cH}{\mathcal H}\newcommand{\cK}{\mathcal K}
+\newcommand{\cL}{\mathcal L}\newcommand{\cM}{\mathcal M}\newcommand{\cP}{\mathcal P}
+\newcommand{\cS}{\mathcal S}\newcommand{\cZ}{\mathcal Z}
+\newcommand{\vander}[2]{(1,#1,\ldots,#1^{#2-1})}
+\newcommand{\fall}[2]{#1^{\underline{#2}}}\newcommand{\rise}[2]{#1^{\overline{#2}}}
+\newcommand{\Bbad}{B_{\mathrm{MCA}}}
 
 
-\title[Grande Finale v3]{Grande Finale v3:\\ Exact Threshold Refinements, Primitive Q, and the Residual Safe-Side Compiler after CAP25 v13.2}
+
+
+\title[Grande Finale v4]{Grande Finale v4:\\
+Exact Threshold Compilers, Primitive Q, and Order-$32$ Reed--Solomon MCA}
 \author{Przemek Chojecki}
 \hypersetup{
-pdftitle={Grande Finale v3: Exact Threshold Refinements, Primitive Q, and the Residual Safe-Side Compiler after CAP25 v13.2},
+pdftitle={Grande Finale v4: Exact Threshold Compilers, Primitive Q, and Order-32 Reed--Solomon MCA},
 pdfauthor={Przemek Chojecki},
-pdfsubject={A strict sequel to CAP25 v13.2 proving new exact threshold refinements, syndrome-secant and mean-overlap compilers, primitive Q after a Sidon payment, Q-to-SP, one-pencil balanced-core bounds, and the residual finite safe-side ledger},
-pdfkeywords={Reed--Solomon codes, mutual correlated agreement, exact thresholds, syndrome secants, mean overlap, primitive Q, Sidon moments, balanced core, finite certificates}
+pdfsubject={A complete companion to CAP25 v13.2 integrating exact threshold refinements, primitive Q, support compilers, order-32 rank, rational atoms, owner localization, and spread-core incidence},
+pdfkeywords={Reed--Solomon codes, mutual correlated agreement, primitive Q, Sidon moments, generalized Hamming weights, order-32 rank, rational atoms, spread cores}
 }
 \subjclass[2020]{94B35, 11T71, 05B40}
-\keywords{Reed--Solomon codes, mutual correlated agreement, exact thresholds, syndrome secants, mean overlap, primitive Q, Sidon moments, balanced core, finite certificates}
+\keywords{Reed--Solomon codes, mutual correlated agreement, primitive Q, Sidon moments, generalized Hamming weights, order-$32$ rank, rational atoms, spread cores}
 \date{July 2026}
 
 \begin{document}
 \begin{abstract}
-This paper is a strict completion sequel to CAP25 v13.2 \cite{CAP25v132}.  We cite, and do not reprove, its support-wise MCA conventions, universal cap, four active unsafe endpoints, identity-prefix and simple-pole constructions, aperiodic and subfield floors, prefix rigidity and exact second moment, quotient and extension reductions, balanced-core reduction, and normalized finite ledger.  No theorem of CAP25 v13.2 is reprinted with a second proof.
+This paper is a complete companion to CAP25 v13.2 \cite{CAP25v132}.  It imports by citation, and does not reprove, the support-wise MCA conventions, universal cap, four deployed unsafe endpoints, identity-prefix and simple-pole constructions, aperiodic and subfield floors, prefix rigidity and exact second moment, quotient and extension reductions, balanced-core reduction, and normalized finite ledger established there.
 
-The sequel has four new layers.  First, it proves an exact sparsification identity for the mutual layer, an exact syndrome--secant compiler, bounded-kernel and circuit ray bounds, a quadratic mean-overlap staircase, and explicit certified prime-field threshold rows.  Second, it refines quotient/remainder profiles by an exact prefix normal form, a canonical partial-occupancy disintegration, and effective-image Fourier normalization.  Third, it isolates primitive prefix leaves, separates Sidon-heavy from high-energy fibers, proves primitive Q after a Sidon moment payment, establishes the payment in a rigorous shallow Fourier range, and isolates the remaining deep primitive range as an explicit Sidon/Fourier payment problem; entropy inverse theory is retained only as a guide for non-Boolean residual charts.  Fourth, it proves saturation, a moving-root bound for one-parameter split pencils, and that row-sharp Q discharges the primitive shift-pair ledger.
+The first half develops the full safe-side compiler.  It proves exact support sparsification, syndrome--secant and fixed-union compilers, recursive affine-span and generalized-weight bounds, common-zero and directional Johnson estimates, codimension-one and arbitrary-codimension support-flag recursions, a minimum-distance sharpening using the actual direction-code support, fixed-mismatch puncturing, a quadratic mean-overlap staircase, exact quotient--remainder prefix normal forms, effective-image Fourier normalization, primitive Q after an explicit Sidon payment, saturation, a moving-root theorem for one-parameter split pencils, and the implication that a row-sharp Q theorem pays the primitive shift-pair ledger.
 
-The manuscript therefore supplies a single extension chain beyond v13.2.  It does not claim the four numerical adjacent thresholds are already closed: those rows still require row-sharp finite Q, exhaustive MCA balanced-core or list-interior chart coverage, exact extension payment, and one summed integer certificate.
+The second half develops a different MCA completion mechanism.  A rank-two reduced intersection matrix gives an exact kernel dictionary and shows that the deployed critical order is $32$.  Exact dyadic descent identifies the quotient branch.  Maximal-support interpolation excludes all primitive slope degrees below $18$, while support-collapsed interpolation extracts every low-complexity explanation into a scalar-locator rational atom.  Rational atoms satisfy collision rigidity and local-to-global coherence.  A finite critical example shows that primitive spread cores can exist, so the remaining theorem is abundance rather than nonexistence.  Canonical owner localization pays every small-owner atom, component-free owner pencils contribute at most seven rich points, core-compatible slopes contribute at most $58$, a complete correction ray contributes at most $2(n-m+1)+963$, and proper or clone-tolerant correction spaces are paid in the explicit deployed ranges.
+
+The manuscript does not assert the adjacent safe rows unconditionally.  For MCA, the remaining inputs are the classification and payment of high-dimensional positive-dimensional correction components, the row-sharp image bound for one coherent large-owner atom---most sharply the Mersenne-31 factor-$9.57219783037$ prefix target---and complete routing of denominator-root, extension, clone, imperfect-quotient, and near-sunflower exceptions.  For the list rows, the remaining inputs are the row-sharp high-nullity prefix and arbitrary-word interior bounds, extension payment, and one exact summed integer certificate.
 \end{abstract}
 \maketitle
 \tableofcontents
 
-\section{Relation to CAP25 v13.2}\label{sec:relation-v132}
-Throughout, ``the foundation'' means CAP25 v13.2 \cite{CAP25v132}.  Its results are imported by citation and are not re-numbered here.  In particular, the deployed KoalaBear and Mersenne-31 unsafe endpoints, the identity-prefix and pole-line floors, the aperiodic correction, the exact prefix second moment, the subfield and quotient packages, and the normalized four-cell ledger remain theorems of the foundation.
+\section{Scope and relation to CAP25 v13.2}\label{sec:relation-v132}
+Throughout, CAP25 v13.2 \cite{CAP25v132} is the foundational source for the deployed unsafe frontier and the normalized first-match ledger.  Its theorems are invoked by citation rather than re-numbered here.  This paper contains all of the additional threshold, compiler, rank, atom, and spread-incidence results needed for the current completion programme.
 
 \begin{center}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.39\textwidth}>{\raggedright\arraybackslash}p{0.53\textwidth}@{}}
 \toprule
-Imported from CAP25 v13.2 & New in Grande Finale v3\\
+Imported from CAP25 v13.2 & Proved in this paper\\
 \midrule
-MCA conventions, universal cap, active unsafe endpoints & Exact support sparsification and syndrome--secant threshold compilers\\
-Identity-prefix, pole-line, aperiodic, and subfield floors & Quadratic mean-overlap staircase and explicit Proth rows\\
-Prefix rigidity, exact second moment, quotient/extension and BC reductions & Exact profile normal forms, effective Fourier normalization, primitive Q after Sidon payment\\
-Normalized finite ledger & Saturation, moving-root BC, Q $\Rightarrow$ SP, and the exact residual completion packet\\
+MCA conventions, universal cap, active unsafe endpoints & Exact sparsification, syndrome--secant, fixed-union, affine-span, generalized-weight, support-flag, and minimum-distance compilers\\
+Identity-prefix, pole-line, aperiodic, subfield, quotient, and extension packages & Quadratic threshold staircases, exact profile normal forms, effective Fourier normalization, and primitive Q after the stated Sidon payment\\
+Prefix rigidity, exact second moment, balanced-core reduction, normalized ledger & Saturation, moving-root BC, Q $\Rightarrow$ SP, order-$32$ rank, rational-atom extraction and coherence, owner localization, and spread-core correction incidence\\
 \bottomrule
 \end{tabular}
 \end{center}
 
-The paper uses the foundation's closed integer-ball convention.  An adjacent certificate consists of an imported unsafe inequality at agreement $a_0$ and a new upper inequality at $a_0+1$.  Structural reductions, support censuses, or asymptotic $e^{o(n)}$ bounds are not called finite adjacent certificates unless they supply the literal row budget.
+The paper uses the closed integer-ball convention of CAP25 v13.2.  An adjacent certificate consists of the imported unsafe inequality at agreement $a_0$ and a proved upper inequality at $a_0+1$.  Structural reductions, asymptotic estimates, and route-cut boundaries are not called adjacent certificates unless they fit the literal row budget.
 
-\section{What is new in this unified sequel}\label{sec:new-contributions}
-The new threshold theorems and the safe-side compiler are logically independent.  The first part gives unconditional finite identities and staircases.  The middle parts prove exact profile decompositions and a conditional-to-unconditional primitive-Q chain on the strata where the Sidon/Fourier payment is established.  The last part specializes those tools to the four v13.2 frontier rows and states the unresolved atoms without disguising them as theorems.
-
-\begin{theorem}[Grande Finale v3 theorem package]\label{thm:v3-package}
+\section{Main theorem package}\label{sec:new-contributions}
+\begin{theorem}[Integrated theorem package]\label{thm:v4-package}
 The following statements hold.
 \begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
-\item The exact sparsification, syndrome--secant, residual-kernel, circuit, mean-overlap, packing, and explicit Proth-row results of Part~I are unconditional.
-\item The quotient/remainder normal form, partial-occupancy disintegration, effective-image Fourier formulas, and exact profile add-back of Part~II are unconditional.
-\item Primitive Q follows from the Sidon-moment payment of Part~III.  The shallow Fourier theorem proves that payment under its displayed phase and characteristic hypotheses; outside that range the unresolved atom is the explicitly stated Sidon/Fourier payment.
-\item The saturation and moving-root results of Part~IV are unconditional, and a row-sharp max-fiber Q theorem automatically pays the primitive SP ledger.
-\item The four adjacent safe rows of the foundation follow only after the exact completion ledger in \cref{sec:exact-completion-ledger} is instantiated with no unresolved cells.
+\item The exact support, syndrome--secant, fixed-union, affine-span, generalized-weight, common-zero, codimension-one, support-flag, minimum-distance, puncturing, directional-Johnson, paving, mean-overlap, packing, and explicit prime-row results of Part~I are unconditional.
+\item The quotient--remainder normal form, partial-occupancy disintegration, effective-image Fourier identities, and profile add-back of Part~II are unconditional.  Primitive Q follows from the Sidon-moment payment of Part~III, and the shallow Fourier theorem proves that payment in its displayed range.
+\item Saturation, the one-parameter moving-root theorem, and Q $\Rightarrow$ SP are unconditional.  The finite compilers pay the displayed low-nullity, low-affine-span, common-zero, support-flag, and direction-defect ranges.
+\item The rank-two kernel dictionary, critical order $32$, global affine-block bound, dyadic pair descent, rational-profile converse, slope-degree barrier, low-complexity atom extraction, collision rigidity, atom coherence, owner localization, owner-pencil incidence bound, core-compatible abundance bound, complete correction-ray bound, and the stated proper and clone-tolerant correction-space bounds are unconditional.
+\item The two deployed MCA adjacent rows follow from the three explicit inputs in \cref{thm:conditional-final}; the two list adjacent rows follow from the exact summed certificate in \cref{thm:exact-completion-certificate}.  Those remaining inputs are not asserted in this paper.
 \end{enumerate}
 \end{theorem}
-
 
 \part{Exact threshold refinements beyond CAP25 v13.2}
 
@@ -326,47 +334,1620 @@ the bound.  The MDS column property gives the Reed--Solomon formula for
 \(\kappa(U)\).
 \end{proof}
 
-\begin{theorem}[Single MDS-circuit ray compiler]
-\label{thm:single-mds-circuit-ray}
+
+\begin{theorem}[Multiplicity-amplified fixed-union ray compiler]
+\label{thm:fixed-union-ray}
 Let \(H\) be a Reed--Solomon parity check of redundancy \(R\), let
-\(U\subseteq D\) have size \(R+1\), put \(t<R\), and fix a syndrome line
-\(y_0+\gamma y_1\).  If every slope in a transverse set \(Z\) has a witnessing error set
-\(E_\gamma\subseteq U\) of size at most \(t\), then
+\(U\subseteq D\) have size \(N=R+\nu\) with \(\nu\ge1\), and put
+\(C_U=\ker H_U\).  Fix \(t<R\), a syndrome line
+\(y_0+\gamma y_1\), and a set \(Z\) of distinct finite transverse slopes.
+Suppose that for every \(\gamma\in Z\) there is
+\(e_\gamma\in\F^U\) such that
 \[
-                         \abs Z\le\binom{R+1}{2}.   \tag{RC$_{\rm circ}$}
+ H_Ue_\gamma=y_0+\gamma y_1,
+ \qquad \wt(e_\gamma)\le t,
+ \qquad
+ \{y_0,y_1\}\not\subseteq V_{\supp e_\gamma}.
 \]
-Thus one fixed MDS-circuit profile has a field-independent polynomial ray
-payment.
+Then
+\begin{equation}
+ |Z|\le
+ \left\lfloor
+ \frac{\binom{R+\nu}{\nu+1}}{R-t}
+ \right\rfloor .
+ \label{eq:fixed-union-ray}
+\end{equation}
+The estimate is independent of \(|\F|\); it replaces the factor
+\(|\F|^\nu\) in \cref{thm:bounded-residual-kernel-ray} by an exact
+incidence multiplicity.
 \end{theorem}
 
 \begin{proof}
-There is nothing to prove when \(\abs Z\le1\).  Otherwise two distinct
-line points lie in \(V_U\); subtracting them and solving for the constant
-term gives \(y_0,y_1\in V_U\).  Choose lifts
-\(b_0,b_1\in\F^U\).  The circuit kernel is generated by a vector
-\(z\) whose coordinates are all nonzero, since a zero coordinate would
-give a proper dependent subset of the minimal circuit \(U\).  For each slope choose
-\(c_\gamma\in\F\) so that
-\(e_\gamma=b_0+\gamma b_1+c_\gamma z\) is supported in
-\(E_\gamma\).  For \(x\in U\), set
+There is nothing to prove when \(|Z|\le1\).  Otherwise two line points lie
+in \(V_U\), hence \(y_0,y_1\in V_U\).  Choose lifts
+\(b_0,b_1\in\F^U\), and choose a basis of the \(\nu\)-dimensional kernel
+\(C_U\).  Write its generator matrix as \(K\), with row \(K_x\) at
+\(x\in U\).  Every chosen error has a unique expression
 \[
-             f_x(\gamma)=-(b_0(x)+\gamma b_1(x))/z(x).
+ e_\gamma=b_0+\gamma b_1+Kc_\gamma,
+ \qquad c_\gamma\in\F^\nu.
 \]
-A zero coordinate is an equality \(c_\gamma=f_x(\gamma)\), and at least
-\(R+1-t\ge2\) such equalities hold.
+Put \(p_\gamma=(\gamma,c_\gamma)\in\F^{\nu+1}\).  A zero coordinate of
+\(e_\gamma\) is the affine hyperplane incidence
+\begin{equation}
+ b_0(x)+\gamma b_1(x)+K_xc_\gamma=0,
+ \qquad x\in U,                                     \label{eq:fixed-union-hyperplane}
+\end{equation}
+whose normal is \(n_x=(b_1(x),K_x)\in\F^{\nu+1}\).  Since
+\(\wt(e_\gamma)\le t\), the point \(p_\gamma\) lies on at least
+\(h=N-t\) of these hyperplanes.
 
-Every transverse slope makes two nonidentical functions \(f_x,f_{x'}\)
-equal.  Indeed, otherwise all vanishing coordinates belong to one class
-\(C\) of identical affine functions, say
-\(f_x=\alpha+\beta\gamma\) on \(C\), and no function outside \(C\) has
-that value at \(\gamma\).  Then
-\(\supp e_\gamma=U\setminus C\subseteq E_\gamma\), while
-\(b_0+\alpha z\) and \(b_1+\beta z\) are also supported in
-\(U\setminus C\).  This puts both \(y_0,y_1\) in \(V_{E_\gamma}\), a
-contradiction.  Two nonidentical affine functions agree at at most one
-finite slope.  Charging each slope to one unordered pair proves the
-displayed bound.
+We claim that the normals incident with \(p_\gamma\) span
+\(\F^{\nu+1}\).  Otherwise a nonzero pair \((\delta,v)\) is orthogonal
+to all of them.  Then
+\[
+ q=\delta b_1+Kv
+\]
+vanishes at every zero coordinate of \(e_\gamma\), so
+\(\supp q\subseteq\supp e_\gamma\) and \(\wt(q)\le t\).  If
+\(\delta=0\), then \(q=Kv\ne0\) is a kernel word of weight at most
+\(t<R+1\), contradicting the MDS distance of
+\(C_U=[R+\nu,\nu,R+1]\).  If \(\delta\ne0\), divide by \(\delta\).
+The word \(q/\delta\) represents \(y_1\), and
+\(e_\gamma-\gamma q/\delta\) represents \(y_0\); both are supported
+inside \(\supp e_\gamma\), contradicting transversality.
+
+Every normal \(n_x\) is nonzero.  Indeed, if the coordinate functional of
+\(C_U\) vanished at \(x\), then puncturing at \(x\) would leave kernel
+dimension \(\nu\), whereas the MDS rank of \(H_{U\setminus\{x\}}\) makes
+that dimension \(\nu-1\).  Thus the incident normals form a loopless
+rank-\((\nu+1)\) matroid on at least \(h\) elements.  Fix one basis.
+Each of the other incident elements enters a basis by a fundamental-circuit
+exchange, producing a distinct basis.  Hence \(p_\gamma\) is incident with
+at least
+\[
+ h-(\nu+1)+1=R-t
+\]
+independent \((\nu+1)\)-subsets of hyperplanes.  An independent subset
+has at most one affine intersection point.  Counting pairs consisting of a
+slope point and one of its incident bases gives
+\[
+ |Z|(R-t)\le\binom{R+\nu}{\nu+1},
+\]
+which is \eqref{eq:fixed-union-ray}.
 \end{proof}
+
+\begin{corollary}[Single MDS-circuit ray compiler, multiplicity form]
+\label{thm:single-mds-circuit-ray}
+Under the hypotheses of the former single-circuit chart, namely
+\(|U|=R+1\),
+\begin{equation}
+ |Z|\le
+ \left\lfloor\frac{R(R+1)}{2(R-t)}\right\rfloor .
+ \label{eq:single-circuit-multiplicity}
+\end{equation}
+Thus the pair-charge \(\binom{R+1}{2}\) is divided by the exact number
+\(R-t\) of independent zero-coordinate pairs forced by every transverse
+slope.
+\end{corollary}
+
+\begin{proof}
+Apply \cref{thm:fixed-union-ray} with \(\nu=1\).
+\end{proof}
+
+\begin{theorem}[Fixed-syndrome GRS--Johnson compiler]
+\label{thm:fixed-union-list-johnson}
+Let \(H\) be a Reed--Solomon parity check of redundancy \(R\), let
+\(U\subseteq D\) have size \(N=R+\nu\), and fix a syndrome \(y\).  Put
+\[
+ \mathcal L_U(y,t)=
+ \{e\in\F^U:H_Ue=y,\ \wt(e)\le t\},
+ \qquad h=N-t,
+\]
+where \(t<R\).  If \(\nu=0\), then \(|\mathcal L_U(y,t)|\le1\).  If
+\(\nu\ge1\) and
+\begin{equation}
+ h^2>N(\nu-1),                                      \label{eq:fixed-union-johnson-condition}
+\end{equation}
+then
+\begin{equation}
+ |\mathcal L_U(y,t)|
+ \le
+ \left\lfloor
+ \frac{N(h-\nu+1)}{h^2-N(\nu-1)}
+ \right\rfloor .                                  \label{eq:fixed-union-list-johnson}
+\end{equation}
+Equivalently, the same bound holds for the number of codewords in one
+Reed--Solomon list whose error supports are all contained in the fixed
+union \(U\).
+\end{theorem}
+
+\begin{proof}
+For \(\nu=0\), the columns in \(U\) are independent, so a syndrome has at
+most one lift.  Assume \(\nu\ge1\), choose one lift \(b\) of \(y\), and
+put \(C_U=\ker H_U\).  This is an
+\([N,\nu,R+1]\) generalized Reed--Solomon code.  The set
+\(\mathcal L_U(y,t)\) is the low-weight part of the affine coset
+\(b+C_U\).  Thus its members are in bijection with codewords of \(C_U\)
+that agree with the fixed word \(-b\) on at least \(h=N-t\) coordinates.
+
+For each such codeword choose an \(h\)-subset \(A_i\) of its agreement
+set.  Distinct codewords of the \([N,\nu]\) GRS code agree on at most
+\(\nu-1\) coordinates, so \(|A_i\cap A_j|\le\nu-1\).  If there are \(L\)
+sets, and \(d_x\) is the number containing \(x\), then
+\[
+ \sum_xd_x=Lh,
+ \qquad
+ \sum_x\binom{d_x}{2}\le\binom L2(\nu-1).
+\]
+Cauchy--Schwarz gives
+\[
+ \sum_x\binom{d_x}{2}
+ \ge\frac12\left(\frac{L^2h^2}{N}-Lh\right).
+\]
+Combining the two inequalities and using
+\eqref{eq:fixed-union-johnson-condition} yields
+\[
+ L\bigl(h^2-N(\nu-1)\bigr)
+ \le N(h-\nu+1),
+\]
+which proves \eqref{eq:fixed-union-list-johnson}.
+\end{proof}
+
+\begin{theorem}[Recursive affine-span Reed--Solomon list compiler]
+\label{thm:affine-span-list}
+Let \(C=\RS[\F,D,K]\) have length \(n\), let \(u\in\F^D\), and put
+\(m=K+w\le n\).  Let \(\mathcal A=c_0+C'\subseteq C\) be an affine
+subspace of codewords whose direction space has dimension \(s\ge0\).  Then
+\begin{equation}
+ |\mathcal L_{\mathcal A}(u,m)|
+ \le
+ \left\lfloor
+ \frac{(n-K+s)^{\underline s}}
+      {(w+1)^{\overline s}}
+ \right\rfloor
+ =
+ \left\lfloor
+ \frac{\binom{n-K+s}{s}}
+      {\binom{w+s}{s}}
+ \right\rfloor .
+ \label{eq:affine-span-list}
+\end{equation}
+The empty products at \(s=0\) are one.  In particular, a one-dimensional
+codeword pencil contains at most
+\(\lfloor(n-K+1)/(w+1)\rfloor\) members of the list.
+\end{theorem}
+
+\begin{proof}
+We induct on \(s\).  The case \(s=0\) is immediate.  Assume \(s\ge1\),
+and let
+\[
+ G=\{x\in D:c(x)=0\text{ for every }c\in C'\},
+ \qquad z=|G|.
+\]
+The polynomial space representing \(C'\) has dimension \(s\).  Division
+by the locator of \(G\) embeds it into the polynomials of degree less than
+\(K-z\), so
+\begin{equation}
+                         z\le K-s.                 \label{eq:affine-common-zero}
+\end{equation}
+Let \(g\le z\) be the number of coordinates in \(G\) at which the common
+value of the affine flat agrees with \(u\).  Every member of
+\(\mathcal L_{\mathcal A}(u,m)\) therefore has at least \(m-g\)
+agreements outside \(G\).
+
+For \(x\in D\setminus G\), the evaluation functional on \(C'\) is
+nonzero.  Hence
+\[
+ \mathcal A_x=\{c\in\mathcal A:c(x)=u(x)\}
+\]
+is either empty or an affine subspace of dimension \(s-1\).  By the
+induction hypothesis, the number of listed codewords in \(\mathcal A_x\)
+is at most
+\[
+ B_{s-1}:=
+ \frac{\binom{n-K+s-1}{s-1}}
+      {\binom{w+s-1}{s-1}}.
+\]
+Double-counting pairs \((c,x)\) with
+\(c\in\mathcal L_{\mathcal A}(u,m)\), \(x\notin G\), and \(c(x)=u(x)\)
+gives
+\begin{equation}
+ |\mathcal L_{\mathcal A}(u,m)|(m-g)
+ \le (n-z)B_{s-1}.                                \label{eq:affine-recursion}
+\end{equation}
+
+Put \(b=z-g\) and \(q=K-s-z\).  Both are nonnegative by
+\eqref{eq:affine-common-zero}, and the exact identity
+\begin{equation}
+ \begin{split}
+ &(m-g)(n-K+s)-(n-z)(w+s)\\
+ &\qquad=b(n-K+s)+q(n-m)\ge0
+ \end{split}                                      \label{eq:affine-ratio-identity}
+\end{equation}
+shows that
+\[
+ \frac{n-z}{m-g}\le\frac{n-K+s}{w+s}.
+\]
+Combining this with \eqref{eq:affine-recursion} yields
+\[
+ |\mathcal L_{\mathcal A}(u,m)|
+ \le B_{s-1}\frac{n-K+s}{w+s}
+ =\frac{\binom{n-K+s}{s}}{\binom{w+s}{s}}.
+\]
+Taking the integer floor proves \eqref{eq:affine-span-list}.
+\end{proof}
+
+
+\begin{theorem}[Generalized-weight rank-flat list compiler]
+\label{thm:rank-flat-list}
+Retain the hypotheses of \cref{thm:affine-span-list}, assume \(s\ge1\),
+and let
+\[
+ d_j=d_j(C'):=
+ \min_{\substack{V\le C'\\ \dim V=j}}|\supp(V)|,
+ \qquad 1\le j\le s,
+\]
+be the generalized Hamming weights of the direction code.  Put
+\[
+ R=n-K,\qquad t=n-m,
+\]
+let \(G\) be the common-zero set of \(C'\), let \(z=|G|=n-d_s\),
+let \(g\) be the number of common agreements with \(u\) on \(G\), and
+put \(b=z-g\).  Then
+\begin{equation}
+ |\mathcal L_{\mathcal A}(u,m)|
+ \le
+ \left\lfloor
+ \frac{d_s^{\underline s}}
+      {\prod_{j=1}^{s}(d_j-t+b)}
+ \right\rfloor .
+ \label{eq:rank-flat-list}
+\end{equation}
+Every factor in the denominator is positive.  More precisely,
+\begin{equation}
+                    d_j\ge R+j,
+ \qquad
+                    d_j-t+b\ge w+j+b.
+ \label{eq:rank-flat-singleton}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Choose a basis of \(C'\) and identify the affine flat with \(\F^s\).
+For each active coordinate \(x\in D\setminus G\), agreement with \(u\)
+is an affine hyperplane whose nonzero normal is the evaluation functional
+\(\ell_x\in(C')^*\).  Every listed point is incident with at least
+\[
+ h=m-g=d_s-t+b
+\]
+of these hyperplanes.
+
+Suppose that \(r\) independent incident normals have already been chosen
+and span \(W\le(C')^*\).  The coordinates whose normals lie in \(W\) are
+common zeros of the \((s-r)\)-dimensional subcode \(W^\perp\).  This
+subcode has support at least \(d_{s-r}\); after the common-zero set \(G\)
+is removed, at most
+\[
+ (n-d_{s-r})-z=d_s-d_{s-r}
+\]
+active normals lie in \(W\).  Hence there are at least
+\[
+ h-(d_s-d_{s-r})=d_{s-r}-t+b
+\]
+choices for the next independent incident normal.  Each listed point is
+therefore incident with at least
+\[
+ \prod_{j=1}^{s}(d_j-t+b)
+\]
+ordered bases of coordinate hyperplanes.  There are at most
+\(d_s^{\underline s}\) ordered coordinate bases globally, and an
+independent affine-hyperplane basis has at most one common point.  Double
+counting proves \eqref{eq:rank-flat-list}.
+
+Finally, if \(V\le C'\) has dimension \(j\) and common-zero set of size
+\(z_V\), division by its locator embeds the representing polynomial space
+into the polynomials of degree less than \(K-z_V\).  Thus
+\(j\le K-z_V\), so \(|\supp(V)|=n-z_V\ge n-K+j=R+j\).  This proves
+\eqref{eq:rank-flat-singleton} and positivity.
+\end{proof}
+
+\begin{corollary}[Over-budget rank-flat concentration]
+\label{cor:rank-flat-concentration}
+In \cref{thm:rank-flat-list}, let \(s\ge2\) and let \(B\) be a nonnegative
+integer.  Define
+\begin{equation}
+ \Theta_{s,B}(d_s,b)=
+ \max\left\{q\in\mathbb Z_{\ge0}:
+ q^{s-1}\le
+ \left\lfloor
+ \frac{d_s^{\underline s}}
+ {(B+1)(d_s-t+b)}
+ \right\rfloor
+ \right\}.
+ \label{eq:rank-flat-theta}
+\end{equation}
+If \(|\mathcal L_{\mathcal A}(u,m)|>B\), then some proper direction
+subcode has dimension \(1\le j<s\) and
+\begin{equation}
+                     d_j\le t-b+\Theta_{s,B}(d_s,b).
+ \label{eq:rank-flat-concentration}
+\end{equation}
+A row-independent coarse version is obtained by replacing
+\(d_s^{\underline s}\) by \(n^{\underline s}\) and
+\(d_s-t+b\) by \(w+s\).
+\end{corollary}
+
+\begin{proof}
+If the list contains at least \(B+1\) points, \eqref{eq:rank-flat-list}
+implies
+\[
+ \prod_{j=1}^{s-1}(d_j-t+b)
+ \le
+ \left\lfloor
+ \frac{d_s^{\underline s}}
+ {(B+1)(d_s-t+b)}
+ \right\rfloor .
+\]
+At least one of the \(s-1\) integer factors is at most the integer root in
+\eqref{eq:rank-flat-theta}, proving \eqref{eq:rank-flat-concentration}.
+The coarse form follows from \(d_s\le n\) and
+\eqref{eq:rank-flat-singleton}.
+\end{proof}
+
+\begin{theorem}[Common-zero Johnson list compiler]
+\label{thm:common-zero-johnson}
+In the notation of \cref{thm:rank-flat-list}, put
+\[
+ N=d_s,
+ \qquad h=m-g=d_s-t+b,
+ \qquad \alpha=d_s-d_1.
+\]
+If
+\begin{equation}
+                         h^2>N\alpha,
+ \label{eq:common-zero-johnson-condition}
+\end{equation}
+then
+\begin{equation}
+ |\mathcal L_{\mathcal A}(u,m)|
+ \le
+ \left\lfloor
+ \frac{N(h-\alpha)}{h^2-N\alpha}
+ \right\rfloor .
+ \label{eq:common-zero-johnson}
+\end{equation}
+Equivalently, write \(z=K-\nu\).  Then \(N=R+\nu\),
+\(h=w+\nu+b\), and the generalized Singleton bound gives the universal
+specialization
+\begin{equation}
+ |\mathcal L_{\mathcal A}(u,m)|
+ \le
+ \left\lfloor
+ \frac{(R+\nu)(w+b+1)}
+ {(w+\nu+b)^2-(R+\nu)(\nu-1)}
+ \right\rfloor
+ \label{eq:common-zero-nu}
+\end{equation}
+whenever the displayed denominator is positive.
+\end{theorem}
+
+\begin{proof}
+All codewords of the affine flat have the same values on \(G\).  Delete
+those coordinates and, for each listed codeword, choose an \(h\)-subset of
+its active agreement set.  If two distinct codewords are chosen, their
+difference is a nonzero word of \(C'\), has weight at least \(d_1\), and
+therefore vanishes on at most \(N-d_1=\alpha\) active coordinates.  The
+standard Johnson incidence count now gives
+\[
+ L(h^2-N\alpha)\le N(h-\alpha),
+\]
+which proves \eqref{eq:common-zero-johnson}.
+
+If \(z=K-\nu\), then \(N=n-z=R+\nu\) and
+\(h=m-(z-b)=w+\nu+b\).  By \eqref{eq:rank-flat-singleton},
+\(d_1\ge R+1\), so \(\alpha\le\nu-1\).  The Johnson fraction is
+nondecreasing in \(\alpha\) while its denominator is positive.  Replacing
+\(\alpha\) by \(\nu-1\) gives \eqref{eq:common-zero-nu}.
+\end{proof}
+
+\section{Coset-free codimension-one rank-flat recursion}
+\label{sec:codim-one-recursion}
+The rank-flat concentration theorem produces a low-support direction
+subcode, but a naive partition into its affine cosets introduces the field
+size.  The next theorem removes that loss when the support closure has
+codimension one.  It counts the whole affine chart at once by two disjoint
+resources: bases using an agreement in the new support layer, and bases
+whose final coordinate lies in the old support.
+
+\begin{theorem}[Two-resource codimension-one recursion]
+\label{thm:codim-one-recursion}
+Let
+\[
+ C=\RS[\F,D,K],\qquad n=|D|,\qquad m=K+w,\qquad t=n-m,
+\]
+and let \(\mathcal A=c_0+C'\subseteq C\) be an affine codeword flat with
+\(\dim C'=j+1\), where \(j\ge1\).  Let \(V<C'\) be a hyperplane, put
+\[
+ U=\supp(V),\qquad S=\supp(C'),\qquad
+ T=S\setminus U,\qquad H=D\setminus S,
+\]
+and assume \(e:=|T|\ge1\).  Write \(d=|U|\).  Then
+\begin{equation}
+ V=\{v\in C':\supp(v)\subseteq U\};
+ \label{eq:codim-one-saturation}
+\end{equation}
+in particular every word of \(C'\setminus V\) is nonzero at every
+coordinate of \(T\).
+
+Fix a received word \(u\in\F^D\).  Let \(b_0\) be the number of
+coordinates in \(H\) on which the common value of \(\mathcal A\)
+disagrees with \(u\).  For \(0\le b\le e\), let \(L_b\) count the
+members \(c\in\mathcal A\) satisfying
+\[
+ \operatorname{agr}(u,c)\ge m,
+ \qquad
+ |\{x\in T:c(x)\ne u(x)\}|=b.
+\]
+Let \(f_i=d_i(V)\), \(1\le i\le j\), be the generalized Hamming weights
+of \(V\), and put
+\begin{equation}
+ P_b=\prod_{i=1}^{j}(f_i-t+b_0+b),
+ \qquad Q=w+1+b_0.
+ \label{eq:codim-one-profile}
+\end{equation}
+Then every factor in \(P_b\) is positive and
+\begin{align}
+ \sum_{b=0}^{e}L_b(e-b)P_b
+ &\le e\,d^{\underline j},
+ \label{eq:codim-one-T-resource}\\
+ \sum_{b=0}^{e}L_b(Q-e+b)_+P_b
+ &\le d^{\underline{j+1}}.
+ \label{eq:codim-one-U-resource}
+\end{align}
+Moreover, with \(L=\sum_bL_b\),
+\begin{equation}
+ L\le
+ \left\lfloor
+ \frac{(n-j)d^{\underline j}}{QP_0}
+ \right\rfloor .
+ \label{eq:codim-one-all-extenders}
+\end{equation}
+More generally, if \(x,y\ge0\) satisfy
+\begin{equation}
+ x(e-b)P_b+y(Q-e+b)_+P_b\ge1
+ \qquad(0\le b\le e),
+ \label{eq:codim-one-dual-feasible}
+\end{equation}
+then
+\begin{equation}
+ L\le
+ \left\lfloor
+ xe\,d^{\underline j}+y\,d^{\underline{j+1}}
+ \right\rfloor .
+ \label{eq:codim-one-dual-bound}
+\end{equation}
+Thus the affine cosets of \(V\) are never summed separately.
+\end{theorem}
+
+\begin{proof}
+For \(x\in T\), every word of \(V\) vanishes at \(x\), whereas some word
+of \(C'\) is nonzero there.  Evaluation at \(x\) therefore induces a
+nonzero functional on the one-dimensional quotient \(C'/V\).  It is
+nonzero on every nonzero quotient class, proving
+\eqref{eq:codim-one-saturation}.
+
+Parameterize \(\mathcal A\) by the direction space \(C'\).  Agreement at
+a coordinate \(x\) is an affine hyperplane with normal
+\(\ell_x\in(C')^*\).  A listed point counted by \(L_b\) has at least
+\[
+ m-(|H|-b_0)-(e-b)=d-t+b_0+b
+\]
+agreements in \(U\).  Restrict the corresponding normals to \(V\).
+After \(r\) independent restricted normals have been selected, their span
+annihilates a \((j-r)\)-dimensional subcode of \(V\), whose support has
+size at least \(f_{j-r}\).  Hence at most \(d-f_{j-r}\) normals of
+\(U\) lie in the old span, and there are at least
+\[
+ f_{j-r}-t+b_0+b
+\]
+choices for the next independent normal.  Every listed point counted by
+\(L_b\) is therefore incident with at least \(P_b\) ordered
+\(V\)-normal bases.  The generalized Singleton inequalities
+\(f_i\ge n-K+i\) show at the same time that all factors in \(P_b\) are
+at least \(w+i+b_0+b\).
+
+The span in \((C')^*\) of a lifted \(V\)-normal basis meets the
+one-dimensional annihilator \(V^\perp\) trivially.  Every agreeing
+coordinate of \(T\) has a nonzero normal in \(V^\perp\), and therefore
+extends the basis.  A point in class \(b\) supplies at least
+\((e-b)P_b\) ordered bases of this type.  Globally there are at most
+\(e\,d^{\underline j}\) ordered choices, and an independent affine
+hyperplane basis cuts out at most one point.  This proves
+\eqref{eq:codim-one-T-resource}.
+
+Fix now one lifted \(V\)-normal basis and let \(h\in C'\setminus V\)
+generate its one-dimensional annihilator.  A coordinate normal extends
+the basis exactly when \(h\) is nonzero at that coordinate.  The
+nonzero Reed--Solomon word \(h\) has at most \(K-1\) zeros.  All
+coordinates of \(H\) are zeros of \(h\), and exactly \(|H|-b_0\) of
+them are agreements.  Thus among the at least \(m\) agreement coordinates
+of the listed point, at most \(K-1-b_0\) fail to extend the basis.  There
+are consequently at least
+\[
+ m-(K-1-b_0)=Q
+\]
+extending agreement coordinates.  All \(e-b\) agreeing coordinates of
+\(T\) already extend, so at least \((Q-e+b)_+\) extending agreements lie
+in \(U\).  Double-counting the resulting ordered \((j+1)\)-tuples inside
+\(U\) proves \eqref{eq:codim-one-U-resource}.
+
+The same argument without separating \(U\) from \(T\) gives at least
+\(QP_b\ge QP_0\) full bases through every listed point.  There are at
+most \((n-j)d^{\underline j}\) ordered choices of a \(V\)-basis and one
+additional coordinate, proving \eqref{eq:codim-one-all-extenders}.
+Finally multiply \eqref{eq:codim-one-T-resource} by \(x\), multiply
+\eqref{eq:codim-one-U-resource} by \(y\), and use
+\eqref{eq:codim-one-dual-feasible}; this gives
+\eqref{eq:codim-one-dual-bound}.
+\end{proof}
+
+\begin{lemma}[Profile interpolation]
+\label{lem:codim-one-profile-interpolation}
+Let
+\[
+ P(z)=\prod_{i=1}^{j}(a_i+z),\qquad a_i>0,
+\]
+and let \(e,Q>0\).  For every integer \(0\le b\le e\),
+\begin{equation}
+ \frac{(e-b)P(b)}{eP(0)}+
+ \frac{(Q-e+b)_+P(b)}{QP(e)}\ge1
+ \label{eq:profile-interpolation}
+\end{equation}
+under either of the following conditions:
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item \(e\le Q\);
+\item \(e>Q\) and
+\begin{equation}
+ \left(\frac{P(e)}{P(0)}\right)^{1-Q/e}\ge\frac eQ.
+ \label{eq:profile-ratio-condition}
+\end{equation}
+\end{enumerate}
+If \(j\ge2\), \(A=\max_i a_i\), and \((j-1)Q\ge A\), then
+\eqref{eq:profile-ratio-condition} holds for every \(e\ge Q\).
+\end{lemma}
+
+\begin{proof}
+Put \(r=P(e)/P(0)\ge1\).  Since \(\log P\) is concave, with
+\(\theta=b/e\) one has
+\[
+ \frac{P(b)}{P(0)}\ge r^\theta,
+ \qquad
+ \frac{P(b)}{P(e)}\ge r^{-(1-\theta)}.
+\]
+If \(e\le Q\), then \((Q-e+b)/Q\ge\theta\), and weighted AM--GM gives
+\[
+ (1-\theta)r^\theta+\theta r^{-(1-\theta)}\ge1.
+\]
+This proves \eqref{eq:profile-interpolation} in case \textup{(a)}.
+
+Assume \(e>Q\), put \(c=Q/e\), and first take
+\(0\le\theta\le1-c\).  The second summand in
+\eqref{eq:profile-interpolation} vanishes, while concavity gives the lower
+bound \((1-\theta)r^\theta\).  The logarithm of this expression is
+concave in \(\theta\); it is zero at \(0\), and at \(1-c\) it is
+nonnegative exactly when \eqref{eq:profile-ratio-condition} holds.
+
+For \(1-c\le\theta\le1\), write \(\alpha=1-\theta\in[0,c]\).  After
+multiplication by \(r^\alpha\), the lower bound supplied by log-concavity
+is
+\[
+ \alpha r+1-\frac\alpha c.
+\]
+Convexity of \(r^\alpha\) on \([0,c]\) gives
+\[
+ r^\alpha\le1+\frac\alpha c(r^c-1).
+\]
+The former expression dominates the latter precisely when
+\(cr\ge r^c\), which is again
+\eqref{eq:profile-ratio-condition}.  This proves case \textup{(b)}.
+
+Finally, if \(A=\max_i a_i\), then
+\[
+ r\ge(1+e/A)^j.
+\]
+For \(e\ge Q\), set
+\[
+ \phi(e)=j(1-Q/e)\log(1+e/A)-\log(e/Q).
+\]
+One has \(\phi(Q)=0\), and the elementary inequality
+\(\log(1+x)\ge x/(1+x)\) gives
+\[
+ \phi'(e)\ge \frac{j}{A+e}-\frac1e
+ =\frac{(j-1)e-A}{e(A+e)}\ge0.
+\]
+Thus \(\phi(e)\ge0\), which is
+\eqref{eq:profile-ratio-condition}.
+\end{proof}
+
+\begin{corollary}[MDS-soft codimension-one compiler]
+\label{cor:codim-one-mds-soft}
+Retain the hypotheses of \cref{thm:codim-one-recursion}, and put
+\begin{equation}
+ \Pi_b=(d-t+b_0+b)
+ \prod_{i=1}^{j-1}(w+i+b_0+b).
+ \label{eq:codim-one-mds-profile}
+\end{equation}
+Suppose the profile interpolation inequality
+\eqref{eq:profile-interpolation} holds for \(P=\Pi\), with
+\(Q=w+1+b_0\).  Then
+\begin{equation}
+ L\le
+ \left\lfloor
+ \frac{d^{\underline j}}{\Pi_0}+
+ \frac{d^{\underline{j+1}}}{Q\Pi_e}
+ \right\rfloor .
+ \label{eq:codim-one-closed}
+\end{equation}
+Independently of profile interpolation,
+\begin{equation}
+ L\le
+ \left\lfloor
+ \frac{(n-j)d^{\underline j}}{Q\Pi_0}
+ \right\rfloor .
+ \label{eq:codim-one-all-extenders-mds}
+\end{equation}
+In particular, \eqref{eq:codim-one-closed} is a bound for the whole affine
+chart, not a per-coset estimate.
+\end{corollary}
+
+\begin{proof}
+The generalized Singleton inequalities give \(f_i\ge n-K+i\) for
+\(i<j\), while \(f_j=d\).  Hence \(P_b\ge\Pi_b\).  The two resource
+inequalities of \cref{thm:codim-one-recursion} remain true after replacing
+\(P_b\) by \(\Pi_b\).  Under profile interpolation, the choices
+\[
+ x=\frac1{e\Pi_0},\qquad y=\frac1{Q\Pi_e}
+\]
+are feasible in \eqref{eq:codim-one-dual-feasible}, and
+\eqref{eq:codim-one-dual-bound} gives
+\eqref{eq:codim-one-closed}.  The all-extender estimate follows directly
+from \eqref{eq:codim-one-all-extenders}.
+\end{proof}
+
+
+
+\section{Higher-codimension support-flag recursion}
+\label{sec:support-flag-recursion}
+The codimension-one theorem removes the field-size loss for a single
+support-saturated hyperplane.  The same principle extends to arbitrary
+codimension, but one must keep all possible choices of ``new-layer'' and
+``old-support'' extenders.  The resulting object is a finite exact linear
+program with one resource inequality for each binary flag pattern.  In
+particular, no affine coset is ever counted separately.
+
+\begin{definition}[Support saturation]
+\label{def:support-saturation}
+If $V\le W\le C$, the \emph{support closure of $V$ in $W$} is
+\[
+ \overline V^{\,W}
+ =\{c\in W:\supp(c)\subseteq\supp(V)\}.
+\]
+We call $V$ \emph{support-saturated in $W$} when
+$\overline V^{\,W}=V$.
+\end{definition}
+
+\begin{lemma}[Generalized-weight minimizers are support-saturated]
+\label{lem:weight-minimizer-saturated}
+Let $W$ be a finite-length linear code, and let $V\le W$ have dimension
+$j$ and support size $d_j(W)$.  Then $V$ is support-saturated in $W$.
+More generally, the generalized Hamming weights satisfy
+\[
+ d_1(W)<d_2(W)<\cdots<d_{\dim W}(W).
+\]
+\end{lemma}
+
+\begin{proof}
+Let $Y\le W$ have dimension $i+1$ and support size $d_{i+1}(W)$.
+Choose a coordinate on which some word of $Y$ is nonzero.  The kernel of
+evaluation at that coordinate is an $i$-dimensional subcode whose support
+omits that coordinate, so
+\[
+ d_i(W)\le d_{i+1}(W)-1.
+\]
+This proves strict increase.  If the support closure of a
+$j$-dimensional minimizer $V$ had dimension $k>j$, then
+\[
+ d_k(W)\le|\supp(V)|=d_j(W),
+\]
+contradicting strict increase.
+\end{proof}
+
+\begin{lemma}[Existence of a support-saturated flag]
+\label{lem:support-saturated-flag}
+Let $V$ be support-saturated in $W$ and put
+$r=\dim W-\dim V$.  There is a flag
+\[
+ V=V_0<V_1<\cdots<V_r=W,
+ \qquad \dim V_\ell=\dim V+\ell,
+\]
+such that $V_{\ell-1}$ is support-saturated in $V_\ell$ for every
+$1\le\ell\le r$.  Consequently, with
+\[
+ U_\ell=\supp(V_\ell),\qquad
+ T_\ell=U_\ell\setminus U_{\ell-1},
+\]
+every layer $T_\ell$ is nonempty.
+\end{lemma}
+
+\begin{proof}
+Construct the flag downward.  Suppose $V<X\le W$.  Since $V$ is
+support-saturated in $W$, some word of $X\setminus V$ is nonzero at a
+coordinate $x\notin\supp(V)$.  Put
+\[
+ X'=\{c\in X:c(x)=0\}.
+\]
+Then $V\le X'$, $X'$ is a hyperplane of $X$, and $x\notin\supp(X')$.
+If $c\in X$ has support contained in $\supp(X')$, then $c(x)=0$, hence
+$c\in X'$.  Thus $X'$ is support-saturated in $X$.  Repeating until the
+dimension reaches $\dim V$ gives the claimed flag; the terminal subspace
+contains $V$ and has the same dimension, so it is $V$.  A proper
+support-saturated inclusion cannot have equal supports, proving
+$T_\ell\ne\varnothing$.
+\end{proof}
+
+\begin{theorem}[Exact support-flag resource recursion]
+\label{thm:support-flag-recursion}
+Let
+\[
+ C=\RS[\F,D,K],\qquad n=|D|,\qquad m=K+w,\qquad t=n-m,
+\]
+and let $\mathcal A=c_0+C'\subseteq C$ be an affine codeword flat.
+Assume that
+\[
+ V_0<V_1<\cdots<V_r=C'
+\]
+is a support-saturated flag with
+\[
+ \dim V_0=j\ge1,
+ \qquad \dim V_\ell=j+\ell.
+\]
+Put
+\[
+ U_\ell=\supp(V_\ell),\quad d_\ell=|U_\ell|,
+ \quad T_\ell=U_\ell\setminus U_{\ell-1},
+ \quad e_\ell=|T_\ell|,
+\]
+and $H=D\setminus U_r$.  Fix a received word $u\in\F^D$, and let
+$b_0$ be the number of coordinates of $H$ on which the common value of
+$\mathcal A$ disagrees with $u$.
+
+For a profile
+$\mathbf b=(b_1,\ldots,b_r)$ with $0\le b_\ell\le e_\ell$, let
+$L_{\mathbf b}$ count the words $c\in\mathcal A$ satisfying
+\[
+ \operatorname{agr}(u,c)\ge m,
+ \qquad
+ |\{x\in T_\ell:c(x)\ne u(x)\}|=b_\ell
+ \quad(1\le\ell\le r).
+\]
+Let $f_i=d_i(V_0)$, $1\le i\le j$, and define
+\begin{align}
+ P_{\mathbf b}
+ &=\prod_{i=1}^{j}
+   \left(f_i-t+b_0+\sum_{q=1}^{r}b_q\right),
+ \label{eq:flag-profile-P}\\
+ Q_\ell(\mathbf b)
+ &=w+1+b_0+\sum_{q>\ell}b_q,
+ \label{eq:flag-profile-Q}\\
+ A_\ell(\mathbf b)&=e_\ell-b_\ell,
+ \qquad
+ B_\ell(\mathbf b)
+ =\bigl(Q_\ell(\mathbf b)-e_\ell+b_\ell\bigr)_+.
+ \label{eq:flag-profile-AB}
+\end{align}
+For a binary pattern $\sigma\in\{T,U\}^r$, put
+\begin{align}
+ C_\sigma(\mathbf b)
+ &=P_{\mathbf b}
+   \prod_{\ell:\sigma_\ell=T}A_\ell(\mathbf b)
+   \prod_{\ell:\sigma_\ell=U}B_\ell(\mathbf b),
+ \label{eq:flag-profile-resource}\\
+ G_\sigma
+ &=d_0^{\underline j}
+   \prod_{\ell:\sigma_\ell=T}e_\ell
+   \prod_{\ell:\sigma_\ell=U}
+   \bigl(d_{\ell-1}-(j+\ell-1)\bigr).
+ \label{eq:flag-global-resource}
+\end{align}
+Then every factor in $P_{\mathbf b}$ is positive and, for every
+$\sigma\in\{T,U\}^r$,
+\begin{equation}
+ \boxed{
+ \sum_{\mathbf b}L_{\mathbf b}C_\sigma(\mathbf b)
+ \le G_\sigma.}
+ \label{eq:flag-resource-inequality}
+\end{equation}
+Consequently, if nonnegative weights $x_\sigma$ satisfy
+\begin{equation}
+ \sum_{\sigma\in\{T,U\}^r}
+ x_\sigma C_\sigma(\mathbf b)\ge1
+ \qquad
+ \text{for every profile }\mathbf b,
+ \label{eq:flag-dual-feasible}
+\end{equation}
+then, with $L=\sum_{\mathbf b}L_{\mathbf b}$,
+\begin{equation}
+ \boxed{
+ L\le
+ \left\lfloor
+ \sum_{\sigma\in\{T,U\}^r}x_\sigma G_\sigma
+ \right\rfloor.}
+ \label{eq:flag-dual-bound}
+\end{equation}
+The bound is for the whole affine chart and contains no factor depending
+on $|\F|$ or on the number of affine cosets of $V_0$.
+\end{theorem}
+
+\begin{proof}
+Parameterize $\mathcal A$ by $C'$.  Agreement at a coordinate $x$ is an
+affine hyperplane with normal $\ell_x\in(C')^*$.  A point of profile
+$\mathbf b$ has at least
+\[
+ d_0-t+b_0+\sum_{q=1}^{r}b_q
+\]
+agreements in $U_0$.  Applying the ordered-basis argument of
+\cref{thm:rank-flat-list} inside $V_0$ shows that it is incident with at
+least $P_{\mathbf b}$ ordered coordinate bases whose restrictions form a
+basis of $V_0^*$.
+
+Suppose an adapted basis has already been chosen through level
+$V_{\ell-1}$.  Its annihilator in $V_\ell$ is one-dimensional; let
+$h_\ell\in V_\ell\setminus V_{\ell-1}$ generate it.  At a coordinate
+of $T_\ell$, evaluation vanishes on $V_{\ell-1}$ but not on $V_\ell$;
+on the one-dimensional quotient $V_\ell/V_{\ell-1}$ it is therefore a
+nonzero functional.  Hence $h_\ell$ is nonzero at every coordinate of
+$T_\ell$.
+Moreover, $h_\ell$ vanishes outside $U_\ell$.  The number of mismatches
+outside $U_\ell$ is
+\[
+ b_0+\sum_{q>\ell}b_q.
+\]
+Since a nonzero degree-$<K$ word has at most $K-1$ zeros, at most
+$K-1-b_0-\sum_{q>\ell}b_q$ agreement coordinates fail to extend the
+current basis.  Hence there are at least
+$Q_\ell(\mathbf b)$ extending agreement coordinates in total.  The
+$A_\ell(\mathbf b)$ agreeing coordinates of $T_\ell$ all extend, so at
+least $B_\ell(\mathbf b)$ extending agreement coordinates lie in
+$U_{\ell-1}$.
+
+Fix a pattern $\sigma$.  Multiplying the preceding lower bounds over the
+flag levels gives at least $C_\sigma(\mathbf b)$ adapted ordered bases
+of pattern $\sigma$ through every point of profile $\mathbf b$.  Globally,
+the initial ordered basis has at most $d_0^{\underline j}$ choices.  At a
+$T$-level there are at most $e_\ell$ coordinate choices.  At a $U$-level,
+all $j+\ell-1$ previously selected coordinates lie in $U_{\ell-1}$, and
+an extending normal cannot repeat one of them; there are therefore at
+most $d_{\ell-1}-(j+\ell-1)$ choices.  An independent affine-hyperplane
+basis cuts out at most one parameter point.  Double counting proves
+\eqref{eq:flag-resource-inequality}.  Multiplying those inequalities by
+$x_\sigma$, summing over $\sigma$, and using
+\eqref{eq:flag-dual-feasible} proves \eqref{eq:flag-dual-bound}.
+Positivity follows from $f_i\ge n-K+i$.
+\end{proof}
+
+\begin{corollary}[All-extender flag bound]
+\label{cor:flag-all-extender}
+In the notation of \cref{thm:support-flag-recursion}, put
+\[
+ P_0=\prod_{i=1}^{j}(f_i-t+b_0),
+ \qquad Q=w+1+b_0.
+\]
+Then
+\begin{equation}
+ \boxed{
+ L\le
+ \left\lfloor
+ \frac{d_0^{\underline j}
+       \prod_{\ell=1}^{r}
+       \bigl(d_\ell-(j+\ell-1)\bigr)}
+      {P_0Q^r}
+ \right\rfloor.}
+ \label{eq:flag-all-extender}
+\end{equation}
+In particular, the numerator may be replaced by
+$d_0^{\underline j}(n-j)^{\underline r}$.
+\end{corollary}
+
+\begin{proof}
+Every point has at least $P_0$ initial bases.  At level $\ell$ it has at
+least $Q_\ell(\mathbf b)\ge Q$ extending agreement coordinates, without
+separating the two resources.  The global number of adapted extensions at
+that level is at most $d_\ell-(j+\ell-1)$.  Multiplication and double
+counting give the first bound.  Since $d_\ell\le n$, each factor is at most
+$n-j-\ell+1$, giving the second statement.
+\end{proof}
+
+\begin{lemma}[One-level interpolation defect]
+\label{lem:flag-interpolation-defect}
+For $e,Q>0$ and $\rho\ge1$, define
+\begin{equation}
+ \eta(e,Q,\rho)=
+ \begin{cases}
+ 1,&e\le Q,\\
+ \displaystyle
+ \min\left\{1,\frac Qe\rho^{1-Q/e}\right\},&e>Q.
+ \end{cases}
+ \label{eq:flag-eta}
+\end{equation}
+Then, for every real $0\le b\le e$,
+\begin{equation}
+ \rho^{b/e}
+ \left(
+  \frac{e-b}{e}
+  +\frac{(Q-e+b)_+}{Q\rho}
+ \right)
+ \ge\eta(e,Q,\rho).
+ \label{eq:flag-one-level-interpolation}
+\end{equation}
+Thus the right side is $1$ precisely in the profile-interpolation range
+used in \cref{lem:codim-one-profile-interpolation}.
+\end{lemma}
+
+\begin{proof}
+If $e\le Q$, the proof is the weighted AM--GM argument of
+\cref{lem:codim-one-profile-interpolation}.  Suppose $e>Q$, put
+$c=Q/e$ and $\theta=b/e$.  On $0\le\theta\le1-c$, the logarithm of the
+left side is
+$\log(1-\theta)+\theta\log\rho$, a concave function, so its minimum is
+at an endpoint and equals at least
+$\min\{1,c\rho^{1-c}\}$.  On $1-c\le\theta\le1$, put
+$\alpha=1-\theta\in[0,c]$.  The left side becomes
+\[
+ \rho^{-\alpha}\left(\alpha\rho+1-\frac\alpha c\right).
+\]
+Its logarithm is a linear function plus the logarithm of a positive
+affine function, hence is concave.  Its endpoint values are again
+$1$ and $c\rho^{1-c}$.  This proves the claim.
+\end{proof}
+
+\begin{corollary}[Tensorized support-flag certificate]
+\label{cor:flag-tensor-certificate}
+Retain the notation of \cref{thm:support-flag-recursion}.  Put
+\[
+ E=\sum_{\ell=1}^{r}e_\ell,
+ \qquad
+ P(z)=\prod_{i=1}^{j}(f_i-t+b_0+z),
+ \qquad
+ \rho=\frac{P(E)}{P(0)},
+\]
+and define
+\[
+ \rho_\ell=\rho^{e_\ell/E},
+ \qquad
+ \eta_\ell=\eta(e_\ell,Q,\rho_\ell),
+ \qquad Q=w+1+b_0.
+\]
+Then
+\begin{equation}
+ \boxed{
+ L\le
+ \left\lfloor
+ \frac{d_0^{\underline j}}
+      {P(0)\prod_{\ell=1}^{r}\eta_\ell}
+ \prod_{\ell=1}^{r}
+ \left(
+ 1+\frac{d_{\ell-1}-(j+\ell-1)}{Q\rho_\ell}
+ \right)
+ \right\rfloor.}
+ \label{eq:flag-tensor-bound}
+\end{equation}
+If every $\eta_\ell=1$, this is a closed higher-codimension analogue of
+\eqref{eq:codim-one-closed}.  For $r=1$ it specializes to the
+codimension-one two-resource certificate, with the explicit defect factor
+when profile interpolation fails.
+\end{corollary}
+
+\begin{proof}
+Let $B=\sum b_\ell$.  Concavity of $\log P$ on $[0,E]$ gives
+\[
+ \frac{P(B)}{P(0)}
+ \ge\rho^{B/E}
+ =\prod_{\ell=1}^{r}\rho_\ell^{b_\ell/e_\ell}.
+\]
+Also $Q_\ell(\mathbf b)\ge Q$, so
+$B_\ell(\mathbf b)\ge(Q-e_\ell+b_\ell)_+$.  By
+\cref{lem:flag-interpolation-defect},
+\[
+ \frac{P_{\mathbf b}}{P(0)}
+ \prod_{\ell=1}^{r}
+ \left(
+  \frac{A_\ell(\mathbf b)}{e_\ell}
+  +\frac{B_\ell(\mathbf b)}{Q\rho_\ell}
+ \right)
+ \ge\prod_{\ell=1}^{r}\eta_\ell.
+\]
+Use the tensor-product dual weights
+\[
+ x_\sigma=
+ \frac1{P(0)\prod_\ell\eta_\ell}
+ \prod_{\ell:\sigma_\ell=T}\frac1{e_\ell}
+ \prod_{\ell:\sigma_\ell=U}\frac1{Q\rho_\ell}.
+\]
+They satisfy \eqref{eq:flag-dual-feasible}; substituting them into
+\eqref{eq:flag-dual-bound} and factoring the sum over binary patterns
+gives \eqref{eq:flag-tensor-bound}.
+\end{proof}
+
+\begin{remark}[What the flag theorem closes]
+\label{rem:flag-theorem-scope}
+The uncontrolled field-size coset sum is now removed in every codimension.
+For a concrete finite chart, \eqref{eq:flag-resource-inequality} is an
+exact rational linear-program certificate, while
+\eqref{eq:flag-tensor-bound} is a closed analytic certificate.  What can
+still fail is numerical payment: a low-mismatch flag with several short
+layers may have a certified bound above the row budget.  Such a flag is a
+specific finite residual atom, not an unproved multiplicity principle.
+\end{remark}
+
+
+
+\begin{theorem}[Affine-span transverse MCA compiler]
+\label{thm:affine-span-mca}
+Let \(C=\RS[\F,D,K]\) have length \(n\), let
+\(r_\gamma=r_0+\gamma r_1\), and put \(m=K+w\).  Let
+\(\mathcal A=c_0+C'\subseteq C\) be an affine codeword subspace with
+\(\dim C'=s\ge1\).  Suppose the line direction is separated from the
+agreement ball,
+\begin{equation}
+ \max_{c\in C}\operatorname{agr}(r_1,c)<m.
+ \label{eq:direction-list-separated}
+\end{equation}
+Let \(Z\subseteq\F\) be a set of distinct slopes such that for every
+\(\gamma\in Z\) some \(c_\gamma\in\mathcal A\) satisfies
+\(\operatorname{agr}(r_\gamma,c_\gamma)\ge m\).  Then
+\begin{equation}
+ |Z|\le
+ \left\lfloor
+ \max\left\{
+ \frac{n^{\underline{s+1}}}
+      {m\,w^{\overline s}},
+ \frac{(n-K+s)^{\underline{s+1}}}
+      {w^{\overline{s+1}}}
+ \right\}
+ \right\rfloor .
+ \label{eq:affine-span-mca}
+\end{equation}
+The second term is
+\(\binom{n-K+s}{s+1}/\binom{w+s}{s+1}\).  Failure of
+\eqref{eq:direction-list-separated} is an explicit direction-list cell:
+the direction word itself agrees with a codeword on at least \(m\)
+coordinates.
+\end{theorem}
+
+\begin{proof}
+Choose a basis \(c_1,\ldots,c_s\) of \(C'\), write
+\(c_\gamma=c_0+\sum_i\lambda_{\gamma,i}c_i\), and associate the parameter
+point
+\(p_\gamma=(\gamma,\lambda_{\gamma,1},\ldots,\lambda_{\gamma,s})\in
+\F^{s+1}\).  Agreement at coordinate \(x\) is an affine hyperplane with
+normal
+\[
+ v_x=(r_1(x),-c_1(x),\ldots,-c_s(x)).
+\]
+Let \(z\) be the number of zero normals and let \(g\le z\) of them agree
+identically.  Since every \(c_i\) vanishes at those \(z\) coordinates,
+the polynomial-space argument of \cref{thm:affine-span-list} gives
+\(z\le K-s\).
+
+The normals incident with any \(p_\gamma\) span \(\F^{s+1}\).  Otherwise
+a nonzero relation \((\delta,\mu)\) gives a word
+\(\delta r_1-\sum_i\mu_i c_i\) vanishing on at least \(m\) agreement
+coordinates.  If \(\delta=0\), a nonzero degree-\(<K\) codeword has more
+than \(K-1\) roots.  If \(\delta\ne0\), the direction word agrees with a
+codeword on at least \(m\) coordinates, contradicting
+\eqref{eq:direction-list-separated}.
+
+If \(W\le\F^{s+1}\) has dimension \(r\), with \(1\le r\le s\), then the
+coordinates with \(v_x\in W\) are common zeros of the
+\((s+1-r)\)-dimensional space indexed by \(W^\perp\).  If the slope
+coordinate vanishes on that whole space, these are common zeros of
+\((s+1-r)\) independent codewords and number at most
+\(K-s-1+r\).  Otherwise the kernel of the slope coordinate supplies
+\(s-r\) independent codewords, giving the uniform bound
+\(K-s+r\).  Put \(c=z-g\).  After \(r\) independent incident normals
+have been chosen, at least
+\[
+ (m-g)-(K-s+r-z)=w+s-r+c
+\]
+further incident normals lie outside their span.  Therefore each slope
+point is incident with at least
+\[
+ (m-g)\prod_{r=1}^{s}(w+s-r+c)
+\]
+ordered bases.
+Counting ordered independent coordinate tuples gives
+\[
+ |Z|\le
+ \frac{(n-g-c)^{\underline{s+1}}}
+ {(m-g)(w+c)^{\overline s}},
+ \qquad g,c\ge0,\quad g+c\le K-s.
+\]
+For fixed \(c\), the successive ratio in \(g\) has the sign of
+\(n-c-(s+1)m+sg\), so again there is no interior maximum.  Both endpoint
+families decrease with \(c\).  The endpoints \((g,c)=(0,0)\) and
+\((K-s,0)\) give the two terms of \eqref{eq:affine-span-mca}.
+\end{proof}
+
+\begin{theorem}[Directional Johnson ray compiler]
+\label{thm:directional-johnson-ray}
+Retain the hypotheses and notation of \cref{thm:fixed-union-ray}, but allow
+\(\nu\ge0\).  Choose a lift \(b_1\in\F^U\) of \(y_1\), put
+\(C_U=\ker H_U\), and define the lift-invariant directional agreement
+\begin{equation}
+ \alpha_U(y_1)=
+ \max_{c\in C_U}|\{x\in U:b_1(x)+c(x)=0\}|.
+ \label{eq:directional-agreement}
+\end{equation}
+If \(h=N-t\) and
+\begin{equation}
+ h^2>N\alpha_U(y_1),                                \label{eq:directional-johnson-condition}
+\end{equation}
+then
+\begin{equation}
+ |Z|\le
+ \left\lfloor
+ \frac{N(h-\alpha_U(y_1))}
+ {h^2-N\alpha_U(y_1)}
+ \right\rfloor .                                  \label{eq:directional-johnson-ray}
+\end{equation}
+Moreover, with
+\[
+ d_U(y_1)=\min\{\wt(e):e\in\F^U,\ H_Ue=y_1\},
+\]
+one has
+\begin{equation}
+ \alpha_U(y_1)=N-d_U(y_1)\ge\nu.                  \label{eq:direction-distance}
+\end{equation}
+Equality holds exactly when the direction syndrome has no representation
+on fewer than \(R\) columns of \(U\).
+\end{theorem}
+
+\begin{proof}
+Changing the lift \(b_1\) by a kernel word merely permutes the maximization
+in \eqref{eq:directional-agreement}, so \(\alpha_U(y_1)\) is intrinsic.
+Choose a lift \(b_0\) of \(y_0\).  For every slope write
+\[
+ e_\gamma=b_0+\gamma b_1+k_\gamma,
+ \qquad k_\gamma\in C_U,
+\]
+and choose an \(h\)-set \(A_\gamma\) of zero coordinates of
+\(e_\gamma\).  On \(A_\gamma\), the codeword \(-k_\gamma\) agrees with
+\(b_0+\gamma b_1\).  If \(\gamma\ne\delta\), then on
+\(A_\gamma\cap A_\delta\),
+\[
+ b_1=\frac{-k_\gamma+k_\delta}{\gamma-\delta},
+\]
+which is a codeword of \(C_U\).  Hence
+\(|A_\gamma\cap A_\delta|\le\alpha_U(y_1)\).  The same Johnson
+incidence count as in \cref{thm:fixed-union-list-johnson}, with
+\(\alpha_U(y_1)\) in place of \(\nu-1\), gives
+\eqref{eq:directional-johnson-ray}.
+
+Finally, the words \(b_1+c\), \(c\in C_U\), are exactly all lifts of
+\(y_1\) supported in \(U\).  Maximizing their number of zero coordinates
+is therefore equivalent to minimizing their weight, proving the equality
+in \eqref{eq:direction-distance}.  Any \(R\) columns of \(H_U\) span
+syndrome space, so \(d_U(y_1)\le R\) and \(\alpha_U(y_1)\ge N-R=\nu\).
+The equality criterion is immediate.
+\end{proof}
+
+\begin{corollary}[Rank-regular fixed-union ray bound]
+\label{cor:rank-regular-fixed-union-ray}
+In \cref{thm:directional-johnson-ray}, suppose the direction syndrome is
+rank-regular on \(U\), meaning \(d_U(y_1)=R\).  If
+\((R+\nu-t)^2>(R+\nu)\nu\), then
+\begin{equation}
+ |Z|\le
+ \left\lfloor
+ \frac{(R+\nu)(R-t)}
+ {(R+\nu-t)^2-(R+\nu)\nu}
+ \right\rfloor .                                  \label{eq:rank-regular-fixed-union-ray}
+\end{equation}
+Thus every failure of this stronger low-nullity payment is either a
+high-nullity chart or an explicit direction-rank-defect cell
+\(d_U(y_1)<R\).
+\end{corollary}
+
+\begin{proof}
+By \eqref{eq:direction-distance}, rank regularity is exactly
+\(\alpha_U(y_1)=\nu\).  Substitute this value into
+\eqref{eq:directional-johnson-ray}.
+\end{proof}
+
+\begin{corollary}[Quantitative direction-rank-defect payment]
+\label{cor:quantitative-direction-defect}
+Retain the notation of \cref{thm:directional-johnson-ray}, and write
+\[
+ d=R-t,\qquad
+ j=R-d_U(y_1),\qquad
+ N=R+\nu,\qquad
+ D_0=(d+\nu)^2-N\nu.
+\]
+Thus \(j\ge0\) measures the direction-rank defect and
+\(\alpha_U(y_1)=\nu+j\).  Whenever \(D_0-Nj>0\),
+\begin{equation}
+ |Z|\le
+ \left\lfloor\frac{N(d-j)}{D_0-Nj}\right\rfloor .
+ \label{eq:direction-defect-ray}
+\end{equation}
+For an integer budget \(B>1\), define
+\begin{equation}
+ J_B(\nu)=\min\left\{
+ d-1,
+ \left\lfloor\frac{D_0-1}{N}\right\rfloor,
+ \left\lfloor\frac{BD_0-Nd}{N(B-1)}\right\rfloor
+ \right\}.
+ \label{eq:direction-defect-threshold}
+\end{equation}
+If \(0\le j\le J_B(\nu)\), then the whole fixed-union ray chart costs at
+most \(B\) slopes.  Hence the residual direction cell at a fixed nullity
+can be stated quantitatively as \(j>J_B(\nu)\), rather than merely as
+\(j>0\).
+\end{corollary}
+
+\begin{proof}
+By \eqref{eq:direction-distance},
+\(\alpha_U(y_1)=N-d_U(y_1)=\nu+j\).  Substitution into
+\eqref{eq:directional-johnson-ray} gives
+\eqref{eq:direction-defect-ray}.  The second term in
+\eqref{eq:direction-defect-threshold} makes its denominator positive,
+and the first makes its numerator positive.  The final term is exactly the
+rearrangement
+\[
+ N(d-j)\le B(D_0-Nj).
+\]
+Thus the real fraction in \eqref{eq:direction-defect-ray} is at most
+\(B\), and so is its floor.
+\end{proof}
+
+
+\begin{theorem}[Paving-basis direction-defect ray compiler]
+\label{thm:paving-ray}
+Retain the fixed-union MCA notation of
+\cref{thm:fixed-union-ray,thm:directional-johnson-ray}.  Write
+\[
+ N=R+\nu,
+ \qquad h=N-t,
+ \qquad d=R-t,
+ \qquad j=R-d_U(y_1).
+\]
+Assume \(0\le j<d\), equivalently that the direction word is outside the
+agreement ball on this chart.  Then
+\begin{equation}
+ |Z|\le
+ \left\lfloor
+ \frac{(\nu+1)\binom{R+\nu}{\nu+1}}
+ {(R-t-j)\binom{R+\nu-t}{\nu}}
+ \right\rfloor .
+ \label{eq:paving-ray}
+\end{equation}
+This estimate is independent of the Johnson denominator and is strongest
+for small nullity, including large direction defect.
+\end{theorem}
+
+\begin{proof}
+Choose a minimum-weight lift \(q\in\F^U\) of the direction syndrome, so
+\(\wt(q)=R-j\), and choose a basis \(k_1,\ldots,k_\nu\) of the MDS kernel
+\(C_U=\ker H_U\).  In the parameter space with coordinates
+\((\gamma,\lambda_1,\ldots,\lambda_\nu)\), agreement at coordinate \(x\)
+has normal
+\[
+                       v_x=(q_x,k_1(x),\ldots,k_\nu(x)).
+\]
+Every set of at most \(\nu\) such normals is independent, because its
+projection to the last \(\nu\) coordinates is a set of columns of a
+generator matrix of the \([R+\nu,\nu,R+1]\) MDS code \(C_U\).
+
+Every rank-\(\nu\) flat of these normals contains at most \(\nu+j\)
+coordinates.  Indeed, such a flat is annihilated by a nonzero functional
+\((\delta,a)\).  If \(\delta\ne0\), the vanishing coordinates are zeros of
+a lift \(\delta q+c\) of \(\delta y_1\), which has weight at least
+\(R-j\).  If \(\delta=0\), they are zeros of a nonzero MDS kernel word and
+number at most \(\nu-1\).
+
+Fix a slope point and choose \(h\) incident coordinate hyperplanes.  Put
+\(r=\nu+1\) and \(\alpha=\nu+j\).  Every \((r-1)\)-subset of their normals
+is independent.  A dependent \(r\)-subset is counted by each of its \(r\)
+subsets of size \(r-1\), while the closure of any such subset contains at
+most \(\alpha\) coordinate normals.  Hence the number of independent
+\(r\)-subsets among the \(h\) incident normals is at least
+\[
+ \binom hr-\frac{\alpha-r+1}{r}\binom h{r-1}
+ =\frac{h-\alpha}{r}\binom h{r-1}
+ =\frac{d-j}{\nu+1}\binom{R+\nu-t}{\nu}.
+\]
+Globally there are at most \(\binom{R+\nu}{\nu+1}\) independent coordinate
+bases, and each basis cuts out at most one parameter point.  Double
+counting proves \eqref{eq:paving-ray}.
+\end{proof}
+
+\begin{corollary}[Exact paving defect threshold]
+\label{cor:paving-threshold}
+For an integer budget \(B\ge0\), define
+\begin{equation}
+ J_B^{\rm pav}(\nu)=
+ \max\left\{-1,
+ d-1-
+ \left\lfloor
+ \frac{(\nu+1)\binom{R+\nu}{\nu+1}}
+ {(B+1)\binom{R+\nu-t}{\nu}}
+ \right\rfloor
+ \right\}.
+ \label{eq:paving-threshold}
+\end{equation}
+Every separated fixed-union MCA chart with
+\(0\le j\le J_B^{\rm pav}(\nu)\) costs at most \(B\) slopes.  Combining
+this with \cref{cor:quantitative-direction-defect}, the exact certified
+defect range is
+\[
+                0\le j\le
+                \max\{J_B(\nu),J_B^{\rm pav}(\nu)\}.
+\]
+\end{corollary}
+
+\begin{proof}
+The floor in \eqref{eq:paving-ray} is at most \(B\) exactly when its
+numerator is strictly smaller than \(B+1\) times its denominator.  Solving
+this integer inequality for \(j\) gives \eqref{eq:paving-threshold}.
+\end{proof}
+
+
+
+
+\section{Minimum-distance sharpening and the exact primitive wedge}
+\label{sec:min-distance-sharpening}
+Retain the notation of \cref{thm:support-flag-recursion}.  Let
+\[
+ \mu=d_1(C')=\min_{0\ne c\in C'}|\supp(c)|.
+\]
+The generalized Singleton bound gives
+\[
+ \mu\ge n-K+1=R+1,
+ \qquad R=n-K.
+\]
+The general flag theorem uses only the ambient MDS lower bound for each flag-annihilator direction.  Every such direction actually belongs to $C'$, so the true minimum support gives a sharper resource count.
+
+\begin{theorem}[Minimum-distance enhanced flag resources]
+\label{thm:min-distance-flag-resources}
+Retain the hypotheses and notation of \cref{thm:support-flag-recursion}.  For a profile $\mathbf b=(b_1,\ldots,b_r)$ define
+\begin{align}
+ P_{\mathbf b}^{\sharp}
+ &=\prod_{i=1}^{j}
+ \left(f_i-t+b_0+\sum_{q=1}^{r}b_q\right),\label{eq:min-flag-P}\\
+ Q_{\ell}^{\sharp}(\mathbf b)
+ &=\mu-t+b_0+\sum_{q>\ell}b_q,\label{eq:min-flag-Q}\\
+ A_\ell(\mathbf b)&=e_\ell-b_\ell,
+ \qquad
+ B_{\ell}^{\sharp}(\mathbf b)
+ =\bigl(Q_{\ell}^{\sharp}(\mathbf b)-e_\ell+b_\ell\bigr)_+ .\label{eq:min-flag-AB}
+\end{align}
+For $\sigma\in\{T,U\}^r$, put
+\begin{align}
+ C_{\sigma}^{\sharp}(\mathbf b)
+ &=P_{\mathbf b}^{\sharp}
+ \prod_{\ell:\sigma_\ell=T}A_\ell(\mathbf b)
+ \prod_{\ell:\sigma_\ell=U}B_{\ell}^{\sharp}(\mathbf b),\label{eq:min-flag-C}\\
+ G_\sigma
+ &=d_0^{\underline j}
+ \prod_{\ell:\sigma_\ell=T}e_\ell
+ \prod_{\ell:\sigma_\ell=U}
+ \bigl(d_{\ell-1}-(j+\ell-1)\bigr).\label{eq:min-flag-G}
+\end{align}
+Then
+\begin{equation}
+ \boxed{
+ \sum_{\mathbf b}L_{\mathbf b}C_{\sigma}^{\sharp}(\mathbf b)
+ \le G_\sigma
+ }
+ \label{eq:min-flag-resource}
+\end{equation}
+for every binary resource pattern.  Consequently every nonnegative family $x_\sigma$ satisfying
+\[
+ \sum_\sigma x_\sigma C_{\sigma}^{\sharp}(\mathbf b)\ge1
+ \quad\text{for every profile }\mathbf b
+\]
+gives the whole-chart bound
+\begin{equation}
+ \boxed{
+ L\le\left\lfloor\sum_\sigma x_\sigma G_\sigma\right\rfloor .
+ }
+ \label{eq:min-flag-dual}
+\end{equation}
+The tensor and all-extender corollaries remain valid after replacing $w+1+b_0$ by $\mu-t+b_0$ and replacing every old-support factor by \eqref{eq:min-flag-AB}.
+\end{theorem}
+
+\begin{proof}
+Fix a flag level $\ell$ and an adapted coordinate basis through $V_{\ell-1}$.  Its annihilator in $V_\ell$ is generated by a nonzero word
+\[
+ h_\ell\in V_\ell\setminus V_{\ell-1}\subseteq C'.
+\]
+Therefore $\wt(h_\ell)\ge\mu$.  The word vanishes outside $U_\ell$.  The number of mismatches outside $U_\ell$ is
+\[
+ b_{\rm out}=b_0+\sum_{q>\ell}b_q,
+\]
+and all of those coordinates are zeros of $h_\ell$.  Among the zero coordinates of $h_\ell$, at most
+\[
+ (n-\mu)-b_{\rm out}
+\]
+are agreements.  Since every listed point has at least $m$ agreements, at least
+\[
+ m-\bigl((n-\mu)-b_{\rm out}\bigr)
+ =\mu-t+b_{\rm out}
+ =Q_\ell^{\sharp}(\mathbf b)
+\]
+agreement coordinates are nonzeros of $h_\ell$ and hence extend the adapted basis.  The $A_\ell=e_\ell-b_\ell$ agreeing coordinates in the new layer all extend, so at least $B_\ell^{\sharp}$ extending agreements lie in the old support.  The global basis capacities are unchanged.  The double count and finite dual are therefore identical to the proof of \cref{thm:support-flag-recursion} with the sharpened factors.
+\end{proof}
+
+\begin{corollary}[Minimum-word all-extender bound]
+\label{cor:min-word-all-extender}
+Choose $V_0=\langle h\rangle$, where $h$ is a minimum-weight word of $C'$.  If $s=\dim C'$, then
+\begin{equation}
+ \boxed{
+ L\le
+ \left\lfloor
+ \frac{\mu\prod_{\ell=1}^{s-1}(d_\ell-\ell)}
+      {(\mu-t+b_0)^s}
+ \right\rfloor
+ \le
+ \left\lfloor
+ \frac{\mu(n-s+1)^{s-1}}
+      {(\mu-t+b_0)^s}
+ \right\rfloor .
+ }
+ \label{eq:min-word-bound}
+\end{equation}
+Writing $\mu=R+a$, $a\ge1$, the soft form is
+\begin{equation}
+ L\le
+ \left\lfloor
+ \frac{(R+a)(n-s+1)^{s-1}}
+      {(w+a+b_0)^s}
+ \right\rfloor .
+ \label{eq:min-word-soft}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+A generalized-weight minimizer is support-saturated by \cref{lem:weight-minimizer-saturated}, so the minimum-weight line admits a support-saturated flag.  Apply the all-extender form of \cref{thm:min-distance-flag-resources}.  The initial basis count is $\mu$, and $\mu-t+b_0$ is a lower bound at every extension level.  Since every remaining support layer is nonempty and $d_{s-1}\le n$, one has $d_\ell-\ell\le n-s+1$.
+\end{proof}
+
+\begin{proposition}[Exact active minimum-support transitions]
+\label{prop:min-support-transitions}
+At $b_0=0$, \eqref{eq:min-word-soft} pays every first-unpaid affine chart at and above the following support excesses:
+\[
+\begin{array}{c|r|r|r|r}
+\toprule
+\text{row}&s&a_{\rm paid}&\text{bound at }a_{\rm paid}&\text{bound at }a_{\rm paid}-1\\
+\midrule
+\text{KoalaBear MCA}&15&70832&274974324324469113&275003903412638889\\
+\text{KoalaBear list}&15&70832&274974569967317804&275004149082130935\\
+\text{Mersenne-31 MCA}&7&111529&16776653&16777295\\
+\text{Mersenne-31 list}&7&111529&16776668&16777309\\
+\bottomrule
+\end{array}
+\]
+Thus a surviving zero-mismatch chart has $a\le70831$ on KoalaBear or $a\le111528$ on Mersenne-31.  Positive $b_0$ only shrinks this residual.
+\end{proposition}
+
+\begin{proposition}[Exact mismatch curve]
+\label{prop:min-mismatch-curve}
+For selected support excesses, the least outside mismatch paid by \eqref{eq:min-word-soft} is
+\[
+\begin{array}{c|rrrrr}
+\toprule
+& a=1&a=1000&a=10000&a=50000&a=70000\\
+\midrule
+\text{KoalaBear MCA/list}&70230&69240&60318&20659&825\\
+\text{Mersenne-31 MCA/list}&108962&107987&99202&60141&40599\\
+\bottomrule
+\end{array}
+\]
+The curve is strictly decreasing in the actual direction-code support excess.
+\end{proposition}
+
+\begin{remark}[Combination with the actual first generalized weight]
+Let the full support have size $d_s=R+\nu$.  Replacing the ambient lower bound in the common-zero Johnson compiler by $d_1(C')=R+a$ gives
+\begin{equation}
+ L\le
+ \left\lfloor
+ \frac{(R+\nu)(w+a+b_0)}
+ {(w+\nu+b_0)^2-(R+\nu)(\nu-a)}
+ \right\rfloor
+ \label{eq:actual-d1-johnson}
+\end{equation}
+when the denominator is positive.  Combining \eqref{eq:actual-d1-johnson} with the nonuniform form of \eqref{eq:min-word-bound} gives the exact residual wedge in $(a,\nu,b_0)$.
+\end{remark}
+
+\begin{theorem}[Fixed-mismatch puncturing compiler]
+\label{thm:fixed-mismatch-puncturing}
+Let $\mathcal L\subseteq\mathcal A$ be a family of codewords, each agreeing with a received word $u$ on at least $m$ coordinates.  Suppose a fixed set $Z\subseteq D$, $|Z|=z$, is a mismatch set for every member of $\mathcal L$.  Then $z\le t$, and if the affine span of $\mathcal L$ has direction dimension at most $s$, then
+\begin{equation}
+ \boxed{
+ |\mathcal L|
+ \le
+ \left\lfloor
+ \frac{\binom{R-z+s}{s}}
+      {\binom{w+s}{s}}
+ \right\rfloor .
+ }
+ \label{eq:fixed-mismatch-puncturing}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Every listed word has at most $t$ mismatches, so $z\le t$.  Puncture the coordinates in $Z$.  Since $z<t<R=n-K$, evaluation of degree-$<K$ polynomials remains injective on $D\setminus Z$, no agreement is deleted, and the affine direction dimension does not increase.  Apply the recursive affine-span compiler to the punctured code of length $n-z$.
+\end{proof}
+
+\begin{corollary}[Active puncture thresholds]
+\label{cor:active-puncture-thresholds}
+At the first unpaid affine dimensions, a subfamily with a common fixed mismatch set is paid at the following first integers:
+\[
+\begin{array}{c|r|r|r}
+\toprule
+\text{row}&z_{\rm paid}&\text{bound at }z_{\rm paid}&\text{bound at }z_{\rm paid}-1\\
+\midrule
+\text{KoalaBear MCA}&67313&274978201175970494&274982404608707323\\
+\text{KoalaBear list}&67314&274978201175970494&274982404608707323\\
+\text{Mersenne-31 MCA}&322321&16777133&16777295\\
+\text{Mersenne-31 list}&322322&16777133&16777295\\
+\bottomrule
+\end{array}
+\]
+\end{corollary}
+
+\begin{proposition}[Exchange defect dominates support excess]
+\label{prop:exchange-defect}
+In one boundary prefix fiber, let the associated codeword direction space have minimum support $R+a$.  For distinct supports $M,M'$ of size $m$, write
+\[
+ e=|M\setminus M'|=|M'\setminus M|=w+r.
+\]
+Then
+\begin{equation}
+ \boxed{r\ge a.}
+ \label{eq:exchange-defect}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The prefix-rigidity identity of CAP25 v13.2 gives
+\[
+ \Lambda_M-\Lambda_{M'}=G(A-B),
+ \qquad \deg(A-B)\le r-1,
+\]
+where $G$ is the locator of $M\cap M'$ and has degree $m-e$.  The corresponding nonzero codeword difference vanishes on the $m-e$ common support coordinates, so its weight is at most
+\[
+ n-(m-e)=t+e=R+r.
+\]
+By the definition of $a$, its weight is at least $R+a$.  Hence $r\ge a$.
+\end{proof}
+
+\begin{corollary}[Top-seam localization]
+\label{cor:top-seam-localization}
+The top seam $e=w+1$ can occur only in the exact-minimum-distance branch $a=1$.  Every chart with $a\ge2$ has first possible exchange defect at least $a$.
+\end{corollary}
+
+\begin{theorem}[Exact primitive residual after minimum-distance payment]
+\label{thm:min-distance-residual}
+After all unconditional first-match payments in Parts~I--IV, an over-budget first-unpaid Q or list chart must lie in the following simultaneous wedge:
+\begin{enumerate}[label=\textup{(R\arabic*)}]
+\item its support excess $a$ lies below the exact curve \eqref{eq:min-word-soft};
+\item its full-support nullity lies beyond both \eqref{eq:actual-d1-johnson} and the minimum-word flag bound;
+\item it contains no fixed mismatch block meeting \cref{thm:fixed-mismatch-puncturing};
+\item every boundary neighbour has exchange defect at least $a$, and the top seam is restricted to $a=1$;
+\item it is not in an earlier quotient, occupancy, extension, common-zero, saturation, or rank-defect cell.
+\end{enumerate}
+\end{theorem}
 
 
 \section{The quadratic mean-overlap staircase}\label{sec:mean-overlap-v3}
@@ -731,7 +2312,7 @@ If \(R\ge2\) and \(b=\floor{\eps\abs\F}\), the exact target threshold
 therefore satisfies
 \[
  \begin{array}{ll}
- b\ge M &\Longrightarrow\quad a^*=k+1,\\[2mm]
+ b\ge M &\Longrightarrow\quad a^*=k+1,\\
  \displaystyle\binom n{R-2}\le b<M
    &\Longrightarrow\quad a^*=k+2.
  \end{array}                                       \tag{AD2}
@@ -3008,14 +4589,16 @@ By \cref{thm:syndrome-secant-exact}, the genuinely missing invariant can
 be taken to be \(\Theta_t(y_0,y_1)\).  Equivalently one may construct a
 higher-dimensional split-pencil \emph{eliminant}, meaning a polynomial in
 the slope parameter obtained after eliminating locator and support
-variables, whose degree bounds that
-transverse secant incidence.  By
-\cref{lem:independent-union-rays}, only the dependent-union, or
-maximum-distance-separable (MDS) circuit,
-strata can support more than \(t+1\) rays; this localizes the remaining
-geometry.  One fixed circuit is bounded by
-\cref{thm:single-mds-circuit-ray}, but an uncontrolled family of circuit
-strata or a higher-dimensional balanced core is not thereby paid.
+variables, whose degree bounds that transverse secant incidence.  By
+\cref{lem:independent-union-rays}, only dependent support unions can
+support more than \(t+1\) rays.  Those unions are no longer untreated:
+\cref{thm:fixed-union-ray,thm:directional-johnson-ray} bound every fixed
+union, and \cref{prop:active-fixed-union-payments} gives the exact active
+low-nullity ranges.  What remains is an uncontrolled family of many such
+unions, a high-nullity chart, or a direction whose rank defect exceeds the
+quantitative threshold of \cref{cor:quantitative-direction-defect}; a
+higher-dimensional balanced core must still be routed into one of those
+certified cells or paid by its own eliminant.
 
 Here an \emph{MDS-circuit stratum} is a chart on which the relevant union
 of generalized Vandermonde parity-check columns has a minimal linear
@@ -3461,6 +5044,491 @@ For each row, substitute \(n=2^{21}\), \(k=2^{20}\), the displayed adjacent agre
 The displayed ratios are the exact integer quotients evaluated as decimals.  Taking base-two logarithms of \(B^*/(\binom n{a_+}|\B|^{-w})\) gives the four printed bit margins.
 \end{proof}
 
+
+\begin{proposition}[Exact fixed-union payments at the active rows]
+\label{prop:active-fixed-union-payments}
+Let \(t=n-a_+\).
+
+\textup{(a) Fixed-word Q and list charts.}
+Let \(K=k+1\) on an MCA route and \(K=k\) on a list route, put
+\(R_Q=n-K\), and let \(\mathcal A\) be a subfamily of one boundary-Q
+prefix fiber, or of one arbitrary-word list, whose error supports are all
+contained in a fixed union \(U\) of size \(R_Q+\nu\).  Then
+\cref{thm:fixed-union-list-johnson} gives a full-budget payment for every
+integer nullity in the ranges below:
+\[
+\begin{array}{c|r|r|r|r}
+\text{row} & R_Q & R_Q-t & 0\le\nu\le &
+ \max\limits_{\nu\text{ in range}}|\mathcal A|\\ \hline
+\text{KoalaBear MCA}  &1048575&67471&4983&94008\\
+\text{KoalaBear list} &1048576&67471&4983&94632\\
+\text{Mersenne-31 MCA}&1048575&67447&4980&3555853\\
+\text{Mersenne-31 list}&1048576&67447&4980&4735771
+\end{array}
+\tag{FU-Q/list}\label{eq:active-fixed-union-list}
+\]
+Every number in the last column is below the corresponding challenge
+budget \(B^*\) of \cref{prop:q-exact-target}.  In particular, a global Q
+counterexample at the binding Mersenne-31 list row cannot be contained in
+one support union of nullity at most \(4980\).
+
+\textup{(b) Fixed-line MCA charts.}
+For the actual MCA code, \(R=n-k=1048576\).  The unconditional
+multiplicity compiler \cref{thm:fixed-union-ray} pays the following fixed
+unions within the full row budget:
+\[
+\begin{array}{c|r|r|r}
+\text{row}&0<\nu\le&
+ \max\limits_{\nu\text{ in range}}|Z|&B^*\\ \hline
+\text{KoalaBear MCA}&2&2847909263951&274980728111395087\\
+\text{Mersenne-31 MCA}&1&8150817&16777215
+\end{array}
+\tag{FU-MCA}\label{eq:active-fixed-union-mca}
+\]
+If the direction is rank-regular on its union, so that
+\(d_U(y_1)=R\), the directional compiler
+\cref{cor:rank-regular-fixed-union-ray} pays the much larger ranges
+\[
+\begin{array}{c|r|r}
+\text{row}&0\le\nu\le&
+ \max\limits_{\nu\text{ in range}}|Z|\\ \hline
+\text{KoalaBear MCA}&4982&94008\\
+\text{Mersenne-31 MCA}&4979&3555853
+\end{array}
+\tag{FU-MCA-reg}\label{eq:active-rank-regular-mca}
+\]
+The direction-defect threshold of
+\cref{cor:quantitative-direction-defect} pays more than the rank-regular
+case.  With the full row budget, selected exact thresholds are
+\[
+\begin{array}{c|rrrrrrr}
+\text{KoalaBear }\nu&0&1000&4000&4500&4979&4980&4982\\ \hline
+J_{B^*}(\nu)&4341&3466&853&418&3&2&0
+\end{array}
+\tag{FU-KB-def}\label{eq:active-kb-direction-defect}
+\]
+and
+\[
+\begin{array}{c|rrrrr}
+\text{Mersenne-31 }\nu&0&1000&4000&4500&4979\\ \hline
+J_{B^*}(\nu)&4338&3463&849&415&0
+\end{array}
+\tag{FU-M31-def}\label{eq:active-m31-direction-defect}
+\]
+Thus an unpaid fixed-union MCA chart is either above the displayed
+nullity range or has defect \(j>J_{B^*}(\nu)\); it need not be declared
+exceptional merely because \(j>0\).  At the Mersenne row, two disjoint
+one-circuit charts cost at most
+\(2\cdot8150817=16301634<16777215\), leaving \(475581\) units of the
+full budget.
+\end{proposition}
+
+\begin{proof}
+For a boundary-Q fiber, the imported exact witness-list dictionary
+\cite[Secs.~18--21]{CAP25v132} associates to every support a distinct
+codeword of \(\RS[\F,D,K]\) agreeing with one received word on that
+support.  Hence a subfamily whose error supports lie in \(U\) is a subset
+of the affine syndrome fiber \(\mathcal L_U(y,t)\) in
+\cref{thm:fixed-union-list-johnson}.  The same statement is tautological
+for an arbitrary-word list.  Substituting \(N=R_Q+\nu\) and
+\(h=N-t\) into \eqref{eq:fixed-union-list-johnson}, and evaluating every
+integer in the displayed ranges, gives \eqref{eq:active-fixed-union-list}.
+At the next nullity the Johnson denominator is nonpositive in every row:
+\(\nu=4984\) for KoalaBear and \(\nu=4981\) for Mersenne-31.
+
+For MCA, substitute \(R=1048576\) and the two deployed values of \(t\)
+into \eqref{eq:fixed-union-ray}.  The largest full-budget nullities are
+\(2\) and \(1\), giving \eqref{eq:active-fixed-union-mca}.  Under rank
+regularity, substitute the same row data into
+\eqref{eq:rank-regular-fixed-union-ray}; its denominator is positive
+through \(\nu=4982\) and \(4979\), respectively, and the displayed maxima
+occur at the final integer in each range.  Finally substitute the row
+budgets into \eqref{eq:direction-defect-threshold} to obtain
+\cref{eq:active-kb-direction-defect,eq:active-m31-direction-defect}.
+All comparisons are exact integer comparisons and are reproduced by the
+release verifier.
+\end{proof}
+
+\begin{proposition}[Exact recursive affine-span payments at the active rows]
+\label{prop:active-affine-span-payments}
+In the boundary-Q witness list, or in an arbitrary-word list for the same
+route, suppose the associated codewords lie in one affine subspace of
+\(\RS[\F,D,K]\) of dimension \(s\).  The recursive compiler
+\cref{thm:affine-span-list} gives the following full-budget payments:
+\[
+\begin{array}{c|r|r|r}
+\text{row}&0\le s\le&
+ \max\limits_{s\text{ in range}}|\mathcal L_{\mathcal A}|&
+ \text{compiler value at the next }s\\ \hline
+\text{KoalaBear MCA}&14&47876303026096432&743896698428332665\\
+\text{KoalaBear list}&14&47876942243704279&743907339955962922\\
+\text{Mersenne-31 MCA}&6&14115447&219426634\\
+\text{Mersenne-31 list}&6&14115528&219428099
+\end{array}
+\tag{AF-Q/list}\label{eq:active-affine-span-list}
+\]
+The middle column is below the corresponding full challenge budget in
+every row.  The final column only records that this compiler no longer
+fits at dimension \(15\) or \(7\); it is not a lower bound on an actual
+list.  Consequently a Q counterexample surviving the full-budget payments
+must have affine codeword-span dimension at least \(15\) on a KoalaBear
+row and at least \(7\) on a Mersenne-31 row.
+\end{proposition}
+
+\begin{proof}
+Apply \cref{thm:affine-span-list} with \(m=a_+\), with \(K=k+1\) on an
+MCA boundary route and \(K=k\) on a list route.  Evaluate the single
+rational expression in \eqref{eq:affine-span-list} by exact integer
+products.  The value is increasing over each displayed range, so the
+maximum occurs at its last dimension.  Comparison with the exact budgets
+in \cref{prop:q-exact-target} gives the claim; the next-dimension values
+mark the limit of the recursive compiler.
+\end{proof}
+
+\begin{proposition}[Exact affine-span MCA payments at the active rows]
+\label{prop:active-affine-span-mca}
+Assume \eqref{eq:direction-list-separated}.  If the codeword explanations
+of an MCA chart lie in one affine subspace of the actual
+\(\RS[\F,D,k]\) code of dimension \(s\), then
+\cref{thm:affine-span-mca} gives
+\[
+\begin{array}{c|r|r|r}
+\text{row}&1\le s\le&
+ \max\limits_{s\text{ in range}}|Z|&
+ \text{compiler value at the next }s\\ \hline
+\text{KoalaBear MCA}&11&49107626893329409&1526096478566110535\\
+\text{Mersenne-31 MCA}&4&1756139&54600050
+\end{array}
+\tag{AF-MCA}\label{eq:active-affine-span-mca}
+\]
+Both in-range maxima fit the full challenge budget.  Thus a surviving
+separated-direction MCA chart has codeword affine-span dimension at least
+\(12\) on KoalaBear and at least \(5\) on Mersenne-31, unless it has
+already been paid by another cell.  If separation fails, the residual is
+the explicit direction-list cell of \eqref{eq:direction-list-separated}.
+\end{proposition}
+
+\begin{proof}
+Substitute \(K=k\), \(m=a_+\), and the exact row budgets into
+\eqref{eq:affine-span-mca}.  Exact falling- and rising-product arithmetic
+gives the displayed values.  At the next dimensions this compiler exceeds
+the full budget, which records only the limit of the estimate.
+\end{proof}
+
+
+\begin{proposition}[Exact rank-flat and common-zero reductions at the active rows]
+\label{prop:active-rank-flat-common-zero}
+Consider the first affine dimensions not paid by
+\cref{prop:active-affine-span-payments}: \(s=15\) on KoalaBear and
+\(s=7\) on Mersenne-31.  If such an affine Q/list chart exceeds the full
+row budget, \cref{cor:rank-flat-concentration} forces a proper direction
+subcode with the following coarse support ceiling:
+\[
+\begin{array}{c|r|r|r|r}
+\text{row}&s&\Theta^{\rm coarse}_{s,B^*}&d_j\le&d_j-(n-K)\le\\ \hline
+\text{KoalaBear MCA}&15&152252&1133356&84781\\
+\text{KoalaBear list}&15&152252&1133357&84781\\
+\text{Mersenne-31 MCA}&7&232423&1213551&164976\\
+\text{Mersenne-31 list}&7&232423&1213552&164976
+\end{array}
+\tag{RF-active}\label{eq:active-rank-flat}
+\]
+Thus an over-budget first-unpaid affine chart is not generalized-weight
+uniform: it contains a proper direction subcode supported on a union much
+smaller than the full domain.
+
+There is also an exact common-zero refinement beyond the former
+fixed-union boundary.  Write the common-zero set of the affine direction
+space as \(z=K-\nu\), and let \(b\) be the number of those coordinates on
+which the common affine value disagrees with the received word.  At the
+first nullity not paid by \cref{prop:active-fixed-union-payments}, the
+common-zero Johnson compiler gives
+\[
+\begin{array}{c|r|r|r|c}
+\text{row}&\nu&\min b&\text{bound}&\text{residual }b\\ \hline
+\text{KoalaBear MCA}&4984&2&537111&b\le1\\
+\text{KoalaBear list}&4984&2&558125&b\le1\\
+\text{Mersenne-31 MCA}&4981&7&590532&b\le6\\
+\text{Mersenne-31 list}&4981&7&616024&b\le6
+\end{array}
+\tag{CZ-active}\label{eq:active-common-zero}
+\]
+At nullity \(5000\), the corresponding paid mismatch thresholds are
+\(b\ge102\) on the two KoalaBear rows and \(b\ge126\) on the two
+Mersenne-31 rows.
+\end{proposition}
+
+\begin{proof}
+For \eqref{eq:active-rank-flat}, use the coarse form of
+\cref{cor:rank-flat-concentration}.  The integer roots are
+\[
+ \left\lfloor
+ \left(
+ \frac{n^{\underline{15}}}{(B^*_{\rm KB}+1)(67471+15)}
+ \right)^{1/14}
+ \right\rfloor=152252
+\]
+and
+\[
+ \left\lfloor
+ \left(
+ \frac{n^{\underline 7}}{(B^*_{\rm M31}+1)(67447+7)}
+ \right)^{1/6}
+ \right\rfloor=232423.
+\]
+Adding the exact radii \(t=n-a_+\) gives the support and nullity ceilings
+in the table.
+
+For \eqref{eq:active-common-zero}, substitute the row data into
+\eqref{eq:common-zero-nu} and choose the least nonnegative integer \(b\)
+for which the denominator is positive and the integer floor is at most the
+row budget.  All displayed comparisons, including the nullity-
+\(5000\) thresholds, are exact and are reproduced by the verifier.
+\end{proof}
+
+\begin{proposition}[Exact codimension-one recursion at the active rows]
+\label{prop:active-codim-one}
+Consider a first-unpaid affine Q/list chart: dimension \(15\) on a
+KoalaBear route and dimension \(7\) on a Mersenne-31 route.  Suppose the
+low-support direction subcode forced by
+\cref{prop:active-rank-flat-common-zero} has support closure of codimension
+one in the chart direction space.  Write \(j=14\) or \(j=6\) for the
+dimension of that support-saturated hyperplane, \(d\) for its support
+size, \(e\) for the support increment to the whole chart, and \(b_0\) for
+the common mismatch count outside the whole support.  Then the exact
+full-budget payments are
+\[
+\begin{array}{c|r|r|r|r|r}
+\text{row}&j&d-(n-K)\le&e\text{ paid from}&b_0\text{ paid from}
+ &\text{largest residual nullity}\\ \hline
+\text{KoalaBear MCA}&14&84781&8565&9813&93345\\
+\text{KoalaBear list}&14&84781&8565&9813&93345\\
+\text{Mersenne-31 MCA}&6&164976&73266&40074&238241\\
+\text{Mersenne-31 list}&6&164976&73267&40074&238242
+\end{array}
+\tag{CR-active}\label{eq:active-codim-one-ranges}
+\]
+Here ``\(e\) paid from'' means that every chart with at least that support
+increment is below the full row budget, and similarly for \(b_0\).  The
+largest residual nullity is \(d+e-(n-K)\) after both payments have failed.
+More explicitly, every surviving codimension-one branch lies in
+\begin{align}
+ e&\le8564, & b_0&\le9812
+ &&\text{on either KoalaBear route},
+ \tag{CR-KB}\label{eq:active-codim-one-kb}\\
+ e&\le73265, & b_0&\le40073
+ &&\text{on the Mersenne-31 MCA route},
+ \tag{CR-MCA}\label{eq:active-codim-one-mca}\\
+ e&\le73266, & b_0&\le40073
+ &&\text{on the Mersenne-31 list route}.
+ \tag{CR-list}\label{eq:active-codim-one-list}
+\end{align}
+The corresponding certified maxima at the first paid integers are
+\begingroup\scriptsize
+\[
+\begin{array}{c|r|r|r}
+\text{row}&C_e&C_{b_0}&B^*\\ \hline
+\text{KoalaBear MCA}&274959863953460332&274954310643125130&274980728111395087\\
+\text{KoalaBear list}&274963447501329540&274957707108580869&274980728111395087\\
+\text{Mersenne-31 MCA}&16777189&16776155&16777215\\
+\text{Mersenne-31 list}&16777174&16776251&16777215
+\end{array}
+\tag{CR-budget}\label{eq:active-codim-one-budgets}
+\]
+\endgroup
+where $C_e$ is the closed bound at the first paid support increment and
+$C_{b_0}$ is the all-extender bound at the first paid mismatch count.
+The immediately preceding integer fails for the displayed MDS-soft
+certificate in every row; this records the sharp integer transition of
+this compiler, not a lower bound on an actual list.
+\end{proposition}
+
+\begin{proof}
+The support closure has the same support as the direction subcode supplied
+by \cref{prop:active-rank-flat-common-zero}; hence its support size is in
+the exact ranges
+\[
+\begin{array}{c|c}
+\text{row}&d\text{ range}\\ \hline
+\text{KoalaBear MCA}&1048589\le d\le1133356\\
+\text{KoalaBear list}&1048590\le d\le1133357\\
+\text{Mersenne-31 MCA}&1048581\le d\le1213551\\
+\text{Mersenne-31 list}&1048582\le d\le1213552.
+\end{array}
+\]
+For the MDS-soft profile \(\Pi\) of
+\cref{cor:codim-one-mds-soft}, the largest initial factor is
+\(A=d-t+b_0\) and \(Q=w+1+b_0\).  Uniformly over the displayed ranges,
+\[
+ (j-1)Q-A\ge
+ \begin{cases}
+ 13\cdot67472-152252=724884,&\text{KoalaBear},\\
+ 5\cdot67448-232423=104817,&\text{Mersenne-31}.
+ \end{cases}
+\]
+The final term grows by \((j-2)b_0\), so
+\cref{lem:codim-one-profile-interpolation} proves profile interpolation
+for every \(e\) and \(b_0\) in the active ranges.
+
+The closed bound \eqref{eq:codim-one-closed} decreases with \(e\) and
+with \(b_0\), while the all-extender bound
+\eqref{eq:codim-one-all-extenders-mds} decreases with \(b_0\).  It
+therefore suffices to use \(b_0=0\) for the support-increment payment and
+to test the displayed mismatch threshold for the all-extender payment.
+Exact rational comparison over every integer \(d\) in the four finite
+ranges gives the maxima in \eqref{eq:active-codim-one-budgets}.  At the
+preceding support increments the maxima are respectively
+\[
+274997419229066860,
+\quad275001003273987385,
+\quad16777303,
+\quad16777288,
+\]
+and at the preceding mismatch counts they are
+\[
+275005816112956831,
+\quad275009213214651183,
+\quad16777247,
+\quad16777343.
+\]
+Each exceeds its row budget.  Finally combine the support ceiling with
+\(e\le e_{\rm paid}-1\) to obtain the residual nullities in
+\eqref{eq:active-codim-one-ranges}.  The release verifier performs all
+comparisons with exact integers.
+\end{proof}
+
+
+
+
+\begin{proposition}[Active higher-codimension flag payment]
+\label{prop:active-support-flag}
+Consider a first-unpaid affine Q/list chart: dimension $15$ on a
+KoalaBear route and dimension $7$ on a Mersenne-31 route.  If the chart is
+over the full row budget, choose a generalized-weight minimizer supplied
+by \cref{cor:rank-flat-concentration}.  By
+\cref{lem:weight-minimizer-saturated,lem:support-saturated-flag}, its
+support closure admits the exact coset-free flag certificate of
+\cref{thm:support-flag-recursion} in every codimension.
+
+For support-closure codimension at least two, the coarse all-extender
+certificate already pays every chart with
+\begin{equation}
+ b_0\ge70230
+ \quad\text{on either KoalaBear route},
+ \qquad
+ b_0\ge108962
+ \quad\text{on either Mersenne-31 route}.
+ \label{eq:active-flag-mismatch}
+\end{equation}
+At the first paid integers, the worst exact bounds are
+\[
+\begin{array}{c|r|r|r}
+\text{row}&b_0&\text{certified maximum}&B^*\\ \hline
+\text{KoalaBear MCA}&70230&274974976450914526&274980728111395087\\
+\text{KoalaBear list}&70230&274975238687487221&274980728111395087\\
+\text{Mersenne-31 MCA}&108962&16776934&16777215\\
+\text{Mersenne-31 list}&108962&16776950&16777215
+\end{array}
+\tag{HF-active}\label{eq:active-flag-budgets}
+\]
+The preceding mismatch integer fails the same uniform certificate, with
+values respectively
+\[
+ 275004931457252515,
+ \quad275005193722392530,
+ \quad16777600,
+ \quad16777616.
+\]
+These are transitions of the all-extender flag certificate, not lower
+bounds on actual lists.  Below \eqref{eq:active-flag-mismatch}, the exact
+binary-pattern linear program \eqref{eq:flag-dual-bound} and the closed
+tensor certificate \eqref{eq:flag-tensor-bound} remain available for the
+actual support-layer profile.
+\end{proposition}
+
+\begin{proof}
+The rank-flat conclusion supplies a generalized-weight minimizer of some
+dimension $j<s$.  It is support-saturated by
+\cref{lem:weight-minimizer-saturated}, and therefore has a
+support-saturated flag to the whole chart by
+\cref{lem:support-saturated-flag}.  For codimension at least two, use
+\eqref{eq:flag-all-extender}, replace the flag-support product by
+$(n-j)^{\underline{s-j}}$, and use the exact support ceilings in
+\eqref{eq:active-rank-flat}.  The resulting bound is
+\[
+ \frac{d^{\underline j}(n-j)^{\underline{s-j}}}
+ {(d-t+b_0)
+  \prod_{i=1}^{j-1}(w+i+b_0)
+  (w+1+b_0)^{s-j}}.
+\]
+For fixed $j$ its maximum over the allowed support interval occurs at an
+endpoint: the ratio of the $d$-dependent factor at $d+1$ and $d$ changes
+sign at most once, since the numerator of the comparison is
+\[
+ (j-1)d-j(t-b_0)+j-1.
+\]
+Checking the two endpoints for $1\le j\le13$ on KoalaBear and
+$1\le j\le5$ on Mersenne-31 gives the exact transitions displayed above.
+The independent verifier performs these integer comparisons without
+floating point.
+\end{proof}
+
+
+\begin{proposition}[Exact paving-basis MCA payments at the active rows]
+\label{prop:active-paving-payments}
+Let \(j=R-d_U(y_1)\) be the direction defect of a separated fixed-union
+MCA chart.  With the full row budget, the paving threshold of
+\cref{cor:paving-threshold} is
+\[
+\begin{array}{c|rrrrr}
+\text{KoalaBear }\nu&0\text{--}9&10&11&12&13\\ \hline
+J_{B^*}^{\rm pav}(\nu)&67471&67468&67423&66715&55724
+\end{array}
+\tag{PAV-KB}\label{eq:active-paving-kb}
+\]
+and
+\[
+\begin{array}{c|rrrrr}
+\text{Mersenne-31 }\nu&0\text{--}1&2&3&4&5\\ \hline
+J_{B^*}^{\rm pav}(\nu)&67447&67432&67213&63797&10700.
+\end{array}
+\tag{PAV-M31}\label{eq:active-paving-m31}
+\]
+Consequently every separated KoalaBear direction defect is paid through
+nullity \(9\).  At Mersenne nullity \(2\), only the top fifteen possible
+defects \(67433\le j\le67447\) remain outside this compiler.  At every
+nullity the certified range is the maximum of the paving threshold and the
+directional-Johnson threshold in
+\cref{eq:active-kb-direction-defect,eq:active-m31-direction-defect}.
+\end{proposition}
+
+\begin{proof}
+Substitute \(R=1048576\), the deployed radii, and the exact row budgets
+into \eqref{eq:paving-threshold}.  At the last paid defects in the nontrivial
+columns, the paving bounds are respectively
+\[
+\begin{array}{c|r|r}
+\nu&J_{B^*}^{\rm pav}(\nu)&\text{bound at }J_{B^*}^{\rm pav}(\nu)\\ \hline
+10&67468&215264294199835875\\
+11&67423&273052400452931367\\
+12&66715&274631447525088415\\
+13&55724&274966795861149003
+\end{array}
+\]
+and
+\[
+\begin{array}{c|r|r}
+\nu&J_{B^*}^{\rm pav}(\nu)&\text{bound at }J_{B^*}^{\rm pav}(\nu)\\ \hline
+2&67432&15838845\\
+3&67213&16764415\\
+4&63797&16774561\\
+5&10700&16776956
+\end{array}
+\]
+The next defect exceeds the budget in every displayed nonterminal column.
+All calculations use exact binomial integers.
+\end{proof}
+
 \begin{proposition}[moment-order floor for a finite Q proof]\label{prop:q-moment-order-floor}
 Let
 \[
@@ -3529,82 +5597,2027 @@ Therefore \cref{thm:bc-moving-root,cor:bc-one-pencil} cannot be applied directly
 The imported boundary-Q dictionary \cite[Secs.~18--21]{CAP25v132} states exactly that a prefix fiber is counted by the divisibility condition \(Q_z+A\mid X^n-\beta\) with \(\deg A\le\omega-w-1\).  A polynomial of degree at most \(\omega-w-1\) has \(\omega-w\) free coefficients.  Substituting the four values of \(a_+\), \(K\), and \(w=a_+-K\) gives the table.  Since \(\omega-w\) is larger than nine hundred thousand in all four cases, the family is not a one-parameter pencil.  The moving-root theorem is still valid for every line inside this affine space, but a line-by-line decomposition without a bound on the number of lines gives no row budget.
 \end{proof}
 
-\begin{proposition}[current Q ingredients do not close the adjacent ledger]\label{prop:q-not-closed}
-The theorem-level Q material currently proved in this manuscript does not imply \(B(a_0+1)\le B^*\) for any deployed row.
+
+
+\part{Order-\texorpdfstring{$32$}{32} line rank and rational-atom classification}
+\label{part:rank-atoms}
+The rest of the paper changes the MCA completion mechanism.  Instead of adding many local cell budgets, it seeks a maximum-type classification: every large bad-slope set is either one global affine codeword line, one coherent rational atom, or one primitive spread family.  This part proves the exact rank dictionary, the dyadic quotient branch, low-degree and low-complexity atom extraction, and atom coherence.
+
+\section{Rank-theoretic setup}
+Let $D\subseteq\F$ consist of $n$ distinct evaluation points and let
+\[
+ C=\RS[\F,D,k]
+ =\{(h(x))_{x\in D}:h\in\F[X],\ \deg h<k\}.
+\]
+Fix distinct finite slopes $\gamma_1,\ldots,\gamma_L$ and a received line $r_\gamma=r_0+\gamma r_1$.  Suppose $h_i\in\F[X]_{<k}$ agrees with $r_{\gamma_i}$ on a support $S_i$ of size $m$; shrinking supports to exact size $m$ does not affect the rank calculation.  Put
+\[
+ I_x=\{i:x\in S_i\}.
+\]
+The tuple is globally affine if $h_i=A+\gamma_iB$ for some $A,B\in\F[X]_{<k}$.
+
+\section{The rank-two reduced intersection matrix}
+
+\subsection{Local relation spaces}
+
+For $I\subseteq[L]$, define
+\[
+ \cK_\gamma(I)
+ :=\left\{c\in\F^L:
+ \supp(c)\subseteq I,\quad
+ \sum_{i=1}^Lc_i=0,\quad
+ \sum_{i=1}^Lc_i\gamma_i=0
+ \right\}.
+\]
+Since the slopes are distinct,
+\[
+ \dim\cK_\gamma(I)=(|I|-2)_+.
+\]
+Let $v_k(x)=\vander{x}{k}\in\F^k$.
+
+\begin{definition}[rank-two reduced intersection matrix]\label{def:r2rim}
+Choose any basis $\mathcal B_x$ of $\cK_\gamma(I_x)$ for every $x\in D$.  The matrix
+\[
+ \cM^{(2)}(D,\mathcal S,\gamma)
+\]
+has $Lk$ columns, grouped into $L$ blocks of length $k$, and one row
+\[
+ c\otimes v_k(x)
+\]
+for every $x\in D$ and $c\in\mathcal B_x$.
+\end{definition}
+
+Changing the local bases left-multiplies the corresponding row blocks by invertible matrices, so the kernel and rank are intrinsic.
+
+\begin{theorem}[exact kernel dictionary]\label{thm:kernel-dictionary}
+For $h_i\in\F[X]_{<k}$, let $\mathbf h$ be the concatenated coefficient vector.  Then
+\[
+ \mathbf h\in\ker\cM^{(2)}(D,\mathcal S,\gamma)
+\]
+if and only if, for every $x\in D$, there exist scalars $a_x,b_x\in\F$ such that
+\[
+ h_i(x)=a_x+\gamma_i b_x
+ \qquad(i\in I_x).
+\]
+In particular, every family of codeword explanations of one received line belongs to the kernel.
+\end{theorem}
+
+\begin{proof}
+For fixed $x$, the local equations are
+\[
+ \sum_{i\in I_x}c_i h_i(x)=0
+ \qquad(c\in\cK_\gamma(I_x)).
+\]
+The orthogonal complement of $\cK_\gamma(I_x)$ in $\F^{I_x}$ is exactly
+\[
+ \Span\{\one_{I_x},(\gamma_i)_{i\in I_x}\}.
+\]
+Thus the local value vector is affine in the slope exactly when all local rows annihilate it.  Applying this independently at each coordinate proves the claim.  For a received line, take $a_x=r_0(x)$ and $b_x=r_1(x)$.
+\end{proof}
+
+\begin{proposition}[row count and trivial kernel]\label{prop:row-count}
+The matrix has
+\[
+ \sum_{x\in D}(r_x-2)_+
+ \ge Lm-2n
+\]
+rows.  It always contains the $2k$-dimensional kernel
+\[
+ h_i=A+\gamma_iB,
+ \qquad A,B\in\F[X]_{<k}.
+\]
+Consequently its maximum useful rank is $(L-2)k$, and the equation surplus over the nontrivial unknown dimension is
+\[
+ \boxed{\ L(m-k)-2(n-k).\ }
+\]
 \end{proposition}
 
 \begin{proof}
-The only unconditional max-fiber upper bound presently available for Q here is the imported Johnson/anticode ceiling \cite[Secs.~19--21]{CAP25v132}.  By \cref{prop:proper-q-gap}, its normalized overhead at the active rows is between \(2^{1660926}\) and \(2^{1661553}\), whereas the available row margins are only \(2^{22.1969}\), \(2^{22.0109}\), \(2^{3.2589}\), and \(2^{3.0730}\).  Hence that theorem is many orders of magnitude too weak.
-
-\Cref{thm:moment-q} could in principle prove the desired atom bound, but \cref{prop:q-moment-order-floor} shows that the finite rows require moment orders from \(94196\) up to \(680397\) before the harmless term \(w\log_2|\B|\) alone fits in the margin.  No theorem in the note supplies such high-order moment estimates.
-
-Finally, \cref{thm:q-implies-sp} is one-way: it proves that a max-fiber Q theorem would discharge SP, not that SP proves Q.  And \cref{prop:bc-not-q} explains why the one-parameter BC moving-root theorem does not pay the high-dimensional boundary-Q slice.  Thus the adjacent upper ledger remains open precisely at the row-sharp Q atom bound of \cref{def:q-row-atom}.
-\end{proof}
-
-
-\section{The exact finite Q atom and the remaining barrier}\label{sec:finite-q-barrier}
-The preceding results leave a single row-sharp boundary atom rather than a generic ``aperiodic'' remainder.  The Mersenne-31 list row is the binding case: before any other cell is paid, its maximum-prefix-fiber overhead may be at most $8.4152$ times the full-slice average.  A first-match payment elsewhere only decreases that allowance.  The million-bit packing ceilings in \cref{prop:proper-q-gap} and the moment floors in \cref{prop:q-moment-order-floor} explain why neither Johnson packing nor fixed low moments can close the packet.
-
-\section{Theorem status and remaining finite obligations}\label{sec:status-and-obligations}
-\begin{theorem}[Audited theorem status]\label{thm:audited-status}
-The new unconditional statements of this sequel are: the Part~I threshold refinements; the exact quotient/remainder, occupancy, and effective-Fourier identities; primitive Q under the displayed Sidon payment and its unconditional shallow Fourier range; saturation; the moving-root bound for a genuine one-parameter BC pencil; and Q $\Rightarrow$ SP.  No theorem in this paper proves $B(a_0+1)\le B^*$ for any of the four deployed rows.
-\end{theorem}
-\begin{proof}
-The positive statements are the theorems cited in the previous sentence.  The negative statement follows from \cref{prop:q-not-closed,prop:bc-not-q}: the available Q ceiling is far above every row budget, and the moving-root theorem pays only charts already reduced to one projective pencil.
-\end{proof}
-
-\section{The exact completion ledger relative to CAP25 v13.2}\label{sec:exact-completion-ledger}
-For an MCA row let
-\begin{equation}
- U_{\rm total}=U_{\rm paid}+U_Q+U_{\rm BC}+U_{\rm new},\label{eq:mca-final-ledger}
-\end{equation}
-where $U_{\rm paid}$ is the exact first-match sum of tangent, common-support, quotient, planted, field-drop, extension, rank, and already certified cells; $U_Q$ is the row-sharp pruned prefix maximum; $U_{\rm BC}$ is the sum of the certified moving-root pencil charts; and $U_{\rm new}$ is zero unless an explicitly named residual cell survives.  For a list row replace $U_{\rm BC}$ by the arbitrary-word interior codeword-ray term $U_{\rm list-int}$.
-
-\begin{theorem}[Exact completion certificate]\label{thm:exact-completion-certificate}
-Fix one active row in \cref{tab:active-frontier-rows}.  Suppose an exhaustive first-match compiler proves, with no unresolved cell,
-\begin{equation}
- U_{\rm total}\le B^*.\label{eq:exact-completion-certificate}
-\end{equation}
-Then the first safe integer agreement is $a_0+1$.  Conversely, every proof by this compiler must supply literal definitions and exact integer bounds for all terms in \eqref{eq:mca-final-ledger}; no one term may independently consume the full row margin.
-\end{theorem}
-\begin{proof}
-CAP25 v13.2 proves $B(a_0)>B^*$ for the active row.  Exhaustive first-match coverage and \eqref{eq:exact-completion-certificate} give $B(a_0+1)\le B^*$.  Monotonicity then identifies $a_0+1$ as the first safe integer agreement.  The converse is simply the requirement that a disjoint compiler account for every bad object exactly once before summing its budgets.
-\end{proof}
-
-\begin{problem}[Row-sharp multilevel Q target]\label{prob:row-sharp-q}
-For each active row, after every earlier first-match cell has been removed, prove
+Since $(r-2)_+\ge r-2$,
 \[
- \max_z|\mathcal P_Q(z)|\le R_Q^{\rm row}\binom n{a_+}|\B|^{-(a_+-K)}
+ \sum_x(r_x-2)_+
+ \ge\sum_xr_x-2n
+ =\sum_i|S_i|-2n
+ =Lm-2n.
 \]
-with the literal row constant $R_Q^{\rm row}$ fitting the remaining integer budget.  A moment proof must use the actual residual mass and satisfy \eqref{eq:finite-moment-criterion} with the allocated bit margin.
-\end{problem}
+A globally affine tuple satisfies every local relation.  Distinct slopes make the map $(A,B)\mapsto(A+\gamma_iB)_i$ injective, so this kernel has dimension $2k$.  Subtracting $(L-2)k$ from the row lower bound gives the displayed surplus.
+\end{proof}
 
-\begin{problem}[Balanced-core and list-interior completion]\label{prob:saturated-bc}
-For each MCA row, prove that every residual balanced-core chart is paid or decomposes into a certified number of projective pencils covered by \cref{thm:bc-moving-root}.  For each list row, prove the corresponding arbitrary-word interior codeword-ray bound; the MCA moving-root theorem does not substitute for this list theorem.
-\end{problem}
+\section{Why the deployed critical order is exactly 32}
 
-The remaining obligations are therefore precise:
-\begin{enumerate}[label=\textup{(F\arabic*)},leftmargin=*]
-\item prove the row-sharp pruned Q bound of \cref{prob:row-sharp-q};
-\item certify that every residual MCA balanced-core chart is paid or reduces to the one-parameter moving-root theorem, and prove the separate arbitrary-word interior theorem for the list rows;
-\item pay the remaining extension projections with exact multiplicity; and
-\item run one integer verifier establishing \eqref{eq:exact-completion-certificate} for each row.
+The actual Reed--Solomon dimension on both active MCA rows is
+\[
+ n=2^{21}=2097152,
+ \qquad k=2^{20}=1048576.
+\]
+The adjacent safe agreements are
+\[
+ m_{\rm KB}=1116048,
+ \qquad
+ m_{\rm M31}=1116024.
+\]
+
+\begin{proposition}[critical order]\label{prop:critical-32}
+For either deployed row,
+\[
+ L_*:=\left\lfloor\frac{2(n-k)}{m-k}\right\rfloor+1=32.
+\]
+More precisely,
+\[
+\begin{array}{c|r|r|r}
+\toprule
+\text{row}&m-k&31(m-k)-2(n-k)&32(m-k)-2(n-k)\\
+\midrule
+\text{KoalaBear MCA}&67472&-5520&61952\\
+\text{Mersenne-31 MCA}&67448&-6264&61184\\
+\bottomrule
+\end{array}
+\]
+Thus order $31$ can remain underdetermined for dimension reasons, whereas order $32$ has a positive row surplus.
+\end{proposition}
+
+\begin{proof}
+Direct substitution into \cref{prop:row-count}.
+\end{proof}
+
+\section{What full relative rank would buy}
+
+\begin{theorem}[one global code-line block]\label{thm:global-block}
+Let $Z$ be a set of bad slopes whose explaining codewords lie on one global codeword line,
+\[
+ h_\gamma=A+\gamma B.
+\]
+Assume the received line is support-wise MCA-bad at agreement $m$.  Then
+\[
+ \boxed{|Z|\le n-m+1.}
+\]
+\end{theorem}
+
+\begin{proof}
+Let
+\[
+ C_0:=\{x\in D:r_0(x)=A(x),\ r_1(x)=B(x)\},
+ \qquad c:=|C_0|.
+\]
+MCA-badness gives $c<m$.  Outside $C_0$, the equation
+\[
+ r_0(x)-A(x)+\gamma(r_1(x)-B(x))=0
+\]
+has at most one finite solution $\gamma$.  Counting agreements over all $\gamma\in Z$ therefore yields
+\[
+ |Z|m\le |Z|c+(n-c).
+\]
+Hence
+\[
+ |Z|\le\frac{n-c}{m-c}\le n-m+1,
+\]
+where the last expression is the maximum over integers $0\le c\le m-1$.
+\end{proof}
+
+\begin{corollary}[conditional generic closure]\label{cor:generic-closure}
+Suppose every $32$-subfamily of a set of bad explanations has full relative rank, meaning that the kernel of its rank-two matrix is exactly the global affine kernel.  Then all explanations lie on one global codeword line and
+\[
+ |Z|\le n-m+1.
+\]
+At the deployed rows the bounds are
+\[
+ 981105
+ \qquad\text{and}\qquad
+ 981129,
+\]
+respectively.
+\end{corollary}
+
+\begin{proof}
+Any $32$ explanations are globally affine.  If there are more than $32$, fix two slopes and place any third slope in a $32$-subset containing the fixed pair; the unique codeword line through the fixed pair contains the third.  Apply \cref{thm:global-block}.
+\end{proof}
+
+The Mersenne-31 challenge numerator is $16777215$, so the generic order-$32$ branch would fit with more than fifteen million units of margin.  The difficult issue is therefore not the generic branch.  It is classification and exclusive payment of specialized rank defects.
+
+\section{A necessary partition inequality}
+
+The following obstruction identifies the correct rank-two analogue of the partition conditions in higher-order MDS theory.
+
+For a partition $\cP$ of $[L]$, put
+\[
+ c(\cP):=\sum_{P\in\cP}\min\{2,|P|\},
+\]
+and for $I\subseteq[L]$ define
+\[
+ w_\cP(I)
+ :=\sum_{P\in\cP}\min\{2,|I\cap P|\}-\min\{2,|I|\}.
+\]
+
+\begin{proposition}[partition obstruction]\label{prop:partition-obstruction}
+If
+\[
+ \sum_{x\in D}w_\cP(I_x)<k\bigl(c(\cP)-2\bigr)
+\]
+for some partition $\cP$, then the rank-two matrix has kernel dimension strictly larger than $2k$.
+Consequently full relative rank requires
+\[
+ \boxed{
+ \sum_{x\in D}w_\cP(I_x)
+ \ge k\bigl(c(\cP)-2\bigr)
+ \quad\text{for every partition }\cP.
+ }
+\]
+\end{proposition}
+
+\begin{proof}
+Consider tuples that are independently affine on each block of $\cP$: a singleton block contributes one free degree-$<k$ polynomial, and a block of size at least two contributes two.  This space has dimension $kc(\cP)$.  At coordinate $x$, forcing the blockwise-affine local values on $I_x$ to lie on one affine slope line imposes at most $w_\cP(I_x)$ scalar conditions.  Hence the intersection with the rank-two kernel has dimension at least
+\[
+ kc(\cP)-\sum_xw_\cP(I_x).
+\]
+Under the strict inequality this exceeds $2k$.
+\end{proof}
+
+For generic evaluation points, higher-order MDS and row-span constrained local-property machinery make closely related partition inequalities sufficient for the expected rank and for curve-decoding phenomena \cite{BGM23,GGSW26}.  The deployed domains are not generic.  The point of the next sections is to identify what specializations must be removed before a sufficiency theorem can be true.  Recent work explicitly notes that identifying deterministic Reed--Solomon evaluation sets with the random-evaluation curve-decoding behavior remains open \cite{GGSW26}.
+
+\section{Exact dyadic quotient descent}
+
+\begin{theorem}[pair descent on a multiplicative dyadic domain]\label{thm:pair-descent}
+Assume $\operatorname{char}\F\ne2$ and
+\[
+ D=D_+\sqcup(-D_+).
+\]
+Suppose the incidence pattern is pair-invariant:
+\[
+ I_x=I_{-x}\qquad(x\in D_+).
+\]
+Write uniquely
+\[
+ h_i(X)=u_i(X^2)+Xv_i(X^2),
+\]
+where
+\[
+ \deg u_i<\left\lceil\frac{k}{2}\right\rceil,
+ \qquad
+ \deg v_i<\left\lfloor\frac{k}{2}\right\rfloor.
+\]
+Then the rank-two kernel on $D$ is naturally the direct sum of two rank-two kernels on the squared domain
+\[
+ D^{(2)}:=\{x^2:x\in D_+\},
+\]
+with the common incidence sets $I_x=I_{-x}$ and degree bounds $\lceil k/2\rceil$ and $\lfloor k/2\rfloor$.
+In particular, every nontrivial pair-invariant defect descends to a nontrivial defect on the half-size quotient in at least one parity component.
+\end{theorem}
+
+\begin{proof}
+Fix $x\in D_+$ and $c\in\cK_\gamma(I_x)=\cK_\gamma(I_{-x})$.  The two local equations are
+\[
+ \sum_i c_i\bigl(u_i(x^2)+xv_i(x^2)\bigr)=0,
+ \qquad
+ \sum_i c_i\bigl(u_i(x^2)-xv_i(x^2)\bigr)=0.
+\]
+Because $2x\ne0$, adding and subtracting gives
+\[
+ \sum_i c_i u_i(x^2)=0,
+ \qquad
+ \sum_i c_i v_i(x^2)=0.
+\]
+The converse follows by reversing the calculation.  The even/odd polynomial decomposition is a vector-space isomorphism, so the full kernel is the direct sum claimed.  The global affine kernels descend componentwise; hence any excess kernel dimension appears in at least one component.
+\end{proof}
+
+Iterating \cref{thm:pair-descent} proves exact descent for every fully periodic dyadic incidence atom.  This is the rigorous quotient branch of the proposed specialization theorem.  What fails is the assertion that every non-descending atom must be a simple pole.
+
+\section{Rational atoms and profile depth}
+
+Let
+\[
+ \Lambda_i(X):=\prod_{x\in S_i}(X-x)
+\]
+be the monic support locator of degree $m$.
+
+\begin{definition}[scalar-locator rational atom]\label{def:rational-atom}
+A family is a scalar-locator rational atom if there exist
+\[
+ Q,A,B\in\F[X],
+ \qquad c_i=c_0+c_1\gamma_i,
+\]
+with $Q(x)\ne0$ for all $x\in D$, such that
+\[
+ \boxed{
+ Qh_i+c_i\Lambda_i=A+\gamma_iB
+ \qquad(i\in[L]).
+ }
+\]
+\end{definition}
+
+\begin{proposition}[rational atoms are MCA explanations]\label{prop:rational-to-mca}
+Every atom of \cref{def:rational-atom} is explained by the rational received line
+\[
+ r_\gamma(x)=\frac{A(x)+\gamma B(x)}{Q(x)}.
+\]
+The codeword $h_i$ agrees with $r_{\gamma_i}$ on all roots of $\Lambda_i$.
+\end{proposition}
+
+\begin{proof}
+At $x\in S_i$, the locator term vanishes and division by $Q(x)$ is valid.
+\end{proof}
+
+\begin{proposition}[converse under the scalar degree profile]\label{prop:mca-to-rational}
+Put $m=k+d$.  Suppose
+\[
+ r_\gamma(x)=\frac{A(x)+\gamma B(x)}{Q(x)}
+\]
+on $D$, where $Q$ has no root in $D$, $\deg Q=s\le d$, and $\deg A,\deg B\le m$.  If $h_i\in\F[X]_{<k}$ agrees with $r_{\gamma_i}$ on the $m$ roots of $\Lambda_i$, then
+\[
+ A+\gamma_iB-Qh_i=c_i\Lambda_i
+\]
+for a scalar $c_i$, and $c_i$ is affine in $\gamma_i$.
+\end{proposition}
+
+\begin{proof}
+The left side has degree at most $m$ and vanishes at the $m$ distinct roots of $\Lambda_i$, so it is a scalar multiple of $\Lambda_i$.  Since $\deg(Qh_i)\le k+s-1\le m-1$, its degree-$m$ coefficient is zero.  Comparing degree-$m$ coefficients gives
+\[
+ c_i=[X^m]A+\gamma_i[X^m]B.
+\]
+\end{proof}
+
+\begin{corollary}[scaled-locator prefix depth]\label{cor:profile-depth}
+Under the hypotheses of \cref{prop:mca-to-rational}, the coefficients of
+\[
+ c_i\Lambda_i
+\]
+in degrees
+\[
+ k+s,k+s+1,\ldots,m
+\]
+are affine functions of $\gamma_i$.  Apart from the leading scaling coefficient, this is a depth-$(d-s)$ affine prefix constraint.
+\end{corollary}
+
+\begin{proof}
+The product $Qh_i$ has degree at most $k+s-1$, so the displayed high coefficients of $c_i\Lambda_i$ equal those of $A+\gamma_iB$.
+\end{proof}
+
+Thus a simple pole, $s=1$, is only one endpoint of a profile continuum.  At the opposite endpoint $s=d$, only the leading scaling is forced, while the locator residues modulo $Q$ must lie on a projective affine line.  Any correct rank-defect classification must account for the entire continuum or prove that the already-declared first-match cells remove all but selected endpoints.
+
+\section{An exact degree-two rank defect over \texorpdfstring{$\F_{17}$}{F17}}
+
+We now give a completely explicit obstruction to an unqualified ``quotient or simple pole'' theorem.
+
+\begin{theorem}[degree-two support-wise MCA atom]\label{thm:f17-atom}
+Let
+\[
+ \F=\F_{17},\qquad
+ D=\mu_8=\{1,9,13,15,16,8,4,2\},
+ \qquad k=4,\quad m=6.
+\]
+Take slopes
+\[
+ (\gamma_0,\gamma_1,\gamma_2,\gamma_3,\gamma_4)=(0,1,4,7,2)
+\]
+and supports
+\[
+\begin{array}{c|l}
+ i&S_i\\
+\midrule
+0&\{1,15,16,8,4,2\}\\
+1&\{1,9,13,15,16,8\}\\
+2&\{1,13,15,16,4,2\}\\
+3&\{1,9,15,16,4,2\}\\
+4&\{1,9,13,15,8,4\}.
+\end{array}
+\]
+Let
+\[
+\begin{aligned}
+ h_0&=h_1=0,\\
+ h_2&=9+13X+8X^2+4X^3,\\
+ h_3&=3+10X+14X^2+7X^3,\\
+ h_4&=11+8X+9X^2+6X^3.
+\end{aligned}
+\]
+Define a received line by the following values, in the displayed order of $D$:
+\[
+\begin{array}{c|rrrrrrrr}
+ x&1&9&13&15&16&8&4&2\\
+\midrule
+r_0(x)&0&16&6&0&0&0&0&0\\
+ r_1(x)&0&1&11&0&0&0&5&12.
+\end{array}
+\]
+Then:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $h_i$ agrees with $r_0+\gamma_i r_1$ on $S_i$ for every $i$;
+\item the received line is support-wise MCA-bad at agreement $m=6$;
+\item the rank-two matrix has rank $11$, whereas full relative rank is $12$;
+\item the defect is not first-level quotient-periodic;
+\item it has no scalar-locator rational representation with $\deg Q\le1$, but it has one with $\deg Q=2$.
 \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Direct substitution proves (i).  For (ii), observe that $r_0$ is zero at exactly the six points $S_0$.  On any other six-point set, a degree-$<4$ polynomial agreeing with $r_0$ would have at least four zero roots and also take a prescribed nonzero value, which is impossible; with five zero roots the same conclusion is immediate.  Hence the only possible six-point common explanation set for the first coefficient is $S_0$.  On $S_0$, the word $r_1$ is zero at $1,15,16,8$ and nonzero at $4,2$, so no degree-$<4$ polynomial can agree with it there.  Thus no pair of codeword polynomials simultaneously explains the received line on six coordinates.
+
+Part (i) and \cref{thm:kernel-dictionary} give a nontrivial kernel vector.  It is not globally affine because $h_0=h_1=0$ at slopes $0$ and $1$, while $h_2\ne0$.  Exact row reduction gives rank $11$; one $11\times11$ pivot minor has determinant $9\in\F_{17}^\times$.  This proves (iii).
+
+For (iv), the incidence sets at $1$ and $-1=16$ are different: the former contains all five slopes, while the latter omits slope $\gamma_4$.  Thus the hypothesis of \cref{thm:pair-descent} fails already at the first dyadic level.
+
+For (v), let
+\[
+\begin{aligned}
+ Q&=12+3X+5X^2,\\
+ A&=13+10X+7X^2+13X^3+5X^4+11X^5+9X^6,\\
+ B&=7+5X+6X^2+14X^3+3X^4+15X^5+X^6,
+\end{aligned}
+\]
+and $c_i=9+\gamma_i$.  The polynomial $Q$ is nonzero on every point of $D$, and exact multiplication gives
+\[
+ Qh_i+c_i\Lambda_i=A+\gamma_iB
+ \qquad(i=0,\ldots,4).
+\]
+For a denominator bound $s$, the identities of \cref{def:rational-atom} form a homogeneous coefficient system in $Q,A,B,c_0,c_1$.  At $s=0$ and $s=1$ the matrices have full column ranks $17$ and $18$, respectively.  At $s=2$ the $35\times19$ system has rank $18$ and its one-dimensional kernel is generated by the displayed certificate.  Hence degree two is minimal within this atom model.
+\end{proof}
+
+\begin{remark}[the common-support qualifier is essential]\label{rem:common-factor}
+The example has the common support factor
+\[
+ H=(X-1)(X-15)=X^2+X+15.
+\]
+It divides every locator and also $A,B,h_0,\ldots,h_4$.  Therefore \cref{thm:f17-atom} refutes an \emph{unqualified} quotient-or-pole theorem, but it does not refute a theorem stated only after the common-support first-match branch has been removed.  Instead, it proves that the qualifier cannot be omitted and that rational denominator profiles can be hidden inside common-support reductions.
+\end{remark}
+
+The incidence pattern also satisfies every partition inequality of \cref{prop:partition-obstruction}, with minimum slack $1$.  Thus the defect is a genuine specialization phenomenon rather than a failure of the obvious partition count.  This finite claim is included in the verifier.
+
+\section{Maximal supports and the slope-degree barrier}
+
+For each explanation, take its \emph{maximal} agreement support
+\[
+ \widehat S_i
+ :=\{x\in D:h_i(x)=r_0(x)+\gamma_i r_1(x)\},
+ \qquad |\widehat S_i|\ge m.
+\]
+Put
+\[
+ \widehat I_x:=\{i:x\in\widehat S_i\},
+ \qquad
+ C_\cap:=\bigcap_{i=1}^{L}\widehat S_i,
+ \qquad c:=|C_\cap|.
+\]
+
+Let $R_0,R_1\in\F[X]_{<n}$ be the interpolation polynomials of $r_0,r_1$ on $D$.  Interpolating the codeword polynomials coefficientwise in the slope gives the unique polynomial
+\[
+ H(X,Z)\in\F[X,Z],
+ \qquad
+ \deg_X H<k,
+ \qquad
+ \deg_Z H<L,
+\]
+with
+\[
+ H(X,\gamma_i)=h_i(X)
+ \qquad(i\in[L]).
+\]
+Define the slope-error polynomial
+\[
+ E(X,Z):=H(X,Z)-R_0(X)-ZR_1(X).
+\]
+
+\begin{lemma}[zero slope fibers are exactly common agreements]\label{lem:zero-fibers}
+For $x\in D$,
+\[
+ E(x,Z)\equiv0
+ \quad\Longleftrightarrow\quad
+ x\in C_\cap.
+\]
+\end{lemma}
+
+\begin{proof}
+If $x\in C_\cap$, then $E(x,\gamma_i)=0$ for all $L$ distinct slopes.  Since $\deg_ZE(x,Z)<L$, the polynomial is zero.  Conversely, if $E(x,Z)$ is zero, then evaluating at every $\gamma_i$ gives
+\[
+ h_i(x)=R_0(x)+\gamma_iR_1(x)=r_0(x)+\gamma_i r_1(x),
+\]
+so $x$ belongs to every maximal support.
+\end{proof}
+
+\begin{theorem}[maximal-support slope-degree barrier]\label{thm:slope-degree}
+Assume the explanations are not globally affine: there do not exist $A,B\in\F[X]_{<k}$ with
+\[
+ h_i=A+\gamma_iB
+ \qquad(i\in[L]).
+\]
+Then $E\ne0$.  Writing
+\[
+ r:=\deg_ZE,
+\]
+one has $c<k$ and
+\[
+ \boxed{
+ Lm\le Lc+r(n-c).
+ }
+\]
+Equivalently,
+\[
+ \boxed{
+ r\ge
+ \ceil{\frac{L(m-c)}{n-c}}.
+ }
+\]
+In particular, after the common-support branch is removed ($c=0$),
+\[
+ r\ge\ceil{\frac{Lm}{n}}.
+\]
+\end{theorem}
+
+\begin{proof}
+If $c\ge k$, choose two slopes and let $A,B\in\F[X]_{<k}$ be the unique codeword line through their polynomials.  For every $i$, the polynomial $h_i-A-\gamma_iB$ has degree $<k$ and vanishes on $C_\cap$, hence is zero.  This contradicts non-affinity, so $c<k$.
+
+For $x\notin C_\cap$, \cref{lem:zero-fibers} says $E(x,Z)$ is nonzero.  It has the $|\widehat I_x|$ distinct roots $\gamma_i$ indexed by agreements at $x$, whence
+\[
+ |\widehat I_x|\le r.
+\]
+Counting maximal-support incidences gives
+\[
+ Lm
+ \le\sum_i|\widehat S_i|
+ =\sum_{x\in C_\cap}L+\sum_{x\notin C_\cap}|\widehat I_x|
+ \le Lc+r(n-c).
+\]
+It remains only to justify that $E\ne0$.  If it were zero, then $H$ would be affine in $Z$ and all $h_i=H(X,\gamma_i)$ would lie on one global codeword line.
+\end{proof}
+
+\begin{corollary}[the active primitive degree is at least eighteen]\label{cor:degree-18}
+For $L=32$ and either deployed adjacent row, a non-affine explanation with no common agreement coordinate satisfies
+\[
+ \boxed{18\le r\le31.}
+\]
+Indeed,
+\[
+ \ceil{\frac{32m_{\rm KB}}{n}}
+ =
+ \ceil{\frac{32m_{\rm M31}}{n}}
+ =18.
+\]
+\end{corollary}
+
+Thus every slope-degree-$\le17$ explanation is already global-affine or common-support.  This removes the entire low-degree branch before any determinant specialization argument begins.
+
+\section{Local incidence complexity}
+
+For the rational extraction theorem, choose exact $m$-subsupports
+\[
+ S_i\subseteq\widehat S_i,
+ \qquad |S_i|=m,
+\]
+and set
+\[
+ I_x:=\{i:x\in S_i\},
+ \qquad r_x:=|I_x|.
+\]
+Let $N_a$ count coordinates of incidence multiplicity $a$, let
+\[
+ N_{\ge2}:=|\{x:r_x\ge2\}|,
+ \qquad
+ U:=\bigcup_iS_i,
+ \qquad u:=|U|.
+\]
+
+\begin{definition}[two-cover incidence complexity]\label{def:chi}
+Define
+\[
+ \chi(\cS)
+ :=\sum_{x\in D}\min\{2,r_x\}
+ =N_1+2N_{\ge2}.
+\]
+Equivalently,
+\[
+ \boxed{
+ \chi(\cS)=2u-N_1=2n-2N_0-N_1.
+ }
+\]
+\end{definition}
+
+\begin{proposition}[exact relation to the rank-two row count]\label{prop:chi-rows}
+For exact $m$-supports,
+\[
+ \sum_{x\in D}(r_x-2)_+
+ =Lm-\chi(\cS).
+\]
+\end{proposition}
+
+\begin{proof}
+At multiplicity zero or one, both sides contribute zero after subtracting $\min\{2,r_x\}$.  At multiplicity at least two, the difference is $r_x-2$.  Sum over $x$ and use $\sum_xr_x=Lm$.
+\end{proof}
+
+The quantity $\chi$ is the number of scalar conditions needed to force one common rational received line on the occupied coordinates: two conditions at a multiply occupied coordinate and one at a singleton.
+
+\section{Support-collapsed rational interpolation}
+
+Let
+\[
+ \Lambda_i(X):=\prod_{x\in S_i}(X-x)
+\]
+be the monic locator of $S_i$.
+
+\begin{definition}[scalar-locator certificate]\label{def:certificate}
+A scalar-locator certificate of denominator degree at most $s$ is a tuple
+\[
+ (Q,A,B,c_0,c_1)
+\]
+with
+\[
+ \deg Q\le s,
+ \qquad
+ \deg A,\deg B\le m,
+\]
+not all zero, such that, with $c_i=c_0+c_1\gamma_i$,
+\[
+ \boxed{
+ Qh_i+c_i\Lambda_i=A+\gamma_iB
+ \qquad(i\in[L]).
+ }
+\]
+It is a rational atom when $Q\ne0$ and $(c_0,c_1)\ne(0,0)$, a pure locator pencil when $Q=0$, and globally affine when $(c_0,c_1)=(0,0)$.
+\end{definition}
+
+When $Q$ has no root on $D$, a rational atom is explained by the received line $(A+\gamma B)/Q$.  A root of $Q$ on $D$ is retained as a separate denominator-root first-match branch rather than being silently divided away.
+
+\begin{theorem}[low-complexity atom extraction]\label{thm:atom-extraction}
+Assume $L\ge2$.  Let
+\[
+ d=m-k
+\]
+and fix an integer $0\le s\le d$.  If
+\[
+ \boxed{
+ \chi(\cS)<2m+s+3,
+ }
+\]
+then the explanations admit a scalar-locator certificate of denominator degree at most $s$.
+
+More precisely, one of the following holds:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item the codeword explanations are globally affine;
+\item they lie in a pure locator pencil;
+\item they form a rational atom, possibly with a denominator-root degeneracy on $D$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Use as unknowns the coefficients of
+\[
+ Q\in\F[X]_{\le s},
+ \qquad
+ A,B\in\F[X]_{\le m}.
+\]
+There are
+\[
+ (s+1)+2(m+1)=2m+s+3
+\]
+unknowns.
+
+At a coordinate $x$ with $r_x\ge2$, impose the two homogeneous linear equations
+\[
+ A(x)=Q(x)r_0(x),
+ \qquad
+ B(x)=Q(x)r_1(x).
+\]
+At a singleton coordinate, with $I_x=\{i\}$, impose
+\[
+ A(x)+\gamma_iB(x)=Q(x)h_i(x).
+\]
+No equation is needed at an unoccupied coordinate.  The total number of equations is at most $\chi(\cS)$.  Under the strict inequality, the homogeneous system has a nonzero solution $(Q,A,B)$.
+
+For every $i$ and every $x\in S_i$, the imposed equations give
+\[
+ A(x)+\gamma_iB(x)=Q(x)h_i(x).
+\]
+The polynomial
+\[
+ P_i:=A+\gamma_iB-Qh_i
+\]
+has degree at most $m$ because
+\[
+ \deg(Qh_i)\le s+k-1\le m-1.
+\]
+It vanishes on the $m$ distinct roots of $\Lambda_i$, so
+\[
+ P_i=c_i\Lambda_i
+\]
+for a scalar $c_i$.  Comparing coefficients of $X^m$ gives
+\[
+ c_i=[X^m]A+\gamma_i[X^m]B,
+\]
+which is affine in $\gamma_i$.  This is the required certificate.
+
+If $Q=0$, nontriviality and two distinct slopes rule out $c_0=c_1=0$, so the certificate is a pure locator pencil.  If $Q\ne0$ but $c_0=c_1=0$, then
+\[
+ Qh_i=A+\gamma_iB.
+\]
+Using two slopes shows $Q$ divides both $A$ and $B$, and cancellation gives a global affine codeword line.  The remaining case is a rational atom.
+\end{proof}
+
+\begin{remark}[relation to rational-function interpolation]
+The proof is a support-collapsed Berlekamp--Welch argument: it interpolates only the two received-line coefficients on multiply occupied coordinates, rather than imposing a separate condition for every support incidence.  This is compatible with the rational-function and curve-decoding viewpoint in recent proximity-gap work \cite{BSCHKS25,GG26}, but the theorem above is elementary and finite; no random-evaluation or asymptotic result is imported.
+\end{remark}
+
+\begin{corollary}[full denominator profile]\label{cor:full-profile}
+Taking $s=d=m-k$, every explanation with
+\[
+ \boxed{
+ \chi(\cS)<3m-k+3
+ }
+\]
+is globally affine, a pure locator pencil, or a scalar-locator rational atom of denominator degree at most $m-k$.
+\end{corollary}
+
+\begin{corollary}[support-union form]\label{cor:union-form}
+If
+\[
+ 2u-N_1<3m-k+3,
+\]
+then the same alternatives hold.  In particular, it suffices that
+\[
+ u\le\floor{\frac{3m-k+2}{2}}.
+\]
+\end{corollary}
+
+\begin{corollary}[exact deployed extraction thresholds]\label{cor:active-extraction}
+For the active $32$-tuples, put
+\[
+ \Xi:=3m-k+3.
+\]
+Then
+\[
+\begin{array}{c|r|r|r|r}
+\toprule
+\text{row}&\Xi&2n-\Xi&\text{automatic union ceiling}&\text{union nullity ceiling}\\
+\midrule
+\text{KoalaBear MCA}&2299571&1894733&1149785&101209\\
+\text{Mersenne-31 MCA}&2299499&1894805&1149749&101173\\
+\bottomrule
+\end{array}
+\]
+where the last column subtracts $n-k=1048576$ from the union ceiling.
+
+Equivalently, extraction is automatic if
+\[
+ 2N_0+N_1\ge1894734
+\]
+on KoalaBear, or if
+\[
+ 2N_0+N_1\ge1894806
+\]
+on Mersenne-31.
+\end{corollary}
+
+These are classification thresholds, not challenge-numerator payments.  Their use is to show that a large low-complexity support family belongs to one atom instead of being charged as many unrelated cells.
+
+\section{The degree-two counterexample lies at the extraction threshold}
+
+The degree-two $\F_{17}$ example of \cref{thm:f17-atom} has
+\[
+ n=8,
+ \qquad k=4,
+ \qquad m=6,
+ \qquad L=5.
+\]
+Its five listed supports are maximal.  Their incidence multiplicities are
+\[
+ (5,3,3,5,4,3,4,3),
+\]
+so
+\[
+ \chi=16
+ \quad\text{while}\quad
+ 3m-k+3=17.
+\]
+Thus \cref{thm:atom-extraction} forces a denominator of degree at most
+\[
+ d=m-k=2,
+\]
+which is exactly the minimal degree established by \cref{thm:f17-atom}.
+
+The common support has size $c=2$.  The coefficientwise slope interpolation of the five codewords has degree $r=4$, and
+\[
+ \ceil{\frac{5(6-2)}{8-2}}=4.
+\]
+Hence the example also attains equality in \cref{thm:slope-degree}.  The counterexample is therefore not an unexplained accident: it sits simultaneously on the common-support slope-degree boundary and the low-complexity rational-extraction boundary.
+
+\section{Collision pencils for two atom certificates}
+
+Suppose the same indexed explanations
+\[
+ (\gamma_i,h_i,\Lambda_i),
+ \qquad i\in I,
+\]
+satisfy two nontrivial scalar-locator certificates
+\[
+ Qh_i+(c_0+c_1\gamma_i)\Lambda_i=A+\gamma_iB,
+\]
+\[
+ Q'h_i+(c'_0+c'_1\gamma_i)\Lambda_i=A'+\gamma_iB'.
+\]
+Assume $|I|\ge2$, $Q,Q'\ne0$, and both scalar pairs are nonzero.  Define
+\[
+\begin{aligned}
+ P_0&:=Q'c_0-Qc'_0,
+ &P_1&:=Q'c_1-Qc'_1,\\
+ R_0&:=Q'A-QA',
+ &R_1&:=Q'B-QB'.
+\end{aligned}
+\]
+Eliminating $h_i$ gives the collision identity
+\[
+ \boxed{
+ (P_0+\gamma_iP_1)\Lambda_i
+ =R_0+\gamma_iR_1.
+ }
+\]
+
+Let
+\[
+ G:=\{x\in D:R_0(x)=R_1(x)=0\},
+ \qquad g:=|G|,
+\]
+and
+\[
+ H:=\{x\in G:P_0(x)=P_1(x)=0\},
+ \qquad h:=|H|.
+\]
+
+\begin{theorem}[atom collision rigidity]\label{thm:collision-rigidity}
+If $R_0=R_1=0$ and the certificates share at least two distinct slopes, then the certificates are projectively identical.
+
+Otherwise, if $g<m$, then
+\[
+ \boxed{
+ |I|\le\floor{\frac{n-g}{m-g}}.
+ }
+\]
+Moreover, every coordinate in $G\setminus H$ belongs to at least $|I|-1$ of the supports $S_i$.
+
+If both denominators have degree at most $d$, then two distinct certificates satisfy
+\[
+ h\le d.
+\]
+\end{theorem}
+
+\begin{proof}
+First suppose $R_0=R_1=0$.  Then
+\[
+ (P_0+\gamma_iP_1)\Lambda_i=0
+\]
+as a polynomial.  Since $\Lambda_i\ne0$, two distinct slopes imply $P_0=P_1=0$.  Thus
+\[
+ Q'(c_0,c_1)=Q(c'_0,c'_1).
+\]
+Choose a nonzero component of $(c_0,c_1)$.  Because $Q,Q'\ne0$, this identity gives a scalar $\lambda\in\F^\times$ with
+\[
+ Q'=\lambda Q,
+ \qquad
+ (c'_0,c'_1)=\lambda(c_0,c_1).
+\]
+The equations $R_0=R_1=0$ then give
+\[
+ A'=\lambda A,
+ \qquad B'=\lambda B.
+\]
+So the certificates are projectively identical.
+
+Now assume $(R_0,R_1)\ne(0,0)$.  At every root of $\Lambda_i$,
+\[
+ R_0(x)+\gamma_iR_1(x)=0.
+\]
+After removing the at most $g$ roots in $G$, each $S_i$ contributes at least $m-g$ incidences.  At a coordinate outside $G$, the affine equation
+\[
+ R_0(x)+\gamma R_1(x)=0
+\]
+has at most one slope solution.  Hence
+\[
+ |I|(m-g)\le n-g,
+\]
+which proves the bound.
+
+For $x\in G\setminus H$, the polynomial
+\[
+ P_0(x)+\gamma P_1(x)
+\]
+is a nonzero affine function of $\gamma$ and therefore vanishes at at most one of the shared slopes.  The collision identity then forces $\Lambda_i(x)=0$ for all other $i$, proving the near-sunflower assertion.
+
+Finally, if the certificates are distinct, then $(P_0,P_1)\ne(0,0)$ by the first part.  Both have degree at most $d$, so their common root set in $D$ has size at most $d$.
+\end{proof}
+
+\begin{corollary}[primitive atom uniqueness]\label{cor:primitive-unique}
+If $G=\varnothing$, two distinct atom certificates share at most
+\[
+ \floor{\frac nm}=1
+\]
+explanation at either deployed row.  Thus two primitive certificates sharing two slopes are projectively identical.
+\end{corollary}
+
+\section{Affine lines versus rational atoms}
+
+A similar argument prevents a primitive rational atom from masquerading as a global affine codeword line.
+
+\begin{theorem}[affine--atom collision]\label{thm:affine-atom}
+Suppose $h_i=A_0+\gamma_iB_0$ for $i\in I$, and the same explanations satisfy a nontrivial atom certificate
+\[
+ Qh_i+(c_0+c_1\gamma_i)\Lambda_i=A+\gamma_iB,
+ \qquad (c_0,c_1)\ne(0,0).
+\]
+Put
+\[
+ E_0:=A-QA_0,
+ \qquad
+ E_1:=B-QB_0,
+\]
+and let
+\[
+ G_{\rm aff}:=\{x\in D:E_0(x)=E_1(x)=0\},
+ \qquad g_{\rm aff}:=|G_{\rm aff}|.
+\]
+If $|I|\ge2$, then $(E_0,E_1)\ne(0,0)$, and if $g_{\rm aff}<m$,
+\[
+ \boxed{
+ |I|\le\floor{\frac{n-g_{\rm aff}}{m-g_{\rm aff}}}.
+ }
+\]
+Every point of $G_{\rm aff}$ belongs to at least $|I|-1$ supports.
+In particular, a primitive atom and a global affine line share at most one explanation.
+\end{theorem}
+
+\begin{proof}
+Substitution gives
+\[
+ (c_0+c_1\gamma_i)\Lambda_i=E_0+\gamma_iE_1.
+\]
+If $E_0=E_1=0$, then $c_0+c_1\gamma_i=0$ for every $i$, since $\Lambda_i\ne0$.  A nonzero affine function of the slope has at most one root, contradicting $|I|\ge2$.
+
+The root-incidence count for the pencil $E_0+\gamma E_1$ is identical to the proof of \cref{thm:collision-rigidity}.  At a common fixed root, all supports except possibly the unique slope with $c_0+c_1\gamma=0$ contain the coordinate.
+\end{proof}
+
+\section{Coherence or a quantified near-sunflower}
+
+The graph whose vertices are the $32$-subsets of a fixed slope set and whose edges join subsets with $31$ common slopes is connected.  Collision rigidity can therefore propagate a local classification globally.
+
+\begin{theorem}[order-$32$ coherence]\label{thm:coherence}
+Let $Z$ be a set of at least $32$ bad slopes.  Suppose every $32$-subset of the corresponding explanations is classified as either
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item one global affine codeword line, or
+\item one nontrivial scalar-locator rational atom of denominator degree at most $d=m-k$.
+\end{enumerate}
+Assume all cross-fixed sets arising between distinct local classifications have already been removed by the first-match rule.  Then the entire set $Z$ lies on one global affine codeword line or in one projective rational atom certificate.
+\end{theorem}
+
+\begin{proof}
+Adjacent $32$-subsets share $31$ explanations.  Two affine codeword lines sharing two distinct slopes are identical.  By \cref{cor:primitive-unique}, two primitive atom certificates sharing two explanations are identical.  By \cref{thm:affine-atom}, a primitive atom and an affine line cannot share two explanations.  Therefore adjacent vertices of the $32$-subset graph receive the same type and the same structure.  Connectedness propagates that structure to every $32$-subset and hence to every explanation in $Z$.
+\end{proof}
+
+Without the primitive hypothesis, failure of coherence is not unstructured.
+
+\begin{corollary}[exact near-sunflower alternative on a $31$-overlap]\label{cor:near-sunflower}
+Suppose two distinct local classifications share $q=31$ explanations.  Then at least one classification is an atom, and their cross-fixed set has size at least
+\[
+ g_{31}:=\ceil{\frac{31m-n}{30}}.
+\]
+For two rational atoms, at least $g_{31}-d$ of those coordinates belong to at least $30$ of the $31$ supports.  For an affine-line/atom collision, all $g_{31}$ fixed coordinates have that property.
+
+At the deployed rows,
+\[
+\begin{array}{c|r|r|r}
+\toprule
+\text{row}&g_{31}&d=m-k&g_{31}-d\\
+\midrule
+\text{KoalaBear MCA}&1083345&67472&1015873\\
+\text{Mersenne-31 MCA}&1083320&67448&1015872\\
+\bottomrule
+\end{array}
+\]
+Thus every failure of local atom coherence produces a $30$-of-$31$ near-sunflower on more than one million domain coordinates.
+\end{corollary}
+
+\begin{proof}
+Rearrange the collision inequality
+\[
+ 31(m-g)\le n-g
+\]
+to obtain
+\[
+ g\ge\ceil{\frac{31m-n}{30}}.
+\]
+For two atoms, \cref{thm:collision-rigidity} gives a collision core $H$ of size at most $d$; every point outside it lies in at least thirty supports.  The affine--atom statement follows from \cref{thm:affine-atom}.
+\end{proof}
+
+For reference, if two classifications share all $32$ explanations, the corresponding fixed-root thresholds are
+\[
+\begin{array}{c|r|r}
+\toprule
+\text{row}&g_{32}=\ceil{(32m-n)/31}&g_{32}-d\\
+\midrule
+\text{KoalaBear MCA}&1084400&1016928\\
+\text{Mersenne-31 MCA}&1084375&1016927\\
+\bottomrule
+\end{array}
+\]
+
+\section{The proved part of the relative order-\texorpdfstring{$32$}{32} theorem}
+
+The results can now be stated as one relative classification theorem for the actual explanation vector, which is weaker than classifying every vector in the rank-two kernel but is sufficient for MCA.
+
+\begin{theorem}[partial relative order-\texorpdfstring{$32$}{32} explanation theorem]\label{thm:partial-relative}
+Fix either deployed adjacent MCA row and $32$ distinct bad slopes.  After maximalizing supports, removing their common-support branch, and selecting exact $m$-subsupports, any non-global-affine explanation outside the pure-locator, denominator-root, and scalar-locator rational-profile cells must satisfy both
+\[
+ \boxed{18\le\deg_ZE\le31}
+\]
+and
+\[
+ \boxed{\chi(\cS)\ge3m-k+3.}
+\]
+Numerically, the second inequality is
+\[
+ \chi(\cS)\ge2299571
+ \quad\text{on KoalaBear},
+\]
+and
+\[
+ \chi(\cS)\ge2299499
+ \quad\text{on Mersenne-31}.
+\]
+
+Moreover, if every residual $32$-subset is classified as affine or rational, then either all bad slopes belong to one coherent structure or a $31$-overlap enters the quantified near-sunflower branch of \cref{cor:near-sunflower}.
+\end{theorem}
+
+\begin{proof}
+The slope-degree statement is \cref{cor:degree-18}.  The incidence-complexity statement is the contrapositive of \cref{cor:full-profile}.  The coherence alternative follows from \cref{thm:coherence,cor:near-sunflower}.
+\end{proof}
+
+This proves the relative theorem in two substantial regimes:
+\begin{itemize}[leftmargin=2em]
+\item low slope degree ($r\le17$) is impossible outside global-affine/common-support structure;
+\item low two-cover complexity ($\chi<3m-k+3$) automatically produces a rational or pure-locator atom.
+\end{itemize}
+It also discharges the separate atom-coherence obligation once the near-sunflower first-match cell is applied.
+
+
+\part{Primitive spread abundance and the exact MCA endgame}
+\label{part:spread-endgame}
+The rank and atom theorems reduce a large bad-slope set to one coherent global structure, except for a quantified exceptional set.  This part proves that universal spread exclusion is false, identifies the correct spread-abundance target, localizes rational atoms to a canonical owner, and bounds broad classes of spread-core corrections.
+
+\section{A critical spread core exists}
+
+A universal theorem excluding primitive spread critical tuples on dyadic domains would be stronger than the deployed abundance statement.  The following exact example shows that such a universal prohibition is false.
+
+\begin{proposition}[exact dyadic critical spread core]\label{prop:f17-spread}
+Let
+\[
+ \F=\F_{17},
+ \qquad
+ D=\F_{17}^{\times}=\langle3\rangle,
+ \qquad
+ n=16,
+ \quad k=8,
+ \quad m=10.
+\]
+The critical order is
+\[
+ L_*=\floor{\frac{2(n-k)}{m-k}}+1=9.
+\]
+There exist nine distinct slopes, nine codeword explanations, and exact size-$10$ witness supports with all of the following properties.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item The received pair is support-wise MCA-bad at agreement $10$.
+\item The maximal agreement supports have empty common intersection.
+\item The rank-two reduced intersection matrix has rank $55$, whereas full relative rank is $(9-2)8=56$.
+\item The two-cover complexity is $32$, above the extraction threshold of \cref{cor:full-profile} $3m-k+3=25$.
+\item The incidence pattern is not periodic at any nontrivial level of the dyadic tower.
+\item There is no scalar-locator certificate with denominator degree $0$, $1$, or $2=m-k$.
+\item The coefficientwise slope interpolation has degree $8$, above the common-support-free lower barrier $\ceil{9m/n}=6$.
+\item The direction code contains a word of weight $9=n-k+1$, so the minimum-support excess is exactly one.
+\end{enumerate}
+Moreover, for this same received line every slope in $\F_{17}$ has a degree-$<8$ codeword agreeing on at least ten coordinates.
+\end{proposition}
+
+\begin{proof}[Exact certificate]
+Order the domain as
+\[
+ (1,3,9,10,13,5,15,11,16,14,8,7,4,12,2,6).
+\]
+Use slopes $\gamma_i=i$ for $0\le i\le8$ and the following exact size-$10$ supports, written by domain indices:
+\[
+\begin{array}{c|l}
+\toprule
+ i&S_i\\
+\midrule
+0&0,3,4,5,7,9,10,11,12,13\\
+1&1,3,5,6,7,10,11,12,13,14\\
+2&1,4,6,7,9,10,11,12,13,15\\
+3&0,1,2,4,5,6,7,9,14,15\\
+4&0,2,3,4,5,6,7,9,12,13\\
+5&0,3,4,5,6,7,8,9,10,14\\
+6&1,2,3,5,6,8,9,11,13,15\\
+7&0,3,4,5,6,7,11,12,14,15\\
+8&2,3,4,5,6,7,8,9,10,14\\
+\bottomrule
+\end{array}
+\]
+The codeword coefficient vectors, constant coefficient first, are
+\[
+\begin{array}{c|rrrrrrrr}
+\toprule
+ i&1&X&X^2&X^3&X^4&X^5&X^6&X^7\\
+\midrule
+0&1&13&16&16&9&16&7&12\\
+1&13&9&14&12&6&4&2&13\\
+2&2&2&2&4&2&12&0&1\\
+3&13&3&3&4&0&13&16&5\\
+4&1&4&11&4&2&16&9&16\\
+5&16&13&15&13&2&15&5&7\\
+6&3&3&0&13&0&8&12&4\\
+7&3&2&6&8&10&13&10&12\\
+8&1&12&2&14&9&10&9&4\\
+\bottomrule
+\end{array}
+\]
+and the received coefficient words on the ordered domain are
+\[
+\begin{aligned}
+ r_0&=(5,16,0,0,0,0,0,0,5,7,8,0,8,10,0,6),\\
+ r_1&=(6,14,15,0,0,0,2,13,14,12,6,3,15,13,6,15).
+\end{aligned}
+\]
+Direct substitution verifies every claimed support.  Maximalizing the nine supports gives sizes $10$ or $11$ and empty total intersection.
+
+For the rank statement, form the rank-two matrix of \cref{def:r2rim}.  It has $58$ rows and $72$ columns.  The displayed explanation vector supplies one kernel direction independent of the $16$-dimensional global-affine kernel, so its rank is at most $55$; exact Gaussian elimination over $\F_{17}$ gives rank $55$.  The scalar-locator systems at denominator degrees $0,1,2$ have column counts and ranks
+\[
+ (25,25),\qquad(26,26),\qquad(27,27),
+\]
+respectively.  Exact interpolation gives slope degree $8$, and direct evaluation of all pairwise codeword differences gives minimum weight $9$.
+
+Finally, exhaustive interpolation over the $\binom{16}{10}$ candidate common supports finds no ten-coordinate support on which both $r_0$ and $r_1$ are degree-$<8$ evaluations.  Enumerating the $\binom{16}{8}$ interpolation bases at each of the seventeen slopes finds at least one agreement-$10$ codeword for every slope.  The accompanying verifier repeats all calculations in exact arithmetic.
+\end{proof}
+
+\begin{remark}[what the example does and does not refute]\label{rem:counter-scope}
+The example refutes the \emph{universal} prohibition of primitive spread critical tuples.  It does not refute a row-sharp theorem for the two deployed length-$2^{21}$ domains.  It also shows why the minimum-distance refinement is relevant but not by itself decisive: the hard spread core lies exactly in the support-excess-$1$ branch, the same branch in which the boundary top seam survives by \cref{cor:top-seam-localization}.
+\end{remark}
+
+\section{The deployed spread-abundance target}
+
+\begin{definition}[first-match primitive spread core]\label{def:spread-core}
+A set of $32$ explanations is a \emph{first-match primitive spread core} if it satisfies the residual conditions of \cref{thm:partial-relative}: no global affine codeword line, common-support factor, exact dyadic quotient descent, scalar-locator certificate of denominator degree at most $m-k$, denominator-root, extension, tangent, field-drop, or quantified near-sunflower atom; slope degree lies between $18$ and $31$; and two-cover complexity is at least $3m-k+3$.
+\end{definition}
+
+A universal nonexistence theorem is false by \cref{prop:f17-spread}.  The finite MCA theorem requires the weaker and more natural abundance statement.
+
+\begin{problem}[deployed spread-abundance theorem]\label{prob:spread-abundance}
+For either deployed domain, prove that if a support-wise MCA-bad received line contains one first-match primitive spread core, then its total number of bad challenge slopes is at most the row budget $B^*$.
+
+A stronger useful form would bound the number of slopes extending a fixed core by a quantity below $B^*-32$, with every failure routed to one canonical quotient, extension, rational-owner, clone, or near-sunflower certificate.
+\end{problem}
+
+\begin{remark}
+The distinction is essential.  The finite theorem does not need local higher-order-MDS rank at every critical tuple.  It needs a global statement that a line carrying one genuine spread defect cannot carry too many further slopes.  The exact example in \cref{prop:f17-spread} shows that any proof must use the deployed domain and field geometry, not only the abstract critical-order dimension count.
+\end{remark}
+
+\section{Rational atoms have a canonical owner}
+
+Consider one coherent rational atom certificate
+\begin{equation}\label{eq:atom}
+ Qh_i+(c_0+c_1\gamma_i)\Lambda_i=A+\gamma_iB,
+ \qquad i\in I,
+\end{equation}
+where $\Lambda_i$ is the locator of a witness support $S_i$, $|S_i|\ge m$, and $Q$ has no root on $D$.  Put
+\[
+ \widetilde r_0(x)=\frac{A(x)}{Q(x)},
+ \qquad
+ \widetilde r_1(x)=\frac{B(x)}{Q(x)}.
+\]
+The line
+\[
+ \widetilde r_\gamma=\widetilde r_0+\gamma\widetilde r_1
+\]
+is the \emph{owner line} of the atom.
+
+\begin{definition}[fixed owner set]\label{def:owner-set}
+Define
+\[
+ G=\{x\in D:r_0(x)=\widetilde r_0(x),\ r_1(x)=\widetilde r_1(x)\},
+ \qquad g=|G|.
+\]
+\end{definition}
+
+\begin{theorem}[exclusive rational-owner localization]\label{thm:owner-localization}
+Retain \eqref{eq:atom} and assume every scalar $c_0+c_1\gamma_i$ is nonzero; zero-scalar slopes are a separate global-affine degeneracy and contribute at most one slope.  Then:
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item for every $x\in D\setminus G$, at most one support $S_i$ contains $x$;
+\item if $g<m$, then
+\[
+ \boxed{
+ |I|\le\floor{\frac{n-g}{m-g}}\le n-m+1;
+ }
+\]
+\item if $g\ge m$, at most $n-g$ supports meet $D\setminus G$, while the supports contained in $G$ form a support-wise MCA-bad instance for the punctured code
+\[
+ C|_G\cong\RS[\F,G,k].
+\]
+Consequently
+\[
+ \boxed{
+ |I|\le n-g+\Bbad(\RS[\F,G,k],m).
+ }
+\]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+On $S_i$, the locator vanishes, and \eqref{eq:atom} gives
+\[
+ h_i(x)=\widetilde r_0(x)+\gamma_i\widetilde r_1(x).
+\]
+Since $S_i$ is also an agreement support for the original received line,
+\[
+ (r_0-\widetilde r_0)(x)
+ +\gamma_i(r_1-\widetilde r_1)(x)=0.
+\]
+For $x\notin G$ this is a nonzero affine equation in $\gamma_i$, hence has at most one solution.  This proves (a).
+
+If $g<m$, every support uses at least $m-g$ coordinates outside $G$.  By (a), those outside incidences are disjoint across slopes, so
+\[
+ |I|(m-g)\le n-g.
+\]
+The quotient $(n-g)/(m-g)$ is increasing for $g<m$, and at $g=m-1$ equals $n-m+1$.  This proves (b).
+
+Now assume $g\ge m$.  Distinct supports meeting $D\setminus G$ use disjoint nonempty outside-coordinate sets, so there are at most $n-g$ of them.  Every remaining support lies in $G$ and witnesses the punctured owner line there.  Since $g\ge m>k$, evaluation on $G$ is injective and the punctured code is Reed--Solomon of dimension $k$.  If the punctured pair admitted a common size-$m$ explaining support, the same support would explain the original pair on $D$, contradicting support-wise MCA-badness.  The contained slopes are therefore bounded by the punctured MCA numerator.
+\end{proof}
+
+\begin{corollary}[all small-owner atoms are paid]\label{cor:small-owner}
+For either deployed row, every coherent rational atom with
+\[
+ g\le2m-k
+\]
+has at most $n$ bad slopes.  Explicitly, the paid owner ranges are
+\[
+\begin{array}{c|r|r}
+\toprule
+\text{row}&2m-k&\text{atom bound}\\
+\midrule
+\text{KoalaBear MCA}&1183520&2097152\\
+\text{Mersenne-31 MCA}&1183472&2097152\\
+\bottomrule
+\end{array}
+\]
+Both fit their challenge budgets; on Mersenne-31 the exact residual margin is
+\[
+ 16777215-2097152=14680063.
+\]
+\end{corollary}
+
+\begin{proof}
+The case $g<m$ is \cref{thm:owner-localization}(b).  For $m\le g\le2m-k$, the punctured error count is $g-m$ and
+\[
+ 2(g-m)\le g-k.
+\]
+CAP25 v13.2 proves, by its half-distance pincer and unique-decoding correlated-agreement input, that the punctured MCA numerator is at most $g$ in this range \cite{CAP25v132}.  Apply \cref{thm:owner-localization}(c):
+\[
+ |I|\le(n-g)+g=n.
+\]
+\end{proof}
+
+\section{A self-contained minimum-distance owner payment}
+
+The corollary uses the half-distance proximity theorem of CAP25 v13.2.  The next statement is elementary and retains the actual minimum support of the punctured direction code.
+
+\begin{theorem}[triple-collapse from direction minimum support]\label{thm:triple-collapse}
+Assume $g\ge m$ and restrict to the atom slopes whose supports lie in $G$.  Let
+\[
+ C'_G=\Span\{h_i-h_j:i,j\in I\}\subseteq\RS[\F,G,k]
+\]
+be their direction code.  If it is nonzero, write
+\[
+ d_1(C'_G)=g-k+a,
+ \qquad a\ge1.
+\]
+If
+\[
+ \boxed{
+ 3m-2g\ge k-a+1,
+ }
+\]
+then all contained codeword explanations lie on one global codeword line.  Hence the full atom, including supports meeting $D\setminus G$, satisfies
+\[
+ \boxed{|I|\le n-m+1.}
+\]
+Equivalently, this payment applies whenever
+\[
+ g\le\floor{\frac{3m-k+a-1}{2}}.
+\]
+\end{theorem}
+
+\begin{proof}
+For three distinct slopes define the affine deviation
+\[
+ p_{ijk}
+ =(
+ \gamma_j-\gamma_k)h_i
+ +(\gamma_k-\gamma_i)h_j
+ +(\gamma_i-\gamma_j)h_k.
+\]
+It belongs to $C'_G$.  On $S_i\cap S_j\cap S_k$, all three codewords equal the owner line at their slopes, so $p_{ijk}$ vanishes.  Inclusion--exclusion gives
+\[
+ |S_i\cap S_j\cap S_k|\ge3m-2g.
+\]
+A nonzero word of $C'_G$ has at most
+\[
+ g-d_1(C'_G)=k-a
+\]
+zeros.  Under the displayed hypothesis, $p_{ijk}$ must therefore be zero for every triple.
+
+Fix two slopes.  The vanishing of every triple deviation shows that every $h_i$ lies on the same global codeword line $H_0+\gamma_iH_1$.  Let $C_0\subseteq G$ be the coordinate set on which this codeword line equals the owner line coefficientwise.  Support-wise MCA-badness gives $|C_0|<m$.  Outside $C_0$, equality of the two affine lines determines at most one slope.  Thus the contained slopes satisfy
+\[
+ |I_{\rm in}|(m-|C_0|)\le g-|C_0|,
+ \qquad
+ |I_{\rm in}|\le g-m+1.
+\]
+There are at most $n-g$ crossing supports by \cref{thm:owner-localization}, and hence
+\[
+ |I|\le(n-g)+(g-m+1)=n-m+1.
+\]
+\end{proof}
+
+\begin{corollary}[exact support-excess-one thresholds]\label{cor:triple-active}
+At $a=1$, \cref{thm:triple-collapse} pays owners through
+\[
+\begin{array}{c|r}
+\toprule
+\text{row}&\floor{(3m-k)/2}\\
+\midrule
+\text{KoalaBear MCA}&1149784\\
+\text{Mersenne-31 MCA}&1149748\\
+\bottomrule
+\end{array}
+\]
+Larger direction support excess increases the threshold by one owner coordinate for every two units of excess.
+\end{corollary}
+
+\begin{remark}[connection with the minimum-distance sharpening of \cref{sec:min-distance-sharpening}]
+For the boundary prefix dictionary, \cref{prop:exchange-defect} proves that a shift pair of exchange defect $r$ can occur only when $r\ge a$, where $a$ is the direction-code support excess; the top seam $r=1$ is therefore confined to $a=1$ .  The counterexample in \cref{prop:f17-spread} also has $a=1$.  Thus the difficult seam is now consistently localized: large $a$ is paid by the sharpened flag and owner bounds, while the exact-minimum-distance branch remains the genuine image-counting problem.
+\end{remark}
+
+\section{Owner pencils and a seven-point rich-incidence bound}
+
+The exclusive atom theorem also requires control of competing owner certificates.  \Cref{thm:collision-rigidity} gives uniqueness once two slopes are shared.  The following theorem gives a complementary geometric bound when owners vary in a projective pencil.
+
+Let
+\[
+ (Q_\tau,A_\tau,B_\tau)
+ =(Q_0,A_0,B_0)+\tau(Q_1,A_1,B_1),
+ \qquad \tau\in\mathbb P^1(\F),
+\]
+be a projective pencil of owner triples.  At a coordinate $x\in D$, set
+\[
+ F_x(\gamma,\tau)
+ =A_\tau(x)+\gamma B_\tau(x)
+ -Q_\tau(x)(r_0(x)+\gamma r_1(x)).
+\]
+This has bidegree at most $(1,1)$ on $\mathbb P^1_\gamma\times\mathbb P^1_\tau$.
+
+\begin{theorem}[component-free owner-pencil rich points]\label{thm:owner-pencil}
+Assume no $F_x$ is identically zero and no two coordinate curves $F_x=0$ share an irreducible component.  Then the number of parameter pairs $(\gamma,\tau)$ for which at least $m$ coordinate equations vanish is at most
+\[
+ \boxed{
+ \floor{\frac{2\binom n2}{\binom m2}}
+ =\floor{\frac{2n(n-1)}{m(m-1)}}.
+ }
+\]
+For both deployed MCA rows this number is exactly $7$.
+\end{theorem}
+
+\begin{proof}
+Two bidegree-$(1,1)$ curves with no common component have intersection number at most
+\[
+ (1,1)\cdot(1,1)=2
+\]
+on $\mathbb P^1\times\mathbb P^1$.  A parameter pair lying on at least $m$ coordinate curves contributes at least $\binom m2$ incidences with unordered coordinate-curve pairs.  Summing first over parameter pairs and then over the $\binom n2$ curve pairs gives
+\[
+ N_{\rm rich}\binom m2\le2\binom n2.
+\]
+The deployed integer evaluations are direct.
+\end{proof}
+
+\begin{remark}[the shared-component branches are explicit]
+A nonzero bidegree-$(1,1)$ polynomial is either irreducible or factors into one vertical and one horizontal linear factor.  Hence a shared component is one of:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item a fixed-slope vertical component;
+\item a fixed-owner horizontal component;
+\item a common irreducible $(1,1)$ component, in which case the two coordinate equations are proportional and form a coordinate-clone cell.
+\end{enumerate}
+Identically zero $F_x$ are fixed owner coordinates.  Thus every failure of \cref{thm:owner-pencil} is already a named structural branch rather than an unpriced multiplicity.
+\end{remark}
+
+\section{The exact large-owner atom target}
+
+After \cref{cor:small-owner}, only
+\[
+ g\ge2m-k+1
+\]
+remains for a coherent rational atom.  If at most $31$ exceptional slopes are reserved for the local-to-global first-match transition, \cref{thm:owner-localization} shows that the required bound for the owner-contained slopes is
+\begin{equation}\label{eq:owner-target}
+ \boxed{
+ B_{\rm owner}(g)
+ \le B^*-31-(n-g).
+ }
+\end{equation}
+
+At the first unproved owner size and at $g=n$, the targets are
+\[
+\begin{array}{c|r|r|r}
+\toprule
+\text{row}&g_{\min}=2m-k+1&\text{target at }g_{\min}&\text{target at }g=n\\
+\midrule
+\text{KoalaBear MCA}&1183521&274980728110481425&274980728111395056\\
+\text{Mersenne-31 MCA}&1183473&15863505&16777184\\
+\bottomrule
+\end{array}
+\]
+The Mersenne-31 row is binding.
+
+For the full-owner boundary-prefix atom, use the CAP25 convention $K=k+1$ and $w=m-K$.  The average prefix-fiber sizes are
+\[
+ \overline F=\binom nm|\mathbb B|^{-w}.
+\]
+Their high-precision values and the full-owner multiplicative targets are
+\[
+\begin{array}{c|r|r|r}
+\toprule
+\text{row}&w&\log_2\overline F&(B^*-31)/\overline F\\
+\midrule
+\text{KoalaBear MCA}&67471&35.7352464170&4807520.929566\\
+\text{Mersenne-31 MCA}&67447&20.7411470346&9.57219783037\\
+\bottomrule
+\end{array}
+\]
+Thus the exact remaining Mersenne theorem is a factor-$9.5722$ maximum-image or maximum-fiber statement before any additional cell consumes budget.  Owner localization has removed every smaller owner and all multi-owner component-free pencils, but it does not prove this full-owner prefix bound.
+
+\begin{problem}[exclusive large-owner atom image bound]\label{prob:large-owner}
+For every first-match coherent rational atom on either deployed domain with $g>2m-k$, prove \eqref{eq:owner-target}.  In the full-owner simple-pole branch it suffices to prove the row-sharp challenge-slope image bound
+\[
+ |\{U_z(\alpha)-\Lambda_M(\alpha):M\in\operatorname{Fib}_w(z)\}\cap\Gamma|
+ \le B^*-31.
+\]
+For Mersenne-31, the stronger support-fiber estimate need only lose a factor below $9.57219783037$ from the exact average.
+\end{problem}
+
+\section{A conditional exact adjacent-row theorem}
+
+We can now state the final certificate without reverting to a sum of many unrelated local budgets.
+
+\begin{definition}[exception routing input]\label{def:exception-routing}
+Say that exception routing holds if, for every bad received line with more than $31$ slopes, there is a set $E$ of at most $31$ slopes such that every remaining local order-$32$ classification is primitive and \cref{thm:coherence} applies; every denominator-root, extension, coordinate-clone, imperfect-quotient, and quantified near-sunflower failure is either included in $E$ or assigned to the spread-abundance or large-owner input with the same received-line owner retained.
+\end{definition}
+
+\begin{theorem}[exact conditional adjacent-row closure]\label{thm:conditional-final}
+Fix one of the two deployed MCA rows.  Assume the following three inputs.
+\begin{description}[leftmargin=3.4em,labelwidth=2.6em,style=nextline]
+\item[\textup{(S)}] The deployed spread-abundance theorem, \cref{prob:spread-abundance}.
+\item[\textup{(A)}] The exclusive large-owner atom image bound, \cref{prob:large-owner}.
+\item[\textup{(E)}] Exception routing in the sense of \cref{def:exception-routing}.
+\end{description}
+Then
+\[
+ \boxed{\Bbad(C,m)\le B^*.}
+\]
+Together with the unconditional CAP25 v13.2 witness at agreement $m-1$, this proves that the row's exact adjacent MCA threshold is $m$.
+\end{theorem}
+
+\begin{proof}
+Let $Z$ be the set of bad challenge slopes.  If $|Z|\le31$, the claim is immediate.  If $Z$ contains a primitive spread core, assumption (S) pays the whole line.
+
+Otherwise remove the exceptional set $E$ supplied by exception routing.  Every $32$-subset of $Z\setminus E$ is classified by \cref{thm:partial-relative} as a global affine codeword line or one primitive rational atom.  The overlap graph of $32$-subsets is connected, and \cref{thm:collision-rigidity} forces one coherent global structure.
+
+If that structure is a global affine codeword line, the standard coordinate-injection argument gives at most $n-m+1$ slopes.  Adding $|E|\le31$ remains far below either budget.
+
+Suppose instead that it is one rational atom with owner-set size $g$.  For $g<m$, \cref{thm:owner-localization} gives at most $n-m+1$ atom slopes.  For $m\le g\le2m-k$, \cref{cor:small-owner} gives at most $n$.  Again the additional $31$ slopes fit both budgets.  Finally, for $g>2m-k$, there are at most $n-g$ crossing slopes and assumption (A), namely \eqref{eq:owner-target}, pays the contained slopes; adding the reserved $31$ gives exactly at most $B^*$.
+
+CAP25 v13.2 already proves an unsafe witness at $m-1$, so safety at $m$ identifies the adjacent threshold.
+\end{proof}
+
+\section{Core interpolant and correction setup}
+
+Let
+\[
+ C=\RS[\F,D,k],\qquad |D|=n,
+\]
+and let
+\[
+ r_\gamma=r_0+\gamma r_1\in\F^D
+\]
+be support-wise MCA-bad at agreement $m>k$.  Put
+\[
+ d=m-k,\qquad R=n-k,\qquad t=n-m.
+\]
+Fix one first-match primitive spread core in the sense of \cref{prob:spread-abundance}
+\[
+ (\gamma_i,h_i,S_i)_{i=1}^{32},
+\]
+where the slopes are distinct, $h_i\in\F[X]_{<k}$, and $S_i$ is the \emph{maximal} agreement support of $h_i$ with $r_{\gamma_i}$.  The common-support branch has already been removed, so
+\begin{equation}\label{eq:no-common}
+ \bigcap_{i=1}^{32}S_i=\varnothing.
+\end{equation}
+
+There is a unique coefficientwise interpolant
+\begin{equation}\label{eq:H}
+ H(X,Z)=\sum_{j=0}^{31}H_j(X)Z^j,
+ \qquad H(X,\gamma_i)=h_i(X),
+ \qquad \deg H_j<k.
+\end{equation}
+For $x\in D$ define
+\begin{equation}\label{eq:Ex}
+ E_x(Z)=H(x,Z)-r_0(x)-Zr_1(x)
+\end{equation}
+and
+\[
+ q_x=|\{i:x\in S_i\}|.
+\]
+Every core agreement contributes a root of $E_x$, so
+\begin{equation}\label{eq:qsum}
+ \sum_{x\in D}q_x=\sum_{i=1}^{32}|S_i|\ge32m.
+\end{equation}
+Moreover, \eqref{eq:no-common} and maximality imply
+\begin{equation}\label{eq:nonzero-E}
+ E_x\ne0\quad\text{for every }x\in D.
+\end{equation}
+Indeed, $E_x\equiv0$ would put $x$ in every maximal core support.
+
+The deployed values are
+\[
+\begin{array}{c|r|r|r|r}
+\toprule
+\text{row}&m&d&n-m&B^*\\
+\midrule
+\text{KoalaBear MCA}&1116048&67472&981104&274980728111395087\\
+\text{Mersenne-31 MCA}&1116024&67448&981128&16777215\\
+\bottomrule
+\end{array}
+\]
+with $n=2^{21}$ and $k=2^{20}$.
+
+\section{Only fifty-eight slopes can use the core interpolant}
+
+\begin{theorem}[core-compatible abundance bound]\label{thm:core-compatible}
+Let $Z_0$ be the set of slopes $\gamma\in\F$ for which the codeword $H(X,\gamma)$ agrees with $r_\gamma$ on at least $m$ coordinates.  Then
+\begin{equation}\label{eq:58}
+ \boxed{
+ |Z_0|\le\floor{\frac{31n}{m}}=58.
+ }
+\end{equation}
+More precisely, outside the $32$ core slopes there are at most
+\begin{equation}\label{eq:26}
+ \boxed{
+ \floor{\frac{31n-32m}{m}}=26
+ }
+\end{equation}
+additional core-compatible slopes on either deployed row.
+\end{theorem}
+
+\begin{proof}
+By \eqref{eq:nonzero-E}, every $E_x$ has at most $31$ roots.  A slope in $Z_0$ contributes at least $m$ coordinate roots, hence
+\[
+ |Z_0|m\le\sum_{x\in D}\deg E_x\le31n,
+\]
+which proves \eqref{eq:58}.
+
+For a non-core slope, every agreement coordinate consumes a root distinct from the $q_x$ core roots already present at $x$.  The remaining root capacity is at most
+\[
+ \sum_x(31-q_x)\le31n-32m
+\]
+by \eqref{eq:qsum}.  Dividing by $m$ gives \eqref{eq:26}.
+\end{proof}
+
+\begin{remark}
+The theorem uses maximal supports only to exclude identically zero coordinate error polynomials.  It is independent of quotient, rational-owner, or minimum-distance estimates.  Thus any over-budget spread line must obtain essentially all of its extra slopes from nonzero codeword corrections to $H$.
+\end{remark}
+
+\section{An unconditional theorem for one complete correction ray}
+
+Fix a nonzero $P\in\F[X]_{<k}$.  Consider all parameter pairs $(\gamma,c)$ for which
+\begin{equation}\label{eq:rayword}
+ h_{\gamma,c}(X)=H(X,\gamma)+cP(X)
+\end{equation}
+agrees with $r_\gamma$ on at least $m$ coordinates.  At $x\in D$ the agreement equation is
+\begin{equation}\label{eq:raycurve}
+ E_x(\gamma)+cP(x)=0.
+\end{equation}
+No component-freeness assumption will be imposed.
+
+For $P(x)\ne0$, put
+\[
+ f_x(Z)=\frac{E_x(Z)}{P(x)}\in\F[Z]_{\le31}.
+\]
+Coordinates with the same $f_x$ form a \emph{clone class}.  Coordinates with $P(x)=0$ form the vertical class.
+
+\begin{lemma}[clone-class dichotomy]\label{lem:clone}
+Let $C_f=\{x:P(x)\ne0,\ f_x=f\}$.  Then exactly one of the following holds.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $|C_f|\le k-1$;
+\item the codeword curve
+\[
+ G_f(X,Z)=H(X,Z)-f(Z)P(X)
+\]
+has slope degree at most one.  In this case the graph $c=-f(\gamma)$ is a global affine codeword line.
+\end{enumerate}
+At most two clone classes of type \textup{(ii)} can have size at least $k$.
+\end{lemma}
+
+\begin{proof}
+For every $x\in C_f$,
+\[
+ G_f(x,Z)=r_0(x)+Zr_1(x)
+\]
+as a polynomial identity in $Z$.  If $G_f$ has a nonzero coefficient of $Z^j$ for some $j\ge2$, that coefficient is a nonzero degree-$<k$ polynomial vanishing on $C_f$, so $|C_f|\le k-1$.  Otherwise $G_f=A_f+ZB_f$ is a global affine codeword line.
+
+Clone classes are disjoint subsets of $D$.  A class of type (ii) not covered by (i) has at least $k$ coordinates.  Since $n=2k$, there can be at most two.
+\end{proof}
+
+\begin{lemma}[global affine-line block]\label{lem:affine-block}
+For any fixed global codeword line $A+\gamma B$, the number of slopes for which it agrees with $r_\gamma$ on at least $m$ coordinates is at most
+\begin{equation}\label{eq:affinecost}
+ n-m+1.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let $C_0$ be the coordinate set on which $A=r_0$ and $B=r_1$.  Support-wise MCA-badness gives $|C_0|<m$.  Outside $C_0$, agreement of the two affine lines determines at most one slope.  Hence
+\[
+ N(m-|C_0|)\le n-|C_0|,
+\]
+and the right quotient is maximized at $|C_0|=m-1$.
+\end{proof}
+
+\begin{theorem}[complete correction-ray bound]\label{thm:ray}
+For either deployed row, the number of rich parameter pairs $(\gamma,c)$ satisfying \eqref{eq:rayword} is at most
+\begin{equation}\label{eq:raybound}
+ \boxed{
+ 2(n-m+1)
+ +\floor{\frac{31\binom n2}{(k-1)(m-k+1)}}.
+ }
+\end{equation}
+The final fraction equals $963$ on both rows.  Thus one full correction ray contributes at most
+\[
+\begin{array}{c|r|r}
+\toprule
+\text{row}&\text{ray bound}&B^*-\text{ray bound}\\
+\midrule
+\text{KoalaBear MCA}&1963173&274980728109431914\\
+\text{Mersenne-31 MCA}&1963221&14813994\\
+\bottomrule
+\end{array}
+\]
+In particular, a single correction ray can never be the residual spread-abundance obstruction.
+\end{theorem}
+
+\begin{proof}
+Remove all rich points lying on a type-(ii) clone graph whose class has at least $k$ coordinates.  By \cref{lem:clone,lem:affine-block}, there are at most two such graphs and each contributes at most $n-m+1$ slopes.
+
+Consider a remaining rich point and choose exactly $m$ of its agreement coordinates.  Partition them into the vertical class and the clone classes meeting the point.  The vertical class has size at most $k-1$, because a nonzero degree-$<k$ polynomial has at most $k-1$ zeros.  Every clone class present at the point has size at most $k-1$: type-(i) classes have this bound, while every larger type-(ii) graph was removed.
+
+Since $m<2(k-1)$ on both rows, a partition of $m$ elements into parts of size at most $k-1$ has at least
+\begin{equation}\label{eq:crosspairs}
+ (k-1)(m-k+1)
+\end{equation}
+heterogeneous unordered pairs.  This is the minimum obtained from the two-part partition $(k-1,m-k+1)$.
+
+A heterogeneous pair contributes to at most $31$ rich parameter points.  For two graph coordinates from different clone classes, the condition is
+\[
+ f_x(\gamma)=f_y(\gamma),
+\]
+a nonzero polynomial equation of degree at most $31$, after which $c$ is determined.  For one vertical and one graph coordinate, $E_x(\gamma)=0$ has at most $31$ roots and again the graph equation determines $c$.  We never count vertical--vertical pairs or pairs inside one clone class.
+
+Double counting rich-point/heterogeneous-pair incidences gives
+\[
+ N_{\rm res}(k-1)(m-k+1)\le31\binom n2.
+\]
+Adding the at most two affine-line blocks proves \eqref{eq:raybound}.  Counting parameter pairs only overestimates the number of distinct slopes.
+\end{proof}
+
+\begin{remark}[minimum-support refinement]\label{rem:a-refine}
+Suppose every nonzero codeword in the span of $P$ and the high slope coefficients $H_2,\ldots,H_{31}$ has support at least $R+a$.  Then $k-1$ in the proof can be replaced by $k-a$.  Writing $q=k-a$, the exact cross-pair denominator is
+\[
+ \Xi(m,q)=\binom m2-u\binom q2-\binom r2,
+ \qquad m=uq+r,\quad0\le r<q,
+\]
+and there are at most $\floor{n/(q+1)}$ large affine clone classes.  In the active residual wedge $m\le2q$, so $\Xi(m,q)=q(m-q)$.  The exact-minimum-distance case $a=1$ is the worst case in the range left by the minimum-distance sharpening of \cref{sec:min-distance-sharpening}; the same section also proves that the boundary top seam occurs only at $a=1$.
+\end{remark}
+
+\section{Higher-dimensional correction spaces}
+
+Let $W\le C$ have dimension $s$, and consider all rich points
+\[
+ (\gamma,P)\in\F\times W
+\]
+for which $H(X,\gamma)+P(X)$ agrees with $r_\gamma$ on at least $m$ coordinates.  Choose a basis $P_1,\ldots,P_s$ of $W$ and write $P=\sum c_jP_j$.  The coordinate equation
+\begin{equation}\label{eq:hypersurface}
+ F_x(Z,\mathbf c)=E_x(Z)+\sum_{j=1}^s c_jP_j(x)=0
+\end{equation}
+has bidegree at most $(31,1)$ on $\mathbb P^1_Z\times\mathbb P^s_{\mathbf c}$.
+
+\subsection{The proper-intersection compiler}
+
+\begin{definition}[proper correction space]
+The correction space $W$ is \emph{proper for the core} if every $s+1$ coordinate hypersurfaces from \eqref{eq:hypersurface} have empty or zero-dimensional common intersection in $\mathbb P^1\times\mathbb P^s$.
+\end{definition}
+
+\begin{theorem}[proper-intersection correction compiler]\label{thm:proper}
+If $W$ is proper for the core, then the number $N_W$ of rich parameter points satisfies
+\begin{equation}\label{eq:proper}
+ \boxed{
+ N_W\le
+ \floor{
+ 31(s+1)\frac{\binom n{s+1}}{\binom m{s+1}}
+ }.
+ }
+\end{equation}
+At the deployed rows this pays every proper correction space through
+\[
+\begin{array}{c|r|r|r}
+\toprule
+\text{row}&s\le&\text{bound at final }s&\text{bound at }s+1\\
+\midrule
+\text{KoalaBear MCA}&50&148068539552473273&283695391248936790\\
+\text{Mersenne-31 MCA}&15&11989622&23938324\\
+\bottomrule
+\end{array}
+\]
+The next values only mark the limit of this compiler.
+\end{theorem}
+
+\begin{proof}
+The divisor class of each projective hypersurface is at most
+\[
+ 31H_Z+H_W.
+\]
+In the Chow ring of $\mathbb P^1\times\mathbb P^s$,
+\[
+ (31H_Z+H_W)^{s+1}=31(s+1)H_ZH_W^s,
+\]
+because $H_Z^2=0$ and $H_W^{s+1}=0$.  Hence every proper intersection of $s+1$ coordinate hypersurfaces has degree at most $31(s+1)$.
+
+A rich point lies on at least $m$ hypersurfaces and therefore contributes at least $\binom m{s+1}$ incidences with coordinate $(s+1)$-subsets.  Summing first over rich points and then over the $\binom n{s+1}$ coordinate subsets proves \eqref{eq:proper}.
+\end{proof}
+
+\begin{lemma}[what a nonproper tuple means]\label{lem:nonproper}
+Let $T$ be a set of $s+1$ coordinates.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item If the evaluation functionals of $T$ on $W$ have rank below $s$, then a nonzero word of $W$ vanishes on a subset spanning the same evaluation flat.
+\item If their rank is $s$ and the common intersection is positive-dimensional, choose any evaluation basis $B\subset T$.  There is a unique polynomial curve $P_B(Z)\in W\otimes\F[Z]_{\le31}$ solving the equations on $B$, and every equation in $T$ vanishes identically on that curve.
+\end{enumerate}
+Thus every failure of properness is either an evaluation rank-flat or an exact polynomial clone component.
+\end{lemma}
+
+\begin{proof}
+Part (i) is the annihilator statement for the column matroid of the evaluation map.  For (ii), the constant evaluation matrix on $B$ is invertible, so solving its equations gives $P_B(Z)$ coefficientwise and with degree at most $31$.  Substitution into the remaining equation gives a univariate polynomial.  A positive-dimensional intersection forces that polynomial to vanish identically.
+\end{proof}
+
+\subsection{A clone-tolerant basis-curve compiler}
+
+Let
+\[
+ V=\Span(W,H_2,\ldots,H_{31})\le C
+\]
+and write
+\begin{equation}\label{eq:a}
+ d_1(V)=R+a,
+ \qquad a\ge1.
+\end{equation}
+We say that $W$ \emph{absorbs the high core} if $H_j\in W$ for every $j\ge2$.
+
+\begin{theorem}[clone-tolerant basis-curve bound]\label{thm:clone-tolerant}
+Assume $s\ge1$ and that $W$ does not absorb the high core.  Put
+\begin{equation}\label{eq:Ma}
+ M_a=\floor{\frac{31(R+a)}{d+a}}.
+\end{equation}
+Then
+\begin{equation}\label{eq:clone-tolerant}
+ \boxed{
+ N_W\le
+ \floor{
+ M_a\frac{\fall ns}{\rise{(d+a)}s}
+ }.
+ }
+\end{equation}
+No component-freeness assumption is required.
+\end{theorem}
+
+\begin{proof}
+Fix a rich point and an exact size-$m$ agreement support $S$.  For every $j$-dimensional subcode $U\le W$, strict increase of generalized Hamming weights and \eqref{eq:a} give
+\[
+ |\supp_D(U)|\ge R+a+j-1.
+\]
+At most $t=n-m$ of these support coordinates lie outside $S$, so the restricted code $W|_S$ has
+\[
+ d_j(W|_S)\ge d+a+j-1.
+\]
+Greedily choosing independent evaluation columns therefore gives at least
+\begin{equation}\label{eq:bases}
+ \frac{\rise{(d+a)}s}{s!}
+\end{equation}
+unordered evaluation bases $B\subset S$.
+
+For each such $B$, solve the basis equations to obtain a unique polynomial correction curve
+\[
+ P_B(Z)\in W\otimes\F[Z]_{\le31}.
+\]
+Let $C_B$ be the coordinates whose equations vanish identically after this substitution, and put $c_B=|C_B|$.  Since $W$ does not absorb all high core coefficients, the codeword curve $H+P_B$ has a nonzero coefficient of $Z^j$ for some $j\ge2$.  That coefficient lies in $V$, so it has at most $k-a$ zeros.  Hence
+\begin{equation}\label{eq:clone-size}
+ c_B\le k-a.
+\end{equation}
+
+Every rich point on the curve $P=P_B(\gamma)$ agrees automatically on $C_B$ and must obtain at least $m-c_B$ further agreements outside $C_B$.  Each outside coordinate supplies a nonzero polynomial equation of degree at most $31$.  Root-capacity counting on this one curve gives
+\[
+ N(B)(m-c_B)\le31(n-c_B).
+\]
+The quotient $(n-c)/(m-c)$ is increasing for $c<m$, and \eqref{eq:clone-size} yields
+\[
+ N(B)\le
+ \floor{\frac{31(R+a)}{d+a}}=M_a.
+\]
+
+Each rich point is incident to at least \eqref{eq:bases} basis curves.  Globally there are at most $\binom ns$ evaluation bases, and each basis curve contains at most $M_a$ rich points.  Therefore
+\[
+ N_W\frac{\rise{(d+a)}s}{s!}
+ \le M_a\binom ns
+ =M_a\frac{\fall ns}{s!},
+\]
+which is \eqref{eq:clone-tolerant}.
+\end{proof}
+
+\begin{corollary}[exact deployed transitions]\label{cor:transitions}
+At exact minimum support $a=1$, \cref{thm:clone-tolerant} pays through
+\[
+\begin{array}{c|r|r|r}
+\toprule
+\text{row}&s\le&\text{bound at final }s&\text{bound at }s+1\\
+\midrule
+\text{KoalaBear MCA}&9&13013823503882165&404431535289439486\\
+\text{Mersenne-31 MCA}&3&14457337&449492838\\
+\bottomrule
+\end{array}
+\]
+The actual minimum-support excess enlarges the range.  The first exact paid transitions beyond those dimensions are
+\[
+\begin{array}{c|r|r|r|r}
+\toprule
+\text{row}&s&a_{\rm paid}&\text{bound at }a_{\rm paid}&\text{bound at }a_{\rm paid}-1\\
+\midrule
+\text{KoalaBear MCA}&10&2434&274948660791683460&274987992550612247\\
+&11&25508&274953206296382843&274985734988552690\\
+&12&50875&274977972290567960&275005854396152321\\
+\text{Mersenne-31 MCA}&4&64258&16777099&16777608\\
+\bottomrule
+\end{array}
+\]
+All comparisons are exact integer comparisons with the row budgets.
+\end{corollary}
+
+\begin{remark}[relation to the minimum-distance wedge]
+\Cref{prop:min-support-transitions} proves that the first-unpaid charts already satisfy $a\le70831$ on KoalaBear and $a\le111528$ on Mersenne-31 at zero outside mismatch, with positive mismatch shrinking the residual further.  It also confines the boundary top seam to $a=1$.  Thus \cref{cor:transitions} is not merely an abstract monotonicity statement: it removes correction dimensions $10$--$12$ on substantial parts of the KoalaBear wedge and dimension $4$ on a substantial part of the Mersenne wedge, while the genuine top-seam endpoint remains the exact-minimum-distance case.
+\end{remark}
+
+\section{The new spread residual}
+
+\begin{theorem}[spread residual after core-relative incidence]\label{thm:residual}
+Assume a deployed support-wise MCA-bad line contains a first-match primitive spread core and has more bad slopes than its row budget.  Then all of the following must hold.
+\begin{enumerate}[label=\textup{(R\arabic*)}]
+\item At most $58$ bad slopes use the core interpolant itself.
+\item The remaining corrections are not contained in one projective correction ray.
+\item If their linear correction span $W$ has dimension at most $50$ on KoalaBear or $15$ on Mersenne-31, then some $s+1$ coordinate equations have a positive-dimensional common component.
+\item If $W$ does not absorb the high core, then its dimension and support excess lie beyond every transition in \cref{cor:transitions}.
+\item Every low-dimensional surviving component is therefore an evaluation rank-flat or an exact polynomial clone component in the sense of \cref{lem:nonproper}; it is not an unstructured failure of Bezout counting.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (R1)--(R4) are the contrapositives of \cref{thm:core-compatible,thm:ray,thm:proper,thm:clone-tolerant}.  Item (R5) is \cref{lem:nonproper}.
+\end{proof}
+
+The theorem changes the spread-abundance target.  It is no longer necessary to control arbitrary extensions of a core.  The only remaining spread mechanism is
+\[
+ \boxed{
+ \begin{array}{c}
+ \text{many projectively independent correction directions, together with}\\
+ \text{a high-dimensional correction span or a positive-dimensional}\\
+ \text{rank-flat/clone atlas surviving all first-match routes.}
+ \end{array}
+ }
+\]
+
+\begin{problem}[next spread theorem]\label{prob:next}
+Prove that every positive-dimensional correction component from \cref{thm:residual} either
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item yields a rational-owner, quotient, extension, field-drop, or quantified near-sunflower atom declared in \cref{thm:partial-relative,thm:owner-localization,cor:near-sunflower};
+\item has correction directions contained in a bounded union of projective rays, so \cref{thm:ray} pays it; or
+\item admits a proper quotient correction space to which \cref{thm:proper} or \cref{thm:clone-tolerant} applies.
+\end{enumerate}
+For Mersenne-31 it is enough that the total surviving spread contribution be at most $16{,}777{,}215$; for KoalaBear the available budget is much larger.
+\end{problem}
+
+
+\part{Completion certificates and remaining row-sharp inputs}
+\label{part:completion}
+
+\section{Integrated theorem status}
+\label{sec:status-and-obligations}
+\begin{theorem}[Audited theorem status]\label{thm:audited-status}
+All statements explicitly presented as theorems, propositions, lemmas, or corollaries in Parts~I--VI are unconditional under their displayed hypotheses.  In particular, the paper proves the complete support and profile compiler, the minimum-distance flag sharpening, the primitive-Q/Sidon implication and its shallow unconditional range, saturation, one-pencil moving-root BC, Q $\Rightarrow$ SP, the order-$32$ rank dictionary, dyadic descent, rational-atom extraction and coherence, owner localization, the seven-point component-free owner-pencil bound, the $58$-slope core-compatible bound, the complete correction-ray bound, and the displayed proper and clone-tolerant correction-space payments.
+
+No theorem in this paper proves either deployed adjacent MCA-safe row or either deployed adjacent list-safe row.  The open statements are exactly the problems recorded in \cref{prob:next,prob:large-owner,prob:mca-exception-routing,prob:list-completion}.
+\end{theorem}
+
+\section{The final MCA certificate}
+\label{sec:mca-final-certificate}
+The order-$32$ method replaces the old sum over many independently budgeted MCA cells by a maximum-type endgame.
+
+\begin{problem}[Complete spread-component routing]\label{prob:mca-spread-routing}
+Prove that every positive-dimensional correction component surviving \cref{thm:residual} is routed, with the same received-line owner retained, into one of the following disjoint outcomes:
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item a rational-owner, quotient, extension, field-drop, or quantified near-sunflower atom;
+\item a bounded union of complete projective correction rays paid by \cref{thm:ray};
+\item a proper quotient correction space paid by \cref{thm:proper} or \cref{thm:clone-tolerant};
+\item an explicitly named residual component with a literal row-sharp slope bound.
+\end{enumerate}
+The total spread contribution must fit the row budget.
+\end{problem}
+
+\begin{problem}[Complete MCA exception routing]\label{prob:mca-exception-routing}
+Verify the exception-routing input of \cref{def:exception-routing}: denominator-root, extension, coordinate-clone, imperfect-quotient, and quantified near-sunflower failures must either be absorbed into the spread or large-owner bounds with a common owner retained, or occupy a set of at most $31$ slopes.
+\end{problem}
+
+\begin{theorem}[Exact MCA completion certificate]\label{thm:mca-completion-certificate}
+Fix either deployed MCA row.  If \cref{prob:mca-spread-routing,prob:large-owner,prob:mca-exception-routing} are proved with the literal row constants in Parts~V--VI, then
+\[
+ B_{\rm MCA}(m)\le B^*.
+\]
+Together with the unsafe witness at agreement $m-1$ from CAP25 v13.2, the exact adjacent MCA threshold is $m$.
+\end{theorem}
+
+\begin{proof}
+The hypotheses supply the spread-abundance and exception-routing inputs of \cref{thm:conditional-final}; \cref{prob:large-owner} supplies its atom input.  Apply that theorem and then the imported unsafe witness.
+\end{proof}
+
+\section{The final list certificate}
+\label{sec:list-final-certificate}
+For a list row retain the disjoint summed ledger
+\begin{equation}
+ U_{\rm list}
+ =U_{\rm paid}+U_Q+U_{\rm list-int}+U_{\rm ext}+U_{\rm new}.
+ \label{eq:list-final-ledger}
+\end{equation}
+Here $U_{\rm paid}$ is the exact first-match sum of all tangent, common-support, quotient, planted, field-drop, fixed-union, affine-span, common-zero, rank-flat, codimension-one, support-flag, minimum-distance, puncturing, and other certified cells; $U_Q$ is the row-sharp pruned boundary-prefix maximum; $U_{\rm list-int}$ is the high-nullity arbitrary-word interior codeword-ray term; $U_{\rm ext}$ is the exact extension projection payment; and $U_{\rm new}$ is zero unless an explicitly named residual cell survives.
+
+\begin{problem}[Row-sharp list completion]\label{prob:list-completion}
+For each deployed list row, prove exact integer bounds for the remaining high-nullity prefix fiber, arbitrary-word interior, and extension projection terms so that
+\[
+ U_{\rm list}\le B^*.
+\]
+The prefix estimate must use the actual residual mass and the exact budget left after the certified compiler cells are charged.
+\end{problem}
+
+\begin{theorem}[Exact summed completion certificate]\label{thm:exact-completion-certificate}
+Fix one deployed list row.  If an exhaustive first-match compiler proves, with no unresolved cell,
+\[
+ U_{\rm list}\le B^*,
+\]
+then the first safe integer agreement is the adjacent row $a_0+1$.
+\end{theorem}
+
+\begin{proof}
+CAP25 v13.2 proves the unsafe inequality at $a_0$.  Exhaustive first-match coverage and the displayed upper bound give safety at $a_0+1$.  Monotonicity identifies the first safe integer agreement.
+\end{proof}
 
 \section{Conclusion}\label{sec:conclusion}
-Grande Finale v3 is a strict extension of CAP25 v13.2, not a second edition of it.  It adds exact threshold refinements, exact profile normal forms, the primitive-Q/Sidon compiler, saturation, moving-root BC, and Q-to-SP.  The dense safe-side frontier has been reduced to row-sharp finite Q, exhaustive chart coverage, extension payment, and one exact summed ledger.  Until those four obligations are met, the four adjacent deployed safe rows remain conditional.
+This paper gives one unified Grande Finale manuscript.  It contains the exact threshold refinements, profile and Fourier compiler, primitive Q, support and minimum-distance recursions, saturation and moving-root geometry, the order-$32$ rank pivot, rational-atom extraction and coherence, owner localization, and the current spread-core incidence theory.
 
+The remaining MCA problem has been compressed to three row-sharp inputs: route the positive-dimensional correction components isolated by \cref{thm:residual}, prove the large-owner image bound of \cref{prob:large-owner}, and complete the finite exception routing of \cref{prob:mca-exception-routing}.  The binding numerical atom target is the Mersenne-31 full-owner factor $9.57219783037$.  The remaining list problem is the exact high-nullity prefix/interior/extension sum of \cref{prob:list-completion}.  Until those inputs are proved, no adjacent safe row is claimed.
 
 \begin{thebibliography}{99}
 \bibitem[Cho26]{CAP25v132}
 P. Chojecki,
 \newblock Universal field-size caps and a two-sided sandwich for mutual correlated agreement on smooth Reed--Solomon domains,
-\newblock Version 13.2, manuscript, July 19, 2026.
+\newblock Version 13.2, manuscript, July 2026.
 
 \bibitem[BS94]{BalogSzemeredi}
 A. Balog and E. Szemer\'edi,
 \newblock A statistical theorem of set addition,
 \newblock \emph{Combinatorica} 14 (1994), 263--268.
+
+\bibitem[BGM23]{BGM23}
+J. Brakensiek, S. Gopi, and V. Makam,
+\newblock Generic Reed--Solomon codes achieve list-decoding capacity,
+\newblock \emph{Proceedings of STOC 2023}; arXiv:2206.05256.
+
+\bibitem[BCHKS25]{BSCHKS25}
+E. Ben-Sasson, D. Carmon, U. Hab\"ock, S. Kopparty, and S. Saraf,
+\newblock On proximity gaps for Reed--Solomon codes,
+\newblock ECCC TR25-169, 2025.
+
+\bibitem[GG25]{GG26}
+R. Goyal and V. Guruswami,
+\newblock Optimal proximity gaps for subspace-design codes and (random) Reed--Solomon codes,
+\newblock ECCC TR25-166, 2025.
+
+\bibitem[GGSW26]{GGSW26}
+R. Goyal, V. Guruswami, Y. Sun, and M. Wootters,
+\newblock Locality of curve-decoding and improved proximity gaps,
+\newblock arXiv:2607.08516, 2026.
 
 \bibitem[GMR+22]{GreenMatolcsiRuzsaShakanZhelezov}
 B. Green, D. Matolcsi, I. Z. Ruzsa, G. Shakan, and D. Zhelezov,
@@ -3650,6 +7663,5 @@ D. Matolcsi, I. Z. Ruzsa, G. Shakan, and D. Zhelezov,
 A. Weil,
 \newblock On some exponential sums,
 \newblock \emph{Proc. Natl. Acad. Sci. USA} 34 (1948), 204--207.
-
 \end{thebibliography}
 \end{document}

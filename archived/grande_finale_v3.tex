@@ -1,0 +1,3655 @@
+\documentclass[11pt,a4paper]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\emergencystretch=3em
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{float}
+\usepackage{aliascnt}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage[capitalize,nameinlink]{cleveref}
+\numberwithin{equation}{section}
+
+\newtheorem{theorem}{Theorem}[section]
+\newaliascnt{proposition}{theorem}\newtheorem{proposition}[proposition]{Proposition}\aliascntresetthe{proposition}
+\newaliascnt{lemma}{theorem}\newtheorem{lemma}[lemma]{Lemma}\aliascntresetthe{lemma}
+\newaliascnt{corollary}{theorem}\newtheorem{corollary}[corollary]{Corollary}\aliascntresetthe{corollary}
+\newaliascnt{definition}{theorem}\newtheorem{definition}[definition]{Definition}\aliascntresetthe{definition}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{problem}[theorem]{Problem}
+\theoremstyle{remark}
+\newaliascnt{remark}{theorem}\newtheorem{remark}[remark]{Remark}\aliascntresetthe{remark}
+\crefname{theorem}{Theorem}{Theorems}\Crefname{theorem}{Theorem}{Theorems}
+\crefname{proposition}{Proposition}{Propositions}\Crefname{proposition}{Proposition}{Propositions}
+\crefname{lemma}{Lemma}{Lemmas}\Crefname{lemma}{Lemma}{Lemmas}
+\crefname{corollary}{Corollary}{Corollaries}\Crefname{corollary}{Corollary}{Corollaries}
+\crefname{definition}{Definition}{Definitions}\Crefname{definition}{Definition}{Definitions}
+\crefname{remark}{Remark}{Remarks}\Crefname{remark}{Remark}{Remarks}
+\crefname{hypothesis}{Hypothesis}{Hypotheses}\Crefname{hypothesis}{Hypothesis}{Hypotheses}
+\crefname{problem}{Problem}{Problems}\Crefname{problem}{Problem}{Problems}
+
+\DeclareMathOperator{\RS}{RS}\DeclareMathOperator{\MCA}{MCA}\DeclareMathOperator{\CA}{CA}
+\DeclareMathOperator{\rank}{rank}\DeclareMathOperator{\Span}{Span}\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Hom}{Hom}\DeclareMathOperator{\im}{im}\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\supp}{supp}\DeclareMathOperator{\Fib}{Fib}\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Gr}{Gr}\DeclareMathOperator{\Ent}{H}\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Tr}{Tr}\DeclareMathOperator{\Gal}{Gal}\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Aut}{Aut}\DeclareMathOperator{\diag}{diag}\DeclareMathOperator{\wt}{wt}
+\DeclareMathOperator{\Q}{Q}\DeclareMathOperator{\poly}{poly}\DeclareMathOperator{\wdeg}{wdeg}
+\DeclareMathOperator{\Cen}{Cen}\DeclareMathOperator{\LineRay}{LineRay}\DeclareMathOperator{\dist}{dist}
+
+\newcommand{\F}{\mathbb F}\newcommand{\B}{\mathbb B}\newcommand{\K}{\mathbb K}\newcommand{\Z}{\mathbb Z}
+\newcommand{\A}{\mathbb A}\newcommand{\Pj}{\mathbb P}\newcommand{\C}{\mathbb C}\newcommand{\Prob}{\mathbb P}
+\newcommand{\E}{\mathbb E}\newcommand{\eps}{\varepsilon}\newcommand{\emca}{\varepsilon_{\mathrm{mca}}}
+\newcommand{\eca}{\varepsilon_{\mathrm{ca}}}\newcommand{\Htwo}{H_2}\newcommand{\Omc}{\Omega^{\circ}}
+\newcommand{\Ccal}{\mathcal C}\newcommand{\Dcal}{\mathcal D}\newcommand{\Ecal}{\mathcal E}
+\newcommand{\Fcal}{\mathcal F}\newcommand{\Gcal}{\mathcal G}\newcommand{\Hcal}{\mathcal H}
+\newcommand{\Ical}{\mathcal I}\newcommand{\Jcal}{\mathcal J}\newcommand{\Lcal}{\mathcal L}
+\newcommand{\Mcal}{\mathcal M}\newcommand{\Ncal}{\mathcal N}\newcommand{\Pcal}{\mathcal P}
+\newcommand{\Qcal}{\mathcal Q}\newcommand{\Rcal}{\mathcal R}\newcommand{\Scal}{\mathcal S}
+\newcommand{\Tcal}{\mathcal T}\newcommand{\Ucal}{\mathcal U}\newcommand{\Vcal}{\mathcal V}
+\newcommand{\Wcal}{\mathcal W}\newcommand{\Xcal}{\mathcal X}\newcommand{\Ycal}{\mathcal Y}
+\newcommand{\Zcal}{\mathcal Z}\newcommand{\Gord}{\Gamma^{\rm ord}}\newcommand{\Gsid}{\Gamma^{\rm sid}}
+\newcommand{\Gprim}{\Gamma^{\rm prim}}\newcommand{\barN}{\overline N}\newcommand{\Renyi}{R\'enyi}
+\newcommand{\Hb}{H_2}\newcommand{\UU}{\mathbb U}\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\norm}[1]{\lVert #1\rVert}\newcommand{\floor}[1]{\left\lfloor #1\right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1\right\rceil}\newcommand{\defeq}{\coloneqq}
+\newcommand{\one}{\mathbf 1}\newcommand{\Fq}{\mathbb F_q}
+
+
+\title[Grande Finale v3]{Grande Finale v3:\\ Exact Threshold Refinements, Primitive Q, and the Residual Safe-Side Compiler after CAP25 v13.2}
+\author{Przemek Chojecki}
+\hypersetup{
+pdftitle={Grande Finale v3: Exact Threshold Refinements, Primitive Q, and the Residual Safe-Side Compiler after CAP25 v13.2},
+pdfauthor={Przemek Chojecki},
+pdfsubject={A strict sequel to CAP25 v13.2 proving new exact threshold refinements, syndrome-secant and mean-overlap compilers, primitive Q after a Sidon payment, Q-to-SP, one-pencil balanced-core bounds, and the residual finite safe-side ledger},
+pdfkeywords={Reed--Solomon codes, mutual correlated agreement, exact thresholds, syndrome secants, mean overlap, primitive Q, Sidon moments, balanced core, finite certificates}
+}
+\subjclass[2020]{94B35, 11T71, 05B40}
+\keywords{Reed--Solomon codes, mutual correlated agreement, exact thresholds, syndrome secants, mean overlap, primitive Q, Sidon moments, balanced core, finite certificates}
+\date{July 2026}
+
+\begin{document}
+\begin{abstract}
+This paper is a strict completion sequel to CAP25 v13.2 \cite{CAP25v132}.  We cite, and do not reprove, its support-wise MCA conventions, universal cap, four active unsafe endpoints, identity-prefix and simple-pole constructions, aperiodic and subfield floors, prefix rigidity and exact second moment, quotient and extension reductions, balanced-core reduction, and normalized finite ledger.  No theorem of CAP25 v13.2 is reprinted with a second proof.
+
+The sequel has four new layers.  First, it proves an exact sparsification identity for the mutual layer, an exact syndrome--secant compiler, bounded-kernel and circuit ray bounds, a quadratic mean-overlap staircase, and explicit certified prime-field threshold rows.  Second, it refines quotient/remainder profiles by an exact prefix normal form, a canonical partial-occupancy disintegration, and effective-image Fourier normalization.  Third, it isolates primitive prefix leaves, separates Sidon-heavy from high-energy fibers, proves primitive Q after a Sidon moment payment, establishes the payment in a rigorous shallow Fourier range, and isolates the remaining deep primitive range as an explicit Sidon/Fourier payment problem; entropy inverse theory is retained only as a guide for non-Boolean residual charts.  Fourth, it proves saturation, a moving-root bound for one-parameter split pencils, and that row-sharp Q discharges the primitive shift-pair ledger.
+
+The manuscript therefore supplies a single extension chain beyond v13.2.  It does not claim the four numerical adjacent thresholds are already closed: those rows still require row-sharp finite Q, exhaustive MCA balanced-core or list-interior chart coverage, exact extension payment, and one summed integer certificate.
+\end{abstract}
+\maketitle
+\tableofcontents
+
+\section{Relation to CAP25 v13.2}\label{sec:relation-v132}
+Throughout, ``the foundation'' means CAP25 v13.2 \cite{CAP25v132}.  Its results are imported by citation and are not re-numbered here.  In particular, the deployed KoalaBear and Mersenne-31 unsafe endpoints, the identity-prefix and pole-line floors, the aperiodic correction, the exact prefix second moment, the subfield and quotient packages, and the normalized four-cell ledger remain theorems of the foundation.
+
+\begin{center}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.39\textwidth}>{\raggedright\arraybackslash}p{0.53\textwidth}@{}}
+\toprule
+Imported from CAP25 v13.2 & New in Grande Finale v3\\
+\midrule
+MCA conventions, universal cap, active unsafe endpoints & Exact support sparsification and syndrome--secant threshold compilers\\
+Identity-prefix, pole-line, aperiodic, and subfield floors & Quadratic mean-overlap staircase and explicit Proth rows\\
+Prefix rigidity, exact second moment, quotient/extension and BC reductions & Exact profile normal forms, effective Fourier normalization, primitive Q after Sidon payment\\
+Normalized finite ledger & Saturation, moving-root BC, Q $\Rightarrow$ SP, and the exact residual completion packet\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The paper uses the foundation's closed integer-ball convention.  An adjacent certificate consists of an imported unsafe inequality at agreement $a_0$ and a new upper inequality at $a_0+1$.  Structural reductions, support censuses, or asymptotic $e^{o(n)}$ bounds are not called finite adjacent certificates unless they supply the literal row budget.
+
+\section{What is new in this unified sequel}\label{sec:new-contributions}
+The new threshold theorems and the safe-side compiler are logically independent.  The first part gives unconditional finite identities and staircases.  The middle parts prove exact profile decompositions and a conditional-to-unconditional primitive-Q chain on the strata where the Sidon/Fourier payment is established.  The last part specializes those tools to the four v13.2 frontier rows and states the unresolved atoms without disguising them as theorems.
+
+\begin{theorem}[Grande Finale v3 theorem package]\label{thm:v3-package}
+The following statements hold.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item The exact sparsification, syndrome--secant, residual-kernel, circuit, mean-overlap, packing, and explicit Proth-row results of Part~I are unconditional.
+\item The quotient/remainder normal form, partial-occupancy disintegration, effective-image Fourier formulas, and exact profile add-back of Part~II are unconditional.
+\item Primitive Q follows from the Sidon-moment payment of Part~III.  The shallow Fourier theorem proves that payment under its displayed phase and characteristic hypotheses; outside that range the unresolved atom is the explicitly stated Sidon/Fourier payment.
+\item The saturation and moving-root results of Part~IV are unconditional, and a row-sharp max-fiber Q theorem automatically pays the primitive SP ledger.
+\item The four adjacent safe rows of the foundation follow only after the exact completion ledger in \cref{sec:exact-completion-ledger} is instantiated with no unresolved cells.
+\end{enumerate}
+\end{theorem}
+
+
+\part{Exact threshold refinements beyond CAP25 v13.2}
+
+\section{Exact decomposition of the mutual layer}\label{sec:mutual-decomposition}
+Let $C\subseteq\F^D$ be linear, let $a$ be an agreement threshold, and put $t=|D|-a$.  We use the foundation's definitions of support-wise MCA-badness and of the challenge-restricted numerator $B^{\rm MCA}_{C,\Gamma}(a)$ \cite[Secs.~1--2]{CAP25v132}.
+
+A received pair is \emph{column-far at agreement $a$} when no support of size at least $a$ simultaneously explains its two coordinates.  Let $B^{\rm CA}_{C,\Gamma}(a)$ be the maximum number of challenge slopes whose affine combination is explained on some support of size at least $a$, maximized over column-far pairs.  Define the sparse mutual numerator
+\[
+ \sigma_{C,\Gamma}(a)=\max\#\{\gamma\in\Gamma:\gamma\text{ is MCA-bad for }(e_0,e_1)\},
+\]
+where the maximum is over pairs with $|\supp(e_0)\cup\supp(e_1)|\le t$.
+
+\begin{theorem}[Exact sparsification of the mutual layer]\label{thm:exact-sparsification}
+For every linear code, every nonempty challenge set $\Gamma$, and every $a$,
+\begin{equation}
+ B^{\rm MCA}_{C,\Gamma}(a)=
+ \max\{B^{\rm CA}_{C,\Gamma}(a),\sigma_{C,\Gamma}(a)\}.\label{eq:exact-sparsification}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Both terms on the right maximize over subclasses of received pairs, so the left side dominates them.  Conversely fix a pair.  If it is column-far, its MCA-bad and CA-bad challenge slopes coincide.  Otherwise translate it by a codeword pair that explains it on one common support of size at least $a$.  The translated pair is supported on at most $t$ coordinates, and translation preserves, slope by slope and support by support, both affine explanation and simultaneous explanation.  Its bad set is therefore bounded by $\sigma_{C,\Gamma}(a)$.
+\end{proof}
+
+The foundation supplies the exact-agreement reduction, support uniqueness, tangent floor, and deep-regime theorem used below \cite[Secs.~13--14]{CAP25v132}.  We invoke those interfaces only by citation.
+
+\section{Syndrome--secant geometry and finite ray compilers}
+\label{sec:syndrome-exact}
+
+The \emph{syndrome} of a word is the result of applying a parity-check
+matrix; it vanishes exactly on codewords.  Thus syndrome space forgets the
+part of a received word already lying in the code and retains only its error
+class.  This description separates possible error supports from distinct
+line parameters.  Put \(R=n-k\), the redundancy (and syndrome-space
+dimension), and choose the generalized Vandermonde parity-check matrix
+\(H\) with columns
+\begin{equation}
+ h_x=\lambda_x(1,x,\ldots,x^{R-1})^{\mathsf T},\qquad
+ \lambda_x=\left(\prod_{y\in D\setminus\{x\}}(x-y)\right)^{-1}.\label{eq:parity-columns}
+\end{equation}
+Lagrange interpolation gives
+\(\sum_{x\in D}\lambda_xx^j=0\) for \(0\le j\le n-2\), so this matrix
+annihilates every degree-less-than-\(k\) evaluation.  Every set of at most
+\(R\) columns is independent.  For \(E\subseteq D\), write
+\(V_E=\Span\{h_x:x\in E\}\); it is exactly the set of syndromes of words
+supported on \(E\).  We write \(s(u)=Hu^{\mathsf T}\) for the syndrome of
+\(u\).
+
+\begin{proposition}[Syndrome-line normal form]
+\label{prop:syndrome-line-normal-form}
+Let \(S=D\setminus E\).  A word \(u\) is explained on \(S\) if and only if
+\(s(u)\in V_E\).  Consequently \(\gamma\) is MCA-bad on \(S\) for a pair
+\((u_0,u_1)\) if and only if
+\begin{equation}
+ s(u_0)+\gamma s(u_1)\in V_E,
+ \qquad
+ \{s(u_0),s(u_1)\}\not\subseteq V_E.\label{eq:syndrome-line}
+\end{equation}
+For fixed \(E\), there is at most one such finite slope.
+\end{proposition}
+
+\begin{proof}
+If \(u=c+e\), where \(c\in C\) and \(e\) is supported on \(E\), then
+\(s(u)=s(e)\in V_E\).  Conversely, if
+\(s(u)=\sum_{x\in E}e_xh_x\), subtract the word supported on \(E\) with
+values \(e_x\); the result has zero syndrome and belongs to \(C\).  Apply
+this equivalence to the line point and to both coordinates.  Passing
+\eqref{eq:syndrome-line} to \(\F^R/V_E\) shows that two distinct solutions
+would put both projected syndromes at zero, contradicting badness.
+\end{proof}
+
+Since \(\lambda_x\ne0\), one has
+\([h_x]=[1:x:\cdots:x^{R-1}]\); these are the points of the rational
+normal curve in projective syndrome space, while the weights
+\(\lambda_x\) merely choose vector representatives.  A \emph{secant span} is the linear span
+\(V_E\) of a selected set of those points.  We call the meeting of a
+syndrome line with \(V_E\) \emph{transverse} when the entire line is not
+contained in \(V_E\), equivalently when its two generators are not both in
+\(V_E\).  The next result is a \emph{compiler} in the sense that it
+translates the bad-slope problem, exactly and in both directions, into this
+line--secant incidence problem.  A \emph{ray} means a one-dimensional
+direction in syndrome or coefficient space; different raw witnesses may
+represent the same ray and hence the same slope.
+
+\begin{theorem}[Exact syndrome--secant compiler]
+\label{thm:syndrome-secant-exact}
+Put \(t=n-a\), and for a syndrome line
+\(\ell_{y_0,y_1}=\{y_0+\gamma y_1:\gamma\in\F\}\) define
+\begin{equation}
+ \Theta_t(y_0,y_1)=
+ \abs{\{\gamma\in\F:\exists E\subseteq D,\ \abs E\le t,
+ y_0+\gamma y_1\in V_E,
+ \ \{y_0,y_1\}\not\subseteq V_E\}}.\label{eq:transverse-secant-count}
+\end{equation}
+Then
+\begin{equation}
+ B_C^{\rm MCA}(a)=\max_{y_0,y_1\in\F^{n-k}}
+                    \Theta_t(y_0,y_1).\label{eq:exact-secant-numerator}
+\end{equation}
+For each fixed \(E\), the affine line has at most one transverse
+intersection parameter with \(V_E\).  For a Reed--Solomon code the
+spaces \(V_E\) are the spans of at most \(t\) points of the weighted
+rational normal curve in \eqref{eq:parity-columns}.  Thus the
+higher-dimensional ray problem is exactly a transverse line--secant
+incidence problem, with repeated intersection parameters deduplicated.
+\end{theorem}
+
+\begin{proof}
+Apply \cref{prop:syndrome-line-normal-form} with \(S=D\setminus E\), and
+take the union over \(\abs E\le t\).  The syndrome map is surjective, so
+maximizing over received pairs is the same as maximizing over
+\((y_0,y_1)\).  In the quotient \(\F^{n-k}/V_E\), a transverse
+intersection solves
+\(\overline y_0+\gamma\overline y_1=0\) with the two projected vectors
+not both zero, and therefore has at most one finite solution.  The last
+assertion is the Vandermonde description of the parity columns.
+\end{proof}
+
+A \emph{parity-column circuit} is a minimally linearly dependent set of
+columns of \(H\).  The next lemma says that many distinct transverse rays
+cannot all be supported inside an independent union of columns.
+
+\begin{lemma}[Independent-union ray bound]
+\label{lem:independent-union-rays}
+Let every set of at most \(R\) parity columns be independent, put
+\(t<R\), and fix a syndrome line.  For each slope in a transverse set
+\(Z\), choose an error set \(E_\gamma\), \(\abs{E_\gamma}\le t\),
+witnessing \eqref{eq:transverse-secant-count}.  If
+\(U=\bigcup_{\gamma\in Z}E_\gamma\) has size at most \(R\), then
+\(\abs Z\le t+1\).  Consequently, more than \(t+1\) transverse slopes
+force the witness union to contain a parity-column circuit.
+\end{lemma}
+
+\begin{proof}
+If \(\abs Z\le1\), there is nothing to prove; assume that \(Z\) contains
+two distinct slopes.  Two distinct line points lie in \(V_U\), hence
+\(y_0,y_1\in V_U\).
+Column independence gives unique coefficient lifts
+\(e_0,e_1\in\F^U\), and every chosen lift is
+\(e_\gamma=e_0+\gamma e_1\).  Let \(U'\) be the set of \(s\) coordinates
+where the pair \((e_0,e_1)\) is nonzero.  If \(s\le t\) and
+\(E_\gamma\) contained all of \(U'\), then
+\(y_0,y_1\in V_{U'}\subseteq V_{E_\gamma}\), contradicting the
+transversality of this particular witness.  Hence some
+\(x\in U'\setminus E_\gamma\) exists, and uniqueness of the lift gives
+\(e_0(x)+\gamma e_1(x)=0\).  Each nonzero affine coordinate function has
+at most one root, so \(\abs Z\le s\le t\).  If \(s>t\), every chosen lift of
+weight at most \(t\) has at least \(s-t\) zero coordinates.  Double
+counting the pairs \((\gamma,x)\) with
+\(e_0(x)+\gamma e_1(x)=0\) gives
+\(\abs Z(s-t)\le s\), whence
+\(\abs Z\le\floor{s/(s-t)}\le t+1\).  If \(\abs U\le R\), independence
+holds; the contrapositive proves the circuit assertion.
+\end{proof}
+
+\begin{theorem}[Bounded residual-kernel ray compiler]
+\label{thm:bounded-residual-kernel-ray}
+Let \(H\) be a parity-check matrix over \(\F\), let \(U\) be a set of
+columns, and put
+\[
+ \kappa(U)=\dim_\F\ker(H_U:\F^U\longrightarrow\F^{n-k}).
+\]
+Fix a syndrome line \(y_0+\gamma y_1\), an integer \(t\ge0\), and a set
+\(Z\) of finite transverse slopes.  Suppose that for every \(\gamma\in Z\)
+there is \(E_\gamma\subseteq U\), \(\abs{E_\gamma}\le t\), such that
+\[
+ y_0+\gamma y_1\in V_{E_\gamma},\qquad
+ \{y_0,y_1\}\not\subseteq V_{E_\gamma}.
+\]
+Then
+\[
+                  \abs Z\le(t+1)\abs{\F}^{\kappa(U)}. \tag{RC$_{\rm ker}$}
+\]
+For a Reed--Solomon parity check of redundancy \(R=n-k\),
+\(\kappa(U)=\max\{0,\abs U-R\}\).  Hence a certified residual chart with
+\((\abs U-R)_+\log\abs\F=o(n)\) has a direct subexponential ray payment
+with the displayed exact finite loss.
+\end{theorem}
+
+\begin{proof}
+The assertion is immediate when \(\abs Z\le1\).  Otherwise two line
+points belong to \(V_U\), so \(y_0,y_1\in V_U\).  Choose lifts
+\(b_0,b_1\in\F^U\) with \(H_Ub_i=y_i\).  For every \(\gamma\), choose a
+lift \(c_\gamma\) supported in \(E_\gamma\) and put
+\(z_\gamma=c_\gamma-b_0-\gamma b_1\in\ker H_U\).
+
+Fix \(z\in\ker H_U\), and consider the slopes for which
+\(z_\gamma=z\).  Put
+\[
+ U_z=\{x\in U:(b_0(x)+z(x),b_1(x))\ne(0,0)\},
+ \qquad s=\abs{U_z}.
+\]
+Every active coordinate is a nonzero affine function of \(\gamma\), and
+therefore vanishes for at most one slope.  Hence the total number of active
+zero incidences in this kernel class is at most \(s\).  If \(s>t\), the
+weight bound on \(c_\gamma\) forces at least \(s-t\) active zeros, so
+\[
+ \abs{Z_z}(s-t)\le s,\qquad
+ \abs{Z_z}\le\floor{s/(s-t)}\le t+1.
+\]
+If \(s\le t\), transversality forces
+at least one active zero: without one,
+\(U_z=\supp c_\gamma\subseteq E_\gamma\), while both \(b_0+z\) and
+\(b_1\) are supported in \(U_z\), putting \(y_0,y_1\) in
+\(V_{E_\gamma}\).  Thus this kernel class contains at most \(s\le t\)
+slopes.  Summing over the \(\abs{\F}^{\kappa(U)}\) kernel elements proves
+the bound.  The MDS column property gives the Reed--Solomon formula for
+\(\kappa(U)\).
+\end{proof}
+
+\begin{theorem}[Single MDS-circuit ray compiler]
+\label{thm:single-mds-circuit-ray}
+Let \(H\) be a Reed--Solomon parity check of redundancy \(R\), let
+\(U\subseteq D\) have size \(R+1\), put \(t<R\), and fix a syndrome line
+\(y_0+\gamma y_1\).  If every slope in a transverse set \(Z\) has a witnessing error set
+\(E_\gamma\subseteq U\) of size at most \(t\), then
+\[
+                         \abs Z\le\binom{R+1}{2}.   \tag{RC$_{\rm circ}$}
+\]
+Thus one fixed MDS-circuit profile has a field-independent polynomial ray
+payment.
+\end{theorem}
+
+\begin{proof}
+There is nothing to prove when \(\abs Z\le1\).  Otherwise two distinct
+line points lie in \(V_U\); subtracting them and solving for the constant
+term gives \(y_0,y_1\in V_U\).  Choose lifts
+\(b_0,b_1\in\F^U\).  The circuit kernel is generated by a vector
+\(z\) whose coordinates are all nonzero, since a zero coordinate would
+give a proper dependent subset of the minimal circuit \(U\).  For each slope choose
+\(c_\gamma\in\F\) so that
+\(e_\gamma=b_0+\gamma b_1+c_\gamma z\) is supported in
+\(E_\gamma\).  For \(x\in U\), set
+\[
+             f_x(\gamma)=-(b_0(x)+\gamma b_1(x))/z(x).
+\]
+A zero coordinate is an equality \(c_\gamma=f_x(\gamma)\), and at least
+\(R+1-t\ge2\) such equalities hold.
+
+Every transverse slope makes two nonidentical functions \(f_x,f_{x'}\)
+equal.  Indeed, otherwise all vanishing coordinates belong to one class
+\(C\) of identical affine functions, say
+\(f_x=\alpha+\beta\gamma\) on \(C\), and no function outside \(C\) has
+that value at \(\gamma\).  Then
+\(\supp e_\gamma=U\setminus C\subseteq E_\gamma\), while
+\(b_0+\alpha z\) and \(b_1+\beta z\) are also supported in
+\(U\setminus C\).  This puts both \(y_0,y_1\) in \(V_{E_\gamma}\), a
+contradiction.  Two nonidentical affine functions agree at at most one
+finite slope.  Charging each slope to one unordered pair proves the
+displayed bound.
+\end{proof}
+
+
+\section{The quadratic mean-overlap staircase}\label{sec:mean-overlap-v3}
+\begin{lemma}[Large-overlap collapse]
+\label{lem:large-overlap-collapse}
+Fix a received pair and an exact agreement \(a=n-r\ge k+1\).  Choose one
+noncommon exact witness support \(S_z\) and explaining polynomial \(p_z\)
+for every slope \(z\) in its bad set \(Z\).  If two distinct chosen
+supports satisfy
+\[
+                    \abs{S_z\cap S_w}\ge k+r,       \tag{MO1}
+\label{eq:large-overlap-collapse}
+\]
+then \(\abs Z\le r+1\).
+\end{lemma}
+
+\begin{proof}
+Put
+\[
+ c_1=\frac{p_z-p_w}{z-w},\qquad c_0=p_z-zc_1.
+\]
+On \(S_z\cap S_w\), the two line equations imply that the received pair
+equals \((c_0,c_1)\).  Let \(C_0\) be the full common support of this
+codeword pair and write \(c=\abs{C_0}\ge k+r\).  For every \(u\in Z\),
+\(\abs{S_u\cap C_0}\ge a+c-n\ge k\), so the explaining polynomial
+\(p_u\) equals \(c_0+uc_1\).
+
+Subtract this codeword pair from the received pair.  At every coordinate
+outside \(C_0\) at least one of the two residual values is nonzero, and a
+coordinate can cancel at at most one finite slope.  A noncommon witness
+for \(u\) must contain at least \(\max\{1,a-c\}\) such cancellations:
+the support-size condition gives \(a-c\), and one is still necessary when
+\(a\le c\).  Double counting therefore gives
+\[
+ \abs Z\le
+ \floor{\frac{n-c}{\max\{1,a-c\}}}\le r+1.        \tag{MO2}
+\label{eq:large-overlap-count}
+\]
+Indeed, for \(c\ge a\) the numerator is at most \(r\); for \(c=a-1\)
+it is \(r+1\); and, with \(x=a-c\ge2\), the quotient is
+\((r+x)/x\le r+1\).
+\end{proof}
+
+\begin{theorem}[Quadratic mean-overlap theorem]
+\label{thm:quadratic-mean-overlap}
+Let \(C=\RS_\F(D,k)\), put \(R=n-k\), let
+\(0\le r\le R-1\), and let \(\varnothing\ne\Gamma\subseteq\F\).  If
+\[
+ (n-r)^2\ge n(k+r),
+ \qquad\text{equivalently}\qquad
+ r^2\ge n(3r-R),                                  \tag{MO3}
+\label{eq:quadratic-overlap-condition}
+\]
+then
+\[
+ B_{C,\Gamma}^{\rm MCA}(n-r)=\min\{\abs\Gamma,r+1\}. \tag{MO4}
+\label{eq:quadratic-overlap-exact}
+\]
+The same upper bound holds for every linear \([n,k]\) MDS code.
+\end{theorem}
+
+\begin{proof}
+The universal tangent construction imported from \cite[Sec.~13]{CAP25v132} gives the lower bound.  For the upper
+bound, fix a received pair and its challenge-restricted bad set \(Z\).
+If \(\abs Z\le r+1\) there is nothing to prove.  Otherwise choose
+\(r+2\) slopes and distinct exact witness supports
+\(S_1,\ldots,S_{r+2}\), each of size \(a=n-r\).  Suppose every pair had
+intersection at most \(k+r-1\), and put
+\(d_x=\#\{i:x\in S_i\}\).  Then
+\[
+ \sum_x\binom{d_x}{2}\le\binom{r+2}{2}(k+r-1),    \tag{MO5}
+\]
+whereas Cauchy--Schwarz and \(a^2/n\ge k+r\) give
+\[
+ \sum_x\binom{d_x}{2}
+ \ge\frac{(r+2)^2a^2/n-(r+2)a}{2}
+ \ge\frac{(r+2)^2(k+r)-(r+2)a}{2}.                \tag{MO6}
+\]
+The last lower bound exceeds the upper bound in \textup{(MO5)} by
+\[
+ \frac{r+2}{2}\bigl(k+3r-n+1\bigr).
+\]
+When \(3r>R\) this is positive.  When \(3r\le R\), the exact deep theorem
+already gives the desired upper bound.  Thus in the remaining case some
+pair satisfies \eqref{eq:large-overlap-collapse}, and
+\cref{lem:large-overlap-collapse} contradicts \(\abs Z\ge r+2\).
+The exact-support reduction and large-overlap lemma use only the MDS
+information-set property, proving the stated extension.
+\end{proof}
+
+\begin{corollary}[Exact quadratic staircase]
+\label{cor:mean-overlap-exact}
+Put
+\[
+ r_{\rm quad}(n,k)=
+ \floor{\frac{3n-\sqrt{n(5n+4k)}}2}.
+ \tag{MO7}\label{eq:quadratic-radius}
+\]
+For every \(0\le r\le r_{\rm quad}(n,k)\) and every nonempty challenge
+set \(\Gamma\),
+\[
+ B_{C,\Gamma}^{\rm MCA}(n-r)=\min\{\abs\Gamma,r+1\}.
+\]
+If \(k/n\to\rho\), then
+\(r_{\rm quad}(n,k)/n\to
+\alpha_\rho=(3-\sqrt{5+4\rho})/2\).
+\end{corollary}
+
+\begin{proof}
+The smaller root of \(r^2-3nr+n(n-k)=0\) is the real number inside the
+floor in \eqref{eq:quadratic-radius}.  Apply
+\cref{thm:quadratic-mean-overlap}; the limiting formula follows by
+division by \(n\).
+\end{proof}
+
+\begin{proposition}[Limit of pairwise-overlap information]
+\label{prop:pairwise-overlap-limit}
+Let \(k/n\to\rho\in(0,1)\), \(r/n\to\alpha\in(0,1)\), and suppose
+\[
+ \alpha^2<3\alpha-(1-\rho).
+ \tag{MO8}\label{eq:pairwise-overlap-limit}
+\]
+For all sufficiently large \(n\), there are \(r+2\) distinct
+\(r\)-subsets \(T_i\) such that, whenever
+\(j=3r-(n-k)\le r\),
+\(\abs{T_i\cap T_\ell}\le j-1\) for every \(i\ne\ell\).  If \(j>r\),
+that intersection condition is automatic.  Hence pairwise support overlap
+alone cannot extend the exact theorem past the quadratic boundary; further
+progress must use the syndrome, determinant, or fiber incidence.  This is
+a limitation of the method, not a construction of an MCA-bad line.
+\end{proposition}
+
+\begin{proof}
+When \(j\le r\), choose \(r+2\) independent uniform \(r\)-subsets.
+The intersection of a fixed pair is hypergeometric with mean
+\(r^2/n=(\alpha^2+o(1))n\), whereas
+\(j=(3\alpha-(1-\rho)+o(1))n\).  More explicitly,
+\[
+ \Pr(\abs{T_1\cap T_2}=s)
+ =\frac{\binom rs\binom{n-r}{r-s}}{\binom nr}.
+\]
+After writing \(s=xn\), Stirling's formula gives the exponent
+\[
+ \alpha h(x/\alpha)+(1-\alpha)
+ h((\alpha-x)/(1-\alpha))-h(\alpha),
+\]
+which is strictly concave and has its unique maximum zero at
+\(x=\alpha^2\).  The strict gap in
+\eqref{eq:pairwise-overlap-limit}, followed by summing at most \(n+1\)
+terms, therefore gives probability \(e^{-\Omega(n)}\) that one fixed
+intersection reaches \(j\).  A union bound over \(O(n^2)\) pairs is
+smaller than one.  A
+successful family is automatically distinct, because equal members have
+intersection \(r\ge j\).  When \(j>r\), choose any \(r+2\) distinct
+\(r\)-sets.
+\end{proof}
+
+The following complementary theorem can be stronger when the overlap
+defect \(j=3r-R\) is small.  Its only new input is a packing inequality;
+in particular it uses no smoothness or Fourier estimate.
+
+\begin{theorem}[Exact overlap--packing criterion]
+\label{thm:overlap-packing-exact}
+Let \(C=\RS_\F(D,k)\), put \(R=n-k\), and fix an integer
+\(0\le r\le R-1\).  Set \(a=n-r\) and \(j=3r-R\).  If either
+\[
+ j\le0,
+ \tag{OP0}\label{eq:op-deep}
+\]
+or
+\[
+ 1\le j\le r,
+ \qquad
+ \binom nj\le(r+1)\binom rj,
+ \tag{OP}\label{eq:op-packing}
+\]
+then
+\[
+                    B_C^{\rm MCA}(n-r)=r+1.       \tag{OP$'$}
+\label{eq:op-exact}
+\]
+The same upper bound holds for every linear \([n,k]\) MDS code; the
+matching lower bound holds whenever the field contains at least \(r+1\)
+distinct slope parameters.
+\end{theorem}
+
+\begin{proof}
+Condition \eqref{eq:op-deep} is the imported deep-regime case \cite[Sec.~13]{CAP25v132}, so assume
+\eqref{eq:op-packing}.  Fix an arbitrary received pair \((f,g)\), let
+\(Z\) be its bad-slope set, and use the exact-agreement reduction imported from \cite[Sec.~13]{CAP25v132} to choose, for every \(z\in Z\), an
+exact witness support \(S_z\), \(\abs{S_z}=a\), and an explaining
+polynomial \(p_z\in\F[X]_{<k}\).  A single noncommon support cannot carry
+two distinct slopes, so the supports chosen for distinct elements of
+\(Z\) are distinct.
+
+For the stated MDS extension, the same exact-support reduction is
+available: interpolate the unexplained component on any \(k\)-subset of
+the original witness support; because every \(k\)-subset is an information
+set, nonexplanation is detected at one further coordinate, and that
+\((k+1)\)-set can be enlarged to size \(a\).
+
+First suppose that two of them have a large intersection:
+\[
+ \abs{S_z\cap S_w}\ge n+k-a=k+r
+ \qquad(z\ne w).
+ \tag{OP1}\label{eq:op-large-overlap}
+\]
+Then \cref{lem:large-overlap-collapse} gives \(\abs Z\le r+1\).
+
+It remains to consider the complementary case, in which every pair of
+chosen supports satisfies
+\(\abs{S_z\cap S_w}\le n+k-a-1\).  Put
+\(T_z=D\setminus S_z\), so \(\abs{T_z}=r\).  For distinct slopes,
+\[
+ \abs{T_z\cap T_w}
+ =n-2a+\abs{S_z\cap S_w}
+ \le3r-R-1=j-1.                                  \tag{OP3}
+\label{eq:op-small-overlap}
+\]
+No \(j\)-subset of \(D\) can therefore lie in two different \(T_z\)'s.
+Counting pairs \((z,J)\) with \(J\in\binom{T_z}{j}\) yields
+\[
+                 \abs Z\binom rj\le\binom nj\le
+                 (r+1)\binom rj,
+\]
+and hence \(\abs Z\le r+1\).  The universal tangent construction gives
+the reverse inequality.  The proof used only linearity, the fact that
+agreement of two codewords on \(k\) coordinates forces equality, and the
+exact-support reduction; these are MDS properties.  The coordinate
+tangent construction gives the stated MDS lower bound.
+\end{proof}
+
+\begin{proposition}[General overlap--packing upper bound]
+\label{prop:general-overlap-packing-upper}
+For \(1\le j=3r-(n-k)\le r\), let \(A(n,r,j)\) be the largest size of a
+family of \(r\)-subsets of an \(n\)-set whose distinct members intersect
+in at most \(j-1\) points.  Then
+\[
+ B_{C,\Gamma}^{\rm MCA}(n-r)
+ \le\min\left\{\abs\Gamma,
+     \max\left(r+1,A(n,r,j)\right)\right\}          \tag{OP5}
+\label{eq:general-overlap-packing-upper}
+\]
+and
+\[
+ A(n,r,j)\le
+ \floor{\frac{\binom nj}{\binom rj}}.              \tag{OP6}
+\label{eq:packing-number-bound}
+\]
+\end{proposition}
+
+\begin{proof}
+For a fixed received pair, either two chosen exact witness supports have
+intersection at least \(k+r\), in which case
+\cref{lem:large-overlap-collapse} gives at most \(r+1\) slopes, or every
+pair of complementary \(r\)-sets intersects in at most \(j-1\) points.
+The latter family has size at most \(A(n,r,j)\).  Finally, no \(j\)-subset
+can lie in two members of such a packing, so counting contained
+\(j\)-subsets proves \eqref{eq:packing-number-bound}.
+\end{proof}
+
+
+\section{Exact thresholds for explicit prize rows}\label{sec:prize-rows}
+
+\begin{table}[H]
+\centering
+\caption{Explicit maximal-dimension prize-admissible rows.  In each row
+\(k=2^{40}\), \(B=\floor{p/2^{128}}=r_\rho(n)+1\), and \((s,a_0)\) is part of
+the Proth certificate in \cref{prop:proth-row-check}.}
+\label{tab:prize-proth-rows}
+\small
+\begin{tabular}{@{}ccrrc@{}}
+\hline
+rate & length & \(B\) & bits of \(p\) & \((s,a_0)\)\\
+\hline
+\(1/2\)  & \(2^{41}\) & \(389500552609\)  & 167 & \((92,3)\)\\
+\(1/4\)  & \(2^{42}\) & \(1210584858040\) & 169 & \((93,13)\)\\
+\(1/8\)  & \(2^{43}\) & \(2879806199253\) & 170 & \((95,5)\)\\
+\(1/16\) & \(2^{44}\) & \(6233898019554\) & 171 & \((97,5)\)\\
+\hline
+\end{tabular}
+\end{table}
+
+For completeness, the four field orders are
+\begin{align*}
+p_{1/2}&=132540169958804033333249306710494641010898987122689,\\
+p_{1/4}&=411940680852499481698306614369841346700408394874881,\\
+p_{1/8}&=979947269755402568812854322316630667196565607677953,\\
+p_{1/16}&=2121285573237585848299875619011192262679065433997313.
+\end{align*}
+Their odd Proth coefficients \(u\), in the same order, are
+\begin{align*}
+u_{1/2}&=26766274163673319604503,
+&u_{1/4}&=41595378994516821279015,\\
+u_{1/8}&=24737346889219389259839,
+&u_{1/16}&=13387194060291799253121.
+\end{align*}
+For \(F_{n,k}(r)=r^2-n(3r-(n-k))\), the exact boundary checks are
+\[
+\begin{array}{c|r|r}
+ \rho&F_{n,k}(B-1)&F_{n,k}(B)\\ \hline
+ 1/2&5154112775168&-663955886271\\
+ 1/4&7590647904465&-3182321912768\\
+ 1/8&13908181940112&-6720484728007\\
+ 1/16&19335616403905&-20973145690236.
+\end{array}                                                    \tag{PC0}
+\label{eq:quadratic-row-certificates}
+\]
+
+\begin{proposition}[Exact arithmetic and primality certificates]
+\label{prop:proth-row-check}
+For the four rows in \cref{tab:prize-proth-rows}, the displayed integer
+\(p\) satisfies
+\[
+ p=u\,2^s+1,\qquad u\text{ odd},\qquad u<2^s,\qquad
+ a_0^{(p-1)/2}\equiv-1\pmod p.                  \tag{PC1}
+\label{eq:proth-certificates}
+\]
+Consequently every \(p\) is prime.  Moreover
+\[
+ n\mid p-1,\qquad p<2^{256},\qquad
+ B\,2^{128}\le p<(B+1)2^{128},                  \tag{PC2}
+\label{eq:prize-row-arithmetic}
+\]
+where \(n\) and \(B\) are the corresponding entries of the table.
+They also satisfy \(F_{n,k}(B-1)\ge0>F_{n,k}(B)\).  Since
+\(F_{n,k}'(r)=2r-3n<0\) on \([0,n]\), these two signs locate its smaller
+root and give \(B-1=r_\rho(n)=r_{\rm quad}(n,k)\).
+Thus \(\F_p^*\) contains a subgroup of order \(n\), and each displayed code exists with the asserted slope budget.
+\end{proposition}
+
+\begin{proof}
+All identities and inequalities in
+\eqref{eq:quadratic-row-certificates}--\eqref{eq:prize-row-arithmetic}
+are direct
+integer calculations; the values of \((s,a_0)\), \(u\), \(p\), \(n\),
+and \(B\) have all been printed above so that the calculation is
+independently reproducible.  We recall why the certificate proves
+primality.  If a prime \(\ell\) divides \(p\), then
+\(a_0^{u2^{s-1}}\equiv-1\pmod\ell\), whereas
+\(a_0^{u2^s}\equiv1\pmod\ell\).  The multiplicative order of \(a_0\)
+modulo \(\ell\) therefore has exact \(2\)-part \(2^s\), so
+\(2^s\mid\ell-1\).  Since \(u<2^s\), one has \(2^s>\sqrt p\); hence a
+composite \(p\) would have a prime divisor both at most \(\sqrt p\) and
+at least \(2^s+1\), a contradiction.  This is Proth's theorem in the
+special form used here.  Finally \(s\ge\log_2 n\) gives \(n\mid p-1\),
+and cyclicity of \(\F_p^*\) gives the required subgroup.
+\end{proof}
+
+\begin{theorem}[Exact first adjacent row over a separating field]
+\label{thm:exact-first-adjacent-row}
+Let \(C=\RS_\F(D,k)\), put \(R=n-k\) and
+\(M=\binom n{R-1}=\binom n{k+1}\), and define
+\[
+                    Q_{\rm sep}(M)=\max\left\{M,\binom M2\right\}.
+\]
+If \(\abs\F>Q_{\rm sep}(M)\), then for the full-field challenge
+\[
+                         B_C^{\rm MCA}(k+1)=M.      \tag{AD1}
+\]
+If \(R\ge2\) and \(b=\floor{\eps\abs\F}\), the exact target threshold
+therefore satisfies
+\[
+ \begin{array}{ll}
+ b\ge M &\Longrightarrow\quad a^*=k+1,\\[2mm]
+ \displaystyle\binom n{R-2}\le b<M
+   &\Longrightarrow\quad a^*=k+2.
+ \end{array}                                       \tag{AD2}
+\]
+Thus the first finite adjacent comparison has literal binomial constants;
+no \(e^{o(n)}\) or unspecified polynomial factor occurs.
+\end{theorem}
+
+\begin{proof}
+The upper bound in \textup{(AD1)} is the exact support-atlas bound imported from \cite[Sec.~13]{CAP25v132}.  For the reverse inequality use the
+Reed--Solomon parity check of redundancy \(R\).  For every
+\((R-1)\)-set \(E\subseteq D\), its column span \(V_E\) is a hyperplane
+in \(\F^R\), and distinct sets give distinct hyperplanes: otherwise the
+union of two distinct \((R-1)\)-sets would contain at least \(R\) columns
+in one \((R-1)\)-space, contradicting the MDS column property.
+
+Every proper linear hyperplane in \(\F^R\) has
+\(\abs{\F}^{R-1}\) points.  Since \(M<\abs\F\), the union of the \(M\)
+spaces \(V_E\) has fewer than \(\abs{\F}^{R}\) points; choose \(y_1\)
+outside it.  For each \(E\),
+choose a nonzero linear functional \(\ell_E\) with kernel \(V_E\).
+The line \(y_0+\gamma y_1\) meets \(V_E\) at
+\[
+                 \gamma_E=-\ell_E(y_0)/\ell_E(y_1).
+\]
+For \(E\ne E'\), equality \(\gamma_E=\gamma_{E'}\) cuts out a proper
+hyperplane in the variable \(y_0\), because the normalized functionals
+\(\ell_E/\ell_E(y_1)\) and
+\(\ell_{E'}/\ell_{E'}(y_1)\) are distinct.  There are at most
+\(\binom M2<\abs\F\) collision hyperplanes; their union also has fewer
+than \(\abs{\F}^{R}\) points, so choose \(y_0\) outside it.  Since
+\(y_1\notin V_E\), the line is not contained in \(V_E\), and every
+intersection is transverse.  The \(M\) parameters \(\gamma_E\) are then
+finite and pairwise distinct.  Syndrome surjectivity and
+\cref{thm:syndrome-secant-exact} realize them as \(M\) bad slopes at
+agreement \(k+1\), proving \textup{(AD1)}.
+
+If \(b\ge M\), the support upper bound makes the first allowed agreement
+safe.  If \(\binom n{R-2}\le b<M\), equality \textup{(AD1)} makes
+\(k+1\) unsafe, whereas
+the exact support-atlas bound imported from \cite[Sec.~13]{CAP25v132} makes \(k+2\) safe.  Monotonicity proves
+\textup{(AD2)}.
+\end{proof}
+
+
+\section{Asymptotic consequences of the imported prefix floor}\label{sec:shallow-prefix-exponent}
+\begin{theorem}[Unconditional shallow-prefix RS--MCA exponent]
+\label{thm:unconditional-asymptotic-rs-mca}
+Let \(C_n=\RS_{\F_n}(D_n,k_n)\), where
+\(D_n\subseteq\B_n\subseteq\F_n\), \(\abs{D_n}=n\), and
+\(k_n/n\to\rho\in(0,1)\).  Let \(a_n\ge k_n+1\), put
+\(w_n=a_n-k_n-1\), and assume
+\[
+ \frac{a_n}{n}\to\alpha\in(0,1),\qquad
+ w_n\log\abs{\B_n}=o(n),                           \tag{AS1}
+\]
+\(\abs{\F_n}>n\), and, for some finite \(\phi\ge0\),
+\[
+ \frac1n\log\abs{\F_n}\to\phi,
+ \qquad
+ \frac1n\log(\abs{\F_n}-n)\to\phi.               \tag{AS2}
+\]
+For the full-field challenge,
+\[
+ \frac1n\log B_{C_n}^{\rm MCA}(a_n)
+   =\min\{h(\alpha),\phi\}+o(1),                   \tag{AS3}
+\]
+and therefore
+\[
+ \frac1n\log e_{\rm MCA}
+   \left(C_n,1-\frac{a_n}{n}\right)
+   =-\bigl(\phi-h(\alpha)\bigr)_++o(1).            \tag{AS4}
+\]
+Because \(\abs{\B_n}\ge n\), condition \textup{(AS1)} forces
+\(\alpha=\rho\).  No smoothness, Fourier estimate, or auxiliary ray
+hypothesis is assumed.
+\end{theorem}
+
+\begin{proof}
+Put \(M_n=\binom n{a_n}\) and
+\(L_n=\ceil{M_n\abs{\B_n}^{-w_n}}\).  Exact-agreement reduction and
+fixed-support slope uniqueness give the unconditional upper bound
+\[
+ B_{C_n}^{\rm MCA}(a_n)\le\min\{\abs{\F_n},M_n\}.  \tag{AS5}
+\]
+The exact locator-prefix list and collision-aware pole compiler imported from \cite[Secs.~14--18]{CAP25v132} give
+\[
+ B_{C_n}^{\rm MCA}(a_n)\ge
+ \left\lceil
+ \frac{L_n(\abs{\F_n}-n)}
+ {\abs{\F_n}-n+k_n(L_n-1)}
+ \right\rceil.                                     \tag{AS6}
+\]
+By Stirling's formula and \textup{(AS1)},
+\(\log L_n=h(\alpha)n+o(n)\).  For positive \(x,y\),
+\(xy/(x+k_ny)\ge\frac12\min\{y,x/k_n\}\); hence
+\textup{(AS2)}, \(\log k_n=o(n)\), and the ceiling show that the
+right side of \textup{(AS6)} has logarithm
+\(n\min\{h(\alpha),\phi\}+o(n)\).  The upper bound
+\textup{(AS5)} has the same exponent, proving \textup{(AS3)}; subtracting
+\(\log\abs{\F_n}\) proves \textup{(AS4)}.  Finally
+\(w_n\log n=o(n)\), so \((a_n-k_n)/n\to0\) and
+\(\alpha=\rho\).
+\end{proof}
+
+\begin{corollary}[Unconditional large-challenge RS--MCA threshold]
+\label{cor:unconditional-rs-mca-capacity}
+Under the row hypotheses of
+\cref{thm:unconditional-asymptotic-rs-mca}, let the full-field target
+satisfy \(\eps_n=\exp(-\lambda n+o(n))\) for a finite
+\(\lambda\ge0\).  If
+\[
+                         \lambda<\phi-h(\rho),      \tag{AS7}
+\]
+then, for every sufficiently large \(n\),
+\[
+ a_n^*=k_n+1,\qquad
+ \delta_n^*=1-\frac{k_n+1}{n}=1-\rho+o(1).         \tag{AS8}
+\]
+Conversely, if \(\lambda>(\phi-h(\rho))_+\), every agreement sequence
+satisfying \((a_n-k_n-1)\log\abs{\B_n}=o(n)\) is unsafe.  The critical
+boundary \(\lambda=(\phi-h(\rho))_+\) is governed by the
+exact finite constants and is not decided by exponent asymptotics.  This
+is a large scalar-extension regime.  If \(\abs{\F_n}\) is polynomial in
+\(n\), then \(\phi=0\) and \textup{(AS7)} cannot hold; the corollary does
+not settle that Proximity-Prize parameter regime.
+\end{corollary}
+
+\begin{proof}
+At \(a=k_n+1\), \textup{(AS5)} is
+\(B_{C_n}^{\rm MCA}(a)\le\binom n{k_n+1}
+=\exp(h(\rho)n+o(n))\).  Under \textup{(AS7)},
+\(\eps_n\abs{\F_n}=\exp((\phi-\lambda)n+o(n))\) has strictly larger
+exponent, and taking the integer floor does not change the comparison.
+Thus the first permitted agreement is safe
+and \textup{(AS8)} follows.  The converse follows from \textup{(AS4)}
+and the strict reverse exponential inequality.
+\end{proof}
+
+
+\part{Exact profile refinements and the profile envelope}
+\section{Profile envelope and the sequel compiler}\label{sec:profile-envelope-compiler}
+A realized first-match profile $\lambda$ has a full support slice $\Omega^0_\lambda$, a coefficient field $\B_\lambda$, a proved boundary map
+$\Phi_\lambda:\Omega^0_\lambda\to\B_\lambda^{R_\lambda}$, realized image size
+$L_\lambda=|\Phi_\lambda(\Omega^0_\lambda)|$, and image-normalized average
+\[
+ \bar N_\lambda=\frac{|\Omega^0_\lambda|}{L_\lambda}.
+\]
+For a received line and agreement $a$, let $\Lambda(a)$ be the realized first-match profile set and define
+\begin{equation}
+ \mathfrak E_n(a)=1+(n-a+1)+
+ \sup_{\text{received lines}}\sum_{\lambda\in\Lambda(a)}(1+\bar N_\lambda).\label{eq:profile-envelope}
+\end{equation}
+The formal codomain size $|\B_\lambda|^{R_\lambda}$ may replace $L_\lambda$ only after a full-image certificate
+$L_\lambda\ge e^{-o(n)}|\B_\lambda|^{R_\lambda}$ has been proved.  Otherwise the leaf stays at realized-image scale or is routed to an earlier effective-image-collapse cell.
+
+\begin{definition}[Admissible sequel compiler]\label{def:admissible-sequence}
+A row sequence is \emph{admissible} when: (i) every bad witness belongs to an ordered first-match atlas with $e^{o(n)}$ realized profiles; (ii) all quotient, planted, field-drop, tangent, rank, extension, and directly counted ray cells have proved distinct-slope payments; (iii) every remaining primitive profile has a fixed-density Boolean support slice, an exact boundary map, and image normalization; (iv) its nontrivial effective Fourier characters satisfy the certified minor/major payment of \cref{def:effective-major-minor,def:aggregate-minor-payment,def:major-arc-aggregate}, or an equivalent direct Sidon payment; and (v) every residual ray chart has either a direct slope bound or the ray compiler of \cref{hyp:ray-compiler}.  All profile fields and quotient scales are included in \eqref{eq:profile-envelope}.
+\end{definition}
+
+\begin{theorem}[Conditional profile-envelope compiler]\label{thm:main-smooth-circle}
+Every admissible row sequence satisfies
+\begin{equation}
+ B_{C_n}^{\rm MCA}(a_n)\le e^{o(n)}\mathfrak E_n(a_n).\label{eq:conditional-numerator}
+\end{equation}
+For a finite row the same proof is literal after every $e^{o(n)}$ term is replaced by its exact integer constant and all first-match cells are summed once.
+\end{theorem}
+\begin{proof}
+The first-match atlas pays the algebraic cells.  The effective Fourier/Sidon step and \cref{thm:primitive-q} pay primitive Q, while the ray compiler and \cref{prop:q-implies-sp} convert the support bounds to distinct slopes.  Summation over the realized profile set gives \eqref{eq:conditional-numerator}.  The finite statement is the same disjoint first-match count with integer constants.
+\end{proof}
+
+\begin{definition}[Complete-fiber folding map]\label{def:structured-folding}
+Let $D\subseteq\B$ be finite.  A polynomial map $\phi:D\to Q=\phi(D)$ is a $c$-fold complete-fiber folding map when every fiber has exactly $c$ points.  A support is complete at this scale when it is a union of full fibers.  Multiplicative power maps and the Chebyshev twin-coset foldings of the foundation \cite[Secs.~7 and 11]{CAP25v132} are the motivating examples.
+\end{definition}
+
+\section{Quotient--remainder prefix normal form}\label{sec:quotient-remainder-profiles}
+The quotient-prefix floors and descent mechanisms of CAP25 v13.2 are imported from \cite[Secs.~3, 8, and 14]{CAP25v132}.  The normal forms and obstruction theorems below refine that package for the sequel's Q compiler.
+
+The quotient and remainder variables can be separated exactly at the
+locator-prefix level.  This removes a spurious factor coming from summing
+over marked remainder sets, but it also exposes a genuine scaled quotient-
+coefficient-field term which prevents an unrestricted comparison with the
+identity profile.
+
+\begin{definition}[Quotient/remainder profile and field drop]
+\label{def:quotient-remainder-profile}
+Let \(\phi:D\to Q\) be a \(c\)-fold complete-fiber folding map in the
+sense of \cref{def:structured-folding}.  A
+\emph{complete-fiber-plus-remainder support} is
+\[
+                  S=\phi^{-1}(E)\sqcup R,
+\]
+where \(E\subseteq Q\) and
+\(R\subseteq D\setminus\phi^{-1}(E)\).  The set \(R\) is the
+\emph{support remainder}: it records the selected points in fibers that
+are not declared complete.  A \emph{quotient/remainder profile} fixes
+\(\phi\), its degree \(c\), the size \(r=\abs R\), the relevant
+coefficient field, and any planted remainder data, while \(E\) and the
+unfixed part of \(R\) range subject to the displayed disjointness.
+A fixed-\(R\) profile is the subprofile in which the remainder support
+itself is part of the label.  The adjective \emph{Euclidean} used below
+refers to separating the locator factor of degree \(r<c\) from the
+composed quotient locator; it does not mean that an arbitrary support
+remainder has size less than \(c\).
+
+We call \(\B_\phi\subseteq\B\) a \emph{scaled quotient coefficient
+field} when, for some \(\eta\in\B^\times\),
+\[
+                         Q=\phi(D)\subseteq\eta\B_\phi .
+\]
+When this field is recorded in a profile, it is taken minimal among the
+subfields with this property.
+Then the \(j\)-th elementary quotient coefficient lies in
+\(\eta^j\B_\phi\).  A \emph{field drop} is the use of a proper such
+subfield.  It is a \emph{positive-rate field drop} along a sequence when
+\[
+       1-\frac{\log\abs{\B_\phi}}{\log\abs\B}
+\]
+stays bounded away from zero and a positive-density number on the
+entropy scale of quotient-prefix slots is live.  The payment saved in
+each live slot is the factor \(\abs\B/\abs{\B_\phi}\); this is the term
+quantified in \cref{prop:identity-quotient-comparison}.
+\end{definition}
+
+\begin{definition}[Balanced quotient core]
+\label{def:balanced-quotient-core}
+A \emph{split locator} is a monic squarefree polynomial all of whose roots
+lie in the evaluation domain \(D\).
+After common locator factors, fixed quotient data, and planted remainder
+points have been removed, let \(A\) and \(B\) be two monic split
+locators of the same degree \(e\).  They form a
+\emph{depth-\(w\) balanced core} if they have the same first \(w\)
+nonleading coefficients, equivalently
+\[
+                         \deg(A-B)\le e-w-1.
+\]
+It is a \emph{balanced quotient core} when the remaining locator factors
+are pullbacks through the same folding map \(\phi\).  The word
+\emph{balanced} records equality of degree and leading normalization;
+the \emph{core} consists of the roots still allowed to move after common
+and planted factors are removed.  If the resulting projective locator
+family is one-dimensional it is a split pencil
+\(Q_0+\lambda Q_1\); in higher dimension this definition supplies no
+distinct-ray bound, and the separate ray compiler is required.
+\end{definition}
+
+For a monic polynomial
+\[
+ A(X)=X^d+a_1X^{d-1}+\cdots+a_d
+\]
+and an integer $0\le u\le d$, write
+\(\operatorname{pref}_u(A)=(a_1,\ldots,a_u)\).  Equivalently, if
+\(A^\vee(Z):=Z^dA(Z^{-1})\), then
+\(\operatorname{pref}_u(A)\) is the coefficient vector of
+\(A^\vee(Z)\bmod Z^{u+1}\), with its constant coefficient omitted.
+
+\begin{theorem}[Exact quotient--remainder prefix normal form]
+\label{thm:exact-quotient-remainder-normal-form}
+Let $\B\subseteq\F$ be finite fields, let $D\subseteq\B$ have $n$
+distinct elements, and let $\phi\in\B[X]$ be monic of degree $c\ge2$.
+Assume that the restriction
+\[
+             \phi:D\longrightarrow Q:=\phi(D)
+\]
+has complete fibers of size $c$; in particular, $N:=|Q|=n/c$.
+Fix integers $m,r$ with $0\le r<c$ and $cm+r\le n$.  For
+\[
+ E\in\binom Qm,
+ \qquad
+ R\in\binom{D\setminus\phi^{-1}(E)}r,
+\]
+put
+\[
+ \begin{split}
+ V_E(Y)&:=\prod_{y\in E}(Y-y)
+       =Y^m+\sum_{j=1}^m v_j(E)Y^{m-j},\\
+ P_R(X)&:=\prod_{x\in R}(X-x)
+       =X^r+\sum_{i=1}^r p_i(R)X^{r-i},\\
+ L_{E,R}(X)&:=P_R(X)V_E(\phi(X)).
+ \end{split}                                      \tag{QR1}\label{eq:qr-locators}
+\]
+Then $L_{E,R}$ is the monic locator of the support
+\(\phi^{-1}(E)\sqcup R\), of degree $A=cm+r$.
+
+Let $0\le w\le A$ and put $d=\lfloor w/c\rfloor$.
+
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If $w\ge r$, every nonempty fiber of
+      \((E,R)\mapsto\operatorname{pref}_w(L_{E,R})\) determines $R$
+      uniquely and, after $R$ is recovered, is exactly one quotient-prefix
+      fiber.  More precisely, for every prefix value $z$ there are unique
+      data $R_z$ and $\eta_z\in\B^d$, whenever the fiber is nonempty, such
+      that
+      \[
+      \begin{split}
+       &\{(E,R):\operatorname{pref}_w(L_{E,R})=z\}\\
+       &\quad=
+       \{(E,R_z): E\in\tbinom{Q\setminus\phi(R_z)}m,
+           \ \operatorname{pref}_d(V_E)=\eta_z\}.
+      \end{split}                                  \tag{QR2}\label{eq:qr-fiber-exact}
+      \]
+      Thus no factor counting possible remainder sets occurs in a fixed
+      global prefix fiber.
+
+\item If $w<r$, then necessarily $w<c$, and the quotient set $E$ is
+      invisible to the first $w$ coefficients.  There is a fixed
+      unitriangular bijection $T_{\phi,m,w}:\B^w\to\B^w$ such that
+      \[
+          \operatorname{pref}_w(L_{E,R})
+          =T_{\phi,m,w}(\operatorname{pref}_w(P_R))                 \tag{QR3}
+      \]
+      for every admissible $(E,R)$.  Consequently, with the convention
+      \(\binom uv=0\) for $v>u$,
+      \[
+      \begin{split}
+       &\#\{(E,R):\operatorname{pref}_w(L_{E,R})=z\}\\
+       &\quad=
+       \sum_{\substack{R\in\binom Dr\\
+          \operatorname{pref}_w(P_R)=T_{\phi,m,w}^{-1}(z)}}
+          \binom{N-|\phi(R)|}{m}.
+      \end{split}                                  \tag{QR4}\label{eq:qr-shallow-remainder}
+      \]
+      Thus this case is a remainder-prefix problem, multiplied by the
+      number of quotient sets still available after $R$ is fixed.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+For a monic degree-$e$ polynomial $A$, set
+\(A^\vee(Z)=Z^eA(Z^{-1})\).  Also set
+\[
+       \Phi(Z):=Z^c\phi(Z^{-1})
+       =1+\phi_1Z+\cdots+\phi_cZ^c.
+\]
+Taking reciprocal polynomials in \eqref{eq:qr-locators} gives the exact
+formal-power-series identity
+\[
+ L_{E,R}^\vee(Z)=P_R^\vee(Z)
+ \left(
+   \Phi(Z)^m+
+   \sum_{j=1}^m v_j(E)Z^{cj}\Phi(Z)^{m-j}
+ \right).                                          \tag{QR5}\label{eq:qr-infinity}
+\]
+All factors on the right have constant coefficient one except for the
+displayed scalar coefficients $v_j(E)$.
+
+Suppose first that $w\ge r$.  Since $r<c$, no term containing a $v_j$
+occurs below degree $c$.  For $1\le i\le r$, the coefficient of $Z^i$
+on the right of \eqref{eq:qr-infinity} is
+\(p_i(R)\) plus an expression depending only on
+\(p_1(R),\ldots,p_{i-1}(R)\), on $m$, and on $\Phi$.  The first $r$
+coefficients therefore recover $p_1(R),\ldots,p_r(R)$ successively.
+They recover the monic polynomial $P_R$, hence its root set $R$, uniquely.
+
+We may now divide \(L_{E,R}^\vee\) by the unit
+\(P_R^\vee\) modulo $Z^{w+1}$.  In the remaining factor of
+\eqref{eq:qr-infinity}, the coefficient of $Z^{cj}$ is
+\(v_j(E)\) plus an expression depending only on
+\(v_1(E),\ldots,v_{j-1}(E)\), on $m$, and on $\Phi$.  Hence the
+coefficients at degrees $c,2c,\ldots,dc$ recover
+\(v_1(E),\ldots,v_d(E)\) successively.  Conversely, $P_R$ and these $d$
+coefficients determine the right side of \eqref{eq:qr-infinity} modulo
+$Z^{w+1}$, because every term containing $v_j$ with $j>d$ starts in degree
+$cj>w$.  This proves \eqref{eq:qr-fiber-exact}; admissibility of $E$ is
+exactly the condition $E\cap\phi(R)=\varnothing$.
+
+If $w<r<c$, every term involving a $v_j$ starts in degree at least
+$c>w$, so modulo $Z^{w+1}$ the bracket in \eqref{eq:qr-infinity} is the
+fixed unit $\Phi(Z)^m$.  Multiplication by this unit sends the first $w$
+coefficients of $P_R^\vee$ to the first $w$ coefficients of
+$L_{E,R}^\vee$ by a unitriangular transformation.  It is independent of
+$E$ and invertible.  For a fixed $R$, the admissible $E$ are precisely the
+$m$-subsets of $Q\setminus\phi(R)$, of which there are
+\(\binom{N-|\phi(R)|}{m}\).  Summing over the indicated remainder-prefix
+fiber proves \eqref{eq:qr-shallow-remainder}.
+\end{proof}
+
+\begin{proposition}[Complete support factorization and its limitation]
+\label{prop:complete-support-factorization}
+Under the complete-fiber hypotheses of
+\cref{thm:exact-quotient-remainder-normal-form}, every support
+\(S\subseteq D\) has the unique decomposition
+\[
+ E(S)=\{y\in Q:\phi^{-1}(y)\subseteq S\},\qquad
+ R(S)=S\setminus\phi^{-1}(E(S)),
+ \tag{QR5a}\label{eq:complete-support-factorization}
+\]
+and
+\(Q_S(X)=P_{R(S)}(X)V_{E(S)}(\phi(X))\).  The remainder meets every
+nonfull \(\phi\)-fiber in at most \(c-1\) points, but its total size may
+be \(\Theta(n)\).  The reciprocal identity \eqref{eq:qr-infinity} remains
+valid for this arbitrary remainder.  When \(\abs{R(S)}\ge c\), however,
+the quotient coefficients and the remainder coefficients begin to
+interlace at degree \(c\), so the triangular recovery theorem above does
+not give a comparison without an additional partial-occupancy atlas.
+\end{proposition}
+
+\begin{proof}
+A fiber is put into \(E(S)\) exactly when all of its points lie in \(S\);
+all other selected points form \(R(S)\).  This proves existence,
+disjointness, the occupancy bound, and uniqueness.  Multiplying the
+corresponding linear factors gives the locator identity.  The reciprocal
+calculation used for \eqref{eq:qr-infinity} is purely multiplicative and
+does not require \(\deg P_R<c\).  If \(\deg P_R\ge c\), both
+\(p_c(R)\) and \(v_1(E)\) occur in degree \(c\), which proves the stated
+limitation of the triangular separation.
+\end{proof}
+
+\begin{theorem}[Exact partial-occupancy disintegration]
+\label{thm:exact-partial-occupancy}
+Let \(D=D_0\sqcup X\), where \(\abs X=b\), and let
+\(\phi:D_0\twoheadrightarrow Q\) have exactly \(N=\abs Q\) fibers, each
+of cardinality \(c\).  For \(S\subseteq D\), put
+\[
+ X_S=S\cap X,\qquad
+ E(S)=\{y\in Q:\phi^{-1}(y)\subseteq S\},\qquad
+ R(S)=(S\cap D_0)\setminus\phi^{-1}(E(S)).
+\]
+Write
+\[
+ t=\abs{X_S},\qquad m=\abs{E(S)},\qquad
+ p=\abs{\phi(R(S))},\qquad r=\abs{R(S)}.
+\]
+Then this datum is unique, every fiber meeting \(R(S)\) contains between
+one and \(c-1\) points of \(R(S)\), and \(\abs S=t+cm+r\).  If
+\(\Omega_{t,m,p,r}\) denotes the family of supports with these four
+parameters, then
+\[
+ \abs{\Omega_{t,m,p,r}}
+ =\binom bt\binom Np\binom{N-p}m
+   [x^r]\bigl((1+x)^c-1-x^c\bigr)^p.                 \tag{PO1}
+\]
+Consequently the nonempty families \(\Omega_{t,m,p,r}\) partition
+\(\binom Da\), and their exact add-back is
+\[
+ \sum_{\substack{t,m,p,r\\t+cm+r=a}}\abs{\Omega_{t,m,p,r}}
+ =\binom{cN+b}{a}.                                   \tag{PO2}
+\]
+If \(\phi\) is the restriction of a monic degree-\(c\) polynomial and
+every fiber \(\phi^{-1}(y)\) is the complete simple root set in \(D_0\)
+of \(\phi(X)-y\), then their locators satisfy
+\[
+             Q_S=Q_{X_S}P_{R(S)}V_{E(S)}(\phi).
+\]
+\end{theorem}
+
+\begin{proof}
+Full fibers, partial fibers, and empty fibers are mutually exclusive, so
+the displayed decomposition is canonical.  Choose the \(t\) exceptional
+points, the \(p\) partial fibers, and the \(m\) full fibers in
+\(\binom bt\binom Np\binom{N-p}m\) ways.  On one partial fiber the
+weight enumerator of the allowed nonempty proper subsets is
+\((1+x)^c-1-x^c\); hence the coefficient in \textup{(PO1)} counts the
+choices having total partial weight \(r\).  Summing \textup{(PO1)} and
+extracting the coefficient of \(x^a\) gives
+\[
+ [x^a](1+x)^b
+ \left(1+x^c+\bigl((1+x)^c-1-x^c\bigr)\right)^N
+ =[x^a](1+x)^{b+cN}=\binom{b+cN}{a}.
+\]
+Multiplying the linear factors belonging to the three disjoint parts of
+the support proves the locator identity.
+\end{proof}
+
+\begin{proposition}[Partial-occupancy Fourier factorization]
+\label{prop:partial-occupancy-fourier}
+In the setting of \cref{thm:exact-partial-occupancy}, let \(G\) be a
+finite abelian group, let \(g:D\to G\), and put
+\(\Phi(S)=\sum_{x\in S}g(x)\).  For a character
+\(\chi\in\widehat G\) and a regular fiber \(F_y=\phi^{-1}(y)\), define
+\[
+ A_y(\chi)=\prod_{x\in F_y}\chi(g(x)),\qquad
+ P_y(\chi;z)=
+ \prod_{x\in F_y}\bigl(1+z\chi(g(x))\bigr)-1-z^cA_y(\chi).
+\]
+Then
+\[
+ \sum_{S\in\Omega_{t,m,p,r}}\chi(\Phi(S))
+ =[u^tv^m\zeta^pz^r]
+ \prod_{x\in X}\bigl(1+u\chi(g(x))\bigr)
+ \prod_{y\in Q}
+ \bigl(1+vA_y(\chi)+\zeta P_y(\chi;z)\bigr).          \tag{PO3}
+\]
+Consequently, for every \(s\in G\),
+\[
+ \abs{\{S\in\Omega_{t,m,p,r}:\Phi(S)=s\}}
+ =\frac1{\abs G}\sum_{\chi\in\widehat G}
+   \overline{\chi(s)}
+   \sum_{S\in\Omega_{t,m,p,r}}\chi(\Phi(S)).         \tag{PO4}
+\]
+At the trivial character, \textup{(PO3)} is exactly the support count
+\textup{(PO1)}.  Thus support add-back is unconditional, while a finite
+flatness theorem is exactly a bound for the nontrivial-character sum in
+\textup{(PO4)}.
+\end{proposition}
+
+\begin{proof}
+For a fixed regular fiber the three terms in the second product encode,
+respectively, an empty fiber, a full fiber, and a nonempty proper subset.
+The variables \(v,\zeta,z\) record the numbers \(m,p,r\), while \(u\)
+records the exceptional weight \(t\).  Multiplicativity of \(\chi\) turns
+the character of the support sum into the product of its selected-point
+characters, proving \textup{(PO3)} by coefficient extraction.
+Formula \textup{(PO4)} is character orthogonality on \(G\).
+\end{proof}
+
+\begin{remark}[Effective normalization of a partial-occupancy slice]
+Fix a nonempty slice \(\Omega_\lambda=\Omega_{t,m,p,r}\), choose
+\(S_0\in\Omega_\lambda\), and let
+\[
+ G_\lambda=
+ \left\langle\Phi(S)-\Phi(S_0):S\in\Omega_\lambda\right\rangle
+ \le G.
+\]
+The attained boundary values lie in the affine coset
+\(\Phi(S_0)+G_\lambda\), and the effective inversion is
+\[
+ \abs{\{S\in\Omega_\lambda:\Phi(S)=s\}}
+ =\frac1{\abs{G_\lambda}}
+   \sum_{\chi\in\widehat{G_\lambda}}
+   \overline{\chi(s-\Phi(S_0))}
+   \sum_{S\in\Omega_\lambda}
+      \chi(\Phi(S)-\Phi(S_0)).                       \tag{PO5}
+\]
+Every character of \(G_\lambda\) extends to the ambient finite abelian
+group, so the inner sum may be evaluated from \textup{(PO3)} after
+multiplication by the fixed factor
+\(\overline{\chi(\Phi(S_0))}\).  Different extensions agree on support
+differences.  Equivalently, ambient characters group by their restriction
+to \(G_\lambda\), and the annihilator multiplicity cancels exactly against
+the ambient denominator.  This identifies the correct Fourier denominator;
+it does not assert that the realized image fills the affine group.
+\end{remark}
+
+\begin{remark}[What partial-occupancy add-back does and does not prove]
+The exponentially many local proper-subset choices are already contained
+inside the coarse slices \(\Omega_{t,m,p,r}\); they incur no separate
+profile-count loss in \textup{(PO2)}.  The theorem does not bound the
+nontrivial Fourier terms in \textup{(PO4)}, the size of a realized
+boundary image, or the projection of a witness cell to distinct slopes.
+Those are separate analytic and ray payments.
+\end{remark}
+
+\begin{theorem}[Canonical partial-occupancy atlas and bounded-boundary closure]
+\label{thm:canonical-partial-occupancy-atlas}
+Fix a received line and exact agreement \(a\).  For every nonempty
+canonical slice \(\Omega_\lambda=\Omega_{t,m,p,r}\) of
+\cref{thm:exact-partial-occupancy}, let \(\Ccal_\lambda\) be the witnesses
+whose support lies in \(\Omega_\lambda\), and order these cells
+arbitrarily.  Then they form a witness-exhaustive first-match atlas and,
+with \(Z_\lambda^\circ\) its first-match slope projections,
+\[
+ \abs{Z_\lambda^\circ}\le\abs{\Omega_\lambda},
+ \qquad
+ \sum_\lambda\abs{Z_\lambda^\circ}
+ \le\sum_\lambda\abs{\Omega_\lambda}=\binom na.    \tag{PO6}
+\]
+
+More generally, give each slice a boundary map
+\(\Phi_\lambda:\Omega_\lambda\to G_\lambda^{\rm amb}\) into a finite
+abelian group of order \(A_\lambda\), let \(N_\lambda\) be its
+active-coordinate count, let \(L_\lambda\) be its realized image size,
+and put
+\(\bar N_\lambda=\abs{\Omega_\lambda}/L_\lambda\).  The exact finite ray
+multiplier and challenge-set bound are
+\[
+             \abs{Z_\lambda^\circ}
+             \le L_\lambda\bar N_\lambda.          \tag{PO7}
+\]
+\[
+ B_{C,\Gamma}^{\rm MCA}(a)
+ \le\min\left\{\abs\Gamma,\
+       \sup_r\sum_{\lambda\in\Lambda(r;a)}
+              L_\lambda\bar N_\lambda\right\}
+ \le\min\left\{\abs\Gamma,\binom na\right\}.        \tag{PO7a}
+\]
+Define the coarse partial-occupancy envelope
+\[
+ \mathfrak E_n^{\rm PO}(a)
+ =1+\sup_r\sum_{\lambda\in\Lambda(r;a)}(1+\bar N_\lambda).
+\]
+If, uniformly over received lines and the polynomially many nonempty
+canonical slices,
+\[
+                         \log A_\lambda=o(n),       \tag{PO8}
+\]
+then this atlas has a closed asymptotic profile-envelope compiler:
+\[
+ B_{C}^{\rm MCA}(a)\le
+ e^{o(n)}\mathfrak E_n^{\rm PO}(a).                \tag{PO9}
+\]
+Condition \textup{(PO8)} discharges atlas exhaustivity, support add-back,
+and the direct alternative in \textup{(RC)}, whose exact multiplier is
+\(L_\lambda\le A_\lambda\).  If, in addition,
+\[
+                         \log A_\lambda=o(N_\lambda) \tag{PO10}
+\]
+on every slice to which effective Fourier terminology is applied, then
+the effective inversion \textup{(PO5)} may designate every nontrivial
+effective character major: its minor sum is empty and its exact major
+multiplier is at most \(A_\lambda-1\).  Thus \textup{(PO10)} verifies the
+slice analogues of MI and MA rather than assuming them.  A concrete
+specialization is a polynomial-size coefficient field with uniformly
+bounded boundary depth and \(N_\lambda=\Theta(n)\) on every live canonical
+folding profile.  This is a coarse support-paid envelope, not an
+identity-scale or refined quotient-envelope comparison.  It gives a safe
+target whenever the literal right side of \textup{(PO7a)} is at most
+\(B^*\); a sharp frontier additionally uses the unsafe inequality in
+\textup{(SB2)}.  Condition \textup{(PO8)} alone does not locate a target
+frontier.
+\end{theorem}
+
+\begin{proof}
+The support slices partition \(\binom Da\) by \textup{(PO2)}, hence the
+corresponding witness cells partition the exact witness incidence.  For
+each first-match slope choose one witness support in its cell.  A fixed
+noncommon support carries at most one slope, so this choice is injective
+and proves the first inequality in \textup{(PO6)}.  Exact add-back gives
+the equality there, and \textup{(PO7)} is the same inequality rewritten
+using \(\abs{\Omega_\lambda}=L_\lambda\bar N_\lambda\).
+
+The exact challenge bound follows by summing \textup{(PO7)}, taking the
+maximum over received lines, and using \textup{(PO2)}.  Since
+\(L_\lambda\le A_\lambda\), condition \textup{(PO8)} turns
+\textup{(PO7)} into
+\(e^{o(n)}\bar N_\lambda\).  There are only polynomially many quadruples
+\((t,m,p,r)\), so their sum proves \textup{(PO9)}.  If
+\(A_\lambda\le\abs\B^{R_\lambda}\), a polynomial-size \(\B\) and
+bounded \(R_\lambda\) imply \textup{(PO8)}.  Finally, the effective
+difference group in \textup{(PO5)} has at most \(A_\lambda\) characters.
+Under \textup{(PO10)}, designating all of its nontrivial characters major
+makes the minor sum empty and bounds the normalized major aggregate by
+\(A_\lambda-1=e^{o(N_\lambda)}\).
+\end{proof}
+
+\begin{remark}[Exact dimension rounding]
+\label{rem:qr-rounding}
+If the global locator degree is $A=cm+r$, the list-code dimension is $K$,
+and $w=A-K$, then the quotient depth in
+\cref{thm:exact-quotient-remainder-normal-form} is
+\[
+ d=\left\lfloor\frac{A-K}{c}\right\rfloor
+   =m-\left\lceil\frac{K-r}{c}\right\rceil.         \tag{QR5b}\label{eq:qr-rounding}
+\]
+Thus the descended list dimension is exactly
+\(K_c=\lceil(K-r)/c\rceil\).  More explicitly, if \(w=cu+s\) with
+\(0\le s<c\), then
+\[
+ \abs{\B_\phi}^{-\floor{w/c}}
+ =\abs{\B_\phi}^{s/c}\abs{\B_\phi}^{-w/c}.          \tag{QR5c}
+\]
+Thus the exact rounding multiplier is \(\abs{\B_\phi}^{s/c}\), lying
+between one and \(\abs{\B_\phi}^{(c-1)/c}\).  Retaining the integer
+\(\floor{w/c}\) avoids even this comparison; no polynomial or
+\(e^{o(n)}\) placeholder is needed in a finite certificate.
+\end{remark}
+
+\begin{remark}[Nonmonic maps and Chebyshev maps]
+\label{rem:qr-chebyshev}
+If the leading coefficient of $\phi$ is $b\ne0$, replace $\phi$ by
+$b^{-1}\phi$ and $Q$ by $b^{-1}Q$.  This changes quotient coefficients by
+fixed nonzero scalar factors and leaves every support and every fiber
+cardinality unchanged.  The theorem therefore applies to the Chebyshev
+folding map $T_c$ after this normalization.  On a circle twin-coset domain
+on which $T_c$ has complete fibers of size $c$, it gives the same statement
+verbatim.  The fixed or ramified endpoints form an exceptional set \(X\)
+of cardinality \(b\) and are included exactly by the factor \(\binom bt\)
+in \textup{(PO1)}; the crude total exceptional-point multiplier is at most
+\(2^b\), with \(b\le2\) for involution-fixed endpoints.  Coincident twin
+cosets are not a bounded planted set: they form the separate dihedral
+collapse profile of the circle edge-case audit imported from \cite[Sec.~11]{CAP25v132}.
+\end{remark}
+
+For a declared complete-fiber-plus-Euclidean-remainder profile, the exact
+normal-form theorem separates algebraic bookkeeping from prefix
+equidistribution only when the remainder degree is less than \(c\).  The
+exact disintegration of \cref{thm:exact-partial-occupancy} exhausts
+arbitrary partial-occupancy supports, but when \(\deg P_R\ge c\) the
+quotient and remainder coefficients interlace.  Thus that disintegration
+does not by itself prove prefix flatness on the resulting coarse slices.
+Let
+$\B_\phi\subseteq\B$ be a subfield and suppose
+\(Q\subseteq\eta\B_\phi\) for some $\eta\in\B^\times$.  Then
+\(v_j(E)\in\eta^j\B_\phi\).  Hence, in case
+\textup{(i)}, the natural average scale of the quotient-prefix fiber with
+fixed $R$ is
+\[
+ \overline N_{\phi,R}(w)
+ :=\binom{N-|\phi(R)|}{m}
+       |\B_\phi|^{-\lfloor w/c\rfloor}.             \tag{QR6}\label{eq:qr-natural-scale}
+\]
+Pigeonholing proves a fiber of size at least
+\(\lceil\overline N_{\phi,R}(w)\rceil\).  An upper bound of the same order
+is not a consequence of the normal form: it is precisely the uniform
+prefix-flatness, or Sidon/Fourier, input on the quotient row.
+
+\begin{proposition}[Identity--quotient exponent comparison]
+\label{prop:identity-quotient-comparison}
+Consider a sequence to which
+\cref{thm:exact-quotient-remainder-normal-form} applies with fixed
+$c\ge2$ and fixed $0\le r<c$.  Suppose
+\[
+ \frac an\longrightarrow\alpha\in(0,1),\qquad
+ \log|\B|=o(n),\qquad
+ \log\binom na-w\log|\B|=o(n),                     \tag{QR7}\label{eq:identity-crossing-qr}
+\]
+where $a=cm+r$, and suppose
+\(Q\subseteq\eta\B_c\) for a subfield $\B_c\subseteq\B$.
+Write \(\overline N_{c,r}(w)=\overline N_{\phi,R}(w)\) for the natural
+scale in \eqref{eq:qr-natural-scale}, with this fixed remainder profile.
+Then $w\to\infty$, so $w\ge r$ eventually, and
+\[
+ \log\overline N_{c,r}(w)
+ =\frac1c\log\!\left(\binom na|\B|^{-w}\right)
+  +\frac wc\log\frac{|\B|}{|\B_c|}+o(n),           \tag{QR8}\label{eq:qr-comparison-general}
+\]
+where replacing $N-|\phi(R)|$ by $N$ changes only the $o(n)$ term.
+Equivalently, if
+\(\lambda_c=\log|\B_c|/\log|\B|\) has a limit, then at the identity
+crossing
+\[
+       \frac1n\log\overline N_{c,r}(w)
+       =\frac{h(\alpha)}c(1-\lambda_c)+o(1),         \tag{QR9}\label{eq:qr-comparison-crossing}
+\]
+using the entropy convention fixed in the Introduction.
+Thus the natural average scale of this bounded-degree quotient profile is
+comparable with the identity scale at exponential accuracy exactly when
+\(\log|\B_c|/\log|\B|=1-o(1)\).  A proper field drop of fixed relative
+degree produces a positive exponential quotient term.
+\end{proposition}
+
+\begin{proof}
+Stirling's formula, $a/n\to\alpha$, and fixed $c,r$ give
+\[
+ \log\binom{n/c+O(1)}{(a-r)/c}
+ =\frac1c\log\binom na+o(n).
+\]
+Also
+\(\lfloor w/c\rfloor\log|\B_c|
+=(w/c)\log|\B_c|+o(n)\), because the rounding error is at most
+\(\log|\B_c|\le\log|\B|=o(n)\).  This proves
+\eqref{eq:qr-comparison-general}.  Since
+\(\log\binom na=nh(\alpha)+o(n)\),
+\eqref{eq:identity-crossing-qr} gives
+\(w\log|\B|=nh(\alpha)+o(n)\).  In particular $w\to\infty$ because
+\(\log|\B|=o(n)\).  Substitution in
+\eqref{eq:qr-comparison-general} proves
+\eqref{eq:qr-comparison-crossing}.
+\end{proof}
+
+\begin{remark}[Unbounded quotient degrees]
+If $c=c_n\to\infty$, the complete-fiber choice contributes at most
+\(2^{n/c}=e^{o(n)}\).  When $w\ge r$, the remainder is recovered exactly
+and no further remainder multiplicity occurs.  When $w<r<c$, the exact
+formula \eqref{eq:qr-shallow-remainder} reduces the profile to an ordinary
+prefix problem for the remainder support, multiplied by $e^{o(n)}$
+quotient choices.  Thus only bounded quotient degrees can create a new
+positive-rate field-drop term; large degrees either cost $e^{o(n)}$ or
+return to an identity/remainder prefix problem.  This does not prove
+flatness of the remaining prefix problem.
+\end{remark}
+
+
+\section{Effective-image Fourier normalization}\label{sec:partial-occupancy}
+There is, however, an exact normalization that must be performed before
+declaring any character major.  Assume \(1\le m\le\abs T-1\), as on every
+fixed-density primitive leaf, put \(p=\operatorname{char}\B\), and fix
+\(S_0\in\binom Tm\) and \(t_0\in T\).
+Then
+\[
+ \Span_{\F_p}\{\Psi(S)-\Psi(S_0):S\in\tbinom Tm\}
+ =\Span_{\F_p}\{g(t)-g(t_0):t\in T\}.               \tag{EF0}
+\]
+Define the \emph{effective Fourier span}
+\[
+ V_g=\Span_{\F_p}\{g(t)-g(t_0):t\in T\}\subseteq\B^R,
+ \qquad A_{\rm eff}=\abs{V_g}.
+ \tag{EF1}\label{eq:effective-fourier-span}
+\]
+The fixed-weight sum map takes values in the affine space
+\(m g(t_0)+V_g\).  Thus Fourier inversion belongs on the additive group
+\(V_g\), not automatically on the ambient group \(\B^R\).
+
+\begin{lemma}[Effective-span Fourier inversion]
+\label{lem:effective-span-fourier}
+For \(z\in V_g\), let
+\[
+ N_g(z)=\abs{\left\{S\in\binom Tm:
+       \sum_{t\in S}g(t)=m g(t_0)+z\right\}}.
+\]
+Then
+\[
+ N_g(z)=\frac1{A_{\rm eff}}
+ \sum_{\chi\in\widehat{V_g}}\overline{\chi(z)}
+ e_m\bigl(\chi(g(t)-g(t_0)):t\in T\bigr).           \tag{EF2}
+\]
+In particular,
+\[
+ \max_zN_g(z)\le\frac1{A_{\rm eff}}
+ \left(\binom{\abs T}m+
+ \sum_{1\ne\chi\in\widehat{V_g}}
+ \left|e_m\bigl(\chi(g(t)-g(t_0)):t\in T\bigr)\right|\right). \tag{EF3}
+\]
+Every character of \(V_g\) extends to a trace character of \(\B^R\),
+and a nontrivial effective character is not constant on all the generators
+\(g(t)-g(t_0)\).  Ambient characters that are trivial on \(V_g\) occur
+with multiplicity \(\abs{\B}^R/A_{\rm eff}\), which cancels exactly
+against the ambient Fourier normalization.
+\end{lemma}
+
+\begin{proof}
+The inclusion from left to right in \textup{(EF0)} follows by expanding a
+difference of two support sums.  Conversely, for distinct \(t,u\in T\),
+choose an \((m-1)\)-set \(A\subseteq T\setminus\{t,u\}\); such a set
+exists because \(1\le m\le\abs T-1\).  Then
+\(\Psi(A\cup\{t\})-\Psi(A\cup\{u\})=g(t)-g(u)\), so the two spans agree.
+The first formula is character orthogonality on the finite additive group
+\(V_g\), applied after translating by \(m g(t_0)\); the second follows by
+the triangle inequality.  The trace pairing on the \(\F_p\)-space
+\(\B^R\) is nondegenerate, so every character of its subspace \(V_g\)
+extends to the ambient space.  A character trivial on each displayed
+generator is trivial on their span.  Finally, the annihilator
+\(V_g^\perp\) has size \(\abs{\B}^R/A_{\rm eff}\); grouping ambient
+characters by their restriction to \(V_g\) proves the cancellation claim.
+\end{proof}
+
+\begin{definition}[Certified effective major/minor partition]
+\label{def:effective-major-minor}
+Let
+\(\operatorname{res}:\widehat{\B^R}\twoheadrightarrow\widehat{V_g}\)
+be restriction.  A \emph{certified effective Fourier partition} is a
+disjoint union
+\[
+ \widehat{V_g}\setminus\{1\}
+ =\mathfrak m_{\rm eff}\sqcup\mathfrak M_{\rm eff}
+\]
+such that every \(\chi\in\mathfrak m_{\rm eff}\) is supplied with an
+ambient lift whose rational phase satisfies the character-sum hypotheses
+used to pay it.  Characters without such a certified lift may be placed in
+\(\mathfrak M_{\rm eff}\), but their aggregate must then be paid by
+\textup{(MA)}.  This designation is data of the chart; it is not a
+property of an unspecified ambient lift.
+\end{definition}
+
+\begin{definition}[Effective Fourier payment]
+\label{def:effective-fourier-payment}
+The full slice has an \emph{effective Fourier payment with constant
+\(\kappa\ge1\)} if
+\[
+ \sum_{1\ne\chi\in\widehat{V_g}}
+ \left|e_m\bigl(\chi(g(t)-g(t_0)):t\in T\bigr)\right|
+ \le (\kappa-1)\binom{\abs T}m.                    \tag{EFP}
+\]
+By \cref{lem:effective-span-fourier}, this implies the exact max-fiber
+bound
+\[
+               \max_zN_g(z)\le
+               \kappa\binom{\abs T}m/A_{\rm eff}. \tag{EF4}
+\]
+It also implies that the realized image contains at least
+\(A_{\rm eff}/\kappa\) points.  The ambient instances of \textup{(PF)}
+and \textup{(MA)} are one sufficient way to prove \textup{(EFP)}, but
+\textup{(EFP)} is phase-dependent and does not pay an ambient annihilator
+twice.
+\end{definition}
+
+\begin{proof}[Proof of the image-size assertion]
+The fibers sum to \(\binom{\abs T}m\), and each nonempty fiber is at most
+\(\kappa\binom{\abs T}m/A_{\rm eff}\) by \textup{(EF4)}.
+Hence at least \(A_{\rm eff}/\kappa\) fibers are nonempty.
+\end{proof}
+
+\begin{lemma}[Constant and Artin--Schreier modes are annihilator modes]
+\label{lem:constant-modes-annihilator}
+Suppose an ambient trace character has phase constant on \(T\).  Then its
+restriction to \(V_g\) is trivial.  In particular, if an ambient rational
+phase is Artin--Schreier of the form \(G^p-G+c\) and \(G\) is defined at
+the \(\B\)-rational points of \(T\), then its character is an annihilator
+mode and disappears from the nontrivial sum in \textup{(EF2)}.
+\end{lemma}
+
+\begin{proof}
+The quotient of the character values at \(g(t)\) and \(g(t_0)\) is one
+for every \(t\), so the character is trivial on the generators of
+\(V_g\).  For an Artin--Schreier phase,
+\(\Tr_{\B/\F_p}(G(t)^p-G(t))=0\), hence its additive-character value is
+constant on all points where it is defined.
+\end{proof}
+
+\begin{remark}[Effective normalization does not prove the remaining aggregate]
+The effective-span reduction removes exactly the constant annihilator
+multiplicity.  A nonconstant character may still factor through a quotient
+map or have a phase-dependent estimate too weak for \textup{(EFP)}.  Such
+modes require a recursive quotient estimate, the aggregate
+\textup{(MA)}, or a direct full-slice bound.  Thus effective normalization
+repairs the Fourier denominator but is not a proof of unrestricted deep-prefix
+flatness.
+\end{remark}
+
+\begin{definition}[Major-character aggregate]
+\label{def:major-arc-aggregate}
+Let \(A_*\) be the additive target on which Fourier inversion is being
+performed, let \(h:T\to A_*\), and let
+\(\mathfrak M_*\subseteq\widehat{A_*}\setminus\{1\}\) be the designated
+major characters.  The chart satisfies \textup{(MA)} on \(A_*\) if
+\[
+ \tag{MA}\label{eq:major-arc-aggregate}
+ \sum_{\chi\in\mathfrak M_*}
+ \left|e_m\bigl(\chi(h(t)):t\in T\bigr)\right|
+ \le e^{o(\abs T)}\binom{\abs T}m .
+\]
+Unless the ambient target is explicitly named, \(A_*=V_g\) and
+\(h(t)=g(t)-g(t_0)\).  For the ambient target \(A_*=\B^R\), the same
+condition is equivalently
+\[
+ \abs\B^{-R}\sum_{\alpha\in\mathfrak M_{\rm amb}}
+ \left|e_m\bigl(\psi(\alpha\cdot g(t)):t\in T\bigr)\right|
+ \le e^{o(\abs T)}\barN_0.
+\]
+The condition is vacuous when the designated major set is empty.  It can
+be proved by a recursive quotient census or replaced by a direct
+full-slice max-fiber bound; first-match terminology alone does not imply
+it.
+\end{definition}
+
+\begin{lemma}[Sparse effective major set]
+\label{lem:sparse-major-payment}
+On the effective group \(V_g\), let \(\mathfrak M_{\rm eff}\) be any set
+of nontrivial characters designated major.  Its exact normalized Fourier
+loss is at most \(\abs{\mathfrak M_{\rm eff}}\).  Consequently
+\(\abs{\mathfrak M_{\rm eff}}=e^{o(\abs T)}\) proves the effective form
+of \textup{(MA)}; for a finite row, the literal cardinality is a valid
+major-character constant.
+\end{lemma}
+
+\begin{proof}
+Every fixed-weight Fourier coefficient is a sum of \(\binom{\abs T}m\)
+complex numbers of modulus one, and hence has absolute value at most that
+binomial coefficient.  Sum this bound over the designated set.
+\end{proof}
+
+\begin{theorem}[Exact low-boundary-entropy closure]
+\label{thm:small-effective-dual-closure}
+Let \(\Omega=\binom Tm\), let \(W\) be a finite additive
+\(\F_p\)-space, and let \(\Psi:\Omega\to W\) be a fixed-weight additive
+boundary map.  Fix \(S_0\in\Omega\), put \(z_0=\Psi(S_0)\), and define
+the effective difference span
+\[
+ V=\Span_{\F_p}\{\Psi(S)-\Psi(S_0):S\in\Omega\}\subseteq W.
+\]
+Then \(\Psi(\Omega)\subseteq z_0+V\).  Put
+\[
+       A=\abs V,\qquad L=\abs{\Psi(\Omega)},
+       \qquad M=\binom{\abs T}m,\qquad \bar N=M/L.
+\]
+Designate every nontrivial character of \(V\) as major and no character
+as minor.  Then the literal finite-row constants are
+\[
+ C_{\rm min}=0,\qquad C_{\rm maj}\le A-1,\qquad
+ \max_z\abs{\Psi^{-1}(z)}\le L\bar N=M.            \tag{SE1}
+\]
+For every exact-agreement witness cell whose support projection is
+contained in \(\Omega\), its first-match slope set satisfies
+\[
+                         \abs Z\le L\bar N=M.       \tag{SE2}
+\]
+Consequently, if \(\log A=o(\abs T)\), effective \textup{(MI)},
+effective \textup{(MA)}, image-normalized Q, and the direct alternative
+in \textup{(RC)} all hold with subexponential loss.  Taking the
+support-restricted incidence over \(\Omega\) as one ordered cell is
+exhaustive for that restricted incidence; it is exhaustive for the whole
+exact-agreement incidence when \(\Omega=\binom Da\), or after an
+exhaustive partition into such slices.  For a locator prefix with
+\(\abs T=\Theta(n)\), the concrete condition
+\((a-k-1)\log\abs\B=o(n)\) implies this hypothesis because
+\(A\le\abs\B^{a-k-1}\).
+\end{theorem}
+
+\begin{proof}
+Fourier inversion is performed on the effective group \(V\).  The minor
+sum is empty.  Every fixed-weight Fourier coefficient has
+modulus at most \(M\), so the normalized major loss is at most \(A-1\).
+The max-fiber estimate in \textup{(SE1)} is the trivial bound by the whole
+support slice, written as the exact image-normalized multiplier \(L\).
+By exact-agreement reduction, every bad slope in the cell has a noncommon
+\(m\)-support, and a fixed noncommon support carries at most one slope.
+Choosing one support for each slope is therefore injective and proves
+\textup{(SE2)}.  Since \(L\le A\), all three finite multipliers
+\(A-1,L,L\) are \(e^{o(\abs T)}\) when \(\log A=o(\abs T)\).
+The one-cell atlas is exhaustive for its support-restricted incidence by
+construction; the stated whole-incidence alternatives give global
+exhaustivity.  If it is refined by a partial-occupancy partition,
+\textup{(PO1)}--\textup{(PO2)} add the same support set back exactly and
+do not change the conclusion.
+\end{proof}
+
+\begin{definition}[Aggregate minor payment]
+\label{def:aggregate-minor-payment}
+After effective-span normalization, let \(\mathfrak m_{\rm eff}\) be the
+nontrivial characters not designated major.  The chart satisfies
+\textup{(MI)} if
+\[
+ \sum_{\chi\in\mathfrak m_{\rm eff}}
+ \left|e_m\bigl(\chi(g(t)-g(t_0)):t\in T\bigr)\right|
+ \le e^{o(\abs T)}\binom{\abs T}m.                 \tag{MI}
+\]
+For a finite row the corresponding exact loss is this sum divided by
+\(\binom{\abs T}m\).  The pointwise condition \textup{(PF)} is only one
+sufficient way to prove \textup{(MI)}; phase-dependent estimates may be
+strictly stronger.
+\end{definition}
+
+\begin{proposition}[Effective MI plus MA]
+\label{prop:effective-mi-ma-flatness}
+Partition the nontrivial effective characters as
+\(\widehat{V_g}\setminus\{1\}
+=\mathfrak m_{\rm eff}\sqcup\mathfrak M_{\rm eff}\).  Suppose
+\textup{(MI)} and the effective form of \textup{(MA)} in
+\cref{def:major-arc-aggregate} hold.
+Then the full slice and every first-match residual satisfy
+\[
+ \max_z\abs{\{S:\Psi(S)=z\}}
+ \le e^{o(\abs T)}\binom{\abs T}m/A_{\rm eff}.     \tag{EF5}
+\]
+The realized image has size at least
+\(e^{-o(\abs T)}A_{\rm eff}\), so the same assertion holds at image
+normalization.  For a finite row the exact multiplier is
+\[
+ 1+\binom{\abs T}m^{-1}
+ \sum_{1\ne\chi\in\widehat{V_g}}
+ \left|e_m\bigl(\chi(g(t)-g(t_0)):t\in T\bigr)\right|.
+ \tag{EF6}
+\]
+\end{proposition}
+
+\begin{proof}
+Add the minor and major sums and apply
+\cref{lem:effective-span-fourier,def:effective-fourier-payment}.  A
+first-match residual only deletes supports from a full-slice fiber.
+\end{proof}
+
+\begin{corollary}[Exact finite minor and major constants]
+\label{cor:exact-finite-fourier-constants}
+Put \(M=\binom{\abs T}m\) and, for an arbitrary partition of the
+nontrivial effective dual, define
+\[
+ C_{\rm min}=M^{-1}\sum_{\chi\in\mathfrak m_{\rm eff}}\abs{E_m(\chi)},
+ \qquad
+ C_{\rm maj}=M^{-1}\sum_{\chi\in\mathfrak M_{\rm eff}}\abs{E_m(\chi)},
+\]
+where
+\(E_m(\chi)=e_m(\chi(g(t)-g(t_0)):t\in T)\).  Then
+\[
+              \max_zN_g(z)\le
+              \frac{M}{A_{\rm eff}}
+              (1+C_{\rm min}+C_{\rm maj}).          \tag{EF7}
+\]
+If every minor character has power sums bounded by \(\Lambda\) through
+order \(m\), then
+\[
+ C_{\rm min}\le
+ \frac{\abs{\mathfrak m_{\rm eff}}}{M}
+ \binom{\ceil\Lambda+m-1}{m}.                      \tag{EF8}
+\]
+Thus \textup{(EF7)}, with the two actual finite sums, records every finite
+Fourier loss in an adjacent-row certificate exactly.
+\end{corollary}
+
+\begin{proof}
+Formula \textup{(EF7)} is \textup{(EF3)} after splitting the nontrivial
+characters.  The cycle-index coefficient bound gives
+\(\abs{E_m(\chi)}\le\binom{\ceil\Lambda+m-1}{m}\), proving
+\textup{(EF8)}.
+\end{proof}
+
+\begin{definition}[Pointwise minor-arc range]\label{def:prefix-flat-range}
+A primitive weighted prefix chart satisfies the pointwise minor-arc range if the characteristic is larger than \(m\), every certified minor lift has a rational phase of total pole-degree at most \(\Delta_{\rm pole}\) and satisfies the nondegeneracy hypotheses of \cref{prop:weighted-weil-minor-arcs}, and, with
+\[
+        \Lambda=C_0(\Delta_{\rm pole}+1)\sqrt{\abs\B}+\abs P
+\]
+for the absolute Weil constant \(C_0\) and planted exceptional set \(P\), one has
+\[
+        \tag{PF}
+        R\log\abs\B+
+        \log\binom{\Lambda+m-1}{m}
+        -\log\binom{\abs T}{m}\le o(\abs T).
+\]
+For circle twin-cosets the same definition is used with \(2C_0(\Delta_{\rm pole}+1)\sqrt{\abs\B}\) in place of \(C_0(\Delta_{\rm pole}+1)\sqrt{\abs\B}\), accounting for the two inverse-coset lifts on the torus before the involution quotient.
+\end{definition}
+
+
+\part{Primitive Q and the residual compiler}
+\section{The primitive prefix leaf}\label{sec:primitive-leaf}
+
+After first-match removal of paid cells, a residual prefix-boundary chart
+has a fixed set of active coordinates \(T\), \(\abs T=N\), and a fixed
+support size \(m\).  The full profile slice is
+\[
+        \Omega_{T,m}\defeq\{x\in\{0,1\}^{T}:\sum_{t\in T}x_t=m\},
+\]
+and the primitive residual is a subset \(\Omc\subseteq\Omega_{T,m}\).
+The superscript circle records a first-match residual; no Zariski openness
+is asserted.  The normalization is taken from the full profile slice, not
+from the possibly much smaller residual mass.  It is nevertheless the
+\emph{realized image}, rather than the formal codomain, that supplies the
+default number of target fibers.
+
+The three words in \emph{primitive first-match residual} have separate
+content.  ``First match'' means that a slope is removed as soon as one of
+its witnesses occurs in an earlier ordered cell; ``residual'' means that
+only witnesses surviving those removals remain; and ``primitive'' means
+that the row-specific quotient, planted, field-descent, rank, and ray-saturation
+certificates named by the atlas have all been applied.  Primitivity does
+not mean merely trivial setwise stabilizer, and it does not assume the
+Fourier, Sidon, max-fiber, or ray estimates that will be imposed below.
+
+The prefix syndrome map is a linear map \(\Phi:\Z^T\to\B^R\), restricted
+first to the full slice and then to \(\Omc\).  In the unprofiled locator
+chart, when \(R<\operatorname{char}\B\), it is equivalent through Newton's
+triangular change of coordinates to
+\begin{equation}
+        \Phi(x)=\sum_{t\in T}x_t(t,t^2,\ldots,t^R).
+        \label{eq:exact-power-sum-map}
+\end{equation}
+Equivalently, the augmented columns
+\(\widetilde v_t=(1,t,\ldots,t^R)\) have constant first coordinate
+\(\sum_tx_t=m\), and the other \(R\) coordinates are \(\Phi\).  A residual
+quotient or rational chart is allowed to replace these columns by
+\(v_t=\rho(t)(1,t,\ldots,t^{R-1})\) only when that genuine weighted
+Vandermonde representation, with \(\rho(t)\ne0\), has been proved for the
+chart.  It is not a consequence merely of constructibility or of deleting
+a Jacobian locus.  The number \(R\) is the number of independent prefix
+equations; in the unprofiled MCA boundary leaf \(R=w=a-K\).
+
+Put \(M=\abs{\Omega_{T,m}}\), and write
+\begin{equation}
+ \Scal=\Phi(\Omega_{T,m}),\qquad L=\abs\Scal,
+ \qquad A=\abs\B^R,
+ \qquad \barN^{\rm img}=M/L,
+ \qquad \barN^{\rm amb}=M/A,
+ \label{eq:image-ambient-scales}
+\end{equation}
+and for \(s\in\Scal\) put
+\(F_s=\Omc\cap\Phi^{-1}(s)\) and \(f_s=\abs{F_s}\).  Unless an
+ambient full-image certificate has been proved, we set
+\(\barN=\barN^{\rm img}\).  The certificate is
+\[
+        L\ge e^{-o(N)}A.                       \tag{FI}\label{eq:full-image-certificate}
+\]
+The set \(\Scal\) is the \emph{effective image}: it consists of the
+prefix targets actually attained by the full profile slice.  The formal
+ambient target space \(\B^R\) can be much larger.  Condition \textup{(FI)},
+the \emph{full-image certificate}, says that these two target counts differ
+by at most a subexponential factor.  An \emph{effective-image collapse} is
+the failure of this comparison; it must be retained as an effective-image
+rank-collapse profile, or handled throughout with image normalization.
+Under \eqref{eq:full-image-certificate}, the two scales differ by only
+\(e^{o(N)}\), so either may be used at exponential accuracy.  If the
+certificate fails, effective-image collapse must be retained as an
+effective-image rank-collapse profile, or all estimates on this leaf must stay
+at image scale.  Deleting earlier cells can only decrease every fiber.
+
+The image-scale frontier condition is
+\(\log M-\log L=o(N)\).  The familiar ambient equation
+\(\log\binom Nm-R\log\abs\B=o(N)\) is interchangeable with it only under
+\eqref{eq:full-image-certificate}.  This distinction is immaterial for a
+surjective prefix map but essential for a collapsed primitive image.
+
+\begin{lemma}[Exact image--ambient moment conversion]
+\label{lem:image-ambient-moment-conversion}
+For \(q\ge1\), extend \(f_s\) by zero from \(\Scal\) to \(\B^R\) and
+define
+\[
+ \Gamma_q^{\rm img}=\frac1L\sum_{s\in\Scal}
+       \left(\frac{f_s}{\barN^{\rm img}}\right)^q,
+ \qquad
+ \Gamma_q^{\rm amb}=\frac1A\sum_{s\in\B^R}
+       \left(\frac{f_s}{\barN^{\rm amb}}\right)^q.
+\]
+Then
+\begin{equation}
+ \Gamma_q^{\rm amb}
+   =\left(\frac{A}{L}\right)^{q-1}\Gamma_q^{\rm img}.
+ \label{eq:image-ambient-moment-identity}
+\end{equation}
+Thus an ambient-normalized moment bound implies the corresponding
+image-normalized bound.  The converse is valid with subexponential loss at
+logarithmic order only under \eqref{eq:full-image-certificate}.
+\end{lemma}
+
+\begin{proof}
+Since \(\barN^{\rm amb}=M/A\) and \(\barN^{\rm img}=M/L\), zero extension
+and one rearrangement give
+\[
+ \Gamma_q^{\rm amb}
+ =\frac1A\sum_{s\in\Scal}\left(\frac{Af_s}{M}\right)^q
+ =\left(\frac AL\right)^{q-1}
+   \frac1L\sum_{s\in\Scal}\left(\frac{Lf_s}{M}\right)^q.
+\]
+Because \(L\le A\), the asserted one-way implication follows.  Under
+\eqref{eq:full-image-certificate},
+\((q-1)\log(A/L)=o(Nq)\), which proves the reverse transfer at the scale
+used here.
+\end{proof}
+
+\begin{remark}[Full-slice flatness certifies the image size]
+\label{rem:flatness-certifies-image}
+If a Fourier argument proves
+\(\max_s\abs{\Omega_{T,m}\cap\Phi^{-1}(s)}
+ \le e^{o(N)}\barN^{\rm amb}\), then averaging over the nonempty image
+fibers gives \(A/L\le e^{o(N)}\).  Hence such an ambient flatness theorem
+itself proves \eqref{eq:full-image-certificate}; image collapse cannot be
+silently assumed away before that estimate has been established.
+\end{remark}
+
+\begin{definition}[Primitive Q]\label{def:primitive-q}
+The \emph{Q branch} is the primitive max-fiber problem: it asks whether one
+effective prefix target contains substantially more residual supports than
+the image-normalized average.  A primitive prefix leaf satisfies Q with
+loss \(e^{o(N)}\) if
+\[
+        \max_{s\in\Scal}f_s\le e^{o(N)}\barN^{\rm img}.
+\]
+A sequence of primitive leaves satisfies logarithmic-moment Q if, at every
+logarithmic order \(q=q_N\to\infty\), \(q\le(\log N)^C\), used by the
+argument,
+\[
+ \Gord_q\defeq\Gamma_q^{\rm img}
+ =L^{-1}\sum_{s\in\Scal}
+       \left(\frac{f_s}{\barN^{\rm img}}\right)^q
+ \le e^{o(Nq)}.
+\]
+Here a \emph{logarithmic moment order} means
+\(q=q_N\to\infty\) with \(q\le(\log N)^C\) for a fixed \(C\).  The
+displayed normalized \(q\)-th moment is a R\'enyi-type probe of the fiber
+distribution: letting \(q\) grow slowly makes it approximate the largest
+normalized fiber without introducing an exponential moment-order cost.
+An ambient formulation is permitted only when it is proved directly or
+when \eqref{eq:full-image-certificate} has already been certified.
+\end{definition}
+
+The next lemma is the primitive logarithmic moment equivalence used in the earlier RS--MCA reductions.  It is included because it is the exact interface between moment estimates and max-fiber Q.
+
+\begin{lemma}[Logarithmic moments and primitive Q]\label{lem:logmoment-q}
+Assume \(q=q_N\to\infty\) and \(\log L/q=o(N)\).  Then
+\(\Gord_q\le e^{o(Nq)}\) implies primitive Q.  Conversely, primitive Q
+implies \(\Gord_q\le e^{o(Nq)}\).
+\end{lemma}
+
+\begin{proof}
+Let \(M_*=\max_s f_s/\barN^{\rm img}\).  Since
+\(M_*^q\le\sum_s(f_s/\barN^{\rm img})^q=L\Gord_q\), the moment bound gives
+\(\log M_*\le(\log L+\log\Gord_q)/q=o(N)\).  Conversely,
+\(\sum_sf_s\le\abs{\Omega_{T,m}}=L\barN^{\rm img}\), so
+\(\Gord_q\le M_*^{q-1}\).  Primitive Q gives \(M_*=e^{o(N)}\), hence
+\(\Gord_q=e^{o(Nq)}\).
+\end{proof}
+
+The genuine Vandermonde condition removes the ordinary rank-defect alternative.
+
+\begin{lemma}[Augmented Vandermonde independence]\label{lem:vandermonde}
+Let \(t_1,\ldots,t_r\in\B\) be distinct and \(r\le R+1\).  Then the
+columns \(\widetilde v_{t_i}=(1,t_i,\ldots,t_i^R)\) are linearly
+independent.  The same holds for \(\rho(t_i)(1,t_i,\ldots,t_i^{R-1})\)
+when \(r\le R\) and every \(\rho(t_i)\ne0\).
+\end{lemma}
+
+\begin{proof}
+In either case the leading \(r\times r\) minor, after removing the nonzero
+column weights when present, is \((t_i^j)_{0\le j<r,1\le i\le r}\).  Its
+determinant is \(\prod_{i<j}(t_j-t_i)\ne0\).
+\end{proof}
+
+In the high-energy argument below the Vandermonde lemma is not used:
+Boolean-cube growth gives the contradiction directly.  The lemma certifies
+only the exact locator chart, or a residual chart for which the displayed
+weighted form has separately been verified; it does not classify arbitrary
+rank defects as paid cells.
+
+
+\section{Prefix coordinates and the Vandermonde map}\label{sec:prefix-coordinates}
+
+This section explains why the primitive residual has the linear Vandermonde form used in \cref{sec:primitive-leaf}.  Let \(S\subseteq D\) have size \(m\), and write its monic locator as
+\[
+        Q_S(X)=\prod_{t\in S}(X-t)=X^m+q_1(S)X^{m-1}+\cdots+q_m(S).
+\]
+The first \(R\) boundary coordinates may be taken either as elementary symmetric coefficients \(q_1,\ldots,q_R\) or, when \(R<\operatorname{char}\B\), as power sums \(p_j(S)=\sum_{t\in S}t^j\), \(1\le j\le R\).  Newton identities give triangular polynomial changes of variables between these two coordinate systems; the diagonal entries are \(1,2,\ldots,R\), so the change is invertible in characteristic greater than \(R\).
+
+For the unprofiled locator chart, fixing the support size makes the zeroth
+power sum constant and Newton's identities identify the first \(R\)
+locator coefficients with the power sums
+\(\sum_tx_tt^j\), \(1\le j\le R\).  Thus
+\eqref{eq:exact-power-sum-map} is exact.  For a general residual chart one
+first fixes the planted roots, quotient data, common factors, and all
+coordinates charged to earlier cells.  The fixed part contributes a
+constant syndrome \(s_0\).  To use the primitive theorem one must then
+exhibit the remaining map explicitly, either as the same power-sum map, as
+a genuine common-weight Vandermonde map, or as a map for which the required
+Sidon estimate has been proved directly.  Coordinate-dependent rational
+weights do not become a Vandermonde system merely because they are
+nonzero.  Here ``common-weight'' means that one scalar \(\rho(t)\)
+multiplies every monomial coordinate of the column at \(t\), rather than
+using a different weight for each coordinate.  This verification is part of the primitive-map requirement in
+\cref{def:admissible-sequence}.
+
+The fixed-density condition is also intrinsic.  In a prefix leaf the total
+support size is fixed by the agreement threshold, and all paid planted
+blocks have fixed size.  Thus the number of remaining choices is fixed.  If
+a profile leaves several colors of coordinates, one obtains a product of
+fixed-density slices; the proof applies to each color after encoding the
+colors in a bounded alphabet.  For the main statement we present the
+Boolean case because it is the MCA support case and because the
+Boolean-cube difference bound applies directly.
+
+\begin{lemma}[Newton-coordinate fiber equivalence]\label{lem:newton-equivalence}
+Assume \(R<\operatorname{char}\B\).  For supports of fixed size, the fibers of the first \(R\) elementary locator coefficients are exactly the fibers of the first \(R\) power sums.  Consequently the Q max-fiber problem may be stated using either coordinate system.
+\end{lemma}
+
+\begin{proof}
+Newton identities give, for \(1\le j\le R\),
+\[
+        p_j+q_1p_{j-1}+\cdots+q_{j-1}p_1+jq_j=0.
+\]
+Since \(j\) is invertible in \(\B\), \(q_j\) is determined by \(p_1,\ldots,p_j\), and conversely \(p_j\) is determined by \(q_1,\ldots,q_j\).  The transformations are triangular inverse polynomial maps on the first \(R\) coordinates.
+\end{proof}
+
+The \emph{description entropy} of a profile family is the logarithm of the
+number of allowed auxiliary/profile descriptions.  It measures the census
+of cells and is distinct from the algebraic description complexity of one
+cell, which measures the number and degrees of its defining equations.
+
+\begin{lemma}[Primitive profiles have subexponential multiplicity]\label{lem:profile-multiplicity}
+If the cell ledger fixes only bounded-complexity quotient, planted, tangent,
+extension, and split-pencil profiles, and the total description entropy of
+all data outside the moving support is \(o(n)\) bits, then the number of
+primitive profiles is \(e^{o(n)}\).
+\end{lemma}
+
+\begin{proof}
+There are at most \(2^{o(n)}=e^{o(n)}\) descriptions by hypothesis.  In
+particular, a planted or common block of size \(o(n)\) has
+\(\sum_{j=o(n)}\binom nj=e^{o(n)}\) possible supports, but recording
+\(s=o(n)\) freely chosen field values costs \(s\log_2\abs\B\) bits and is
+subexponential only when that product is \(o(n)\).  Positive-density data
+requires its own profile census and entropy payment; it cannot be discarded
+as a bounded-complexity label.
+\end{proof}
+
+\begin{remark}
+The subexponential profile lemma is the asymptotic counterpart of the
+finite ledger census.  It is the reason a row proof must distinguish
+between a genuine cell payment and a mere change of variables.  A change
+of variables with exponentially many charts would consume the whole
+frontier budget.
+\end{remark}
+
+\section{The Sidon split}\label{sec:sidon-split}
+
+The Q moment can be large for two opposite reasons.  A fiber may contain
+many repeated additive differences, which is the high-energy situation
+seen by inverse additive combinatorics, or it may be large while its
+differences almost never repeat, which is the Sidon-like situation.  The
+split below separates these mechanisms before either one is estimated.
+
+Every support is identified with its incidence vector in the torsion-free
+group \(\Z^T\).  In particular, all sums and differences in this section
+are integer operations, even when the Reed--Solomon coefficient field has
+characteristic two.  For a finite set \(F\subseteq\{0,1\}^T\), define its
+additive energy
+\[
+        E(F)=\abs{\{(a,b,c,d)\in F^4:a-b=c-d\}}.
+\]
+Let \(X,X'\) be independent uniform points of \(F\).  Then \(E(F)=\abs F^4\sum_z\Prob(X-X'=z)^2\).  It is convenient to normalize by
+\[
+        \Delta(F)=\frac{E(F)}{\abs F^3}.
+\]
+The quantity \(\Delta(F)\) is an additive closure probability:
+\[
+        \Delta(F)=\Prob_{a,b,c\in F}(a-b+c\in F).
+\]
+Indeed, once \(a,b,c\) are chosen, the fourth point in an energy quadruple is forced to be \(d=a-b+c\).
+
+Thus additive energy counts repeated differences, and \(\Delta(F)\) is
+their normalized density.  Values \(\Delta(F)=e^{-o(N)}\) indicate
+substantial additive closure at exponential scale, whereas
+\(\Delta(F)\le e^{-\sigma N}\) is the low-energy, Sidon-like regime.
+The logarithmic moments below are the slowly growing normalized moments
+from \cref{def:primitive-q}; they measure how much of the Q obstruction is
+carried by fibers of either type.
+Throughout these sections, \emph{positive rate} means a fixed positive
+exponential rate along a subsequence: for a fiber it means an excess of
+the form \(e^{cN-o(N)}\), and for a logarithmic moment it means an excess
+of the form \(e^{cNq-o(Nq)}\), for some constant \(c>0\).
+
+For the fiber \(F_s\), write \(\Delta_s=E(F_s)/f_s^3\), with \(\Delta_s=0\) if \(f_s=0\).
+
+\begin{definition}[Sidon-heavy logarithmic moment]\label{def:sidon-heavy}
+For \(\sigma>0\), the Sidon-heavy part of the normalized moment is
+\[
+        \Gsid_{q,\sigma}=L^{-1}\sum_{\Delta_s\le e^{-\sigma N}}
+        \left(\frac{f_s}{\barN}\right)^q.
+\]
+A sequence has no positive-rate Sidon-heavy obstruction if \(\Gsid_{q,\sigma}\le e^{o(Nq)}\) for every fixed \(\sigma>0\) and every logarithmic \(q\).
+Here ``Sidon'' refers to the exponentially small normalized energy
+\(\Delta_s\), while ``heavy'' refers to the positive-exponential
+contribution of those fibers to the normalized logarithmic moment; it does
+not assert that every low-energy fiber is individually large.
+\end{definition}
+
+The following dichotomy is the correct replacement for the naive assertion that collision excess directly creates small doubling.
+
+\begin{proposition}[Ordinary moment split]\label{prop:ordinary-moment-split}
+Fix \(\eta>0\) and \(\sigma>0\).  If \(\Gord_q\ge e^{\eta Nq}\) and \(\Gsid_{q,\sigma}\le \frac12 e^{\eta Nq}\), then there is a syndrome \(s\) such that
+\[
+        f_s\ge e^{\eta N-o(N)}\barN,
+        \qquad
+        \Delta_s>e^{-\sigma N}.
+\]
+If no positive-rate Sidon-heavy obstruction is present, then any positive-rate moment failure gives, after taking \(\sigma\to0\) slowly, a fiber with \(f_s\ge e^{\eta N-o(N)}\barN\) and \(E(F_s)\ge f_s^3e^{-o(N)}\).
+\end{proposition}
+
+\begin{proof}
+The high-energy part of the moment is at least \(\frac12e^{\eta Nq}\).  Since there are \(L\) syndromes, some high-energy syndrome satisfies
+\[
+        \left(\frac{f_s}{\barN}\right)^q
+        \ge \frac{L}{2}\,e^{\eta Nq}\cdot L^{-1}
+        =\frac12 e^{\eta Nq}.
+\]
+Thus \(f_s\ge e^{\eta N-o(N)}\barN\), and by construction \(\Delta_s>e^{-\sigma N}\).  If \(\Gsid_{q,\sigma}\le e^{o(Nq)}\) for every fixed \(\sigma\), apply the first part along a sequence \(\sigma_j\downarrow0\) and diagonalize; the normalization \(\Delta_s=E(F_s)/f_s^3\) gives the energy conclusion.
+\end{proof}
+
+The proof also explains the no-go point.  Suppose a fiber is heavy but \(\Delta_s\le e^{-\sigma N}\).  A closure-rich diagram using tests \(a-b+c\in F_s\) pays a factor \(\Delta_s\) for each nonredundant closure.  Such diagrams cannot account for the ordinary contribution \(f_s^q\) of \(q\) independent choices in \(F_s\).  Therefore Sidon-heavy fibers must be removed by a separate cell; they cannot be forced into the high-energy inverse branch.
+
+\begin{definition}[Sidon moment payment]\label{def:sidon-paid-cell}
+A primitive prefix leaf has a Sidon moment payment if
+\(\Gsid_{q,\sigma}=e^{o(Nq)}\) for every fixed \(\sigma>0\) and every
+logarithmic moment order used by the primitive-Q argument, uniformly over
+profiles.  This is an analytic support-fiber statement.  It is not
+equivalent to a first-match distinct-slope payment; the latter still
+requires \textup{(RC)} or a direct ray bound.
+\end{definition}
+
+The equivalence in the definition follows from \cref{lem:logmoment-q} restricted to the low-energy set of syndromes.  Operationally, one proves payment either directly by bounding these fibers or indirectly by proving Fourier flatness on the primitive complement of algebraic major arcs.
+
+
+\section{Why the Sidon cell is necessary}\label{sec:sidon-necessity}
+
+It is tempting to try to prove primitive Q by expanding the logarithmic moment into diagrams and then showing that every primitive diagram contains many additive closure tests.  That strategy is correct only for a closure-rich submoment.  It cannot capture the ordinary moment on a heavy low-energy fiber.  The obstruction is simple enough to record as a lemma.
+
+Let \(F=F_s\) be a fiber of size \(f\).  A closure test is an equation of the form \(a-b+c\in F\), with \(a,b,c\in F\) already chosen.  Its success probability is \(\Delta(F)=E(F)/f^3\).  A closure-rich diagram with \(\ell\) nonredundant closure tests and \(r\) free choices contributes, up to a subexponential diagram factor,
+\[
+        f^r\Delta(F)^\ell .
+\]
+After the free coordinates have been chosen, in the image normalization of a primitive prefix leaf, the remaining \(q-r\) coordinates are supplied only at the random scale \(\barN\).  Thus its contribution is at most
+\[
+        e^{o(Nq)}\barN^{q-r}f^r\Delta(F)^\ell .
+\]
+
+\begin{lemma}[No-go for ordinary moment capture]\label{lem:no-go}
+Assume that \(f\ge e^{\eta N}\barN\), \(\Delta(F)\le e^{-\sigma N}\), and that a family of diagrams has \(r=o(q)\) free fiber choices and \(\ell\ge c q\) nonredundant closure tests.  Then the total contribution of these diagrams is smaller than the ordinary fiber contribution \(f^q\) by a factor
+\[
+        \exp\bigl(-(\eta+c\sigma)Nq+o(Nq)\bigr)
+\]
+up to changing \(\eta\) by \(o(1)\).
+\end{lemma}
+
+\begin{proof}
+For one diagram the ratio to \(f^q\) is at most
+\[
+        e^{o(Nq)}\left(\frac{\barN}{f}\right)^{q-r}\Delta(F)^\ell
+        \le e^{o(Nq)}\exp(-\eta N(q-r)-c\sigma Nq).
+\]
+Since \(r=o(q)\), this is \(\exp(-(\eta+c\sigma)Nq+o(Nq))\).  The number of bounded-complexity logarithmic diagrams is \(e^{O(q\log q)}=e^{o(Nq)}\), so summing over them does not change the exponential rate.
+\end{proof}
+
+The lemma has an important conceptual consequence.  A large Sidon-like fiber is not a hidden approximate group.  It is a different phenomenon: many independent choices land in the same syndrome, but their pairwise differences almost never repeat.  Additive-combinatorics inverse tools are designed for the opposite situation, where repeated differences are abundant.  Therefore the first-match ledger must contain a Sidon/Fourier cell before the primitive inverse argument begins.
+
+The valid implication is exactly \cref{prop:ordinary-moment-split}.  Ordinary
+moment mass splits into a low-energy part, which needs a separately proved
+Sidon moment estimate, and a high-energy part, which is dispatched by
+\cref{prop:high-energy-impossible}.
+
+This mechanism does not replace a prefix-flatness or Sidon-payment theorem;
+it identifies exactly where one is needed.  The first-match order is:
+algebraic major arcs first, then a separately certified Sidon/Fourier cell,
+and only then the high-energy primitive inverse step.  Naming a large
+low-energy fiber a cell does not pay it.
+
+\section{Fourier flatness as a Sidon payment}\label{sec:fourier}\label{sec:sidon-closure}
+
+This section records the general weighted form of the Fourier/Sidon payment.  It is phrased for an arbitrary finite field \(\B\), because the primitive residual charts that come from the moduli ledger need not have unweighted power-sum coordinates.  Let \(T\) be a finite set, \(\abs T=N\), let \(g:T\to\B^R\) be any function, and set
+\[
+        \Omega_{T,m}=\{x\in\{0,1\}^T: \sum_{t\in T}x_t=m\},
+        \qquad
+        \Psi(x)=\sum_{t\in T}x_tg(t).
+\]
+In applications \(g(t)=(\rho_0(t),\rho_1(t)t,\ldots,\rho_{R-1}(t)t^{R-1})\) with nonzero rational weights \(\rho_i\) on the primitive chart.
+
+Fourier inversion has three pieces.  The zero character produces the
+average-fiber main term.  On the effective dual, the chart-specific
+partition of \cref{def:effective-major-minor} designates certified minor
+characters and the complementary major characters.  The ambient algebraic
+exceptional locus of \cref{def:major-arc} helps construct that partition
+but does not canonically determine it, because an effective character has
+many ambient lifts.  The pointwise condition \textup{(PF)} controls every
+certified minor lift, while the aggregate condition \textup{(MA)} controls
+the sum of all designated major characters.  Neither estimate substitutes
+for the other.
+
+The condition \textup{(PF')} below is the raw power-sum flatness
+inequality when one has a uniform bound for every nonzero character.
+Condition \textup{(PF)} is its row-specific Weil specialization for minor
+characters after substituting the pole-degree bound; the omitted major
+characters are then handled by \textup{(MA)}.
+
+\begin{theorem}[Prefix flatness from power-sum control]\label{thm:prefix-flatness-power-sum}
+Fix a nontrivial additive character \(\psi\) of \(\B\).  For \(\alpha\in\B^R\setminus\{0\}\) and \(1\le j\le m\), put
+\[
+        P_j(\alpha)=\sum_{t\in T}\psi\bigl(j\alpha\cdot g(t)\bigr).
+\]
+Assume \(\abs{P_j(\alpha)}\le \Lambda\) for every \(\alpha\ne0\) and every \(1\le j\le m\).  Then, for every \(z\in\B^R\),
+\[
+        \abs{\Psi^{-1}(z)}
+        \le \abs\B^{-R}\binom Nm+\binom{\Lambda+m-1}{m}.
+\]
+Consequently, if
+\[
+        \tag{PF'}
+        R\log\abs\B+\log\binom{\Lambda+m-1}{m}-\log\binom Nm\le o(N),
+\]
+then \(\max_z\abs{\Psi^{-1}(z)}\le e^{o(N)}\abs\B^{-R}\binom Nm\).
+\end{theorem}
+
+\begin{proof}
+By orthogonality,
+\[
+        \abs{\Psi^{-1}(z)}=\abs\B^{-R}
+        \sum_{\alpha\in\B^R}\psi(-\alpha\cdot z)
+        e_m\bigl(\psi(\alpha\cdot g(t)):t\in T\bigr),
+\]
+where \(e_m\) denotes the \(m\)-th elementary symmetric coefficient.  The term \(\alpha=0\) is the main term \(\abs\B^{-R}\binom Nm\).  For \(\alpha\ne0\), write \(a_t=\psi(\alpha\cdot g(t))\).  The generating identity
+\(\sum_{r\ge0}e_r(a_t)u^r=\exp(\sum_{j\ge1}(-1)^{j-1}(\sum_ta_t^j)u^j/j)\) and the hypothesis \(\abs{\sum_ta_t^j}\le\Lambda\) for \(j\le m\) give
+\(\abs{e_m(a_t:t\in T)}\le[u^m](1-u)^{-\Lambda}=\binom{\Lambda+m-1}{m}\).  Summing the nontrivial characters and using the outside factor \(\abs\B^{-R}\) gives the first bound.  The displayed condition \textup{(PF')} makes the error term subexponential relative to the random-fiber main term.
+\end{proof}
+
+\begin{remark}[Small characteristic cycles]\label{rem:small-characteristic-cycles}
+If some integers \(j\le m\) vanish in the characteristic, the formal
+Li--Wan cycle index \cite{LiWanSieve} separates the cycles divisible by
+\(p=\operatorname{char}\B\); the corresponding coefficient majorant is
+\([u^m](1-u)^{-\Lambda}(1-u^p)^{-(N-\Lambda)/p}\).  This bookkeeping
+identity does not supply the missing character-sum bounds for those
+cycles, exclude Artin--Schreier phases, or prove a uniform Sidon payment.
+The pointwise theorem above is therefore deliberately stated in the
+large-characteristic range.  A small-characteristic leaf needs a direct
+cycle-by-cycle certificate or a separate image-normalized Q/Sidon theorem.
+\end{remark}
+
+\begin{proposition}[Weighted Weil minor arcs]\label{prop:weighted-weil-minor-arcs}
+Let \(T\) be either a multiplicative coset in \(\B^\times\) or the \(x\)-coordinate of a torus twin coset.  Suppose that every certified minor lift \(\alpha\in\B^R\) has phase \(R_\alpha(t)=\alpha\cdot g(t)\) which is a nonconstant rational function on the corresponding genus-zero curve, is not of Artin--Schreier form, and has total pole-degree at most \(\Delta_{\rm pole}\).  If \(m<\operatorname{char}\B\), then the stated power-sum bound holds for every certified minor lift, with
+\[
+        \Lambda=C_0(\Delta_{\rm pole}+1)\sqrt{\abs\B}+\abs P
+\]
+for multiplicative cosets, and with \(2C_0(\Delta_{\rm pole}+1)\sqrt{\abs\B}+\abs P\) for circle twin-cosets.  Here \(P\) is the planted exceptional set and \(C_0\) is an absolute Weil constant.
+\end{proposition}
+
+\begin{proof}
+For a multiplicative coset \(\theta H\subseteq\B^\times\), write the coset indicator as the average of the multiplicative characters of \(\B^\times/H\).  Each nontrivial power sum becomes an average of mixed multiplicative-additive character sums \(\sum_x\chi(x)\psi(jR_\alpha(\theta x))\).  Since \(1\le j<m<\operatorname{char}\B\), multiplication by \(j\) does not make the rational function constant or Artin--Schreier.  Weil's bound for one-variable mixed character sums \cite{Weil} gives \(C_0(\Delta_{\rm pole}+1)\sqrt{\abs\B}\).  Removing planted exceptional points changes the sum by at most \(\abs P\).  The circle case is the same after pulling back by \(x=(u+u^{-1})/2\) to the norm-one torus; the two torus branches give the factor two.
+\end{proof}
+
+\begin{theorem}[Unconditional shallow-prefix Fourier flatness]
+\label{thm:unconditional-shallow-mi-ma}
+Let \(p\to\infty\) through odd primes.  For each \(p\), let \(T_p\) be
+either a multiplicative coset in \(\F_p^\times\) or a Chebyshev
+twin-coset \(x\)-domain over \(\F_p\), in the latter case with
+\(p\equiv3\pmod4\), and put \(N_p=\abs{T_p}\).
+Fix \(0<\alpha<1/2\), choose integers \(m_p,R_p\) with
+\[
+ 1\le R_p,\qquad
+ \alpha\le \frac{m_p}{N_p}\le1-\alpha,
+ \qquad g_p(t)=(t,t^2,\ldots,t^{R_p}),
+ \qquad R_p\sqrt p=o(N_p),                         \tag{SFM1}
+\]
+and let \(\Psi_p(S)=\sum_{t\in S}g_p(t)\) on
+\(\binom{T_p}{m_p}\).  Then \(V_{g_p}=\F_p^{R_p}\), and the certified effective partition may take
+every nontrivial effective character to be minor and no character to be
+major.  For some \(c_\alpha>0\),
+\[
+ \sum_{1\ne\chi\in\widehat{V_{g_p}}}
+ \left|e_{m_p}\bigl(\chi(g_p(t)-g_p(t_0)):t\in T_p\bigr)\right|
+ \le e^{-c_\alpha N_p}\binom{N_p}{m_p}.            \tag{SFM2}
+\]
+Consequently effective \textup{(MI)} holds, \textup{(MA)} is vacuous,
+and
+\[
+ \max_z\abs{\Psi_p^{-1}(z)}
+ \le\bigl(1+e^{-c_\alpha N_p}\bigr)
+       p^{-R_p}\binom{N_p}{m_p}.                   \tag{SFM3}
+\]
+Indeed every \(z\in\F_p^{R_p}\) is attained for all sufficiently large
+rows, and uniformly in \(z\),
+\[
+ \abs{\Psi_p^{-1}(z)}
+ =p^{-R_p}\binom{N_p}{m_p}
+  \left(1+O\bigl(e^{-c_\alpha N_p}\bigr)\right).   \tag{SFM4}
+\]
+Thus these smooth and circle prefix charts have unconditional effective
+Fourier payment and image coverage in the shallow range \textup{(SFM1)}.
+\end{theorem}
+
+\begin{proof}
+Condition \textup{(SFM1)} implies \(R_p<p\), \(R_p<N_p\), and
+\(R_p\log p=o(N_p)\).  Moreover \(N_p\le p+1\), so the fixed upper
+density bound gives \(m_p<p\) for every sufficiently large \(p\).
+For a nonzero ambient parameter, let
+\(d=\max\{j:a_j\ne0\}\).  Then \(1\le d\le R_p<p\), and
+\(P(X)=\sum_{j=1}^{R_p}a_jX^j\) has a pole of order \(d\) at infinity.
+Every pole of a nonconstant Artin--Schreier function \(G^p-G+c\) has
+order divisible by \(p\), so \(P\) is non-Artin--Schreier.  In the circle
+case \(P((u+u^{-1})/2)\) has poles of the same order \(d<p\) at the two
+ends of the torus compactification and is likewise non-Artin--Schreier.
+
+For a multiplicative coset, the character expansion of its indicator and
+the mixed Weil bound give, uniformly for \(1\le j\le m_p<p\),
+\[
+ \left|\sum_{t\in T_p}\psi(jP(t))\right|=O(R_p\sqrt p)=o(N_p).
+\]
+For a circle domain, pullback by
+\(x=(u+u^{-1})/2\) gives the same conclusion with an inessential factor
+two.  Put \(\Lambda_p=O(R_p\sqrt p)=o(N_p)\).  The cycle-index estimate
+therefore bounds every nontrivial fixed-weight Fourier coefficient by
+\[
+ \binom{\ceil{\Lambda_p}+m_p-1}{m_p}=e^{o(N_p)}.
+\]
+If a nonzero ambient character annihilated \(V_{g_p}\), its character
+value would be constant on \(T_p\), making the power sum have modulus
+\(N_p\), contrary to the preceding \(o(N_p)\) bound.  Thus the
+annihilator is zero and \(V_{g_p}=\F_p^{R_p}\).  There are
+\(p^{R_p}=e^{o(N_p)}\) effective characters, whereas
+Stirling's formula and the density interval give
+\(\binom{N_p}{m_p}\ge
+e^{(h(\alpha)+o(1))N_p}\).  Summing the coefficient bounds proves
+\textup{(SFM2)}, after decreasing the positive constant
+\(c_\alpha\).  All nontrivial effective characters have just received a
+certified minor lift, so the major set is empty.  Finally
+Fourier inversion shows that the absolute nonzero-character error in each
+fiber is \(e^{o(N_p)}\), whereas its main term is
+\(p^{-R_p}\binom{N_p}{m_p}=e^{(h(m_p/N_p)+o(1))N_p}\).
+This proves \textup{(SFM3)}--\textup{(SFM4)} and eventual surjectivity.
+\end{proof}
+
+\begin{definition}[Ambient algebraic exceptional locus]\label{def:major-arc}
+An ambient phase parameter is \emph{algebraically exceptional} if its
+weighted phase is constant on a routed quotient fiber, is Artin--Schreier
+degenerate, has a pole or zero supported on a positive-density moving
+divisor, or factors through a proper quotient, Chebyshev map,
+field-descent locus, tangent rank drop, differential-locator defect, or
+ray-saturation collapse.  On an effective chart this locus is used only
+to construct the certified partition of
+\cref{def:effective-major-minor}; it is not itself a numerical estimate.
+In particular, an Artin--Schreier phase defined on the whole active set
+restricts to the trivial effective character by
+\cref{lem:constant-modes-annihilator}.
+\end{definition}
+
+\begin{proposition}[Major-arc algebraic interface]\label{prop:major-arcs-are-cells}
+Each condition in \cref{def:major-arc} is a constructible condition on the
+dual phase parameters and points to a quotient, Chebyshev, field-descent,
+planted-divisor, differential, or rank-loss profile.  This classification
+does not imply that the character vanishes after primal first-match
+deletion and does not prove \textup{(MA)}.  A flatness argument must also
+bound \eqref{eq:major-arc-aggregate}, recursively or directly.
+\end{proposition}
+
+\begin{proof}
+Constancy on a quotient fiber, Chebyshev factorization,
+Artin--Schreier degeneracy, a positive-density pole divisor, and a rank
+drop are respectively coefficient, Frobenius, resultant, or determinantal
+conditions.  They therefore identify constructible dual loci on which a
+recursive estimate can be attempted.  Fourier inversion sums characters,
+not primal witnesses, so no support-level payment follows from this fact.
+\end{proof}
+
+\begin{proposition}[Frontier Weil separation]\label{prop:frontier-weil-separation}
+Let \(N=\abs T\), let \(m=\theta N+o(N)\) with \(0<\theta<1\), and suppose a primitive smooth or circle chart has minor-arc power-sum parameter \(\Lambda=o(N)\).  If the ambient random-fiber scale \(\barN=\abs\B^{-R}\binom Nm\) satisfies \(\log\barN=o(N)\), or more generally \(\log\barN\ge -o(N)\), then the prefix-flat inequality \textup{(PF')} holds.  In particular, minor arcs alone cannot create a positive-rate max-fiber or Sidon-heavy moment at this near-zero ambient entropy scale.
+\end{proposition}
+
+\begin{proof}
+The elementary estimate \(\binom{\Lambda+m-1}{m}=\binom{\Lambda+m-1}{\Lambda-1}\le (e(m+\Lambda)/\Lambda)^{\Lambda}\) gives \(\log\binom{\Lambda+m-1}{m}=o(N)\), since \(\Lambda=o(N)\).  The relative minor-arc error exponent is
+\[
+        \log\binom{\Lambda+m-1}{m}-\log\barN
+        =R\log\abs\B+\log\binom{\Lambda+m-1}{m}-\log\binom Nm.
+\]
+The assumed frontier inequality makes this at most \(o(N)\); it may be
+negative by a linear amount, which is only stronger.  Thus the minor-arc
+contribution to every full-profile fiber is at most
+\(e^{o(N)}\barN\).  This statement concerns only minor characters; a
+full flatness conclusion also requires \textup{(MA)}.
+\end{proof}
+
+\begin{theorem}[Sidon payment in the pointwise flat range]\label{thm:sidon-resolved-payment}
+Let \(\Omc\subseteq\Omega_{T,m}\) be a primitive first-match residual of a
+smooth or circle chart, with weighted prefix map \(\Psi\) and ambient
+scale \(\barN^{\rm amb}=\abs\B^{-R}\binom Nm\).  Put
+\(A_{\rm amb}=\abs\B^R\) and
+\(L=\abs{\Psi(\Omega_{T,m})}\).  Suppose the pointwise minor-arc
+condition \textup{(PF)} and the ambient instance of the aggregate
+condition \textup{(MA)} hold.
+Then, for every fixed \(\sigma>0\) and every
+logarithmic \(q\le(\log N)^C\), for a fixed \(C\),
+\[
+        \Gsid_{q,\sigma}(\Omc)\le e^{o(Nq)},
+\]
+where \(\Gsid\) uses the image normalization of
+\cref{def:sidon-heavy}.
+Equivalently, no such pointwise-flat residual leaf supports positive-rate
+low-energy heavy fibers.
+\end{theorem}
+
+\begin{proof}
+It is enough to bound every residual fiber, and a residual is contained in
+the full slice.  Fourier inversion on that slice splits into the zero,
+minor, and major characters.  The zero character contributes
+\(\barN^{\rm amb}\).
+The cycle-index estimate and \cref{prop:weighted-weil-minor-arcs}, together
+with \textup{(PF)}, bound the complete minor contribution by
+\(e^{o(N)}\barN^{\rm amb}\).  Condition \textup{(MA)} bounds the complete major
+contribution by the same quantity.  Thus every full-slice, and hence every
+residual, fiber is \(e^{o(N)}\barN^{\rm amb}\).  This proves the
+full-image certificate by \cref{rem:flatness-certifies-image}, and
+\cref{lem:image-ambient-moment-conversion} transfers the ambient moment
+bound to image normalization.
+\end{proof}
+
+\begin{remark}[Role of the Sidon-heavy cell]
+The theorem implements ``pay structure, flatten Sidon, inverse high energy''
+only in the range where both \textup{(PF)} and \textup{(MA)} are verified.
+At entropy depth a phase
+can have degree up to \(R\), and the raw Weil parameter is of order
+\(R\sqrt{\abs\B}\); this is not automatically \(o(N)\) when
+\(R\asymp N/\log\abs\B\).  Outside the pointwise-flat range a different
+Sidon payment remains necessary.
+\end{remark}
+
+\section{External additive combinatorics}\label{sec:additive-tools}
+
+Only two external additive-combinatorics inputs are used in the primitive high-energy proof.
+
+\begin{theorem}[Balog--Szemeredi--Gowers, energy form]\label{thm:bsg}
+There is an absolute constant \(C\) such that if \(A\) is a finite subset of an abelian group and \(E(A)\ge \abs A^3/K\), then there is \(A'\subseteq A\) with \(\abs{A'}\ge K^{-C}\abs A\) and \(\abs{A'-A'}\le K^C\abs{A'}\).
+\end{theorem}
+
+This is the usual energy form of the Balog--Szemeredi--Gowers theorem; polynomial dependence on \(K\) follows from Gowers's refinement of the Balog--Szemeredi theorem \cite{BalogSzemeredi,GowersSzemeredi}.  The difference-set form follows from the sumset form by replacing \(A\) by \(-A\) and using standard Ruzsa calculus \cite{TaoVu}, or directly by applying the graph form to differences.
+
+\begin{theorem}[Boolean-cube difference growth]\label{thm:quasicube}
+If \(U\subseteq\{0,1\}^d\), then
+\[
+                  \abs{U-U}\ge \abs U^{3/2}.
+\]
+\end{theorem}
+
+This is the Boolean-cube specialization of a broader sumset inequality
+of Green--Matolcsi--Ruzsa--Shakan--Zhelezov
+\cite{GreenMatolcsiRuzsaShakanZhelezov}.  It also follows from the
+induced-doubling identity of Matolcsi--Ruzsa--Shakan--Zhelezov
+\cite{MatolcsiRuzsaShakanZhelezov}.  Only the displayed Boolean statement
+is used below.
+
+\begin{remark}
+Entropy inverse theorems of Tao and the entropy-doubling theory of Green--Manners--Tao are compatible with this proof and are often useful after one has produced small-doubling trades \cite{TaoEntropy,GreenMannersTao}.  They are not needed as hypotheses here.  The Boolean-cube growth theorem gives a direct contradiction to a large small-doubling subset of a primitive Boolean support fiber.
+\end{remark}
+
+
+\section{Entropy inverse theory and its role}\label{sec:entropy-role}
+
+The terminology ``Tao--Gowers method'' can refer to two related but
+distinct steps.  The first is BSG, used directly in
+\cref{prop:high-energy-impossible}.  The second is Freiman-type structural
+theory, meaning inverse theorems that model a set with small sumset or
+difference set by a generalized arithmetic progression or a coset
+progression.  It is not needed for the Boolean contradiction, but it can suggest
+candidate geometric strata in more general bounded-alphabet residuals;
+those strata still require direct payment proofs.
+
+A \emph{bounded integer trade} is a vector \(Y\in\Z^T\) whose
+coordinates are bounded independently of \(N\), with \(\Phi(Y)=0\) and,
+on a fixed-weight slice, \(\sum_tY_t=0\).  If \(Y\) is random, \(Y'\) is
+an independent copy, and
+\(\Ent(Y-Y')\le \Ent(Y)+o(N)\), then entropy BSG and entropy Freiman
+theory produce, after conditioning and losing \(o(N)\) entropy, a set
+model with doubling \(e^{o(N)}\).  Tao's entropy inverse theorem gives
+this in \emph{coset-progression} language---a subgroup coset plus a
+generalized arithmetic progression---for Shannon entropy \cite{TaoEntropy};
+Green--Manners--Tao recast the theory in terms of entropic doubling and
+Ruzsa distance \cite{GreenMannersTao}; Goh formulates an entropic analogue
+of additive energy and the entropic BSG connection \cite{GohEnergy}.  In a
+torsion model one may also use polynomial Freiman--Ruzsa technology after
+reducing bounded integer trades modulo a large prime with no wraparound.
+
+In the present paper the Boolean-cube difference theorem makes this
+structural compression unnecessary for the primitive Q step.  Once BSG
+finds \(A'\subseteq F_s\subseteq\{0,1\}^T\) with
+\(\abs{A'-A'}\le e^{o(N)}\abs{A'}\), Boolean-cube difference growth
+already forces \(\abs{A'}=e^{o(N)}\).  This contradicts the exponential
+size supplied by moment excess.  Therefore there is no separate
+entropy-Freiman hypothesis in the proof.
+
+For non-Boolean residual trades, entropy inverse theory can suggest
+coset-progression incidence strata or rank-defect tests.  This is a useful
+heuristic for constructing a row-specific atlas, not an exhaustive
+dichotomy: each suggested stratum still needs the explicit first-match census and
+slope-projection payment required by \cref{def:admissible-sequence}, and arbitrary weighted charts
+are not covered by \cref{lem:vandermonde}.  No such heuristic is used in
+the proof of the Boolean primitive theorem.
+
+\section{Primitive Q after the Sidon cut}\label{sec:primitive-q-proof}
+
+The key primitive theorem is now short and self-contained modulo \cref{thm:bsg,thm:quasicube}.  It also addresses the main obstruction: ordinary \Renyi{} mass can be Sidon-heavy, but after that cell is removed it must be high-energy, and high-energy is impossible in a large Boolean fiber.
+
+\begin{proposition}[High-energy Boolean fibers are small]\label{prop:high-energy-impossible}
+Let \(F\subseteq\{0,1\}^T\), \(\abs T=N\).  If
+\(E(F)\ge \abs F^3/K\), then \(\abs F\le K^{O(1)}\).  Consequently an
+exponential set \(\abs F\ge e^{cN-o(N)}\) cannot have
+\(E(F)\ge\abs F^3/e^{o(N)}\).
+\end{proposition}
+
+\begin{proof}
+Apply \cref{thm:bsg}.  There is \(F'\subseteq F\) with \(\abs{F'}\ge K^{-C}\abs F\) and \(\abs{F'-F'}\le K^C\abs{F'}\).  Since \(F'\subseteq\{0,1\}^T\), \cref{thm:quasicube} gives \(\abs{F'-F'}\ge \abs{F'}^{3/2}\).  Hence \(\abs{F'}^{1/2}\le K^C\), so \(\abs F\le K^{3C}\) after increasing \(C\).  Taking \(K=e^{o(N)}\) rules out \(\abs F\ge e^{cN-o(N)}\).
+\end{proof}
+
+\begin{theorem}[Primitive Q after a Sidon moment payment]\label{thm:primitive-q}
+Let \(\Omega_N^0\subseteq\{0,1\}^{T_N}\) be fixed-density full profile
+slices, with \(\abs{T_N}=N\) and
+\(m_N/N\in[\alpha,1-\alpha]\), and let
+\(\Omc_N\subseteq\Omega_N^0\) be primitive first-match residuals.  Suppose
+there is a logarithmic moment
+order \(q_N\to\infty\) with
+\(\log L_N/q_N=o(N)\), where
+\(L_N=\abs{\Phi_N(\Omega_N^0)}\) and
+\(\barN_N=\abs{\Omega_N^0}/L_N\), for which
+\(\Gsid_{q_N,\sigma}\le e^{o(Nq_N)}\) for every fixed \(\sigma>0\).
+Then the leaves satisfy primitive Q:
+\[
+        \max_s\abs{\Omc_N\cap\Phi_N^{-1}(s)}
+        \le e^{o(N)}\barN_N .
+\]
+\end{theorem}
+
+\begin{proof}
+Assume primitive Q fails at positive exponential rate.  The lower half of
+the moment sandwich gives
+\(\Gord_{q_N}\ge e^{\eta Nq_N-o(Nq_N)}\) along a subsequence.  The Sidon
+moment hypothesis and \cref{prop:ordinary-moment-split} then give a fiber
+\(F_s\) with \(f_s\ge e^{\eta N-o(N)}\barN_N\) and
+\(E(F_s)\ge f_s^3e^{-o(N)}\).  Since
+\(\barN_N=\abs{\Omega_N^0}/L_N\ge1\), this fiber has size
+\(e^{\eta N-o(N)}\), contradicting
+\cref{prop:high-energy-impossible} with \(K=e^{o(N)}\).  Thus no
+positive-rate max-fiber failure occurs.
+\end{proof}
+
+\section{Q, SP, and the MCA compiler}\label{sec:compiler}
+This section uses the prefix rigidity, exact second moment, and slope-elimination results of \cite[Secs.~19--21 and Apps.~E--F]{CAP25v132} as imported inputs.  The new content is the occupancy/ray compiler and the precise hypotheses under which Q controls MCA slopes.
+
+The \emph{Q branch} is the maximum-prefix-fiber problem.  The \emph{SP
+branch} (support-pair, or shift-pair, branch) is its second-moment problem:
+it counts ordered pairs of supports in one prefix fiber.  These names label
+two counting interfaces and carry no assertion that either bound has
+already been proved.  Neither count is automatically the MCA numerator: a
+bad slope begins with one support, while converting support pairs to
+projective slope directions requires a proved multiplicity or incidence
+bound.  We first record the exact moment identities and then state that
+separate ray compiler.
+
+\begin{definition}[Q and SP ledgers]\label{def:q-sp}
+For a first-match residual profile \(\lambda\), let \(\Omega^0_\lambda\)
+be its full profile slice, let
+\(\Omc_\lambda\subseteq\Omega^0_\lambda\) be the residual, and put
+\[
+ \Scal_\lambda=\Phi_\lambda(\Omega^0_\lambda),\qquad
+ L_\lambda=\abs{\Scal_\lambda},\qquad
+ \barN_\lambda=\abs{\Omega^0_\lambda}/L_\lambda,
+ \qquad
+ Q_\lambda(s)=\abs{\Omc_\lambda\cap\Phi_\lambda^{-1}(s)}.
+\]
+The Q ledger is discharged if
+\(\max_sQ_\lambda(s)\le e^{o(n)}\barN_\lambda\) for every primitive
+profile.  The support-pair SP statistic is
+\(\sum_sQ_\lambda(s)^2\).  A distinct-ray ledger is discharged only by a
+direct slope bound or by \textup{(RC)} below.
+If the ambient target count \(\abs{\B_\lambda}^{R_\lambda}\) is used in
+place of \(L_\lambda\), the ledger must also record the full-image
+certificate \eqref{eq:full-image-certificate} or a direct ambient theorem.
+\end{definition}
+
+
+The compiler uses two elementary inequalities repeatedly.  They are included to make explicit how the logarithmic moment, max-fiber Q, and shift-pair second moment interact.
+
+\paragraph{Imported moment inequality.}
+For fiber sizes \(N(s)\), mean \(\bar N\), ratios \(R(s)=N(s)/\bar N\),
+and \(\Gamma_r=L^{-1}\sum_sR(s)^r\), CAP25 v13.2
+\cite[Sec.~19 and Apps.~E--F]{CAP25v132} gives the elementary bounds
+\[
+        \max_sR(s)\le(L\Gamma_r)^{1/r},
+        \qquad
+        \Gamma_r\le(\max_sR(s))^{r-1}.
+        \tag{M}\label{eq:imported-moment-interface}
+\]
+
+
+\begin{corollary}[Finite moment floor]\label{cor:finite-moment-floor}
+Suppose a finite row has remaining Q bit margin \(\Delta\), meaning that one needs \(\max_sR(s)\le2^\Delta\).  A moment proof of order \(r\) can certify this only if
+\[
+        \log_2\Gamma_r+\log_2 L\le r\Delta,
+\]
+where \(L\) is the number of realized targets in the selected
+normalization.  In an ambient prefix proof this specializes to
+\(\log_2\Gamma_r^{\rm amb}+R\log_2\abs\B\le r\Delta\); transferring an
+image-normalized moment to that statement additionally costs
+\((r-1)\log_2(\abs\B^R/L)\).
+\end{corollary}
+
+\begin{proof}
+The moment sandwich gives \(\log_2\max_sR(s)\le(\log_2L+\log_2\Gamma_r)/r\).  To make this at most \(\Delta\) one needs the displayed inequality.
+\end{proof}
+
+The finite corollary explains why a small adjacent margin cannot be closed
+by a fixed-order moment when \(R\log\abs\B\) is large.
+
+\begin{definition}[Explanation image and retained-support occupancy]
+\label{def:explanation-occupancy}
+Fix \(a\ge k+1\), a received pair \(r=(r_0,r_1)\), and a cell
+\(\Ccal\subseteq\Wcal_a(r)\).  Its \emph{explanation image} and
+\emph{slope image} are
+\[
+ \Rcal(\Ccal)=\{(\gamma,h):\exists S\ (\gamma,S,h)\in\Ccal\},
+ \qquad Z(\Ccal)=\{\gamma:\exists h\ (\gamma,h)\in\Rcal(\Ccal)\}.
+\]
+For \(\rho=(\gamma,h)\in\Rcal(\Ccal)\), its
+\emph{retained-support occupancy} is
+\[
+ \nu_{\Ccal}(\rho)
+   =\abs{\{S\in\tbinom Da:(\gamma,S,h)\in\Ccal\}}.
+\]
+Thus the witness projection factors canonically as
+\[
+ \Ccal\longrightarrow\Rcal(\Ccal)\longrightarrow Z(\Ccal),
+ \qquad (\gamma,S,h)\longmapsto(\gamma,h)\longmapsto\gamma.
+\]
+The first map forgets an exact-agreement support; the second forgets the
+explaining polynomial.  Distinct explanation states may have the same
+slope, so neither map is silently treated as a bijection.  A
+\emph{ray compiler} means a proved estimate for the final slope image,
+obtained from these actual fibers or from a direct incidence bound.
+\end{definition}
+
+\begin{lemma}[Exact occupancy compiler]
+\label{lem:exact-occupancy-compiler}
+With the notation above,
+\[
+ \abs{\Ccal}=\sum_{\rho\in\Rcal(\Ccal)}\nu_{\Ccal}(\rho),
+ \qquad
+ \abs{\Rcal(\Ccal)}
+   =\sum_{w\in\Ccal}
+       \frac1{\nu_{\Ccal}(\pi_{\rm exp}(w))},
+ \qquad
+ \abs{Z(\Ccal)}\le\abs{\Rcal(\Ccal)}.             \tag{RC$_{\rm occ}$}
+\]
+Here \(\pi_{\rm exp}(\gamma,S,h)=(\gamma,h)\).  In particular, if every
+retained explanation state has occupancy at least \(H\ge1\), then
+\[
+        \abs{Z(\Ccal)}\le
+        \floor{\frac{\abs{\Ccal}}H}.                \tag{RC1}
+\]
+Also, because one noncommon exact-\(a\) support carries at most one slope
+and the explaining polynomial on \(a\ge k+1\) points is unique,
+\[
+ \abs{Z(\Ccal)}\le
+ \abs{\{S:\exists\gamma,h\ (\gamma,S,h)\in\Ccal\}}. \tag{RC2}
+\]
+All these statements are exact finite-row identities or inequalities.
+\end{lemma}
+
+\begin{proof}
+Partition \(\Ccal\) by the fibers of \(\pi_{\rm exp}\).  This gives the
+first identity; summing the reciprocal of the fiber size over each fiber
+gives the second.  Projection \((\gamma,h)\mapsto\gamma\) can only
+decrease cardinality.  If every first fiber has size at least \(H\),
+\textup{(RC1)} follows.  Finally, if the same noncommon support carried two
+distinct slopes, slope elimination would simultaneously explain the
+received pair on that support.  For fixed support and slope, uniqueness of
+interpolation gives at most one \(h\).  This proves \textup{(RC2)}.
+\end{proof}
+
+\begin{lemma}[Max-occupancy add-back]
+\label{lem:max-occupancy-addback}
+Let \(\Ccal\subseteq\Wcal_a(r)\) be partitioned into profile cells
+\(\Ccal=\coprod_{\lambda\in\Lambda}\Ccal_\lambda\), and put
+\(P=\abs\Lambda\).  For every explanation state
+\(\rho=(\gamma,h)\in\Rcal(\Ccal)\), let
+\[
+ M(\rho)=\abs{\{S:(\gamma,S,h)\in\Ccal\}}.
+\]
+Assign \(\rho\) to a profile \(\lambda(\rho)\) on which
+\(\nu_{\Ccal_\lambda}(\rho)\) is maximal, and let
+\(\Rcal_\lambda^\star\) be the assigned states.  Then
+\[
+ \nu_{\Ccal_\lambda}(\rho)\ge\ceil{M(\rho)/P}
+ \qquad(\rho\in\Rcal_\lambda^\star).               \tag{RC$_{\rm max}$1}
+\]
+Consequently, if \(M(\rho)\ge H\) for every retained state, then
+\[
+ \abs{Z(\Ccal)}
+ \le\sum_{\lambda\in\Lambda}\abs{\Rcal_\lambda^\star}
+ \le\sum_{\lambda\in\Lambda}
+   \floor{\frac{\abs{\Ccal_\lambda^\star}}
+                   {\ceil{H/P}}},                  \tag{RC$_{\rm max}$2}
+\]
+where \(\Ccal_\lambda^\star\) consists of the witnesses in
+\(\Ccal_\lambda\) lying above assigned states.  Call \(\Ccal\)
+\emph{explanation-state complete} if, whenever
+\((\gamma,h)\in\Rcal(\Ccal)\), every exact-\(a\) noncommon witness
+\((\gamma,S,h)\in\Wcal_a(r)\) also belongs to \(\Ccal\).  If \(\Ccal\)
+is explanation-state complete, every retained state has exact agreement
+\(b\ge a\), and the received pair is not simultaneously explained on any
+\(a\)-subset of that agreement set, then one may take \(H=\binom ba\).
+\end{lemma}
+
+\begin{proof}
+The \(P\) profile occupancies of a fixed state sum to \(M(\rho)\), so
+their maximum is at least \(\ceil{M(\rho)/P}\).  Apply
+\cref{lem:exact-occupancy-compiler} on each assigned cell and sum.  Under
+the final hypotheses, explanation-state completeness retains every
+\(a\)-subset of the \(b\)-point agreement set, and every such subset is
+noncommon.  Hence \(M(\rho)=\binom ba\).
+\end{proof}
+
+\begin{definition}[Support interpolation functionals]
+\label{def:pair-to-ray-map}
+Let \(T\subseteq D\), \(\abs T=m\ge k\), put \(w=m-k\), and let
+\(Q_T(X)=\prod_{x\in T}(X-x)\).  For a word \(u\), define
+\begin{equation}
+ \mathcal A_T(u)=
+ \left(
+   \sum_{x\in T}\frac{u(x)x^r}{Q_T'(x)}
+ \right)_{0\le r<w}\in\F^w.
+ \label{eq:interpolation-functional}
+\end{equation}
+\end{definition}
+
+\paragraph{Imported slope interface.}
+CAP25 v13.2 \cite[Sec.~19 and Apps.~E--F]{CAP25v132} proves that a word
+\(u\) is explained by \(\RS_\F(D,k)\) on \(T\) exactly when
+\(\mathcal A_T(u)=0\).  Hence
+\[
+ \mathcal A_T(u_0)+\gamma\mathcal A_T(u_1)=0,
+ \tag{SE}\label{eq:imported-slope-elimination}
+\]
+and every noncommon support carries at most one finite slope.  We use this only as an imported incidence input to the occupancy compiler above.
+
+
+\paragraph{Imported support-pair identity.}
+For every residual prefix profile \(\lambda\), the foundational paper
+\cite[Sec.~19 and Apps.~E--F]{CAP25v132} identifies the ordered
+same-prefix support-pair count as
+\[
+        \sum_sQ_\lambda(s)^2
+        \le
+        \bigl(\max_sQ_\lambda(s)\bigr)\sum_sQ_\lambda(s).
+        \tag{SP$_0$}\label{eq:imported-support-pair}
+\]
+
+
+Q therefore controls a support-pair statistic.  It does not justify dividing
+that statistic by \(\abs{\Omega^0_\lambda}\): a ray can have a single
+representative at exact agreement.
+
+\begin{proposition}[Q and SP do not determine rays]
+\label{prop:q-sp-no-ray}
+Let \(\Phi:\Omega\to\Sigma\) be any support-profile map with
+\(\Omega\ne\varnothing\), put
+\(Q(s)=\abs{\Phi^{-1}(s)}\), and
+\({\rm SP}=\sum_sQ(s)^2\).  Regard \(\Omega\) as an abstract set of
+candidate noncommon supports, and suppose the only retained
+slope-incidence axiom is that each support carries at most one slope.  For
+every nonempty finite slope set \(\Gamma\) and every
+\(1\le M\le\min\{\abs\Omega,\abs\Gamma\}\), within the class of abstract
+incidence structures obeying these retained data there is a partial
+support-to-slope map having exactly \(M\) distinct values.  There is also
+a one-value map.  Hence no ray bound can be deduced from Q, SP, and that
+axiom alone; an RS-specific bound must use additional algebraic incidence
+information.
+\end{proposition}
+
+\begin{proof}
+Choose \(M\) distinct supports and \(M\) distinct slopes and map them
+bijectively, leaving all other supports unlabeled.  This changes neither
+\(\Phi\), its fibers, nor SP, and it respects one-slope-per-support.
+Mapping the same chosen supports to one slope gives identical Q and SP
+data with a one-ray image.  The missing datum is the image incidence, not
+another moment of the prefix fibers.
+\end{proof}
+
+\begin{proposition}[Exact pair-to-ray multiplicity requirement]
+\label{prop:pair-ray-multiplicity}
+Let
+\(\mathcal P=\{(A,B)\in\Omega^2:\Phi(A)=\Phi(B)\}\), so
+\(\abs{\mathcal P}={\rm SP}\).  Let \(Z\) be a bad-slope set and
+\(I\subseteq Z\times\mathcal P\) an incidence relation, and let
+\(H,J\ge1\).  If every
+\(\gamma\in Z\) is incident with at least \(H\) pairs and every pair is
+incident with at most \(J\) slopes, then
+\begin{equation}
+ \abs Z\le\frac{J\,{\rm SP}}H
+       \le\frac{J(\max_sQ(s))\abs\Omega}{H}.
+ \label{eq:pair-ray-multiplicity}
+\end{equation}
+Consequently this pair-count argument yields a ray estimate at the same
+profile scale provided \(J\abs\Omega/H=e^{o(n)}\); alternatively one may
+prove a direct transverse-secant estimate.  Merely proving that every ray
+has one representing pair is insufficient.
+\end{proposition}
+
+\begin{proof}
+Double counting gives
+\(H\abs Z\le\abs I\le J\abs{\mathcal P}=J\,{\rm SP}\).  The second
+inequality follows from
+\({\rm SP}\le(\max_sQ(s))\sum_sQ(s)=(\max_sQ(s))\abs\Omega\).
+\end{proof}
+
+\begin{corollary}[Exact finite pair-to-ray constant]
+\label{cor:finite-pair-ray-compiler}
+For a residual profile \(\lambda\), put
+\(m_\lambda=\sum_sQ_\lambda(s)\),
+\(L_\lambda=\abs{\Phi_\lambda(\Omega^0_\lambda)}\), and
+\(\barN_\lambda=\abs{\Omega^0_\lambda}/L_\lambda\).  For an integer
+\(q\ge2\), define
+\[
+ \Gamma_{q,\lambda}=L_\lambda^{-1}\sum_s
+ \left(\frac{Q_\lambda(s)}{\barN_\lambda}\right)^q.
+\]
+If the pair-to-ray incidence has lower ray degree \(H_\lambda\) and upper
+pair degree \(J_\lambda\), then
+\[
+ \abs{Z_\lambda^\circ}\le
+ \floor{\frac{J_\lambda m_\lambda}{H_\lambda}\,
+  \barN_\lambda
+  \bigl(L_\lambda\Gamma_{q,\lambda}\bigr)^{1/q}}.   \tag{RC$_{\rm pair}$}
+\]
+Thus the finite compiler uses the actual residual mass and literal
+incidence degrees; it contains no unnamed polynomial or asymptotic loss.
+\end{corollary}
+
+\begin{proof}
+The moment sandwich gives
+\(\max_sQ_\lambda(s)\le\barN_\lambda
+(L_\lambda\Gamma_{q,\lambda})^{1/q}\).  Hence
+\(\sum_sQ_\lambda(s)^2\le m_\lambda\max_sQ_\lambda(s)\).
+Apply \cref{prop:pair-ray-multiplicity} and take the integer floor.
+\end{proof}
+
+\begin{proposition}[Curve-degree ray compiler]
+\label{prop:curve-degree-ray-compiler}
+Let \(V\) be a finite-dimensional space of locator polynomials and, for
+\(x\in D\), let
+\(H_x=\{[L]\in\Pj(V):L(x)=0\}\) be its \emph{evaluation hyperplane}.
+Suppose a residual slope set \(Z\) admits an injective assignment into a
+disjoint union of projective integral curves
+\[
+              Z\hookrightarrow\coprod_{i=1}^sX_i(\F),
+\]
+where ``integral curve'' means an irreducible reduced one-dimensional
+projective variety, together with locator morphisms
+\(\psi_i:X_i\to\Pj(V)\).  Put
+\[
+ \delta_i=\deg\psi_i^*\mathcal O_{\Pj(V)}(1),
+\]
+the degree on \(X_i\) of the pullback of a projective hyperplane.  For
+every \(\gamma\in Z\), if its assigned point is \(y\in X_i(\F)\), require
+\(\psi_i(y)=[L_{\gamma,y}]\), where \(L_{\gamma,y}\) is a locator from an
+actual residual witness to \(\gamma\).  For each \(i\), put
+\[
+ G_i=\{x\in D:\psi_i(X_i)\subseteq H_x\},
+ \qquad D_i^{\rm mov}=D\setminus G_i.
+\]
+Assume the locator attached to every chosen representative on \(X_i\)
+has at least \(h_i\ge1\) roots in \(D_i^{\rm mov}\).  Then
+\[
+ \abs Z\le
+ \floor{\sum_{i=1}^s
+       \frac{\abs{D_i^{\rm mov}}\delta_i}{h_i}}
+ \le\floor{n\sum_{i=1}^s\frac{\delta_i}{h_i}}.
+ \tag{RC$_{\rm curve}$}
+\]
+In particular, a cover of subexponential total locator degree gives a
+subexponential ray budget when the \(h_i\) have no exponential loss.  The
+standard degree-one pencil \([s:t]\mapsto[sA+tB]\) is the special case
+\(X=\Pj^1\) and \(\delta=1\).
+\end{proposition}
+
+\begin{proof}
+Choose one representative point for each slope.  For fixed \(i\) and
+\(x\in D_i^{\rm mov}\), the pullback of \(H_x\) is a nonzero effective
+divisor of degree \(\delta_i\), and hence contains at most \(\delta_i\)
+distinct rational points.  Each chosen point on \(X_i\) supplies at least
+\(h_i\) moving-root incidences.  Thus the number assigned to \(X_i\) is
+at most \(\abs{D_i^{\rm mov}}\delta_i/h_i\).  Sum over \(i\) and take
+the integer floor.
+\end{proof}
+
+\begin{corollary}[Automatic exact-support locator-curve compiler]
+\label{cor:automatic-locator-curve-ray}
+Fix a received line and exact agreement \(a\ge k+1\).  For each slope in
+a residual set \(Z\), choose one noncommon witness support
+\(S_\gamma\in\binom Da\) and its locator \(Q_{S_\gamma}\).  Suppose the
+locator points are covered by
+\(\psi_i(X_i(\F))\), where
+\(\psi_i:X_i\to\Pj(V)\) are nonconstant morphisms from projective
+integral curves.  Put
+\[
+ \delta_i=\deg\psi_i^*\mathcal O(1),\qquad
+ G_i=\{x\in D:\psi_i(X_i)\subseteq H_x\},
+ \qquad g_i=\abs{G_i}.
+\]
+Then
+\[
+ \abs Z\le
+ \#\{i:g_i=a\}+
+ \floor{\sum_{i:g_i<a}\frac{(n-g_i)\delta_i}{a-g_i}}. \tag{RC$_{\rm loc}$}
+\]
+No separate slope-to-curve injectivity hypothesis is required.  A
+component with \(g_i=a\) contains at most one selected degree-\(a\)
+locator, because its \(a\) common roots determine the monic support
+locator uniquely; this accounts for the first term.  Components with
+\(g_i>a\) contain no selected degree-\(a\) locator and are discarded.
+\end{corollary}
+
+\begin{proof}
+Two distinct slopes cannot use the same chosen noncommon support.  Since a
+monic squarefree locator determines its root set, their projective locator
+points are distinct as well.  Assign each locator to the first covering
+component and choose one rational preimage; this is the injective
+assignment required by \cref{prop:curve-degree-ray-compiler}.  On
+component \(i\), every selected degree-\(a\) locator has the \(g_i\)
+common roots and at least \(a-g_i\) roots outside them.  If \(g_i=a\),
+there is only one such monic locator.  On the other components apply
+\textup{(RC$_{\rm curve}$)} with \(h_i=a-g_i\).
+\end{proof}
+
+\begin{corollary}[Automatic exact-support one-pencil compiler]
+\label{cor:automatic-one-pencil-ray}
+In the setting above, suppose all selected locators lie in the projective
+pencil spanned by \(A,B\), and let \(g<a\) be the number of common roots
+of \(A,B\) in \(D\).  Then
+\[
+                         \abs Z\le\floor{(n-g)/(a-g)}. \tag{RC$_{\rm pen}$}
+\]
+The same argument applies to residual locators of degree \(e\) whose roots
+lie in a fixed active domain \(T\subseteq D\), provided the fixed profile
+data together with the residual locator determine the exact support.  If
+\(N=\abs T\) and \(g_T\) is the number of common roots of \(A,B\) in
+\(T\), then
+\[
+                         \abs Z\le\floor{(N-g_T)/(e-g_T)}.
+\]
+\end{corollary}
+
+\begin{proof}
+The exact-support locator assignment is injective by the preceding proof.
+Apply \cref{lem:pencil-payment}, or the curve corollary with
+\(X=\Pj^1\) and \(\delta=1\).
+\end{proof}
+
+By \cref{thm:syndrome-secant-exact}, the genuinely missing invariant can
+be taken to be \(\Theta_t(y_0,y_1)\).  Equivalently one may construct a
+higher-dimensional split-pencil \emph{eliminant}, meaning a polynomial in
+the slope parameter obtained after eliminating locator and support
+variables, whose degree bounds that
+transverse secant incidence.  By
+\cref{lem:independent-union-rays}, only the dependent-union, or
+maximum-distance-separable (MDS) circuit,
+strata can support more than \(t+1\) rays; this localizes the remaining
+geometry.  One fixed circuit is bounded by
+\cref{thm:single-mds-circuit-ray}, but an uncontrolled family of circuit
+strata or a higher-dimensional balanced core is not thereby paid.
+
+Here an \emph{MDS-circuit stratum} is a chart on which the relevant union
+of generalized Vandermonde parity-check columns has a minimal linear
+dependence.  Equivalently, deleting any one column restores independence.
+The name identifies the only dependence pattern left by the MDS property;
+it does not by itself place all witnesses in one fixed circuit or provide
+a count for an unrestricted union of such strata.
+
+The next hypothesis packages exactly this missing conversion.  Its number
+\(H_\lambda\) is a lower bound on how many certified support pairs represent
+one bad ray, while \(J_\lambda\) is an upper bound on how many bad rays one
+pair can represent.  The ratio in \textup{(RC)} is what makes the resulting
+double count stay at the profile scale.
+
+\begin{hypothesis}[Ray compiler]\label{hyp:ray-compiler}
+For every received line and primitive residual profile \(\lambda\), let
+\(Z_\lambda^\circ\) be its actual first-match set of unpaid bad slopes and
+put
+\[
+\Pcal_\lambda=\{(A,B)\in(\Omc_\lambda)^2:
+                       \Phi_\lambda(A)=\Phi_\lambda(B)\}.
+\]
+Put \(m_\lambda=\abs{\Omc_\lambda}=\sum_sQ_\lambda(s)\).
+The row satisfies \textup{(RC)} on this profile if either it has the direct
+bound \(\abs{Z_\lambda^\circ}\le e^{o(n)}(1+\barN_\lambda)\), or there are
+an incidence
+\(I_\lambda\subseteq Z_\lambda^\circ\times\Pcal_\lambda\) and numbers
+\(H_\lambda,J_\lambda\ge1\) such that
+\[
+ \deg_{I_\lambda}(\gamma)\ge H_\lambda,\qquad
+ \deg_{I_\lambda}(A,B)\le J_\lambda,\qquad
+ \frac{J_\lambda m_\lambda}{H_\lambda}=e^{o(n)}.
+ \tag{RC}\label{eq:ray-compiler}
+\]
+All bounds are uniform in the received line and realized profile.  The
+incidence must arise from the RS witness geometry; its existence is not a
+consequence of Q or SP.  In particular, one representing pair per ray does
+not supply the required lower degree.
+\end{hypothesis}
+
+\begin{proposition}[Q plus RC implies rays]\label{prop:q-implies-sp}
+If primitive Q is discharged and \textup{(RC)} holds on every residual
+profile, then all primitive ray ledgers are discharged
+at total cost \(e^{o(n)}\mathfrak E_n\).
+\end{proposition}
+
+\begin{proof}
+The boundary prefix fibers are bounded by Q.  For every remaining unpaid
+slope choose one noncommon support, as permitted by
+the imported slope interface \eqref{eq:imported-slope-elimination}; \textup{(RC)} bounds their distinct slope set by
+\(e^{o(n)}\barN_\lambda\).  Sum over the subexponential profile set and use
+\eqref{eq:profile-envelope}.
+\end{proof}
+
+The proof of \cref{thm:main-smooth-circle} is now complete: the Sidon payment and \cref{thm:primitive-q} pay primitive Q, while \cref{prop:q-implies-sp} and \textup{(RC)} convert the remaining support bounds into distinct-ray bounds.
+
+
+\part{Finite deployment: Q, one-parameter BC, and the exact ledger}
+\section{Finite max-fiber calibration}\label{sec:finite-calibration}
+We import the four unsafe endpoints and challenge budgets from CAP25 v13.2 \cite[Cor.~14.3 and Def.~21.1]{CAP25v132}.  Only the adjacent-row quantities consumed by the new upper compiler are printed here.
+
+\begin{table}[H]
+\centering
+\caption{Imported active frontier rows and the adjacent safe-side calibration.}
+\label{tab:active-frontier-rows}
+\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+row & $a_0$ & $a_+=a_0+1$ & $w=a_+-K$ & $B^*$\\
+\midrule
+KoalaBear MCA & 1116047 & 1116048 & 67471 & 274980728111395087\\
+KoalaBear list & 1116046 & 1116047 & 67471 & 274980728111395087\\
+Mersenne-31 MCA & 1116023 & 1116024 & 67447 & 16777215\\
+Mersenne-31 list & 1116022 & 1116023 & 67447 & 16777215\\
+\bottomrule
+\end{tabular}
+\end{table}
+Here $n=2^{21}$, $K=2^{20}+1$ on the MCA route, and $K=2^{20}$ on the list route.  Put
+\[
+ \overline F=\binom n{a_+}|\B|^{-w}.
+\]
+The exact ceilings of this average are, in table order,
+\begin{equation}
+57198030366,\quad 65065153468,\quad 1752700,\quad 1993678.\label{eq:finite-average-ceilings}
+\end{equation}
+Hence the full-budget Q overhead ceilings are respectively
+\begin{equation}
+4807520.9295,\quad 4226236.5253,\quad 9.5722,\quad 8.4152.\label{eq:finite-q-ratios}
+\end{equation}
+Any payment made to another cell lowers these values.
+
+The exact moment interface imported from the foundation is
+\begin{equation}
+ \max_z R(z)\le (|\B|^w\Gamma_r)^{1/r},
+ \qquad R(z)=\frac{|\Fib_w(z)|}{\binom n{a_+}|\B|^{-w}}.\label{eq:imported-prefix-moment-sandwich}
+\end{equation}
+The exact second-moment decomposition is written
+\begin{equation}
+ \sum_zN_w(z)^2=\binom n{a_+}+\sum_eP_e.\label{eq:imported-second-moment}
+\end{equation}
+
+\begin{theorem}[Finite moment criterion for Q]\label{thm:moment-q}
+If $\Gamma_r\le e^A$, then the normalized maximum fiber satisfies
+\[
+ R_Q^{\max}\le\exp\!\left(\frac{A+w\log|\B|}{r}\right).
+\]
+Thus a finite row with remaining bit margin $\Delta$ can be proved by this route only if
+\begin{equation}
+ \log_2\Gamma_r+w\log_2|\B|\le r\Delta.\label{eq:finite-moment-criterion}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Take logarithms in \eqref{eq:imported-prefix-moment-sandwich}.
+\end{proof}
+
+\begin{lemma}[Pencil payment]\label{lem:pencil-payment}
+Let $L_{[s:t]}=sA+tB$ be a projective polynomial pencil and let $T$ be a finite set.  If every counted member has at least $h$ roots in $T$ that are not common roots of $A$ and $B$, then at most $\lfloor |T|/h\rfloor$ projective parameters are counted.
+\end{lemma}
+\begin{proof}
+A point $x\in T$ that is not a common root solves the homogeneous linear equation $sA(x)+tB(x)=0$ for exactly one projective parameter.  Count moving-root incidences.
+\end{proof}
+
+\begin{definition}[projective locator pencil and its common \(D\)-part]\label{def:projective-locator-pencil}
+Let \(D\subseteq\F\) be finite, put \(\Lambda_D=\prod_{x\in D}(X-x)\), and let \(A,B\in\F[X]\) be not both zero.  The projective locator pencil generated by \(A,B\) is
+\[
+        L_{[s:t]}(X)=sA(X)+tB(X),\qquad [s:t]\in\mathbb P^1(\F).
+\]
+Its fixed \(D\)-part is
+\[
+        G_D(A,B)=\gcd(A,B,\Lambda_D),
+        \qquad g_D(A,B)=\deg G_D(A,B).
+\]
+A root of \(G_D(A,B)\) is a common root of every member of the pencil; these are precisely the roots assigned to the common-GCD branch in the first-match ledger.
+\end{definition}
+
+\begin{theorem}[moving-root bound for one-parameter split pencils]\label{thm:bc-moving-root}
+Let \(D\subseteq\F\) have size \(n\), and let \(L_{[s:t]}=sA+tB\) be a projective locator pencil as in \cref{def:projective-locator-pencil}.  Put \(G=G_D(A,B)\) and \(g=\deg G\).  Let \(\mathcal Z\subseteq\mathbb P^1(\F)\), and suppose that for every \(\lambda=[s:t]\in\mathcal Z\), the polynomial \(L_\lambda/G\) has at least \(h\ge1\) distinct roots in \(D\setminus Z(G)\).  Then
+\[
+        |\mathcal Z|\le \left\lfloor\frac{n-g}{h}\right\rfloor .
+\]
+In particular, if every counted member has degree \(j\), has fixed \(D\)-part exactly \(G\), and is \(D\)-split, then
+\[
+        |\mathcal Z|\le
+        \left\lfloor\frac{n-g}{j-g}\right\rfloor,
+        \qquad j>g.
+\]
+The case \(j=g\) is not a moving split-pencil cell: all \(D\)-roots are fixed and the member belongs to the common-GCD branch.
+\end{theorem}
+
+\begin{proof}
+Count incidences
+\[
+        I=\{(\lambda,x):\lambda\in\mathcal Z,
+        \ x\in D\setminus Z(G),\ L_\lambda(x)=0\}.
+\]
+For a fixed moving root \(x\in D\setminus Z(G)\), the pair \((A(x),B(x))\) is not \((0,0)\).  Hence the homogeneous linear equation
+\[
+        sA(x)+tB(x)=0
+\]
+has exactly one solution \([s:t]\in\mathbb P^1(\F)\).  Thus each moving domain point contributes to at most one incidence, and \(|I|\le n-g\).  On the other hand, every \(\lambda\in\mathcal Z\) contributes at least \(h\) incidences by hypothesis, so \(|I|\ge h|\mathcal Z|\).  This proves the first bound.
+
+If a counted member is \(D\)-split of degree \(j\) and has fixed \(D\)-part exactly \(G\), then exactly \(j-g\) of its \(D\)-roots are moving roots in \(D\setminus Z(G)\).  Applying the first bound with \(h=j-g\) gives the displayed inequality.  If \(j=g\), no moving root remains; the split condition has already been paid by the common-GCD branch rather than by a primitive moving pencil.
+\end{proof}
+
+\begin{corollary}[BC is settled on primitive one-parameter locator pencils]\label{cor:bc-one-pencil}
+Consider an MCA split-pencil chart at agreement \(m\), and write \(\omega=n-m\).  Suppose that after the first-match tangent, common-support, quotient, extension, degree-drop, and common-GCD branches have been removed, the residual candidate error locators in this chart are represented by a projective locator pencil \(L_\lambda=sA+tB\), with the slope parameter injecting into \(\lambda\), and that every residual bad slope in the chart has at least one degree-\(\omega\) \(D\)-split locator in the pencil.  Then the number of residual bad finite slopes in this chart is at most
+\[
+        \left\lfloor\frac{n-g}{\omega-g}\right\rfloor,
+        \qquad g=g_D(A,B)<\omega .
+\]
+In the primitive case \(g=0\), this is \(\lfloor n/(n-m)\rfloor\).  For the two active MCA adjacent rows in \cref{tab:active-frontier-rows},
+\[
+\begin{array}{c|c|c|c}
+\text{row} & m=a_+ & \omega=n-m & \lfloor n/\omega\rfloor\\ \hline
+\text{KoalaBear MCA} & 1116048 & 981104 & 2\\
+\text{Mersenne-31 MCA} & 1116024 & 981128 & 2
+\end{array}
+\]
+so every primitive one-parameter BC pencil contributes at most two finite bad slopes.
+\end{corollary}
+
+\begin{proof}
+The first-match removals ensure that the chart is counted only through moving roots of the displayed pencil.  A residual bad slope supplies at least one degree-\(\omega\) split locator, and the slope-to-pencil parameter is injective by hypothesis; hence the slope count is bounded by the number of split parameters.  Apply \cref{thm:bc-moving-root} with \(j=\omega\).  The displayed row values use \(n=2^{21}\), \(a_+=1116048\) for KoalaBear MCA, and \(a_+=1116024\) for Mersenne-31 MCA.
+\end{proof}
+
+
+\begin{definition}[saturated codeword rays and support census]\label{def:saturated-rays}
+Let \(C=\RS[\F,D,K]\), let \(U:D\to\F\), and put
+\[
+        S_c(U)=\{x\in D:U(x)=c(x)\},\qquad s_c(U)=|S_c(U)|
+\]
+for \(c\in C\).  The saturated ray set at agreement \(m\) is
+\[
+        \operatorname{Ray}(U;m)=\{c\in C:s_c(U)\ge m\}.
+\]
+Let \(\omega=n-m\), and define the support-locator census
+\[
+\begin{aligned}
+\Cen(U;m)=\#\{(W,N)\in \F[X]^2:\;& W\text{ monic},\ \deg W=\omega,\ W\mid \ell_D,\\
+        & WU=N\text{ on }D,\quad W\mid N,\quad \deg(N/W)<K\}.
+\end{aligned}
+\]
+Equivalently, \(W=\ell_{D\setminus T}\) for an agreement support \(T\subseteq D\) of size \(m\).
+\end{definition}
+
+\begin{theorem}[exact saturation identity]\label{thm:saturation}
+With \(C=\RS[\F,D,K]\) and \(\Cen(U;m)\) as in \cref{def:saturated-rays}, for every word \(U:D\to\F\),
+\[
+        \Cen(U;m)=\sum_{c\in C}\binom{s_c(U)}m .
+\]
+Moreover, the support locators lying above a fixed codeword ray \(c\) are exactly
+\[
+        (W,N)=H\,(G_c,G_cc),
+        \qquad
+        G_c=\ell_{D\setminus S_c(U)},
+        \qquad
+        H\mid\ell_{S_c(U)},
+        \qquad
+        \deg H=s_c(U)-m .
+\]
+Consequently the fiber size of the forgetful map from support locators to saturated codeword rays is \(\binom{s_c(U)}m\) above \(c\).
+\end{theorem}
+
+\begin{proof}
+Let \((W,N)\) be counted by \(\Cen(U;m)\).  Since \(W\) is monic, divides \(\ell_D\), and has degree \(n-m\), there is a unique \(m\)-set \(T\subseteq D\) such that \(W=\ell_{D\setminus T}\).  Since \(W\mid N\) and \(\deg(N/W)<K\), write \(N=Wc\) for a unique codeword \(c\in C\).  On every \(x\in T\), the value \(W(x)\) is nonzero; the identity \(WU=N=Wc\) on \(D\) therefore gives \(U(x)=c(x)\).  Thus \(T\subseteq S_c(U)\).
+
+Conversely, if \(c\in C\) and \(T\subseteq S_c(U)\) has \(|T|=m\), then \(W=\ell_{D\setminus T}\) and \(N=Wc\) satisfy all defining conditions of \(\Cen(U;m)\).  For fixed \(c\), the number of such supports is \(\binom{s_c(U)}m\), and summing over \(c\) gives the first identity.
+
+For the fiber statement, write \(G_c=\ell_{D\setminus S_c(U)}\).  If \(T\subseteq S_c(U)\), then
+\[
+        \ell_{D\setminus T}
+        =\ell_{D\setminus S_c(U)}\ell_{S_c(U)\setminus T}
+        =G_cH,
+\]
+where \(H=\ell_{S_c(U)\setminus T}\), hence \(H\mid\ell_{S_c(U)}\) and \(\deg H=s_c(U)-m\).  The converse is the same construction reversed, because every monic divisor \(H\) of \(\ell_{S_c(U)}\) of degree \(s_c(U)-m\) is the locator of \(S_c(U)\setminus T\) for a unique \(m\)-set \(T\subseteq S_c(U)\).
+\end{proof}
+
+\begin{corollary}[raw support BC is not the MCA object]\label{cor:raw-bc-fails}
+In the setting of \cref{thm:saturation}, if \(U\) agrees with a single codeword \(c\) on \(n-d\) positions and with no other codeword on \(m\) or more positions, then
+\[
+        |\operatorname{Ray}(U;m)|=1,
+        \qquad
+        \Cen(U;m)=\binom{n-d}{m} .
+\]
+Thus an exponentially large raw support-locator family may represent one MCA ray.  A split-pencil proof for MCA must therefore count saturated primitive line-rays after quotient, prefix, tangent, and common-support branches have been paid; a raw support census is a list/moment object, not the final MCA numerator.
+\end{corollary}
+
+\begin{proof}
+The ray statement is the hypothesis.  The support-census identity is \cref{thm:saturation} with one nonzero summand \(\binom{s_c(U)}m=\binom{n-d}m\).  The final sentence is just the same equality interpreted in MCA terms: MCA counts a bad slope once, whereas \(\Cen(U;m)\) counts all size-\(m\) supports below the same saturated agreement ray.
+\end{proof}
+
+\begin{definition}[line rays]\label{def:line-rays}
+In the setting of \cref{def:saturated-rays}, for an affine line \(U_Z=u+Zv\) and a set of finite slopes \(E\subseteq\F\), define
+\[
+        \LineRay_E(u,v;m)
+        =
+        \{(z,c)\in E\times C:\ |\{x\in D:u(x)+zv(x)=c(x)\}|\ge m\}.
+\]
+Write \(s_{z,c}=|\{x\in D:u(x)+zv(x)=c(x)\}|\).
+\end{definition}
+
+\begin{proposition}[line-ray saturation identity]\label{prop:line-ray-saturation}
+With notation as in \cref{def:line-rays}, for every \(E\subseteq\F\),
+\[
+        \sum_{z\in E}\Cen(U_z;m)
+        =
+        \sum_{(z,c)\in\LineRay_E(u,v;m)}\binom{s_{z,c}}m .
+\]
+Consequently
+\[
+        |\{z\in E:\exists c\ (z,c)\in\LineRay_E(u,v;m)\}|
+        \le
+        |\LineRay_E(u,v;m)|
+        \le
+        \sum_{z\in E}\Cen(U_z;m).
+\]
+The two inequalities are the exact deduplication losses between raw support locators, saturated codeword rays, and slope numerators.
+\end{proposition}
+
+\begin{proof}
+Apply \cref{thm:saturation} separately to the word \(U_z=u+zv\) for each \(z\in E\), and then sum over \(z\).  The first inequality forgets the codeword coordinate of a line ray, and the second follows because each line ray has \(s_{z,c}\ge m\), hence contributes at least one support to the right-hand side of the identity.  \Cref{cor:raw-bc-fails} shows that the second inequality can be exponentially loose for a single slope and a single codeword ray, so an MCA upper ledger must either count slopes directly or control this saturation factor.
+\end{proof}
+
+\begin{theorem}[Q discharges the shift-pair ledger]\label{thm:q-implies-sp}
+Let \(N_w(z)=|\Fib_w(z)|\), let
+\[
+        \overline F=\binom nm |\B|^{-w},
+\]
+and let \(P_e\) denote the full off-diagonal shift-pair stratum in the imported decomposition \eqref{eq:imported-second-moment}, namely
+\[
+        P_e=\sum_{\substack{R\subseteq D\\ |R|=m-e}}\operatorname{sp}_w(e;D\setminus R).
+\]
+If Q holds in max-fiber form with constant \(\kappa\),
+\[
+        \max_z N_w(z)\le \kappa\overline F,
+\]
+then necessarily \(\kappa\overline F\ge1\) whenever \(\binom Dm\) is nonempty, and
+\[
+        \sum_{e=w+1}^{\min(m,n-m)}P_e
+        \le
+        \left(\kappa-\frac{1}{\overline F}\right)\binom nm\,\overline F .
+\]
+Every quotient-removed or primitive shift-pair subledger satisfies the same upper bound.  Hence SP is not an independent residual input in any closing theorem that already proves Q as a max-fiber theorem.
+\end{theorem}
+
+\begin{proof}
+The imported exact second-moment identity \eqref{eq:imported-second-moment} says
+\[
+        \sum_z N_w(z)^2
+        =\binom nm+
+        \sum_{e=w+1}^{\min(m,n-m)}P_e .
+\]
+On the other hand,
+\[
+        \sum_zN_w(z)^2
+        \le (\max_zN_w(z))\sum_zN_w(z)
+        \le \kappa\overline F\binom nm,
+\]
+because \(\sum_zN_w(z)=\binom nm\).  Since at least one fiber is nonempty when \(\binom Dm\ne\varnothing\), the hypothesis also implies \(\kappa\overline F\ge1\), so the displayed right-hand side is nonnegative in the nonvacuous case.  Subtracting the diagonal term \(\binom nm\) gives the displayed inequality.  Any primitive or quotient-removed ledger is a sub-sum of the full off-diagonal ledger, so it is bounded a fortiori.
+\end{proof}
+
+
+\begin{theorem}[SP: unconditional primitive shift-pair bound]\label{thm:sp-proper}
+Use the notation of the imported exact second-moment ledger.  For \(w+1\le e\le\min(m,n-m)\), put
+\[
+        T_e(n,m)=\binom n{m-e}\binom{n-m+e}{e}\binom{n-m}{e}.
+\]
+Then the total off-diagonal contribution at distance \(e\) satisfies
+\[
+        P_e^{\rm quot}+P_e^{\rm prim}\le T_e(n,m).
+\]
+If \(D\subseteq\B\), then the top stratum \(e=w+1\) also satisfies the sharper constant-shift bound
+\[
+        P_{w+1}^{\rm quot}+P_{w+1}^{\rm prim}
+        \le
+        (|\B|-1)\binom n{m-w-1}\binom{n-m+w+1}{w+1}.
+\]
+Consequently
+\[
+        \Gamma_2
+        \le
+        \frac{1}{\overline F}
+        +\frac{\sum_{e=w+1}^{\min(m,n-m)}T_e(n,m)}{\binom{n}{m}\overline F},
+\]
+with the option of replacing the \(e=w+1\) term by the sharper displayed top-stratum bound.
+\end{theorem}
+
+\begin{proof}
+Fix \(e\).  In the imported exact second-moment decomposition \eqref{eq:imported-second-moment}, an off-diagonal pair is encoded by a common part \(R\subseteq D\) of size \(m-e\), then by two disjoint degree-\(e\) root sets inside \(D\setminus R\).  There are \(\binom n{m-e}\) choices for \(R\).  Once \(R\) is fixed, the ambient set \(D\setminus R\) has size \(n-m+e\); the first root set has at most \(\binom{n-m+e}{e}\) choices and the second, disjoint from it, has at most \(\binom{n-m}{e}\) choices.  This ignores the depth equation and the quotient/primitive first-match assignment, so it is an upper bound for \(P_e^{\rm quot}+P_e^{\rm prim}\).
+
+When \(e=w+1\), the imported decomposition \eqref{eq:imported-second-moment} shows that every top-stratum shift pair has the form \(A-B=c\in\F^\times\).  If both polynomials split over \(D\subseteq\B\), then both have coefficients in \(\B\), hence \(c\in\B^\times\).  For each fixed \(R\), choose \(A\) by choosing its \(e\)-element root set in \(D\setminus R\), and choose \(c\in\B^\times\); the polynomial \(B=A-c\) is then determined.  Requiring \(B\) to split over \(D\setminus R\), to be disjoint from \(A\), and then assigning the pair to either the quotient or primitive ledger can only reduce the count.  This gives the top-stratum bound.  The displayed \(\Gamma_2\) inequality is the imported exact second-moment ledger with the total quotient-plus-primitive off-diagonal contribution in every stratum replaced by the just-proved upper bound.
+\end{proof}
+
+
+\begin{proposition}[size of the proper Q bound at the active adjacent rows]\label{prop:proper-q-gap}
+At the four active adjacent agreements, the imported Q packing estimate \cite[Secs.~19--21]{CAP25v132} gives the following one-term upper bounds for the remaining normalized prefix overhead:
+\[
+\begin{array}{c|ccc}
+\text{row} & w & \log_2 R_Q^{\rm pack}\text{ allowed by the bound} & \text{spare margin}\\
+\hline
+\text{KoalaBear MCA} & 67471 & 1660789.024 & 22.1969\\
+\text{KoalaBear list} & 67471 & 1660789.017 & 22.0109\\
+\text{Mersenne-31 MCA} & 67447 & 1660926.120 & 3.2589\\
+\text{Mersenne-31 list} & 67447 & 1660926.114 & 3.0730 .
+\end{array}
+\]
+Thus the unconditional packing proof is a real theorem but is far too weak to supply the adjacent safe ledger.
+\end{proposition}
+
+\begin{proof}
+For each row, \(n=2097152\), \(K=k+1=1048577\) on the MCA route, \(K=k=1048576\) on the list route, and \(w=a_+-K\).  The base-field orders are \(2^{31}-2^{24}+1\) for KoalaBear and \(2^{31}-1\) for Mersenne-31.  The imported Q packing inequality \cite[Secs.~19--21]{CAP25v132} gives
+\[
+        \log_2 R_Q^{\rm pack}
+        \le
+        w\log_2|\B|-\log_2\binom{a_+}{\lfloor w/2\rfloor}
+             -\log_2\binom{n-a_+}{\lfloor w/2\rfloor}.
+\]
+Substituting the exact field orders and
+\[
+        a_+\in\{1116048,1116047,1116024,1116023\}
+\]
+gives the displayed values.  For these four rows the Johnson-ball summand
+\[
+        J_i=\binom{a_+}{i}\binom{n-a_+}{i}
+\]
+is increasing on \(0\le i\le t\).  Indeed
+\[
+        \frac{J_i}{J_{i-1}}
+        =
+        \frac{(a_+-i+1)(n-a_+-i+1)}{i^2},
+\]
+and at \(i=t\) this ratio is already \(>900\) in all four rows, while the ratio is larger for smaller \(i\).  Hence \(V_t(n,a_+)\le(t+1)J_t\), so replacing the one-term denominator by the full ball can lower the displayed logarithmic upper bound by less than \(\log_2(t+1)<16\) bits.  This is negligible compared with the gap between the displayed million-bit overhead and the row margins.
+\end{proof}
+
+
+\begin{definition}[row-sharp Q atom bound]\label{def:q-row-atom}
+Fix a deployed adjacent row, let \(a_+\) be its adjacent agreement, let \(K\) be the list dimension used on that route, and put \(w=a_+-K\).  For a first-match residual prefix-boundary family \(\mathcal P_Q(z)\subseteq\Fib_w(z)\), define
+\[
+        R_Q^{\max}
+        =
+        |\B|^w\max_z\frac{|\mathcal P_Q(z)|}{\binom n{a_+}}.
+\]
+The row-sharp Q atom bound with bit margin \(\Delta_Q\) is
+\[
+        R_Q^{\max}\le 2^{\Delta_Q}.
+\]
+Equivalently, if the entire row budget is hypothetically assigned to Q, the sufficient integer form is
+\[
+        \max_z|\mathcal P_Q(z)|\le B^* .
+\]
+Any non-Q cell paid in the same first-match ledger only decreases the available \(\Delta_Q\).
+\end{definition}
+
+\begin{proposition}[exact finite Q atom target at the four adjacent rows]\label{prop:q-exact-target}
+At the active adjacent agreements, the full-budget Q atom target is as follows:
+\[
+\begin{array}{c|r|r|r|r}
+\text{row} & w & \left\lceil \binom n{a_+}|\B|^{-w}\right\rceil & B^* & B^*/\left\lceil \binom n{a_+}|\B|^{-w}\right\rceil\\
+\hline
+\text{KoalaBear MCA} & 67471 & 57198030366 & 274980728111395087 & 4807520.9295\\
+\text{KoalaBear list} & 67471 & 65065153468 & 274980728111395087 & 4226236.5253\\
+\text{Mersenne-31 MCA} & 67447 & 1752700 & 16777215 & 9.5722\\
+\text{Mersenne-31 list} & 67447 & 1993678 & 16777215 & 8.4152
+\end{array}
+\]
+In bits, these are exactly the spare margins already printed in the row table:
+\[
+        22.1969,
+        \quad 22.0109,
+        \quad 3.2589,
+        \quad 3.0730 .
+\]
+Thus the binding Q problem is the Mersenne-31 list row: after all first-match payments, the remaining primitive prefix-boundary atom must be at most about \(8.42\) times its average size, and less if any other cell consumes budget.
+\end{proposition}
+
+\begin{proof}
+For each row, substitute \(n=2^{21}\), \(k=2^{20}\), the displayed adjacent agreement \(a_+\), and \(K=k+1\) on the MCA route and \(K=k\) on the list route.  The average prefix fiber is \(\binom n{a_+}|\B|^{-w}\), and the integer lower-route replay uses its ceiling.  The budgets are
+\[
+        B^*_{\rm KB}=\left\lfloor\frac{(2^{31}-2^{24}+1)^6}{2^{128}}\right\rfloor,
+        \qquad
+        B^*_{\rm M31}=\left\lfloor\frac{(2^{31}-1)^4}{2^{100}}\right\rfloor .
+\]
+The displayed ratios are the exact integer quotients evaluated as decimals.  Taking base-two logarithms of \(B^*/(\binom n{a_+}|\B|^{-w})\) gives the four printed bit margins.
+\end{proof}
+
+\begin{proposition}[moment-order floor for a finite Q proof]\label{prop:q-moment-order-floor}
+Let
+\[
+        \tau=\frac{\sum_z|\mathcal P_Q(z)|}{\binom nm}\in(0,1]
+\]
+be the mass of the pruned residual relative to the full support slice.  A proof based only on the moment criterion of \cref{thm:moment-q} must satisfy the necessary condition
+\[
+        r\bigl(\Delta_Q-\log_2\tau\bigr)
+        \ge w\log_2|\B| .
+\]
+In the full-mass case \(\tau=1\), this reduces to
+\[
+        r\ge\left\lceil\frac{w\log_2|\B|}{\Delta_Q}\right\rceil .
+\]
+For the active rows the corresponding full-mass floors are
+\[
+\begin{array}{c|r|r|r}
+\text{row} & w & \Delta_Q\text{ bits} & \text{minimum }r\\
+\hline
+\text{KoalaBear MCA} & 67471 & 22.1969 & 94196\\
+\text{KoalaBear list} & 67471 & 22.0109 & 94991\\
+\text{Mersenne-31 MCA} & 67447 & 3.2589 & 641593\\
+\text{Mersenne-31 list} & 67447 & 3.0730 & 680397
+\end{array}
+\]
+Thus fixed moments cannot prove the finite adjacent rows in the full-mass model.  After first-match pruning, the displayed row floors remain applicable only when \(\tau=1\); otherwise the residual mass must be carried explicitly, or one must use an off-diagonal or falling-factorial moment or isolate sparse-heavy fibers as a separate cell.
+\end{proposition}
+
+\begin{proof}
+Normalize the residual masses by the full slice and put
+\(\mu(z)=|\mathcal P_Q(z)|/\binom nm\), so \(\sum_z\mu(z)=\tau\).  Convexity over at most \(|\B|^w\) prefix values gives
+\[
+        |\B|^{w(r-1)}\sum_z\mu(z)^r\ge\tau^r.
+\]
+In the notation of \cref{thm:moment-q}, this is \(\Gamma_r\ge\tau^r\).  The finite criterion requires
+\[
+        \log_2\Gamma_r+w\log_2|\B|\le r\Delta_Q .
+\]
+Substituting the lower bound and rearranging gives the stated necessary condition.  Setting \(\tau=1\) yields the table.  The numerical entries use the exact row prime in \(\log_2|\B|\).
+\end{proof}
+
+\begin{proposition}[the BC moving-root theorem does not pay boundary Q]\label{prop:bc-not-q}
+In the boundary-Q profile of the imported boundary-Q dictionary \cite[Secs.~18--21]{CAP25v132}, the unknown divisor is
+\[
+        Q_z+A,
+        \qquad
+        \deg A\le \omega-w-1,
+        \qquad
+        \omega=n-a_+ .
+\]
+Thus the coefficient parameter space has dimension \(\omega-w\).  At the active rows this dimension is
+\[
+\begin{array}{c|r|r|r}
+\text{row} & \omega=n-a_+ & w & \omega-w\\
+\hline
+\text{KoalaBear MCA} & 981104 & 67471 & 913633\\
+\text{KoalaBear list} & 981105 & 67471 & 913634\\
+\text{Mersenne-31 MCA} & 981128 & 67447 & 913681\\
+\text{Mersenne-31 list} & 981129 & 67447 & 913682
+\end{array}
+\]
+Therefore \cref{thm:bc-moving-root,cor:bc-one-pencil} cannot be applied directly to boundary Q: those theorems count split parameters on a projective one-parameter locator pencil, while Q is a high-dimensional affine divisor slice.  To route Q through BC one would need an additional theorem decomposing this affine slice into paid one-parameter pencils with a first-match bound on the number of relevant pencils.  No such theorem is present in this manuscript.
+\end{proposition}
+
+\begin{proof}
+The imported boundary-Q dictionary \cite[Secs.~18--21]{CAP25v132} states exactly that a prefix fiber is counted by the divisibility condition \(Q_z+A\mid X^n-\beta\) with \(\deg A\le\omega-w-1\).  A polynomial of degree at most \(\omega-w-1\) has \(\omega-w\) free coefficients.  Substituting the four values of \(a_+\), \(K\), and \(w=a_+-K\) gives the table.  Since \(\omega-w\) is larger than nine hundred thousand in all four cases, the family is not a one-parameter pencil.  The moving-root theorem is still valid for every line inside this affine space, but a line-by-line decomposition without a bound on the number of lines gives no row budget.
+\end{proof}
+
+\begin{proposition}[current Q ingredients do not close the adjacent ledger]\label{prop:q-not-closed}
+The theorem-level Q material currently proved in this manuscript does not imply \(B(a_0+1)\le B^*\) for any deployed row.
+\end{proposition}
+
+\begin{proof}
+The only unconditional max-fiber upper bound presently available for Q here is the imported Johnson/anticode ceiling \cite[Secs.~19--21]{CAP25v132}.  By \cref{prop:proper-q-gap}, its normalized overhead at the active rows is between \(2^{1660926}\) and \(2^{1661553}\), whereas the available row margins are only \(2^{22.1969}\), \(2^{22.0109}\), \(2^{3.2589}\), and \(2^{3.0730}\).  Hence that theorem is many orders of magnitude too weak.
+
+\Cref{thm:moment-q} could in principle prove the desired atom bound, but \cref{prop:q-moment-order-floor} shows that the finite rows require moment orders from \(94196\) up to \(680397\) before the harmless term \(w\log_2|\B|\) alone fits in the margin.  No theorem in the note supplies such high-order moment estimates.
+
+Finally, \cref{thm:q-implies-sp} is one-way: it proves that a max-fiber Q theorem would discharge SP, not that SP proves Q.  And \cref{prop:bc-not-q} explains why the one-parameter BC moving-root theorem does not pay the high-dimensional boundary-Q slice.  Thus the adjacent upper ledger remains open precisely at the row-sharp Q atom bound of \cref{def:q-row-atom}.
+\end{proof}
+
+
+\section{The exact finite Q atom and the remaining barrier}\label{sec:finite-q-barrier}
+The preceding results leave a single row-sharp boundary atom rather than a generic ``aperiodic'' remainder.  The Mersenne-31 list row is the binding case: before any other cell is paid, its maximum-prefix-fiber overhead may be at most $8.4152$ times the full-slice average.  A first-match payment elsewhere only decreases that allowance.  The million-bit packing ceilings in \cref{prop:proper-q-gap} and the moment floors in \cref{prop:q-moment-order-floor} explain why neither Johnson packing nor fixed low moments can close the packet.
+
+\section{Theorem status and remaining finite obligations}\label{sec:status-and-obligations}
+\begin{theorem}[Audited theorem status]\label{thm:audited-status}
+The new unconditional statements of this sequel are: the Part~I threshold refinements; the exact quotient/remainder, occupancy, and effective-Fourier identities; primitive Q under the displayed Sidon payment and its unconditional shallow Fourier range; saturation; the moving-root bound for a genuine one-parameter BC pencil; and Q $\Rightarrow$ SP.  No theorem in this paper proves $B(a_0+1)\le B^*$ for any of the four deployed rows.
+\end{theorem}
+\begin{proof}
+The positive statements are the theorems cited in the previous sentence.  The negative statement follows from \cref{prop:q-not-closed,prop:bc-not-q}: the available Q ceiling is far above every row budget, and the moving-root theorem pays only charts already reduced to one projective pencil.
+\end{proof}
+
+\section{The exact completion ledger relative to CAP25 v13.2}\label{sec:exact-completion-ledger}
+For an MCA row let
+\begin{equation}
+ U_{\rm total}=U_{\rm paid}+U_Q+U_{\rm BC}+U_{\rm new},\label{eq:mca-final-ledger}
+\end{equation}
+where $U_{\rm paid}$ is the exact first-match sum of tangent, common-support, quotient, planted, field-drop, extension, rank, and already certified cells; $U_Q$ is the row-sharp pruned prefix maximum; $U_{\rm BC}$ is the sum of the certified moving-root pencil charts; and $U_{\rm new}$ is zero unless an explicitly named residual cell survives.  For a list row replace $U_{\rm BC}$ by the arbitrary-word interior codeword-ray term $U_{\rm list-int}$.
+
+\begin{theorem}[Exact completion certificate]\label{thm:exact-completion-certificate}
+Fix one active row in \cref{tab:active-frontier-rows}.  Suppose an exhaustive first-match compiler proves, with no unresolved cell,
+\begin{equation}
+ U_{\rm total}\le B^*.\label{eq:exact-completion-certificate}
+\end{equation}
+Then the first safe integer agreement is $a_0+1$.  Conversely, every proof by this compiler must supply literal definitions and exact integer bounds for all terms in \eqref{eq:mca-final-ledger}; no one term may independently consume the full row margin.
+\end{theorem}
+\begin{proof}
+CAP25 v13.2 proves $B(a_0)>B^*$ for the active row.  Exhaustive first-match coverage and \eqref{eq:exact-completion-certificate} give $B(a_0+1)\le B^*$.  Monotonicity then identifies $a_0+1$ as the first safe integer agreement.  The converse is simply the requirement that a disjoint compiler account for every bad object exactly once before summing its budgets.
+\end{proof}
+
+\begin{problem}[Row-sharp multilevel Q target]\label{prob:row-sharp-q}
+For each active row, after every earlier first-match cell has been removed, prove
+\[
+ \max_z|\mathcal P_Q(z)|\le R_Q^{\rm row}\binom n{a_+}|\B|^{-(a_+-K)}
+\]
+with the literal row constant $R_Q^{\rm row}$ fitting the remaining integer budget.  A moment proof must use the actual residual mass and satisfy \eqref{eq:finite-moment-criterion} with the allocated bit margin.
+\end{problem}
+
+\begin{problem}[Balanced-core and list-interior completion]\label{prob:saturated-bc}
+For each MCA row, prove that every residual balanced-core chart is paid or decomposes into a certified number of projective pencils covered by \cref{thm:bc-moving-root}.  For each list row, prove the corresponding arbitrary-word interior codeword-ray bound; the MCA moving-root theorem does not substitute for this list theorem.
+\end{problem}
+
+The remaining obligations are therefore precise:
+\begin{enumerate}[label=\textup{(F\arabic*)},leftmargin=*]
+\item prove the row-sharp pruned Q bound of \cref{prob:row-sharp-q};
+\item certify that every residual MCA balanced-core chart is paid or reduces to the one-parameter moving-root theorem, and prove the separate arbitrary-word interior theorem for the list rows;
+\item pay the remaining extension projections with exact multiplicity; and
+\item run one integer verifier establishing \eqref{eq:exact-completion-certificate} for each row.
+\end{enumerate}
+
+\section{Conclusion}\label{sec:conclusion}
+Grande Finale v3 is a strict extension of CAP25 v13.2, not a second edition of it.  It adds exact threshold refinements, exact profile normal forms, the primitive-Q/Sidon compiler, saturation, moving-root BC, and Q-to-SP.  The dense safe-side frontier has been reduced to row-sharp finite Q, exhaustive chart coverage, extension payment, and one exact summed ledger.  Until those four obligations are met, the four adjacent deployed safe rows remain conditional.
+
+
+\begin{thebibliography}{99}
+\bibitem[Cho26]{CAP25v132}
+P. Chojecki,
+\newblock Universal field-size caps and a two-sided sandwich for mutual correlated agreement on smooth Reed--Solomon domains,
+\newblock Version 13.2, manuscript, July 19, 2026.
+
+\bibitem[BS94]{BalogSzemeredi}
+A. Balog and E. Szemer\'edi,
+\newblock A statistical theorem of set addition,
+\newblock \emph{Combinatorica} 14 (1994), 263--268.
+
+\bibitem[GMR+22]{GreenMatolcsiRuzsaShakanZhelezov}
+B. Green, D. Matolcsi, I. Z. Ruzsa, G. Shakan, and D. Zhelezov,
+\newblock A weighted Pr\'ekopa--Leindler inequality and sumsets with quasicubes,
+\newblock in \emph{Analysis at Large}, Springer, 2022, 125--129.
+
+\bibitem[LW10]{LiWanSieve}
+J. Li and D. Wan,
+\newblock A new sieve for distinct coordinate counting,
+\newblock \emph{Sci. China Math.} 53 (2010), 2351--2362.
+
+\bibitem[Tao10]{TaoEntropy}
+T. Tao,
+\newblock Sumset and inverse sumset theorems for Shannon entropy,
+\newblock \emph{Combin. Probab. Comput.} 19 (2010), 603--639.
+
+\bibitem[TV06]{TaoVu}
+T. Tao and V. Vu,
+\newblock \emph{Additive Combinatorics},
+\newblock Cambridge University Press, 2006.
+
+\bibitem[Gow98]{GowersSzemeredi}
+W. T. Gowers,
+\newblock A new proof of Szemer\'edi's theorem for arithmetic progressions of length four,
+\newblock \emph{Geom. Funct. Anal.} 8 (1998), 529--551.
+
+\bibitem[GMT23]{GreenMannersTao}
+B. Green, F. Manners, and T. Tao,
+\newblock Sumsets and entropy revisited,
+\newblock arXiv:2306.13403, 2023.
+
+\bibitem[Goh24]{GohEnergy}
+M. K. Goh,
+\newblock On an entropic analogue of additive energy,
+\newblock arXiv:2406.18798, 2024.
+
+\bibitem[MRSZ22]{MatolcsiRuzsaShakanZhelezov}
+D. Matolcsi, I. Z. Ruzsa, G. Shakan, and D. Zhelezov,
+\newblock An analytic approach to cardinalities of sumsets,
+\newblock \emph{Combinatorica} 42 (2022), 203--236.
+
+\bibitem[Wei48]{Weil}
+A. Weil,
+\newblock On some exponential sums,
+\newblock \emph{Proc. Natl. Acad. Sci. USA} 34 (1948), 204--207.
+
+\end{thebibliography}
+\end{document}
