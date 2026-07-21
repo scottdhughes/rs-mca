@@ -1,0 +1,184 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rs-mca-c2048-partial-occupancy-30carrier-v1",
+  "title": "M31 c=2048 partial-occupancy and 30-carrier certificate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "architecture_id",
+    "budget_calibration",
+    "carrier_reduction",
+    "chronology_contract",
+    "deployed_parameters",
+    "external_dependencies",
+    "nonclaims",
+    "occupancy_atlas",
+    "payload_sha256",
+    "schema",
+    "scope",
+    "source_bindings",
+    "status",
+    "toy_control"
+  ],
+  "properties": {
+    "schema": {"const": "rs-mca-c2048-partial-occupancy-30carrier-v1"},
+    "architecture_id": {"const": "M31_C2048_PARTIAL_OCCUPANCY_30CARRIER_REDUCTION_V1"},
+    "status": {"const": "PROVED_BOUNDARY_OCCUPANCY_ATLAS_AND_30CARRIER_REDUCTION_ROW_OPEN"},
+    "payload_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["deployed_row_closed", "field", "impact", "lean_used", "ledger_movement", "object", "row", "stable_paper_modified", "unit", "workboard_item"],
+      "properties": {
+        "workboard_item": {"const": "M1"},
+        "row": {"const": "Mersenne-31 list at 2^-100"},
+        "object": {"const": "LIST"},
+        "field": {"const": "GF((2^31-1)^4)"},
+        "unit": {"const": "DISTINCT_EXACT_BOUNDARY_CODEWORDS_PER_RECEIVED_WORD"},
+        "impact": {"const": "PROVED_EXHAUSTIVE_BOUNDARY_REDUCTION_AND_ROUTE_CUT"},
+        "deployed_row_closed": {"const": false},
+        "ledger_movement": {"const": 0},
+        "stable_paper_modified": {"const": false},
+        "lean_used": {"const": false}
+      }
+    },
+    "deployed_parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["B_star", "K", "agreement", "agreement_quotient", "agreement_remainder", "boundary_cutoff", "error_quotient", "error_remainder", "fiber_count", "fold_degree", "forney_sum_upper", "n", "p", "prefix_depth", "radius"],
+      "properties": {
+        "p": {"const": 2147483647},
+        "n": {"const": 2097152},
+        "K": {"const": 1048576},
+        "agreement": {"const": 1116023},
+        "radius": {"const": 981129},
+        "prefix_depth": {"const": 67447},
+        "B_star": {"const": 16777215},
+        "fold_degree": {"const": 2048},
+        "fiber_count": {"const": 1024},
+        "error_quotient": {"const": 479},
+        "error_remainder": {"const": 137},
+        "agreement_quotient": {"const": 544},
+        "agreement_remainder": {"const": 1911},
+        "forney_sum_upper": {"const": 913681},
+        "boundary_cutoff": {"const": 67447}
+      }
+    },
+    "occupancy_atlas": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["agreement_v32_remainder", "agreement_v33_remainder", "agreement_visible_v_max", "arm_and_core_disjoint", "arm_and_core_exhaustive", "bideep_count", "c1_face_count", "double_strict_core_count", "error_u32_remainder", "error_u33_remainder", "error_visible_u_max", "face_and_bideep_disjoint", "face_and_bideep_exhaustive", "feasible_set", "infeasible_boundary_pair", "parameterization", "profile_count", "profile_sha256", "visible_arm_count"],
+      "properties": {
+        "parameterization": {"type": "object"},
+        "feasible_set": {"type": "string", "minLength": 1},
+        "profile_count": {"const": 261192},
+        "profile_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "c1_face_count": {"const": 616},
+        "bideep_count": {"const": 260576},
+        "visible_arm_count": {"const": 31712},
+        "double_strict_core_count": {"const": 228864},
+        "face_and_bideep_disjoint": {"const": true},
+        "face_and_bideep_exhaustive": {"const": true},
+        "arm_and_core_disjoint": {"const": true},
+        "arm_and_core_exhaustive": {"const": true},
+        "infeasible_boundary_pair": {"const": [0, 137]},
+        "error_visible_u_max": {"const": 32},
+        "agreement_visible_v_max": {"const": 32},
+        "error_u32_remainder": {"const": 65673},
+        "error_u33_remainder": {"const": 67721},
+        "agreement_v32_remainder": {"const": 67447},
+        "agreement_v33_remainder": {"const": 69495}
+      }
+    },
+    "chronology_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["agreement_face", "arbitrary_boundary_to_Q_adapter_proved", "declared_first_match_dependency_head", "error_face", "face_numerical_payment_proved", "face_route", "face_route_is_conditional", "orientations_are_one_support_not_two_charges", "visible_arm_fixed_quotient_recovery_proved", "visible_arm_quotient_count_bound_proved"],
+      "properties": {
+        "declared_first_match_dependency_head": {"const": "a843a8f7930054617ef1d94169a4a9d3422cb909"},
+        "error_face": {"const": "u=0"},
+        "agreement_face": {"const": "v=0"},
+        "face_route": {"const": "REMOVED_BY_OR_AT_C1_UNDER_DECLARED_ORDER"},
+        "face_route_is_conditional": {"const": true},
+        "face_numerical_payment_proved": {"const": false},
+        "orientations_are_one_support_not_two_charges": {"const": true},
+        "arbitrary_boundary_to_Q_adapter_proved": {"const": false},
+        "visible_arm_fixed_quotient_recovery_proved": {"const": true},
+        "visible_arm_quotient_count_bound_proved": {"const": false}
+      }
+    },
+    "carrier_reduction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bideep_residual_cap_without_30_carrier", "boundary_cutoff", "carrier_columns", "columns_29_first_two_upper", "columns_29_not_certified", "complete_layer_core_divided_before_restriction", "first_index_upper", "first_two_index_sum_upper", "joint_index_sum_upper", "joint_kernel_rank", "minimal_width_from_aggregate_bound", "one_carrier_classification_suffices_for_residual_cap", "profile_residual_cap_without_30_carrier", "residual_cap_requires_fixed_exhaustive_disjoint_owner_compiler", "route_terminal", "same_profile_owner_paid", "target_field_arbitrary_m_corollary_explicit", "two_row_strict_below_cutoff"],
+      "properties": {
+        "route_terminal": {"const": "M31_C2048_BIDEEP_30COLUMN_OWNER"},
+        "profile_residual_cap_without_30_carrier": {"const": 29},
+        "bideep_residual_cap_without_30_carrier": {"const": 7556704},
+        "carrier_columns": {"const": 30},
+        "joint_kernel_rank": {"const": 28},
+        "joint_index_sum_upper": {"const": 913681},
+        "first_index_upper": {"const": 32631},
+        "first_two_index_sum_upper": {"const": 65262},
+        "boundary_cutoff": {"const": 67447},
+        "two_row_strict_below_cutoff": {"const": true},
+        "columns_29_first_two_upper": {"const": 67680},
+        "columns_29_not_certified": {"const": true},
+        "minimal_width_from_aggregate_bound": {"const": 30},
+        "target_field_arbitrary_m_corollary_explicit": {"const": true},
+        "complete_layer_core_divided_before_restriction": {"const": true},
+        "same_profile_owner_paid": {"const": false},
+        "residual_cap_requires_fixed_exhaustive_disjoint_owner_compiler": {"const": true},
+        "one_carrier_classification_suffices_for_residual_cap": {"const": false}
+      }
+    },
+    "budget_calibration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["U_low", "allocation_is_boundary_only", "bideep_conditional_cap", "bideep_profiles_times_64", "boundary_only_sum", "carrier_codewords_deleted_without_charge", "columns_65_first_index_upper", "columns_65_first_two_upper", "early_boundary_target", "early_boundary_target_unit", "fixed_remainder_source_floor", "high_interior_reserve", "includes_all_activated_carrier_owner_charges", "raw_profiles_times_64", "same_profile_columns_for_above_budget_bideep", "same_profile_columns_for_above_budget_raw", "source_floor_slack"],
+      "properties": {
+        "U_low": {"const": 3730},
+        "bideep_conditional_cap": {"const": 7556704},
+        "early_boundary_target": {"const": 9216781},
+        "early_boundary_target_unit": {"const": "COMBINED_DISJOINT_C1_SHAPED_FACE_AND_ACTIVATED_30CARRIER_OWNER_CHARGES"},
+        "includes_all_activated_carrier_owner_charges": {"const": true},
+        "carrier_codewords_deleted_without_charge": {"const": false},
+        "fixed_remainder_source_floor": {"const": 6796405},
+        "source_floor_slack": {"const": 2420376},
+        "boundary_only_sum": {"const": 16777215},
+        "raw_profiles_times_64": {"const": 16716288},
+        "bideep_profiles_times_64": {"const": 16676864},
+        "same_profile_columns_for_above_budget_raw": {"const": 65},
+        "same_profile_columns_for_above_budget_bideep": {"const": 65},
+        "columns_65_first_index_upper": {"const": 14502},
+        "columns_65_first_two_upper": {"const": 29005},
+        "allocation_is_boundary_only": {"const": true},
+        "high_interior_reserve": {"const": 0}
+      }
+    },
+    "toy_control": {"type": "object"},
+    "external_dependencies": {"type": "object"},
+    "nonclaims": {"type": "object"},
+    "source_bindings": {
+      "type": "array",
+      "minItems": 13,
+      "maxItems": 13,
+      "items": {"$ref": "#/$defs/sourceBinding"}
+    }
+  },
+  "$defs": {
+    "sourceBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["binding_id", "internal_payload_sha256", "path", "role", "scope", "sha256"],
+      "properties": {
+        "binding_id": {"type": "string", "minLength": 1},
+        "internal_payload_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "path": {"type": "string", "minLength": 1},
+        "role": {"type": "string", "minLength": 1},
+        "scope": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    }
+  }
+}

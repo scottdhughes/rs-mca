@@ -30,6 +30,15 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-21 - M31 c=2048 partial-occupancy atlas and 30-carrier reduction
+
+- **Agent/model:** Codex, with two independent theorem/scope audits, a standard-library exhaustive verifier, and an independent Sage finite-field replay.
+- **Files added or changed:** `agents.md`; `experimental/notes/thresholds/m31_c2048_partial_occupancy_30carrier_reduction.md`; `experimental/data/schemas/m31_c2048_partial_occupancy_30carrier_v1.schema.json`; `experimental/data/certificates/m31-c2048-partial-occupancy-30carrier-v1/`; `experimental/scripts/verify_m31_c2048_partial_occupancy_30carrier_v1.py`; `experimental/scripts/verify_m31_c2048_partial_occupancy_30carrier_v1.sage`; and this log.
+- **Status:** PROVED TARGET-FIELD EXACT-BOUNDARY REDUCTION / ROUTE CUT / C1 AND 30-CARRIER OWNERS OPEN / ROW OPEN.
+- **What is being added:** The exact `T_2048` occupancy parameters exhaust all `261192` boundary profiles and split them into `616` C1-shaped faces, `260576` bi-deep profiles, `31712` visible-arm profiles, and `228864` double-strict profiles.  Either the bi-deep layer has at most `29*260576=7556704` codewords or one fixed profile contains 30 codewords; an explicit arbitrary-size target-field kernel lemma then gives two independent coupled rows of combined degree at most `65262<67447`.
+- **How it is useful:** This converts the entire `c=2048` variable-remainder boundary residual into one homogeneous terminal, `M31_C2048_BIDEEP_30COLUMN_OWNER`, instead of another unconnected fixed-width diagnostic.  The exact conditional combined face/carrier-owner target is `9216781`, leaving `2420376` above the predecessor's realized `6796405` source floor; carrier codewords are never deleted without charging them.  The audit deliberately keeps arbitrary-word C1 routing conditional on the missing boundary-to-prefix adapter, moves no ledger atom, and reserves no mass for high interior weights.
+- **What to do next:** Classify every same-profile 30-column partial-fiber incidence component into a chronology-valid paid owner, a budget-fitting attained-image bound, or an explicit primitive route cut.  Separately prove the arbitrary-word boundary-to-prefix/C1 adapter and numerical C1 payment; do not delete carrier codewords, promote the 29-column aggregate noncertificate to impossibility, or treat the boundary-only allocation as full-row closure.
+
 ### 2026-07-21 - M31 Chebyshev fixed-remainder exact C1 boundary source and raw route cut
 
 - **Agent/model:** Codex, with a fresh independent theorem audit, a standard-library exact verifier, an exhaustive `GF(17)` control, and an independent Sage replay.

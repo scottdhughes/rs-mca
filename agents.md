@@ -98,6 +98,18 @@ At this snapshot:
   both the numerical C1 codeword payment and the variable-remainder/orientation
   residual open.  Arbitrary supports in the complete prefix fiber are not
   classified by this statement.
+- The full `c=2048` exact-boundary partial-occupancy atlas is now exhaustive.
+  Its `261192` profiles split into `616` C1-shaped Euclidean-remainder faces
+  and `260576` bi-deep profiles; the latter split into `31712` visible-arm
+  and `228864` double-strict profiles.  For every target-field received word,
+  either every bi-deep profile has at most 29 codewords, giving total
+  `<=7556704`, or one fixed profile contains 30 codewords and the
+  field-generic coupled kernel supplies two independent rows of combined
+  degree `<=65262<67447`.  This is a boundary route reduction, not an owner:
+  the 30-column carrier is unpaid, the faces enter C1 for arbitrary words
+  only after the missing boundary-to-prefix adapter, the conditional combined
+  face/carrier target `9216781` is not a payment, high interior weights remain
+  open, and no ledger atom moves.
 - A schema/hash pass is structural preflight only. The legacy four-row compiler trusted-source registry is empty; the new M31 adapter hash-binds its theorem sources, but parsing either manifest does not itself prove an atom.
 
 ## 3. Document authority
@@ -111,6 +123,7 @@ At this snapshot:
 | `experimental/notes/thresholds/m31_canonical_masked_pade_global_route_cut.md` and `experimental/data/certificates/m31-canonical-masked-pade-global-route-cut-v1/manifest.json` | **M1 canonical-mask authority:** target-field Popov–Padé right-kernel bridge, exact padding/error classifier, simultaneous rank-three/no-coloop theorem, conditional target-field deformation dichotomy, and exhaustive natural-collision regression. It moves no atom and leaves the row open. |
 | `experimental/notes/thresholds/m31_full_span_forced_collision_route_cut.md` and `experimental/data/certificates/m31-full-span-forced-collision-route-cut-v1/manifest.json` | **M1 forced-collision authority:** exact annihilator/quotient-column/Popov evaluation criterion, graph-to-common-zero interface, maximum-rank syndrome-hyperplane route cut, and exhaustive full-span regression. It moves no atom and leaves the row open. |
 | `experimental/notes/thresholds/m31_chebyshev_fixed_remainder_c1_boundary_source_route_cut.md` and `experimental/data/certificates/m31-chebyshev-fixed-remainder-c1-boundary-source-route-cut-v1/manifest.json` | **M1 exact realized C1-boundary source authority:** general fixed-remainder polynomial-fold lemma, deployed `c=2048` list floor `6796405`, exact declared QR2/C1 route of the structured subfamily, raw signed chronology specialization, exhaustive flat-baseline optimizer, and aggregate-Forney route cut. It proves no numerical C1 or Q upper payment and moves no atom. |
+| `experimental/notes/thresholds/m31_c2048_partial_occupancy_30carrier_reduction.md` and `experimental/data/certificates/m31-c2048-partial-occupancy-30carrier-v1/manifest.json` | **M1 exact boundary-atlas authority:** exhaustive `c=2048` occupancy parameterization, C1-shaped/bi-deep/visible-arm/core partition, target-field arbitrary-subpacket lift, and the exact `7556704`-or-30-carrier dichotomy. The carrier owner, arbitrary-word C1 adapter/payment, and high interior remain open; ledger movement is zero. |
 | `tex/cs25_cap_v13_2.tex` | **Foundation/unsafe authority:** exact unsafe endpoints, field/domain conventions, reductions, and certificate grammar. |
 | `RS_MCA_Paving_v9.2.tex` | **Fixed ePrint basis for unconditional paving results:** shortening, MDS circuit, exact finite, exponential-budget, and conditional Sidon-to-flatness results from ePrint 2026/1463. It does not solve the subexponential near-capacity frontier. |
 | `experimental/rs_mca_thresholds.tex` | **Exact-regime/exposition source:** staircases, below-half-distance results, syndrome geometry, and examples; not unrestricted near-capacity closure authority. |
@@ -238,17 +251,19 @@ close the row.  On this exact-boundary center
 `M_R<=B*`; it is not a cheaper occupancy lemma, and the v4 grammar has no
 negative-refund interface.
 
-The maximal surviving M1 target is a joint owner/residual theorem: give the C1
-quotient/remainder cell an exact codeword payment that accommodates the
-realized `6796405` floor, and exhaust the
-`M31_VARIABLE_REMAINDER_ORIENTATION_RESIDUAL` where the remainder varies,
-partial occupancy reaches the fold degree, or a transversal/local-coset
-orientation survives.  Under the same declared first-match convention,
-fixed-remainder `c=1024` paired-prefix families are also removed by or at C1
-and are not a primitive-Q target.  Every genuine residual must
-yield a chronology-valid payment, a budget-fitting attained-image bound, a
-direct row-sharp Q theorem, or an explicit route cut.  Do not return to another
-flat baseline, standalone fixed-width frame, or scaled-column `U_new` attack.
+The maximal surviving M1 target is now the homogeneous terminal
+`M31_C2048_BIDEEP_30COLUMN_OWNER`, together with the source-bound C1 adapter.
+For one fixed bi-deep `(u,v)` profile, classify every 30-codeword coupled
+frame using its actual partial-fiber incidence.  Each component must yield a
+chronology-valid paid owner, a budget-fitting attained-image bound, or an
+explicit primitive route cut.  In parallel, prove a received-word-uniform
+boundary-to-prefix adapter and a combined disjoint face/carrier payment no
+smaller than the realized `6796405` floor and no larger than the conditional
+boundary target `9216781`.  Carrier codewords cannot be erased without their
+charge.  This target does not pay the high interior: a full row proof still
+must handle `U_list-int`, `U_ext`, and the remaining high `U_new` mass.  Do not
+return to a flat baseline, a generic fixed-width frame without the frozen
+occupancy profile, or an unsupported arbitrary-boundary-to-Q assignment.
 
 #### M2. Transfer the theorem or record a new floor
 
