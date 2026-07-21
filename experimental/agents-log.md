@@ -30,6 +30,37 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-21 - M31 canonical-Popov and rank-46 maximal mass compiler
+
+- **Agent/model:** Codex (generator), with independent upstream, proof, and
+  optimizer audits by separate subagents; independent Sage replay.
+- **Files added or changed:**
+  `experimental/notes/thresholds/m31_canonical_popov_rank46_compiler.md`,
+  `experimental/scripts/verify_m31_canonical_popov_rank46_compiler.py`,
+  `experimental/scripts/verify_m31_canonical_popov_rank46_compiler.sage`,
+  `experimental/data/certificates/m31-canonical-popov-rank46-compiler/README.md`,
+  `experimental/data/certificates/m31-canonical-popov-rank46-compiler/manifest.json`,
+  and this log.
+- **Status:** PROVED MASS-PRESERVING COMPILER / PROVED RANK-THREE ROUTE CUT /
+  GLOBAL M31 ROW OPEN.
+- **What is being added:** A lex-first bijection of the whole list with a
+  canonical masked locus in one global rank-two interpolation lattice; an
+  exact variable-weight incidence cap of `3,730` through weight `614,160`;
+  and the resulting `259,881` forced marked rank-46 packets.  Each packet has
+  a uniform rank-three minor degree at most `62,295<67,447` and terminates in
+  an unpaid common-core or rank-two coloop branch.
+- **How it is useful:** It supersedes the selected rank-36 extraction by the
+  strongest currently forced mass-sensitive packet and identifies the exact
+  compatibility wall: interior global locators contain agreement-padding
+  factors and cannot be identified with actual-error locators without a new
+  theorem.  Independent per-layer root unions are proved numerically unable
+  to close the signed occupancy ledger.
+- **What to do next:** Prove a semantic padding/owner theorem that carries the
+  exact source key, first-match projector, charge, and occupancy refund through
+  `UNPAID_PADDING_BRIDGE`, `UNPAID_COMMON_CORE_ADD_BACK`, and
+  `UNPAID_RANK2_COLOOP`.  Do not force PR #1005's support-only counterexample
+  into an owner and do not bank a ledger atom from this packet.
+
 ### 2026-07-21 - M31 literal-packet activation cut and rank-36 Forney frame
 
 - **Agent/model:** Codex (generator), with independent Sage construction and
