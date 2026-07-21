@@ -30,6 +30,35 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-20 - M31 whole-ball compiler and 137-cell Pluecker route cut
+
+- **Agent/model:** Codex, with independent theorem-derivation and toy-falsifier
+  agents.
+- **Files added or changed:** Added
+  `experimental/notes/thresholds/m31_whole_ball_source_separator_compiler.md`,
+  `experimental/scripts/verify_m31_whole_ball_source_separator_compiler.py`,
+  `experimental/scripts/verify_m31_whole_ball_source_separator_compiler.sage`,
+  and
+  `experimental/data/certificates/m31-whole-ball-source-separator-compiler/`;
+  updated `experimental/agents-log.md`.
+- **Status:** PROVED WHOLE-BALL CONTRACT / PROVED 137-CELL FOUR-FACE
+  PLUECKER COMPRESSION / EXACT TOY ROUTE CUT / M31 LIST ROW OPEN.
+- **What is being added:** The exact-support whole-ball objective is frozen
+  with all interior weights and one-point escapes. For a factorized parity
+  four-face, pairwise-coprime locators force surjectivity for `D>=2r`; at the
+  deployed `D=2r-137`, every rank drop has `tau=0,...,136`, defect
+  `h=137-tau`, and six nonzero primitive low-degree Pluecker quotients. Exact
+  `GF(7)` and PGL-asymmetric `GF(23)` controls show that the sharp abstract
+  rank-drop endpoint is real without a projective support symmetry.
+- **How it is useful:** Replaces a huge maximal-minor problem and an
+  insufficient one-syzygy condition by 137 exact two-row incidence cells,
+  while mechanically preventing a frozen four-flat or boundary-only result
+  from being promoted into a whole-ball row closure.
+- **What to do next:** Intersect the 137 quotient cells with the actual M31
+  Chebyshev locator/source/escape equations and classify every compatible
+  cell as escape-killed, globally paid, or an explicit primitive survivor;
+  separately prove the whole-ball source selection and disjoint add-back.
+
 ### 2026-07-20 - M31 Chebyshev stabilizer and four-flat global separator
 
 - **Agent/model:** Codex, with independent stabilizer, cross-support, and

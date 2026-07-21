@@ -1,0 +1,336 @@
+{
+  "artifact_kind": "WHOLE_BALL_ROUTE_CUT_COMPILER",
+  "base_commit": "4958c2f95a9e3dd16bb28a13c919ff87811611a4",
+  "certificate_sha256": "3675470dcc55293a3c10a7c2b76641a781ea98ee3664ad08ca819017104e5e2e",
+  "closure_state": {
+    "add_back_proved": false,
+    "closure_certified": false,
+    "ledger_atoms": {
+      "U_Q": null,
+      "U_list_int": null,
+      "U_new": null,
+      "U_paid": null
+    },
+    "ledger_movement": 0,
+    "owner_disjointness_proved": false,
+    "prime_field_row_closed": false,
+    "prize_claimed": false,
+    "quartic_field_row_closed": false,
+    "result": "UNIVERSAL_SOURCE_BRIDGE_REQUIRED",
+    "unresolved_terminals": [
+      "WHOLE_BALL_SOURCE_EXTRACTION_OPEN",
+      "INTERIOR_WEIGHTS_1_TO_981128_OPEN",
+      "BOUNDARY_UNRESTRICTED_SOURCE_SELECTION_OPEN",
+      "ESCAPE_AWARE_3_TO_15_OPEN",
+      "RANK16_H1_UNRESTRICTED_LOCATORS_OPEN",
+      "RANK16_HIGHER_DEFECT_OPEN",
+      "GLOBAL_DISJOINT_ADDBACK_OPEN"
+    ]
+  },
+  "direct_component_route_cut": {
+    "excess": 2130706432,
+    "full_budget": 16777215,
+    "minimum_positive_dimension_charge": 2147483647,
+    "positive_dimension_direct_count_payable": false,
+    "scope": "CONDITIONAL_ON_INHERITED_DELTA_TIMES_P_TO_EY_CHARGE_FORM"
+  },
+  "four_face_compression": {
+    "coefficient_unknowns": 67860,
+    "cokernel_formula": "sum_j max(0,mu_j-D)",
+    "crt_equations": [
+      "H10*B0*C1+H11*B1*C0=0 mod A0",
+      "H00*B0*C0+H01*B1*C1=0 mod A1",
+      "H01*A0*C1+H11*A1*C0=0 mod B0",
+      "H00*A0*C0+H10*A1*C1=0 mod B1",
+      "H10*A1*B0+H01*A0*B1=0 mod C0",
+      "H00*A0*B0+H11*A1*B1=0 mod C1"
+    ],
+    "crt_product_degree": 202752,
+    "crt_sufficient_by_degree": true,
+    "factor_degree": 33792,
+    "factorization": [
+      "P00=A0*B0*C0",
+      "P10=A1*B0*C1",
+      "P01=A0*B1*C1",
+      "P11=A1*B1*C0"
+    ],
+    "forney_index_sum": 101376,
+    "full_rank_implies_escape_contradiction": true,
+    "high_forney_index_floor": 67448,
+    "low_pair_sum_ceiling": 33928,
+    "low_syzygy_degree_ceiling": 16964,
+    "pluecker_defect_window": {
+      "all_six_quotients_nonzero": true,
+      "cell_count": 137,
+      "cokernel_defect": "137-tau",
+      "defect_interval": [
+        1,
+        137
+      ],
+      "deployed_threshold_gap": 137,
+      "kernel_dimension": "101102-tau",
+      "linear_identities": [
+        "A0*q_A1+B0*q_B1+C0*q_C1=0",
+        "-A1*q_A0+B0*q_B1-C1*q_C0=0",
+        "A0*q_A1-B1*q_B0+C1*q_C0=0",
+        "A1*q_A0+B1*q_B0+C0*q_C1=0"
+      ],
+      "maximum_quotient_degree_equals_tau": true,
+      "minimum_simple_locator_zeros": 33656,
+      "minor_divisors": {
+        "A0": "Delta_13",
+        "A1": "Delta_02",
+        "B0": "Delta_23",
+        "B1": "Delta_01",
+        "C0": "Delta_12",
+        "C1": "Delta_03"
+      },
+      "mu1_plus_mu2": "33792+tau",
+      "mu3": "67584-tau",
+      "quadratic_identity": "B0*B1*q_B0*q_B1-A0*A1*q_A0*q_A1+C0*C1*q_C0*q_C1=0",
+      "quotient_degree_ceiling": 136,
+      "quotients_primitive": true,
+      "rank": "168686+tau",
+      "rational_mds_parameters": [
+        4,
+        2,
+        3
+      ],
+      "split_squarefree_needed_only_for_root_statement": true,
+      "sufficient_to_lift_source_witness": false,
+      "tau_interval": [
+        0,
+        136
+      ],
+      "universal_surjectivity_bound": 67584
+    },
+    "primitive_row": true,
+    "rank_drop_exact_two_row_criterion": true,
+    "row_degree": 101376,
+    "single_low_syzygy_sufficient_for_rank_drop": false,
+    "six_factors_pairwise_coprime": true,
+    "surjective_iff_max_index_at_most_bound": true,
+    "syzygy_product_degree_ceiling": 118340,
+    "theta_bound": 67447,
+    "two_row_degree_sum_ceiling": 33928
+  },
+  "parameters": {
+    "agreement": 1116023,
+    "budget": 16777215,
+    "forbidden_size": 16777216,
+    "k": 1048576,
+    "n": 2097152,
+    "p": 2147483647,
+    "radius": 981129,
+    "sigma": 67447
+  },
+  "pgl_asymmetric_rank_drop_control": {
+    "chunks": [
+      [
+        1,
+        2
+      ],
+      [
+        10,
+        12
+      ],
+      [
+        4,
+        20
+      ],
+      [
+        8,
+        19
+      ],
+      [
+        5,
+        15
+      ],
+      [
+        7,
+        13
+      ]
+    ],
+    "cokernel_functional": [
+      1,
+      5,
+      12,
+      0,
+      8,
+      8,
+      15,
+      10,
+      8
+    ],
+    "constant_syzygy": [
+      1,
+      9,
+      18,
+      18
+    ],
+    "deployed_implication": false,
+    "factor_degree": 2,
+    "field": 23,
+    "forney_profile": [
+      0,
+      2,
+      4
+    ],
+    "pgl2_order": 12144,
+    "pgl2_stabilizer": [
+      [
+        1,
+        0,
+        0,
+        1
+      ]
+    ],
+    "support": [
+      1,
+      2,
+      4,
+      5,
+      7,
+      8,
+      10,
+      12,
+      13,
+      15,
+      19,
+      20
+    ],
+    "theta3_cokernel_defect": 1,
+    "theta3_dimensions": [
+      9,
+      12
+    ],
+    "theta_ranks_D_1_through_6": [
+      3,
+      6,
+      8,
+      10,
+      11,
+      12
+    ]
+  },
+  "provenance": {
+    "completion_compiler": "experimental/notes/frontier-adjacent/four_row_exact_completion_compiler_v1.md",
+    "exact_optimizer": "experimental/notes/thresholds/m31_shortened_flat_hyperplane_wall.md",
+    "forney_source": "experimental/notes/l2/rank16_left_kernel_forney_route_cut.md",
+    "four_face_source": "experimental/notes/thresholds/m31_chebyshev_global_separator.md",
+    "parent_head": "4958c2f95a9e3dd16bb28a13c919ff87811611a4",
+    "parent_pr": 1002
+  },
+  "schema": "m31-whole-ball-source-separator-compiler-v1",
+  "source_sha256": {
+    "experimental/data/certificates/m31-whole-ball-source-separator-compiler/README.md": "e8eacfbd4e16552249fd880be93197415e7dfcf6797063752e7f1d131211a053",
+    "experimental/notes/frontier-adjacent/four_row_exact_completion_compiler_v1.md": "a3ac0f003846ed7335c8f9c819fcc285a110527fd260fad1e6d43c8f929279bf",
+    "experimental/notes/l2/rank16_left_kernel_forney_route_cut.md": "a4184e950ca198729f057859fcc18571e86eed618c3fae21445f2fbb38ee329d",
+    "experimental/notes/thresholds/m31_chebyshev_global_separator.md": "b13c8938a16aabeb2567b013487a5a8d72428e9b1c183ca2a9de93d9236fae12",
+    "experimental/notes/thresholds/m31_shortened_flat_hyperplane_wall.md": "52c398047f50f626fb64c72e45e5cb9417c71712772d93a5243cb3a88e4f7ab9",
+    "experimental/notes/thresholds/m31_whole_ball_source_separator_compiler.md": "ddbe8a92864b0ff0aa3841f08a2dd4a3892bbeb32735ce2eb40d63c61fd4daa3",
+    "experimental/scripts/verify_m31_chebyshev_global_separator.py": "9c0aedcefeacfd3ddde30b7cac50c493dc8f2a65dc5da64b9a0e584d3d481595",
+    "experimental/scripts/verify_m31_whole_ball_source_separator_compiler.py": "92a30f693de94b45656c75a77cf7af9034886ef3207c2d8fd763716722f6bf22",
+    "experimental/scripts/verify_m31_whole_ball_source_separator_compiler.sage": "b12703e23d55f30fd84b8fd1ecbdd959290588bb4a56e52a9b60d0684fa9fbee"
+  },
+  "status": "PROVED_137_CELL_PLUECKER_COMPRESSION_UNIVERSAL_SOURCE_BRIDGE_OPEN",
+  "terminal": "WHOLE_BALL_ROUTE_CUT_CURRENT_ARTIFACT_SET",
+  "toy_rank_drop_control": {
+    "cokernel_defect": 1,
+    "crt_equivalence_coefficient_vectors": 2401,
+    "deployed_implication": false,
+    "factor_degree": 1,
+    "field": 7,
+    "full_rank_forney_profile": [
+      1,
+      1,
+      1
+    ],
+    "labelled_disjoint_sextuples": 5040,
+    "phi_zero": 1344,
+    "pluecker_quotients": {
+      "A0": [
+        5
+      ],
+      "A1": [
+        3
+      ],
+      "B0": [
+        6
+      ],
+      "B1": [
+        1
+      ],
+      "C0": [
+        3
+      ],
+      "C1": [
+        3
+      ]
+    },
+    "primitive_example": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6
+    ],
+    "primitive_syzygy": [
+      1,
+      3,
+      6,
+      4
+    ],
+    "rank_drop_forney_profile": [
+      0,
+      1,
+      2
+    ],
+    "second_row_reduced_syzygy": [
+      [
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        0,
+        3
+      ]
+    ],
+    "tau": 0,
+    "theta_rank_3": 1344,
+    "theta_rank_4": 3696,
+    "theta_rank_below_3": 0
+  },
+  "whole_ball_contract": {
+    "allowed_terminals": [
+      "ESCAPE_KILLED",
+      "PAID_OWNER",
+      "ACTUAL_HYPERPLANE_SURVIVOR",
+      "UNPAID_PRIMITIVE"
+    ],
+    "boundary_covered": false,
+    "boundary_only_sufficient": false,
+    "center_to_hyperplane_surjective": true,
+    "every_one_point_escape_retained": true,
+    "exact_containment_retained": true,
+    "frozen_embedding_sufficient": false,
+    "interior_covered": false,
+    "object": "NONZERO_SYNDROME_EXACT_SUPPORT_LIST",
+    "source_selection_proved": false,
+    "support_sum_duplicate_free": true,
+    "support_weight_interval": [
+      0,
+      981129
+    ],
+    "weight_layers": 981130,
+    "zero_syndrome_list_size": 1
+  }
+}
