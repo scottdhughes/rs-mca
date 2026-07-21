@@ -3515,3 +3515,26 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Run verifiers and audits on the integrated material,
   review mathematical notes before promotion, and close the original PRs as
   manually integrated once the integration commit is pushed.
+
+### 2026-07-21 - M31 full-packet escape-Pade-Forney source
+
+- **Agent/model:** Codex with an independent ChatGPT Pro hostile-proof audit.
+- **Files added or changed:**
+  `experimental/notes/thresholds/m31_full_packet_pade_forney_source.md`,
+  `experimental/scripts/verify_m31_full_packet_pade_forney.py`,
+  `experimental/data/certificates/m31-full-packet-pade-forney/expected.txt`,
+  `experimental/data/certificates/m31-full-packet-pade-forney/r37_role03_publication.json`,
+  and `experimental/agents-log.md`.
+- **Status:** PROVED LOCAL / CONDITIONAL / INDEPENDENT AUDIT `ACCEPT_NARROWED` /
+  ZERO PAYMENT / OFFICIAL SCORE `0/2`.
+- **What is being added:** A self-contained prime-field theorem for the full
+  least-maximizing exact M31 layer: exact explanation and escape bridges,
+  true common-core division, common Pade source, exact syzygy-index formulas,
+  the bound `mu_1+mu_2<=53,745<67,447`, at least 21 low rows for `M=36`,
+  and the exact two-column obstruction.
+- **How it is useful:** Replaces an arbitrary-packet shortcut by the actual
+  complete source packet while preserving every one-point escape and making
+  the remaining source-selection/payment wall explicit.
+- **What to do next:** Prove a direct count at `B*`, extract a source-selected
+  collision-bearing face, or compile a globally disjoint first-match owner
+  with all add-backs.

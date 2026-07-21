@@ -1,0 +1,60 @@
+{
+  "schema": "rs-mca-r37-role03-publication-v1",
+  "status": "independent_hostile_audit_accept_narrowed_zero_payment",
+  "source_base_commit": "18cfc199d4612f5dfc01bf6c0155a65a1eaa3832",
+  "source_base_tree": "ba5ce1503992eb3e8440f241095369645d6ee00b",
+  "author_repair": {
+    "conversation_id": "6a5f57f7-0da0-83ec-99d1-f3eba5ad7eb0",
+    "packet_sha256": "7ee191213d80722cfa3b792d89194a631081bee9c5488a20c823fc914242d11e",
+    "public_text_sha256": "58c2601694bbaeaa080b730c20a8fe60d8bd1a4c7ce9c3649544c894885524e9",
+    "full_rendered_sha256": "7112a20b72b16175afa9ebeb432bf53e8cd392241356cfd5f0d096bd430aa57f",
+    "bundle_sha256": "2574f6b642328f08ff0e2c0f5041b4ac5e41f28b63033048ec3d8182b1434705"
+  },
+  "independent_hostile_audit": {
+    "verdict": "ACCEPT_NARROWED",
+    "conversation_id": "6a5f7a2c-10d0-83ec-b7f6-62e2a1cd506e",
+    "packet_sha256": "0766a35a89a4115cb1ba3cb08f3e9b81f145bb1c1652a6a92736497b5023d97b",
+    "captured_at": "2026-07-21T14:55:54.353Z",
+    "public_text_sha256": "9d729b92e056b2c7e55141f8eef3a22e12739c7f6639d8b1bdd12abd7d6d7b57",
+    "full_rendered_sha256": "1d2e66571262b29f50c0b2a72db50a8c599160834775751bb0c0777d564736ff"
+  },
+  "theorem_scope": {
+    "field": "F_p",
+    "p": 2147483647,
+    "n": 2097152,
+    "K": 1048576,
+    "R": 981129,
+    "D_min": 67447,
+    "budget": 16777215,
+    "forced_complete_layer_size_at_least": 36,
+    "exact_ge_budget_threshold_for_layer_36": 16513724,
+    "two_smallest_forney_sum_upper": 53745,
+    "low_rows_at_least_for_M_36": 21,
+    "ledger_effect": 0,
+    "official_score": "0/2"
+  },
+  "director_replay": {
+    "manifest": "PASS",
+    "source_inspection": "PASS_STDLIB_ONLY",
+    "python_check": "PASS",
+    "python_optimized_check": "PASS",
+    "check_stdout_sha256": "faaae291cc3b791845f06e868fb96c796b953b614064879db4c75f32534c2658",
+    "python_tamper_selftest": "PASS_8_OF_8",
+    "python_optimized_tamper_selftest": "PASS_8_OF_8",
+    "tamper_stdout_sha256": "5bda1d38ba99651934823414c74a899a685b14a817a005fd502cfe737607db0c"
+  },
+  "nonclaims": [
+    "no whole-ball upper bound",
+    "no adjacent safe endpoint",
+    "no actual above-budget received word",
+    "no factorized collision face",
+    "no first-match owner",
+    "no common-core add-back",
+    "no payment",
+    "no scalar descent",
+    "no quartic-field transfer",
+    "no full list upper bound",
+    "no recurrence",
+    "no official theorem"
+  ]
+}
