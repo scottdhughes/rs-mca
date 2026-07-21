@@ -30,6 +30,35 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-21 - M31 literal-packet activation cut and rank-36 Forney frame
+
+- **Agent/model:** Codex (generator), with independent Sage construction and
+  fresh proof/code/upstream audits by separate subagents.
+- **Files added or changed:**
+  `experimental/notes/thresholds/m31_actual_hyperplane_packet_activation_route_cut.md`,
+  `experimental/scripts/verify_m31_actual_hyperplane_packet_activation_route_cut.py`,
+  `experimental/scripts/verify_m31_actual_hyperplane_packet_activation_route_cut.sage`,
+  `experimental/data/certificates/m31-actual-hyperplane-packet-activation-route-cut/README.md`,
+  `experimental/data/certificates/m31-actual-hyperplane-packet-activation-route-cut/manifest.json`,
+  and this log.
+- **Status:** PROVED LITERAL ROUTE CUT / PROVED GENERAL-RANK SOURCE / GLOBAL
+  M31 ROW OPEN.
+- **What is being added:** The inherited identity-prefix center contains a
+  parity-free exact-boundary 230-packet, and an independent complete-fibre
+  construction gives an explicit actual-hyperplane 36-packet with every
+  escape and no parity quartet.  Conversely, every forbidden list forces a
+  36-column primitive locator row with at least 21 Forney indices below the
+  cutoff and two rows of combined degree at most `53,745<67,447`.
+- **How it is useful:** It refutes every activation proof that discards the
+  ambient forbidden-list mass and tries to force PR #1004's factorized
+  four-face from an arbitrary bounded packet, while replacing that false
+  target with a multiplicity-sensitive growing-rank Pluecker frame.
+- **What to do next:** Build a mass-preserving first-match compiler over the
+  full layer multiplicities and marked common cores.  Route each full
+  shifted-Popov frame to a disjoint existing owner, a budget-fitting exact
+  incidence bound, or an explicit primitive route cut.  Do not bank a
+  ledger atom from this packet.
+
 ### 2026-07-20 - M31 Sidon / three-fibre / escape activation route cut
 
 - **Agent/model:** Codex (generator), with independent proof audits by fresh
