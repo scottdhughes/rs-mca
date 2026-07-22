@@ -156,6 +156,22 @@ At this snapshot:
   over profiles, exact partial templates, and attained cofactor jets; neither
   a maximum prefix fiber nor one common template can replace it.  The exact
   residual is `UNPAID_ATTAINED_COFACTOR_JET_SUM_OWNER`; no atom moves.
+- The conditional strong-subspace-design route is now localized exactly.
+  For a fixed template, every family above `Lambda_SD(u,v)` contains a
+  Chen--Zhang minimal bad subfamily whose free-`F[phi]` difference matrix
+  has smaller `F(T)`-rank than `F`-affine dimension.  The determinant-
+  valuation bound on the full-module-rank stratum is
+  `sum_b dim(W intersect H_b)<=deg(delta_ell)<=ell(D-1)+min(ell,137)`.
+  The exact conditional thresholds have maximum 17 and sum to `1988814`
+  over all 261192 profiles.  They are not unconditional caps: separately
+  realized fixed-multipartial-template rank-one sources exceed them in 193
+  profiles, including floors `6796405` at `(0,0)` and `1693898` at `(1,1)`;
+  these floors are not simultaneous around one received word.
+  The nested diagnostic subterminal is
+  `UNPAID_FIXED_TEMPLATE_MODULE_RANK_DROP`; the active global terminal stays
+  `UNPAID_ATTAINED_COFACTOR_JET_SUM_OWNER` and the partition is unchanged.
+  Rank-drop classification, cross-template guarded incidence, high interior,
+  and every ledger payment remain open; no atom moves.
 - A schema/hash pass is structural preflight only. The legacy four-row compiler trusted-source registry is empty; the new M31 adapter hash-binds its theorem sources, but parsing either manifest does not itself prove an atom.
 
 ## 3. Document authority
@@ -173,6 +189,7 @@ At this snapshot:
 | `experimental/notes/thresholds/m31_c2048_multiprefix_30carrier_activation_route_cut.md` and `experimental/data/certificates/m31-c2048-multiprefix-30carrier-activation-v1/manifest.json` | **M1 boundary successor authority:** separately realized fixed-multipartial exact sources in every occupancy profile, the exact 177/141 certified-floor census and 142-profile sufficient-criterion width census, the source-specific 30/29-column determinantal-divisor sharpening, the deployed same-remainder literal-locator multiprefix obstruction, and the arbitrary-word `Y-P=L_S H` replacement. It proves no universal carrier theorem or C1/carrier payment and moves no atom. |
 | `experimental/notes/thresholds/m31_c2048_65column_fixed_anchor_boundary_route_cut.md` and `experimental/data/certificates/m31-c2048-65column-fixed-anchor-route-cut-v1/manifest.json` | **M1 whole-boundary carrier authority:** exact width-36 combined-gate and width-65 direct-boundary triggers, sharp cumulative kernel-index ladder, 50-row/cutoff Hilbert floor, basis-relative fixed-anchor incidences, 156-profile source nonemptiness, and target-field proper-component deformation route cut through every budget-sized packet. The anchor is not canonical, the identically forced branch is unpaid, high interior remains open, and no atom moves. |
 | `experimental/notes/thresholds/m31_c2048_fixed_template_interleaved_quotient_route_cut.md` and `experimental/data/certificates/m31-c2048-fixed-template-interleaved-quotient-route-cut-v1/manifest.json` | **M1 fixed-template quotient authority:** exact interleaved quotient-RS cap for every profile/template, complete 25767/235425 budget census, locator/cofactor jet bijection, 15-target fixed-template construction, and varying-template gluing cut. The complete profile/template/attained-jet sum remains unpaid, high interior remains open, and no atom moves. |
+| `experimental/notes/thresholds/m31_c2048_fixed_template_module_rank_route_cut.md` and `experimental/data/certificates/m31-c2048-fixed-template-module-rank-route-cut-v1/manifest.json` | **M1 fixed-template module-rank authority:** direct determinantal-divisor/Smith bound on module-regular difference spans, localized Chen--Zhang minimal-sublist dichotomy, exact conditional threshold histogram/sum, and the 193-profile rank-one source obstruction. Module-rank drop and varying-template aggregation remain unpaid; the conditional threshold sum is not a ledger charge and no atom moves. |
 | `tex/cs25_cap_v13_2.tex` | **Foundation/unsafe authority:** exact unsafe endpoints, field/domain conventions, reductions, and certificate grammar. |
 | `RS_MCA_Paving_v9.2.tex` | **Fixed ePrint basis for unconditional paving results:** shortening, MDS circuit, exact finite, exponential-budget, and conditional Sidon-to-flatness results from ePrint 2026/1463. It does not solve the subexponential near-capacity frontier. |
 | `experimental/rs_mca_thresholds.tex` | **Exact-regime/exposition source:** staircases, below-half-distance results, syndrome geometry, and examples; not unrestricted near-capacity closure authority. |

@@ -3679,3 +3679,36 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Prove a direct count at `B*`, extract a source-selected
   collision-bearing face, or compile a globally disjoint first-match owner
   with all add-backs.
+
+### 2026-07-21 - M31 fixed-template module-rank route cut
+
+- **Agent/model:** Codex generator with independent proof, scope, and release
+  audits.
+- **Files added or changed:**
+  `experimental/notes/thresholds/m31_c2048_fixed_template_module_rank_route_cut.md`,
+  `experimental/scripts/verify_m31_c2048_fixed_template_module_rank_route_cut_v1.py`,
+  `experimental/scripts/verify_m31_c2048_fixed_template_module_rank_route_cut_v1.sage`,
+  `experimental/data/schemas/m31_c2048_fixed_template_module_rank_route_cut_v1.schema.json`,
+  `experimental/data/certificates/m31-c2048-fixed-template-module-rank-route-cut-v1/`,
+  `agents.md`, and `experimental/agents-log.md`.
+- **Status:** PROVED LOCAL DICHOTOMY / CONDITIONAL THRESHOLDS / KNOWN
+  RANK-ONE OBSTRUCTION / ZERO PAYMENT.
+- **What is being added:** A direct determinantal-divisor/Smith bound for
+  full-`F(T)`-rank fixed-template difference spans and a localized replay of
+  the Chen--Zhang minimal-bad-sublist argument.  Exact enumeration gives
+  `Lambda_SD<=17` and conditional sum `1988814`, while the proved
+  fixed-prefix source shows rank-one families exceed that threshold in 193
+  profiles.
+- **How it is useful:** It rules out the full-module-rank stratum as the
+  source of any oversized fixed-template list and refines that branch to the
+  nested diagnostic subterminal `UNPAID_FIXED_TEMPLATE_MODULE_RANK_DROP`,
+  while the global terminal and active partition remain unchanged.  It also
+  prevents the false promotion of the conditional thresholds to unconditional
+  caps.
+- **What to do next:** Stratify minimal bad families by `F(T)`-affine rank,
+  obtain the missing numerical C1 payment for the #1039 certified
+  fixed-remainder subfamily, separately classify the other rank-one
+  multiprefix sources, and attack the global guarded support-flat incidence
+  across varying partial templates.  Do not sum conditional fixed-template
+  thresholds or identify rank drop with an owner without an exact codeword
+  charge.
