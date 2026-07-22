@@ -73,6 +73,7 @@ At this snapshot:
 - The newly integrated M31 packets add local padding-bridge, masked-saturation, common-core add-back, rank-two/coloop, rooted-shell, C7--C9, and route-cut infrastructure.  These are not adjacent-row payments: source-bound owner/refund, rooted-shell completion, residual projection, and final finite-ledger terminals remain open.
 - The source-bound Mersenne-31 v4 LIST adapter proves one bankable codeword payment, `U_paid<=3730`, on exact error weights through `614160`.  Its four remaining atoms `U_Q`, `U_list-int`, `U_ext`, and `U_new` are null, and its global terminal is `UNPAID_GLOBAL_COUPLED_RANK46_RESIDUAL` (refined downstream to `UNPAID_CROSS_WEIGHT_EXCESS_DEFICIT_Q_OWNER`).
 - The all-weight anchor-exchange packet gives an exact codeword bijection relative to any actual listed anchor.  With `t=R-j0` and `m=deg(G)-t`, every nonanchor is represented uniquely by a divisor/gcd pair satisfying `m>=67448`, `deg(b)<m-67447`, and `deg(gcd(L0,G-bV))>=m`.  Since `B*+1<q`, fresh-symbol boundary forcing reduces the remaining direct theorem exactly to `#X(V)<=16777214` for boundary anchors `t=0`, still with arbitrary unit `V`.  Every unit `V mod L0` is realizable, so one anchor plus the rank-two module cannot force quotient, periodic, rational, or low-degree structure.  This is a zero-payment route cut, not row closure.
+- The boundary common-`V` full-locator route-cut packet proves the exact fixed-`G` Johnson wings and uniform excess thresholds, the nonzero pairwise Wronskian, the split-support moment, and the whole-list deep-tail cap `1001282`.  Scalar descent followed by fresh-symbol forcing over `F_p` reduces every live violation to a boundary census with all polynomial data in `F_p` and one arbitrary base-field unit `V`.  The `V=1` slice is exactly a depth-`w` locator-prefix fiber, but an exhaustive `F_7` control proves that arbitrary `V` can be strictly larger, so `V=1` is not an authorized reduction.  Any forbidden boundary list retains at least `15775933` pairs with excess at most `366886`; their locators are not proved distinct.  A literal Chebyshev support family shows that the enumerated cardinality, pairwise-intersection, fixed-weight, and `T2/T4` occupancy data permit exponentially too many abstract templates, while the unreduced quartic base-field gate has sharp worst-case codimension only `3(m-w)`.  Substituting the new deep cap into the rank-46 cutoff gives the worse baseline `17511197>B*`, so ledger movement is zero.  The live terminal is `UNPAID_BOUNDARY_COMMON_V_FULL_LOCATOR_COEFFICIENT_INCIDENCE`.
 - The older four-row v1 machine compiler is a historical Grande Finale v3 structural preflight.  It has four LIST atoms, slope/received-line units, and a stale `grande_finale.tex` source pin; it is not the live v4 Mersenne-31 LIST contract.
 - A schema/hash pass is structural preflight only. The trusted-source registry is empty; parsing a manifest does not prove an atom.
 
@@ -83,6 +84,7 @@ At this snapshot:
 | `experimental/notes/thresholds/m31_list_v4_global_completion_compiler.md` and `experimental/data/certificates/m31-list-v4-global-completion-compiler-v2/manifest.json` | **Live Mersenne-31 LIST completion authority:** current v4 five-atom contract, signed closure gate, enumerated zero-movement route-cut graph, and the sharp boundary-only additive/numerical insufficiency certificate. |
 | `experimental/notes/thresholds/m31_list_v4_source_adapter_global_coupled_residual.md` and `experimental/data/certificates/m31-list-v4-source-adapter-v1/manifest.json` | **Live Mersenne-31 LIST source/partition authority:** v4 five-atom codeword chronology, the banked low-weight payment, exact whole-list source partition, and global residual. |
 | `experimental/notes/thresholds/m31_all_weight_anchor_exchange_pade_bijection_v1.md` and `experimental/data/certificates/m31-all-weight-anchor-exchange-pade-bijection-v1/manifest.json` | **Live all-weight diagnostic reduction:** exact actual-anchor codeword bijection, corrected interpolation-module orientation, slack-normal gcd-incidence census, fresh-symbol reduction to boundary anchors, and generic-unit-`V` route cut.  It has zero ledger movement and does not prove the M31 census bound. |
+| `experimental/notes/thresholds/m31_boundary_common_v_cross_g_route_cut_v1.md` and `experimental/data/certificates/m31-boundary-common-v-cross-g-route-cut-v1/manifest.json` | **Live boundary-census route-cut authority:** scalar descent to a base-field boundary census; exact fixed-locator, pairwise-Wronskian, split-moment, deep-tail, `V=1` nonextremality, restricted-support, and Singleton cuts; localization to at least `15775933` shallow common-`V` pairs in the full locator census; exact proof that the new tail cutoff is not a v4 rank-46 payment.  The common-`V` split-flat incidence theorem and row remain open. |
 | `experimental/notes/frontier-adjacent/four_row_exact_completion_compiler_v1.md` and `experimental/data/certificates/four-row-exact-completion-compiler-v1/four_row_exact_completion_compiler_v1.json` | **Historical v3 structural preflight:** exact row arithmetic and legacy architecture checks only; not a current v4 LIST closure authority. |
 | `experimental/Conjectures_and_Barriers_RS_MCA_v4_1.tex` | **Direct problem/falsifier authority:** benchmark conjectures, exact compiler requirements, finite barriers, and separation of finite from conjectural asymptotic claims. |
 | `experimental/grande_finale.tex` | **Active conditional completion architecture:** proved local theorems, order-32/rational-atom reductions, owner localization, spread-core incidence bounds, and exact completion problems. Hypotheses/problems are not row bounds. |
@@ -177,6 +179,17 @@ anchor triple exceeding it.  Here `t=0`, `m=deg(G)`, and the gates are
 `deg(gcd(L0,G-bV))>=m`.  Do not specialize to `V=1`, return to one fixed
 weight, or count supports in place of codewords unless an exhaustive,
 disjoint bridge back to this census is proved.
+
+The current exact route cuts force any forbidden boundary list to retain at
+least `15775933` pairs with excess `0<=s<=366886`.  This is a full-locator
+census, not proof that the surviving pairs use distinct `G` values.  The next
+theorem must retain one common arbitrary base-field `V` while handling every
+possible locator and must use the exact split-flat coefficient compatibility
+beyond the certified fixed-`G` Johnson, pairwise-Wronskian, base-field-only,
+`V=1`, and restricted support-occupancy interfaces.  A rank-deficient
+interior component may be assigned to a named quotient/Chebyshev owner only
+with an exhaustive source-bound bridge; otherwise record it as an unpaid
+primitive component.
 
 #### M2. Transfer the theorem or record a new floor
 

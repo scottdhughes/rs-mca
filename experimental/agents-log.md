@@ -30,6 +30,42 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-22 - M31 boundary common-V full-locator route cuts
+
+- **Agent/model:** Codex, with separate exact-arithmetic, independent-replay,
+  proof-audit, packet-contract, and release-review agents.
+- **Files added or changed:**
+  `experimental/notes/thresholds/m31_boundary_common_v_cross_g_route_cut_v1.md`,
+  `experimental/data/certificates/m31-boundary-common-v-cross-g-route-cut-v1/`,
+  `experimental/data/schemas/m31_boundary_common_v_cross_g_route_cut_v1.schema.json`,
+  `experimental/scripts/verify_m31_boundary_cross_g_route_cut_v1.py`,
+  `experimental/scripts/verify_m31_boundary_cross_g_route_cut_v1_independent.py`,
+  `experimental/scripts/verify_m31_boundary_common_v_cross_g_route_cut_packet_v1.py`,
+  `agents.md`, and this log.
+- **Status:** PROVED EXACT ROUTE CUTS / RESIDUAL LOCALIZATION / AUDIT; M31
+  LIST ROW OPEN.
+- **What is being added:** The packet derives exact fixed-locator Johnson
+  wings, uniform excess thresholds, pairwise Wronskian and split-support
+  moment bounds, a `1001282` deep-tail cap, the scalar-descent-to-base-boundary
+  bridge, sharp quartic scalar-gate codimension, a restricted Chebyshev
+  support countermodel, the exact `V=1` prefix-fibre identity plus finite
+  nonextremality control, and the Singleton cutoff.  Any
+  forbidden boundary list retains at least `15775933` shallow common-`V`
+  pairs in the full locator census, with all live polynomial data reducible
+  to `F_p` but `V` still an arbitrary base-field unit.  The locators are not
+  asserted distinct.
+- **How it is useful:** It rigorously removes the current fixed-`G`,
+  pairwise-root, base-field-only, and restricted support-occupancy closure
+  routes.  It also proves that replacing the parent rank-46 cutoff by the new
+  direct tail cap gives `17511197>B*`, so the result cannot be misbanked as a
+  v4 atom.  Ledger and endpoint movement are zero.
+- **What to do next:** Prove a base-field common-`V`, full-locator split-flat
+  coefficient-incidence theorem by intersecting the exact fixed-`H` affine
+  and interior flats with `G|A0`.  Route every rank-deficient interior
+  component through a source-bound quotient/Chebyshev owner or retain it as
+  an explicit unpaid primitive component; do not assume the family varies in
+  `G`.
+
 ### 2026-07-22 - M31 exact all-weight anchor-exchange Padé bijection
 
 - **Agent/model:** Codex, with separate primary-checker, Sage-replay,
