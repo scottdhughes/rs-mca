@@ -30,6 +30,40 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-22 - M31 universal fixed-G base-field RS embedding
+
+- **Agent/model:** Codex, with separate proof-audit, exact-replay,
+  Sage-control, packet-contract, and fresh release-review agents.
+- **Files added or changed:**
+  `experimental/notes/thresholds/m31_fixed_g_universal_rs_embedding_v1.md`,
+  `experimental/data/certificates/m31-fixed-g-universal-rs-embedding-v1/`,
+  `experimental/data/schemas/m31_fixed_g_universal_rs_embedding_v1.schema.json`,
+  `experimental/scripts/verify_m31_fixed_g_universal_rs_embedding_v1.py`,
+  `experimental/scripts/verify_m31_fixed_g_universal_rs_embedding_v1.sage`,
+  `experimental/scripts/verify_m31_fixed_g_universal_rs_embedding_packet_v1.py`,
+  `agents.md`, and this log.
+- **Status:** PROVED FIXED-G BASE-FIELD RS EMBEDDING / ROUTE CUT / AUDIT;
+  ORDINARY RS UPPER AND M31 LIST ROW OPEN.
+- **What is being added:** One common constant translation turns an
+  arbitrary received table on a deployed `R`-subset into a nowhere-zero
+  table while leaving enough coordinates of the complementary anchor
+  support simultaneously nonzero for every list polynomial.  At
+  `L=B*=16777215` the exact good-root lower bound is
+  `1107301=R+126172`, so one split locator `G` embeds all `B*` ordinary
+  codewords as distinct nonanchors beside the zero anchor.
+- **How it is useful:** It proves that M31 row safety necessarily implies
+  the uniform deterministic punctured-RS bound `M_ord<=16777214`; neither
+  received-word zeros nor the `gcd(b,G)=1` gate can pay the fixed-`G`
+  residual.  The Johnson-negative middle remains
+  `72859<=m<=908270`, equivalently `5412<=d<=840823`.  Ledger and endpoint
+  movement are zero, and no converse for lists mixing `G` is claimed.
+- **What to do next:** Attack the exact uniform ordinary-RS cap on every
+  deployed `R`-subset and the varying-`G` pairwise-incidence residual as a
+  coupled closure problem, or construct a direct counterexample.  Do not
+  reuse random-puncture, generic-domain, nowhere-zero-center, or
+  split-numerator-coprimality hypotheses without an explicit uniform
+  transfer.
+
 ### 2026-07-22 - M31 common-V split-flat pairwise CRT equivalence
 
 - **Agent/model:** Codex, with separate theorem-generation, exact-replay,
