@@ -1,0 +1,244 @@
+{
+  "$id": "rs-mca-m31-chebyshev-order32-max-fiber-route-cut-v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "census": {
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {"type": "string", "minLength": 1},
+        "all_punctures_certified": {"const": 32},
+        "distinct_sum_counts": {
+          "type": "array",
+          "minItems": 32,
+          "maxItems": 32,
+          "items": {"type": "integer", "minimum": 1}
+        },
+        "finite_computational_theorem": {"const": true},
+        "keys_at_maximum_per_puncture": {"const": 1},
+        "maximum_fiber": {"const": 6435},
+        "maximum_is_structured_T2_owner": {"const": true},
+        "maximum_key_rule": {"const": "-omitted_label mod p"},
+        "other_omissions_transport": {"const": "q -> -q exact bijection"},
+        "representative_omissions_exhausted": {
+          "const": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+        },
+        "structural_family": {"type": "string", "minLength": 1},
+        "structural_family_count": {"const": 6435},
+        "subsets_per_puncture": {"const": 265182525}
+      },
+      "required": [
+        "algorithm", "all_punctures_certified", "distinct_sum_counts",
+        "finite_computational_theorem", "keys_at_maximum_per_puncture",
+        "maximum_fiber", "maximum_is_structured_T2_owner", "maximum_key_rule",
+        "other_omissions_transport", "representative_omissions_exhausted",
+        "structural_family", "structural_family_count", "subsets_per_puncture"
+      ],
+      "type": "object"
+    },
+    "deployed_parameters": {
+      "additionalProperties": false,
+      "properties": {
+        "B_star": {"const": 16777215},
+        "K": {"const": 1048576},
+        "agreement": {"const": 1116023},
+        "code_field_cardinality": {"const": "21267647892944572736998860269687930881"},
+        "fold": {"const": "T_65536 on the pinned M31 Chebyshev domain"},
+        "fold_degree": {"const": 65536},
+        "forbidden_size": {"const": 16777216},
+        "high_degree": {"const": 1050487},
+        "low_degree": {"const": 984951},
+        "moving_quotient_labels": {"const": 17},
+        "n": {"const": 2097152},
+        "p": {"const": 2147483647},
+        "partial_fiber_size": {"const": 1911},
+        "quotient_size": {"const": 32},
+        "radius": {"const": 981129}
+      },
+      "required": [
+        "B_star", "K", "agreement", "code_field_cardinality", "fold",
+        "fold_degree", "forbidden_size", "high_degree", "low_degree",
+        "moving_quotient_labels", "n", "p", "partial_fiber_size",
+        "quotient_size", "radius"
+      ],
+      "type": "object"
+    },
+    "exact_lift": {
+      "additionalProperties": false,
+      "properties": {
+        "base_field_embeds_in_deployed_code": {"const": true},
+        "codeword_polynomial": {"type": "string", "minLength": 1},
+        "common_prefix": {"const": "e1(M)=sum(M)"},
+        "counterexample_threshold": {"const": 16777216},
+        "degree_below_K": {"const": 984951},
+        "distinct_codewords": {"const": true},
+        "exact_agreement": {"const": 1116023},
+        "free_anchor_exists": {"const": false},
+        "puncture_exclusion_required": {"const": true},
+        "received_polynomial": {"type": "string", "minLength": 1}
+      },
+      "required": [
+        "base_field_embeds_in_deployed_code", "codeword_polynomial",
+        "common_prefix", "counterexample_threshold", "degree_below_K",
+        "distinct_codewords", "exact_agreement", "free_anchor_exists",
+        "puncture_exclusion_required", "received_polynomial"
+      ],
+      "type": "object"
+    },
+    "higher_mds_diagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "agreement": {"const": 17},
+        "distance": {"const": 14},
+        "failure_witness_size": {"const": 6435},
+        "forbidden_list_size_under_LD_MDS_le_14": {"const": 15},
+        "primary_source": {"type": "string", "minLength": 1},
+        "punctured_quotient_code": {"type": "string", "minLength": 1},
+        "required_dual_gate": {"type": "string", "minLength": 1},
+        "required_gate_holds": {"const": false}
+      },
+      "required": [
+        "agreement", "distance", "failure_witness_size",
+        "forbidden_list_size_under_LD_MDS_le_14", "primary_source",
+        "punctured_quotient_code", "required_dual_gate", "required_gate_holds"
+      ],
+      "type": "object"
+    },
+    "nonclaims": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "payload_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "quotient_labels": {
+      "type": "array",
+      "minItems": 32,
+      "maxItems": 32,
+      "uniqueItems": true,
+      "items": {"type": "integer", "minimum": 1, "maximum": 2147483646}
+    },
+    "rotation_route_cut": {
+      "additionalProperties": false,
+      "properties": {
+        "high_map_rank": {"const": 16},
+        "high_map_shape": {"const": [16, 17]},
+        "high_rows": {"const": [16, 31]},
+        "intersection_contradiction": {"type": "string", "minLength": 1},
+        "intrinsic_chebyshev_identity_count": {"const": 17},
+        "intrinsic_high_map_rank": {"const": 16},
+        "intrinsic_high_map_shape": {"const": [16, 17]},
+        "intrinsic_integer_resultant": {"const": "2^496"},
+        "intrinsic_kernel": {"const": "Chebyshev second-kind polynomial U_16"},
+        "intrinsic_kernel_coefficients_low_to_high": {
+          "const": [1, 0, 2147483503, 0, 3360, 0, 2147454079, 0, 126720, 0, 2147190783, 0, 372736, 0, 2147237887, 0, 65536]
+        },
+        "intrinsic_kernel_coprime_to_quotient_locator": {"const": true},
+        "intrinsic_kernel_dimension": {"const": 1},
+        "intrinsic_rotation": {"const": "T_31(Y)*P_M mod T_32(Y)"},
+        "kernel_coefficients_low_to_high": {
+          "const": [1, 0, 922883926, 0, 1787128909, 0, 237254192, 0, 577962578, 0, 30724201, 0, 53081916, 0, 1776865326, 0, 821554693]
+        },
+        "kernel_coprime_to_quotient_locator": {"const": true},
+        "kernel_dimension": {"const": 1},
+        "maximum_rotated_prefix_fiber": {"const": 1},
+        "maximum_intrinsic_rotated_prefix_fiber": {"const": 1},
+        "modulus": {"type": "string", "minLength": 1},
+        "rotated_kernel_remainder_degree_upper": {"const": 15},
+        "rotation": {"type": "string", "minLength": 1}
+      },
+      "required": [
+        "high_map_rank", "high_map_shape", "high_rows",
+        "intersection_contradiction", "intrinsic_chebyshev_identity_count",
+        "intrinsic_high_map_rank", "intrinsic_high_map_shape",
+        "intrinsic_integer_resultant", "intrinsic_kernel",
+        "intrinsic_kernel_coefficients_low_to_high",
+        "intrinsic_kernel_coprime_to_quotient_locator",
+        "intrinsic_kernel_dimension", "intrinsic_rotation",
+        "kernel_coefficients_low_to_high",
+        "kernel_coprime_to_quotient_locator", "kernel_dimension",
+        "maximum_intrinsic_rotated_prefix_fiber",
+        "maximum_rotated_prefix_fiber", "modulus",
+        "rotated_kernel_remainder_degree_upper", "rotation"
+      ],
+      "type": "object"
+    },
+    "route_cut": {
+      "additionalProperties": false,
+      "properties": {
+        "U_Q_proved": {"const": false},
+        "arithmetic": {
+          "additionalProperties": false,
+          "properties": {
+            "B_star": {"const": 16777215},
+            "forbidden_size": {"const": 16777216},
+            "max_fiber": {"const": 6435},
+            "max_to_forbidden_gap": {"const": 16770781},
+            "small_control_distinct": {"const": 25931},
+            "small_control_max": {"const": 105},
+            "subset_count_per_puncture": {"const": 265182525}
+          },
+          "required": [
+            "B_star", "forbidden_size", "max_fiber", "max_to_forbidden_gap",
+            "small_control_distinct", "small_control_max",
+            "subset_count_per_puncture"
+          ],
+          "type": "object"
+        },
+        "counterexample_route_eliminated": {"type": "string", "minLength": 1},
+        "next_terminal": {"const": "UNPAID_C32768_ORDER64_TWO_PREFIX_OR_GLOBAL_Q_AGGREGATION"},
+        "rotation_adapter_eliminated": {"type": "string", "minLength": 1},
+        "row_safety_proved": {"const": false}
+      },
+      "required": [
+        "U_Q_proved", "arithmetic", "counterexample_route_eliminated",
+        "next_terminal", "rotation_adapter_eliminated", "row_safety_proved"
+      ],
+      "type": "object"
+    },
+    "schema": {"const": "rs-mca-m31-chebyshev-order32-max-fiber-route-cut-v1"},
+    "scope": {
+      "additionalProperties": false,
+      "properties": {
+        "deployed_row_closed": {"const": false},
+        "is_counterexample": {"const": false},
+        "ledger_movement": {"const": 0},
+        "object": {"const": "LIST"},
+        "row": {"const": "Mersenne-31 list at 2^-100"},
+        "stable_paper_modified": {"const": false},
+        "unit": {"const": "DISTINCT_CODEWORDS_PER_RECEIVED_WORD"},
+        "workboard_items": {"const": ["M0", "M1"]}
+      },
+      "required": [
+        "deployed_row_closed", "is_counterexample", "ledger_movement",
+        "object", "row", "stable_paper_modified", "unit", "workboard_items"
+      ],
+      "type": "object"
+    },
+    "source_bindings": {
+      "type": "array",
+      "minItems": 11,
+      "maxItems": 11,
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "binding_id": {"type": "string", "minLength": 1},
+          "path": {"type": "string", "minLength": 1},
+          "role": {"type": "string", "minLength": 1},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        },
+        "required": ["binding_id", "path", "role", "sha256"],
+        "type": "object"
+      }
+    },
+    "status": {"const": "PROVED_EXACT_DEPLOYED_MAX_FIBER_AND_ROTATION_ROUTE_CUT_ROW_OPEN"},
+    "theorem_id": {"const": "M31_CHEBYSHEV_ORDER32_MAX_FIBER_ROUTE_CUT_V1"}
+  },
+  "required": [
+    "census", "deployed_parameters", "exact_lift", "higher_mds_diagnostic",
+    "nonclaims", "payload_sha256", "quotient_labels", "rotation_route_cut",
+    "route_cut", "schema", "scope", "source_bindings", "status", "theorem_id"
+  ],
+  "title": "M31 order-32 Chebyshev maximum-fiber route-cut certificate",
+  "type": "object"
+}

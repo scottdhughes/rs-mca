@@ -30,6 +30,37 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-22 - M31 order-32 Chebyshev exact maximum fiber
+
+- **Agent/model:** Codex, with separate exact-census, symbolic-Sage, ordinary-RS,
+  and fresh proof-audit agents.
+- **Files added or changed:**
+  `experimental/notes/thresholds/m31_chebyshev_order32_max_fiber_route_cut_v1.md`,
+  `experimental/data/certificates/m31-chebyshev-order32-max-fiber-route-cut-v1/`,
+  `experimental/data/schemas/m31_chebyshev_order32_max_fiber_route_cut_v1.schema.json`,
+  `experimental/scripts/verify_m31_chebyshev_order32_max_fiber_route_cut_v1.py`,
+  `experimental/scripts/verify_m31_chebyshev_order32_sum_fiber_census_v1.cpp`,
+  `experimental/scripts/verify_m31_chebyshev_order32_rotation_injectivity_v1.sage`,
+  `experimental/scripts/verify_m31_chebyshev_order32_max_fiber_packet_v1.py`,
+  `agents.md`, and this log.
+- **Status:** PROVED EXACT FINITE COMPUTATIONAL MAXIMUM / PROVED ROTATION
+  ROUTE CUT / AUDIT; M31 LIST ROW OPEN.
+- **What is being added:** For every puncture of the deployed 32-point
+  Chebyshev quotient, an exhaustive census of all `C(31,17)=265182525`
+  supports gives the unique maximum sum fiber `C(15,8)=6435`, exactly the
+  antipode plus eight complete antipodal pairs.  Exact Sage algebra proves
+  both the literal multiplicative-style and intrinsic `T31` rotated prefix
+  maps have rank 16 and are injective on punctured 17-subsets.
+- **How it is useful:** It eliminates the entire scale-`65536`, order-32,
+  one-prefix counterexample construction and the attempted rotation adapter.
+  The lift into the M31 row is exact, but `6435<16777216`, so ledger movement
+  and endpoint movement are zero.  The large structured fiber also shows
+  that the tempting generic higher-MDS specialization fails on this domain.
+- **What to do next:** Attack the scale-`32768`, order-64, two-prefix map with
+  an exhaustive owner decomposition, or prove the source-bound global-Q /
+  fixed-`G` ordinary-RS upper.  Do not infer a global `U_Q` or row safety
+  from this finite template cut.
+
 ### 2026-07-22 - M31 universal fixed-G base-field RS embedding
 
 - **Agent/model:** Codex, with separate proof-audit, exact-replay,
