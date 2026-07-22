@@ -30,6 +30,15 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-21 - M31 c=2048 multiprefix and carrier-activation route cuts
+
+- **Agent/model:** Codex, with parallel hostile audits of the upstream board, the 30-column incidence, and the arbitrary-word boundary adapter; a standard-library exact verifier; and an independent Sage replay.
+- **Files added or changed:** `agents.md`; `experimental/notes/thresholds/m31_c2048_multiprefix_30carrier_activation_route_cut.md`; `experimental/data/schemas/m31_c2048_multiprefix_30carrier_activation_v1.schema.json`; `experimental/data/certificates/m31-c2048-multiprefix-30carrier-activation-v1/`; `experimental/scripts/verify_m31_c2048_multiprefix_30carrier_activation_v1.py`; `experimental/scripts/verify_m31_c2048_multiprefix_30carrier_activation_v1.sage`; and this log.
+- **Status:** PROVED EXACT DEPLOYED SOURCES / COUNTEREXAMPLE NEW PROFILE FLOOR / ROUTE CUT / C1 AND CARRIER PAYMENTS OPEN / ROW OPEN.
+- **What is being added:** A fixed-multipartial-template polynomial-fold theorem produces a separate exact-boundary source in every feasible `c=2048` profile.  Exactly 177 profiles have certified source floor at least 30, including 141 bi-deep profiles; `(1,1)` has floor `1693898`.  The exact sufficient-criterion histogram certifies 124 source profiles at width 29 and 18 at width 30; it includes one additional floor-29 profile.  The fixed partial-error core sharpens the `(1,1)` 30-column two-row bound to `65106`, and the 124 width-29 profiles have a bound at most `67366`.  A second deployed construction gives one arbitrary word with two exact `(0,0)` codewords sharing the same remainder in both orientations but lying in distinct actual-monic-locator prefix fibers.
+- **How it is useful:** It proves that the 30-column terminal is genuinely populated and cannot be closed by nonexistence or a universal cap of 29.  It also refutes literal identification of the constructed pair's actual locator prefixes under a common translation or operation leaving its supports fixed, replacing that attempted shortcut by the exact arbitrary-word identity `Y-P=L_S H` and a required attained-prefix sum.  It proves neither a universal arbitrary-word carrier theorem nor a global row counterexample.  No current open PR supplies the resulting owner/payment; no atom moves.
+- **What to do next:** Attack the packet-local subterminal `M31_C2048_FIXED_SYNDROME_MULTIPREFIX_FACE_CARRIER_OWNER` inside `HIGH_BOUNDARY_EXACT_CODEWORD` / `U_new`: classify simultaneous `(L_S,H)` frames, route common-template quotient families with a fixed non-oracular owner, and bound the full sum over prefix targets within the combined `9216781` face-plus-carrier allowance.  Do not recenter prefix classes separately, erase carrier codewords, or promote the source-specific 29-column consequence to arbitrary same-profile frames.
+
 ### 2026-07-21 - M31 c=2048 partial-occupancy atlas and 30-carrier reduction
 
 - **Agent/model:** Codex, with two independent theorem/scope audits, a standard-library exhaustive verifier, and an independent Sage finite-field replay.

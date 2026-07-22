@@ -1,0 +1,497 @@
+{
+  "$defs": {
+    "sourceBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "binding_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "internal_payload_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "role": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "scope": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "binding_id",
+        "internal_payload_sha256",
+        "path",
+        "role",
+        "scope",
+        "sha256"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "rs-mca-c2048-multiprefix-30carrier-activation-v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "arbitrary_word_pade_representation": {
+      "const": {
+        "H_degree_upper": 981128,
+        "canonical_prefix_center_H": "1",
+        "codeword_degree_upper": 1048575,
+        "correct_aggregate": "sum_z N_y^C1(z)",
+        "exactness_condition": "H(x)!=0 for x in D\\S",
+        "identity": "Y-P=L_S*H",
+        "insufficient_bound_without_target_count": "max_z N_y^C1(z)",
+        "separate_recentering_preserves_common_received_word": false,
+        "translation_preserves_L_S_and_H": true
+      }
+    },
+    "architecture_id": {
+      "const": "M31_C2048_MULTIPREFIX_30CARRIER_ACTIVATION_ROUTE_CUT_V1"
+    },
+    "carrier_activation": {
+      "const": {
+        "activated_width_29_profile_count": 124,
+        "activated_width_30_profile_count": 18,
+        "available_quotient_labels": 1021,
+        "boundary_cutoff": 67447,
+        "candidate_quotient_sets": "70899435884717933894760303870209852883975353386978933415311942299976498017975950553437537109687360544543608571042838411886340893267789633047251462340546022942087109860522910224865815603346165766367951064452429749557250100379667256849455464749570171341931163961529392003627509197284742141549071541278562000",
+        "carrier_columns": 30,
+        "carrier_nonexistence_route_false": true,
+        "carrier_owner_paid": false,
+        "certified_codeword_floor": 1693898,
+        "certified_source_threshold_bideep_profile_count": 142,
+        "extra_width_29_profile": [
+          8,
+          10,
+          29
+        ],
+        "fixed_error_core_size": 2185,
+        "full_agreement_fibers": 543,
+        "generic_two_row_degree_upper": 65262,
+        "old_route_terminal": "M31_C2048_BIDEEP_30COLUMN_OWNER",
+        "partial_agreement_points": 3959,
+        "partial_fibers": 3,
+        "profile_u": 1,
+        "profile_v": 1,
+        "quotient_prefix_buckets": "41855804344513474996659235398101492226513356497450298740932889847998693318143069882098996132602011303952349637025722282585533160693229396196872386718816372844518146497415885223313922264348563527038409009746582412510577609691239404142296725925022012935690228019787759005225367255740944911962461962241",
+        "source_specific_joint_index_sum_upper": 911496,
+        "source_specific_two_row_degree_upper": 65106,
+        "universal_profile_cap_29_false": true,
+        "width_29_first_u": 2,
+        "width_29_u1_not_certified": true,
+        "width_29_u1_two_row_degree_upper": 67518,
+        "width_29_u2_two_row_degree_upper": 67366,
+        "width_29_uses_fixed_error_core": true
+      }
+    },
+    "chronology": {
+      "const": {
+        "C1_numerical_payment_proved": false,
+        "U_Q": null,
+        "U_ext": null,
+        "U_list_int": null,
+        "active_partition_replaced": false,
+        "boundary_diagnostic_subterminal": "M31_C2048_FIXED_SYNDROME_MULTIPREFIX_FACE_CARRIER_OWNER",
+        "carrier_owner_paid": false,
+        "conditional_boundary_allowance": 9216781,
+        "high_U_new": null,
+        "high_interior_paid": false,
+        "parent_atom": "U_new",
+        "parent_cell": "HIGH_BOUNDARY_EXACT_CODEWORD",
+        "upstream_main_at_preparation": "32a41660e3088eeeb15a16645330856794302ff0"
+      }
+    },
+    "deployed_parameters": {
+      "const": {
+        "B_star": 16777215,
+        "K": 1048576,
+        "agreement": 1116023,
+        "agreement_quotient": 544,
+        "agreement_remainder": 1911,
+        "error_quotient": 479,
+        "error_remainder": 137,
+        "fiber_count": 1024,
+        "fold_degree": 2048,
+        "n": 2097152,
+        "p": 2147483647,
+        "prefix_depth": 67447,
+        "quotient_prefix_depth": 32,
+        "radius": 981129
+      }
+    },
+    "external_dependencies": {
+      "const": {
+        "logical_C1_dependency": "PR #1032 exact head a843a8f7930054617ef1d94169a4a9d3422cb909",
+        "mechanical_parent": "PR #1040 exact head 02b1b8195a9f219a110ce255b205a3e8aed26956",
+        "open_PR_duplicate_found": false,
+        "rebase_needed_at_preparation": false
+      }
+    },
+    "fixed_multipartial_source": {
+      "const": {
+        "activated_bideep_count": 141,
+        "activated_face_count": 36,
+        "activated_profile_count": 177,
+        "activated_width_29_count": 124,
+        "activated_width_30_count": 18,
+        "available_quotient_labels": "1023-u-v",
+        "bideep_frontier": [
+          {
+            "floor_at_max_v": 33,
+            "max_v": 18,
+            "u": 1
+          },
+          {
+            "floor_at_max_v": 30,
+            "max_v": 17,
+            "u": 2
+          },
+          {
+            "floor_at_max_v": 51,
+            "max_v": 15,
+            "u": 3
+          },
+          {
+            "floor_at_max_v": 46,
+            "max_v": 14,
+            "u": 4
+          },
+          {
+            "floor_at_max_v": 41,
+            "max_v": 13,
+            "u": 5
+          },
+          {
+            "floor_at_max_v": 37,
+            "max_v": 12,
+            "u": 6
+          },
+          {
+            "floor_at_max_v": 33,
+            "max_v": 11,
+            "u": 7
+          },
+          {
+            "floor_at_max_v": 54,
+            "max_v": 9,
+            "u": 8
+          },
+          {
+            "floor_at_max_v": 48,
+            "max_v": 8,
+            "u": 9
+          },
+          {
+            "floor_at_max_v": 42,
+            "max_v": 7,
+            "u": 10
+          },
+          {
+            "floor_at_max_v": 37,
+            "max_v": 6,
+            "u": 11
+          },
+          {
+            "floor_at_max_v": 32,
+            "max_v": 5,
+            "u": 12
+          },
+          {
+            "floor_at_max_v": 51,
+            "max_v": 3,
+            "u": 13
+          },
+          {
+            "floor_at_max_v": 44,
+            "max_v": 2,
+            "u": 14
+          },
+          {
+            "floor_at_max_v": 38,
+            "max_v": 1,
+            "u": 15
+          }
+        ],
+        "bideep_maximum": {
+          "source_floor": 1693898,
+          "u": 1,
+          "v": 1
+        },
+        "certified_minimum_width_histogram": {
+          "29": 124,
+          "30": 18
+        },
+        "certified_source_threshold_bideep_count": 142,
+        "complete_target_field_ball_base_field_valued": true,
+        "complete_target_field_ball_boundary_only": true,
+        "construction_combines_profiles_in_one_word": false,
+        "construction_is_one_received_word_per_profile": true,
+        "degree_margin_below_K": 137,
+        "extra_width_29_profile": {
+          "source_floor": 29,
+          "u": 8,
+          "v": 10
+        },
+        "formula": "ceil(binomial(1023-u-v,544-v)/p^min(32,544-v))",
+        "full_agreement_fibers": "f=544-v",
+        "global_maximum": {
+          "source_floor": 6796405,
+          "u": 0,
+          "v": 0
+        },
+        "minimum_certified_source_floor": 29,
+        "partial_agreement_size": "r=1911+2048v",
+        "partial_fiber_count": "h=u+v+1",
+        "profile_count": 261192,
+        "profile_rows_sha256": "1e4459afe0509c6e74536c17096e04f53eab67cacb2b9e0b3e853434030d0100",
+        "uniform_degree_bound_for_f_gt_32": 1048439
+      }
+    },
+    "nonclaims": {
+      "const": {
+        "C1_upper_payment_proved": false,
+        "M31_list_row_closed": false,
+        "active_partition_or_global_terminal_replaced": false,
+        "all_30_frames_share_partial_template": false,
+        "carrier_upper_payment_proved": false,
+        "direct_M31_row_counterexample_proved": false,
+        "global_numerator_floor_proved": false,
+        "high_interior_bound_proved": false,
+        "official_endpoint_or_score_changed": false,
+        "profile_source_floors_are_simultaneously_attained": false,
+        "sum_over_prefix_targets_bounded": false,
+        "universal_arbitrary_word_carrier_theorem_proved": false
+      }
+    },
+    "payload_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema": {
+      "const": "rs-mca-c2048-multiprefix-30carrier-activation-v1"
+    },
+    "scope": {
+      "const": {
+        "deployed_row_closed": false,
+        "field": "GF((2^31-1)^4) with constructions over GF(2^31-1)",
+        "impact": "NEW_BIDEEP_PROFILE_FLOOR_AND_ROUTE_COUNTEREXAMPLE",
+        "lean_used": false,
+        "ledger_movement": 0,
+        "object": "LIST",
+        "row": "Mersenne-31 list at 2^-100",
+        "stable_paper_modified": false,
+        "unit": "DISTINCT_EXACT_BOUNDARY_CODEWORDS_PER_RECEIVED_WORD",
+        "workboard_item": "M1"
+      }
+    },
+    "single_prefix_obstruction": {
+      "const": {
+        "agreement_intersection_size": 135031,
+        "agreement_locator_prefixes_distinct": true,
+        "bridge_polynomial_degree": 135031,
+        "bridge_polynomial_is_codeword": true,
+        "coarser_attained_target_adapter_ruled_out": false,
+        "common_agreement_remainder_size": 1911,
+        "common_codeword_translation_changes_locator_prefixes": false,
+        "common_codeword_translation_changes_supports": false,
+        "common_error_remainder_size": 137,
+        "common_partial_fiber": true,
+        "common_quotient_labels": 65,
+        "error_locator_prefixes_distinct": true,
+        "exact_boundary_codewords": 2,
+        "first_private_quotient_labels": 479,
+        "literal_support_preserving_locator_prefix_identification_exists": false,
+        "logical_C1_dependency_head": "a843a8f7930054617ef1d94169a4a9d3422cb909",
+        "non_support_preserving_adapter_ruled_out": false,
+        "outside_points": 137,
+        "profile": [
+          0,
+          0
+        ],
+        "quotient_partition_exhaustive": true,
+        "second_private_quotient_labels": 479,
+        "unequal_private_label_sums_exist": true
+      }
+    },
+    "source_bindings": {
+      "items": {
+        "$ref": "#/$defs/sourceBinding"
+      },
+      "maxItems": 13,
+      "minItems": 13,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "status": {
+      "const": "PROVED_MULTIPREFIX_ROUTE_CUT_AND_30CARRIER_ACTIVATION_ROW_OPEN"
+    },
+    "toy_controls": {
+      "const": {
+        "fixed_remainder_multiprefix": {
+          "agreement": 9,
+          "agreement_prefixes": [
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "bridge_polynomial_ascending": [
+            9,
+            16,
+            8,
+            1
+          ],
+          "common_agreement_remainder": [
+            9
+          ],
+          "common_error_remainder": [
+            8
+          ],
+          "dimension": 7,
+          "domain": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "error_prefixes": [
+            [
+              9,
+              9
+            ],
+            [
+              9,
+              5
+            ]
+          ],
+          "exact_agreement_sets": [
+            [
+              1,
+              2,
+              3,
+              4,
+              9,
+              13,
+              14,
+              15,
+              16
+            ],
+            [
+              1,
+              5,
+              6,
+              7,
+              9,
+              10,
+              11,
+              12,
+              16
+            ]
+          ],
+          "field": 17,
+          "intersection": [
+            1,
+            9,
+            16
+          ],
+          "prefix_depth": 2,
+          "radius": 7,
+          "received_word": [
+            0,
+            0,
+            0,
+            0,
+            6,
+            14,
+            6,
+            1,
+            0,
+            14,
+            2,
+            4,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "fixed_template_source": {
+          "agreement": 9,
+          "available_quotient_labels": [
+            2,
+            8,
+            13,
+            15,
+            16
+          ],
+          "boundary_only": true,
+          "candidate_and_codeword_count": 10,
+          "degree_bound": 7,
+          "dimension": 8,
+          "domain_size": 16,
+          "fiber_count": 8,
+          "field": 17,
+          "fold": "X^2",
+          "full_agreement_fibers": 3,
+          "partial_fiber_count": 3,
+          "partial_template": [
+            1,
+            2,
+            3
+          ],
+          "quotient_prefix_depth": 0,
+          "radius": 7
+        }
+      }
+    }
+  },
+  "required": [
+    "arbitrary_word_pade_representation",
+    "architecture_id",
+    "carrier_activation",
+    "chronology",
+    "deployed_parameters",
+    "external_dependencies",
+    "fixed_multipartial_source",
+    "nonclaims",
+    "payload_sha256",
+    "schema",
+    "scope",
+    "single_prefix_obstruction",
+    "source_bindings",
+    "status",
+    "toy_controls"
+  ],
+  "title": "M31 c=2048 multiprefix and 30-carrier activation certificate",
+  "type": "object"
+}

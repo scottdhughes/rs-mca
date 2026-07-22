@@ -110,6 +110,23 @@ At this snapshot:
   only after the missing boundary-to-prefix adapter, the conditional combined
   face/carrier target `9216781` is not a payment, high interior weights remain
   open, and no ledger atom moves.
+- The two prospective easy exits from that boundary reduction are now cut
+  off exactly.  A fixed-multipartial-template construction gives a separately
+  realized boundary source in every feasible profile; 177 profiles have
+  certified floor at least 30, including 141 bi-deep profiles; one additional
+  bi-deep profile has floor 29 where 29 columns suffice, and `(u,v)=(1,1)`
+  has floor `1693898`.  Thus this sufficient criterion certifies 142 separate
+  source profiles: 124 at width 29 and 18 at width 30.
+  Its fixed partial-error core sharpens the two-row degree to
+  `65106`; on 124 certified source profiles with `u>=2`, 29 columns already
+  give at most `67366<67447`.  Separately, one deployed arbitrary word has two exact
+  `(0,0)` codewords with the same fixed remainder in both orientations but
+  distinct agreement and error locator prefixes.  Thus no common codeword
+  translation or operation leaving those supports literally fixed makes the
+  pair's actual monic locators share one prefix target.  The packet-local
+  boundary diagnostic now requests a fixed-syndrome multiprefix face/carrier
+  owner or payment; no C1 or carrier atom moves and no global terminal is
+  replaced.
 - A schema/hash pass is structural preflight only. The legacy four-row compiler trusted-source registry is empty; the new M31 adapter hash-binds its theorem sources, but parsing either manifest does not itself prove an atom.
 
 ## 3. Document authority
@@ -124,6 +141,7 @@ At this snapshot:
 | `experimental/notes/thresholds/m31_full_span_forced_collision_route_cut.md` and `experimental/data/certificates/m31-full-span-forced-collision-route-cut-v1/manifest.json` | **M1 forced-collision authority:** exact annihilator/quotient-column/Popov evaluation criterion, graph-to-common-zero interface, maximum-rank syndrome-hyperplane route cut, and exhaustive full-span regression. It moves no atom and leaves the row open. |
 | `experimental/notes/thresholds/m31_chebyshev_fixed_remainder_c1_boundary_source_route_cut.md` and `experimental/data/certificates/m31-chebyshev-fixed-remainder-c1-boundary-source-route-cut-v1/manifest.json` | **M1 exact realized C1-boundary source authority:** general fixed-remainder polynomial-fold lemma, deployed `c=2048` list floor `6796405`, exact declared QR2/C1 route of the structured subfamily, raw signed chronology specialization, exhaustive flat-baseline optimizer, and aggregate-Forney route cut. It proves no numerical C1 or Q upper payment and moves no atom. |
 | `experimental/notes/thresholds/m31_c2048_partial_occupancy_30carrier_reduction.md` and `experimental/data/certificates/m31-c2048-partial-occupancy-30carrier-v1/manifest.json` | **M1 exact boundary-atlas authority:** exhaustive `c=2048` occupancy parameterization, C1-shaped/bi-deep/visible-arm/core partition, target-field arbitrary-subpacket lift, and the exact `7556704`-or-30-carrier dichotomy. The carrier owner, arbitrary-word C1 adapter/payment, and high interior remain open; ledger movement is zero. |
+| `experimental/notes/thresholds/m31_c2048_multiprefix_30carrier_activation_route_cut.md` and `experimental/data/certificates/m31-c2048-multiprefix-30carrier-activation-v1/manifest.json` | **M1 boundary successor authority:** separately realized fixed-multipartial exact sources in every occupancy profile, the exact 177/141 certified-floor census and 142-profile sufficient-criterion width census, the source-specific 30/29-column determinantal-divisor sharpening, the deployed same-remainder literal-locator multiprefix obstruction, and the arbitrary-word `Y-P=L_S H` replacement. It proves no universal carrier theorem or C1/carrier payment and moves no atom. |
 | `tex/cs25_cap_v13_2.tex` | **Foundation/unsafe authority:** exact unsafe endpoints, field/domain conventions, reductions, and certificate grammar. |
 | `RS_MCA_Paving_v9.2.tex` | **Fixed ePrint basis for unconditional paving results:** shortening, MDS circuit, exact finite, exponential-budget, and conditional Sidon-to-flatness results from ePrint 2026/1463. It does not solve the subexponential near-capacity frontier. |
 | `experimental/rs_mca_thresholds.tex` | **Exact-regime/exposition source:** staircases, below-half-distance results, syndrome geometry, and examples; not unrestricted near-capacity closure authority. |
@@ -251,19 +269,28 @@ close the row.  On this exact-boundary center
 `M_R<=B*`; it is not a cheaper occupancy lemma, and the v4 grammar has no
 negative-refund interface.
 
-The maximal surviving M1 target is now the homogeneous terminal
-`M31_C2048_BIDEEP_30COLUMN_OWNER`, together with the source-bound C1 adapter.
-For one fixed bi-deep `(u,v)` profile, classify every 30-codeword coupled
-frame using its actual partial-fiber incidence.  Each component must yield a
-chronology-valid paid owner, a budget-fitting attained-image bound, or an
-explicit primitive route cut.  In parallel, prove a received-word-uniform
-boundary-to-prefix adapter and a combined disjoint face/carrier payment no
-smaller than the realized `6796405` floor and no larger than the conditional
-boundary target `9216781`.  Carrier codewords cannot be erased without their
-charge.  This target does not pay the high interior: a full row proof still
-must handle `U_list-int`, `U_ext`, and the remaining high `U_new` mass.  Do not
-return to a flat baseline, a generic fixed-width frame without the frozen
-occupancy profile, or an unsupported arbitrary-boundary-to-Q assignment.
+The packet-local maximal `c=2048` exact-boundary diagnostic subterminal inside
+`HIGH_BOUNDARY_EXACT_CODEWORD` / `U_new` is now
+`M31_C2048_FIXED_SYNDROME_MULTIPREFIX_FACE_CARRIER_OWNER`.  The previous
+30-column carrier is not empty: one actual `(1,1)` source has at least
+`1693898` codewords, and the sufficient criterion certifies 142 separate
+source profiles.  The fixed partial-error core repairs the 29-column degree
+deficit on 124 of them, but supplies no owner.  A common translation cannot
+make the constructed `(0,0)` pair's actual monic locators share a prefix even
+though both have the same fixed remainder.  Therefore classify actual
+same-profile frames using the simultaneous arbitrary-word data
+`Y-P_i=L_(S_i)H_i`, route common-template
+quotient families without double charging, and bound the complete sum over
+attained prefix targets.  Each component must yield a chronology-valid paid
+owner, a budget-fitting attained-image bound, or an explicit primitive route
+cut.  The combined disjoint face/carrier payment must be no smaller than the
+realized `6796405` floor and no larger than `9216781`.  This target still does
+not pay the high interior: a full row proof must handle `U_list-int`, `U_ext`,
+and the remaining high `U_new` mass.  All five v4 atoms, global M1 terminals,
+and high-interior obligations remain unchanged.  Do not return to a flat
+baseline, claim a universal profile cap of 29, replace a prefix sum by one
+maximum fiber, or assign arbitrary boundary codewords to Q without a proved
+multiprefix map.
 
 #### M2. Transfer the theorem or record a new floor
 
