@@ -189,6 +189,22 @@ At this snapshot:
   `VT(U)` itself remains unproved, no boundary or interior atom moves, and
   the active global M1 terminal remains
   `UNPAID_CROSS_WEIGHT_EXCESS_DEFICIT_Q_OWNER`.
+- The maximal current-hypothesis `VT` stratification is now exact.  Boundary
+  locators occupy two degree-filtered `F`-vector-space slices inside the
+  rank-2048 free module `F[T]^2048`; these slices are not `F[T]`-submodules.
+  A primitive `F(T)` locator line is exactly one positional partial-template
+  block.  For two supports and `x in E minus F`, the inverse residue is
+  `B(x)^(-1)A_x` of degree `d-1`, so pairwise escape absorption occurs exactly
+  for `d<=w`; a common-root escape is never pairwise absorbed.  Distinct exact
+  supports in one received-word boundary list have `d>=w+1`, their shortened
+  flats intersect trivially, and every useful escape/dependency is therefore
+  genuinely higher-order.  A failed live `VT` packet either contains an
+  unpaid fixed-template module-rank-drop block or uses at least `542164`,
+  `986676`, or `986896` primitive lines at the three live gates.  Canonical
+  depth-32 `H=1` source cosets with `v+v'<=32` are injectively separated, so
+  the five largest separately realized floors cannot be summed despite their
+  formal `429716` excess over `B*`.  The remaining diagnostic is
+  `UNPAID_VT_MULTITEMPLATE_GUARDED_LINE_INCIDENCE`; no atom moves.
 - A schema/hash pass is structural preflight only. The legacy four-row compiler trusted-source registry is empty; the new M31 adapter hash-binds its theorem sources, but parsing either manifest does not itself prove an atom.
 
 ## 3. Document authority
@@ -207,6 +223,8 @@ At this snapshot:
 | `experimental/notes/thresholds/m31_c2048_65column_fixed_anchor_boundary_route_cut.md` and `experimental/data/certificates/m31-c2048-65column-fixed-anchor-route-cut-v1/manifest.json` | **M1 whole-boundary carrier authority:** exact width-36 combined-gate and width-65 direct-boundary triggers, sharp cumulative kernel-index ladder, 50-row/cutoff Hilbert floor, basis-relative fixed-anchor incidences, 156-profile source nonemptiness, and target-field proper-component deformation route cut through every budget-sized packet. The anchor is not canonical, the identically forced branch is unpaid, high interior remains open, and no atom moves. |
 | `experimental/notes/thresholds/m31_c2048_fixed_template_interleaved_quotient_route_cut.md` and `experimental/data/certificates/m31-c2048-fixed-template-interleaved-quotient-route-cut-v1/manifest.json` | **M1 fixed-template quotient authority:** exact interleaved quotient-RS cap for every profile/template, complete 25767/235425 budget census, locator/cofactor jet bijection, 15-target fixed-template construction, and varying-template gluing cut. The complete profile/template/attained-jet sum remains unpaid, high interior remains open, and no atom moves. |
 | `experimental/notes/thresholds/m31_c2048_fixed_template_module_rank_route_cut.md` and `experimental/data/certificates/m31-c2048-fixed-template-module-rank-route-cut-v1/manifest.json` | **M1 fixed-template module-rank authority:** direct determinantal-divisor/Smith bound on module-regular difference spans, localized Chen--Zhang minimal-sublist dichotomy, exact conditional threshold histogram/sum, and the 193-profile rank-one source obstruction. Module-rank drop and varying-template aggregation remain unpaid; the conditional threshold sum is not a ledger charge and no atom moves. |
+| `experimental/notes/thresholds/m31_c2048_guarded_support_flat_separator.md` and `experimental/data/certificates/m31-c2048-guarded-support-flat-separator-v1/manifest.json` | **M1 whole-boundary separator authority:** exact target-field syndrome/support-flat reindexing, guarded one-point escapes, forward/converse `VT(U)` equivalence at all live union gates, and the shifted-locator 15/16 interface. `VT(U)`, high interior, and the global terminal remain open; no atom moves. |
+| `experimental/notes/thresholds/m31_c2048_vt_multitemplate_global_rank_route_cut.md` and `experimental/data/certificates/m31-c2048-vt-multitemplate-global-rank-route-cut-v1/manifest.json` | **M1 maximal current-hypothesis VT route-cut authority:** exact global locator slices, primitive-line/template equivalence, pairwise inverse-residue and flat-intersection formulas, heavy-line/many-line dichotomy, and canonical depth-32 source-coset separation. Both terminal branches and the genuinely higher-order guarded multitemplate incidence remain unpaid; no atom moves. |
 | `tex/cs25_cap_v13_2.tex` | **Foundation/unsafe authority:** exact unsafe endpoints, field/domain conventions, reductions, and certificate grammar. |
 | `RS_MCA_Paving_v9.2.tex` | **Fixed ePrint basis for unconditional paving results:** shortening, MDS circuit, exact finite, exponential-budget, and conditional Sidon-to-flatness results from ePrint 2026/1463. It does not solve the subexponential near-capacity frontier. |
 | `experimental/rs_mca_thresholds.tex` | **Exact-regime/exposition source:** staircases, below-half-distance results, syndrome geometry, and examples; not unrestricted near-capacity closure authority. |

@@ -3742,3 +3742,42 @@ Keep entries concise and link to the relevant files.
   span, escape absorption, a chronology-valid paid owner, or a named
   primitive component.  High interior and the global cross-weight terminal
   remain separate.
+
+### 2026-07-22 - M31 VT multitemplate global-rank route cut
+
+- **Agent/model:** Codex generator with independent proof, literature,
+  certificate/release, and upstream-overlap audits.
+- **Files added or changed:**
+  `experimental/notes/thresholds/m31_c2048_vt_multitemplate_global_rank_route_cut.md`,
+  `experimental/scripts/verify_m31_c2048_vt_multitemplate_global_rank_route_cut_v1.py`,
+  `experimental/scripts/verify_m31_c2048_vt_multitemplate_global_rank_route_cut_v1.sage`,
+  `experimental/data/schemas/m31_c2048_vt_multitemplate_global_rank_route_cut_v1.schema.json`,
+  `experimental/data/certificates/m31-c2048-vt-multitemplate-global-rank-route-cut-v1/`,
+  `agents.md`, and `experimental/agents-log.md`.
+- **Status:** PROVED GLOBAL STRATIFICATION AND CANONICAL SOURCE-COSET
+  SEPARATION / BOTH TERMINAL BRANCHES UNPAID / ZERO PAYMENT.
+- **What is being added:** Exact degree-filtered locator coordinates in the
+  rank-2048 free module, the primitive-locator-line/positional-template
+  equivalence, the closed pairwise residue
+  `q=B(x)^(-1)A_x`, the flat-intersection formula
+  `dim(W_E intersection W_F)=max(w-d,0)`, and the exact heavy-line versus
+  many-template-line dichotomy.  The packet also proves that canonical
+  depth-32 `H=1` source cosets are injective when `v+v'<=32`; consequently
+  the five largest separately realized source floors cannot be added around
+  one received word.
+- **How it is useful:** It proves that same-word pairwise flats are disjoint
+  and pairwise escape absorption is impossible, so the remaining `VT2`
+  mechanism is genuinely higher-order.  At the three live gates, a failed
+  packet either reaches the existing unpaid fixed-template module-rank-drop
+  terminal or disperses over at least `542164`, `986676`, or `986896`
+  primitive lines.  This rules out another one-template or naïve source-floor
+  summation as a closure path without promoting an abstract load model to an
+  actual received-word construction.
+- **What to do next:** Prove one row-uniform higher-order guarded incidence
+  theorem for the dispersed primitive-line arrangement, while separately
+  classifying the heavy module-rank-drop branch.  Every component must force
+  full dual span, a genuinely higher-order absorbed escape, a chronology-valid
+  paid owner, a budget-fitting exact root union, or remain an explicit
+  primitive counterexample.  Do not sum fixed-template thresholds or the
+  separately realized source floors; high interior and the global
+  cross-weight terminal remain open.
