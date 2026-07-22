@@ -168,10 +168,27 @@ At this snapshot:
   profiles, including floors `6796405` at `(0,0)` and `1693898` at `(1,1)`;
   these floors are not simultaneous around one received word.
   The nested diagnostic subterminal is
-  `UNPAID_FIXED_TEMPLATE_MODULE_RANK_DROP`; the active global terminal stays
-  `UNPAID_ATTAINED_COFACTOR_JET_SUM_OWNER` and the partition is unchanged.
+  `UNPAID_FIXED_TEMPLATE_MODULE_RANK_DROP`; the packet-local boundary
+  subterminal stays `UNPAID_ATTAINED_COFACTOR_JET_SUM_OWNER`, while the
+  active global M1 terminal stays
+  `UNPAID_CROSS_WEIGHT_EXCESS_DEFICIT_Q_OWNER` and the partition is unchanged.
   Rank-drop classification, cross-template guarded incidence, high interior,
   and every ledger payment remain open; no atom moves.
+- The complete `c=2048` varying-template boundary family is now reindexed as
+  one exact target-field syndrome incidence with guarded shortened-dual
+  flats.  After the fixed-template caps are imposed, the uniform boundary
+  bound `U` is equivalent whenever `p^4>(U+1)981129` to `VT(U)`: every
+  cap-respecting `U+1` support family either spans the full dual or its span
+  absorbs a one-point escape.  Failure of both alternatives constructs an
+  actual target-field received word with every support exact.  The live gates
+  hold for `U=9216781`, `U=B*-3730=16773485`, and `U=B*=16777215`.
+  Shifted locators make 16 the first containment-rank gate; a compatible
+  16-packet has row-syzygy dimension at least `30577`.  A fixed-template
+  block above its conditional `Lambda_SD` threshold contains a module-rank
+  deficient subfamily, but that module span is not the shortened-flat span.
+  `VT(U)` itself remains unproved, no boundary or interior atom moves, and
+  the active global M1 terminal remains
+  `UNPAID_CROSS_WEIGHT_EXCESS_DEFICIT_Q_OWNER`.
 - A schema/hash pass is structural preflight only. The legacy four-row compiler trusted-source registry is empty; the new M31 adapter hash-binds its theorem sources, but parsing either manifest does not itself prove an atom.
 
 ## 3. Document authority

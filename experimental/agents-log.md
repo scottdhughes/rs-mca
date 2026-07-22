@@ -3712,3 +3712,33 @@ Keep entries concise and link to the relevant files.
   across varying partial templates.  Do not sum conditional fixed-template
   thresholds or identify rank drop with an owner without an exact codeword
   charge.
+
+### 2026-07-21 - M31 guarded support-flat separator
+
+- **Agent/model:** Codex generator with independent proof and upstream-overlap
+  audits.
+- **Files added or changed:**
+  `experimental/notes/thresholds/m31_c2048_guarded_support_flat_separator.md`,
+  `experimental/scripts/verify_m31_c2048_guarded_support_flat_separator_v1.py`,
+  `experimental/scripts/verify_m31_c2048_guarded_support_flat_separator_v1.sage`,
+  `experimental/data/schemas/m31_c2048_guarded_support_flat_separator_v1.schema.json`,
+  `experimental/data/certificates/m31-c2048-guarded-support-flat-separator-v1/`,
+  `agents.md`, and `experimental/agents-log.md`.
+- **Status:** PROVED EXACT GLOBAL INTERFACE AND TARGET-FIELD CONVERSE /
+  `VT(U)` OPEN / ZERO PAYMENT.
+- **What is being added:** The complete varying-template exact-boundary sum
+  is reindexed as one syndrome incidence with shortened-dual support flats
+  and one-point escape punctures.  At every live target-field union gate,
+  `VT(U)` is equivalent to the uniform boundary cap.  The packet also gives
+  the shifted-locator 15/16 gate and imports the parent module-rank
+  stratification without identifying it with the shortened-flat span.
+- **How it is useful:** It replaces the profile/template/cofactor triple sum
+  by one exact whole-family theorem target and makes every failure an actual
+  same-center source.  This prevents another standalone carrier calculation
+  from being mistaken for a boundary closure.
+- **What to do next:** Prove `VT(16773485)` for the complete boundary support
+  family, or exhibit a cap-respecting failed family as an explicit target-field
+  counterexample.  Stratify failed families by module rank, forcing full dual
+  span, escape absorption, a chronology-valid paid owner, or a named
+  primitive component.  High interior and the global cross-weight terminal
+  remain separate.
