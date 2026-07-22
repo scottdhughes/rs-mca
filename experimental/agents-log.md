@@ -30,6 +30,43 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-21 - M31 whole-boundary 36/65 carrier and target-field deformation route cut
+
+- **Agent/model:** Codex, with independent proof, release, and scope audits;
+  an exact standard-library verifier; and an independent Sage replay.
+- **Files added or changed:** `agents.md`;
+  `experimental/notes/thresholds/m31_c2048_65column_fixed_anchor_boundary_route_cut.md`;
+  `experimental/data/schemas/m31_c2048_65column_fixed_anchor_route_cut_v1.schema.json`;
+  `experimental/data/certificates/m31-c2048-65column-fixed-anchor-route-cut-v1/`;
+  `experimental/scripts/verify_m31_c2048_65column_fixed_anchor_route_cut_v1.py`;
+  `experimental/scripts/verify_m31_c2048_65column_fixed_anchor_route_cut_v1.sage`;
+  and this log.
+- **Status:** PROVED EXACT BOUNDARY TRIGGERS / PROVED BASIS-RELATIVE ANCHOR
+  LADDER / PROVED TARGET-FIELD PROPER-COMPONENT ROUTE CUT / OWNER AND ROW OPEN.
+- **What is being added:** A combined charge above `9216781` forces a
+  same-profile 36-frame, while direct low-plus-boundary excess forces a
+  65-frame because `3730+64*261192=16720018<B*`.  On 65 columns the sharp
+  cumulative index ladder is `(14502,29004,43506,58008)`, at least 50 kernel
+  rows lie below the cutoff, and a basis-relative two-column minor is fixed
+  on at least 38444 variable roots per nonanchor locator.  Exact source
+  enumeration finds 156 separately realized floor-65 profiles.  Over
+  `F_(p^4)`, every budget-sized prescribed packet with only proper escape and
+  collision forms has an exact collision-free deformation; the same union
+  bound actually continues through width `6823032369902110`.
+- **How it is useful:** It cuts both cap-64/carrier-emptiness and
+  profile-pigeonhole-to-collision proof routes.  Any successful successor
+  must classify an identically forced component, use complete-layer
+  incidence not preserved by deformation, or directly pay the
+  fixed-syndrome attained-image sum.  The anchor ladder is intentionally
+  basis-relative and nonnested, not a canonical first-match owner.  No atom
+  moves and high interior remains open.
+- **What to do next:** Prove the fixed-partial-template interleaved
+  quotient-RS reduction, decompose it exactly by attained normalized
+  cofactor jets, and sum the resulting quotient-prefix fibers; then classify
+  the varying-template residual.  Do not perform another standalone
+  fixed-width rank extraction or transfer the obsolete prime-field 67/68
+  endpoint to the quartic target field.
+
 ### 2026-07-21 - M31 c=2048 multiprefix and carrier-activation route cuts
 
 - **Agent/model:** Codex, with parallel hostile audits of the upstream board, the 30-column incidence, and the arbitrary-word boundary adapter; a standard-library exact verifier; and an independent Sage replay.
