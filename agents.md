@@ -72,6 +72,7 @@ At this snapshot:
 - Under the latest corrected direct extension charge, positive extension dimension is excluded on Mersenne-31 and dimension at least two is excluded on KoalaBear. These are route cuts, not payments or nonexistence theorems.
 - The newly integrated M31 packets add local padding-bridge, masked-saturation, common-core add-back, rank-two/coloop, rooted-shell, C7--C9, and route-cut infrastructure.  These are not adjacent-row payments: source-bound owner/refund, rooted-shell completion, residual projection, and final finite-ledger terminals remain open.
 - The source-bound Mersenne-31 v4 LIST adapter proves one bankable codeword payment, `U_paid<=3730`, on exact error weights through `614160`.  Its four remaining atoms `U_Q`, `U_list-int`, `U_ext`, and `U_new` are null, and its global terminal is `UNPAID_GLOBAL_COUPLED_RANK46_RESIDUAL` (refined downstream to `UNPAID_CROSS_WEIGHT_EXCESS_DEFICIT_Q_OWNER`).
+- The all-weight anchor-exchange packet gives an exact codeword bijection relative to any actual listed anchor.  With `t=R-j0` and `m=deg(G)-t`, every nonanchor is represented uniquely by a divisor/gcd pair satisfying `m>=67448`, `deg(b)<m-67447`, and `deg(gcd(L0,G-bV))>=m`.  Since `B*+1<q`, fresh-symbol boundary forcing reduces the remaining direct theorem exactly to `#X(V)<=16777214` for boundary anchors `t=0`, still with arbitrary unit `V`.  Every unit `V mod L0` is realizable, so one anchor plus the rank-two module cannot force quotient, periodic, rational, or low-degree structure.  This is a zero-payment route cut, not row closure.
 - The older four-row v1 machine compiler is a historical Grande Finale v3 structural preflight.  It has four LIST atoms, slope/received-line units, and a stale `grande_finale.tex` source pin; it is not the live v4 Mersenne-31 LIST contract.
 - A schema/hash pass is structural preflight only. The trusted-source registry is empty; parsing a manifest does not prove an atom.
 
@@ -81,6 +82,7 @@ At this snapshot:
 |---|---|
 | `experimental/notes/thresholds/m31_list_v4_global_completion_compiler.md` and `experimental/data/certificates/m31-list-v4-global-completion-compiler-v2/manifest.json` | **Live Mersenne-31 LIST completion authority:** current v4 five-atom contract, signed closure gate, enumerated zero-movement route-cut graph, and the sharp boundary-only additive/numerical insufficiency certificate. |
 | `experimental/notes/thresholds/m31_list_v4_source_adapter_global_coupled_residual.md` and `experimental/data/certificates/m31-list-v4-source-adapter-v1/manifest.json` | **Live Mersenne-31 LIST source/partition authority:** v4 five-atom codeword chronology, the banked low-weight payment, exact whole-list source partition, and global residual. |
+| `experimental/notes/thresholds/m31_all_weight_anchor_exchange_pade_bijection_v1.md` and `experimental/data/certificates/m31-all-weight-anchor-exchange-pade-bijection-v1/manifest.json` | **Live all-weight diagnostic reduction:** exact actual-anchor codeword bijection, corrected interpolation-module orientation, slack-normal gcd-incidence census, fresh-symbol reduction to boundary anchors, and generic-unit-`V` route cut.  It has zero ledger movement and does not prove the M31 census bound. |
 | `experimental/notes/frontier-adjacent/four_row_exact_completion_compiler_v1.md` and `experimental/data/certificates/four-row-exact-completion-compiler-v1/four_row_exact_completion_compiler_v1.json` | **Historical v3 structural preflight:** exact row arithmetic and legacy architecture checks only; not a current v4 LIST closure authority. |
 | `experimental/Conjectures_and_Barriers_RS_MCA_v4_1.tex` | **Direct problem/falsifier authority:** benchmark conjectures, exact compiler requirements, finite barriers, and separation of finite from conjectural asymptotic claims. |
 | `experimental/grande_finale.tex` | **Active conditional completion architecture:** proved local theorems, order-32/rational-atom reductions, owner localization, spread-core incidence bounds, and exact completion problems. Hypotheses/problems are not row bounds. |
@@ -160,6 +162,21 @@ This is a codeword-count statement; the MCA ray compiler is inapplicable.
 #### M1. Resolve the binding primitive-fiber/list-interior problem
 
 The full-budget target is only about `8.4152` times the full-slice average, and the true allowance is smaller after other payments. Prove a realized-image, frozen-residual maximum or construct a received word exceeding the budget. Existing one-shell and rooted-shell packets are local reductions, not exhaustive row bounds.
+
+The current all-weight direct coordinate is exact, and fresh-symbol forcing
+reduces row closure to boundary anchors.  Relative to every boundary anchor,
+prove
+
+```text
+#X(V) <= 16777214
+```
+
+uniformly over the full divisor/gcd census, or produce an actual boundary
+anchor triple exceeding it.  Here `t=0`, `m=deg(G)`, and the gates are
+`67448<=m<=981129`, `deg(b)<m-67447`, and
+`deg(gcd(L0,G-bV))>=m`.  Do not specialize to `V=1`, return to one fixed
+weight, or count supports in place of codewords unless an exhaustive,
+disjoint bridge back to this census is proved.
 
 #### M2. Transfer the theorem or record a new floor
 

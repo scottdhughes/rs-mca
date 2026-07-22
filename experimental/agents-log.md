@@ -30,6 +30,38 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-22 - M31 exact all-weight anchor-exchange Padé bijection
+
+- **Agent/model:** Codex, with separate primary-checker, Sage-replay,
+  contract, proof-audit, and release-review agents.
+- **Files added or changed:**
+  `experimental/notes/thresholds/m31_all_weight_anchor_exchange_pade_bijection_v1.md`,
+  `experimental/data/certificates/m31-all-weight-anchor-exchange-pade-bijection-v1/`,
+  `experimental/data/schemas/m31_all_weight_anchor_exchange_pade_bijection_v1.schema.json`,
+  `experimental/scripts/verify_m31_all_weight_anchor_exchange_pade_bijection_v1.py`,
+  `experimental/scripts/verify_m31_all_weight_anchor_exchange_pade_bijection_v1.sage`,
+  `experimental/scripts/verify_m31_all_weight_anchor_exchange_packet_v1.py`,
+  `agents.md`, and this log.
+- **Status:** PROVED EXACT BIJECTION / PROVED ROUTE CUT / AUDIT; M31 LIST
+  ROW OPEN.
+- **What is being added:** Relative to every actual listed anchor, the
+  complete list is put in exact bijection with canonical pairs `(G,b)` using
+  the correctly oriented module `N=WU mod A0L0`.  The slack-normal form
+  cancels the anchor depth exactly: `m>=w+1`, `deg(b)<m-w`,
+  `deg(gcd(L0,G-bV))>=m`, and `j=R+m-h`.  Fresh-symbol forcing reduces the
+  direct row problem to boundary anchors because `B*+1<q`.  The packet also
+  proves that every unit residue `V` is realizable, cutting off rank-two-only
+  structural shortcuts.
+- **How it is useful:** It replaces fixed-weight chart sampling with one
+  all-weight, codeword-deduplicated census.  At M31 the remaining direct
+  theorem is exactly `#X(V)<=16777214` for boundary anchors `t=0` and
+  arbitrary unit `V`; this packet moves no v4 atom and no official endpoint.
+- **What to do next:** Attack the complete arbitrary-unit gcd-incidence
+  census in the slack-normal coordinates.  Every subcase must either fit the
+  full pair budget, map disjointly to a named v4 owner, or yield an explicit
+  primitive route cut; do not generalize the boundary identity `b=G-H`
+  beyond `j0=R,V=1`.
+
 ### 2026-07-22 - M31 LIST v4 global completion compiler v2
 
 - **Agent/model:** Codex, with separate contract-design, primary-literature,
