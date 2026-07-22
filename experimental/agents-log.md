@@ -30,6 +30,42 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-22 - M31 common-V split-flat pairwise CRT equivalence
+
+- **Agent/model:** Codex, with separate theorem-generation, exact-replay,
+  Sage-control, packet-contract, and fresh proof-review agents.
+- **Files added or changed:**
+  `experimental/notes/thresholds/m31_common_v_split_flat_pairwise_crt_equivalence_v1.md`,
+  `experimental/data/certificates/m31-common-v-split-flat-pairwise-crt-equivalence-v1/`,
+  `experimental/data/schemas/m31_common_v_split_flat_pairwise_crt_equivalence_v1.schema.json`,
+  `experimental/scripts/verify_m31_common_v_pairwise_crt_equivalence_v1.py`,
+  `experimental/scripts/verify_m31_common_v_pairwise_crt_equivalence_v1.sage`,
+  `experimental/scripts/verify_m31_common_v_split_flat_pairwise_crt_packet_v1.py`,
+  `agents.md`, and this log.
+- **Status:** PROVED SPLIT-FLAT ATLAS / PROVED PAIRWISE CRT EQUIVALENCE /
+  ROUTE CUT / AUDIT; M31 LIST ROW OPEN.
+- **What is being added:** For fixed full-gcd locator `H`, boundary candidates
+  form an exact affine flat of codimension `w` with no rank-drop branch, and
+  every nonempty interior chart has codimension at least `w+1`, with the two
+  full-gcd quotient orientations proved separately.  For fewer than `p-1`
+  pairwise-distinct reduced pairs, the individual `gcd(b_i,H_i)=1` gates and
+  pairwise Wronskian intersection/symmetric-difference gates are necessary
+  and sufficient for one common unit `V`; the deployed margin is
+  `2130706431`.  Thus no hidden triple-or-higher common-`V` compatibility
+  remains.
+- **How it is useful:** It replaces the parent's common-`V` residual by the
+  exact terminal
+  `UNPAID_PAIRWISE_SPLIT_RATIONAL_FUNCTION_DIVISOR_INCIDENCE`.  It also shows
+  that a fixed-`G` slice can be any nowhere-zero ordinary RS received word,
+  with Johnson denominator nonpositive for `72859<=m<=908270`; another
+  fixed-locator rank or Johnson computation cannot close the broad middle.
+  Ledger and endpoint movement are zero.
+- **What to do next:** Prove the uniform global upper `15775932` for the
+  shallow individual-unit and pairwise-compatible split-rational family, or
+  construct `15775933` canonical members.  Any proof must exploit split numerators,
+  coprimality, and global aggregation, or provide a source-bound owner/CA
+  bridge; do not assume the family varies in `G`.
+
 ### 2026-07-22 - M31 boundary common-V full-locator route cuts
 
 - **Agent/model:** Codex, with separate exact-arithmetic, independent-replay,
