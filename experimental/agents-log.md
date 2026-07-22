@@ -30,6 +30,38 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-21 - M31 fixed-template interleaved quotient and cofactor-jet route cut
+
+- **Agent/model:** Codex, with a separate statement audit; an exact
+  standard-library verifier; an independent Sage replay; and external
+  literature triage after the symbolic statement was frozen.
+- **Files added or changed:** `agents.md`;
+  `experimental/notes/thresholds/m31_c2048_fixed_template_interleaved_quotient_route_cut.md`;
+  `experimental/data/schemas/m31_c2048_fixed_template_interleaved_quotient_route_cut_v1.schema.json`;
+  `experimental/data/certificates/m31-c2048-fixed-template-interleaved-quotient-route-cut-v1/`;
+  `experimental/scripts/verify_m31_c2048_fixed_template_interleaved_quotient_route_cut_v1.py`;
+  `experimental/scripts/verify_m31_c2048_fixed_template_interleaved_quotient_route_cut_v1.sage`;
+  and this log.
+- **Status:** PROVED FIXED-TEMPLATE CAP / PROVED COFACTOR-JET BRIDGE /
+  PROVED TWO ROUTE-CUT CONSTRUCTIONS / COMPLETE ATTAINED SUM OPEN.
+- **What is being added:** A whole-family interleaved quotient-RS reduction
+  bounds each fixed partial template by one for `v>=512`, and otherwise by
+  `floor(C(1023-u-v,512-v)/C(544-v,512-v))`.  Exactly 25767 profile shapes
+  fit `B*` under this cap and 235425 do not.  Exact reciprocal algebra puts
+  locator jets and normalized-cofactor jets in fiber-preserving bijection.
+  One deployed fixed template attains at least 15 targets; a separate exact
+  gluing word has two `(0,0)` codewords with different partial templates.
+- **How it is useful:** It replaces another sampled carrier with the complete
+  fixed-template theorem and identifies the legal triple sum over profiles,
+  templates, and attained cofactor jets.  It proves that maximum-prefix and
+  common-template shortcuts cannot pay that sum.  The terminal is
+  `UNPAID_ATTAINED_COFACTOR_JET_SUM_OWNER`; no ledger atom moves.
+- **What to do next:** Bound the complete attained cofactor-jet/template
+  incidence, route a disjoint portion into row-sharp Q with an exact
+  codeword payment, and classify the varying-template residual.  Do not
+  invoke QR2 directly for general large partial templates or claim that the
+  15-target construction is a complete-ball census.
+
 ### 2026-07-21 - M31 whole-boundary 36/65 carrier and target-field deformation route cut
 
 - **Agent/model:** Codex, with independent proof, release, and scope audits;

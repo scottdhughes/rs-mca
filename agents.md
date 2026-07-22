@@ -143,6 +143,19 @@ At this snapshot:
   vanishes identically or complete-layer incidence supplies new information.
   The anchor ladder is basis-relative and nonnested, not a canonical owner;
   no atom moves.
+- The whole fixed-partial-template class now has an exact interleaved
+  quotient-RS upper theorem.  For profile `(u,v)`, a fixed partial template
+  has at most one codeword when `v>=512`; otherwise, with `kappa=512-v`, its
+  complete family is at most
+  `floor(C(1023-u-v,kappa)/C(544-v,kappa))`.  This fits `B*` on 25767 of
+  261192 profiles but fails on 235425, including `(0,0)`.  Locator depth-w
+  jets and normalized-cofactor depth-w jets are in fiber-preserving
+  bijection.  One fixed `(0,0)` template attains at least 15 different such
+  targets, and one received word has two same-profile codewords with
+  different partial templates.  Thus the legal object is the disjoint sum
+  over profiles, exact partial templates, and attained cofactor jets; neither
+  a maximum prefix fiber nor one common template can replace it.  The exact
+  residual is `UNPAID_ATTAINED_COFACTOR_JET_SUM_OWNER`; no atom moves.
 - A schema/hash pass is structural preflight only. The legacy four-row compiler trusted-source registry is empty; the new M31 adapter hash-binds its theorem sources, but parsing either manifest does not itself prove an atom.
 
 ## 3. Document authority
@@ -159,6 +172,7 @@ At this snapshot:
 | `experimental/notes/thresholds/m31_c2048_partial_occupancy_30carrier_reduction.md` and `experimental/data/certificates/m31-c2048-partial-occupancy-30carrier-v1/manifest.json` | **M1 exact boundary-atlas authority:** exhaustive `c=2048` occupancy parameterization, C1-shaped/bi-deep/visible-arm/core partition, target-field arbitrary-subpacket lift, and the exact `7556704`-or-30-carrier dichotomy. The carrier owner, arbitrary-word C1 adapter/payment, and high interior remain open; ledger movement is zero. |
 | `experimental/notes/thresholds/m31_c2048_multiprefix_30carrier_activation_route_cut.md` and `experimental/data/certificates/m31-c2048-multiprefix-30carrier-activation-v1/manifest.json` | **M1 boundary successor authority:** separately realized fixed-multipartial exact sources in every occupancy profile, the exact 177/141 certified-floor census and 142-profile sufficient-criterion width census, the source-specific 30/29-column determinantal-divisor sharpening, the deployed same-remainder literal-locator multiprefix obstruction, and the arbitrary-word `Y-P=L_S H` replacement. It proves no universal carrier theorem or C1/carrier payment and moves no atom. |
 | `experimental/notes/thresholds/m31_c2048_65column_fixed_anchor_boundary_route_cut.md` and `experimental/data/certificates/m31-c2048-65column-fixed-anchor-route-cut-v1/manifest.json` | **M1 whole-boundary carrier authority:** exact width-36 combined-gate and width-65 direct-boundary triggers, sharp cumulative kernel-index ladder, 50-row/cutoff Hilbert floor, basis-relative fixed-anchor incidences, 156-profile source nonemptiness, and target-field proper-component deformation route cut through every budget-sized packet. The anchor is not canonical, the identically forced branch is unpaid, high interior remains open, and no atom moves. |
+| `experimental/notes/thresholds/m31_c2048_fixed_template_interleaved_quotient_route_cut.md` and `experimental/data/certificates/m31-c2048-fixed-template-interleaved-quotient-route-cut-v1/manifest.json` | **M1 fixed-template quotient authority:** exact interleaved quotient-RS cap for every profile/template, complete 25767/235425 budget census, locator/cofactor jet bijection, 15-target fixed-template construction, and varying-template gluing cut. The complete profile/template/attained-jet sum remains unpaid, high interior remains open, and no atom moves. |
 | `tex/cs25_cap_v13_2.tex` | **Foundation/unsafe authority:** exact unsafe endpoints, field/domain conventions, reductions, and certificate grammar. |
 | `RS_MCA_Paving_v9.2.tex` | **Fixed ePrint basis for unconditional paving results:** shortening, MDS circuit, exact finite, exponential-budget, and conditional Sidon-to-flatness results from ePrint 2026/1463. It does not solve the subexponential near-capacity frontier. |
 | `experimental/rs_mca_thresholds.tex` | **Exact-regime/exposition source:** staircases, below-half-distance results, syndrome geometry, and examples; not unrestricted near-capacity closure authority. |
@@ -288,24 +302,25 @@ negative-refund interface.
 
 The packet-local maximal `c=2048` exact-boundary diagnostic subterminal inside
 `HIGH_BOUNDARY_EXACT_CODEWORD` / `U_new` is now
-`M31_C2048_65COLUMN_FIXED_ANCHOR_OWNER`.  The combined `9216781` gate forces a
-36-frame and direct whole-boundary excess forces a 65-frame, but both are far
-inside the target-field proper-component deformation range.  Hence further
-fixed-width rank extraction cannot close this branch.  The next attack must
-classify actual simultaneous `Y-P_i=L_(S_i)H_i` frames by a source-bound
-partition: prove and sum the fixed-partial-template interleaved quotient-RS
-owner over attained normalized cofactor jets, then classify the
-varying-template residual, or pay an identically forced collision component
-with a chronology-valid global refund.  Each component must yield a paid
-owner, a budget-fitting attained-image sum, or an explicit primitive route
-cut.  The combined disjoint face/carrier payment must be no smaller than the
-realized `6796405` floor and no larger than `9216781`.  This target still does
-not pay the high interior: a full row proof must handle `U_list-int`, `U_ext`,
-and the remaining high `U_new` mass.  All five v4 atoms, global M1 terminals,
-and high-interior obligations remain unchanged.  Do not return to a flat
-baseline, claim a universal profile cap of 29, replace a prefix sum by one
-maximum fiber, or assign arbitrary boundary codewords to Q without a proved
-multiprefix map.
+`UNPAID_ATTAINED_COFACTOR_JET_SUM_OWNER`.  The fixed-template interleaved
+quotient cap fits the full-row budget individually for every fixed template
+in 25767 profile shapes, but it is not a first-match payment and leaves
+235425 shapes above budget.  Its exact locator/cofactor bridge shows that the complete
+object is the disjoint sum over profile, exact partial template, and attained
+normalized cofactor jet.  One fixed template attains at least 15 targets, and
+two same-profile codewords can have different templates, so neither inner sum
+may be erased.  The next maximal attack must bound this complete attained
+incidence sum, route a disjoint portion into row-sharp Q with an exact
+codeword charge, and classify the varying-template residual; every component
+must yield a chronology-valid paid owner, a budget-fitting attained-image
+sum, or an explicit primitive route cut.  The combined disjoint face/carrier
+payment must be no smaller than the realized `6796405` floor and no larger
+than `9216781`.  This target still does not pay the high interior: a full row
+proof must handle `U_list-int`, `U_ext`, and the remaining high `U_new` mass.
+All five v4 atoms, global M1 terminals, and high-interior obligations remain
+unchanged.  Do not return to a standalone fixed-width carrier, replace the
+attained sum by one maximum fiber, or invoke QR2 directly for a general
+partial template whose degree can exceed 2048.
 
 #### M2. Transfer the theorem or record a new floor
 
