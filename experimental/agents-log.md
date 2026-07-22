@@ -30,6 +30,37 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-22 - M31 varying-G affine-span and fixed-G endpoint route cuts
+
+- **Agent/model:** Codex, with separate varying-`G` theorem, fixed-`G`
+  shortening, exhaustive Sage-census, and fresh proof/release-review agents.
+- **Files added or changed:**
+  `experimental/notes/thresholds/m31_varying_g_affine_span_shortening_route_cut_v1.md`,
+  `experimental/data/certificates/m31-varying-g-affine-span-shortening-route-cut-v1/`,
+  `experimental/data/schemas/m31_varying_g_affine_span_shortening_route_cut_v1.schema.json`,
+  `experimental/scripts/verify_m31_varying_g_affine_span_shortening_route_cut_v1.py`,
+  `experimental/scripts/verify_m31_varying_g_affine_span_shortening_route_cut_v1.sage`,
+  `experimental/scripts/verify_m31_varying_g_affine_span_shortening_route_cut_packet_v1.py`,
+  `experimental/scripts/scan_m31_varying_g_shallow_incidence_toy_v1.sage`,
+  `agents.md`, and this log.
+- **Status:** PROVED LOCAL AFFINE-SPAN AND ENDPOINT ROUTE CUTS / EXACT TOY
+  CENSUS / AUDIT; HIGH-RANK INCIDENCE AND M31 LIST ROW OPEN.
+- **What is being added:** A realized-codeword basis double count proves
+  `sum_i binom(w+s_i+r+e,r)<=binom(R+g-e,r)`, excluding ranks at most four
+  at shallow size `15775933` and localizing ranks five through ten.  Exact
+  agreement-shortening/error-puncturing closes `m=72859` and `m=908270`,
+  while five exhaustive tiny cells show that mixed-`G` families can strictly
+  exceed every fixed-`G` slice.
+- **How it is useful:** It removes the entire low-affine-rank branch, shrinks
+  the deterministic fixed-`G` interval to `72860<=m<=908269`, and prevents
+  an invalid reduction of the global varying-`G` problem to one locator.
+  Ledger and official endpoint movement are zero.
+- **What to do next:** Prove a source-bound high-rank split-locator incidence
+  dichotomy, beginning with the exact rank-five/rank-six union and excess
+  thresholds, while attacking the fixed-`G` middle by a Chebyshev-specific
+  higher-order intersection theorem.  Do not return to another common-unit,
+  pairwise-CRT, or Johnson calculation.
+
 ### 2026-07-22 - M31 order-32 Chebyshev exact maximum fiber
 
 - **Agent/model:** Codex, with separate exact-census, symbolic-Sage, ordinary-RS,
