@@ -30,6 +30,36 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-22 - M31 marked-basis rank-five closure and rank-six route cut
+
+- **Agent/model:** Codex, with separate marked-basis, scalar-incidence,
+  realized-sharpness, exact-Sage, and fresh proof/release-review agents.
+- **Files added or changed:**
+  `experimental/notes/thresholds/m31_varying_g_first_pivot_basis_route_cut_v1.md`,
+  `experimental/data/certificates/m31-varying-g-first-pivot-basis-route-cut-v1/`,
+  `experimental/data/schemas/m31_varying_g_first_pivot_basis_route_cut_v1.schema.json`,
+  `experimental/scripts/verify_m31_varying_g_first_pivot_basis_route_cut_v1.py`,
+  `experimental/scripts/verify_m31_varying_g_first_pivot_basis_route_cut_v1.sage`,
+  `experimental/scripts/verify_m31_varying_g_first_pivot_basis_route_cut_packet_v1.py`,
+  `experimental/scripts/README.md`, `agents.md`, and this log.
+- **Status:** PROVED LOCAL MARKED-BASIS ROUTE CUT / EXACT TOY SHARPNESS
+  CONTROL / AUDIT; RANK SIX AND M31 LIST ROW OPEN.
+- **What is being added:** Freeing the first agreement pivot and marking the
+  two agreement blocks gives first-pivot, colored, cross-block, and affine-line
+  basis inequalities.  They exclude shallow codeword-span ranks one through
+  five, trap rank six in `781458<=g<=1033227`, and give the exact aggregate
+  excess ceiling `96161189784`; an exact `GF(17)` family is sharp up to the
+  excluded zero anchor.
+- **How it is useful:** It closes one full affine-rank stratum and proves that
+  the present aggregate basis and second-incidence gates do not close rank six.
+  The scalar survivor is not a realized family, the toy is not deployed
+  evidence, and ledger/official endpoint movement are zero.
+- **What to do next:** Prove a positive-`w`, fixed-syndrome secant incidence
+  theorem for the realized rank-six split-rational component, routing every
+  exception to a source-certified paid owner or preserving it as an explicit
+  primitive residual.  Do not return to uncolored basis supersets or another
+  global support moment.
+
 ### 2026-07-22 - M31 varying-G affine-span and fixed-G endpoint route cuts
 
 - **Agent/model:** Codex, with separate varying-`G` theorem, fixed-`G`
