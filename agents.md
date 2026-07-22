@@ -1,7 +1,7 @@
 # AGENTS.md — RS–MCA Resolution Protocol
 
 > **Updated:** 2026-07-22
-> **State snapshot:** `main@32a41660e3088eeeb15a16645330856794302ff0`
+> **State snapshot:** `main@fb6d9555339b43911c59c498373c43ed6c5cd391`
 > **Supersedes:** all older priority lists in this file.
 
 Edit this workboard in place. Never append another “current focus”, “highest priority”, or competing task list.
@@ -65,19 +65,23 @@ At this snapshot:
 
 - CAP25 v13.2 proves the unsafe endpoints and reusable foundation results.
 - Grande Finale v4 proves many local identities, order-32/rational-atom reductions, owner localization, and spread-core incidence bounds, but no adjacent safe row.
-- The live compiler returns `ARCHITECTURE_ROUTE_CUT_CURRENT_ARTIFACT_SET`, not `SAFE`.
+- The live Mersenne-31 LIST compiler returns `CURRENT_ARTIFACT_SET_ROUTE_CUT_CROSS_WEIGHT_THEOREM_REQUIRED`, not `SAFE`.
 - Every deployed `U_Q` remains `null`.
 - No row has complete active-architecture `U_paid`, exhaustive MCA balanced-core or list-interior payment, zero/exact residual, and chronology-correct add-back.
 - The KoalaBear legacy M1 stack records local `U_paid=422354730332` and local remainder `274980305756664755`, but neither is banked in Grande Finale v4 because the source-bound owner/partition bridge is missing.
 - Under the latest corrected direct extension charge, positive extension dimension is excluded on Mersenne-31 and dimension at least two is excluded on KoalaBear. These are route cuts, not payments or nonexistence theorems.
 - The newly integrated M31 packets add local padding-bridge, masked-saturation, common-core add-back, rank-two/coloop, rooted-shell, C7--C9, and route-cut infrastructure.  These are not adjacent-row payments: source-bound owner/refund, rooted-shell completion, residual projection, and final finite-ledger terminals remain open.
+- The source-bound Mersenne-31 v4 LIST adapter proves one bankable codeword payment, `U_paid<=3730`, on exact error weights through `614160`.  Its four remaining atoms `U_Q`, `U_list-int`, `U_ext`, and `U_new` are null, and its global terminal is `UNPAID_GLOBAL_COUPLED_RANK46_RESIDUAL` (refined downstream to `UNPAID_CROSS_WEIGHT_EXCESS_DEFICIT_Q_OWNER`).
+- The older four-row v1 machine compiler is a historical Grande Finale v3 structural preflight.  It has four LIST atoms, slope/received-line units, and a stale `grande_finale.tex` source pin; it is not the live v4 Mersenne-31 LIST contract.
 - A schema/hash pass is structural preflight only. The trusted-source registry is empty; parsing a manifest does not prove an atom.
 
 ## 3. Document authority
 
 | File | Role |
 |---|---|
-| `experimental/notes/frontier-adjacent/four_row_exact_completion_compiler_v1.md` and `experimental/data/certificates/four-row-exact-completion-compiler-v1/four_row_exact_completion_compiler_v1.json` | **Live status authority:** current null atoms, route cuts, architecture IDs, exact row arithmetic, and replay contract. |
+| `experimental/notes/thresholds/m31_list_v4_global_completion_compiler.md` and `experimental/data/certificates/m31-list-v4-global-completion-compiler-v2/manifest.json` | **Live Mersenne-31 LIST completion authority:** current v4 five-atom contract, signed closure gate, enumerated zero-movement route-cut graph, and the sharp boundary-only additive/numerical insufficiency certificate. |
+| `experimental/notes/thresholds/m31_list_v4_source_adapter_global_coupled_residual.md` and `experimental/data/certificates/m31-list-v4-source-adapter-v1/manifest.json` | **Live Mersenne-31 LIST source/partition authority:** v4 five-atom codeword chronology, the banked low-weight payment, exact whole-list source partition, and global residual. |
+| `experimental/notes/frontier-adjacent/four_row_exact_completion_compiler_v1.md` and `experimental/data/certificates/four-row-exact-completion-compiler-v1/four_row_exact_completion_compiler_v1.json` | **Historical v3 structural preflight:** exact row arithmetic and legacy architecture checks only; not a current v4 LIST closure authority. |
 | `experimental/Conjectures_and_Barriers_RS_MCA_v4_1.tex` | **Direct problem/falsifier authority:** benchmark conjectures, exact compiler requirements, finite barriers, and separation of finite from conjectural asymptotic claims. |
 | `experimental/grande_finale.tex` | **Active conditional completion architecture:** proved local theorems, order-32/rational-atom reductions, owner localization, spread-core incidence bounds, and exact completion problems. Hypotheses/problems are not row bounds. |
 | `tex/cs25_cap_v13_2.tex` | **Foundation/unsafe authority:** exact unsafe endpoints, field/domain conventions, reductions, and certificate grammar. |
@@ -206,7 +210,7 @@ For Grande Finale v4, every bad object enters one declared, non-oracular, witnes
 
 ```text
 MCA:  U_total = U_paid + U_Q + U_BC       + U_new
-LIST: U_total = U_paid + U_Q + U_list_int + U_new
+LIST: U_total = U_paid + U_Q + U_list_int + U_ext + U_new
 ```
 
 Every atom shares the same row/target, object, architecture ID, partition digest, owner order, received-line/word quantifier, unit, and source-bound dependencies. Every value is an exact nonnegative integer.

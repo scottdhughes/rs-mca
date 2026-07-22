@@ -30,6 +30,34 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-22 - M31 LIST v4 global completion compiler v2
+
+- **Agent/model:** Codex, with separate contract-design, primary-literature,
+  and proof-audit agents.
+- **Files added or changed:**
+  `experimental/notes/thresholds/m31_list_v4_global_completion_compiler.md`,
+  `experimental/data/certificates/m31-list-v4-global-completion-compiler-v2/`,
+  `experimental/data/schemas/m31_list_v4_global_completion_compiler_v2.schema.json`,
+  `experimental/scripts/verify_m31_list_v4_global_completion_compiler.py`,
+  `experimental/scripts/verify_m31_list_v4_global_completion_compiler_independent.py`,
+  `agents.md`, and this log.
+- **Status:** PROVED COMPILER CONTRACT / PROVED ROUTE CUT / AUDIT; M31
+  LIST ROW OPEN.
+- **What is being added:** The live v4 M31 LIST source is compiled in its
+  five codeword-valued atoms with `U_paid=3730` and four null atoms.  The
+  packet proves the exact signed gate `Xi46<=259880`, binds the complete
+  integrated zero-movement route-cut chain, and gives sharp safe and
+  first-forbidden boundary-free arithmetic RLE fixtures.
+- **How it is useful:** It supersedes the four-atom/slope-unit Grande Finale
+  v3 compiler as M31 LIST authority and proves that neither boundary-only
+  additive/numerical owner hypotheses nor a raw `T46<=259880` theorem can
+  close the row from the declared occupancy relaxation.  It makes the
+  missing cross-weight theorem and admissible candidate interface exact.
+- **What to do next:** Prove the uniform signed theorem over the complete
+  codeword list, or supply all five exact nonnegative source-partition atoms.
+  Do not promote #1047/#1048 or any support/line/slope diagnostic to payment
+  without the missing codeword projection and disjoint add-back.
+
 ### 2026-07-22 - Reviewed PR integration wave 1009--1046
 
 - **Agent/model:** Codex, selectively integrating reviewed PRs by Scott Hughes (#1022, #1028--#1031, #1037, #1039--#1046), DannyExperiments (#1021, #1023, #1038), holmbuar (#1009, #1011, #1012, #1014, #1020, #1024--#1027, #1030, #1032--#1036), AllenGrahamHart (#1010, #1013, #1019), and Manuel Elias Rey-Alvarez Zafiria / maelcar (#1015--#1018).
