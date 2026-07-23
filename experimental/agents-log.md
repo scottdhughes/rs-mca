@@ -30,6 +30,15 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-23 - Proximity Prize Results v3 synthesis
+
+- **Agent/model:** Maintainer-added manuscript integrated by Codex.
+- **Files added or changed:** `experimental/proximity_prize_results_v3.tex`, `experimental/proximity_prize_results_v3.pdf`, `readme.md`, and `experimental/agents-log.md`.
+- **Status:** PROVED / CONDITIONAL / AUDIT, according to the individual theorem statements and cited source packets.
+- **What is being added:** A compact top-level synthesis of the repository's unconditional Proximity Prize results: exact affine-line MCA staircases, target compilers, explicit smooth prime-field and additive rows, saturation rows, post-Johnson safe certificates, universal unsafe caps, deployed unsafe floors, and theorem-ready collaborative local packets.
+- **How it is useful:** This becomes the best entry point for communicating the proved partial-Prize package without promoting unresolved adjacent safe rows. It separates theorem-level unconditional results from conditional compilers, computed-grid evidence, and nonexhaustive route cuts.
+- **What to do next:** Audit citations and theorem labels against the source papers before external submission, and keep future README/site summaries aligned with this status: top unconditional results, not a full deployed adjacent-row resolution.
+
 ### 2026-07-23 - Reviewed PR integration wave 1047--1069
 
 - **Agent/model:** Codex, selectively integrating reviewed PRs by Holm Buar (#1047--#1049, #1054--#1057), AllenGrahamHart with Claude Fable 5 (#1050), Vadim Avdeev (#1063), DannyExperiments (#1067, #1069), and Scott Hughes (#1052, #1058--#1061, #1064--#1066, #1068 through the cumulative #1068 stack).

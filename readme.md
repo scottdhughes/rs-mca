@@ -5,6 +5,7 @@ This repository is a working research package for settling the smooth-domain Ree
 See the related [IACR ePrint paper](https://eprint.iacr.org/2026/680.pdf).
 
 MDS Paving Bounds for Reed--Solomon MCA is now [IACR ePrint 2026/1463](https://eprint.iacr.org/2026/1463); the root-level `RS_MCA_Paving_v9.2.tex` and `.pdf` are the fixed basis for those unconditional results going forward.
+`experimental/proximity_prize_results_v3.tex` and `.pdf` are the current top-level synthesis of the repository's unconditional Proximity Prize results. Use that paper as the compact map of proved staircases, explicit safe/unsafe rows, universal caps, theorem-ready local packets, and status-preserving nonclaims; it does not claim the unresolved deployed adjacent safe rows.
 Visit the [project's website](https://www.rsmca.xyz/).
 
 The central theme is simple:
@@ -40,6 +41,7 @@ of the main papers are in `tex/`, experimental manuscripts are in
 | `cs25_cap_v13_2.tex` | **Paper D: two-sided cap, safe-side pincer, and certificate grammar** | This is the main Proximity Prize submission reference. It keeps the self-contained cap route, promotes the v13.2 unsafe-frontier repairs, adds the safe-side pincer, deployed-row two-sided intervals, map/rational smooth extensions, circle/genus-one transports, explicit witness machinery, optimized failure profile, and certificate grammar. |
 | `snarks_v5.tex` | **Paper C: SNARK ledger** | Turns the corrected theory into a protocol-facing certificate and adds a theorem-backed high-agreement ledger compiler for line/list/curve coding numerators. |
 | `towards-prize.tex` | **Towards Prize: sparse threshold note** | Compact prize-facing note. It packages the `delta^*` staircase viewpoint, deployed KoalaBear pincer, and the new sparse residual reduction `emca = max(eca, sigma_C/q)` into the current execution target. |
+| `experimental/proximity_prize_results_v3.tex` / `.pdf` | **Proximity Prize Results v3** | Current top unconditional-results synthesis. It assembles proved affine-line MCA staircases, complete target compilers, explicit smooth/additive/saturated rows, post-Johnson certificates, universal unsafe caps, deployed unsafe floors, and theorem-ready collaborative packets while keeping conditional adjacent-row claims out of theorem statements. |
 | `experimental/rs_mca_thresholds.tex` | **Reed--Solomon MCA Thresholds** | Current coherent exact-threshold draft. It packages exact deep/quadratic MCA staircases, CA/sparse decomposition, certified Proth prime rows at all four official rates, smooth/circle transports, and target-aware certificate formulas. |
 | `experimental/grande_finale.tex` | **Grande Finale v4** | Active experimental final-resolution spine. It keeps the profile/Q/Sidon/Fourier compiler material and adds the order-32 rank route, rational-atom extraction/coherence, owner localization, spread-core incidence bounds, and the current row-sharp completion problems. |
 | `RS_MCA_Paving_v9.2.tex` / `RS_MCA_Paving_v9.2.pdf` | **MDS Paving Bounds for Reed--Solomon MCA** | Root-level fixed basis for unconditional paving results; this is [IACR ePrint 2026/1463](https://eprint.iacr.org/2026/1463). Use it as a stable source for shortening, MDS-circuit, exact finite, exponential-budget, and conditional Sidon-to-flatness results. |
@@ -182,6 +184,7 @@ The version changes matter for the website and scanner as follows:
   deployed KoalaBear pincer, and reduce the remaining MCA task to the sparse
   residual layer plus CA/list certificates.
 - **`experimental/rs_mca_thresholds.tex`** is the current coherent exact-threshold draft. It should be read first for exact staircases, certified Proth rows, and certificate formulas.
+- **`experimental/proximity_prize_results_v3.tex`** is the current compact reference for the top unconditional Proximity Prize results. It is the best entry point for proved partial results before diving into the longer cap, threshold, paving, and Grande Finale sources.
 - **`experimental/grande_finale.tex`** is the active experimental final-resolution spine. It should now be read before the archived asymptotic drafts for profile-envelope, Sidon/Fourier, primitive-Q, Q-to-SP, quotient/remainder, and finite adjacent-row obligations.
 - **`archived/asymptotic_rs_mca.tex` and `archived/asymptotic_rs_mca_frontiers.tex`** are historical asymptotic predecessors. They remain useful for provenance and comparison, but they are no longer active proof targets.
 - **`experimental/rs_mca_proximity_prize_status.md`** is an experimental

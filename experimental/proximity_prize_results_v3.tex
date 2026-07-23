@@ -1,0 +1,1251 @@
+\documentclass[11pt,a4paper]{amsart}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,tabularx,array}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage[capitalize,nameinlink,noabbrev]{cleveref}
+
+\allowdisplaybreaks[2]
+\emergencystretch=3em
+\numberwithin{equation}{section}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\crefname{theorem}{theorem}{theorems}
+\Crefname{theorem}{Theorem}{Theorems}
+\crefname{proposition}{proposition}{propositions}
+\Crefname{proposition}{Proposition}{Propositions}
+\crefname{lemma}{lemma}{lemmas}
+\Crefname{lemma}{Lemma}{Lemmas}
+\crefname{corollary}{corollary}{corollaries}
+\Crefname{corollary}{Corollary}{Corollaries}
+\crefname{definition}{definition}{definitions}
+\Crefname{definition}{Definition}{Definitions}
+\crefname{remark}{remark}{remarks}
+\Crefname{remark}{Remark}{Remarks}
+
+\DeclareMathOperator{\RS}{RS}
+\DeclareMathOperator{\MCA}{MCA}
+\DeclareMathOperator{\CA}{CA}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\wt}{wt}
+\DeclareMathOperator{\supp}{supp}
+\newcommand{\F}{\mathbb F}
+\newcommand{\B}{\mathbb B}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\defeq}{\mathrel{:=}}
+\newcommand{\Lcal}{\mathcal L}
+\newcommand{\Hb}{H_2}
+\newcommand{\Cen}{\operatorname{Cen}}
+
+\title{Proximity Prize Results}
+\author{Przemek Chojecki}
+\address{Ulam.ai}
+\date{Version 3, July 2026}
+\subjclass[2020]{94B35, 11T71, 05B40}
+\keywords{Reed--Solomon codes, mutual correlated agreement, Proximity Prize, line decoding, MDS codes, finite fields}
+\hypersetup{pdftitle={Proximity Prize Results},pdfauthor={Przemek Chojecki}}
+
+\begin{document}
+\raggedbottom
+
+\begin{abstract}
+We assemble unconditional partial results for the Proximity Prize from four principal preprints and the theorem-ready part of the collaborative \texttt{rs-mca} experimental archive.  The exact affine-line MCA staircase is determined through almost half the minimum distance at the official rates, yielding complete target compilers, explicit smooth prime-field rows, additive binary-field rows, saturation examples, and finite post-Johnson certificates.  We record universal unsafe caps, separating-field and large-extension theorems, and exact local payments for the deployed KoalaBear and Mersenne-31 programmes.  New contributor-attributed sections collect bankable slope atoms, scalar-locator and syndrome-line localization, Pad\'e--Forney source reductions, generalized-weight rank cuts, exact quotient counterexamples, Chebyshev-domain theorems, and analytic and formal no-go results.  Conditional compilers and nonexhaustive route cuts are labeled as such and are not used to claim an adjacent deployed safe row.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+The Proximity Prize asks for sharp mutual correlated agreement (MCA) and list-decoding thresholds for Reed--Solomon codes on structured domains, with the principal concrete target $2^{-128}$ and rates $1/2,1/4,1/8,1/16$ \cite{ProximityPrize,ABF26}.  This paper is a theorem-level synthesis of unconditional results proved in four companion manuscripts and in the theorem-ready part of the public \texttt{rs-mca} experimental archive.  The exact finite geometry, agreement-set shortening, half-distance staircase, endpoint saturation, and explicit finite rows come from \cite{ChoShort26}; the field-size-universal cap, map-smooth and circle transports, identity-prefix lower floors, and deployed unsafe certificates come from \cite{ChoCap26}; the separating-field theorem, large-extension exponent, saturation identity, moving-root split-pencil theorem, and finite support compilers come from \cite{ChoGF26}; and the rooted shift-pair, Johnson--LP, field-drop, Delsarte, and critical-core results come from \cite{ChoComp26}.  The collaborative theorem packages are attributed individually to Holm Buar, Scott Hughes, Danny (\texttt{DannyExperiments}), Vadim Avdeev, Manuel E. Rey-\'Alvarez Zafiria, Adam Mohammed A. Latif, and other contributors; the archive-wide status map is taken from the pinned notes and audits rather than from the coordination log alone \cite{RepoLog26,PRReport26}.  We reproduce short proofs where practical and cite exact source notes for computer-assisted or source-bound compilers.  No conjectured adjacent safe row, conditional profile envelope, computed-grid continuum claim, or unproved $S{+}A{+}E$ input is used.
+
+\begin{table}[ht]
+\centering
+\caption{Unconditional source map.}
+\label{tab:source-map}
+\small
+\begin{tabular}{@{}p{0.18\linewidth}p{0.75\linewidth}@{}}
+\toprule
+source & results used in this paper\\
+\midrule
+\cite{ChoShort26} & exact support and syndrome geometry; MCA--CA sparsification; quadratic and almost-half-distance staircases; agreement-set shortening; all-radius saturation; exact and beyond-Johnson finite rows\\
+\cite{ChoCap26} & deep-point list-to-CA conversion; locator-fiber lists; universal smooth-domain and map-smooth caps; circle transport; exact deployed unsafe floors and aperiodic witnesses\\
+\cite{ChoGF26} & exact first adjacent row over separating fields; shallow-prefix large-extension exponent; saturation identity; one-parameter moving-root bound and active-row specialization\\
+\cite{ChoComp26} & rooted all-strata shift-pair compilers; shortened Johnson and endpoint compilers; cubic payment of the Mersenne MCA $b_0=6$ cell; exact ordinary Delsarte barrier; critical-core abundance and owner concentration\\
+Collaborative archive & bankable KoalaBear tangent atom; source-bound Koala rank-nine cuts; Mersenne source, Pad\'e--Forney, fixed-$G$, and generalized-weight reductions; scalar-locator and syndrome-span theorems; Chebyshev, dense-shell, counterexample, and formalization packets\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Let $\F$ be a finite field, let $D\subseteq\F$ have size $n$, and let $1\le k<n$.  We write $C=\RS_{\F}(D,k)$ for the evaluations of polynomials of degree less than $k$.  A received pair $(u_0,u_1)$ determines the affine line $u_0+\gamma u_1$, $\gamma\in\F$.  At agreement $a$, a slope is MCA-bad if one line point is explained on a support of size at least $a$ while the pair is not simultaneously explained on that same support.  For a nonempty challenge set $\Gamma\subseteq\F$, let $B_{C,\Gamma}^{\MCA}(a)$ be the maximum number of distinct bad slopes in $\Gamma$; for $\Gamma=\F$ write $B_C^{\MCA}(a)$.
+
+At real radius $\delta$, the closed Hamming ball has integer radius $r(\delta)=\floor{\delta n}$ and agreement $a(\delta)=n-r(\delta)$.  Thus $e_{\MCA,\Gamma}(C,\delta)=B_{C,\Gamma}^{\MCA}(a(\delta))/|\Gamma|$.  For a target $\eps$, put $B^*=\floor{\eps|\Gamma|}$.  Because $r(\delta)$ is right-continuous, exact safe sets are often half open: the largest safe grid point and the real supremum differ by $1/n$.
+
+The complete exact results below already solve genuine Prize subfamilies.  The official-rate staircase determines every target whose integer budget lies in an explicit interval reaching almost half the minimum distance; the saturated rows solve the full radius interval; four maximal-dimension smooth prime-field rows and four additive binary-field rows have exact thresholds; and four length-$512$ smooth rows are certified safe strictly beyond Johnson.  The universal cap supplies a complementary negative theorem near capacity for every admissible smooth row below the field-size ceiling.  The final deployed-row section records only unconditional local closures and obstructions, and explicitly stops short of claiming the unresolved adjacent safe inequalities.
+\section{Affine-line MCA and syndrome geometry}
+
+Put $R=n-k$.  Choose the generalized Vandermonde parity-check matrix $H\in\F^{R\times D}$ with columns
+\[
+ h_x=\lambda_x(1,x,\ldots,x^{R-1})^{\mathsf T},\qquad
+ \lambda_x=\left(\prod_{y\in D\setminus\{x\}}(x-y)\right)^{-1}.
+\]
+Lagrange interpolation shows that $H$ annihilates $C$, and every set of at most $R$ columns is independent.  For $E\subseteq D$, write $V_E=\Span\{h_x:x\in E\}$ and $s(u)=Hu^{\mathsf T}$.
+
+\begin{lemma}[Exact supports and the syndrome line]\label{lem:syndrome}
+Let $a\ge k+1$ and $S=D\setminus E$.  A word $u$ is explained on $S$ if and only if $s(u)\in V_E$.  Consequently, a slope $\gamma$ is MCA-bad on $S$ for $(u_0,u_1)$ if and only if
+\[
+ s(u_0)+\gamma s(u_1)\in V_E,
+ \qquad \{s(u_0),s(u_1)\}\not\subseteq V_E.
+\]
+For fixed $S$ there is at most one bad slope.  Moreover, every bad slope at threshold $a$ has a bad witness on a support of size exactly $a$.
+\end{lemma}
+
+\begin{proof}
+If $u=c+e$ with $c\in C$ and $e$ supported on $E$, then $s(u)=s(e)\in V_E$.  Conversely, if $s(u)\in V_E$, subtract a word supported on $E$ with the same syndrome; the remainder has zero syndrome and lies in $C$.  Passing the displayed affine equation to $\F^R/V_E$ shows that two distinct slopes would force both projected syndromes to vanish, contrary to badness.
+
+For exact support reduction, start from a bad support $S$ with $\abs S\ge a$.  One of $u_0|_S,u_1|_S$ is not explained.  Interpolate that word on a fixed $k$-subset of $S$; the interpolant must fail at some further point, and the resulting $(k+1)$-set can be enlarged to an $a$-subset on which non-explanation persists.  The same polynomial still explains the line point.
+\end{proof}
+
+\begin{corollary}[Support-atlas upper bound]\label{cor:support-upper}
+For $k+1\le a\le n$,
+\[
+ B_{C,\Gamma}^{\MCA}(a)\le \min\left\{\abs\Gamma,\binom na\right\}.
+\]
+\end{corollary}
+
+\begin{proof}
+Choose one exact $a$-support for every bad slope.  By \cref{lem:syndrome}, one support carries at most one slope, so this choice is injective.
+\end{proof}
+
+The next construction is the universal lower bound.  Its name refers to neighboring secant spans, not to differentiability.
+
+\begin{proposition}[Tangent floor]\label{prop:tangent}
+For every $a\ge k+1$ and every nonempty $\Gamma\subseteq\F$,
+\[
+ B_{C,\Gamma}^{\MCA}(a)\ge \min\{\abs\Gamma,n-a+1\}.
+\]
+\end{proposition}
+
+\begin{proof}
+Set $j=n-a$ and $t=\min\{\abs\Gamma,j+1\}$.  Choose distinct $\gamma_1,\ldots,\gamma_t\in\Gamma$ and independent columns $h_{x_1},\ldots,h_{x_t}$.  Put $s_1=\sum_i h_{x_i}$ and $s_0=-\sum_i\gamma_i h_{x_i}$, and lift $s_0,s_1$ to received words.  With $E_i=\{x_\ell:\ell\ne i\}$ one has $s_0+\gamma_i s_1\in V_{E_i}$, while $s_1\notin V_{E_i}$.  The complements $D\setminus E_i$ have size at least $a$, so \cref{lem:syndrome} makes every $\gamma_i$ bad.
+\end{proof}
+
+\begin{remark}[Zero radius]
+For a proper Reed--Solomon code, \cref{prop:tangent,cor:support-upper} give $B_C^{\MCA}(n)=1$ and $e_{\MCA}(C,0)=1/\abs\F$.  The value $2/\abs\F$ sometimes quoted in overview tables is a loose bound, not the exact affine-line value under Definition~4.3 of \cite{ABF26}.
+\end{remark}
+
+
+The next decomposition is the exact ``sparsification of the mutual layer'' theorem of \cite{ChoShort26}.  It is useful both conceptually and in the extension from the quadratic range to almost half the minimum distance.
+
+\begin{definition}[CA and sparse mutual numerators]
+For agreement $a$ put $t=n-a$.  A received pair is \emph{column-far} if it is not simultaneously explained on any support of size at least $a$.  Let $B_{C,\Gamma}^{\CA}(a)$ be the largest number of slopes in $\Gamma$ whose line points are explained on supports of size at least $a$, maximized over column-far pairs.  Let $\sigma_{C,\Gamma}(a)$ be the corresponding maximum over pairs $(e_0,e_1)$ with $|\supp(e_0)\cup\supp(e_1)|\le t$.
+\end{definition}
+
+\begin{theorem}[Exact sparsification of the mutual layer]\label{thm:sparsification}
+For every linear code, every nonempty $\Gamma$, and every agreement $a$,
+\[
+ B_{C,\Gamma}^{\MCA}(a)=\max\{B_{C,\Gamma}^{\CA}(a),\sigma_{C,\Gamma}(a)\}.
+\]
+\end{theorem}
+
+\begin{proof}
+The left side dominates both restricted maxima.  Conversely, fix a received pair.  If it is column-far, every explanation of a line point is automatically an MCA witness, so its bad set is bounded by $B_{C,\Gamma}^{\CA}(a)$.  Otherwise choose codewords $c_0,c_1$ simultaneously explaining the pair on a support of size at least $a$ and put $e_i=u_i-c_i$.  Then $|\supp(e_0)\cup\supp(e_1)|\le n-a$.  Translation by the codeword line $c_0+\gamma c_1$ is a bijection between support-wise witnesses for $(u_0,u_1)$ and for $(e_0,e_1)$, preserving nontriviality and slopes.  Hence the same bad set has size at most $\sigma_{C,\Gamma}(a)$.
+\end{proof}
+
+\begin{theorem}[Exact sparse mutual layer below half distance]\label{thm:sparse-half}
+Let $C$ have minimum distance $d_{\min}$ and let $2r\le d_{\min}-1$.  Then
+\[
+ \sigma_{C,\Gamma}(n-r)=\min\{|\Gamma|,r\},\qquad
+ B_{C,\Gamma}^{\MCA}(n-r)=\max\{B_{C,\Gamma}^{\CA}(n-r),\min\{|\Gamma|,r\}\}.
+\]
+For Reed--Solomon codes the hypothesis is $2r\le n-k$.
+\end{theorem}
+
+\begin{proof}
+Let $(e_0,e_1)$ be supported on a set $E$ of size at most $r$, and let a slope be bad on a support $S$ of size at least $n-r$, explained there by $c\in C$.  On $S\setminus E$ the sparse line point is zero, so $\supp(c)\subseteq E\cup(D\setminus S)$ has size at most $2r<d_{\min}$; hence $c=0$.  The witness support must meet a coordinate $x\in E$ with $(e_0(x),e_1(x))\ne(0,0)$ and $e_0(x)+\gamma e_1(x)=0$, so $x$ determines the slope.  This gives at most $\min\{|\Gamma|,r\}$ slopes.  Equality follows by placing distinct ratios $-e_0(x_i)/e_1(x_i)$ on $\min\{|\Gamma|,r\}$ coordinates and using the zero codeword as the explanation.  The MCA formula is \cref{thm:sparsification}.
+\end{proof}
+
+\section{The exact quadratic staircase}
+
+We first record the deep range, where three admissible error supports cannot contain the support of a nonzero codeword.
+
+\begin{lemma}[Deep range]\label{lem:deep}
+Let $C\subseteq\F^n$ be linear with minimum nonzero weight $d$.  If $r=n-a$ and $3r\le d-1$, then $B_C^{\MCA}(a)\le r+1$.
+\end{lemma}
+
+\begin{proof}
+Fix a received line and let $Z$ be its slopes lying within distance $r$ of $C$.  If $\abs Z\le r+1$ there is nothing to prove.  Choose two slopes $\gamma_1,\gamma_2\in Z$, corresponding codewords $p_1,p_2$, and error supports $E_1,E_2$ of size at most $r$.  Solving the two affine equations gives $c_0,c_1\in C$ such that $e_i=u_i-c_i$ are supported on $T=E_1\cup E_2$, $\abs T\le2r$.
+
+For any $\gamma\in Z$, an explaining codeword $p$ differs from $c_0+\gamma c_1$ on at most $3r\le d-1$ coordinates, hence equals it.  Let $T'$ be the support of the pair $(e_0,e_1)$.  If $\abs{T'}\ge r+1$, each $\gamma\in Z$ makes at least $\abs{T'}-r$ nonzero affine coordinate functions vanish; each coordinate has at most one root, so $\abs Z(\abs{T'}-r)\le\abs{T'}$ and $\abs Z\le r+1$.  If $\abs{T'}\le r$, an MCA-bad witness must meet $T'$, and a point of intersection determines $\gamma$, giving at most $r$ bad slopes.
+\end{proof}
+
+\begin{lemma}[Large-overlap collapse]\label{lem:overlap-collapse}
+Fix an exact agreement $a=n-r\ge k+1$, and choose one exact bad support $S_z$ and explaining polynomial $p_z$ for every bad slope $z$ on a received line.  If two supports satisfy $\abs{S_z\cap S_w}\ge k+r$, then the line has at most $r+1$ bad slopes.
+\end{lemma}
+
+\begin{proof}
+For $z\ne w$, put $c_1=(p_z-p_w)/(z-w)$ and $c_0=p_z-zc_1$.  On $S_z\cap S_w$ the received pair equals $(c_0,c_1)$.  Let $C_0$ be the full common support and write $c=\abs{C_0}\ge k+r$.  For every other bad slope $u$, the support intersection estimate $\abs{S_u\cap C_0}\ge a+c-n\ge k$ forces $p_u=c_0+uc_1$.
+
+Subtract the codeword pair.  Outside $C_0$, each coordinate can cancel at at most one slope.  A noncommon witness needs at least $\max\{1,a-c\}$ such cancellations, hence
+\[
+ \abs Z\le \floor{\frac{n-c}{\max\{1,a-c\}}}\le r+1.
+\]
+The last inequality is immediate for $c\ge a-1$; if $x=a-c\ge2$, the quotient is $(r+x)/x\le r+1$.
+\end{proof}
+
+The next theorem is the ``Quadratic mean-overlap theorem'' of \cite{ChoShort26}; we retain its short self-contained proof.
+
+\begin{theorem}[Quadratic staircase]\label{thm:quadratic}
+Let $C=\RS_{\F}(D,k)$, let $0\le r\le n-k-1$, and let $\varnothing\ne\Gamma\subseteq\F$.  If
+\[
+ (n-r)^2\ge n(k+r),
+ \qquad\text{equivalently}\qquad
+ r^2\ge n\bigl(3r-(n-k)\bigr),
+\]
+then
+\[
+ B_{C,\Gamma}^{\MCA}(n-r)=\min\{\abs\Gamma,r+1\}.
+\]
+\end{theorem}
+
+\begin{proof}
+The lower bound is \cref{prop:tangent}.  Fix a received pair and suppose its bad set contains $r+2$ slopes with distinct exact supports $S_1,\ldots,S_{r+2}$, each of size $a=n-r$.  If every pair had intersection at most $k+r-1$, and $d_x$ counted the number of supports containing $x$, then
+\[
+ \sum_x\binom{d_x}{2}\le\binom{r+2}{2}(k+r-1).
+\]
+On the other hand, Cauchy--Schwarz and $a^2/n\ge k+r$ give
+\[
+ \sum_x\binom{d_x}{2}\ge\frac{(r+2)^2a^2/n-(r+2)a}{2}
+ \ge\frac{(r+2)^2(k+r)-(r+2)a}{2}.
+\]
+The latter exceeds the former by $(r+2)(k+3r-n+1)/2$.  If $3r>n-k$ this is positive, so some pair has intersection at least $k+r$, contradicting \cref{lem:overlap-collapse}.  If $3r\le n-k$, \cref{lem:deep} already gives the upper bound because an RS code has minimum weight $n-k+1$.
+\end{proof}
+
+\begin{corollary}[Exact target compiler]\label{cor:target}
+Let $B^*=\floor{\eps\abs\Gamma}$ satisfy $1\le B^*<\abs\Gamma$ and $B^*\le n-k-1$.  If
+\[
+ (n-B^*+1)^2\ge n(k+B^*-1),
+\]
+then the complete real-radius safe set is
+\[
+ \{\delta:e_{\MCA,\Gamma}(C,\delta)\le\eps\}=[0,B^*/n).
+\]
+The largest safe grid point is $(B^*-1)/n$, and the endpoint $B^*/n$ is unsafe.
+\end{corollary}
+
+\begin{proof}
+The quadratic polynomial $r^2-n(3r-(n-k))$ is decreasing on $[0,n]$, so the displayed hypothesis holds at every integer radius $0\le r\le B^*-1$.  Hence \cref{thm:quadratic} gives numerator $r+1\le B^*$.  At radius $B^*$, \cref{prop:tangent} gives at least $B^*+1$ bad slopes.  Monotonicity in the radius and the identity $r(\delta)=\floor{\delta n}$ give the half-open interval.
+\end{proof}
+
+
+The quadratic theorem is self-contained, but \cite{ChoShort26} combines the preceding sparsification with the two-radius Reed--Solomon CA estimate of Ben-Sasson--Carmon--Hab\"ock--Kopparty--Saraf to obtain a larger exact range.  We reproduce the finite integer consequence.
+
+\begin{theorem}[Integral completion below half distance]\label{thm:integral-half}
+Let $C=\RS_{\F}(D,k)$, put $R=n-k$, and let $r$ satisfy $3r\ge R+1$ and $2r<R$.  Then
+\[
+ B_C^{\MCA}(n-r)\le
+ \floor{\max\left\{\frac{n(R+1-r)}{r(R+1-2r)},\ r+1\right\}}.
+\]
+If in addition $n(R-r)<r(r+2)(R-2r)$, then for every nonempty $\Gamma\subseteq\F$,
+$B_{C,\Gamma}^{\MCA}(n-r)=\min\{|\Gamma|,r+1\}$.
+\end{theorem}
+
+\begin{proof}
+Put $\Delta=(R+1)/n$ and $\alpha=r/n$.  For $0<\theta<1$, the radii $\alpha$ and $(r+\theta)/n$ define the same far-pair condition because Hamming distances lie on the $1/n$ grid.  The two-radius estimate of \cite[Theorem~1.3]{BCHKS25}, in the normalization of \cite[Theorem ``Integral BCHKS completion'']{ChoShort26}, gives
+\[
+ |\F|\,e_{\CA}(C,r/n)\le
+ \max\left\{\frac{n(R+1-r)}{r(R+1-2r)},\frac{r+\theta}{\theta}\right\}.
+\]
+The radius is below half the minimum distance, so \cref{thm:sparse-half} shows that the other MCA branch is at most $r$.  Letting $\theta\to1^-$ and using integrality gives the first bound.  Under the additional inequality,
+$\frac{n(R+1-r)}{r(R+1-2r)}\le\frac{n(R-r)}{r(R-2r)}<r+2$; hence the integer upper bound is at most $r+1$, and \cref{prop:tangent} gives equality.
+\end{proof}
+
+\begin{corollary}[Official-rate staircase]\label{cor:official-half}
+Assume $n=2^e\ge128$, $k=\rho n$, and $\rho\in\{1/2,1/4,1/8,1/16\}$.  Put
+\[
+ r_\rho^\sharp=\begin{cases}
+ n/4-3,&\rho=1/2,\\
+ 3n/8-2,&\rho=1/4,\\
+ 7n/16-2,&\rho=1/8,\\
+ 15n/32-2,&\rho=1/16.
+ \end{cases}
+\]
+Then, for every nonempty challenge set $\Gamma$ and every $0\le r\le r_\rho^\sharp$,
+\[
+ B_{C,\Gamma}^{\MCA}(n-r)=\min\{|\Gamma|,r+1\}.
+\]
+Consequently, if $B=\floor{\eps|\Gamma|}$ satisfies $1\le B<|\Gamma|$ and $B\le r_\rho^\sharp+1$, the complete safe set is $[0,B/n)$ and the endpoint is unsafe.  For the full-field target $2^{-128}$ this applies whenever $2^{128}\le|\F|<2^{128}(r_\rho^\sharp+2)$.
+\end{corollary}
+
+\begin{proof}
+This is the exact official-rate compiler of \cite[Corollaries ``Official-rate staircase'' and ``Almost-half-distance target compiler'']{ChoShort26}.  For completeness, the deep and quadratic theorems cover the initial range.  On the remaining interval, the cubic polynomial
+$F(r)=r(r+1)(R-2r)-n(R-r)$ is nonnegative at the two endpoints printed above and has only one positive critical point, so it is nonnegative throughout.  Hence the strict condition in \cref{thm:integral-half} holds, giving the exact numerator.  The target statement follows from the tangent floor at radius $B$ and monotonicity.
+\end{proof}
+
+All logarithms in asymptotic statements below are natural.  The quadratic condition holds precisely for $r\le r_{\mathrm{quad}}(n,k)$, where
+\[
+ r_{\mathrm{quad}}(n,k)=\floor{\frac{3n-\sqrt{n(5n+4k)}}2}.
+\]
+If $k/n\to\rho$, then $r_{\mathrm{quad}}(n,k)/n\to(3-\sqrt{5+4\rho})/2$.
+
+\section{Explicit prime and binary fields}
+
+For a prime $p$ and a power of two $n\mid p-1$, let $D\le\F_p^*$ be the subgroup of order $n$.  The following criterion is an immediate specialization of \cref{cor:target}.
+
+\begin{corollary}[Smooth prime-field criterion]\label{cor:prime-criterion}
+Put $B=\floor{p/2^{128}}$.  If $1\le B\le n-k-1$ and $(n-B+1)^2\ge n(k+B-1)$, then
+\[
+ \{\delta:e_{\MCA}(\RS_{\F_p}(D,k),\delta)\le2^{-128}\}=[0,B/n).
+\]
+\end{corollary}
+
+We now give four explicit maximal-dimension rows.  In all of them $k=2^{40}$ and $B=\floor{p/2^{128}}$.
+
+These are the maximal-dimension reproducible Prize rows of \cite[Section ``Reproducible finite Prize instances'']{ChoShort26}.
+
+\begin{theorem}[Four certified smooth rows]\label{thm:prime-rows}
+For the four rows in \cref{tab:prime-rows}, the integer $p$ is prime, $D\le\F_p^*$ of order $n$ exists, and the exact safe set is $[0,B/n)$.  The endpoint is unsafe.
+
+\begin{table}[ht]
+\centering
+\caption{Certified smooth prime-field rows at target $2^{-128}$.}
+\label{tab:prime-rows}
+\begin{tabular}{@{}ccrrc@{}}
+\toprule
+rate & $n$ & $B$ & bits of $p$ & Proth pair $(s,a_0)$\\
+\midrule
+$1/2$  & $2^{41}$ & $389500552609$  & $167$ & $(92,3)$\\
+$1/4$  & $2^{42}$ & $1210584858040$ & $169$ & $(93,13)$\\
+$1/8$  & $2^{43}$ & $2879806199253$ & $170$ & $(95,5)$\\
+$1/16$ & $2^{44}$ & $6233898019554$ & $171$ & $(97,5)$\\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{theorem}
+
+\begin{proof}
+The field orders are
+\begin{align*}
+ p_{1/2}&=132540169958804033333249306710494641010898987122689,\\
+ p_{1/4}&=411940680852499481698306614369841346700408394874881,\\
+ p_{1/8}&=979947269755402568812854322316630667196565607677953,\\
+ p_{1/16}&=2121285573237585848299875619011192262679065433997313.
+\end{align*}
+In the same order, write $p=u2^s+1$ with
+\begin{align*}
+ u_{1/2}&=26766274163673319604503,&u_{1/4}&=41595378994516821279015,\\
+ u_{1/8}&=24737346889219389259839,&u_{1/16}&=13387194060291799253121.
+\end{align*}
+Each $u$ is odd, $u<2^s$, and direct modular exponentiation gives $a_0^{(p-1)/2}\equiv-1\pmod p$ for the displayed $a_0$.  If a prime $\ell$ divided a composite $p$, the order of $a_0$ modulo $\ell$ would have exact $2$-part $2^s$, so $2^s\mid\ell-1$.  Since $u<2^s$, one has $2^s>\sqrt p$, contradicting the existence of a prime divisor $\ell\le\sqrt p$.  Thus every $p$ is prime.
+
+The divisibility $n\mid p-1$ follows from $s\ge\log_2n$, and $p<2^{256}$ is immediate.  The exact quadratic boundary values $F_{n,k}(r)=r^2-n(3r-(n-k))$ are
+\[
+\begin{array}{c|r|r}
+\rho&F_{n,k}(B-1)&F_{n,k}(B)\\ \hline
+1/2&5154112775168&-663955886271\\
+1/4&7590647904465&-3182321912768\\
+1/8&13908181940112&-6720484728007\\
+1/16&19335616403905&-20973145690236.
+\end{array}
+\]
+Hence $B-1=r_{\mathrm{quad}}(n,k)$ in each row.  Apply \cref{cor:prime-criterion}.
+\end{proof}
+
+The next rows show that the exact theorem is characteristic-free.  They use additive rather than multiplicative smooth domains.
+
+\begin{corollary}[Binary additive-domain rows]\label{cor:binary}
+Let $k=2^{40}$ and let $D$ be any $\F_2$-linear subspace of the indicated field with the indicated size.  At target $2^{-128}$ the exact real-radius safe sets have the suprema in \cref{tab:binary}; every endpoint is unsafe.
+
+\begin{table}[ht]
+\centering
+\caption{Exact binary additive-domain rows.}
+\label{tab:binary}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+rate & field & $n$ & safe set\\
+\midrule
+$1/2$  & $\F_{2^{166}}$ & $2^{41}$ & $[0,1/8)$\\
+$1/4$  & $\F_{2^{168}}$ & $2^{42}$ & $[0,1/4)$\\
+$1/8$  & $\F_{2^{169}}$ & $2^{43}$ & $[0,1/4)$\\
+$1/16$ & $\F_{2^{170}}$ & $2^{44}$ & $[0,1/4)$\\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{corollary}
+
+\begin{proof}
+For $q=2^m$, the target budget is $B=q/2^{128}$.  The four values are $2^{38},2^{40},2^{41},2^{42}$, respectively.  In every row $3(B-1)\le n-k$, so the deep case of \cref{thm:quadratic} gives numerator $r+1$ through radius $B-1$, while \cref{prop:tangent} makes radius $B$ unsafe.  Therefore the safe set is $[0,B/n)$.
+\end{proof}
+
+\begin{remark}
+Because $\F_{2^m}^*$ has odd order, the binary rows are not multiplicative power-of-two smooth domains in the sense of \cite{ABF26}.  They are nevertheless ordinary Reed--Solomon codes on explicit additive FFT domains, and the MCA proof is unconditional.
+\end{remark}
+
+
+\section{Saturation and finite post-Johnson certificates}
+
+The following endpoint theorem and its explicit examples are the ``Official endpoint and all-radius saturation'' results of \cite{ChoShort26}.
+
+\begin{theorem}[Official saturation]\label{thm:saturation-official}
+Let $C\subseteq\F^n$ be a linear $[n,k]$ MDS code and let $B^*=\floor{\eps|\Gamma|}$.  Then $B_{C,\Gamma}^{\MCA}(a)=B_{C,\Gamma}^{\MCA}(k+1)$ for every $0\le a\le k+1$.  If $B_{C,\Gamma}^{\MCA}(k+1)\le B^*$, the complete safe set is $[0,1]$.  It is sufficient that
+\[
+ B^*\ge\min\left\{|\Gamma|,\binom n{k+1}\right\}.
+\]
+If the row is not saturated and $a^*$ is the first safe agreement, the complete real safe set is $[0,(n-a^*+1)/n)$ and its endpoint is unsafe.
+\end{theorem}
+
+\begin{proof}
+Every restriction of an MDS code to at most $k$ coordinates is surjective, so both received words are explained on every support of size at most $k$.  No support-wise nontrivial witness exists below agreement $k+1$, proving constancy.  The support-atlas bound at $k+1$ gives the sufficient budget condition.  The endpoint statements follow from monotonicity and $a(\delta)=n-\floor{\delta n}$.
+\end{proof}
+
+\begin{corollary}[Four all-radius smooth rows]\label{cor:saturated-rows}
+Let $p=(2^{128}-255)2^{128}+1$, let $D\le\F_p^*$ have order $128$, and let $k\in\{64,32,16,8\}$.  At target $2^{-128}$ the complete safe set of $\RS_{\F_p}(D,k)$ is $[0,1]$.
+\end{corollary}
+
+\begin{proof}
+The Proth certificate $3^{(p-1)/2}\equiv-1\pmod p$ proves that $p$ is prime, and $128\mid p-1$.  The target budget is $2^{128}-255$, which exceeds $\binom{128}{k+1}$ for all four values of $k$.  Apply \cref{thm:saturation-official}.
+\end{proof}
+
+The same shortening paper proves genuinely post-Johnson safe points that are not saturation artifacts.
+
+\begin{theorem}[Four smooth length-$512$ certificates beyond Johnson]\label{thm:length512}
+Let $p=(2^{128}-255)2^{128}+1$ and let $D\le\F_p^*$ have order $512$.  At target $2^{-128}$ the four rows in \cref{tab:length512} are safe at the displayed agreements, and every displayed radius is strictly beyond the exact MDS Johnson radius.
+\begin{table}[ht]
+\centering
+\caption{Unconditional safe points beyond Johnson from \cite{ChoShort26}.}
+\label{tab:length512}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+rate & $k$ & agreement $a$ & radius & certificate\\
+\midrule
+$1/2$ & $256$ & $351$ & $161/512$ & shorten $123$ coordinates\\
+$1/4$ & $128$ & $233$ & $279/512$ & shorten $67$ coordinates\\
+$1/8$ & $64$ & $143$ & $369/512$ & shorten $45$ coordinates\\
+$1/16$& $32$ & $52$  & $115/128$ & circuit test size $33$\\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{theorem}
+
+\begin{proof}
+This is \cite[Proposition ``Four finite rows beyond Johnson'']{ChoShort26}.  For the first three rows, Jo's agreement-set shortening theorem \cite{Jo26} transfers the explicit BCHKS Johnson bound on the shortened row back to the original slope set, with multiplicative factor $\binom{512}{t}/\binom at$.  The exact choices $(t,m)=(123,162),(67,63),(45,15)$ satisfy the shortened Johnson inequalities and yield rigorous numerators with binary logarithms below $126.235$, $127.291$, and $126.255$.  In the last row, the all-test-size MDS circuit bound gives
+\[
+ \floor{\binom{512}{33}/\binom{51}{32}}
+ =210954686508560867421211382134708972291<2^{128}-255.
+\]
+The exact inequalities $a^2<512(k-1)$ show that all four radii are beyond Johnson.  All budget comparisons are exact integers in the source certificate.
+\end{proof}
+
+
+\section{Universal unsafe caps on smooth and circle rows}
+
+The next results are the main unconditional negative theorems of \cite{ChoCap26}.  They complement the exact safe staircases above: the latter solve rows when the target budget lies in a controlled finite window, while the cap rules out radii close to capacity uniformly over all fields in the Prize envelope.
+
+For a code $C$, let $|\Lambda(C,\delta)|$ denote its maximum list size at relative radius $\delta$.
+
+\begin{theorem}[Deep-point list-to-CA conversion]\label{thm:list-ca}
+Let $C=\RS_{\F}(D,k)$, $C^+=\RS_{\F}(D,k+1)$, $q=|\F|>n$, and let $f=\floor{\delta n}\le n-k-1$.  If $0\le\eta<1$ and
+\[
+ e_{\CA}(C,\delta)\le \eta\left(\frac1k-\frac{n}{kq}\right),
+\]
+then
+\[
+ |\Lambda(C^+,\delta)|\le
+ \ceil{\frac{q\,e_{\CA}(C,\delta)}{1-\eta}}.
+\]
+\end{theorem}
+
+\begin{proof}
+Let $U$ have $L$ distinct degree-at-most-$k$ polynomials $P_i$ within radius $\delta$, so every $P_i$ agrees with $U$ on at least $a=n-f\ge k+1$ points.  For $\alpha\in\F\setminus D$, use the simple-pole line $f_\alpha(x)=U(x)/(x-\alpha)$ and $g_\alpha(x)=-1/(x-\alpha)$.  Every distinct value $P_i(\alpha)$ is a CA-bad slope, because the corresponding line point equals $(P_i(x)-P_i(\alpha))/(x-\alpha)$ on the agreement set, whereas $g_\alpha$ cannot agree with a degree-less-than-$k$ polynomial on more than $k$ points.
+
+Let $M_\alpha$ be the number of distinct values among the $P_i(\alpha)$.  Each pair collides for at most $k$ poles, so averaging over $q-n$ poles and Cauchy--Schwarz give
+$M_\alpha\ge L(q-n)/(q-n+k(L-1))$ for some $\alpha$.  Since $M_\alpha\le q e_{\CA}(C,\delta)$, the assumed error bound rearranges to the displayed list bound.  This is the self-contained deep-point conversion of \cite{ChoCap26} and is the same quantitative implication recorded as Theorem~5.3 of \cite{ABF26}.
+\end{proof}
+
+\begin{lemma}[Locator-fiber list]\label{lem:quotient-list}
+Let $\B\subseteq\F$, let $D\subseteq\B^*$ be a multiplicative coset of order $n$, choose $N\mid n$, put $a=n/N$, assume $a\mid k$, and write $\rho=k/n$ and $\ell=\rho N+2\le N-1$.  Then some $\B$-valued received word has at least $\binom N\ell/|\B|$ distinct codewords of $\RS_{\F}(D,k+1)$ at radius $1-\rho-2/N$.
+\end{lemma}
+
+\begin{proof}
+Put $Q=D^a$, so $|Q|=N$ and every power-map fiber has size $a$.  For $A\in\binom Q\ell$,
+\[
+ \prod_{b\in A}(X^a-b)=X^{k+2a}-e_1(A)X^{k+a}+R_A(X),\qquad \deg R_A\le k.
+\]
+The word $x^{k+2a}-e_1(A)x^{k+a}$ agrees with the codeword $-R_A(x)$ on the $a\ell=k+2a$ roots in $D$.  Pigeonholing the value $-e_1(A)\in\B$ gives the claimed list; equality of the remainder polynomials would force equality of the complete locators, so the codewords are distinct.
+\end{proof}
+
+\begin{theorem}[Universal field-size cap]\label{thm:universal-cap}
+Let $\rho\in\{1/2,1/4,1/8,1/16\}$, let $q<2^{256}$, let $\B\subseteq\F$ be a subfield, let $D\subseteq\B^*$ be a multiplicative coset of order $n$, and let $k=\rho n\le2^{40}$.  Assume $1024\mid n$ for $\rho\ge1/8$ and $2048\mid n$ for $\rho=1/16$.  Then, at target $2^{-128}$,
+\[
+ \delta_C^*\le1-\rho-2^{-9}\quad(\rho=1/2,1/4,1/8),\qquad
+ \delta_C^*\le1-\rho-2^{-10}\quad(\rho=1/16).
+\]
+More precisely, throughout the corresponding terminal interval the MCA error exceeds $2^{-86}$; if $q\ge2n$ it exceeds $2^{-42}$.
+\end{theorem}
+
+\begin{proof}
+Take $N=1024$ for $\rho\ge1/8$ and $N=2048$ for $\rho=1/16$.  The entropy estimate used in \cite[Corollary ``universal field-size cap for the challenge envelope'']{ChoCap26} gives
+$\log_2\binom N{\rho N+2}\ge552$, while
+$|\B|(q/k+1)\le q^2+q<2^{513}$.  Hence \cref{lem:quotient-list} produces a list large enough to contradict \cref{thm:list-ca} if the CA error were at most $\frac1{2k}(1-n/q)$.  Therefore CA, and hence MCA, exceeds that value at radius $1-\rho-2/N$.  Support-wise MCA monotonicity extends the lower bound to every larger subcapacity radius.  Finally $n\le16k\le2^{44}$ and $q\ge n+1$ give $\frac1{2k}(1-n/q)>2^{-86}$; if $q\ge2n$ the bound is at least $1/(4k)\ge2^{-42}$.
+\end{proof}
+
+The map-smooth theorem of \cite{ChoCap26} removes the divisibility requirement and replaces $x\mapsto x^a$ by any degree-$a$ polynomial whose nonempty fibers inside $D$ are complete and of size $a$.  Its proof uses the same locator product $\prod_{b\in A}(\varphi(X)-b)$ and \cref{thm:list-ca}.  Chebyshev maps on twin-coset $x$-domains and diagonal equivalence of circle codes to reciprocal torus Reed--Solomon codes therefore give the following unconditional transport.
+
+\begin{corollary}[Map-smooth and circle caps]\label{cor:circle-cap}
+For the map-smooth rows of \cite[Theorem ``universal cap for map-smooth domains'']{ChoCap26}, the same MCA lower bound holds beginning at the rounded agreement supplied by the complete fibers.  In particular, smooth line-round rows on Mersenne-$31$ twin-coset $x$-domains have $\delta_C^*(2^{-128})\le1-\rho-2^{-10}$ for $\rho\ge1/8$ and $\le1-\rho-2^{-11}$ for smaller official rates; when the folding scale divides $k$, these improve by one dyadic step.  The diagonally equivalent bivariate circle codes satisfy the corresponding bounds over challenge fields containing $\F_{p^2}$.
+\end{corollary}
+
+\begin{theorem}[Exact deployed unsafe floors]\label{thm:deployed-unsafe}
+At $n=2^{21}$ and $k=2^{20}$, the KoalaBear sextic MCA row at target $2^{-128}$ is unsafe at agreement $1116047$, hence at every radius at least $981105/2^{21}$.  The Mersenne-$31$ line-round MCA row at its printed target $2^{-100}$ is unsafe at agreement $1116023$, hence at every radius at least $981129/2^{21}$.  In both rows a single simple-pole line has an aperiodic witness for every bad slope.
+\end{theorem}
+
+\begin{proof}
+This is \cite[Proposition ``moved MCA frontier, exact'' and Corollary ``deployed MCA frontier floors'']{ChoCap26}.  The exact comparisons are
+\[
+ \binom{2^{21}}{1116047}>
+ p^{67470}\floor{p^6/2^{128}},\qquad
+ \binom{2^{21}}{1116023}>
+ (p')^{67446}\floor{(p')^4/2^{100}},
+\]
+with the corresponding collision-admissibility inequalities.  The identity-prefix pigeonhole therefore supplies more listed codewords than the target budget, and the collision-free simple-pole conversion makes their evaluations distinct bad slopes.  Both agreements are odd while the domain order is a power of two, so every witness support has trivial periodicity scale.
+\end{proof}
+
+\section{Separating fields and large scalar extensions}
+
+The support upper bound becomes exact at the first allowed agreement when the field separates all syndrome hyperplanes.
+
+The following exact endpoint theorem is \cite[Theorem ``Exact first adjacent row over a separating field'']{ChoGF26}.
+
+\begin{theorem}[First adjacent threshold over a separating field]\label{thm:separating}
+Let $C=\RS_{\F}(D,k)$, put $R=n-k$ and $M=\binom n{R-1}=\binom n{k+1}$.  If
+\[
+ \abs\F>\max\left\{M,\binom M2\right\},
+\]
+then $B_C^{\MCA}(k+1)=M$.  If $R\ge2$ and $b=\floor{\eps\abs\F}$, then $a^*=k+1$ when $b\ge M$, while $a^*=k+2$ when $\binom n{R-2}\le b<M$.
+\end{theorem}
+
+\begin{proof}
+The upper bound is \cref{cor:support-upper}.  In syndrome space, every $(R-1)$-set $E$ spans a hyperplane $V_E$, and distinct sets give distinct hyperplanes by the MDS column property.  Since $M<\abs\F$, choose $y_1$ outside their union.  For a nonzero functional $\ell_E$ with kernel $V_E$, the line $y_0+\gamma y_1$ meets $V_E$ at $\gamma_E=-\ell_E(y_0)/\ell_E(y_1)$.
+
+For $E\ne E'$, the equality $\gamma_E=\gamma_{E'}$ cuts out a proper hyperplane in $y_0$.  There are at most $\binom M2<\abs\F$ such collision hyperplanes, so choose $y_0$ outside their union.  The $M$ intersections are transverse and have distinct parameters; syndrome surjectivity and \cref{lem:syndrome} realize them as $M$ bad slopes at agreement $k+1$.  The threshold statements follow from $B_C^{\MCA}(k+1)=M$, the support upper bound $B_C^{\MCA}(k+2)\le\binom n{R-2}$, and monotonicity.
+\end{proof}
+
+We next prove a capacity result for a different special regime: the scalar field is exponentially large, whereas locator coefficients remain in a much smaller subfield.
+
+Assume $D\subseteq\B\subseteq\F$.  For an $m$-set $S\subseteq D$, write
+\[
+ Q_S(X)=\prod_{x\in S}(X-x)=X^m+c_1(S)X^{m-1}+\cdots+c_m(S),
+ \qquad \Phi_w(S)=(c_1(S),\ldots,c_w(S)).
+\]
+
+\begin{lemma}[Prefix list]\label{lem:prefix}
+Let $1\le K\le m\le n$ and $w=m-K$.  For $z\in\B^w$, put $U_z(X)=X^m+\sum_{i=1}^wz_iX^{m-i}$.  The codewords of $\RS_{\F}(D,K)$ agreeing with $U_z|_D$ on at least $m$ points are exactly $(U_z-Q_S)|_D$ with $S\in\Phi_w^{-1}(z)$.  Hence some received word has list size at least $\ceil{\binom nm\abs\B^{-w}}$.
+\end{lemma}
+
+\begin{proof}
+If $S\in\Phi_w^{-1}(z)$, the leading $w+1$ coefficients cancel, so $\deg(U_z-Q_S)<K$.  Conversely, if $P$ of degree less than $K$ agrees with $U_z$ at $m$ points, then $U_z-P$ is the monic degree-$m$ locator of those points and has prefix $z$.  Pigeonhole the $\binom nm$ supports over $\abs\B^w$ prefixes.
+\end{proof}
+
+\begin{lemma}[Collision-aware pole conversion]\label{lem:pole}
+Let $C=\RS_{\F}(D,k)$ and $C^+=\RS_{\F}(D,k+1)$, with $q=\abs\F>n$.  If one word has $L$ distinct codewords of $C^+$ agreeing on at least $m\ge k+1$ points, then one received line for $C$ has at least
+\[
+ \ceil{\frac{L(q-n)}{q-n+k(L-1)}}
+\]
+distinct MCA-bad slopes at agreement $m$.
+\end{lemma}
+
+\begin{proof}
+Let the received word be $U$ and the listed polynomials be $P_1,\ldots,P_L$, each of degree at most $k$.  For $\alpha\in\F\setminus D$, put $f_\alpha(x)=U(x)/(x-\alpha)$ and $g_\alpha(x)=-1/(x-\alpha)$.  On an agreement set for $P_i$, the line point of slope $P_i(\alpha)$ equals $(P_i(x)-P_i(\alpha))/(x-\alpha)$, a polynomial of degree less than $k$.  The pair is not simultaneously explained on $k+1$ points, since an explanation $G$ of $g_\alpha$ would make $(X-\alpha)G(X)+1$ vanish at $k+1$ points despite having degree at most $k$ and value $1$ at $\alpha$.
+
+Each difference $P_i-P_j$ has at most $k$ roots.  Some pole has at most $k\binom L2/(q-n)$ colliding pairs.  If the distinct values at that pole have multiplicities $m_1,\ldots,m_M$, then $\sum m_i^2\le L+kL(L-1)/(q-n)$, and Cauchy--Schwarz gives the stated lower bound for $M$.
+\end{proof}
+
+The next theorem is the unconditional shallow-prefix exponent of \cite{ChoGF26}.
+
+\begin{theorem}[Large scalar-extension exponent]\label{thm:large-extension}
+Let $C_n=\RS_{\F_n}(D_n,k_n)$ with $D_n\subseteq\B_n\subseteq\F_n$, $\abs{D_n}=n$, and $k_n/n\to\rho\in(0,1)$.  Let $a_n\ge k_n+1$, put $w_n=a_n-k_n-1$, and assume, for some $\alpha\in(0,1)$,
+\[
+ \frac{a_n}{n}\to\alpha,\qquad w_n\log\abs{\B_n}=o(n),
+\]
+while $\abs{\F_n}>n$ and, for some finite $\phi\ge0$,
+\[
+ \frac1n\log\abs{\F_n}\to\phi,
+ \qquad \frac1n\log(\abs{\F_n}-n)\to\phi.
+\]
+Then
+\[
+ \frac1n\log B_{C_n}^{\MCA}(a_n)=\min\{h(\alpha),\phi\}+o(1),
+\]
+where $h(x)=-x\log x-(1-x)\log(1-x)$.  Necessarily $\alpha=\rho$.  If the target is $\eps_n=\exp(-\lambda n+o(n))$ and $\lambda<\phi-h(\rho)$, then the first permitted agreement $k_n+1$ is safe and the threshold equals $1-\rho+o(1)$.
+\end{theorem}
+
+\begin{proof}
+The support upper bound gives $B_{C_n}^{\MCA}(a_n)\le\min\{\abs{\F_n},\binom n{a_n}\}$.  Apply \cref{lem:prefix} to the dimension-$(k_n+1)$ code with $m=a_n$; the resulting list has size $L_n=\ceil{\binom n{a_n}\abs{\B_n}^{-w_n}}$.  By \cref{lem:pole},
+\[
+ B_{C_n}^{\MCA}(a_n)\ge
+ \ceil{\frac{L_n(\abs{\F_n}-n)}{\abs{\F_n}-n+k_n(L_n-1)}}.
+\]
+Stirling's formula and the prefix hypothesis give $\log L_n=h(\alpha)n+o(n)$.  The lower expression has exponential rate $\min\{h(\alpha),\phi\}$, matching the upper bound.  Since $\abs{\B_n}\ge n$, the condition $w_n\log\abs{\B_n}=o(n)$ implies $(a_n-k_n)/n\to0$, hence $\alpha=\rho$.
+
+At $a=k_n+1$, the support upper bound is $\binom n{k_n+1}=\exp(h(\rho)n+o(n))$, while the target budget is $\eps_n\abs{\F_n}=\exp((\phi-\lambda)n+o(n))$.  The strict inequality $\lambda<\phi-h(\rho)$ makes the first permitted agreement safe.
+\end{proof}
+
+
+\section{Unconditional deployed-row structure from the primary papers}
+
+The exact deployed safe inequalities remain open, but the source papers prove several unconditional local theorems that materially reduce them.  We record the results most directly relevant to the MCA numerator.
+
+\begin{theorem}[Saturation identity]\label{thm:saturation-identity}
+Let $C=\RS_{\F}(D,K)$, let $U:D\to\F$, and let $s_c(U)$ be the number of coordinates on which $U$ agrees with $c\in C$.  Let $\Cen(U;m)$ count pairs $(W,N)$ with $W$ the locator of an $(n-m)$-set, $WU=N$ on $D$, $W\mid N$, and $\deg(N/W)<K$.  Then
+\[
+ \Cen(U;m)=\sum_{c\in C}\binom{s_c(U)}m.
+\]
+Above a fixed codeword ray $c$, the support-locator fiber has exactly $\binom{s_c(U)}m$ elements.
+\end{theorem}
+
+\begin{proof}
+A monic divisor $W\mid\prod_{x\in D}(X-x)$ of degree $n-m$ is the locator of the complement of a unique $m$-set $T$.  Writing $N=Wc$, the identity $WU=Wc$ implies $U=c$ on $T$.  Conversely every $m$-subset of the agreement set of $c$ gives such a pair.  Counting for each $c$ proves the identity.  This is the exact saturation theorem of \cite{ChoGF26}.
+\end{proof}
+
+\begin{remark}
+The theorem explains why a raw support or locator census is not an MCA numerator: one slope and one codeword ray can lie below exponentially many agreement supports.  Any safe-side proof must count or coalesce rays and slopes, not merely supports.
+\end{remark}
+
+\begin{theorem}[Moving-root bound for split pencils]\label{thm:moving-root}
+Let $D$ have size $n$ and let $L_{[s:t]}=sA+tB$ be a projective polynomial pencil.  Put $G=\gcd(A,B,\prod_{x\in D}(X-x))$ and $g=\deg G$.  If every counted pencil member has at least $h$ distinct roots in $D\setminus Z(G)$, then at most $\floor{(n-g)/h}$ projective parameters are counted.  In particular, if every counted member is $D$-split of degree $j>g$ with fixed $D$-part $G$, then the number of parameters is at most $\floor{(n-g)/(j-g)}$.
+\end{theorem}
+
+\begin{proof}
+Count incidences $(\lambda,x)$ with $L_\lambda(x)=0$ and $x$ not a common root.  For fixed $x$, the nonzero pair $(A(x),B(x))$ determines exactly one projective parameter.  Hence there are at most $n-g$ incidences, while every counted parameter contributes at least $h$.
+\end{proof}
+
+\begin{corollary}[Primitive one-pencil cells at the active rows]\label{cor:one-pencil-two}
+After the tangent, common-support, quotient, extension, degree-drop, and common-GCD branches have been removed, every primitive one-parameter split-pencil chart contributes at most two finite bad slopes at the active KoalaBear and Mersenne MCA agreements.
+\end{corollary}
+
+\begin{proof}
+In the primitive case $g=0$ and the candidate error locators have degree $n-m$.  Thus \cref{thm:moving-root} gives $\floor{n/(n-m)}=2$ at both active agreements.  This is \cite[Corollary ``BC is settled on primitive one-parameter locator pencils'']{ChoGF26}.
+\end{proof}
+
+The support-flag and common-zero compilers of \cite{ChoGF26} reduce the first difficult Mersenne MCA primitive chart to a constant-weight problem.  The companion \cite{ChoComp26} closes one complete layer by an exact Johnson-scheme certificate.
+
+\begin{theorem}[Cubic closure of the Mersenne MCA $b_0=6$ cell]\label{thm:cubic-mersenne}
+Let $\mathcal C\subseteq\binom{[1053557]}{72435}$ and suppose $|X\cap Y|\le4981$ for distinct $X,Y\in\mathcal C$.  Then $|\mathcal C|\le16760701$.  Consequently the first Mersenne MCA primitive chart with nullity $4982$, minimum-support excess $1$, and common outside mismatch $b_0=6$ is below the row budget $16777216$.
+\end{theorem}
+
+\begin{proof}
+Let $Q_1,Q_2,Q_3$ be the normalized dual Hahn polynomials of the Johnson scheme.  The positive rational coefficients printed in \cite[Theorem ``Cubic closure of the Mersenne MCA $b_0=6$ atom'']{ChoComp26} satisfy the exact identity
+\[
+ 1+\sum_{j=1}^3y_jQ_j(X)=
+ -\frac{19490439119057501}{406401025932565099089210}
+ (X-67454)(X-71979)(X-71980).
+\]
+The right side is nonpositive at every allowed nonzero Johnson distance $67454\le X\le72435$.  Delsarte positivity therefore gives
+\[
+ |\mathcal C|\le1+y_1+y_2+y_3
+ =16760701.346\ldots,
+\]
+and integrality gives the result.  The exact rational values of the $y_j$ are part of the cited certificate and are independently checkable by expansion.
+\end{proof}
+
+\begin{theorem}[Exact ordinary Delsarte barrier and forced critical cores]\label{thm:delsarte-barrier}
+For the corresponding auxiliary-list parameters $N=1053558$, $h=72435$, and minimum Johnson distance $67454$, the complete ordinary Johnson Delsarte linear program has exact optimum
+\[
+ \frac{1031427641435096867222903646984}{61254010871010657240949}
+ =16838532.3143506\ldots>16777215.
+\]
+Hence no ordinary Johnson-scheme LP certificate of any degree can close that atom.  Moreover, any terminal counterexample of size $16387300$ has at least $130003626982983$ minimum-distance pairs, contains a $K_{32}$ of minimum-distance words, contains at least $127368440$ edge-disjoint and $3749$ vertex-disjoint such critical cores, and every coherent rational critical core has canonical owner size at least $440837$.
+\end{theorem}
+
+\begin{proof}
+The exact LP optimum is certified in \cite[Theorem ``Exact full Delsarte optimum for the Mersenne auxiliary-list atom'']{ChoComp26} by matching rational primal and dual solutions: the dual is a positive cubic supported on $Q_1,Q_2,Q_3$, while the primal is supported on distances $67454,71957,71958$ and satisfies every dual Hahn moment constraint.  The minimum-pair lower bound follows from the shortened Johnson stability inequality.  Its excess over the exact $K_{32}$-free Tur\'an number is $63174745890$, forcing $K_{32}$ and yielding the edge- and vertex-disjoint counts by greedy deletion.  The owner floor follows from the incidence inequality $\sum_{x\in G}r_x\ge |G|+1264362$ and the pair budget $\sum_{x\in G}\binom{r_x}{2}\le2470576$, optimized by convexity.  All arithmetic is exact in the cited certificate.
+\end{proof}
+
+\begin{corollary}[Unconditional concentration of terminal obstructions]\label{cor:terminal-concentration}
+If the terminal auxiliary-list atom were to violate its target, then among the $3749$ vertex-disjoint critical cores at least $1875$ would have the same type, rational-owner or high-complexity spread; among the $127368440$ edge-disjoint cores at least $63684220$ would have the same type.  In the rational branch, some fixed eight-coordinate set is contained in at least $59838$ canonical owners in the edge-disjoint family.
+\end{corollary}
+
+\begin{proof}
+The first two statements are pigeonhole.  For the last, double-count pairs $(G,T)$ with $T\in\binom G8$, using $|G|\ge440837$ and ambient active length $1053558$.  The exact ceiling is the owner-star table of \cite[Theorem ``Canonical-owner star forcing'']{ChoComp26}.
+\end{proof}
+
+These results are unconditional local closures and obstructions.  They do not prove the complete adjacent safe row: higher-dimensional spread routing, the large-owner challenge-image bound, exception compatibility, and the final distinct-slope replay remain separate tasks.  No such task is promoted to a theorem in this paper.
+
+\section{Collaborative finite-row theorem packages}
+\label{sec:collaborative}
+
+The repository contains a large experimental theorem bank contributed by several researchers.  Its coordination log explicitly warns that it is not itself a proof-status authority; accordingly, every statement below is taken from a source note whose own status is \emph{proved}, \emph{proved local}, or an exact counterexample, and every conditional premise is displayed rather than suppressed \cite{RepoLog26,PRReport26}.  These results sharpen the deployed KoalaBear and Mersenne-31 analyses but do not establish either adjacent safe row.
+
+\paragraph{A bankable KoalaBear tangent atom.}
+The first result, due to Holm Buar, is a complete first-match payment in the active Grande Finale v4 chronology.
+
+\begin{theorem}[Buar: source-coordinate tangent atom]\label{thm:kb-tangent-atom}
+Let
+\[
+ p=2{,}130{,}706{,}433,\quad \F=\mathbb F_{p^6},\quad
+ n=2{,}097{,}152,\quad k=1{,}048{,}576,
+\]
+and let the agreement be $a=1{,}116{,}048$.  For every received line, the source-coordinate tangent first-match cell contains at most
+\[
+ n-a=981{,}104
+\]
+distinct bad finite slopes.  Moreover, if $Z$ is the complete bad-slope set and $Q,BC$ are the next two active certificate predicates, then the iterated set differences
+\[
+ Z\cap\mathcal T,\quad (Z\setminus\mathcal T)\cap Q,\quad
+ (Z\setminus(\mathcal T\cup Q))\cap BC,\quad
+ Z\setminus(\mathcal T\cup Q\cup BC)
+\]
+are pairwise disjoint and exhaust $Z$.  Thus the exact paid amount is $981{,}104$, leaving numerical reserve
+\[
+ 274{,}980{,}728{,}110{,}413{,}983.
+\]
+\end{theorem}
+
+\begin{proof}
+Apply the exact sparsification theorem once, using the canonical pair-global translation.  The translated pair $(e_0,e_1)$ has support union $\Sigma$ of size at most $n-a$.  Every tangent slope lies in the set image
+\[
+ \mathcal T=\{-e_0(x)/e_1(x):x\in\Sigma,\ e_1(x)\ne0\},
+\]
+so $|\mathcal T|\le|\Sigma|\le981{,}104$.  The four displayed cells are iterated exact set differences, hence are disjoint and exhaustive.  The integer subtraction is immediate.  This is the source-bound theorem and arithmetic certificate of \cite{BuarKBTangent26}.
+\end{proof}
+
+The subsequent tangent-rooted shell compiler gives the conditional numerical value $U_Q\le400{,}389{,}155{,}870$, but one pointwise shell hypothesis remains open; that value is therefore not used as an unconditional payment here \cite{BuarKBQ26}.
+
+\paragraph{Intrinsic coefficient-span confinement.}
+The following local theorem of Danny (\texttt{DannyExperiments}) is field-uniform and concerns the actual same-support syndrome-line predicate.
+
+\begin{theorem}[Danny: base-field coordinate-span confinement]\label{thm:coordinate-span}
+Let $\B=\mathbb F_p\subseteq\F$, let $D\subseteq\B$, and let $H\in\B^{R\times n}$ be a parity-check matrix for $\RS_{\B}(D,k)$, hence also for $\RS_{\F}(D,k)$.  For $y\in\F^R$ put
+\[
+ L_{\B}(y)=\Span_{\B}\{y_1,\ldots,y_R\},\qquad
+ \rho_{\B}(y)=\dim_{\B}L_{\B}(y).
+\]
+If $y_0,y_1\ne0$ and a nonzero finite parameter $\gamma$ is MCA-bad through one support complement $E$, then
+\[
+ \gamma\in L_{\B}(y_0)L_{\B}(y_1)^{-1}.
+\]
+Writing $s=\rho_{\B}(y_0)$ and $u=\rho_{\B}(y_1)$, the affine bad set therefore has size at most
+\[
+ 1+\frac{(p^s-1)(p^u-1)}{p-1},
+\]
+and the projective bad set has size at most the same quantity plus one.  A dependent nonzero syndrome pair has exactly one bad projective parameter, its zero combination.  If a syndrome plane contains two rank-one projective points, its projective bad set has size at most $p+1$.
+\end{theorem}
+
+\begin{proof}
+Let $V_E$ be the $\F$-span of the parity-check columns indexed by $E$.  It is preserved by every $\B$-linear map $T:\F\to\F$, applied coordinatewise.  If $L_{\B}(y_0)\cap\gamma L_{\B}(y_1)=0$, a $\B$-linear projection fixes the first summand and kills the second; applying it to $y_0+\gamma y_1\in V_E$ gives $y_0\in V_E$.  The complementary projection gives $y_1\in V_E$, contradicting transversality.  Thus $v=\gamma w\ne0$ for some $v\in L_{\B}(y_0)$ and $w\in L_{\B}(y_1)$, proving ratio confinement.  Quotienting pairs $(v,w)$ by the free diagonal $\B^\times$-action gives the cardinality bound.  The dependent and rank-one secant cases follow by projective normalization over $\B$; see \cite{DannyCoordinateSpan26}.
+\end{proof}
+
+\paragraph{Pole-tolerant rational localization.}
+The next theorem, also due to Danny, repairs a denominator-root gap in scalar-locator arguments.
+
+\begin{theorem}[Danny: pole-tolerant scalar-locator localization]\label{thm:pole-tolerant}
+Let distinct slopes $\gamma_i$ have supports $S_i\subseteq D$ of size $m$, explanations $h_i\in\F[X]_{<k}$, and exact scalar-locator certificates
+\[
+ Qh_i+c_i\Lambda_i=A+\gamma_iB,
+ \qquad c_i=c_0+c_1\gamma_i,
+\]
+where $Q$ may vanish on $D$.  Put
+\[
+ G_Q=\{x\in D:A(x)=Q(x)r_0(x),\ B(x)=Q(x)r_1(x)\},\qquad g=|G_Q|.
+\]
+Then every $x\in D\setminus G_Q$ belongs to at most one selected support.  Hence
+\[
+ |I|\le\floor{\frac{n-g}{m-g}}\le n-m+1\quad(g<m),
+\]
+while for $g\ge m$ one has
+\[
+ |I|\le n-g+B^{\MCA}_{\F,G_Q,k,\Gamma}(m).
+\]
+At $g=m$ the restricted MCA numerator is at most one.  If $\Lambda_i$ is the exact monic support locator, then after deleting at most one slope with $c_i=0$, the common pole locator
+\[
+ R(X)=\prod_{x\in D:\,Q(x)=A(x)=B(x)=0}(X-x)
+\]
+divides $Q,A,B$ and every $\Lambda_i$, and exact division preserves the scalar-locator identity, exact supports, and the shifted degree profile.
+\end{theorem}
+
+\begin{proof}
+For $x\in S_i$, evaluation of the certificate gives
+\[
+ (A-Qr_0)(x)+\gamma_i(B-Qr_1)(x)=0.
+\]
+Outside $G_Q$ this is a nonzero affine equation in $\gamma_i$, so at most one selected slope uses $x$.  Disjointness outside $G_Q$ gives the two counting bounds.  At $g=m$, two slopes supported on all of $G_Q$ would interpolate simultaneous explanations of the received pair.  For the cancellation statement, a common pole and $c_i\ne0$ force $\Lambda_i(x)=0$; exact squarefree locators then allow division by $R$.  The complete argument is \cite{DannyPole26}.  The theorem is algebraic localization, not by itself a first-match payment, because support-wise nontriviality after puncturing must still be routed.
+\end{proof}
+
+\paragraph{KoalaBear rank-nine moving-root route cut.}
+Scott Hughes's M1 stack gives the sharpest proved local implication in the remaining rank-nine branch.
+
+\begin{theorem}[Hughes: KoalaBear moving-root boundary cut]\label{thm:kb-moving-cut}
+At the KoalaBear agreement $a=1{,}116{,}048$, consider a post-source-rational full-outside rank-two record satisfying the source coupling, exact moving-zero identities, full-gcd reduction, and subset-stable lower bound $e\ge\ceil{s/2}$ specified in \cite{HughesKBM126}.  Then every surviving record satisfies
+\[
+ s\ge67{,}474,\qquad e\ge33{,}737,
+ \qquad \deg\gcd(P,Q)\le1{,}014{,}838.
+\]
+The zero-source-slack boundary $s=67{,}473$ is absorbed by the earlier projective-base C5 owner.  The remaining one-slack shapes are the nonbase common-linear-gcd twist and the split-gcd nonbase moving-cofactor component.
+\end{theorem}
+
+\begin{proof}
+For each selected slope, the full moving-root locator divides the reduced moving polynomial, so $x+\delta_\eta\le e$.  The common-root and degree bookkeeping gives $e\le s+x-t-1$ with $t=67{,}472$, while the prior owner gives $e\ge\ceil{s/2}$.  These inequalities force $s\ge67{,}473$.  At equality, all relevant polynomials are split base-field locators and two slopes give an invertible coordinate transform to a base-valued pair, so the earlier C5 owner applies.  Thus $s\ge67{,}474$, whence $e\ge33{,}737$ and $\deg\gcd(P,Q)\le k-1-e=1{,}014{,}838$.  This is a source-bound implication with zero ledger movement, not row closure.
+\end{proof}
+
+\paragraph{Mersenne-31 source transport and the rank-$46$ terminal.}
+Scott Hughes's Mersenne list stack begins with an exact target-field adapter.
+
+\begin{theorem}[Hughes: Mersenne source adapter]\label{thm:m31-source-adapter}
+Let $p=2^{31}-1$, let $C_4=\RS_{\mathbb F_{p^4}}(D,2^{20})$ with $|D|=2^{21}$, and take agreement $1{,}116{,}023$ and budget $B^*=16{,}777{,}215$.  For every received word, the complete list has an exact low/boundary/interior support partition.  The low exact-weight part contributes at most $3{,}730$ codewords.  If the total list has at least $B^*+1$, then it produces at least $259{,}881$ distinct marked rank-$46$ keys, each retaining one actual codeword and carrying a coupled locator--numerator kernel frame with partial degree bounds
+\[
+ 20{,}765,\qquad41{,}530,\qquad62{,}295<67{,}447.
+\]
+All exact-support, common-core, divided-difference, Pad\'e, syzygy, and pair-collision statements used in the construction hold over every coefficient field containing $D$.
+\end{theorem}
+
+\begin{proof}
+The field-generic part uses only duality of generalized Reed--Solomon codes, polynomial divisibility by split squarefree locators, and freeness of polynomial syzygy modules over a PID.  The complete exact-support histogram gives the low-weight packing bound.  Mass preservation in the rank-$46$ source compiler forces the stated number of marked keys, and predictable-degree identities give the three partial-degree bounds.  Details and exact arithmetic are in \cite{HughesM31Source26}.  The marked keys are diagnostics, not first-match cells, so the boundary/interior residual remains unpaid.
+\end{proof}
+
+\begin{theorem}[Hughes: all-weight boundary reduction]\label{thm:m31-boundary-reduction}
+Every hypothetical Mersenne-31 list violation admits an exact actual-anchor Pad\'e representation in which every nonanchor codeword is in bijection with a canonical divisor/gcd pair $(G,b)$.  A fresh-symbol argument reduces the remaining deterministic census to boundary anchors, and every unit $V$ modulo the anchor locator is realizable.  Consequently a proof of
+\[
+ |X(V)|\le16{,}777{,}214
+\]
+for every boundary-anchor triple and every unit $V$ would close the source-adapter residual; no specialization $V=1$, periodicity, quotient, or low-degree assumption is available for free.
+\end{theorem}
+
+\begin{proof}
+The correctly oriented module is generated by $(L_0,0)$ and $(V,A_0)$; canonical gcd extraction gives the exact locator and exact weight for every nonanchor.  Since $B^*+1<p$, one may choose a fresh field symbol avoiding all listed values and force the anchor slack to zero.  The module construction realizes every unit $V$, proving both the reduction and the stated obstruction.  See \cite{HughesM31Boundary26}.
+\end{proof}
+
+\begin{theorem}[Hughes: fixed-$G$ universal embedding]\label{thm:m31-fixed-g}
+Every ordinary base-field Reed--Solomon list on an $R=981{,}129$ point subset of the deployed Mersenne domain can, under the explicit averaging gate of \cite{HughesM31FixedG26}, be embedded into one fixed-$G$ boundary slice of the Mersenne census.  At list size $B^*=16{,}777{,}215$ the gate holds, with $8{,}722$ excluded symbols and $1{,}107{,}301$ common good roots.  Therefore Mersenne list safety necessarily implies the deterministic punctured-RS bound
+\[
+ M_{\rm ord}\le16{,}777{,}214.
+\]
+The ordinary Johnson denominator is nonpositive throughout the interval $72{,}859\le m\le908{,}270$.
+\end{theorem}
+
+\begin{proof}
+One common constant translation makes the ordinary received table nowhere zero and leaves enough complementary points simultaneously nonzero for every message polynomial.  Choosing a split locator $G$ on those points embeds the entire ordinary list as distinct nonanchors with common $G$.  The displayed integers are the exact averaging calculation.  The reverse identification holds for the base-field fixed-$G$ subclass.  Thus this is a hardness adapter and necessary condition, not an upper bound for the ordinary list.
+\end{proof}
+
+\paragraph{Generalized-weight rank cuts.}
+The next two theorems summarize the unconditional part of the varying-$G$ incidence programme.
+
+\begin{theorem}[Hughes: rank-six closure]\label{thm:m31-rank6}
+A forbidden Mersenne boundary shallow family contains $15{,}775{,}933$ actual base-field codewords.  Let $W_c$ be their affine direction span.  If $\dim W_c=6$, then the whole affine chart has size at most
+\[
+ 908{,}116,
+\]
+a contradiction.  Hence every forbidden shallow family has affine codeword-span rank at least seven.
+\end{theorem}
+
+\begin{proof}
+Write the generalized Hamming weights as $d_j=n-K+j+q_j$.  The marked-line double count retaining the full weight hierarchy gives
+\[
+ \sum_i(g+s_i)\prod_{j=2}^{5}(w+\eta+j+q_j+s_i)
+ \le15(d_6)_{\underline5}.
+\]
+Exact endpoint optimization yields $q_5\le32{,}004$ and a support-saturated $d_5$-minimizing hyperplane.  The arbitrary-codimension support-flag compiler of \cite{ChoGF26} then bounds the whole rank-six chart by $908{,}116$.  See \cite{HughesM31Rank626} for the source-compatible parameter map and exact arithmetic.
+\end{proof}
+
+\begin{theorem}[Hughes: rank-seven two-flank cut]\label{thm:m31-rank7}
+For a rank-$r$ boundary shallow family and every $0\le k<r$,
+\[
+ \sum_i\prod_{j=k+1}^{r}(d_j-R+\eta+s_i)
+ \le B_k(d_r)_{\underline{r-k}},\qquad
+ B_k=\floor{\frac{\binom{n-K+k}{k}}{\binom{w+k}{k}}}.
+\]
+At rank seven this pays every union size $g\le72{,}427$ and every $g\ge354{,}999$.  Thus every surviving rank-seven family lies in the exact interval
+\[
+ 72{,}428\le g\le354{,}998,
+\]
+which contains $282{,}571$ integer values.  Rank eight and above remain open.
+\end{theorem}
+
+\begin{proof}
+Stop the independent-agreement tuple after $r-k$ columns.  The remaining coefficient fiber is an affine $k$-flat, bounded by the proved affine-span compiler; generalized weights give the number of extensions at each step.  This proves the rank-uniform inequality.  Exhaustive exact integer optimization of its rank-seven specializations, together with common-zero Johnson and codimension-one support-flag bounds, gives the two paid flanks.  See \cite{HughesM31Rank726}.
+\end{proof}
+
+\paragraph{Exact quotient-shell counterexamples.}
+Holm Buar's quotient packets prevent several attractive but false uniform shell statements.
+
+\begin{proposition}[Buar: quotient-shell floors]\label{prop:m31-quotient-floors}
+On the pinned $c=2048$, $(u,v)=(0,1)$ Mersenne quotient profile:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item an anchor has six full-$T_{64}$ class-swap neighbors at deficiency $64$ sharing the first $63$ nonleading locator coefficients, refuting the proposed $Q{-}3{+}4$ shell statement;
+\item an anchor has $1{,}233$ distinct depth-$32$-prefix neighbors at deficiency $192$, including $1{,}225$ triple-$T_{64}$ swaps and eight genuinely $T_{16}$-mixed neighbors;
+\item a $3{,}432$-support family satisfies $d_{64}\ge49$, $d_{128}\ge441$, and $d_{192}\ge1{,}225$, while an independent $T_{16}$ exchange gives $d_{96}\ge1$.
+\end{enumerate}
+Consequently every coefficient-four uniform intercept at deficiency $192$ must satisfy $b\ge1{,}233$; the arithmetically viable window is $1{,}233\le b\le5{,}191$.
+\end{proposition}
+
+\begin{proof}
+Each item is an exact finite support construction with independently checked locator-prefix equalities and cardinalities; see \cite{BuarM31Q6426,BuarM31Q1626}.  These are support-level counterexamples only: they do not assert first-match survival, received-word realization, or a row-global $U_Q$ lower bound.
+\end{proof}
+
+\paragraph{Scalar descent and the CA-to-list conversion contract.}
+Danny's scalar-descent theorem proves, at the deployed Mersenne agreement, that the quartic-field list inequality is equivalent to the prime-field list inequality \cite{DannyM31Descent26}.  Holm Buar's exact post-Johnson contract further shows that a CA numerator at most $16{,}777{,}214$ for $\RS(D,2^{20})$ would imply list size at most $16{,}777{,}215$ for $\RS(D,2^{20}+1)$ and hence for the original code, by Theorem~5.3 of \cite{ABF26}; the bridge premise is not presently proved \cite{BuarM31PostJohnson26}.
+
+\section{Chebyshev, analytic, and formal theorem packets}
+\label{sec:other-experimental}
+
+\paragraph{Exact Chebyshev-domain theorems.}
+Manuel E. Rey-\'Alvarez Zafiria proved three exact results on the active $D_{128}$ Chebyshev geometry.
+
+\begin{theorem}[Rey-\'Alvarez Zafiria: $D_{128}$ injectivity and descent]\label{thm:d128-package}
+Over $\mathbb F_{2^{31}-1}$ on the normalized set of $128$ roots of $T_{128}$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item the first three power sums are injective on block-free seven-subsets, so every such three-moment fiber has size one;
+\item every fixed-$e_1$ affine coefficient line containing at least three canonical monic quartics is an opposite-pair carrier of the form
+\[
+ (Y^2-sY+p)(Y^2+q);
+\]
+there are exactly $8{,}128$ heavy carrier lines among the $10{,}667{,}968$ canonical quartets;
+\item more generally, let $d=2^s\ge4$, $n=M/d$, and let a monic degree-$d$ polynomial have $r$ distinct simple fibers completely split over the roots of $T_M$.  If $3r\ge2(n+1)$, the polynomial has a quadratic right factor.  Therefore a map without such a factor has at most $\floor{(2n+1)/3}$ complete split fibers; at $n=32$ the cap is $21$ for $d=8,16,32$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (i) and (ii) are exact computer-assisted theorems with independent exhaustive implementations and source-bound certificates \cite{ReyD128Inject26,ReyD128Quartic26}.  Item (iii) is algebraic and field-uniform: the Chebyshev differential identity, degree comparison, ramification parity, and iterated square descent force the quadratic right factor \cite{ReyChebDescent26}.
+\end{proof}
+
+The same contributor proved the corrected typed pair-resource split $15{,}841=12{,}285+3{,}556$ and a universal two-price occupancy inequality, with primal--dual optimal prices for typed codegrees $(21,2)$.  Its displayed Mersenne transfer ledger additionally assumes global codegree bounds and is therefore not promoted here \cite{ReyPairResource26}.
+
+\paragraph{Dense-shell exact identities and route cuts.}
+The dense-shell programme contains a mixture of proved identities and computed-grid hypotheses.  The unconditional part is the following.
+
+\begin{proposition}[Exact dense-shell reductions]\label{prop:dense-shell}
+For a dense shell at level $B$ and a support class $\operatorname{class}(U)$, the inverse-transform class sum satisfies the exact product identity
+\[
+ \sum_{\sigma\in\operatorname{class}(U)}h(\sigma)
+ =(-4)^{|U|}\frac1c\sum_{\xi\,\mathrm{dense}}
+ \widehat f(\xi)\prod_{k\in K}\bigl(a_k-\tfrac12\bigr).
+\]
+The one-coordinate atom inequality is positive on the full stated parameter interval.  For every class, the positive charge is
+\[
+ \omega(\operatorname{class}(U))
+ =\frac{M_U+\Sigma_U}{2}
+ =W_U+\mathbf 1_{\{s_U=+1\}}|\Sigma_U|,
+\]
+with the parity correction shown.  The insertion dynamic program computes every subset charge with a certified analytic truncation bar.  Positivity of every decorated subtree charge is a sufficient, but not necessary, condition for the general-$K$ class-sign conclusion.
+\end{proposition}
+
+\begin{proof}
+The class-sum formula is character factorization, the atom is an explicit product-to-sum trigonometric inequality, and the charge identity follows by separating positive and negative mass.  The complete corrected statements, including counterexamples to the false parity-free identity and to two overstrong decorated-cone claims, are in \cite{DenseShellCharges26}.  The all-depth MASTER and INV-TAIL claims remain conditional or computed-grid and are excluded.
+\end{proof}
+
+\begin{proposition}[Avdeev: singleton-MASTER factorization]\label{prop:singleton-master}
+For the all-position single-insertion operator, the exact factorization
+\[
+ D_{n,q}=T^{q-1}SB_{n-q}
+\]
+holds.  First-insertion source positivity follows from the ordinary MASTER theorem, and a normalized derivative/Helmholtz inequality is sufficient for all-position monotonicity.  The exact terminal coordinate is positive and obeys the stated recurrence; a scalar cap holds with rational margins $190/1701$ and $169/1701$.  The proposed cap-six source envelope is false, and every shifted-Jacobi source condition $(K-\lambda I)D\ge0$ with $\lambda>1/10$ is false.
+\end{proposition}
+
+\begin{proof}
+The factorization follows by isolating the first insertion and propagating the remaining levels homogeneously.  The differential criterion and terminal recurrence are exact algebraic identities; the two failures are explicit counterexamples.  See Vadim Avdeev's source-bound note \cite{AvdeevSIM26}.  The corrected reachable-state envelope and its preservation under $T$ remain open, so SIM is not claimed.
+\end{proof}
+
+\paragraph{Formalization and adversarial audits.}
+Several experimental contributions are best understood as machine-checked kernels or permanent no-go tests rather than new row bounds.  The current theorem-ready items include: a Lean proof of the complete-fiber subset-packing compiler; repaired Lean proofs of the ECFFT rational floor and one-step cap; a coefficient-to-value repair of the Paper D $\varphi$-fiber interface together with a counterexample to the old skeleton signature; and a Lean proof of the $c=1$ first-grid cap chain.  Exact counterexamples rule out a universal strict-crossing demand, the selected-support/unique-mate shortcut at the top seam, and the incorrect support universe $\binom{|\B|}{m}$ in place of $\binom{|D|}{m}$.  These items are catalogued with precise provenance in \cite{PRReport26,RepoLog26}; computed-grid dense-shell transfers and stale or source-unbound certificates remain explicitly unpromoted.
+
+\section{Experimental result ledger and attribution}
+\label{sec:experimental-ledger}
+
+The following table gives a status-preserving inventory of the theorem families in the experimental tree at commit \texttt{71f64349}.  ``Local'' means an unconditional implication under its printed branch contract; it does not mean that the branch is exhaustive for the deployed row.  ``Route cut'' means a theorem that removes a proof route or narrows the residual but moves no final ledger value.
+
+\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.15\linewidth}>{\raggedright\arraybackslash}p{0.18\linewidth}>{\raggedright\arraybackslash}p{0.40\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}@{}}
+\caption{Collaborative experimental theorem inventory.}\label{tab:experimental-ledger}\\
+\toprule
+contributor / lane & status & unconditional content retained in v3 & excluded claim\\
+\midrule
+\endfirsthead
+\toprule
+contributor / lane & status & unconditional content retained in v3 & excluded claim\\
+\midrule
+\endhead
+Holm Buar, Koala K & bankable theorem & $981{,}104$-slope tangent atom and exact four-cell set partition & conditional rooted-shell $U_Q$; row closure\\
+Scott Hughes, Koala M1 & local route cuts & rank ladders, source--M\"obius/rational owners, moving-root divisibility, $s\ge67{,}474$ and two one-slack terminals & exhaustive selector and final Koala ledger\\
+Danny, MCA geometry & local theorems & coordinate-span ratio confinement; rank-one secant cap; pole-tolerant scalar-locator localization and common-pole cancellation & radial occupancy, first-match adapter, endpoint movement\\
+Scott Hughes, M31 source & proved adapter/route cut & low-weight payment $3{,}730$; global exact-support partition; $259{,}881$ marked rank-$46$ keys; field-generic kernel lift & payment of boundary/interior residual\\
+Scott Hughes, M31 Pad\'e & proved reductions & all-weight anchor module, boundary forcing, arbitrary-unit obstruction, common-$V$ pairwise CRT equivalence & census $|X(V)|\le16{,}777{,}214$\\
+Scott Hughes, M31 fixed-$G$ & hardness adapter & universal embedding of deterministic punctured-RS lists; exact fixed-$G$ endpoint cuts & punctured-RS upper bound\\
+Scott Hughes, M31 ranks & local theorems & ranks $\le6$ excluded; rank-seven flanks excluded; all-rank truncated-weight inequality & rank-seven middle and ranks $\ge8$\\
+Holm Buar, M31 owners & local profile theorems & natural-scale near-rational/one-pencil profiles and finite semantic regression & deployed exhaustivity and universal rooted shell\\
+Holm Buar, M31 quotient & exact counterexamples & $T_{64}$ and $T_{16}$ support-level floors; intercept $b\ge1{,}233$ & received-word realization and global $U_Q$\\
+Danny, M31 descent & theorem & equivalence of deployed quartic and prime-field list inequalities & the prime-field upper itself\\
+M. E. Rey--\'Alvarez Zafiria & theorems / computer-assisted & $D_{128}$ seven-set injectivity, quartic-line dichotomy, field-uniform quadratic descent, typed-resource inequality & conditional codegree ledger and row closure\\
+Vadim Avdeev & analytic reductions & singleton insertion factorization, exact criteria, terminal positivity, two source-envelope counterexamples & all-position SIM and downstream class-sign law\\
+Adam M. A. Latif and formalization lane & machine-checked kernels/audits & ECFFT floor and one-step cap; Paving provenance audit; formal repair kernels & promotion of unbuilt or stale certificates\\
+L1 / BC / L2 / Route-D contributors & proved local / audit & CRT, incidence, marked-recursion, subset-packing, owner-typing, and numerous false-shortcut counterexamples & wholesale conversion to a global Q/BC/SP theorem\\
+\bottomrule
+\end{longtable}
+\normalsize
+
+The theorem bank is therefore much larger than the four primary preprints alone, but its logical status is also more granular.  The present paper incorporates every current theorem-ready unconditional family at a level relevant to Prize analysis, records exact counterexamples as negative theorems, and leaves conditional, computed-grid, and nonexhaustive row hypotheses visibly outside the theorem statements.
+
+
+\section{Line decoding and list-decoding consequences}
+
+For a word $v\in\F^D$, let $\Lambda(C,\delta,v)$ be the codewords at Hamming distance at most $\delta n$ from $v$, and put $\abs{\Lambda(C,\delta)}=\max_v\abs{\Lambda(C,\delta,v)}$.  For $\delta_{\rm fld}\le\delta_{\rm int}$, the correlated-agreement error $\eps_{\CA}(C,\delta_{\rm fld},\delta_{\rm int})$ is the largest fraction of slopes for which the line point is $\delta_{\rm fld}$-close to $C$ while the received pair is not $\delta_{\rm int}$-close to the two-fold interleaving $C^{\equiv2}=C\times C$; write $\eps_{\CA}(C,\delta)$ when the radii agree.  The defining bad event for CA is contained in the MCA bad event, so $\eps_{\CA}\le\eps_{\MCA}$.
+
+Line decoding is a stronger affine-line notion.  Following Goyal--Guruswami and the survey \cite[Definition~4.20]{ABF26}, a code is $(\delta,A,B)$ line-decodable if every assignment $U:\F\to C$ that stays within distance $\delta$ of a received affine line for at least $A$ parameters agrees with one codeword line $u_0+\gamma u_1$ for at least $B$ parameters.  Theorem~4.21 of \cite{ABF26}, citing \cite{GG25}, shows that $(\delta,A,n+1)$ line decodability implies $\eps_{\MCA}(C,\delta)\le A/\abs\F$.
+
+Our exact proofs proceed in the opposite direction: they count MCA-bad parameters directly.  In syndrome space a support complement $E$ gives a secant span $V_E$, and a bad slope is exactly a transverse intersection of the received syndrome line with $V_E$; a contained line corresponds to simultaneous explanation and is discarded.  Thus the argument is a support-wise line-decoding calculation, but it does not assert the stronger global conclusion that many assigned codewords lie on one codeword line.  This distinction matters near capacity and is one reason the unresolved deployed rows require a separate ray and owner analysis \cite{ChoGF26,ChoComp26}.
+
+The exact MCA staircase nevertheless has immediate list-decoding consequences through Theorems~5.2 and~5.3 of Arnon--Boneh--Fenzi \cite{ABF26}.  We record them in integer form.
+
+\begin{corollary}[Consequences of Theorems~5.2 and~5.3 of \cite{ABF26}]\label{cor:list-consequences}
+Let $q=\abs\F$, $C=\RS_{\F}(D,k)$, and let $3\le r\le\min\{r_{\mathrm{quad}}(n,k),n-k-1\}$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If $q>2n(r+1)$, then
+\[
+ \abs{\Lambda(C,(r-2)/n)}<q.
+\]
+\item If $q>n+k(r+1)$ and $C^+=\RS_{\F}(D,k+1)$, then
+\[
+ \abs{\Lambda(C^+,r/n)}
+ \le \ceil{\frac{(r+1)(q-n)}{q-n-k(r+1)}}.
+\]
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+By \cref{thm:quadratic}, $\eps_{\MCA}(C,r/n)=(r+1)/q$, and therefore the corresponding CA error, with or without a larger inner radius, is at most $(r+1)/q$.
+
+For (i), set $\delta=(r-2)/n$.  Then the field radius in Theorem~5.2 of \cite{ABF26} is $\delta+2/n=r/n$, and its inner radius is $(n-k-1)/n\ge r/n$.  The hypothesis $q>2n(r+1)$ gives CA error less than $1/(2n)$, so that theorem yields $\abs{\Lambda(C,\delta)}<q$.
+
+For (ii), put $\eta=k(r+1)/(q-n)<1$.  Then
+\[
+ \frac{r+1}{q}=\eta\left(\frac1k-\frac{n}{kq}\right).
+\]
+Theorem~5.3 of \cite{ABF26}, which restates Theorem~2 of \cite{CS25}, gives
+\[
+ \abs{\Lambda(C^+,r/n)}\le
+ \ceil{\frac{q}{1-\eta}\frac{r+1}{q}},
+\]
+which is the displayed bound.
+\end{proof}
+
+\begin{remark}
+Theorem~5.2 of \cite{ABF26} shows that very small CA error forces list size below the field size, even with substantial proximity loss.  Theorem~5.3 gives a quantitative list bound for the dimension-$(k+1)$ code from a CA bound for the dimension-$k$ code.  Our corollary makes both implications explicit in a regime where the MCA, and hence CA, error is known exactly.
+\end{remark}
+
+\section{Conclusion}
+
+The four source manuscripts yield a substantially larger unconditional partial-Prize package than the elementary quadratic staircase alone.  The exact support and sparse-mutual decompositions of \cite{ChoShort26} determine the affine-line MCA numerator through almost half the minimum distance at the official rates, give complete target compilers and all-radius saturation, and provide explicit post-Johnson safe certificates.  The locator-fiber and deep-point conversion of \cite{ChoCap26} give a field-size-universal unsafe band for every smooth row in the Prize envelope and transport to map-smooth and circle presentations; the same machinery supplies exact deployed unsafe floors with aperiodic witnesses.  The syndrome, saturation, moving-root, separating-field, and large-extension theorems of \cite{ChoGF26} distinguish support multiplicity from the actual slope numerator and completely pay several geometric subcells.  Finally, \cite{ChoComp26} closes the first Mersenne MCA support-flag boundary cell, proves that the ordinary Delsarte route is exhausted for the corresponding list atom, and forces abundant order-$32$ critical structure and large rational owners.
+
+The collaborative archive adds a second, complementary kind of progress.  Holm Buar supplies the first bankable KoalaBear v4 slope atom and sharp quotient-shell counterexamples; Scott Hughes supplies source-bound Koala rank cuts and a long Mersenne chain from exact support transport through rank-six closure and rank-seven flank exclusion; Danny supplies field-uniform scalar-locator and syndrome-coordinate localization; Manuel E. Rey-\'Alvarez Zafiria supplies exact Chebyshev-domain theorems; Vadim Avdeev and the dense-shell contributors supply exact analytic reductions and permanent route cuts; and the formalization and audit lanes harden the compilers and refute several unsound shortcuts.  These statements are useful precisely because their units and nonclaims are printed: codewords, supports, marked keys, projective directions, and MCA slopes are never silently identified.
+
+These are unconditional mathematical results and include complete solutions for explicit admissible rows and infinite field regimes, together with rigorous safe and unsafe certificates for broader families.  They do not constitute a proof of the two remaining deployed adjacent safe inequalities.  Those rows still require the row-sharp spread routing, large-owner challenge-image bound, exception compatibility, and exact final replay identified in \cite{ChoGF26,ChoComp26}; no conditional assertion about those inputs is made here.
+
+\section*{Acknowledgements}
+The author thanks Holm Buar, Scott Hughes, Danny (\texttt{DannyExperiments}), Vadim Avdeev, Manuel E. Rey-\'Alvarez Zafiria, Adam Mohammed A. Latif, Allen Graham Hart, and the other contributors to the \texttt{rs-mca} repository.  The theorem headings and bibliography identify the source of each collaborative result.  The author also thanks the maintainers and auditors who preserved explicit status boundaries between proved local statements, conditional compilers, counterexamples, computations, and open row-level claims.
+
+\begin{thebibliography}{ABF26}
+
+\bibitem[ABF26]{ABF26}
+G. Arnon, D. Boneh, and G. Fenzi,
+\newblock Open problems in list decoding and correlated agreement,
+\newblock IACR Cryptology ePrint Archive, Report 2026/680, 2026.
+
+\bibitem[BCHKS25]{BCHKS25}
+E. Ben-Sasson, D. Carmon, U. Hab\"ock, S. Kopparty, and S. Saraf,
+\newblock On proximity gaps for Reed--Solomon codes,
+\newblock IACR Cryptology ePrint Archive, Report 2025/2055, 2025.
+
+\bibitem[BCIKS20]{BCIKS20}
+E. Ben-Sasson, D. Carmon, Y. Ishai, S. Kopparty, and S. Saraf,
+\newblock Proximity gaps for Reed--Solomon codes,
+\newblock \emph{J. ACM} 70 (2023), no.~5, 1--57.
+
+\bibitem[ChoShort26]{ChoShort26}
+P. Chojecki,
+\newblock Shortening bounds for Reed--Solomon MCA,
+\newblock version 9.2, preprint, 2026.
+
+\bibitem[ChoCap26]{ChoCap26}
+P. Chojecki,
+\newblock Universal field-size caps and a two-sided sandwich for mutual correlated agreement on smooth Reed--Solomon domains,
+\newblock version 13.2, preprint, 2026.
+
+\bibitem[ChoGF26]{ChoGF26}
+P. Chojecki,
+\newblock Grande Finale v4: Exact threshold compilers, primitive Q, and order-$32$ Reed--Solomon MCA,
+\newblock preprint, 2026.
+
+\bibitem[ChoComp26]{ChoComp26}
+P. Chojecki,
+\newblock RS--MCA v4.4: The $S{+}A{+}E$ execution ledger and agent handoff,
+\newblock companion preprint, 2026.
+
+\bibitem[CS25]{CS25}
+E. Crites and A. Stewart,
+\newblock On Reed--Solomon proximity gaps conjectures,
+\newblock IACR Cryptology ePrint Archive, Report 2025/2046, 2025.
+
+\bibitem[GG25]{GG25}
+R. Goyal and V. Guruswami,
+\newblock Optimal proximity gaps for subspace-design codes and (random) Reed--Solomon codes,
+\newblock IACR Cryptology ePrint Archive, Report 2025/2054, 2025.
+
+\bibitem[Jo26]{Jo26}
+S. Jo,
+\newblock Reed--Solomon mutual correlated agreement beyond the Johnson radius,
+\newblock IACR Cryptology ePrint Archive, Report 2026/1432, 2026.
+
+
+\bibitem[Avd26]{AvdeevSIM26}
+V. Avdeev,
+\newblock Singleton-MASTER factorization and source-entry route cuts,
+\newblock experimental note, \texttt{rs-mca} repository, 2026,
+\newblock \href{https://github.com/przchojecki/rs-mca/pull/1063}{repository packet}.
+
+\bibitem[Bua26a]{BuarKBTangent26}
+H. Buar,
+\newblock KoalaBear v4 source-coordinate tangent owner re-proof,
+\newblock experimental theorem note, 2026,
+\newblock \href{https://github.com/przchojecki/rs-mca/blob/71f64349a8fa8cbf05678a6e9d4e00e8e06d7de5/experimental/notes/frontier-adjacent/kb_mca_v4_tangent_source_adapter_v1.md}{repository packet}.
+
+\bibitem[Bua26b]{BuarKBQ26}
+H. Buar,
+\newblock KoalaBear boundary-prefix tangent-rooted shell compiler,
+\newblock experimental conditional packet, 2026,
+\newblock \href{https://github.com/przchojecki/rs-mca/pull/1054}{repository packet}.
+
+\bibitem[Bua26c]{BuarM31Q6426}
+H. Buar,
+\newblock Mersenne-31 quotient prefix-flatness $T_{64}$ witness,
+\newblock experimental counterexample packet, 2026,
+\newblock \href{https://github.com/przchojecki/rs-mca/pull/1048}{repository packet}.
+
+\bibitem[Bua26d]{BuarM31Q1626}
+H. Buar,
+\newblock Mersenne-31 quotient $T_{16}$ mixing floor and band-swap census,
+\newblock experimental counterexample notes, 2026,
+\newblock \href{https://github.com/przchojecki/rs-mca/pull/1055}{first repository packet} and \href{https://github.com/przchojecki/rs-mca/pull/1056}{second repository packet}.
+
+\bibitem[Bua26e]{BuarM31PostJohnson26}
+H. Buar,
+\newblock Mersenne-31 post-Johnson conversion contract,
+\newblock experimental exact-arithmetic note, 2026,
+\newblock \href{https://github.com/przchojecki/rs-mca/pull/1057}{repository packet}.
+
+\bibitem[Dan26a]{DannyPole26}
+Danny (\texttt{DannyExperiments}),
+\newblock Pole-tolerant scalar-locator localization,
+\newblock experimental theorem note, 2026,
+\newblock \href{https://github.com/przchojecki/rs-mca/blob/71f64349a8fa8cbf05678a6e9d4e00e8e06d7de5/experimental/notes/m2/pole_tolerant_scalar_locator_localization.md}{repository packet}.
+
+\bibitem[Dan26b]{DannyCoordinateSpan26}
+Danny (\texttt{DannyExperiments}),
+\newblock Base-field coordinate-span confinement for RS--MCA syndrome lines,
+\newblock experimental theorem note, 2026,
+\newblock \href{https://github.com/przchojecki/rs-mca/blob/71f64349a8fa8cbf05678a6e9d4e00e8e06d7de5/experimental/notes/thresholds/base_field_coordinate_span_confinement.md}{repository packet}.
+
+\bibitem[Dan26c]{DannyM31Descent26}
+Danny (\texttt{DannyExperiments}),
+\newblock Mersenne-31 scalar-descent equivalence,
+\newblock experimental theorem packet, 2026,
+\newblock \href{https://github.com/przchojecki/rs-mca/pull/993}{repository packet}.
+
+\bibitem[Den26]{DenseShellCharges26}
+H. Buar, A. Mohammed A. Latif, and collaborators,
+\newblock Dense-shell class charges: class-sum identities, charge arithmetic, and audited route cuts,
+\newblock experimental note, 2026,
+\newblock \href{https://github.com/przchojecki/rs-mca/blob/71f64349a8fa8cbf05678a6e9d4e00e8e06d7de5/experimental/notes/thresholds/dense_shell_class_charges.md}{repository packet}.
+
+\bibitem[Hug26a]{HughesKBM126}
+S. Hughes,
+\newblock KoalaBear moving-root cofactor/slack and C5 boundary,
+\newblock experimental theorem note, 2026,
+\newblock \href{https://github.com/przchojecki/rs-mca/blob/71f64349a8fa8cbf05678a6e9d4e00e8e06d7de5/experimental/notes/m1/m1_kb_rank9_moving_root_slack_c5_boundary_v1.md}{repository packet}.
+
+\bibitem[Hug26b]{HughesM31Source26}
+S. Hughes,
+\newblock Mersenne-31 v4 LIST source adapter and global coupled residual,
+\newblock experimental theorem note, 2026,
+\newblock \href{https://github.com/przchojecki/rs-mca/blob/71f64349a8fa8cbf05678a6e9d4e00e8e06d7de5/experimental/notes/thresholds/m31_list_v4_source_adapter_global_coupled_residual.md}{repository packet}.
+
+\bibitem[Hug26c]{HughesM31Boundary26}
+S. Hughes,
+\newblock Mersenne-31 all-weight anchor exchange and boundary reduction,
+\newblock experimental theorem note, 2026,
+\newblock \href{https://github.com/przchojecki/rs-mca/pull/1058}{repository packet}.
+
+\bibitem[Hug26d]{HughesM31FixedG26}
+S. Hughes,
+\newblock Mersenne-31 fixed-$G$ universal Reed--Solomon embedding,
+\newblock experimental theorem note, 2026,
+\newblock \href{https://github.com/przchojecki/rs-mca/pull/1061}{repository packet}.
+
+\bibitem[Hug26e]{HughesM31Rank626}
+S. Hughes,
+\newblock Mersenne-31 rank-six generalized-weight/codimension-one closure,
+\newblock experimental theorem note, 2026,
+\newblock \href{https://github.com/przchojecki/rs-mca/blob/71f64349a8fa8cbf05678a6e9d4e00e8e06d7de5/experimental/notes/thresholds/m31_rank6_generalized_weight_codim_one_closure_v1.md}{repository packet}.
+
+\bibitem[Hug26f]{HughesM31Rank726}
+S. Hughes,
+\newblock Mersenne-31 rank-seven truncated-weight flag route cut,
+\newblock experimental theorem note, 2026,
+\newblock \href{https://github.com/przchojecki/rs-mca/blob/71f64349a8fa8cbf05678a6e9d4e00e8e06d7de5/experimental/notes/thresholds/m31_rank7_truncated_weight_flag_route_cut_v1.md}{repository packet}.
+
+\bibitem[PR26]{PRReport26}
+P. Chojecki,
+\newblock Report on integrated pull requests,
+\newblock experimental audit report, 2026,
+\newblock \href{https://github.com/przchojecki/rs-mca/blob/71f64349a8fa8cbf05678a6e9d4e00e8e06d7de5/experimental/PR-report-1.tex}{repository packet}.
+
+\bibitem[Rey26a]{ReyD128Inject26}
+M. E. Rey-\'Alvarez Zafiria,
+\newblock $D_{128}$ block-free seven-subset three-moment injectivity,
+\newblock exact computer-assisted theorem, 2026,
+\newblock \href{https://github.com/przchojecki/rs-mca/pull/1015}{repository packet}.
+
+\bibitem[Rey26b]{ReyChebDescent26}
+M. E. Rey-\'Alvarez Zafiria,
+\newblock Quadratic descent for split Chebyshev fibres,
+\newblock experimental theorem note, 2026,
+\newblock \href{https://github.com/przchojecki/rs-mca/pull/1016}{repository packet}.
+
+\bibitem[Rey26c]{ReyD128Quartic26}
+M. E. Rey-\'Alvarez Zafiria,
+\newblock $D_{128}$ quartic-line dichotomy,
+\newblock exact computer-assisted theorem, 2026,
+\newblock \href{https://github.com/przchojecki/rs-mca/pull/1017}{repository packet}.
+
+\bibitem[Rey26d]{ReyPairResource26}
+M. E. Rey-\'Alvarez Zafiria,
+\newblock Typed pair-resource occupancy compiler and Mersenne transfer ledger,
+\newblock experimental theorem and conditional ledger note, 2026,
+\newblock \href{https://github.com/przchojecki/rs-mca/pull/1018}{repository packet}.
+
+\bibitem[Repo26]{RepoLog26}
+The \texttt{rs-mca} contributors,
+\newblock Experimental agents log,
+\newblock coordination and provenance ledger, commit \texttt{71f64349}, 2026,
+\newblock \href{https://github.com/przchojecki/rs-mca/blob/71f64349a8fa8cbf05678a6e9d4e00e8e06d7de5/experimental/agents-log.md}{repository packet}.
+
+\bibitem[PP26]{ProximityPrize}
+Ethereum Foundation,
+\newblock The Proximity Prize: \$1M Reed--Solomon Challenge,
+\newblock 2026, \url{https://proximityprize.org/}.
+
+\end{thebibliography}
+
+\end{document}
