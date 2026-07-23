@@ -39,6 +39,11 @@ python3 experimental/scripts/verify_m31_varying_g_first_pivot_basis_route_cut_v1
 sage experimental/scripts/verify_m31_varying_g_first_pivot_basis_route_cut_v1.sage
 python3 experimental/scripts/verify_m31_varying_g_first_pivot_basis_route_cut_packet_v1.py
 python3 experimental/scripts/verify_m31_varying_g_first_pivot_basis_route_cut_packet_v1.py --tamper-selftest
+python3 experimental/scripts/verify_m31_rank6_generalized_weight_codim1_closure_v1.py --check
+python3 experimental/scripts/verify_m31_rank6_generalized_weight_codim1_closure_v1.py --tamper-selftest
+sage experimental/scripts/verify_m31_rank6_generalized_weight_codim1_closure_v1.sage
+python3 experimental/scripts/verify_m31_rank6_generalized_weight_codim1_closure_packet_v1.py
+python3 experimental/scripts/verify_m31_rank6_generalized_weight_codim1_closure_packet_v1.py --tamper-selftest
 ```
 
 `experiment_rowsharp_q_prefix_atom_routes_v1.py --check` is a fast artifact
@@ -71,6 +76,15 @@ regression, the equitable-partition reduction, and the unconditional
 maximal-band quartic unit-mask bound.  It does not prove signed selected-owner
 ambient-kernel inversion outside the paid owner regimes, non-equitable cube
 localization, nonempty-mode compression, or paid cube-spectrum admission.
+
+`verify_m31_rank6_generalized_weight_codim1_closure_v1.py` retains the actual
+generalized Hamming weights in the parent marked-line count and feeds a
+minimum-support hyperplane into the proved coset-free codimension-one
+compiler.  It certifies the whole rank-six chart upper `908116`, excluding
+rank six at the required shallow size `15775933`.  Its Sage companion is an
+independent exact arithmetic replay plus a literal `GF(7)` orientation
+control.  The packet moves no v4 atom and leaves ranks at least seven and the
+full M31 LIST row open.
 
 The active Python scripts are intentionally flat in this directory. Several M1
 and L1 verifiers import local helpers by module name, so scattering them into

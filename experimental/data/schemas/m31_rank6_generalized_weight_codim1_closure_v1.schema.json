@@ -1,0 +1,84 @@
+{
+  "$id": "rs-mca-m31-rank6-generalized-weight-codim1-closure-v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "architecture_id": {
+      "const": "M31_BASE_FIELD_BOUNDARY_RANK6_WEIGHT_HIERARCHY_CODIM_ONE_COMPILER_V1"
+    },
+    "artifact_kind": {
+      "const": "EXACT_GENERALIZED_WEIGHT_MARKED_LINE_AND_CODIMENSION_ONE_RANK6_CLOSURE"
+    },
+    "codimension_one_compiler": {
+      "type": "object"
+    },
+    "dependency_contract": {
+      "type": "object"
+    },
+    "deployed_parameters": {
+      "type": "object"
+    },
+    "generalized_weight_refinement": {
+      "type": "object"
+    },
+    "imported_rank6_source": {
+      "type": "object"
+    },
+    "ledger_state": {
+      "type": "object"
+    },
+    "nonclaims": {
+      "type": "object"
+    },
+    "payload_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "rank_consequence": {
+      "type": "object"
+    },
+    "row_contract": {
+      "type": "object"
+    },
+    "schema": {
+      "const": "m31-rank6-generalized-weight-codim1-closure-summary-v1"
+    },
+    "source_bindings": {
+      "type": "array"
+    },
+    "status": {
+      "const": "PROVED_BASE_FIELD_BOUNDARY_SHALLOW_RANK6_EXCLUDED_RANK_GE7_OPEN"
+    },
+    "terminal": {
+      "const": "UNPAID_RANK_GE7_SPLIT_RATIONAL_FIXED_SYNDROME_INCIDENCE"
+    },
+    "theorem_id": {
+      "const": "M31_RANK6_GENERALIZED_WEIGHT_CODIM_ONE_CLOSURE_V1"
+    },
+    "toy_controls": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "architecture_id",
+    "artifact_kind",
+    "codimension_one_compiler",
+    "dependency_contract",
+    "deployed_parameters",
+    "generalized_weight_refinement",
+    "imported_rank6_source",
+    "ledger_state",
+    "nonclaims",
+    "payload_sha256",
+    "rank_consequence",
+    "row_contract",
+    "schema",
+    "source_bindings",
+    "status",
+    "terminal",
+    "theorem_id",
+    "toy_controls"
+  ],
+  "title": "M31 rank-six generalized-weight/codimension-one closure certificate",
+  "type": "object"
+}

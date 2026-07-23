@@ -30,6 +30,36 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-22 - M31 rank-six generalized-weight/codimension-one closure
+
+- **Agent/model:** Codex, with separate theorem-generation, exact-arithmetic,
+  independent-reconstruction, Sage-control, and proof-audit agents.
+- **Files added or changed:**
+  `experimental/notes/thresholds/m31_rank6_generalized_weight_codim_one_closure_v1.md`,
+  `experimental/data/certificates/m31-rank6-generalized-weight-codim1-closure-v1/`,
+  `experimental/data/schemas/m31_rank6_generalized_weight_codim1_closure_v1.schema.json`,
+  `experimental/scripts/verify_m31_rank6_generalized_weight_codim1_closure_v1.py`,
+  `experimental/scripts/verify_m31_rank6_generalized_weight_codim1_closure_v1.sage`,
+  `experimental/scripts/verify_m31_rank6_generalized_weight_codim1_closure_packet_v1.py`,
+  `experimental/scripts/README.md`, `agents.md`, and this log.
+- **Status:** PROVED LOCAL RANK-SIX CLOSURE / EXACT GF(7) ORIENTATION
+  CONTROL / AUDIT; RANKS AT LEAST SEVEN AND M31 LIST ROW OPEN.
+- **What is being added:** Retaining the actual generalized weight hierarchy
+  in the marked affine-line count gives `q5<=32004` and
+  `1048581<=d5(W_c)<=1080585`.  A `d5`-minimizing hyperplane is
+  support-saturated, and the existing MDS-soft codimension-one compiler then
+  bounds the whole rank-six affine chart by `908116`.
+- **How it is useful:** The inherited shallow source requires `15775933`
+  distinct actual codewords, so the exact contradiction gap is `14867817`.
+  Together with the predecessor, ranks one through six are excluded.  The
+  result is a direct route cut with zero ledger and endpoint movement, not a
+  complete M31 LIST theorem; the GF(7) census is not deployed evidence.
+- **What to do next:** Attack all ranks at least seven as one source-bound
+  fixed-syndrome/secant incidence compiler, retaining generalized weights and
+  routing every component to an actual codeword owner, an exact chart bound,
+  or an explicit primitive terminal.  Do not return to the closed rank-six
+  scalar profile or count supports in place of codewords.
+
 ### 2026-07-22 - M31 marked-basis rank-five closure and rank-six route cut
 
 - **Agent/model:** Codex, with separate marked-basis, scalar-incidence,
