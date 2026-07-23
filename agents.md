@@ -1,7 +1,7 @@
 # AGENTS.md — RS–MCA Resolution Protocol
 
-> **Updated:** 2026-07-22
-> **State snapshot:** `main@32a41660e3088eeeb15a16645330856794302ff0`
+> **Updated:** 2026-07-23
+> **State snapshot:** `main@5ecb9ab538a0a57dcb81018b17f32849049fb998`
 > **Supersedes:** all older priority lists in this file.
 
 Edit this workboard in place. Never append another “current focus”, “highest priority”, or competing task list.
@@ -71,6 +71,25 @@ At this snapshot:
 - The KoalaBear legacy M1 stack records local `U_paid=422354730332` and local remainder `274980305756664755`, but neither is banked in Grande Finale v4 because the source-bound owner/partition bridge is missing.
 - Under the latest corrected direct extension charge, positive extension dimension is excluded on Mersenne-31 and dimension at least two is excluded on KoalaBear. These are route cuts, not payments or nonexistence theorems.
 - The newly integrated M31 packets add local padding-bridge, masked-saturation, common-core add-back, rank-two/coloop, rooted-shell, C7--C9, and route-cut infrastructure.  These are not adjacent-row payments: source-bound owner/refund, rooted-shell completion, residual projection, and final finite-ledger terminals remain open.
+- The 2026-07-23 M31 LIST integration adds an exact all-weight
+  anchor-exchange Padé bijection, prime-field scalar descent, fresh-symbol
+  boundary forcing, a universal fixed-\(G\) ordinary-RS embedding, closure of
+  affine ranks at most six, and a rank-seven two-flank cut.  A forbidden row
+  now forces at least \(15,775,933\) shallow base-field companions for one
+  boundary anchor and one arbitrary unit \(V\); rank seven survives only for
+  numerator-root union \(72,428\le g\le354,998\), and ranks at least eight
+  remain open.
+- The current direct M31 closure target is the uniform shallow
+  master-denominator/fixed-syndrome census
+  \(|X_{\rm shallow}(V)|\le15,775,932\).  Together with the proved deep-tail
+  cap \(1,001,282\), this would give \(16,777,214\) nonanchors and close the
+  row after adding the boundary anchor.  This target is unproved.
+- The local rank-seven master-denominator successor proves that every proper
+  fixed-\(G\) slice has rank at most six, excludes pure fixed-\(G\) families
+  for \(g\ge328,678\), and pays the 26 union values
+  \(354,973\le g\le354,998\).  Its exact rank-seven residual is
+  \(72,428\le g\le354,972\); the upper subinterval is necessarily mixed
+  \(G\).  This is a source-bound route cut, not row closure or a v4 payment.
 - A schema/hash pass is structural preflight only. The trusted-source registry is empty; parsing a manifest does not prove an atom.
 
 ## 3. Document authority
@@ -155,7 +174,23 @@ This is a codeword-count statement; the MCA ray compiler is inapplicable.
 
 #### M1. Resolve the binding primitive-fiber/list-interior problem
 
-The full-budget target is only about `8.4152` times the full-slice average, and the true allowance is smaller after other payments. Prove a realized-image, frozen-residual maximum or construct a received word exceeding the budget. Existing one-shell and rooted-shell packets are local reductions, not exhaustive row bounds.
+Attack the exact source-equivalent shallow census.  For every base-field
+boundary triple \((A_0,L_0,V)\), classify the canonical pairs
+
+```text
+G | A0, 67448 <= m=deg(G) <= 981129,
+b != 0, deg(b) < m-67447, gcd(b,G)=1,
+H=gcd(L0,G-bV), m <= deg(H) <= m+366886.
+```
+
+Prove that there are at most `15775932` such pairs, or construct a genuine
+deployed counterexample.  The preferred exact normalization sets
+`P=lcm_i(G_i)` over the shallow family and writes `f_i=(P/G_i)b_i`,
+producing one planted-zero fixed-syndrome polynomial-space problem that
+retains fixed-\(G\) and mixed-\(G\) families.  The proof must cover the
+surviving rank-seven middle and every rank at least eight; another standalone
+rank profile, support cap, moment ledger, or fixed-remainder calculation is
+not closure.
 
 #### M2. Transfer the theorem or record a new floor
 

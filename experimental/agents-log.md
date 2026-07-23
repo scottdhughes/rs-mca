@@ -30,6 +30,35 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-23 - M31 rank-seven shallow master-denominator cut
+
+- **Agent/model:** Codex, with independent proof audit by a fresh Codex
+  subagent and independent exact Sage 10.9 replay.
+- **Files added or changed:**
+  `experimental/notes/thresholds/m31_rank7_shallow_master_denominator_cut_v1.md`,
+  `experimental/scripts/verify_m31_rank7_shallow_master_denominator_cut_v1.py`,
+  `experimental/scripts/verify_m31_rank7_shallow_master_denominator_cut_v1.sage`,
+  `experimental/scripts/verify_m31_rank7_shallow_master_denominator_cut_packet_v1.py`,
+  `experimental/data/schemas/m31_rank7_shallow_master_denominator_cut_v1.schema.json`,
+  and
+  `experimental/data/certificates/m31-rank7-shallow-master-denominator-cut-v1/`.
+- **Status:** PROVED LOCAL / ROUTE CUT / ROW OPEN.
+- **What is being added:** The exact lcm normalization
+  `P=lcm(G_i), f_i=(P/G_i)b_i` preserves the canonical shallow family,
+  rank, and agreement gcd.  Every proper fixed-`G` slice of a rank-seven
+  family has rank at most six and size at most `9,471,941`; pure fixed-`G`
+  families are excluded for `g>=328,678`.  A reciprocal-convex
+  codimension-one dual also pays all 26 union sizes `354,973..354,998`,
+  leaving the exact rank-seven interval `72,428..354,972`.
+- **How it is useful:** It converts the upper rank-seven residual into a
+  genuinely mixed-denominator fixed-syndrome incidence and records exact
+  lower bounds on the proper-slice mass.  It also proves there is no
+  universal coefficient-matrix rank-drop component to exploit.
+- **What to do next:** Attack the aggregate split-divisor incidence in the
+  normalized seven-dimensional space, retaining the full-gcd and exact-lcm
+  gates.  Do not sum per-slice caps; ranks at least eight remain a separate
+  open branch.
+
 ### 2026-07-23 - Proximity Prize Results v3 synthesis
 
 - **Agent/model:** Maintainer-added manuscript integrated by Codex.
