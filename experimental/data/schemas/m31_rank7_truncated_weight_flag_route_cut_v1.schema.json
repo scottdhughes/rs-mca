@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "architecture": {
+      "const": "M31_BASE_FIELD_BOUNDARY_RANK7_TRUNCATED_WEIGHT_FLAG_V1"
+    },
+    "checks": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "impact": {
+      "additionalProperties": false,
+      "properties": {
+        "ledger_movement": {"const": 0},
+        "official_endpoint_movement": {"const": 0},
+        "rank7_closed": {"const": false},
+        "rank8_and_above_closed": {"const": false},
+        "row_closed": {"const": false}
+      },
+      "required": [
+        "ledger_movement",
+        "official_endpoint_movement",
+        "rank7_closed",
+        "rank8_and_above_closed",
+        "row_closed"
+      ],
+      "type": "object"
+    },
+    "nonclaims": {
+      "items": {"type": "string"},
+      "minItems": 4,
+      "type": "array"
+    },
+    "owner_partition": {"type": "object"},
+    "parent_payload_sha256": {
+      "const": "3e0a6102795f88aa8121229bc40bcc723aa7e5cc81bbcfd5b0013adf5d11caf9"
+    },
+    "payload_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "rank7_flanks": {"type": "object"},
+    "row": {"type": "object"},
+    "schema": {
+      "const": "m31-rank7-truncated-weight-flag-route-cut-summary-v1"
+    },
+    "source_bindings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "binding_id": {"type": "string"},
+          "internal_payload_sha256": {
+            "type": ["string", "null"]
+          },
+          "path": {"type": "string"},
+          "role": {"type": "string"},
+          "scope": {"type": "string"},
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "binding_id",
+          "internal_payload_sha256",
+          "path",
+          "role",
+          "scope",
+          "sha256"
+        ],
+        "type": "object"
+      },
+      "minItems": 10,
+      "type": "array"
+    },
+    "status": {
+      "const": "PROVED_RANK7_TWO_FLANK_ROUTE_CUT_MIDDLE_OPEN"
+    },
+    "terminals": {
+      "const": [
+        "UNPAID_RANK7_MIXED_G_NEAR_MDS_LOCATOR_INCIDENCE",
+        "UNPAID_RANK7_FIXED_G_ORDINARY_RS_MIDDLE_OR_MIXED_G"
+      ]
+    },
+    "theorem_id": {
+      "const": "M31_RANK7_TRUNCATED_WEIGHT_FLAG_ROUTE_CUT_V1"
+    },
+    "truncated_weight_compiler": {"type": "object"}
+  },
+  "required": [
+    "architecture",
+    "checks",
+    "impact",
+    "nonclaims",
+    "owner_partition",
+    "parent_payload_sha256",
+    "payload_sha256",
+    "rank7_flanks",
+    "row",
+    "schema",
+    "source_bindings",
+    "status",
+    "terminals",
+    "theorem_id",
+    "truncated_weight_compiler"
+  ],
+  "title": "M31 rank-seven truncated-weight/flag route-cut certificate",
+  "type": "object"
+}

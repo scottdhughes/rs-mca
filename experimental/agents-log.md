@@ -30,6 +30,39 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-22 - M31 rank-seven truncated-weight/flag route cut
+
+- **Agent/model:** Codex, with separate upstream-board, source-compiler,
+  alternative-closure, high-rank exact-scan, Sage-control, and proof-audit
+  agents.
+- **Files added or changed:**
+  `experimental/notes/thresholds/m31_rank7_truncated_weight_flag_route_cut_v1.md`,
+  `experimental/data/certificates/m31-rank7-truncated-weight-flag-route-cut-v1/`,
+  `experimental/data/schemas/m31_rank7_truncated_weight_flag_route_cut_v1.schema.json`,
+  `experimental/scripts/verify_m31_rank7_truncated_weight_flag_route_cut_v1.py`,
+  `experimental/scripts/verify_m31_rank7_truncated_weight_flag_route_cut_v1.sage`,
+  `experimental/scripts/verify_m31_rank7_truncated_weight_flag_route_cut_packet_v1.py`,
+  `experimental/scripts/README.md`, `agents.md`, and this log.
+- **Status:** PROVED RANK-UNIFORM TRUNCATED-WEIGHT THEOREM / PROVED
+  RANK-SEVEN TWO-FLANK ROUTE CUT / EXACT GF(11) SHARPNESS CONTROL / AUDIT;
+  RANK-SEVEN MIDDLE, RANKS AT LEAST EIGHT, AND M31 LIST ROW OPEN.
+- **What is being added:** Stopping an independent agreement tuple at an
+  affine `k`-fiber proves
+  `sum_i prod_{j=k+1}^r(d_j-R+eta+s_i)<=B_k(d_r)_(r-k)` with the exact
+  whole-fiber cap `B_k`.  At rank seven this forces `q6<=242225`, authorizes
+  profile interpolation, and combines with common-zero Johnson to pay
+  `g<=72427` and `g>=354999`.
+- **How it is useful:** It reduces rank seven to the exact 282,571-value
+  interval `72428<=g<=354998`, with explicit `q1/q6` failure gates.  The
+  first 432 values are a mixed-locator near-MDS terminal after fixed-`G`
+  ownership; the rest contains the genuine deterministic punctured-RS
+  middle.  Ledger and official endpoint movement are zero.
+- **What to do next:** Prove one source-bound theorem paying both residual
+  owners: a rank-seven deterministic post-Johnson ordinary-RS incidence
+  bound for fixed `G`, and a mixed-locator near-MDS incidence bound.  Do not
+  assume locator variation, reopen the paid flanks, or count scalar weight
+  profiles as codewords.
+
 ### 2026-07-22 - M31 rank-six generalized-weight/codimension-one closure
 
 - **Agent/model:** Codex, with separate theorem-generation, exact-arithmetic,

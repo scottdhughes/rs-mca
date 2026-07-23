@@ -44,6 +44,11 @@ python3 experimental/scripts/verify_m31_rank6_generalized_weight_codim1_closure_
 sage experimental/scripts/verify_m31_rank6_generalized_weight_codim1_closure_v1.sage
 python3 experimental/scripts/verify_m31_rank6_generalized_weight_codim1_closure_packet_v1.py
 python3 experimental/scripts/verify_m31_rank6_generalized_weight_codim1_closure_packet_v1.py --tamper-selftest
+python3 experimental/scripts/verify_m31_rank7_truncated_weight_flag_route_cut_v1.py --check
+python3 experimental/scripts/verify_m31_rank7_truncated_weight_flag_route_cut_v1.py --tamper-selftest
+sage experimental/scripts/verify_m31_rank7_truncated_weight_flag_route_cut_v1.sage
+python3 experimental/scripts/verify_m31_rank7_truncated_weight_flag_route_cut_packet_v1.py
+python3 experimental/scripts/verify_m31_rank7_truncated_weight_flag_route_cut_packet_v1.py --tamper-selftest
 ```
 
 `experiment_rowsharp_q_prefix_atom_routes_v1.py --check` is a fast artifact
@@ -85,6 +90,15 @@ rank six at the required shallow size `15775933`.  Its Sage companion is an
 independent exact arithmetic replay plus a literal `GF(7)` orientation
 control.  The packet moves no v4 atom and leaves ranks at least seven and the
 full M31 LIST row open.
+
+`verify_m31_rank7_truncated_weight_flag_route_cut_v1.py` proves the
+rank-uniform truncated generalized-weight/affine-fiber inequality and
+exhausts all `1048570` legal rank-seven union sizes.  Common-zero Johnson
+pays `g<=72427`; the coset-free codimension-one compiler pays `g>=354999`.
+The exact middle remains open and is split into a mixed-locator near-MDS
+sliver and the deterministic fixed-`G` ordinary-RS middle.  The independent
+Sage replay includes a sharp `GF(11)` orientation family.  No rank-seven
+closure or v4 ledger movement is claimed.
 
 The active Python scripts are intentionally flat in this directory. Several M1
 and L1 verifiers import local helpers by module name, so scattering them into
