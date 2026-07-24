@@ -30,6 +30,27 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-23 - M31 rank-seven dual-domain head closure and route cut
+
+- **Agent/model:** Codex, with an independent Sage 10.9 replay and two
+  fresh independent Codex proof audits.
+- **Files added or changed:**
+  `experimental/notes/thresholds/m31_rank7_weighted_head_interlaced_source_route_cut_v1.md`,
+  its Python/Sage/packet verifiers, closed schema, and
+  `experimental/data/certificates/m31-rank7-weighted-head-interlaced-source-route-cut-v1/`.
+- **Status:** PROVED LOCAL / SEALED CUMULATIVE PACKET GREEN / TWO
+  INDEPENDENT PROOF AUDITS GREEN LOCAL / GLOBAL ROW OPEN.
+- **What is being added:** Full projective-line and planted-root source
+  bounds feed a per-label dual-domain compiler that pays the complete
+  rank-seven `Q=26193` head at `15,775,776`.  At `Q=26194`, seven exact
+  monotone intervals prove that no legal two-domain split improves the
+  load-bearing `k=3145` class; the minimum method gap is 192.
+- **How it is useful:** It advances the mixed rank-seven source frontier
+  from `Q=26143` to `Q=26193` without v4 ledger movement and isolates one
+  explicit beyond-two-domain primitive route.
+- **What to do next:** Attack cross-subclass or third-domain incidence at
+  `(Q,k)=(26194,3145)`.  Do not infer a global rank-seven or row closure.
+
 ### 2026-07-23 - M31 rank-seven effective-deficit one-pivot closure
 
 - **Agent/model:** Codex, with three fresh independent Codex proof/scope
