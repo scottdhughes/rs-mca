@@ -30,6 +30,36 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-23 - M31 rank-seven split-divisor tail route cut
+
+- **Agent/model:** Codex, with an independent proof audit by a fresh Codex
+  subagent and an independent exact Sage 10.9 replay.
+- **Files added or changed:**
+  `experimental/notes/thresholds/m31_rank7_split_divisor_tail_route_cut_v1.md`,
+  `experimental/scripts/verify_m31_rank7_split_divisor_tail_route_cut_v1.py`,
+  `experimental/scripts/verify_m31_rank7_split_divisor_tail_route_cut_v1.sage`,
+  `experimental/scripts/verify_m31_rank7_split_divisor_tail_route_cut_packet_v1.py`,
+  `experimental/data/schemas/m31_rank7_split_divisor_tail_route_cut_v1.schema.json`,
+  and
+  `experimental/data/certificates/m31-rank7-split-divisor-tail-route-cut-v1/`.
+- **Status:** PROVED LOCAL / ROUTE CUT / ROW OPEN.
+- **What is being added:** Every cumulative planted-zero-deficit head of
+  the rank-seven residual obeys one source-bound affine-span list bound.
+  Exact exhaustion produces the sharp allowed histogram and an explicit
+  joint `q`-by-mismatch integer marginal transport surviving all current
+  scalar resources.  A positive-`w` exact `GF(31)` family independently
+  shows that exact full gcds and denominator-lcm restoration alone do not
+  imply the required deployed tail bound.
+- **How it is useful:** It freezes
+  `JOINT_HEAD_TAIL_FULL_GCD_INCIDENCE` as the high-union missing theorem
+  and proves a sharp route cut against recombining the current scalar
+  inequalities.  It moves no v4 atom, ledger value, or official endpoint.
+- **What to do next:** Attack a genuinely source-bound joint
+  prefix-fiber/full-gcd incidence on the high-union interval and the
+  deterministic fixed-`G` ordinary-RS or coexistence branch on the low
+  interval.  Do not infer source realization from the certified marginal
+  transport; ranks at least eight remain separate.
+
 ### 2026-07-23 - M31 rank-seven shallow master-denominator cut
 
 - **Agent/model:** Codex, with independent proof audit by a fresh Codex
