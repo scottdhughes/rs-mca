@@ -30,6 +30,38 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-07-23 - M31 rank-seven effective-deficit one-pivot closure
+
+- **Agent/model:** Codex, with three fresh independent Codex proof/scope
+  audits and an independent Sage 10.9 replay.
+- **Files added or changed:**
+  `experimental/notes/thresholds/m31_rank7_effective_deficit_one_pivot_route_cut_v1.md`,
+  `experimental/scripts/verify_m31_rank7_effective_deficit_one_pivot_route_cut_v1.py`,
+  `experimental/scripts/verify_m31_rank7_effective_deficit_one_pivot_route_cut_v1.sage`,
+  `experimental/scripts/verify_m31_rank7_effective_deficit_one_pivot_route_cut_packet_v1.py`,
+  `experimental/data/schemas/m31_rank7_effective_deficit_one_pivot_route_cut_v1.schema.json`,
+  and
+  `experimental/data/certificates/m31-rank7-effective-deficit-one-pivot-route-cut-v1/`.
+- **Status:** PROVED LOCAL / PURE FIXED-`G` RANK-SEVEN CLOSURE / ROUTE CUT /
+  GLOBAL ROW OPEN.
+- **What is being added:** The nowhere-zero master-denominator received
+  table refunds one affine-span dimension after an agreement pivot.  This
+  gives a nested-floor cumulative bound for
+  `delta=q-s=g-deg(H)`, pays every pure full-`G` zero-anchored
+  rank-at-most-seven family for `217543<=g<=354972`, and leaves exactly
+  `72860<=g<=217542` in that fixed-`G` lane.  The packet also proves the
+  fixed-`H` moderate/deep divisibility-fiber dichotomy and an exact endpoint
+  scalar/harmonic marginal route cut.
+- **How it is useful:** It replaces the prior `328678` pure fixed-`G`
+  transition by `217543`, freezes the effective-deficit frontier on all
+  282,545 residual cells, and identifies
+  `CROSS_COFACTOR_INTERLACED_H_AND_DEEP_FIBER_INCIDENCE` as the remaining
+  mixed rank-seven terminal.  It moves no v4 atom or official row value.
+- **What to do next:** Prove one source-bound complete-fiber/interlacing
+  dichotomy across all `H`, cofactors, remainders, and boundary profiles.
+  Do not import the non-integrated PR #1073 cap without a source adapter;
+  rank at least eight remains separate.
+
 ### 2026-07-23 - M31 rank-seven split-divisor tail route cut
 
 - **Agent/model:** Codex, with an independent proof audit by a fresh Codex
