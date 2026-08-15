@@ -1,0 +1,137 @@
+% Candidate source fragment for review.  This file is not automatically
+% included by experimental/grande_finale.tex.
+\begin{theorem}[Five-anticode payment and six-anticode sparse-pair router]
+\label{thm:mca-rank11-six-anticode-router}
+Retain the post-near KoalaBear affine-error-rank-eleven hypotheses and the
+fixed actual minimizing-pair selection of
+\cref{thm:mca-weighted-pair-core-route-cut,
+       thm:mca-rank-one-pair-anticode-router}.
+At support-margin cutoff \(\tau=1798\), the following hold.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item If the low-margin minimizing pair types are covered by at most five
+pairwise-rank-one coefficient-matrix anticodes, then
+\[
+ |Z_{\rm bad}|\le256951591393251779<B_*.
+\]
+The slack is \(18029136718143308\).
+\item Suppose the low pair types admit a cover by exactly six maximal
+rank-one anticodes and the line is over budget.  Then all six anticodes are
+fixed-left with distinct endpoint directions.  Their fixed endpoints are the
+six projections of one global degree-\(<K\) codeword pair \((p_0,p_1)\).
+Moreover
+\[
+ \left|\supp(r_0-p_0)\cup\supp(r_1-p_1)\right|\le167813.
+\]
+Consequently, after the separately proved full-lift support prefix through
+\(96150\), the six-cover residual has minimum direction support in
+\[
+ 96151\le e_{\min}\le167813.
+\]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Put \(A=m-1798=1114250\) and \(d=A-K=65674\).  The high-margin tail is at
+most \(59265463111193010\).  For a fixed-left anticode with fixed endpoint
+agreement set of size \(g=n-q\), the ordinary affine-span list theorem and
+the outside-fixed-endpoint owner injection give
+\[
+ F(q)=1+q\left\lfloor
+ \frac{\binom{K-q+10}{10}}{\binom{d+10}{10}}
+ \right\rfloor.
+\]
+Its exact maximum is \(39537225656384765\), uniquely at \(q=95326\).
+Together with the near charge, five copies give the stated bound.
+
+An over-budget six-cover needs at least \(215715265000067134\) low slopes.
+The fixed-right cap is \(8147918\), so every anticode is fixed-left.  After a
+disjoint cover assignment, each of the six groups has at least
+\(18029136718143309\) slopes.  The adjacent exact values
+\[
+ F(247518)=18029257843230307,
+ \qquad F(247519)=18029105617115083
+\]
+force \(g\ge1849634\) for every fixed endpoint.
+
+Same-direction maximal anticodes coalesce, because their fixed endpoints
+agree on more than \(K\) coordinates.  Thus the six directions are distinct.
+Every triple of fixed endpoint sets has intersection at least
+\(1354598>K\).  Two endpoint directions reconstruct one codeword pair; the
+third agrees with its projection on more than \(K\) points and hence
+identically.  This synchronizes all six directions to one pair \((p_0,p_1)\).
+
+Let \(H\) be the complete agreement core of that pair and put
+\(e=n-|H|\).  Outside \(H\), one nonzero received-pair error vector belongs
+to at most one of the six distinct direction kernels.  Writing
+\(q_i=n-g_i\) gives \(\sum_iq_i\ge5e\).
+
+Now set
+\[
+ G(q)=q\binom{K-q+10}{10},
+ \qquad D=\binom{65684}{10}.
+\]
+The exact first and second differences show that \(G\) peaks at \(95326\),
+is discretely concave through \(190651\), and is discretely convex and
+decreasing afterward.  At \(e=167814\), split the six \(q_i\) by the number
+above the concavity interval.  Balance the low entries and move all but at
+most one high entry to a convex-interval endpoint.  Exhausting the resulting
+endpoint/residual configurations, the largest possible value occurs at
+\((q_i)=(139845)^6\) and is below the required low mass by
+\[
+ \frac{
+ 5039866042250644297697303907940552741600048679872
+ }{
+ 7575576854420300947226509036769468677
+ }>0.
+\]
+For larger \(e\), the feasible set only shrinks.  Hence \(e\le167813\).
+Finally choose \(p_1\) as the direction gauge; minimum direction support is
+at most the pair-error union support, and the imported prefix yields the
+stated residual window.
+\end{proof}
+
+\begin{theorem}[Actual critical order-32 minimizing-pair core]
+\label{thm:mca-rank11-critical-pair-core}
+Under the same hypotheses, every over-budget line contains a set of
+\(378013809\) distinct low-margin slopes and a 32-coordinate set \(C_*\)
+such that:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item \(C_*\) is contained in the complete minimizing-pair core of every
+selected slope;
+\item at least \(385\) distinct minimizing pair types occur;
+\item after common-core cancellation on \(C_*\), the affine endpoint-variation
+space has dimension at least three.
+\end{enumerate}
+A complete cutoff scan finds \(9675\) cutoffs with conclusion
+\textup{(iii)}.  The identical averaging/pair-cap method cannot force a
+33-coordinate core; its closest cell has \(203\) pair types against cap
+\(262\).
+\end{theorem}
+
+\begin{proof}
+Use cutoff \(\tau=3304\).  The low mass of an over-budget line is at least
+\[
+ L=242720949552398957,
+ \qquad A=m-3304=1112744.
+\]
+Double count pairs \((\gamma,C)\) with
+\(C\in\binom{H_{e_\gamma}}{32}\).  Some \(C_*\) is incident to at least
+\[
+ \left\lceil L\frac{\binom A{32}}{\binom n{32}}\right\rceil
+ =378013809
+\]
+slopes.  One pair type owns at most \(n-A=984408\) slopes, so at least
+\(385\) pair types share \(C_*\).
+
+After cancelling and deleting \(C_*\), one has
+\(n'-K'=K\) and \(A'-K'=64168\).  If endpoint variation had dimension at
+most two, the ordinary affine pair list and sub-square interleaving collapse
+would give at most
+\[
+ \left\lfloor\frac{\binom{K+2}{2}}{\binom{64170}{2}}\right\rfloor
+ =267
+\]
+pair types, with \(267^2<2130706433^6\).  This contradicts \(385\).
+The all-cutoff and 33-core assertions are the exact finite scans recorded by
+the certificate.
+\end{proof}
