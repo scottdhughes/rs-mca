@@ -1,0 +1,20 @@
+% Candidate source fragment for review.  Not automatically included.
+\begin{theorem}[Complete-agreement locator shortening]
+\label{thm:mca-complete-agreement-shortening}
+Let a family of finite slopes be support-wise MCA-bad for
+$\operatorname{RS}_{\mathbb F}(D,K)$ at agreement $m$.  Suppose each selected
+scalar explanation has a complete agreement domain containing one fixed set
+$T\subset D$, $|T|=k<K$.  Then, after subtracting a codeword pair
+interpolating the received pair on $T$, dividing by the locator of $T$, and
+deleting $T$, every selected slope remains support-wise MCA-bad for
+$\operatorname{RS}_{\mathbb F}(D\setminus T,K-k)$ at agreement $m-k$.
+\end{theorem}
+
+\begin{corollary}[Source-bound nested pinned-span ladder]
+\label{cor:mca-rank11-source-bound-shortening}
+The ten pinned families in Theorem~\ref{thm:mca-rank11-nested-pinned-span}
+are actual support-wise MCA-bad families in rows
+$(2097152-k,1048576-k,1116048-k)$, with the same certified slope loads and
+direction-dimension floors.  Their quotient direction spaces satisfy
+$(X-x_{k+1})\widetilde V_{k+1}\le\widetilde V_k$.
+\end{corollary}
