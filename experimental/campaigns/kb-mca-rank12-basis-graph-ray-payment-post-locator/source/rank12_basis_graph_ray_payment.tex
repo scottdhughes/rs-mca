@@ -1,0 +1,37 @@
+% Source-integration fragment: rank-twelve basis-graph ray payment.
+% This file intentionally moves no active-v4 ledger atom.
+
+\begin{theorem}[Basis-graph synchronization of a proper rank-two drop]
+Let a source-bound proper rank-two drop in the shortened KoalaBear row have
+one-dimensional leaf direction $W$, actual full common pair core $C$ of size
+$c$, and frozen outside-core supports with omission size $r=(R-D)-c$. If
+$4r<R+1$, then the outside-core explanation family lies in one affine
+correction ray.
+\end{theorem}
+
+\begin{proof}
+Project the two-dimensional direction code modulo $W$. For each slope
+$\gamma$, attach the column $(1,\gamma,z_\gamma)$, where $z_\gamma$ is the
+projected explanation coefficient. A nonbasis triple has vector second
+divided difference in $W$ and support in three omission sets; $3r<R+1$
+forces it to vanish. Normalize the nonzero second differences attached to
+basis triples. Adjacent bases share two slopes, so their normalized
+difference lies in $W$ and is supported in four omission sets. The
+$4r<R+1$ minimum-distance bound makes adjacent normalized differences equal.
+The basis graph is connected by basis exchange, hence all basis differences
+synchronize. Modulo their common direction, every vector second difference
+vanishes, which is exactly one affine correction ray.
+\end{proof}
+
+\begin{corollary}[Deployed large-locator payment]
+For the KoalaBear constants, every proper rank-two drop with
+$778970\le K\le1048576$ is impossible. The complete $5170912$-slope family
+shortens intact to $K\le778969$.
+\end{corollary}
+
+\begin{proof}
+The parent locator floor gives $c\ge718960$, hence $r\le262144$ and
+$4r<R+1$. The support-meeting family has size at most $4070947$, and the
+universal-core-aware affine-ray family has size at most $1067271$. Their
+disjoint sum is $5138218<5170912$.
+\end{proof}
