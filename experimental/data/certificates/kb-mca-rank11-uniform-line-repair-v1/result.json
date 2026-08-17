@@ -1,0 +1,54 @@
+{
+  "claims": {
+    "active_v4_ledger_movement": 0,
+    "complete_affine_error_rank_11_paid": true,
+    "complete_affine_error_rank_12_paid": false,
+    "complete_affine_error_rank_13_paid": false,
+    "koalabear_closed": false,
+    "rank11_terminal_gap_repaired": true
+  },
+  "parent": "d01c546f4dca70e256c18c142873821b3bb48ab5",
+  "rank11": {
+    "cap": 4070947,
+    "load": 5201865,
+    "old_early_drop": {
+      "argmax": 1048576,
+      "argmin": 1,
+      "cells": 1048576,
+      "decreases": 0,
+      "maximum": 2768286,
+      "minimum": 334710
+    },
+    "slack": 1130918
+  },
+  "rank12_route_cut": {
+    "cells": 10485705,
+    "proper_drop_rank1_max": 2751700,
+    "proper_drop_rank1_min": 332497,
+    "rank2_load": 5170912,
+    "rows": {
+      "10": {"argmin": 10, "cells": 1048567, "decreases": 0, "minimum": 1137232692770863},
+      "11": {"argmin": 11, "cells": 1048566, "decreases": 0, "minimum": 17683935531825185},
+      "2": {"argmin": 2, "cells": 1048575, "decreases": 0, "minimum": 332497},
+      "3": {"argmin": 3, "cells": 1048574, "decreases": 0, "minimum": 5170912},
+      "4": {"argmin": 4, "cells": 1048573, "decreases": 0, "minimum": 80415635},
+      "5": {"argmin": 5, "cells": 1048572, "decreases": 0, "minimum": 1250568840},
+      "6": {"argmin": 6, "cells": 1048571, "decreases": 0, "minimum": 19447709463},
+      "7": {"argmin": 7, "cells": 1048570, "decreases": 0, "minimum": 302428738477},
+      "8": {"argmin": 8, "cells": 1048569, "decreases": 0, "minimum": 4702961289368},
+      "9": {"argmin": 9, "cells": 1048568, "decreases": 0, "minimum": 73133018117401}
+    },
+    "sequential_rank1_load": 332497,
+    "shortfall": 1319247
+  },
+  "schema": "kb-mca-rank11-uniform-line-repair-v1",
+  "uniform_line": {
+    "argmax": 1,
+    "dimensions": 1048576,
+    "endpoint_rows": 20235640,
+    "first": {"A": 33736, "W": 508801, "cap": 4070947, "endpoint": 0, "h": 8, "high": 4070464, "unit": 8},
+    "last": {"A": 558023, "W": 981105, "cap": 981112, "endpoint": 0, "h": 1, "high": 981105, "unit": 1},
+    "maximum": 4070947,
+    "strict_increases": 0
+  }
+}
